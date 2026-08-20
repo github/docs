@@ -75,9 +75,9 @@ For repositories owned by an organization, you can set up prebuilds if the organ
    > * The prebuild in each region incurs individual storage charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used.
    > * Developers can set their default region for {% data variables.product.prodname_github_codespaces %}, which can allow you to enable prebuilds for fewer regions. See [AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-region-for-github-codespaces).
 
-1. Optionally, under **Template history**, set the number of prebuild versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 2, which means that only the latest prebuild and the previous version are saved.
+1. Optionally, under **Template history**, set the number of prebuild versions to be retained. You can input any number between 1 and 5. The default number of saved versions is 1, which means that only the latest prebuild is saved.
 
-   ![Screenshot of the "Template history" setting. It is set to 2 versions.](/assets/images/help/codespaces/prebuilds-template-history-setting.png)
+   ![Screenshot of the "Template history" setting. It is set to 1 versions.](/assets/images/help/codespaces/prebuilds-template-history-setting-latest.png)
 
    Depending on your prebuild trigger settings, your prebuild could change with each push or on each dev container configuration change. Retaining older versions of prebuilds enables you to create a prebuild from an older commit with a different dev container configuration than the current prebuild. This setting allows you to set the number of retained versions to a level that is appropriate for your needs.
 
