@@ -21,5 +21,5 @@ category:
 
 ## Next steps
 
-* For more information about private profiles, see [AUTOTITLE](/account-and-profile/concepts/about-your-profile#private-profiles).
+* For more information about private profiles, see [AUTOTITLE](/account-and-profile/concepts/personal-profile#private-profiles).
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/profile-reference#limitations-of-private-profiles).

@@ -9,6 +9,8 @@ contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page
   - Learn about Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -153,4 +155,4 @@ To share the report you can either save it to a file or create a {% data variabl
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)

@@ -6,7 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-layout: product-landing
+layout: discovery-landing
 introLinks:
   quickstart: /get-started/start-your-journey
 featuredLinks:
@@ -41,6 +41,7 @@ children:
   - /learning-about-github
   - /empty-categories
   - /test-journey
+  - /test-journey-single
   - /carousel
   - /article-grid-discovery
   - /article-grid-bespoke

@@ -1,7 +1,6 @@
 Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
-{% ifversion fpt or ghec %}- The destination machine can be either a [{% data variables.product.prodname_dotcom %}-hosted runner](#choosing-github-hosted-runners), [{% data variables.actions.hosted_runner %}](#choosing-runners-in-a-group), or a [self-hosted runner](#choosing-self-hosted-runners).{% else %}
-* The destination machine can be a [self-hosted runner](#choosing-self-hosted-runners).{% endif %}
+* The destination machine can be {% ifversion fpt or ghec %}either a [{% data variables.product.prodname_dotcom %}-hosted runner](#choosing-github-hosted-runners), [{% data variables.actions.hosted_runner %}](#choosing-runners-in-a-group), or a [self-hosted runner](#choosing-self-hosted-runners){% else %}a [self-hosted runner](#choosing-self-hosted-runners){% endif %}.
 * You can target runners based on the labels assigned to them, or their group membership, or a combination of these.
 * You can provide `runs-on` as:
   * A single string
@@ -39,7 +38,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
   {% endraw %}
 
-* If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+* If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategy).
 
 > [!NOTE]
 > Quotation marks are not required around simple strings like `self-hosted`, but they are required for expressions like {% raw %} `"${{ inputs.chosen-os }}"`{% endraw %}.

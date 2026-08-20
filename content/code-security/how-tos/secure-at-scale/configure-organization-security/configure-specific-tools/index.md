@@ -8,11 +8,12 @@ versions:
 contentType: how-tos
 children:
   - /assess-your-secret-risk
-  - /viewing-the-secret-risk-assessment-report-for-your-organization
-  - /estimating-the-price-of-secret-protection
+  - /assess-your-vulnerability-risk
+  - /viewing-your-security-risk-assessment-reports
+  - /estimate-price
   - /protect-your-secrets
-  - /configuring-default-setup-for-code-scanning-at-scale
+  - /code-scanning-at-scale
   - /configuring-advanced-setup-for-code-scanning-with-codeql-at-scale
-  - /enforcing-dependency-review-across-an-organization
+  - /enforce-dependency-review
 ---
 

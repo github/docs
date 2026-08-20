@@ -60,7 +60,7 @@ Enterprise owners have complete control over the enterprise and can take every a
 * Managing billing settings{% endif %}
 * Managing security settings
 
-Enterprise owners do not have access to organization settings or content by default, but they can gain access by joining any organization. See [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
+Enterprise owners do not have access to organization settings or content by default, but they can gain access by joining any organization. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
 
 {% ifversion ghec %}
 
@@ -82,10 +82,10 @@ Billing managers do not have access to organization settings or content by defau
 
 {% data variables.product.prodname_github_app %} managers:
 
-* Can view, create, edit, and delete {% data variables.product.prodname_github_app %} registrations that are owned by the enterprise. For the specific app settings that {% data variables.product.prodname_github_app %} managers can control, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).
+* Can view, create, edit, and delete {% data variables.product.prodname_github_app %} registrations that are owned by the enterprise. For the specific app settings that {% data variables.product.prodname_github_app %} managers can control, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration).
 * Cannot install and uninstall {% data variables.product.prodname_github_apps %} on an enterprise or organization.
 
-App managers can also be assigned to individual apps. See [AUTOTITLE](/admin/managing-your-enterprise-account/adding-and-removing-github-app-managers-in-your-enterprise).
+App managers can also be assigned to individual apps. See [AUTOTITLE](/admin/managing-github-apps-for-your-enterprise/adding-and-removing-github-app-managers-in-your-enterprise).
 
 {% endif %}
 
@@ -160,6 +160,6 @@ To create a custom enterprise role, see [AUTOTITLE](/admin/managing-accounts-and
 
 ## Next steps
 
-When you have decided which roles your users require, assign the roles to them. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/assign-roles).
+When you have decided which roles your users require, assign the roles to them. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/assign-roles).
 
 {% endif %}

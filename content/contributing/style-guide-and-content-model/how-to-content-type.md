@@ -32,7 +32,7 @@ How-to article short titles use short, non-gerund verb phrases. Short titles app
 
 ## How-to considerations
 
-For the how-to content template, see [AUTOTITLE](/contributing/writing-for-github-docs/templates#procedural-article-template).
+For the how-to content template, see [AUTOTITLE](/contributing/writing-for-github-docs/templates#how-to-article-template).
 
 * Follow the style guidelines for procedural steps in [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#procedural-steps).
 * How-to content can get repetitive––look for opportunities to group related content into a single longer article.
@@ -44,5 +44,5 @@ For the how-to content template, see [AUTOTITLE](/contributing/writing-for-githu
 
 ## Examples of how-to content
 
-{% ifversion fpt or ghec %}* [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces){% endif %}
-* [AUTOTITLE](/actions/using-workflows/using-starter-workflows)
+{% ifversion fpt or ghec %}* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/create-copilot-spaces){% endif %}
+* [AUTOTITLE](/actions/how-tos/write-workflows/use-workflow-templates)

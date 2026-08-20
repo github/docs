@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /enabling-push-protection-for-your-repository
+  - /enable-push-protection
   - /manage-user-push-protection
 ---
+

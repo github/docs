@@ -14,9 +14,9 @@ category:
 
 GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page which details how we use cookies.
 
-GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking-technologies) if you’d like more information about cookies, and on how and why we use them and cookie-related personal data. You can change your preference about non-essential cookies at any time by following [these instructions](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages).
+GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/site-policy/privacy-policies/github-general-privacy-statement#our-use-of-cookies-and-tracking-technologies) if you’d like more information about cookies, and on how and why we use them and cookie-related personal data. You can change your preference about non-essential cookies at any time by following [these instructions](/account-and-profile/how-tos/account-settings/manage-cookie-preferences).
 
-Since the number and names of cookies may change, the table below may be updated from time to time. To receive notifications of updates to this list, please follow the instructions provided in [About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+Since the number and names of cookies may change, the table below may be updated from time to time. To receive notifications of updates to this list, please follow the instructions provided in [About notifications](/subscriptions-and-notifications/concepts/about-notifications).
 
 Provider of Cookie | Cookie Name | Description | Expiration*
 -----------------|-------------|-------------|------------
@@ -24,7 +24,6 @@ GitHub | `app_manifest_token` | This cookie is used during the App Manifest flow
 GitHub | `color_mode` | This cookie is used to indicate the user selected theme preference. | Session
 GitHub | `_device_id` | This cookie is used to track recognized devices for security purposes. | One year
 GitHub | `dotcom_user` | This cookie is used to signal to us that the user is already logged in. | One year
-GitHub | `enterprise_trial_redirect_to` | This cookie is used to complete a redirect for trial users | 5 minutes
 GitHub | `fileTreeExpanded` | Used to indicate whether the file tree on the code view was last expanded or collapsed | 30 days
 GitHub | `ghcc` | This cookie validates user's choice about cookies | 180 Days
 GitHub | `_gh_ent` | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form. | Two weeks

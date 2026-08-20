@@ -10,6 +10,8 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: how-tos
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -96,7 +98,7 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
   Enter `/agent` in interactive mode and choose from the list of available {% data variables.copilot.custom_agents_short %}. Then enter a prompt that will be passed to the selected agent.
 
   > [!NOTE]
-  > The CLI's default agents are not included in this list. For more information about the default agents, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli#use-custom-agents).
+  > The CLI's default agents are not included in this list. For more information about the default agents, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents#built-in-agents).
 
 * **Explicit instruction**
 

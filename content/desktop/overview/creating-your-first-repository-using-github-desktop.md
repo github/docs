@@ -122,6 +122,6 @@ You've now created a repository, published the repository to {% data variables.p
 
 ## Further reading
 
-* [AUTOTITLE](/get-started/getting-started-with-git)
+* [AUTOTITLE](/get-started/git-basics)
 * [AUTOTITLE](/get-started/learning-about-github)
 * [AUTOTITLE](/get-started)

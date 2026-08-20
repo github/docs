@@ -33,12 +33,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "outside",
               "direct",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -1189,6 +1189,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -2736,6 +2745,15 @@
                                         "TEAM",
                                         "ROLE"
                                       ]
+                                    },
+                                    "mode": {
+                                      "type": "string",
+                                      "description": "The bypass mode for the reviewer",
+                                      "enum": [
+                                        "ALWAYS",
+                                        "EXEMPT"
+                                      ],
+                                      "default": "ALWAYS"
                                     }
                                   }
                                 }
@@ -3934,6 +3952,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -5173,6 +5200,15 @@
                                         "TEAM",
                                         "ROLE"
                                       ]
+                                    },
+                                    "mode": {
+                                      "type": "string",
+                                      "description": "The bypass mode for the reviewer",
+                                      "enum": [
+                                        "ALWAYS",
+                                        "EXEMPT"
+                                      ],
+                                      "default": "ALWAYS"
                                     }
                                   }
                                 }
@@ -5623,8 +5659,7 @@
           {
             "\"Administration\" repository permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {

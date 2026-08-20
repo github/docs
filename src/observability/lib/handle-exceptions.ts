@@ -15,6 +15,13 @@ process.on('uncaughtException', async (err: Error | unknown) => {
   }
 })
 
+process.on('warning', (warning: Error) => {
+  logger.warn(warning.message, {
+    warning_name: warning.name,
+    warning_stack: warning.stack,
+  })
+})
+
 process.on('unhandledRejection', async (err: Error | unknown) => {
   const error = toError(err)
   logger.error('unhandledRejection', { error })

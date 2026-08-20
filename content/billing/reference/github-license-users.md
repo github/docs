@@ -51,7 +51,7 @@ category:
   * {% data variables.product.company_short %} counts each outside collaborator once, even if the user account has access to multiple repositories in your organization.
 * Dormant users who are a member or owner of at least one organization in the enterprise
 
-If your enterprise does not use {% data variables.product.prodname_emus %}, you will also be billed for each of the following accounts:
+If your enterprise does not use {% data variables.product.prodname_emus %} or usage-based billing, you will also be billed for each of the following accounts. Under usage-based billing, pending invitations do not consume a license. See [AUTOTITLE](/billing/concepts/enterprise-billing/usage-based-licenses).
 
 * Anyone with a pending invitation to become an organization owner or member
   * If the invited user already consumes an enterprise license, a pending organization invitation won't use an additional license—as long as the invitation is sent to their {% data variables.product.github %} username or a verified email address on their account. 
@@ -69,7 +69,7 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 * Anyone with a pending invitation to become a billing manager
 * Anyone who is an outside collaborator on a public repository owned by your organization, or who has a pending invitation to become one
 * Anyone with a failed invitation to become an organization member or an outside collaborator on a repository owned by your organization
-* Guest collaborators who are not organization members or repository collaborators (see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators))
+* Guest collaborators who are not organization members or repository collaborators (see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles#guest-collaborators))
 * Users of {% data variables.visual_studio.prodname_vss_ghe %} whose accounts on {% data variables.product.prodname_dotcom %} are not linked, and who do not meet any of the other criteria for per-user pricing
 * Unaffiliated users: people who have been added to the enterprise, but are not members of any organizations in the enterprise
   * However, these users consume a bundled {% data variables.product.prodname_vs %} license if they are linked with a {% data variables.product.prodname_vs %} subscription
@@ -77,19 +77,19 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 ## Organizations on {% data variables.product.prodname_ghe_server %}
 
 * Any active user who has successfully authenticated to your {% data variables.product.prodname_ghe_server %} instance
-* Dormant users (administrators can suspend dormant users to free licenses, see [Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %})
+* Dormant users (administrators can suspend dormant users to free licenses, see [Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %})
 
 ### People who don't consume a license
 
-* Suspended users (see [Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation{% else %}.{% endif %})
+* Suspended users (see [Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation{% else %}.{% endif %})
 * If you have enabled SCIM on your {% data variables.product.prodname_ghe_server %} instance, the built-in setup user you create, provided you use the `scim-admin` username.
 * Users who already consume a license on {% data variables.product.prodname_ghe_cloud %}, provided you sync license usage between environments. See [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use).
 
 ## Further reading
 
 {%- ifversion not fpt %}
-* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
-* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts)
+* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles)
 {%- endif %}
 * [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)
 * [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)

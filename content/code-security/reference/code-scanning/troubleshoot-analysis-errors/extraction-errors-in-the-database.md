@@ -1,5 +1,6 @@
 ---
 title: Extraction errors in the database
+shortTitle: Extraction errors
 intro: You can check whether or not extraction errors affect the health of the {% data variables.product.prodname_codeql %} database created.
 allowTitleToDifferFromFilename: true
 versions:

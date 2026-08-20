@@ -1,5 +1,5 @@
 # Types of contributions :memo:
-You can contribute to the GitHub Docs content and site in several ways. This repo is a place to discuss and collaborate on docs.github.com! Our small, but mighty :muscle: docs team is maintaining this repo; to preserve our bandwidth, off topic conversations will be closed.
+You can contribute to the GitHub Docs content and site in several ways. This repo is a place to discuss and collaborate on docs.github.com! Our small, but mighty :muscle: Technical Content team is maintaining this repo; to preserve our bandwidth, off topic conversations will be closed.
 
 ### :lady_beetle: Issues
 [Issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) are used to track tasks that contributors can help with. If an issue has a triage label, we haven't reviewed it yet, and you shouldn't begin work on it.

@@ -1,0 +1,52 @@
+# Shared configuration for the Copilot IDE feature matrix.
+#
+# Per-IDE data lives in data/tables/copilot/matrix/<ide>.yml
+#
+# ideOrder      Column order in the summary table and section order on the page.
+#               Each entry must match a filename in matrix/ (without .yml).
+# featureOrder  Row order in the summary table. Any feature used by any IDE must
+#               be listed here or it will not render in the summary.
+# supportLevels The vocabulary. Drives the rendered key/legend.
+#               NOTE: `symbol` is also hardcoded in the {% case %} statements in
+#               content/copilot/reference/copilot-feature-matrix.md. If you change a
+#               symbol here, change it there too.
+title: GitHub Copilot IDE Feature Matrix
+supportLevels:
+  - id: supported
+    symbol: ✓
+    label: supported
+  - id: not-supported
+    symbol: ✗
+    label: not supported
+  - id: preview
+    symbol: P
+    label: under preview
+  - id: closing-down
+    symbol: C
+    label: closing down
+ideOrder:
+  - vs-code
+  - visual-studio
+  - jetbrains
+  - eclipse
+  - xcode
+  - neovim
+featureOrder:
+  - .NET Upgrade Agent
+  - Agent skills
+  - Agent mode
+  - BYOK
+  - Chat
+  - Checkpoints
+  - Code completion
+  - Code referencing
+  - Copilot code review
+  - Custom agents
+  - Custom instructions
+  - Edit mode
+  - Java Upgrade Agent
+  - MCP
+  - Next edit suggestions
+  - Prompt files
+  - Vision
+  - Workspace indexing

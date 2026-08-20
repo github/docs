@@ -34,7 +34,3 @@ For a detailed list of available metrics and definitions, see [AUTOTITLE](/copil
 
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 1. In the left sidebar, click **Code generation**.
-
-## Next steps
-
-To learn how to interpret the data in each chart and act on usage trends, see [AUTOTITLE](/copilot/reference/interpret-copilot-metrics).

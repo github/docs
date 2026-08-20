@@ -11,4 +11,6 @@ children:
   - /acp-server
   - /cli-config-dir-reference
 contentType: reference
+docsTeamMetrics:
+  - copilot-cli
 ---

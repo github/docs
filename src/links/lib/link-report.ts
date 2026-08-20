@@ -17,8 +17,38 @@ export interface BrokenLink {
   isAutotitle?: boolean
   isRedirect?: boolean
   redirectTarget?: string
+  /**
+   * The redirect was only found by resolving the href inside the version being checked.
+   * `update-internal-links` looks the href up exactly as written, so it can't fix these.
+   */
+  requiresVersionContext?: boolean
+  /**
+   * Two checked versions resolved this href to genuinely different destinations, so no
+   * single rewrite is correct for all of them. Merging keeps one target and drops the
+   * rest, which would otherwise let the report name a destination that is only right for
+   * one version.
+   */
+  hasConflictingRedirectTargets?: boolean
   statusCode?: number
   errorMessage?: string
+  /**
+   * The versions this link is broken in. Only set on a merged report, where the same link
+   * usually breaks in every version checked.
+   */
+  versions?: string[]
+}
+
+/**
+ * A cross-page anchor link (`/path#fragment`) whose fragment doesn't match any heading on
+ * the target page, along with the versions it breaks in. Reported separately from broken
+ * page links because the target page exists — only the fragment is stale.
+ */
+export interface CrossPageAnchorFlaw {
+  href: string
+  file: string
+  lines: number[]
+  text?: string
+  versions: string[]
 }
 
 export interface GroupedBrokenLinks {
@@ -32,10 +62,13 @@ export interface LinkReport {
   title: string
   summary: string
   groups: GroupedBrokenLinks[]
+  selfReferentialGroups?: GroupedBrokenLinks[]
   uniqueTargets: number
   totalOccurrences: number
   timestamp: string
   actionUrl?: string
+  /** Every version this report covers. Only set on a merged report. */
+  versionsChecked?: string[]
 }
 
 // ============================================================================
@@ -96,14 +129,38 @@ ${statusInfo}${suggestion}**Found in ${count} file${plural}:**
 ${tableRows}`
   },
 
+  // Self-referential links section
+  selfReferentialLinks: (title: string, groups: GroupedBrokenLinks[]) => {
+    const totalOccurrences = groups.reduce((sum, g) => sum + g.occurrences.length, 0)
+    const rows = groups
+      .map((g) => {
+        const uniqueFileCount = new Set(g.occurrences.map((occ) => occ.file)).size
+        const occRows = g.occurrences
+          .map((occ) => `| \`${occ.file}\` | ${occ.lines.join(', ')} |`)
+          .join('\n')
+        return `### \`${g.target}\`\n\n**Found in ${uniqueFileCount} file${uniqueFileCount === 1 ? '' : 's'}:**\n\n| File | Line(s) |\n|------|---------|\n${occRows}`
+      })
+      .join('\n\n')
+    return `## 🔗 ${title} (${groups.length} unique URL${groups.length === 1 ? '' : 's'}, ${totalOccurrences} occurrence${totalOccurrences === 1 ? '' : 's'})
+
+The following links point to \`docs.github.com\`. Consider replacing them with relative internal links using the \`[AUTOTITLE](/path/to/article)\` syntax.
+
+${rows}`
+  },
+
   // Empty report
   noIssues: () => 'No issues found! 🎉',
 
   // PR comment
-  prComment: (errors: GroupedBrokenLinks[], warnings: GroupedBrokenLinks[], actionUrl?: string) => {
+  prComment: (
+    errors: GroupedBrokenLinks[],
+    warnings: GroupedBrokenLinks[],
+    anchorSection: string,
+    actionUrl?: string,
+  ) => {
     const errorSection =
       errors.length > 0
-        ? `### ❌ ${errors.length} Broken Link${errors.length === 1 ? '' : 's'}
+        ? `### ⚠️ ${errors.length} Broken Link${errors.length === 1 ? '' : 's'}
 
 ${errors
   .map((group) => {
@@ -131,11 +188,33 @@ ${errors
 
     return `## 🔗 Link Check Results
 
-> [!NOTE]
-> **This check is being actively worked on** and may produce false positives. If something looks wrong, you can safely ignore it for now.
-
-${errorSection}${warningSection}${detailsLink}
+${errorSection}${warningSection}${anchorSection}${detailsLink}
 <!-- link-checker-pr-comment -->`
+  },
+
+  // Cross-page anchor section. `blocking` reflects FAIL_ON_ANCHOR_FLAW so the wording
+  // can't claim the check is advisory once the rollout flips it to failing.
+  anchorSection: (anchors: CrossPageAnchorFlaw[], blocking = false) => {
+    if (anchors.length === 0) return ''
+    const shown = anchors.slice(0, 10)
+    const remaining = anchors.length - shown.length
+    const rows = shown
+      .map(
+        (a) =>
+          `- \`${a.href}\`\n  - \`${a.file}\` line ${a.lines.join(', ')} (${a.versions.join(', ')})`,
+      )
+      .join('\n')
+    const moreLine = remaining > 0 ? `\n- ... and ${remaining} more` : ''
+    const status = blocking
+      ? 'This check is failing.'
+      : 'Not blocking yet, so this check still passes.'
+    return `### ⚓ ${anchors.length} broken cross-page anchor${anchors.length === 1 ? '' : 's'}
+
+These links resolve to a real page, but the \`#fragment\` no longer matches a heading on the target. ${status}
+
+${rows}${moreLine}
+
+`
   },
 }
 
@@ -158,6 +237,29 @@ function groupByTarget(links: BrokenLink[]): Map<string, BrokenLink[]> {
   return groups
 }
 
+const VERSION_PREFIX_RE = /^\/[a-z-]+@[^/]+/
+
+/**
+ * True when a redirect target is the same path with a version prefix bolted on.
+ *
+ * These aren't renames, they're the versionless link resolving into a version. Telling
+ * an author to "update to the new path" here is actively wrong: hardcoding
+ * `/enterprise-server@3.21/...` into content breaks as soon as 3.22 ships.
+ */
+function isVersionOnlyRedirect(target: string, redirectTarget: string): boolean {
+  const withoutVersion = redirectTarget.replace(VERSION_PREFIX_RE, '')
+  return withoutVersion === target
+}
+
+/**
+ * Two redirect targets that differ only by version prefix are the same rename seen from
+ * two versions, not a disagreement. `/enterprise-server@3.21/new` and
+ * `/enterprise-server@3.17/new` both mean "the page moved to /new".
+ */
+function sameDestination(a: string, b: string): boolean {
+  return a.replace(VERSION_PREFIX_RE, '') === b.replace(VERSION_PREFIX_RE, '')
+}
+
 /**
  * Create a suggestion message for a redirect
  */
@@ -166,13 +268,33 @@ function createRedirectSuggestion(
   occurrences: BrokenLink[],
   redirects?: Record<string, string>,
 ): string | undefined {
-  if (redirects?.[target]) {
-    return `This path redirects to \`${redirects[target]}\`. Consider updating to the new path.`
+  const redirectTarget = redirects?.[target] ?? occurrences[0]?.redirectTarget
+  if (!redirectTarget) return undefined
+
+  if (isVersionOnlyRedirect(target, redirectTarget)) {
+    return (
+      `This path resolves to \`${redirectTarget}\` in this version. Leave the link versionless: ` +
+      `hardcoding a version breaks when the next release ships. If it should point at a ` +
+      `different version, use a Liquid \`ifversion\` gate.`
+    )
   }
-  if (occurrences[0]?.redirectTarget) {
-    return `This path redirects to \`${occurrences[0].redirectTarget}\`. Consider updating to the new path.`
+
+  // A versionless link that lands on a versioned path is a rename plus the version the
+  // check happened to run in. Only the rename is real. Suggesting the target verbatim
+  // would bake `enterprise-server@3.21` into content that never asked for a version.
+  const sourceIsVersionless = !VERSION_PREFIX_RE.test(target)
+  const versionPrefix = redirectTarget.match(VERSION_PREFIX_RE)?.[0]
+  if (sourceIsVersionless && versionPrefix) {
+    const withoutVersion = redirectTarget.slice(versionPrefix.length)
+    return (
+      `This path redirects to \`${withoutVersion}\`. Update the path but keep the link ` +
+      `versionless: the \`${versionPrefix.slice(1)}\` prefix comes from the version being ` +
+      `checked, not from the rename. Gate it with Liquid \`ifversion\` only if the new page ` +
+      `really is version-specific.`
+    )
   }
-  return undefined
+
+  return `This path redirects to \`${redirectTarget}\`. Consider updating to the new path.`
 }
 
 /**
@@ -270,6 +392,84 @@ function createSummary(errorCount: number, warningCount: number, totalOccurrence
 }
 
 /**
+ * Describe which versions a link breaks in, but only when that is news.
+ *
+ * Nearly every broken link breaks in every version, so printing the full list on every
+ * group is noise that also blows past the issue body size limit. Say something only when a
+ * link is version-specific.
+ */
+export function describeVersions(
+  versions: string[] | undefined,
+  versionsChecked: string[] | undefined,
+): string | undefined {
+  if (!versions?.length || !versionsChecked?.length) return undefined
+  if (versionsChecked.length === 1) return undefined
+  if (versions.length >= versionsChecked.length) return undefined
+  return versions.join(', ')
+}
+
+/**
+ * Merge one report per version into a single report.
+ *
+ * The workflow used to concatenate each version's rendered Markdown, so a link broken in
+ * every version produced an identical section per version. Merging on the link itself means
+ * one section per real problem, with the versions recorded on the occurrence.
+ */
+export function mergeInternalLinkReports(
+  reports: { version: string; report: LinkReport }[],
+  options: { actionUrl?: string; versionsChecked?: string[] } = {},
+): LinkReport {
+  const merged = new Map<string, BrokenLink>()
+
+  for (const { version, report } of reports) {
+    for (const group of report.groups) {
+      for (const occurrence of group.occurrences) {
+        const href = occurrence.href || group.target
+        const key = `${href}\u0000${occurrence.file}`
+        const existing = merged.get(key)
+        if (existing) {
+          existing.lines = [...new Set([...existing.lines, ...occurrence.lines])].sort(
+            (a, b) => a - b,
+          )
+          existing.versions = [...new Set([...(existing.versions ?? []), version])]
+          // A link that redirects in any version is still worth rewriting everywhere.
+          existing.isRedirect = existing.isRedirect || occurrence.isRedirect
+          existing.requiresVersionContext =
+            existing.requiresVersionContext || occurrence.requiresVersionContext
+          // Keeping the first target and dropping the rest is only safe while every
+          // version agrees on where the page went. Today they always do, but if that ever
+          // stops being true the report would confidently name a destination that is
+          // right for one version and wrong for the others. Flag it instead.
+          if (
+            existing.redirectTarget &&
+            occurrence.redirectTarget &&
+            !sameDestination(existing.redirectTarget, occurrence.redirectTarget)
+          ) {
+            existing.hasConflictingRedirectTargets = true
+          }
+          existing.redirectTarget = existing.redirectTarget ?? occurrence.redirectTarget
+        } else {
+          merged.set(key, { ...occurrence, href, versions: [version] })
+        }
+      }
+    }
+  }
+
+  // A version with no broken links writes no report, so the files on disk undercount what
+  // was actually checked. Callers that know the full matrix pass it in, otherwise fall back
+  // to what was found.
+  const versionsChecked = options.versionsChecked?.length
+    ? options.versionsChecked
+    : reports.map((r) => r.version)
+  const report = generateInternalLinkReport([...merged.values()], options)
+  const scope =
+    versionsChecked.length > 1
+      ? `\n\nChecked ${versionsChecked.length} versions: ${versionsChecked.join(', ')}. A link listed without a version breaks in all of them.`
+      : ''
+  return { ...report, versionsChecked, summary: report.summary + scope }
+}
+
+/**
  * Generate a report for internal links
  */
 export function generateInternalLinkReport(
@@ -285,8 +485,13 @@ export function generateInternalLinkReport(
   const errors = groups.filter((g) => !g.isWarning)
   const warnings = groups.filter((g) => g.isWarning)
 
+  // The workflow concatenates every version's report into one issue, so without this
+  // label there's no way to tell which version a section covers.
+  const scope = [options.version, options.language].filter(Boolean).join(' ')
+  const scopeLabel = scope ? ` (${scope})` : ''
+
   return {
-    title: `Internal Link Check: ${errors.length} broken, ${warnings.length} redirects`,
+    title: `Internal Link Check${scopeLabel}: ${errors.length} broken, ${warnings.length} redirects`,
     summary: createSummary(errors.length, warnings.length, brokenLinks.length),
     groups,
     uniqueTargets: groups.length,
@@ -301,9 +506,12 @@ export function generateInternalLinkReport(
  */
 export function generateExternalLinkReport(
   brokenLinks: BrokenLink[],
-  options: { actionUrl?: string } = {},
+  options: { actionUrl?: string; selfReferentialLinks?: BrokenLink[] } = {},
 ): LinkReport {
   const groups = groupExternalLinksByDomain(brokenLinks)
+  const selfReferentialGroups = options.selfReferentialLinks?.length
+    ? groupBrokenLinks(options.selfReferentialLinks)
+    : undefined
   const count = groups.length
   const plural = count === 1 ? '' : 's'
 
@@ -314,11 +522,275 @@ export function generateExternalLinkReport(
         ? `Found **${brokenLinks.length}** broken external link${brokenLinks.length === 1 ? '' : 's'} across **${count}** domain${plural}.`
         : 'All external links are valid! ✅',
     groups,
+    selfReferentialGroups,
     uniqueTargets: count,
     totalOccurrences: brokenLinks.length,
     timestamp: new Date().toISOString(),
     actionUrl: options.actionUrl,
   }
+}
+
+// ============================================================================
+// Fix strategy grouping
+// ============================================================================
+
+/**
+ * How a writer actually fixes a group.
+ *
+ * Grouping by target URL produces one section per broken URL, which is why the report runs
+ * to hundreds of sections that all look equally urgent. Grouping by fix strategy instead
+ * means each section is one decision: run a command, repoint a heading anchor, or choose a
+ * new destination by hand.
+ */
+export type FixStrategy = 'codemod' | 'versionless' | 'anchor' | 'decide'
+
+/**
+ * Past this many docsets, listing one command per docset is noisier than a single pass over
+ * all of `content`.
+ */
+const MAX_LISTED_CODEMOD_PATHS = 8
+
+export function classifyFixStrategy(group: GroupedBrokenLinks): FixStrategy {
+  const redirectTargets = group.occurrences
+    .map((occ) => occ.redirectTarget)
+    .filter((target): target is string => Boolean(target))
+
+  if (group.isWarning && redirectTargets.length > 0) {
+    // The path is unchanged and the redirect only adds a version. Rewriting these would
+    // hardcode a version into content, which breaks when the next release ships. The
+    // codemod leaves them alone, so promising that it fixes them is a lie.
+    //
+    // Every target has to be version-only, not just the first. A group can span versions,
+    // and a link that merely gains a version prefix in one version but points at a renamed
+    // page in another is real work. Ties go to the actionable bucket.
+    if (redirectTargets.every((target) => isVersionOnlyRedirect(group.target, target))) {
+      return 'versionless'
+    }
+    // A redirect to a genuinely different path. `update-internal-links` rewrites these
+    // with no human judgment involved, but only when it can find the redirect from the
+    // href as written. If any occurrence needed version context to resolve, the codemod
+    // would be a no-op, so send the whole group to a human instead.
+    if (group.occurrences.some((occ) => occ.requiresVersionContext)) {
+      return 'decide'
+    }
+    // Versions disagree about where the page went, so there is no single correct rewrite.
+    if (group.occurrences.some((occ) => occ.hasConflictingRedirectTargets)) {
+      return 'decide'
+    }
+    return 'codemod'
+  }
+  // The link carries a fragment, so the stale part is likely a renamed heading.
+  if (group.target.includes('#')) {
+    return 'anchor'
+  }
+  return 'decide'
+}
+
+/**
+ * The directories the codemod needs to be pointed at, derived from the files that actually
+ * contain the links. Running it against all of `content` takes minutes; running it against
+ * three docsets takes seconds.
+ *
+ * The checker records file paths relative to `content`, so `actions/foo.md` means
+ * `content/actions/foo.md`. Paths that already name a top-level directory are left alone.
+ */
+function codemodPaths(groups: GroupedBrokenLinks[]): string[] {
+  const paths = new Set<string>()
+  for (const group of groups) {
+    for (const occ of group.occurrences) {
+      const segments = occ.file.split('/')
+      const isRooted = segments[0] === 'content' || segments[0] === 'data'
+      paths.add(isRooted ? segments.slice(0, 2).join('/') : `content/${segments[0]}`)
+    }
+  }
+  return [...paths].sort()
+}
+
+/** The union of versions across a group's occurrences. */
+function groupVersions(group: GroupedBrokenLinks): string[] {
+  const versions = new Set<string>()
+  for (const occ of group.occurrences) {
+    for (const version of occ.versions ?? []) versions.add(version)
+  }
+  return [...versions]
+}
+
+function occurrenceCount(groups: GroupedBrokenLinks[]): number {
+  return groups.reduce((sum, g) => sum + g.occurrences.length, 0)
+}
+
+function renderCodemodSection(groups: GroupedBrokenLinks[], versionsChecked?: string[]): string {
+  const versionFor = (group: GroupedBrokenLinks) =>
+    describeVersions(groupVersions(group), versionsChecked)
+  const showVersions = groups.some((group) => versionFor(group))
+
+  const rows = groups
+    .map((group) => {
+      const target = group.occurrences.find((occ) => occ.redirectTarget)?.redirectTarget ?? ''
+      const cells = [`\`${group.target}\``, `\`${target}\``, `${group.occurrences.length}`]
+      if (showVersions) cells.push(versionFor(group) ?? 'all')
+      return `| ${cells.join(' | ')} |`
+    })
+    .join('\n')
+
+  const flags = '--keep-stale-fragments --dont-set-autotitle'
+  const paths = codemodPaths(groups)
+  const tooManyToList = paths.length > MAX_LISTED_CODEMOD_PATHS
+  const commands = tooManyToList
+    ? `npm run update-internal-links -- content ${flags}`
+    : paths.map((p) => `npm run update-internal-links -- ${p} ${flags}`).join('\n')
+  const scopeNote = tooManyToList
+    ? `\nThat covers ${paths.length} docsets in one pass. To split it into reviewable pull requests, run it against one docset at a time: ${paths.map((p) => `\`${p}\``).join(', ')}.\n`
+    : ''
+
+  const plural = groups.length === 1 ? '' : 's'
+  const occurrences = occurrenceCount(groups)
+
+  return `## 1. Run the codemod (${groups.length} link${plural}, ${occurrences} occurrence${occurrences === 1 ? '' : 's'})
+
+Every link below redirects to a known destination, so no judgment is needed. Run:
+
+\`\`\`bash
+${commands}
+\`\`\`
+${scopeNote}
+\`--keep-stale-fragments\` stops the codemod from silently deleting anchors it cannot verify.
+That means a link like \`/old-page#heading\` becomes \`/new-page#heading\`, so if the heading
+does not exist on the new page it shows up under stale anchors on the next run.
+Review the diff, then open a pull request.
+
+<details>
+<summary>The ${groups.length} link${plural} this fixes</summary>
+
+| From | To | Occurrences |${showVersions ? ' Versions |' : ''}
+|------|-----|-------------|${showVersions ? '----------|' : ''}
+${rows}
+
+</details>`
+}
+
+/**
+ * Version-only redirects: the path is unchanged and the redirect just adds a version.
+ *
+ * These are not renames. A versionless link is supposed to resolve into whichever version
+ * the reader is on, and that is exactly what the redirect does. Rewriting them would pin
+ * content to a version that goes stale on the next release, so the codemod leaves them
+ * alone and so should writers.
+ */
+function renderVersionlessSection(groups: GroupedBrokenLinks[]): string {
+  const rows = groups
+    .map((group) => {
+      const target = group.occurrences.find((occ) => occ.redirectTarget)?.redirectTarget ?? ''
+      return `| \`${group.target}\` | \`${target}\` |`
+    })
+    .join('\n')
+
+  const plural = groups.length === 1 ? '' : 's'
+  const occurrences = occurrenceCount(groups)
+
+  return `## 4. Version-only redirects (${groups.length} link${plural}, ${occurrences} occurrence${occurrences === 1 ? '' : 's'})
+
+**Usually no action.** The path is unchanged: the redirect only resolves the versionless
+link into the version being checked, which is what it is supposed to do. Hardcoding the
+version would break when the next release ships. Change one of these only if it should
+point somewhere version-specific, and use a Liquid \`ifversion\` gate when the target
+should differ per version.
+
+<details>
+<summary>The ${groups.length} link${plural} in this state</summary>
+
+| Link | Resolves to |
+|------|-------------|
+${rows}
+
+</details>`
+}
+
+function renderManualSection(
+  heading: string,
+  blurb: string,
+  groups: GroupedBrokenLinks[],
+  isExternal: boolean,
+  versionsChecked?: string[],
+): string {
+  const sections = groups
+    .map((group) => {
+      const versions = describeVersions(groupVersions(group), versionsChecked)
+      const note = versions ? `\n\n**Only in:** ${versions}` : ''
+      return TEMPLATES.group(group, isExternal) + note
+    })
+    .join('\n\n')
+  return `## ${heading} (${groups.length} link${groups.length === 1 ? '' : 's'}, ${occurrenceCount(groups)} occurrence${occurrenceCount(groups) === 1 ? '' : 's'})
+
+${blurb}
+
+${sections}`
+}
+
+/**
+ * Render an internal report as four buckets ordered by how much work each one costs, from
+ * one command down to nothing at all.
+ */
+function renderByFixStrategy(
+  groups: GroupedBrokenLinks[],
+  isExternal: boolean,
+  versionsChecked?: string[],
+): string {
+  const codemod = groups.filter((g) => classifyFixStrategy(g) === 'codemod')
+  const versionless = groups.filter((g) => classifyFixStrategy(g) === 'versionless')
+  const anchors = groups.filter((g) => classifyFixStrategy(g) === 'anchor')
+  const decide = groups.filter((g) => classifyFixStrategy(g) === 'decide')
+
+  const summaryRows = [
+    codemod.length > 0 &&
+      `| 1. Run the codemod | ${codemod.length} | ${occurrenceCount(codemod)} | Mechanical. Run the command. |`,
+    anchors.length > 0 &&
+      `| 2. Fix stale anchors | ${anchors.length} | ${occurrenceCount(anchors)} | A heading was renamed. Repoint it. |`,
+    decide.length > 0 &&
+      `| 3. Pick a destination | ${decide.length} | ${occurrenceCount(decide)} | The codemod cannot resolve these. Needs a human. |`,
+    versionless.length > 0 &&
+      `| 4. Usually nothing | ${versionless.length} | ${occurrenceCount(versionless)} | Version-only redirects. Leave them versionless. |`,
+  ].filter(Boolean) as string[]
+
+  const parts = [
+    `## Start here
+
+| Bucket | Links | Occurrences | Effort |
+|--------|-------|-------------|--------|
+${summaryRows.join('\n')}
+
+Work top to bottom. Bucket 1 is usually most of the report and costs one command.`,
+  ]
+
+  if (codemod.length > 0) parts.push(renderCodemodSection(codemod, versionsChecked))
+  if (anchors.length > 0) {
+    parts.push(
+      renderManualSection(
+        '2. Stale anchors',
+        'The `#fragment` does not match a heading on the target page. Usually a heading was renamed: find it and repoint the link, or drop the fragment if the section is gone. Check that the page itself still exists first, since a missing page with a fragment also lands here.',
+        anchors,
+        isExternal,
+        versionsChecked,
+      ),
+    )
+  }
+  if (decide.length > 0) {
+    parts.push(
+      renderManualSection(
+        '3. Links the codemod cannot fix',
+        'The codemod looks each link up exactly as written, and for these that lookup finds nothing: either no redirect exists at all, or the redirect only exists under a version prefix the link does not carry. Choose a destination, or add a redirect from the path as written.',
+        decide,
+        isExternal,
+        versionsChecked,
+      ),
+    )
+  }
+
+  if (versionless.length > 0) {
+    parts.push(renderVersionlessSection(versionless))
+  }
+
+  return parts.join('\n\n')
 }
 
 // ============================================================================
@@ -360,6 +832,8 @@ function renderGroups(groups: GroupedBrokenLinks[], isExternal: boolean): string
  */
 export function reportToMarkdown(report: LinkReport, isExternal = false): string {
   const parts: string[] = []
+  const hasBrokenOrRedirectGroups = report.groups.length > 0
+  const hasSelfReferentialGroups = Boolean(report.selfReferentialGroups?.length)
 
   // Header
   parts.push(
@@ -367,19 +841,34 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
   )
   parts.push('')
 
-  if (report.groups.length === 0) {
+  if (!hasBrokenOrRedirectGroups && !hasSelfReferentialGroups) {
     parts.push(TEMPLATES.noIssues())
     return parts.join('\n')
   }
 
-  // Table of contents for large reports
-  if (report.groups.length > 5) {
+  // Table of contents for large reports. The internal report is grouped by fix strategy
+  // instead, where the three bucket headings are the navigation.
+  if (isExternal && report.groups.length > 5) {
     parts.push(TEMPLATES.tableOfContents(report.groups))
     parts.push('')
   }
 
   // Groups
-  parts.push(renderGroups(report.groups, isExternal))
+  if (hasBrokenOrRedirectGroups) {
+    parts.push(
+      isExternal
+        ? renderGroups(report.groups, isExternal)
+        : renderByFixStrategy(report.groups, isExternal, report.versionsChecked),
+    )
+  }
+
+  // Self-referential links section (external report only)
+  if (hasSelfReferentialGroups) {
+    parts.push(
+      TEMPLATES.selfReferentialLinks('Potential Internal Links', report.selfReferentialGroups!),
+    )
+    parts.push('')
+  }
 
   return parts.join('\n')
 }
@@ -389,15 +878,21 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
  */
 export function generatePRComment(
   brokenLinks: BrokenLink[],
-  options: { actionUrl?: string } = {},
+  options: {
+    actionUrl?: string
+    brokenAnchors?: CrossPageAnchorFlaw[]
+    anchorsBlocking?: boolean
+  } = {},
 ): string {
-  if (brokenLinks.length === 0) return ''
+  const brokenAnchors = options.brokenAnchors ?? []
+  if (brokenLinks.length === 0 && brokenAnchors.length === 0) return ''
 
   const groups = groupBrokenLinks(brokenLinks)
   const errors = groups.filter((g) => !g.isWarning)
   const warnings = groups.filter((g) => g.isWarning)
+  const anchorSection = TEMPLATES.anchorSection(brokenAnchors, options.anchorsBlocking)
 
-  return TEMPLATES.prComment(errors, warnings, options.actionUrl)
+  return TEMPLATES.prComment(errors, warnings, anchorSection, options.actionUrl)
 }
 
 // ============================================================================

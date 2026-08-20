@@ -7,6 +7,7 @@ shortTitle: View deadline
 category:
   - Track assignment progress
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About assignment deadlines
 

@@ -37,7 +37,7 @@ The challenge is balancing rapid development with maintaining a secure and stabl
 
 {% data reusables.copilot.evaluate-options-intro %}
 
-<a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Contact Sales</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ### How {% data variables.product.prodname_copilot_short %} can help
 
@@ -122,8 +122,8 @@ Developers **should not**:
 
 ### Resources for developers
 
-* [{% data variables.copilot.copilot_chat_dotcom_short %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github)
-* [AUTOTITLE](/copilot/copilot-chat-cookbook/security-analysis/finding-existing-vulnerabilities-in-code)
+* [{% data variables.copilot.copilot_chat_dotcom_short %}](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github)
+* [AUTOTITLE](/copilot/tutorials/copilot-cookbook/analyze-security/find-vulnerabilities)
 * [{% data variables.product.prodname_learning %} - Getting Started with {% data variables.product.prodname_copilot %}](https://github.com/skills/getting-started-with-github-copilot)
 
 ## Metrics to watch
@@ -133,4 +133,4 @@ Developers **should not**:
 * **Security debt ratio**. Use security overview to see if the number of alerts falls over time.
 * **Time to remediate security issues**. Use security overview to see if the time to remediate security issues falls over time.
 
-See [AUTOTITLE](/code-security/security-overview/assessing-code-security-risk).
+See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-code-security-risk).

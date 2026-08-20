@@ -18,7 +18,8 @@
 
     // We want to keep table-layout: auto so that column widths dynamically adjust;
     // otherwise entries get needlessly squashed into narrow columns. As a workaround,
-    // we use components/lib/wrap-code-terms.ts to prevent some reference table content
+    // we use the content-render/unified/wrap-code-terms.ts rehype plugin to prevent some
+    // reference table content
     // from expanding beyond the horizontal boundaries of the parent element.
     @media (min-width: 544px) {
       table-layout: auto;

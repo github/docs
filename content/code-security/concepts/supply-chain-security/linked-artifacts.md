@@ -13,11 +13,12 @@ The {% data variables.product.virtual_registry %} provides a unified view of sof
 
 The page shows you how an artifact was built, where it is stored or running, and which compliance and security metadata is associated with the artifact.
 
-Teams in your organization can use the {% data variables.product.virtual_registry %} to:
+Teams in your organization can use data from the {% data variables.product.virtual_registry %} to:
 
 * Prioritize alerts from {% data variables.product.prodname_GHAS %} features based on whether the detected vulnerabilities are running in production or exposed to the internet
 * Quickly connect artifacts to build details, storage locations, and owning teams
 * Meet compliance by exporting auditable proof of your artifacts' provenance and integrity
+* Find repositories that are associated with a deployed artifact, and target them in branch rulesets
 
 ## Which artifacts appear on the {% data variables.product.virtual_registry %}?
 
@@ -43,11 +44,19 @@ For more information about attestations and SLSA levels, see [AUTOTITLE](/action
 
 ### Deployment records
 
-Deployment records include the environment where the artifact is deployed and any runtime risks (such as "sensitive data" or "internet exposed") associated with the artifact. You can use this data to filter security alerts based on the level of threat posed to your organization and consumers.
+Deployment records include the environment where the artifact is deployed and any runtime risks (such as "sensitive data" or "internet exposed") associated with the artifact.
 
 ![Screenshot of an artifact page. Highlighted fields: the "Deployments" list, including tags for "Prod", "sensitive data", and "pacific-east".](/assets/images/help/security/virtual-registry-deployment-record.png)
 
 >[!NOTE] Deployment records do **not** include deployment activity from a repository's deployments dashboard, which comes from a different source. See [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository).
+
+## Where is artifact data available?
+
+As well as being available on the {% data variables.product.virtual_registry %} itself, artifact metadata is integrated into policy and security surfaces on {% data variables.product.github %}. Teams can use this data to make policy decisions or prioritize security issues. For example, they can:
+
+* Use `deployed` or `deployable` filters to search for repositories or target repositories in organization and enterprise rulesets. See [AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-based-on-deployment-context).
+* Filter security campaigns, {% data variables.product.prodname_code_scanning %} alerts, and {% data variables.product.prodname_dependabot %} alerts by runtime risk. See [AUTOTITLE](/code-security/tutorials/secure-your-organization/prioritize-alerts-in-production-code).
+* View runtime risks as attributes on individual {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} alerts.
 
 ## How does the {% data variables.product.virtual_registry %} fit into my processes?
 

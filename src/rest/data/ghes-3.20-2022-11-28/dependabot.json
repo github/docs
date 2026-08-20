@@ -50,13 +50,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -66,6 +66,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "completed",
               "cancelled",
@@ -74,8 +75,7 @@
               "denied",
               "open",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -476,13 +476,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "month",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "month"
+            ]
           }
         },
         {
@@ -492,14 +492,14 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "open",
               "approved",
               "expired",
               "denied",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -1767,22 +1767,7 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values. Currently, only <code>patch</code> is supported.</p>",
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "patch"
-                  ]
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "scope",
@@ -1802,12 +1787,12 @@
           "description": "<p>The property by which to sort the results.\n<code>created</code> means when the alert was created.\n<code>updated</code> means when the alert's state last changed.\n<code>epss_percentage</code> sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</p>",
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "epss_percentage"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -1817,11 +1802,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -3481,23 +3466,7 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values.</p>",
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "patch",
-                    "deployment"
-                  ]
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "runtime_risk",
@@ -3525,12 +3494,12 @@
           "description": "<p>The property by which to sort the results.\n<code>created</code> means when the alert was created.\n<code>updated</code> means when the alert's state last changed.\n<code>epss_percentage</code> sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</p>",
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "epss_percentage"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -3540,11 +3509,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -5213,22 +5182,7 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values. Currently, only <code>patch</code> is supported.</p>",
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "patch"
-                  ]
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "scope",
@@ -5248,12 +5202,12 @@
           "description": "<p>The property by which to sort the results.\n<code>created</code> means when the alert was created.\n<code>updated</code> means when the alert's state last changed.\n<code>epss_percentage</code> sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</p>",
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "epss_percentage"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -5263,11 +5217,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -6391,9 +6345,7 @@
           "description": "<p>The number that identifies a Dependabot alert in its repository.\nYou can find this at the end of the URL for a Dependabot alert within GitHub,\nor in <code>number</code> fields in the response from the\n<code>GET /repos/{owner}/{repo}/dependabot/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -7341,9 +7293,7 @@
           "description": "<p>The number that identifies a Dependabot alert in its repository.\nYou can find this at the end of the URL for a Dependabot alert within GitHub,\nor in <code>number</code> fields in the response from the\n<code>GET /repos/{owner}/{repo}/dependabot/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -7377,7 +7327,29 @@
         {
           "type": "array of strings",
           "name": "assignees",
-          "description": "<p>Usernames to assign to this Dependabot Alert.\nPass one or more user logins to <em>replace</em> the set of assignees on this alert.\nSend an empty array (<code>[]</code>) to clear all assignees from the alert.</p>"
+          "description": "<p>Usernames to assign to this Dependabot Alert.\nPass one or more user logins to <em>replace</em> the set of assignees on this alert.\nSend an empty array (<code>[]</code>) to clear all assignees from the alert.\nTo assign an AI agent, include the bot login (for example, <code>copilot-swe-agent[bot]</code>).</p>"
+        },
+        {
+          "type": "object",
+          "name": "agent_assignment",
+          "description": "<p>Parameters for AI agent assignment. Only used when an agent bot login is\nincluded in <code>assignees</code>. Ignored when no agent is being assigned.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "custom_instructions",
+              "description": "<p>Custom instructions for the agent.</p>"
+            },
+            {
+              "type": "string",
+              "name": "custom_agent",
+              "description": "<p>A custom agent identifier.</p>"
+            },
+            {
+              "type": "string",
+              "name": "model",
+              "description": "<p>The model to use for the agent.</p>"
+            }
+          ]
         }
       ],
       "descriptionHTML": "<p>The authenticated user must have access to security alerts for the repository to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts\">Granting access to security alerts</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the <code>public_repo</code> scope instead.</p>",
@@ -8324,7 +8296,7 @@
     {
       "serverUrl": "http(s)://HOSTNAME/api/v3",
       "verb": "get",
-      "requestPath": "/organizations/{org}/dependabot/repository-access",
+      "requestPath": "/orgs/{org}/dependabot/repository-access",
       "title": "Lists the repositories Dependabot can access in an organization",
       "category": "dependabot",
       "subcategory": "repository-access",
@@ -8345,7 +8317,6 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "minimum": 1,
             "default": 1
           }
         },
@@ -8356,8 +8327,6 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 100,
             "default": 30
           }
         }
@@ -8880,7 +8849,7 @@
     {
       "serverUrl": "http(s)://HOSTNAME/api/v3",
       "verb": "patch",
-      "requestPath": "/organizations/{org}/dependabot/repository-access",
+      "requestPath": "/orgs/{org}/dependabot/repository-access",
       "title": "Updates Dependabot's repository access list for an organization",
       "category": "dependabot",
       "subcategory": "repository-access",
@@ -8953,7 +8922,7 @@
     {
       "serverUrl": "http(s)://HOSTNAME/api/v3",
       "verb": "put",
-      "requestPath": "/organizations/{org}/dependabot/repository-access/default-level",
+      "requestPath": "/orgs/{org}/dependabot/repository-access/default-level",
       "title": "Set the default repository access level for Dependabot",
       "category": "dependabot",
       "subcategory": "repository-access",

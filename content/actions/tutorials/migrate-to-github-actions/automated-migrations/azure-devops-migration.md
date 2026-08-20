@@ -43,7 +43,7 @@ Certain Azure DevOps constructs must be migrated manually from Azure DevOps into
 * Environments
 * Pre-deployment approvals
 
-For more information on manual migrations, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions).
+For more information on manual migrations, see [AUTOTITLE](/actions/tutorials/migrate-to-github-actions/manual-migrations/migrate-from-azure-pipelines).
 
 #### Unsupported tasks
 
@@ -440,10 +440,10 @@ You can transform Azure DevOps templates with {% data variables.product.prodname
 
 {% data variables.product.prodname_actions_importer %} is able to transform Azure DevOps templates with some limitations.
 
-* Azure DevOps templates used under the `stages`, `deployments`, and `jobs` keys are converted into reusable workflows in {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
-* Azure DevOps templates used under the `steps` key are converted into composite actions. For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-composite-action).
+* Azure DevOps templates used under the `stages`, `deployments`, and `jobs` keys are converted into reusable workflows in {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).
+* Azure DevOps templates used under the `steps` key are converted into composite actions. For more information, see [AUTOTITLE](/actions/tutorials/create-actions/create-a-composite-action).
 * If you currently have job templates that reference other job templates, {% data variables.product.prodname_actions_importer %} converts the templates into reusable workflows. Because reusable workflows cannot reference other reusable workflows, this is invalid syntax in {% data variables.product.prodname_actions %}. You must manually correct nested reusable workflows.
-* If a template references an external Azure DevOps organization or {% data variables.product.prodname_dotcom %} repository, you must use the `--credentials-file` option to provide credentials to access this template. For more information, see [AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/supplemental-arguments-and-settings#using-a-credentials-file-for-authentication).
+* If a template references an external Azure DevOps organization or {% data variables.product.prodname_dotcom %} repository, you must use the `--credentials-file` option to provide credentials to access this template. For more information, see [AUTOTITLE](/actions/reference/github-actions-importer/supplemental-arguments-and-settings#using-a-credentials-file-for-authentication).
 * You can dynamically generate YAML using `each` expressions with the following caveats:
   * Nested `each` blocks are not supported and cause the parent `each` block to be unsupported.
   * `each` and contained `if` conditions are evaluated at transformation time, because {% data variables.product.prodname_actions %} does not support this style of insertion.

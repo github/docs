@@ -54,6 +54,6 @@ If you can't find expected commits on your profile, the commit history may have 
 
 ## Next steps
 
-If you're not seeing expected commits on your timeline, it's possible the commit history in Git was rewritten and the commit author date and the commit date are different. For other possibilities, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile).
+If you're not seeing expected commits on your timeline, it's possible the commit history in Git was rewritten and the commit author date and the commit date are different. For other possibilities, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/troubleshooting-missing-contributions).
 
 For other reference information, see [AUTOTITLE](/account-and-profile/reference/profile-contributions-reference#how-github-uses-the-git-author-date-and-commit-date).

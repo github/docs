@@ -26,7 +26,7 @@ You can also redeliver recent webhook deliveries. For more information, see [AUT
 
 Only people with admin access to a repository can view deliveries for webhooks in that repository.
 
-You can use the {% data variables.product.company_short %} web interface or the REST API to view recent webhook deliveries for a repository. For more information about using the REST API to view recent deliveries, see [AUTOTITLE](/rest/webhooks/repo-deliveries).
+You can use the {% data variables.product.company_short %} web interface or the REST API to view recent webhook deliveries for a repository. For more information about using the REST API to view recent deliveries, see [AUTOTITLE](/rest/repos/webhooks).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

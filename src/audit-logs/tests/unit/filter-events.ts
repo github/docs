@@ -223,11 +223,50 @@ describe('audit log event filtering', () => {
         appendedDescriptions: {},
       },
       auditLogPage,
+      supportedGhesVersions: ['3.10', '3.11', '3.12'],
     })
     const getActions = (version: string) =>
       currentEvents[version][auditLogPage].map((event) => event.action)
     expect(getActions('ghes-3.10').includes('repo.create')).toBe(true)
     expect(getActions('ghes-3.11').includes('repo.create')).toBe(true)
     expect(auditLogPage in currentEvents['ghes-3.12']).toBeFalsy()
+  })
+
+  test('ghes skips versions not in the supported list', async () => {
+    const eventsToProcess: RawAuditLogEventT[] = [
+      {
+        action: 'repo.create',
+        description: 'repo was created',
+        docs_reference_links: '',
+        _allowlists: [],
+        ghes: {
+          '3.14': {
+            _allowlists: ['user'],
+          },
+          '3.15': {
+            _allowlists: ['user'],
+          },
+        },
+      },
+    ]
+
+    const currentEvents: VersionedAuditLogData = {}
+    const auditLogPage = 'user'
+
+    await filterAndUpdateGhesDataByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValue: 'user',
+      currentGhesEvents: currentEvents,
+      pipelineConfig: {
+        sha: '',
+        appendedDescriptions: {},
+      },
+      auditLogPage,
+      supportedGhesVersions: ['3.15'],
+    })
+    expect(currentEvents['ghes-3.14']).toBeUndefined()
+    expect(currentEvents['ghes-3.15'][auditLogPage].map((event) => event.action)).toContain(
+      'repo.create',
+    )
   })
 })

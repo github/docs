@@ -4,6 +4,8 @@ import patterns from '@/frame/lib/patterns'
 import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
 import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases'
 import getRedirect from '../lib/get-redirect'
+import { getVersionPreference } from '../lib/version-preference'
+import { applyGraphqlCategoryRedirect } from '../lib/graphql-category-redirect'
 import {
   defaultCacheControl,
   languageCacheControl,
@@ -41,7 +43,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
 
     // Forward query params to the new URL
-    let queryParams = new URLSearchParams((req?.query as any) || '').toString()
+    let queryParams = new URLSearchParams(req?.query as URLSearchParamsTypes).toString()
     if (queryParams) {
       queryParams = `?${queryParams}`
     }
@@ -95,6 +97,17 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
   redirectWithoutQueryParams = redirectTo || redirectWithoutQueryParams
 
+  // Resolve legacy `/graphql/reference/<kind>(#<name>)?` URLs to their
+  // per-category equivalent. Done before query-param re-application so the
+  // fragment parsing in the helper is unambiguous.
+  const graphqlRewrite = applyGraphqlCategoryRedirect(
+    redirectWithoutQueryParams,
+    req.context.userLanguage || 'en',
+  )
+  if (graphqlRewrite) {
+    redirectWithoutQueryParams = graphqlRewrite
+  }
+
   redirect = queryParams ? redirectWithoutQueryParams + queryParams : redirectWithoutQueryParams
 
   if (!redirectTo && !pathLanguagePrefixed(req.path)) {
@@ -107,8 +120,12 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     // But for example, a `/authentication/connecting-to-github-with-ssh`
     // needs to become `/en/authentication/connecting-to-github-with-ssh`
     const possibleRedirectTo = `/en${req.path}`
+    // Pages are keyed without .md, so strip it before lookup
+    const lookupPath = possibleRedirectTo.endsWith('.md')
+      ? possibleRedirectTo.replace(/\.md$/, '')
+      : possibleRedirectTo
     if (!req.context.pages) throw new Error('req.context.pages not yet set')
-    if (possibleRedirectTo in req.context.pages || isDeprecatedVersion(req.path)) {
+    if (lookupPath in req.context.pages || isDeprecatedVersion(req.path)) {
       const language = getLanguage(req)
 
       // Note, it's important to use `req.url` here and not `req.path`
@@ -118,16 +135,57 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
   }
 
+  if (!req.context.pages) throw new Error('req.context.pages not yet set')
+
+  // Honor the reader's version preference on a URL that does not name a version.
+  //
+  // Without this, the cookie is only ever consulted on the bare homepage, so a deep link
+  // from search, the product UI, or a bookmark silently serves Free/Pro/Team. See
+  // github/technical-content#7227 for the measurements.
+  //
+  // This is deliberately its own branch rather than a tweak to `redirect` below, because
+  // the ordinary path would emit a 301 for a language-prefixed URL. A redirect that
+  // depends on a cookie has to stay a 302, or a browser caches one reader's preference
+  // forever.
+  if (!redirect.includes('://')) {
+    const preference = getVersionPreference(
+      req.path,
+      removeQueryParams(redirect),
+      req.userVersion,
+      req.context.pages,
+    )
+    if (preference.vary && !preference.redirectTo) {
+      // Only needed when we do not redirect. The redirect below calls
+      // `languageAndVersionCacheControl`, which already lists `x-user-version`.
+      //
+      // We set it even though this response is not a redirect, because it still depends
+      // on the cookie: a cached copy without this header would be served to readers whose
+      // preference we should have honored.
+      //
+      // `append`, not `set`, so this survives the cache-control call that whatever
+      // handles the request downstream makes. Those all append too, so nothing clobbers
+      // it. The `varies on the cookie even for readers who have not set one` test in
+      // `src/versions/tests/version-cookie.ts` asserts the served 200 really does carry
+      // the header, so this holds even if that stops being true.
+      res.append('vary', 'x-user-version')
+    }
+    if (preference.redirectTo) {
+      languageAndVersionCacheControl(res)
+      return res.safeRedirect(302, preference.redirectTo + (queryParams || ''))
+    }
+  }
+
   // do not redirect a path to itself
   if (redirect === req.originalUrl) {
     return next()
   }
 
-  if (!req.context.pages) throw new Error('req.context.pages not yet set')
-
   // do not redirect if the redirected page can't be found
   if (
-    !(req.context.pages[removeQueryParams(redirect)] || isDeprecatedVersion(req.path)) &&
+    !(
+      req.context.pages[removeQueryParams(redirect).replace(/\.md$/, '')] ||
+      isDeprecatedVersion(req.path)
+    ) &&
     !redirect.includes('://')
   ) {
     // display error on the page in development, but not in production

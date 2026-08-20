@@ -10,11 +10,9 @@ redirect_from:
   - /copilot/how-tos/chat
   - /copilot/how-tos/use-chat
 children:
-  - /get-started-with-chat
+  - /get-started-with-chat-in-your-ide
   - /chat-in-ide
   - /chat-in-windows-terminal
-  - /chat-in-github
-  - /chat-in-mobile
 contentType: how-tos
 ---
 

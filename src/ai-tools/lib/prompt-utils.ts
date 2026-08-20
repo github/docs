@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'url'
 import fs from 'fs'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import path from 'path'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { callModelsApi } from '@/ai-tools/lib/call-models-api'
@@ -142,7 +142,7 @@ export async function callEditor(
   }
   const promptTemplatePath = path.join(promptDir, 'prompt-template.yml')
 
-  const prompt = yaml.load(fs.readFileSync(promptTemplatePath, 'utf8')) as PromptData
+  const prompt = load(fs.readFileSync(promptTemplatePath, 'utf8')) as PromptData
 
   // Validate the prompt template has required properties
   if (!prompt.messages || !Array.isArray(prompt.messages)) {

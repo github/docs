@@ -30,7 +30,7 @@ You can pay for metered usage of {% data variables.product.github %} features th
 
 * You must know your Azure subscription ID. See [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft Docs.
 
-* You must be logged into Azure as a user who is able to provide tenant-wide admin consent or arrange to work with an Azure AD global administrator to configure an admin consent workflow. See [AUTOTITLE](/billing/concepts/azure-subscriptions).
+* You must be logged into Azure as a user who is able to provide tenant-wide admin consent or arrange to work with a Microsoft Entra Global Administrator to configure an admin consent workflow. See [AUTOTITLE](/billing/concepts/azure-subscriptions).
 
 ## Connecting your Azure subscription to an organization or enterprise account
 

@@ -4,14 +4,20 @@ shortTitle: Use your own model provider
 intro: 'Use a model from an external provider of your choice in {% data variables.product.prodname_copilot_short %} by supplying your own API key.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: copilot
+  fpt: '*'
+  ghec: '*'
 contentType: how-tos
 category:
   - Configure Copilot
   - Configure Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 You can configure {% data variables.copilot.copilot_cli_short %} to use your own LLM provider, also called BYOK (Bring Your Own Key), instead of {% data variables.product.github %}-hosted models. This lets you connect to OpenAI-compatible endpoints, Azure OpenAI, or Anthropic, including locally running models such as Ollama.
+
+> [!NOTE]
+> This article is for users who want to configure their own LLM provider API key on their local machine. To set up custom models for users in an enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models).
 
 ## Prerequisites
 
@@ -80,7 +86,7 @@ Use the following steps if you are connecting to OpenAI, Ollama, vLLM, Foundry L
    export COPILOT_PROVIDER_API_KEY=YOUR-AZURE-API-KEY
    export COPILOT_MODEL=YOUR-DEPLOYMENT-NAME
    ```
-   
+
    Replace the following placeholders:
 
      * `YOUR-RESOURCE-NAME`: your Azure OpenAI resource name
@@ -108,7 +114,7 @@ Use the following steps if you are connecting to OpenAI, Ollama, vLLM, Foundry L
 
 You can run {% data variables.copilot.copilot_cli_short %} in offline mode to prevent it from contacting {% data variables.product.github %}'s servers. This is designed for isolated environments where the CLI should communicate only with your local or on-premises model provider.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Offline mode only guarantees full network isolation if your provider is also local or within the same isolated environment. If `COPILOT_PROVIDER_BASE_URL` points to a remote endpoint, your prompts and code context are still sent over the network to that provider.
 
 1. Configure your provider environment variables as described in Configuring your provider.
@@ -118,5 +124,5 @@ You can run {% data variables.copilot.copilot_cli_short %} in offline mode to pr
    ```shell
    export COPILOT_OFFLINE=true
    ```
-
-{% data reusables.copilot.copilot-cli.start-cli %}
+   
+1. {% data reusables.copilot.copilot-cli.start-cli %}

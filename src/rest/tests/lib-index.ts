@@ -177,6 +177,49 @@ describe('two-tier cache routing', () => {
 })
 
 // ---------------------------------------------------------------------------
+// 1b. Pinned cache compression
+// ---------------------------------------------------------------------------
+
+describe('pinned cache compression', () => {
+  test('pinnedCache stores a Buffer (compressed), not a parsed object', async () => {
+    vi.mocked(fsMock.promises.readFile)
+      .mockRejectedValueOnce(enoent())
+      .mockResolvedValueOnce(FAKE_JSON as unknown as Buffer)
+
+    await getRest('free-pro-team@latest', undefined, 'actions')
+
+    const stored = [...pinnedCache.values()][0]
+    expect(Buffer.isBuffer(stored)).toBe(true)
+  })
+
+  test('getRest returns correct parsed data from compressed pinnedCache on cache hit', async () => {
+    vi.mocked(fsMock.promises.readFile)
+      .mockRejectedValueOnce(enoent())
+      .mockResolvedValueOnce(FAKE_JSON as unknown as Buffer)
+
+    // First call populates the cache
+    const first = await getRest('free-pro-team@latest', undefined, 'actions')
+    // Second call reads from compressed cache
+    const second = await getRest('free-pro-team@latest', undefined, 'actions')
+
+    expect(first).toEqual(FAKE_DATA)
+    expect(second).toEqual(FAKE_DATA)
+  })
+
+  test('lruCache stores parsed objects, not Buffers', async () => {
+    vi.mocked(fsMock.promises.readFile)
+      .mockRejectedValueOnce(enoent())
+      .mockResolvedValueOnce(FAKE_JSON as unknown as Buffer)
+
+    await getRest('enterprise-server@3.10', undefined, 'actions')
+
+    const stored = lruCache.get([...(lruCache as unknown as Map<string, unknown>).keys()][0])
+    expect(Buffer.isBuffer(stored)).toBe(false)
+    expect(stored).toEqual(FAKE_DATA)
+  })
+})
+
+// ---------------------------------------------------------------------------
 // 2. In-flight deduplication
 // ---------------------------------------------------------------------------
 

@@ -1,5 +1,5 @@
 ---
-title: Configure GitHub Copilot CLI
+title: Configuring GitHub Copilot CLI
 shortTitle: Configure Copilot CLI
 intro: Configure trusted directories, tool access, and path and URL permissions for {% data variables.copilot.copilot_cli_short %}
 versions:
@@ -8,6 +8,8 @@ contentType: how-tos
 category:
   - Configure Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -22,7 +24,7 @@ This article shows you how to set trusted directories, configure access for tool
 
 ## Setting trusted directories
 
-Trusted directories control where {% data variables.copilot.copilot_cli_short %} can read, modify, and execute files. Trusting a directory has security implications, see [Security considerations](/copilot/concepts/agents/about-copilot-cli#trusted-directories).
+Trusted directories control where {% data variables.copilot.copilot_cli_short %} can read, modify, and execute files. Trusting a directory has security implications, see [Security considerations](/copilot/concepts/agents/copilot-cli/about-copilot-cli#security-considerations).
 
 ### Choosing to trust a directory
 
@@ -37,22 +39,22 @@ If you choose to trust the directory for future sessions, the trusted directory 
 
 ### Editing trusted directories
 
-You can edit the list of permanently trusted directories.
+You can edit the list of permanently trusted directories. Trusted directories are stored in the automatically managed `config.json` file.
 
-1. Open the CLI’s `config.json` file. By default, it’s stored in a `.copilot` folder under your home directory:
+1. Open the CLI's `config.json` file. By default, it's stored in a `.copilot` folder under your home directory:
 
    * **macOS/Linux**: `~/.copilot/config.json`
    * **Windows**: `$HOME\.copilot\config.json`
 
-  You can change the config location by setting the `COPILOT_HOME` environment variable.
+  You can change the config location by setting the `COPILOT_HOME` environment variable. This would change `~/.copilot/` and `$HOME\.copilot\` in the above paths.
 
-1. Edit the contents of the `trusted_folders` array.
+1. Edit the contents of the `trustedFolders` array.
 
 ## Setting allowed tools
 
 You can control which tools {% data variables.copilot.copilot_cli_short %} can use, either by responding to approval prompts when {% data variables.product.prodname_copilot_short %} attempts to use a tool, or by specifying permissions via command-line flags.
 
-Be aware that allowing tool access has security implications, see [Security considerations](/copilot/concepts/agents/about-copilot-cli#allowed-tools).
+Be aware that allowing tool access has security implications, see [Security considerations](/copilot/concepts/agents/copilot-cli/about-copilot-cli#security-considerations).
 
 In this section, you can learn how to:
 
@@ -64,7 +66,7 @@ In this section, you can learn how to:
 
 ### Allowing a tool for the first time
 
-The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that may require approval—for example, {% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to run. Whether you’re prompted can depend on the tool and how it’s being used (such as the arguments provided or whether the tool has been previously approved).
+The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that may require approval—{% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to run. Whether you’re prompted can depend on the tool and how it’s being used (such as the arguments provided or whether the tool has been previously approved).
 
 1. Prompt {% data variables.product.prodname_copilot_short %} to perform a task that requires a tool. For example:
 
@@ -265,7 +267,15 @@ This flag combines:
 * `--allow-all-paths` (disable path verification).
 * `--allow-all-urls` (disables URL verification).
 
-> [!TIP] During an interactive session, you can also enable all permissions with the `/allow-all` or `/yolo` slash commands.
+During an interactive session, you can also enable all permissions with the `/allow-all` or `/yolo` slash commands.
+
+> [!NOTE] {% data reusables.copilot.disable-bypass %}
+
+## Restrict access to files
+
+The various `--allow-all...` options save you from having to decide whether to allow {% data variables.product.prodname_copilot_short %} to access individual tools, files, and URLs. However, using them widens the scope for {% data variables.product.prodname_copilot_short %} to perform actions that you might not want it to—for example, altering files outside of the repository you are working in.
+
+To mitigate this risk, you can instruct the CLI to sandbox its commands (local sandboxing), or you can run the entire {% data variables.copilot.copilot_cli_short %} session within a remote, sandboxed environment (cloud sandboxing). For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 ## Further reading
 

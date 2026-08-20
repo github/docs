@@ -1,6 +1,7 @@
 import { get, isPlainObject } from 'lodash-es'
 import { getJsonValidator } from '@/tests/lib/validate-json-schema'
 import { renderContent } from '@/content-render/index'
+import { normalizeDocsUrls } from '../../rest/scripts/utils/normalize-docs-urls'
 import webhookSchema from './webhook-schema'
 import { getBodyParams, TransformedParam } from '../../rest/scripts/utils/get-body-params'
 
@@ -90,8 +91,8 @@ export default class Webhook implements WebhookInterface {
   }
 
   async renderDescription(): Promise<this> {
-    this.descriptionHtml = await renderContent(this.#webhook.description)
-    this.summaryHtml = await renderContent(this.#webhook.summary)
+    this.descriptionHtml = normalizeDocsUrls(await renderContent(this.#webhook.description))
+    this.summaryHtml = normalizeDocsUrls(await renderContent(this.#webhook.summary))
     return this
   }
 

@@ -36,11 +36,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -982,11 +982,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -2231,11 +2231,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -2307,6 +2307,16 @@
                   "node_id": "MDU6SXNzdWUzNTgwMg==",
                   "number": 132,
                   "title": "Line Number Indexes Beyond 20 Not Displayed",
+                  "type": {
+                    "id": 1,
+                    "node_id": "IT_kwDNJr9H",
+                    "name": "Bug",
+                    "description": "An unexpected problem or behavior",
+                    "color": "red",
+                    "created_at": "2023-10-09T13:30:49Z",
+                    "updated_at": "2024-05-30T18:20:53Z",
+                    "is_enabled": true
+                  },
                   "user": {
                     "login": "Nick3C",
                     "id": 90254,
@@ -2784,6 +2794,10 @@
                               "type": "integer",
                               "format": "int64"
                             },
+                            "issue_field_name": {
+                              "description": "The human-readable name of the issue field.",
+                              "type": "string"
+                            },
                             "node_id": {
                               "type": "string"
                             },
@@ -2793,6 +2807,7 @@
                               "enum": [
                                 "text",
                                 "single_select",
+                                "multi_select",
                                 "number",
                                 "date"
                               ]
@@ -2843,6 +2858,36 @@
                                 "name",
                                 "color"
                               ]
+                            },
+                            "multi_select_options": {
+                              "description": "Details about the selected options",
+                              "type": [
+                                "array",
+                                "null"
+                              ],
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "description": "Unique identifier for the option.",
+                                    "type": "integer",
+                                    "format": "int64"
+                                  },
+                                  "name": {
+                                    "description": "The name of the option",
+                                    "type": "string"
+                                  },
+                                  "color": {
+                                    "description": "The color of the option",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "color"
+                                ]
+                              }
                             }
                           },
                           "required": [
@@ -4017,7 +4062,7 @@
                       },
                       "type": {
                         "title": "Issue Type",
-                        "description": "The type of issue.",
+                        "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                         "type": [
                           "object",
                           "null"
@@ -5030,6 +5075,30 @@
                                     ]
                                   }
                                 ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
+                                    ]
+                                  }
+                                ]
                               }
                             },
                             "required": [
@@ -5142,7 +5211,8 @@
                       "or_boolean_not_supported",
                       "no_accessible_repos",
                       "server_error",
-                      "only_non_semantic_fields_requested"
+                      "only_non_semantic_fields_requested",
+                      "service_unavailable"
                     ]
                   }
                 }
@@ -5561,6 +5631,10 @@
                               "type": "integer",
                               "format": "int64"
                             },
+                            "issue_field_name": {
+                              "description": "The human-readable name of the issue field.",
+                              "type": "string"
+                            },
                             "node_id": {
                               "type": "string"
                             },
@@ -5570,6 +5644,7 @@
                               "enum": [
                                 "text",
                                 "single_select",
+                                "multi_select",
                                 "number",
                                 "date"
                               ]
@@ -5620,6 +5695,36 @@
                                 "name",
                                 "color"
                               ]
+                            },
+                            "multi_select_options": {
+                              "description": "Details about the selected options",
+                              "type": [
+                                "array",
+                                "null"
+                              ],
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "description": "Unique identifier for the option.",
+                                    "type": "integer",
+                                    "format": "int64"
+                                  },
+                                  "name": {
+                                    "description": "The name of the option",
+                                    "type": "string"
+                                  },
+                                  "color": {
+                                    "description": "The color of the option",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "color"
+                                ]
+                              }
                             }
                           },
                           "required": [
@@ -6794,7 +6899,7 @@
                       },
                       "type": {
                         "title": "Issue Type",
-                        "description": "The type of issue.",
+                        "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                         "type": [
                           "object",
                           "null"
@@ -7807,6 +7912,30 @@
                                     ]
                                   }
                                 ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
+                                    ]
+                                  }
+                                ]
                               }
                             },
                             "required": [
@@ -7919,7 +8048,8 @@
                       "or_boolean_not_supported",
                       "no_accessible_repos",
                       "server_error",
-                      "only_non_semantic_fields_requested"
+                      "only_non_semantic_fields_requested",
+                      "service_unavailable"
                     ]
                   }
                 }
@@ -8010,11 +8140,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -8256,11 +8386,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -9464,11 +9594,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {

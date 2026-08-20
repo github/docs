@@ -1,0 +1,188 @@
+{
+  "completed": {
+    "descriptionHtml": "<p>All check runs in a check suite have completed, and a conclusion is available.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a check suite. For information about check suites, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/guides/getting-started-with-the-checks-api\">Getting started with the Checks API</a>.\" For information about the APIs to manage check suites, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#checksuite\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/checks/suites\">Check Suites</a>\" in the REST API documentation.</p>\n<p>For activity relating to check runs, use the <code>check_run</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Checks\" permission. To receive the <code>requested</code> and <code>rerequested</code> event types, the app must have at least write-level access for the \"Checks\" permission. GitHub Apps with write-level access for the \"Checks\" permission are automatically subscribed to this webhook event.</p>\n<p>Repository and organization webhooks only receive payloads for the <code>completed</code> event types in repositories.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg></p>\n<p>\nThe API only looks for pushes in the repository where the check suite was created. Pushes to a branch in a forked repository are not detected and return an empty <code>pull_requests</code> array and a <code>null</code> value for <code>head_branch</code>.</p>\n</div>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "completed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "check_suite",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.21/rest/checks/suites#get-a-check-suite\">check_suite</a>.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "completed",
+    "category": "check_suite"
+  },
+  "requested": {
+    "descriptionHtml": "<p>Someone requested to run a check suite. By default, check suites are automatically created when you create a check run. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/mutations#createcheckrun\">the GraphQL API documentation for creating a check run</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/checks/runs#create-a-check-run\">Create a check run</a>\" in the REST API documentation.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a check suite. For information about check suites, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/guides/getting-started-with-the-checks-api\">Getting started with the Checks API</a>.\" For information about the APIs to manage check suites, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#checksuite\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/checks/suites\">Check Suites</a>\" in the REST API documentation.</p>\n<p>For activity relating to check runs, use the <code>check_run</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Checks\" permission. To receive the <code>requested</code> and <code>rerequested</code> event types, the app must have at least write-level access for the \"Checks\" permission. GitHub Apps with write-level access for the \"Checks\" permission are automatically subscribed to this webhook event.</p>\n<p>Repository and organization webhooks only receive payloads for the <code>completed</code> event types in repositories.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg></p>\n<p>\nThe API only looks for pushes in the repository where the check suite was created. Pushes to a branch in a forked repository are not detected and return an empty <code>pull_requests</code> array and a <code>null</code> value for <code>head_branch</code>.</p>\n</div>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "requested"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "check_suite",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.21/rest/checks/suites#get-a-check-suite\">check_suite</a>.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "requested",
+    "category": "check_suite"
+  },
+  "rerequested": {
+    "descriptionHtml": "<p>Someone requested to re-run the check runs in a check suite. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/mutations#createchecksuite\">the GraphQL API documentation for creating a check suite</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/checks/suites#create-a-check-suite\">Create a check suite</a>\" in the REST API documentation.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a check suite. For information about check suites, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/guides/getting-started-with-the-checks-api\">Getting started with the Checks API</a>.\" For information about the APIs to manage check suites, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#checksuite\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/checks/suites\">Check Suites</a>\" in the REST API documentation.</p>\n<p>For activity relating to check runs, use the <code>check_run</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Checks\" permission. To receive the <code>requested</code> and <code>rerequested</code> event types, the app must have at least write-level access for the \"Checks\" permission. GitHub Apps with write-level access for the \"Checks\" permission are automatically subscribed to this webhook event.</p>\n<p>Repository and organization webhooks only receive payloads for the <code>completed</code> event types in repositories.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg></p>\n<p>\nThe API only looks for pushes in the repository where the check suite was created. Pushes to a branch in a forked repository are not detected and return an empty <code>pull_requests</code> array and a <code>null</code> value for <code>head_branch</code>.</p>\n</div>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "rerequested"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "check_suite",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.21/rest/checks/suites#get-a-check-suite\">check_suite</a>.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "rerequested",
+    "category": "check_suite"
+  }
+}

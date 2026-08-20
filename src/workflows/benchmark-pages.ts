@@ -55,13 +55,26 @@ interface Result {
   path: string
   status: number
   timeMs: number
+  errorBody?: string
 }
 
-async function timed(url: string): Promise<{ status: number; timeMs: number }> {
+function normalizeErrorBody(body: string): string {
+  return body
+    .replace(/[\r\n]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 500)
+}
+
+async function timed(url: string): Promise<{ status: number; timeMs: number; errorBody?: string }> {
   const start = performance.now()
   const res = await fetch(url)
-  await res.text()
-  return { status: res.status, timeMs: Math.round(performance.now() - start) }
+  const body = await res.text()
+  const timeMs = Math.round(performance.now() - start)
+  if (res.status >= 400) {
+    return { status: res.status, timeMs, errorBody: normalizeErrorBody(body) }
+  }
+  return { status: res.status, timeMs }
 }
 
 async function getPageList(lang: string, version: string): Promise<string[]> {
@@ -151,10 +164,10 @@ async function main() {
         const label = `${mode} ${lang}/${version}`
         let done = 0
         const tasks = pages.map((p) => async (): Promise<Result> => {
-          const { status, timeMs } = await timed(buildUrl(mode, p))
+          const { status, timeMs, errorBody } = await timed(buildUrl(mode, p))
           done++
           if (done % 50 === 0) process.stdout.write(`  ${label}: ${done}/${pages.length}\r`)
-          return { mode, path: p, status, timeMs }
+          return { mode, path: p, status, timeMs, errorBody }
         })
 
         const results = await runPool(tasks, CONCURRENCY)
@@ -184,6 +197,7 @@ async function main() {
     console.log(`\n❌ Errors:`)
     for (const e of errors.slice(0, 20)) {
       console.log(`  ${e.status}  ${e.mode}  ${e.path}`)
+      if (e.errorBody) console.log(`      ↳ ${e.errorBody}`)
     }
     if (errors.length > 20) console.log(`  ... and ${errors.length - 20} more`)
   }
@@ -212,7 +226,12 @@ async function main() {
           p50: allTimes.length ? percentile(allTimes, 50) : 0,
           p99: allTimes.length ? percentile(allTimes, 99) : 0,
           max: allTimes.length ? allTimes[allTimes.length - 1] : 0,
-          errors: errors.map((e) => ({ status: e.status, mode: e.mode, path: e.path })),
+          errors: errors.map((e) => ({
+            status: e.status,
+            mode: e.mode,
+            path: e.path,
+            errorBody: e.errorBody,
+          })),
           slow: slow.map((s) => ({ timeMs: s.timeMs, mode: s.mode, path: s.path })),
         },
         null,

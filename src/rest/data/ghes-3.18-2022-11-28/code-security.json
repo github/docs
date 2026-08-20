@@ -133,7 +133,10 @@
                     ]
                   },
                   "description": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -640,7 +643,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -1012,7 +1018,10 @@
                         ]
                       },
                       "description": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -1336,7 +1345,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -1840,7 +1852,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -2334,8 +2349,8 @@
                   },
                   "code_scanning_delegated_alert_dismissal": "disabled",
                   "secret_scanning": "enabled",
-                  "secret_scanning_push_protection": "disabled",
-                  "secret_scanning_delegated_bypass": "disabled",
+                  "secret_scanning_push_protection": "enabled",
+                  "secret_scanning_delegated_bypass": "enabled",
                   "secret_scanning_validity_checks": "disabled",
                   "secret_scanning_non_provider_patterns": "disabled",
                   "enforcement": "enforced",
@@ -2381,7 +2396,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -3219,11 +3237,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "global",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -3283,16 +3301,7 @@
                 "code_scanning_default_setup": "enabled",
                 "secret_scanning": "enabled",
                 "secret_scanning_push_protection": "enabled",
-                "secret_scanning_delegated_bypass": "enabled",
-                "secret_scanning_delegated_bypass_options": {
-                  "reviewers": [
-                    {
-                      "security_configuration_id": 17,
-                      "reviewer_id": 5678,
-                      "reviewer_type": "TEAM"
-                    }
-                  ]
-                },
+                "secret_scanning_delegated_bypass": "disabled",
                 "secret_scanning_validity_checks": "enabled",
                 "enforcement": "enforced",
                 "url": "https://api.github.com/orgs/octo-org/code-security/configurations/17",
@@ -3345,7 +3354,10 @@
                     ]
                   },
                   "description": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -3879,8 +3891,8 @@
               },
               "code_scanning_delegated_alert_dismissal": "disabled",
               "secret_scanning": "enabled",
-              "secret_scanning_push_protection": "disabled",
-              "secret_scanning_delegated_bypass": "disabled",
+              "secret_scanning_push_protection": "enabled",
+              "secret_scanning_delegated_bypass": "enabled",
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "enforcement": "enforced",
@@ -3911,7 +3923,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -4275,7 +4290,10 @@
                         ]
                       },
                       "description": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -4550,7 +4568,8 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository IDs to detach from configurations.</p>"
+          "description": "<p>An array of repository IDs to detach from configurations.</p>",
+          "isRequired": true
         }
       ],
       "descriptionHTML": "<p>Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
@@ -4669,8 +4688,8 @@
               },
               "code_scanning_delegated_alert_dismissal": "disabled",
               "secret_scanning": "enabled",
-              "secret_scanning_push_protection": "disabled",
-              "secret_scanning_delegated_bypass": "disabled",
+              "secret_scanning_push_protection": "enabled",
+              "secret_scanning_delegated_bypass": "enabled",
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "enforcement": "enforced",
@@ -4701,7 +4720,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -5262,7 +5284,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -5756,8 +5781,8 @@
                   },
                   "code_scanning_delegated_alert_dismissal": "disabled",
                   "secret_scanning": "enabled",
-                  "secret_scanning_push_protection": "disabled",
-                  "secret_scanning_delegated_bypass": "disabled",
+                  "secret_scanning_push_protection": "enabled",
+                  "secret_scanning_delegated_bypass": "enabled",
                   "secret_scanning_validity_checks": "disabled",
                   "secret_scanning_non_provider_patterns": "disabled",
                   "enforcement": "enforced",
@@ -5803,7 +5828,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -6734,7 +6762,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {

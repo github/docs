@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'fs/promises'
+import { readFile, writeFile, readdir, unlink } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 import { mkdirp } from 'mkdirp'
@@ -8,9 +8,9 @@ import { allVersions } from '@/versions/lib/all-versions'
 import { createOperations, processOperations } from './get-operations'
 import { getProgAccessData } from '@/github-apps/scripts/sync'
 import { REST_DATA_DIR } from '../../lib/index'
+import type { OpenApiSchema } from './openapi-types'
+import type Operation from './operation'
 
-type Schema = Record<string, any>
-type Operation = { category: string; subcategory: string; [key: string]: any }
 type OperationsByCategory = Record<string, Record<string, Operation[]>>
 
 // All of the schema releases that we store in allVersions
@@ -24,14 +24,20 @@ export async function syncRestData(
   sourceDirectory: string,
   restSchemas: string[],
   progAccessSource: string,
-  injectIntoSchema?: (schema: Schema, schemaName: string) => Schema,
+  injectIntoSchema?: (
+    schema: OpenApiSchema,
+    schemaName: string,
+  ) => OpenApiSchema | Promise<OpenApiSchema>,
 ): Promise<void> {
   const writeTasks: Promise<void>[] = []
+  // Track which category files were written per version directory so we
+  // can remove stale files that no longer appear in the upstream schema.
+  const writtenFilesByVersion = new Map<string, Set<string>>()
 
   await Promise.all(
     restSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
-      let schema = JSON.parse(await readFile(file, 'utf-8')) as Schema
+      let schema = JSON.parse(await readFile(file, 'utf-8')) as OpenApiSchema
 
       if (injectIntoSchema) {
         const injectedSchema = await injectIntoSchema(schema, schemaName)
@@ -69,8 +75,14 @@ export async function syncRestData(
       if (!existsSync(targetDirectoryPath)) {
         await mkdirp(targetDirectoryPath)
       }
+
+      const writtenFiles = new Set<string>()
+      writtenFilesByVersion.set(targetDirectoryPath, writtenFiles)
+
       for (const [category, categoryData] of Object.entries(formattedOperations)) {
-        const categoryPath = path.join(targetDirectoryPath, `${category}.json`)
+        const categoryFilename = `${category}.json`
+        const categoryPath = path.join(targetDirectoryPath, categoryFilename)
+        writtenFiles.add(categoryFilename)
         writeTasks.push(
           (async () => {
             await writeFile(categoryPath, JSON.stringify(categoryData, null, 2))
@@ -82,8 +94,30 @@ export async function syncRestData(
   )
 
   await Promise.all(writeTasks)
+  await removeStaleRestDataFiles(writtenFilesByVersion)
   await updateRestFiles()
   await updateRestConfigData(restSchemas)
+}
+
+// After syncing, remove any .json category files on disk that were not
+// written during this run. This handles the case where an entire API
+// category is removed upstream — without this cleanup, stale data files
+// would persist and continue to generate docs pages.
+export async function removeStaleRestDataFiles(
+  writtenFilesByVersion: Map<string, Set<string>>,
+): Promise<void> {
+  for (const [versionDir, writtenFiles] of writtenFilesByVersion) {
+    if (!existsSync(versionDir)) continue
+
+    const filesOnDisk = (await readdir(versionDir)).filter((f) => f.endsWith('.json'))
+    for (const file of filesOnDisk) {
+      if (!writtenFiles.has(file)) {
+        const filePath = path.join(versionDir, file)
+        await unlink(filePath)
+        console.log(`🗑️  Removed stale data file ${filePath}`)
+      }
+    }
+  }
 }
 
 async function formatRestData(operations: Operation[]): Promise<OperationsByCategory> {
@@ -130,9 +164,9 @@ async function updateRestConfigData(schemas: string[]): Promise<void> {
   const restConfigFilename = 'src/rest/lib/config.json'
   const restConfigData = JSON.parse(await readFile(restConfigFilename, 'utf8')) as Record<
     string,
-    any
+    unknown
   >
-  const restApiVersionData = restConfigData['api-versions'] || {}
+  const restApiVersionData = (restConfigData['api-versions'] as Record<string, string[]>) || {}
 
   // Phase 1: Collect the dates present in the incoming schemas, keyed by
   // OpenAPI version name. Only calendar-date schemas contribute — those that

@@ -128,7 +128,15 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
   }
 
   // Write the file back
-  fs.writeFileSync(filePath, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
+  fs.writeFileSync(
+    filePath,
+    frontmatter.stringify(
+      content,
+      data,
+      // lineWidth is a js-yaml option passed through gray-matter, not in gray-matter's type definitions
+      { lineWidth: -1 } as unknown as Parameters<typeof frontmatter.stringify>[2],
+    ),
+  )
 
   if (scriptOptions.verbose) {
     console.log(`\n${relativePath}`)

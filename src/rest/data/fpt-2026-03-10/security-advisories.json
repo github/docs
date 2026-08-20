@@ -22,12 +22,12 @@
           "description": "<p>If specified, only advisories of this type will be returned. By default, a request with no other parameters defined will only return reviewed advisories that are not malware.</p>",
           "schema": {
             "type": "string",
+            "default": "reviewed",
             "enum": [
               "reviewed",
               "malware",
               "unreviewed"
-            ],
-            "default": "reviewed"
+            ]
           }
         },
         {
@@ -44,7 +44,6 @@
           "description": "<p>If specified, only advisories for these ecosystems will be returned.</p>",
           "schema": {
             "type": "string",
-            "description": "The package's language or package management ecosystem.",
             "enum": [
               "rubygems",
               "npm",
@@ -81,19 +80,7 @@
           "name": "cwes",
           "in": "query",
           "description": "<p>If specified, only advisories with these Common Weakness Enumerations (CWEs) will be returned.</p>\n<p>Example: <code>cwes=79,284,22</code> or <code>cwes[]=79&#x26;cwes[]=284&#x26;cwes[]=22</code></p>",
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "is_withdrawn",
@@ -107,20 +94,7 @@
           "name": "affects",
           "in": "query",
           "description": "<p>If specified, only return advisories that affect any of <code>package</code> or <code>package@version</code>. A maximum of 1000 packages can be specified.\nIf the query parameter causes the URL to exceed the maximum URL length supported by your client, you must specify fewer packages.</p>\n<p>Example: <code>affects=package1,package2@1.0.0,package3@2.0.0</code> or <code>affects[]=package1&#x26;affects[]=package2@1.0.0</code></p>",
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 1000,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "published",
@@ -187,11 +161,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -200,8 +174,6 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 100,
             "default": 30
           }
         },
@@ -212,13 +184,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "published",
             "enum": [
               "updated",
               "published",
               "epss_percentage",
               "epss_percentile"
-            ],
-            "default": "published"
+            ]
           }
         }
       ],
@@ -952,10 +924,6 @@
                   ]
                 }
               ],
-              "cvss": {
-                "vector_string": "CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:C/C:H/I:H/A:H",
-                "score": 7.6
-              },
               "cvss_severities": {
                 "cvss_v3": {
                   "vector_string": "CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:C/C:H/I:H/A:H",
@@ -1565,11 +1533,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -1579,12 +1547,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "published"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -1612,8 +1580,6 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 100,
             "default": 30
           }
         },
@@ -3058,6 +3024,15 @@
                             "organization"
                           ]
                         },
+                        "access_source": {
+                          "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                          "type": "string",
+                          "enum": [
+                            "direct",
+                            "organization",
+                            "enterprise"
+                          ]
+                        },
                         "organization_id": {
                           "type": "integer",
                           "description": "Unique identifier of the organization to which this team belongs"
@@ -3646,11 +3621,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -3660,12 +3635,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "published"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -3693,8 +3668,6 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 100,
             "default": 30
           }
         },
@@ -5140,6 +5113,15 @@
                             "organization"
                           ]
                         },
+                        "access_source": {
+                          "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                          "type": "string",
+                          "enum": [
+                            "direct",
+                            "organization",
+                            "enterprise"
+                          ]
+                        },
                         "organization_id": {
                           "type": "integer",
                           "description": "Unique identifier of the organization to which this team belongs"
@@ -5996,10 +5978,6 @@
                   ]
                 }
               ],
-              "cvss": {
-                "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                "score": 9.8
-              },
               "cvss_severities": {
                 "cvss_v3": {
                   "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
@@ -7126,6 +7104,15 @@
                           "organization"
                         ]
                       },
+                      "access_source": {
+                        "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                        "type": "string",
+                        "enum": [
+                          "direct",
+                          "organization",
+                          "enterprise"
+                        ]
+                      },
                       "organization_id": {
                         "type": "integer",
                         "description": "Unique identifier of the organization to which this team belongs"
@@ -7907,7 +7894,6 @@
                   ]
                 }
               ],
-              "cvss": null,
               "cvss_severities": {
                 "cvss_v3": null,
                 "cvss_v4": null
@@ -8962,6 +8948,15 @@
                           "organization"
                         ]
                       },
+                      "access_source": {
+                        "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                        "type": "string",
+                        "enum": [
+                          "direct",
+                          "organization",
+                          "enterprise"
+                        ]
+                      },
                       "organization_id": {
                         "type": "integer",
                         "description": "Unique identifier of the organization to which this team belongs"
@@ -9662,10 +9657,6 @@
                   ]
                 }
               ],
-              "cvss": {
-                "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                "score": 9.8
-              },
               "cvss_severities": {
                 "cvss_v3": {
                   "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
@@ -10790,6 +10781,15 @@
                         "enum": [
                           "enterprise",
                           "organization"
+                        ]
+                      },
+                      "access_source": {
+                        "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                        "type": "string",
+                        "enum": [
+                          "direct",
+                          "organization",
+                          "enterprise"
                         ]
                       },
                       "organization_id": {
@@ -11638,10 +11638,6 @@
                   ]
                 }
               ],
-              "cvss": {
-                "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                "score": 9.8
-              },
               "cvss_severities": {
                 "cvss_v3": {
                   "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
@@ -12766,6 +12762,15 @@
                         "enum": [
                           "enterprise",
                           "organization"
+                        ]
+                      },
+                      "access_source": {
+                        "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                        "type": "string",
+                        "enum": [
+                          "direct",
+                          "organization",
+                          "enterprise"
                         ]
                       },
                       "organization_id": {
@@ -13407,10 +13412,6 @@
                   ]
                 }
               ],
-              "cvss": {
-                "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                "score": 9.8
-              },
               "cvss_severities": {
                 "cvss_v3": {
                   "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
@@ -14535,6 +14536,15 @@
                         "enum": [
                           "enterprise",
                           "organization"
+                        ]
+                      },
+                      "access_source": {
+                        "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                        "type": "string",
+                        "enum": [
+                          "direct",
+                          "organization",
+                          "enterprise"
                         ]
                       },
                       "organization_id": {
@@ -15343,7 +15353,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "archived": false,
               "disabled": false,
               "visibility": "public",
@@ -18570,6 +18579,15 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             }
                           }

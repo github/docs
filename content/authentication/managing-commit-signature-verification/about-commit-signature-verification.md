@@ -43,8 +43,6 @@ Signing commits differs from signing off on a commit. For more information about
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.16 %}
-
 ### Persistent commit signature verification
 
 Regardless of the signature choice - GPG, SSH, or S/MIME - once a commit signature is verified, it remains verified within its repository's network. See [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).
@@ -69,8 +67,6 @@ Persistent commit signature verification reflects the verified state of a commit
 
 The verification record is persistent across the repository network, meaning that if the same commit is pushed again to the same repository or to any of its forks, the existing verification record is reused. This allows {% data variables.product.github %} to maintain a consistent verified status across related repositories without re-verifying the commit each time it appears within the network. This persistence reinforces a unified and reliable view of commit authenticity across all instances of the commit within the repository network.
 
-{% endif %}
-
 ### Signature verification for rebase and merge
 
 {% data reusables.pull_requests.rebase_and_merge_verification %}
@@ -91,7 +87,7 @@ Repository administrators can enforce required commit signing on a branch to blo
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-{% ifversion ghes %}If a site administrator has enabled web commit signing, {% data variables.product.github %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.github %} will have a verified status. You can verify the signature locally using the public key available at `https://HOSTNAME/web-flow.gpg`. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing).
+{% ifversion ghes %}If a site administrator has enabled web commit signing, {% data variables.product.github %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.github %} will have a verified status. You can verify the signature locally using the public key available at `https://HOSTNAME/web-flow.gpg`. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-web-commit-signing).
 {% else %}{% data variables.product.prodname_dotcom %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.prodname_dotcom %} will have a verified status. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg.
 
 You can optionally choose to have {% data variables.product.prodname_dotcom %} GPG sign commits you make in {% data variables.product.prodname_github_codespaces %}. For more information about enabling GPG verification for your codespaces, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces).{% endif %}
