@@ -106,6 +106,8 @@ When someone in your enterprise uses {% data variables.product.prodname_copilot_
 > [!NOTE]
 > For additional (metered) usage to occur, the "{% data variables.product.prodname_ai_credit_singular %} paid usage" policy must be enabled in your enterprise or organization settings. If this policy is disabled, usage is blocked when the shared pool is exhausted, regardless of your budget configuration.
 
+![Flowchart of AI credit budget checks: individual budget, then shared pool, then metered charge against the most specific budget.](/assets/images/help/billing/request-budget-flow.png)
+
 Each request for an {% data variables.product.prodname_ai_credit_singular %}-consuming feature goes through these checks:
 
 1. **User-level budget check.** The system first checks whether the user has exceeded their user-level budget. When a user has more than one type of user-level budget, the most specific one applies: an individual budget if set, otherwise the budget for the user's cost center, otherwise the universal budget. If the applicable budget is exceeded, the request is blocked immediately. ULBs are always a hard stop, and no other budget can override or supplement them. If no user-level budget is set, the request continues.
