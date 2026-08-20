@@ -22,10 +22,6 @@ category:
 
 {% data variables.copilot.copilot_autofix_short %} suggestions are provided for findings where possible.
 
-### Scan information
-
-Each {% data variables.product.prodname_codeql %} analysis will use {% data variables.product.prodname_actions %} minutes and can be seen on the **Actions** tab of the repository. These runs use the workflow name {% data variables.product.prodname_codeql %}, the same name {% data variables.product.prodname_code_scanning %} uses, so you can't reliably tell {% data variables.product.prodname_code_quality_short %} and {% data variables.product.prodname_code_scanning %} runs apart by workflow name. Identify {% data variables.product.prodname_code_quality_short %} runs by their {% data variables.product.prodname_actions %} label instead, for example "Code Quality: push on main"
-
 ### Query lists for supported languages
 
 Each {% data variables.product.prodname_code_quality_short %} rule is written as a query in {% data variables.product.prodname_codeql %} and then run using {% data variables.product.prodname_actions %}.
@@ -43,9 +39,11 @@ For more information about the {% data variables.product.prodname_codeql %} proj
 
 ## Workflow used for code quality analysis
 
-You can see all the workflow runs for {% data variables.product.prodname_code_quality_short %} on the **Actions** tab for your repository. You can identify {% data variables.product.prodname_code_quality_short %} runs by their {% data variables.product.prodname_actions %} label, for example "{% data variables.product.prodname_code_quality_short %}: push on main"
+Each {% data variables.product.prodname_codeql %} analysis will use {% data variables.product.prodname_actions %} minutes. You can see all workflow runs for {% data variables.product.prodname_code_quality_short %} on the repository's **Actions** tab. 
 
-By default, the {% data variables.code-quality.workflow_name_actions %} workflow runs on standard {% data variables.product.github %} runners but you can configure {% data variables.product.prodname_code_quality_short %} to use runners with a specific label. These may be hosted by {% data variables.product.github %} or self-hosted.
+{% data variables.product.prodname_code_quality_short %} and {% data variables.product.prodname_code_scanning %} runs both use the workflow name {% data variables.product.prodname_codeql %}. You can identify {% data variables.product.prodname_code_quality_short %} runs by the actor `{% data variables.code-quality.workflow_actor %}` or by their run name, for example, "{% data variables.product.prodname_code_quality_short %}: push on main."
+
+By default, the {% data variables.product.prodname_code_quality_short %} workflow runs on standard {% data variables.product.github %} runners but you can configure {% data variables.product.prodname_code_quality_short %} to use runners with a specific label. These may be hosted by {% data variables.product.github %} or self-hosted.
 
 If your organization has configured caching of private registries, these will be available for code quality analysis to use to resolve dependencies.
 

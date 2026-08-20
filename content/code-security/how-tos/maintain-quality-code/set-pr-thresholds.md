@@ -35,7 +35,7 @@ You can enforce these thresholds at the **repository** level, or at the **organi
 
 ## Confirming {% data variables.product.prodname_code_quality_short %} runs successfully on pull requests
 
-Before you add or update a ruleset to include a threshold for {% data variables.product.prodname_code_quality_short %}, confirm that the {% data variables.code-quality.workflow_name_actions %} workflow is running and reporting results back to pull requests. Otherwise, the ruleset could block the merging of **all** pull requests.
+Before you add or update a ruleset to include a threshold for {% data variables.product.prodname_code_quality_short %}, confirm that the {% data variables.product.prodname_code_quality_short %} workflow is running and reporting results back to pull requests. Otherwise, the ruleset could block the merging of **all** pull requests.
 
 1. Open a recent pull request and scroll to the "Checks" summary at the bottom of the pull request.
 1. Confirm that the "{% data variables.code-quality.check_status_name %}" check ran successfully and reported its status.
