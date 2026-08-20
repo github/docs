@@ -13,14 +13,22 @@ contentType: how-tos
 
 ## About the {% data variables.product.github %} integration for Slack
 
-The {% data variables.product.github %} integration for Slack gives you and your teams full visibility into your {% data variables.product.github %} projects directly in Slack channels. You can generate ideas, triage issues and collaborate with other teams to move projects forward, all without leaving Slack.
+The {% data variables.product.github %} integration for Slack gives you and your teams full visibility into your {% data variables.product.github %} projects directly in Slack channels. You can {% ifversion copilot %}work with {% data variables.copilot.copilot_cloud_agent %} to research, plan and triage in conversations, create artifacts such as issues and pull requests, start and steer agent sessions,{% else %}triage issues, collaborate on pull requests, {% endif %} and keep track of changes without leaving Slack.
 
 With the {% data variables.product.github %} integration for Slack, you can:
 
 * Get **{% data variables.product.github %} notifications** in Slack channels.
 * Use **slash commands** to take actions on {% data variables.product.github %}.
 * Give your team **context** when sharing links to {% data variables.product.github %} activities and properties.
-* Initiate a {% data variables.copilot.copilot_cloud_agent %} session from Slack, using the context of a Slack thread.
+
+{% ifversion copilot %}
+
+* **Initiate and steer {% data variables.copilot.copilot_cloud_agent %} sessions** in a conversation. Teammates can collaborate with each other and the agent, add context, correct assumptions, continue an agent task, and review the resulting plan, issues, pull requests and other artifacts.
+
+   > [!NOTE]
+   > * This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+{% endif %}
 
 {% data reusables.integrations.github-slack-permissions %}
 
@@ -30,7 +38,9 @@ To use the {% data variables.product.github %} integration for Slack, you need:
 * A {% data variables.product.github %} account.
 * A Slack workspace where you have permission to install apps.
 
-{% ifversion not ghes %}
+{% ifversion copilot %}
+
+{% data reusables.copilot.cloud-agent.cloud-sandboxes-prerequisite-slack %}
 
 ## Installing the {% data variables.product.github %} integration for Slack in a single workspace
 
@@ -41,6 +51,9 @@ The {% data variables.product.github %} integration for Slack only needs to be i
 1. If you're not already signed in to Slack, you'll be prompted to do so.
 1. Follow the prompts on screen to allow {% data variables.product.github %} access to your Slack workspace.
 1. Once the integration is installed, you can invite the {% data variables.product.github %} app to specific channels by typing `/invite @github` in the desired channel.
+1. Also once the integration is installed, to work with {% data variables.copilot.copilot_cloud_agent %}, @mention the app by typing `@{% data variables.product.github %}` in a Slack message or channel. Then, if prompted, connect your {% data variables.product.github %} account.
+
+To see what else you can do with {% data variables.product.prodname_copilot_short %}, in the thread, @mention the app by typing `@{% data variables.product.github %} help`.
 
 ## Installing the {% data variables.product.github %} integration for Slack on the Slack Enterprise Grid
 
@@ -78,3 +91,9 @@ The {% data variables.product.github %} app in the Slack Marketplace cannot be u
 ## Further reading
 
 * [AUTOTITLE](/integrations/how-tos/slack/use-github-in-slack) - Learn how to use the {% data variables.product.github %} integration for Slack.
+
+{% ifversion copilot %}
+
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack) - Learn about {% data variables.copilot.copilot_cloud_agent %} with Slack.
+
+{% endif %}

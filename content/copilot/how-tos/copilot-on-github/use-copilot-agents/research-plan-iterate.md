@@ -23,7 +23,7 @@ redirect_from:
 
 Sessions do not create pull requests automatically. To create one immediately, include that in your prompt—for example, "Create a pull request to ...".
 
-> [!NOTE] These capabilities are only available with {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}, and in {% data variables.release-phases.public_preview %} for the Teams integration. Other {% data variables.copilot.copilot_cloud_agent_short_cap_c %} integrations (such as Azure Boards, JIRA, Linear, or Slack) only support creating a pull request directly.
+> [!NOTE] These capabilities are only available with {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}, and in {% data variables.release-phases.public_preview %} for the Teams and Slack integrations. Other {% data variables.copilot.copilot_cloud_agent_short_cap_c %} integrations (such as Azure Boards, JIRA, or Linear) only support creating a pull request directly.
 
 ## Perform deep research
 

@@ -22,7 +22,7 @@ For more information about {% data variables.copilot.copilot_cloud_agent %}, see
 Currently, {% data variables.copilot.copilot_cloud_agent %} supports integrations with the following tools:
 
 * **Microsoft Teams**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams) - Learn how to set up the Microsoft Teams integration to collaborate with {% data variables.copilot.copilot_cloud_agent %} directly in your Teams messages and channels.
-* **Slack**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack) - Learn how to set up the Slack integration to trigger {% data variables.copilot.copilot_cloud_agent %} directly from your Slack workspace.
+* **Slack**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack) - Learn how to set up the Slack integration to collaborate with {% data variables.copilot.copilot_cloud_agent %} directly in your Slack workspace.
 * **Linear**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-linear) - Learn how to set up the Linear integration to trigger {% data variables.copilot.copilot_cloud_agent %} directly from your Linear issues.
 * **Azure Boards**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-azure-boards) - Learn how to set up the Azure Boards integration to trigger {% data variables.copilot.copilot_cloud_agent %} directly from your Azure Boards work items.
 * **Jira**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-jira) - Learn how to set up the Jira integration to trigger {% data variables.copilot.copilot_cloud_agent %} directly from your Jira workspace.
