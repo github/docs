@@ -1543,7 +1543,7 @@
         {
           "type": "string",
           "name": "message",
-          "description": "<p>A message to include with the review. Has a maximum character length of 2048.</p>",
+          "description": "<p>A message to include with the review.</p>",
           "isRequired": true
         }
       ],

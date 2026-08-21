@@ -8374,6 +8374,15 @@
         "access": "read"
       },
       {
+        "category": "activity",
+        "slug": "get-stargazer-count",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stargazers/count",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
         "category": "metrics",
         "slug": "get-the-weekly-commit-activity",
         "subcategory": "statistics",
