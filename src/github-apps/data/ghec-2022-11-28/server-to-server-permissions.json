@@ -531,6 +531,17 @@
     "permissions": [
       {
         "category": "billing",
+        "slug": "get-billing-ai-credit-usage-report-for-an-enterprise",
+        "subcategory": "usage",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/ai_credit/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
         "slug": "get-all-budgets",
         "subcategory": "budgets",
         "verb": "get",
@@ -674,10 +685,65 @@
       },
       {
         "category": "billing",
+        "slug": "get-billing-premium-request-usage-report-for-an-enterprise",
+        "subcategory": "usage",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/premium_request/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "list-usage-report-exports",
+        "subcategory": "usage-reports",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/reports",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "billing",
+        "slug": "create-a-usage-report-export",
+        "subcategory": "usage-reports",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/reports",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "billing",
+        "slug": "get-a-usage-report-export",
+        "subcategory": "usage-reports",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/reports/{report_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "billing",
         "slug": "get-billing-usage-report-for-an-enterprise",
         "subcategory": "usage",
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/settings/billing/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-summary-for-an-enterprise",
+        "subcategory": "usage",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/usage/summary",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
