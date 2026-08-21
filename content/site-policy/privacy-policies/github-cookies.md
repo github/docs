@@ -36,6 +36,7 @@ GitHub | `__Host-user_session_same_site` | This cookie is set to ensure that bro
 GitHub | `logged_in` | This cookie is used to signal to us that the user is already logged in. | One year
 GitHub | `marketplace_repository_ids` | This cookie is used for the marketplace installation flow. | One hour
 GitHub | `marketplace_suggested_target_id` | This cookie is used for the marketplace installation flow. | One hour
+GitHub | `notifications_web_disabled` | This cookie caches whether web notifications are disabled, so the global navigation notifications indicator can be rendered without an additional lookup. | One month
 GitHub | `_octo` | This cookie is used for session management including caching of dynamic content, conditional feature access, support request metadata, and first party analytics. | One year
 GitHub | `org_transform_notice` | This cookie is used to provide notice during organization transforms. | One hour
 GitHub | `private_mode_user_session` | This cookie is used for Enterprise authentication requests. | Two weeks
