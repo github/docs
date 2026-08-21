@@ -37,6 +37,7 @@ docsTeamMetrics:
 | `--host HOST`         | {% data variables.product.github %} host URL (default: `https://github.com`). Use this to authenticate with a {% data variables.product.prodname_ghe_cloud %} instance that uses data residency (for example, `https://example.ghe.com`). |
 | `--web-flow`          | Force the browser-based (web) authentication flow, which is the default on a local terminal. |
 | `--device-code`       | Force the OAuth device code flow, which is the default on a remote terminal or in CI. |
+| `--with-token`        | Read an authentication token from standard input instead of starting an OAuth flow. Prompts without echoing input when standard input is a terminal. Conflicts with `--web-flow` and `--device-code`. |
 
 On a local terminal, or a non-TTY local process that can still reach a browser (for example, a desktop OS, or Linux with a display or browser signal), the default authentication mode is a browser-based web flow: the CLI opens your browser to authorize, then captures the result on a local loopback callback. On a remote terminal (for example, SSH, {% data variables.product.prodname_github_codespaces %}, or a dev container) or in CI, the CLI defaults to the OAuth device code flow instead, since the browser typically can't reach the loopback port. Use `--web-flow` or `--device-code` to override the automatically selected flow.
 
@@ -60,6 +61,9 @@ copilot login --device-code
 
 # Force the browser (web) flow, for example on a local terminal
 copilot login --web-flow
+
+# Read a token from standard input, bypassing the OAuth flow entirely
+copilot login --with-token < mytoken.txt
 
 # Use a fine-grained PAT via environment variable
 COPILOT_GITHUB_TOKEN=github_pat_... copilot
