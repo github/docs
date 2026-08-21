@@ -615,7 +615,7 @@ Package manager | YAML value      | Supported versions |
 | {% endif %} |
 | Swift   | `swift`      | v5, v6  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.15.x  |
-| uv           | `uv`             | v0 |
+| uv           | `uv`             | v0.11 |
 | {% ifversion dependabot-vcpkg-support %} |
 | vcpkg       | `vcpkg`          | Not applicable   |
 | {% endif %} |
