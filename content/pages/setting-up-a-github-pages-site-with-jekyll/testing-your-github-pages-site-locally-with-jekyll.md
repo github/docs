@@ -54,7 +54,7 @@ Before you can use Jekyll to test a site, you must:
    >
    >   To fix the error, try running `bundle add webrick`, then re-running `bundle exec jekyll serve`.
    >
-   >   You might get other errors (related to missing gems and methods) if you've installed Ruby 3.2 or later. It is recommended to install Ruby 3.1.x or earlier instead due to compatibility issues with the `github-pages` gem.
+   >   If you've installed Ruby 3.2 or later, you may see other errors related to missing gems and methods, due to compatibility issues with the `github-pages` gem. In this event, you should install Ruby 3.1.x or earlier instead.
    >
    > * If your `_config.yml` file's `baseurl` field contains your GitHub repository's link, you can use the following command when building locally to ignore that value and serve the site on `localhost:4000/`:
    >
