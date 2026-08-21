@@ -25,7 +25,7 @@ If you've found something in the documentation content, or something about the d
 
 ## Pull requests
 
-A [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) is a way to suggest changes in our repository. When we merge those changes, they're deployed to the live site within 24 hours.
+A [pull request](/pull-requests/reference/pull-requests) is a way to suggest changes in our repository. When we merge those changes, they're deployed to the live site within 24 hours.
 
 We cannot accept contributions to the [REST API reference documentation](/rest). If you spot an inaccuracy in the REST API reference documentation, open an issue in the [`rest-api-description`](https://github.com/github/rest-api-description/issues/new?template=schema-inaccuracy.md) repository.
 

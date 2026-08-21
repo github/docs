@@ -125,7 +125,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git push -u origin main
    ```
 
-   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see [AUTOTITLE](/pull-requests/reference/branches#about-the-default-branch).
 
 {% endmac %}
 
@@ -158,7 +158,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git push origin main
    ```
 
-   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see [AUTOTITLE](/pull-requests/reference/branches#about-the-default-branch).
 
 {% endwindows %}
 
@@ -191,7 +191,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git push origin main
    ```
 
-   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see [AUTOTITLE](/pull-requests/reference/branches#about-the-default-branch).
 
 {% endlinux %}
 

@@ -891,7 +891,7 @@ Define a specific branch to check for version updates and to target pull request
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
-* {% data variables.product.prodname_dependabot %} uses the default branch for the repository, see [About the default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
+* {% data variables.product.prodname_dependabot %} uses the default branch for the repository, see [About the default branch](/pull-requests/reference/branches#about-the-default-branch).
 
 When `target-branch` is defined:
 

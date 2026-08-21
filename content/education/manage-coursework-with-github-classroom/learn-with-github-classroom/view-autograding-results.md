@@ -29,4 +29,4 @@ You can click a specific test run to review log output, like compilation errors 
 
 ## Further reading
 
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)
+* [AUTOTITLE](/pull-requests/reference/status-checks)

@@ -114,7 +114,7 @@ For example:
 
    ```
 
-If you don't already have access to {% data variables.copilot.copilot_chat_short %} through your organization{% ifversion ghec %} or enterprise{% endif %}, you can sign up to {% data variables.copilot.copilot_free %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/accessing-github-copilot-free).
+If you don't already have access to {% data variables.copilot.copilot_chat_short %} through your organization{% ifversion ghec %} or enterprise{% endif %}, you can sign up to {% data variables.copilot.copilot_free %}. See [AUTOTITLE](/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan).
 
 {% endif %}
 

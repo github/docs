@@ -33,7 +33,7 @@ You can use {% data variables.product.prodname_discussions %} to discuss big pic
 
 You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, you might use organization discussions to discuss topics that aren't specific to a single repository in your organization.
 
-Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues). Pull requests allow you to comment directly on proposed changes. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
+Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues). Pull requests allow you to comment directly on proposed changes. For more information, see [AUTOTITLE](/pull-requests/reference/pull-requests) and [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/commenting-on-a-pull-request).
 
 ## Following contributing guidelines
 

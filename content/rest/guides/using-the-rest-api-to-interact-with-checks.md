@@ -70,7 +70,7 @@ As soon as you receive the [`check_suite`](/webhooks/webhook-events-and-payloads
 
 Annotations add information from your check run to specific lines of code. Each annotation includes an `annotation_level` property, which can be `notice`, `warning`, or `failure`. The annotation also includes `path`, `start_line`, and `end_line` to specify what location the annotation refers to. The annotation includes a `message` to describe the result. For more information, see [AUTOTITLE](/rest/checks/runs).
 
-A check can also be manually re-run in the GitHub UI. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks) for more details. When this occurs, the {% data variables.product.prodname_github_app %} that created the check run will receive the [`check_run`](/webhooks/webhook-events-and-payloads#check_run) webhook requesting a new check run. If you create a check run without creating a check suite, {% data variables.product.github %} creates the check suite for you automatically.
+A check can also be manually re-run in the GitHub UI. See [AUTOTITLE](/pull-requests/reference/status-checks#checks) for more details. When this occurs, the {% data variables.product.prodname_github_app %} that created the check run will receive the [`check_run`](/webhooks/webhook-events-and-payloads#check_run) webhook requesting a new check run. If you create a check run without creating a check suite, {% data variables.product.github %} creates the check suite for you automatically.
 
 {% data reusables.apps.checks-availability %}
 

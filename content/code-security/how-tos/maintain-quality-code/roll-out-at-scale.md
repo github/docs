@@ -17,7 +17,7 @@ Turning {% data variables.product.prodname_code_quality_short %} on everywhere a
 
 ## Prerequisites
 
-* An enterprise owner has allowed {% data variables.product.prodname_code_quality_short %} in your enterprise. See [AUTOTITLE](/code-security/code-quality/how-tos/allow-in-enterprise?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-roll-out-at-scale-enable-cq).
+* An enterprise owner has allowed {% data variables.product.prodname_code_quality_short %} in your enterprise. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-roll-out-at-scale-enable-cq).
 * You're an organization owner, so you can enable {% data variables.product.prodname_code_quality_short %} and configure rulesets at the organization level.
 
 ## Plan your pilot
