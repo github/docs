@@ -32,7 +32,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/5765
         - |
-          Site administrators can enable GitHub Connect to resolve open source actions from GitHub.com, even when their GHES instance is connected to a data-resident enterprise on GHE.com. This enables hybrid deployment scenarios during migration to GHE.com. This feature is in public preview and subject to change.
+          Site administrators can enable GitHub Connect to resolve open source actions from GitHub.com, even when their GHES instance is connected to a data-resident enterprise on GHE.com. This enables hybrid deployment scenarios during migration to GHE.com. This feature is in public preview and subject to change. **Note: This feature was temporarily disabled in 3.20.1 and is generally available from 3.20.6.** [Updated: 2026-08-21]
 
     - heading: Code scanning
       notes:
