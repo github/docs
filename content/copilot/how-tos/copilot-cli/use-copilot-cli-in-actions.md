@@ -55,7 +55,7 @@ jobs:
       - name: Run Copilot
         run: copilot --yolo -p "Summarize the changes in this commit"
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: {% raw %}${{ github.token }}{% endraw %}
 ```
 
 Key details about this example:
