@@ -1,10 +1,13 @@
 date: '2026-08-05'
 sections:
+  features:
+    - |
+      Site administrators can enable GitHub Connect to resolve open source actions from GitHub.com, even when their GHES instance is connected to a data-resident enterprise on GHE.com. This feature is now generally available. See [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom). [Updated: 2026-08-21]
   security_fixes:
     - |
       **HIGH**: A path traversal vulnerability allowed an unauthenticated attacker to delete the user storage directory on the GitHub Enterprise Server instance, including Git LFS objects, release assets, attachments, and avatars, via the unsanitized X-GitHub-Request-Id request header. Exploitation required network access to the instance and worked when private mode was enabled. GitHub has requested CVE ID [CVE-2026-17556](https://www.cve.org/cverecord?id=CVE-2026-17556) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). 
     - |
-      Some internal, auto-generated secrets were not redacted when users compiled a support bundle. 
+      Some internal, auto-generated secrets were not redacted when users compiled a support bundle.
   bugs:
     - |
       On a {% data variables.product.prodname_ghe_server %} cluster upgrade, if all Consul server nodes restarted concurrently, the cluster could lose its Nomad leader and fail to recover, causing the upgrade to loop and fail rather than complete. 
