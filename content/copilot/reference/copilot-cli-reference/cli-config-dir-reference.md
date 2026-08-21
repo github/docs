@@ -651,6 +651,9 @@ Only the following keys are supported in MDM managed settings.
 > [!NOTE]
 > Set `permissions.disableBypassPermissionsMode` to `"disable"` in MDM managed settings to enforce the restriction at the device level. Account switches cannot override this policy. Set it to `"allow-auto-only"` to block full allow-all escalation while still permitting `/permissions assisted` (LLM-assisted permission approval). See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#restricting-the---allow-all-options).
 
+> [!NOTE]
+> Most managed keys lock the entire row: a local edit is silently overridden by the managed value on the next load. `enabledPlugins` and `extraKnownMarketplaces` are the exception—the managed layer merges these maps with your own entries field-by-field instead of replacing them outright. This means the lock applies **per entry**, not to the whole key: a plugin or marketplace pinned by a managed policy can't be re-enabled, disabled, or repointed locally, but other entries in the same map remain fully user-controlled.
+
 ### Managed permission rules
 
 Push `deny`, `ask`, and `allow` rule lists under the managed `permissions` key to enforce a permission policy across all users, independent of `permissions.disableBypassPermissionsMode`.

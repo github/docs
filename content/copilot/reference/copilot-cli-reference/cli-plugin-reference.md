@@ -38,6 +38,9 @@ You can use the following commands in the terminal to manage plugins for {% data
 
 Non-interactively, `copilot plugins enable NAME --plugin`, `copilot plugins disable NAME --plugin`, and `copilot plugins remove NAME --plugin` provide the same enable, disable, and uninstall operations. `--plugin` is the default kind and can be omitted for these three commands. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#using-copilot-plugins-list) for the non-interactive `--mcp` and `--skill` kinds, which extend these commands to MCP servers and skills.
 
+> [!NOTE]
+> A plugin or marketplace pinned by an organization or MDM managed policy (`enabledPlugins`, `extraKnownMarketplaces`) can't be re-enabled, disabled, or repointed locally—the managed value wins for that entry. The `/plugins` dashboard marks these rows with a `Managed` badge and refuses a conflicting toggle. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#mdm-managed-settings).
+
 ### Plugin specification for `install` command
 
 | Format        | Example                         | Description |

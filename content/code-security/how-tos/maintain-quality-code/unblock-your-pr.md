@@ -34,7 +34,7 @@ The quality gate set by your repository administrator or organization owner defi
 To unblock your pull request, you need to fix or dismiss the findings that meet or exceed the blocking severity:
 
 1. Review the comments left by the `{% data variables.code-quality.pr_commenter %}` on your pull request. Each comment is labeled by severity (**Error**, **Warning**, **Note**).
-1. Fix or dismiss the relevant findings. For detailed instructions, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/fix-pr-findings).
+1. Fix or dismiss the relevant findings. For detailed instructions, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/fix-findings-on-a-pr).
 1. Verify the merge block banner is no longer present in the "Checks" section of your pull request.
 
 ## Resolving a coverage threshold block

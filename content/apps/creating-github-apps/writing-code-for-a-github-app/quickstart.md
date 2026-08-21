@@ -132,7 +132,7 @@ For testing, you will use your computer or codespace as a server. Your app will 
 
 Now that your server is running and receiving forwarded webhooks events, test your app by opening a pull request.
 
-1. Open a pull request on the repository you created in [Step 5: Install your app](#step-5-install-your-app). For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
+1. Open a pull request on the repository you created in [Step 5: Install your app](#step-5-install-your-app). For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/creating-a-pull-request).
 1. Navigate to your webhook proxy URL on smee.io. You should see a `pull_request` event. This indicates that {% data variables.product.company_short %} successfully sent a pull request event when you created a pull request.
 1. In the terminal where you ran `npm run server`, you should see something like "Received a pull request event for #1" where the integer after the `#` is the number of the pull request that you opened.
 1. In the timeline of your pull request, you should see a comment from your app. The comment uses the contents of the `message.md` file in your cloned repository.

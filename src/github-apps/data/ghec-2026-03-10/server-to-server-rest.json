@@ -1499,6 +1499,12 @@
   ],
   "billing": [
     {
+      "slug": "get-billing-ai-credit-usage-report-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/ai_credit/usage"
+    },
+    {
       "slug": "get-all-budgets",
       "subcategory": "budgets",
       "verb": "get",
@@ -1577,6 +1583,12 @@
       "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource"
     },
     {
+      "slug": "get-billing-premium-request-usage-report-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/premium_request/usage"
+    },
+    {
       "slug": "list-usage-report-exports",
       "subcategory": "usage-reports",
       "verb": "get",
@@ -1599,6 +1611,12 @@
       "subcategory": "usage",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/usage"
+    },
+    {
+      "slug": "get-billing-usage-summary-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/usage/summary"
     },
     {
       "slug": "get-github-advanced-security-active-committers-for-an-organization",

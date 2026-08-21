@@ -25,7 +25,7 @@ You can use {% data variables.product.prodname_importer_proper_name %} to migrat
 
 You can only use {% data variables.product.prodname_importer_proper_name %} to migrate from Azure DevOps Cloud, not from Azure DevOps Server. If you currently use Azure DevOps Server and want to migrate to {% data variables.product.prodname_dotcom %}, you can migrate to Azure DevOps Cloud first. For more information, see [Migrate to Azure DevOps](https://azure.microsoft.com/en-us/services/devops/migrate/) on the Azure site.
 
-Before you create your enterprise account on {% data variables.product.prodname_dotcom %}, decide whether your enterprise will use {% data variables.product.prodname_emus %}. This affects how your members authenticate and how you manage identities and access. See [AUTOTITLE](/enterprise-cloud@latest/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type).
+Before you create your enterprise account on {% data variables.product.prodname_dotcom %}, decide whether your enterprise will use {% data variables.product.prodname_emus %}. This affects how your members authenticate and how you manage identities and access. See [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type).
 
 To learn more about the differences between {% data variables.product.prodname_dotcom %} and Azure DevOps, see [AUTOTITLE](/migrations/ado/key-differences-between-azure-devops-and-github).
 

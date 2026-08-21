@@ -144,7 +144,7 @@ When you try to merge two branches that contain different changes to the same pa
 There are two ways to handle merge conflicts:
 
 * Edit the file in your text editor and choose which changes to keep. Then commit the updated file to your topic branch from the command line.
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
+* [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github).
 
 ### Resolving merge conflicts by editing the file and committing the changes
 
@@ -196,4 +196,4 @@ We recommend you open your pull request on {% data variables.product.prodname_do
 > [!NOTE]
 > You can quickly access pull requests you've created by clicking **Pull requests** at the top of every page on {% data variables.product.prodname_dotcom %}.
 
-For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=webui#creating-the-pull-request).
+For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/creating-a-pull-request?tool=webui#creating-the-pull-request).

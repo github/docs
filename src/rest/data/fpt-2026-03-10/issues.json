@@ -89063,6 +89063,10 @@
           "description": "<p>Bad Request</p>"
         },
         {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
         }

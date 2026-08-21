@@ -172,7 +172,7 @@ To restrict access to the enterprise, organization or repository, there are seve
 
 * **Delete malicious branches**
 
-  If you've identified branches that contain malicious code or workflows, delete them immediately to prevent execution. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch).
+  If you've identified branches that contain malicious code or workflows, delete them immediately to prevent execution. See [AUTOTITLE](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository#deleting-a-branch).
 
 ## Step 3: Investigate fully
 

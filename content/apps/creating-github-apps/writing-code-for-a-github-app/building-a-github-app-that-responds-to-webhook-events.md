@@ -319,7 +319,7 @@ For testing, you will use your computer or codespace as a server. Your app will 
 
 Now that your server is running and receiving forwarded webhooks events, test your app by opening a pull request on the repository that you selected when you installed your app.
 
-1. Open a pull request on the repository that you selected when you installed your app. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
+1. Open a pull request on the repository that you selected when you installed your app. For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/creating-a-pull-request).
 
    Make sure to use the repository that you selected when you installed your app, not the repository where your app's code is stored. For more information, see [Install your app](#install-your-app).
 

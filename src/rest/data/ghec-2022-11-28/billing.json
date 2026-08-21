@@ -3297,10 +3297,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -3592,10 +3596,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -4069,10 +4077,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     }
   ],
@@ -4251,10 +4263,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
           }
         ]
       }
@@ -4439,10 +4454,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
           }
         ]
       }
@@ -4597,10 +4615,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
           }
         ]
       }
