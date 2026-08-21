@@ -15,7 +15,7 @@ category:
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. Towards the top of the page, in the "Agent sessions" section, you will see the three most recent agent sessions in your enterprise. To view all agent sessions from the last 24 hours, click **View all**.
-1. To filter agent sessions, click the search bar at the top of the list, then press <kbd>Space</kbd>. From the dropdown menu that appears, select your filter criteria. For a list of available filters, see [AUTOTITLE](/copilot/reference/agent-session-filters).
+1. To filter agent sessions, click the search bar at the top of the list, then press <kbd>Space</kbd>. From the dropdown menu that appears, select your filter criteria. For a list of available filters, see [AUTOTITLE](/copilot/reference/enterprise-administrators/agent-session-filters).
 
 ## Tracking agentic activity in your enterprise through the audit log
 
@@ -34,3 +34,11 @@ Track agentic activity on {% data variables.product.github %} or through streami
 To enable streaming for {% data variables.product.prodname_copilot_short %} agent session events and configure a streaming destination from your enterprise audit log settings, see [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-copilot-agent-session-events).
 
 In addition to streaming, you can also retrieve Copilot usage data through the REST API. See [AUTOTITLE](/rest/copilot/copilot-usage-metrics#get-copilot-usage-records-for-an-enterprise).
+
+## Enabling OpenTelemetry
+
+OpenTelemetry (OTel) is an open source observability framework. It provides a standard way to collect telemetry events and metrics and export them to compatible observability tools.
+
+When you enable OTel monitoring, you can send data from users' {% data variables.product.prodname_copilot_short %} clients to an OTel-compatible backend. This lets you analyze agent sessions and understand agent usage across your enterprise.
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/opentelemetry).

@@ -1217,6 +1217,13 @@ ghe-storage evacuate storage-server-UUID
 
 ### nes
 
+{% ifversion ghes > 3.21 %}
+
+> [!IMPORTANT]
+> The `nes` utility and {% data variables.product.prodname_nes %} are closing down and will be removed in {% data variables.product.prodname_ghe_server %} 3.23. There is no replacement.
+
+{% endif %}
+
 This utility allows you to monitor the health of cluster nodes using {% data variables.product.prodname_nes %}. By default, {% data variables.product.prodname_nes %} is disabled. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service).
 
 To view the health of the cluster's nodes:

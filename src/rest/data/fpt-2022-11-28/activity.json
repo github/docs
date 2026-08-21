@@ -95427,6 +95427,93 @@
         "permissions": [
           {
             "\"Metadata\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "write"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/count",
+      "title": "Get stargazer count",
+      "category": "activity",
+      "subcategory": "starring",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the current number of users who have starred the repository. Users who previously starred the repository but later removed their star are not included.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "count": 42
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "count"
+              ],
+              "properties": {
+                "count": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
           }
         ],
         "allowsPublicRead": true
@@ -99233,6 +99320,9 @@
         "permissions": [
           {
             "\"Metadata\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "write"
           }
         ],
         "allowsPublicRead": true

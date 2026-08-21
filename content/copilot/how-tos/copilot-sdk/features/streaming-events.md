@@ -39,6 +39,7 @@ Every session event, regardless of type, includes these fields:
 | `id` | `string` (UUID v4) | Unique event identifier |
 | `timestamp` | `string` (ISO 8601) | When the event was created |
 | `parentId` | `string \| null` | ID of the previous event in the chain; `null` for the first event |
+| `agentId` | `string?` | Sub-agent instance ID for sub-agent-originated events; absent for root/main agent and session-level events |
 | `ephemeral` | `boolean?` | `true` for transient events; absent or `false` for persisted events |
 | `type` | `string` | Event type discriminator (see tables below) |
 | `data` | `object` | Event-specific payload |
@@ -64,21 +65,6 @@ session.on("assistant.message_delta", (event) => {
 {% codetab python %}
 
 ```python
-from copilot import CopilotClient
-from copilot.session_events import SessionEventType
-
-client = CopilotClient()
-
-session = None  # assume session is created elsewhere
-
-def handle(event):
-    if event.type == SessionEventType.ASSISTANT_MESSAGE_DELTA:
-        print(event.data.delta_content, end="", flush=True)
-
-# session.on(handle)
-```
-
-```python
 from copilot.session_events import SessionEventType
 
 def handle(event):
@@ -92,37 +78,6 @@ session.on(handle)
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Model:     "gpt-4.1",
-		Streaming: copilot.Bool(true),
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-
-	session.On(func(event copilot.SessionEvent) {
-		if d, ok := event.Data.(*copilot.AssistantMessageDeltaData); ok {
-			fmt.Print(d.DeltaContent)
-		}
-	})
-	_ = session
-}
-```
-
-```golang
 session.On(func(event copilot.SessionEvent) {
     if d, ok := event.Data.(*copilot.AssistantMessageDeltaData); ok {
         fmt.Print(d.DeltaContent)
@@ -132,24 +87,6 @@ session.On(func(event copilot.SessionEvent) {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-public static class StreamingEventsExample
-{
-    public static async Task Example(CopilotSession session)
-    {
-        session.On<SessionEvent>(evt =>
-        {
-            if (evt is AssistantMessageDeltaEvent delta)
-            {
-                Console.Write(delta.Data.DeltaContent);
-            }
-        });
-    }
-}
-```
 
 ```csharp
 session.On<SessionEvent>(evt =>
@@ -180,13 +117,137 @@ session.on(AssistantMessageDeltaEvent.class, event ->
 {% endcodetabs %}
 
 > [!TIP]
-> **(Python / Go)** These SDKs use a single `Data` class/struct with all possible fields as optional/nullable. Only the fields listed in the tables below are populated for each event type—the rest will be `None` / `nil`.
+> **(Python / Go)** These SDKs use separate, per-event data types (for example, `AssistantMessageDeltaData`), so only the relevant fields exist on each type.
 >
 > [!TIP]
 > **(.NET)** The .NET SDK uses separate, strongly-typed data classes per event (e.g., `AssistantMessageDeltaData`), so only the relevant fields exist on each type.
 >
 > [!TIP]
 > **(TypeScript)** The TypeScript SDK uses a discriminated union—when you match on `event.type`, the `data` payload is automatically narrowed to the correct shape.
+
+## Render only the parent agent response
+
+Sub-agent events share the parent session stream and include envelope-level `agentId`. Root/main agent events and session-level events omit `agentId`, so main-chat renderers can ignore assistant events where `agentId` is set and route those events to traces or progress UI instead.
+
+{% codetabs %}
+{% codetab typescript %}
+
+```typescript
+import type { CopilotSession } from "@github/copilot-sdk";
+
+export function subscribeParentResponse(session: CopilotSession): void {
+    session.on("assistant.message_delta", (event) => {
+        if (!event.agentId) {
+            process.stdout.write(event.data.deltaContent);
+        }
+    });
+}
+```
+
+{% endcodetab %}
+{% codetab python %}
+
+```python
+from copilot import CopilotSession, SessionEvent, SessionEventType
+from copilot.session_events import AssistantMessageDeltaData
+
+
+def subscribe_parent_response(session: CopilotSession) -> None:
+    def handle(event: SessionEvent) -> None:
+        if event.type == SessionEventType.ASSISTANT_MESSAGE_DELTA and event.agent_id is None:
+            data = event.data
+            if isinstance(data, AssistantMessageDeltaData):
+                print(data.delta_content, end="", flush=True)
+
+    session.on(handle)
+```
+
+{% endcodetab %}
+{% codetab go %}
+
+```golang
+package example
+
+import (
+	"fmt"
+
+	copilot "github.com/github/copilot-sdk/go"
+)
+
+func subscribeParentResponse(session *copilot.Session) {
+	session.On(func(event copilot.SessionEvent) {
+		if event.AgentID != nil {
+			return
+		}
+
+		if d, ok := event.Data.(*copilot.AssistantMessageDeltaData); ok {
+			fmt.Print(d.DeltaContent)
+		}
+	})
+}
+```
+
+{% endcodetab %}
+{% codetab dotnet %}
+
+```csharp
+using System;
+using GitHub.Copilot;
+
+static class ParentAgentResponseExample
+{
+    public static void SubscribeParentResponse(CopilotSession session)
+    {
+        session.On<AssistantMessageDeltaEvent>(evt =>
+        {
+            if (evt.AgentId is null)
+            {
+                Console.Write(evt.Data.DeltaContent);
+            }
+        });
+    }
+}
+```
+
+{% endcodetab %}
+{% codetab java %}
+
+```java
+import com.github.copilot.CopilotSession;
+import com.github.copilot.generated.AssistantMessageDeltaEvent;
+
+final class ParentAgentResponseExample {
+    static void subscribeParentResponse(CopilotSession session) {
+        session.on(AssistantMessageDeltaEvent.class, event -> {
+            if (event.getAgentId() == null) {
+                System.out.print(event.getData().deltaContent());
+            }
+        });
+    }
+}
+```
+
+{% endcodetab %}
+{% codetab rust %}
+
+```rust
+use github_copilot_sdk::session::Session;
+
+async fn subscribe_parent_response(session: &Session) {
+    let mut events = session.subscribe();
+
+    while let Ok(event) = events.recv().await {
+        if event.event_type == "assistant.message_delta" && event.agent_id.is_none() {
+            if let Some(delta) = event.data.get("deltaContent").and_then(|v| v.as_str()) {
+                print!("{delta}");
+            }
+        }
+    }
+}
+```
+
+{% endcodetab %}
+{% endcodetabs %}
 
 ## Assistant events
 
@@ -242,7 +303,7 @@ The assistant's complete response for this LLM call. May include tool invocation
 | `phase` | `string` | | Generation phase (e.g., `"thinking"` vs `"response"`) |
 | `outputTokens` | `number` | | Actual output token count from the API response |
 | `interactionId` | `string` | | CAPI interaction ID for telemetry |
-| `parentToolCallId` | `string` | | Set when this message originates from a sub-agent |
+| `parentToolCallId` | `string` | | Deprecated. Use envelope-level `agentId` for sub-agent attribution |
 
 **`ToolRequest` fields:**
 
@@ -261,7 +322,7 @@ Ephemeral. Incremental chunk of the assistant's text response, streamed in real 
 |------------|------|----------|-------------|
 | `messageId` | `string` | ✅ | Matches the corresponding `assistant.message` event |
 | `deltaContent` | `string` | ✅ | Text chunk to append to the message |
-| `parentToolCallId` | `string` | | Set when originating from a sub-agent |
+| `parentToolCallId` | `string` | | Deprecated. Use envelope-level `agentId` for sub-agent attribution |
 
 ### `assistant.turn_end`
 
@@ -277,18 +338,26 @@ Ephemeral. Token usage and cost information for an individual API call.
 
 | Data Field | Type | Required | Description |
 |------------|------|----------|-------------|
-| `model` | `string` | ✅ | Model identifier (e.g., `"gpt-4.1"`) |
+| `model` | `string` | ✅ | Model identifier (e.g., `"gpt-5.4"`) |
 | `inputTokens` | `number` | | Input tokens consumed |
 | `outputTokens` | `number` | | Output tokens produced |
+| `reasoningTokens` | `number` | | Output tokens used for reasoning/chain-of-thought (subset of `outputTokens`) |
 | `cacheReadTokens` | `number` | | Tokens read from prompt cache |
 | `cacheWriteTokens` | `number` | | Tokens written to prompt cache |
+| `cacheExpiresAt` | `string` | | ISO 8601 timestamp when the prompt cache for this model call expires |
+| `contentFilterTriggered` | `boolean` | | Whether the response was blocked or truncated by content filtering (`finish_reason === 'content_filter'`) |
+| `finishReason` | `string` | | Model finish reason (e.g., `"stop"`, `"length"`, `"tool_calls"`, `"content_filter"`) |
 | `cost` | `number` | | Model multiplier cost for billing |
 | `duration` | `number` | | API call duration in milliseconds |
+| `timeToFirstTokenMs` | `number` | | Time from request dispatch to first token received (streaming latency) |
+| `interTokenLatencyMs` | `number` | | Average latency between consecutive tokens (streaming throughput) |
+| `reasoningEffort` | `string` | | Reasoning effort level used for this call (e.g., `"low"`, `"medium"`, `"high"`) |
 | `initiator` | `string` | | What triggered this call (e.g., `"sub-agent"`); absent for user-initiated |
 | `apiCallId` | `string` | | Completion ID from the provider (e.g., `chatcmpl-abc123`) |
+| `serviceRequestId` | `string` | | Copilot service request ID (`x-copilot-service-request-id`) for CAPI log correlation |
 | `apiEndpoint` | `"/chat/completions" \| "/v1/messages" \| "/responses" \| "ws:/responses"` | | API endpoint used for the model call; useful for observability and cost attribution. `ws:/responses` is the websocket variant of the responses API |
 | `providerCallId` | `string` | | GitHub request tracing ID (`x-github-request-id`) |
-| `parentToolCallId` | `string` | | Set when usage originates from a sub-agent |
+| `parentToolCallId` | `string` | | Deprecated. Use envelope-level `agentId` for sub-agent attribution |
 | `quotaSnapshots` | `Record<string, QuotaSnapshot>` | | Per-quota resource usage, keyed by quota identifier |
 | `copilotUsage` | `CopilotUsage` | | Itemized token cost breakdown from the API |
 
@@ -315,7 +384,7 @@ Emitted when a tool begins executing.
 | `arguments` | `object` | | Parsed arguments passed to the tool |
 | `mcpServerName` | `string` | | MCP server name, when the tool is provided by an MCP server |
 | `mcpToolName` | `string` | | Original tool name on the MCP server |
-| `parentToolCallId` | `string` | | Set when invoked by a sub-agent |
+| `parentToolCallId` | `string` | | Deprecated. Use envelope-level `agentId` for sub-agent attribution |
 
 ### `tool.execution_partial_result`
 
@@ -349,7 +418,7 @@ Emitted when a tool finishes executing—successfully or with an error.
 | `result` | `Result` | | Present on success (see below) |
 | `error` | `{ message, code? }` | | Present on failure |
 | `toolTelemetry` | `object` | | Tool-specific telemetry (e.g., CodeQL check counts) |
-| `parentToolCallId` | `string` | | Set when invoked by a sub-agent |
+| `parentToolCallId` | `string` | | Deprecated. Use envelope-level `agentId` for sub-agent attribution |
 
 **`Result` fields:**
 
@@ -377,7 +446,7 @@ Ephemeral. The agent has finished all processing and is ready for the next messa
 
 | Data Field | Type | Required | Description |
 |------------|------|----------|-------------|
-| `backgroundTasks` | `BackgroundTasks` | | Background agents/shells still running when the agent became idle |
+| `aborted` | `boolean` | | True when the preceding turn was cancelled via abort signal |
 
 ### `session.error`
 
@@ -490,7 +559,7 @@ These events are emitted when the agent needs approval or input from the user be
 
 ### `permission.requested`
 
-Ephemeral. The agent needs permission to perform an action (run a command, write a file, etc.).
+The agent needs permission to perform an action (run a command, write a file, etc.).
 
 | Data Field | Type | Required | Description |
 |------------|------|----------|-------------|
@@ -513,7 +582,7 @@ All `kind` variants also include an optional `toolCallId` linking back to the to
 
 ### `permission.completed`
 
-Ephemeral. A permission request was resolved.
+A permission request was resolved.
 
 | Data Field | Type | Required | Description |
 |------------|------|----------|-------------|
@@ -570,6 +639,7 @@ A custom agent was invoked as a sub-agent.
 | `agentName` | `string` | ✅ | Internal name of the sub-agent |
 | `agentDisplayName` | `string` | ✅ | Human-readable display name |
 | `agentDescription` | `string` | ✅ | Description of what the sub-agent does |
+| `model` | `string` | | Model the sub-agent will run with, when known at start |
 
 ### `subagent.completed`
 
@@ -580,6 +650,10 @@ A sub-agent finished successfully.
 | `toolCallId` | `string` | ✅ | Matches the corresponding `subagent.started` |
 | `agentName` | `string` | ✅ | Internal name |
 | `agentDisplayName` | `string` | ✅ | Display name |
+| `model` | `string` | | Model used by the sub-agent |
+| `durationMs` | `number` | | Wall-clock execution duration in milliseconds |
+| `totalTokens` | `number` | | Total input and output tokens consumed |
+| `totalToolCalls` | `number` | | Total tool calls made |
 
 ### `subagent.failed`
 
@@ -591,6 +665,10 @@ A sub-agent encountered an error.
 | `agentName` | `string` | ✅ | Internal name |
 | `agentDisplayName` | `string` | ✅ | Display name |
 | `error` | `string` | ✅ | Error message |
+| `model` | `string` | | Model selected for the sub-agent, when known |
+| `durationMs` | `number` | | Wall-clock execution duration in milliseconds |
+| `totalTokens` | `number` | | Total input and output tokens consumed before failure |
+| `totalToolCalls` | `number` | | Total tool calls made before failure |
 
 ### `subagent.selected`
 
@@ -655,7 +733,7 @@ A system or developer prompt was injected into the conversation.
 
 ### `external_tool.requested`
 
-Ephemeral. The agent wants to invoke an external tool (one provided by the SDK consumer).
+The agent wants to invoke an external tool (one provided by the SDK consumer).
 
 | Data Field | Type | Required | Description |
 |------------|------|----------|-------------|
@@ -667,7 +745,7 @@ Ephemeral. The agent wants to invoke an external tool (one provided by the SDK c
 
 ### `external_tool.completed`
 
-Ephemeral. An external tool request was resolved.
+An external tool request was resolved.
 
 | Data Field | Type | Required | Description |
 |------------|------|----------|-------------|
@@ -745,8 +823,8 @@ assistant.turn_start          → Turn begins
 ├── assistant.usage           → Token usage for this API call (ephemeral)
 │
 ├── [If tools were requested:]
-│   ├── permission.requested  → Needs user approval (ephemeral)
-│   ├── permission.completed  → Approval result (ephemeral)
+│   ├── permission.requested  → Needs user approval
+│   ├── permission.completed  → Approval result
 │   ├── tool.execution_start  → Tool begins
 │   ├── tool.execution_partial_result  → Streaming tool output (ephemeral, repeated)
 │   ├── tool.execution_progress        → Progress updates (ephemeral, repeated)
@@ -760,6 +838,8 @@ session.idle                  → Ready for next message (ephemeral)
 
 ## All event types at a glance
 
+This table lists key `data` payload fields. Common envelope fields are documented above.
+
 | Event Type | Ephemeral | Category | Key Data Fields |
 |------------|-----------|----------|-----------------|
 | `assistant.turn_start` | | Assistant | `turnId`, `interactionId?` |
@@ -768,7 +848,7 @@ session.idle                  → Ready for next message (ephemeral)
 | `assistant.reasoning_delta` | ✅ | Assistant | `reasoningId`, `deltaContent` |
 | `assistant.streaming_delta` | ✅ | Assistant | `totalResponseSizeBytes` |
 | `assistant.message` | | Assistant | `messageId`, `content`, `toolRequests?`, `outputTokens?`, `phase?` |
-| `assistant.message_delta` | ✅ | Assistant | `messageId`, `deltaContent`, `parentToolCallId?` |
+| `assistant.message_delta` | ✅ | Assistant | `messageId`, `deltaContent` |
 | `assistant.turn_end` | | Assistant | `turnId` |
 | `assistant.usage` | ✅ | Assistant | `model`, `apiEndpoint?`, `inputTokens?`, `outputTokens?`, `cost?`, `duration?` |
 | `tool.user_requested` | | Tool | `toolCallId`, `toolName`, `arguments?` |
@@ -776,7 +856,7 @@ session.idle                  → Ready for next message (ephemeral)
 | `tool.execution_partial_result` | ✅ | Tool | `toolCallId`, `partialOutput` |
 | `tool.execution_progress` | ✅ | Tool | `toolCallId`, `progressMessage` |
 | `tool.execution_complete` | | Tool | `toolCallId`, `success`, `result?`, `error?` |
-| `session.idle` | ✅ | Session | `backgroundTasks?` |
+| `session.idle` | ✅ | Session | `aborted?` |
 | `session.error` | | Session | `errorType`, `message`, `statusCode?` |
 | `session.compaction_start` | | Session | *(empty)* |
 | `session.compaction_complete` | | Session | `success`, `preCompactionTokens?`, `summaryContent?` |
@@ -787,23 +867,23 @@ session.idle                  → Ready for next message (ephemeral)
 | `session.usage_checkpoint` | | Session | `totalNanoAiu`, `totalPremiumRequests?` |
 | `session.task_complete` | | Session | `summary?` |
 | `session.shutdown` | | Session | `shutdownType`, `codeChanges`, `modelMetrics` |
-| `permission.requested` | ✅ | Permission | `requestId`, `permissionRequest` |
-| `permission.completed` | ✅ | Permission | `requestId`, `result.kind` |
+| `permission.requested` | | Permission | `requestId`, `permissionRequest` |
+| `permission.completed` | | Permission | `requestId`, `result.kind` |
 | `user_input.requested` | ✅ | User Input | `requestId`, `question`, `choices?` |
 | `user_input.completed` | ✅ | User Input | `requestId` |
 | `elicitation.requested` | ✅ | User Input | `requestId`, `message`, `requestedSchema` |
 | `elicitation.completed` | ✅ | User Input | `requestId` |
-| `subagent.started` | | Sub-Agent | `toolCallId`, `agentName`, `agentDisplayName` |
-| `subagent.completed` | | Sub-Agent | `toolCallId`, `agentName`, `agentDisplayName` |
-| `subagent.failed` | | Sub-Agent | `toolCallId`, `agentName`, `error` |
+| `subagent.started` | | Sub-Agent | `toolCallId`, `agentName`, `agentDisplayName`, `model?` |
+| `subagent.completed` | | Sub-Agent | `toolCallId`, `agentName`, `agentDisplayName`, `model?`, `durationMs?`, `totalTokens?`, `totalToolCalls?` |
+| `subagent.failed` | | Sub-Agent | `toolCallId`, `agentName`, `error`, `model?`, `durationMs?`, `totalTokens?`, `totalToolCalls?` |
 | `subagent.selected` | | Sub-Agent | `agentName`, `agentDisplayName`, `tools` |
 | `subagent.deselected` | | Sub-Agent | *(empty)* |
 | `skill.invoked` | | Skill | `name`, `path`, `content`, `allowedTools?` |
 | `abort` | | Control | `reason` |
 | `user.message` | | User | `content`, `attachments?`, `agentMode?` |
 | `system.message` | | System | `content`, `role` |
-| `external_tool.requested` | ✅ | External Tool | `requestId`, `toolName`, `arguments?` |
-| `external_tool.completed` | ✅ | External Tool | `requestId` |
+| `external_tool.requested` | | External Tool | `requestId`, `toolName`, `arguments?` |
+| `external_tool.completed` | | External Tool | `requestId` |
 | `command.queued` | ✅ | Command | `requestId`, `command` |
 | `command.completed` | ✅ | Command | `requestId` |
 | `session_limits_exhausted.requested` | ✅ | Session | `requestId`, `maxAiCredits`, `usedAiCredits` |

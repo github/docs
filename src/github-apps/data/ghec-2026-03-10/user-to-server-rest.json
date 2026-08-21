@@ -439,6 +439,12 @@
       "requestPath": "/orgs/{org}/actions/runners"
     },
     {
+      "slug": "get-runner-version-end-of-life-schedule-for-an-organization",
+      "subcategory": "self-hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/runners/deprecations/{version}"
+    },
+    {
       "slug": "list-runner-applications-for-an-organization",
       "subcategory": "self-hosted-runners",
       "verb": "get",
@@ -829,6 +835,12 @@
       "requestPath": "/repos/{owner}/{repo}/actions/runners"
     },
     {
+      "slug": "get-runner-version-end-of-life-schedule-for-a-repository",
+      "subcategory": "self-hosted-runners",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/runners/deprecations/{version}"
+    },
+    {
       "slug": "list-runner-applications-for-a-repository",
       "subcategory": "self-hosted-runners",
       "verb": "get",
@@ -1215,6 +1227,12 @@
       "requestPath": "/repos/{owner}/{repo}/stargazers"
     },
     {
+      "slug": "get-stargazer-count",
+      "subcategory": "starring",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/count"
+    },
+    {
       "slug": "list-watchers",
       "subcategory": "watching",
       "verb": "get",
@@ -1529,6 +1547,96 @@
   ],
   "billing": [
     {
+      "slug": "get-billing-ai-credit-usage-report-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/ai_credit/usage"
+    },
+    {
+      "slug": "get-all-budgets",
+      "subcategory": "budgets",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets"
+    },
+    {
+      "slug": "create-a-budget",
+      "subcategory": "budgets",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets"
+    },
+    {
+      "slug": "get-a-budget-by-id",
+      "subcategory": "budgets",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "update-a-budget",
+      "subcategory": "budgets",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "delete-a-budget",
+      "subcategory": "budgets",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "get-user-states-for-a-multi-user-budget",
+      "subcategory": "budgets",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}/user-states"
+    },
+    {
+      "slug": "get-all-cost-centers-for-an-enterprise",
+      "subcategory": "cost-centers",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers"
+    },
+    {
+      "slug": "create-a-new-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers"
+    },
+    {
+      "slug": "get-a-cost-center-by-id",
+      "subcategory": "cost-centers",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}"
+    },
+    {
+      "slug": "update-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}"
+    },
+    {
+      "slug": "delete-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}"
+    },
+    {
+      "slug": "add-resources-to-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource"
+    },
+    {
+      "slug": "remove-resources-from-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource"
+    },
+    {
+      "slug": "get-billing-premium-request-usage-report-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/premium_request/usage"
+    },
+    {
       "slug": "list-usage-report-exports",
       "subcategory": "usage-reports",
       "verb": "get",
@@ -1545,6 +1653,18 @@
       "subcategory": "usage-reports",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/reports/{report_id}"
+    },
+    {
+      "slug": "get-billing-usage-report-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/usage"
+    },
+    {
+      "slug": "get-billing-usage-summary-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/usage/summary"
     },
     {
       "slug": "get-github-advanced-security-active-committers-for-an-organization",
@@ -3385,10 +3505,22 @@
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all"
     },
     {
+      "slug": "revoke-a-single-credential-type-for-an-enterprise",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-credential-type"
+    },
+    {
       "slug": "revoke-credential-authorizations-for-a-user-in-an-enterprise",
       "subcategory": "credential-authorizations",
       "verb": "post",
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke"
+    },
+    {
+      "slug": "revoke-a-single-credential-type-for-a-user-in-an-enterprise",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke-credential-type"
     },
     {
       "slug": "get-all-enterprise-roles-for-an-enterprise",
@@ -3995,6 +4127,18 @@
       "requestPath": "/orgs/{org}/interaction-limits"
     },
     {
+      "slug": "get-pull-request-creation-cap-for-an-org",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap"
+    },
+    {
+      "slug": "update-pull-request-creation-cap-for-an-org",
+      "subcategory": "orgs",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap"
+    },
+    {
       "slug": "get-interaction-restrictions-for-a-repository",
       "subcategory": "repos",
       "verb": "get",
@@ -4315,6 +4459,24 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues/priority"
     },
     {
+      "slug": "list-issue-suggestions",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions"
+    },
+    {
+      "slug": "approve-an-issue-suggestion",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/approve"
+    },
+    {
+      "slug": "dismiss-an-issue-suggestion",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/dismiss"
+    },
+    {
       "slug": "list-timeline-events-for-an-issue",
       "subcategory": "timeline",
       "verb": "get",
@@ -4627,6 +4789,18 @@
       "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}"
     },
     {
+      "slug": "create-a-cluster-deployment-records-job",
+      "subcategory": "artifact-metadata",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs"
+    },
+    {
+      "slug": "get-cluster-deployment-records-job-status",
+      "subcategory": "artifact-metadata",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs/{job_id}"
+    },
+    {
       "slug": "create-artifact-metadata-storage-record",
       "subcategory": "artifact-metadata",
       "verb": "post",
@@ -4723,10 +4897,34 @@
       "requestPath": "/orgs/{org}/credential-authorizations"
     },
     {
+      "slug": "revoke-all-credential-authorizations-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/revoke-all"
+    },
+    {
+      "slug": "revoke-a-single-credential-type-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/revoke-credential-type"
+    },
+    {
       "slug": "remove-a-saml-sso-authorization-for-an-organization",
       "subcategory": "orgs",
       "verb": "delete",
       "requestPath": "/orgs/{org}/credential-authorizations/{credential_id}"
+    },
+    {
+      "slug": "revoke-credential-authorizations-for-a-user-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke"
+    },
+    {
+      "slug": "revoke-a-single-credential-type-for-a-user-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke-credential-type"
     },
     {
       "slug": "list-custom-repository-roles-in-an-organization",
@@ -5825,6 +6023,18 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
     },
     {
+      "slug": "merge-a-pull-request-asynchronously",
+      "subcategory": "pulls",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async"
+    },
+    {
+      "slug": "get-the-result-of-an-asynchronous-merge",
+      "subcategory": "pulls",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async/{uuid}"
+    },
+    {
       "slug": "get-all-requested-reviewers-for-a-pull-request",
       "subcategory": "review-requests",
       "verb": "get",
@@ -5895,6 +6105,36 @@
       "subcategory": "pulls",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
+    },
+    {
+      "slug": "list-pull-request-stacks",
+      "subcategory": "stacks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stacks"
+    },
+    {
+      "slug": "create-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks"
+    },
+    {
+      "slug": "get-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}"
+    },
+    {
+      "slug": "add-pull-requests-to-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/add"
+    },
+    {
+      "slug": "remove-pull-requests-from-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/unstack"
     }
   ],
   "rate-limit": [

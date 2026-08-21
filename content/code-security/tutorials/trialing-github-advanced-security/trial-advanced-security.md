@@ -41,6 +41,18 @@ To set up a trial of {% data variables.product.prodname_GHAS %} using this metho
 
    During a trial of {% data variables.product.prodname_GHAS %}, you can add any number of committers and enable {% data variables.product.prodname_GH_cs_and_sp %} for any number of organizations.
 
+## Billing during your trial
+
+During the trial, you do not pay license fees for {% data variables.product.prodname_GHAS %}.
+
+{% ifversion fpt or ghec %}
+
+Usage-based billing continues for features that consume {% data variables.product.prodname_actions %} minutes or {% data variables.product.prodname_ai_credits_short %}.
+
+For private repositories, minutes used by {% data variables.product.prodname_GHAS %} workflows that run on standard {% data variables.product.prodname_dotcom %}-hosted runners, including code scanning workflows, count toward the 50,000 minutes included each month with your {% data variables.product.prodname_ghe_cloud %} plan. Workflows in public repositories or on self-hosted runners do not consume included minutes. {% data variables.actions.hosted_runners %} are billed separately. Usage beyond the included amount is billed at the standard rate. For more information, see [AUTOTITLE](/billing/reference/product-usage-included).
+
+{% endif %}
+
 ## Finishing your trial
 
 You can finish your trial at any time by purchasing licenses for {% data variables.product.prodname_GH_cs_or_sp %}. If you haven't made a purchase by the end of the 30 days, your trial will expire.

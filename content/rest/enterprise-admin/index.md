@@ -25,6 +25,7 @@ children:
   - /global-webhooks
   - /ldap
   - /licensing
+  - /live-migrations
   - /manage-ghes
   - /network-configurations
   - /org-pre-receive-hooks

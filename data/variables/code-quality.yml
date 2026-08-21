@@ -2,10 +2,10 @@
 
 # Variables for CodeQL analysis
 
-workflow_name_actions: 'Code Quality'
-workflow_name_billing: 'dynamic/github-code-scanning/codeql'
+workflow_name_billing: 'dynamic/github-code-quality/codeql'
 check_status_name: 'CodeQL - Code Quality'
 pr_commenter: 'github-code-quality[bot]'
+workflow_actor: 'github-code-quality'
 
 # Variables for LLM analysis
 

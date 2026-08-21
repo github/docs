@@ -30,14 +30,6 @@ The `onSessionStart` hook is called when a session begins (new or resumed).
 {% codetab typescript %}
 
 ```typescript
-import type { SessionStartHookInput, HookInvocation, SessionStartHookOutput } from "@github/copilot-sdk";
-type SessionStartHandler = (
-  input: SessionStartHookInput,
-  invocation: HookInvocation
-) => Promise<SessionStartHookOutput | null | undefined>;
-```
-
-```typescript
 type SessionStartHandler = (
   input: SessionStartHookInput,
   invocation: HookInvocation
@@ -46,16 +38,6 @@ type SessionStartHandler = (
 
 {% endcodetab %}
 {% codetab python %}
-
-```python
-from copilot.session import SessionStartHookInput, SessionStartHookOutput
-from typing import Callable, Awaitable
-
-SessionStartHandler = Callable[
-    [SessionStartHookInput, dict[str, str]],
-    Awaitable[SessionStartHookOutput | None]
-]
-```
 
 ```python
 SessionStartHandler = Callable[
@@ -68,19 +50,6 @@ SessionStartHandler = Callable[
 {% codetab go %}
 
 ```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-type SessionStartHandler func(
-    input copilot.SessionStartHookInput,
-    invocation copilot.HookInvocation,
-) (*copilot.SessionStartHookOutput, error)
-
-func main() {}
-```
-
-```golang
 type SessionStartHandler func(
     input SessionStartHookInput,
     invocation HookInvocation,
@@ -91,14 +60,6 @@ type SessionStartHandler func(
 {% codetab dotnet %}
 
 ```csharp
-using GitHub.Copilot;
-
-public delegate Task<SessionStartHookOutput?> SessionStartHandler(
-    SessionStartHookInput input,
-    HookInvocation invocation);
-```
-
-```csharp
 public delegate Task<SessionStartHookOutput?> SessionStartHandler(
     SessionStartHookInput input,
     HookInvocation invocation);
@@ -106,17 +67,6 @@ public delegate Task<SessionStartHookOutput?> SessionStartHandler(
 
 {% endcodetab %}
 {% codetab java %}
-
-```java
-import com.github.copilot.rpc.*;
-import java.util.concurrent.CompletableFuture;
-
-public class SessionStartSignature {
-    SessionStartHandler handler = (SessionStartHookInput input, HookInvocation invocation) ->
-        CompletableFuture.completedFuture(null);
-    public static void main(String[] args) {}
-}
-```
 
 ```java
 @FunctionalInterface
@@ -270,16 +220,6 @@ type SessionEndHandler = (
 {% codetab python %}
 
 ```python
-from copilot.session import SessionEndHookInput
-from typing import Callable, Awaitable
-
-SessionEndHandler = Callable[
-    [SessionEndHookInput, dict[str, str]],
-    Awaitable[None]
-]
-```
-
-```python
 SessionEndHandler = Callable[
     [SessionEndHookInput, dict[str, str]],
     Awaitable[SessionEndHookOutput | None]
@@ -288,19 +228,6 @@ SessionEndHandler = Callable[
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-type SessionEndHandler func(
-    input copilot.SessionEndHookInput,
-    invocation copilot.HookInvocation,
-) error
-
-func main() {}
-```
 
 ```golang
 type SessionEndHandler func(
@@ -320,17 +247,6 @@ public delegate Task<SessionEndHookOutput?> SessionEndHandler(
 
 {% endcodetab %}
 {% codetab java %}
-
-```java
-import com.github.copilot.rpc.*;
-import java.util.concurrent.CompletableFuture;
-
-public class SessionEndSignature {
-    SessionEndHandler handler = (SessionEndHookInput input, HookInvocation invocation) ->
-        CompletableFuture.completedFuture(null);
-    public static void main(String[] args) {}
-}
-```
 
 ```java
 @FunctionalInterface
@@ -528,6 +444,42 @@ Session Summary:
   },
 });
 ```
+
+## Agent stop hook {#agent-stop}
+
+The agent stop hook runs when the top-level agent naturally reaches the end of a turn. It is separate from `onSessionEnd`: the session remains active, and the hook can request another agent turn.
+
+| Language | Handler |
+|----------|---------|
+| Node.js / TypeScript | `onAgentStop` |
+| Python | `on_agent_stop` |
+| Go | `OnAgentStop` |
+| .NET | `OnAgentStop` |
+| Rust | `on_agent_stop` |
+| Java | `setOnAgentStop` |
+
+### Input
+
+The public member names follow each language's casing conventions:
+
+| Meaning | Node.js / Python | Go / .NET | Rust | Java |
+|---------|------------------|-----------|------|------|
+| Why the agent stopped, such as `end_turn` | `stopReason` | `StopReason` | `stop_reason` | `getStopReason()` |
+| Path to the on-disk session transcript | `transcriptPath` | `TranscriptPath` | `transcript_path` | `getTranscriptPath()` |
+| Whether an earlier block decision already forced this continuation | `stopHookActive` | `StopHookActive` | `stop_hook_active` | `getStopHookActive()` |
+
+### Output
+
+Return no output to let the agent stop. Return a block decision to enqueue another user message and continue:
+
+```json
+{
+  "decision": "block",
+  "reason": "Run the final validation and fix any failures."
+}
+```
+
+Use the active-stop member listed above to avoid repeatedly blocking an agent that has already continued because of this hook. The runtime also caps consecutive block decisions.
 
 ## Best practices
 

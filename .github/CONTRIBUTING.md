@@ -82,7 +82,7 @@ For complete style guidance, see our [style guide](https://docs.github.com/en/co
 
 **Make changes locally:** 
 1. Fork the repository (see [official forking guide](https://docs.github.com/en/contributing))
-2. Install Node.js at the version specified in `.node-version` (see [development guide](../contributing/development.md))
+2. Install Node.js at the version specified in `package.json` (see [development guide](../contributing/development.md))
 3. Create a working branch and start with your changes
 
 ### Commit your update
@@ -100,7 +100,7 @@ Use our "[Self review checklist](https://docs.github.com/en/contributing/collabo
 - [Link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if applicable
 - Enable [maintainer edits](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork)
 
-A Docs team member will review following our [standard review process](https://docs.github.com/en/contributing).
+A Technical Content team member will review following our [standard review process](https://docs.github.com/en/contributing).
 
 ### Your PR is merged!
 

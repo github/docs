@@ -53,7 +53,7 @@ client = CopilotClient(
 <!-- docs-validate: skip -->
 
 ```golang
-client, err := copilot.NewClient(copilot.ClientOptions{
+client := copilot.NewClient(&copilot.ClientOptions{
     Telemetry: &copilot.TelemetryConfig{
         OTLPEndpoint: "http://localhost:4318",
     },
@@ -162,29 +162,36 @@ When the CLI invokes a tool handler, the `traceparent` and `tracestate` from the
 <!-- docs-validate: skip -->
 
 ```typescript
+import { defineTool } from "@github/copilot-sdk";
 import { propagation, context, trace } from "@opentelemetry/api";
 
-session.registerTool(myTool, async (args, invocation) => {
-  // Restore the CLI's trace context as the active context
-  const carrier = {
-    traceparent: invocation.traceparent,
-    tracestate: invocation.tracestate,
-  };
-  const parentCtx = propagation.extract(context.active(), carrier);
+const myTool = defineTool("my-tool", {
+  description: "Do work",
+  handler: async (args, invocation) => {
+    // Restore the CLI's trace context as the active context
+    const carrier = {
+      traceparent: invocation.traceparent,
+      tracestate: invocation.tracestate,
+    };
+    const parentCtx = propagation.extract(context.active(), carrier);
 
-  // Create a child span under the CLI's span
-  const tracer = trace.getTracer("my-app");
-  return context.with(parentCtx, () =>
-    tracer.startActiveSpan("my-tool", async (span) => {
-      try {
-        const result = await doWork(args);
-        return result;
-      } finally {
-        span.end();
-      }
-    })
-  );
+    // Create a child span under the CLI's span
+    const tracer = trace.getTracer("my-app");
+    return context.with(parentCtx, () =>
+      tracer.startActiveSpan("my-tool", async (span) => {
+        try {
+          const result = await doWork(args);
+          return result;
+        } finally {
+          span.end();
+        }
+      })
+    );
+  },
 });
+
+// Tool handlers are registered when the session is created.
+const session = await client.createSession({ tools: [myTool] });
 ```
 
 ### Per-language dependencies

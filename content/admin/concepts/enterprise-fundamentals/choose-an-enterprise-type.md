@@ -88,7 +88,3 @@ For a managed user to collaborate outside your enterprise, they must also mainta
 If you already have an enterprise that uses personal accounts on {% data variables.product.prodname_dotcom_the_website %}, adoption of {% data variables.product.prodname_emus %} requires **migration to a new enterprise account**. To discuss this process, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
 The migration process may require time or cost from your team. Confirm that this migration process is acceptable to your business and your users. If not, an enterprise with personal accounts may be the better choice.
-
-## Next steps
-
-When you have chosen an enterprise type, you're ready to create an enterprise account by starting a trial. See [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/setting-up-a-trial-of-github-enterprise).

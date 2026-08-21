@@ -54,6 +54,13 @@
   business: true
   enterprise: true
 
+- name: Claude Opus 5
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Claude Fable 5
   pro: false
   pro_plus: true
@@ -82,20 +89,6 @@
   business: true
   enterprise: true
 
-- name: Gemini 2.5 Pro
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 3 Flash
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
 - name: Gemini 3.1 Pro
   pro: true
   pro_plus: true
@@ -104,6 +97,20 @@
   enterprise: true
 
 - name: Gemini 3.5 Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 3.6 Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 3.7 Flash
   pro: true
   pro_plus: true
   max: true
@@ -173,14 +180,42 @@
   business: true
   enterprise: true
 
+- name: Grok 4.5
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Grok 4.6
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Kimi K2.7 Code
   pro: true
   pro_plus: true
   max: true
-  business: false
-  enterprise: false
+  business: true
+  enterprise: true
+
+- name: Kimi K3
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
 
 - name: MAI-Code-1-Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: MAI-Code-1.1-Flash
   pro: true
   pro_plus: true
   max: true

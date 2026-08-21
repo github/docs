@@ -36,9 +36,6 @@ Anytime you search across all of {% data variables.product.prodname_dotcom %}, y
 
 ## Further reading
 
-{%- ifversion fpt %}
-* [AUTOTITLE](/search-github/searching-on-github/searching-github-models)
-{%- endif %}
 * [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/find-and-customize-actions)
 * [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account)
 * [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations)

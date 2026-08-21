@@ -58,7 +58,7 @@ To configure the OIDC identity provider in Azure, you will need to perform the f
 
 Additional guidance for configuring the identity provider:
 
-* For security hardening, make sure you've reviewed [AUTOTITLE](/actions/concepts/security/openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see [AUTOTITLE](/actions/concepts/security/openid-connect#configuring-the-subject-in-your-cloud-provider).
+* For security hardening, make sure you've reviewed {% ifversion ghec %}[AUTOTITLE](/actions/concepts/security/openid-connect#establishing-oidc-trust-with-your-cloud-provider){% else %}[AUTOTITLE](/actions/reference/security/oidc#oidc-claims-used-to-define-trust-conditions-on-cloud-roles){% endif %}. For an example, see [AUTOTITLE](/actions/reference/security/oidc#configuring-the-subject-in-your-cloud-provider).
 * For the `audience` setting, `api://AzureADTokenExchange` is the recommended value, but you can also specify other values here.
 
 ## Updating your {% data variables.product.prodname_actions %} workflow

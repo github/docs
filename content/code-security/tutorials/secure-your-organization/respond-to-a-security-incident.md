@@ -122,12 +122,20 @@ For exposed or exploited credentials, the most immediate action you can take is 
 {% ifversion single_user_cred_revocation %}
 * **Revoke or delete credentials for a specific user**
 
-  If you've identified a specific compromised account, enterprise owners on {% data variables.product.prodname_ghe_cloud %} can revoke SSO authorizations for that individual user. For enterprises with {% data variables.product.prodname_emus %}, you can also delete credentials entirely. This is less disruptive than bulk actions while still containing the threat. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-individual-members).
+  If you've identified a specific compromised account, enterprise or organization owners on {% data variables.product.prodname_ghe_cloud %} can revoke SSO authorizations for that individual user. For enterprises with {% data variables.product.prodname_emus %}, you can also delete credentials entirely. This is less disruptive than bulk actions while still containing the threat. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-individual-members).
+
+* **Revoke or delete credentials of a specific type**
+
+  If the incident is limited to one credential type, such as {% data variables.product.pat_v1_plural %}, enterprise or organization owners can revoke SSO authorizations or delete credentials of that type only, across all members, using the {% data variables.product.github %} UI{% ifversion ghec %} or REST API{% endif %}. This targets the affected credential type without disrupting other credentials. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-a-specific-credential-type).
 
 {% endif %}
 * **Emergency actions (major incident)**
 
-  Enterprise owners on {% data variables.product.prodname_ghe_cloud %} can take bulk emergency actions to lock down access across their enterprise. For enterprises with {% data variables.product.prodname_emus %}, this includes **deleting all user tokens and keys**. These are high-impact actions that will break automations and should be reserved for major incidents. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents).
+  Enterprise{% ifversion single_user_cred_revocation %} and organization{% endif %} owners on {% data variables.product.prodname_ghe_cloud %} can take bulk emergency actions to lock down access across their enterprise{% ifversion single_user_cred_revocation %} or organization{% endif %}. For enterprises with {% data variables.product.prodname_emus %}, this includes **deleting all user tokens and keys**. These are high-impact actions that will break automations and should be reserved for major incidents. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents).
+
+{% ifversion single_user_cred_revocation %}
+All of these de-authorization and revocation actions, whether initiated by an admin or by the affected user, are recorded in the audit log, and the affected user receives an email notification.
+{% endif %}
 
 ### Restrict access
 
@@ -164,7 +172,7 @@ To restrict access to the enterprise, organization or repository, there are seve
 
 * **Delete malicious branches**
 
-  If you've identified branches that contain malicious code or workflows, delete them immediately to prevent execution. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch).
+  If you've identified branches that contain malicious code or workflows, delete them immediately to prevent execution. See [AUTOTITLE](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository#deleting-a-branch).
 
 ## Step 3: Investigate fully
 
@@ -244,7 +252,7 @@ Thorough documentation is essential for the remaining phases and for future refe
 The goal now is to learn from the incident and strengthen your security posture to prevent similar incidents.
 
 1. Write an **incident summary**. This should include a timeline of events from first indication to resolution, as well as the root cause analysis, decisions and actions taken, and lessons learned.
-1. Track any **outstanding action items** from the security incident as issues, such as remaining remediation tasks and any security improvements that need to be implemented based on lessons learned. {% ifversion copilot %}{% data variables.product.prodname_copilot_short %} can help create these, and you can assign well-scoped issues to {% data variables.product.prodname_copilot_short %} to work on independently. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr#assigning-an-issue-to-copilot).{% endif %}
+1. Track any **outstanding action items** from the security incident as issues, such as remaining remediation tasks and any security improvements that need to be implemented based on lessons learned. {% ifversion copilot %}{% data variables.product.prodname_copilot_short %} can help create these, and you can assign well-scoped issues to {% data variables.product.prodname_copilot_short %} to work on independently. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).{% endif %}
 1. If you don't already have one, ensure your company or team has an up-to-date **Security Incident Response Plan**. This should include defined roles and responsibilities, escalation paths, communication protocols, severity classification criteria, and step-by-step response procedures for common threat types. {% data variables.product.prodname_copilot_short %} can help generate and refine this plan based on your specific needs and resources. For additional guidance, see [What is incident response](https://github.com/resources/articles/what-is-incident-response#what-is-incident-response).
 
 ## Next steps

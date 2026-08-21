@@ -57,7 +57,7 @@ In the tutorial, you will first make a workflow file that uses the [`actions/sta
     ```
 
 1. Customize the parameters in your workflow file:
-   * Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every day at 1:30 UTC. For more information about scheduled workflows, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#scheduled-events).
+   * Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every day at 1:30 UTC. For more information about scheduled workflows, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
    * Change the value for `days-before-issue-stale` to the number of days without activity before the `actions/stale` action labels an issue. If you never want this action to label issues, set this value to `-1`.
    * Change the value for `days-before-issue-close` to the number of days without activity before the `actions/stale` action closes an issue. If you never want this action to close issues, set this value to `-1`.
    * Change the value for `stale-issue-label` to the label that you want to apply to issues that have been inactive for the amount of time specified by `days-before-issue-stale`.

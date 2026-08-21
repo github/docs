@@ -50,7 +50,7 @@ Each finding includes a description of the security issue and an explanation of 
 
 AI-powered security detections are designed to cover languages and frameworks that are not currently supported by {% data variables.product.prodname_codeql %}. This includes, but is not limited to, languages such as PHP, Shell/Bash, Terraform configuration (HCL), and Dockerfiles, as well as framework coverage gaps such as JSP for Java and Blazor for C#.
 
-For a full list of languages supported by {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/about-code-scanning-with-codeql#supported-languages-and-frameworks).
+For a full list of languages supported by {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-code-scanning).
 
 ## Detection categories
 
@@ -73,5 +73,5 @@ AI-powered security detections are not allowed at the enterprise level by defaul
 You do not need to select a model to enable AI-powered security detections.
 
 * **Enterprise**: The **AI Findings** policy under "Code Security" controls whether organizations can enable the feature. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-the-use-of-ai-powered-security-detections-in-your-enterprises-repositories).
-* **Organization**: The **AI findings** setting under "Code scanning" enables AI-powered detections for repositories in the organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configuring-global-security-settings-for-your-organization#enabling-ai-powered-security-detections).
+* **Organization**: The **AI findings** setting under "Code scanning" enables AI-powered detections for repositories in the organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#enabling-ai-powered-security-detections).
 * **Repository**: The **AI findings** toggle under "Code scanning" enables or disables AI-powered detections for the individual repository. Repositories inherit the organization setting but can opt out individually.

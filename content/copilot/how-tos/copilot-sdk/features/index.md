@@ -12,7 +12,9 @@ redirect_from:
 contentType: how-tos
 children:
   - /agent-loop
+  - /citations
   - /cloud-sessions
+  - /context-management
   - /custom-agents
   - /fleet-mode
   - /hooks
@@ -25,6 +27,7 @@ children:
   - /skills
   - /steering-and-queueing
   - /streaming-events
+  - /usage-and-billing
 ---
 
 <!-- markdownlint-disable GHD046 GHD005 -->

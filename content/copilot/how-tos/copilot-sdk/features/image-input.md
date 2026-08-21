@@ -44,7 +44,7 @@ const client = new CopilotClient();
 await client.start();
 
 const session = await client.createSession({
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     onPermissionRequest: async () => ({ kind: "approve-once" }),
 });
 
@@ -70,7 +70,7 @@ await client.start()
 
 session = await client.create_session(
     on_permission_request=lambda req, inv: PermissionDecisionApproveOnce(),
-    model="gpt-4.1",
+    model="gpt-5.4",
 )
 
 await session.send(
@@ -88,46 +88,12 @@ await session.send(
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Model: "gpt-4.1",
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-
-	path := "/absolute/path/to/screenshot.png"
-	session.Send(ctx, copilot.MessageOptions{
-		Prompt: "Describe what you see in this image",
-		Attachments: []copilot.Attachment{
-            &copilot.AttachmentFile{
-                DisplayName: "screenshot.png",
-                Path:        path,
-			},
-		},
-	})
-}
-```
-
-```golang
 ctx := context.Background()
 client := copilot.NewClient(nil)
 client.Start(ctx)
 
 session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-    Model: "gpt-4.1",
+    Model: "gpt-5.4",
     OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
         return &rpc.PermissionDecisionApproveOnce{}, nil
     },
@@ -152,42 +118,10 @@ session.Send(ctx, copilot.MessageOptions{
 using GitHub.Copilot;
 using GitHub.Copilot.Rpc;
 
-public static class ImageInputExample
-{
-    public static async Task Main()
-    {
-        await using var client = new CopilotClient();
-        await using var session = await client.CreateSessionAsync(new SessionConfig
-        {
-            Model = "gpt-4.1",
-            OnPermissionRequest = (req, inv) =>
-                Task.FromResult(PermissionDecision.ApproveOnce()),
-        });
-
-        await session.SendAsync(new MessageOptions
-        {
-            Prompt = "Describe what you see in this image",
-            Attachments = new List<Attachment>
-            {
-                new AttachmentFile
-                {
-                    Path = "/absolute/path/to/screenshot.png",
-                    DisplayName = "screenshot.png",
-                },
-            },
-        });
-    }
-}
-```
-
-```csharp
-using GitHub.Copilot;
-using GitHub.Copilot.Rpc;
-
 await using var client = new CopilotClient();
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
-    Model = "gpt-4.1",
+    Model = "gpt-5.4",
     OnPermissionRequest = (req, inv) =>
         Task.FromResult(PermissionDecision.ApproveOnce()),
 });
@@ -219,7 +153,7 @@ try (var client = new CopilotClient()) {
 
     var session = client.createSession(
         new SessionConfig()
-            .setModel("gpt-4.1")
+            .setModel("gpt-5.4")
             .setOnPermissionRequest(PermissionHandler.APPROVE_ALL)
     ).get();
 
@@ -249,7 +183,7 @@ const client = new CopilotClient();
 await client.start();
 
 const session = await client.createSession({
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     onPermissionRequest: async () => ({ kind: "approve-once" }),
 });
 
@@ -278,7 +212,7 @@ await client.start()
 
 session = await client.create_session(
     on_permission_request=lambda req, inv: PermissionDecisionApproveOnce(),
-    model="gpt-4.1",
+    model="gpt-5.4",
 )
 
 base64_image_data = "..."  # your base64-encoded image
@@ -299,43 +233,6 @@ await session.send(
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Model: "gpt-4.1",
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-
-	base64ImageData := "..."
-	mimeType := "image/png"
-	displayName := "screenshot.png"
-	session.Send(ctx, copilot.MessageOptions{
-		Prompt: "Describe what you see in this image",
-		Attachments: []copilot.Attachment{
-            &copilot.AttachmentBlob{
-                Data:        &base64ImageData,
-                MIMEType:    mimeType,
-				DisplayName: &displayName,
-			},
-		},
-	})
-}
-```
-
-```golang
 mimeType := "image/png"
 displayName := "screenshot.png"
 session.Send(ctx, copilot.MessageOptions{
@@ -352,40 +249,6 @@ session.Send(ctx, copilot.MessageOptions{
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-using GitHub.Copilot.Rpc;
-
-public static class BlobAttachmentExample
-{
-    public static async Task Main()
-    {
-        await using var client = new CopilotClient();
-        await using var session = await client.CreateSessionAsync(new SessionConfig
-        {
-            Model = "gpt-4.1",
-            OnPermissionRequest = (req, inv) =>
-                Task.FromResult(PermissionDecision.ApproveOnce()),
-        });
-
-        var base64ImageData = "...";
-        await session.SendAsync(new MessageOptions
-        {
-            Prompt = "Describe what you see in this image",
-            Attachments = new List<Attachment>
-            {
-                new AttachmentBlob
-                {
-                    Data = base64ImageData,
-                    MimeType = "image/png",
-                    DisplayName = "screenshot.png",
-                },
-            },
-        });
-    }
-}
-```
 
 ```csharp
 await session.SendAsync(new MessageOptions
@@ -416,7 +279,7 @@ try (var client = new CopilotClient()) {
 
     var session = client.createSession(
         new SessionConfig()
-            .setModel("gpt-4.1")
+            .setModel("gpt-5.4")
             .setOnPermissionRequest(PermissionHandler.APPROVE_ALL)
     ).get();
 
@@ -466,20 +329,6 @@ Not all models support vision. Check the model's capabilities before sending ima
 | `capabilities.limits.vision.max_prompt_image_size` | `number` | Maximum image size in bytes |
 
 ### Vision limits type
-
-<!-- docs-validate: hidden -->
-
-```typescript
-interface VisionCapabilities {
-    vision?: {
-        supported_media_types: string[];
-        max_prompt_images: number;
-        max_prompt_image_size: number; // bytes
-    };
-}
-```
-
-<!-- /docs-validate: hidden -->
 
 ```typescript
 vision?: {

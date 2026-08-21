@@ -63,7 +63,7 @@ const client = new CopilotClient({
 
 const session = await client.createSession({
     sessionId: `user-${user.id}-${crypto.randomUUID()}`,
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     availableTools: ["custom:lookupOrder", "custom:createTicket"],
     gitHubToken: user.githubToken,
 });
@@ -86,7 +86,7 @@ await client.start()
 
 session = await client.create_session(
     session_id=f"user-{user.id}-{request_id}",
-    model="gpt-4.1",
+    model="gpt-5.4",
     available_tools=["custom:lookupOrder", "custom:createTicket"],
     github_token=user.github_token,
     on_permission_request=PermissionHandler.approve_all,
@@ -95,46 +95,6 @@ session = await client.create_session(
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"context"
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-type appUser struct {
-	ID          string
-	GitHubToken string
-}
-
-func main() {
-	ctx := context.Background()
-	runtimeInstanceID := "instance-1"
-	runtimeURL := "http://127.0.0.1:8080"
-	requestID := "req-1"
-	user := appUser{ID: "alice", GitHubToken: "gho_xxx"}
-
-    client := copilot.NewClient(&copilot.ClientOptions{
-        Mode:                      copilot.ModeEmpty,
-        BaseDirectory:             fmt.Sprintf("/var/lib/my-app/copilot/%s", runtimeInstanceID),
-        SessionIdleTimeoutSeconds: 900,
-        Connection:                copilot.URIConnection{URL: runtimeURL},
-    })
-
-	session, err := client.CreateSession(ctx, &copilot.SessionConfig{
-		SessionID:      fmt.Sprintf("user-%s-%s", user.ID, requestID),
-		Model:          "gpt-4.1",
-		AvailableTools: []string{"custom:lookupOrder", "custom:createTicket"},
-		GitHubToken:    user.GitHubToken,
-	})
-	_ = session
-	_ = err
-}
-```
 
 ```golang
 client := copilot.NewClient(&copilot.ClientOptions{
@@ -146,7 +106,7 @@ client := copilot.NewClient(&copilot.ClientOptions{
 
 session, err := client.CreateSession(ctx, &copilot.SessionConfig{
     SessionID:      fmt.Sprintf("user-%s-%s", user.ID, requestID),
-    Model:          "gpt-4.1",
+    Model:          "gpt-5.4",
     AvailableTools: []string{"custom:lookupOrder", "custom:createTicket"},
     GitHubToken:    user.GitHubToken,
 })
@@ -156,13 +116,6 @@ session, err := client.CreateSession(ctx, &copilot.SessionConfig{
 {% codetab dotnet %}
 
 ```csharp
-using GitHub.Copilot;
-
-var runtimeInstanceId = "instance-1";
-var runtimeUrl = "http://127.0.0.1:8080";
-var requestId = "req-1";
-var user = new { Id = "alice", GitHubToken = "gho_xxx" };
-
 var client = new CopilotClient(new CopilotClientOptions
 {
     Mode = CopilotClientMode.Empty,
@@ -174,25 +127,7 @@ var client = new CopilotClient(new CopilotClientOptions
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
     SessionId = $"user-{user.Id}-{requestId}",
-    Model = "gpt-4.1",
-    AvailableTools = ["custom:lookupOrder", "custom:createTicket"],
-    GitHubToken = user.GitHubToken,
-});
-```
-
-```csharp
-var client = new CopilotClient(new CopilotClientOptions
-{
-    Mode = CopilotClientMode.Empty,
-    BaseDirectory = $"/var/lib/my-app/copilot/{runtimeInstanceId}",
-    SessionIdleTimeoutSeconds = 900,
-    Connection = RuntimeConnection.ForUri(runtimeUrl),
-});
-
-await using var session = await client.CreateSessionAsync(new SessionConfig
-{
-    SessionId = $"user-{user.Id}-{requestId}",
-    Model = "gpt-4.1",
+    Model = "gpt-5.4",
     AvailableTools = ["custom:lookupOrder", "custom:createTicket"],
     GitHubToken = user.GitHubToken,
 });
@@ -200,38 +135,6 @@ await using var session = await client.CreateSessionAsync(new SessionConfig
 
 {% endcodetab %}
 {% codetab java %}
-
-```java
-import java.util.List;
-import com.github.copilot.CopilotClient;
-import com.github.copilot.rpc.CopilotClientOptions;
-import com.github.copilot.rpc.CopilotClientMode;
-import com.github.copilot.rpc.SessionConfig;
-
-public class MultiTenancyExample {
-    record User(String id, String gitHubToken) {}
-
-    public static void main(String[] args) throws Exception {
-        String runtimeUrl = "http://localhost:4321";
-        String requestId = "req-1";
-        User user = new User("u1", "ghu_token");
-
-        // setCopilotHome and setSessionIdleTimeoutSeconds are ignored when
-        // setCliUrl is used; configure those on the runtime process instead.
-        var client = new CopilotClient(new CopilotClientOptions()
-            .setMode(CopilotClientMode.EMPTY)
-            .setCliUrl(runtimeUrl)
-        );
-
-        var session = client.createSession(new SessionConfig()
-            .setSessionId("user-" + user.id() + "-" + requestId)
-            .setModel("gpt-4.1")
-            .setAvailableTools(List.of("custom:lookupOrder", "custom:createTicket"))
-            .setGitHubToken(user.gitHubToken())
-        ).get();
-    }
-}
-```
 
 ```java
 // setCopilotHome and setSessionIdleTimeoutSeconds are ignored when
@@ -243,7 +146,7 @@ var client = new CopilotClient(new CopilotClientOptions()
 
 var session = client.createSession(new SessionConfig()
     .setSessionId("user-" + user.id() + "-" + requestId)
-    .setModel("gpt-4.1")
+    .setModel("gpt-5.4")
     .setAvailableTools(List.of("custom:lookupOrder", "custom:createTicket"))
     .setGitHubToken(user.gitHubToken())
 ).get();
@@ -275,7 +178,7 @@ let client = Client::start(
 let session = client.create_session(
     SessionConfig::default()
         .with_session_id(format!("user-{}-{request_id}", user.id))
-        .with_model("gpt-4.1")
+        .with_model("gpt-5.4")
         .with_available_tools(["custom:lookupOrder", "custom:createTicket"])
         .with_github_token(user.github_token),
 ).await?;
@@ -366,7 +269,7 @@ Set `gitHubToken` on each session to scope GitHub auth to the requesting user. T
 ```typescript
 const session = await client.createSession({
     sessionId: `user-${user.id}-support`,
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     availableTools: ["custom:*"],
     gitHubToken: user.githubToken,
 });

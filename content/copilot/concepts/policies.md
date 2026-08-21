@@ -32,13 +32,15 @@ More rarely, if a user receives a license from multiple different enterprises, t
 
 A user's individual plan is cancelled when they are added to a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, so a user's personal policies cannot conflict with an enterprise's or organization's.
 
-To see details for each policy, see [AUTOTITLE](/copilot/reference/policy-conflicts).
+To see details for each policy, see [AUTOTITLE](/copilot/reference/enterprise-administrators/policy-conflicts).
 
 ## Where do policies apply?
 
 Policies can apply to any surface where users authenticate to {% data variables.product.prodname_copilot_short %}, including IDEs, the {% data variables.product.github %} website, and {% data variables.copilot.copilot_cli_short %}.
 
 However, not all policies apply to every surface. See [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies).
+
+The {% data variables.copilot.github_copilot_app %} and {% data variables.copilot.copilot_cli_short %} are governed by separate, independent client policies, so you can allow one without allowing the other.
 
 ## How can I prevent policy drift?
 

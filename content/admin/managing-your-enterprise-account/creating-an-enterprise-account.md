@@ -35,9 +35,11 @@ You'll **need help** creating an enterprise account if you require:
 * {% data variables.product.prodname_ghe_server %}
 * {% data variables.enterprise.data_residency %}
 * Invoicing
-* A dedicated enterprise for managing {% data variables.copilot.copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}
 
 In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
+
+> [!NOTE]
+> {% data variables.product.company_short %} no longer provisions separate "dedicated" enterprise accounts for managing {% data variables.copilot.copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}. In any enterprise account, you can assign {% data variables.copilot.copilot_for_business %} licenses directly to members who don't belong to an organization, and those members don't consume a {% data variables.product.prodname_enterprise %} license. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-a-dedicated-enterprise-for-copilot-business).
 
 ## What will happen after I upgrade my organization?
 

@@ -543,7 +543,9 @@ Change the limit on the maximum number of pull requests for version updates open
 {% data variables.product.prodname_dependabot %} default behavior:
 
 * If five pull requests with version updates are open, no further pull requests are raised until some of those open requests are merged or closed.
-* Security updates have a separate, internal limit of ten open pull requests which cannot be changed.
+
+> [!NOTE]
+> _Security update_ pull requests are not subject to this limit and do not count toward it. There is no limit on the number of open pull requests for security updates.
 
 When `open-pull-requests-limit` is defined:
 
@@ -561,7 +563,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-bazel-support %} |
 | Bazel         | `bazel`          | v7, v8, v9               |
 | {% endif %} |
-| Bun | `bun`         | >=v1.2.5              |
+| Bun | `bun`         | >=v1.1.39              |
 | Bundler | `bundler` | v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | v2         |
@@ -591,14 +593,14 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-nix-support %} |
 | Nix flakes | `nix`            | Not applicable   |
 | {% endif %} |
-| npm            | `npm`            |  v7, v8, v9, v10   |
+| npm            | `npm`            |  v7, v8, v9, v10, v11   |
 | NuGet          | `nuget`          | <=6.12.0 |
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu     | `opentofu`       | Not applicable     |
 | {% endif %} |
-| pip         | `pip`            | 24.2             |
+| pip         | `pip`            | 26.1.1             |
 | pip-compile | `pip`            | 7.5.3            |
-| pipenv      | `pip`            | <= 2024.4.1      |
+| pipenv      | `pip`            | 2024.4.1      |
 | pnpm   | `npm`            | v7, v8, v9, v10   |
 | poetry      | `pip`    | v2    |
 | {% ifversion dependabot-pre-commit-support %} |
@@ -611,15 +613,114 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-sbt-support %} |
 | sbt          | `sbt`            | Not applicable   |
 | {% endif %} |
-| Swift   | `swift`      | v5  |
-| Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
-| uv           | `uv`             | v0 |
+| Swift   | `swift`      | v5, v6  |
+| Terraform    | `terraform`      | >= 0.13, <= 1.15.x  |
+| uv           | `uv`             | v0.11 |
 | {% ifversion dependabot-vcpkg-support %} |
 | vcpkg       | `vcpkg`          | Not applicable   |
 | {% endif %} |
 | yarn         | `npm`            | v1, v2, v3, v4     |
 
-## `pull-request-branch-name.separator` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
+## `pull-request-branch-name` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
+
+{% ifversion dependabot-branch-name-options %}
+
+Configure how {% data variables.product.prodname_dependabot %} generates branch names for pull requests. You can customize the separator, prefix, length, casing, word separator, and provide a custom template. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
+
+{% data variables.product.prodname_dependabot %} default behavior:
+
+* Generate branch names of the form: `dependabot/PACKAGE-MANAGER/DEPENDENCY`
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| [`separator`](#separator) | String | `"/"` | Character used between segments of the branch name. |
+| [`prefix`](#prefix) | String (max 50 characters) | `"dependabot"` | String prepended to the branch name. |
+| [`max-length`](#max-length) | Integer (20–244) | `100` | Maximum character length of the branch name. |
+| [`word-separator`](#word-separator) | String | Not set | Character to replace underscores (`_`) in branch name content after the prefix. |
+| [`branch-name-case`](#branch-name-case) | String | Not set | Apply case transformation to the branch name content after the prefix. |
+| [`template`](#template) | String (max 200 characters) | Not set | Custom format template using placeholders. |
+
+All options are composable. When `template` is set alongside simple options, the processing order is:
+
+1. Template rendering (placeholder substitution)
+1. Separator replacement (`/` replaced with configured separator)
+1. Word-separator replacement (`_` replaced with configured word-separator)
+1. Case transformation applied to content after the prefix
+1. Max-length truncation
+
+### `separator`
+
+Specify a character to use in place of `/` between branch name segments.
+
+Supported values: `"-"`, `_`, `/`
+
+For example, with `separator: "-"`: `dependabot/npm_and_yarn/lodash-4.17.21` becomes `dependabot-npm_and_yarn-lodash-4.17.21`.
+
+> [!TIP]
+> The hyphen symbol must be escaped so it is not interpreted as starting an empty YAML list.
+
+### `prefix`
+
+Specify a custom string to use at the start of the branch name instead of the default `dependabot`.
+
+The value can be up to 50 characters.
+
+For example, with `prefix: "deps"`: `dependabot/npm_and_yarn/lodash-4.17.21` becomes `deps/npm_and_yarn/lodash-4.17.21`.
+
+### `max-length`
+
+Set the maximum allowed length for generated branch names.
+
+* Minimum value: `20`.
+* Maximum value: `244`.
+* Default value: `100`.
+* When a branch name exceeds this limit, it is truncated and a hash suffix is appended to preserve uniqueness.
+
+For example, with `max-length: 40`, a branch name like `dependabot/npm_and_yarn/some-long-dependency-name-1.0.0` is truncated to 40 characters with a hash suffix.
+
+### `word-separator`
+
+Specify a character to replace underscores (`_`) in all branch name content after the prefix—including package manager names, dependency names, group names, and directory paths.
+
+For example, with `word-separator: "-"`:
+
+* `npm_and_yarn` → `npm-and-yarn`
+* `front_end_dir` → `front-end-dir`
+
+### `branch-name-case`
+
+Apply a case transformation to the branch name content after the prefix.
+
+Supported values: `"lowercase"`, `"uppercase"`
+
+For example, with `branch-name-case: "lowercase"`: `dependabot/npm_and_yarn/Lodash-4.17.21` becomes `dependabot/npm_and_yarn/lodash-4.17.21`.
+
+### `template`
+
+Define a custom branch name format using placeholders. The template gives you full control over the structure of generated branch names. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
+
+Available placeholders depend on the update strategy:
+
+| Placeholder | Solo updates | Grouped updates | Multi-ecosystem groups | Description |
+|-------------|:---:|:---:|:---:|-------------|
+| `{prefix}` | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | The configured prefix (default `dependabot`). |
+| `{package_manager}` | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | The package ecosystem identifier (for example, `npm_and_yarn`). |
+| `{directory}` | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | The dependency file directory. |
+| `{target_branch}` | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | The target branch if configured. |
+| `{dependency}` | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} | The dependency name(s). |
+| `{version}` | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} | The new version or ref. |
+| `{group_name}` | {% octicon "x" aria-label="Not available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | The configured group name. |
+| `{name}` | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | Strategy-appropriate name: dependency and version for solo updates, group name for grouped updates. |
+
+Template validation rules:
+
+* All placeholders must be recognized and allowed for the update strategy in use.
+* Braces must be well-formed (no unclosed `{` or `}`).
+* Using `{package_manager}` in a multi-ecosystem group template raises a validation error because no single package manager applies.
+* The rendered branch name must be a valid Git reference name. Characters such as spaces, `~`, `^`, `:`, `?`, `*`, `[`, and `\` are not allowed, and sequences like `..` or `@{` are rejected.
+* For grouped and multi-ecosystem updates, a 10-character digest is automatically appended to the branch name to guarantee uniqueness. This is not user-controlled.
+
+{% else %}
 
 Specify a separator to use when generating branch names. For examples, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs).
 
@@ -631,10 +732,12 @@ When `pull-request-branch-name.separator` is defined:
 
 * Use the specified character in place of `/`.
 
-Supported values: `"-"`, `_`,  `/`
+Supported values: `"-"`, `_`, `/`
 
 > [!TIP]
 > The hyphen symbol must be escaped so it is not interpreted as starting an empty YAML list.
+
+{% endif %}
 
 ## `rebase-strategy` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -788,7 +891,7 @@ Define a specific branch to check for version updates and to target pull request
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
-* {% data variables.product.prodname_dependabot %} uses the default branch for the repository, see [About the default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
+* {% data variables.product.prodname_dependabot %} uses the default branch for the repository, see [About the default branch](/pull-requests/reference/branches#about-the-default-branch).
 
 When `target-branch` is defined:
 
@@ -879,7 +982,7 @@ Supported values: `true` or `false`
 
 ## `versioning-strategy` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Supported by: `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip`, `pub`, and `uv`
+Supported by: `bundler`, `cargo`, `composer`, `helm`, `mix`, `npm`, `pip`, `pub`, and `uv`
 
 Define how {% data variables.product.prodname_dependabot %} should edit manifest files. For examples, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#defining-a-versioning-strategy).
 

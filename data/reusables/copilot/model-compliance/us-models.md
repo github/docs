@@ -12,4 +12,5 @@
 * Claude Sonnet 5
 * Claude Opus 4.6
 * Claude Opus 4.8
+* Claude Opus 5
 * MAI-Code-1-Flash

@@ -41,7 +41,7 @@ Repositories owned by personal accounts have a single owner who has full control
 | Manage security and analysis settings for the repository | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) |
 | {% endif %} |
 | {% ifversion fpt or ghec %} |
-| Enable the dependency graph for a private {% ifversion ghec %}or internal {% endif %}repository, or public fork | [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies#enabling-and-disabling-the-dependency-graph) |
+| Enable the dependency graph for a private {% ifversion ghec %}or internal {% endif %}repository, or public fork | [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/explore-dependencies) |
 | {% endif %} |
 | Delete and restore packages | [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package) |
 | Customize the repository's social media preview | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview) |
@@ -78,18 +78,18 @@ Collaborators can also perform the following actions.
 
 | Action | More information |
 | :- | :- |
-| Fork the repository | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) |
+| Fork the repository | [AUTOTITLE](/pull-requests/reference/forks) |
 | Rename a branch other than the default branch | [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch) |
-| Create, edit, and delete comments on commits, pull requests, and issues in the repository | <ul><li>[AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues)</li><li>[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)</li><li>[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)</li></ul> |
+| Create, edit, and delete comments on commits, pull requests, and issues in the repository | <ul><li>[AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues)</li><li>[AUTOTITLE](/pull-requests/how-tos/review-pull-requests/commenting-on-a-pull-request)</li><li>[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)</li></ul> |
 | Create, assign, close, and re-open issues in the repository | [AUTOTITLE](/issues) |
 | Manage labels for issues and pull requests in the repository | [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) |
 | Manage milestones for issues and pull requests in the repository | [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests) |
 | Mark an issue or pull request in the repository as a duplicate | [AUTOTITLE](/issues/tracking-your-work-with-issues/administering-issues/marking-issues-or-pull-requests-as-a-duplicate) |
-| Create, merge, and close pull requests in the repository | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests) |
-| Enable and disable auto-merge for a pull request | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)
-| Apply suggested changes to pull requests in the repository |[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request) |
-| Create a pull request from a fork of the repository | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) |
-| Submit a review on a pull request that affects the mergeability of the pull request | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request) |
+| Create, merge, and close pull requests in the repository | [AUTOTITLE](/pull-requests/how-tos/create-pull-requests) |
+| Enable and disable auto-merge for a pull request | [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/automatically-merging-a-pull-request)
+| Apply suggested changes to pull requests in the repository |[AUTOTITLE](/pull-requests/how-tos/review-pull-requests/incorporating-feedback-in-your-pull-request) |
+| Create a pull request from a fork of the repository | [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/creating-a-pull-request-from-a-fork) |
+| Submit a review on a pull request that affects the mergeability of the pull request | [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/reviewing-proposed-changes-in-a-pull-request) |
 | Create and edit a wiki for the repository | [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis) |
 | Create and edit releases for the repository | [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository) |
 | Act as a code owner for the repository | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) |

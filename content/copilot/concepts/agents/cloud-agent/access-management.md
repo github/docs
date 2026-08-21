@@ -50,7 +50,7 @@ For information on disabling {% data variables.copilot.copilot_cloud_agent %} in
 
 For information on disabling {% data variables.copilot.copilot_cloud_agent %} in all repositories owned by an enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/block-agentic-features).
 
-For information on disabling {% data variables.copilot.copilot_cloud_agent %} in repositories owned by your personal user account, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-copilot-cloud-agent).
+For information on disabling {% data variables.copilot.copilot_cloud_agent %} in repositories owned by your personal user account, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#disabling-or-enabling-copilot-cloud-agent-in-your-repositories).
 
 ## Managing access to {% data variables.copilot.copilot_automations_cap %}
 
@@ -64,6 +64,6 @@ In addition to the {% data variables.copilot.copilot_cloud_agent %} policy, orga
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
-* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/pilot-cloud-agent)

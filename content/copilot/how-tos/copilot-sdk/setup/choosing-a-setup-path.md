@@ -81,7 +81,7 @@ Use this table to find the right guides based on what you need to do:
 | Getting started quickly | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/bundled-cli) |
 | Use your own CLI binary or server | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/local-cli) |
 | Users sign in with GitHub | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/github-oauth) |
-| Use your own model keys (OpenAI, Azure, etc.) | [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) |
+| Use your own model keys (OpenAI, Azure, and more) | [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) |
 | Azure BYOK with Managed Identity (no API keys) | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/azure-managed-identity) |
 | Run the SDK on a server | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/backend-services) |
 | Configure SDK options for concurrent users | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy) |

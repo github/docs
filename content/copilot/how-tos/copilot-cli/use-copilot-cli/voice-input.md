@@ -16,7 +16,7 @@ Voice input lets you dictate prompts to {% data variables.copilot.copilot_cli_sh
 
 ## Prerequisite
 
-You need a working microphone connected to your machine. Voice input uses your system's default microphone.
+You need a working microphone connected to your machine. By default, voice input uses your system's default microphone.
 
 ## Limitation
 
@@ -62,6 +62,30 @@ Rather than holding down the space bar, you can toggle voice recording on and of
 1. Speak your prompt.
 1. Press any key to stop recording and insert the transcription.
 
+### Cleaning up voice-entered prompts
+
+Optionally, to clean up a prompt you have entered by speaking, you can use the `/refine` slash command. This command:
+
+* Removes filler words, false starts or repetitions.
+* Applies any self-corrections you've made.
+* Fixes grammatical mistakes.
+* Groups related points for clarity.
+
+To clean up the current prompt:
+
+1. Before submitting the prompt, press <kbd>Ctrl</kbd>+<kbd>X</kbd> quickly followed by <kbd>/</kbd>.
+1. Type `/refine`, then press <kbd>Enter</kbd>.
+
+## Switching microphones
+
+If you have more than one microphone available on your system, you can switch input devices.
+
+1. Enter the `/voice devices` slash command.
+
+   A list of available input devices is shown.
+
+1. Use the arrow keys on your keyboard to select the microphone you want to use, then press <kbd>Enter</kbd>.
+   
 ## Switching voice models
 
 You can dictate prompts in English or Spanish, but the appropriate voice model must be downloaded and activated for the language you want to use.

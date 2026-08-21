@@ -13,34 +13,58 @@ category:
 
 The {% data variables.product.github %} integration for Microsoft Teams lets you connect your {% data variables.product.github %} account to the {% data variables.product.github %} app in Teams. Once connected, you can subscribe to notifications, run commands, and collaborate on issues and pull requests directly within Teams.
 
+{% ifversion copilot %}
+
+You can also use the {% data variables.product.github %} integration to initiate and steer {% data variables.copilot.copilot_cloud_agent %} sessions in a conversation, including asking {% data variables.product.prodname_copilot_short %} to perform deep research, planning and triage tasks within a thread. Teammates can collaborate with each other and the agent, add context, correct assumptions, continue an agent task, and review the resulting artifacts.
+
+> [!NOTE]
+> * {% data variables.product.prodname_copilot %} in Teams is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+{% endif %}
+
 ## Connecting your {% data variables.product.github %} account to the {% data variables.product.github %} app in Teams
 
 >[!NOTE] Before you can connect your accounts, an admin for your Teams workspace must have installed the {% data variables.product.github %} app. See [AUTOTITLE](/integrations/how-tos/teams/integrate-github-with-teams).
 
 1. In Teams, open a direct message or personal app conversation with the {% data variables.product.github %} app.
-1. Run `@GitHub Notifications signin` and follow the prompts in Teams and in your browser to authorize the connection.
+1. Run {% ifversion copilot %}`@{% data variables.product.github %}`{% else %}`@{% data variables.product.github %} Notifications signin`{% endif %} and follow the prompts in Teams and in your browser to authorize the connection.
 
 Once your {% data variables.product.github %} account is connected, Teams will show you a list of available commands and features.
 
-## Using commands in Teams
+## Using commands for notifications in Teams
 
-In channels, start commands with `@GitHub Notifications`. In the personal app, omit the prefix. For the full list of commands, see [AUTOTITLE](/integrations/reference/teams-command-reference).
+In channels, start commands with {% ifversion copilot %}`@{% data variables.product.github %}`{% else %}`@{% data variables.product.github %} Notifications`{% endif %}. In the personal app, omit the prefix. For the full list of commands, see [AUTOTITLE](/integrations/reference/teams-command-reference).
 
 |Command|Description|
 |---|---|
-|`@GitHub Notifications subscribe owner/repo`|Subscribes the channel to notifications for the specified repository.|
-|`@GitHub Notifications unsubscribe owner/repo`|Unsubscribes the channel from notifications for the specified repository.|
-|`@GitHub Notifications subscribe list`|Lists all repositories the channel is subscribed to.|
-|`@GitHub Notifications subscribe list features`|Lists all repositories and notification features the channel is subscribed to.|
+|`@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %} subscribe OWNER/REPO`|Subscribes the channel to notifications for the specified repository.|
+|`@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %} unsubscribe OWNER/REPO`|Unsubscribes the channel from notifications for the specified repository.|
+|`@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %} subscribe list`|Lists all repositories the channel is subscribed to.|
+|`@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %} subscribe list features`|Lists all repositories and notification features the channel is subscribed to.|
 
 >[!NOTE] When you subscribe a channel to a repository, you may be prompted to install the {% data variables.product.github %} app and grant access to the repository or organization.
 
 ## Working with issues and pull requests
 
+{% ifversion copilot %}
+
+You can create, comment on, and manage issues and pull requests directly from Teams with or without using {% data variables.product.prodname_copilot_short %}.
+
+To have {% data variables.product.prodname_copilot_short %} perform an action, @mention the app in any Teams chat by typing `@{% data variables.product.github %}` followed by your task, and see [Initiating {% data variables.copilot.copilot_cloud_agent %} sessions within Teams](#initiating--data-variablescopilotcopilot_cloud_agent--sessions-within-teams) below.
+
+> [!NOTE]
+> {% data reusables.copilot.cloud-agent.unattributed-additional-approval-note %}
+
+For step-by-step instructions to work with issues and pull requests independent of {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/integrations/tutorials/teams/create-issues) and [AUTOTITLE](/integrations/tutorials/teams/manage-issues).
+
+{% else %}
+
 You can create, comment on, and manage issues and pull requests directly from Teams. For step-by-step instructions, see:
 
 * [AUTOTITLE](/integrations/tutorials/teams/create-issues)
 * [AUTOTITLE](/integrations/tutorials/teams/manage-issues)
+
+{% endif %}
 
 ## Mentions in Teams
 
@@ -79,17 +103,34 @@ Previews of links will not be shown if any of the following apply:
 
 ## Personal app experience
 
-The {% data variables.product.github %} personal app in Teams lets you manage subscriptions and receive notifications in a private chat. In the personal app, commands do not require the `@GitHub Notifications` prefix and notifications are not threaded.
+The {% data variables.product.github %} personal app in Teams lets you manage subscriptions and receive notifications in a private chat. In the personal app, commands do not require the {% ifversion copilot %}`@{% data variables.product.github %}`{% else %}`@{% data variables.product.github %} Notifications`{% endif %} prefix and notifications are not threaded.
 
 ## Scheduling reminders for pull request reviews
 
 You can schedule reminders for pending pull request reviews in channels or in the personal app. For instructions, see [AUTOTITLE](/integrations/how-tos/teams/schedule-reminders).
 
-{% ifversion fpt or ghec %}
+{% ifversion copilot %}
 
 ## Initiating {% data variables.copilot.copilot_cloud_agent %} sessions within Teams
 
-The {% data variables.product.github %} app integrates {% data variables.copilot.copilot_cloud_agent %} into Teams. You can summon {% data variables.copilot.copilot_cloud_agent %} in threads where discussions are taking place and ask it to make changes based on the context of those discussions. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams).
+The {% data variables.product.github %} app integrates {% data variables.copilot.copilot_cloud_agent %} into Teams. You can summon {% data variables.copilot.copilot_cloud_agent %} in threads where discussions are taking place and ask it to make changes based on the context of those discussions.
+
+Use {% data variables.product.prodname_copilot_short %} in direct messages, threads, and channels. Besides creating issues, pull requests and other artifacts, working with {% data variables.product.prodname_copilot_short %} in Teams allows you to:
+
+* Move directly from discussion to investigation and implementation.
+* Ask questions and investigate failures.
+* Plan work before implementation.
+* Collaboratively steer an agent with teammates.
+* Delegate work from any device.
+* Let tasks run asynchronously.
+* Review the resulting work in the open.
+* Resume work on the agent-generated artifacts outside of Teams, in {% data variables.product.github %}, the terminal, or your preferred code editor.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams).
+
+## Feedback and support
+
+You can view and share feedback in our [discussion forum](https://github.com/orgs/community/discussions/205453).
 
 {% endif %}
 

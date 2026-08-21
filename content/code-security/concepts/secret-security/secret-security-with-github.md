@@ -67,4 +67,4 @@ For more information about the specific features of {% data variables.product.pr
 
 ## Next steps
 
-Now that you know how {% data variables.product.github %} can help keep your secrets safe, you should assess your organization's current exposure to leaked secrets. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk).
+Now that you know how {% data variables.product.github %} can help keep your secrets safe, you should assess your organization's current exposure to leaked secrets. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk).

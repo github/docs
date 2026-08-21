@@ -10,6 +10,7 @@ redirect_from:
 category:
   - Create and manage assignments
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About group assignments
 
@@ -133,11 +134,11 @@ You can see the teams that are working on or have submitted an assignment in the
 
 ## Next steps
 
-* After you create the assignment and your students form teams, team members can start work on the assignment using Git and {% data variables.product.github %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and the team can review the commit history for the repository. For more information, see [AUTOTITLE](/get-started), [AUTOTITLE](/repositories), [AUTOTITLE](/get-started/using-git), and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests), and the free course on [resolving merge conflicts](https://github.com/skills/resolve-merge-conflicts) from {% data variables.product.prodname_learning %}.
+* After you create the assignment and your students form teams, team members can start work on the assignment using Git and {% data variables.product.github %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and the team can review the commit history for the repository. For more information, see [AUTOTITLE](/get-started), [AUTOTITLE](/repositories), [AUTOTITLE](/get-started/using-git), and [AUTOTITLE](/pull-requests), and the free course on [resolving merge conflicts](https://github.com/skills/resolve-merge-conflicts) from {% data variables.product.prodname_learning %}.
 
 * When a team finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand how the team collaborated. For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository).
 
-* You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue). For more information about creating saved replies to provide feedback for common errors, see [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/about-saved-replies).
+* You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/commenting-on-a-pull-request) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue). For more information about creating saved replies to provide feedback for common errors, see [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/about-saved-replies).
 
 ## Further reading
 

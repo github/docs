@@ -17,6 +17,12 @@ category:
 
 Open **[My work](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fmywork)** in the sidebar to see your issues and pull requests in one place. The view is organized into sections—by default, **All**, **Active**, **Review requests**, and **Done**. You can edit the default sections or add new ones with your own filters. Use the search bar within any section to find items by keyword or qualifiers like `label:bug`.
 
+## Creating an issue or pull request from a session
+
+When you ask an agent in the app to create an issue, the agent chooses a repository issue template based on the type of issue. To use a particular template, specify it in your prompt.
+
+When you ask an agent to create a pull request, it also follows the repository's pull request template.
+
 ## Starting a session from an issue
 
 1. Open **[My work](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fmywork)** in the sidebar.

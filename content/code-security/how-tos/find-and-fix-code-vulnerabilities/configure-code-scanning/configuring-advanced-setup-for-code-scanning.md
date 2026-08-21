@@ -32,12 +32,12 @@ Your repository is eligible for advanced setup if it meets these requirements.
 {% data reusables.code-scanning.require-actions-ghcs %}
 
 {% ifversion ghes %}
-If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, your site administrator can enable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} by making the {% data variables.product.prodname_codeql %} analysis bundle available on the server. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access).
+If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, your site administrator can enable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} by making the {% data variables.product.prodname_codeql %} analysis bundle available on the server. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access).
 {% endif %}
 
 ## Configuring advanced setup for {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}
 
-You can customize your {% data variables.product.prodname_codeql %} analysis by creating and editing a workflow file. Selecting advanced setup generates a basic workflow file for you to customize using standard workflow syntax and specifying options for the {% data variables.product.prodname_codeql %} action. See [AUTOTITLE](/actions/using-workflows/about-workflows) and [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning).
+You can customize your {% data variables.product.prodname_codeql %} analysis by creating and editing a workflow file. Selecting advanced setup generates a basic workflow file for you to customize using standard workflow syntax and specifying options for the {% data variables.product.prodname_codeql %} action. See [AUTOTITLE](/actions/concepts/workflows-and-actions/workflows) and [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options).
 
 {% data reusables.code-scanning.billing %}
 
@@ -51,18 +51,16 @@ You can customize your {% data variables.product.prodname_codeql %} analysis by 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Scroll down to "{% data variables.product.UI_code_security_scanning %}", in the "{% data variables.product.prodname_codeql %} analysis" row select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Advanced**.
+1. In the "{% data variables.product.prodname_codeql %} analysis" row, select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Advanced**.
 
    > [!NOTE]
    > If you are switching from default setup to advanced setup, in the "{% data variables.product.prodname_codeql %} analysis" row, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "workflow" aria-hidden="true" aria-label="workflow" %} Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
-
-   ![Screenshot of the "{% data variables.product.UI_code_security_scanning %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Advanced setup" button is highlighted with an orange outline.](/assets/images/help/security/advanced-code-scanning-setup-ghas.png)
 
 1. To customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow.
 
    Generally, you can commit the {% data variables.code-scanning.codeql_workflow %} without making any changes to it. However, many of the third-party workflows require additional configuration, so read the comments in the workflow before committing.
 
-   For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning) and [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages).
+   For more information, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options) and [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages).
 
 1. Click **Commit changes...** to display the commit changes form.
 
@@ -74,9 +72,9 @@ You can customize your {% data variables.product.prodname_codeql %} analysis by 
 
 In the suggested {% data variables.code-scanning.codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
 
-The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. See [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#scan-frequency) and [AUTOTITLE](/actions/using-workflows/triggering-a-workflow).
+The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. See [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#scan-frequency) and [AUTOTITLE](/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow).
 
-For information on bulk enablement, see [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale).
+For information on bulk enablement, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale).
 
 {% ifversion fpt or ghec %}
 
@@ -102,21 +100,21 @@ For information on bulk enablement, see [AUTOTITLE](/code-security/code-scanning
 
 1. When you have finished defining your configuration, add the new workflow to your default branch.
 
-   For more information, see [AUTOTITLE](/actions/learn-github-actions/using-starter-workflows#choosing-and-using-a-starter-workflow) and [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning).
+   For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/use-workflow-templates#choosing-and-using-a-workflow-template) and [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options).
 
 {% endif %}
 
 ## Next steps
 
-After your workflow runs successfully at least once, you are ready to start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts) and [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).
+After your workflow runs successfully at least once, you are ready to start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alerts) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/assess-alerts).
 
-Learn how {% data variables.product.prodname_code_scanning %} runs behave as checks on pull requests, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#about-code-scanning-as-a-pull-request-check).
+Learn how {% data variables.product.prodname_code_scanning %} runs behave as checks on pull requests, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests).
 
-You can find detailed information about your {% data variables.product.prodname_code_scanning %} configuration, including timestamps for each scan and the percentage of files scanned, on the tool status page. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page).
+You can find detailed information about your {% data variables.product.prodname_code_scanning %} configuration, including timestamps for each scan and the percentage of files scanned, on the tool status page. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning).
 
 ### Further reading
 
-* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).
-* [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#github-actions-notification-options).
-* [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning).
-* [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs).
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests).
+* [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-github-actions-notifications).
+* [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options).
+* [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/view-code-scanning-logs).

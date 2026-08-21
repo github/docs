@@ -103,7 +103,7 @@ If {% data variables.product.prodname_copilot_short %} tries to make a request w
 
 ![Screenshot of a warning from {% data variables.product.prodname_copilot_short %} about being blocked by the firewall.](/assets/images/help/copilot/cloud-agent/firewall-warning.png)
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
 
 ## {% data variables.product.prodname_copilot_short %} is not picking up attached screenshots
 

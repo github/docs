@@ -186,6 +186,10 @@
                         "type": "string",
                         "description": "The user login when the budget is scoped to a single user (`user` scope)."
                       },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
+                      },
                       "budget_product_sku": {
                         "type": "string",
                         "description": "A single product or sku to apply the budget to."
@@ -195,14 +199,14 @@
                         "properties": {
                           "will_alert": {
                             "type": "boolean",
-                            "description": "Whether alerts are enabled for this budget"
+                            "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is disabled for them."
                           },
                           "alert_recipients": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "description": "Array of user login names who will receive alerts"
+                            "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is disabled for them."
                           }
                         },
                         "required": [
@@ -380,6 +384,10 @@
                         "type": "string",
                         "description": "The user login when the budget is scoped to a single user (`user` scope)."
                       },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
+                      },
                       "budget_product_sku": {
                         "type": "string",
                         "description": "A single product or sku to apply the budget to."
@@ -389,14 +397,14 @@
                         "properties": {
                           "will_alert": {
                             "type": "boolean",
-                            "description": "Whether alerts are enabled for this budget"
+                            "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is disabled for them."
                           },
                           "alert_recipients": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "description": "Array of user login names who will receive alerts"
+                            "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is disabled for them."
                           }
                         },
                         "required": [
@@ -527,12 +535,12 @@
             {
               "type": "boolean",
               "name": "will_alert",
-              "description": "<p>Whether alerts are enabled for this budget</p>"
+              "description": "<p>Whether alerts are enabled for this budget. Rejected for user-scope as alerting is always disabled for them.</p>"
             },
             {
               "type": "array of strings",
               "name": "alert_recipients",
-              "description": "<p>Array of user login names who will receive alerts</p>"
+              "description": "<p>Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them.</p>"
             }
           ]
         },
@@ -678,14 +686,14 @@
                       "properties": {
                         "will_alert": {
                           "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
+                          "description": "Whether alerts are enabled for this budget. Rejected for user-scope as alerting is always disabled for them."
                         },
                         "alert_recipients": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           },
-                          "description": "Array of user login names who will receive alerts"
+                          "description": "Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them."
                         }
                       }
                     }
@@ -863,14 +871,14 @@
                   "properties": {
                     "will_alert": {
                       "type": "boolean",
-                      "description": "Whether alerts are enabled for this budget"
+                      "description": "Whether alerts are enabled for this budget. Present but not applicable for user-scope as alerting is always disabled for them."
                     },
                     "alert_recipients": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "description": "Array of user login names who will receive alerts"
+                      "description": "Array of user login names who will receive alerts. Present but not applicable for user-scope as alerting is always disabled for them."
                     }
                   }
                 }
@@ -973,12 +981,12 @@
             {
               "type": "boolean",
               "name": "will_alert",
-              "description": "<p>Whether alerts are enabled for this budget</p>"
+              "description": "<p>Whether alerts are enabled for this budget. Ignored for user-scopes as alerting is always disabled for them.</p>"
             },
             {
               "type": "array of strings",
               "name": "alert_recipients",
-              "description": "<p>Array of user login names who will receive alerts</p>"
+              "description": "<p>Array of user login names who will receive alerts. Ignored for user-scopes as alerting is always disabled for them.</p>"
             }
           ]
         },
@@ -1133,14 +1141,14 @@
                       "properties": {
                         "will_alert": {
                           "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
+                          "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is always disabled for them."
                         },
                         "alert_recipients": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           },
-                          "description": "Array of user login names who will receive alerts"
+                          "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is always disabled for them."
                         }
                       }
                     }

@@ -84,6 +84,21 @@ export function SidebarCollapseProvider({
     setMobileNavOpen(false)
   }, [asPath])
 
+  // Growing the viewport to the desktop (xxl) layout takes over from the inline
+  // mobile nav and hides its toggle, so close the mobile nav when we cross the
+  // breakpoint — otherwise its open state stays stuck and keeps the content
+  // column hidden. 1400px mirrors breakpoint-xxl.scss.
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return
+    const mql = window.matchMedia('(min-width: 1400px)')
+    const handle = (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches) setMobileNavOpen(false)
+    }
+    handle(mql) // close immediately if already at/above xxl on mount
+    mql.addEventListener('change', handle)
+    return () => mql.removeEventListener('change', handle)
+  }, [])
+
   const value = useMemo(
     () => ({
       collapsed,

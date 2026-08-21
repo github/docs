@@ -17,7 +17,7 @@ category:
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/get-started/what-is-github-copilot#getting-access-to-copilot).
+* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
 * **{% data variables.product.prodname_windows_terminal %} Canary installed**. For installation instructions, see [Installing {% data variables.product.prodname_windows_terminal %} Canary](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-windows-terminal-canary).
 * **{% data variables.product.prodname_copilot %} connected to Terminal Chat**. See [AUTOTITLE](/copilot/get-started/quickstart?tool=windowsterminal).
 
@@ -25,7 +25,7 @@ If you have access to {% data variables.product.prodname_copilot %} via your org
 
 ## Getting command explanations and suggestions
 
-In the Terminal Chat chat window, type a question (for example, `how do i list all markdown files in my directory`) then press <kbd>Enter</kbd>.
+In the Terminal Chat window, type a question (for example, `how do i list all markdown files in my directory`) then press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %}'s answer is displayed below your question.
 

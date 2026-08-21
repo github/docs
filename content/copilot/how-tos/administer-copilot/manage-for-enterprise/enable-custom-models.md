@@ -40,8 +40,7 @@ You can choose whether the models you have added are available to organizations 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. In the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
-1. Click **Configure allowed models**.
-1. Click the **Custom models** tab.
+1. Click **Configure custom models**.
 1. Above the list of API keys, click the **Added models** tab.
 1. Next to a model, click **Configure**. If any organizations already have access to the model, instead of "Configure", you will need to click **All organizations** or **X organizations**.
 1. In the modal that opens, click the **Access** tab.
@@ -53,6 +52,6 @@ You can choose whether the models you have added are available to organizations 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/use-your-own-api-keys) in our documentation for organizations.
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/enable-custom-models) in our documentation for organizations.
 * [AUTOTITLE](/copilot/concepts/chat)
 * [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

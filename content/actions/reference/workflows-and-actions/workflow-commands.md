@@ -651,7 +651,7 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access.
 
-{% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#default-environment-variables).
+{% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see [AUTOTITLE](/actions/reference/workflows-and-actions/variables#default-environment-variables).
 
 > [!NOTE]
 > Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.
@@ -959,3 +959,98 @@ This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directo
 ```
 
 {% endpowershell %}
+
+{% ifversion actions-artifacts-file %}
+
+## Declaring workflow artifacts
+
+Declare files or OCI references as workflow artifacts by writing one declaration per line to the `GITHUB_ARTIFACTS` environment file. Each step writes to a fresh, per-step file; the path is unique to that step.
+
+Metadata about declared artifacts is collected across all steps in a job and exposed through the `GITHUB_ARTIFACTS_LIST` file.
+
+Each line must be one of the following formats. Blank lines and lines starting with `#` are ignored.
+
+* **File path**: A relative or absolute path to a file, optionally prefixed with `file://`. Relative paths are resolved against `GITHUB_WORKSPACE`. The path must point to an existing regular file (not a directory). The runner records the file's base name and its SHA-256 digest.
+* **OCI reference**: A reference in the form `REFERENCE@ALGORITHM:HEX`, optionally prefixed with `oci://`. `REFERENCE` is the image name (including optional tag), and `ALGORITHM` must be one of `sha256`, `sha384`, or `sha512`. `HEX` must be the full lowercase digest for the algorithm: 64 hexadecimal characters for `sha256`, 96 for `sha384`, or 128 for `sha512`.
+
+Limits:
+
+* The per-step command file is capped at 1MiB.
+* A job can accumulate up to 500 workflow artifacts across all steps.
+* If the same artifact is declared more than once with identical name and digest, it is deduplicated. Conflicting declarations (same name, different digest) produce an error.
+
+{% bash %}
+
+```bash copy
+echo "dist/my-binary" >> "$GITHUB_ARTIFACTS"
+```
+
+To declare an OCI reference:
+
+```bash copy
+echo "oci://ghcr.io/octocat/myapp:1.0.0@sha256:914b38d45a65e4263a179d9c2b09cc04dcbcaa8257fa85100cf42f9a3b408cfb" >> "$GITHUB_ARTIFACTS"
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```powershell copy
+"dist/my-binary" >> $env:GITHUB_ARTIFACTS
+```
+
+To declare an OCI reference:
+
+```powershell copy
+"oci://ghcr.io/octocat/myapp:1.0.0@sha256:914b38d45a65e4263a179d9c2b09cc04dcbcaa8257fa85100cf42f9a3b408cfb" >> $env:GITHUB_ARTIFACTS
+```
+
+{% endpowershell %}
+
+## Reading workflow artifacts
+
+Read the aggregated workflow artifact metadata declared by earlier steps in the current job from the `GITHUB_ARTIFACTS_LIST` environment file. This file is read-only and is updated by the runner after each step completes. It contains a UTF-8-encoded JSON object with the following structure:
+
+```json
+{
+  "version": 1,
+  "subjects": [
+    {
+      "name": "my-binary",
+      "digest": "sha256:abc123...",
+      "kind": "file"
+    },
+    {
+      "name": "ghcr.io/octocat/myapp:1.0.0",
+      "digest": "sha256:a1b2c3d4...",
+      "kind": "oci"
+    }
+  ]
+}
+```
+
+Each entry in the `subjects` array contains:
+
+* `name`: The base name of the file or the OCI reference name (without the digest).
+* `digest`: The `algorithm:hex` digest of the artifact.
+* `kind`: Either `file` or `oci`.
+
+Artifacts are sorted alphabetically by `name`.
+
+{% bash %}
+
+```bash copy
+cat "$GITHUB_ARTIFACTS_LIST"
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```powershell copy
+Get-Content $env:GITHUB_ARTIFACTS_LIST
+```
+
+{% endpowershell %}
+
+{% endif %}

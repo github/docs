@@ -222,6 +222,14 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- ifversion fpt または ghec %}', 'ja')).toBe('{%- ifversion fpt or ghec %}')
     })
 
+    test('fixes translated command-palette flag name', () => {
+      expect(fix('{% ifversion コマンド パレット %}', 'ja')).toBe('{% ifversion command-palette %}')
+      expect(fix('{%- ifversion コマンド パレット %}', 'ja')).toBe(
+        '{%- ifversion command-palette %}',
+      )
+      expect(fix('{% ifversion command-palette %}', 'ja')).toBe('{% ifversion command-palette %}')
+    })
+
     test('fixes trailing quote on YAML value', () => {
       expect(fix('  asked_too_many_times: some value"  ', 'ja')).toBe(
         '  asked_too_many_times: some value',
@@ -356,6 +364,32 @@ describe('correctTranslatedContentStrings', () => {
   // ─── PORTUGUESE (pt) ───────────────────────────────────────────────
 
   describe('Portuguese (pt)', () => {
+    test('strips stray unclosed {% vscode %} opener with no English counterpart', () => {
+      // Confirmed in data/reusables/copilot/code-completion-switch-prereqs-vscode.md:
+      // translator inserted a stray `{% vscode %}` opener mid-sentence with no
+      // matching `{% endvscode %}`, and the English source never used this tag.
+      expect(
+        fix(
+          'Você está usando as versões mais recentes do {% vscode %} Você pode alternar os modelos.',
+          'pt',
+          'You are using the latest releases of Visual Studio Code.',
+        ),
+      ).toBe('Você está usando as versões mais recentes do Você pode alternar os modelos.')
+
+      // Leave the tag alone when it's properly closed.
+      expect(
+        fix('{% vscode %}Conteúdo{% endvscode %}', 'pt', 'You are using the latest releases.'),
+      ).toBe('{% vscode %}Conteúdo{% endvscode %}')
+
+      // Leave the tag alone when the English source also uses it (legitimate tab content).
+      expect(fix('{% vscode %}Conteúdo', 'pt', '{% vscode %}Content')).toBe('{% vscode %}Conteúdo')
+
+      // Every opener is stray when there is no closer at all, so strip all of them.
+      expect(
+        fix('a {% vscode %} b {% vscode %} c', 'pt', 'You are using the latest releases.'),
+      ).toBe('a b c')
+    })
+
     test('fixes translated data tags', () => {
       expect(fix('{% dados variables.product.github %}', 'pt')).toBe(
         '{% data variables.product.github %}',
@@ -376,6 +410,12 @@ describe('correctTranslatedContentStrings', () => {
       // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
       expect(fix('{%– ifversion projects-v1 %}', 'pt')).toBe('{%- ifversion projects-v1 %}')
       expect(fix('{%– endif %}', 'pt')).toBe('{%- endif %}')
+    })
+
+    test('fixes Portuguese não (not) in ifversion tags', () => {
+      expect(fix('{% ifversion não ghes %}', 'pt')).toBe('{% ifversion not ghes %}')
+      expect(fix('{%- ifversion não ghes %}', 'pt')).toBe('{%- ifversion not ghes %}')
+      expect(fix('{% ifversion not ghes %}', 'pt')).toBe('{% ifversion not ghes %}')
     })
 
     test('fixes datavariables / dadosvariables (no space)', () => {
@@ -465,7 +505,24 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes dados variáveis → data variables', () => {
       expect(fix('{% dados variáveis.produto.prodname_pro %}', 'pt')).toBe(
-        '{% data variables.produto.prodname_pro %}',
+        '{% data variables.product.prodname_pro %}',
+      )
+    })
+
+    test('fixes translated produto path segment inside variables.', () => {
+      expect(fix('{% data variáveis.produto.prodname_ghe_cloud %}', 'pt')).toBe(
+        '{% data variables.product.prodname_ghe_cloud %}',
+      )
+      expect(fix('{% data variables.produto.prodname_github_codespaces %}', 'pt')).toBe(
+        '{% data variables.product.prodname_github_codespaces %}',
+      )
+      // Already-correct input is left unchanged.
+      expect(fix('{% data variables.product.prodname_pro %}', 'pt')).toBe(
+        '{% data variables.product.prodname_pro %}',
+      )
+      // Prose outside a Liquid `data` tag is left unchanged.
+      expect(fix('Veja myvariables.produto.exemplo para detalhes.', 'pt')).toBe(
+        'Veja myvariables.produto.exemplo para detalhes.',
       )
     })
 
@@ -534,6 +591,18 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes Chinese if keyword', () => {
       expect(fix('{ 如果 ghec %}', 'zh')).toBe('{% if ghec %}')
+    })
+
+    test('fixes translated flag names in ifversion tags', () => {
+      expect(fix('{% ifversion 命令面板 %}', 'zh')).toBe('{% ifversion command-palette %}')
+      expect(fix('{%- ifversion 命令面板 %}', 'zh')).toBe('{%- ifversion command-palette %}')
+      expect(fix('{% ifversion 子问题 %}', 'zh')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{%- ifversion 子问题 %}', 'zh')).toBe('{%- ifversion sub-issues %}')
+      expect(fix('{% ifversion 问题类型 %}', 'zh')).toBe('{% ifversion issue-types %}')
+      expect(fix('{%- ifversion 问题类型 %}', 'zh')).toBe('{%- ifversion issue-types %}')
+      expect(fix('{% ifversion command-palette %}', 'zh')).toBe('{% ifversion command-palette %}')
+      expect(fix('{% ifversion sub-issues %}', 'zh')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{% ifversion issue-types %}', 'zh')).toBe('{% ifversion issue-types %}')
     })
 
     test('fixes stray Chinese then merged with HTML', () => {
@@ -1146,6 +1215,33 @@ describe('correctTranslatedContentStrings', () => {
       )
     })
 
+    test('fixes translated flag names in ifversion tags', () => {
+      expect(fix('{% ifversion 명령 팔레트 %}', 'ko')).toBe('{% ifversion command-palette %}')
+      expect(fix('{%- ifversion 명령 팔레트 %}', 'ko')).toBe('{%- ifversion command-palette %}')
+      expect(fix('{% ifversion 하위 문제 %}', 'ko')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{%- ifversion 하위 문제 %}', 'ko')).toBe('{%- ifversion sub-issues %}')
+      expect(fix('{% ifversion 리포지토리-규칙 관리 %}', 'ko')).toBe(
+        '{% ifversion repo-rules-management %}',
+      )
+      expect(fix('{%- ifversion 리포지토리-규칙 관리 %}', 'ko')).toBe(
+        '{%- ifversion repo-rules-management %}',
+      )
+      expect(fix('{% ifversion 업데이트 알림 설정-22 %}', 'ko')).toBe(
+        '{% ifversion update-notification-settings-22 %}',
+      )
+      expect(fix('{%- ifversion 업데이트 알림 설정-22 %}', 'ko')).toBe(
+        '{%- ifversion update-notification-settings-22 %}',
+      )
+      expect(fix('{% ifversion command-palette %}', 'ko')).toBe('{% ifversion command-palette %}')
+      expect(fix('{% ifversion sub-issues %}', 'ko')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{% ifversion repo-rules-management %}', 'ko')).toBe(
+        '{% ifversion repo-rules-management %}',
+      )
+      expect(fix('{% ifversion update-notification-settings-22 %}', 'ko')).toBe(
+        '{% ifversion update-notification-settings-22 %}',
+      )
+    })
+
     test('fixes dada → data (via generic)', () => {
       expect(fix('{% dada variables.product.github %}', 'ko')).toBe(
         '{% data variables.product.github %}',
@@ -1263,6 +1359,18 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes oder → or in ifversion tags', () => {
       expect(fix('{%- ifversion fpt oder ghec %}', 'de')).toBe('{%- ifversion fpt or ghec %}')
       expect(fix('{% ifversion fpt oder ghec %}', 'de')).toBe('{% ifversion fpt or ghec %}')
+    })
+
+    test('fixes translated immutable-releases flag name', () => {
+      expect(fix('{% ifversion unveränderliche Versionen %}', 'de')).toBe(
+        '{% ifversion immutable-releases %}',
+      )
+      expect(fix('{%- ifversion unveränderliche Versionen %}', 'de')).toBe(
+        '{%- ifversion immutable-releases %}',
+      )
+      expect(fix('{% ifversion immutable-releases %}', 'de')).toBe(
+        '{% ifversion immutable-releases %}',
+      )
     })
 
     test('fixes translated block tags', () => {
@@ -1514,6 +1622,20 @@ describe('correctTranslatedContentStrings', () => {
   })
 
   describe('Generic fixes (all languages)', () => {
+    test('fixes reordered ifversion/endif/else back to ifversion/else/endif', () => {
+      // Confirmed corruption pattern across all 8 translated languages in
+      // data/reusables/organizations/custom-org-roles-intro.md: `{% endif %}`
+      // and `{% else %}` were swapped, producing a "tag 'else' not found"
+      // parse error.
+      expect(
+        fix('{% ifversion org-custom-role-with-repo-permissions %}A{% endif %}B{% else %}C', 'pt'),
+      ).toBe('{% ifversion org-custom-role-with-repo-permissions %}A{% else %}B{% endif %}C')
+      // Already-correct input is left unchanged.
+      expect(fix('{% ifversion ghec %}A{% else %}B{% endif %}', 'pt')).toBe(
+        '{% ifversion ghec %}A{% else %}B{% endif %}',
+      )
+    })
+
     test('strips LLM sentinel markers and preserves word boundaries', () => {
       expect(fix('Hello<|endoftext|>World', 'es')).toBe('Hello World')
       expect(fix('Hello <|endoftext|> World', 'es')).toBe('Hello World')
@@ -1623,6 +1745,9 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('["AUTOTITLE](/path)', 'es')).toBe('"[AUTOTITLE](/path)')
       expect(fix('[ AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
       expect(fix('[ "AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
+      expect(fix('[AUTOTITLE] (/path)', 'es')).toBe('[AUTOTITLE](/path)')
+      // Already-correct input is left unchanged.
+      expect(fix('[AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
     })
 
     test('fixes double-brace Liquid tag corruptions', () => {
@@ -2465,6 +2590,107 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(fix(broken, 'ru')).toBe(fixed)
       // idempotent: the fix only matches the broken form
       expect(fix(fixed, 'ru')).toBe(fixed)
+    })
+  })
+
+  // ─── SCRAPE-6781: search-scrape failures ─────────────────────────────
+  // The pt codespaces and ko organizations landing pages failed to scrape
+  // (github/docs-engineering#6781). Neither landing page is itself corrupt:
+  // `discovery-landing` pages render their descendants' intros via
+  // getAllTocItems, so a corrupt child intro takes the whole landing page
+  // down. In both cases the translator reordered the inline Liquid tags to
+  // match target-language word order, leaving `{% else %}`/`{% endif %}`
+  // ahead of the `{% ifversion %}` that opens the block. The corrector runs
+  // on the PARSED intro value.
+  describe('SCRAPE-6781 per-file fixes', () => {
+    test('pt: enabling-or-disabling-github-codespaces-for-your-organization intro reorders tags', () => {
+      const broken =
+        'Você pode controlar quais usuários podem usar {% data variables.product.prodname_github_codespaces %} nos repositórios internos e {% endif %}privados {% ifversion ghec %}da sua organização.'
+      const fixed =
+        'Você pode controlar quais usuários podem usar {% data variables.product.prodname_github_codespaces %} nos repositórios privados {% ifversion ghec %}e internos {% endif %}da sua organização.'
+      expect(fix(broken, 'pt')).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(fix(fixed, 'pt')).toBe(fixed)
+    })
+
+    test('ko: reinstating-a-former-member-of-your-organization intro reorders tags', () => {
+      const broken =
+        '이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif%} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 {% ifversion fpt or ghec %}있습니다.'
+      const fixed =
+        '{% ifversion fpt or ghec %}이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif %} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 있습니다.'
+      expect(fix(broken, 'ko')).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+  })
+
+  // ─── New patterns ───────────────────────────────────────────────────
+
+  describe('es: you-can-fork.md per-file fix', () => {
+    test('replaces leading elsif with ifversion', () => {
+      const broken = '{% elsif ghes or ghec %} Puedes bifurcar...'
+      const fixed = '{% ifversion ghes or ghec %} Puedes bifurcar...'
+      const ctx = {
+        code: 'es',
+        relativePath: 'data/reusables/repositories/you-can-fork.md',
+        skipOrphanStripping: true,
+      }
+      expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
+      // already correct input is unchanged
+      expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
+    })
+
+    test('does not affect other es content', () => {
+      const other = '{% elsif ghes or ghec %} other content'
+      expect(fix(other, 'es')).toBe(other)
+    })
+  })
+
+  describe('fr: stray < before plan name in ifversion', () => {
+    test('removes stray < before plan name in ifversion', () => {
+      expect(fix('{% ifversion <ghec %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion ghec %}foo{% endif %}',
+      )
+      expect(fix('{% ifversion <fpt %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion fpt %}foo{% endif %}',
+      )
+      expect(fix('{% elsif <ghes %}foo{% endif %}', 'fr')).toBe('{% elsif ghes %}foo{% endif %}')
+    })
+
+    test('does not affect valid fr ifversion tags', () => {
+      expect(fix('{% ifversion ghec %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion ghec %}foo{% endif %}',
+      )
+    })
+  })
+
+  describe('fr: translated classroom reusable per-file fix', () => {
+    test('restores canonical reusable tag', () => {
+      const broken = '{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}'
+      const fixed = '{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}'
+      expect(fix(broken, 'fr')).toBe(fixed)
+      // already correct is unchanged
+      expect(fix(fixed, 'fr')).toBe(fixed)
+    })
+  })
+
+  describe('ko: about-READMEs.md per-file fix', () => {
+    test('removes orphan endif before first ifversion', () => {
+      const broken = '파일{% endif %}{% ifversion fpt or ghec %}, 기여'
+      const fixed = '파일{% ifversion fpt or ghec %}, 기여'
+      const ctx = {
+        code: 'ko',
+        relativePath: 'data/reusables/repositories/about-READMEs.md',
+        skipOrphanStripping: true,
+      }
+      expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
+      // already correct is unchanged
+      expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
+    })
+
+    test('does not affect other ko content', () => {
+      const other = 'foo{% endif %}{% ifversion fpt or ghec %}, bar'
+      expect(fix(other, 'ko')).toBe(other)
     })
   })
 })

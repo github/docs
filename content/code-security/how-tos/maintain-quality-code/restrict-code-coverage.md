@@ -1,7 +1,8 @@
 ---
-title: Restricting code coverage on pull requests
-shortTitle: Restrict code coverage
-intro: Protect your test coverage by automatically blocking pull requests that fall below the coverage levels your team requires.
+title: Setting code coverage thresholds for pull requests
+shortTitle: Set coverage thresholds
+intro: Protect your code coverage by automatically blocking pull requests that fall below the coverage levels your team requires.
+allowTitleToDifferFromFilename: true
 versions:
   feature: code-quality
 permissions: '{% data reusables.permissions.code-quality-repo-enable %}'
@@ -18,6 +19,9 @@ category:
 * {% data variables.product.prodname_code_quality %} is enabled on the repository.
 * Code coverage data is uploaded to {% data variables.product.github %} for the pull request branch. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
 
+> [!NOTE]
+> Coverage thresholds are evaluated against **line coverage**. See [AUTOTITLE](/code-security/reference/code-quality/code-coverage).
+
 ## Creating a coverage threshold rule
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -27,8 +31,8 @@ category:
 1. Under "Branch rules", select **Restrict code coverage**.
 1. Expand **Additional settings** to configure thresholds. A value of 0 means that the threshold is disabled.
 
-   * **Minimum coverage percentage**: enter a value to block pull requests where aggregated coverage falls below this percentage.
-   * **Maximum coverage drop**: enter a value to block pull requests where coverage drops by more than this many percentage points relative to the default branch.
+   * **Minimum line coverage percentage**: enter a value to block pull requests where aggregated line coverage falls below this percentage.
+   * **Maximum line coverage drop**: enter a value to block pull requests where line coverage drops by more than this many percentage points relative to the default branch.
 
 1. Click **Create** or **Save changes**.
 

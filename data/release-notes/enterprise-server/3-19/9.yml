@@ -72,9 +72,9 @@ sections:
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
     - |
-      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
       {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
     - |
@@ -103,5 +103,3 @@ sections:
       An issue in the Management Console means the Backups (Preview) and Updates tabs may fail to open and instead return an Internal Server Error. We recommend using the command line interface (CLI) for backups and updates.
     - |
       When applying an enterprise security configuration to all repositories (for example, enabling Secret Scanning or Code Scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.
-    - |
-      Administrators upgrading to certain patch releases encountered a "Failed to generate an OIDC token" error during the `Update Servicing Resources` step when GitHub Actions was configured with Google Cloud Storage (GCS) or AWS S3 using OpenID Connect (OIDC) authentication. The upgrade was blocked and could not complete. To work around this issue, administrators could apply a manual patch by running `sudo sed -i.bak 's|ghe-actions-console -s  -c Update-Service|ghe-actions-console -s  --no-blob-creds -c Update-Service|g' /usr/local/bin/ghe-actions-update` followed by `ghe-config-apply`.

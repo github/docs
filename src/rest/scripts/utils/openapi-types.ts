@@ -1,5 +1,5 @@
 // Loose-but-typed OpenAPI shapes shared across the REST sync pipeline
-// (get-operations, operation, create-rest-examples, inject-models-schema, sync).
+// (get-operations, operation, create-rest-examples, sync).
 //
 // The upstream OpenAPI descriptions are dynamic and vary by endpoint, so each
 // interface keeps an index signature escape hatch (`[key: string]: unknown`)

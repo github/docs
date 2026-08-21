@@ -70,7 +70,7 @@ To work on Early Access content locally:
 
 ## Ownership
 
-- **Team**: `@github/docs-engineering`
+- `#technical-content`
 - **Content Owners**: The Writers and Product Managers responsible for the specific early access features.
 
 ## Current State & Known Issues

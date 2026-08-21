@@ -45,6 +45,10 @@ These features can work autonomously without direct human supervision. However, 
 
 A command line interface that lets you use {% data variables.product.prodname_copilot_short %} in your terminal. Use the CLI to add features or fix bugs, then create a pull request. Start {% data variables.product.prodname_copilot_short %} working on a task in your terminal, then continue working in the same session on {% data variables.product.prodname_dotcom_the_website %}, or on your mobile. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
 
+### {% data variables.copilot.github_copilot_app %}
+
+A desktop application for agent-driven development. From the app, you can run multiple agent sessions in parallel across your repositories, manage issues and pull requests, and set up automations to run tasks on a schedule. See [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
+
 ### {% data variables.copilot.copilot_cloud_agent %}
 
 An autonomous AI agent that can research a repository, create an implementation plan, and make code changes on a branch. You can review the diff, iterate, and create a pull request when you're ready. You can also assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} or ask it to open a pull request directly to complete a task. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent).
@@ -62,10 +66,6 @@ Several {% data variables.copilot.copilot_code-review-tools_short %} are in {% d
 ### Agent mode in IDEs
 
 Allow {% data variables.product.prodname_copilot_short %} to work autonomously in the IDE. {% data variables.product.prodname_copilot_short %} will determine which files to make changes to, offer code changes and terminal commands for the user's approval, and iterate to remediate issues until the original task is complete.
-
-### {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %})
-
-Build and deploy full-stack applications using natural-language prompts that seamlessly integrate with the {% data variables.product.github %} platform for advanced development. See [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark).
 
 ## Features for customization
 

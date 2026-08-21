@@ -33,12 +33,12 @@ After you've added your key and selected one or more models, you and your organi
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, under "Code, planning, and automation", click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
 1. Under "Copilot", click **Models**.
 {% data reusables.copilot.byok-add %}
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys) in our documentation for enterprise accounts.
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models) in our documentation for enterprise accounts.
 * [AUTOTITLE](/copilot/concepts/chat)
 * [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

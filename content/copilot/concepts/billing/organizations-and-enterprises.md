@@ -39,7 +39,7 @@ With {% data variables.product.prodname_ghe_cloud %}:
 
 * An enterprise owner chooses the plan for each organization in the enterprise. For guidance on choosing a plan, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/choose-enterprise-plan).
 
-* Data-resident and FedRAMP-compliant {% data variables.product.prodname_copilot_short %} requests include a 10% model multiplier increase. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency#pricing-for-data-resident-copilot).
+* Data-resident and FedRAMP-compliant {% data variables.product.prodname_copilot_short %} requests include a 10% model multiplier increase. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency#pricing-changes).
 
 ## {% data variables.product.prodname_ai_credits %}
 

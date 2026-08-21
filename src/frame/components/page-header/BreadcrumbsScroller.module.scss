@@ -38,6 +38,24 @@
   background-color: var(--bgColor-default, var(--color-canvas-default));
 }
 
+// On hover, keep the solid canvas background (Primer's invisible IconButton
+// otherwise swaps in a translucent tint, letting crumbs bleed through the
+// button) and instead signal interactivity by bolding the chevron: a
+// currentColor stroke thickens the fill-based octicon glyph.
+.leftChevron:hover,
+.rightChevron:hover {
+  background-color: var(
+    --bgColor-default,
+    var(--color-canvas-default)
+  ) !important;
+  color: var(--fgColor-default, var(--color-fg-default));
+
+  svg {
+    stroke: currentColor;
+    stroke-width: 0.75px;
+  }
+}
+
 // Hidden chevrons are removed from view and interaction (and from the tab
 // order / a11y tree in the component). Because they're absolutely positioned
 // they already occupy no layout space, so the scroll area is unaffected.

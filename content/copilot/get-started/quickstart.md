@@ -22,6 +22,8 @@ category:
   - Configure Copilot
 ---
 
+This quickstart covers using {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website, in IDEs, and in {% data variables.product.prodname_windows_terminal %}. To try an agent-driven workflow in the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
+
 ## Introduction
 
 <!-- --------------------- -->
@@ -124,7 +126,7 @@ After you've installed {% data variables.product.prodname_windows_terminal %} Ca
 
 1. Open **Terminal Chat (Experimental)** in the dropdown menu.
 
-1. In the Terminal Chat chat window, type `how do i list all markdown files in my directory` then press <kbd>Enter</kbd>.
+1. In the Terminal Chat window, type `how do i list all markdown files in my directory` then press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %}'s answer is displayed below your question.
 

@@ -43,7 +43,7 @@ For these users, set an individual user-level budget override. Individual overri
 
 The enterprise spending limit caps your total metered charges after the shared pool is exhausted. It doesn't affect how users draw from the pool, it only applies once the pool runs out and usage moves to pay-as-you-go.
 
-See [Sizing your spending limits](/copilot/tutorials/budgets/optimizing-your-budget-configuration#sizing-your-spending-limits) for guidance on calculating the right amount for your enterprise.
+See [Sizing your spending limits](/copilot/tutorials/budgets/optimizing-your-budget-configuration#sizing-your-budgets) for guidance on calculating the right amount for your enterprise.
 
 ## Step 4: Enable "Stop usage when budget limit is reached" on every spending limit
 

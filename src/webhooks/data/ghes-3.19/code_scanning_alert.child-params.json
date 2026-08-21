@@ -287,6 +287,7 @@
           "false positive",
           "won't fix",
           "used in tests",
+          "mitigated",
           null
         ]
       },
@@ -763,6 +764,7 @@
           "false positive",
           "won't fix",
           "used in tests",
+          "mitigated",
           null
         ]
       },
@@ -1131,7 +1133,7 @@
       {
         "type": "null",
         "name": "dismissed_reason",
-        "description": "<p>The reason for dismissing or closing the alert. Can be one of: <code>false positive</code>, <code>won't fix</code>, and <code>used in tests</code>.</p>",
+        "description": "<p>The reason for dismissing or closing the alert. Can be one of: <code>false positive</code>, <code>won't fix</code>, <code>used in tests</code>, and <code>mitigated</code>.</p>",
         "isRequired": true
       },
       {
@@ -1786,6 +1788,7 @@
           "false positive",
           "won't fix",
           "used in tests",
+          "mitigated",
           null
         ]
       },
@@ -2170,7 +2173,7 @@
       {
         "type": "string or null",
         "name": "dismissed_reason",
-        "description": "<p>The reason for dismissing or closing the alert. Can be one of: <code>false positive</code>, <code>won't fix</code>, and <code>used in tests</code>.</p>",
+        "description": "<p>The reason for dismissing or closing the alert. Can be one of: <code>false positive</code>, <code>won't fix</code>, <code>used in tests</code>, and <code>mitigated</code>.</p>",
         "isRequired": true
       },
       {
@@ -2566,7 +2569,7 @@
       {
         "type": "null",
         "name": "dismissed_reason",
-        "description": "<p>The reason for dismissing or closing the alert. Can be one of: <code>false positive</code>, <code>won't fix</code>, and <code>used in tests</code>.</p>",
+        "description": "<p>The reason for dismissing or closing the alert. Can be one of: <code>false positive</code>, <code>won't fix</code>, <code>used in tests</code>, and <code>mitigated</code>.</p>",
         "isRequired": true
       },
       {

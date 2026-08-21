@@ -8,6 +8,8 @@
  *     landing page for each docs directory; docs-internal requires index.md)
  *   - Adds YAML frontmatter (title, intro, shortTitle, versions, contentType)
  *   - Adds `children` arrays to index.md files
+ *   - Removes `docs-validate: hidden` ranges (validation-only code samples that
+ *     must not reach readers)
  *   - Converts consecutive <details> language blocks to {% codetabs %} syntax
  *   - Rewrites internal relative .md links to [AUTOTITLE](/path) format
  *   - Rewrites absolute docs.github.com links to [AUTOTITLE](/path) format
@@ -25,6 +27,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { parseArgs } from 'node:util'
 import matter from '@gr2m/gray-matter'
+
+import { stripHiddenBlocks } from './strip-hidden-blocks'
 
 // Parse CLI arguments
 const { values: args } = parseArgs({
@@ -591,6 +595,61 @@ function fixBlanksAroundFences(filePath: string): void {
 }
 
 /**
+ * Step 1b: Remove `docs-validate: hidden` ranges.
+ * These wrap validation-only code samples that the SDK's docs-validate workflow
+ * compiles in place of the reader-facing fragment that follows them. The markers
+ * are HTML comments with no rendering semantics, so without this step the
+ * validation sample publishes alongside the real one and readers see the same
+ * example twice. Runs before the codetabs conversion so the ranges are gone
+ * before any <details> group is rewritten.
+ *
+ * An unbalanced marker is left in place rather than swallowing the rest of the
+ * file. Because this workflow opens its PR automatically, those warnings are
+ * also written to the job summary so they survive outside the run log.
+ */
+const unbalancedMarkerWarnings: string[] = []
+
+function stripHiddenValidationBlocks(filePath: string): void {
+  const raw = fs.readFileSync(filePath, 'utf8')
+  const { content, removed, unbalanced } = stripHiddenBlocks(raw)
+  const relativePath = path.relative(SDK_DOCS_DIR, filePath)
+
+  if (unbalanced > 0) {
+    const message = `${relativePath}: ${unbalanced} unclosed "docs-validate: hidden" marker(s), left in place`
+    unbalancedMarkerWarnings.push(message)
+    console.log(`  WARN (${message})`)
+  }
+
+  if (removed > 0) {
+    fs.writeFileSync(filePath, content, 'utf8')
+    console.log(`  HIDDEN (removed ${removed}): ${relativePath}`)
+  }
+}
+
+/**
+ * Write unbalanced-marker warnings to the Actions job summary, which is linked
+ * from the generated PR. Without this the only record is the run log, which a
+ * PR reviewer will not see.
+ */
+function reportUnbalancedMarkers(): void {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY
+  if (unbalancedMarkerWarnings.length === 0 || !summaryPath) return
+
+  const lines = [
+    '### ⚠️ Unclosed `docs-validate: hidden` markers',
+    '',
+    'These markers have no matching `<!-- /docs-validate: hidden -->`, so the validation-only',
+    'code sample they open was published instead of being removed. Fix the pair in',
+    '[copilot-sdk docs](https://github.com/github/copilot-sdk/tree/main/docs).',
+    '',
+    ...unbalancedMarkerWarnings.map((warning) => `* \`${warning}\``),
+    '',
+  ]
+
+  fs.appendFileSync(summaryPath, lines.join('\n'), 'utf8')
+}
+
+/**
  * Step 2: Convert consecutive <details> language blocks to codetabs.
  * SDK source docs use <details><summary><strong>Language</strong></summary>
  * blocks for multi-language examples. This converts groups of 2+ consecutive
@@ -759,8 +818,9 @@ function parseDetailsBlock(lines: string[], start: number): DetailsBlock | null 
 
   const endLine = i // The </details> line
 
-  // Clean up inner lines: strip docs-validate comments, trim leading/trailing blanks
-  const cleaned = innerLines.filter((l) => !/^\s*<!--\s*\/?docs-validate:\s*hidden\s*-->/.test(l))
+  // Hidden ranges are already gone (Step 1b), including any unbalanced marker
+  // left deliberately in place, so only blank-line trimming is needed here.
+  const cleaned = [...innerLines]
 
   // Trim leading and trailing blank lines
   while (cleaned.length > 0 && cleaned[0].trim() === '') cleaned.shift()
@@ -848,6 +908,14 @@ console.log(`Found ${files.length} markdown files.\n`)
 for (const file of files) {
   addFrontmatter(file)
 }
+
+// Step 1b: Remove docs-validate: hidden ranges before anything rewrites the
+// blocks that contain them.
+console.log('\n--- Removing docs-validate: hidden blocks ---\n')
+for (const file of files) {
+  stripHiddenValidationBlocks(file)
+}
+reportUnbalancedMarkers()
 
 // Step 2: Convert <details> language blocks to codetabs
 console.log('\n--- Converting details blocks to codetabs ---\n')

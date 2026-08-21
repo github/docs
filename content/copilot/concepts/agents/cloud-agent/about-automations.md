@@ -72,13 +72,15 @@ You can manually select the tools you want to enable, or you can use the **Sugge
 
 An {% data variables.copilot.copilot_automation %} can only take action in the single repository it is scoped to.
 
+When an {% data variables.copilot.copilot_automation %} changes an issue, it can explain each change and rate its confidence, applying high-confidence changes automatically and proposing others for your review. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automation-rationale-and-approvals).
+
 ## Configuration inherited from the repository
 
 {% data variables.copilot.copilot_automations_cap %} use the {% data variables.copilot.copilot_cloud_agent %} configuration for the repository they are scoped to, including:
 
 * **Custom instructions**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 * **Agent skills**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills).
-* **Firewall rules**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
+* **Firewall rules**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
 * **Secrets and variables**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
 {% data variables.copilot.copilot_automations_cap %} are stored separately from your repository's contents. They are not committed to Git, so they are not versioned alongside your code or managed through pull requests.

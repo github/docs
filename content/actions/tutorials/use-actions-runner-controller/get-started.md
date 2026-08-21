@@ -45,7 +45,7 @@ In order to use ARC, ensure you have the following.
 
     For additional Helm configuration options, see [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set-controller/values.yaml) in the ARC documentation.
 
-1. To enable ARC to authenticate to {% data variables.product.company_short %}, generate a {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/authenticate-to-the-api#deploying-using-personal-access-token-classic-authentication).
+1. To enable ARC to authenticate to {% data variables.product.company_short %}, generate a {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/authenticate-to-the-api#authenticating-arc-with-a-personal-access-token-classic).
 
 ## Configuring a runner scale set
 

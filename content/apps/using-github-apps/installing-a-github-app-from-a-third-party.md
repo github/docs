@@ -36,7 +36,7 @@ Anyone can install {% data variables.product.prodname_github_apps %} on their pe
 
 Organization owners can install {% data variables.product.prodname_github_apps %} on their organization.{% ifversion enterprise-installed-apps %}
 
-Enterprise owners can install {% data variables.product.prodname_github_apps %} on their enterprise accounts, if the application requests enterprise permissions and is owned by the enterprise or one of its organizations.
+Enterprise owners can install {% data variables.product.prodname_github_apps %} on their enterprise accounts, if the application requests enterprise permissions. The app can be owned by the enterprise, an organization within the enterprise, or a third-party developer. Third-party apps must be public and cannot request the "Enterprise organization installations" or "Enterprise organization installation repositories" permissions.
 {% endif %}
 
 {% data reusables.apps.repo-admin-install-restriction %}

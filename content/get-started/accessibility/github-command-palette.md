@@ -163,7 +163,7 @@ Most of these commands are available only on the home page of the repository. If
 |`New discussion`|Create a new discussion in the repository. For more information, see [AUTOTITLE](/discussions/quickstart#creating-a-new-discussion).|
 |`New file`|Create a new file from any page in the repository. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
 |`New issue`|Open a new issue from any page in the repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).|
-|`Open in {% data variables.codespaces.serverless %} editor`|Open the current repository in the {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor).|
+|`Open in {% data variables.codespaces.serverless %} editor`|Open the current repository in the {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-githubdev-editor).|
 
 ### File commands
 
@@ -172,7 +172,7 @@ These commands are available only when you open the command palette from a file 
 | Command | Behavior|
 | :- | :- |
 |`Copy permalink`|Create a link to the file that includes the current commit SHA and copy the link to the clipboard. For more information, see [AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit).
-|`Open in {% data variables.codespaces.serverless %} editor`|Open the currently displayed file in {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor).|
+|`Open in {% data variables.codespaces.serverless %} editor`|Open the currently displayed file in {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-githubdev-editor).|
 
 ### Discussion commands
 
@@ -207,10 +207,10 @@ These commands are available only when you open the command palette from a pull 
 
 | Command | Behavior|
 | :- | :- |
-|`Close`/`reopen pull request`|Close or reopen the current pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).|
-|`Convert to draft`/`Mark pull request as ready for review`|Change the state of the pull request to show it as ready, or not ready, for review. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request).|
+|`Close`/`reopen pull request`|Close or reopen the current pull request. For more information, see [AUTOTITLE](/pull-requests/reference/pull-requests).|
+|`Convert to draft`/`Mark pull request as ready for review`|Change the state of the pull request to show it as ready, or not ready, for review. For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/changing-the-stage-of-a-pull-request).|
 |`Copy current branch name`| Add the name of the head branch for the pull request to the clipboard.
 |`Edit pull request body`|Open the main body of the pull request ready for editing.
 |`Edit pull request title`|Open the title of the pull request ready for editing.
 |`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications).
-|`Update current branch`|Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches).|
+|`Update current branch`|Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see [AUTOTITLE](/pull-requests/reference/branches).|

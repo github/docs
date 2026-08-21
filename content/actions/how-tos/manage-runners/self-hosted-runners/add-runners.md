@@ -92,7 +92,7 @@ By default, runners in an enterprise's "Default" self-hosted runner group are av
 
 To make an enterprise-level self-hosted runner group available to an organization repository, you might need to change the organization's inherited settings for the runner group to make the runner available to repositories in the organization.
 
-For more information on changing runner group access settings, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/manage-access#changing-the-access-policy-of-a-self-hosted-runner-group).
+For more information on changing runner group access settings, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/manage-access#changing-which-repositories-can-access-a-runner-group).
 {% endif %}
 
 ## Next steps

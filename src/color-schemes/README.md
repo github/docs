@@ -71,7 +71,7 @@ This hook is primarily used at the root of the application (e.g., in `src/frame/
 
 ## Ownership
 
-- **Team**: `@github/docs-engineering`
+- `#technical-content`
 
 ## Current State & Known Issues
 
