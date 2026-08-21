@@ -505,7 +505,24 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes dados variáveis → data variables', () => {
       expect(fix('{% dados variáveis.produto.prodname_pro %}', 'pt')).toBe(
-        '{% data variables.produto.prodname_pro %}',
+        '{% data variables.product.prodname_pro %}',
+      )
+    })
+
+    test('fixes translated produto path segment inside variables.', () => {
+      expect(fix('{% data variáveis.produto.prodname_ghe_cloud %}', 'pt')).toBe(
+        '{% data variables.product.prodname_ghe_cloud %}',
+      )
+      expect(fix('{% data variables.produto.prodname_github_codespaces %}', 'pt')).toBe(
+        '{% data variables.product.prodname_github_codespaces %}',
+      )
+      // Already-correct input is left unchanged.
+      expect(fix('{% data variables.product.prodname_pro %}', 'pt')).toBe(
+        '{% data variables.product.prodname_pro %}',
+      )
+      // Prose outside a Liquid `data` tag is left unchanged.
+      expect(fix('Veja myvariables.produto.exemplo para detalhes.', 'pt')).toBe(
+        'Veja myvariables.produto.exemplo para detalhes.',
       )
     })
 

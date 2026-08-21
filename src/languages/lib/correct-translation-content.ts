@@ -635,6 +635,14 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% variáveis de dados ', '{% data variables ')
     // `{% dados variáveis.` — alternate word order "data variables"
     content = content.replaceAll('{% dados variáveis.', '{% data variables.')
+    // `{% data variables.produto.X %}` — translated `product` path segment inside a
+    // `data` tag's variable path. Scoped to the tag prefix so prose, URLs, and code
+    // samples containing these words aren't rewritten. Must run after the
+    // `dados variáveis.` → `data variables.` fix above.
+    content = content.replace(
+      /(\{%-?\s*data\s+)(?:variables|variáveis)\.produto\./g,
+      '$1variables.product.',
+    )
     // `{% Espaços de Código %}` / `{% espaços de código %}` — "Code Spaces" = codespaces
     content = content.replaceAll('{% Espaços de Código %}', '{% codespaces %}')
     content = content.replaceAll('{%- Espaços de Código %}', '{%- codespaces %}')
