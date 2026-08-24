@@ -1,1 +1,1 @@
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-hidden="true" aria-label="browser" %} Pages**.
+1. In the{% ifversion fpt or ghec %} "Code, planning, and automation"{% elsif ghes %} "Code and automation"{% endif %} section of the sidebar, click **{% octicon "browser" aria-hidden="true" aria-label="browser" %} Pages**.
