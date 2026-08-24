@@ -23,7 +23,8 @@ You can control the use of {% data variables.copilot.copilot_cli_short %} by con
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. To manage policies for **{% data variables.product.prodname_copilot_short %}**, in the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
-1. In the "{% data variables.product.prodname_copilot_short %} Clients" section, for {% data variables.copilot.copilot_cli_short %}, select your preferred policy.
+1. Under "Features & clients," click **Configure features & clients**.
+1. In the "Clients" section, for {% data variables.copilot.copilot_cli_short %}, select your preferred policy.
 
 > [!NOTE]
 > Disabling {% data variables.copilot.copilot_cli_short %} does not disable the {% data variables.copilot.github_copilot_app %}. The app is governed by its own policy. For more information, see [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).

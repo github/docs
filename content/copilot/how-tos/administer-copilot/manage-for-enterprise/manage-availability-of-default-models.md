@@ -32,9 +32,6 @@ This sets a baseline that you can add to with more granular controls. For models
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 {% data reusables.enterprise-accounts.copilot-sidebar %}
 {% data reusables.enterprise-accounts.configure-allowed-models %}
-1. Above the list of models, click **Add models**.
-1. In the modal, select or deselect the checkboxes next to the models you want to make available or remove.
-1. Click **Save**.
 1. Select a status for each model in the list:
 
    * **Enabled**: Enabled for everyone.
@@ -76,7 +73,7 @@ Before opting in to the preview, we recommend you create enterprise teams and be
 
 For each team, you can use the **default models** tab to configure the model access that the team will receive. These settings do not apply until you opt in to the preview.
 
-Make sure your new setup will not cause regressions for users. Although models that are explicitly "enabled" or "disabled" at the enterprise level will keep those settings once you opt in to the preview, models that are "optional" or unconfigured will be unavailable by default until they are enabled for specific teams. Identify these models and choose which teams will receive access to them.
+Make sure your new setup will not cause regressions for users. Although models that are explicitly "enabled" or "disabled" at the enterprise level will keep those settings once you opt in to the preview, models that are "optional" or unconfigured will be unavailable by default until they are enabled for specific teams. Filter your enterprise's model policy page by status to identify these models and choose which teams will receive access to them.
 
 For information on creating teams, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
 

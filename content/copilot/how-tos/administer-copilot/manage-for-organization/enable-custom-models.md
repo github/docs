@@ -35,6 +35,7 @@ After you've added your key and selected one or more models, you and your organi
 {% data reusables.profile.org_settings %}
 1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
 1. Under "Copilot", click **Models**.
+1. Click the **Custom models** tab.
 {% data reusables.copilot.byok-add %}
 
 ## Further reading
