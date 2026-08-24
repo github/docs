@@ -15,7 +15,9 @@ permissions:
 jobs:
   spammy-pr-check:
     name: Label PRs that only delete files or touch a large number of files
-    if: github.repository == 'github/docs' && github.event_name == 'pull_request_target'
+    if: >
+      github.repository == 'github/docs' && github.event_name == 'pull_request_target' &&
+      github.event.pull_request.user.login != 'docs-bot'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
@@ -49,6 +51,6 @@ jobs:
                 owner: owner,
                 repo: repo,
                 issue_number: pull_number,
-                body: `This pull request may have been opened accidentally. I'm going to close it now, but feel free to check out our [contribution guidelines](https://docs.github.com/en/contributing), or raise a new issue.`
+                body: `This pull request may have been opened accidentally. I'm going to close it now, but feel free to check out our [contribution guidelines](https://docs.github.com/en/contributing), or raise an issue.`,
               });
             }
