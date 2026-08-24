@@ -58,6 +58,17 @@ export function correctTranslatedContentStrings(
     '{%$1 data variables.$2$3',
   )
 
+  // Translators sometimes inserted a stray space right after a dot inside
+  // a `{% data variables.X.Y %}` path (e.g. `{% data variables.product.
+  // prodname_pages %}` or `{% data variables. product.prodname_pages %}`).
+  // Liquid parses the space as ending the variable lookup early, breaking
+  // the tag. Collapse the space back out. The English source never has
+  // a space after a dot in a variable path, so this is safe globally.
+  content = content.replace(
+    /\{%(-?)\s*data\s+(?:variables|reusables)(?:\.\s*[A-Za-z0-9_-]+)+(?=\s*-?%\})/g,
+    (path) => path.replace(/\.\s+/g, '.'),
+  )
+
   // The translation pipeline frequently splits Markdown bullet markers
   // (`*` and `-`) and table-cell pipes (`|`) onto their own line, with
   // the actual content pushed to the next line as deeply indented text.
