@@ -19,6 +19,7 @@ docsTeamMetrics:
 | Command                | Purpose                                            |
 |------------------------|----------------------------------------------------|
 | `copilot`              | Launch the interactive user interface.             |
+| `copilot app`          | Open the {% data variables.copilot.github_copilot_app %} in the current directory, deep-linking straight to a new session. Falls back to opening the app's download page in a browser if the deep link can't be handled, or prints the URL to open manually if no browser is available. |
 | `copilot completion SHELL` | Print a shell script for the chosen shell that can be used to enable tab completion for {% data variables.copilot.copilot_cli_short %}. Supported shells: `bash`, `zsh`, `fish`. See [Using `copilot completion`](#using-copilot-completion). |
 | `copilot help [TOPIC]` | Display help information. Help topics include: `billing`, `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, `providers`, and `sandbox`. |
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
@@ -189,12 +190,14 @@ With `--skill`, pass either a skill name or the path to a custom skill directory
 | <kbd>Ctrl</kbd>+<kbd>L</kbd>        | Clear the screen.                     |
 | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Ctrl</kbd>+<kbd>Q</kbd> | Queue a message to send while the agent is busy. |
 | <kbd>Ctrl</kbd>+<kbd>R</kbd>        | Reverse search through command history. |
+| <kbd>Ctrl</kbd>+<kbd>Space</kbd>    | Toggle voice dictation on or off (alias for <kbd>Ctrl</kbd>+<kbd>X</kbd> then `v`). Hold <kbd>Space</kbd> to record instead of toggling. |
 | <kbd>Ctrl</kbd>+<kbd>V</kbd> | Paste from clipboard as an attachment. |
 | <kbd>Alt</kbd>+<kbd>V</kbd> | Paste image from clipboard as an attachment. |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `/`  | After you have started typing a prompt, this allows you to run a slash command—for example, if you want to change the model without having to retype your prompt. |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `e`  | Edit the prompt in an external editor (`$EDITOR`). |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `b`  | Promote the running task or shell command to the background. |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `o`  | Open the most recent link from the timeline. |
+| <kbd>Ctrl</kbd>+<kbd>X</kbd> then `v`  | Toggle voice dictation on or off. |
 | <kbd>Ctrl</kbd>+<kbd>Z</kbd>        | Suspend the process to the background (Unix). |
 | <kbd>Shift</kbd>+<kbd>Enter</kbd> or <kbd>Option</kbd>+<kbd>Enter</kbd> (Mac) / <kbd>Alt</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Insert a newline in the input. |
 | <kbd>Shift</kbd>+<kbd>Tab</kbd>     | Cycle between standard, plan, and autopilot mode. |
@@ -322,6 +325,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/copy`                                             | Copy the last response to the clipboard. |
 | `/cwd`, `/cd [PATH]`                                | Change the working directory or display the current directory. |
 | `/delegate [PROMPT]`                                | Delegate changes to a remote repository with an AI-generated pull request. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/delegate-tasks-to-cca). |
+| `/diagnose [PROMPT]`, `/diagnose`                   | Analyze the current session log for errors, unexpected behavior, and other issues. Optionally include a custom prompt to focus the diagnosis on a specific problem. |
 | `/diff`                                             | Review changes in the current directory; auto-switches to branch diff when the working tree is clean (experimental). |
 | `/downgrade VERSION`                              | Download and restart into a specific CLI version. Available for team accounts. |
 | `/env`                                              | Show loaded environment details (instructions, MCP servers, skills, agents, hooks, plugins, LSPs, extensions). |
@@ -487,19 +491,29 @@ For a complete list of commands and options, run `copilot help`.
 
 You can use `--remote` with `--resume <TASK-ID>` to resume a remote task locally. This works even when the task was originally created outside a Git repository.
 
+If a session was still open when its CLI process went away, for example due to a crash or a machine restart, the next time you start `copilot` you're offered the option to restore it. You can review the sessions available to restore or start a fresh session instead. A restored session whose agent was mid-turn automatically resumes that work.
+
 ### Plan-then-autopilot
 
 Plan-then-autopilot lets a session start in plan mode and automatically continue into autopilot mode once the plan is ready, without waiting for a human to approve the transition. Enable it with `--plan --mode autopilot`, or with the `COPILOT_PLAN_THEN_AUTOPILOT` environment variable for harnesses that can only inject environment variables and not command-line options. If both are set, the explicit options take precedence and the CLI displays a warning that the environment variable was ignored.
 
 ### Enterprise-managed sandbox floor
 
-An enterprise-managed policy can force the OS-level shell sandbox on as a floor that `--no-sandbox` cannot lift. `--sandbox` is unaffected by this floor, since it only ever turns sandboxing on. When a managed floor overrides `--no-sandbox`, the CLI reports the override as a warning in the interactive timeline (or on stderr when using `-p`), so it isn't mistaken for the option failing to work. Contact your administrator to change the policy. {% data reusables.copilot.experimental %}
+An enterprise-managed policy can enforce OS-level shell sandboxing as a minimum floor. In other words, even if you pass `--no-sandbox`, the policy can still force sandboxing on. This is a policy override, not a failure of the flag itself. By contrast, `--sandbox` is unaffected because it only turns sandboxing on and never removes it.
+
+When a managed policy overrides your setting, the CLI shows a warning in the interactive timeline (or on stderr when using `-p`) so it is clear that the behavior comes from policy enforcement rather than the option failing to work. Contact your administrator if you need the policy changed. {% data reusables.copilot.experimental %}
+
+The CLI also warns when a managed policy enables sandboxing in a session that you did not request, not only when it overrides `--no-sandbox`. This includes sessions where the policy arrives after startup, because server-managed settings are only available after login. The warning is omitted if your own settings or the `--sandbox` option already requested sandboxing, since the session state would then be expected.
+
+If a device has a managed policy that could not be read, the CLI still reports that sandboxing is enforced at its most restrictive level as a fail-closed measure, and directs you to your administrator instead of implying that a specific policy is in effect.
 
 ### Restricting the --allow-all options
 
 When `permissions.disableBypassPermissionsMode` is set to `"disable"`, all of the command line options that allow all permissions (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions. The `/permissions allow-all` slash command, and its aliases `/allow-all` and `/yolo`, are also suppressed.
 
 Set `permissions.disableBypassPermissionsMode` to `"allow-auto-only"` to block full allow-all permissions but permit `/permissions assisted` (LLM-assisted permission approval). Assisted approval still prompts for each request, but attaches an LLM safety recommendation so the CLI can auto-approve requests the model evaluates as acceptable.
+
+If `permissions.disableBypassPermissionsMode` is set to an unrecognized value, the CLI no longer rejects it outright. Instead, the CLI logs the issue and enforces `"disable"` as a fail-closed default, so a malformed managed policy still restricts the allow-all options instead of silently allowing them.
 
 Three sources can set this restriction, in increasing order of permanence:
 

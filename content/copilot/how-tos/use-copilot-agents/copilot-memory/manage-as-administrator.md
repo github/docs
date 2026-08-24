@@ -27,6 +27,7 @@ Once {% data variables.copilot.copilot_memory %} is enabled, the feature is on f
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. In the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
+1. Under "Features & clients," click **Configure features & clients**.
 1. Under "Features", scroll down to the **{% data variables.copilot.copilot_memory %}** setting and select a policy from the dropdown.
 
 ### Enabling {% data variables.copilot.copilot_memory %} for an organization

@@ -42,7 +42,7 @@ Feature, model, and privacy settings for users are set according to the **least 
 | {% data variables.product.prodname_copilot_short %} can search the web | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_mobile_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_chat_short %} in the IDE | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
-| {% data variables.copilot.copilot_chat_short %} agent mode in the IDE | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
+| {% data variables.product.prodname_copilot_short %} Agent Mode in IDE Chat | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_code-review_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
 | {% data variables.copilot.copilot_cloud_agent %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
 | {% data variables.product.prodname_spark_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |

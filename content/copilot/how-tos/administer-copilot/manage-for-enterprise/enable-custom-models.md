@@ -30,7 +30,7 @@ After you've added your key and selected one or more models, you and members of 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. In the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
-1. Click **Configure allowed models**.
+1. Click **Configure custom models**.
 {% data reusables.copilot.byok-add %}
 
 ## Managing availability of custom models in your organizations
