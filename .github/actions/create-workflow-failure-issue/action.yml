@@ -98,6 +98,14 @@ runs:
           --repo "$ISSUE_REPO" \
           --label "workflow-failure" \
           --label "workflow-generated" \
+          --label "engineering" \
+          --label "priority-2" \
           --title "[Workflow Failure] $WORKFLOW_NAME" \
           --body "$body")
         echo "issue_url=$url" >> "$GITHUB_OUTPUT"
+
+        # Set the type separately, and tolerate failure. This action is itself the
+        # failure path, so losing the whole issue because issue types are unavailable
+        # or `gh` is too old (--type needs gh 2.94+) would hide the original failure.
+        gh issue edit "$url" --type Bug \
+          || echo "Warning: could not set issue type on $url; leaving it unset."
