@@ -35,17 +35,19 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 * `actions_cache_storage` - Actions cache storage
 * `actions_custom_image_storage` - Actions custom image storage
 * `actions_linux` - Actions Linux runners
-* `actions_linux_2_core_advanced` - Actions Linux 2-core advanced
-* `actions_linux_2_core_arm` - Actions Linux 2-core ARM
+* `actions_linux_16_core` - Actions Linux 16-core
+* `actions_linux_16_core_arm` - Actions Linux ARM 16-core
+* `actions_linux_2_core_advanced` - Actions Linux Advanced 2-core
+* `actions_linux_2_core_arm` - Actions Linux ARM 2-core
 * `actions_linux_32_core` - Actions Linux 32-core
-* `actions_linux_32_core_arm` - Actions Linux 32-core ARM
+* `actions_linux_32_core_arm` - Actions Linux ARM 32-core
 * `actions_linux_4_core` - Actions Linux 4-core
-* `actions_linux_4_core_arm` - Actions Linux 4-core ARM
-* `actions_linux_4_core_gpu` - Actions Linux 4-core GPU
+* `actions_linux_4_core_arm` - Actions Linux ARM 4-core
+* `actions_linux_4_core_gpu` - Actions Linux GPU 4-core
 * `actions_linux_64_core` - Actions Linux 64-core
-* `actions_linux_64_core_arm` - Actions Linux 64-core ARM
+* `actions_linux_64_core_arm` - Actions Linux ARM 64-core
 * `actions_linux_8_core` - Actions Linux 8-core
-* `actions_linux_8_core_arm` - Actions Linux 8-core ARM
+* `actions_linux_8_core_arm` - Actions Linux ARM 8-core
 * `actions_linux_96_core` - Actions Linux 96-core
 * `actions_linux_arm` - Actions Linux ARM
 * `actions_linux_slim` - Actions Linux slim
@@ -55,18 +57,20 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 * `actions_storage` - Actions storage
 * `actions_windows` - Actions Windows runners
 * `actions_windows_16_core` - Actions Windows 16-core
+* `actions_windows_16_core_arm` - Actions Windows ARM 16-core
 * `actions_windows_2_core` - Actions Windows 2-core
-* `actions_windows_2_core_advanced` - Actions Windows 2-core advanced
-* `actions_windows_2_core_arm` - Actions Windows 2-core ARM
-* `actions_windows_4_core_arm` - Actions Windows 4-core ARM
+* `actions_windows_2_core_advanced` - Actions Windows Advanced 2-core
+* `actions_windows_2_core_arm` - Actions Windows ARM 2-core
 * `actions_windows_32_core` - Actions Windows 32-core
-* `actions_windows_32_core_arm` - Actions Windows 32-core ARM
+* `actions_windows_32_core_arm` - Actions Windows ARM 32-core
 * `actions_windows_4_core` - Actions Windows 4-core
-* `actions_windows_4_core_gpu` - Actions Windows 4-core GPU
+* `actions_windows_4_core_arm` - Actions Windows ARM 4-core
+* `actions_windows_4_core_gpu` - Actions Windows GPU 4-core
 * `actions_windows_64_core` - Actions Windows 64-core
-* `actions_windows_64_core_arm` - Actions Windows 64-core ARM
+* `actions_windows_64_core_arm` - Actions Windows ARM 64-core
 * `actions_windows_8_core` - Actions Windows 8-core
-* `actions_windows_8_core_arm` - Actions Windows 8-core ARM
+* `actions_windows_8_core_arm` - Actions Windows ARM 8-core
+* `actions_windows_96_core` - Actions Windows 96-core
 * `actions_windows_arm` - Actions Windows ARM
 
  <!-- markdownlint-enable GHD046 -->
