@@ -9951,6 +9951,32 @@
       "category": "issues"
     },
     {
+      "name": "IssueFieldUpdateOperation",
+      "id": "issuefieldupdateoperation",
+      "href": "/graphql/reference/issues#enum-issuefieldupdateoperation",
+      "description": "<p>The operation to perform on an issue field value.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ADD",
+          "description": "<p>Sets a scalar field or adds options to a multi-select field.</p>"
+        },
+        {
+          "name": "CLEAR",
+          "description": "<p>Clears the field value.</p>"
+        },
+        {
+          "name": "REMOVE",
+          "description": "<p>Removes options from a multi-select field.</p>"
+        },
+        {
+          "name": "SET",
+          "description": "<p>Replaces the field value.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueFieldVisibility",
       "id": "issuefieldvisibility",
       "href": "/graphql/reference/issues#enum-issuefieldvisibility",
@@ -12206,6 +12232,37 @@
       "category": "issues"
     },
     {
+      "name": "IssueFieldUpdateInput",
+      "id": "issuefieldupdateinput",
+      "href": "/graphql/reference/issues#input-object-issuefieldupdateinput",
+      "description": "<p>Updates an issue field using its user-facing name.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "fieldName",
+          "description": "<p>The name of the issue field.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "operation",
+          "description": "<p>The operation to perform.</p>",
+          "type": "IssueFieldUpdateOperation!",
+          "id": "issuefieldupdateoperation",
+          "href": "/graphql/reference/issues#enum-issuefieldupdateoperation"
+        },
+        {
+          "name": "value",
+          "description": "<p>The value or comma-separated option names for the operation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueFieldValueFilter",
       "id": "issuefieldvaluefilter",
       "href": "/graphql/reference/issues#input-object-issuefieldvaluefilter",
@@ -13398,6 +13455,13 @@
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
+        },
+        {
+          "name": "issueFieldUpdates",
+          "description": "<p>Issue field updates resolved by field and option names.</p>",
+          "type": "[IssueFieldUpdateInput!]",
+          "id": "issuefieldupdateinput",
+          "href": "/graphql/reference/issues#input-object-issuefieldupdateinput"
         },
         {
           "name": "issueType",
