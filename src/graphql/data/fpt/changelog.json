@@ -4,6 +4,28 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>IssueFieldUpdateInput</code> was added</p>",
+          "<p>Input field <code>fieldName</code> of type <code>String!</code> was added to input object type <code>IssueFieldUpdateInput</code></p>",
+          "<p>Input field <code>operation</code> of type <code>IssueFieldUpdateOperation!</code> was added to input object type <code>IssueFieldUpdateInput</code></p>",
+          "<p>Input field <code>value</code> of type <code>String</code> was added to input object type <code>IssueFieldUpdateInput</code></p>",
+          "<p>Type <code>IssueFieldUpdateOperation</code> was added</p>",
+          "<p>Enum value <code>ADD</code> was added to enum <code>IssueFieldUpdateOperation</code></p>",
+          "<p>Enum value <code>CLEAR</code> was added to enum <code>IssueFieldUpdateOperation</code></p>",
+          "<p>Enum value <code>REMOVE</code> was added to enum <code>IssueFieldUpdateOperation</code></p>",
+          "<p>Enum value <code>SET</code> was added to enum <code>IssueFieldUpdateOperation</code></p>",
+          "<p>Input field <code>issueFieldUpdates</code> of type '[IssueFieldUpdateInput!]<code>was added to input object type</code>UpdateIssueInput'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-08-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument <code>excludeUserLinked: Boolean</code> (with default value) added to field <code>Issue.closedByPullRequestsReferences</code></p>",
           "<p>Argument <code>excludeUserLinked: Boolean</code> (with default value) added to field <code>PullRequest.closingIssuesReferences</code></p>"
         ]

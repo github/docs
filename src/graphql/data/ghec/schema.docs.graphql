@@ -22315,6 +22315,51 @@ type IssueFieldTimelineOption @docsCategory(name: "issues") {
 }
 
 """
+Updates an issue field using its user-facing name.
+"""
+input IssueFieldUpdateInput @docsCategory(name: "issues") {
+  """
+  The name of the issue field.
+  """
+  fieldName: String!
+
+  """
+  The operation to perform.
+  """
+  operation: IssueFieldUpdateOperation!
+
+  """
+  The value or comma-separated option names for the operation.
+  """
+  value: String
+}
+
+"""
+The operation to perform on an issue field value.
+"""
+enum IssueFieldUpdateOperation @docsCategory(name: "issues") {
+  """
+  Sets a scalar field or adds options to a multi-select field.
+  """
+  ADD
+
+  """
+  Clears the field value.
+  """
+  CLEAR
+
+  """
+  Removes options from a multi-select field.
+  """
+  REMOVE
+
+  """
+  Replaces the field value.
+  """
+  SET
+}
+
+"""
 Issue field values
 """
 union IssueFieldValue @docsCategory(name: "issues") =
@@ -69936,6 +69981,11 @@ input UpdateIssueInput {
   The ID of the Issue to modify.
   """
   id: ID! @possibleTypes(concreteTypes: ["Issue"])
+
+  """
+  Issue field updates resolved by field and option names.
+  """
+  issueFieldUpdates: [IssueFieldUpdateInput!]
 
   """
   The Issue Type to set on this issue, with optional rationale. Mutually exclusive with `issueTypeId`.
