@@ -8320,6 +8320,28 @@
       "category": "pulls"
     },
     {
+      "name": "PullRequestReviewThreadResolutionReason",
+      "id": "pullrequestreviewthreadresolutionreason",
+      "href": "/graphql/reference/pulls#enum-pullrequestreviewthreadresolutionreason",
+      "description": "<p>The possible reasons a pull request review thread was resolved.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ADDRESSED",
+          "description": "<p>The review comment was addressed.</p>"
+        },
+        {
+          "name": "INVALID",
+          "description": "<p>The review comment is invalid.</p>"
+        },
+        {
+          "name": "WONT_FIX",
+          "description": "<p>The review comment will not be addressed.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "PullRequestReviewThreadSubjectType",
       "id": "pullrequestreviewthreadsubjecttype",
       "href": "/graphql/reference/pulls#enum-pullrequestreviewthreadsubjecttype",
@@ -10569,6 +10591,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "resolutionReason",
+          "description": "<p>The reason a Copilot code review thread was resolved.</p>",
+          "type": "PullRequestReviewThreadResolutionReason",
+          "id": "pullrequestreviewthreadresolutionreason",
+          "href": "/graphql/reference/pulls#enum-pullrequestreviewthreadresolutionreason"
         },
         {
           "name": "threadId",
