@@ -1,4 +1,3 @@
-
 ---
 title: Using your own LLM models in GitHub Copilot CLI
 shortTitle: Use your own model provider
