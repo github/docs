@@ -417,7 +417,7 @@ jobs:
       - name: Generate changelog draft via Copilot
         if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
         id: generate_draft
-        uses: actions/ai-inference@17ff458cb182449bbb2e43701fcd98f6af8f6570 # v2.1.0
+        uses: actions/ai-inference@2c43c91ae16266ca159d311430343c67a5ffa222 # v3
         with:
           provider: copilot
           # No model is pinned: actions/ai-inference forwards --model to the
