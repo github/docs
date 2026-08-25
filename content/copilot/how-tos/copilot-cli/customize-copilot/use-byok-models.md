@@ -144,7 +144,3 @@ You can run {% data variables.copilot.copilot_cli_short %} in offline mode to pr
    
 1. {% data reusables.copilot.copilot-cli.start-cli %}
 
-
-
-The information contained in this communication is intended solely for the use of the individual or entity to whom it is addressed and others authorized to receive it. It may contain confidential or legally privileged information. If you are not the intended recipient you are hereby notified that any disclosure, copying, distribution or taking any action in reliance on the contents of this information is strictly prohibited and may be unlawful. If you have received this communication in error, please notify us immediately by responding to this email and then delete it from your system. The firm is neither liable for the proper and complete transmission of the information contained in this communication nor for any delay in its receipt.
-
