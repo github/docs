@@ -319,6 +319,14 @@ Prevent commits that include changes in specified file paths from being pushed t
 
 {% data reusables.repositories.rulesets-push-rules-path-example %}
 
+{% ifversion push-rule-allowed-exceptions %}
+
+You can also add allowed exceptions to this rule. A file matching an allowed exception can be pushed even when it also matches a restricted path.
+
+{% data reusables.repositories.rulesets-push-rules-allowed-exceptions %}
+
+{% endif %}
+
 ## Restrict file path length
 
 Prevent commits that include file paths that exceed a specified character limit from being pushed to the repository.
@@ -327,6 +335,20 @@ Prevent commits that include file paths that exceed a specified character limit 
 
 Prevent commits that include files with specified file extensions from being pushed to the repository. {% ifversion available-rules-limit %}Limit is 200 entries and up to 200 characters in each entry.{% endif %}
 
+{% ifversion push-rule-allowed-exceptions %}
+
+If you need to allow an exception for a single file of an otherwise blocked file type, use "Restrict file paths" with a pattern such as `**/*.jar`. Only the "Restrict file paths" and "Restrict file size" rules support allowed exceptions.
+
+{% endif %}
+
 ## Restrict file size
 
 Prevent commits that exceed a specified file size limit from being pushed to the repository.
+
+{% ifversion push-rule-allowed-exceptions %}
+
+You can also add allowed exceptions to this rule. A file matching an allowed exception can exceed the file size limit.
+
+{% data reusables.repositories.rulesets-push-rules-allowed-exceptions %}
+
+{% endif %}
