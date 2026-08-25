@@ -1,5 +1,5 @@
 import js from '@eslint/js'
-import tseslint from '@typescript-eslint/eslint-plugin'
+import tseslint from 'typescript-eslint'
 import tsParser from '@typescript-eslint/parser'
 import github from 'eslint-plugin-github'
 import importPlugin from 'eslint-plugin-import'
