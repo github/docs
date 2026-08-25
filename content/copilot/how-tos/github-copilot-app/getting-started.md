@@ -80,6 +80,7 @@ The sidebar gives you access to the main areas of the app:
 
 * **[My work](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fmywork)** — Browse and filter issues and pull requests from your repositories, check CI status, and leave reviews.
 * **[Automations](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations)** — Saved agent tasks that run on a schedule or on demand.
+* **Customize** — Discover and manage plugins, skills, MCP servers, and canvases.
 * **Search** — Search across your repositories directly from the app.
 * **Sessions** — Active agent sessions, grouped by project.
 * **Chats** — General conversations that do not require a dedicated branch or workspace.

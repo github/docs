@@ -15,6 +15,8 @@ category:
 
 A canvas extension is a shared, interactive surface for a work artifact, such as a plan, triage board, browser session, release checklist, dashboard, incident, or spreadsheet.
 
+A canvas extension can be included in a plugin alongside other capabilities, such as skills or MCP servers.
+
 While chat is useful for defining intent and discussing tasks, most work happens in work surfaces such as a terminal, a browser, a document, or a dashboard. Canvases allow you to collaborate with the agent directly in those work surfaces.
 
 Canvases are bidirectional: the agent can update the canvas while it works, and you can edit on that same surface. When you create a canvas, the agent generates capabilities based on your prompt and workflow. As you iterate, you can ask it to add, remove, or revise those capabilities. Once created, canvases open in the app's right side panel.
@@ -43,6 +45,18 @@ Canvas extensions can be customized to fit your needs or your team's needs acros
 * **Markdown canvases:** Build a persistent markdown file for planning your day, prioritizing issues and pull requests, launching and monitoring agent sessions, and keeping related work in one editable surface.
 * **Document canvases:** Open, edit, and collaborate on documents, spreadsheets, slide decks, and other artifacts directly in the app.
 
+## Discovering canvases
+
+The **Canvas** view provides a curated list of featured canvases. Some canvases are delivered through plugins, which you must install before you can use the canvas in a session. For example, installing the Azure DevOps plugin gives you access to a canvas for planning and managing Azure DevOps work.
+
+1. In the app sidebar, click **Customize**.
+1. Click **Canvas**.
+1. Browse the featured canvases.
+1. If a canvas requires a plugin, click **Install plugin**.
+1. Click **New session** to open a session with the canvas.
+
+You can also click **Installed** to view all installed customizations, including the canvases available for you to use.
+
 ## Creating a canvas
 
 You can create a new canvas from within a session using the `/create-canvas` skill.
@@ -61,7 +75,7 @@ The agent will build the canvas and open it in the right side panel once complet
 
 ## How canvas extensions are structured
 
-Each canvas extension lives in its own directory under either `.github/extensions` (project scope) or `~/.copilot/extensions` (user scope).
+Canvas extensions that you create in the app or install directly live in their own directory under either `.github/extensions` (project scope) or `~/.copilot/extensions` (user scope). 
 
 Although implementations can vary, a canvas extension commonly includes:
 

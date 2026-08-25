@@ -214,7 +214,7 @@ https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fplugins%2Finstall%3Fsou
 
 ### Plugin parameters
 
-Plugin links open Settings > Plugins with a form pre-filled. They do not install a plugin or add a marketplace until the user confirms in the app.
+Plugin links open the **Plugins** view in **Customize** with a form pre-filled. They do not install a plugin or add a marketplace until the user confirms in the app.
 
 | Link | Parameter | Required | Notes |
 | --- | --- | --- | --- |
@@ -244,5 +244,5 @@ The following app links can be wrapped in the hosted launcher. Query strings and
 | `ghapp://repo/OWNER/REPO` | Repository setup | Shows a confirmation before cloning or opening repository setup. |
 | `ghapp://session/new` | New session | Shows a confirmation before creating a session. Use query parameters to provide the repository, pull request, branch, prompt, or session mode. See [Session parameters](#session-parameters). |
 | `ghapp://session/new/OWNER/REPO` | New session for a repository | Shows a confirmation before creating a session for the repository. See [Session parameters](#session-parameters). |
-| `ghapp://plugins/install` | Plugin install form | Shows a confirmation, then opens Settings > Plugins with the install form pre-filled. See [Plugin parameters](#plugin-parameters). |
-| `ghapp://plugins/marketplace/add` | Plugin marketplace form | Shows a confirmation, then opens Settings > Plugins with the marketplace form pre-filled. See [Plugin parameters](#plugin-parameters). |
+| `ghapp://plugins/install` | Plugin install form | Shows a confirmation, then opens the **Plugins** view in the **Customize** tab with the install form pre-filled. See [Plugin parameters](#plugin-parameters). |
+| `ghapp://plugins/marketplace/add` | Plugin marketplace form | Shows a confirmation, then opens the **Plugins** view in the **Customize** tab with the marketplace form pre-filled. See [Plugin parameters](#plugin-parameters). |
