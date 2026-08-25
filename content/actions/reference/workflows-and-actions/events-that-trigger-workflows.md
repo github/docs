@@ -1248,6 +1248,9 @@ on:
 jobs:
   download:
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      issues: write
     steps:
       - name: 'Download artifact'
         uses: {% data reusables.actions.action-download-artifact %}
