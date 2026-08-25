@@ -46,10 +46,30 @@ You configure your model provider by setting environment variables before starti
 
 | Environment variable | Required | Description |
 |---|---|---|
-| `COPILOT_PROVIDER_BASE_URL` | Yes | The base URL of your model provider's API endpoint. |
-| `COPILOT_PROVIDER_TYPE` | No | The provider type: `openai` (default), `azure`, or `anthropic`. |
-| `COPILOT_PROVIDER_API_KEY` | No | Your API key for the provider. Not required for providers that do not use authentication, such as a local Ollama instance. |
-| `COPILOT_MODEL` | Yes | The model identifier to use. You can also set this with the `--model` command-line flag. |
+
+| `COPILOT_PROVIDER_BASE_URL`| Yes | The base URL of your model provider's API endpoint. |
+
+| `COPILOT_PROVIDER_TYPE` | No |The provider type: `openai` (default), `azure', or 'anthropic`. |
+
+I| `COPILOT_PROVIDER_API_KEY`| No |Your API key for the provider. Not required for providers that do not use authentication, such as a local Ollama instance. |
+
+| `COPILOT_PROVIDER_BEARER_TOKEN`| No | Bearer token used for provider authentication when API-key authentication is not used. |
+
+| `COPILOT PROVIDER_WIRE_API` | No | Specifies the API protocol used when communicating with the provider. |
+
+| `COPILOT_PROVIDER_AZURE_API_VERSION` | Azure only | The Azure OpenAI API version used for requests. |
+
+| `COPILOT_PROVIDER_MODEL_ID` | Azure only | The Azure OpenAI deployment name used to route requests. |
+
+| `COPILOT_PROVIDER_WIRE_MODEL` | Azure only | The underlying model name associated with the deployment. |
+
+| `COPILOT_PROVIDER_MAX_PROMPT_TOKENS` | No |Maximum number of prompt tokens allowed in a request. | generated in a response. |
+
+| `COPILOT_PROVIDER_MAX_OUTPUT_TOKENS`| No | Maximum number of tokens identifier to use. You can also set this with the `--model command-line flag. |
+
+| `COPILOT_MODEL` | Yes | The model identifier to use. You can also sent this with the `--model` command-line flag.|
+
+
 
 ## Connecting to an OpenAI-compatible endpoint
 
