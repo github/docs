@@ -891,6 +891,12 @@ export function correctTranslatedContentStrings(
     // `{% 行标题结束 %}` — order swap (rowheaders + end)
     content = content.replaceAll('{% 行标题结束 %}', '{% endrowheaders %}')
     content = content.replaceAll('{%- 行标题结束 %}', '{%- endrowheaders %}')
+    // `{% 结束表头列 %}` — "end table header column" = endrowheaders. Found in
+    // codeql-query-tables reusables (python/rust/java/go/ruby/javascript), where
+    // the opener `{% rowheaders %}` was correctly left in English but the closer
+    // was translated, leaving the tag unclosed and breaking table rendering.
+    content = content.replaceAll('{% 结束表头列 %}', '{% endrowheaders %}')
+    content = content.replaceAll('{%- 结束表头列 %}', '{%- endrowheaders %}')
     // Capitalized `{% Variables.X %}` / `{% Reusables.X %}` — translator title-cased
     content = content.replaceAll('{% data Variables.', '{% data variables.')
     content = content.replaceAll('{% data Reusables.', '{% data reusables.')

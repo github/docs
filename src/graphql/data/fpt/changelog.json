@@ -4,6 +4,23 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>PullRequestReviewThreadResolutionReason</code> was added</p>",
+          "<p>Enum value <code>ADDRESSED</code> was added to enum <code>PullRequestReviewThreadResolutionReason</code></p>",
+          "<p>Enum value <code>INVALID</code> was added to enum <code>PullRequestReviewThreadResolutionReason</code></p>",
+          "<p>Enum value 'WONT_FIX<code>was added to enum</code>PullRequestReviewThreadResolutionReason'</p>",
+          "<p>Input field <code>resolutionReason</code> of type <code>PullRequestReviewThreadResolutionReason</code> was added to input object type <code>ResolveReviewThreadInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-08-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>IssueFieldUpdateInput</code> was added</p>",
           "<p>Input field <code>fieldName</code> of type <code>String!</code> was added to input object type <code>IssueFieldUpdateInput</code></p>",
           "<p>Input field <code>operation</code> of type <code>IssueFieldUpdateOperation!</code> was added to input object type <code>IssueFieldUpdateInput</code></p>",

@@ -1307,6 +1307,7 @@
     "pullrequestreviewdecision": "pulls",
     "pullrequestreviewevent": "pulls",
     "pullrequestreviewstate": "pulls",
+    "pullrequestreviewthreadresolutionreason": "pulls",
     "pullrequestreviewthreadsubjecttype": "pulls",
     "pullrequeststate": "pulls",
     "pullrequesttimelineitemsitemtype": "pulls",

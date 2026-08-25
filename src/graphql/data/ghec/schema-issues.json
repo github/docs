@@ -11566,8 +11566,7 @@
           "description": "<p>The ID of the organization where the issue field will be created.</p>",
           "type": "ID!",
           "id": "id",
-          "href": "/graphql/reference/other#scalar-id",
-          "isDeprecated": false
+          "href": "/graphql/reference/other#scalar-id"
         },
         {
           "name": "visibility",

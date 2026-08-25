@@ -624,6 +624,12 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- 行标题 %}', 'zh')).toBe('{%- rowheaders %}')
     })
 
+    test('fixes 结束表头列 → endrowheaders', () => {
+      expect(fix('{% 结束表头列 %}', 'zh')).toBe('{% endrowheaders %}')
+      expect(fix('{%- 结束表头列 %}', 'zh')).toBe('{%- endrowheaders %}')
+      expect(fix('{% endrowheaders %}', 'zh')).toBe('{% endrowheaders %}')
+    })
+
     test('fixes 数据变量 → data variables', () => {
       expect(fix('{% 数据变量.product.github %}', 'zh')).toBe('{% data variables.product.github %}')
     })

@@ -8453,7 +8453,7 @@ input CreateIssueFieldInput {
   """
   The ID of the organization where the issue field will be created.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization"])
+  ownerId: ID!
 
   """
   The visibility of the issue field.
@@ -46859,6 +46859,26 @@ type PullRequestReviewThreadEdge {
 }
 
 """
+The possible reasons a pull request review thread was resolved.
+"""
+enum PullRequestReviewThreadResolutionReason @docsCategory(name: "pulls") {
+  """
+  The review comment was addressed.
+  """
+  ADDRESSED
+
+  """
+  The review comment is invalid.
+  """
+  INVALID
+
+  """
+  The review comment will not be addressed.
+  """
+  WONT_FIX
+}
+
+"""
 The possible subject types of a pull request review comment.
 """
 enum PullRequestReviewThreadSubjectType @docsCategory(name: "pulls") {
@@ -59315,6 +59335,11 @@ input ResolveReviewThreadInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+
+  """
+  The reason a Copilot code review thread was resolved.
+  """
+  resolutionReason: PullRequestReviewThreadResolutionReason
 
   """
   The ID of the thread to resolve
