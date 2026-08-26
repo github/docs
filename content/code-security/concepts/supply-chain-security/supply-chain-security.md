@@ -182,6 +182,7 @@ When you use {% data variables.product.prodname_actions %} to generate attestati
 * **Immutable releases:** Not enabled by default. You can enable release immutability for a repository or organization. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/prevent-release-changes).
 * **Artifact attestations:** Available in all public repositories, but you must explicitly generate attestations in your build workflows. See [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).
 
+{% endif %}
 {% ifversion ghes %}
 * **Dependency graph and {% data variables.product.prodname_dependabot_alerts %}:** Not enabled by default. Both features are configured at an enterprise level by the enterprise owner. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/enable-dependency-graph) and [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 * **Dependency review:** Available when dependency graph is enabled for your instance and {% data variables.product.prodname_GHAS_or_code_security %} is enabled for the organization or repository. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
