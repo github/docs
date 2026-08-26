@@ -70,7 +70,8 @@ The following example shows these keys in one managed settings file.
       "source": {
         "source": "github",
         "repo": "OWNER/REPO"
-      }
+      },
+      "autoUpdate": true
     }
   },
   "strictKnownMarketplaces": [
@@ -127,7 +128,13 @@ Defines plugins that are automatically installed or blocked for all enterprise u
 
 ## extraKnownMarketplaces
 
-Defines additional plugin marketplaces available to users. Each entry is a named marketplace object containing a `source` property. The following source types are supported:
+Defines additional plugin marketplaces available to users. Each entry is a named marketplace object containing a `source` property and an optional `autoUpdate` boolean.
+
+Set `autoUpdate` to `true` to require clients to periodically refresh that marketplace and update installed plugins sourced from it. Set it to `false` to require automatic updates to remain disabled for that marketplace. If you omit `autoUpdate`, clients use their existing default or user-configured behavior.
+
+Because managed settings take precedence, users cannot override a defined `autoUpdate` value. The setting applies only to that marketplace, and any restrictions in `strictKnownMarketplaces` still apply before refresh and update operations.
+
+The following source types are supported:
 
 * `"github"` — requires `repo` in `OWNER/REPO` format; optional `ref` (branch, tag, or SHA) and `path` (subdirectory)
 * `"git"` — requires `url`; optional `ref` and `path`
