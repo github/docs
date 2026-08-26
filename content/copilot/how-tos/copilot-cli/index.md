@@ -12,9 +12,8 @@ sidebarLink:
   href: /copilot/how-tos/copilot-cli
 introLinks:
   overview: /copilot/concepts/agents/copilot-cli/about-copilot-cli
-  quickstart: /copilot/how-tos/copilot-cli/cli-getting-started
+  quickstart: /copilot/get-started/cli-quickstart
 children:
-  - /cli-getting-started
   - /cli-best-practices
   - /set-up-copilot-cli
   - /use-copilot-cli

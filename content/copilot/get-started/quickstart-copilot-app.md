@@ -1,14 +1,15 @@
 ---
 title: Getting started with the GitHub Copilot app
-shortTitle: Quickstart
+shortTitle: Copilot app quickstart
 allowTitleToDifferFromFilename: true
 intro: 'Sign in to the {% data variables.copilot.github_copilot_app %}, connect a repository or local folder, and create your first agent session to make code changes.'
 product: '{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/ai/github-app" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.copilot.github_copilot_app %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-contentType: how-tos
+contentType: get-started
 redirect_from:
   - /copilot/how-tos/github-app/getting-started
+  - /copilot/how-tos/github-copilot-app/getting-started
 category:
   - Quickstarts
   - Author and optimize with Copilot
