@@ -53,7 +53,7 @@ The following features are either specific to {% data variables.enterprise.data_
 
 ### API access
 
-{% data reusables.data-residency.data-resident-enterprises-api-access %} You must authenticate all API requests to {% data variables.enterprise.data_residency_site %} with an access token, including requests to endpoints that do not require authentication on {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency#api-access).
+{% data reusables.data-residency.data-resident-enterprises-api-access %} You must authenticate all API requests to {% data variables.enterprise.data_residency_site %} using a credential supported by the endpoint. For endpoints that do not require authentication on {% data variables.product.prodname_dotcom_the_website %}, authenticate with an access token. For more information, see [AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency#api-access).
 
 ### URL differences
 
