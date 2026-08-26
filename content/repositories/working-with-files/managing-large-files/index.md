@@ -1,5 +1,5 @@
 ---
-title: Managing large files
+title: Managing large files using git-lfs
 intro: You can manage large files with Git Large File Storage.
 redirect_from:
   - /categories/managing-large-files
