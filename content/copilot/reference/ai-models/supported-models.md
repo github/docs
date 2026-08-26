@@ -48,7 +48,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 ## Supported AI models in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}
 
-This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies. For example, as the long term support model, GPT-5.3-Codex will be used in the event no other models are available. See[AUTOTITLE](/copilot/concepts/models/fallback-and-lts-models) and [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 {% rowheaders %}
 

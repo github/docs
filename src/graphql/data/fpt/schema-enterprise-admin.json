@@ -1957,6 +1957,15 @@
                 "id": "string",
                 "href": "/graphql/reference/other#scalar-string"
               }
+            },
+            {
+              "name": "userLogins",
+              "description": "<p>User logins to filter by. A maximum of 3 logins can be passed.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
             }
           ]
         },
