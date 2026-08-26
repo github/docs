@@ -52,9 +52,7 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
         aria-label="Documentation navigation"
       >
         {variant === 'full' && currentProduct && (
-          <div
-            className={cx('px-4 pb-3 border-bottom', mobileOpen ? 'd-block' : 'd-none d-xxl-block')}
-          >
+          <div className={cx('px-4 pb-3', mobileOpen ? 'd-block' : 'd-none d-xxl-block')}>
             {showCurrentProductLink && (
               <h2 className="mt-3" id="allproducts-menu">
                 <Link
