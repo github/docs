@@ -53,7 +53,7 @@ client = CopilotClient(
 <!-- docs-validate: skip -->
 
 ```golang
-client, err := copilot.NewClient(copilot.ClientOptions{
+client := copilot.NewClient(&copilot.ClientOptions{
     Telemetry: &copilot.TelemetryConfig{
         OTLPEndpoint: "http://localhost:4318",
     },
@@ -112,10 +112,13 @@ let client = Client::start(ClientOptions::new()
 | Option | Node.js | Python | Go | .NET | Java | Rust | Description |
 |---|---|---|---|---|---|---|---|
 | OTLP endpoint | `otlpEndpoint` | `otlp_endpoint` | `OTLPEndpoint` | `OtlpEndpoint` | `otlpEndpoint` | `otlp_endpoint` | OTLP HTTP endpoint URL |
+| OTLP protocol | `otlpProtocol` | `otlp_protocol` | `OTLPProtocol` | `OtlpProtocol` | `otlpProtocol` | `otlp_protocol` | OTLP HTTP protocol for all signals: `"http/json"` or `"http/protobuf"` |
 | File path | `filePath` | `file_path` | `FilePath` | `FilePath` | `filePath` | `file_path` | File path for JSON-lines trace output |
 | Exporter type | `exporterType` | `exporter_type` | `ExporterType` | `ExporterType` | `exporterType` | `exporter_type` | `"otlp-http"` or `"file"` |
 | Source name | `sourceName` | `source_name` | `SourceName` | `SourceName` | `sourceName` | `source_name` | Instrumentation scope name |
 | Capture content | `captureContent` | `capture_content` | `CaptureContent` | `CaptureContent` | `captureContent` | `capture_content` | Whether to capture message content |
+
+The OTLP protocol field configures the CLI's `"otlp-http"` exporter for all signals. Leave it unset to use the CLI default, or set it to `"http/protobuf"` to export protobuf over HTTP.
 
 ### Trace context propagation
 
@@ -159,29 +162,36 @@ When the CLI invokes a tool handler, the `traceparent` and `tracestate` from the
 <!-- docs-validate: skip -->
 
 ```typescript
+import { defineTool } from "@github/copilot-sdk";
 import { propagation, context, trace } from "@opentelemetry/api";
 
-session.registerTool(myTool, async (args, invocation) => {
-  // Restore the CLI's trace context as the active context
-  const carrier = {
-    traceparent: invocation.traceparent,
-    tracestate: invocation.tracestate,
-  };
-  const parentCtx = propagation.extract(context.active(), carrier);
+const myTool = defineTool("my-tool", {
+  description: "Do work",
+  handler: async (args, invocation) => {
+    // Restore the CLI's trace context as the active context
+    const carrier = {
+      traceparent: invocation.traceparent,
+      tracestate: invocation.tracestate,
+    };
+    const parentCtx = propagation.extract(context.active(), carrier);
 
-  // Create a child span under the CLI's span
-  const tracer = trace.getTracer("my-app");
-  return context.with(parentCtx, () =>
-    tracer.startActiveSpan("my-tool", async (span) => {
-      try {
-        const result = await doWork(args);
-        return result;
-      } finally {
-        span.end();
-      }
-    })
-  );
+    // Create a child span under the CLI's span
+    const tracer = trace.getTracer("my-app");
+    return context.with(parentCtx, () =>
+      tracer.startActiveSpan("my-tool", async (span) => {
+        try {
+          const result = await doWork(args);
+          return result;
+        } finally {
+          span.end();
+        }
+      })
+    );
+  },
 });
+
+// Tool handlers are registered when the session is created.
+const session = await client.createSession({ tools: [myTool] });
 ```
 
 ### Per-language dependencies

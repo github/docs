@@ -135,7 +135,7 @@ func main() {
             "my-local-server": copilot.MCPStdioServerConfig{
                 Command: "node",
                 Args:    []string{"./mcp-server.js"},
-                Tools:   &[]string{"*"},
+                Tools:   []string{"*"},
             },
         },
     })
@@ -168,6 +168,35 @@ await using var session = await client.CreateSessionAsync(new SessionConfig
     },
 });
 ```
+
+## Disabling configured servers per session
+
+Set `disabledMcpServers` to exact MCP server names that must not run in a session.
+The setting is scoped to the individual create or resume request; it does not
+modify global MCP settings or the server configuration.
+
+```typescript
+const session = await client.createSession({
+    mcpServers: {
+        filesystem: { type: "local", command: "npx", args: ["-y", "@modelcontextprotocol/server-filesystem", "."] },
+        github: { type: "http", url: "https://api.githubcopilot.com/mcp/" },
+    },
+    disabledMcpServers: ["github"],
+});
+```
+
+| SDK | Configuration property |
+| --- | --- |
+| Node.js | `disabledMcpServers` |
+| Python | `disabled_mcp_servers` |
+| Go | `DisabledMCPServers` |
+| .NET | `DisabledMcpServers` |
+| Java | `setDisabledMcpServers(...)` |
+| Rust | `with_disabled_mcp_servers(...)` |
+
+On session creation and a **cold** resume, disabled servers are not started and
+the runtime does not initiate their authentication. A resident resume cannot
+undo a server that the runtime has already spawned. Names are matched exactly.
 
 ## Tool configuration
 

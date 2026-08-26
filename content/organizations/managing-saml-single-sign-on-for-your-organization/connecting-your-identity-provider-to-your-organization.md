@@ -32,4 +32,4 @@ You can find the SAML and SCIM implementation details for your IdP in the IdP's 
 
 ## SAML metadata
 
-For more information about SAML metadata for your organization, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference).
+For more information about SAML metadata for your organization, see [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/saml-configuration-reference).

@@ -22,4 +22,6 @@ children:
   - /working-with-canvas-extensions
   - /managing-issues-and-pull-requests
   - /using-automations
+  - /use-byok-models
+  - /open-with-deep-links
 ---

@@ -3,7 +3,8 @@ import fs from 'fs'
 import { visit, Test } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
-import yaml from 'js-yaml'
+import { dump } from 'js-yaml'
+import { loadYaml } from '@/frame/lib/load-yaml'
 import { type Node, type Nodes, type Definition, type Link } from 'mdast'
 
 import type { Context, Page } from '@/types'
@@ -21,6 +22,7 @@ import { loadUnversionedTree, loadPages, loadPageMap } from '@/frame/lib/page-da
 import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
+import { RedirectedFragmentValidator } from '@/links/lib/validate-redirected-fragment'
 
 const logger = createLogger(import.meta.url)
 
@@ -28,11 +30,12 @@ const logger = createLogger(import.meta.url)
 // we, at runtime, render out the links
 const AUTOTITLE = 'AUTOTITLE'
 
-type LinkContext = {
+export type LinkContext = {
   pages: Record<string, Page>
   redirects: NonNullable<Context['redirects']>
   currentLanguage: string
   userLanguage: string
+  fragmentValidator: RedirectedFragmentValidator
 }
 
 type Replacement = {
@@ -49,11 +52,46 @@ type Warning = {
   column?: number
 }
 
+// A fragment (`#anchor`) that was carried over when a redirect rewrote the link's path.
+// It needs validating against the destination page before we decide to keep or drop it.
+type CarriedFragment = {
+  hash: string
+  destPage?: Page
+}
+
+type NewHrefResult = {
+  // The rewritten href WITHOUT the fragment when `fragment` is set (the caller decides
+  // whether to re-append it); otherwise the full href including any fragment/search.
+  href: string
+  fragment?: CarriedFragment
+}
+
+// A link/definition replacement collected during the synchronous AST walk. Applying it is
+// deferred until after async fragment validation, so a carried-over anchor can be dropped.
+type PendingReplacement = {
+  asMarkdown: string
+  line: number
+  column?: number
+  baseHref: string
+  makeMarkdown: (href: string) => string
+  fragment?: CarriedFragment
+  /**
+   * Byte range of this link in the source, when the node's position could be mapped back
+   * and the slice matches `asMarkdown` exactly. Replacing by range instead of by string
+   * search keeps identical text elsewhere in the file untouched.
+   */
+  span?: [number, number]
+}
+
 const Options = {
   setAutotitle: false,
   fixHref: false,
   verbose: false,
   strict: false,
+  // When a redirect rewrites a link's path, the carried-over `#anchor` is validated
+  // against the destination page's real headings. If it exists in no applicable version
+  // it is dropped by default. Set this to keep such fragments (warn only).
+  keepStaleFragments: false,
 }
 
 export async function updateInternalLinks(files: string[], options = {}) {
@@ -71,6 +109,7 @@ export async function updateInternalLinks(files: string[], options = {}) {
     redirects,
     currentLanguage: 'en',
     userLanguage: 'en',
+    fragmentValidator: new RedirectedFragmentValidator(pageMap, redirects, 'en'),
   }
 
   for (const file of files) {
@@ -88,7 +127,11 @@ export async function updateInternalLinks(files: string[], options = {}) {
   return results
 }
 
-async function updateFile(file: string, context: LinkContext, opts: typeof Options) {
+/**
+ * Exported so tests can drive a single file with a hand-built context. Loading the real
+ * page tree takes tens of seconds, which is too slow to cover the rewrite branches.
+ */
+export async function updateFile(file: string, context: LinkContext, opts: typeof Options) {
   const rawContent = fs.readFileSync(file, 'utf8')
   let { data, content } = frontmatter(rawContent)
   data = data || {}
@@ -100,14 +143,58 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
   // the `frontmatter(rawContent).data` always becomes `{}`.
   // And since the Yaml file might contain arrays of internal linked
   // pathnames, we have to re-read it fully.
-  if (file.endsWith('.yml')) {
-    Object.assign(data, yaml.load(content))
+  const isYaml = file.endsWith('.yml')
+  if (isYaml) {
+    Object.assign(data, loadYaml(content))
   }
 
   let newContent = content
-  const ast = fromMarkdown(newContent)
+
+  // Captured so the closure below sees a non-reassignable string.
+  const source = content
+
+  // A YAML file is parsed as Markdown to find its links, and that parse is
+  // indentation-sensitive: a value indented four or more spaces reads as a code block,
+  // so the AST holds fewer link nodes than the text has occurrences. Stripping the
+  // leading whitespace from every line exposes all of them. Line numbers are unaffected,
+  // and `sourceSpan` maps each node's columns back onto the original text so the
+  // rewrite still lands on the real bytes.
+  const parseSource = isYaml ? dedentLines(source) : source
+  const lineStarts = buildLineStarts(source)
+  const indents = isYaml ? source.split('\n').map((line) => /^[ \t]*/.exec(line)![0].length) : null
+
+  /**
+   * Column of a node in the original text. The YAML parse runs on dedented lines, so the
+   * indent has to go back on before the column is reported to a human.
+   */
+  function sourceColumn(node: Nodes): number | undefined {
+    const pos = node.position
+    if (!pos?.start.column) return undefined
+    const indent = indents ? (indents[pos.start.line - 1] ?? 0) : 0
+    return pos.start.column + indent
+  }
+
+  /**
+   * Byte range of a node in the source, or undefined when the range can't be trusted:
+   * a node spanning several lines, or a serialization that doesn't match the source.
+   */
+  function sourceSpan(node: Nodes, asMarkdown: string): [number, number] | undefined {
+    const pos = node.position
+    if (!pos?.start.line || !pos.end.line || pos.start.line !== pos.end.line) return undefined
+    const lineIndex = pos.start.line - 1
+    const lineStart = lineStarts[lineIndex]
+    if (lineStart === undefined) return undefined
+    const indent = indents ? indents[lineIndex] : 0
+    const start = lineStart + indent + (pos.start.column - 1)
+    const end = lineStart + indent + (pos.end.column - 1)
+    return source.slice(start, end) === asMarkdown ? [start, end] : undefined
+  }
+
+  const ast = fromMarkdown(parseSource)
 
   const replacements: Replacement[] = []
+  const spanEdits: { start: number; end: number; text: string }[] = []
+  const stringEdits: { find: string; text: string }[] = []
   const warnings: Warning[] = []
 
   const newData = structuredClone(data)
@@ -167,31 +254,31 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
 
   const lineOffset = rawContent.replace(content, '').split(/\n/g).length - 1
 
+  // Replacements are collected here during the synchronous AST walk and applied after
+  // async fragment validation below, so a carried-over `#anchor` can be dropped when the
+  // redirected destination page doesn't actually have that heading.
+  const pending: PendingReplacement[] = []
+
   visit(ast, definitionMatcher as Test, (node: Nodes) => {
     const asMarkdown = toMarkdown(node).trim()
     // E.g. `[foo]: /bar`
     if (opts.fixHref && content.includes(asMarkdown) && isDefinition(node)) {
-      let newHref = node.url
       const { label } = node
-      const betterHref = getNewHref(newHref, context, opts, file)
+      const result = getNewHref(node.url, context, opts, file)
       // getNewHref() might return a deliberate `undefined` if the
       // new href value could not be computed for some reason.
-      if (betterHref !== undefined) {
-        newHref = betterHref
-      }
-      const newAsMarkdown = `[${label}]: ${newHref}`
-      if (asMarkdown !== newAsMarkdown) {
-        // Something can be improved!
-        const column = node.position?.start.column
-        const line = node.position?.start.line || 0 + lineOffset
-        replacements.push({
-          asMarkdown,
-          newAsMarkdown,
-          line,
-          column,
-        })
-        newContent = newContent.replace(asMarkdown, newAsMarkdown)
-      }
+      const baseHref = result === undefined ? node.url : result.href
+      const column = sourceColumn(node)
+      const line = (node.position?.start.line ?? 0) + lineOffset
+      pending.push({
+        asMarkdown,
+        line,
+        column,
+        baseHref,
+        makeMarkdown: (href) => `[${label}]: ${href}`,
+        fragment: result?.fragment,
+        span: sourceSpan(node, asMarkdown),
+      })
     }
   })
 
@@ -212,7 +299,8 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
       const title = node.children.map((child: Nodes) => toMarkdown(child).slice(0, -1)).join('')
 
       let newTitle = title
-      let newHref = node.url
+      let baseHref = node.url
+      let fragment: CarriedFragment | undefined
 
       const hasQuotesAroundLink = content.includes(`"${asMarkdown}`)
 
@@ -249,8 +337,8 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
            */
           if (xValue) {
             if (singleStartingQuote(xValue)) {
-              const column = node.position?.start.column
-              const line = node.position?.start.line || 0 + lineOffset
+              const column = sourceColumn(node)
+              const line = (node.position?.start.line ?? 0) + lineOffset
               warnings.push({
                 warning: 'Starts with a single " inside the text',
                 asMarkdown,
@@ -258,8 +346,8 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
                 column,
               })
             } else if (isSimpleQuote(xValue)) {
-              const column = node.position?.start.column
-              const line = node.position?.start.line || 0 + lineOffset
+              const column = sourceColumn(node)
+              const line = (node.position?.start.line ?? 0) + lineOffset
               warnings.push({
                 warning: 'Starts and ends with a " inside the text',
                 asMarkdown,
@@ -271,26 +359,25 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
         }
       }
       if (opts.fixHref) {
-        const betterHref = getNewHref(node.url, context, opts, file)
+        const result = getNewHref(node.url, context, opts, file)
         // getNewHref() might return a deliberate `undefined` if the
         // new href value could not be computed for some reason.
-        if (betterHref !== undefined) {
-          newHref = betterHref
+        if (result !== undefined) {
+          baseHref = result.href
+          fragment = result.fragment
         }
       }
-      const newAsMarkdown = `[${newTitle}](${newHref})`
-      if (asMarkdown !== newAsMarkdown) {
-        // Something can be improved!
-        const column = node.position?.start.column
-        const line = node.position?.start.line || 0 + lineOffset
-        replacements.push({
-          asMarkdown,
-          newAsMarkdown,
-          line,
-          column,
-        })
-        newContent = newContent.replace(asMarkdown, newAsMarkdown)
-      }
+      const column = sourceColumn(node)
+      const line = (node.position?.start.line ?? 0) + lineOffset
+      pending.push({
+        asMarkdown,
+        line,
+        column,
+        baseHref,
+        makeMarkdown: (href) => `[${newTitle}](${href})`,
+        fragment,
+        span: sourceSpan(node, asMarkdown),
+      })
     } else if (opts.verbose) {
       logger.warn('Unable to find link as Markdown in the source content', {
         asMarkdown,
@@ -298,6 +385,83 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
       })
     }
   })
+
+  // Resolve any carried-over fragments (async — renders the destination page), then apply
+  // every replacement to `newContent` in document order.
+  for (const item of pending) {
+    let finalHref = item.baseHref
+    if (item.fragment) {
+      const { hash, destPage } = item.fragment
+      const decision = await context.fragmentValidator.classify(destPage, hash)
+      if (decision === 'drop') {
+        if (opts.keepStaleFragments) {
+          finalHref = item.baseHref + hash
+          warnings.push({
+            warning: `Stale anchor '${hash}' not found on the redirected destination page in any applicable version, but kept because keepStaleFragments is set`,
+            asMarkdown: item.asMarkdown,
+            line: item.line,
+            column: item.column,
+          })
+        } else {
+          // Drop the fragment: leave `finalHref` as the fragment-less base href.
+          warnings.push({
+            warning: `Removed stale anchor '${hash}' — not found on the redirected destination page in any applicable version`,
+            asMarkdown: item.asMarkdown,
+            line: item.line,
+            column: item.column,
+          })
+        }
+      } else if (decision === 'mixed') {
+        finalHref = item.baseHref + hash
+        warnings.push({
+          warning: `Anchor '${hash}' exists in some but not all versions of the redirected destination page; kept for manual review`,
+          asMarkdown: item.asMarkdown,
+          line: item.line,
+          column: item.column,
+        })
+      } else if (decision === 'unvalidatable') {
+        finalHref = item.baseHref + hash
+        warnings.push({
+          warning: `Could not validate anchor '${hash}' on the redirected destination page; kept unchanged`,
+          asMarkdown: item.asMarkdown,
+          line: item.line,
+          column: item.column,
+        })
+      } else {
+        // 'keep' — the anchor exists on the destination in every applicable version.
+        finalHref = item.baseHref + hash
+      }
+    }
+    const newAsMarkdown = item.makeMarkdown(finalHref)
+    if (item.asMarkdown !== newAsMarkdown && content.includes(item.asMarkdown)) {
+      replacements.push({
+        asMarkdown: item.asMarkdown,
+        newAsMarkdown,
+        line: item.line,
+        column: item.column,
+      })
+      if (item.span) {
+        spanEdits.push({ start: item.span[0], end: item.span[1], text: newAsMarkdown })
+      } else {
+        // No trustworthy range for this node, so fall back to a string search. Left for
+        // the second pass, after the ranged edits, since a search can't be offset-aware.
+        stringEdits.push({ find: item.asMarkdown, text: newAsMarkdown })
+      }
+    }
+  }
+
+  // Ranged edits go in descending order so earlier offsets stay valid, and each one
+  // touches exactly the bytes the parser identified as a link. That's what keeps an
+  // identical string in a comment or a code example from being rewritten too.
+  spanEdits.sort((a, b) => b.start - a.start)
+  for (const edit of spanEdits) {
+    newContent = newContent.slice(0, edit.start) + edit.text + newContent.slice(edit.end)
+  }
+  for (const edit of stringEdits) {
+    if (newContent.includes(edit.find)) {
+      newContent = newContent.replace(edit.find, edit.text)
+    }
+  }
 
   return {
     data,
@@ -308,6 +472,23 @@ async function updateFile(file: string, context: LinkContext, opts: typeof Optio
     warnings,
     newData,
   }
+}
+
+/** Strip leading whitespace from every line, preserving the line count. */
+function dedentLines(content: string): string {
+  return content
+    .split('\n')
+    .map((line) => line.replace(/^[ \t]+/, ''))
+    .join('\n')
+}
+
+/** Byte offset where each line begins, so a line/column pair can become an offset. */
+function buildLineStarts(content: string): number[] {
+  const starts = [0]
+  for (let i = 0; i < content.length; i++) {
+    if (content[i] === '\n') starts.push(i + 1)
+  }
+  return starts
 }
 
 function isDefinition(node: Node): node is Definition {
@@ -490,7 +671,7 @@ function getNewHref(
     strict: boolean
   },
   file: string,
-) {
+): NewHrefResult | undefined {
   const { currentLanguage } = context
   const parsed = new URL(href, 'https://docs.github.com')
   const hash = parsed.hash
@@ -579,13 +760,31 @@ function getNewHref(
     }
   }
 
-  if (search) {
-    newHref += search
+  const base = search ? `${newHref}${search}` : newHref
+
+  // No fragment → nothing to validate; return the (possibly rewritten) path as-is.
+  if (!hash) {
+    return { href: base }
   }
-  if (hash) {
-    newHref += hash
+
+  // The path wasn't rewritten, so the original fragment still points at the same page and
+  // remains valid. Keep it appended, exactly as before.
+  if (!redirected) {
+    return { href: base + hash }
   }
-  return newHref
+
+  // The path WAS rewritten by a redirect, so the carried-over fragment may be stale on the
+  // destination page. Surface it (with the destination Page, if resolvable) so the caller
+  // can validate it against the destination's real headings and decide keep vs. drop.
+  const destPage = resolveDestinationPage(context.pages, redirected)
+  return { href: base, fragment: { hash, destPage } }
+}
+
+// Resolve the Page a redirect points at, so its headings can be validated. `redirected` is
+// a full permalink-style URL from getRedirect() (e.g. `/en/get-started/foo` or
+// `/en/enterprise-cloud@latest/get-started/foo`), which is how the page map is keyed.
+function resolveDestinationPage(pages: Record<string, Page>, redirected: string): Page | undefined {
+  return pages[redirected] || pages[getPathWithLanguage(getPathWithoutLanguage(redirected), 'en')]
 }
 
 function singleStartingQuote(text: string) {
@@ -594,4 +793,59 @@ function singleStartingQuote(text: string) {
 
 function isSimpleQuote(text: string) {
   return text.startsWith('"') && text.endsWith('"') && text.split('"').length === 3
+}
+
+/**
+ * Write a YAML data file back out.
+ *
+ * For `.yml` files every link fix lands in `newContent`, the file's own text, because
+ * `updateFile` finds Markdown links by parsing that text and rewrites them in place.
+ * `newData` is only mutated for the structured link keys (`featuredLinks` and
+ * `introLinks`), which no file under `data/` currently uses.
+ *
+ * Writing `dump(newData)` therefore threw away every fix and reserialized the untouched
+ * data instead: pure churn, no change. Prefer the surgically edited text, and only fall
+ * back to reserializing when the structured data genuinely changed.
+ */
+export function serializeYaml(
+  newContent: string,
+  newData: Record<string, unknown> | undefined,
+  differentContent: boolean,
+  differentData: boolean,
+): string {
+  if (!differentData) return newContent
+  if (differentContent) {
+    // The two kinds of change live in different representations and there is no
+    // format-preserving way to merge them, so `dump` would silently drop the text
+    // fixes. No file hits this today. Fail loudly rather than lose edits quietly.
+    throw new Error(
+      'Cannot serialize a YAML file that has both text and structured data changes ' +
+        'without losing one of them. This needs a format-preserving merge.',
+    )
+  }
+  return dump(newData || {})
+}
+
+/**
+ * Write a Markdown page back out, preserving the original frontmatter text verbatim
+ * whenever the frontmatter data itself didn't change.
+ *
+ * Round-tripping frontmatter through the YAML serializer reflows values that were
+ * never touched: long `intro` strings become block scalars, `redirect_from` entries get
+ * rewrapped, and quote styles change. That churn dwarfs the actual link fixes and makes
+ * a bulk run unreviewable, which is why this only reserializes when it has to.
+ */
+export function serializeMarkdown(
+  rawContent: string,
+  content: string,
+  newContent: string,
+  newData: Record<string, unknown> | undefined,
+  differentData: boolean,
+): string {
+  // `content` is the tail of the file, so everything before it is the frontmatter
+  // block exactly as the author wrote it, delimiters and all.
+  if (!differentData && rawContent.endsWith(content)) {
+    return rawContent.slice(0, rawContent.length - content.length) + newContent
+  }
+  return frontmatter.stringify(newContent, newData || {})
 }

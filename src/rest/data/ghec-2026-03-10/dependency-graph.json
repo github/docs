@@ -304,7 +304,7 @@
         {
           "type": "string",
           "name": "sha",
-          "description": "<p>The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.</p>",
+          "description": "<p>The commit SHA associated with this dependency snapshot. Maximum length: 64 characters.</p>",
           "isRequired": true
         },
         {

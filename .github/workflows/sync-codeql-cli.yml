@@ -30,11 +30,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-
-        # Check out a nested repository inside of previous checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - name: Checkout semmle-code repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
@@ -114,11 +112,18 @@ jobs:
 
             This will be reviewed and merged by the Code scanning and GHAS focus team as part of the release of CodeQL CLI. (Synced from semmle-code@${{ steps.semmle-code.outputs.OPENAPI_COMMIT_SHA }})
 
-            If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
+            If CI does not pass or other problems arise, contact #technical-content on slack.' \
             --repo github/docs-internal \
             --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review,workflow-generated"
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

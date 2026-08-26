@@ -32,12 +32,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Checkout codeql repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           repository: github/codeql
           path: codeql
@@ -72,6 +72,10 @@ jobs:
 
       - uses: ./.github/actions/install-cocofix
         with:
+          # The Docs Engineering Bot app cannot read the org-scoped
+          # @github/cocofix package (its Packages permission is repo-level
+          # only), so this step keeps using the PAT until the app is granted
+          # organization package read access.
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Build code scanning security query lists
@@ -98,12 +102,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Checkout codeql repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           repository: github/codeql
           path: codeql
@@ -164,10 +168,10 @@ jobs:
     needs: [generate-security-query-lists, generate-quality-query-lists]
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Checkout codeql repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           repository: github/codeql
           path: codeql
@@ -256,7 +260,7 @@ jobs:
             --body '👋 humans. This PR updates the **CodeQL query table reusables** with the latest changes in preparation for the next **CodeQL CLI** release. (Synced from codeql@${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }})
 
 
-            No action is required from the first responder for the Docs content team. This PR is automatically added to the Docs content review board. Any writer can review this by checking that the PR looks sensible. If CI does not pass or other problems arise, contact #docs-engineering on slack.
+            No action is required from the first responder for the Docs content team. This PR is automatically added to the Docs content review board. Any writer can review this by checking that the PR looks sensible. If CI does not pass or other problems arise, contact #technical-content on slack.
 
 
             When the DRI for the CodeQL CLI release is ready to publish, they will ask us to merge this PR in #docs-content.

@@ -43,7 +43,7 @@ There are several ways to use {% data variables.product.prodname_copilot_short %
 ### Educational and open source benefits
 
 * {% data variables.copilot.copilot_student_short %} offers free access to {% data variables.product.prodname_copilot_short %}'s premium features for verified students. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
-* {% data variables.copilot.copilot_pro_short %} is free for verified teachers and maintainers of popular open source projects. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer).
+* {% data variables.copilot.copilot_pro_short %} is free for verified teachers and maintainers of popular open source projects. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers).
 
 ## How usage of {% data variables.product.prodname_copilot_short %} licenses is measured
 
@@ -55,7 +55,7 @@ Usage of {% data variables.product.prodname_copilot_short %} licenses is measure
 * Downgrades take effect at the start of the next billing cycle and are generally not prorated.
 * Canceling a monthly plan keeps access until the end of the current billing cycle, with no proration.
 
-For details on billing and proration, see [AUTOTITLE](/copilot/concepts/billing/billing-for-individuals).
+For details on billing and proration, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals).
 
 ### Organizations and enterprises
 
@@ -93,7 +93,7 @@ To help manage your budget for {% data variables.product.prodname_copilot_short 
 
 {% data reusables.copilot.plans.ai-cap-recommend-upgrade %}
 
-For more information about using budgets to control spending, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
+For more information about using budgets to control spending, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 ### Organizations and enterprises
 

@@ -18,7 +18,7 @@ Each license report shows information about license users in your enterprise acc
 
 {% ifversion fpt or ghec %}
 
-* Enterprise and {% data variables.product.prodname_AS %} license users, see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use)
+* Enterprise and {% data variables.product.prodname_AS %} license users, see [AUTOTITLE](/billing/how-tos/products/download-license-use)
 * {% data variables.product.prodname_copilot %} license users, see [AUTOTITLE](/copilot/how-tos/administer-copilot/download-activity-report)
 * Report using the REST API, see [AUTOTITLE](/billing/tutorials/automate-usage-reporting)
 
@@ -26,7 +26,7 @@ If you want to generate a more detailed usage report, see [AUTOTITLE](/billing/t
 
 {% endif %}
 
-**{% data variables.product.prodname_ghe_server %} users** can download license reports for {% data variables.product.prodname_AS %} from the **License** page under enterprise settings, see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
+**{% data variables.product.prodname_ghe_server %} users** can download license reports for {% data variables.product.prodname_AS %} from the **License** page under enterprise settings, see [AUTOTITLE](/billing/how-tos/products/download-license-use).
 
 ## {% data variables.product.prodname_AS %} license report
 

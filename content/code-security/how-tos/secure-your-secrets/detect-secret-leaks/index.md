@@ -11,7 +11,7 @@ redirect_from:
   - /code-security/secret-scanning/enabling-secret-scanning-features
 children:
   - /enable-secret-scanning
-  - /enabling-secret-scanning-for-non-provider-patterns
-  - /enabling-ai-powered-generic-secret-detection
+  - /enabling-secret-scanning-for-generic-patterns
+  - /enabling-secret-scanning-for-ai-detected-secrets
 ---
 

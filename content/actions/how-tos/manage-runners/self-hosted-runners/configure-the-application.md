@@ -27,7 +27,7 @@ contentType: how-tos
 
 > [!NOTE]
 > You must add a runner to {% data variables.product.github %} before you can configure the self-hosted runner application as a service.
-For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
+For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/add-runners).
 
 {% endcapture %}
 
@@ -48,7 +48,7 @@ For Linux systems that use `systemd`, you can use the `svc.sh` script that is cr
 > [!NOTE]
 > Configuring the self-hosted runner application as a service on Windows is part of the application configuration process. If you have already configured the self-hosted runner application but did not choose to configure it as a service, you must remove the runner from {% data variables.product.prodname_dotcom %} and re-configure the application. When you re-configure the application, choose the option to configure the application as a service.
 >
-> For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
+> For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/remove-runners) and [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/add-runners).
 
 You can manage the runner service in the Windows **Services** application, or you can use PowerShell to run the commands below.
 
@@ -153,7 +153,7 @@ Get-Service "{{ service_win_name }}"
 
 {% endmac %}
 
- For more information on viewing the status of your self-hosted runner, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners).
+ For more information on viewing the status of your self-hosted runner, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/monitor-and-troubleshoot).
 
 ## Stopping the service
 

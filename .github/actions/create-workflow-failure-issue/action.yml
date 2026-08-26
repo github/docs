@@ -1,5 +1,5 @@
 name: Create workflow failure issue
-description: Create or update a GitHub issue in docs-engineering when a workflow fails, for automated diagnosis by an agentic workflow.
+description: Create or update a GitHub issue in technical-content when a workflow fails, for automated diagnosis by an agentic workflow.
 
 inputs:
   token:
@@ -7,8 +7,13 @@ inputs:
     required: true
   repo:
     description: The repository to create the issue in
-    default: github/docs-engineering
+    default: github/technical-content
     required: false
+
+outputs:
+  issue_url:
+    description: URL of the created or updated workflow-failure issue (empty if creation failed).
+    value: ${{ steps.create-new.outputs.issue_url || steps.comment-existing.outputs.issue_url }}
 
 runs:
   using: composite
@@ -31,6 +36,7 @@ runs:
         echo "existing_issue=$existing" >> "$GITHUB_OUTPUT"
 
     - name: Comment on existing issue
+      id: comment-existing
       if: steps.check-existing.outputs.existing_issue != ''
       shell: bash
       env:
@@ -57,8 +63,10 @@ runs:
         gh issue comment "$ISSUE_NUMBER" \
           --repo "$ISSUE_REPO" \
           --body "$body"
+        echo "issue_url=$GITHUB_SERVER_URL/$ISSUE_REPO/issues/$ISSUE_NUMBER" >> "$GITHUB_OUTPUT"
 
     - name: Create workflow failure issue
+      id: create-new
       if: steps.check-existing.outputs.existing_issue == ''
       shell: bash
       env:
@@ -86,8 +94,18 @@ runs:
         This issue was automatically created by the create-workflow-failure-issue action to enable automated diagnosis.
         EOF
         )
-        gh issue create \
+        url=$(gh issue create \
           --repo "$ISSUE_REPO" \
           --label "workflow-failure" \
+          --label "workflow-generated" \
+          --label "engineering" \
+          --label "priority-2" \
           --title "[Workflow Failure] $WORKFLOW_NAME" \
-          --body "$body"
+          --body "$body")
+        echo "issue_url=$url" >> "$GITHUB_OUTPUT"
+
+        # Set the type separately, and tolerate failure. This action is itself the
+        # failure path, so losing the whole issue because issue types are unavailable
+        # or `gh` is too old (--type needs gh 2.94+) would hide the original failure.
+        gh issue edit "$url" --type Bug \
+          || echo "Warning: could not set issue type on $url; leaving it unset."

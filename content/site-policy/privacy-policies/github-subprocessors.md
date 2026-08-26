@@ -18,7 +18,7 @@ The GitHub Subprocessor List identifies subprocessors authorized to subprocess c
 
 GitHub publishes the names of any new subprocessors for its online services at least 30 days in advance of the subprocessor’s authorization to perform services that may involve access to customer data or personal data.
 
-To receive notifications of updates to this Subprocessor list, please follow the instructions provided in [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+To receive notifications of updates to this Subprocessor list, please follow the instructions provided in [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications).
 
 If you have questions about this list, please contact us at <privacy@github.com>.
 
@@ -28,7 +28,9 @@ If you have questions about this list, please contact us at <privacy@github.com>
 |-------------------------------|--------------------------------------------------------------------------------| ----------------------- | ------------------ |
 | Amazon Web Services Inc (AWS) | Cloud Hosted Infrastructure, Data Hosting, AI Inference and AI Services        | United States                                     | United States      |
 | Anthropic PBC                 | AI Inference and AI Services                                                   | United States                                     | United States      |
+| Cerebras Systems Inc.         | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Cloudflare                    | Content delivery service                                                       | United States                                     | United States      |
+| DataDome Solutions, Inc.      | Security management                                                            | United States, France                             | United States      |
 | Elasticsearch, Inc.           | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Fastly                        | Content delivery service                                                       | United States                                     | United States      |
 | Fireworks AI                  | AI Inference and AI Services                                                   | United States, Germany, Iceland                   | United States      |

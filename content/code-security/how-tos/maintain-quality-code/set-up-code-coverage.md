@@ -1,28 +1,68 @@
 ---
 title: Setting up code coverage for your repository
 shortTitle: Set up code coverage
-intro: 'Upload test coverage reports to see coverage results directly on pull requests, helping reviewers identify untested code before merging.'
+intro: 'Use built-in code coverage from {% data variables.product.prodname_code_quality_short %} to find untested code on pull requests, without paying for or maintaining a separate third-party service.'
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-repo-enable %}'
+audience:
+  - driver
 contentType: how-tos
 layout: inline
 category:
   - Improve code quality
 ---
 
-{% data reusables.code-quality.code-quality-preview-note %}
+You can set up code coverage for your repository in two ways: 
 
-In the following procedures, you will generate a Cobertura XML coverage report from your test suite, upload it to {% data variables.product.github %}, and view the coverage results on your pull requests.
+* **Automatic setup:** Use the AI-powered agent to generate a workflow automatically. Choose this option if:
+  * You want to get started quickly without writing YAML configuration.
+  * Your project uses common test frameworks and build patterns.
+  * You're comfortable iterating on an AI-generated workflow.
+* **Manual setup:** Configure your CI workflow yourself. Choose this option if:
+  * You need precise control over the coverage process.
+  * You have complex CI requirements (such as private registries or custom build steps).
+  * You want to understand exactly how coverage is configured.
 
-## Prerequisites
+## Automatic setup
+
+You can use the automatic setup option to generate a working code coverage workflow without manually authoring CI configuration. An agent analyzes your repository, identifies your test framework, and opens a pull request with a coverage workflow ready for review.
+
+> [!NOTE]
+> Automatic setup uses AI to generate the workflow file. There is no additional cost for using this feature.
+
+### Prerequisites for automatic setup
+
+* {% data variables.product.prodname_code_quality_short %} is enabled for your repository. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
+* Your repository has an existing test suite.
+
+### Generating a coverage workflow automatically
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. In the sidebar, under "Security", click **{% data variables.code-quality.code_quality_ui_settings %}** to display the "{% data variables.code-quality.code_quality_ui %}" page.
+1. In the "Code coverage analysis" section, click the **Setup** dropdown box.
+1. In the list, select **Generate workflow with AI**. Wait for the agent to analyze your repository. The agent opens a draft pull request and posts a checklist of the steps it is working through.
+1. To review the pull request, click **Review pull request**. 
+   Review the pull request once the agent completes its work. The pull request description summarizes the changes, including any project configuration updates, workflow file changes, and coverage output settings.
+1. If the workflow runs successfully in CI and coverage uploads correctly, merge the pull request.
+
+   If the workflow needs adjustments, see [AUTOTITLE](/code-security/concepts/code-quality/automatic-code-coverage-setup) for guidance on the different outcomes and how to iterate.
+
+For more information about how the agent works and what to expect, see [AUTOTITLE](/code-security/concepts/code-quality/automatic-code-coverage-setup).
+
+## Manual setup
+
+Built-in code coverage lets you track how thoroughly your tests exercise your code, without adding a third-party service to your toolchain or budget. In the following procedures, you will generate a Cobertura XML coverage report from your test suite, upload it to {% data variables.product.github %}, and view the coverage results on your pull requests.
+
+### Prerequisites for manual setup
 
 * {% data variables.product.prodname_code_quality_short %} is enabled for your repository.
 * Your repository has a test suite that runs in {% data variables.product.prodname_actions %}.
 * Your test framework can produce a coverage report in **Cobertura XML** format.
 
-## Step 1: Generate a Cobertura XML coverage report
+### Step 1: Generate a Cobertura XML coverage report
 
 Configure your test framework to output a coverage report in the Cobertura XML format. Code coverage works with any programming language that can produce this format.
 
@@ -40,7 +80,7 @@ Configure your test framework to output a coverage report in the Cobertura XML f
 > [!TIP]
 > If your framework isn't listed above, check its documentation for Cobertura output support. Many tools either support it directly or can convert to Cobertura XML from other formats.
 
-## Step 2: Upload the coverage report
+### Step 2: Upload the coverage report
 
 After your tests generate a Cobertura XML report, upload it to {% data variables.product.github %} so coverage results appear on pull requests.
 
@@ -60,7 +100,7 @@ After your tests generate a Cobertura XML report, upload it to {% data variables
 1. Replace the following values:
    * **`COVERAGE-FILE-PATH.xml`**: The path to your Cobertura XML report (for example, `coverage.xml` or `target/site/jacoco/cobertura.xml`).
    * **`LANGUAGE`**: The primary language of the code being covered (for example, `Python`, `Java`, `JavaScript`).
-   * **`LABEL`**: An optional label to identify this coverage report (for example, `code-coverage/pytest`).
+   * **`LABEL`**: A label to identify this coverage report (for example, `code-coverage/pytest`).
 1. Commit and push the workflow change.
 
 ### Full workflow example
@@ -117,13 +157,9 @@ jobs:
           label: code-coverage/pytest
 ```
 
-## Step 3: View coverage results on pull requests
+### Step 3: View coverage results on pull requests
 
 1. Open a pull request (or push to an existing one) that triggers the workflow you configured.
 1. After the workflow completes, look for a comment from `{% data variables.code-quality.pr_commenter %}` on the pull request. The comment includes:
-   * The aggregate coverage percentage for the pull request branch compared to the default branch.
+   * The aggregate line coverage percentage for the pull request branch compared to the default branch.
    * A per-file breakdown showing which files gained or lost coverage.
-
-## Next steps
-
-* **Interpret results:** Understand coverage metrics and per-file breakdowns on your pull requests. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/interpret-results).

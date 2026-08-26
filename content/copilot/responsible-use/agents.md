@@ -41,6 +41,7 @@ GitHub Copilot includes several agentic features that go beyond suggestion and c
 * **Copilot cloud agent**: An asynchronous agent on GitHub.com that can create branches, write code, and open pull requests in response to assigned issues. The cloud agent runs in an ephemeral, firewalled environment with automated security scanning.
 * **Copilot CLI**: A command-line tool that can create and modify files, execute commands, and perform multi-step tasks. All actions require explicit permission prompts and are scoped to the current directory.
 * **Copilot SDK**: A programmatic library that allows developers to build custom AI-powered applications using Copilot. The SDK communicates with Copilot CLI over JSON-RPC and supports custom agents, MCP server integrations, lifecycle hooks, and session management.
+* **{% data variables.copilot.github_copilot_app %}**: A desktop application for directing agent sessions across local repositories, git worktrees, and cloud sandboxes. The app uses {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %} as its foundation and adds a user interface for parallel sessions, quick chats, {% data variables.product.github %} issue and pull request workflows, automations, and canvases.
 {% ifversion spark %}
 * **GitHub Spark (preview)**: A managed app-building experience where an agent writes code and runs commands in a development environment. Spark provides a managed runtime and can add inference capabilities via the GitHub Models SDK.
 {% endif %}
@@ -117,7 +118,7 @@ Copilot CLI uses a large language model to reason about tasks, generate code, mo
 The Copilot SDK communicates with Copilot CLI over JSON-RPC, using the same underlying models and capabilities. Applications built with the SDK use the same models available to the authenticated Copilot user or organization. Developers can also bring their own API keys (BYOK) to use custom model providers.
 
 {% ifversion spark %}
-GitHub Spark uses a large language model to power its agent within the development environment. The agent writes code and runs commands to build your application. Spark's SDK natively integrates with GitHub Models, allowing your application to incorporate model inference capabilities. For information on the models used by GitHub Models, see [AUTOTITLE](/github-models/responsible-use-of-github-models). Spark does not test the prompts you create within your application for inference—you must ensure that your included capabilities act as intended.
+GitHub Spark uses a large language model to power its agent within the development environment. The agent writes code and runs commands to build your application. Spark does not test the prompts you create within your application for inference—you must ensure that your included capabilities act as intended.
 {% endif %}
 
 ## 6. Performance
@@ -246,7 +247,7 @@ Copilot agentic features have been subject to RAI red teaming to identify and ad
 * **Permission prompts for file modifications**: Copilot CLI asks for permission before modifying files. You should ensure it is modifying the correct files before granting permission.
 * **Permission prompts for command execution**: Copilot CLI asks for permission before executing commands that may be dangerous. You should review these commands carefully before giving permission to run.
 * **Configurable permissions**: You can grant Copilot CLI specific permissions, or all permissions, by using the various command line options: for example, `--allow-tool=[TOOLS...]`, `--allow-all-tools`, `--allow-all` (or its slash command equivalent `/allow-all` for use in an interactive session). For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options). Typically, when you use Copilot CLI in autopilot mode, you will grant it full permissions to allow it to complete a task autonomously, without requiring you to approve activity as it works on the task. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
-* **Security considerations**: For more information about security practices while using Copilot CLI, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli#security-considerations).
+* **Security considerations**: For more information about security practices while using Copilot CLI, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#security-considerations).
 
 ### Copilot SDK
 
@@ -255,6 +256,15 @@ Copilot agentic features have been subject to RAI red teaming to identify and ad
 * **MCP server isolation**: MCP servers run as separate processes. Developers can control which servers are available per session, limiting the scope of external tool access.
 * **Session scoping**: Each SDK session is isolated with its own context, tools, and permissions. Developers can control what data and capabilities are available within each session.
 * **BYOK responsibility**: When using bring-your-own-key configurations, prompts and responses are sent directly to the configured provider. Developers are responsible for reviewing the data handling policies of their chosen provider.
+
+### {% data variables.copilot.github_copilot_app %}
+
+The {% data variables.copilot.github_copilot_app %} is a desktop application for directing agent sessions across local repositories, git worktrees, and cloud sandboxes. The app uses {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %} as its foundation and adds a user interface for parallel sessions, quick chats, {% data variables.product.github %} issue and pull request workflows, automations, and canvases.
+
+* **Workspace isolation**: App sessions can run in separate git worktrees or cloud sandboxes, helping isolate concurrent tasks from each other and from the default branch.
+* **Inherited CLI and SDK safety controls**: App sessions use {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %}, so they inherit the same model limitations and safety controls for file access, file modification, command execution, session scoping, and connected tools.
+* **Human review before merge**: The app surfaces generated changes, pull request status, CI results, review activity, and session history so users can inspect work before submitting reviews, enabling agent merge, or merging pull requests.
+* **Configurable integrations and automations**: Users control which MCP servers, skills, canvas extensions, and automations are available in the app. These configurations should be reviewed before use because they can affect the tools, data, and background actions available to sessions.
 
 ### Data handling when using your own model provider (CLI)
 
@@ -327,18 +337,18 @@ Responsible AI is a shared commitment between GitHub and its customers. While Gi
 
 For additional guidance on the responsible use of Copilot agentic features, we recommend reviewing the following documentation:
 
-* [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review)
-* [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
-* [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
-* [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent)
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/sdk-getting-started)
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
-* [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
+* [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
+* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+* [AUTOTITLE](/copilot/concepts/agents/github-copilot-app)
 {% ifversion spark %}
-* [AUTOTITLE](/copilot/tutorials/building-your-first-app-in-minutes-with-github-spark)
-* [AUTOTITLE](/copilot/tutorials/building-ai-app-prototypes)
-* [AUTOTITLE](/copilot/concepts/copilot-billing/about-billing-for-github-spark)
-* [AUTOTITLE](/github-models/responsible-use-of-github-models)
+* [AUTOTITLE](/copilot/tutorials/spark/your-first-spark)
+* [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark)
+* [AUTOTITLE](/billing/concepts/product-billing/github-spark)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms)
 {% endif %}
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)

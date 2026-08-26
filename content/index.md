@@ -7,7 +7,7 @@ featuredLinks:
     - /repositories/creating-and-managing-repositories
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   popular:
-    - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
+    - /pull-requests/reference/pull-requests
     - /authentication
     - /copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
     - /get-started/git-basics/managing-remote-repositories
@@ -52,7 +52,6 @@ versions:
 children:
   - search
   - get-started
-  - enterprise-onboarding
   - account-and-profile
   - subscriptions-and-notifications
   - authentication
@@ -84,7 +83,6 @@ children:
   - desktop
   - early-access
   - support
-
   - contributing
   - github-models
   - nonprofit
@@ -149,7 +147,7 @@ childGroups:
     children:
       - organizations
       - code-security/how-tos/secure-at-scale
-      - enterprise-onboarding
+      - admin/enterprise-onboarding
       - admin
   - name: Developers
     octicon: CodeSquareIcon
@@ -158,7 +156,6 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - github-models
   - name: Community
     octicon: GlobeIcon
     children:
@@ -179,21 +176,22 @@ externalProducts:
   electron:
     id: electron
     name: Electron
-    href: 'https://electronjs.org/docs/latest'
+    href: https://electronjs.org/docs/latest
     external: true
   codeql:
     id: codeql
     name: CodeQL query writing
-    href: 'https://codeql.github.com/docs'
+    href: https://codeql.github.com/docs
     external: true
   npm:
     id: npm
     name: npm
-    href: 'https://docs.npmjs.com/'
+    href: https://docs.npmjs.com/
     external: true
   gh-wa:
     id: gh-wa
     name: GitHub Well-Architected
-    href: 'https://wellarchitected.github.com/'
+    href: https://wellarchitected.github.com/
     external: true
 ---
+

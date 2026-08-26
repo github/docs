@@ -21,7 +21,7 @@ category:
 
 {% data reusables.secret-scanning.alert-types %}
 
-For in-depth information about each alert type, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts).
+For in-depth information about each alert type, see [AUTOTITLE](/code-security/concepts/secret-security/about-alerts).
 
 If you use the REST API for {% data variables.product.prodname_secret_scanning %}, you can use the `Secret type` to report on secrets from specific issuers. For more information, see [AUTOTITLE](/enterprise-cloud@latest/rest/secret-scanning).
 
@@ -30,7 +30,7 @@ If you use the REST API for {% data variables.product.prodname_secret_scanning %
 | Category | Description | Detection approach | Example |
 |----------|-------------|-------------------|---------|
 | **Generic** | Secrets not tied to a specific provider, such as private keys and database connection strings | Regex-based | `rsa_private_key` |
-| **AI-detected** | Generic passwords detected by {% data variables.secret-scanning.copilot-secret-scanning %} using AI models | AI-based | `password` |
+| **AI-detected** | Passwords and other unstructured secrets detected using AI models | AI-based | `password` |
 | **Provider** | Secrets tied to a specific service provider (such as AWS, Azure, Stripe) | Regex-based | `aws_access_key_id` |
 
 ### Capabilities by category
@@ -95,13 +95,13 @@ Precision levels are estimated based on the pattern type's typical false positiv
 {% endif %}
 
 >[!NOTE]
-> Validity checks are **not supported** for generic/ non-provider patterns.
+> Validity checks are **not supported** for generic patterns.
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 
 ## Supported AI-detected patterns
 
-{% data variables.product.prodname_secret_scanning_caps %} uses {% data variables.product.prodname_copilot_short %} to detect generic passwords. See [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
+{% data variables.product.prodname_secret_scanning_caps %} uses {% data variables.product.prodname_copilot_short %} to detect generic secrets using AI. See [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).
 
 | Provider | Token |
 |----------|:--------------------|

@@ -15,7 +15,7 @@ category:
 
 ## People who consume a license
 
-A person consumes a license for {% data variables.product.prodname_enterprise %} depending on specific criteria. If a user has not yet accepted an invitation to join your enterprise, the user still consumes a license. For more information about the people in your enterprise who consume a license, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing).
+A person consumes a license for {% data variables.product.prodname_enterprise %} depending on specific criteria. If a user has not yet accepted an invitation to join your enterprise, the user still consumes a license. For more information about the people in your enterprise who consume a license, see [AUTOTITLE](/billing/reference/github-license-users).
 
 ## {% data variables.visual_studio.prodname_vs_subscriber %}s
 
@@ -23,11 +23,11 @@ If the verified email address for the personal account of an enterprise member o
 
 > [!NOTE] For {% data variables.product.prodname_emu %} only, to make sure a user account consumes a {% data variables.product.prodname_vs %} license, ensure the {% data variables.product.prodname_vs %} UPN matches the SCIM `userName` attribute or the email address from the linked identity on the {% data variables.product.prodname_dotcom %} account.
 
-For more information, see [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise).
+For more information, see [AUTOTITLE](/enterprise-cloud@latest/billing/concepts/enterprise-billing/visual-studio-subs).
 
 ## Users of {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}
 
-For each user to consume a single {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %} regardless of how many deployments they use, you must synchronize license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
+For each user to consume a single {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %} regardless of how many deployments they use, you must synchronize license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/sync-license-usage).
 
 After you synchronize license usage, {% data variables.product.prodname_dotcom %} matches user accounts on {% data variables.product.prodname_ghe_server %} with user accounts on {% data variables.product.prodname_ghe_cloud %} by email address.
 
@@ -46,7 +46,7 @@ If your enterprise on {% data variables.product.prodname_ghe_cloud %} or any of 
 
 ### Without SAML or SCIM
 
-If there is no match with a SAML or SCIM attribute, or if SAML authentication or SCIM provisioning is not in use, we attempt to match the primary email address on {% data variables.product.prodname_ghe_server %} with a verified email address for a user account on {% data variables.product.prodname_ghe_cloud %}. For more information about verification of email addresses on {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+If there is no match with a SAML or SCIM attribute, or if SAML authentication or SCIM provisioning is not in use, we attempt to match the primary email address on {% data variables.product.prodname_ghe_server %} with a verified email address for a user account on {% data variables.product.prodname_ghe_cloud %}. For more information about verification of email addresses on {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/enterprise-cloud@latest/account-and-profile/how-tos/email-preferences/verifying-your-email-address){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 ## Fields in the consumed license files
 

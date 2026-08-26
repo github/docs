@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react'
-import { TextInput, ActionMenu, ActionList, Token, Pagination } from '@primer/react'
+import { useRouter } from 'next/router'
+import { ActionMenu, ActionList } from '@primer/react'
+import { Card, Pagination, TextInput, Token } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import cx from 'classnames'
 
-import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ChildTocItem, TocItem } from '@/landings/types'
 import { LandingType } from '@/landings/context/LandingContext'
@@ -232,6 +233,32 @@ export const ArticleGrid = ({
     prevPageRef.current = currentPage
   }, [currentPage])
 
+  // Scroll the article grid into view whenever the filter query params change
+  // (typing in search, choosing a category, or landing on the page with those
+  // params already set). Debounced so fast typing scrolls once, after the last
+  // keystroke, rather than on every character.
+  const prevFilterRef = useRef({ searchQuery, selectedCategory })
+  const anchorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  useEffect(() => {
+    const prev = prevFilterRef.current
+    const filtersChanged =
+      prev.searchQuery !== searchQuery || prev.selectedCategory !== selectedCategory
+    prevFilterRef.current = { searchQuery, selectedCategory }
+    if (!filtersChanged) return
+
+    // Debounce: cancel any pending scroll from a prior change, schedule a fresh
+    // one. Do NOT clear on effect cleanup — cleanup runs on unrelated re-renders
+    // and would cancel the scroll before it fires.
+    if (anchorTimeoutRef.current) clearTimeout(anchorTimeoutRef.current)
+    anchorTimeoutRef.current = setTimeout(() => {
+      anchorTimeoutRef.current = null
+      const heading = headingRef.current
+      if (!heading) return
+      const offsetPosition = heading.getBoundingClientRect().top + window.scrollY - 140
+      window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'smooth' })
+    }, 250) // after the router debounce (100ms) + its scroll-restore
+  }, [searchQuery, selectedCategory])
+
   // Announce search/filter no-results to assistive technologies.
   // Uses @primer/live-region-element which renders a <live-region> web component
   // with a shadow DOM on document.body — completely isolated from React's component
@@ -252,23 +279,28 @@ export const ArticleGrid = ({
     }
   }, [filteredResults.length, searchQuery, selectedCategory, noArticlesFoundMessage])
   return (
-    <div data-testid="article-grid-container">
+    <div className={styles.gridSection} data-testid="article-grid-container">
       {/* Filter and Search Controls */}
       <div className={styles.filterHeader} data-testid="filter-header">
-        {/* Title and Dropdown Row */}
-        <div className={styles.titleAndDropdownRow}>
-          {/* Title */}
-          <h2 ref={headingRef} className={cx(styles.headerTitle, styles.headerTitleText)}>
-            {t('article_grid.heading')}
-          </h2>
+        {/* Title */}
+        <h2 ref={headingRef} className={cx(styles.headerTitle, styles.headerTitleText)}>
+          {t('article_grid.heading')}
+        </h2>
 
-          {/* Category Dropdown */}
+        {/* Right-aligned controls: category dropdown + search (search last) */}
+        <div className={styles.controls}>
+          {/* Category Dropdown — text-style control (Docs 2026 "Sort by" pattern) */}
           <div className={styles.categoryDropdown}>
             <ActionMenu>
               <ActionMenu.Button>
-                {categories[selectedCategoryIndex] === ALL_CATEGORIES
-                  ? t('article_grid.all_categories')
-                  : categories[selectedCategoryIndex]}
+                <span className={styles.categoryLabel}>
+                  {t('article_grid.filter_by_category')}:
+                </span>{' '}
+                <span className={styles.categoryValue}>
+                  {categories[selectedCategoryIndex] === ALL_CATEGORIES
+                    ? t('article_grid.all_categories')
+                    : categories[selectedCategoryIndex]}
+                </span>
               </ActionMenu.Button>
               <ActionMenu.Overlay width="auto">
                 <ActionList selectionVariant="single">
@@ -285,23 +317,24 @@ export const ArticleGrid = ({
               </ActionMenu.Overlay>
             </ActionMenu>
           </div>
-        </div>
 
-        {/* Search */}
-        <div className={styles.searchContainer}>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <TextInput
-              leadingVisual={SearchIcon}
-              placeholder={t('article_grid.search_articles')}
-              aria-label={t('article_grid.search_articles')}
-              ref={inputRef}
-              autoComplete="false"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                const query = e.target.value || ''
-                handleSearch(query)
-              }}
-            />
-          </form>
+          {/* Search */}
+          <div className={styles.searchContainer}>
+            <form onSubmit={(e) => e.preventDefault()}>
+              <TextInput
+                fullWidth
+                leadingVisual={<SearchIcon />}
+                placeholder={t('article_grid.search_articles')}
+                aria-label={t('article_grid.search_articles')}
+                ref={inputRef}
+                autoComplete="off"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  const query = e.target.value || ''
+                  handleSearch(query)
+                }}
+              />
+            </form>
+          </div>
         </div>
       </div>
 
@@ -354,6 +387,8 @@ type ArticleCardProps = {
 }
 
 const ArticleCard = ({ article, includedCategories }: ArticleCardProps) => {
+  const router = useRouter()
+
   // Filter categories to only show those in includedCategories (if provided and not empty)
   const displayCategories =
     includedCategories && includedCategories.length > 0 && article.category
@@ -362,28 +397,45 @@ const ArticleCard = ({ article, includedCategories }: ArticleCardProps) => {
         )
       : article.category
 
+  // Brand Card renders its own native anchor (no `as` prop), so intercept plain
+  // left-clicks to preserve client-side SPA navigation. Modified clicks
+  // (cmd/ctrl/shift/middle) fall through to the real href for new-tab/right-click.
+  const handleClick = async (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    e.preventDefault()
+    try {
+      await router.push(article.fullPath)
+    } catch {
+      // If the client-side navigation is rejected/aborted, fall back to a hard
+      // navigation so the card never goes dead (we already suppressed the
+      // anchor's default). Matters most for keyboard users with no obvious retry.
+      window.location.href = article.fullPath
+    }
+  }
+
   return (
-    <Link
+    <Card
       href={article.fullPath}
-      className={cx(
-        styles.articleCard,
-        styles.articleCardBox,
-        'border',
-        'border-default',
-        'rounded-2',
-      )}
+      className={styles.card}
+      ctaVariant="none"
+      disableAnimation
+      fullWidth
+      onClick={handleClick}
       data-testid="article-card"
     >
-      <div className={styles.tagsContainer}>
-        {displayCategories &&
-          displayCategories.map((cat) => <Token key={cat} text={cat} className="mr-1 mb-2" />)}
-      </div>
+      {displayCategories && displayCategories.length > 0 && (
+        <Card.Tokens>
+          {displayCategories.map((cat) => (
+            <Token key={cat} className={styles.cardToken}>
+              {cat}
+            </Token>
+          ))}
+        </Card.Tokens>
+      )}
 
-      <h3 className={styles.cardTitle}>
-        <span className={styles.cardTitleLink}>{article.title}</span>
-      </h3>
+      <Card.Heading>{article.title}</Card.Heading>
 
-      {article.intro && <div className={styles.cardIntro}>{article.intro}</div>}
-    </Link>
+      {article.intro && <Card.Description>{article.intro}</Card.Description>}
+    </Card>
   )
 }

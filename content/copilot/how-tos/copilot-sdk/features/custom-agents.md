@@ -3,7 +3,8 @@ title: Custom agents and sub-agent orchestration
 shortTitle: Custom Agents
 intro: >-
   Define specialized agents with scoped tools and prompts, then let Copilot
-    orchestrate them as sub-agents within a single session.
+  orchestrate them as sub-agents within a single session. For dispatching
+  multiple sub-agents in parallel, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/fleet-mode).
 versions:
   fpt: '*'
   ghec: '*'
@@ -42,7 +43,7 @@ const client = new CopilotClient();
 await client.start();
 
 const session = await client.createSession({
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     customAgents: [
         {
             name: "researcher",
@@ -74,7 +75,7 @@ await client.start()
 
 session = await client.create_session(
     on_permission_request=lambda req, inv: PermissionDecisionApproveOnce(),
-    model="gpt-4.1",
+    model="gpt-5.4",
     custom_agents=[
         {
             "name": "researcher",
@@ -98,52 +99,12 @@ session = await client.create_session(
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Model: "gpt-4.1",
-		CustomAgents: []copilot.CustomAgentConfig{
-			{
-				Name:        "researcher",
-				DisplayName: "Research Agent",
-				Description: "Explores codebases and answers questions using read-only tools",
-				Tools:       []string{"grep", "glob", "view"},
-				Prompt:      "You are a research assistant. Analyze code and answer questions. Do not modify any files.",
-			},
-			{
-				Name:        "editor",
-				DisplayName: "Editor Agent",
-				Description: "Makes targeted code changes",
-				Tools:       []string{"view", "edit", "bash"},
-				Prompt:      "You are a code editor. Make minimal, surgical changes to files as requested.",
-			},
-		},
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-	_ = session
-}
-```
-
-```golang
 ctx := context.Background()
 client := copilot.NewClient(nil)
 client.Start(ctx)
 
 session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-    Model: "gpt-4.1",
+    Model: "gpt-5.4",
     CustomAgents: []copilot.CustomAgentConfig{
         {
             Name:        "researcher",
@@ -176,7 +137,7 @@ using GitHub.Copilot.Rpc;
 await using var client = new CopilotClient();
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
-    Model = "gpt-4.1",
+    Model = "gpt-5.4",
     CustomAgents = new List<CustomAgentConfig>
     {
         new()
@@ -214,7 +175,7 @@ try (var client = new CopilotClient()) {
 
     var session = client.createSession(
         new SessionConfig()
-            .setModel("gpt-4.1")
+            .setModel("gpt-5.4")
             .setCustomAgents(List.of(
                 new CustomAgentConfig()
                     .setName("researcher")
@@ -249,9 +210,13 @@ try (var client = new CopilotClient()) {
 | `mcpServers` | `object` | | MCP server configurations specific to this agent |
 | `infer` | `boolean` | | Whether the runtime can auto-select this agent (default: `true`) |
 | `skills` | `string[]` | | Skill names to preload into the agent's context at startup |
+| `model` | `string` | | Model identifier to use while this agent runs |
+| `reasoningEffort` | `string` | | Reasoning effort to use while this agent runs. When omitted, the SDK sends no per-agent override and the runtime resolves the effort (see note below) |
 
 > [!TIP]
 > A good `description` helps the runtime match user intent to the right agent. Be specific about the agent's expertise and capabilities.
+
+Set `model` and `reasoningEffort` to override the parent session's model settings while a custom agent runs. When `reasoningEffort` is omitted, the SDK sends no per-agent override and the runtime resolves the effort from its own precedence: a per-call client option, the resolved model's default, or the agent definition all take priority; otherwise the runtime inherits the parent session's effort only when the subagent runs the same model as the parent. When the subagent resolves to a different model, it falls back to that model's default instead of inheriting the parent's effort. Python uses `reasoning_effort`, .NET uses `ReasoningEffort`, Go uses `ReasoningEffort`, Java uses `setReasoningEffort`, and Rust uses `with_reasoning_effort`.
 
 In addition to per-agent configuration above, you can set `agent` on the **session config** itself to pre-select which custom agent is active when the session starts. See [Selecting an Agent at Session Creation](#selecting-an-agent-at-session-creation) below.
 
@@ -428,14 +393,16 @@ By default, all custom agents are available for automatic selection (`infer: tru
 
 When a sub-agent runs, the parent session emits lifecycle events. Subscribe to these events to build UIs that visualize agent activity.
 
+Sub-agent-originated session events share the parent session stream and include envelope-level `agentId`. Root/main agent events and session-level events omit `agentId`, so renderers can keep the parent response separate from sub-agent traces by checking the event envelope.
+
 ### Event types
 
 | Event | Emitted when | Data |
 |-------|-------------|------|
 | `subagent.selected` | Runtime selects an agent for the task | `agentName`, `agentDisplayName`, `tools` |
-| `subagent.started` | Sub-agent begins execution | `toolCallId`, `agentName`, `agentDisplayName`, `agentDescription` |
-| `subagent.completed` | Sub-agent finishes successfully | `toolCallId`, `agentName`, `agentDisplayName` |
-| `subagent.failed` | Sub-agent encounters an error | `toolCallId`, `agentName`, `agentDisplayName`, `error` |
+| `subagent.started` | Sub-agent begins execution | `toolCallId`, `agentName`, `agentDisplayName`, `agentDescription`, `model?` |
+| `subagent.completed` | Sub-agent finishes successfully | `toolCallId`, `agentName`, `agentDisplayName`, `model?`, `durationMs?`, `totalTokens?`, `totalToolCalls?` |
+| `subagent.failed` | Sub-agent encounters an error | `toolCallId`, `agentName`, `agentDisplayName`, `error`, `model?`, `durationMs?`, `totalTokens?`, `totalToolCalls?` |
 | `subagent.deselected` | Runtime switches away from the sub-agent |—|
 
 ### Subscribing to events
@@ -454,11 +421,15 @@ session.on((event) => {
 
         case "subagent.completed":
             console.log(`✅ Sub-agent completed: ${event.data.agentDisplayName}`);
+            if (event.data.durationMs !== undefined) console.log(`  Duration: ${event.data.durationMs}ms`);
+            if (event.data.totalTokens !== undefined) console.log(`  Tokens: ${event.data.totalTokens}`);
+            if (event.data.totalToolCalls !== undefined) console.log(`  Tool calls: ${event.data.totalToolCalls}`);
             break;
 
         case "subagent.failed":
             console.log(`❌ Sub-agent failed: ${event.data.agentDisplayName}`);
             console.log(`  Error: ${event.data.error}`);
+            if (event.data.durationMs !== undefined) console.log(`  Duration: ${event.data.durationMs}ms`);
             break;
 
         case "subagent.selected":
@@ -503,50 +474,6 @@ response = await session.send_and_wait("Research how authentication works in thi
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	client.Start(ctx)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		Model: "gpt-4.1",
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-
-	session.On(func(event copilot.SessionEvent) {
-		switch d := event.Data.(type) {
-		case *copilot.SubagentStartedData:
-			fmt.Printf("▶ Sub-agent started: %s\n", d.AgentDisplayName)
-			fmt.Printf("  Description: %s\n", d.AgentDescription)
-			fmt.Printf("  Tool call ID: %s\n", d.ToolCallID)
-		case *copilot.SubagentCompletedData:
-			fmt.Printf("✅ Sub-agent completed: %s\n", d.AgentDisplayName)
-		case *copilot.SubagentFailedData:
-			fmt.Printf("❌ Sub-agent failed: %s — %v\n", d.AgentDisplayName, d.Error)
-		case *copilot.SubagentSelectedData:
-			fmt.Printf("🎯 Agent selected: %s\n", d.AgentDisplayName)
-		}
-	})
-
-	_, err := session.SendAndWait(ctx, copilot.MessageOptions{
-		Prompt: "Research how authentication works in this codebase",
-	})
-	_ = err
-}
-```
-
-```golang
 session.On(func(event copilot.SessionEvent) {
     switch d := event.Data.(type) {
     case *copilot.SubagentStartedData:
@@ -569,42 +496,6 @@ _, err := session.SendAndWait(ctx, copilot.MessageOptions{
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-public static class SubAgentEventsExample
-{
-    public static async Task Example(CopilotSession session)
-    {
-        using var subscription = session.On<SessionEvent>(evt =>
-        {
-            switch (evt)
-            {
-                case SubagentStartedEvent started:
-                    Console.WriteLine($"▶ Sub-agent started: {started.Data.AgentDisplayName}");
-                    Console.WriteLine($"  Description: {started.Data.AgentDescription}");
-                    Console.WriteLine($"  Tool call ID: {started.Data.ToolCallId}");
-                    break;
-                case SubagentCompletedEvent completed:
-                    Console.WriteLine($"✅ Sub-agent completed: {completed.Data.AgentDisplayName}");
-                    break;
-                case SubagentFailedEvent failed:
-                    Console.WriteLine($"❌ Sub-agent failed: {failed.Data.AgentDisplayName} — {failed.Data.Error}");
-                    break;
-                case SubagentSelectedEvent selected:
-                    Console.WriteLine($"🎯 Agent selected: {selected.Data.AgentDisplayName}");
-                    break;
-            }
-        });
-
-        await session.SendAndWaitAsync(new MessageOptions
-        {
-            Prompt = "Research how authentication works in this codebase"
-        });
-    }
-}
-```
 
 ```csharp
 using var subscription = session.On<SessionEvent>(evt =>

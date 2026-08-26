@@ -6,8 +6,8 @@ versions:
   feature: copilot
 children:
   - /prepare-for-custom-agents
-  - /configure-enterprise-plugin-standards
-  - /disable-automatic-commands
+  - /create-github-private-repo
+  - /configure-enterprise-managed-settings
   - /monitor-agentic-activity
   - /enable-copilot-cloud-agent
   - /block-agentic-features

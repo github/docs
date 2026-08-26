@@ -15,7 +15,7 @@ category:
 
 ## About deleting a {% data variables.product.prodname_custom_security_configuration %}
 
-If you no longer need a {% data variables.product.prodname_custom_security_configuration %}, you can delete that configuration to ensure it will not be applied to any repositories in the future. If you want to delete a {% data variables.product.prodname_custom_security_configuration %} because you want to change the security enablement settings in that configuration, consider editing the configuration instead. For more information, see [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/editing-a-custom-security-configuration).
+If you no longer need a {% data variables.product.prodname_custom_security_configuration %}, you can delete that configuration to ensure it will not be applied to any repositories in the future. If you want to delete a {% data variables.product.prodname_custom_security_configuration %} because you want to change the security enablement settings in that configuration, consider editing the configuration instead. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/manage-your-coverage/edit-custom-configuration).
 
 > [!WARNING]
 > Deleting a {% data variables.product.prodname_custom_security_configuration %} will detach all repositories that are linked to that configuration. The existing security settings for those repositories will be unchanged, but you must apply a different {% data variables.product.prodname_security_configuration %} or manage their security settings at the repository level to keep their settings up to date.

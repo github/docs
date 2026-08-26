@@ -42,8 +42,23 @@ git clone SUBDOMAIN@SUBDOMAIN.ghe.com:OWNER/REPO.git
 * `*.actions.{% data variables.enterprise.data_residency_domain %}`
 * `*.githubassets.com`
 * `*.githubusercontent.com`
-* `*.blob.core.windows.net`
+* `*.blob.core.windows.net`. If you cannot allow access to wildcard domains, see [Azure Blob Storage hostnames](#azure-blob-storage-hostnames).
 * `auth.ghe.com`
+
+### Azure Blob Storage hostnames
+
+If you cannot allow access to `*.blob.core.windows.net`, use the `/meta` API endpoint for your enterprise to retrieve the complete list of client-facing Azure Blob Storage hostnames. For example, using the {% data variables.product.prodname_cli %}:
+
+```shell
+gh api /meta --hostname octocorp.ghe.com --jq '.domains.storage[]'
+```
+
+Allow access to every hostname returned in `domains.storage`. The list is specific to your enterprise and {% data variables.product.company_short %} keeps it up to date as network requirements change.
+
+For more information about the `/meta` endpoint, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information).
+
+> [!NOTE]
+> If you stream audit logs to your own Azure Blob Storage destination, you must allow access to that destination separately.
 
 ## {% data variables.product.github %}'s IP addresses
 
@@ -84,9 +99,13 @@ git clone SUBDOMAIN@SUBDOMAIN.ghe.com:OWNER/REPO.git
 | 40.81.180.112/28         | 40.81.176.224/28            |
 | 4.190.169.192/28         | 4.190.169.240/28            |
 
+## {% data variables.product.prodname_copilot %}
+
+Most {% data variables.product.prodname_copilot %} services require access to your enterprise's subdomain on {% data variables.enterprise.data_residency_site %} and its subdomains. For more information, see [AUTOTITLE](/copilot/reference/copilot-allowlist-reference#copilot-on-ghecom).
+
 ## Supported regions for Azure private networking
 
-If you use Azure private networking for {% data variables.product.company_short %}-hosted runners, the supported Azure regions on {% data variables.enterprise.data_residency_site %} differ from those on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.company_short %} deploys your runners in the same Azure region as the subnet you connect them to. Because of this, your subnet must be in one of the supported regions. If you use Azure private networking for {% data variables.product.company_short %}-hosted runners, the supported Azure regions on {% data variables.enterprise.data_residency_site %} differ from those on {% data variables.product.prodname_dotcom_the_website %}.
 
 ### Supported regions in the EU
 
@@ -132,11 +151,17 @@ Actions IPs:
 
 EU region:
 * 108.143.197.176/28
+* 108.143.197.160/28
 * 20.123.213.96/28
+* 20.123.214.144/28
 * 20.224.46.144/28
+* 20.224.46.160/28
 * 20.240.194.240/28
+* 20.240.194.224/28
 * 20.240.220.192/28
+* 20.240.220.176/28
 * 20.240.211.208/28
+* 20.240.211.224/28
 
 #### Australia
 
@@ -145,22 +170,26 @@ Actions IPs:
 * 20.53.114.78
 
 Australia region:
+* 4.237.73.144/28
 * 4.237.73.192/28
+* 20.5.226.96/28
 * 20.5.226.112/28
+* 20.248.163.160/28
 * 20.248.163.176/28
 
 #### Japan
 
 Actions IPs:
-
 * 20.63.233.164
 * 172.192.153.164
 
 Japan region:
-
-74.226.88.241
-40.81.176.225
-4.190.169.240
+* 74.226.88.240/28
+* 74.226.88.224/28
+* 40.81.176.224/28
+* 40.81.178.160/28
+* 4.190.169.240/28
+* 4.190.170.0/28
 
 #### Required for all regions
 
@@ -194,40 +223,8 @@ Japan region:
 * `<TENANT>.ghe.com`
 * `github.com`
 * `*.githubusercontent.com`
-* `*.blob.core.windows.net` (can be further restricted by region, see below)
+* `*.blob.core.windows.net`. To allow access only to the hostnames used by your enterprise, see [Azure Blob Storage hostnames](#azure-blob-storage-hostnames).
 * `*.web.core.windows.net`
-
-#### EU
-
-`*.blob.core.windows.net` can be replaced with:
-* `memoryalphaprodsdc01.blob.core.windows.net`
-* `memoryalphaprodweu01.blob.core.windows.net`
-* `prodsdc01resultssa0.blob.core.windows.net`
-* `prodsdc01resultssa1.blob.core.windows.net`
-* `prodsdc01resultssa2.blob.core.windows.net`
-* `prodsdc01resultssa3.blob.core.windows.net`
-* `prodweu01resultssa0.blob.core.windows.net`
-* `prodweu01resultssa1.blob.core.windows.net`
-* `prodweu01resultssa2.blob.core.windows.net`
-* `prodweu01resultssa3.blob.core.windows.net` 
-
-#### Australia
-
-`*.blob.core.windows.net` can be replaced with:
-* `memoryalphaprodae01.blob.core.windows.net`
-* `prodae01resultssa0.blob.core.windows.net`
-* `prodae01resultssa1.blob.core.windows.net`
-* `prodae01resultssa2.blob.core.windows.net`
-* `prodae01resultssa3.blob.core.windows.net`
-
-#### Japan
-
-`*.blob.core.windows.net` can be replaced with:
-* `memoryalphaprodjpw01.blob.core.windows.net`
-* `prodjpw01resultssa0.blob.core.windows.net`
-* `prodjpw01resultssa1.blob.core.windows.net`
-* `prodjpw01resultssa2.blob.core.windows.net`
-* `prodjpw01resultssa3.blob.core.windows.net`
 
 ### OAuth callback URL for connecting an Azure subscription for billing
 

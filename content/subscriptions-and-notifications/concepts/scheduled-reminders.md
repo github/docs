@@ -21,4 +21,4 @@ You can set scheduled reminders for personal or team-level review requests for p
 
 ## Next steps
 
-To learn how to set up and control scheduled reminders, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/managing-your-scheduled-reminders).
+To learn how to set up and control scheduled reminders, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-your-scheduled-reminders).

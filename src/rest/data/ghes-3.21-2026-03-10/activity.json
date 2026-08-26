@@ -2814,6 +2814,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -2864,6 +2888,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -5867,6 +5895,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -5917,6 +5969,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -6692,6 +6748,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -10067,6 +10147,52 @@
                                   "commit_message"
                                 ]
                               },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
+                                ]
+                              },
                               "draft": {
                                 "description": "Indicates whether or not the pull request is a draft.",
                                 "type": "boolean"
@@ -13269,6 +13395,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -16661,6 +16833,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -20527,6 +20745,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -20577,6 +20819,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -23580,6 +23826,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -23630,6 +23900,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -24405,6 +24679,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -27780,6 +28078,52 @@
                                   "commit_message"
                                 ]
                               },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
+                                ]
+                              },
                               "draft": {
                                 "description": "Indicates whether or not the pull request is a draft.",
                                 "type": "boolean"
@@ -30982,6 +31326,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -34374,6 +34764,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -38248,6 +38684,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -38298,6 +38758,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -41301,6 +41765,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -41351,6 +41839,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -42126,6 +42618,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -45501,6 +46017,52 @@
                                   "commit_message"
                                 ]
                               },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
+                                ]
+                              },
                               "draft": {
                                 "description": "Indicates whether or not the pull request is a draft.",
                                 "type": "boolean"
@@ -48703,6 +49265,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -52095,6 +52703,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -55949,6 +56603,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -55999,6 +56677,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -59002,6 +59684,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -59052,6 +59758,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -59827,6 +60537,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -63202,6 +63936,52 @@
                                   "commit_message"
                                 ]
                               },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
+                                ]
+                              },
                               "draft": {
                                 "description": "Indicates whether or not the pull request is a draft.",
                                 "type": "boolean"
@@ -66404,6 +67184,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -69796,6 +70622,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -73644,6 +74516,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -73694,6 +74590,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -76697,6 +77597,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -76747,6 +77671,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -77522,6 +78450,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -80897,6 +81849,52 @@
                                   "commit_message"
                                 ]
                               },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
+                                ]
+                              },
                               "draft": {
                                 "description": "Indicates whether or not the pull request is a draft.",
                                 "type": "boolean"
@@ -84099,6 +85097,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -87491,6 +88535,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -91363,6 +92453,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -91413,6 +92527,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -94416,6 +95534,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -94466,6 +95608,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -95241,6 +96387,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -98616,6 +99786,52 @@
                                   "commit_message"
                                 ]
                               },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
+                                ]
+                              },
                               "draft": {
                                 "description": "Indicates whether or not the pull request is a draft.",
                                 "type": "boolean"
@@ -101818,6 +103034,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -105210,6 +106472,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -109057,6 +110365,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -109107,6 +110439,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -112110,6 +113446,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -112160,6 +113520,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -112935,6 +114299,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -116310,6 +117698,52 @@
                                   "commit_message"
                                 ]
                               },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
+                                ]
+                              },
                               "draft": {
                                 "description": "Indicates whether or not the pull request is a draft.",
                                 "type": "boolean"
@@ -119512,6 +120946,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -122904,6 +124384,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -126752,6 +128278,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -126802,6 +128352,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -129805,6 +131359,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -129855,6 +131433,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -130630,6 +132212,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -134005,6 +135611,52 @@
                                   "commit_message"
                                 ]
                               },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
+                                ]
+                              },
                               "draft": {
                                 "description": "Indicates whether or not the pull request is a draft.",
                                 "type": "boolean"
@@ -137207,6 +138859,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -140599,6 +142297,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -144447,6 +146191,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -144497,6 +146265,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -147500,6 +149272,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -147550,6 +149346,10 @@
                                       "description": "Unique identifier for the issue field.",
                                       "type": "integer",
                                       "format": "int64"
+                                    },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
                                     },
                                     "node_id": {
                                       "type": "string"
@@ -148325,6 +150125,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -151700,6 +153524,52 @@
                                   "commit_message"
                                 ]
                               },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
+                                ]
+                              },
                               "draft": {
                                 "description": "Indicates whether or not the pull request is a draft.",
                                 "type": "boolean"
@@ -154902,6 +156772,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -158294,6 +160210,52 @@
                                   "merge_method",
                                   "commit_title",
                                   "commit_message"
+                                ]
+                              },
+                              "stack": {
+                                "title": "Pull Request Stack",
+                                "description": "The stack information associated with a pull request.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "properties": {
+                                  "base": {
+                                    "type": "object",
+                                    "properties": {
+                                      "ref": {
+                                        "type": "string",
+                                        "description": "The base ref of the stack this pull request belongs to."
+                                      },
+                                      "sha": {
+                                        "type": "string",
+                                        "description": "The base SHA of the stack this pull request belongs to."
+                                      }
+                                    },
+                                    "required": [
+                                      "ref",
+                                      "sha"
+                                    ]
+                                  },
+                                  "size": {
+                                    "type": "integer",
+                                    "description": "The total number of pull requests in the stack."
+                                  },
+                                  "position": {
+                                    "type": "integer",
+                                    "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                                  },
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "The ID of the stack that this pull request belongs to."
+                                  },
+                                  "number": {
+                                    "type": "integer",
+                                    "description": "The number of the stack that this pull request belongs to."
+                                  }
+                                },
+                                "required": [
+                                  "base"
                                 ]
                               },
                               "draft": {
@@ -163658,6 +165620,9 @@
         "permissions": [
           {
             "\"Metadata\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "write"
           }
         ],
         "allowsPublicRead": true
@@ -167400,6 +169365,9 @@
         "permissions": [
           {
             "\"Metadata\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "write"
           }
         ],
         "allowsPublicRead": true

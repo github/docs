@@ -117,7 +117,8 @@ As the owner of an enterprise or organization account, or as a billing manager, 
    * **Cost center**: Tracks spending for a single cost center.
    * **Users**: Sets a per-user budget. Available when you select **Bundled {% data variables.product.prodname_ai_credits_short %} budget** as the budget type. 
      * Leave the user field empty to create a universal budget that applies to all {% data variables.product.prodname_copilot_short %}-licensed users. 
-     * Select a specific user to create an individual budget that overrides the universal default for that user.
+     * Select a cost center to create a user-level budget that applies to every user in that cost center. This sets one per-user amount for all current and future members, and overrides the universal budget for them.
+     * Select a specific user to create an individual budget that overrides both the universal budget and any cost center user-level budget for that user.
 
 1. Under "Budget", set a budget amount or license count.
 
@@ -148,6 +149,11 @@ You can edit or delete a budget at any time, but you cannot change the scope of 
 1. In the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
 1. Follow the prompts.
 
+### Controlling included usage for a cost center
+
+Budgets cap metered charges after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted. To cap how much of the pool a cost center can use **before** the metered phase, use an included usage control. {% data variables.product.github %} sets the cap automatically based on the licenses assigned to the cost center, and you choose whether members are blocked or roll into paid overage when the cap is reached. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#included-usage-controls-for-cost-centers) and [AUTOTITLE](/billing/concepts/cost-centers).
+> [!NOTE]
+> Enabling included usage controls does not retroactively redistribute the shared {% data variables.product.prodname_ai_credits_short %} enterprise pool. After the setting is enabled, users in the cost center share only the included {% data variables.product.prodname_ai_credits_short %} funded by licenses attributed to that cost center. When the setting is disabled, users in the cost center can continue drawing from the shared enterprise pool.
 ## Next steps
 
 For {% data variables.product.prodname_copilot_short %}-specific budget guidance under usage-based billing, including user-level budgets and configuration scenarios, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing) and [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).

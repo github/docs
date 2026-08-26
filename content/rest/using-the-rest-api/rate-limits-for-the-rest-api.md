@@ -16,9 +16,9 @@ category:
 
 Rate limits are disabled by default for {% data variables.product.prodname_ghe_server %}. Contact your site administrator to confirm the rate limits for your instance.
 
-If you are a site administrator, you can set rate limits, including secondary rate limits, for your instance. See [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
+If you are a site administrator, you can set rate limits, including secondary rate limits, for your instance. See [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
 
-If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. See [AUTOTITLE](/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api) in the {% data variables.product.prodname_free_user %} documentation.
+If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. See [AUTOTITLE](/free-pro-team@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api) in the {% data variables.product.prodname_free_user %} documentation.
 
 ## About secondary rate limits
 
@@ -30,7 +30,7 @@ If you are developing an app for users or organizations outside of your instance
 
 {% data variables.product.company_short %} limits the number of REST API requests that you can make within a specific amount of time. This limit helps prevent abuse and denial-of-service attacks, and ensures that the API remains available for all users.
 
-Some endpoints, like the search endpoints, have more restrictive limits. For more information about these endpoints, see [AUTOTITLE](/rest/rate-limit/rate-limit). The GraphQL API also has a separate primary rate limit. See [AUTOTITLE](/graphql/overview/resource-limitations).
+Some endpoints, like the search endpoints, have more restrictive limits. For more information about these endpoints, see [AUTOTITLE](/rest/rate-limit/rate-limit). The GraphQL API also has a separate primary rate limit. See [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api).
 
 {% data reusables.organizations.api-insights-learn-about %}
 
@@ -76,7 +76,7 @@ curl -u YOUR_CLIENT_ID:YOUR_CLIENT_SECRET -I {% data variables.product.rest_url 
 
 ### Primary rate limit for `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
 
-You can use the built-in `GITHUB_TOKEN` to authenticate requests in {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
+You can use the built-in `GITHUB_TOKEN` to authenticate requests in {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/actions/tutorials/authenticate-with-github_token).
 
 {% data reusables.rest-api.primary-rate-limit-github-token-in-actions %}
 
@@ -110,7 +110,7 @@ Continuing to make requests while you are rate limited may result in the banning
 
 ## Staying under the rate limit
 
-You should follow best practices to help you stay under the rate limits. See [AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api).
+You should follow best practices to help you stay under the rate limits. See [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api).
 
 {% ifversion ghec or ghes %}
 

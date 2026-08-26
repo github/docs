@@ -23,7 +23,9 @@ See costs and features for each plan at {% data variables.product.pricing_link %
 
 When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your plan. For more information, see [AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs).
 
-## {% data variables.product.prodname_free_user %} for personal accounts
+## Individual plans
+
+### {% data variables.product.prodname_free_user %} for personal accounts
 
 With {% data variables.product.prodname_free_team %} for personal accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
 
@@ -40,7 +42,7 @@ With {% data variables.product.prodname_free_user %}, your personal account incl
   * Deployment protection rules for public repositories
 * GitHub Pages in public repositories
 
-## {% data variables.product.prodname_pro %}
+### {% data variables.product.prodname_pro %}
 
 In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_pro %} includes:
 * {% data variables.contact.github_support %} via email
@@ -63,7 +65,9 @@ In addition to the features available with {% data variables.product.prodname_fr
   * Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
     {% data reusables.repositories.repo-insights-commit-limit %}
 
-## {% data variables.product.prodname_free_team %} for organizations
+## Organization and enterprise plans
+
+### {% data variables.product.prodname_free_team %} for organizations
 
 With {% data variables.product.prodname_free_team %} for organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set.
 
@@ -72,7 +76,7 @@ In addition to the features available with {% data variables.product.prodname_fr
 * Team access controls for managing groups
 * 2,000 {% data variables.product.prodname_actions %} minutes per month
 
-## {% data variables.product.prodname_team %}
+### {% data variables.product.prodname_team %}
 
 In addition to the features available with {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %} includes:
 * {% data variables.contact.github_support %} via email
@@ -109,7 +113,7 @@ In addition to the features available with {% data variables.product.prodname_fr
 
 {% data reusables.actions.actions-billing %}
 
-## {% data variables.product.prodname_enterprise %}
+### {% data variables.product.prodname_enterprise %}
 
 {% data variables.product.prodname_enterprise %} includes two deployment options: {% data variables.product.prodname_ghe_cloud %}, which is hosted by {% data variables.product.company_short %} in the cloud, and {% data variables.product.prodname_ghe_server %}, which is self-hosted. For more information, see [About {% data variables.product.prodname_dotcom %} for enterprises]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/overview/about-github-for-enterprises){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
@@ -125,14 +129,14 @@ In addition to the features available with {% data variables.product.prodname_te
 
 {% data variables.product.prodname_ghe_cloud %} specifically includes:
 * 50,000 {% data variables.product.prodname_actions %} minutes per month
-  * Included minutes can be used with standard {% data variables.product.prodname_dotcom %}-hosted runners only. For more information about billing for {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners#understanding-billing).
+  * Included minutes can be used with standard {% data variables.product.prodname_dotcom %}-hosted runners only. For more information about billing for {% data variables.actions.hosted_runners %}, see [AUTOTITLE](/enterprise-cloud@latest/actions/concepts/runners/larger-runners#billing).
 * 50 GB {% data variables.product.prodname_registry %} storage
 * A service level agreement for 99.9% monthly uptime
-* The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom %} organizations with an enterprise account. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts).
+* The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom %} organizations with an enterprise account. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
 
-  * If you upgrade an existing organization to {% data variables.product.prodname_ghe_cloud %}, your enterprise account will contain your organization. For more information, see [AUTOTITLE]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan#upgrading-your-organizations-plan) and [AUTOTITLE]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/managing-your-enterprise-account/creating-an-enterprise-account#about-enterprise-account-creation){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
-* The option to provision and manage the user accounts for your developers, by using {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users).
-* Additional features such as audit log streaming and IP allow list. For more information, see [AUTOTITLE]({% ifversion ghec %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+  * If you upgrade an existing organization to {% data variables.product.prodname_ghe_cloud %}, your enterprise account will contain your organization. For more information, see [AUTOTITLE]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan#upgrading-your-organizations-plan) and [AUTOTITLE]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/managing-your-enterprise-account/creating-an-enterprise-account){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+* The option to provision and manage the user accounts for your developers, by using {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users).
+* Additional features such as audit log streaming and IP allow list. For more information, see [AUTOTITLE]({% ifversion ghec %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/enterprise-cloud@latest/admin/configuring-settings/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 * The option to host your company's data in a specific region, on a unique subdomain
 
 For a detailed list of the features available with {% data variables.product.prodname_enterprise %}, see our [Pricing](https://github.com/pricing) page.

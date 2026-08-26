@@ -222,7 +222,7 @@
         },
         {
           "name": "scope",
-          "description": "<p>Filter budgets by scope type.</p>",
+          "description": "<p>Filter budgets by scope type.</p>\n<ul>\n<li><code>enterprise</code>: Budgets that apply to the entire enterprise.</li>\n<li><code>organization</code>: Budgets scoped to an organization in the enterprise.</li>\n<li><code>repository</code>: Budgets scoped to a repository.</li>\n<li><code>cost_center</code>: Budgets scoped to a cost center.</li>\n<li><code>multi_user_customer</code>: Universal budgets that apply to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Universal budgets that apply to all users in a cost center.</li>\n<li><code>user</code>: Budgets scoped to an individual user.</li>\n</ul>",
           "in": "query",
           "schema": {
             "type": "string",
@@ -232,6 +232,7 @@
               "repository",
               "cost_center",
               "multi_user_customer",
+              "multi_user_cost_center",
               "user"
             ]
           }
@@ -246,7 +247,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets all budgets for an enterprise. The authenticated user must be an enterprise admin or billing manager.\nEach page returns up to 100 budgets.</p>",
+      "descriptionHTML": "<p>Gets budgets for an enterprise. Enterprise owners and billing managers can view all budgets, and organization administrators can view budgets scoped to organizations and repositories they administer. A custom role holder with fine-grained read access to enterprise billing can also view budgets. An installation access token for a GitHub App installed on the enterprise with read access to enterprise billing can list all budgets in the enterprise.\nEach page returns up to 100 budgets.</p>",
       "codeExamples": [
         {
           "request": {
@@ -359,6 +360,7 @@
                           "repository",
                           "cost_center",
                           "multi_user_customer",
+                          "multi_user_cost_center",
                           "user"
                         ]
                       },
@@ -370,6 +372,10 @@
                         "type": "string",
                         "description": "The user login when the budget is scoped to a single user (`user` scope)."
                       },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
+                      },
                       "budget_product_sku": {
                         "type": "string",
                         "description": "A single product or sku to apply the budget to."
@@ -379,14 +385,14 @@
                         "properties": {
                           "will_alert": {
                             "type": "boolean",
-                            "description": "Whether alerts are enabled for this budget"
+                            "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is disabled for them."
                           },
                           "alert_recipients": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "description": "Array of user login names who will receive alerts"
+                            "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is disabled for them."
                           }
                         },
                         "required": [
@@ -552,6 +558,7 @@
                           "repository",
                           "cost_center",
                           "multi_user_customer",
+                          "multi_user_cost_center",
                           "user"
                         ]
                       },
@@ -563,6 +570,10 @@
                         "type": "string",
                         "description": "The user login when the budget is scoped to a single user (`user` scope)."
                       },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
+                      },
                       "budget_product_sku": {
                         "type": "string",
                         "description": "A single product or sku to apply the budget to."
@@ -572,14 +583,14 @@
                         "properties": {
                           "will_alert": {
                             "type": "boolean",
-                            "description": "Whether alerts are enabled for this budget"
+                            "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is disabled for them."
                           },
                           "alert_recipients": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "description": "Array of user login names who will receive alerts"
+                            "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is disabled for them."
                           }
                         },
                         "required": [
@@ -659,10 +670,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -705,13 +720,13 @@
             {
               "type": "boolean",
               "name": "will_alert",
-              "description": "<p>Whether alerts are enabled for this budget</p>",
+              "description": "<p>Whether alerts are enabled for this budget. Rejected for user-scope as alerting is always disabled for them.</p>",
               "isRequired": true
             },
             {
               "type": "array of strings",
               "name": "alert_recipients",
-              "description": "<p>Array of user login names who will receive alerts</p>",
+              "description": "<p>Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them.</p>",
               "isRequired": true
             }
           ]
@@ -719,7 +734,7 @@
         {
           "type": "string",
           "name": "budget_scope",
-          "description": "<p>The scope of the budget. <code>user</code> and <code>multi_user_customer</code> scopes are only supported when <code>budget_product_sku</code> is <code>ai_credits</code> or <code>premium_requests</code>.</p>",
+          "description": "<p>The scope of the budget.</p>\n<ul>\n<li><code>enterprise</code>: Apply the budget to the entire enterprise.</li>\n<li><code>organization</code>: Apply the budget to a specific organization in the enterprise.</li>\n<li><code>repository</code>: Apply the budget to a specific repository.</li>\n<li><code>cost_center</code>: Apply the budget to a specific cost center.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Apply a universal budget to all users in a cost center.</li>\n<li><code>user</code>: Apply the budget to a single user.</li>\n</ul>\n<p><code>user</code>, <code>multi_user_customer</code>, and <code>multi_user_cost_center</code> scopes are only supported when <code>budget_product_sku</code> is <code>ai_credits</code> or <code>premium_requests</code>.</p>",
           "isRequired": true,
           "enum": [
             "enterprise",
@@ -727,6 +742,7 @@
             "repository",
             "cost_center",
             "multi_user_customer",
+            "multi_user_cost_center",
             "user"
           ]
         },
@@ -753,7 +769,7 @@
           "description": "<p>The username of the user for <code>user</code> scope budgets. This field is required when <code>budget_scope</code> is <code>user</code>.</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates a new budget for an enterprise. The authenticated user must be an enterprise admin, organization admin, or billing manager of the enterprise.</p>",
+      "descriptionHTML": "<p>Creates a new budget for an enterprise. Enterprise owners and billing managers can create budgets scoped to the enterprise, all users in the enterprise, or any organization in it. Organization administrators can create budgets for their organizations, and repository-scoped budgets require administration of the repository's owning organization. A custom role holder with fine-grained write access to enterprise billing can create budgets scoped to a single user or a cost center, including all users in a cost center, without an additional administrator role; the role requirements above still apply to the other scopes. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can create budgets for any target in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -819,6 +835,7 @@
                         "repository",
                         "cost_center",
                         "multi_user_customer",
+                        "multi_user_cost_center",
                         "user"
                       ]
                     },
@@ -861,14 +878,14 @@
                       "properties": {
                         "will_alert": {
                           "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
+                          "description": "Whether alerts are enabled for this budget. Rejected for user-scope as alerting is always disabled for them."
                         },
                         "alert_recipients": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           },
-                          "description": "Array of user login names who will receive alerts"
+                          "description": "Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them."
                         }
                       }
                     }
@@ -915,10 +932,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -949,7 +970,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a budget by ID. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "descriptionHTML": "<p>Gets a budget by ID. Enterprise owners and billing managers can view any budget in the enterprise, and organization administrators can view budgets scoped to organizations and repositories they administer. A custom role holder with fine-grained read access to enterprise billing can also view the budget. An installation access token for a GitHub App installed on the enterprise with read access to enterprise billing can get any budget in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -996,6 +1017,7 @@
                     "repository",
                     "cost_center",
                     "multi_user_customer",
+                    "multi_user_cost_center",
                     "user"
                   ]
                 },
@@ -1041,14 +1063,14 @@
                   "properties": {
                     "will_alert": {
                       "type": "boolean",
-                      "description": "Whether alerts are enabled for this budget"
+                      "description": "Whether alerts are enabled for this budget. Present but not applicable for user-scope as alerting is always disabled for them."
                     },
                     "alert_recipients": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "description": "Array of user login names who will receive alerts"
+                      "description": "Array of user login names who will receive alerts. Present but not applicable for user-scope as alerting is always disabled for them."
                     }
                   }
                 }
@@ -1095,10 +1117,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -1147,25 +1173,26 @@
             {
               "type": "boolean",
               "name": "will_alert",
-              "description": "<p>Whether alerts are enabled for this budget</p>"
+              "description": "<p>Whether alerts are enabled for this budget. Ignored for user-scope as alerting is always disabled for them.</p>"
             },
             {
               "type": "array of strings",
               "name": "alert_recipients",
-              "description": "<p>Array of user login names who will receive alerts</p>"
+              "description": "<p>Array of user login names who will receive alerts. Ignored for user-scope as alerting is always disabled for them.</p>"
             }
           ]
         },
         {
           "type": "string",
           "name": "budget_scope",
-          "description": "<p>The scope of the budget</p>",
+          "description": "<p>The scope of the budget.</p>\n<ul>\n<li><code>enterprise</code>: Apply the budget to the entire enterprise.</li>\n<li><code>organization</code>: Apply the budget to a specific organization in the enterprise.</li>\n<li><code>repository</code>: Apply the budget to a specific repository.</li>\n<li><code>cost_center</code>: Apply the budget to a specific cost center.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Apply a universal budget to all users in a cost center.</li>\n<li><code>user</code>: Apply the budget to a single user.</li>\n</ul>",
           "enum": [
             "enterprise",
             "organization",
             "repository",
             "cost_center",
             "multi_user_customer",
+            "multi_user_cost_center",
             "user"
           ]
         },
@@ -1190,7 +1217,7 @@
           "description": "<p>The username of the user for <code>user</code> scope budgets.</p>"
         }
       ],
-      "descriptionHTML": "<p>Updates an existing budget for an enterprise. The authenticated user must be an enterprise admin, organization admin, or billing manager of the enterprise.</p>",
+      "descriptionHTML": "<p>Updates an existing budget for an enterprise. Enterprise owners and billing managers can update budgets scoped to the enterprise, all users in the enterprise, or any organization in it. Organization administrators can update budgets for their organizations, and repository-scoped budgets require administration of the repository's owning organization. A custom role holder with fine-grained write access to enterprise billing can update budgets scoped to a single user or a cost center, including all users in a cost center, without an additional administrator role; the role requirements above still apply to the other scopes. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can update any budget in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1254,12 +1281,23 @@
                         "enterprise",
                         "organization",
                         "repository",
-                        "cost_center"
+                        "cost_center",
+                        "multi_user_customer",
+                        "multi_user_cost_center",
+                        "user"
                       ]
                     },
                     "budget_entity_name": {
                       "type": "string",
                       "description": "The name of the entity to apply the budget to"
+                    },
+                    "user": {
+                      "type": "string",
+                      "description": "The user login when the budget is scoped to a single user (`user` scope)."
+                    },
+                    "consumed_amount": {
+                      "type": "number",
+                      "description": "The consumed amount for the specified user within the budget. Only included for `user`-scoped budgets."
                     },
                     "budget_amount": {
                       "type": "integer",
@@ -1296,14 +1334,14 @@
                       "properties": {
                         "will_alert": {
                           "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
+                          "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is always disabled for them."
                         },
                         "alert_recipients": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           },
-                          "description": "Array of user login names who will receive alerts"
+                          "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is always disabled for them."
                         }
                       }
                     }
@@ -1354,10 +1392,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1388,7 +1430,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes a budget by ID. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Deletes a budget by ID. Enterprise owners and billing managers can delete any budget in the enterprise, organization administrators can delete budgets scoped to organizations they administer, and repository administrators can delete budgets scoped to repositories they administer in those organizations. A custom role holder with fine-grained write access to enterprise billing does not by itself get permission to delete a budget for a target they do not administer. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can delete any budget in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1455,10 +1497,210 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}/user-states",
+      "title": "Get user states for a multi-user budget",
+      "category": "billing",
+      "subcategory": "budgets",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "budget_id",
+          "description": "<p>The ID corresponding to the budget.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of results to fetch.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "sort_order",
+          "description": "<p>Sort order for results. <code>0</code> for descending, <code>1</code> for ascending.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "description": "<p>Filter user states to a specific user login.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "threshold_lower_bound",
+          "description": "<p>Filter user states whose threshold percentage is at or above this value.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "threshold_upper_bound",
+          "description": "<p>Filter user states whose threshold percentage is at or below this value.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists per-user budget state for a multi-user customer scoped budget. Enterprise owners and billing managers can view state across the enterprise, and organization administrators can view state for budgets scoped to organizations they administer. A custom role holder with fine-grained read access to enterprise billing can also view budget user states. An installation access token for a GitHub App installed on the enterprise with read access to enterprise billing can list user states for any multi-user budget in the enterprise.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "budget_id": "BUDGET_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting per-user states for a multi-user budget</p>",
+            "example": {
+              "user_states": [
+                {
+                  "user": "octocat",
+                  "consumed_amount": 50.5,
+                  "target_amount": 1000
+                },
+                {
+                  "user": "monalisa",
+                  "consumed_amount": 250,
+                  "target_amount": 1000,
+                  "override_budget_id": "2066deda-923f-43f9-88d2-62395a28c0cdd"
+                }
+              ],
+              "has_next_page": false,
+              "total_count": 2
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_states": {
+                  "type": "array",
+                  "description": "Per-user state entries for the budget.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "user": {
+                        "type": "string",
+                        "description": "The login of the user, when the user record is available."
+                      },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount currently consumed by this user against the budget."
+                      },
+                      "target_amount": {
+                        "type": "number",
+                        "description": "The target amount allocated to this user within the budget."
+                      },
+                      "override_budget_id": {
+                        "type": "string",
+                        "description": "The ID of a user-scoped budget that overrides the per-user allocation, when present."
+                      }
+                    },
+                    "required": [
+                      "consumed_amount",
+                      "target_amount"
+                    ]
+                  }
+                },
+                "has_next_page": {
+                  "type": "boolean",
+                  "description": "Indicates if there are more pages of results available."
+                },
+                "total_count": {
+                  "type": "integer",
+                  "description": "Total number of user state entries matching the query."
+                }
+              },
+              "required": [
+                "user_states",
+                "has_next_page",
+                "total_count"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting per-user states for a multi-user budget</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     }
   ],
@@ -1495,7 +1737,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a list of all the cost centers for an enterprise.</p>",
+      "descriptionHTML": "<p>Gets a list of all the cost centers for an enterprise. Enterprise owners and billing managers can view all cost centers, and organization owners can view cost centers associated with resources they administer. A custom role holder with fine-grained read access to enterprise billing can also view cost centers. An installation access token for a GitHub App installed on the enterprise with read access to enterprise billing can list all cost centers in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1522,10 +1764,15 @@
                       "name": "Monalisa"
                     },
                     {
-                      "type": "Repo",
-                      "name": "octocat/hello-world"
+                      "type": "Team",
+                      "name": "enterprise-team-1"
                     }
-                  ]
+                  ],
+                  "ai_credit_pool_enabled": true,
+                  "ai_credit_pool_state": {
+                    "target_amount": 21000,
+                    "current_amount": 7250.5
+                  }
                 },
                 {
                   "id": "3ffb9ffe-6903-11ee-8c99-0242ac120003",
@@ -1535,8 +1782,17 @@
                     {
                       "type": "User",
                       "name": "Octocat"
+                    },
+                    {
+                      "type": "Team",
+                      "name": "enterprise-team-2"
+                    },
+                    {
+                      "type": "Repo",
+                      "name": "octocat/hello-world"
                     }
-                  ]
+                  ],
+                  "ai_credit_pool_enabled": false
                 }
               ]
             },
@@ -1570,6 +1826,30 @@
                           "null"
                         ],
                         "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
+                      },
+                      "ai_credit_pool_enabled": {
+                        "type": "boolean",
+                        "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
+                      },
+                      "ai_credit_pool_state": {
+                        "type": "object",
+                        "description": "Read-only cap-budget projection for the cost center. Only present when the cost center draws from the AI credit pool.",
+                        "properties": {
+                          "target_amount": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
+                          },
+                          "current_amount": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
+                          }
+                        }
                       },
                       "resources": {
                         "type": "array",
@@ -1628,10 +1908,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -1658,9 +1942,14 @@
           "name": "name",
           "description": "<p>The name of the cost center (max length 255 characters)</p>",
           "isRequired": true
+        },
+        {
+          "type": "boolean",
+          "name": "ai_credit_pool_enabled",
+          "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<p>This can only be enabled for cost centers that contain only user or team resources.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements.</li>\n</ul>"
         }
       ],
-      "descriptionHTML": "<p>Creates a new cost center for an enterprise. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Creates a new cost center for an enterprise. Enterprise owners and billing managers can create cost centers. A custom role holder with fine-grained write access to enterprise billing can also create cost centers. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can create cost centers in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1681,7 +1970,12 @@
             "example": {
               "id": "abc123",
               "name": "Engineering Team",
-              "resources": []
+              "resources": [],
+              "ai_credit_pool_enabled": true,
+              "ai_credit_pool_state": {
+                "target_amount": null,
+                "current_amount": null
+              }
             },
             "schema": {
               "type": "object",
@@ -1725,6 +2019,30 @@
                       }
                     }
                   }
+                },
+                "ai_credit_pool_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the cost center draws from the AI credit pool (capped from member license entitlements)."
+                },
+                "ai_credit_pool_state": {
+                  "type": "object",
+                  "description": "Read-only cap-budget projection for the cost center. Only present when the cost center draws from the AI credit pool.",
+                  "properties": {
+                    "target_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
+                    },
+                    "current_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
+                    }
+                  }
                 }
               }
             }
@@ -1751,10 +2069,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -1803,7 +2125,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a cost center by ID. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Gets a cost center by ID. Enterprise owners and billing managers can view any cost center, and organization owners can view cost centers associated with resources they administer. A custom role holder with fine-grained read access to enterprise billing can also view the cost center. An installation access token for a GitHub App installed on the enterprise with read access to enterprise billing can get any cost center in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1829,10 +2151,15 @@
                   "name": "Monalisa"
                 },
                 {
-                  "type": "Repo",
-                  "name": "octocat/hello-world"
+                  "type": "Team",
+                  "name": "enterprise-team-1"
                 }
-              ]
+              ],
+              "ai_credit_pool_enabled": true,
+              "ai_credit_pool_state": {
+                "target_amount": 21000,
+                "current_amount": 7250.5
+              }
             },
             "schema": {
               "type": "object",
@@ -1883,6 +2210,30 @@
                 "has_next_page": {
                   "type": "boolean",
                   "description": "Indicates if there are more resources available for pagination. Only present when pagination is used."
+                },
+                "ai_credit_pool_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
+                },
+                "ai_credit_pool_state": {
+                  "type": "object",
+                  "description": "Read-only cap-budget projection for the cost center. Only present when the cost center draws from the AI credit pool.",
+                  "properties": {
+                    "target_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
+                    },
+                    "current_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
+                    }
+                  }
                 }
               },
               "required": [
@@ -1918,17 +2269,21 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
       "serverUrl": "https://api.github.com",
       "verb": "patch",
       "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}",
-      "title": "Update a cost center name",
+      "title": "Update a cost center",
       "category": "billing",
       "subcategory": "cost-centers",
       "parameters": [
@@ -1955,11 +2310,15 @@
         {
           "type": "string",
           "name": "name",
-          "description": "<p>The new name for the cost center</p>",
-          "isRequired": true
+          "description": "<p>The new name for the cost center</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "ai_credit_pool_enabled",
+          "description": "<p>Whether the cost center draws from the AI credit pool.</p>\n<p>This can only be enabled for cost centers that contain only user or team resources.</p>\n<ul>\n<li><code>false</code> — no cap; the cost center draws from the shared enterprise pool.</li>\n<li><code>true</code> — the cost center is capped at an amount derived from its members' license entitlements.</li>\n</ul>"
         }
       ],
-      "descriptionHTML": "<p>Updates an existing cost center name.</p>",
+      "descriptionHTML": "<p>Updates an existing cost center. Enterprise owners and billing managers can update any cost center, and organization owners can update cost centers associated with resources they administer. A custom role holder with fine-grained write access to enterprise billing can also update cost centers. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can update any cost center in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1989,10 +2348,15 @@
                   "name": "Monalisa"
                 },
                 {
-                  "type": "Repo",
-                  "name": "octocat/hello-world"
+                  "type": "Team",
+                  "name": "enterprise-team-1"
                 }
-              ]
+              ],
+              "ai_credit_pool_enabled": true,
+              "ai_credit_pool_state": {
+                "target_amount": 21000,
+                "current_amount": 7250.5
+              }
             },
             "schema": {
               "type": "object",
@@ -2039,6 +2403,147 @@
                       "name"
                     ]
                   }
+                },
+                "ai_credit_pool_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
+                },
+                "ai_credit_pool_state": {
+                  "type": "object",
+                  "description": "Read-only cap-budget projection for the cost center. Only present when the cost center draws from the AI credit pool.",
+                  "properties": {
+                    "target_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
+                    },
+                    "current_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
+                    }
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "resources"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Update cost center with AI credit pool enabled",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "ai_credit_pool_enabled": true
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "cost_center_id": "COST_CENTER_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when updating a cost center</p>",
+            "example": {
+              "id": "2eeb8ffe-6903-11ee-8c99-0242ac120002",
+              "name": "Cost Center Name",
+              "state": "active",
+              "azure_subscription": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+              "resources": [
+                {
+                  "type": "User",
+                  "name": "Monalisa"
+                },
+                {
+                  "type": "Team",
+                  "name": "enterprise-team-1"
+                }
+              ],
+              "ai_credit_pool_enabled": true,
+              "ai_credit_pool_state": {
+                "target_amount": 21000,
+                "current_amount": 7250.5
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "ID of the cost center."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the cost center."
+                },
+                "azure_subscription": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
+                },
+                "state": {
+                  "type": "string",
+                  "description": "State of the cost center.",
+                  "enum": [
+                    "active",
+                    "deleted"
+                  ]
+                },
+                "resources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "Type of the resource."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the resource."
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "name"
+                    ]
+                  }
+                },
+                "ai_credit_pool_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the cost center draws from the AI credit pool.\n\nThis can only be enabled for cost centers that contain only user or team resources.\n\n- `false` — no cap; the cost center draws from the shared enterprise pool.\n- `true` — the cost center is capped at an amount derived from its members' license entitlements."
+                },
+                "ai_credit_pool_state": {
+                  "type": "object",
+                  "description": "Read-only cap-budget projection for the cost center. Only present when the cost center draws from the AI credit pool.",
+                  "properties": {
+                    "target_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The AI credit pool cap target amount, in AI Credits. Null when the cap budget has not been materialized yet."
+                    },
+                    "current_amount": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "The current-month applied amount against the AI credit pool cap, in AI Credits. Null when the cap budget has not been materialized yet."
+                    }
+                  }
                 }
               },
               "required": [
@@ -2072,6 +2577,10 @@
           "description": "<p>Conflict</p>"
         },
         {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
           "httpStatusCode": "500",
           "description": "<p>Internal Error</p>"
         },
@@ -2082,10 +2591,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -2116,7 +2629,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Archieves a cost center by ID. The authenticated user must be an enterprise admin.</p>",
+      "descriptionHTML": "<p>Archives a cost center by ID. Enterprise owners and billing managers can archive any cost center, and organization owners can archive cost centers associated with resources they administer. A custom role holder with fine-grained write access to enterprise billing can also archive cost centers. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can archive any cost center in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2198,10 +2711,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -2246,9 +2763,14 @@
           "type": "array of strings",
           "name": "repositories",
           "description": "<p>The repositories to add to the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "enterprise_teams",
+          "description": "<p>The enterprise teams to add to the cost center.</p>"
         }
       ],
-      "descriptionHTML": "<p>Adds resources to a cost center.</p>\n<p>The usage for the resources will be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",
+      "descriptionHTML": "<p>Adds resources to a cost center.</p>\n<p>The usage for the resources will be charged to the cost center's budget. Enterprise owners and billing managers can add any resource, and organization owners can add non-team resources to cost centers associated with resources they administer. A custom role holder with fine-grained write access to enterprise billing can also add resources. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can add resources to any cost center in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2286,6 +2808,11 @@
                   "resource_type": "repository",
                   "name": "octo-repo",
                   "previous_cost_center": "yet-another-cost-center"
+                },
+                {
+                  "resource_type": "team",
+                  "name": "octo-enterprise-team",
+                  "previous_cost_center": "old-cost-center"
                 }
               ]
             },
@@ -2351,10 +2878,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -2399,9 +2930,14 @@
           "type": "array of strings",
           "name": "repositories",
           "description": "<p>The repositories to remove from the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "enterprise_teams",
+          "description": "<p>The enterprise teams to remove from the cost center.</p>"
         }
       ],
-      "descriptionHTML": "<p>Remove resources from a cost center.</p>\n<p>The usage for the resources will no longer be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",
+      "descriptionHTML": "<p>Remove resources from a cost center.</p>\n<p>The usage for the resources will no longer be charged to the cost center's budget. Enterprise owners and billing managers can remove any resource, and organization owners can remove non-team resources from cost centers associated with resources they administer. A custom role holder with fine-grained write access to enterprise billing can also remove resources. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can remove resources from any cost center in the enterprise.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2460,10 +2996,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "write"
+          }
+        ]
       }
     }
   ],
@@ -2559,7 +3099,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a report of AI credit usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
+      "descriptionHTML": "<p>Gets a report of AI credit usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise, or a custom role holder with fine-grained read access to enterprise billing. An installation access token for a GitHub App installed on the enterprise with read access to enterprise billing can get this usage report.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2757,10 +3297,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -2854,7 +3398,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a report of premium request usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
+      "descriptionHTML": "<p>Gets a report of premium request usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise, or a custom role holder with fine-grained read access to enterprise billing. An installation access token for a GitHub App installed on the enterprise with read access to enterprise billing can get this usage report.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3052,10 +3596,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -3113,7 +3661,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a report of usage by cost center for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise. By default this endpoint will return usage that does not have a cost center.</p>\n<p><strong>Note:</strong> This endpoint is only available to enterprises with access to the enhanced billing platform. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/billing/using-the-enhanced-billing-platform-for-enterprises/about-the-enhanced-billing-platform-for-enterprises#how-do-i-know-if-i-can-access-the-enhanced-billing-platform\">About the enhanced billing platform for enterprises</a>.\"</p>",
+      "descriptionHTML": "<p>Gets a report of usage by cost center for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise, or a custom role holder with fine-grained read access to enterprise billing. By default this endpoint will return usage that does not have a cost center. An installation access token for a GitHub App installed on the enterprise with read access to enterprise billing can get this usage report.</p>\n<p><strong>Note:</strong> This endpoint is only available to enterprises with access to the enhanced billing platform. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/billing/using-the-enhanced-billing-platform-for-enterprises/about-the-enhanced-billing-platform-for-enterprises#how-do-i-know-if-i-can-access-the-enhanced-billing-platform\">About the enhanced billing platform for enterprises</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -3240,10 +3788,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -3337,7 +3889,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a summary report of usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise. By default, this endpoint will return usage across all cost centers in the enterprise.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
+      "descriptionHTML": "<p>Gets a summary report of usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise, or a custom role holder with fine-grained read access to enterprise billing. By default, this endpoint will return usage across all cost centers in the enterprise. An installation access token for a GitHub App installed on the enterprise with read access to enterprise billing can get this usage summary report.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3525,10 +4077,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
+        "userToServerRest": true,
+        "serverToServer": true,
         "fineGrainedPat": false,
-        "permissions": []
+        "permissions": [
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
+          }
+        ]
       }
     }
   ],
@@ -3552,7 +4108,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all usage report exports for an enterprise. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "descriptionHTML": "<p>Lists all usage report exports for an enterprise. The authenticated user must be an enterprise admin or billing manager, or a custom role holder with fine-grained read access to enterprise billing. An installation access token for a GitHub App installed on the enterprise with write access to enterprise administration, or with read access to enterprise billing, can also list usage report exports.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3707,10 +4263,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
           }
         ]
       }
@@ -3764,7 +4323,7 @@
           "default": false
         }
       ],
-      "descriptionHTML": "<p>Initiates the generation of a usage report export for an enterprise. The report will be processed asynchronously\nand can be downloaded once completed. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "descriptionHTML": "<p>Initiates the generation of a usage report export for an enterprise. The report will be processed asynchronously\nand can be downloaded once completed. The authenticated user must be an enterprise admin or billing manager, or a custom role holder with fine-grained read access to enterprise billing. An installation access token for a GitHub App installed on the enterprise with write access to enterprise administration, or with read access to enterprise billing, can also initiate a usage report export.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3895,10 +4454,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
           }
         ]
       }
@@ -3931,7 +4493,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the status and details of a usage report export by ID. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "descriptionHTML": "<p>Gets the status and details of a usage report export by ID. The authenticated user must be an enterprise admin or billing manager, or a custom role holder with fine-grained read access to enterprise billing. An installation access token for a GitHub App installed on the enterprise with write access to enterprise administration, or with read access to enterprise billing, can also get a usage report export.</p>",
       "codeExamples": [
         {
           "request": {
@@ -4053,10 +4615,13 @@
       "progAccess": {
         "userToServerRest": true,
         "serverToServer": true,
-        "fineGrainedPat": true,
+        "fineGrainedPat": false,
         "permissions": [
           {
             "\"Enterprise administration\" enterprise permissions": "write"
+          },
+          {
+            "\"Enterprise billing\" enterprise permissions": "read"
           }
         ]
       }

@@ -1,1 +1,1 @@
-1. Click **Configure allowed models**.
+1. To configure model availability, click **Configure models**.

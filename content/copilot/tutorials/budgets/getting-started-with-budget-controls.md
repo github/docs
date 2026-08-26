@@ -13,12 +13,6 @@ category:
 
 Under usage-based billing, your enterprise's included {% data variables.product.prodname_ai_credits_short %} are pooled and shared across all licensed users. Without budget controls in place, a single heavy user or automated agent session can consume a disproportionate share of the pool early in the billing cycle, leaving less for everyone else.
 
-<!-- expires 2026-07-01 -->
-
-This tutorial walks you through the recommended setup steps in order. Complete them as soon as usage-based billing is available for your enterprise.
-
-<!-- end expires 2026-07-01 -->
-
 Before you begin, make sure you understand how the four budget controls work and how the system evaluates them. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
 <!-- expires 2026-09-01 -->
@@ -49,7 +43,7 @@ For these users, set an individual user-level budget override. Individual overri
 
 The enterprise spending limit caps your total metered charges after the shared pool is exhausted. It doesn't affect how users draw from the pool, it only applies once the pool runs out and usage moves to pay-as-you-go.
 
-See [Sizing your spending limits](/copilot/tutorials/budgets/optimizing-your-budget-configuration#sizing-your-spending-limits) for guidance on calculating the right amount for your enterprise.
+See [Sizing your spending limits](/copilot/tutorials/budgets/optimizing-your-budget-configuration#sizing-your-budgets) for guidance on calculating the right amount for your enterprise.
 
 ## Step 4: Enable "Stop usage when budget limit is reached" on every spending limit
 

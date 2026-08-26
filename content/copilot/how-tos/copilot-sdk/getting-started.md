@@ -32,7 +32,7 @@ Copilot: In Tokyo it's 75°F and sunny. Great day to be outside!
 
 Before you begin, make sure you have:
 
-* **GitHub Copilot CLI** installed and authenticated (the Node.js, Python, and .NET SDKs bundle the CLI automatically—see [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/bundled-cli). Required for Go, Java, and Rust unless using their application-level CLI bundling features.)
+* **GitHub Copilot CLI** installed and authenticated (the Node.js, Python, and .NET SDKs provide the CLI automatically—see [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/bundled-cli). Required for Go, Java, and Rust unless using their application-level CLI bundling features.)
 * Your preferred language runtime:
   * **Node.js** 20+ or **Python** 3.11+ or **Go** 1.24+ or **Rust** 1.94+ or **Java** 17+ or **.NET** 8.0+
 
@@ -155,7 +155,7 @@ Create `index.ts`:
 import { CopilotClient } from "@github/copilot-sdk";
 
 const client = new CopilotClient();
-const session = await client.createSession({ model: "gpt-4.1" });
+const session = await client.createSession({ model: "auto" });
 
 const response = await session.sendAndWait({ prompt: "What is 2 + 2?" });
 console.log(response?.data.content);
@@ -184,7 +184,7 @@ async def main():
     client = CopilotClient()
     await client.start()
 
-    session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="gpt-4.1")
+    session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="auto")
     response = await session.send_and_wait("What is 2 + 2?")
     print(response.data.content)
 
@@ -224,7 +224,7 @@ func main() {
 	}
 	defer client.Stop()
 
-	session, err := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-4.1"})
+	session, err := client.CreateSession(ctx, &copilot.SessionConfig{Model: "auto"})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -301,7 +301,7 @@ using GitHub.Copilot;
 await using var client = new CopilotClient();
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
-    Model = "gpt-4.1",
+    Model = "auto",
     OnPermissionRequest = PermissionHandler.ApproveAll
 });
 
@@ -333,7 +333,7 @@ public class HelloCopilot {
 
             var session = client.createSession(
                 new SessionConfig()
-                    .setModel("gpt-4.1")
+                    .setModel("auto")
                     .setOnPermissionRequest(PermissionHandler.APPROVE_ALL)
             ).get();
 
@@ -380,7 +380,7 @@ import { CopilotClient } from "@github/copilot-sdk";
 
 const client = new CopilotClient();
 const session = await client.createSession({
-    model: "gpt-4.1",
+    model: "auto",
     streaming: true,
 });
 
@@ -408,13 +408,13 @@ import asyncio
 import sys
 from copilot import CopilotClient
 from copilot.session import PermissionHandler
-from copilot.generated.session_events import SessionEventType
+from copilot.session_events import SessionEventType
 
 async def main():
     client = CopilotClient()
     await client.start()
 
-    session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="gpt-4.1", streaming=True)
+    session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="auto", streaming=True)
 
     # Listen for response chunks
     def handle_event(event):
@@ -459,7 +459,7 @@ func main() {
 	defer client.Stop()
 
 	session, err := client.CreateSession(ctx, &copilot.SessionConfig{
-		Model:     "gpt-4.1",
+		Model:     "auto",
 		Streaming: copilot.Bool(true),
 	})
 	if err != nil {
@@ -551,7 +551,7 @@ using GitHub.Copilot;
 await using var client = new CopilotClient();
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
-    Model = "gpt-4.1",
+    Model = "auto",
     OnPermissionRequest = PermissionHandler.ApproveAll,
     Streaming = true,
 });
@@ -590,7 +590,7 @@ public class HelloCopilot {
 
             var session = client.createSession(
                 new SessionConfig()
-                    .setModel("gpt-4.1")
+                    .setModel("auto")
                     .setStreaming(true)
                     .setOnPermissionRequest(PermissionHandler.APPROVE_ALL)
             ).get();
@@ -651,30 +651,6 @@ unsubscribeIdle();
 {% codetab python %}
 
 ```python
-from copilot import CopilotClient, PermissionDecisionApproveOnce
-from copilot.generated.session_events import SessionEvent, SessionEventType
-
-client = CopilotClient()
-
-session = await client.create_session(on_permission_request=lambda req, inv: PermissionDecisionApproveOnce())
-
-# Subscribe to all events
-unsubscribe = session.on(lambda event: print(f"Event: {event.type}"))
-
-# Filter by event type in your handler
-def handle_event(event: SessionEvent) -> None:
-    if event.type == SessionEventType.SESSION_IDLE:
-        print("Session is idle")
-    elif event.type == SessionEventType.ASSISTANT_MESSAGE:
-        print(f"Message: {event.data.content}")
-
-unsubscribe = session.on(handle_event)
-
-# Later, to unsubscribe:
-unsubscribe()
-```
-
-```python
 # Subscribe to all events
 unsubscribe = session.on(lambda event: print(f"Event: {event.type}"))
 
@@ -693,39 +669,6 @@ unsubscribe()
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	session := &copilot.Session{}
-
-	// Subscribe to all events
-	unsubscribe := session.On(func(event copilot.SessionEvent) {
-		fmt.Println("Event:", event.Type)
-	})
-
-	// Filter by event type in your handler
-	session.On(func(event copilot.SessionEvent) {
-		switch d := event.Data.(type) {
-		case *copilot.SessionIdleData:
-			_ = d
-			fmt.Println("Session is idle")
-		case *copilot.AssistantMessageData:
-			fmt.Println("Message:", d.Content)
-		}
-	})
-
-	// Later, to unsubscribe:
-	unsubscribe()
-}
-```
 
 ```golang
 // Subscribe to all events
@@ -773,36 +716,6 @@ tokio::spawn(async move {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-public static class EventSubscriptionExample
-{
-    public static void Example(CopilotSession session)
-    {
-        // Subscribe to all events
-        var unsubscribe = session.On<SessionEvent>(ev => Console.WriteLine($"Event: {ev.Type}"));
-
-        // Filter by event type using pattern matching
-        session.On<SessionEvent>(ev =>
-        {
-            switch (ev)
-            {
-                case SessionIdleEvent:
-                    Console.WriteLine("Session is idle");
-                    break;
-                case AssistantMessageEvent msg:
-                    Console.WriteLine($"Message: {msg.Data.Content}");
-                    break;
-            }
-        });
-
-        // Later, to unsubscribe:
-        unsubscribe.Dispose();
-    }
-}
-```
 
 ```csharp
 // Subscribe to all events
@@ -887,7 +800,7 @@ const getWeather = defineTool("get_weather", {
 
 const client = new CopilotClient();
 const session = await client.createSession({
-    model: "gpt-4.1",
+    model: "auto",
     streaming: true,
     tools: [getWeather],
 });
@@ -920,7 +833,7 @@ import sys
 from copilot import CopilotClient
 from copilot.session import PermissionHandler
 from copilot.tools import define_tool
-from copilot.generated.session_events import SessionEventType
+from copilot.session_events import SessionEventType
 from pydantic import BaseModel, Field
 
 # Define the parameters for the tool using Pydantic
@@ -941,7 +854,7 @@ async def main():
     client = CopilotClient()
     await client.start()
 
-    session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="gpt-4.1", streaming=True, tools=[get_weather])
+    session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="auto", streaming=True, tools=[get_weather])
 
     def handle_event(event):
         if event.type == SessionEventType.ASSISTANT_MESSAGE_DELTA:
@@ -1016,7 +929,7 @@ func main() {
 	defer client.Stop()
 
 	session, err := client.CreateSession(ctx, &copilot.SessionConfig{
-		Model:     "gpt-4.1",
+		Model:     "auto",
 		Streaming: copilot.Bool(true),
 		Tools:     []copilot.Tool{getWeather},
 	})
@@ -1152,7 +1065,7 @@ var getWeather = CopilotTool.DefineTool(
 
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
-    Model = "gpt-4.1",
+    Model = "auto",
     OnPermissionRequest = PermissionHandler.ApproveAll,
     Streaming = true,
     Tools = [getWeather],
@@ -1225,7 +1138,7 @@ public class HelloCopilot {
 
             var session = client.createSession(
                 new SessionConfig()
-                    .setModel("gpt-4.1")
+                    .setModel("auto")
                     .setStreaming(true)
                     .setTools(List.of(getWeather))
                     .setOnPermissionRequest(PermissionHandler.APPROVE_ALL)
@@ -1283,7 +1196,7 @@ const getWeather = defineTool("get_weather", {
 
 const client = new CopilotClient();
 const session = await client.createSession({
-    model: "gpt-4.1",
+    model: "auto",
     streaming: true,
     tools: [getWeather],
 });
@@ -1336,7 +1249,7 @@ import sys
 from copilot import CopilotClient
 from copilot.session import PermissionHandler
 from copilot.tools import define_tool
-from copilot.generated.session_events import SessionEventType
+from copilot.session_events import SessionEventType
 from pydantic import BaseModel, Field
 
 class GetWeatherParams(BaseModel):
@@ -1354,7 +1267,7 @@ async def main():
     client = CopilotClient()
     await client.start()
 
-    session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="gpt-4.1", streaming=True, tools=[get_weather])
+    session = await client.create_session(on_permission_request=PermissionHandler.approve_all, model="auto", streaming=True, tools=[get_weather])
 
     def handle_event(event):
         if event.type == SessionEventType.ASSISTANT_MESSAGE_DELTA:
@@ -1445,7 +1358,7 @@ func main() {
 	defer client.Stop()
 
 	session, err := client.CreateSession(ctx, &copilot.SessionConfig{
-		Model:     "gpt-4.1",
+		Model:     "auto",
 		Streaming: copilot.Bool(true),
 		Tools:     []copilot.Tool{getWeather},
 	})
@@ -1630,7 +1543,7 @@ var getWeather = CopilotTool.DefineTool(
 await using var client = new CopilotClient();
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
-    Model = "gpt-4.1",
+    Model = "auto",
     OnPermissionRequest = PermissionHandler.ApproveAll,
     Streaming = true,
     Tools = [getWeather]
@@ -1723,7 +1636,7 @@ public class WeatherAssistant {
 
             var session = client.createSession(
                 new SessionConfig()
-                    .setModel("gpt-4.1")
+                    .setModel("auto")
                     .setStreaming(true)
                     .setOnPermissionRequest(request ->
                         CompletableFuture.completedFuture(PermissionDecision.allow())
@@ -1870,11 +1783,13 @@ const session = await client.createSession({
 });
 ```
 
-Available section IDs: `identity`, `tone`, `tool_efficiency`, `environment_context`, `code_change_rules`, `guidelines`, `safety`, `tool_instructions`, `custom_instructions`, `runtime_instructions`, `last_instructions`.
+Available section IDs: `preamble`, `identity`, `tone`, `tool_efficiency`, `environment_context`, `code_change_rules`, `guidelines`, `safety`, `tool_instructions`, `custom_instructions`, `runtime_instructions`, `last_instructions`.
 
-Each override supports four actions: `replace`, `remove`, `append`, and `prepend`. Unknown section IDs are handled gracefully—content is appended to additional instructions and a warning is emitted; `remove` on unknown sections is silently ignored.
+`identity` and `tool_instructions` are section *groups*: they target a collection of related sub-sections as a unit. Use `preamble` to target just the identity preamble without affecting its sibling sub-sections.
 
-See the language-specific SDK READMEs for examples in [TypeScript](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md?utm_source=docs-copilot-sdk-typescript-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Python](https://github.com/github/copilot-sdk/tree/main/python/README.md?utm_source=docs-copilot-sdk-python-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Go](https://github.com/github/copilot-sdk/tree/main/go/README.md?utm_source=docs-copilot-sdk-go-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Rust](https://github.com/github/copilot-sdk/tree/main/rust/README.md?utm_source=docs-copilot-sdk-rust-readme&utm_medium=docs&utm_campaign=msbuild-2026), [Java](https://github.com/github/copilot-sdk/tree/main/java/README.md?utm_source=docs-copilot-sdk-java-readme&utm_medium=docs&utm_campaign=msbuild-2026), and [C#](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md?utm_source=docs-copilot-sdk-csharp-readme&utm_medium=docs&utm_campaign=msbuild-2026).
+Each override supports five actions: `replace`, `remove`, `append`, `prepend`, and `preserve`. The `preserve` action is a no-op that opts an individually-addressable section out of a group-level `remove` (for example, keep `tone` when removing the `identity` group). Unknown section IDs are handled gracefully: content from `replace`/`append`/`prepend` overrides is appended to additional instructions, and `remove` overrides are silently ignored.
+
+See the language-specific SDK READMEs for examples in [TypeScript](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md), [Python](https://github.com/github/copilot-sdk/tree/main/python/README.md), [Go](https://github.com/github/copilot-sdk/tree/main/go/README.md), [Rust](https://github.com/github/copilot-sdk/tree/main/rust/README.md), [Java](https://github.com/github/copilot-sdk/tree/main/java/README.md), and [C#](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md).
 
 ## Connecting to an external CLI server
 
@@ -1942,35 +1857,6 @@ session = await client.create_session(on_permission_request=PermissionHandler.ap
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"log"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	ctx := context.Background()
-
-    client := copilot.NewClient(&copilot.ClientOptions{
-        Connection: copilot.URIConnection{URL: "localhost:4321"},
-    })
-
-	if err := client.Start(ctx); err != nil {
-		log.Fatal(err)
-	}
-	defer client.Stop()
-
-	// Use the client normally
-	_, _ = client.CreateSession(ctx, &copilot.SessionConfig{
-		OnPermissionRequest: copilot.PermissionHandler.ApproveAll,
-	})
-}
-```
-
-```golang
 import copilot "github.com/github/copilot-sdk/go"
 
 client := copilot.NewClient(&copilot.ClientOptions{
@@ -2002,6 +1888,7 @@ let mut options = ClientOptions::default();
 options.transport = Transport::External {
     host: "localhost".to_string(),
     port: 4321,
+    connection_token: None,
 };
 let client = Client::start(options).await?;
 
@@ -2103,7 +1990,7 @@ Install with telemetry extras: `pip install copilot-sdk[telemetry]` (provides `o
 <!-- docs-validate: skip -->
 
 ```golang
-client, err := copilot.NewClient(copilot.ClientOptions{
+client := copilot.NewClient(&copilot.ClientOptions{
     Telemetry: &copilot.TelemetryConfig{
         OTLPEndpoint: "http://localhost:4318",
     },
@@ -2172,10 +2059,13 @@ Dependency: `io.opentelemetry:opentelemetry-api`
 | Option | Node.js | Python | Go | Rust | Java | .NET | Description |
 |---|---|---|---|---|---|---|---|
 | OTLP endpoint | `otlpEndpoint` | `otlp_endpoint` | `OTLPEndpoint` | `otlp_endpoint` | `otlpEndpoint` | `OtlpEndpoint` | OTLP HTTP endpoint URL |
+| OTLP protocol | `otlpProtocol` | `otlp_protocol` | `OTLPProtocol` | `otlp_protocol` | `otlpProtocol` | `OtlpProtocol` | OTLP HTTP protocol for all signals: `"http/json"` or `"http/protobuf"` |
 | File path | `filePath` | `file_path` | `FilePath` | `file_path` | `filePath` | `FilePath` | File path for JSON-lines trace output |
 | Exporter type | `exporterType` | `exporter_type` | `ExporterType` | `exporter_type` | `exporterType` | `ExporterType` | `"otlp-http"` or `"file"` |
 | Source name | `sourceName` | `source_name` | `SourceName` | `source_name` | `sourceName` | `SourceName` | Instrumentation scope name |
 | Capture content | `captureContent` | `capture_content` | `CaptureContent` | `capture_content` | `captureContent` | `CaptureContent` | Whether to capture message content |
+
+The OTLP protocol field configures the CLI's `"otlp-http"` exporter for all signals. Leave it unset to use the CLI default, or set it to `"http/protobuf"` to export protobuf over HTTP.
 
 ### File export
 
@@ -2204,13 +2094,13 @@ Trace context is propagated automatically—no manual instrumentation is needed:
 ## Learn more
 
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/authenticate) - GitHub OAuth, environment variables, and BYOK
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) - Use your own API keys from Azure AI Foundry, OpenAI, etc.
-* [Node.js SDK Reference](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md?utm_source=docs-copilot-sdk-nodejs-reference&utm_medium=docs&utm_campaign=msbuild-2026)
-* [Python SDK Reference](https://github.com/github/copilot-sdk/tree/main/python/README.md?utm_source=docs-copilot-sdk-python-reference&utm_medium=docs&utm_campaign=msbuild-2026)
-* [Go SDK Reference](https://github.com/github/copilot-sdk/tree/main/go/README.md?utm_source=docs-copilot-sdk-go-reference&utm_medium=docs&utm_campaign=msbuild-2026)
-* [Rust SDK Reference](https://github.com/github/copilot-sdk/tree/main/rust/README.md?utm_source=docs-copilot-sdk-rust-reference&utm_medium=docs&utm_campaign=msbuild-2026)
-* [.NET SDK Reference](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md?utm_source=docs-copilot-sdk-dotnet-reference&utm_medium=docs&utm_campaign=msbuild-2026)
-* [Java SDK Reference](https://github.com/github/copilot-sdk/tree/main/java/README.md?utm_source=docs-copilot-sdk-java-reference&utm_medium=docs&utm_campaign=msbuild-2026)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) - Use your own API keys from Microsoft Foundry, OpenAI, etc.
+* [Node.js SDK Reference](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md)
+* [Python SDK Reference](https://github.com/github/copilot-sdk/tree/main/python/README.md)
+* [Go SDK Reference](https://github.com/github/copilot-sdk/tree/main/go/README.md)
+* [Rust SDK Reference](https://github.com/github/copilot-sdk/tree/main/rust/README.md)
+* [.NET SDK Reference](https://github.com/github/copilot-sdk/tree/main/dotnet/README.md)
+* [Java SDK Reference](https://github.com/github/copilot-sdk/tree/main/java/README.md)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/mcp) - Integrate external tools via Model Context Protocol
 * [GitHub MCP Server Documentation](https://github.com/github/github-mcp-server)
 * [MCP Servers Directory](https://github.com/modelcontextprotocol/servers) - Explore more MCP servers

@@ -1,5 +1,21 @@
 # Docs changelog
 
+**13 August 2026**
+
+We made improvements to the [Copilot allowlist reference](https://docs.github.com/en/enterprise-cloud@latest/copilot/reference/copilot-allowlist-reference), including:
+
+* A recommendation to use the `/meta` API to find recommended wildcard domains, with an explanation of which specific Copilot URLs these cover
+* A separate section for enterprises on GHE.com, who previously had no indication of which domains from GitHub.com they were or weren't required to allow
+* Structural improvements including moving the editor-specific requirements out of further reading, where they were easy to miss, and moving some explanations out of footnotes to make them easier to find
+
+<hr>
+
+**13 July 2026**
+
+We published [Bring your own key for GitHub Copilot](https://docs.github.com/en/copilot/concepts/models/bring-your-own-key). This article distinguishes between two different mechanisms for customers to use Copilot with custom models. We have also retitled corresponding how-to content to make the distinction clearer.
+
+<hr>
+
 **16 June 2026**
 
 We made some improvements to our documentation on Copilot policies:

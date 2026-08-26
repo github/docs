@@ -3,8 +3,18 @@ import { languagePrefixPathRegex } from '@/languages/lib/languages-server'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import type { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
+import { createHash } from 'crypto'
+
+import { colorModeScript } from '@/color-schemes/lib/color-mode-script'
 
 const isDev = process.env.NODE_ENV === 'development'
+
+// The pre-paint theme script in `_document.tsx` is inlined, so it needs an
+// explicit CSP `script-src` allowance. We hash the exact script string rather
+// than using a nonce, because a nonce would have to vary per response and would
+// break the shared CDN cache. The script is identical for every request, so its
+// hash is stable and the HTML stays cacheable.
+const colorModeScriptHash = `'sha256-${createHash('sha256').update(colorModeScript).digest('base64')}'`
 const GITHUB_DOMAINS = [
   "'self'",
   'github.com',
@@ -36,9 +46,13 @@ const DEFAULT_OPTIONS = {
       // For use during development only!
       // `unsafe-eval` allows us to use a performant webpack devtool setting (eval)
       // https://webpack.js.org/configuration/devtool/#devtool
-      scriptSrc: [...GITHUB_DOMAINS, "'self'", 'data:', isDev && "'unsafe-eval'"].filter(
-        Boolean,
-      ) as string[],
+      scriptSrc: [
+        ...GITHUB_DOMAINS,
+        "'self'",
+        'data:',
+        colorModeScriptHash,
+        isDev && "'unsafe-eval'",
+      ].filter(Boolean) as string[],
       scriptSrcAttr: ["'self'"],
       frameSrc: [
         ...GITHUB_DOMAINS,

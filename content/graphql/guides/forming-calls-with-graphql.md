@@ -19,7 +19,7 @@ You can authenticate to the GraphQL API using a {% data variables.product.pat_ge
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
-To authenticate with a {% data variables.product.pat_generic %}, follow the steps in [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). The data that you are requesting will dictate which scopes or permissions you will need.
+To authenticate with a {% data variables.product.pat_generic %}, follow the steps in [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). The data that you are requesting will dictate which scopes or permissions you will need.
 
 For example, select the "issues:read" permission to read all of the issues in the repositories your token has access to.
 
@@ -29,7 +29,7 @@ If your token does not have the required scopes or permissions to access a resou
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. In order to attribute activity to your app, you can make your app authenticate as an app installation. In order to attribute app activity to a user, you can make your app authenticate on behalf of a user. In both cases, you will generate a token that you can use to authenticate to the GraphQL API. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app).
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. In order to attribute activity to your app, you can make your app authenticate as an app installation. In order to attribute app activity to a user, you can make your app authenticate on behalf of a user. In both cases, you will generate a token that you can use to authenticate to the GraphQL API. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app).
 
 ### Authenticating with a {% data variables.product.prodname_oauth_app %}
 
@@ -70,7 +70,7 @@ curl -H "Authorization: bearer TOKEN" -X POST -d " \
 
 The two types of allowed operations in GitHub's GraphQL API are _queries_ and _mutations_. Comparing GraphQL to REST, queries operate like `GET` requests, while mutations operate like `POST`/`PATCH`/`DELETE`. The mutation name determines which modification is executed.
 
-For information about rate limiting, see [AUTOTITLE](/graphql/overview/resource-limitations).
+For information about rate limiting, see [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api).
 
 Queries and mutations share similar forms, with some important differences.
 

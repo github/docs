@@ -64,10 +64,10 @@ Writers can also add an introduction paragraph _above_ the following Markdown co
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about the GitHub Apps pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the GitHub Apps pipeline, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about the GitHub Apps pipeline, you can ask in the `#technical-content` Slack channel. If you notice a problem with the GitHub Apps pipeline, you can open an issue in the `github/technical-content` repository.
 
 ## Ownership & On-call
 
@@ -80,7 +80,7 @@ If the GitHub Apps pipeline fails:
 1. Check workflow logs in `.github/workflows/sync-openapi.yml`
 2. Verify access to `github/rest-api-description` repo
 3. Check for OpenAPI schema changes
-4. Escalate to #docs-engineering if stuck
+4. Escalate to #technical-content if stuck
 5. Contact API Platform team for source data issues
 
 ### Monitoring

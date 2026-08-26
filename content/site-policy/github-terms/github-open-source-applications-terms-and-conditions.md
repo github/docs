@@ -33,7 +33,7 @@ The names GitHub, GitHub Desktop, GitHub for Mac, GitHub for Windows, the Octoca
 
 ## Privacy
 
-The Software may collect personal information. You may control what information the Software collects in the settings panel. If the Software does collect personal information on GitHub's behalf, GitHub will process that information in accordance with the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).
+The Software may collect personal information. You may control what information the Software collects in the settings panel. If the Software does collect personal information on GitHub's behalf, GitHub will process that information in accordance with the [GitHub Privacy Statement](/site-policy/privacy-policies/github-general-privacy-statement).
 
 ## Additional Services
 
