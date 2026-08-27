@@ -40,13 +40,13 @@ jobs:
           filters: 'src/workflows/unallowed-contribution-filters.yml'
 
       - name: Set up Node and dependencies
-        if: ${{ steps.filter.outputs.notAllowed || steps.filter.outputs.contentTypes}}
+        if: ${{ steps.filter.outputs.notAllowed == 'true' || steps.filter.outputs.contentTypes == 'true' }}
         uses: ./.github/actions/node-npm-setup
 
       # When there are changes to files we can't accept, leave a comment
-      # explaining this to the PR author
+      # explaining this to the PR author, and why their PR will close
       - name: "Comment about changes we can't accept"
-        if: ${{ steps.filter.outputs.notAllowed || steps.filter.outputs.contentTypes}}
+        if: ${{ steps.filter.outputs.notAllowed == 'true' || steps.filter.outputs.contentTypes == 'true' }}
         run: npm run unallowed-contributions
         env:
           REPO_OWNER_AND_NAME: ${{ github.repository }}
