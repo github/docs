@@ -225,7 +225,7 @@ npm run lint
 
 Tests should be co-located with their subject:
 - ✅ `src/search/tests/api-search.ts`
-- ✅ `src/versions/tests/middleware.ts`
+- ✅ `src/events/tests/middleware.ts`
 - ❌ `src/tests/search-tests.ts` (wrong - not in subject)
 
 Shared utilities belong in `src/tests/`:
