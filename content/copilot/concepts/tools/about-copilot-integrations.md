@@ -13,7 +13,7 @@ category:
 
 ## Overview
 
-{% data variables.copilot.copilot_cloud_agent %} can be integrated with various tools and platforms to enhance its functionality and streamline your development workflow. With integrations, you can trigger {% data variables.copilot.copilot_cloud_agent %} from within your existing tools, providing the cloud agent with the context it needs to assist you effectively.
+{% data variables.copilot.copilot_cloud_agent %} can be integrated with various tools and platforms to enhance its functionality and streamline your development workflow. With integrations, you can work with and trigger {% data variables.copilot.copilot_cloud_agent %} from within your existing tools, providing the cloud agent with the context it needs to assist you effectively.
 
 For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
@@ -21,8 +21,8 @@ For more information about {% data variables.copilot.copilot_cloud_agent %}, see
 
 Currently, {% data variables.copilot.copilot_cloud_agent %} supports integrations with the following tools:
 
-* **Microsoft Teams**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams) - Learn how to set up the Microsoft Teams integration to trigger {% data variables.copilot.copilot_cloud_agent %} directly from your Teams channels.
-* **Slack**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack) - Learn how to set up the Slack integration to trigger {% data variables.copilot.copilot_cloud_agent %} directly from your Slack workspace.
+* **Microsoft Teams**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams) - Learn how to set up the Microsoft Teams integration to collaborate with {% data variables.copilot.copilot_cloud_agent %} directly in your Teams messages and channels.
+* **Slack**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack) - Learn how to set up the Slack integration to collaborate with {% data variables.copilot.copilot_cloud_agent %} directly in your Slack workspace.
 * **Linear**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-linear) - Learn how to set up the Linear integration to trigger {% data variables.copilot.copilot_cloud_agent %} directly from your Linear issues.
 * **Azure Boards**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-azure-boards) - Learn how to set up the Azure Boards integration to trigger {% data variables.copilot.copilot_cloud_agent %} directly from your Azure Boards work items.
 * **Jira**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-jira) - Learn how to set up the Jira integration to trigger {% data variables.copilot.copilot_cloud_agent %} directly from your Jira workspace.
@@ -31,10 +31,10 @@ Currently, {% data variables.copilot.copilot_cloud_agent %} supports integration
 
 Integrating {% data variables.copilot.copilot_cloud_agent %} with your existing tools offers several benefits:
 
-* **Seamless workflow**: Trigger {% data variables.copilot.copilot_cloud_agent %} directly from the tools you already use, reducing context switching and improving productivity.
+* **Seamless workflow**: Work with {% data variables.copilot.copilot_cloud_agent %} directly in the tools you already use, reducing context switching and improving productivity.
 * **Context-aware assistance**: Provide {% data variables.copilot.copilot_cloud_agent %} with the necessary context from your tools, enabling it to generate more relevant and accurate code suggestions.
-* **Collaboration**: Facilitate collaboration among team members by allowing them to trigger {% data variables.copilot.copilot_cloud_agent %} from shared platforms, ensuring everyone benefits from the agent's capabilities.
+* **Collaboration**: Facilitate collaboration among team members by allowing them to work with {% data variables.copilot.copilot_cloud_agent %} from shared platforms, ensuring everyone benefits from the agent's capabilities.
 
 ## Data usage
 
-When you trigger {% data variables.copilot.copilot_cloud_agent %} through an integration, the agent will capture the entire thread or issue to understand the context in order to assist you effectively. This context is stored in the pull request created by the agent.
+When you use {% data variables.copilot.copilot_cloud_agent %} through an integration, the agent will capture the entire thread or issue to understand the context in order to assist you effectively. This context is stored in the artifacts created by the agent.

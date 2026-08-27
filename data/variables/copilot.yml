@@ -69,6 +69,16 @@ copilot_cloud_agent_short: 'cloud agent'
 copilot_cloud_agent_short_cap_c: 'Cloud agent'
 copilot_cloud_agent_tmp: 'Copilot cloud agent (formerly Copilot coding agent)'
 
+## GitHub Agentic Workflows -> {% data variables.copilot.github_agentic_workflows %}
+github_agentic_workflows: 'GitHub Agentic Workflows'
+agentic_workflows_short: 'agentic workflows'
+agentic_workflows_short_cap: 'Agentic workflows'
+
+## Copilot automations (powered by Copilot cloud agent)
+copilot_automations_cap: 'Automations'
+copilot_automations: 'automations'
+copilot_automation: 'automation'
+
 ## Short for "Copilot Extensions agent" -> {% data variables.copilot.copilot_agent_short %}
 ## Note: this is NOT a short form for the Copilot cloud agent (previously coding agent / Padawan):
 copilot_agent_short: 'Copilot agent'
@@ -87,6 +97,7 @@ copilot_vsc_chat_participants: 'Copilot-enabled VS Code chat participants'
 
 ## GitHub Copilot app
 github_copilot_app: 'GitHub Copilot app'
+github_copilot_app_short: 'Copilot app'
 
 ## Copilot CLI
 copilot_cli_short: 'Copilot CLI'
@@ -102,6 +113,14 @@ copilot_custom_agent_short: 'custom agent'
 copilot_custom_agent_caps_short: 'Custom agent'
 custom_agents_short: 'custom agents'
 custom_agents_caps_short: 'Custom agents'
+
+## Agent apps (GitHub Apps that expose custom agents, powered by Copilot cloud agent)
+agent_apps: 'agent apps'
+agent_app: 'agent app'
+agent_apps_short: 'agent apps'
+agent_app_short: 'agent app'
+agent_apps_caps: 'Agent apps'
+agent_app_caps: 'Agent app'
 
 ## Copilot SDK
 copilot_sdk: 'GitHub Copilot SDK'
@@ -169,12 +188,17 @@ copilot_claude_opus_45: 'Claude Opus 4.5'
 copilot_claude_opus_46: 'Claude Opus 4.6'
 copilot_claude_opus_46_fast: 'Claude Opus 4.6 (fast mode) (preview)'
 copilot_claude_opus_47: 'Claude Opus 4.7'
+copilot_claude_opus_48: 'Claude Opus 4.8'
+copilot_claude_opus_48_fast: 'Claude Opus 4.8 (fast mode) (preview)'
+copilot_claude_opus_5: 'Claude Opus 5'
+copilot_claude_fable_5: 'Claude Fable 5'
 copilot_claude_sonnet: 'Claude Sonnet'
 copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
 copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
 copilot_claude_sonnet_40: 'Claude Sonnet 4'
 copilot_claude_sonnet_45: 'Claude Sonnet 4.5'
 copilot_claude_sonnet_46: 'Claude Sonnet 4.6'
+copilot_claude_sonnet_5: 'Claude Sonnet 5'
 # Gemini:
 copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
@@ -183,6 +207,8 @@ copilot_gemini_25_pro: 'Gemini 2.5 Pro'
 copilot_gemini_3_pro: 'Gemini 3 Pro'
 copilot_gemini_31_pro: 'Gemini 3.1 Pro'
 copilot_gemini_35_flash: 'Gemini 3.5 Flash'
+copilot_gemini_36_flash: 'Gemini 3.6 Flash'
+copilot_gemini_37_flash: 'Gemini 3.7 Flash'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_4o_mini: 'GPT-4o mini'
@@ -201,16 +227,26 @@ copilot_gpt_54: 'GPT-5.4'
 copilot_gpt_54_mini: 'GPT-5.4 mini'
 copilot_gpt_54_nano: 'GPT-5.4 nano'
 copilot_gpt_55: 'GPT-5.5'
+copilot_gpt_56_luna: 'GPT-5.6 Luna'
+copilot_gpt_56_sol: 'GPT-5.6 Sol'
+copilot_gpt_56_terra: 'GPT-5.6 Terra'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
 ## xAI:
 copilot_grok_code: 'Grok Code Fast 1'
+copilot_grok_45: 'Grok 4.5'
+copilot_grok_46: 'Grok 4.6'
 # Qwen:
 copilot_qwen_25: 'Qwen2.5'
+# Microsoft:
+copilot_mai_code_1_flash: 'MAI-Code-1-Flash'
+copilot_mai_code_1_1_flash: 'MAI-Code-1.1-Flash'
 # Microsoft fine-tuned:
 copilot_raptor_mini: 'Raptor mini'
-copilot_goldeneye: 'Goldeneye'
+# Open-weight models:
+copilot_kimi_k27_code: 'Kimi K2.7 Code'
+copilot_kimi_k3: 'Kimi K3'
 
 ## Current model used by Copilot cloud agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'
@@ -225,5 +261,10 @@ copilot_workspace_pr_short: 'Copilot Workspace for PRs'
 copilot_workspace: 'Copilot Workspace'
 copilot_workspace_short: 'Workspace'
 
-# BYOK
-copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.product.prodname_vscode_shortname %}'
+# Enterprise and organization BYOK (not local BYOK)
+copilot_byok_supported_features: '{% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, and IDEs'
+
+## File for enterprise client management
+managed_setting_file: 'managed-settings.json'
+team_mappings_file: 'team-mappings.json'
+team_settings_directory: 'teams/'

@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /editing-a-custom-security-configuration
-  - /deleting-a-custom-security-configuration
+  - /edit-custom-configuration
+  - /delete-custom-configuration
+  - /enabling-public-monitoring-for-your-enterprise
 ---
+

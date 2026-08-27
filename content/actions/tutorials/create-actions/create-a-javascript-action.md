@@ -37,7 +37,7 @@ Once you complete this project, you should understand how to build your own Java
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
-1. Download and install Node.js 20.x, which includes npm.
+1. Download and install Node.js 24.x, which includes npm.
 
    https://nodejs.org/en/download/
 
@@ -59,7 +59,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 
 ## Creating an action metadata file
 
-Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions).
+Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/metadata-syntax).
 
 ```yaml copy
 name: Hello World
@@ -76,7 +76,7 @@ outputs:
     description: The time we greeted you
 
 runs:
-  using: node20
+  using: node24
   main: dist/index.js
 ```
 
@@ -133,7 +133,7 @@ try {
 
 {% endraw %}
 
-If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see [AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions).
+If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/set-exit-codes).
 
 ## Creating a README
 

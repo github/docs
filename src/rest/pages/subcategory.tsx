@@ -1,5 +1,8 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
+import type { ServerResponse } from 'http'
 import { Operation } from '@/rest/components/types'
+import type { ExtendedRequest, AllVersions } from '@/types/types'
 import { RestReferencePage } from '@/rest/components/RestReferencePage'
 import {
   addUINamespaces,
@@ -37,15 +40,15 @@ export default function SubCategory({ mainContext, automatedPageContext, restOpe
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index')
 
-  const req = context.req as any
-  const res = context.res as any
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as ServerResponse
   // e.g. the `activity` from `/en/rest/activity/events`
   const category = context.params!.category as string
   let subCategory = context.params!.subcategory as string
   const currentVersion = context.params!.versionId as string
-  const currentLanguage = req.context.currentLanguage as string
-  const allVersions = req.context.allVersions
-  const queryApiVersion = context.query.apiVersion
+  const currentLanguage = req.context!.currentLanguage as string
+  const allVersions = req.context!.allVersions as AllVersions
+  const queryApiVersion = context.query.apiVersion as string
   const apiVersion = allVersions[currentVersion].apiVersions.includes(queryApiVersion)
     ? queryApiVersion
     : allVersions[currentVersion].latestApiVersion
@@ -77,7 +80,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       restOperations,
       currentLanguage,
       currentVersion,
-      req.context,
+      req.context!,
     )) as MinitocItemsT
 
     if (restOperationsMiniTocItems) {
@@ -85,7 +88,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     }
   }
 
-  const mainContext = await getMainContext(req, res)
+  const mainContext = await getMainContext(req, res as unknown as Response)
   addUINamespaces(req, mainContext.data.ui, ['parameter_table', 'rest_reference'])
 
   return {

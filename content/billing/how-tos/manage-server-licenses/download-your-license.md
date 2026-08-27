@@ -42,13 +42,17 @@ There are two possible ways to download a license file for {% data variables.pro
 
 1. If you are an existing {% data variables.product.prodname_enterprise %} customer with an enterprise account on {% data variables.product.prodname_ghe_cloud %}, or if you have {% data variables.enterprise.data_residency_site %} with metered license billing, you can download your license file from {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %} using the following instructions.
 
-If you have any questions about downloading your license, contact {% data variables.contact.contact_enterprise_sales %}. For more information about enterprise accounts, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}.{% endif %}
+If you have any questions about downloading your license, contact {% data variables.contact.contact_enterprise_sales %}. For more information about enterprise accounts, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}.{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
 1. Optionally, if a yellow banner appears, click **Generate new license** to generate a new license key. A yellow banner appears in either of the following situations:
-   * Your license usage for {% data variables.product.prodname_ghe_cloud %} has changed.
+   * Your license usage for {% data variables.product.prodname_ghe_cloud %} has changed. For metered billing enterprises, this means the consumed Cloud license count has increased, and you can generate a new license with updated seat capacity.
    * Your current server license key expires within 30 days.
+
+   > [!NOTE]
+   > If your enterprise uses metered (usage-based) billing, the seat count in your generated Server license is based on the number of **consumed Cloud licenses** at the time of generation. The license is valid for one year. For more information about how Cloud and Server license usage work together, see [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use).
+
 1. Scroll down to "Enterprise Server licenses". Next to the license you want to download, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Download**.
 
-After you download your license file, you can upload the file to {% data variables.product.prodname_ghe_server %} to validate your application. For more information, see {% ifversion ghec %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server).{% endif %}
+After you download your license file, you can upload the file to {% data variables.product.prodname_ghe_server %} to validate your application. For more information, see {% ifversion ghec %}[AUTOTITLE](/enterprise-server@latest/billing/how-tos/manage-server-licenses/upload-new-license) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/enterprise-server@latest/billing/how-tos/manage-server-licenses/upload-new-license).{% endif %}

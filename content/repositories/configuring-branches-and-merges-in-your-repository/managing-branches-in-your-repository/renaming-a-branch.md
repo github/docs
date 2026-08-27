@@ -14,7 +14,7 @@ category:
 ---
 ## About renaming branches
 
-You can rename a branch in a repository on {% data variables.location.product_location %}. For more information about branches, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches).
+You can rename a branch in a repository on {% data variables.location.product_location %}. For more information about branches, see [AUTOTITLE](/pull-requests/reference/branches).
 
 When you rename a branch, any URLs that contain the old branch name are automatically redirected to the equivalent URL for the renamed branch. Branch protection policies are also updated, as well as the base branch for open pull requests (including those for forks) and draft releases. If the renamed branch is the head branch of an open pull request, this pull request is closed.
 
@@ -34,7 +34,7 @@ Some branches can only be renamed by a repository administrator: the repository'
 
 When organization-level or enterprise-level rulesets target branches in a repository, renaming those branches typically requires an organization or enterprise administrator.
 
-However, organization and enterprise owners can allow repository administrators to rename branches covered by these rulesets, provided the new branch name is still subject to all the same rules as the current name. Changing the default branch still requires an organization or enterprise administrator when rulesets are in play.
+However, organization and enterprise owners can allow repository administrators to rename branches covered by these rulesets, provided the new branch name is still subject to all the same rules as the current name, or the repository administrator has permission to bypass those rules. Changing the default branch works similarly.
 
 For more information, see [AUTOTITLE](/organizations/managing-organization-settings/allowing-repository-admins-to-rename-branches-with-organization-rulesets) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-renaming-protected-branches).
 

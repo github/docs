@@ -10,13 +10,14 @@ contentType: tutorials
 redirect_from:
   - /code-security/getting-started/quickstart-for-securing-your-organization
 children:
-  - /best-practices-for-preventing-data-leaks-in-your-organization
+  - /prevent-data-leaks
   - /best-practice-fix-alerts-at-scale
   - /prioritize-alerts-in-production-code
-  - /interpreting-secret-risk-assessment-results
-  - /interpreting-code-security-risk-assessment-results
-  - /organizing-remediation-efforts-for-leaked-secrets
+  - /interpret-secret-risk-assessment
+  - /interpret-code-security-risk-assessment
+  - /organize-leak-remediation
   - /protect-against-threats
-  - /preparing-for-security-incidents
-  - /responding-to-security-incidents
+  - /prepare-for-a-security-incident
+  - /respond-to-a-security-incident
 ---
+

@@ -7,15 +7,20 @@ versions:
 contentType: how-tos
 layout: bespoke-landing
 heroImage: /assets/images/banner-images/hero-4
+sidebarLink:
+  text: All articles
+  href: /copilot/how-tos/github-copilot-app
 introLinks:
   overview: /copilot/concepts/agents/github-copilot-app
-  quickstart: /copilot/how-tos/github-copilot-app/getting-started
+  quickstart: /copilot/get-started/quickstart-copilot-app
 redirect_from:
   - /copilot/how-tos/github-app
 children:
-  - /getting-started
   - /customize-github-copilot-app
   - /agent-sessions
+  - /working-with-canvas-extensions
   - /managing-issues-and-pull-requests
-  - /using-scheduled-workflows
+  - /using-automations
+  - /use-byok-models
+  - /open-with-deep-links
 ---

@@ -34,18 +34,18 @@ You will use enterprise policies to manage two aspects of governance:
 
 Generally, enterprise owners can either set each policy for the whole enterprise or "let organizations decide." With the latter option, users are subject to the policy of the organization where they receive their {% data variables.product.prodname_copilot_short %} license or to the default defined in your "Policies for enterprise-assigned users" setting.
 
-To manage policies, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
+To manage policies, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 ## Configure networking
 
-If your corporate network restricts users' traffic, add the required URLs to the allowlist for your firewall or proxy. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot).
+If your corporate network restricts users' traffic, add the required URLs to the allowlist for your firewall or proxy. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
 
 If you route traffic via a proxy server, you may need to ask users to configure proxy settings in their environment. You may also need to install custom certificates on your users' machines. For more information, see [AUTOTITLE](/copilot/concepts/network-settings).
 
-If your enterprise is on {% data variables.enterprise.data_residency_site %}, users will also need to configure their environment to authenticate from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
+If your enterprise is on {% data variables.enterprise.data_residency_site %}, users will also need to configure their environment to authenticate from their development environment. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
 
 ## Assign licenses
 
 {% data reusables.copilot.enterprise-licensing %}
 
-For instructions, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise).
+For instructions, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access).

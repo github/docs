@@ -8,6 +8,7 @@ children:
   - /resources-for-approval
   - /establish-ai-managers
   - /govern-for-adoption
+  - /pilot-a-feature-or-model
   - /maintain-codebase-standards
 contentType: tutorials
 ---

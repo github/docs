@@ -48,4 +48,10 @@ You can enable third-party MCP servers to allow developers to integrate {% data 
 {% data reusables.enterprise-accounts.view-mcp-policies %}
 1. Set a policy for **MCP servers in {% data variables.product.prodname_copilot_short %}**.
 
->[!NOTE] The "MCP Registry URL" and "Restrict MCP access to registry servers" policies do **not** apply to {% data variables.copilot.copilot_cloud_agent %}.
+> [!NOTE] The "MCP Registry URL" and "Restrict MCP access to registry servers" policies do **not** apply to {% data variables.copilot.copilot_cloud_agent %}.
+
+## Enabling {% data variables.copilot.agent_apps %} and third-party agents
+
+Enterprise owners can enable third-party agents, including {% data variables.copilot.agent_apps %}, for their organizations. Once enabled at the enterprise level, organization owners can choose which agents to allow. For an overview of {% data variables.copilot.agent_apps %}, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
+
+To manage agent and enterprise policies, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).

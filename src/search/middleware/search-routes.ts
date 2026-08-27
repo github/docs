@@ -12,7 +12,7 @@ import { aiSearchAutocompleteRoute } from '@/search/lib/routes/ai-search-autocom
 import { combinedSearchRoute } from '@/search/lib/routes/combined-search-route'
 import { createLogger } from '@/observability/logger'
 
-const logger = createLogger('search:middleware:search-routes')
+const logger = createLogger(import.meta.url)
 const router = express.Router()
 
 router.get('/legacy', (req: Request, res: Response) => {
@@ -35,7 +35,7 @@ export async function handleGetSearchResultsError(
 ) {
   const errorMessage = error instanceof Error ? error.message : String(error)
   if (process.env.NODE_ENV === 'development') {
-    console.error(`Error calling getSearchResults(${options})`, error)
+    logger.error('Error calling getSearchResults', { options, error })
   } else {
     const extra: Record<string, unknown> =
       options && typeof options === 'object' && !Array.isArray(options)

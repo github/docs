@@ -39,8 +39,8 @@ Before you require use of two-factor authentication, we recommend notifying orga
 {% data reusables.two_fa.ghes_ntp %}
 
 > [!WARNING]
-> * When you require two-factor authentication for your enterprise, {% ifversion ghes < 3.17 %}members and {% endif %}outside collaborators (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable 2FA for their account within three months of their removal from your organization. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).
-> * Any {% ifversion ghes < 3.17 %}member or {% endif %}outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization. Members {% ifversion ghes %}and billing managers{% endif %} who disable 2FA will not be able to access organization resources until they re-enable it.
+> * When you require two-factor authentication for your enterprise, outside collaborators (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable 2FA for their account within three months of their removal from your organization. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).
+> * Any outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization. Members {% ifversion ghes %}and billing managers{% endif %} who disable 2FA will not be able to access organization resources until they re-enable it.
 > * If you're the sole owner of an enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required 2FA for the enterprise.
 
 {% ifversion mandatory-2fa-dotcom-contributors %}
@@ -56,7 +56,7 @@ Before you require use of two-factor authentication, we recommend notifying orga
 1. Under "Two-factor authentication", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Two-factor authentication", select **Require two-factor authentication for the enterprise and all of its organizations**, then click **Save**.
 1. If prompted, read the information about how user access to organization resources will be affected by a 2FA requirement. To confirm the change, click **Confirm**.
-1. Optionally, if any {% ifversion ghes < 3.17 %}members or {% endif %}outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable 2FA before they can accept your invitation.
+1. Optionally, if any outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable 2FA before they can accept your invitation.
 
 {% ifversion ghec %}
 
@@ -136,7 +136,7 @@ After upgrading the CA, non-expiring certificates signed by that CA will be reje
 
 {% data reusables.enterprise-managed.sso-redirect-release-phase %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you can choose what unauthenticated users see when they attempt to access your enterprise's resources. For more information about {% data variables.product.prodname_emus %}, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
+If your enterprise uses {% data variables.product.prodname_emus %}, you can choose what unauthenticated users see when they attempt to access your enterprise's resources. For more information about {% data variables.product.prodname_emus %}, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users).
 
 By default, to hide the existence of private resources, when an unauthenticated user attempts to access your enterprise, {% data variables.product.company_short %} displays a 404 error.
 
@@ -147,7 +147,7 @@ The configuration of this setting also affects {% data variables.product.prodnam
 If "Automatically redirect users to sign in" is enabled, {% data variables.product.github %} sends the server hints that let GCM automatically filter accounts for your enterprise members. If the setting is disabled, users who use GCM must turn off account filtering locally in GCM to avoid being prompted for authentication each time they perform a Git operation. For more details, see [AUTOTITLE](/get-started/git-basics/caching-your-github-credentials-in-git).
 
 > [!NOTE]
-> If a user is signed in to their personal account when they attempt to access any of your enterprise's resources, they'll be automatically signed out and redirected to SSO to sign in to their {% data variables.enterprise.prodname_managed_user %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).
+> If a user is signed in to their personal account when they attempt to access any of your enterprise's resources, they'll be automatically signed out and redirected to SSO to sign in to their {% data variables.enterprise.prodname_managed_user %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/account-and-profile/how-tos/account-management/managing-multiple-accounts).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
@@ -157,10 +157,10 @@ If "Automatically redirect users to sign in" is enabled, {% data variables.produ
 
 ## Further reading
 
-* [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)
+* [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam)
 {%- ifversion ghec %}
 * [AUTOTITLE](/admin/overview/accessing-compliance-reports-for-your-enterprise)
 {%- endif %}
 {%- ifversion ghec %}
-* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)
+* [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)
 {%- endif %}

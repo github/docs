@@ -1,1 +1,1 @@
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "codespaces" aria-hidden="true" aria-label="codespaces" %} Codespaces**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "codespaces" aria-hidden="true" aria-label="codespaces" %} Codespaces**.

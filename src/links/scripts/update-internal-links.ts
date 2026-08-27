@@ -12,10 +12,12 @@ import path from 'path'
 
 import { program } from 'commander'
 import chalk from 'chalk'
-import yaml from 'js-yaml'
 
-import { updateInternalLinks } from '@/links/lib/update-internal-links'
-import frontmatter from '@/frame/lib/read-frontmatter'
+import {
+  updateInternalLinks,
+  serializeMarkdown,
+  serializeYaml,
+} from '@/links/lib/update-internal-links'
 import walkFiles from '@/workflows/walk-files'
 
 program
@@ -28,6 +30,10 @@ program
   .option('--check', 'Exit and fail if it found something to fix')
   .option('--aggregate-stats', 'Display aggregate numbers about all possible changes')
   .option('--strict', "Throw an error (instead of a warning) if a link can't be processed")
+  .option(
+    '--keep-stale-fragments',
+    "Keep a link's #anchor after a redirect rewrites its path, even when the anchor doesn't exist on the destination page (default: drop such anchors)",
+  )
   .option('--exclude [paths...]', 'Specific files to exclude')
   .arguments('[files-or-directories...]')
   .parse(process.argv)
@@ -43,6 +49,7 @@ type Options = {
   check: boolean
   aggregateStats: boolean
   strict: boolean
+  keepStaleFragments: boolean
   exclude: string[]
   filesOrDirectories?: string[]
 }
@@ -99,6 +106,7 @@ async function main(files: string[], opts: Options) {
       fixHref: !opts.dontFixHref,
       verbose,
       strict: !!opts.strict,
+      keepStaleFragments: !!opts.keepStaleFragments,
     }
 
     // Remember, updateInternalLinks() doesn't actually change the files
@@ -111,6 +119,10 @@ async function main(files: string[], opts: Options) {
     const results = await updateInternalLinks(actualFiles, options)
 
     let exitCheck = 0
+    // Serializing can throw, and a throw halfway through the loop would leave a
+    // half-updated checkout. Every output is computed first so a failure on the last
+    // file means nothing was written at all, which is what the comment above promises.
+    const pendingWrites: { file: string; output: string }[] = []
     for (const {
       file,
       rawContent,
@@ -148,11 +160,17 @@ async function main(files: string[], opts: Options) {
         }
         if (!opts.dryRun) {
           if (file.endsWith('.yml')) {
-            fs.writeFileSync(file, yaml.dump(newData), 'utf-8')
+            pendingWrites.push({
+              file,
+              output: serializeYaml(newContent, newData, differentContent, differentData),
+            })
           } else {
             // Remember the `content` and `newContent` is the "meat" of the
             // Markdown page. To save it you need the frontmatter data too.
-            fs.writeFileSync(file, frontmatter.stringify(newContent || '', newData || {}), 'utf-8')
+            pendingWrites.push({
+              file,
+              output: serializeMarkdown(rawContent, content, newContent, newData, differentData),
+            })
           }
         }
       }
@@ -164,6 +182,11 @@ async function main(files: string[], opts: Options) {
           console.log('')
         }
       }
+    }
+
+    // Every serializer succeeded, so the writes can't be interrupted by one of them.
+    for (const { file, output } of pendingWrites) {
+      fs.writeFileSync(file, output, 'utf-8')
     }
 
     if (opts.aggregateStats) {
@@ -307,14 +330,14 @@ type Replacement = {
   asMarkdown: string
   newAsMarkdown: string
   line: number
-  column: number
+  column?: number
 }
 
 type Warning = {
   warning: string
   asMarkdown: string
   line: number
-  column: number
+  column?: number
 }
 
 type UpdateResult = {

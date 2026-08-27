@@ -1,5 +1,5 @@
 import type { Response, NextFunction } from 'express'
-import { fetchWithRetry } from '@/frame/lib/fetch-utils'
+import { fetchWithRetry, readBodyWithTimeout } from '@/frame/lib/fetch-utils'
 
 import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import { createLogger } from '@/observability/logger'
@@ -275,7 +275,7 @@ export default async function archivedEnterpriseVersions(
   if (r.status !== 200) {
     let upstreamBody: string | undefined
     try {
-      upstreamBody = await r.text()
+      upstreamBody = await readBodyWithTimeout(r, () => r.text(), timeoutConfiguration.response)
     } catch {
       // ignore — body reading failure shouldn't affect error handling
     }
@@ -301,7 +301,7 @@ export default async function archivedEnterpriseVersions(
   }
 
   if (r.status === 200) {
-    const body = await r.text()
+    const body = await readBodyWithTimeout(r, () => r.text(), timeoutConfiguration.response)
     const [, withoutLanguagePath] = splitByLanguage(req.path)
     const isDeveloperPage = withoutLanguagePath?.startsWith(
       `/enterprise/${requestedVersion}/developer`,

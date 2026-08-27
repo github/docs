@@ -16,7 +16,7 @@ redirect_from:
 ---
 
 > [!NOTE]
-> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, the {% data variables.copilot.copilot_cli %}, and agent mode in {% data variables.product.prodname_vscode %}.
+> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, the {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, and agent mode in {% data variables.product.prodname_vscode %}.
 
 Agent skills are folders of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} can load when relevant to improve its performance in specialized tasks. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 
@@ -140,4 +140,10 @@ gh skill publish
 ## How {% data variables.product.prodname_copilot_short %} uses agent skills
 
 {% data reusables.copilot.skills-using %}
+
+For {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.github %}, keep the following in mind:
+
+* If you want to ensure that {% data variables.copilot.copilot_code-review_short %} will read and use a skill, use a review-focused skill directory name such as `code-review`.
+* Existing skills within the `.github/skills` directory can also be used by {% data variables.copilot.copilot_code-review_short %} automatically when they are relevant to the review.
+
 {% data reusables.copilot.skills-compared %}

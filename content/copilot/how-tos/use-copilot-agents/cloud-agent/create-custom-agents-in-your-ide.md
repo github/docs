@@ -15,7 +15,9 @@ contentType: how-tos
 
 {% data reusables.copilot.custom-agents-ide-preview %}
 
-## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile in {% data variables.product.prodname_vscode %}
+{% vscode %}
+
+## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile
 
 1. Open {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode %}.
 1. From the agents dropdown at the bottom of the chat view, click **Configure Custom Agents...**, then click **{% octicon "plus" aria-label="Plus button" %} Create new {% data variables.copilot.copilot_custom_agent_short %}**.
@@ -29,7 +31,15 @@ contentType: how-tos
 
 To update an {% data variables.copilot.agent_profile %}, select **Configure Custom Agents** from the agents dropdown, and then click on an agent from the list to modify it. For more information on {% data variables.copilot.custom_agents_short %} in {% data variables.product.prodname_vscode_shortname %}, see [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents).
 
-## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile in JetBrains IDEs
+{% endvscode %}
+
+<!-- --------------------- -->
+<!-- JetBrains -->
+<!-- --------------------- -->
+
+{% jetbrains %}
+
+## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile
 
 1. Open the {% data variables.copilot.copilot_chat %} window in your JetBrains IDE.
 1. From the agents dropdown at the bottom of the chat view, click **Configure Agents...**, then in the settings window, under "Chat Agents", click **Workspace**.
@@ -40,7 +50,15 @@ To update an {% data variables.copilot.agent_profile %}, select **Configure Cust
 
 To update an {% data variables.copilot.agent_profile %}, select **Configure Custom Agents** from the agents dropdown, and then click {% octicon "pencil" aria-label="The pencil icon" %} next to the agent you want to modify.
 
-## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile in Eclipse
+{% endjetbrains %}
+
+<!-- --------------------- -->
+<!-- Eclipse -->
+<!-- --------------------- -->
+
+{% eclipse %}
+
+## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile
 
 1. Open the {% data variables.copilot.copilot_chat %} window in Eclipse.
 1. From the agents dropdown at the bottom of the chat view, click **Configure Agents...**, then click **Add...**.
@@ -51,7 +69,15 @@ To update an {% data variables.copilot.agent_profile %}, select **Configure Cust
 
 To update an {% data variables.copilot.agent_profile %}, select **Configure Agents...** from the agents dropdown, and then select the agent you want to modify and click **Edit**.
 
-## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile in Xcode
+{% endeclipse %}
+
+<!-- --------------------- -->
+<!-- XCode -->
+<!-- --------------------- -->
+
+{% xcode %}
+
+## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile
 
 1. Open the {% data variables.copilot.copilot_chat %} window in Xcode.
 1. From the agents dropdown at the bottom of the chat view, click **{% octicon "plus" aria-label="Plus button" %} Create an agent**.
@@ -60,6 +86,8 @@ To update an {% data variables.copilot.agent_profile %}, select **Configure Agen
    * You can use the **Customize Agent** button within the file editor to open a dialog, where you can select the AI model for the agent to use, select available tools (including built-in and MCP server tools), and configure the `handoffs` property for transitioning between {% data variables.copilot.custom_agents_short %}. Click **Apply** to add selected options to the {% data variables.copilot.agent_profile %}.
 
 To update an {% data variables.copilot.agent_profile %}, from the agents dropdown, click the pencil icon next to the agent you want to modify.
+
+{% endxcode %}
 
 ## Configuring an {% data variables.copilot.agent_profile %}
 
@@ -75,9 +103,9 @@ To update an {% data variables.copilot.agent_profile %}, from the agents dropdow
 
 ### Using {% data variables.copilot.custom_agents_short %} in your IDE
 
-You can also use your custom {% data variables.copilot.agent_profiles %} directly in supported IDEs, including {% data variables.product.prodname_vscode %}, JetBrains IDEs, Eclipse, and Xcode. You can switch between {% data variables.copilot.custom_agents_short %} using the agent dropdown in the Chat window, allowing you to access specialized configurations for different tasks like planning, code editing, or research.
+You can also use your custom {% data variables.copilot.agent_profiles %} directly in supported IDEs. You can switch between {% data variables.copilot.custom_agents_short %} using the agent dropdown in the Chat window, allowing you to access specialized configurations for different tasks like planning, code editing, or research.
 
-Note that some properties may function differently, or be ignored, between the {% data variables.product.prodname_dotcom_the_website %} and IDE environments. For more information on supported properties, see [AUTOTITLE](/copilot/reference/custom-agents-configuration#yaml-frontmatter-properties).
+Some properties may function differently between the {% data variables.product.prodname_dotcom_the_website %} and IDE environments. For more information on supported properties, see [AUTOTITLE](/copilot/reference/custom-agents-configuration#yaml-frontmatter-properties).
 
 For more information on {% data variables.copilot.custom_agents_short %} in {% data variables.product.prodname_vscode_shortname %} specifically, see [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 

@@ -6,16 +6,11 @@ versions:
   feature: copilot
 children:
   - /models-and-pricing
-  - /model-multipliers-for-annual-plans
   - /billing-cycle
   - /seat-assignment
   - /license-changes
   - /azure-billing
+  - /request-based-billing-legacy
 contentType: reference
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.ubb-announcement-cfi-cb-ce %}
-
-<!-- end expires 2026-06-01 -->

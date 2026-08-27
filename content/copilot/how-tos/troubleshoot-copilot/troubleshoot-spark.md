@@ -9,6 +9,9 @@ category:
   - Troubleshooting Copilot
 ---
 
+> [!NOTE]
+> {% data reusables.copilot.spark-deprecation %}
+
 ## Error: "Live preview is interrupted. Try refreshing the page to reconnect."
 
 There is a known compatibility issue between Apple's Safari browser and the way {% data variables.product.prodname_spark_short %} renders its live preview.

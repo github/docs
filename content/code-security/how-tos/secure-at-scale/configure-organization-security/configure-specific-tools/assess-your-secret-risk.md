@@ -34,6 +34,3 @@ category:
 
 {% data reusables.secret-risk-assessment.notification-report-ready %}
 
-## Next steps
-
-Now that you've generated a {% data variables.product.prodname_secret_risk_assessment %} report for your organization, learn how to interpret the results. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/interpreting-secret-risk-assessment-results).

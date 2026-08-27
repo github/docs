@@ -17,9 +17,12 @@ The {% data variables.product.prodname_copilot_short %} usage metrics APIs do no
 
 The same join recipe supports any team-level slice you need: per `(team, day)`, per `(team, day, language)`, per `(team, day, IDE)`, over rolling windows, and so on.
 
+> [!NOTE]
+> If you only need a UI-based view of team-level adoption, the impact dashboard's user-team mapping surfaces team-level adoption cohort data natively, without requiring you to build the join described in this article. See [AUTOTITLE](/copilot/how-tos/administer-copilot/view-impact-dashboard). Use the manual join described below when you need raw per-team NDJSON data, such as for custom BI reporting, or team-level metrics beyond adoption cohorts.
+
 ## Fetching the reports
 
-The two reports referenced in this guide are downloaded in two steps. First, call the REST endpoint for the day you want. The endpoint returns time-limited signed URLs from which you can download the report files. Then download the JSON files those URLs point to. The user-team and per-user rows are in those JSON files; they are not returned inline by the REST endpoint.
+The two reports referenced in this guide are downloaded in two steps. First, call the REST endpoint for the day you want. The endpoint returns time-limited signed URLs from which you can download the report files. Then download the newline-delimited JSON (NDJSON) files those URLs point to. The user-teams and per-user rows are in those NDJSON files; they are not returned inline by the REST endpoint.
 
 | Report | Endpoint |
 |:--|:--|
@@ -33,7 +36,7 @@ Each endpoint returns a response of the form:
 ```json
 {
   "download_links": [
-    "https://example.com/copilot-user-teams-report-1.json"
+    "https://example.com/copilot-user-teams-report-1.ndjson"
   ],
   "report_day": "2026-05-07"
 }
@@ -89,7 +92,7 @@ The entity-level reports (`enterprise_28_day`, `organization_28_day`, `enterpris
 
 ## Example
 
-This minimal end-to-end example produces one day of organization-team metrics. The JSON shown below for each input report is a sample of the rows you would find in the file downloaded from one of that report's `download_links` (see [Fetching the reports](#fetching-the-reports) above).
+This minimal end-to-end example produces one day of organization-team metrics. The sample NDJSON rows below for each input report are like the rows you would find in the file downloaded from one of that report's `download_links` (see [Fetching the reports](#fetching-the-reports) above).
 
 Two users have {% data variables.product.prodname_copilot_short %} activity on 2026-05-07 in organization `999`:
 

@@ -8,9 +8,9 @@ import { allVersions } from '@/versions/lib/all-versions'
 import { createOperations, processOperations } from './get-operations'
 import { getProgAccessData } from '@/github-apps/scripts/sync'
 import { REST_DATA_DIR } from '../../lib/index'
+import type { OpenApiSchema } from './openapi-types'
+import type Operation from './operation'
 
-type Schema = Record<string, any>
-type Operation = { category: string; subcategory: string; [key: string]: any }
 type OperationsByCategory = Record<string, Record<string, Operation[]>>
 
 // All of the schema releases that we store in allVersions
@@ -24,7 +24,10 @@ export async function syncRestData(
   sourceDirectory: string,
   restSchemas: string[],
   progAccessSource: string,
-  injectIntoSchema?: (schema: Schema, schemaName: string) => Schema,
+  injectIntoSchema?: (
+    schema: OpenApiSchema,
+    schemaName: string,
+  ) => OpenApiSchema | Promise<OpenApiSchema>,
 ): Promise<void> {
   const writeTasks: Promise<void>[] = []
   // Track which category files were written per version directory so we
@@ -34,7 +37,7 @@ export async function syncRestData(
   await Promise.all(
     restSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
-      let schema = JSON.parse(await readFile(file, 'utf-8')) as Schema
+      let schema = JSON.parse(await readFile(file, 'utf-8')) as OpenApiSchema
 
       if (injectIntoSchema) {
         const injectedSchema = await injectIntoSchema(schema, schemaName)
@@ -48,7 +51,7 @@ export async function syncRestData(
         operations.push(...newOperations)
       } catch (error) {
         throw new Error(
-          `${error}\n\n🐛 Whoops! It looks like the script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.`,
+          `${error}\n\n🐛 Whoops! It looks like the script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #technical-content slack channel for help.`,
         )
       }
       try {
@@ -56,7 +59,7 @@ export async function syncRestData(
         await processOperations(operations, progAccessData)
       } catch (error) {
         throw new Error(
-          `${error}\n\n🐛 Whoops! It looks like some Markdown in the dereferenced schema wasn't able to be rendered. Please reach out in the #docs-engineering slack channel for help.`,
+          `${error}\n\n🐛 Whoops! It looks like some Markdown in the dereferenced schema wasn't able to be rendered. Please reach out in the #technical-content slack channel for help.`,
         )
       }
 
@@ -161,9 +164,9 @@ async function updateRestConfigData(schemas: string[]): Promise<void> {
   const restConfigFilename = 'src/rest/lib/config.json'
   const restConfigData = JSON.parse(await readFile(restConfigFilename, 'utf8')) as Record<
     string,
-    any
+    unknown
   >
-  const restApiVersionData = restConfigData['api-versions'] || {}
+  const restApiVersionData = (restConfigData['api-versions'] as Record<string, string[]>) || {}
 
   // Phase 1: Collect the dates present in the incoming schemas, keyed by
   // OpenAPI version name. Only calendar-date schemas contribute — those that

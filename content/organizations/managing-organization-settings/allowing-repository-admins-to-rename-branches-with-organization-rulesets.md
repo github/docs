@@ -9,14 +9,11 @@ category:
   - Configure organization features
 ---
 
-Organization owners control whether repository administrators can rename branches that are targeted by one or more branch rulesets. For existing organizations, this setting is off by default. For newly created organizations, this setting is on by default.
+Organization owners control whether repository administrators can rename branches that are targeted by one or more branch rulesets. For existing organizations, this setting is disabled by default. For newly created organizations, this setting is enabled by default.
 
-When this setting is enabled, repository administrators can rename these branches, provided the new branch name is still targeted by all the same organization rulesets as the current branch name. This ensures that rulesets cannot be circumvented through branch renaming.
+When this setting is enabled, repository administrators can rename these branches, provided the new branch name is still targeted by all the same organization rulesets as the current branch name, or the repository administrator has permission to bypass any which are no longer targeted. This ensures that rulesets cannot be circumvented through branch renaming.
 
 Organization administrators can rename branches targeted by organization rulesets without restriction.
-
-> [!NOTE]
-> Even with this setting enabled, changing the default branch of a repository still requires an organization administrator when organization rulesets are in play.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

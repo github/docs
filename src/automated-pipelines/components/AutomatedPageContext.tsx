@@ -2,16 +2,19 @@ import { createContext, useContext } from 'react'
 import type { IncomingMessage } from 'http'
 import type { JSX } from 'react'
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
+import type { JourneyContext } from '@/journeys/lib/journey-path-resolver'
 import type { Context } from '@/types'
 
 export type AutomatedPageContextT = {
   title: string
   intro: string
   renderedPage: string | JSX.Element[]
+  renderedPageHast?: import('hast').Root | null
   miniTocItems: Array<MiniTocItem>
   product?: string
   permissions?: string
   currentLayout?: string
+  currentJourneyTrack?: JourneyContext | null
 }
 
 export const AutomatedPageContext = createContext<AutomatedPageContextT | null>(null)
@@ -26,6 +29,13 @@ export const useAutomatedPageContext = (): AutomatedPageContextT => {
   }
 
   return context
+}
+
+// Non-throwing variant: returns null when there is no provider. For components that render
+// both inside and outside an AutomatedPageContext.Provider (e.g. the product sidebar, shared
+// across automated REST reference pages and conceptual REST pages). Call it unconditionally.
+export const useAutomatedPageContextOptional = (): AutomatedPageContextT | null => {
+  return useContext(AutomatedPageContext)
 }
 
 type AutomatedPageContextRequest = { context?: Partial<Context> } | IncomingMessage
@@ -55,9 +65,11 @@ export const getAutomatedPageContextFromRequest = (
     title: page.title,
     intro: page.intro,
     renderedPage,
+    renderedPageHast: context.renderedPageHast ?? null,
     miniTocItems,
     product: page.product ?? '',
     permissions: page.permissions ?? page.rawPermissions ?? '',
     currentLayout: context.currentLayoutName ?? 'default',
+    currentJourneyTrack: (context.currentJourneyTrack as JourneyContext | null | undefined) ?? null,
   }
 }

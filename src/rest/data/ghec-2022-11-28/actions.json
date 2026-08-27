@@ -19551,6 +19551,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -19576,6 +19577,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -19668,6 +19670,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -22398,6 +22407,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -22423,6 +22433,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -22519,6 +22530,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -22848,6 +22866,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -22873,6 +22892,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -22965,6 +22985,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -22976,6 +23003,98 @@
                       "labels"
                     ]
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/runners/deprecations/{version}",
+      "title": "Get runner version end-of-life schedule for an enterprise",
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "version",
+          "description": "<p>The runner version to look up.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the end-of-life schedule for a specific runner version in an enterprise. Returns the runner version\nand the dates when registration and runtime support will end.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>manage_runners:enterprise</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "version": "VERSION"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "runner_version": "2.300.0",
+              "runtime_deprecates_at": "2026-09-01T00:00:00Z"
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "runner_version"
+              ],
+              "properties": {
+                "runner_version": {
+                  "type": "string",
+                  "description": "The runner version string."
+                },
+                "registration_deprecates_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The date after which this runner version can no longer register. Null if no schedule is set."
+                },
+                "runtime_deprecates_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The date after which jobs will no longer be dispatched to runners on this version."
                 }
               }
             }
@@ -23281,6 +23400,13 @@
                     },
                     "ephemeral": {
                       "type": "boolean"
+                    },
+                    "version": {
+                      "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -24921,6 +25047,7 @@
               "status": "online",
               "busy": true,
               "ephemeral": false,
+              "version": "2.323.0",
               "labels": [
                 {
                   "id": 5,
@@ -25003,6 +25130,13 @@
                 },
                 "ephemeral": {
                   "type": "boolean"
+                },
+                "version": {
+                  "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -25862,6 +25996,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -25887,6 +26022,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -25983,6 +26119,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -25994,6 +26137,102 @@
                       "labels"
                     ]
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Self-hosted runners\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/runners/deprecations/{version}",
+      "title": "Get runner version end-of-life schedule for an organization",
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "version",
+          "description": "<p>The runner version to look up.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the end-of-life schedule for a specific runner version in an organization. Returns the runner version\nand the dates when registration and runtime support will end.</p>\n<p>Authenticated users must have admin access to the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "version": "VERSION"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "runner_version": "2.300.0",
+              "runtime_deprecates_at": "2026-09-01T00:00:00Z"
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "runner_version"
+              ],
+              "properties": {
+                "runner_version": {
+                  "type": "string",
+                  "description": "The runner version string."
+                },
+                "registration_deprecates_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The date after which this runner version can no longer register. Null if no schedule is set."
+                },
+                "runtime_deprecates_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The date after which jobs will no longer be dispatched to runners on this version."
                 }
               }
             }
@@ -26307,6 +26546,13 @@
                     },
                     "ephemeral": {
                       "type": "boolean"
+                    },
+                    "version": {
+                      "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -27959,6 +28205,7 @@
               "status": "online",
               "busy": true,
               "ephemeral": false,
+              "version": "2.323.0",
               "labels": [
                 {
                   "id": 5,
@@ -28041,6 +28288,13 @@
                 },
                 "ephemeral": {
                   "type": "boolean"
+                },
+                "version": {
+                  "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -28934,6 +29188,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -28959,6 +29214,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -29055,6 +29311,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -29066,6 +29329,112 @@
                       "labels"
                     ]
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/runners/deprecations/{version}",
+      "title": "Get runner version end-of-life schedule for a repository",
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "version",
+          "description": "<p>The runner version to look up.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the end-of-life schedule for a specific runner version in a repository. Returns the runner version\nand the dates when registration and runtime support will end.</p>\n<p>Authenticated users must have admin access to the repository to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "version": "VERSION"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "runner_version": "2.300.0",
+              "runtime_deprecates_at": "2026-09-01T00:00:00Z"
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "runner_version"
+              ],
+              "properties": {
+                "runner_version": {
+                  "type": "string",
+                  "description": "The runner version string."
+                },
+                "registration_deprecates_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The date after which this runner version can no longer register. Null if no schedule is set."
+                },
+                "runtime_deprecates_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The date after which jobs will no longer be dispatched to runners on this version."
                 }
               }
             }
@@ -29399,6 +29768,13 @@
                     },
                     "ephemeral": {
                       "type": "boolean"
+                    },
+                    "version": {
+                      "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -31081,6 +31457,7 @@
               "status": "online",
               "busy": true,
               "ephemeral": false,
+              "version": "2.323.0",
               "labels": [
                 {
                   "id": 5,
@@ -31163,6 +31540,13 @@
                 },
                 "ephemeral": {
                   "type": "boolean"
+                },
+                "version": {
+                  "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -35086,11 +35470,13 @@
               "properties": {
                 "id": {
                   "description": "The id of the job.",
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "run_id": {
                   "description": "The id of the associated workflow run.",
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "run_url": {
                   "type": "string"
@@ -35606,11 +35992,13 @@
                     "properties": {
                       "id": {
                         "description": "The id of the job.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_id": {
                         "description": "The id of the associated workflow run.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_url": {
                         "type": "string"
@@ -36063,11 +36451,13 @@
                     "properties": {
                       "id": {
                         "description": "The id of the job.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_id": {
                         "description": "The id of the associated workflow run.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_url": {
                         "type": "string"
@@ -36795,6 +37185,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the workflow run."
                       },
                       "name": {
@@ -36809,6 +37200,7 @@
                       },
                       "check_suite_id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the associated check suite."
                       },
                       "check_suite_node_id": {
@@ -39155,6 +39547,7 @@
               "properties": {
                 "id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the workflow run."
                 },
                 "name": {
@@ -39169,6 +39562,7 @@
                 },
                 "check_suite_id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the associated check suite."
                 },
                 "check_suite_node_id": {
@@ -41973,6 +42367,7 @@
               "properties": {
                 "id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the workflow run."
                 },
                 "name": {
@@ -41987,6 +42382,7 @@
                 },
                 "check_suite_id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the associated check suite."
                 },
                 "check_suite_node_id": {
@@ -44878,6 +45274,15 @@
                                     "organization"
                                   ]
                                 },
+                                "access_source": {
+                                  "description": "How the team's access to the repository was granted. This property is only\npresent when the team is returned in a repository context, such as\n`GET /repos/{owner}/{repo}/teams`.",
+                                  "type": "string",
+                                  "enum": [
+                                    "direct",
+                                    "organization",
+                                    "enterprise"
+                                  ]
+                                },
                                 "organization_id": {
                                   "type": "integer",
                                   "description": "Unique identifier of the organization to which this team belongs"
@@ -46510,6 +46915,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the workflow run."
                       },
                       "name": {
@@ -46524,6 +46930,7 @@
                       },
                       "check_suite_id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the associated check suite."
                       },
                       "check_suite_node_id": {

@@ -91,8 +91,9 @@ versions:
   ghec: '*'
   ghes: '*'
 children:
+  - /enterprise-onboarding
   - /overview
-  - concepts
+  - /concepts
   - /data-residency
   - /managing-your-enterprise-account
   - /installing-your-enterprise-server

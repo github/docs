@@ -11,7 +11,7 @@ category:
   - Install and configure your instance
 ---
 
-{% data reusables.enterprise_site_admin_settings.management-console-access %} For more information about {% data variables.enterprise.management_console %} access, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
+{% data reusables.enterprise_site_admin_settings.management-console-access %} For more information about {% data variables.enterprise.management_console %} access, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui).
 
 You can also use the `gh es` {% data variables.product.prodname_cli %} extension to manage the root site administrator password, which controls access to the Management Console. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-access-set-password) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
 
@@ -45,7 +45,7 @@ While signed into the {% data variables.enterprise.management_console %} as the 
 
 ## Inviting new {% data variables.enterprise.management_console %} users
 
-If you have configured email for notifications for {% data variables.location.product_location %}, new {% data variables.enterprise.management_console %} users will automatically receive an invitation to complete creation of the {% data variables.enterprise.management_console %} user account. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications).
+If you have configured email for notifications for {% data variables.location.product_location %}, new {% data variables.enterprise.management_console %} users will automatically receive an invitation to complete creation of the {% data variables.enterprise.management_console %} user account. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-email-for-notifications).
 
 If you have not configured email notifications for {% data variables.location.product_location %}, you must manually copy the {% data variables.enterprise.management_console %} invitation link and send it to the user. The user must set a password using the link before the user can access the {% data variables.enterprise.management_console %}.
 

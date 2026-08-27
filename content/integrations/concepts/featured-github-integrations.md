@@ -59,9 +59,19 @@ The Slack + {% data variables.product.github %} app lets you subscribe to your r
 * {% data variables.product.prodname_actions %}
 * Deployments
 
-You can also open and close issues, comment on your issues and pull requests, approve deployments, and see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally on Slack if you are mentioned as part of any {% data variables.product.github %} notifications that you receive in your channels or personal chats.
+You can open and close issues, comment on your issues and pull requests, approve deployments, and see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally on Slack if you are mentioned as part of any {% data variables.product.github %} notifications that you receive in your channels or personal chats.
 
-The Slack + {% data variables.product.github %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, see [AUTOTITLE](/integrations/how-tos/slack).
+The Slack + {% data variables.product.github %} app is compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, see [AUTOTITLE](/integrations/how-tos/slack).
+
+{% ifversion copilot %}
+
+You can also integrate the {% data variables.copilot.copilot_cloud_agent %} with Slack, enabling you to use AI-powered coding assistance directly within your team's communication platform.
+
+Use {% data variables.copilot.copilot_cloud_agent %} to collaborate with your team on agent-assisted work. You can @mention {% data variables.product.github %} in channels, threads, and direct messages to work alongside teammates and {% data variables.product.prodname_copilot_short %} on research, planning, and coding tasks. Teammates can add context, steer {% data variables.product.prodname_copilot_short %} sessions, monitor progress, and then review the resulting artifacts.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack).
+
+{% endif %}
 
 ### Microsoft Teams and {% data variables.product.github %} integration
 
@@ -79,8 +89,12 @@ You can also open and close issues, comment on your issues and pull requests, ap
 
 For more information, see [AUTOTITLE](/integrations/how-tos/teams).
 
-{% ifversion fpt or ghec %}
+{% ifversion copilot %}
 
-You can also integrate the {% data variables.copilot.copilot_cloud_agent %} with your Microsoft Teams app, enabling you to use AI-powered coding assistance directly within your team's communication platform. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams) for more information.
+You can also integrate the {% data variables.copilot.copilot_cloud_agent %} with your Microsoft Teams app, enabling you to use AI-powered coding assistance directly within your team's communication platform.
+
+Use {% data variables.copilot.copilot_cloud_agent %} in Microsoft Teams to collaborate with your team on agent-assisted work. You can @mention {% data variables.product.github %} in channels, threads, and direct messages to work alongside teammates and {% data variables.product.prodname_copilot_short %} on research, planning, and coding tasks. Teammates can add context, steer {% data variables.product.prodname_copilot_short %} sessions, monitor progress, and then review the resulting artifacts.
+
+See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams) for more information.
 
 {% endif %}

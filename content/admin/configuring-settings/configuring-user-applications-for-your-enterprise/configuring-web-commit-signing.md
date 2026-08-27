@@ -19,8 +19,6 @@ If you enable web commit signing, {% data variables.product.prodname_ghe_server 
 
 You can enable web commit signing, rotate the private key used for web commit signing, and disable web commit signing.
 
-{% ifversion ghes > 3.16 %}
-
 ### About persistent commit signature verification
 
 Persistent commit signature verification is related but separate from web commit signing. This feature ensures that the verified status of commits is retained, even if signing keys are changed or revoked.
@@ -28,8 +26,6 @@ Persistent commit signature verification is related but separate from web commit
 Persistent commit signature verification helps maintain long-term integrity and trust in your repository’s commit history. However, you may choose to disable it in environments where minimizing disk usage is a priority, especially for large installations with a high number of verified commits.
 
 For information about disabling persistent commit signature verification, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/disabling-persistent-commit-verification).
-
-{% endif %}
 
 ## Enabling web commit signing
 
@@ -45,7 +41,7 @@ For information about disabling persistent commit signature verification, see [A
     ghe-config app.github.web-commit-signing-enabled true
     ```
 
-1. Create a new user on {% data variables.location.product_location %} via built-in authentication or external authentication. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).
+1. Create a new user on {% data variables.location.product_location %} via built-in authentication or external authentication. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals).
    * The user's username must be the same username you used when creating the PGP key in step 1 above, for example, `web-flow`.
    * The user's email address must be the same address you used when creating the PGP key.
 {% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}
@@ -53,7 +49,7 @@ For information about disabling persistent commit signature verification, see [A
 1. Under "No-reply email address", type the same email address you used when creating the PGP key.
 
    > [!NOTE]
-   > The "No-reply email address" field will only be displayed if you've enabled email for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#configuring-smtp-for-your-enterprise).
+   > The "No-reply email address" field will only be displayed if you've enabled email for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-email-for-notifications#configuring-smtp-for-your-enterprise).
 
 {% data reusables.enterprise_management_console.save-settings %}
 

@@ -23,7 +23,7 @@ You can create and participate in issues, pull requests, and team discussions, d
 
 {% ifversion copilot %}
 
-> [!TIP] You can also use {% data variables.copilot.copilot_chat_short %} to generate ideas, outlines, or drafts for discussions, based on your pull requests and issues. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
+> [!TIP] You can also use {% data variables.copilot.copilot_chat_short %} to generate ideas, outlines, or drafts for discussions, based on your pull requests and issues. See [AUTOTITLE](/copilot/tutorials/copilot-cookbook/document-code/write-discussions-or-blog-posts).
 
 {% endif %}
 
@@ -140,9 +140,9 @@ To ask a question about an issue or discussion:
 
 These examples showed you how to decide which is the best tool for your conversations on {% data variables.product.github %}. But this is only the beginning; there is so much more you can do to tailor these tools to your needs.
 
-For issues, for example, you can tag issues with labels for quicker searching and create issue templates to help contributors open meaningful issues. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues#working-with-issues) and [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates).
+For issues, for example, you can tag issues with labels for quicker searching and create issue templates to help contributors open meaningful issues. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues) and [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates).
 
-For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests).
+For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see [AUTOTITLE](/pull-requests/reference/pull-requests#draft-pull-requests).
 
 For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 

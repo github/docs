@@ -8,6 +8,7 @@ contentType: how-tos
 children:
   - /overview
   - /add-custom-instructions
+  - /change-settings
   - /use-hooks
   - /add-skills
   - /add-mcp-servers

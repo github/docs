@@ -8,13 +8,14 @@ versions:
   ghec: '*'
 contentType: concepts
 children:
-  - /about-code-scanning-with-codeql
-  - /about-codeql-code-scanning-for-compiled-languages
+  - /codeql-code-scanning
+  - /codeql-for-compiled-languages
   - /codeql-query-suites
-  - /custom-codeql-queries
-  - /about-the-codeql-cli
-  - /about-codeql-for-vs-code
-  - /about-codeql-workspaces
+  - /custom-queries
+  - /codeql-cli
+  - /codeql-for-vs-code
+  - /codeql-workspaces
   - /query-reference-files
-  - /codeql-query-packs
+  - /query-packs
 ---
+

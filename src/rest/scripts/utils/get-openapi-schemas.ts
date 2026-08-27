@@ -1,5 +1,5 @@
 import { readFile, readdir } from 'fs/promises'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import path from 'path'
 
 import { allVersions } from '@/versions/lib/all-versions'
@@ -27,7 +27,7 @@ export async function getSchemas(
     const fileBaseName = path.basename(file, '.yaml')
     const newFileName = `${fileBaseName}.deref.json`
     const content = await readFile(path.join(directory, file), 'utf8')
-    const yamlContent = yaml.load(content) as { published?: boolean; deprecated?: boolean }
+    const yamlContent = load(content) as { published?: boolean; deprecated?: boolean }
 
     const releaseMatch = Object.keys(configData.versionMapping).find((name) =>
       fileBaseName.startsWith(name),
@@ -74,7 +74,7 @@ export async function validateVersionsOptions(versions: string[]): Promise<void>
       schemas.deprecated.includes(`${version}.deref.json`) ||
       schemas.unpublished.includes(`${version}.deref.json`)
     ) {
-      const errorMsg = `🛑 This script doesn't support generating individual deprecated or unpublished schemas. Please reach out to #docs-engineering if this is a use case that you need.`
+      const errorMsg = `🛑 This script doesn't support generating individual deprecated or unpublished schemas. Please reach out to #technical-content if this is a use case that you need.`
       throw new Error(errorMsg)
     } else if (!schemas.currentReleases.includes(`${version}.deref.json`)) {
       throw new Error(`🛑 The version (${version}) you specified is not valid.`)

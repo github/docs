@@ -28,9 +28,6 @@ When a new model is designated a base model, the following timeline applies:
 | Upgrade window     | Day 0 to Day 60               | Customers have 60 days to upgrade their IDE extensions to versions that support the new model.     |
 | Enablement         | Day 60                        | The new model is automatically enabled on all organizations and enterprises as the base model. |
 
-> [!NOTE]
-> The base model has a **1x premium request multiplier** on paid plans. For more information about multipliers, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests#model-multipliers).
-
 ## About long-term support (LTS) models
 
 > [!IMPORTANT]
@@ -42,4 +39,4 @@ An LTS model is an AI model that {% data variables.product.github %} commits to 
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/ai-models/supported-models)
-* [AUTOTITLE](/copilot/concepts/billing/copilot-requests)
+* [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing)

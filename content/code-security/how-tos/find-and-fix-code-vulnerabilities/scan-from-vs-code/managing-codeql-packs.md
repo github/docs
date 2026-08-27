@@ -42,4 +42,4 @@ category:
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-{% data variables.product.prodname_codeql %} model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. The {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} includes a dedicated editor for creating and editing model packs. See [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor).
+{% data variables.product.prodname_codeql %} model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. The {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} includes a dedicated editor for creating and editing model packs. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/use-the-model-editor).

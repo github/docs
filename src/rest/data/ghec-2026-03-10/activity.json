@@ -3291,6 +3291,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -3342,6 +3366,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -3351,6 +3379,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -3401,6 +3430,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -6313,6 +6372,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -6364,6 +6447,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -6373,6 +6460,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -6423,6 +6511,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -7107,6 +7225,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -13012,6 +13154,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -13063,6 +13229,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -13072,6 +13242,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -13122,6 +13293,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -16034,6 +16235,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -16085,6 +16310,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -16094,6 +16323,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -16144,6 +16374,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -16828,6 +17088,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -22741,6 +23025,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -22792,6 +23100,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -22801,6 +23113,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -22851,6 +23164,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -25763,6 +26106,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -25814,6 +26181,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -25823,6 +26194,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -25873,6 +26245,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -26557,6 +26959,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -32450,6 +32876,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -32501,6 +32951,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -32510,6 +32964,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -32560,6 +33015,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -35472,6 +35957,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -35523,6 +36032,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -35532,6 +36045,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -35582,6 +36096,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -36266,6 +36810,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -42153,6 +42721,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -42204,6 +42796,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -42213,6 +42809,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -42263,6 +42860,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -45175,6 +45802,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -45226,6 +45877,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -45235,6 +45890,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -45285,6 +45941,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -45969,6 +46655,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -51881,6 +52591,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -51932,6 +52666,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -51941,6 +52679,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -51991,6 +52730,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -54903,6 +55672,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -54954,6 +55747,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -54963,6 +55760,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -55013,6 +55811,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -55697,6 +56525,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -61583,6 +62435,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -61634,6 +62510,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -61643,6 +62523,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -61693,6 +62574,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -64605,6 +65516,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -64656,6 +65591,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -64665,6 +65604,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -64715,6 +65655,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -65399,6 +66369,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -71287,6 +72281,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -71338,6 +72356,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -71347,6 +72369,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -71397,6 +72420,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -74309,6 +75362,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -74360,6 +75437,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -74369,6 +75450,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -74419,6 +75501,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -75103,6 +76215,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -80991,6 +82127,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -81042,6 +82202,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -81051,6 +82215,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -81101,6 +82266,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -84013,6 +85208,30 @@
                                             ]
                                           }
                                         ]
+                                      },
+                                      "minimized": {
+                                        "anyOf": [
+                                          {
+                                            "type": "null"
+                                          },
+                                          {
+                                            "title": "Minimized Issue Comment",
+                                            "description": "Details about why an issue comment was minimized.",
+                                            "type": "object",
+                                            "properties": {
+                                              "reason": {
+                                                "description": "The reason the comment was minimized.",
+                                                "type": [
+                                                  "string",
+                                                  "null"
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "reason"
+                                            ]
+                                          }
+                                        ]
                                       }
                                     },
                                     "required": [
@@ -84064,6 +85283,10 @@
                                       "type": "integer",
                                       "format": "int64"
                                     },
+                                    "issue_field_name": {
+                                      "description": "The human-readable name of the issue field.",
+                                      "type": "string"
+                                    },
                                     "node_id": {
                                       "type": "string"
                                     },
@@ -84073,6 +85296,7 @@
                                       "enum": [
                                         "text",
                                         "single_select",
+                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -84123,6 +85347,36 @@
                                         "name",
                                         "color"
                                       ]
+                                    },
+                                    "multi_select_options": {
+                                      "description": "Details about the selected options",
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Unique identifier for the option.",
+                                            "type": "integer",
+                                            "format": "int64"
+                                          },
+                                          "name": {
+                                            "description": "The name of the option",
+                                            "type": "string"
+                                          },
+                                          "color": {
+                                            "description": "The color of the option",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "name",
+                                          "color"
+                                        ]
+                                      }
                                     }
                                   },
                                   "required": [
@@ -84807,6 +86061,30 @@
                                     "required": [
                                       "pinned_at",
                                       "pinned_by"
+                                    ]
+                                  }
+                                ]
+                              },
+                              "minimized": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "title": "Minimized Issue Comment",
+                                    "description": "Details about why an issue comment was minimized.",
+                                    "type": "object",
+                                    "properties": {
+                                      "reason": {
+                                        "description": "The reason the comment was minimized.",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "reason"
                                     ]
                                   }
                                 ]
@@ -91836,6 +93114,93 @@
         "permissions": [
           {
             "\"Metadata\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "write"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/count",
+      "title": "Get stargazer count",
+      "category": "activity",
+      "subcategory": "starring",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the current number of users who have starred the repository. Users who previously starred the repository but later removed their star are not included.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "count": 42
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "count"
+              ],
+              "properties": {
+                "count": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
           }
         ],
         "allowsPublicRead": true
@@ -95578,6 +96943,9 @@
         "permissions": [
           {
             "\"Metadata\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "write"
           }
         ],
         "allowsPublicRead": true

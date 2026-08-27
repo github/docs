@@ -24,7 +24,7 @@ category:
 
 ## Prerequisites
 
-Before you write code for a {% data variables.product.prodname_github_app %}, you should register a {% data variables.product.prodname_github_app %}. When you register a {% data variables.product.prodname_github_app %}, you select permissions for the app. These permissions dictate what the {% data variables.product.prodname_github_app %} can do. When you register an app, you also specify other settings, including which webhook events your {% data variables.product.prodname_github_app %} should receive. You can always change the settings for your {% data variables.product.prodname_github_app %} registration. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app) and [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).
+Before you write code for a {% data variables.product.prodname_github_app %}, you should register a {% data variables.product.prodname_github_app %}. When you register a {% data variables.product.prodname_github_app %}, you select permissions for the app. These permissions dictate what the {% data variables.product.prodname_github_app %} can do. When you register an app, you also specify other settings, including which webhook events your {% data variables.product.prodname_github_app %} should receive. You can always change the settings for your {% data variables.product.prodname_github_app %} registration. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app) and [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration).
 
 If you want your {% data variables.product.prodname_github_app %} to access repository and/or organization data, you need to install your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app).
 
@@ -35,17 +35,17 @@ In order for your {% data variables.product.prodname_github_app %} to do somethi
 For tutorials about how to write code for a {% data variables.product.prodname_github_app %}, see:
 
 * [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/quickstart)
-* [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)
-* [AUTOTITLE](/apps/creating-github-apps/guides/building-a-login-with-github-button-with-a-github-app)
-* [AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)
+* [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events)
+* [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-login-with-github-button-with-a-github-app)
+* [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-cli-with-a-github-app)
 
 You can use the credentials from your {% data variables.product.prodname_github_app %} registration to make authenticated requests to {% data variables.product.company_short %}'s APIs. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app).
 
 During development, you will likely use your personal computer or codespace to run your {% data variables.product.prodname_github_app %}. You may need to make some modifications to your {% data variables.product.prodname_github_app %} registration during development:
 
-* If your app receives webhooks, you may want to use a webhook proxy URL to forward webhooks from GitHub to your computer or codespace. You will need to update the "Webhook URL" setting in your {% data variables.product.prodname_github_app %} registration to use your webhook proxy URL. For an example, see [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events).
+* If your app receives webhooks, you may want to use a webhook proxy URL to forward webhooks from GitHub to your computer or codespace. You will need to update the "Webhook URL" setting in your {% data variables.product.prodname_github_app %} registration to use your webhook proxy URL. For an example, see [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events).
 
-* If your app uses the web application flow to authorize a user, you may want to update the "Callback URL" setting in your {% data variables.product.prodname_github_app %} registration to use a local callback URL. For an example, see [AUTOTITLE](/apps/creating-github-apps/guides/building-a-login-with-github-button-with-a-github-app).
+* If your app uses the web application flow to authorize a user, you may want to update the "Callback URL" setting in your {% data variables.product.prodname_github_app %} registration to use a local callback URL. For an example, see [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-login-with-github-button-with-a-github-app).
 
 ## Next steps
 

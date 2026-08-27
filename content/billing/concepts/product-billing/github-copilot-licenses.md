@@ -15,13 +15,7 @@ category:
   - Understand product costs
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.ubb-announcement-cfi-cb-ce %}
-
-<!-- end expires 2026-06-01 -->
-
-Usage of {% data variables.product.prodname_copilot %} is measured through a combination of licenses and monthly usage tracking. For more information about how usage costs in {% data variables.product.prodname_copilot_short %} work, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-premium-requests).
+Usage of {% data variables.product.prodname_copilot %} is measured through a combination of licenses and {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 
 ## Licenses for {% data variables.product.prodname_copilot_short %}
 
@@ -29,7 +23,7 @@ Usage of {% data variables.product.prodname_copilot %} is measured through a com
 
 | Account type      | Options                                                                 |
 |-------------------|-------------------------------------------------------------------------|
-| **Personal accounts** | <ul><li>{% data variables.copilot.copilot_pro_short %}: {% data variables.copilot.cfi_price_per_month %} per calendar month.</li><li>{% data variables.copilot.copilot_pro_plus_short %}: {% data variables.copilot.cpp_price_per_month %} per calendar month.</li><li>{% data variables.copilot.copilot_student_short %}: access to {% data variables.product.prodname_copilot_short %} premium features at no cost.</li><li>{% data variables.copilot.copilot_free_short %}: limited access to {% data variables.product.prodname_copilot_short %} features at no cost.</li></ul> |
+| **Personal accounts** | <ul><li>{% data variables.copilot.copilot_pro_short %}: {% data variables.copilot.cfi_price_per_month %} per calendar month.</li><li>{% data variables.copilot.copilot_pro_plus_short %}: {% data variables.copilot.cpp_price_per_month %} per calendar month.</li><li>{% data variables.copilot.copilot_max_short %}: {% data variables.copilot.cm_price_per_month %} per calendar month.</li><li>{% data variables.copilot.copilot_student_short %}: access to {% data variables.product.prodname_copilot_short %} premium features at no cost.</li><li>{% data variables.copilot.copilot_free_short %}: limited access to {% data variables.product.prodname_copilot_short %} features at no cost.</li></ul> |
 | **Organizations** | {% data variables.copilot.copilot_business_short %}: {% data variables.copilot.cfb_price_per_month %} per user per month (billed monthly). |
 | **Enterprises**   | Choose {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, or mix them across organizations. Both are billed monthly, pricing varies. |
 
@@ -42,14 +36,14 @@ There are several ways to use {% data variables.product.prodname_copilot_short %
 ### {% data variables.copilot.copilot_free_short %}
 
 * Provides limited access to {% data variables.product.prodname_copilot_short %} features at no cost.
-* Includes a monthly allowance of completions and premium requests.
+* Includes a monthly allowance of completions and limited chat and agent usage.
 * Intended for **individual use only** (not suitable for organizations or enterprises).
 * For usage beyond the free plan limits, upgrade to {% data variables.copilot.copilot_pro_short %}.
 
 ### Educational and open source benefits
 
 * {% data variables.copilot.copilot_student_short %} offers free access to {% data variables.product.prodname_copilot_short %}'s premium features for verified students. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
-* {% data variables.copilot.copilot_pro_short %} is free for verified teachers and maintainers of popular open source projects. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer).
+* {% data variables.copilot.copilot_pro_short %} is free for verified teachers and maintainers of popular open source projects. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers).
 
 ## How usage of {% data variables.product.prodname_copilot_short %} licenses is measured
 
@@ -61,7 +55,7 @@ Usage of {% data variables.product.prodname_copilot_short %} licenses is measure
 * Downgrades take effect at the start of the next billing cycle and are generally not prorated.
 * Canceling a monthly plan keeps access until the end of the current billing cycle, with no proration.
 
-For details on billing and proration, see [AUTOTITLE](/copilot/concepts/billing/billing-for-individuals).
+For details on billing and proration, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals).
 
 ### Organizations and enterprises
 
@@ -97,12 +91,10 @@ To help manage your budget for {% data variables.product.prodname_copilot_short 
 * You can set budgets for your personal account to receive email alerts at 75%, 90%, and 100% of the budget.
 * Budgets help you monitor spending but do not stop license charges.
 
-For more information about using budgets to control spending, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
+{% data reusables.copilot.plans.ai-cap-recommend-upgrade %}
+
+For more information about using budgets to control spending, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 ### Organizations and enterprises
 
-* Owners and billing managers can set budgets at the organization or enterprise level, or by cost center.
-* Budgets for licenses are monitoring-only: spending can exceed the budget, but alerts notify you when thresholds are reached.
-* Use cost centers to track spending across teams or initiatives.
-
-For more information about managing company spending, see [AUTOTITLE](/copilot/how-tos/spending/manage-company-spending).
+Owners and billing managers can set budgets at the user, organization, cost center, and enterprise level to monitor and control {% data variables.product.prodname_ai_credits_short %} consumption. See [AUTOTITLE](/copilot/tutorials/budgets/getting-started-with-budget-controls).

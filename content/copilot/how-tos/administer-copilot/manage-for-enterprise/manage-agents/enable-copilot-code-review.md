@@ -14,12 +14,6 @@ category:
   - Manage Copilot for a team
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.code-review-actions-minutes-note %}
-
-<!-- end expires 2026-06-01 -->
-
 {% data variables.product.prodname_copilot %} can review pull requests in your enterprise. This can save time for human reviewers by detecting bugs or vulnerabilities and enforcing consistent coding standards.
 
 ## Enabling {% data variables.copilot.copilot_code-review_short %} for your {% data variables.product.prodname_copilot_short %} subscribers

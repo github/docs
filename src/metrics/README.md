@@ -148,7 +148,7 @@ Pre-defined queries in `queries/` directory:
 - Kusto database - Contains aggregated event data
 
 ### Internal documentation
-For Kusto cluster details and database schema, see internal Docs Engineering documentation. Credentials are pinned in the #docs-engineering Slack channel.
+For Kusto cluster details and database schema, see [`analytics/kusto.md`](https://github.com/github/technical-content/blob/main/analytics/kusto.md). Credentials are pinned in the #technical-content Slack channel.
 
 ### Ownership
 - Team: Docs Content (with engineering support and reviews)

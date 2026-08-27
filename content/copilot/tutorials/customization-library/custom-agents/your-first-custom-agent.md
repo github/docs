@@ -83,6 +83,6 @@ Test this agent by giving it a task to complete:
    Please review and improve our README.md file.
    ```
 
-The agent task will appear on the page below the text box. The agent will focus specifically on README improvements using its specialized knowledge, creating a pull request in your repository. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
+The agent task will appear on the page below the text box. The agent will focus specifically on README improvements using its specialized knowledge, creating a pull request in your repository. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 {% data reusables.copilot.custom-agents-further-reading %}

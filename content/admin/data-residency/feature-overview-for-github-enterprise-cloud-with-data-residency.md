@@ -22,16 +22,13 @@ The following features are currently unavailable on {% data variables.enterprise
 
 | Feature | Details | More information |
 | :- | :- | :- |
-| macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners) |
+| Dependency insights | Organization-level and enterprise-level dependency insights are unavailable and display no data. | [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization) |
+| License and package metadata in the dependency graph | License and package details are not currently populated in the dependency graph. This can result in empty license fields in software bill of materials (SBOM) exports and missing license information from the {% data variables.dependency-review.action_name %}. | [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/export-dependencies-as-sbom)<br>[AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-dependency-review-action) |
+| macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/concepts/runners/github-hosted-runners) |
 | Maven and Gradle support for {% data variables.product.prodname_registry %} | Currently unavailable. | [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry) |
-| Repository traffic metrics | Currently unavailable through both the UI and REST API. | [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository) |
-| {% data variables.product.prodname_spark_short %} | Currently unavailable. | [AUTOTITLE](/copilot/concepts/spark) |
 | {% data variables.product.prodname_marketplace %} | {% data variables.product.prodname_marketplace %}, as a means of searching for, purchasing, and directly installing apps and actions, is unavailable. Ecosystem apps and actions can still be discovered and installed from their source, but they may require modification to work on {% data variables.enterprise.data_residency_site %}. | [{% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %}](#github-actions-workflows-from-github-marketplace) |
-| Certain features of {% data variables.product.prodname_github_connect %} | Although you can connect an enterprise on {% data variables.enterprise.data_residency_site %} to a {% data variables.product.prodname_ghe_server %} instance, certain features of {% data variables.product.prodname_github_connect %} are not available. | [{% data variables.product.prodname_github_connect %}](#github-connect) |
 | Some features currently in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.private_preview %} | Certain features that are in a preview phase on {% data variables.product.prodname_dotcom_the_website %} may not be available on {% data variables.enterprise.data_residency_site %} until GA. | |
-| Migrations REST API | Currently unavailable. | [AUTOTITLE](/rest/migrations) |
 | Streaming audit logs to Amazon S3 with OpenID Connect (OIDC) | Currently unavailable. | [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) |
-| Organization-level dependency insights | Currently unavailable. | [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization) |
 
 ## Permanently unavailable features
 
@@ -56,7 +53,7 @@ The following features are either specific to {% data variables.enterprise.data_
 
 ### API access
 
-{% data reusables.data-residency.data-resident-enterprises-api-access %} For more information, see [AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency#api-access).
+{% data reusables.data-residency.data-resident-enterprises-api-access %} You must authenticate all API requests to {% data variables.enterprise.data_residency_site %} using a credential supported by the endpoint. For endpoints that do not require authentication on {% data variables.product.prodname_dotcom_the_website %}, authenticate with an access token. For more information, see [AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency#api-access).
 
 ### URL differences
 
@@ -92,15 +89,13 @@ The following examples are not exhaustive.
 
 {% data reusables.actions.namespace-retirement-ghecom %}
 
-To allow people to use namespaces that match actions you have used from {% data variables.product.prodname_dotcom_the_website %}, you can make a retired namespace available. See [AUTOTITLE](/actions/administering-github-actions/making-retired-namespaces-available-on-ghecom).
+To allow people to use namespaces that match actions you have used from {% data variables.product.prodname_dotcom_the_website %}, you can make a retired namespace available. See [AUTOTITLE](/actions/how-tos/administer/reuse-namespaces-on-ghecom).
 
 ### {% data variables.product.prodname_github_connect %}
 
 You can use {% data variables.product.prodname_github_connect %} to connect to {% data variables.enterprise.data_residency_site %} from {% data variables.product.prodname_ghe_server %}.
 
-* {% data variables.product.prodname_server_statistics %} is not available.
-* {% data variables.product.prodname_dotcom_the_website %} actions are not available.
-* Automatic user license sync requires {% data variables.product.prodname_ghe_server %} version 3.15 or later.
+{% data reusables.github-connect.what-is-available-ghecom %}
 
 To enable {% data variables.product.prodname_github_connect %}, you must configure your {% data variables.product.prodname_ghe_server %} instance to connect to your {% data variables.enterprise.data_residency_site %} subdomain. See [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom).
 

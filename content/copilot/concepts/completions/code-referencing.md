@@ -56,7 +56,7 @@ If you, or your organization, have allowed suggestions that match public code, t
 
 ### Code referencing for {% data variables.copilot.copilot_cloud_agent %}
 
-When {% data variables.product.prodname_copilot_short %} generates code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
+When {% data variables.product.prodname_copilot_short %} generates code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 {% endwebui %}
 
@@ -90,6 +90,6 @@ References to matching code are currently available in JetBrains IDEs, {% data v
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/completions/finding-public-code-that-matches-github-copilot-suggestions)
-* [AUTOTITLE](/copilot/how-tos/manage-your-account/managing-copilot-policies-as-an-individual-subscriber)
-* [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization)
+* [AUTOTITLE](/copilot/how-tos/get-code-suggestions/find-matching-code)
+* [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies)
