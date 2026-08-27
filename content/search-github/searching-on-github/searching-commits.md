@@ -9,12 +9,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
+category:
+  - Get started with search
 ---
 You can search for commits globally across all of {% data variables.product.github %}, or search for commits within a particular repository or organization. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
-When you search for commits, only the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) of a repository is searched.
+When you search for commits, only the [default branch](/pull-requests/reference/branches) of a repository is searched.
 
 {% data reusables.search.syntax_tips %}
 

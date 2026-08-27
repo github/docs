@@ -188,4 +188,60 @@ describe('POST /events', () => {
       expect(statusCode).toBe(200)
     }
   })
+
+  test('should accept a link event with markdown-source-menu container', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'link',
+      context: pageExample.context,
+      link_url: 'https://docs.github.com/api/article/body?pathname=/en/copilot/overview',
+      link_samesite: false,
+      link_container: 'markdown-source-menu',
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should reject a link event with an invalid link_container', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'link',
+      context: pageExample.context,
+      link_url: 'https://docs.github.com/api/article/body?pathname=/en/copilot/overview',
+      link_samesite: false,
+      link_container: 'not-a-valid-container',
+    })
+    expect(statusCode).toBe(400)
+  })
+
+  test('should accept a tableInteraction filter event', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'tableInteraction',
+      context: pageExample.context,
+      table_interaction_name: 'secret-scanning-patterns',
+      table_interaction_type: 'filter',
+      table_interaction_field_name: 'pushProtection',
+      table_interaction_field_value: 'yes',
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should accept a tableInteraction event without optional fields', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'tableInteraction',
+      context: pageExample.context,
+      table_interaction_name: 'secret-scanning-patterns',
+      table_interaction_type: 'reset',
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should reject a tableInteraction event with an invalid interaction type', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'tableInteraction',
+      context: pageExample.context,
+      table_interaction_name: 'secret-scanning-patterns',
+      table_interaction_type: 'not-a-valid-type',
+      table_interaction_field_name: 'pushProtection',
+      table_interaction_field_value: 'yes',
+    })
+    expect(statusCode).toBe(400)
+  })
 })

@@ -6,7 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-layout: product-landing
+layout: discovery-landing
 introLinks:
   quickstart: /get-started/start-your-journey
 featuredLinks:
@@ -33,7 +33,6 @@ children:
   - /start-your-journey
   - /foo
   - /sidebar-test
-  - /video-transcripts
   - /minitocs
   - /liquid
   - /markdown
@@ -42,12 +41,14 @@ children:
   - /learning-about-github
   - /empty-categories
   - /test-journey
+  - /test-journey-single
   - /carousel
   - /article-grid-discovery
   - /article-grid-bespoke
+  - /multi-carousel
+  - /non-child-resolution
+  - /discovery-filtered
 communityRedirect:
   name: Provide HubGit Feedback
   href: 'https://hubgit.com/orgs/community/discussions/categories/get-started'
-product_video: 'https://www.yourube.com/abc123'
-product_video_transcript: '/video-transcripts/transcript--my-awesome-video'
 ---

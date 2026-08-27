@@ -9,9 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /managing-two-factor-authentication-for-your-organization
   - /managing-security-settings-for-your-organization

@@ -2,7 +2,7 @@ import fs from 'fs'
 import os from 'os'
 import path from 'path'
 
-import yaml from 'js-yaml'
+import { dump } from 'js-yaml'
 
 interface DataStructure {
   [key: string]: string | DataStructure
@@ -75,10 +75,10 @@ export class DataDirectory {
           this.create(value as DataStructure, path.join(here, key), false, true)
         }
       } else if (isVariables) {
-        fs.writeFileSync(path.join(here, `${key}.yml`), yaml.dump(value), 'utf-8')
+        fs.writeFileSync(path.join(here, `${key}.yml`), dump(value), 'utf-8')
       } else {
         if (key === 'ui') {
-          fs.writeFileSync(path.join(here, `${key}.yml`), yaml.dump(value), 'utf-8')
+          fs.writeFileSync(path.join(here, `${key}.yml`), dump(value), 'utf-8')
         } else {
           const there = path.join(here, key)
           fs.mkdirSync(there)

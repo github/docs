@@ -4,10 +4,10 @@ intro: You can leave an enterprise after removing yourself from every organizati
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Leave an enterprise
 contentType: how-tos
+category:
+  - Participate in organizations
 ---
 
 If your personal {% data variables.product.github %} account is a member of an enterprise, you can leave the enterprise at any time.

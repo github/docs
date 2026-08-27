@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 children:
   - /accessing-an-organization
   - /viewing-peoples-roles-in-an-organization

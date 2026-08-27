@@ -5,8 +5,6 @@ permissions: Enterprise owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Manage network access
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/managing-github-copilot-access-to-your-enterprises-network

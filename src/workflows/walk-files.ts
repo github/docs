@@ -10,7 +10,7 @@ import fs from 'fs'
 export default function walkFiles(
   dir: string,
   ext: string | string[],
-  opts: Record<string, any> = {},
+  opts: Record<string, unknown> = {},
 ) {
   const extensions = Array.isArray(ext) ? ext : [ext]
   const walkSyncOpts = { includeBasePath: true, directories: false }

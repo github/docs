@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Team Foundation Version Control
+category:
+  - Import source code
 ---
 
 ## About imports from Team Foundation Version Control

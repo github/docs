@@ -1,6 +1,6 @@
 ---
 title: Enabling subdomain isolation
-intro: 'You can set up subdomain isolation to securely separate user-supplied content from other portions of your {% data variables.product.prodname_ghe_server %} appliance.'
+intro: You can set up subdomain isolation to securely separate user-supplied content from other portions of your {% data variables.product.prodname_ghe_server %} appliance.
 redirect_from:
   - /enterprise/admin/guides/installation/about-subdomain-isolation
   - /enterprise/admin/installation/enabling-subdomain-isolation
@@ -10,14 +10,10 @@ redirect_from:
   - /admin/configuration/hardening-security-for-your-enterprise/enabling-subdomain-isolation
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
-  - Security
 shortTitle: Enable subdomain isolation
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 ## About subdomain isolation
 
@@ -51,13 +47,13 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 
 Before you enable subdomain isolation, you must configure your network settings for your new domain.
 
-* Specify a valid domain name as your hostname, instead of an IP address. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-a-hostname).
+* Specify a valid domain name as your hostname, instead of an IP address. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/configuring-the-hostname-for-your-instance).
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
 * Set up a wildcard Domain Name System (DNS) record or individual DNS records for the subdomains listed above. We recommend creating an A record for `*.HOSTNAME` that points to your server's IP address so you don't have to create multiple records for each subdomain.
 * Get a wildcard Transport Layer Security (TLS) certificate for `*.HOSTNAME` with a Subject Alternative Name (SAN) for both `HOSTNAME` and the wildcard domain `*.HOSTNAME`. For example, if your hostname is `github.octoinc.com`, get a certificate with the Common Name value set to `*.github.octoinc.com` and a SAN value set to both `github.octoinc.com` and `*.github.octoinc.com`.
-* Enable TLS on your appliance. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls).
+* Enable TLS on your appliance. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls).
 
 ## Enabling subdomain isolation
 

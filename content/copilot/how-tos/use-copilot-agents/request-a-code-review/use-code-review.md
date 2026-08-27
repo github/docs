@@ -5,8 +5,6 @@ intro: 'Learn how to request a code review from {% data variables.product.prodna
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /early-access/copilot/code-review/using-copilot-code-review
   - /early-access/copilot/code-reviews/using-copilot-code-review
@@ -24,20 +22,22 @@ category:
 
 {% data variables.product.prodname_copilot %} can review your code and provide feedback. Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
 
-For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/code-review).
+For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/agents/code-review).
+
+{% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_actions %} to run agentic capabilities. For more information, see [Agentic capabilities for {% data variables.copilot.copilot_code-review_short %}](/copilot/concepts/agents/code-review#usage-of-github-actions-runners-for-agentic-capabilities-in-code-review).
 
 {% webui %}
 
-{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-for-organization-members-without-a-copilot-license).
+{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).
 
 ## Using {% data variables.copilot.copilot_code-review_short %}
 
 These instructions explain how to use {% data variables.copilot.copilot_code-review_short %} in the {% data variables.product.github %} website. To see instructions for other popular coding environments, click the appropriate tab at the top of the page.
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, create a pull request or navigate to an existing pull request.
-1. Open the **Reviewers** menu, then select **{% data variables.product.prodname_copilot_short %}**.
+1. Under "Reviewers" in the right sidebar, next to **{% data variables.product.prodname_copilot_short %}**, click **Request**.
 
-   ![Screenshot of selecting '{% data variables.product.prodname_copilot_short %}' from the 'Reviewers' menu.](/assets/images/help/copilot/code-review/request-review@2x.png)
+   ![Screenshot of {% data variables.product.prodname_copilot_short %} with 'Request' button under 'Reviewers'.](/assets/images/help/copilot/code-review/request-review@2x.png)
 
 1. Wait for {% data variables.product.prodname_copilot_short %} to review your pull request. This usually takes less than 30 seconds.
 
@@ -45,50 +45,85 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
    ![Screenshot of a code review left by {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/code-review/review-comment@2x.png)
 
-   {% data variables.product.prodname_copilot_short %} always leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request, and {% data variables.product.prodname_copilot_short %}'s reviews will not block merging changes. For more details, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews).
+   {% data variables.product.prodname_copilot_short %} always leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request, and {% data variables.product.prodname_copilot_short %}'s reviews will not block merging changes. For more details, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/approving-a-pull-request-with-required-reviews).
 
 1. {% data variables.product.prodname_copilot_short %}'s review comments behave like review comments from humans. You can add reactions to them, comment on them, resolve them and hide them.
 
    Any comments you add to {% data variables.product.prodname_copilot_short %}'s review comments will be visible to humans, but they won't be visible to {% data variables.product.prodname_copilot_short %}, and {% data variables.product.prodname_copilot_short %} won't reply.
 
+You can also request a review from {% data variables.product.prodname_copilot_short %} through the {% data variables.product.github %} REST API by requesting `copilot-pull-request-reviewer[bot]` as a reviewer. For more information, see [AUTOTITLE](/rest/pulls/review-requests#request-reviewers-for-a-pull-request).
+
+## Enabling automatic reviews
+
+By default, you manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request, in the same way you would request a review from a human. However, you can set up {% data variables.product.prodname_copilot_short %} to automatically review all pull requests. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
+
+## Choosing a review effort level
+
+{% data variables.copilot.copilot_code-review_short %} supports multiple review effort levels, so you can choose the level of thoroughness that matches the criticality of your code.
+
+* **Lite**: Standard review that provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies (default).
+* **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes, using a higher-reasoning model.
+
+You can select the review effort level in the pull request, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. Organization owners and repository administrators can also set a default effort level for automatic reviews.
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/code-review#review-effort-level).
+
 ## Working with suggested changes provided by {% data variables.product.prodname_copilot_short %}
 
 Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
 
-If you're happy with the changes, you can accept a single suggestion from {% data variables.product.prodname_copilot_short %} and commit it, or accept a group of suggestions together in a single commit. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request).
+If you're happy with the changes, you can accept a single suggestion from {% data variables.product.prodname_copilot_short %} and commit it, or accept a group of suggestions together in a single commit. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/incorporating-feedback-in-your-pull-request).
 
-You can also invoke {% data variables.copilot.copilot_coding_agent %} to implement suggested changes. To do this, you must:
+You can also invoke {% data variables.copilot.copilot_cloud_agent %} to implement suggested changes. To do this, you must:
 
-* Opt into the {% data variables.release-phases.public_preview %} for {% data variables.copilot.copilot_code-review-tools_short %} and enable {% data variables.copilot.copilot_coding_agent %}.
-* On review comments from {% data variables.copilot.copilot_code-review %}, click **Implement suggestion**. This creates a draft comment on the pull request, where you can instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. {% data variables.product.prodname_copilot_short %} will create a new pull request against your branch with the suggestions applied.
+* Enable {% data variables.copilot.copilot_code-review %} and {% data variables.copilot.copilot_cloud_agent %}.
+* On review comments from {% data variables.copilot.copilot_code-review %}, click **Fix with {% data variables.product.prodname_copilot_short %}**. This creates a draft comment on the pull request, where you can instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. You can then select whether {% data variables.product.prodname_copilot_short %} will create a new pull request against your branch or a commit to the same pull request with the suggestions applied.
+
+## Requesting a re-review from {% data variables.product.prodname_copilot_short %}
+
+When you push changes to a pull request that {% data variables.product.prodname_copilot_short %} has reviewed, it won't automatically re-review your changes unless you've configured it to review new pushes after enabling automatic reviews.
+
+To manually request a re-review from {% data variables.product.prodname_copilot_short %}, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/requesting-a-pull-request-review).
+
+To automatically request re-reviews from {% data variables.product.prodname_copilot_short %} on every push, enable automatic code review for the repository and select **Review new pushes** in the ruleset settings. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#configuring-automatic-code-review-for-repositories-in-an-organization).
+
+> [!NOTE] When re-reviewing a pull request, {% data variables.product.prodname_copilot_short %} may repeat the same comments again, even if they have been dismissed with the "Resolve conversation" button or downvoted with the thumbs down (:-1:) button.
+
+## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with custom instructions
+
+{% data reusables.copilot.code-review.custom-instructions-information %}
+
+## MCP servers and agent skills
+
+{% data variables.copilot.copilot_code-review_short %} can use agent skills and MCP servers configured in the repository, when they are relevant to the code being reviewed.
+
+To make these available for {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.github %}, configure:
+
+* **Agent skills** in your repository (in `.github/skills`). If you want a skill to target review tasks, use a review-focused skill directory name such as `code-review`. For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills).
+* **MCP servers** in repository {% data variables.product.prodname_copilot_short %} settings. The {% data variables.product.github %} MCP server and Playwright MCP server are enabled by default. For setup details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
+
+{% data reusables.copilot.code-review.mcp-context-usage %}
+
+{% data reusables.copilot.code-review.mcp-tools-setting %}
+
+## Customizing {% data variables.copilot.copilot_code-review_short %}'s environment
+
+{% data variables.copilot.copilot_code-review_short %} runs in an ephemeral development environment, similar to {% data variables.copilot.copilot_cloud_agent %}. You can customize this environment using a {% data variables.product.prodname_actions %} workflow file, in the same way you would for {% data variables.copilot.copilot_cloud_agent %}, for example, to preinstall tools or dependencies, or to switch to a different operating system. For more information on how to structure this file, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment).
+
+You can use either of the following files to configure {% data variables.copilot.copilot_code-review_short %}'s environment:
+
+* `.github/workflows/copilot-setup-steps.yml`: If you have already configured this file for {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %} will use the same configuration by default.
+* `.github/workflows/copilot-code-review.yml`: We recommend creating this file if you want to configure {% data variables.copilot.copilot_code-review_short %}'s environment independently of {% data variables.copilot.copilot_cloud_agent %}. If this file is present in your repository, it is used for {% data variables.copilot.copilot_code-review_short %} instead of `copilot-setup-steps.yml`.
+
+You can also configure firewall rules to control the domains and URLs that {% data variables.copilot.copilot_code-review_short %} can access, at both the organization and repository level. These settings are configured separately from {% data variables.copilot.copilot_cloud_agent %}'s firewall settings, in their own section of the same "Internet access" tab. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
 
 ## Providing feedback on {% data variables.product.prodname_copilot_short %}'s reviews
 
 You can provide feedback on {% data variables.product.prodname_copilot_short %}'s comments directly within each comment. We use this information to improve the product and the quality of {% data variables.product.prodname_copilot_short %}'s suggestions.
 
-1. On a pull request review comment from {% data variables.product.prodname_copilot_short %}, click the thumbs up (:+1:) or thumbs down (:-1:) button.
+To provide feedback on a review comment from {% data variables.product.prodname_copilot_short %}, click the thumbs up (:+1:) or thumbs down (:-1:) button.
 
-   ![Screenshot showing a {% data variables.copilot.copilot_code-review_short %} comment with the thumbs up and thumbs down buttons.](/assets/images/help/copilot/code-review/feedback-controls@2x.png)
-
-1. If you click the thumbs down button, you're asked to provide additional information. You can, optionally, pick the reason for your negative feedback and leave a comment before clicking **Submit feedback**.
-
-   ![Screenshot of the form for providing additional information when you give negative feedback on a comment from {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/code-review/feedback-modal@2x.png)
-
-## Requesting a re-review from {% data variables.product.prodname_copilot_short %}
-
-When you push changes to a pull request that {% data variables.product.prodname_copilot_short %} has reviewed, it won't automatically re-review your changes.
-
-To request a re-review from {% data variables.product.prodname_copilot_short %}, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review).
-
-> [!NOTE] When re-reviewing a pull request, {% data variables.product.prodname_copilot_short %} may repeat the same comments again, even if they have been dismissed with the "Resolve conversation" button or downvoted with the thumbs down (:-1:) button.
-
-## Enabling automatic reviews
-
-By default, you manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request, in the same way you would request a review from a human. However, you can set up {% data variables.product.prodname_copilot_short %} to automatically review all pull requests. See [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/automatic-code-review).
-
-## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with custom instructions
-
-{% data reusables.copilot.code-review.custom-instructions-information %}
+![Screenshot showing a {% data variables.copilot.copilot_code-review_short %} comment with the thumbs up and thumbs down buttons.](/assets/images/help/copilot/code-review/feedback-controls@2x.png)
 
 {% endwebui %}
 
@@ -104,7 +139,7 @@ You can request an initial review of a highlighted selection of code in {% data 
 
 ### Reviewing all uncommitted changes
 
-You can request a review of your uncommitted changes in {% data variables.product.prodname_vscode %}.
+If you have uncommitted changes, you can request a review in {% data variables.product.prodname_vscode %}.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, click the **Source Control** button in the Activity Bar.
 1. At the top of the **Source Control** view, hover over **CHANGES**, then click the {% data reusables.copilot.code-review.staging-icon-vscode %} **{% data variables.product.prodname_copilot_short %} Code Review - Uncommitted Changes** button.
@@ -151,7 +186,7 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 1. In the Git Changes window, click **Review changes with {% data variables.product.prodname_copilot_short %}**.
    This button appears as a comment icon with a sparkle.
 1. {% data variables.product.prodname_copilot_short %} will begin reviewing your changes. After a few moments, a link showing the number of code review comments appears in the Git Changes window.
-1. Click the link to view and navigate the comments. If no issues are found, you’ll see the message:
+1. Click the link to view and navigate the comments. If no issues are found, you'll see the message:
    {% data variables.product.prodname_copilot_short %} did not comment on any files.
 1. {% data variables.product.prodname_copilot_short %} displays comments in your code with a summary of each potential issue. You can:
 
@@ -237,3 +272,43 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 1. If there is more than one comment, use the up and down arrows, at the top right of the popup, to navigate between comments.
 
 {% endjetbrains %}
+
+{% cli %}
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
+* **{% data variables.product.prodname_cli %}**. You must have the {% data variables.product.prodname_cli %} installed and authenticated. See [AUTOTITLE](/github-cli/github-cli/quickstart).
+
+## Using {% data variables.copilot.copilot_code-review_short %}
+
+These instructions explain how to use {% data variables.copilot.copilot_code-review_short %} with the {% data variables.product.prodname_cli %}. To see instructions for other popular coding environments, click the appropriate tab at the top of the page.
+
+### Requesting a review when creating a pull request
+
+You can request a review from {% data variables.product.prodname_copilot_short %} when creating a new pull request using `gh pr create`:
+
+```shell copy
+gh pr create --reviewer @copilot
+```
+
+You can also select {% data variables.product.prodname_copilot_short %} interactively from the searchable reviewer prompt during `gh pr create`.
+
+```text
+? Reviewers  [Use arrows to move, space to select, <right> to all, <left> to none, type to filter]
+  [ ]  Search (7472 more)
+  [x]  monalisa (Mona Lisa)
+> [x]  Copilot (AI)
+```
+
+### Requesting a review on an existing pull request
+
+To request a review from {% data variables.product.prodname_copilot_short %} on an existing pull request, use `gh pr edit`. If you are not on the pull request's branch, specify the pull request number:
+
+```shell copy
+gh pr edit PR-NUMBER --add-reviewer @copilot
+```
+
+Replace `PR-NUMBER` with the number of the pull request you want reviewed. If you have the pull request's branch checked out, you can omit the number.
+
+{% endcli %}

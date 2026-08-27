@@ -13,10 +13,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Verify your email address
 contentType: how-tos
+category:
+  - Manage your email
 ---
 
 ## Verifying your email address
@@ -32,4 +32,4 @@ contentType: how-tos
 
 For reference information, see [AUTOTITLE](/account-and-profile/reference/email-addresses-reference).
 
-If you are having trouble verifying your email address, see [AUTOTITLE](/free-pro-team@latest/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/troubleshooting-email-verification).
+If you are having trouble verifying your email address, see [AUTOTITLE](/free-pro-team@latest/account-and-profile/how-tos/email-preferences/troubleshooting-email-verification).

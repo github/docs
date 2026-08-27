@@ -1,0 +1,301 @@
+{
+  "objects": [
+    {
+      "name": "DependencyGraphDependency",
+      "id": "dependencygraphdependency",
+      "href": "/graphql/reference/dependency-graph#object-dependencygraphdependency",
+      "description": "<p>A dependency manifest entry.</p>",
+      "fields": [
+        {
+          "name": "hasDependencies",
+          "description": "<p>Does the dependency itself have dependencies?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "packageLabel",
+          "description": "<p>The original name of the package, as it appears in the manifest.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>packageLabel</code> will be removed. Use normalized <code>packageName</code> field instead. Removal on 2022-10-01 UTC.</p>"
+        },
+        {
+          "name": "packageManager",
+          "description": "<p>The dependency package manager.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "packageName",
+          "description": "<p>The name of the package in the canonical form used by the package manager.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "packageUrl",
+          "description": "<p>Public preview: The dependency package URL.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "relationship",
+          "description": "<p>Public preview: The relationship of the dependency. Can be direct, transitive, or unknown.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository containing the package.</p>",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "requirements",
+          "description": "<p>The dependency version requirements.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "dependency-graph"
+    },
+    {
+      "name": "DependencyGraphDependencyConnection",
+      "id": "dependencygraphdependencyconnection",
+      "href": "/graphql/reference/dependency-graph#object-dependencygraphdependencyconnection",
+      "description": "<p>The connection type for DependencyGraphDependency.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DependencyGraphDependencyEdge]",
+          "id": "dependencygraphdependencyedge",
+          "href": "/graphql/reference/dependency-graph#object-dependencygraphdependencyedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DependencyGraphDependency]",
+          "id": "dependencygraphdependency",
+          "href": "/graphql/reference/dependency-graph#object-dependencygraphdependency"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "dependency-graph"
+    },
+    {
+      "name": "DependencyGraphDependencyEdge",
+      "id": "dependencygraphdependencyedge",
+      "href": "/graphql/reference/dependency-graph#object-dependencygraphdependencyedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DependencyGraphDependency",
+          "id": "dependencygraphdependency",
+          "href": "/graphql/reference/dependency-graph#object-dependencygraphdependency"
+        }
+      ],
+      "category": "dependency-graph"
+    },
+    {
+      "name": "DependencyGraphManifest",
+      "id": "dependencygraphmanifest",
+      "href": "/graphql/reference/dependency-graph#object-dependencygraphmanifest",
+      "description": "<p>Dependency manifest for a repository.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "blobPath",
+          "description": "<p>Path to view the manifest file blob.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "dependencies",
+          "description": "<p>A list of manifest dependencies.</p>",
+          "type": "DependencyGraphDependencyConnection",
+          "id": "dependencygraphdependencyconnection",
+          "href": "/graphql/reference/dependency-graph#object-dependencygraphdependencyconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "dependenciesCount",
+          "description": "<p>The number of dependencies listed in the manifest.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "exceedsMaxSize",
+          "description": "<p>Is the manifest too big to parse?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "filename",
+          "description": "<p>Fully qualified manifest filename.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the DependencyGraphManifest object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "parseable",
+          "description": "<p>Were we able to parse the manifest?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository containing the manifest.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        }
+      ],
+      "category": "dependency-graph"
+    },
+    {
+      "name": "DependencyGraphManifestConnection",
+      "id": "dependencygraphmanifestconnection",
+      "href": "/graphql/reference/dependency-graph#object-dependencygraphmanifestconnection",
+      "description": "<p>The connection type for DependencyGraphManifest.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DependencyGraphManifestEdge]",
+          "id": "dependencygraphmanifestedge",
+          "href": "/graphql/reference/dependency-graph#object-dependencygraphmanifestedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DependencyGraphManifest]",
+          "id": "dependencygraphmanifest",
+          "href": "/graphql/reference/dependency-graph#object-dependencygraphmanifest"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "dependency-graph"
+    },
+    {
+      "name": "DependencyGraphManifestEdge",
+      "id": "dependencygraphmanifestedge",
+      "href": "/graphql/reference/dependency-graph#object-dependencygraphmanifestedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DependencyGraphManifest",
+          "id": "dependencygraphmanifest",
+          "href": "/graphql/reference/dependency-graph#object-dependencygraphmanifest"
+        }
+      ],
+      "category": "dependency-graph"
+    }
+  ]
+}

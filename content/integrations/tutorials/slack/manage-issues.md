@@ -1,14 +1,12 @@
 ---
 title: Managing issues with the GitHub integration in Slack
 shortTitle: Manage issues
-intro: 'Learn how to manage issues with the {% data variables.product.github %} integration in Slack.'
+intro: Learn how to manage issues with the {% data variables.product.github %} integration in Slack.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Integration
-contentType: reference
+contentType: tutorials
 category:
   - Use integrations
 ---
@@ -24,3 +22,9 @@ With the {% data variables.product.github %} integration in Slack, you can comme
    * To close the issue, click **Close issue**. In the dialog, confirm that you want to close the issue by clicking **Close issue** again.
 
    >[!NOTE] If you do not see these options, you may not have the necessary permissions to manage issues in the repository.
+
+{% ifversion copilot %}
+
+Alternatively, you can ask {% data variables.product.prodname_copilot %} to manage issues by @mentioning `@{% data variables.product.github %}` in your channel or in a direct message.
+
+{% endif %}

@@ -1,10 +1,12 @@
 ---
 title: Programmatically importing repositories
 shortTitle: Programmatic repository imports
-intro: 'You can programmatically import repositories to {% data variables.product.prodname_dotcom %}.'
+intro: You can programmatically import repositories to {% data variables.product.prodname_dotcom %}.
 versions:
   feature: source-imports-api-deprecation
-type: tutorial
+contentType: tutorials
+category:
+  - Plan your migration
 ---
 
 ## About programmatic import of repositories
@@ -23,7 +25,7 @@ After you fork a repository, you can:
 
 * Fetch updates from the upstream repository to keep your fork up to date
 * Contribute back to the original project by creating pull requests from your fork
-For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
+For more information, see [AUTOTITLE](/pull-requests/reference/forks).
 
 You can programmatically fork a repository using the REST API. For more information, see [AUTOTITLE](/rest/repos/forks).
 

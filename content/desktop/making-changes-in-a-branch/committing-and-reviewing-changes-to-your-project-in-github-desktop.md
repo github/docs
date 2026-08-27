@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Commit & review changes
+category:
+  - Work with branches and pull requests
 ---
 ## About commits
 
@@ -107,6 +109,9 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 1. At the bottom of the list of changes, next to your profile picture, describe your commit:
    * If you have access to {% data variables.product.prodname_copilot %}, you can automatically create a commit message and details based on the changes you made. Click {% octicon "copilot" aria-label="Generate commit message with Copilot" %}.
    * If you want to regenerate a different commit message, click {% octicon "copilot" aria-label="Regenerate commit message with Copilot" %} again to generate a new suggestion.
+   * To choose the model used to generate commit messages, configure {% data variables.product.prodname_copilot_short %} settings. For more information, see [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-copilot-in-github-desktop).
+   * {% data variables.product.prodname_copilot_short %} uses any repository custom instructions to shape the generated commit message and details. For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
+   * {% data variables.product.prodname_copilot_short %} also uses any repository rulesets that restrict commit metadata to shape the generated commit message and details. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#adding-metadata-restrictions).
    * Alternatively, type your own short, meaningful commit message in the Summary field. You can also add more information about the change in the Description field.
 
    ![Screenshot of the "Changes" tab. The "Summary" field and "Generate commit message with Copilot" button are outlined in orange.](/assets/images/help/desktop/create-commit-details.png)
@@ -115,6 +120,10 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
    ![Screenshot of the "Changes" tab. In the corner of the "Description" field, the icon for adding a co-author is outlined in orange.](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
+
+   > [!TIP]
+   > If your repository has pre-commit or commit-msg hooks, they will run automatically when you commit. You can bypass hooks for a specific commit by clicking {% octicon "gear" aria-label="Commit options" %} next to the commit message field and selecting **Bypass Commit Hooks**. For more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/working-with-git-hooks-in-github-desktop).
+
 1. If the branch you're trying to commit to is protected, Desktop will warn you.
     * To move your changes, click **switch branches**.
     * To commit your changes to the protected branch, click **Commit to BRANCH**.
@@ -135,3 +144,4 @@ If you need to undo a commit or revise your commit history (to make it easier fo
 ## Further reading
 
 * [AUTOTITLE](/get-started/using-git)
+* [AUTOTITLE](/desktop/making-changes-in-a-branch/working-with-git-hooks-in-github-desktop)

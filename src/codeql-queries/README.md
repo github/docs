@@ -79,8 +79,8 @@ For code quality queries, reusables are stored in `data/reusables/code-quality/c
 
 ### For workflow and script problems
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
 ### For CodeQL repository and CLI problems
 

@@ -8,4 +8,5 @@ versions:
 children:
   - /about-versions-of-github-docs
   - /using-hover-cards-on-github-docs
+  - /github-docs-api
 ---

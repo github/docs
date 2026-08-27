@@ -1725,18 +1725,6 @@
   ],
   "enterprise-admin": [
     {
-      "slug": "get-the-audit-log-for-an-enterprise",
-      "subcategory": "audit-log",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/audit-log"
-    },
-    {
-      "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
-      "subcategory": "licensing",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security"
-    },
-    {
       "slug": "list-pre-receive-hooks-for-an-organization",
       "subcategory": "org-pre-receive-hooks",
       "verb": "get",
@@ -2029,6 +2017,12 @@
       "subcategory": "events",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/events"
+    },
+    {
+      "slug": "list-issue-field-values-for-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values"
     },
     {
       "slug": "list-labels-for-an-issue",
@@ -3315,24 +3309,6 @@
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/tags"
-    },
-    {
-      "slug": "closing-down---list-tag-protection-states-for-a-repository",
-      "subcategory": "tags",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/tags/protection"
-    },
-    {
-      "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
-      "subcategory": "tags",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/tags/protection"
-    },
-    {
-      "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
-      "subcategory": "tags",
-      "verb": "delete",
-      "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
     },
     {
       "slug": "download-a-repository-archive-tar",

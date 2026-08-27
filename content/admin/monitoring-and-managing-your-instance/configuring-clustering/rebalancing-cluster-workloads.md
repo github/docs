@@ -1,18 +1,17 @@
 ---
 title: Rebalancing cluster workloads
 shortTitle: Rebalance workloads
-intro: 'You can force your {% data variables.product.prodname_ghe_server %} cluster to evenly distribute job allocations for workloads on the cluster''s nodes.'
+intro: You can force your {% data variables.product.prodname_ghe_server %} cluster to evenly distribute job allocations for workloads on the cluster's nodes.
 product: '{% data reusables.gated-features.cluster %}'
-permissions: 'People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can rebalance cluster workloads on the instance.'
+permissions: People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can rebalance cluster workloads on the instance.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Clustering
-  - Enterprise
 redirect_from:
   - /admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/rebalancing-cluster-workloads
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About workload balance for a {% data variables.product.prodname_ghe_server %} cluster
@@ -23,7 +22,7 @@ If a cluster node is unreachable by other nodes due to a hardware or software fa
 
 You can manage allocations using the `ghe-cluster-balance` utility, which can display the status of existing allocations or force your instance to balance allocations. For example, you should balance allocations after you add a new node to the cluster. Optionally, you can schedule regular balancing.
 
-You can run the following commands from any node in your cluster using the administrative shell. For more information, see [Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
+You can run the following commands from any node in your cluster using the administrative shell. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 
 ## Checking the distribution of cluster jobs
 
@@ -83,4 +82,4 @@ You can schedule rebalancing of jobs on your cluster by setting and applying con
 
 ## Further reading
 
-* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-cluster-balance)
+* [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-balance)
