@@ -13,24 +13,18 @@ redirect_from:
   - /copilot/how-tos/agents/request-a-code-review/configure-automatic-review
   - /copilot/how-tos/use-copilot-agents/request-a-code-review/configure-automatic-review
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.code-review-actions-minutes-note %}
-
-<!-- end expires 2026-06-01 -->
-
 ## Introduction
 
-You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/code-review#about-automatic-pull-request-reviews).
+You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/agents/code-review#about-automatic-pull-request-reviews).
 
 ## Configuring automatic code review for your own pull requests
 
 > [!NOTE]
-> This is only available if you are on the {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan.
+> This is only available if you are on the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plans.
 
 {% data reusables.copilot.your-copilot %}
 1. Locate the **Automatic {% data variables.copilot.copilot_code-review_short %}** option and click the dropdown button.
@@ -66,3 +60,29 @@ You can configure {% data variables.copilot.copilot_code-review_short %} to revi
    > You can add multiple targeting criteria to the same ruleset. Exclusion patterns are applied after inclusion patterns. For example, you could include any repositories matching the pattern `*cat*`, and specifically exclude a repository matching the pattern `not-a-cat`.
 
 {% data reusables.copilot.auto-code-review-steps %}
+
+## Configuring review effort level for an organization
+
+You can set the default review effort level that {% data variables.copilot.copilot_code-review_short %} uses for automatic reviews at both the organization and repository levels. Repository settings override organization defaults. For an overview of review effort levels, see [AUTOTITLE](/copilot/concepts/agents/code-review#review-effort-level).
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
+1. Next to "Review effort level," select the default effort level for automatic reviews in repositories in your organization.
+   * **Lite**: Standard review.
+   * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
+
+Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. For more information on the cost of review effort levels, see [AUTOTITLE](/copilot/concepts/agents/code-review#estimated-consumption).
+
+## Configuring review effort level for a repository
+
+You can override the organization default and set a different default review effort level for automatic reviews in a repository.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
+1. Next to "Review effort level," select the effort level for automatic reviews in this repository.
+   * **Lite**: Standard review.
+   * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
+
+Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. For more information on the cost of review effort levels, see [AUTOTITLE](/copilot/concepts/agents/code-review#estimated-consumption).

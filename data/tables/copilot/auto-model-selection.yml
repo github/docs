@@ -3,7 +3,7 @@
 #    - OpenAI
 #    - Anthropic
 #    - Google
-#    - xAI
+#    - Microsoft
 #    - others
 # 2. Within each provider group, alphabetically by model name.
 #
@@ -16,57 +16,104 @@
 # - cloud_agent: Availability for Copilot cloud agent.
 # - chat: Availability for Copilot Chat.
 # - cli: Availability for Copilot CLI.
+# - app: Availability for GitHub Copilot app.
 
 # OpenAI
-- name: GPT-4.1
-  cloud_agent: false
-  chat: true
-  cli: false
-
 - name: GPT-5 mini
   cloud_agent: false
-  chat: false
+  chat: true
   cli: true
+  app: true
 
 - name: GPT-5.3-Codex
-  cloud_agent: false
+  cloud_agent: true
   chat: true
-  cli: true
+  cli: false
+  app: true
 
 - name: GPT-5.4
-  cloud_agent: false
+  cloud_agent: true
   chat: true
   cli: true
+  app: true
 
 - name: GPT-5.4 mini
   cloud_agent: false
   chat: true
   cli: true
+  app: true
+
+- name: GPT-5.5
+  cloud_agent: false
+  chat: true
+  cli: true
+  app: false
+
+- name: GPT-5.6 Luna
+  cloud_agent: false
+  chat: true
+  cli: true
+  app: false
+
+- name: GPT-5.6 Sol
+  cloud_agent: false
+  chat: true
+  cli: true
+  app: false
+
+- name: GPT-5.6 Terra
+  cloud_agent: false
+  chat: true
+  cli: true
+  app: false
 
 # Anthropic
 - name: Claude Haiku 4.5
   cloud_agent: false
   chat: true
   cli: true
+  app: true
 
-- name: Claude Sonnet 4.5
-  cloud_agent: true
-  chat: false
-  cli: false
-
-- name: Claude Sonnet 4.6
+- name: Claude Opus 4.8
   cloud_agent: false
   chat: true
   cli: true
+  app: false
 
-# xAI
-- name: Grok Code Fast 1
+- name: Claude Opus 5
   cloud_agent: false
   chat: true
-  cli: false
+  cli: true
+  app: false
 
-# Fine-tuned OAI models
-- name: Raptor mini
+- name: Claude Sonnet 4.6
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
+- name: Claude Sonnet 5
   cloud_agent: false
   chat: true
-  cli: false
+  cli: true
+  app: false
+
+# Google
+- name: Gemini 3.6 Flash
+  cloud_agent: false
+  chat: true
+  cli: true
+  app: false
+
+- name: Gemini 3.7 Flash
+  cloud_agent: false
+  chat: true
+  cli: true
+  app: false
+
+# Microsoft
+- name: MAI-Code-1.1-Flash
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true

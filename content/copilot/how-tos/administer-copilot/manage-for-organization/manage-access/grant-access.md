@@ -26,7 +26,7 @@ category:
 
 {% ifversion ghec %}After a {% data variables.product.prodname_dotcom %} enterprise owner enables {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} for an organization, an owner of that organization can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% else %}After setting up a {% data variables.copilot.copilot_business_short %} plan, an organization owner can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% endif %}
 
-Billing for {% data variables.product.prodname_copilot %} starts when you grant an organization member access, irrespective of when they first use {% data variables.product.prodname_copilot_short %}. If you grant an organization member access midway through a billing cycle, the cost is prorated for the remainder of the cycle. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+Billing for {% data variables.product.prodname_copilot %} starts when you grant an organization member access, irrespective of when they first use {% data variables.product.prodname_copilot_short %}. If you grant an organization member access midway through a billing cycle, the cost is prorated for the remainder of the cycle. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).
 
 ## Granting access to {% data variables.product.prodname_copilot %} for all current and future users in your organization
 
@@ -42,7 +42,9 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 
 {% ifversion ghec %}
 
-> [!NOTE] You can automatically enable access for every member of a group in your identity provider (IdP) by synchronizing that group with a {% data variables.product.prodname_dotcom %} team, then giving that team access to {% data variables.product.prodname_copilot %}. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
+You can automatically enable access for every member of a group in your identity provider (IdP) by synchronizing that group with a {% data variables.product.prodname_dotcom %} team, then giving that team access to {% data variables.product.prodname_copilot %}. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
+
+When access is granted this way, the `copilot.cfb_seat_added` audit log event attributes the action to whoever originally granted {% data variables.product.prodname_copilot_short %} access to the team, not the account or sync process that added the new team member. See [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization).
 
 {% endif %}
 
@@ -79,6 +81,6 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to grant acc
 ## Further reading
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/review-activity/review-user-activity-data)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/revoke-access)

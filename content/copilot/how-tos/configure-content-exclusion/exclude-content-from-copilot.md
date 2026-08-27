@@ -31,12 +31,12 @@ category:
 You can use your repository settings to specify content in your repository that {% data variables.product.prodname_copilot %} should ignore.
 
 > [!NOTE]
-> {% data variables.copilot.copilot_cli %}, {% data variables.copilot.copilot_cloud_agent %}, and Agent mode in {% data variables.copilot.copilot_chat_short %} in IDEs, do not support content exclusion. For more information about these {% data variables.product.prodname_copilot_short %} features, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli), [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent), and [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+> {% data variables.copilot.copilot_cli %} and Agent mode in {% data variables.copilot.copilot_chat_short %} in IDEs do not support content exclusion. For more information about these {% data variables.product.prodname_copilot_short %} features, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli) and [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
-1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
 
    If your repository inherits any exclusions from its parent organization, or from organizations in the same enterprise, you'll see one or more gray boxes at the top of the page, containing details of these exclusions. You cannot edit these settings.
 
@@ -200,6 +200,7 @@ For more information, see [AUTOTITLE](/rest/copilot/copilot-content-exclusion-ma
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/content-exclusion-for-github-copilot)
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot)
+* [AUTOTITLE](/copilot/concepts/context/content-exclusion)
+* [AUTOTITLE](/copilot/how-tos/configure-content-exclusion/review-changes)
 * [Configuring content exclusion for {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-admin?view=vs-2022#configure-content-exclusion) in the Microsoft Learn documentation
+* [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

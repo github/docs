@@ -26,6 +26,16 @@ export async function precompileRedirects(pageList: Page[]): Promise<Redirects> 
     Object.assign(allRedirects, page.buildRedirects())
   }
 
+  // Remove any redirect whose source URL is also a real page permalink.
+  // This prevents redirect_from entries from clobbering live pages when a
+  // new page (versioned broadly) declares a redirect_from that overlaps
+  // with an older page that still exists in some versions.
+  for (const page of pageList.filter((xpage) => xpage.languageCode === 'en')) {
+    for (const permalink of page.permalinks) {
+      delete allRedirects[permalink.hrefWithoutLanguage]
+    }
+  }
+
   // NOTE: Exception redirects **MUST COME AFTER** pageList redirects above in order
   // to properly override them. Exception redirects are unicorn one-offs that are not
   // otherwise handled by the versionless redirect fallbacks (see lib/all-versions.ts).

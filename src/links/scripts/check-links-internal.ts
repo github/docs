@@ -19,22 +19,24 @@
  */
 
 import fs from 'fs'
+import os from 'os'
 
 import { program } from 'commander'
 import chalk from 'chalk'
-import { load } from 'cheerio'
 
 import warmServer from '@/frame/lib/warm-server'
-import { renderContent } from '@/content-render/index'
 import { allVersions, allVersionKeys } from '@/versions/lib/all-versions'
 import languages from '@/languages/lib/languages-server'
 import {
   normalizeLinkPath,
   checkInternalLink,
+  resolveInternalLinkKey,
   checkAssetLink,
   isAssetLink,
   extractLinksWithLiquid,
   extractLinksFromMarkdown,
+  renderAndExtractLinks,
+  type LinkExtractionResult,
 } from '@/links/lib/extract-links'
 import {
   type BrokenLink,
@@ -45,6 +47,11 @@ import { uploadArtifact } from '@/links/scripts/upload-artifact'
 import { createReportIssue, linkReports } from '@/workflows/issue-report'
 import github from '@/workflows/github'
 import excludedLinks from '@/links/lib/excluded-links'
+import {
+  validateCrossPageAnchors,
+  type PendingCrossPageAnchor,
+} from '@/links/lib/cross-page-anchors'
+import { computeHeadingIds } from '@/links/lib/heading-anchors'
 import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Page, Permalink, Context } from '@/types'
 import * as coreLib from '@actions/core'
@@ -115,7 +122,9 @@ function getFrontmatterLineOffset(fullPath: string): number {
 async function getLinksFromMarkdown(
   page: Page,
   context: Context,
-): Promise<{ href: string; text: string | undefined; line: number }[]> {
+  precomputedRawResult?: LinkExtractionResult,
+  prerenderedResult?: LinkExtractionResult,
+): Promise<{ href: string; text: string | undefined; line: number; fragment?: string }[]> {
   const fmOffset = getFrontmatterLineOffset(page.fullPath)
 
   // Build a map of raw-markdown line numbers per href, plus a parallel index
@@ -125,12 +134,12 @@ async function getLinksFromMarkdown(
   // the rendered href will differ from the raw string, so rawLinesByHref.get() would miss.
   // To fix this, we lazily import renderLiquid once and use it to resolve those hrefs to
   // their canonical (rendered) form before keying the map — matching what extractLinksWithLiquid produces.
-  const rawResult = extractLinksFromMarkdown(page.markdown)
+  const rawResult = precomputedRawResult ?? extractLinksFromMarkdown(page.markdown)
 
   const needsLiquidHrefResolution =
     rawResult.internalLinks.some((l) => l.href.includes('{%') || l.href.includes('{{')) ||
     rawResult.liquidPrefixedLinks.length > 0
-  type RenderLiquidFn = (template: string, context: unknown) => Promise<string>
+  type RenderLiquidFn = (template: string, context: Context) => Promise<string>
   let renderLiquidFn: RenderLiquidFn | null = null
   if (needsLiquidHrefResolution) {
     const mod = await import('@/content-render/liquid/index')
@@ -184,83 +193,191 @@ async function getLinksFromMarkdown(
   // reusables, excludes version-gated links that don't apply here).
   // extractLinksWithLiquid already catches Liquid render failures internally and
   // falls back to raw extraction with a warning, so no outer try/catch is needed.
-  const renderedResult = await extractLinksWithLiquid(page.markdown, context)
-  const renderedLinks = renderedResult.internalLinks.map((l) => ({ href: l.href, text: l.text }))
+  const renderedResult = prerenderedResult ?? (await extractLinksWithLiquid(page.markdown, context))
+  const renderedLinks = renderedResult.internalLinks.map((l) => ({
+    href: l.href,
+    text: l.text,
+    fragment: l.fragment,
+  }))
 
   return renderedLinks.map((link) => {
     const lines = rawLinesByHref.get(link.href)
     const idx = rawLinesIndex.get(link.href) ?? 0
     const line = lines && idx < lines.length ? lines[idx] : 0
     rawLinesIndex.set(link.href, idx + 1)
-    return { href: link.href, text: link.text, line }
+    return { href: link.href, text: link.text, line, fragment: link.fragment }
   })
 }
 
 /**
- * Check anchor links on a rendered page
+ * Check anchor links on a page using fast heading ID computation from Liquid-rendered
+ * markdown. Avoids the expensive full HTML render previously used.
+ *
+ * Uses github-slugger (the same library as rehype-slug in the render pipeline) to compute
+ * heading anchor IDs, producing results that match the live site.
+ *
+ * `headingIds` is precomputed once per page in checkPage and shared with the cross-page
+ * anchor cache, so this function only checks same-page (`#fragment`) links here.
  */
-async function checkAnchorsOnPage(
+function checkAnchorsFromHeadings(
   page: Page,
-  permalink: Permalink,
-  context: Context,
-): Promise<BrokenLink[]> {
-  const brokenAnchors: BrokenLink[] = []
+  rawResult: LinkExtractionResult,
+  renderedResult: LinkExtractionResult,
+  headingIds: Set<string>,
+): BrokenLink[] {
+  const fmOffset = getFrontmatterLineOffset(page.fullPath)
 
-  // Skip anchor checking on auto-generated pages (e.g., REST, GraphQL, webhooks).
-  // These pages have headings generated from OpenAPI/schema data at render time
-  // by transformers that aren't run during link checking, so same-page anchor
-  // links to those headings would always appear broken.
-  if (page.autogenerated) {
-    return brokenAnchors
+  // Build line-number map from the raw (pre-Liquid) source for accurate file line numbers.
+  const anchorLineMap = new Map<string, number>()
+  for (const link of rawResult.anchorLinks) {
+    if (!anchorLineMap.has(link.href)) {
+      anchorLineMap.set(link.href, link.line + fmOffset)
+    }
   }
 
-  try {
-    // Extract anchor links from markdown first to get accurate line numbers
-    const mdResult = extractLinksFromMarkdown(page.markdown)
-    const fmOffset = getFrontmatterLineOffset(page.fullPath)
-    const anchorLineMap = new Map<string, number>()
-    for (const link of mdResult.anchorLinks) {
-      // Store the first occurrence of each anchor href
-      if (!anchorLineMap.has(link.href)) {
-        anchorLineMap.set(link.href, link.line + fmOffset)
-      }
+  // Check only the anchor links that actually appear in the Liquid-rendered output
+  // (respects {% ifversion %} gates — links in non-applicable blocks are not checked).
+  const brokenAnchors: BrokenLink[] = []
+  for (const link of renderedResult.anchorLinks) {
+    const { href } = link
+    if (href === '#' || href === '#top') continue
+    const targetId = href.slice(1)
+    if (!headingIds.has(targetId)) {
+      brokenAnchors.push({
+        href,
+        file: page.relativePath,
+        lines: [anchorLineMap.get(href) ?? 0],
+        isAutotitle: false,
+      })
     }
-
-    const html = await renderContent(page.markdown, context)
-    const $ = load(html)
-
-    // Find all anchor links (same-page links)
-    $('a[href^="#"]').each((_, el) => {
-      const href = $(el).attr('href')
-      if (!href || href === '#' || href === '#top') return
-
-      // Check if the anchor target exists
-      const targetId = href.slice(1)
-      // Escape special CSS selector characters for jQuery/cheerio
-      const escapedId = targetId.replace(/([!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~])/g, '\\$1')
-      const targetExists = $(`#${escapedId}`).length > 0 || $(`[name="${targetId}"]`).length > 0
-
-      if (!targetExists) {
-        // Look up the line number from the markdown source
-        const line = anchorLineMap.get(href) ?? 0
-        brokenAnchors.push({
-          href,
-          file: page.relativePath,
-          lines: [line],
-          text: $(el).text(),
-          isAutotitle: false,
-        })
-      }
-    })
-  } catch {
-    // Rendering errors are logged elsewhere
   }
 
   return brokenAnchors
 }
 
 /**
- * Check all pages for a given version and language
+ * Process a single page: extract links, validate them, and optionally check anchors.
+ * Receives its own context object so it is safe to run concurrently with other pages.
+ */
+async function checkPage(
+  page: Page,
+  permalink: Permalink,
+  pageContext: Context,
+  pageMap: Record<string, Page>,
+  redirects: Record<string, string>,
+  options: { checkAnchors: boolean; version?: string; language?: string },
+): Promise<{
+  brokenLinks: BrokenLink[]
+  redirectLinks: BrokenLink[]
+  linksChecked: number
+  headingIds: Set<string> | null
+  crossPageAnchors: PendingCrossPageAnchor[]
+}> {
+  const brokenLinks: BrokenLink[] = []
+  const redirectLinks: BrokenLink[] = []
+  const crossPageAnchors: PendingCrossPageAnchor[] = []
+
+  const rawMarkdownLinks = extractLinksFromMarkdown(page.markdown)
+
+  // Render through Liquid once; share the result between link extraction and anchor
+  // checking to avoid paying the Liquid render cost twice per page.
+  const { renderedMarkdown, result: renderedLinkResult } = await renderAndExtractLinks(
+    page.markdown,
+    pageContext,
+  )
+
+  // Compute this page's heading anchor IDs once from the Liquid-rendered markdown.
+  // Autogenerated pages (REST/GraphQL/webhooks) derive their anchors from OpenAPI
+  // operation IDs, not markdown headings, so we can't compute them here — leave them
+  // out of the cache so links into them are never flagged (they resolve at runtime).
+  // Skip the work entirely when anchor checking is disabled: nothing downstream reads
+  // the heading cache in that mode.
+  const headingIds =
+    options.checkAnchors && !page.autogenerated ? computeHeadingIds(renderedMarkdown) : null
+
+  const links = await getLinksFromMarkdown(page, pageContext, rawMarkdownLinks, renderedLinkResult)
+
+  for (const link of links) {
+    if (isExcludedLink(link.href)) continue
+
+    // Check if this is an asset link (images, etc.) - verify file exists on disk
+    if (isAssetLink(link.href)) {
+      if (!checkAssetLink(link.href)) {
+        brokenLinks.push({
+          href: link.href,
+          file: page.relativePath,
+          lines: [link.line],
+          text: link.text,
+        })
+      }
+      continue
+    }
+
+    const normalized = normalizeLinkPath(link.href)
+    const result = checkInternalLink(
+      normalized,
+      pageMap,
+      redirects,
+      options.version,
+      options.language,
+    )
+
+    if (!result.exists) {
+      brokenLinks.push({
+        href: link.href,
+        file: page.relativePath,
+        lines: [link.line],
+        text: link.text,
+      })
+    } else if (result.isRedirect) {
+      redirectLinks.push({
+        href: link.href,
+        file: page.relativePath,
+        lines: [link.line],
+        text: link.text,
+        isRedirect: true,
+        redirectTarget: result.redirectTarget,
+        requiresVersionContext: result.requiresVersionContext,
+      })
+    } else if (options.checkAnchors && link.fragment) {
+      // Direct (non-redirect) hit with a fragment: defer a cross-page anchor check.
+      // We can't validate it now because the target page may not have been rendered
+      // yet, so collect it and validate after the whole version finishes.
+      const targetKey = resolveInternalLinkKey(
+        link.href,
+        pageMap,
+        options.version,
+        options.language,
+      )
+      if (targetKey) {
+        crossPageAnchors.push({
+          targetKey,
+          fragment: link.fragment,
+          href: `${link.href}#${link.fragment}`,
+          file: page.relativePath,
+          line: link.line,
+          text: link.text,
+        })
+      }
+    }
+  }
+
+  if (options.checkAnchors && headingIds) {
+    const anchorFlaws = checkAnchorsFromHeadings(
+      page,
+      rawMarkdownLinks,
+      renderedLinkResult,
+      headingIds,
+    )
+    brokenLinks.push(...anchorFlaws)
+  }
+
+  return { brokenLinks, redirectLinks, linksChecked: links.length, headingIds, crossPageAnchors }
+}
+
+/**
+ * Check all pages for a given version and language, processing pages concurrently
+ * up to `concurrency` at a time.
  */
 async function checkVersion(
   version: string,
@@ -268,13 +385,8 @@ async function checkVersion(
   pageList: Page[],
   pageMap: Record<string, Page>,
   redirects: Record<string, string>,
-  options: { checkAnchors: boolean; verbose: boolean },
+  options: { checkAnchors: boolean; verbose: boolean; concurrency: number },
 ): Promise<CheckResult> {
-  const brokenLinks: BrokenLink[] = []
-  const redirectLinks: BrokenLink[] = []
-  let totalPagesChecked = 0
-  let totalLinksChecked = 0
-
   const versionObj = allVersions[version]
   if (!versionObj) {
     throw new Error(`Unknown version: ${version}`)
@@ -287,10 +399,13 @@ async function checkVersion(
     return true
   })
 
-  console.log(`  Checking ${relevantPages.length} pages for ${version}/${language}`)
+  console.log(
+    `  Checking ${relevantPages.length} pages for ${version}/${language} (concurrency: ${options.concurrency})`,
+  )
 
-  // Build a base context once per version — feature flags and version info are the same for all pages
-  const baseContext: Context = {
+  // Build a base context once per version — feature flags and version info are the same for all pages.
+  // Each page gets a shallow copy so concurrent tasks don't share the mutable `page` property.
+  const baseContext = {
     currentVersion: version,
     currentLanguage: language,
     currentVersionObj: versionObj,
@@ -300,72 +415,72 @@ async function checkVersion(
     ...getFeaturesByVersion(version),
   } as Context
 
-  for (const page of relevantPages) {
-    // Find the permalink for this version
-    const permalink = page.permalinks?.find((p) => p.pageVersion === version)
-    if (!permalink) continue
+  const allBrokenLinks: BrokenLink[] = []
+  const allRedirectLinks: BrokenLink[] = []
+  let totalPagesChecked = 0
+  let totalLinksChecked = 0
 
-    totalPagesChecked++
+  // Cross-page anchor validation is a two-pass process within the version:
+  //   pass 1 — render every page, caching its heading IDs and collecting the
+  //            cross-page anchor links it contains (target may not be rendered yet)
+  //   pass 2 — after all pages are rendered, validate each collected anchor against
+  //            the now-complete heading cache
+  // The cache is keyed by pageMap key (lang + version + path). A link whose target
+  // resolves to a different version isn't in this run's cache and is skipped here;
+  // it's validated when the workflow runs the checker for that target version.
+  const headingIdsByPageKey = new Map<string, Set<string>>()
+  const pendingCrossPageAnchors: PendingCrossPageAnchor[] = []
 
-    // Mutate the page property in place — safe because the loop is sequential (each iteration
-    // awaits before the next begins), so there is no concurrent access to baseContext.
-    baseContext.page = page
+  // Bounded concurrency: process up to `options.concurrency` pages simultaneously.
+  // All workers drain from the same shared iterator — no page is processed twice.
+  const queue = relevantPages.entries()
 
-    // Get links from markdown source (preserves accurate line numbers)
-    const links = await getLinksFromMarkdown(page, baseContext)
-    totalLinksChecked += links.length
+  async function worker() {
+    for (const [, page] of queue) {
+      const permalink = page.permalinks?.find((p) => p.pageVersion === version)
+      if (!permalink) continue
 
-    // Check each link
-    for (const link of links) {
-      if (isExcludedLink(link.href)) continue
+      // Each concurrent task gets its own context copy with the page set.
+      // pageMap and redirects are read-only and safe to share.
+      const pageContext = { ...baseContext, page } as Context
 
-      // Check if this is an asset link (images, etc.) - verify file exists on disk
-      if (isAssetLink(link.href)) {
-        if (!checkAssetLink(link.href)) {
-          brokenLinks.push({
-            href: link.href,
-            file: page.relativePath,
-            lines: [link.line],
-            text: link.text,
-          })
-        }
-        continue
+      const result = await checkPage(page, permalink, pageContext, pageMap, redirects, {
+        ...options,
+        version,
+        language,
+      })
+
+      // Merging results here is safe: JS is single-threaded so array pushes
+      // between await points cannot interleave with another worker's pushes.
+      allBrokenLinks.push(...result.brokenLinks)
+      allRedirectLinks.push(...result.redirectLinks)
+      if (result.headingIds) headingIdsByPageKey.set(permalink.href, result.headingIds)
+      if (result.crossPageAnchors.length) {
+        pendingCrossPageAnchors.push(...result.crossPageAnchors)
       }
+      totalPagesChecked++
+      totalLinksChecked += result.linksChecked
 
-      const normalized = normalizeLinkPath(link.href)
-      const result = checkInternalLink(normalized, pageMap, redirects)
-
-      if (!result.exists) {
-        brokenLinks.push({
-          href: link.href,
-          file: page.relativePath,
-          lines: [link.line],
-          text: link.text,
-        })
-      } else if (result.isRedirect) {
-        redirectLinks.push({
-          href: link.href,
-          file: page.relativePath,
-          lines: [link.line],
-          text: link.text,
-          isRedirect: true,
-          redirectTarget: result.redirectTarget,
-        })
+      if (options.verbose && totalPagesChecked % 100 === 0) {
+        console.log(`    Checked ${totalPagesChecked} pages...`)
       }
-    }
-
-    // Check anchors if enabled
-    if (options.checkAnchors) {
-      const anchorFlaws = await checkAnchorsOnPage(page, permalink, baseContext)
-      brokenLinks.push(...anchorFlaws)
-    }
-
-    if (options.verbose && totalPagesChecked % 100 === 0) {
-      console.log(`    Checked ${totalPagesChecked} pages...`)
     }
   }
 
-  return { brokenLinks, redirectLinks, totalPagesChecked, totalLinksChecked }
+  // Launch `concurrency` workers that all drain from the same shared queue iterator.
+  await Promise.all(Array.from({ length: options.concurrency }, worker))
+
+  // Pass 2: validate cross-page anchors now that every page's headings are cached.
+  if (options.checkAnchors) {
+    allBrokenLinks.push(...validateCrossPageAnchors(pendingCrossPageAnchors, headingIdsByPageKey))
+  }
+
+  return {
+    brokenLinks: allBrokenLinks,
+    redirectLinks: allRedirectLinks,
+    totalPagesChecked,
+    totalLinksChecked,
+  }
 }
 
 /**
@@ -380,6 +495,11 @@ async function main() {
     .option('--check-anchors', 'Check anchor links within pages', true)
     .option('--no-check-anchors', 'Skip anchor link checking')
     .option('--verbose', 'Verbose output')
+    .option(
+      '--concurrency <number>',
+      'Number of pages to process concurrently',
+      String(Math.max(1, os.cpus().length - 1)),
+    )
     .parse()
 
   const options = program.opts()
@@ -423,9 +543,11 @@ async function main() {
   console.log('')
 
   // Run the check
+  const concurrency = Math.max(1, parseInt(process.env.CONCURRENCY || options.concurrency, 10))
   const result = await checkVersion(version, language, pageList, pageMap, redirects, {
     checkAnchors,
     verbose: options.verbose,
+    concurrency,
   })
 
   // Report results

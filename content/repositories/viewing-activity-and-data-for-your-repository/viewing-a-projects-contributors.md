@@ -23,7 +23,7 @@ category:
 You can view the top 100 contributors to a repository{% ifversion ghes %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
 
 {% ifversion fpt or ghec %}
-You can also see a list of people who have contributed to the project's Python dependencies. To access this list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/graphs/contributors`.
+To access the list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/graphs/contributors`.
 {% endif %}
 
 ## Accessing the contributors graph
@@ -44,6 +44,12 @@ If you don't appear in a repository's contributors graph, it may be because:
 > [!TIP]
 > To list all commit contributors in a repository, see [AUTOTITLE](/rest/repos/repos#list-repository-contributors).
 
-If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see [AUTOTITLE](/pull-requests/reference/pull-requests).
 
-If the email address you used to author the commits is not connected to your {% data variables.product.github %} account, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address) and [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account).
+If the email address you used to author the commits is not connected to your {% data variables.product.github %} account, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address) and [AUTOTITLE](/account-and-profile/how-tos/email-preferences/adding-an-email-address-to-your-github-account).
+
+### Contributor data is stale after history changes
+
+After force-pushing, rewriting history, or deleting commits, repository contributor displays and statistics can take about 24 hours to refresh.
+
+If you're a repository owner and contributor data is still incorrect after waiting about 24 hours, contact {% data variables.contact.github_support %}. For more information about creating a support ticket, see [AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket).

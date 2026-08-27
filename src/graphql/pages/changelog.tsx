@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
 import type { ExtendedRequest } from '@/types'
 import type { ServerResponse } from 'http'
 
@@ -59,7 +60,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {
-      mainContext: await getMainContext(req, res),
+      mainContext: await getMainContext(req, res as unknown as Response),
       automatedPageContext,
       schema,
       years,

@@ -132,7 +132,7 @@ jobs:
 
 ### Using contexts to create cache keys
 
-A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts) and [AUTOTITLE](/actions/learn-github-actions/expressions).
+A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts) and [AUTOTITLE](/actions/reference/workflows-and-actions/expressions).
 
 Using expressions to create a `key` allows you to automatically create a new cache when dependencies change.
 
@@ -257,9 +257,40 @@ Multiple workflow runs in a repository can share caches. A cache created for a b
 >
 > All the metadata are managed by the artifact cache service, which is a microservice within {% data variables.product.prodname_actions %}.
 >
-> For more information on cache storage, see [External storage requirements](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements).
+> For more information on cache storage, see [External storage requirements](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements).
 
 {% endif %}
+
+## Cache access for low-trust workflow triggers
+
+Some workflows run in response to events that can be initiated by people who do not have write access to the repository, such as a fork pull request or an issue comment. When these events run in the context of the default branch, they could be used to write a malicious cache that a later, more privileged workflow restores and trusts. This class of attack is known as _cache poisoning_.
+
+To reduce this risk, only these workflow triggers can create or overwrite caches in the default branch’s scope:
+ * `push`
+ * `workflow_dispatch`
+ * `repository_dispatch`
+ * `delete`
+ * `registry_package`
+ * `page_build`
+ * `schedule`
+
+Runs triggered by any other event that resolves to the default branch are given read-only access to caches in the default branch's scope. These runs can restore existing caches but cannot create or overwrite them. This includes triggers whose payload or initiating actor can be influenced by someone outside the repository, such as `pull_request_target`, `issue_comment`, and `workflow_run`.
+
+The `pull_request` event is not affected. Caches created by a `pull_request` run are already scoped to the merge ref (`refs/pull/.../merge`) and cannot be written to the default branch's scope. For more information, see [Restrictions for accessing a cache](#restrictions-for-accessing-a-cache).
+
+When a run with read-only cache access tries to save a cache, the save fails but the step and the job do not. The workflow continues, and the failure is reported as a warning in the workflow log. In that case, consider the following:
+ * To retain the performance benefits of caching on the default branch scope, ensure there is a trusted workflow that keeps the cache updated, for example a CI build triggered by a `push` to the default branch. Those cache entries can then be restored by workflows triggered by low-trust events such as `pull_request_target`.
+ * In low-trust workflows, switch to a restore-only cache operation such as `actions/cache/restore` to make the intended cache usage clear and avoid the warning in the workflow run logs.
+
+## Best practices for using caches securely
+
+Cache contents are not signed or verified, and any workflow run that can read a cache may extract its contents. Extracted caches may modify files that are subsequently executed in a workflow run, leading to malicious code execution. Follow these practices to reduce the security risk of using caches.
+
+ * **Don't store sensitive information in a cache.** Anyone who can open a pull request against your repository can read the contents of caches in the base branch. Don't write secrets, tokens, or credentials to a cached path. Store sensitive values as secrets instead. See [AUTOTITLE](/actions/concepts/security/secrets).
+ * **Save caches from trusted triggers.** Restrict cache writes to workflows triggered by trusted actors (typically those with write access to the repository). See [Cache access for low-trust workflow triggers](#cache-access-for-low-trust-workflow-triggers) for the default restrictions that are enforced to limit what workflow triggers can write to the cache. Additionally, consider using environments with deployment protection rules to further limit the workflows that can modify the cache. See [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
+ * **Follow workflow best security practices to harden your workflows:** Limit workflows that have cache-write access to those that have been hardened against workflow vulnerabilities. Follow the guidance at [AUTOTITLE](/actions/reference/security/secure-use#writing-workflows) to prevent vulnerabilities in your workflows that could lead to code execution and the introduction of malicious cache entries.
+
+For broader guidance on securing your workflows, see [AUTOTITLE](/actions/reference/security/secure-use).
 
 ## Usage limits and eviction policy
 
@@ -269,7 +300,7 @@ Multiple workflow runs in a repository can share caches. A cache created for a b
 
 {% data variables.product.github %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited. By default, the limit is 10 GB per repository, but this limit can be increased by enterprise owners, organization owners, or repository administrators. {% ifversion fpt or ghec %}Any usage beyond 10 GB is billed to your account.{% endif %} {% data reusables.actions.cache-eviction-policy %}
 
-{% data reusables.actions.cache-eviction-process %} The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows{% ifversion fpt or ghec %} or increasing your cache size. This functionality is only available to users with a payment method on file who opt in by configuring cache settings{% endif %}. See [AUTOTITLE](/actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manage-caches).{% ifversion ghes %} You can also increase the cache size limit for a repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
+{% data reusables.actions.cache-eviction-process %} The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows{% ifversion fpt or ghec %} or increasing your cache size. This functionality is only available to users with a payment method on file who opt in by configuring cache settings{% endif %}. See [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manage-caches).{% ifversion ghes %} You can also increase the cache size limit for a repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
 
 {% endif %}
 {% ifversion fpt or ghec %}
@@ -301,4 +332,4 @@ Below are some illustrative monthly costs to inform budgets you may wish to set 
 
 ## Next steps
 
-To manage your dependency caches, see [AUTOTITLE](/actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manage-caches).
+To manage your dependency caches, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/manage-caches).

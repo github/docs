@@ -114,7 +114,8 @@
                           "oidc_azure",
                           "oidc_aws",
                           "oidc_jfrog",
-                          "oidc_cloudsmith"
+                          "oidc_cloudsmith",
+                          "oidc_gcp"
                         ],
                         "type": "string"
                       },
@@ -194,6 +195,14 @@
                       },
                       "api_host": {
                         "description": "The Cloudsmith API host.",
+                        "type": "string"
+                      },
+                      "workload_identity_provider": {
+                        "description": "The full resource name of the GCP Workload Identity Provider (e.g. `projects/<NUM>/locations/global/workloadIdentityPools/<POOL>/providers/<PROVIDER>`).",
+                        "type": "string"
+                      },
+                      "service_account": {
+                        "description": "The GCP service account email to impersonate. If omitted, the federated token is used directly (direct WIF).",
                         "type": "string"
                       },
                       "created_at": {
@@ -333,14 +342,15 @@
         {
           "type": "string",
           "name": "auth_type",
-          "description": "<p>The authentication type for the private registry. Defaults to <code>token</code> if not specified. Use <code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, or <code>oidc_cloudsmith</code> for OIDC authentication.</p>",
+          "description": "<p>The authentication type for the private registry. Defaults to <code>token</code> if not specified. Use <code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, <code>oidc_cloudsmith</code>, or <code>oidc_gcp</code> for OIDC authentication.</p>",
           "enum": [
             "token",
             "username_password",
             "oidc_azure",
             "oidc_aws",
             "oidc_jfrog",
-            "oidc_cloudsmith"
+            "oidc_cloudsmith",
+            "oidc_gcp"
           ]
         },
         {
@@ -386,7 +396,7 @@
         {
           "type": "string",
           "name": "audience",
-          "description": "<p>The OIDC audience. Optional for <code>oidc_aws</code>, <code>oidc_jfrog</code>, and required for <code>oidc_cloudsmith</code> auth types.</p>"
+          "description": "<p>The OIDC audience. Optional for <code>oidc_aws</code>, <code>oidc_jfrog</code>, and <code>oidc_gcp</code>, and required for <code>oidc_cloudsmith</code> auth types.</p>"
         },
         {
           "type": "string",
@@ -407,9 +417,19 @@
           "type": "string",
           "name": "api_host",
           "description": "<p>The Cloudsmith API host. Optional for <code>oidc_cloudsmith</code> auth type. If omitted, <code>api.cloudsmith.io</code> is used by default.</p>"
+        },
+        {
+          "type": "string",
+          "name": "workload_identity_provider",
+          "description": "<p>The full resource name of the GCP Workload Identity Provider (e.g. <code>projects/&#x3C;NUM>/locations/global/workloadIdentityPools/&#x3C;POOL>/providers/&#x3C;PROVIDER></code>). Required when <code>auth_type</code> is <code>oidc_gcp</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "service_account",
+          "description": "<p>The GCP service account email to impersonate. Optional for <code>oidc_gcp</code> auth type. If omitted, the federated token is used directly (direct WIF).</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, or <code>oidc_cloudsmith</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, <code>oidc_cloudsmith</code>, or <code>oidc_gcp</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -483,7 +503,8 @@
                     "oidc_azure",
                     "oidc_aws",
                     "oidc_jfrog",
-                    "oidc_cloudsmith"
+                    "oidc_cloudsmith",
+                    "oidc_gcp"
                   ],
                   "type": "string"
                 },
@@ -567,6 +588,14 @@
                 },
                 "api_host": {
                   "description": "The Cloudsmith API host.",
+                  "type": "string"
+                },
+                "workload_identity_provider": {
+                  "description": "The full resource name of the GCP Workload Identity Provider (e.g. `projects/<NUM>/locations/global/workloadIdentityPools/<POOL>/providers/<PROVIDER>`).",
+                  "type": "string"
+                },
+                "service_account": {
+                  "description": "The GCP service account email to impersonate. If omitted, the federated token is used directly (direct WIF).",
                   "type": "string"
                 },
                 "created_at": {
@@ -659,7 +688,8 @@
                     "oidc_azure",
                     "oidc_aws",
                     "oidc_jfrog",
-                    "oidc_cloudsmith"
+                    "oidc_cloudsmith",
+                    "oidc_gcp"
                   ],
                   "type": "string"
                 },
@@ -743,6 +773,14 @@
                 },
                 "api_host": {
                   "description": "The Cloudsmith API host.",
+                  "type": "string"
+                },
+                "workload_identity_provider": {
+                  "description": "The full resource name of the GCP Workload Identity Provider (e.g. `projects/<NUM>/locations/global/workloadIdentityPools/<POOL>/providers/<PROVIDER>`).",
+                  "type": "string"
+                },
+                "service_account": {
+                  "description": "The GCP service account email to impersonate. If omitted, the federated token is used directly (direct WIF).",
                   "type": "string"
                 },
                 "created_at": {
@@ -959,7 +997,8 @@
                     "oidc_azure",
                     "oidc_aws",
                     "oidc_jfrog",
-                    "oidc_cloudsmith"
+                    "oidc_cloudsmith",
+                    "oidc_gcp"
                   ],
                   "type": "string"
                 },
@@ -1039,6 +1078,14 @@
                 },
                 "api_host": {
                   "description": "The Cloudsmith API host.",
+                  "type": "string"
+                },
+                "workload_identity_provider": {
+                  "description": "The full resource name of the GCP Workload Identity Provider (e.g. `projects/<NUM>/locations/global/workloadIdentityPools/<POOL>/providers/<PROVIDER>`).",
+                  "type": "string"
+                },
+                "service_account": {
+                  "description": "The GCP service account email to impersonate. If omitted, the federated token is used directly (direct WIF).",
                   "type": "string"
                 },
                 "created_at": {
@@ -1184,7 +1231,8 @@
             "oidc_azure",
             "oidc_aws",
             "oidc_jfrog",
-            "oidc_cloudsmith"
+            "oidc_cloudsmith",
+            "oidc_gcp"
           ]
         },
         {
@@ -1230,7 +1278,7 @@
         {
           "type": "string",
           "name": "audience",
-          "description": "<p>The OIDC audience. Optional for <code>oidc_aws</code>, <code>oidc_jfrog</code>, and required for <code>oidc_cloudsmith</code> auth types.</p>"
+          "description": "<p>The OIDC audience. Optional for <code>oidc_aws</code>, <code>oidc_jfrog</code>, and <code>oidc_gcp</code>, and required for <code>oidc_cloudsmith</code> auth types.</p>"
         },
         {
           "type": "string",
@@ -1251,9 +1299,19 @@
           "type": "string",
           "name": "api_host",
           "description": "<p>The Cloudsmith API host. Optional for <code>oidc_cloudsmith</code> auth type. If omitted, <code>api.cloudsmith.io</code> is used by default.</p>"
+        },
+        {
+          "type": "string",
+          "name": "workload_identity_provider",
+          "description": "<p>The full resource name of the GCP Workload Identity Provider (e.g. <code>projects/&#x3C;NUM>/locations/global/workloadIdentityPools/&#x3C;POOL>/providers/&#x3C;PROVIDER></code>). Required when <code>auth_type</code> is <code>oidc_gcp</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "service_account",
+          "description": "<p>The GCP service account email to impersonate. Optional for <code>oidc_gcp</code> auth type. If omitted, the federated token is used directly (direct WIF).</p>"
         }
       ],
-      "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, or <code>oidc_cloudsmith</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, <code>oidc_cloudsmith</code>, or <code>oidc_gcp</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [],
       "statusCodes": [
         {

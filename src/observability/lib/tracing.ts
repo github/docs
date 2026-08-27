@@ -26,14 +26,12 @@ import { ExpressInstrumentation } from '@opentelemetry/instrumentation-express'
 import { HttpInstrumentation } from '@opentelemetry/instrumentation-http'
 import { UndiciInstrumentation } from '@opentelemetry/instrumentation-undici'
 import { NodeSDK } from '@opentelemetry/sdk-node'
-import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api'
+import { createLogger } from '@/observability/logger'
+import { toError } from '@/observability/lib/to-error'
 
-// TEMPORARY: enable OTel diagnostic logging to investigate why traces aren't
-// arriving in the collector. See github/docs-engineering#6046. Revert once
-// the export pipeline is confirmed working.
+const logger = createLogger(import.meta.url)
+
 if (process.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT) {
-  diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.INFO)
-
   const sdk = new NodeSDK({
     serviceName: process.env.OTEL_SERVICE_NAME || 'docs-internal',
     traceExporter: new OTLPTraceExporter({}),
@@ -50,7 +48,9 @@ if (process.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT) {
   try {
     sdk.start()
   } catch (error) {
-    console.error('[tracing] failed to start:', error instanceof Error ? error.message : error)
+    logger.error('[tracing] failed to start', {
+      error: toError(error),
+    })
   }
 
   // Gracefully shut down the SDK on process exit.
@@ -60,7 +60,7 @@ if (process.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT) {
       await sdk.shutdown()
     } catch (error) {
       if (error instanceof Error) {
-        console.error(`[tracing] shutdown error: ${error.message}`)
+        logger.error('[tracing] shutdown error', { error })
       }
     }
   })

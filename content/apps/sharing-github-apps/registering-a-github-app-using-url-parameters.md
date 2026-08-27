@@ -22,7 +22,7 @@ You can use URL parameters to preselect the configuration settings of a new {% d
 
 This approach is useful for integrators who want customers to set up an app on their personal account or organization with certain specifications, or for customers using {% data variables.product.prodname_ghe_server %} who aren't able to install apps from the {% data variables.product.prodname_marketplace %}.
 
-Alternatively, you can create a {% data variables.product.prodname_github_app %} manifest. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest).
+Alternatively, you can create a {% data variables.product.prodname_github_app %} manifest. For more information, see [AUTOTITLE](/apps/sharing-github-apps/registering-a-github-app-from-a-manifest).
 
 {% ifversion ghec %}
 
@@ -55,9 +55,9 @@ Parameter name | Type | Description
 `name` | `string` | The name of the {% data variables.product.prodname_github_app %}. Give your app a clear and succinct name. Your app cannot have the same name as an existing {% data variables.product.prodname_dotcom %} user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
 `description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
 `url` | `string` | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.
-`callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to generate a user access token. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-the-user-authorization-callback-url).
+`callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to generate a user access token. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-user-authorization-callback-url).
 `request_oauth_on_install` | `boolean` | If your app authorizes users using the OAuth flow, you can set this option to `true` to allow people to authorize the app when they install it, saving a step. If you select this option, the `setup_url` becomes unavailable and users will be redirected to your `callback_url` after installing the app.
-`setup_url` | `string` | The full URL to redirect to after someone installs the {% data variables.product.prodname_github_app %} if the app requires additional setup after installation. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-the-setup-url).
+`setup_url` | `string` | The full URL to redirect to after someone installs the {% data variables.product.prodname_github_app %} if the app requires additional setup after installation. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-setup-url).
 `setup_on_update` | `boolean` | Set to `true` to redirect people to the setup URL when installations have been updated, for example, after repositories are added or removed.
 `public` | `boolean` | Set to `true` when your {% data variables.product.prodname_github_app %} is available to the public or `false` when it is only accessible to the owner of the app. This parameter does not apply to apps owned by enterprises.
 `webhook_active` | `boolean` | Set to `true` to enable webhook. Webhook is disabled by default.
@@ -74,16 +74,16 @@ For example, to select "Read & write" permissions in the user interface for `con
 
 If the owning account is not an enterprise or an enterprise-owned organization, it cannot request enterprise permissions.{% endif %}
 
-For more information about permissions and {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app). To see the list of permissions available for use and their parameterized names, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#account-permissions).
+For more information about permissions and {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app). To see the list of permissions available for use and their parameterized names, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#account-permissions).
 
 ## {% data variables.product.prodname_github_app %} webhook events
 
 You can use query parameters to enable the {% data variables.product.prodname_github_app %} webhook, designate a webhook URL, and subscribe the app to receive webhook payloads for specific events.
 
-To enable the {% data variables.product.prodname_github_app %} webhook, use `webhook_active=true` in your query string. To designate a full URL that you would like to send webhook event payloads to, use `webhook_url` in your query string. To subscribe the app to specific webhook payload events, use `events[]` as the query parameter name, and set the query value to the name of the webhook event. For more information about the possible webhook events and the {% data variables.product.prodname_github_app %} permissions required to subscribe to each event, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads).
+To enable the {% data variables.product.prodname_github_app %} webhook, use `webhook_active=true` in your query string. To designate a full URL that you would like to send webhook event payloads to, use `webhook_url` in your query string. To subscribe the app to specific webhook payload events, use `events[]` as the query parameter name, and set the query value to the name of the webhook event. For more information about the possible webhook events and the {% data variables.product.prodname_github_app %} permissions required to subscribe to each event, see [AUTOTITLE](/webhooks/webhook-events-and-payloads).
 
 For example, to subscribe a {% data variables.product.prodname_github_app %} to receive webhook payloads for activity relating to commit comments, the query string would include `&webhook_active=true&webhook_url=https://example.com&events[]=commit_comment`. Note that the `commit_comment` webhook event requires the {% data variables.product.prodname_github_app %} to have at least read-level access for the "Contents" repository permission. So your query string should also include a parameter to set the `contents` permission to `read` or `write`. For more information, see [{% data variables.product.prodname_dotcom %} app permissions](#github-app-permissions).
 
 You cannot use query parameters to set the value of a webhook secret. If an app requires a secret to secure its webhook, the value of the secret must be set in the {% data variables.product.company_short %} UI by the person registering the app.
 
-For more information about webhooks and {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps).
+For more information about webhooks and {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps).

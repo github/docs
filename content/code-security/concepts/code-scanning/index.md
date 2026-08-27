@@ -10,14 +10,15 @@ redirect_from:
   - /code-security/code-scanning/introduction-to-code-scanning
 contentType: concepts
 children:
-  - /about-code-scanning
-  - /about-code-scanning-alerts
-  - /code-security-risk-assessment
-  - /copilot-autofix-for-code-scanning
+  - /code-scanning
+  - /code-scanning-alerts
+  - /risk-assessment
+  - /autofix-for-code-scanning
+  - /ai-powered-security-detections
   - /setup-types
-  - /about-integration-with-code-scanning
+  - /integration-with-code-scanning
   - /sarif-files
-  - /code-scanning-alert-tracking-using-issues
+  - /alert-tracking-with-issues
   - /merge-protection
   - /multi-repository-variant-analysis
   - /codeql
@@ -25,3 +26,4 @@ children:
   - /pull-request-alert-metrics
   - /repository-properties
 ---
+

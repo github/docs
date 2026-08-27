@@ -17,7 +17,7 @@ category:
 
 ## About {% data variables.product.prodname_github_app %} permissions
 
-{% data variables.product.prodname_github_apps %} are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps).
+{% data variables.product.prodname_github_apps %} are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
 
 {% data reusables.rest-api.permission-header %}
 

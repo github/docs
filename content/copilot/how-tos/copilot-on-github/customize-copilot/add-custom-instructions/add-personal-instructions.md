@@ -16,7 +16,7 @@ category:
 
 {% data reusables.copilot.personal-instructions-note %}
 
-You can layer multiple types of custom instructions to shape {% data variables.copilot.copilot_chat %} responses. For an overview, see [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses?tool=webui).
+You can layer multiple types of custom instructions to shape {% data variables.copilot.copilot_chat %} responses. For an overview, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui).
 
 ## About personal custom instructions for {% data variables.copilot.copilot_chat_short %}
 

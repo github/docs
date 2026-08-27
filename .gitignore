@@ -110,3 +110,7 @@ translations/
 # Shared local volume (bufo)
 .local
 docs-ghes-3.14/
+docs-ghes-3.15/
+
+# Local output from the internal link checker
+artifacts/

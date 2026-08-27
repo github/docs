@@ -20,15 +20,15 @@ category:
 
 Rate limits are disabled by default for {% data variables.product.prodname_ghe_server %}. Contact your site administrator to confirm the rate limits for your instance.
 
-If you are a site administrator, you can set rate limits for your instance. For more information, see [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
+If you are a site administrator, you can set rate limits for your instance. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
 
-If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. For more information, see [AUTOTITLE](/free-pro-team@latest/graphql/overview/resource-limitations) in the {% data variables.product.prodname_free_user %} documentation.
+If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. For more information, see [AUTOTITLE](/free-pro-team@latest/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api) in the {% data variables.product.prodname_free_user %} documentation.
 
 {% else %}
 
 The GraphQL API assigns points to each query and limits the points that you can use within a specific amount of time. This limit helps prevent abuse and denial-of-service attacks, and ensures that the API remains available for all users.
 
-The REST API also has a separate primary rate limit. For more information, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api).
+The REST API also has a separate primary rate limit. For more information, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
 In general, you can calculate your primary rate limit for the GraphQL API based on your method of authentication:
 
@@ -287,9 +287,11 @@ These two examples show how to calculate the total nodes in a call.
 
 If {% data variables.product.github %} takes more than 10 seconds to process an API request, {% data variables.product.github %} will terminate the request and you will receive a timeout response and a message reporting that "We couldn't respond to your request in time".
 
+When this happens, you may receive either a `502` or `504` status code. Both status codes indicate that your request timed out.
+
 {% data variables.product.github %} reserves the right to change the timeout window to protect the speed and reliability of the API.
 
-You can check the status of the GraphQL API at [githubstatus.com](https://www.githubstatus.com/) to determine whether the timeout is due to a problem with the API. You can also try to simplify your request or try your request later. For example, if you are requesting a large number of objects in a single request, you can try requesting fewer objects split over multiple queries.
+You can check the status of the GraphQL API at [githubstatus.com](https://www.githubstatus.com/) to determine whether the timeout is due to a problem with the API. You can also try to simplify your request or try your request later. For tips on improving query performance, see [Query optimization strategies](#query-optimization-strategies).
 
 If a timeout occurs for any of your API requests, additional points will be deducted from your primary rate limit for the next hour to protect the speed and reliability of the API.
 

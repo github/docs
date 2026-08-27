@@ -5,7 +5,7 @@ This site will run on the Node.js version specified in `package.json`.
 When updating to a new Node.js version, consider the following files:
 
 - [ ] The `engines.node` entry in `package.json`
-- [ ] The `.github/*.workflow` Actions files
+- [ ] The `.github/workflows/*.yml` Actions files that pin a Node version (grep for `node-version`)
 - [ ] The `Dockerfile` that can be used for deployments
 - [ ] The `contributing/development.md` guide
 - [ ] The `contributing/node-versions.md` file

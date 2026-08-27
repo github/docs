@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
-import { FeaturedLink, getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
-import type { RawTocItem, SimpleTocItem } from '@/landings/types'
+import { getFeaturedLinksFromReq } from '@/landings/lib/featured-links'
+import type { RawTocItem, SimpleTocItem, FeaturedLink } from '@/landings/types'
 import { mapRawTocItemToSimpleTocItem } from '@/landings/types'
 
 export type TocLandingContextT = {
@@ -12,6 +12,7 @@ export type TocLandingContextT = {
   variant?: 'compact' | 'expanded'
   featuredLinks: Record<string, Array<FeaturedLink>>
   renderedPage: string
+  renderedPageHast?: import('hast').Root | null
 }
 
 export const TocLandingContext = createContext<TocLandingContextT | null>(null)
@@ -34,6 +35,7 @@ interface ContextRequest {
     genericTocFlat?: unknown[]
     genericTocNested?: unknown[]
     renderedPage?: string
+    renderedPageHast?: import('hast').Root | null
     featuredLinks?: Record<string, unknown[]>
     [key: string]: unknown
   }
@@ -52,5 +54,6 @@ export const getTocLandingContextFromRequest = (req: ContextRequest): TocLanding
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
     featuredLinks: getFeaturedLinksFromReq(req),
     renderedPage: (req.context.renderedPage as string) || '',
+    renderedPageHast: req.context.renderedPageHast ?? null,
   }
 }

@@ -17,11 +17,11 @@ category:
 ## Finding {% data variables.product.prodname_github_apps %}
 
 {% ifversion fpt or ghec %}
-You can discover {% data variables.product.prodname_github_apps %} on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). {% else %}You cannot install third-party applications on your enterprise. If you want to use the functionality of a third-party app, you can contact the app developer about creating an app from a manifest or from URL parameters. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-using-url-parameters).{% endif %}{% ifversion enterprise-installed-apps %} You cannot install third-party applications on your enterprise account—they must be owned by your enterprise or an organization in your enterprise.{% endif %}
+You can discover {% data variables.product.prodname_github_apps %} on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). Developers can also share a link to their public app directly, even if it's not in the {% data variables.product.prodname_marketplace %}. {% else %}You cannot install third-party applications on your enterprise. If you want to use the functionality of a third-party app, you can contact the app developer about creating an app from a manifest or from URL parameters. For more information, see [AUTOTITLE](/apps/sharing-github-apps/registering-a-github-app-from-a-manifest) and [AUTOTITLE](/apps/sharing-github-apps/registering-a-github-app-using-url-parameters).{% endif %}{% ifversion enterprise-installed-apps %} On {% data variables.product.prodname_dotcom_the_website %} you can install public apps from any developer on your enterprise, organization, or user account, as long as you trust the developer.{% endif %}
 
 {% data reusables.data-residency.github-marketplace-apps-unsupported %}
 
-You can also build your own {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+You can also build your own {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 ## Using {% data variables.product.prodname_github_apps %}
 
@@ -33,10 +33,23 @@ You may also need to authorize a {% data variables.product.prodname_github_app %
 
 Occasionally, the {% data variables.product.prodname_github_app %} will request updated permissions. {% data variables.product.company_short %} will notify you when this occurs. In order for the app to continue to function, you will need to review and approve the updated permissions. For more information, see [AUTOTITLE](/apps/using-github-apps/approving-updated-permissions-for-a-github-app).
 
-Before you install or authorize a {% data variables.product.prodname_github_app %}, you should make sure that you trust the app developer. If you no longer use the app, you should suspend or uninstall the app and/or revoke your authorization of the app. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access) and [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations).
+Before you install or authorize a {% data variables.product.prodname_github_app %}, you should make sure that you trust the app developer. If you no longer use the app, you should suspend or uninstall the app and/or revoke your authorization of the app. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access) and [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps).
+
+{% ifversion fpt or ghec %}
+
+## {% data variables.copilot.agent_apps_caps %}
+
+> [!NOTE] {% data reusables.copilot.agent-apps-preview %}
+
+{% data reusables.copilot.agent-apps-intro %} Powered by {% data variables.copilot.copilot_cloud_agent %}, you can trigger these agents from issues, pull requests, and the Agents UI.
+
+When you install an {% data variables.copilot.agent_app %}, you will be asked if you want to enable agent features. For more information, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
+
+If the app is installed in an organization owned by an enterprise, an administrator must also enable the "{% data variables.copilot.agent_apps %}" {% data variables.product.prodname_copilot_short %} policy before the agent features become available.
+
+{% endif %}
 
 ## {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
-
 {% data variables.product.company_short %} also supports {% data variables.product.prodname_oauth_apps %}. Unlike {% data variables.product.prodname_github_apps %}, you do not install an {% data variables.product.prodname_oauth_app %} or control what repositories it can access.
 
 Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.

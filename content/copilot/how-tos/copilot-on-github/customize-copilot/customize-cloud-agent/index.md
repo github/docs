@@ -7,10 +7,9 @@ versions:
 children:
   - /create-custom-agents
   - /add-skills
-  - /extend-cloud-agent-with-mcp
   - /use-hooks
   - /customize-the-agent-environment
-  - /customize-the-agent-firewall
+  - /configure-secrets-and-variables
   - /test-custom-agents
 contentType: how-tos
 ---

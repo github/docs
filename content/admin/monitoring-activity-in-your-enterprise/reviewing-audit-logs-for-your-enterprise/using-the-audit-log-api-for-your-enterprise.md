@@ -33,15 +33,15 @@ You can use the `read:audit_log` scope to access the audit log via the API.
 
 ## Rate limit
 
-Each audit log API endpoint has a rate limit of 1,750 queries per hour for a given combination of user and IP address. To avoid rate limiting, integrations that query the audit log API should query at a maximum frequency of 1,750 queries per hour. Additionally, if your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the API. See [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api) and [AUTOTITLE](/rest/guides/best-practices-for-integrators).{% endif %}
+Each audit log API endpoint has a rate limit of 1,750 queries per hour for a given combination of user and IP address. To avoid rate limiting, integrations that query the audit log API should query at a maximum frequency of 1,750 queries per hour. Additionally, if your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the API. See [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api) and [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api). {% endif %}
 
 ## Example 1: All events in an enterprise, for a specific date, with pagination
 
-You can use {% ifversion ghes %}page-based{% else %}cursor based{% endif %} pagination. For more information about pagination, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api).
+You can use {% ifversion ghes %}page-based{% else %}cursor-based{% endif %} pagination. For more information about pagination, see [AUTOTITLE](/rest/using-the-rest-api/using-pagination-in-the-rest-api).
 
 {% ifversion ghes %}
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using pagination. For more information about pagination, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api).
+The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using pagination. For more information about pagination, see [AUTOTITLE](/rest/using-the-rest-api/using-pagination-in-the-rest-api).
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -51,7 +51,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 {% else %}
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using pagination. For more information about pagination, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api). The `--include` flag causes the headers to be returned along with the response.
+The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using pagination. For more information about pagination, see [AUTOTITLE](/rest/using-the-rest-api/using-pagination-in-the-rest-api). The `--include` flag causes the headers to be returned along with the response.
 
 ```shell
 curl --include -H "Authorization: Bearer TOKEN" \

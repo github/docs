@@ -133,7 +133,10 @@
                     ]
                   },
                   "description": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -688,7 +691,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -1076,7 +1082,10 @@
                         ]
                       },
                       "description": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -1416,7 +1425,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -1778,7 +1790,7 @@
           ]
         },
         {
-          "type": "object or null",
+          "type": "object",
           "name": "code_scanning_default_setup_options",
           "description": "<p>Feature options for code scanning default setup</p>",
           "childParamsGroups": [
@@ -1796,6 +1808,11 @@
               "type": "string or null",
               "name": "runner_label",
               "description": "<p>The label of the runner to use for code scanning default setup when runner_type is 'labeled'.</p>"
+            },
+            {
+              "type": "boolean or null",
+              "name": "allow_advanced",
+              "description": "<p>Whether to allow repos which use advanced setup</p>"
             }
           ]
         },
@@ -1956,7 +1973,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -2516,7 +2536,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -3370,11 +3393,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "global",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -3487,7 +3510,10 @@
                     ]
                   },
                   "description": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -4104,7 +4130,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -4484,7 +4513,10 @@
                         ]
                       },
                       "description": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -4930,7 +4962,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -5306,7 +5341,7 @@
           ]
         },
         {
-          "type": "object or null",
+          "type": "object",
           "name": "code_scanning_default_setup_options",
           "description": "<p>Feature options for code scanning default setup</p>",
           "childParamsGroups": [
@@ -5324,6 +5359,11 @@
               "type": "string or null",
               "name": "runner_label",
               "description": "<p>The label of the runner to use for code scanning default setup when runner_type is 'labeled'.</p>"
+            },
+            {
+              "type": "boolean or null",
+              "name": "allow_advanced",
+              "description": "<p>Whether to allow repos which use advanced setup</p>"
             }
           ]
         },
@@ -5530,7 +5570,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -6090,7 +6133,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -7037,7 +7083,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {

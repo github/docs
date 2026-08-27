@@ -19,7 +19,7 @@ category:
   - Customize vulnerability detection with CodeQL
 ---
 
-This article is specifically about writing queries to use with the [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze) command to produce [interpreted results](https://codeql.github.com/docs/codeql-overview/about-codeql/#interpret-query-results). For conceptual information about custom queries, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/custom-codeql-queries).
+This article is specifically about writing queries to use with the [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-analyze) command to produce [interpreted results](https://codeql.github.com/docs/codeql-overview/about-codeql/#interpret-query-results). For conceptual information about custom queries, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/custom-queries).
 
 ## Writing a valid query
 
@@ -37,13 +37,13 @@ For more information about these metadata properties, see [Metadata for {% data 
 
 ## Including query help for custom {% data variables.product.prodname_codeql %} queries in SARIF files
 
-For information about query help and documentation formats, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/custom-codeql-queries#query-documentation).
+For information about query help and documentation formats, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/custom-queries#query-documentation).
 
 To include query help in SARIF files when running code scanning analyses:
 
 1. Write your query help in one of the following formats:
    * **Markdown file**: Save a Markdown file alongside your query with the same name (for example, `my-query.md` for `my-query.ql`)
-   * **`.qhelp` file**: Write query help in `.qhelp` format, then convert it to Markdown before running the analysis. For more information, see [Query help files](https://codeql.github.com/docs/writing-codeql-queries/query-help-files/#query-help-files) and [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-query-help-files).
+   * **`.qhelp` file**: Write query help in `.qhelp` format, then convert it to Markdown before running the analysis. For more information, see [Query help files](https://codeql.github.com/docs/writing-codeql-queries/query-help-files/#query-help-files) and [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/test-query-help-files).
 1. Run `codeql database analyze` with the `--sarif-add-query-help` option:
 
    ```shell
@@ -56,4 +56,4 @@ To include query help in SARIF files when running code scanning analyses:
 
 ## Next steps
 
-To share and use your custom queries, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/publish-and-use-packs).
+To share and use your custom queries, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/publish-and-use-packs).

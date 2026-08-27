@@ -22,6 +22,7 @@ For **ProductPricing** budgets or to query usage by product, use one of the foll
 * `copilot` - {% data variables.product.prodname_copilot %}
 * `ghas` - {% data variables.product.prodname_GH_advanced_security %}
 * `ghec` - {% data variables.product.prodname_ghe_cloud %}
+* `sandbox` - Cloud and local sandboxes for {% data variables.product.prodname_copilot %}
 
 ## SKU-level identifiers
 
@@ -34,17 +35,19 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 * `actions_cache_storage` - Actions cache storage
 * `actions_custom_image_storage` - Actions custom image storage
 * `actions_linux` - Actions Linux runners
-* `actions_linux_2_core_advanced` - Actions Linux 2-core advanced
-* `actions_linux_2_core_arm` - Actions Linux 2-core ARM
+* `actions_linux_16_core` - Actions Linux 16-core
+* `actions_linux_16_core_arm` - Actions Linux ARM 16-core
+* `actions_linux_2_core_advanced` - Actions Linux Advanced 2-core
+* `actions_linux_2_core_arm` - Actions Linux ARM 2-core
 * `actions_linux_32_core` - Actions Linux 32-core
-* `actions_linux_32_core_arm` - Actions Linux 32-core ARM
+* `actions_linux_32_core_arm` - Actions Linux ARM 32-core
 * `actions_linux_4_core` - Actions Linux 4-core
-* `actions_linux_4_core_arm` - Actions Linux 4-core ARM
-* `actions_linux_4_core_gpu` - Actions Linux 4-core GPU
+* `actions_linux_4_core_arm` - Actions Linux ARM 4-core
+* `actions_linux_4_core_gpu` - Actions Linux GPU 4-core
 * `actions_linux_64_core` - Actions Linux 64-core
-* `actions_linux_64_core_arm` - Actions Linux 64-core ARM
+* `actions_linux_64_core_arm` - Actions Linux ARM 64-core
 * `actions_linux_8_core` - Actions Linux 8-core
-* `actions_linux_8_core_arm` - Actions Linux 8-core ARM
+* `actions_linux_8_core_arm` - Actions Linux ARM 8-core
 * `actions_linux_96_core` - Actions Linux 96-core
 * `actions_linux_arm` - Actions Linux ARM
 * `actions_linux_slim` - Actions Linux slim
@@ -54,18 +57,20 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 * `actions_storage` - Actions storage
 * `actions_windows` - Actions Windows runners
 * `actions_windows_16_core` - Actions Windows 16-core
+* `actions_windows_16_core_arm` - Actions Windows ARM 16-core
 * `actions_windows_2_core` - Actions Windows 2-core
-* `actions_windows_2_core_advanced` - Actions Windows 2-core advanced
-* `actions_windows_2_core_arm` - Actions Windows 2-core ARM
-* `actions_windows_4_core_arm` - Actions Windows 4-core ARM
+* `actions_windows_2_core_advanced` - Actions Windows Advanced 2-core
+* `actions_windows_2_core_arm` - Actions Windows ARM 2-core
 * `actions_windows_32_core` - Actions Windows 32-core
-* `actions_windows_32_core_arm` - Actions Windows 32-core ARM
+* `actions_windows_32_core_arm` - Actions Windows ARM 32-core
 * `actions_windows_4_core` - Actions Windows 4-core
-* `actions_windows_4_core_gpu` - Actions Windows 4-core GPU
+* `actions_windows_4_core_arm` - Actions Windows ARM 4-core
+* `actions_windows_4_core_gpu` - Actions Windows GPU 4-core
 * `actions_windows_64_core` - Actions Windows 64-core
-* `actions_windows_64_core_arm` - Actions Windows 64-core ARM
+* `actions_windows_64_core_arm` - Actions Windows ARM 64-core
 * `actions_windows_8_core` - Actions Windows 8-core
-* `actions_windows_8_core_arm` - Actions Windows 8-core ARM
+* `actions_windows_8_core_arm` - Actions Windows ARM 8-core
+* `actions_windows_96_core` - Actions Windows 96-core
 * `actions_windows_arm` - Actions Windows ARM
 
  <!-- markdownlint-enable GHD046 -->
@@ -82,10 +87,9 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 
 ### {% data variables.product.prodname_copilot %} SKUs
 
-* `copilot_agent_premium_request` - Copilot agent premium request
+* `copilot_ai_credits` - Copilot {% data variables.product.prodname_ai_credits_short %}
 * `copilot_enterprise` - Copilot Enterprise
 * `copilot_for_business` - Copilot for Business
-* `copilot_premium_request` - Copilot premium request
 * `copilot_standalone` - Copilot standalone
 
 ### {% data variables.product.prodname_GH_advanced_security %} SKUs
@@ -93,6 +97,12 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 * `ghas_code_security_licenses` - GHAS code security licenses
 * `ghas_licenses` - GHAS licenses
 * `ghas_secret_protection_licenses` - GHAS secret protection licenses
+
+### Cloud and local sandboxes for {% data variables.product.prodname_copilot %} SKUs
+
+* `sandbox_linux` - Sandboxes for {% data variables.product.prodname_copilot %}: Linux
+* `sandbox_memory` - Sandboxes for {% data variables.product.prodname_copilot %}: Memory
+* `sandbox_snapshot` - Sandboxes for {% data variables.product.prodname_copilot %}: Snapshot
 
 ### Other SKUs
 
@@ -102,7 +112,7 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 * `models_inference` - Models inference
 * `packages_bandwidth` - Packages bandwidth
 * `packages_storage` - Packages storage
-* `spark_premium_request` - Spark premium request
+* `spark_ai_credits` - Spark {% data variables.product.prodname_ai_credits_short %}
 
 > [!NOTE]
 > The exact SKUs available may vary depending on your enterprise or organization configuration and the features enabled. If you receive a `404` error when creating a budget through the REST API, look at the error response to see the current list of valid SKUs for your account.

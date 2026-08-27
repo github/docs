@@ -3,7 +3,7 @@ title: 'Configuring user display names for your enterprise'
 intro: 'You can choose whether the profile name (first and last name) of your enterprise members appear alongside their username across {% data variables.product.github %}.'
 versions:
   ghec: '*'
-  ghes: '*'
+  ghes: '>= 3.21'
 contentType: how-tos
 permissions: Enterprise and organization admins can configure whether profile names (first and last name) appear alongside usernames across {% data variables.product.github %}.
 shortTitle: Configure user display names

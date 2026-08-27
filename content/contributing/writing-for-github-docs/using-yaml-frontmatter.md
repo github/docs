@@ -48,7 +48,7 @@ For more information, see [`lib/frontmatter.ts`](https://github.com/github/docs/
 ### `versions`
 
 * Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.ts) to which a page applies.
-For more information about the different types of versioning, see [Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation).
+  For more information about the different types of versioning, see [Versioning documentation](/contributing/writing-for-github-docs/versioning-documentation).
 * Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.ts`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.ts).
 * This frontmatter value is currently **required** for all pages.
 * The `*` is used to denote all releases for the version.
@@ -97,7 +97,7 @@ redirect_from:
   - /articles/getting-started-with-github-for-windows
 ```
 
-For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/configuring-redirects).
+For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/configuring-redirects).
 
 ### `title`
 
@@ -145,8 +145,7 @@ shortTitle: Contributing to projects
 ### `layout`
 
 * Purpose: Render the proper page layout.
-* Type: `String` that matches the name of the layout.
-For a layout named `components/landing`, the value would be `product-landing`.
+* Type: `String` that matches the name of a supported layout. See `layoutNames` in `src/frame/lib/frontmatter.ts` for the authoritative list (for example, `discovery-landing`, `journey-landing`, `bespoke-landing`, `category-landing`, `toc-landing`, `inline`).
 * Optional. If omitted, `DefaultLayout` is used.
 
 ### `children`
@@ -217,7 +216,7 @@ defaultPlatform: linux
 
 ### `defaultTool`
 
-* Purpose: Override the initial tool selection for a page, where the tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs. For more information about the tool selector, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#tool-tags). If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
+* Purpose: Override the initial tool selection for a page, where the tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs. For more information about the tool selector, see [AUTOTITLE](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs#tool-tags). If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
 * Type: `String`, one of: `webui`, `cli`, `desktop`, `curl`, `codespaces`, `vscode`, `importer_cli`, `graphql`, `powershell`, `bash`, `javascript`.
 * Optional.
 
@@ -233,6 +232,7 @@ defaultTool: cli
   * `id` (required): Unique identifier for the journey. The id only needs to be unique for journeys within a single journey landing page.
   * `title` (required): Display title for the journey (supports Liquid variables)
   * `description` (optional): Description of the journey (supports Liquid variables)
+  * `timeCommitment` (optional): Estimated time to complete the journey (for example, `2-4 hours`). Rendered as a badge next to the article count.
   * `guides` (required): Array of guide objects that make up this journey. Each guide object has:
     * `href` (required): Path to the article
     * `alternativeNextStep` (optional): Custom text to guide users to alternative paths in the journey. Supports Liquid variables and `[AUTOTITLE]`.
@@ -246,6 +246,7 @@ journeyTracks:
   - id: 'getting_started'
     title: 'Getting started with {% data variables.product.prodname_actions %}'
     description: 'Learn the basics of GitHub Actions.'
+    timeCommitment: '2-4 hours'
     guides:
       - href: '/actions/quickstart'
       - href: '/actions/learn-github-actions'

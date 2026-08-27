@@ -1,5 +1,5 @@
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
-import yaml from 'js-yaml'
+import { load, YAMLException } from 'js-yaml'
 
 import { liquid } from '@/content-render/index'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -50,7 +50,7 @@ export const thirdPartyActionPinning: Rule = {
       // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
       const renderedYaml = await liquid.parseAndRender(token.content, context)
       try {
-        const yamlObj = yaml.load(renderedYaml) as WorkflowYaml
+        const yamlObj = load(renderedYaml) as WorkflowYaml
         const steps = getWorkflowSteps(yamlObj)
         if (!steps.some((step) => step.uses)) return
 
@@ -73,7 +73,7 @@ export const thirdPartyActionPinning: Rule = {
           }
         }
       } catch (e) {
-        if (e instanceof yaml.YAMLException) {
+        if (e instanceof YAMLException) {
           console.log('YAML Exception file:', params.name)
           console.error('YAML Exception:', e.message)
         } else {

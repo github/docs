@@ -73,13 +73,18 @@ const generalSearchCommand = new Command('general-search')
   .action(async (sourceDirectory, options) => {
     try {
       await indexGeneralSearch(sourceDirectory, options)
-    } catch (error: any) {
-      if (error instanceof errors.ElasticsearchClientError) {
-        if ((error as any)?.meta) {
-          console.error('Error meta: %O', (error as any).meta)
-        }
+    } catch (error: unknown) {
+      if (
+        error instanceof errors.ElasticsearchClientError &&
+        'meta' in error &&
+        (error as { meta?: unknown }).meta
+      ) {
+        console.error('Error meta: %O', (error as { meta?: unknown }).meta)
       }
-      console.error('general-search indexing error:', error.message)
+      console.error(
+        'general-search indexing error:',
+        error instanceof Error ? error.message : error,
+      )
       process.exit(1)
     }
   })
@@ -123,13 +128,18 @@ const aiSearchAutocompleteCommand = new Command('ai-search-autocomplete')
         versions,
         indexPrefix,
       })
-    } catch (error: any) {
-      if (error instanceof errors.ElasticsearchClientError) {
-        if ((error as any)?.meta) {
-          console.error('Error meta: %O', (error as any).meta)
-        }
+    } catch (error: unknown) {
+      if (
+        error instanceof errors.ElasticsearchClientError &&
+        'meta' in error &&
+        (error as { meta?: unknown }).meta
+      ) {
+        console.error('Error meta: %O', (error as { meta?: unknown }).meta)
       }
-      console.error('ai-search-autocomplete indexing error:', error.message)
+      console.error(
+        'ai-search-autocomplete indexing error:',
+        error instanceof Error ? error.message : error,
+      )
       process.exit(1)
     }
   })

@@ -26,19 +26,24 @@ spec:
       containers:
         - name: webapp
           image: docs-internal
+          # Retune using 2 weeks of data
+          # https://app.datadoghq.com/dashboard/6vx-iun-ghs/moda-resource-recommendations?tpl_var_kube_namespace%5B0%5D=docs-internal-staging-balsam&tpl_var_kube_namespace%5B1%5D=docs-internal-staging-boxwood&tpl_var_kube_namespace%5B2%5D=docs-internal-staging-cedar&tpl_var_kube_namespace%5B3%5D=docs-internal-staging-cypress&tpl_var_kube_namespace%5B4%5D=docs-internal-staging-fir&tpl_var_kube_namespace%5B5%5D=docs-internal-staging-hemlock&tpl_var_kube_namespace%5B6%5D=docs-internal-staging-hinoki&tpl_var_kube_namespace%5B7%5D=docs-internal-staging-holly&tpl_var_kube_namespace%5B8%5D=docs-internal-staging-juniper&tpl_var_kube_namespace%5B9%5D=docs-internal-staging-laurel&tpl_var_kube_namespace%5B10%5D=docs-internal-staging-pine&tpl_var_kube_namespace%5B11%5D=docs-internal-staging-redwood&tpl_var_kube_namespace%5B12%5D=docs-internal-staging-sequoia&tpl_var_kube_namespace%5B13%5D=docs-internal-staging-spruce&tpl_var_kube_namespace%5B14%5D=docs-internal-staging-yew&from_ts=0&to_ts=1209600000&live=true
+          # Staging is not budget checked
           resources:
             requests:
-              cpu: 1000m
-              # Absolute minimum to start app is 1000m
-              # Node is single-threaded but we want more CPUs
-              # for OS and image resizing, and other binary executions
-              # Better to increase replicas or memory than CPU
-              memory: 8.0Gi
-              # Absolute minimum to start app is 4500Mi
-              # Would increase with more pages, versions, or languages supported
+              # requests.cpu: 150m idle schedule floor
+              # staging idles near zero
+              cpu: 150m
+              # requests.memory: highest-peak pod p99 (1882Mi) * 1.1
+              # for working-set padding
+              memory: 2070Mi
             limits:
-              cpu: 8000m
-              memory: 8.0Gi
+              # limits.cpu: highest-peak pod max [warmup peak] (1.82 cores) * 3
+              # for start up insurance; compressible
+              cpu: 5460m
+              # limits.memory: highest-peak pod max (1882Mi) * 2
+              # over-limit means OOMkill; non-compressible
+              memory: 3764Mi
           ports:
             - name: http
               containerPort: 4000

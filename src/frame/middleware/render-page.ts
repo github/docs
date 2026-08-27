@@ -2,6 +2,7 @@ import type { Response } from 'express'
 
 import type { Failbot } from '@github/failbot'
 import { get } from 'lodash-es'
+import { createLogger } from '@/observability/logger'
 
 import { buildMiniTocFromCollected, type CollectedHeading } from '@/frame/lib/get-mini-toc-items'
 import patterns from '@/frame/lib/patterns'
@@ -10,11 +11,13 @@ import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import type { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
 import { transformerRegistry } from '@/article-api/transformers'
+import { normalizeRenderedMarkdown } from '@/article-api/lib/normalize-markdown'
+import { renderContentToHast } from '@/content-render/index'
 import { minimumNotFoundHtml } from '../lib/constants'
 import { contentTypeCacheControl, defaultCacheControl } from './cache-control'
-import { isConnectionDropped } from './halt-on-dropped-connection'
 import { nextHandleRequest } from './next'
 
+const logger = createLogger(import.meta.url)
 const STATSD_KEY_RENDER = 'middleware.render_page'
 
 async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
@@ -36,6 +39,40 @@ async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   ])
 
   return (await pageRenderTimed(context)) as string
+}
+
+/**
+ * Spike for #6619 (remove dangerouslySetInnerHTML): produce the article body as
+ * a serializable hast (HTML AST) tree alongside the legacy HTML string.
+ *
+ * Must run AFTER buildRenderedPage, which calls page.render and populates the
+ * context fields the pipeline reads (englishHeadings, alertTitles). We render
+ * the same raw `page.markdown`, but with a context clone that omits
+ * `collectMiniToc` so the mini-TOC isn't collected a second time.
+ *
+ * Wrapped so a hast failure can never break the page: the React layer falls
+ * back to the string path when this is undefined. NOTE: this currently renders
+ * the body pipeline twice; the production design (see #6619 plan) should produce
+ * hast once and derive the string from it.
+ */
+async function buildRenderedPageHast(req: ExtendedRequest) {
+  const { context } = req
+  if (!context) throw new Error('request not contextualized')
+  const { page } = context
+  if (!page || !page.markdown) return undefined
+
+  try {
+    const hastContext = { ...context, collectMiniToc: undefined }
+    const { hast } = await renderContentToHast(page.markdown, hastContext)
+    return hast || undefined
+  } catch (error) {
+    logger.error(
+      'buildRenderedPageHast failed; falling back to string path',
+      error instanceof Error ? error : new Error(String(error)),
+      { path: req.pagePath || req.path },
+    )
+    return undefined
+  }
 }
 
 function buildMiniTocItems(req: ExtendedRequest) {
@@ -71,9 +108,9 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
   // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {
-      console.error(
-        `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`,
-      )
+      logger.error('Tried to redirect to a page that was not found', {
+        redirectNotFound: context.redirectNotFound,
+      })
     }
 
     // send minimal 404 at this point since we ran into hydration issues trying to pass
@@ -96,9 +133,6 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     res.setHeader('Last-Modified', new Date(page.effectiveDate).toUTCString())
   }
 
-  // Stop processing if the connection was already dropped
-  if (isConnectionDropped(req, res)) return
-
   // Content negotiation: serve markdown when the client prefers it over HTML.
   // Agents like Claude Code send Accept headers that omit text/html.
   if (req.accepts(['text/html', 'text/markdown']) === 'text/markdown') {
@@ -115,14 +149,14 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     // causes renderTitle/renderProp to output markdown instead of HTML,
     // which breaks the cheerio-based unwrap logic.
     const transformerContext = { ...context, markdownRequested: false }
-    req.context.renderedPage = await transformer.transform(page, path, transformerContext)
+    req.context.renderedPage = normalizeRenderedMarkdown(
+      await transformer.transform(page, path, transformerContext),
+    )
   } else {
     req.context.renderedPage = await buildRenderedPage(req)
+    req.context.renderedPageHast = await buildRenderedPageHast(req)
     req.context.miniTocItems = buildMiniTocItems(req)
   }
-
-  // Stop processing if the connection was already dropped
-  if (isConnectionDropped(req, res)) return
 
   // Create string for <title> tag
   page.fullTitle = page.title

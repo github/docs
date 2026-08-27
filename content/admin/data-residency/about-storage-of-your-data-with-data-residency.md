@@ -39,7 +39,7 @@ For the purposes outlined in our [Data Protection Agreement](https://github.com/
 | Telemetry or logs containing consistent identifiers tied to a person, that by themselves do not identify the person without additional information | <ul><li>User ID or GUID as integer value in a database</li><li>Unsalted hash of other data that could identify a person</li><ul><li>Email address</li><li>Username</li><li>First or last name</li><li>IP address</li></ul> |
 | Information that GitHub needs to administer a paid plan | <ul><li>Contact information</li><li>Billing, purchase, payment, or license information</li></ul> |
 | Support and feedback data | <ul><li>Support requests or case notes</li><li>Phone conversations</li><li>Online chat sessions</li><li>Remote assistance sessions</li></ul> |
-| {% data variables.product.prodname_copilot %} data | Data and logs for {% data variables.product.prodname_copilot %} |
+| {% data variables.product.prodname_copilot %} data | Data and logs for {% data variables.product.prodname_copilot %}, by default stored outside your region. If you enable the Restrict Copilot to data residency compliant models policy, inference, prompts, responses, logs, and telemetry remain in-region. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency).|
 | {% data variables.product.prodname_secret_scanning_caps %} data | Data for {% data variables.product.prodname_secret_scanning %} validity checks and extended metadata checks if you have chosen to enable these features |
 
 ## Data transfers

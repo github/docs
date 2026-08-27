@@ -9,15 +9,15 @@ redirect_from:
   - /copilot/how-tos/ai-models/changing-the-ai-model-for-copilot-chat
   - /copilot/how-tos/ai-models/change-the-chat-model
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
 Choose from a selection of models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
 
-To view the available models per client, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot#supported-models-per-client).
+To view the available models per client, see [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-per-client).
 
-> [!NOTE] Different models have different premium request multipliers, which can affect how much of your monthly usage allowance is consumed. For details, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+> [!NOTE] Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 
 {% data variables.product.prodname_copilot_short %} allows you to change the model during a chat and have the alternative model used to generate responses to your prompts.
 
@@ -29,7 +29,7 @@ Changing the model used by {% data variables.copilot.copilot_chat_short %} does 
 
 ### Limitations of AI models for {% data variables.copilot.copilot_chat_short %}
 
-Experimental pre-release versions of the models may not interact with all filters correctly, including the setting to block suggestions matching public code (see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code)).
+Experimental pre-release versions of the models may not interact with all filters correctly, including the setting to block suggestions matching public code (see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code)).
 
 ## Changing the AI model
 
@@ -75,6 +75,7 @@ You can expand the model options that are available to power {% data variables.c
 
 * Depending on the provider or model you choose, you may need to supply an API key, or model ID, from the provider, or a {% data variables.product.github %} {% data variables.product.pat_generic %} (PAT).
 * To add models from the AI Toolkit for {% data variables.product.prodname_vscode %}, you must <a href="vscode:extension/ms-windows-ai-studio.windows-ai-studio?ref_product=copilot&ref_type=engagement&ref_style=text">install the AI Toolkit extension</a>.
+* If you are on a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan and want to use third-party models in a supported IDE, the **Bring Your Own Language Model Key in Select IDEs** policy must be enabled. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 ### Adding models
 
@@ -131,11 +132,18 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 
+For reasoning models that support configurable thinking effort, you can control how much reasoning the model applies to each request.
+
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Open {% data variables.copilot.copilot_chat %}**.
-1. In the bottom right of the chat view, select an AI model of your choice from the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
+1. In the bottom right of the chat view, select an AI model of your choice from the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu.
+1. Optionally, hover over a reasoning model that supports configurable thinking effort.
+   1. In the **Thinking Effort** submenu, select an effort level. Nonreasoning models do not display the **Thinking Effort** submenu.
 
 {% data reusables.copilot.auto-model-option %}
+
+> [!TIP]
+> Model selection is also available when using {% data variables.product.prodname_copilot_short %} through JetBrains AI Assistant. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-in-jetbrains).
 
 {% endjetbrains %}
 
@@ -161,7 +169,7 @@ These instructions are for the Eclipse IDE. For instructions on different client
 
 These instructions are for Xcode. For instructions on different clients, click the appropriate tab at the top of this page.
 
-To use multi-model {% data variables.copilot.copilot_chat_short %}, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+To use multi-model {% data variables.copilot.copilot_chat_short %}, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 

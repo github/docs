@@ -1,10 +1,9 @@
 import { createContext, useContext } from 'react'
-import { getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
+import { getFeaturedLinksFromReq } from '@/landings/lib/featured-links'
 import { mapRawTocItemToTocItem } from '@/landings/types'
-import type { TocItem } from '@/landings/types'
+import type { TocItem, FeaturedLink } from '@/landings/types'
 import type { ExtendedRequest, Context } from '@/types'
 import type { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
-import type { FeaturedLink } from '@/landings/components/ProductLandingContext'
 
 export type LandingType = 'bespoke' | 'discovery' | 'journey'
 

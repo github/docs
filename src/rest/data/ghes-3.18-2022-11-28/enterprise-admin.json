@@ -1714,8 +1714,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3396,8 +3395,7 @@
           {
             "\"Custom properties\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3679,8 +3677,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3865,8 +3862,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4041,8 +4037,7 @@
           {
             "\"Custom properties\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4271,8 +4266,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4343,8 +4337,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -5906,8 +5899,769 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
+      }
+    }
+  ],
+  "live-migrations": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/enterprise/live-migrations",
+      "title": "List Enterprise Live Migrations",
+      "category": "enterprise-admin",
+      "subcategory": "live-migrations",
+      "parameters": [
+        {
+          "name": "page_size",
+          "in": "query",
+          "description": "<p>Number of results per page.</p>",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "after",
+          "in": "query",
+          "description": "<p>Cursor for pagination. Use the value from <code>next_cursor</code> of a previous response.</p>",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "description": "<p>Optional filter by migration status.</p>",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "created",
+              "queued",
+              "in_progress",
+              "paused",
+              "completed",
+              "failed",
+              "terminated",
+              "all"
+            ]
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>List Enterprise Live Migrations (ELM) for the current GHES appliance.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>The migration service is missing the source or target credentials required to service this request. An organization administrator must configure the required secrets before retrying.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "501",
+          "description": "<p>Not implemented.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/enterprise/live-migrations",
+      "title": "Create an Enterprise Live Migration",
+      "category": "enterprise-admin",
+      "subcategory": "live-migrations",
+      "parameters": [],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "source_organization_login",
+          "description": "<p>Source organization login on the GHES appliance.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "source_repository_name",
+          "description": "<p>Source repository name.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "target_organization_login",
+          "description": "<p>Target organization login on the destination GitHub environment.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "target_repository_name",
+          "description": "<p>Target repository name.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "target_api_endpoint",
+          "description": "<p>Migration target API endpoint URL. Must be a valid HTTPS URL.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "pat_name",
+          "description": "<p>Name of the organization-scoped migration credential set to use. The raw token is never submitted inline and is never returned in the response.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "target_visibility",
+          "description": "<p>Target repository visibility. Defaults to <code>internal</code> when omitted. A source repository with public visibility must set this explicitly.</p>",
+          "enum": [
+            "private",
+            "internal"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Create an Enterprise Live Migration (ELM) for a single repository on the current GHES appliance. The migration is created in a <code>created</code> state and is not started; run the start endpoint to launch backfill and live updates. Credentials are referenced by name (<code>pat_name</code>) rather than submitted inline, and are not echoed back in the response.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "201",
+            "description": "<p>The migration was created. The response contains the new migration identifier and its expiration. No credentials are returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>The migration was created. The response contains the new migration identifier and its expiration. No credentials are returned.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict. The request conflicts with the current state of the migration.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>The migration service is missing the source or target credentials required to service this request. An organization administrator must configure the required secrets before retrying.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/enterprise/live-migrations/{migration_id}",
+      "title": "Get an Enterprise Live Migration",
+      "category": "enterprise-admin",
+      "subcategory": "live-migrations",
+      "parameters": [
+        {
+          "name": "migration_id",
+          "in": "path",
+          "description": "<p>The ID of the migration.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Retrieve combined status, progress, cutover readiness, expiration, and timing for an Enterprise Live Migration (ELM) on the current GHES appliance.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "migration_id": "MIGRATION_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>The migration service is missing the source or target credentials required to service this request. An organization administrator must configure the required secrets before retrying.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/enterprise/live-migrations/{migration_id}/cancel",
+      "title": "Cancel an Enterprise Live Migration",
+      "category": "enterprise-admin",
+      "subcategory": "live-migrations",
+      "parameters": [
+        {
+          "name": "migration_id",
+          "in": "path",
+          "description": "<p>The ID of the migration.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Cancel an Enterprise Live Migration (ELM) in progress. This terminates the migration: it is cancelled locally, aborted on the migration backend, and its work items are removed. This is a terminal action with no recovery — a subsequent status request reflects the terminated state.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "migration_id": "MIGRATION_ID"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>The migration was cancelled. No content is returned; query the migration status to observe the terminal state.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>The migration was cancelled. No content is returned; query the migration status to observe the terminal state.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict. The migration is not in a state that can be cancelled (for example, it has already completed or been terminated).</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>The migration service is missing the source or target credentials required to service this request. An organization administrator must configure the required secrets before retrying.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/enterprise/live-migrations/{migration_id}/cutover",
+      "title": "Cutover an Enterprise Live Migration",
+      "category": "enterprise-admin",
+      "subcategory": "live-migrations",
+      "parameters": [
+        {
+          "name": "migration_id",
+          "in": "path",
+          "description": "<p>The ID of the migration.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "boolean",
+          "name": "force",
+          "description": "<p>Bypass the cutover readiness checks and initiate cutover even when the migration is not reported as ready. Defaults to <code>false</code>.</p>",
+          "default": false
+        }
+      ],
+      "descriptionHTML": "<p>Initiate cutover for an Enterprise Live Migration (ELM), archiving the source repository and draining remaining changes. Cutover is asynchronous; the migration transitions through cutover_pending and cutover_finalizing to completed. No content is returned — query the migration status to observe progress.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "migration_id": "MIGRATION_ID"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Cutover was initiated. No content is returned; query the migration status to observe the cutover progress.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>Cutover was initiated. No content is returned; query the migration status to observe the cutover progress.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict. The migration is not ready for cutover (for example, backfill is still in progress, or the migration has already completed, been cancelled, or failed).</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>The migration service is missing the source or target credentials required to service this request. An organization administrator must configure the required secrets before retrying.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/enterprise/live-migrations/{migration_id}/pause",
+      "title": "Pause an Enterprise Live Migration",
+      "category": "enterprise-admin",
+      "subcategory": "live-migrations",
+      "parameters": [
+        {
+          "name": "migration_id",
+          "in": "path",
+          "description": "<p>The unique identifier of the Enterprise Live Migration.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Pause source-load work for an active Enterprise Live Migration (ELM). Backfill and Git synchronization are paused while live event collection and delivery continue. The operation is idempotent for a migration that is already paused. No content is returned; query the migration status to observe the durable state.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "migration_id": "MIGRATION_ID"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>The migration was paused. No content is returned; query the migration status to confirm its current state.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>The migration was paused. No content is returned; query the migration status to confirm its current state.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict. The migration is not in a state that can be paused, such as when it has not been started or has already completed.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>The pause request was accepted by the migration service, but the migration did not complete the transition to paused. Query the migration status and retry. This status is also returned when the migration service is missing the source or target credentials required to service the request; an organization administrator must configure the required secrets before retrying.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/enterprise/live-migrations/{migration_id}/resume",
+      "title": "Resume an Enterprise Live Migration",
+      "category": "enterprise-admin",
+      "subcategory": "live-migrations",
+      "parameters": [
+        {
+          "name": "migration_id",
+          "in": "path",
+          "description": "<p>The ID of the migration.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Resume a paused Enterprise Live Migration (ELM). The migration is re-queued and resumes backfill and live updates. A subsequent status request reflects the resumed state.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "migration_id": "MIGRATION_ID"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>The migration was resumed. No content is returned; query the migration status to observe the resumed state.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>The migration was resumed. No content is returned; query the migration status to observe the resumed state.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict. The migration is not in a state that can be resumed (for example, it is not paused, or has completed or terminated).</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>The migration service is missing the source or target credentials required to service this request. An organization administrator must configure the required secrets before retrying.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/enterprise/live-migrations/{migration_id}/revert-cutover",
+      "title": "Revert cutover for an Enterprise Live Migration",
+      "category": "enterprise-admin",
+      "subcategory": "live-migrations",
+      "parameters": [
+        {
+          "name": "migration_id",
+          "in": "path",
+          "description": "<p>The ID of the migration.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Revert cutover for an Enterprise Live Migration (ELM). This unarchives the source repository and terminates any cutover or migration still in progress so the source repository can be migrated again.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "migration_id": "MIGRATION_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "description": "<p>The cutover was reverted.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>The cutover was reverted.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict. The migration is not in a state where cutover can be reverted.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>The migration service is missing the source or target credentials required to service this request. An organization administrator must configure the required secrets before retrying.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/enterprise/live-migrations/{migration_id}/start",
+      "title": "Start an Enterprise Live Migration",
+      "category": "enterprise-admin",
+      "subcategory": "live-migrations",
+      "parameters": [
+        {
+          "name": "migration_id",
+          "in": "path",
+          "description": "<p>The ID of the migration.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Start a created Enterprise Live Migration (ELM), launching backfill and enabling live updates. The migration must be in a startable state (for example, created, paused, or failed); preflight validation runs before the migration is queued unless it has been skipped.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "migration_id": "MIGRATION_ID"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>The migration was started (queued for execution). No content is returned; query the migration status to observe progress.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>The migration was started (queued for execution). No content is returned; query the migration status to observe progress.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict. The migration is not in a state that can be started (for example, it has already been started or has completed).</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>The migration could not be started because preflight validation did not pass. Query the migration status for details. This status is also returned when the migration service is missing the source or target credentials required to service the request; an organization administrator must configure the required secrets before retrying.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
       }
     }
   ],
@@ -8518,11 +9272,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -8532,12 +9286,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "name"
-            ],
-            "default": "created"
+            ]
           }
         }
       ],
@@ -9149,11 +9903,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -9162,12 +9916,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "name"
-            ],
-            "default": "created"
+            ]
           },
           "description": ""
         }
@@ -9923,11 +10677,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -9937,12 +10691,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "name"
-            ],
-            "default": "created"
+            ]
           }
         }
       ],
@@ -10782,11 +11536,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -10795,12 +11549,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "name"
-            ],
-            "default": "created"
+            ]
           },
           "description": ""
         }
@@ -11201,10 +11955,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "members"
-            ]
+            "type": "string"
           }
         },
         {
@@ -11214,11 +11965,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 1,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 1
           }
         },
         {
@@ -11228,11 +11975,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 30,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 30
           }
         },
         {
@@ -11489,8 +12232,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11767,8 +12509,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11785,10 +12526,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -11797,10 +12535,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "members"
-            ]
+            "type": "string"
           }
         },
         {
@@ -12014,8 +12749,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -12032,10 +12766,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -12475,8 +13206,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -12493,10 +13223,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -12945,8 +13672,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -12963,10 +13689,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -13036,8 +13759,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -13064,11 +13786,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 1,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 1
           }
         },
         {
@@ -13078,11 +13796,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 30,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 30
           }
         },
         {
@@ -13414,8 +14128,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -14139,8 +14852,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -14452,8 +15164,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -14924,8 +15635,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -15804,8 +16514,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -15892,8 +16601,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -15931,11 +16639,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -15944,12 +16652,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "accessed"
-            ],
-            "default": "created"
+            ]
           },
           "description": ""
         },
@@ -16449,7 +17157,7 @@
                           "permissions": {
                             "title": "App Permissions",
                             "type": "object",
-                            "description": "The permissions granted to the user access token.",
+                            "description": "The permissions granted to the fine-grained access token.",
                             "properties": {
                               "actions": {
                                 "type": "string",
@@ -16486,6 +17194,14 @@
                               "checks": {
                                 "type": "string",
                                 "description": "The level of permission to grant the access token for checks on code.",
+                                "enum": [
+                                  "read",
+                                  "write"
+                                ]
+                              },
+                              "code_quality": {
+                                "type": "string",
+                                "description": "The level of permission to grant the access token to view and manage code quality data.",
                                 "enum": [
                                   "read",
                                   "write"
@@ -16712,6 +17428,7 @@
                                 "type": "string",
                                 "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                                 "enum": [
+                                  "read",
                                   "write"
                                 ]
                               },
@@ -17495,7 +18212,7 @@
               "token_last_eight": "Ae178B4a",
               "hashed_token": "25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8",
               "app": {
-                "url": "http://my-github-app.com",
+                "url": "https://example.com",
                 "name": "my github app",
                 "client_id": "abcde12345fghij67890"
               },
@@ -17721,7 +18438,7 @@
                         "permissions": {
                           "title": "App Permissions",
                           "type": "object",
-                          "description": "The permissions granted to the user access token.",
+                          "description": "The permissions granted to the fine-grained access token.",
                           "properties": {
                             "actions": {
                               "type": "string",
@@ -17758,6 +18475,14 @@
                             "checks": {
                               "type": "string",
                               "description": "The level of permission to grant the access token for checks on code.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
                               "enum": [
                                 "read",
                                 "write"
@@ -17984,6 +18709,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },
@@ -18358,7 +19084,7 @@
               "token_last_eight": "Ae178B4a",
               "hashed_token": "25f94a2a5c7fbaf499c665bc73d67c1c87e496da8985131633ee0a95819db2e8",
               "app": {
-                "url": "http://my-github-app.com",
+                "url": "https://example.com",
                 "name": "my github app",
                 "client_id": "abcde12345fghij67890"
               },
@@ -18584,7 +19310,7 @@
                         "permissions": {
                           "title": "App Permissions",
                           "type": "object",
-                          "description": "The permissions granted to the user access token.",
+                          "description": "The permissions granted to the fine-grained access token.",
                           "properties": {
                             "actions": {
                               "type": "string",
@@ -18621,6 +19347,14 @@
                             "checks": {
                               "type": "string",
                               "description": "The level of permission to grant the access token for checks on code.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
                               "enum": [
                                 "read",
                                 "write"
@@ -18847,6 +19581,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },

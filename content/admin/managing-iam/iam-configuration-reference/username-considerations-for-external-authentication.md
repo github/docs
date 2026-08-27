@@ -25,13 +25,13 @@ category:
 
 {% ifversion ghes %}
 
-You can configure external authentication for {% data variables.product.prodname_ghe_server %} using CAS, LDAP, or SAML. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server).
+You can configure external authentication for {% data variables.product.prodname_ghe_server %} using CAS, LDAP, or SAML. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals#which-authentication-method-are-available-to-me).
 
 When you use external authentication, {% data variables.location.product_location %} automatically creates a username for each person when the person signs into {% data variables.location.product_location %} through your external authentication system for the first time.
 
 {% elsif ghec %}
 
-If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users) and [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server).
+If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users) and [AUTOTITLE](/admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals#which-authentication-method-are-available-to-me).
 
 {% data variables.product.github %} automatically creates a username for each person when their user account is provisioned via SCIM.
 
@@ -141,12 +141,12 @@ If you configure SAML authentication for {% data variables.location.product_loca
 1. An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` assertion, if present
 1. The `NameID` element
 
-{% data variables.product.github %} requires the `NameID` element even if other attributes are present. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-attributes).
+{% data variables.product.github %} requires the `NameID` element even if other attributes are present. For more information, see [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/saml-configuration-reference#saml-attributes).
 
 {% data variables.product.github %} creates a mapping between the `NameID` from the IdP and the username on {% data variables.location.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 > [!NOTE]
-> If the `NameID` for a user does change on the IdP, the person will see an error message when signing in to {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid).
+> If the `NameID` for a user does change on the IdP, the person will see an error message when signing in to {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/updating-a-users-saml-nameid).
 
 {% endif %}
 

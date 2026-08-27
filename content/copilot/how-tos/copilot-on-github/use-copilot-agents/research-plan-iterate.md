@@ -15,7 +15,7 @@ redirect_from:
   - /copilot/how-tos/use-copilot-agents/cloud-agent/provide-visual-inputs
 ---
 
-{% data variables.copilot.copilot_cloud_agent_tmp %} lets you:
+{% data variables.copilot.copilot_cloud_agent %} lets you:
 
 * **Research** a repository by asking {% data variables.product.prodname_copilot_short %} questions.
 * **Plan** and refine an approach before {% data variables.product.prodname_copilot_short %} makes changes.
@@ -23,13 +23,13 @@ redirect_from:
 
 Sessions do not create pull requests automatically. To create one immediately, include that in your prompt—for example, "Create a pull request to ...".
 
-> [!NOTE] These capabilities are only available with {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.copilot.copilot_cloud_agent_short_cap_c %} integrations (such as Azure Boards, JIRA, Linear, Slack, or Teams) only support creating a pull request directly.
+> [!NOTE] These capabilities are only available with {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}, and in {% data variables.release-phases.public_preview %} for the Teams and Slack integrations. Other {% data variables.copilot.copilot_cloud_agent_short_cap_c %} integrations (such as Azure Boards, JIRA, or Linear) only support creating a pull request directly.
 
 ## Perform deep research
 
 Ask {% data variables.copilot.copilot_cloud_agent %} questions about a repository to understand how it works, find where to make a change, or confirm assumptions before planning.
 
-1. Start a task from the agents tab, panel, dashboard, or {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/kick-off-a-task).
+1. Start a task from the agents tab, panel, dashboard, {% data variables.copilot.copilot_chat_short %}, or from within a supported integration. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/kick-off-a-task).
 1. Ask a question about the repository.
 
    For example: `Investigate performance issues in this app and suggest improvements.`
@@ -43,7 +43,7 @@ Ask {% data variables.copilot.copilot_cloud_agent %} questions about a repositor
 Ask {% data variables.copilot.copilot_cloud_agent %} to propose a plan before making changes.
 
 1. Describe the plan you want.
-   
+
    For example: `Create a plan to implement the most impactful performance improvements for this app.`
 1. Review the plan and iterate with {% data variables.product.prodname_copilot_short %} until it matches your intent.
 

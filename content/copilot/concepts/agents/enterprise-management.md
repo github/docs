@@ -23,11 +23,11 @@ The AI Controls view provides a centralized platform where you can manage and mo
 
 Enterprise owners and AI managers can control how {% data variables.copilot.copilot_cloud_agent %} is adopted across the enterprise by choosing one of four policy states. This allows you to pilot adoption progressively and manage risk.
 
-If you choose the **Enabled for selected organizations** policy, you can select organizations individually or based on organization custom properties. This lets you define dynamic groups of organizations that align with your existing organizational structure—for example, by region, compliance tier, or department. You can manage this policy setting using the REST API endpoints or directly in the AI Controls page.  See [REST API endpoints for Copilot coding agent management](/rest/copilot/copilot-coding-agent-management#copilot-coding-agent-policy-states). Please note that using custom properties to enable CCA is evaluated once at the time of configuration. Organizations will not be automatically enabled or disabled for CCA if the custom property is added, removed, or modified later. 
+If you choose the **Enabled for selected organizations** policy, you can select organizations individually or based on organization custom properties. This lets you define dynamic groups of organizations that align with your existing organizational structure—for example, by region, compliance tier, or department. You can manage this policy setting using the REST API endpoints or directly in the AI Controls page.  See [REST API endpoints for Copilot coding agent management](/rest/copilot/copilot-coding-agent-management#copilot-coding-agent-policy-states). Please note that using custom properties to enable CCA is evaluated once at the time of configuration. Organizations will not be automatically enabled or disabled for CCA if the custom property is added, removed, or modified later.
 
 ## {% data variables.copilot.copilot_custom_agents %}
 
-{% data variables.copilot.copilot_custom_agents %} are specialized versions of {% data variables.copilot.copilot_cloud_agent %} that you can configure with tailored prompts, tools, and context, making them excel at specific tasks. {% data variables.copilot.custom_agents_caps_short %} can be defined and managed at the enterprise level for greater control and compliance, or at the organization and repository levels to allow teams the flexibility to build for their specific needs. 
+{% data variables.copilot.copilot_custom_agents %} are specialized versions of {% data variables.copilot.copilot_cloud_agent %} that you can configure with tailored prompts, tools, and context, making them excel at specific tasks. {% data variables.copilot.custom_agents_caps_short %} can be defined and managed at the enterprise level for greater control and compliance, or at the organization and repository levels to allow teams the flexibility to build for their specific needs.
 
 You can manage your enterprise-level {% data variables.copilot.custom_agents_short %}:
 * From the AI Controls view
@@ -42,18 +42,45 @@ An agent session encompasses an entire interaction with {% data variables.copilo
 * Prompting the agent to create or edit a pull request
 * Assigning the agent to an issue
 
-For billing information on agent sessions, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-premium-requests#usage-by-copilot-cloud-agent).
+Enterprise administrators can use AI Controls to view active and recent agent sessions, track audit log events, and search agentic activity in your enterprise using filters. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity) and [AUTOTITLE](/copilot/reference/enterprise-administrators/agent-session-filters).
+
+For long-term retention and analysis, you can stream enterprise audit log data to supported destinations. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/copilot/reference/enterprise-administrators/agentic-audit-log-events).
+
+For billing information on agent sessions, see [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/github-copilot-premium-requests#usage-by-copilot-cloud-agent).
+
+## Third-party agents
+
+Third-party agents, or partner agents, such as Claude and Codex work alongside {% data variables.copilot.copilot_cloud_agent %} to complete development tasks asynchronously on {% data variables.product.github %}. While they share the same security protections and mitigations as {% data variables.copilot.copilot_cloud_agent %}, their policies are managed separately. Disabling or restricting {% data variables.copilot.copilot_cloud_agent %} does not automatically disable third-party agents, and vice versa. Each agent type must be configured independently.
+
+Enterprise administrators and AI managers can control the availability of third-party agents from the Agents page in the AI Controls view. These policies govern third-party agent usage on {% data variables.product.prodname_dotcom_the_website %}.
+
+For more information about available third-party agents, see [AUTOTITLE](/copilot/concepts/agents/about-third-party-coding-agents).
+
+## Local agents
+
+Agents running in {% data variables.product.prodname_vscode %} are not managed through {% data variables.product.github %} at all. Instead, they are an IDE feature with their own configuration.
+
+For more information, see [Types of agents](https://code.visualstudio.com/docs/copilot/agents/overview#_types-of-agents) and [Enable or disable the use of agents](https://code.visualstudio.com/docs/enterprise/ai-settings#_enable-or-disable-the-use-of-agents) in the {% data variables.product.prodname_vscode %} documentation.
+
+## MCP servers
+
+Model Context Protocol (MCP) servers give agents access to external tools and data sources. Enterprise owners can control how MCP servers are discovered and used across the enterprise through a dedicated set of MCP policies in the AI Controls view.
+
+To help you meet security and compliance requirements, you can choose to:
+* Allow or block MCP server usage entirely
+* Control which external tools are available to agents using an MCP registry (catalogs of approved MCP servers that your developers can discover and use)
+
+Private MCP registries apply to {% data variables.copilot.copilot_cli_short %} and IDEs, but not to cloud agents that run on {% data variables.product.github %}. For {% data variables.copilot.copilot_cloud_agent %}, MCP servers can be configured at the repository level or in custom agent profiles defined at the enterprise level.
+
+For more information, see [AUTOTITLE](/copilot/concepts/mcp-management).
+
+## Enterprise-managed settings
+
+The `{% data variables.copilot.managed_setting_file %}` file allows enterprises to control how users can interact with agents across {% data variables.product.prodname_copilot_short %} clients. For example: which plugins can people install, and can people use "allow all" commands that let agents run commands without asking for permission? This file can be hosted on {% data variables.product.company_short %} or installed directly on users' machines.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
 
 ## Agent mode in the IDE
 
 Enterprise and organization owners can separately control whether their users have access to agent mode in IDE chat, independently from the "Chat in IDE" policy. This gives you finer-grained control over agentic capabilities in your developers' IDEs.
 
-To manage this policy, enable or disable **Copilot Agent Mode in IDE chat** in your AI Controls settings. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
-
-## Next steps
-
-To get started with {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
-
-## Further reading
-
-* [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents)

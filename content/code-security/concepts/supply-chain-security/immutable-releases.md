@@ -1,5 +1,6 @@
 ---
 title: Immutable releases
+shortTitle: Immutable releases
 intro: Learn about immutable releases and how they can help you maintain the integrity of your software supply chain.
 versions:
   feature: immutable-releases
@@ -26,7 +27,7 @@ Additionally, creating an immutable release automatically generates a **release 
 > [!NOTE]
 > Immutable releases include protection against repository resurrection attacks. Even if you delete a repository and create a new one with the same name, you cannot reuse tags that were associated with immutable releases in the original repository.
 
-If a release is immutable, you will see "{% octicon "lock" aria-hidden="true" %} Immutable"  below the title on the release page.
+If a release is immutable, you will see {% octicon "lock" aria-hidden="true" %} **Immutable**"  below the title on the release page.
 
 ## Best practices for publishing immutable releases
 
@@ -40,6 +41,6 @@ This ensures that all assets are in place before the release becomes immutable, 
 
 ## Next steps
 
-To learn how to enable immutable releases for your repository or organization, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/preventing-changes-to-your-releases).
+To learn how to enable immutable releases for your repository or organization, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/prevent-release-changes).
 
-To learn how to ensure a release and local assets have not been changed, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/verifying-the-integrity-of-a-release).
+To learn how to ensure a release and local assets have not been changed, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity).

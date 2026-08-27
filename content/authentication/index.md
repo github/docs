@@ -20,8 +20,6 @@ versions:
   ghec: '*'
 introLinks:
   overview: /authentication/keeping-your-account-and-data-secure/about-authentication-to-github
-changelog:
-  label: '2FA,authentication,security keys,SSH,token authentication'
 layout: discovery-landing
 carousels:
   recommended:

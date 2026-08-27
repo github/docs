@@ -5,7 +5,9 @@ import { ExtendedRequestWithPageInfo } from '@/article-api/types'
 import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features'
 import glossaries from '@/frame/middleware/context/glossaries'
+import dataTables from '@/data-directory/middleware/data-tables'
 import { transformerRegistry } from '@/article-api/transformers'
+import { normalizeRenderedMarkdown } from '@/article-api/lib/normalize-markdown'
 import { allVersions } from '@/versions/lib/all-versions'
 import type { Page } from '@/types'
 
@@ -35,6 +37,9 @@ async function createContextualizedRenderingRequest(pathname: string, page: Page
 
   // Run page-specific contextualizers (e.g., glossaries middleware)
   await glossaries(renderingReq as ExtendedRequestWithPageInfo, {} as Response, () => {})
+
+  // Load data-driven table content (needed for {% for entry in tables.* %} Liquid loops)
+  await dataTables(renderingReq as ExtendedRequestWithPageInfo, {} as Response, () => {})
 
   return renderingReq
 }
@@ -68,5 +73,7 @@ export async function getArticleBody(req: ExtendedRequestWithPageInfo) {
     effectiveApiVersion = allVersions[currentVersion].latestApiVersion || undefined
   }
 
-  return await transformer.transform(page, pathname, renderingReq.context, effectiveApiVersion)
+  return normalizeRenderedMarkdown(
+    await transformer.transform(page, pathname, renderingReq.context, effectiveApiVersion),
+  )
 }

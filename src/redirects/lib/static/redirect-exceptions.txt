@@ -49,7 +49,7 @@
 - /github-ae@latest/admin/overview/deploying-github-ae
 - /github-ae@latest/admin/overview/initializing-github-ae
 
-# Agent tasks REST API was rolled back before launch
-/rest
-- /rest/agent-tasks
-- /rest/agent-tasks/agent-tasks
+# The legacy backup-utils docs are deprecated from 3.22, but they still need to exist in previous supported versions
+# So we need to set up a redirect for every new GHES versions until 3.22 is the oldest supported versions
+/enterprise-server@3.22/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server
+- /enterprise-server@3.22/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance

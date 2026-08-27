@@ -4326,7 +4326,16 @@
         "subcategory": "releases",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "releases",
+        "slug": "update-a-release",
+        "subcategory": "releases",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -4354,6 +4363,24 @@
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/secret-scanning/push-protection-bypasses",
         "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "activity",
+        "slug": "list-stargazers",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stargazers",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "activity",
+        "slug": "list-watchers",
+        "subcategory": "watching",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/subscribers",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -5299,15 +5326,6 @@
         "access": "read"
       },
       {
-        "category": "activity",
-        "slug": "list-stargazers",
-        "subcategory": "starring",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/stargazers",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
         "category": "metrics",
         "slug": "get-the-weekly-commit-activity",
         "subcategory": "statistics",
@@ -5349,15 +5367,6 @@
         "subcategory": "statistics",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/stats/punch_card",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "activity",
-        "slug": "list-watchers",
-        "subcategory": "watching",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/subscribers",
         "additional-permissions": false,
         "access": "read"
       },
@@ -6642,6 +6651,15 @@
         "subcategory": "releases",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "releases",
+        "slug": "update-a-release",
+        "subcategory": "releases",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
         "additional-permissions": true,
         "access": "write"
       }

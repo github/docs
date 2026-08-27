@@ -124,6 +124,13 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- icono "check" %}', 'es')).toBe('{%- octicon "check" %}')
     })
 
+    test('fixes alto → octicon', () => {
+      expect(fix('{% alto "link-external":16 aria-label="link-external" %}', 'es')).toBe(
+        '{% octicon "link-external":16 aria-label="link-external" %}',
+      )
+      expect(fix('{%- alto "check" %}', 'es')).toBe('{%- octicon "check" %}')
+    })
+
     test('fixes octicon "bombilla" → octicon "light-bulb"', () => {
       expect(fix('{% octicon "bombilla" aria-label="The light-bulb icon" %}', 'es')).toBe(
         '{% octicon "light-bulb" aria-label="The light-bulb icon" %}',
@@ -161,6 +168,23 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% siVersion productos-ghas %}', 'es')).toBe('{% ifversion productos-ghas %}')
       expect(fix('{%- siVersion productos-ghas %}', 'es')).toBe('{%- ifversion productos-ghas %}')
     })
+
+    test('fixes {% de escritorio %} → {% desktop %} (platform tab)', () => {
+      expect(fix('{% de escritorio %}', 'es')).toBe('{% desktop %}')
+      expect(fix('{%- de escritorio %}', 'es')).toBe('{%- desktop %}')
+    })
+
+    test('fixes fused {% variablesdatos.producto.X %} → {% data variables.product.X %}', () => {
+      expect(fix('{% variablesdatos.producto.prodname_dotcom %}', 'es')).toBe(
+        '{% data variables.product.prodname_dotcom %}',
+      )
+      expect(fix('{%- variablesdatos.producto.github %}', 'es')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      expect(fix('{%variablesdatos.producto.github%}', 'es')).toBe(
+        '{% data variables.product.github%}',
+      )
+    })
   })
 
   // ─── JAPANESE (ja) ──────────────────────────────────────────────────
@@ -196,6 +220,14 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes Japanese or (または) in ifversion tags', () => {
       expect(fix('{% ifversion fpt または ghec %}', 'ja')).toBe('{% ifversion fpt or ghec %}')
       expect(fix('{%- ifversion fpt または ghec %}', 'ja')).toBe('{%- ifversion fpt or ghec %}')
+    })
+
+    test('fixes translated command-palette flag name', () => {
+      expect(fix('{% ifversion コマンド パレット %}', 'ja')).toBe('{% ifversion command-palette %}')
+      expect(fix('{%- ifversion コマンド パレット %}', 'ja')).toBe(
+        '{%- ifversion command-palette %}',
+      )
+      expect(fix('{% ifversion command-palette %}', 'ja')).toBe('{% ifversion command-palette %}')
     })
 
     test('fixes trailing quote on YAML value', () => {
@@ -332,6 +364,32 @@ describe('correctTranslatedContentStrings', () => {
   // ─── PORTUGUESE (pt) ───────────────────────────────────────────────
 
   describe('Portuguese (pt)', () => {
+    test('strips stray unclosed {% vscode %} opener with no English counterpart', () => {
+      // Confirmed in data/reusables/copilot/code-completion-switch-prereqs-vscode.md:
+      // translator inserted a stray `{% vscode %}` opener mid-sentence with no
+      // matching `{% endvscode %}`, and the English source never used this tag.
+      expect(
+        fix(
+          'Você está usando as versões mais recentes do {% vscode %} Você pode alternar os modelos.',
+          'pt',
+          'You are using the latest releases of Visual Studio Code.',
+        ),
+      ).toBe('Você está usando as versões mais recentes do Você pode alternar os modelos.')
+
+      // Leave the tag alone when it's properly closed.
+      expect(
+        fix('{% vscode %}Conteúdo{% endvscode %}', 'pt', 'You are using the latest releases.'),
+      ).toBe('{% vscode %}Conteúdo{% endvscode %}')
+
+      // Leave the tag alone when the English source also uses it (legitimate tab content).
+      expect(fix('{% vscode %}Conteúdo', 'pt', '{% vscode %}Content')).toBe('{% vscode %}Conteúdo')
+
+      // Every opener is stray when there is no closer at all, so strip all of them.
+      expect(
+        fix('a {% vscode %} b {% vscode %} c', 'pt', 'You are using the latest releases.'),
+      ).toBe('a b c')
+    })
+
     test('fixes translated data tags', () => {
       expect(fix('{% dados variables.product.github %}', 'pt')).toBe(
         '{% data variables.product.github %}',
@@ -352,6 +410,12 @@ describe('correctTranslatedContentStrings', () => {
       // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
       expect(fix('{%– ifversion projects-v1 %}', 'pt')).toBe('{%- ifversion projects-v1 %}')
       expect(fix('{%– endif %}', 'pt')).toBe('{%- endif %}')
+    })
+
+    test('fixes Portuguese não (not) in ifversion tags', () => {
+      expect(fix('{% ifversion não ghes %}', 'pt')).toBe('{% ifversion not ghes %}')
+      expect(fix('{%- ifversion não ghes %}', 'pt')).toBe('{%- ifversion not ghes %}')
+      expect(fix('{% ifversion not ghes %}', 'pt')).toBe('{% ifversion not ghes %}')
     })
 
     test('fixes datavariables / dadosvariables (no space)', () => {
@@ -407,6 +471,14 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% if condition ou other %}', 'pt')).toBe('{% if condition or other %}')
     })
 
+    test('fixes multi-plan word-order swap with ou (ghes ifversion ou ghec)', () => {
+      // `{% ghes ifversion ou ghec %}` — word-order swap + Portuguese "ou" for "or"
+      expect(fix('{% ghes ifversion ou ghec %}', 'pt')).toBe('{% ifversion ghes or ghec %}')
+      expect(fix('{%- ghes ifversion ou ghec %}', 'pt')).toBe('{%- ifversion ghes or ghec %}')
+      expect(fix('{% fpt ifversion ou ghec %}', 'pt')).toBe('{% ifversion fpt or ghec %}')
+      expect(fix('{% ghec ifversion ou ghes %}', 'pt')).toBe('{% ifversion ghec or ghes %}')
+    })
+
     test('fixes fully translated reutilizáveis reusables path', () => {
       // `reutilizáveis` is Portuguese for "reusables"
       expect(fix('{% dados reutilizáveis.repositórios.reaction_list %}', 'pt')).toBe(
@@ -433,7 +505,24 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes dados variáveis → data variables', () => {
       expect(fix('{% dados variáveis.produto.prodname_pro %}', 'pt')).toBe(
-        '{% data variables.produto.prodname_pro %}',
+        '{% data variables.product.prodname_pro %}',
+      )
+    })
+
+    test('fixes translated produto path segment inside variables.', () => {
+      expect(fix('{% data variáveis.produto.prodname_ghe_cloud %}', 'pt')).toBe(
+        '{% data variables.product.prodname_ghe_cloud %}',
+      )
+      expect(fix('{% data variables.produto.prodname_github_codespaces %}', 'pt')).toBe(
+        '{% data variables.product.prodname_github_codespaces %}',
+      )
+      // Already-correct input is left unchanged.
+      expect(fix('{% data variables.product.prodname_pro %}', 'pt')).toBe(
+        '{% data variables.product.prodname_pro %}',
+      )
+      // Prose outside a Liquid `data` tag is left unchanged.
+      expect(fix('Veja myvariables.produto.exemplo para detalhes.', 'pt')).toBe(
+        'Veja myvariables.produto.exemplo para detalhes.',
       )
     })
 
@@ -504,6 +593,18 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{ 如果 ghec %}', 'zh')).toBe('{% if ghec %}')
     })
 
+    test('fixes translated flag names in ifversion tags', () => {
+      expect(fix('{% ifversion 命令面板 %}', 'zh')).toBe('{% ifversion command-palette %}')
+      expect(fix('{%- ifversion 命令面板 %}', 'zh')).toBe('{%- ifversion command-palette %}')
+      expect(fix('{% ifversion 子问题 %}', 'zh')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{%- ifversion 子问题 %}', 'zh')).toBe('{%- ifversion sub-issues %}')
+      expect(fix('{% ifversion 问题类型 %}', 'zh')).toBe('{% ifversion issue-types %}')
+      expect(fix('{%- ifversion 问题类型 %}', 'zh')).toBe('{%- ifversion issue-types %}')
+      expect(fix('{% ifversion command-palette %}', 'zh')).toBe('{% ifversion command-palette %}')
+      expect(fix('{% ifversion sub-issues %}', 'zh')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{% ifversion issue-types %}', 'zh')).toBe('{% ifversion issue-types %}')
+    })
+
     test('fixes stray Chinese then merged with HTML', () => {
       expect(fix('，则为 {%<div>', 'zh')).toBe('<div>')
     })
@@ -523,6 +624,12 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- 行标题 %}', 'zh')).toBe('{%- rowheaders %}')
     })
 
+    test('fixes 结束表头列 → endrowheaders', () => {
+      expect(fix('{% 结束表头列 %}', 'zh')).toBe('{% endrowheaders %}')
+      expect(fix('{%- 结束表头列 %}', 'zh')).toBe('{%- endrowheaders %}')
+      expect(fix('{% endrowheaders %}', 'zh')).toBe('{% endrowheaders %}')
+    })
+
     test('fixes 数据变量 → data variables', () => {
       expect(fix('{% 数据变量.product.github %}', 'zh')).toBe('{% data variables.product.github %}')
     })
@@ -534,6 +641,86 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%-数据变量.product.github %}', 'zh')).toBe(
         '{%- data variables.product.github %}',
       )
+    })
+
+    test('fixes {% 捕获 X %} → {% capture X %} (translated capture tag)', () => {
+      // With space between 捕获 and identifier
+      expect(fix('{% 捕获 myvar %}', 'zh')).toBe('{% capture myvar %}')
+      // Without space
+      expect(fix('{% 捕获myvar %}', 'zh')).toBe('{% capture myvar %}')
+      // Whitespace-stripping forms
+      expect(fix('{%- 捕获 myvar -%}', 'zh')).toBe('{%- capture myvar -%}')
+      expect(fix('{%- 捕获myvar %}', 'zh')).toBe('{%- capture myvar %}')
+    })
+
+    test('[per-file] azure-vnet: premature endif leaves orphan else', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path = 'data/reusables/actions/azure-vnet-creating-network-configuration-prereqs.md'
+      const broken =
+        '可以{% ifversion ghec%}在企业或组织级别{% endif %}在组织级别{% else %}创建网络配置，从而将 Azure 虚拟网络 (VNET) 用于专用网络。'
+      const fixed =
+        '可以{% ifversion ghec %}在企业或组织级别{% else %}在组织级别{% endif %}创建网络配置，从而将 Azure 虚拟网络 (VNET) 用于专用网络。'
+      expect(fixAt(broken, 'zh', path)).toBe(fixed)
+      // unchanged if already correct
+      expect(fixAt(fixed, 'zh', path)).toBe(fixed)
+    })
+
+    test('[per-file] ghas-ghec: scrambled ifversion with stray elsif after endif', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path = 'data/reusables/gated-features/ghas-ghec.md'
+      const broken =
+        '适用于{% data variables.product.prodname_team %}上的{% ifversion fpt or ghec %}账户以及{% data variables.product.prodname_ghe_server %}{% endif %}上的{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}账户。'
+      const fixed =
+        '适用于{% ifversion fpt or ghec %}{% data variables.product.prodname_team %}和{% data variables.product.prodname_ghe_cloud %}上的账户{% elsif ghes %}{% data variables.product.prodname_ghe_server %}上的账户{% endif %}。'
+      expect(fixAt(broken, 'zh', path)).toBe(fixed)
+      expect(fixAt(fixed, 'zh', path)).toBe(fixed)
+    })
+
+    test('[per-file] scim/after-you-configure-saml: ifversion opener dropped leaving orphan else', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path = 'data/reusables/scim/after-you-configure-saml.md'
+      const broken =
+        '{% data variables.product.github %}{% else %}{% data variables.location.product_location_enterprise %}{% endif %} 上的{% ifversion fpt or ghec %}企业资源'
+      const fixed =
+        '{% ifversion fpt or ghec %}{% data variables.product.github %} 上的企业资源{% else %}{% data variables.location.product_location_enterprise %}{% endif %}'
+      expect(fixAt(broken, 'zh', path)).toBe(fixed)
+      expect(fixAt(fixed, 'zh', path)).toBe(fixed)
+    })
+
+    test('[per-file] consider-usernames: ifversion ghec opener dropped leaving orphan elsif', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path =
+        'data/reusables/enterprise_user_management/consider-usernames-for-external-authentication.md'
+      const broken =
+        '企业中 {% data variables.product.github %}{% elsif ghes %} 上 {% data variables.location.product_location %}{% endif %} 上每个新个人帐户 {% ifversion ghec %} 的用户名。'
+      const fixed =
+        '{% ifversion ghec %}企业中 {% data variables.product.github %}{% elsif ghes %} 上 {% data variables.location.product_location %}{% endif %} 上每个新个人帐户的用户名。'
+      expect(fixAt(broken, 'zh', path)).toBe(fixed)
+      expect(fixAt(fixed, 'zh', path)).toBe(fixed)
     })
   })
 
@@ -573,6 +760,19 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% данных reusables.foo %}', 'ru')).toBe('{% data reusables.foo %}')
       expect(fix('{% данные reusables.foo %}', 'ru')).toBe('{% data reusables.foo %}')
+    })
+
+    test('fixes fully translated "data reusables" tag prefixes', () => {
+      // "данных, многократно используемых" = "data, repeatedly used"
+      expect(fix('{% данных, многократно используемых.copilot.jetbrains-settings %}', 'ru')).toBe(
+        '{% data reusables.copilot.jetbrains-settings %}',
+      )
+      // "данных, которые можно использовать повторно" = "data that can be reused"
+      expect(
+        fix('{% данных, которые можно использовать повторно.projects.what-gets-copied %}', 'ru'),
+      ).toBe('{% data reusables.projects.what-gets-copied %}')
+      // already-correct input is left unchanged
+      expect(fix('{% data reusables.copilot.foo %}', 'ru')).toBe('{% data reusables.copilot.foo %}')
     })
 
     test('fixes broadened данных. pattern', () => {
@@ -662,6 +862,21 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- заголовки строк %}', 'ru')).toBe('{%- rowheaders %}')
     })
 
+    test('fixes windowsTerminal → windowsterminal', () => {
+      expect(fix('{% windowsTerminal %}', 'ru')).toBe('{% windowsterminal %}')
+      expect(fix('{%- windowsTerminal %}', 'ru')).toBe('{%- windowsterminal %}')
+    })
+
+    test('fixes командная палитра ifversion → ifversion command-palette', () => {
+      expect(fix('{%- командная палитра ifversion %}', 'ru')).toBe(
+        '{%- ifversion command-palette %}',
+      )
+      expect(fix('{% командная палитра ifversion %}', 'ru')).toBe('{% ifversion command-palette %}')
+      expect(fix('{%- командная палитра ifversion -%}', 'ru')).toBe(
+        '{%- ifversion command-palette -%}',
+      )
+    })
+
     test('fixes translated feature flag names', () => {
       expect(fix('обязательный-2fa-dotcom-участник', 'ru')).toBe(
         'mandatory-2fa-dotcom-contributors',
@@ -743,6 +958,53 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% джетмозги %}', 'ru')).toBe('{% jetbrains %}')
       expect(fix('{%- джетмозги %}', 'ru')).toBe('{%- jetbrains %}')
     })
+
+    test('fixes uppercase {% API %} → {% api %} (platform tab)', () => {
+      expect(fix('{% API %}', 'ru')).toBe('{% api %}')
+      expect(fix('{%- API %}', 'ru')).toBe('{%- api %}')
+    })
+
+    test('fixes {% захватить X %} → {% capture X %} (translated capture tag)', () => {
+      expect(fix('{% захватить myvar %}', 'ru')).toBe('{% capture myvar %}')
+      expect(fix('{%- захватить myvar -%}', 'ru')).toBe('{%- capture myvar -%}')
+    })
+
+    test('fixes comma between plan names in ifversion/elsif/if to `or`', () => {
+      expect(fix('{% ifversion fpt, ghec %}', 'ru')).toBe('{% ifversion fpt or ghec %}')
+      expect(fix('{% elsif fpt, ghec %}', 'ru')).toBe('{% elsif fpt or ghec %}')
+      expect(fix('{%- ifversion ghes, ghec %}', 'ru')).toBe('{%- ifversion ghes or ghec %}')
+    })
+
+    test('fixAt: enterprise-licensing-language reusable garbled conditional', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const broken =
+        '{% ifversion enterprise-licensing-language %}license-language%else %}licenses{% license seats{% endif %}'
+      const out = fixAt(
+        broken,
+        'ru',
+        'data/reusables/enterprise-licensing/unique-user-licensing-model.md',
+      )
+      expect(out).toBe(
+        '{% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}',
+      )
+    })
+
+    test('fixes doubled plan name before ifversion (ghes ghes ifversion → ifversion ghes)', () => {
+      // `{% ghes ghes ifversion %}` — plan name appears twice before `ifversion`;
+      // collapses the duplicate and swaps to canonical `{% ifversion PLAN %}`.
+      expect(fix('{% ghes ghes ifversion %}', 'ru')).toBe('{% ifversion ghes %}')
+      expect(fix('{%- ghec ghec ifversion %}', 'ru')).toBe('{%- ifversion ghec %}')
+      // Does not affect normal word-order swap (single plan name)
+      expect(fix('{% ghes ifversion %}', 'ru')).toBe('{% ifversion ghes %}')
+      // Unchanged when already correct
+      expect(fix('{% ifversion ghes %}', 'ru')).toBe('{% ifversion ghes %}')
+    })
   })
 
   // ─── FRENCH (fr) ───────────────────────────────────────────────────
@@ -765,6 +1027,11 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% de data variables.product.github %}', 'fr')).toBe(
         '{% data variables.product.github %}',
       )
+      // `{% données.variables.X %}` — dot instead of space after "données"
+      expect(fix('{% données.variables.copilot.copilot_chat_short %}', 'fr')).toBe(
+        '{% data variables.copilot.copilot_chat_short %}',
+      )
+      expect(fix('{% données.reusables.foo.bar %}', 'fr')).toBe('{% data reusables.foo.bar %}')
     })
 
     test('fixes translated else', () => {
@@ -873,6 +1140,41 @@ describe('correctTranslatedContentStrings', () => {
         fix('{% données réutilisables propriétés-personnalisées valeurs-requises %}', 'fr'),
       ).toBe('{% data reusables.organizations.custom-properties-required-values %}')
     })
+
+    test('fixes modules réutilisables → data reusables', () => {
+      expect(fix('{% modules réutilisables.enterprise_migrations.ready-to-import %}', 'fr')).toBe(
+        '{% data reusables.enterprise_migrations.ready-to-import %}',
+      )
+      expect(fix('{%- modules réutilisables.foo.bar %}', 'fr')).toBe(
+        '{%- data reusables.foo.bar %}',
+      )
+    })
+
+    test('fixes flux de travail variables → data variables', () => {
+      // `{% flux de travail variables.` — French "flux de travail" (workflow) mistakenly
+      // used as the Liquid tag name instead of "data".
+      expect(fix('{% flux de travail variables.product.prodname_actions %}', 'fr')).toBe(
+        '{% data variables.product.prodname_actions %}',
+      )
+      expect(fix('{%- flux de travail variables.copilot.foo %}', 'fr')).toBe(
+        '{%- data variables.copilot.foo %}',
+      )
+    })
+
+    test('fixes invite → prompt', () => {
+      expect(fix('{% invite %}', 'fr')).toBe('{% prompt %}')
+      expect(fix('{%- invite %}', 'fr')).toBe('{%- prompt %}')
+      expect(fix('{% invite -%}', 'fr')).toBe('{% prompt -%}')
+    })
+
+    test('fixes collaborateurs invités ifversion → ifversion guest-collaborators', () => {
+      expect(fix('{% collaborateurs invités ifversion %}', 'fr')).toBe(
+        '{% ifversion guest-collaborators %}',
+      )
+      expect(fix('{%- collaborateurs invités ifversion %}', 'fr')).toBe(
+        '{%- ifversion guest-collaborators %}',
+      )
+    })
   })
 
   // ─── KOREAN (ko) ──────────────────────────────────────────────────
@@ -880,6 +1182,24 @@ describe('correctTranslatedContentStrings', () => {
   describe('Korean (ko)', () => {
     test('fixes AUTOTITLE with Korean suffix', () => {
       expect(fix('[AUTOTITLE"을 참조하세요]', 'ko')).toBe('[AUTOTITLE]')
+    })
+
+    test('fixes datda → data typo', () => {
+      expect(fix('{% datda variables.product.github %}', 'ko')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- datda variables.copilot.foo %}', 'ko')).toBe(
+        '{%- data variables.copilot.foo %}',
+      )
+    })
+
+    test('fixes data를 Korean-particle corruption', () => {
+      expect(
+        fix('{% data를 탐색하고 수락하기 variables.copilot.next_edit_suggestions %}', 'ko'),
+      ).toBe('{% data variables.copilot.next_edit_suggestions %}')
+      expect(
+        fix('{%- data를 탐색하고 수락하기 variables.copilot.next_edit_suggestions -%}', 'ko'),
+      ).toBe('{%- data variables.copilot.next_edit_suggestions -%}')
     })
 
     test('fixes translated data tags', () => {
@@ -898,6 +1218,33 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes extra percent before data (via generic)', () => {
       expect(fix('{% % data variables.product.github %}', 'ko')).toBe(
         '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes translated flag names in ifversion tags', () => {
+      expect(fix('{% ifversion 명령 팔레트 %}', 'ko')).toBe('{% ifversion command-palette %}')
+      expect(fix('{%- ifversion 명령 팔레트 %}', 'ko')).toBe('{%- ifversion command-palette %}')
+      expect(fix('{% ifversion 하위 문제 %}', 'ko')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{%- ifversion 하위 문제 %}', 'ko')).toBe('{%- ifversion sub-issues %}')
+      expect(fix('{% ifversion 리포지토리-규칙 관리 %}', 'ko')).toBe(
+        '{% ifversion repo-rules-management %}',
+      )
+      expect(fix('{%- ifversion 리포지토리-규칙 관리 %}', 'ko')).toBe(
+        '{%- ifversion repo-rules-management %}',
+      )
+      expect(fix('{% ifversion 업데이트 알림 설정-22 %}', 'ko')).toBe(
+        '{% ifversion update-notification-settings-22 %}',
+      )
+      expect(fix('{%- ifversion 업데이트 알림 설정-22 %}', 'ko')).toBe(
+        '{%- ifversion update-notification-settings-22 %}',
+      )
+      expect(fix('{% ifversion command-palette %}', 'ko')).toBe('{% ifversion command-palette %}')
+      expect(fix('{% ifversion sub-issues %}', 'ko')).toBe('{% ifversion sub-issues %}')
+      expect(fix('{% ifversion repo-rules-management %}', 'ko')).toBe(
+        '{% ifversion repo-rules-management %}',
+      )
+      expect(fix('{% ifversion update-notification-settings-22 %}', 'ko')).toBe(
+        '{% ifversion update-notification-settings-22 %}',
       )
     })
 
@@ -978,6 +1325,11 @@ describe('correctTranslatedContentStrings', () => {
         '{%- data variables.product.github %}',
       )
     })
+
+    test('fixes {% 캡처 X %} → {% capture X %} (translated capture tag)', () => {
+      expect(fix('{% 캡처 myvar %}', 'ko')).toBe('{% capture myvar %}')
+      expect(fix('{%- 캡처 myvar -%}', 'ko')).toBe('{%- capture myvar -%}')
+    })
   })
 
   // ─── GERMAN (de) ──────────────────────────────────────────────────
@@ -992,6 +1344,13 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% Daten reusables.foo %}', 'de')).toBe('{% data reusables.foo %}')
       expect(fix('{%- Daten reusables.foo %}', 'de')).toBe('{%- data reusables.foo %}')
+      // `{% Datenseite variables.` — "Datenseite" (data page) compound = data
+      expect(fix('{% Datenseite variables.product.prodname_github_app %}', 'de')).toBe(
+        '{% data variables.product.prodname_github_app %}',
+      )
+      expect(fix('{%- Datenseite variables.product.foo %}', 'de')).toBe(
+        '{%- data variables.product.foo %}',
+      )
     })
 
     test('fixes hyphenated data tags without space', () => {
@@ -1006,6 +1365,18 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes oder → or in ifversion tags', () => {
       expect(fix('{%- ifversion fpt oder ghec %}', 'de')).toBe('{%- ifversion fpt or ghec %}')
       expect(fix('{% ifversion fpt oder ghec %}', 'de')).toBe('{% ifversion fpt or ghec %}')
+    })
+
+    test('fixes translated immutable-releases flag name', () => {
+      expect(fix('{% ifversion unveränderliche Versionen %}', 'de')).toBe(
+        '{% ifversion immutable-releases %}',
+      )
+      expect(fix('{%- ifversion unveränderliche Versionen %}', 'de')).toBe(
+        '{%- ifversion immutable-releases %}',
+      )
+      expect(fix('{% ifversion immutable-releases %}', 'de')).toBe(
+        '{% ifversion immutable-releases %}',
+      )
     })
 
     test('fixes translated block tags', () => {
@@ -1236,9 +1607,41 @@ describe('correctTranslatedContentStrings', () => {
         '{%- data variables.product.github %}',
       )
     })
+
+    test('[per-file] hardware-considerations-all-platforms: ifversion ghes opener stripped', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const path = 'data/reusables/enterprise_installation/hardware-considerations-all-platforms.md'
+      const broken =
+        'werden 200 GB auf dem Stammdateisystem verfügbar sein. Die verbleibenden 200GB{% else %}100GB sind auf dem Stammdateisystem verfügbar.'
+      const fixed =
+        'werden {% ifversion ghes %}200 GB auf dem Stammdateisystem verfügbar sein. Die verbleibenden 200GB{% else %}100GB sind auf dem Stammdateisystem verfügbar.'
+      expect(fixAt(broken, 'de', path)).toBe(fixed)
+      // unchanged if already correct
+      expect(fixAt(fixed, 'de', path)).toBe(fixed)
+    })
   })
 
   describe('Generic fixes (all languages)', () => {
+    test('fixes reordered ifversion/endif/else back to ifversion/else/endif', () => {
+      // Confirmed corruption pattern across all 8 translated languages in
+      // data/reusables/organizations/custom-org-roles-intro.md: `{% endif %}`
+      // and `{% else %}` were swapped, producing a "tag 'else' not found"
+      // parse error.
+      expect(
+        fix('{% ifversion org-custom-role-with-repo-permissions %}A{% endif %}B{% else %}C', 'pt'),
+      ).toBe('{% ifversion org-custom-role-with-repo-permissions %}A{% else %}B{% endif %}C')
+      // Already-correct input is left unchanged.
+      expect(fix('{% ifversion ghec %}A{% else %}B{% endif %}', 'pt')).toBe(
+        '{% ifversion ghec %}A{% else %}B{% endif %}',
+      )
+    })
+
     test('strips LLM sentinel markers and preserves word boundaries', () => {
       expect(fix('Hello<|endoftext|>World', 'es')).toBe('Hello World')
       expect(fix('Hello <|endoftext|> World', 'es')).toBe('Hello World')
@@ -1265,6 +1668,27 @@ describe('correctTranslatedContentStrings', () => {
         '{%- data variables.product.github %}',
       )
       expect(fix('{% data .reusables.foo.bar %}', 'zh')).toBe('{% data reusables.foo.bar %}')
+    })
+
+    test('fixes stray space after a dot inside {% data variables/reusables paths', () => {
+      // Translators sometimes inserted a stray space right after a dot in a
+      // multi-segment `variables.X.Y` / `reusables.X.Y` path (e.g. wrapping
+      // long lines mid-path). Liquid parses the space as ending the variable
+      // lookup early, breaking the tag. Confirmed in de-de, ja-jp, ru-ru.
+      expect(fix('{% data variables.product. prodname_pages %}', 'de')).toBe(
+        '{% data variables.product.prodname_pages %}',
+      )
+      expect(fix('{% data variables. product.prodname_pro %}', 'ja')).toBe(
+        '{% data variables.product.prodname_pro %}',
+      )
+      expect(fix('{% data variables.copilot. copilot_chat_short %}', 'ru')).toBe(
+        '{% data variables.copilot.copilot_chat_short %}',
+      )
+      expect(fix('{%- data reusables.foo. bar -%}', 'de')).toBe('{%- data reusables.foo.bar -%}')
+      // Already-correct input is left unchanged.
+      expect(fix('{% data variables.product.prodname_pages %}', 'de')).toBe(
+        '{% data variables.product.prodname_pages %}',
+      )
     })
 
     test('fixes singular variable / reusable in {% data paths', () => {
@@ -1348,6 +1772,9 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('["AUTOTITLE](/path)', 'es')).toBe('"[AUTOTITLE](/path)')
       expect(fix('[ AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
       expect(fix('[ "AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
+      expect(fix('[AUTOTITLE] (/path)', 'es')).toBe('[AUTOTITLE](/path)')
+      // Already-correct input is left unchanged.
+      expect(fix('[AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
     })
 
     test('fixes double-brace Liquid tag corruptions', () => {
@@ -1493,6 +1920,24 @@ describe('correctTranslatedContentStrings', () => {
       )
     })
 
+    test('fixes missing endprompt on the JS-numCats line (all translation languages)', () => {
+      // The `${}` template literal inside a backtick confused translators and they dropped
+      // `{% endprompt %}` from the line. Fix is applied universally across all languages.
+      const input =
+        "* {% prompt %}How do I write `The ${'cat is' : 'cats are'} hungry.`?{% endprompt %}\n" +
+        "* {% prompt %}In JS I'd write: `The ${'cat is' : 'cats are'} hungry.`. ¿How in NEW-LANGUAGE?\n" +
+        '* {% prompt %}Next question?{% endprompt %}'
+      const output =
+        "* {% prompt %}How do I write `The ${'cat is' : 'cats are'} hungry.`?{% endprompt %}\n" +
+        "* {% prompt %}In JS I'd write: `The ${'cat is' : 'cats are'} hungry.`. ¿How in NEW-LANGUAGE?{% endprompt %}\n" +
+        '* {% prompt %}Next question?{% endprompt %}'
+      expect(fix(input, 'es')).toBe(output)
+      expect(fix(input, 'pt')).toBe(output)
+      expect(fix(input, 'zh')).toBe(output)
+      expect(fix(input, 'de')).toBe(output)
+      expect(fix(input, 'fr')).toBe(output)
+    })
+
     test('recovers linebreaks from English', () => {
       const en = '{% endif %}\nSome text'
       const translated = '{% endif %} Some text'
@@ -1509,6 +1954,17 @@ describe('correctTranslatedContentStrings', () => {
       const en = '{% endif %}\n| Column |'
       const translated = '{% endif %} | Column |'
       expect(fix(translated, 'es', en)).toBe('{% endif %}\n| Column |')
+    })
+
+    test('does not inject linebreak after data tag that is mid-heading', () => {
+      // English: tag is at end of heading line → English has tag+newline.
+      // Japanese: tag is mid-heading, followed by Japanese text.
+      // The linebreak recovery must NOT replace the space with a newline here,
+      // or the heading gets split into `#### TAG` + `Japanese text` paragraph.
+      const en = '#### Using {% data variables.copilot.subagents_short %}\n\nSome paragraph.'
+      const translated =
+        '#### {% data variables.copilot.subagents_short %} の使用\n\nSome paragraph.'
+      expect(fix(translated, 'ja', en)).toBe(translated)
     })
 
     test('fixes collapsed Markdown table rows', () => {
@@ -1539,6 +1995,19 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('* \n  one\n* \n  two', 'fr')).toBe('* one\n* two')
       // Valid bullets are not modified
       expect(fix('* normal\n* another', 'de')).toBe('* normal\n* another')
+
+      // Lone `-` (hyphen) bullet markers are also rejoined (same corruption)
+      const brokenHyphen = '- \n              [AUTOTITLE](/orgs/transfer)'
+      const expectedHyphen = '- [AUTOTITLE](/orgs/transfer)'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(brokenHyphen, lang)).toBe(expectedHyphen)
+      }
+      // No trailing space variant
+      expect(fix('-\n  [AUTOTITLE](/path)', 'ko')).toBe('- [AUTOTITLE](/path)')
+      // Multiple consecutive broken hyphen bullets
+      expect(fix('- \n  one\n- \n  two', 'fr')).toBe('- one\n- two')
+      // Valid hyphen bullets are not modified
+      expect(fix('- normal\n- another', 'de')).toBe('- normal\n- another')
     })
 
     test('rejoins broken table cells split across lines (all languages)', () => {
@@ -1551,6 +2020,193 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('|   \n  cell text', 'zh')).toBe('| cell text')
       // Valid table rows are not modified
       expect(fix('| a | b |\n| c | d |', 'es')).toBe('| a | b |\n| c | d |')
+    })
+
+    test('rejoins dangling heading markers (all languages)', () => {
+      const broken = '### \n              {% data variables.product.github %} の使用'
+      const expected = '### {% data variables.product.github %} の使用'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // All heading levels
+      expect(fix('# \n              Title', 'ja')).toBe('# Title')
+      expect(fix('###### \n              Title', 'ja')).toBe('###### Title')
+      // 0–3 leading spaces are accepted
+      expect(fix('   ### \n              Title', 'ja')).toBe('   ### Title')
+      // Valid headings are not modified
+      expect(fix('### Already correct', 'ja')).toBe('### Already correct')
+      // 4-space indented heading-like text is not collapsed (no marker join);
+      // but selfStrip still removes the 14-space indentation from the next line.
+      expect(fix('    ###\n              code', 'ja')).toBe('    ###\ncode')
+      // Shallow next-line indent (<6) is not collapsed
+      expect(fix('### \n  Title', 'ja')).toBe('### \n  Title')
+    })
+
+    test('rejoins dangling blockquote markers (all languages)', () => {
+      const broken = '> \n              {% data variables.product.github %} は preview 中です。'
+      const expected = '> {% data variables.product.github %} は preview 中です。'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // 0–3 leading spaces are accepted
+      expect(fix('  > \n              Quote', 'ja')).toBe('  > Quote')
+      // Valid blockquotes are not modified
+      expect(fix('> Already correct', 'ja')).toBe('> Already correct')
+      expect(fix('>\n> Continued blockquote', 'ja')).toBe('>\n> Continued blockquote')
+    })
+
+    test('rejoins dangling bold-open after a marker (all languages)', () => {
+      const broken =
+        '* **\n              {% data variables.product.prodname_copilot_short %}へのアクセス**。 More text'
+      const expected =
+        '* **{% data variables.product.prodname_copilot_short %}へのアクセス**。 More text'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // Numbered list marker
+      expect(fix('1. **\n              Important**: text', 'ja')).toBe('1. **Important**: text')
+      // Heading marker
+      expect(fix('### **\n              Bold heading**', 'ja')).toBe('### **Bold heading**')
+      // Blockquote marker
+      expect(fix('> **\n              Quoted bold**', 'ja')).toBe('> **Quoted bold**')
+      // Table cell
+      expect(fix('| **\n              Cell bold** | x', 'ja')).toBe('| **Cell bold** | x')
+      // Bare `**` (no preceding marker) is not marker-joined, but selfStrip
+      // still removes the 14-space indentation from the next line so it does
+      // not render as an indented code block.
+      expect(fix('**\n              text', 'ja')).toBe('**\ntext')
+    })
+
+    test('rejoins dangling ordered-list markers (all languages)', () => {
+      const broken =
+        '1. \n              {% data variables.product.prodname_vscode %}では、サイドバーの拡張機能アイコンをクリックします。'
+      const expected =
+        '1. {% data variables.product.prodname_vscode %}では、サイドバーの拡張機能アイコンをクリックします。'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // Higher numbered items
+      expect(fix('2. \n              Content', 'ja')).toBe('2. Content')
+      expect(fix('10. \n              Content', 'ja')).toBe('10. Content')
+      // 0–3 leading spaces are accepted
+      expect(fix('   1. \n              Indented', 'ja')).toBe('   1. Indented')
+      // Valid ordered list items are not modified
+      expect(fix('1. Already correct', 'ja')).toBe('1. Already correct')
+      // Shallow next-line indent (<6 spaces) is not collapsed
+      expect(fix('1. \n  Content', 'ja')).toBe('1. \n  Content')
+    })
+
+    test('does not modify content inside fenced code blocks', () => {
+      // Markdown example inside ```md fence should be preserved verbatim
+      const fenced = '```md\n### \n              Heading example\n```'
+      expect(fix(fenced, 'ja')).toBe(fenced)
+      // Tilde fences are also respected
+      const tilde = '~~~md\n> \n              Quote example\n~~~'
+      expect(fix(tilde, 'ja')).toBe(tilde)
+      // Bold-open inside code fence
+      const boldFenced = '```md\n* **\n              bold example**\n```'
+      expect(fix(boldFenced, 'ja')).toBe(boldFenced)
+    })
+
+    test('does not modify YAML frontmatter', () => {
+      // Multiline YAML scalars and indented values must not be joined
+      const fm = `---
+title: Example
+intro: >
+              Multiline
+              continued
+versions:
+  fpt: '*'
+---
+
+### 
+              Real heading after frontmatter`
+      const expected = `---
+title: Example
+intro: >
+              Multiline
+              continued
+versions:
+  fpt: '*'
+---
+
+### Real heading after frontmatter`
+      expect(fix(fm, 'ja')).toBe(expected)
+    })
+
+    test('frontmatter containing fence-like characters does not break body fence tracking', () => {
+      // A multiline scalar in frontmatter that includes ``` (or ~~~) must
+      // NOT toggle the body's fence-tracking state. After frontmatter
+      // closes, dangling markers in the body should still be rejoined.
+      const fm = `---
+title: Example
+intro: |
+  \`\`\`
+  fence-like text inside frontmatter
+  \`\`\`
+---
+
+### 
+              Real heading after frontmatter`
+      const expected = `---
+title: Example
+intro: |
+  \`\`\`
+  fence-like text inside frontmatter
+  \`\`\`
+---
+
+### Real heading after frontmatter`
+      expect(fix(fm, 'ja')).toBe(expected)
+    })
+
+    test('does not collapse nested-list indented code blocks', () => {
+      // A list item followed by blank line + 6-space-indented "code" should
+      // be left alone because the marker line itself is empty (not a
+      // bare `>`/`#`/`* **` form), and the previous content line is not
+      // a heading/blockquote/bold-open marker.
+      const nested = '1. Run this command:\n\n      gh auth login'
+      expect(fix(nested, 'ja')).toBe(nested)
+    })
+
+    test('strips standalone deeply-indented paragraph lines (all languages)', () => {
+      // The translation pipeline sometimes indents an entire paragraph line
+      // with 14 spaces, causing it to render as a code block at the document
+      // level.  Such lines should have their leading whitespace stripped.
+      const broken =
+        '### MCP サーバーの手動での構成\n\n              {% data variables.product.prodname_vscode %}で MCP サーバーを構成するには、...'
+      const expected =
+        '### MCP サーバーの手動での構成\n\n{% data variables.product.prodname_vscode %}で MCP サーバーを構成するには、...'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // 9 spaces is the minimum threshold
+      expect(fix('         content', 'ja')).toBe('content')
+      // 8 spaces is below threshold and should be preserved
+      expect(fix('        content', 'ja')).toBe('        content')
+      // Standalone 14-space line mid-document
+      expect(fix('Para one.\n\n              Para two.\n\nPara three.', 'ja')).toBe(
+        'Para one.\n\nPara two.\n\nPara three.',
+      )
+    })
+
+    test('does not strip content inside 4-space-indented fences (list code blocks)', () => {
+      // A fenced code block that itself lives inside a list item is indented
+      // by 4 spaces.  Its content may have 6–25 spaces of leading whitespace
+      // but must NOT be stripped.
+      const fenced = [
+        '1. Add this config:',
+        '',
+        '    ```json copy',
+        '    {',
+        '      "key": "value",',
+        '      "nested": {',
+        '        "deep": true',
+        '      }',
+        '    }',
+        '    ```',
+      ].join('\n')
+      expect(fix(fenced, 'ja')).toBe(fenced)
     })
   })
 
@@ -1691,6 +2347,377 @@ Para más información, consulta "[AUTOTITLE](/path)".
 
       // Generous threshold; regression would be multi-second.
       expect(elapsed).toBeLessThan(2000)
+    })
+  })
+
+  // ─── SCRAPE-6548: search-scrape failures ─────────────────────────────
+  // Tests for the per-file Liquid corrections added to stop the daily
+  // search-scrape failures reported in github/docs-engineering#6548.
+  describe('SCRAPE-6548 per-file fixes', () => {
+    function fixAt(content: string, code: string, relativePath: string) {
+      return correctTranslatedContentStrings(content, '', {
+        code,
+        relativePath,
+        skipOrphanStripping: true,
+      })
+    }
+
+    test('pt: {%datavariables (no spaces) → {% data variables', () => {
+      expect(fix('{%datavariables.product.github %}', 'pt')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%-datavariables.product.github %}', 'pt')).toBe(
+        '{%- data variables.product.github %}',
+      )
+    })
+
+    test('pt: stray space after {% data variables.product.', () => {
+      expect(fix('{% data variables.product. prodname_ghe_cloud %}', 'pt')).toBe(
+        '{% data variables.product.prodname_ghe_cloud %}',
+      )
+      expect(fix('{%- data variables.product. prodname_ghe_server %}', 'pt')).toBe(
+        '{%- data variables.product.prodname_ghe_server %}',
+      )
+    })
+
+    test('pt: leaves correct path alone', () => {
+      const ok = '{% data variables.product.prodname_ghe_cloud %}'
+      expect(fix(ok, 'pt')).toBe(ok)
+    })
+
+    test('fr: missing-% in {% ifversion ghes} / {% elsif ghec or ghes}', () => {
+      expect(fix('{% ifversion ghes}', 'fr')).toBe('{% ifversion ghes %}')
+      expect(fix('{% elsif ghec or ghes}', 'fr')).toBe('{% elsif ghec or ghes %}')
+    })
+
+    test('fr: {% des … variables.X %} → {% data variables.X %}', () => {
+      expect(fix('{% des instances de variables.product.prodname_ghe_server %}', 'fr')).toBe(
+        '{% data variables.product.prodname_ghe_server %}',
+      )
+    })
+
+    test('fr: leaves unrelated `des` prose alone', () => {
+      const ok = 'Les métriques des données sont utiles.'
+      expect(fix(ok, 'fr')).toBe(ok)
+    })
+
+    test('ko: username-changes intro orphan-endif fix', () => {
+      const broken =
+        '인스턴스에서 기본 제공 인증{% endif %}를 사용하는 경우 {% data variables.product.github %} 계정 {% ifversion ghes %}의 사용자 이름을 변경할 수 있습니다.'
+      const out = fixAt(broken, 'ko', 'account-and-profile/concepts/username-changes.md')
+      expect(out).not.toContain('{% endif %}를')
+      expect(out).toContain('{% endif %}')
+      expect(out).toContain('{% ifversion ghes %}')
+    })
+
+    test('zh: username-changes intro orphan-endif fix', () => {
+      const broken =
+        '如果实例使用内置身份验证{% endif %}，则可以更改 {% data variables.product.github %} 帐户 {% ifversion ghes %} 的用户名。'
+      const out = fixAt(broken, 'zh', 'account-and-profile/concepts/username-changes.md')
+      expect(out).not.toContain('{% endif %}，')
+      expect(out).toContain('{% endif %}')
+    })
+
+    test('zh: security-log-events markdown duplicate ifversion ghes', () => {
+      const broken = '> * {% ifversion ghes %} 本文包含最新版本'
+      expect(fix(broken, 'zh')).toBe('> * 本文包含最新版本')
+    })
+
+    test('de: permissions-of-custom-organization-roles intro append endif', () => {
+      const broken =
+        'Mit angepassten Organisationsrollen kannst du den Zugriff auf die Einstellungen deiner {% ifversion org-custom-role-with-repo-permissions %}Organisation und die Repositories{% else %}einer Organisation steuern.'
+      const out = fixAt(
+        broken,
+        'de',
+        'organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles.md',
+      )
+      expect(out).toContain('{% endif %} steuern.')
+    })
+
+    test('ru: permissions-of-custom-organization-roles intro append endif', () => {
+      const broken =
+        'Вы можете управлять доступом к параметрам и репозиториям организации {% ifversion org-custom-role-with-repo-permissions %}, а также к параметрам организации {% else %}организации с пользовательскими ролями организации.'
+      const out = fixAt(
+        broken,
+        'ru',
+        'organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles.md',
+      )
+      expect(out).toMatch(/\{% endif %\}$/)
+    })
+
+    test('ja: scim/index title rebalances tags', () => {
+      const broken =
+        'SCIM{% endif %} を使用したエンタープライズ マネージド ユーザー{% else %} 向けのプロビジョニング アカウント{% ifversion ghec %}'
+      const out = fix(broken, 'ja')
+      // After fix: balanced ifversion/else/endif and starts with ifversion
+      expect(out).toMatch(/^\{% ifversion ghec %\}/)
+      expect(out).toMatch(/\{% endif %\}$/)
+      expect(out.match(/\{% endif %\}/g) || []).toHaveLength(1)
+    })
+
+    test('es: deduplication reusable appends endif when scoped by dottedPath', () => {
+      const broken = 'tienen prioridad sobre el envío automático de dependencias.\n1. Otra cosa.'
+      const out = correctTranslatedContentStrings(broken, '', {
+        code: 'es',
+        dottedPath: 'reusables.dependency-graph.deduplication',
+        skipOrphanStripping: true,
+      })
+      expect(out).toContain(
+        'tienen prioridad sobre el envío automático de dependencias.{% endif %}\n',
+      )
+    })
+
+    test('es: deduplication reusable also fires when scoped by relativePath', () => {
+      const broken = 'tienen prioridad sobre el envío automático de dependencias.\n1. Otra cosa.'
+      const out = correctTranslatedContentStrings(broken, '', {
+        code: 'es',
+        relativePath: 'data/reusables/dependency-graph/deduplication.md',
+        skipOrphanStripping: true,
+      })
+      expect(out).toContain(
+        'tienen prioridad sobre el envío automático de dependencias.{% endif %}\n',
+      )
+    })
+
+    test('es: deduplication fix does NOT fire on unrelated paths', () => {
+      const text = 'tienen prioridad sobre el envío automático de dependencias.\n1. Otra.'
+      const out = correctTranslatedContentStrings(text, '', {
+        code: 'es',
+        relativePath: 'some/other/file.md',
+        skipOrphanStripping: true,
+      })
+      expect(out).toBe(text)
+    })
+  })
+
+  // ─── SCRAPE-6572: search-scrape failures ─────────────────────────────
+  // Tests for the per-file Liquid corrections added to stop the daily
+  // search-scrape failures reported in github/docs-engineering#6572.
+  describe('SCRAPE-6572 per-file fixes', () => {
+    test('ko: configuring-access-to-private-registries-for-dependabot intro missing endif', () => {
+      const broken =
+        '자체 호스팅된 실행기에서 실행 중인 {% data variables.product.prodname_dependabot %}에 대한 액세스를 구성할 수도 있습니다.{% data variables.product.prodname_dependabot %}'
+      const out = fix(broken, 'ko')
+      expect(out).toContain('{% endif %}')
+      expect(out).not.toMatch(
+        /구성할 수도 있습니다\.\{% data variables\.product\.prodname_dependabot %\}$/,
+      )
+    })
+
+    test('ru: viewing-a-projects-contributors intro swapped endif/ifversion', () => {
+      const broken =
+        'Вы можете увидеть, кто внес{% endif %} коммиты в репозиторий{% ifversion fpt or ghec %} и его зависимости.'
+      const out = fix(broken, 'ru')
+      expect(out).not.toContain('внес{% endif %}')
+      expect(out).toMatch(/\{% ifversion fpt or ghec %\} и его зависимости\{% endif %\}\.$/)
+    })
+  })
+
+  // ─── SCRAPE-6608: discovery-landing index-scrape failures ────────────
+  // The discovery-landing index pages render every descendant's title+intro.
+  // A descendant whose translated title/intro drops its `{% endif %}` throws,
+  // 500s `/api/article`, and the index "fails to scrape" (github/docs-engineering#6608).
+  // The earlier 6604 attempts matched the RAW file text (block-scalar trailing
+  // newline / YAML quote), but the corrector runs on the PARSED value, so they
+  // never fired at render time. These assert the parsed values are corrected.
+  describe('SCRAPE-6608 per-file fixes', () => {
+    test('ja: enabling-github-advanced-security-for-your-enterprise title closes ghas-products', () => {
+      // Parsed `|2-` block-scalar title (trailing newline stripped).
+      const broken =
+        '{% data variables.product.prodname_GHAS %}\n{% ifversion ghas-products %}製品をあなたの企業のために有効にする'
+      const out = fix(broken, 'ja')
+      expect(out).toBe(
+        '{% data variables.product.prodname_GHAS %}\n{% ifversion ghas-products %}製品{% endif %}をあなたの企業のために有効にする',
+      )
+    })
+
+    test('ko: permissions-of-custom-organization-roles intro closes org-custom-role conditional', () => {
+      const broken =
+        '사용자 지정 조직 역할을 사용하여 {% ifversion org-custom-role-with-repo-permissions %}조직의 설정 및 리포지토리{% else %}에 대한 액세스를 제어할 수 있습니다.'
+      const out = fix(broken, 'ko')
+      expect(out).toBe(
+        '사용자 지정 조직 역할을 사용하여 {% ifversion org-custom-role-with-repo-permissions %}조직의 설정 및 리포지토리{% else %}조직의 설정{% endif %}에 대한 액세스를 제어할 수 있습니다.',
+      )
+    })
+
+    test('zh: permissions-of-custom-organization-roles intro closes org-custom-role conditional', () => {
+      const broken =
+        '可以使用自定义组织角色控制对 {% ifversion org-custom-role-with-repo-permissions %}组织的设置和存储库{% else %} 的访问权限。'
+      const out = fix(broken, 'zh')
+      expect(out).toBe(
+        '可以使用自定义组织角色控制对 {% ifversion org-custom-role-with-repo-permissions %}组织的设置和存储库{% else %}组织的设置{% endif %} 的访问权限。',
+      )
+    })
+  })
+
+  // ─── SCRAPE-6642: search-scrape failures ─────────────────────────────
+  // Six translated title/intro corruptions from the June 10 batch broke the
+  // admin and code-security index scrapes (github/docs-engineering#6642).
+  // The corrector runs on the PARSED title/intro value, so the title fixes
+  // must match the unquoted substring (no surrounding YAML quote).
+  describe('SCRAPE-6642 per-file fixes', () => {
+    test('es: configuring-scim-provisioning-with-okta title closes ghec conditional', () => {
+      const broken =
+        'Configuración de la autenticación de {% ifversion ghec %}SCIM{% else %} con Okta'
+      expect(fix(broken, 'es')).toBe(
+        'Configuración de la autenticación de {% ifversion ghec %}SCIM{% else %} con Okta{% endif %}',
+      )
+    })
+
+    test('zh: configuring-scim-provisioning-with-okta intro unswaps endif/ifversion', () => {
+      const broken =
+        '在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}上的企业{% ifversion ghec %}进行通信。'
+      expect(fix(broken, 'zh')).toBe(
+        '的企业{% ifversion ghec %}在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}进行通信。',
+      )
+    })
+
+    test('ru: configuring-scim-provisioning-with-okta title unswaps branches', () => {
+      const broken =
+        'Настройка {% ifversion ghec %}аутентификации и{% endif %} провизионирования SCIM{% else %}с помощью Okta'
+      expect(fix(broken, 'ru')).toBe(
+        'Настройка {% ifversion ghec %}SCIM{% else %}аутентификации и{% endif %} провизионирования с помощью Okta',
+      )
+    })
+
+    test('ko: configuring-code-scanning-for-your-appliance intro closes ifversion', () => {
+      const broken =
+        '에서 {% data variables.product.prodname_dotcom %}.{% ifversion default-setup-self-hosted-runners-GHEC %}'
+      expect(fix(broken, 'ko')).toBe(
+        '에서 {% data variables.product.prodname_dotcom %}.{% endif %}',
+      )
+    })
+
+    test('de: configuring-authentication-and-provisioning-with-pingfederate intro unswaps branches', () => {
+      const broken =
+        '{% ifversion ghes %}ein, um Authentifizierung und Provisionierung für {% data variables.product.prodname_emus %} auf {% data variables.product.prodname_dotcom_the_website %} oder {% data variables.enterprise.data_residency_site %}{% endif %} für Ihr Unternehmen{% else %} zentral zu verwalten.'
+      expect(fix(broken, 'de')).toBe(
+        '{% ifversion ghes %}ein, um Authentifizierung und Provisionierung für Ihr Unternehmen zentral zu verwalten{% else %}für {% data variables.product.prodname_emus %} auf {% data variables.product.prodname_dotcom_the_website %} oder {% data variables.enterprise.data_residency_site %}{% endif %}.',
+      )
+    })
+
+    test('de: configure-access-to-private-registries intro restores endif', () => {
+      const broken =
+        'auf selbst-gehosteten Runnern ausführen.{% data variables.product.prodname_dependabot %}'
+      expect(fix(broken, 'de')).toBe('auf selbst-gehosteten Runnern ausführen.{% endif %}')
+    })
+  })
+
+  // ─── SCRAPE-6732: search-scrape failures ─────────────────────────────
+  // The ru admin landing page failed to scrape with `tag "else" not found`
+  // because the intro of viewing-and-managing-a-users-saml-access-to-your-enterprise.md
+  // had an orphaned `{% else %}` before any opening `{% ifversion %}`
+  // (github/docs-engineering#6732). The corrector runs on the PARSED intro value.
+  describe('SCRAPE-6732 per-file fixes', () => {
+    test('ru: viewing-and-managing-a-users-saml-access intro reorders orphaned else', () => {
+      const broken =
+        'Вы можете просматривать и отзывать связанную личность, активные сессии и авторизованные учетные{% else %}данные {% ifversion ghec %}SAML{% endif %} участника предприятия.'
+      const fixed =
+        'Вы можете просматривать и отзывать {% ifversion ghec %}связанную личность, активные сессии и авторизованные учетные данные{% else %}активные сессии SAML{% endif %} участника предприятия.'
+      expect(fix(broken, 'ru')).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(fix(fixed, 'ru')).toBe(fixed)
+    })
+  })
+
+  // ─── SCRAPE-6781: search-scrape failures ─────────────────────────────
+  // The pt codespaces and ko organizations landing pages failed to scrape
+  // (github/docs-engineering#6781). Neither landing page is itself corrupt:
+  // `discovery-landing` pages render their descendants' intros via
+  // getAllTocItems, so a corrupt child intro takes the whole landing page
+  // down. In both cases the translator reordered the inline Liquid tags to
+  // match target-language word order, leaving `{% else %}`/`{% endif %}`
+  // ahead of the `{% ifversion %}` that opens the block. The corrector runs
+  // on the PARSED intro value.
+  describe('SCRAPE-6781 per-file fixes', () => {
+    test('pt: enabling-or-disabling-github-codespaces-for-your-organization intro reorders tags', () => {
+      const broken =
+        'Você pode controlar quais usuários podem usar {% data variables.product.prodname_github_codespaces %} nos repositórios internos e {% endif %}privados {% ifversion ghec %}da sua organização.'
+      const fixed =
+        'Você pode controlar quais usuários podem usar {% data variables.product.prodname_github_codespaces %} nos repositórios privados {% ifversion ghec %}e internos {% endif %}da sua organização.'
+      expect(fix(broken, 'pt')).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(fix(fixed, 'pt')).toBe(fixed)
+    })
+
+    test('ko: reinstating-a-former-member-of-your-organization intro reorders tags', () => {
+      const broken =
+        '이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif%} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 {% ifversion fpt or ghec %}있습니다.'
+      const fixed =
+        '{% ifversion fpt or ghec %}이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif %} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 있습니다.'
+      expect(fix(broken, 'ko')).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+  })
+
+  // ─── New patterns ───────────────────────────────────────────────────
+
+  describe('es: you-can-fork.md per-file fix', () => {
+    test('replaces leading elsif with ifversion', () => {
+      const broken = '{% elsif ghes or ghec %} Puedes bifurcar...'
+      const fixed = '{% ifversion ghes or ghec %} Puedes bifurcar...'
+      const ctx = {
+        code: 'es',
+        relativePath: 'data/reusables/repositories/you-can-fork.md',
+        skipOrphanStripping: true,
+      }
+      expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
+      // already correct input is unchanged
+      expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
+    })
+
+    test('does not affect other es content', () => {
+      const other = '{% elsif ghes or ghec %} other content'
+      expect(fix(other, 'es')).toBe(other)
+    })
+  })
+
+  describe('fr: stray < before plan name in ifversion', () => {
+    test('removes stray < before plan name in ifversion', () => {
+      expect(fix('{% ifversion <ghec %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion ghec %}foo{% endif %}',
+      )
+      expect(fix('{% ifversion <fpt %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion fpt %}foo{% endif %}',
+      )
+      expect(fix('{% elsif <ghes %}foo{% endif %}', 'fr')).toBe('{% elsif ghes %}foo{% endif %}')
+    })
+
+    test('does not affect valid fr ifversion tags', () => {
+      expect(fix('{% ifversion ghec %}foo{% endif %}', 'fr')).toBe(
+        '{% ifversion ghec %}foo{% endif %}',
+      )
+    })
+  })
+
+  describe('fr: translated classroom reusable per-file fix', () => {
+    test('restores canonical reusable tag', () => {
+      const broken = '{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}'
+      const fixed = '{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}'
+      expect(fix(broken, 'fr')).toBe(fixed)
+      // already correct is unchanged
+      expect(fix(fixed, 'fr')).toBe(fixed)
+    })
+  })
+
+  describe('ko: about-READMEs.md per-file fix', () => {
+    test('removes orphan endif before first ifversion', () => {
+      const broken = '파일{% endif %}{% ifversion fpt or ghec %}, 기여'
+      const fixed = '파일{% ifversion fpt or ghec %}, 기여'
+      const ctx = {
+        code: 'ko',
+        relativePath: 'data/reusables/repositories/about-READMEs.md',
+        skipOrphanStripping: true,
+      }
+      expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
+      // already correct is unchanged
+      expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
+    })
+
+    test('does not affect other ko content', () => {
+      const other = 'foo{% endif %}{% ifversion fpt or ghec %}, bar'
+      expect(fix(other, 'ko')).toBe(other)
     })
   })
 })
