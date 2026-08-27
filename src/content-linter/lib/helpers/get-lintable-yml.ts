@@ -1,4 +1,4 @@
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import fs from 'fs/promises'
 
 import dataSchemas from '@/data-directory/lib/data-schemas/index'
@@ -37,9 +37,13 @@ ajv.addKeyword({
   type: 'string',
   // For docs on defining validate see
   // https://ajv.js.org/keywords.html#define-keyword-with-validate-function
-  // Using any for validate function params because AJV's type definitions for custom keywords are complex
-  validate: (compiled: any, data: any, schema: any, parentInfo: any): boolean => {
-    mdDict.set(parentInfo.instancePath, data)
+  validate: (
+    _compiled: boolean,
+    data: string,
+    _schema: unknown,
+    parentInfo?: { instancePath: string },
+  ): boolean => {
+    if (parentInfo) mdDict.set(parentInfo.instancePath, data)
     return true
   },
   errors: false,
@@ -67,7 +71,7 @@ export async function getLintableYml(dataFilePath: string): Promise<Record<strin
   const schema = (await import(schemaFilePath)).default
   if (!schema) return null
 
-  const data = yaml.load(await fs.readFile(dataFilePath, 'utf8'))
+  const data = load(await fs.readFile(dataFilePath, 'utf8'))
 
   mdDict.clear()
   // This validate function will call all keyword validator functions and populate mdDict

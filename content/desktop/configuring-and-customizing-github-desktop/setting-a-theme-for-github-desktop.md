@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Set a theme
+category:
+  - Configure and customize GitHub Desktop
 ---
 {% mac %}
 

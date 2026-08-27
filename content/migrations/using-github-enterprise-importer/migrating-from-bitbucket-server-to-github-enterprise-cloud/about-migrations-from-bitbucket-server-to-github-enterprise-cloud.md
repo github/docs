@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Understand enterprise migration tools
 ---
 
 ## About migrations from Bitbucket Server

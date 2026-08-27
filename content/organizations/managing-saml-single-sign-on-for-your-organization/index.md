@@ -7,9 +7,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-saml-single-sign-on-for-your-organization
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /about-identity-and-access-management-with-saml-single-sign-on
   - /about-scim-for-organizations

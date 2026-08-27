@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: View branch history
+category:
+  - Work with branches and pull requests
 ---
 Each commit shows:
 

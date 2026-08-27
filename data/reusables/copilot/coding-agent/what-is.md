@@ -1,1 +1,0 @@
-{% data variables.copilot.copilot_coding_agent %} is an AI-powered software development agent that can work autonomously on issues or developer requests. It raises draft pull requests to propose a fix and iterates on the changes in response to feedback.

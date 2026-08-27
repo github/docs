@@ -10,5 +10,6 @@ export type ExtendedRequestWithPageInfo = ExtendedRequest & {
     pathname: string
     page: Page
     archived?: ArchivedVersion
+    redirectedFrom?: string
   }
 }

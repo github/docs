@@ -25,12 +25,11 @@ permissions:
 
 jobs:
   dont-delete-features:
-    # It's 'docs-bot' that creates those PR from "Delete orphaned features"
-    if: github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+    if: github.event.pull_request.user.login != 'docs-bot' && github.event.pull_request.user.login != 'docs-engineering-bot[bot]' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: ./.github/actions/node-npm-setup
 

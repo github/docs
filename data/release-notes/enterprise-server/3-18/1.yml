@@ -6,8 +6,6 @@ sections:
     - |
       **HIGH:** An attacker could execute arbitrary code in the context of other users' browsers by supplying a malicious `label:` value that was injected into the DOM without proper sanitization. This could be triggered when a user visits a crafted Issues search URL, enabling session hijacking, account takeover, and recovery code exfiltration. GitHub has requested CVE ID [CVE-2025-11892](https://www.cve.org/cverecord?id=CVE-2025-11892) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
-      Authenticated users could target the internal aqueduct-lite endpoints by using a domain name to circumvent checks. This fix addresses this Server-Side Request Forgery (SSRF) vulnerability by blocking connections to loopback addresses after resolving the domain name for the webhook delivery address.
-    - |
        **LOW:** When a user updated a classic {% data variables.product.pat_generic_title_case %} (PAT) to remove all scopes instead of revoking the PAT, the change was silently ignored and the PAT continued to grant its previously held permissions. To mitigate this issue, GitHub updated the token management logic to correctly clear scopes when no scope is provided.
     - |
       Packages have been updated to the latest security versions.
@@ -44,7 +42,7 @@ sections:
       The GitHub system user was not always properly set on startup, occasionally surfacing in authentication errors or failed secret scanning jobs in logs.
   changes:
     - |
-      Elasticsearch deprecation warnings, which are logged to index files in new versions of Elasticsearch, have been disabled. These warnings provided no value to administrators, and in some cases could block upgrades of instances in high-availability or cluster configurations.
+      Elasticsearch deprecation warnings, which are logged to index files in new versions of Elasticsearch, have been disabled. These warnings provided no value to administrators, and in some cases could block upgrades of instances in high-availability or cluster configurations. <!-- markdownlint-disable-line GHD046 --> 
     - |
       Logging of configuration runs is improved with streamlined logging for different configuration phases. Phase-specific logs are written to both the main log file (`ghe-config.log`) and the console for better visibility.
     - |
@@ -55,7 +53,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
     - |
@@ -63,9 +61,9 @@ sections:
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
     - |
-      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
     - |
       {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
     - |

@@ -5,8 +5,8 @@ shortTitle: Deliver to private systems
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Webhooks
+category:
+  - Set up and manage webhooks
 ---
 ## About integrating with private systems via reverse proxy
 
@@ -34,6 +34,6 @@ The [`/meta` endpoint](/rest/meta/meta#get-github-meta-information) returns a JS
 
 ### Validating webhook payloads
 
-If your webhook is configured with a secret token, {% data variables.product.github %} will include a cryptographic hash of each webhook payload. You should use this hash to validate the payload received from {% data variables.product.github %} before any action is taken by your private system. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/securing-your-webhooks).
+If your webhook is configured with a secret token, {% data variables.product.github %} will include a cryptographic hash of each webhook payload. You should use this hash to validate the payload received from {% data variables.product.github %} before any action is taken by your private system. For more information, see [AUTOTITLE](/webhooks/using-webhooks/validating-webhook-deliveries).
 
 You can implement payload validation either on the reverse proxy or on your private system.

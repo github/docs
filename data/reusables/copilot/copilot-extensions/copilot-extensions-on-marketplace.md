@@ -1,1 +1,0 @@
-{% data variables.copilot.copilot_extensions_short %} are a type of {% data variables.product.prodname_github_app %} that you can install on your {% data variables.product.prodname_dotcom %} account, to add additional capabilities to {% data variables.product.prodname_copilot_short %}.

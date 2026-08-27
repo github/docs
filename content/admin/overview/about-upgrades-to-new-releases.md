@@ -1,13 +1,12 @@
 ---
 title: About upgrades to new releases
 shortTitle: About upgrades
-intro: 'Learn about how features and bug fixes are added to {% data variables.product.prodname_ghe_server %} through new releases.'
+intro: Learn about how features and bug fixes are added to {% data variables.product.prodname_ghe_server %} through new releases.
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - Upgrades
+contentType: concepts
+category:
+  - Back up and upgrade your instance
 ---
 
 {% data reusables.enterprise.constantly-improving %}
@@ -44,7 +43,7 @@ Between feature releases, you can benefit from patch releases, which:
 
 There are two ways to upgrade {% data variables.product.prodname_ghe_server %}:
 
-* To set up a **completely new {% data variables.product.prodname_ghe_server %} instance** and configure the instance however you like, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
+* To set up a **completely new {% data variables.product.prodname_ghe_server %} instance** and configure the instance however you like, see [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance) and [AUTOTITLE](/admin/configuring-settings).
 * To upgrade your **existing instance** to a new release, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 
 ## Further reading

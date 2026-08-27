@@ -1,22 +1,20 @@
 ---
 title: Enabling GitHub Packages with Azure Blob Storage
-intro: 'Set up {% data variables.product.prodname_registry %} with Azure Blob Storage as your external storage.'
+intro: Set up {% data variables.product.prodname_registry %} with Azure Blob Storage as your external storage.
 versions:
   ghes: '*'
-type: tutorial
-topics:
-  - Enterprise
-  - Packages
-  - Storage
 shortTitle: Enable Packages with Azure
 redirect_from:
   - /admin/packages/enabling-github-packages-with-azure-blob-storage
+contentType: tutorials
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 > [!WARNING]
 > * It is critical that you set the restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet. If restrictions by IP address have been set up, please include IP addresses for {% data variables.location.product_location_enterprise %} and the end users who will be using the {% data variables.location.product_location_enterprise %}.
 > * We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-> * Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
+> * Make sure to configure the storage account you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}. If you must move {% data variables.product.prodname_registry %} storage to a new storage account on Azure Blob Storage, credentials-based authentication must remain unchanged and you need to plan for a single maintenance window if you're also migrating {% data variables.product.prodname_actions %} storage. See "{% data variables.product.prodname_registry %} considerations" in [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/migrating-github-actions-external-storage). For cross-provider moves, contact {% data variables.contact.contact_ent_support %}.
 
 ## Prerequisites
 

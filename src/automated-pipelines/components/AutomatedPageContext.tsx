@@ -1,14 +1,20 @@
 import { createContext, useContext } from 'react'
+import type { IncomingMessage } from 'http'
 import type { JSX } from 'react'
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
+import type { JourneyContext } from '@/journeys/lib/journey-path-resolver'
+import type { Context } from '@/types'
 
 export type AutomatedPageContextT = {
   title: string
   intro: string
   renderedPage: string | JSX.Element[]
+  renderedPageHast?: import('hast').Root | null
   miniTocItems: Array<MiniTocItem>
   product?: string
   permissions?: string
+  currentLayout?: string
+  currentJourneyTrack?: JourneyContext | null
 }
 
 export const AutomatedPageContext = createContext<AutomatedPageContextT | null>(null)
@@ -25,15 +31,45 @@ export const useAutomatedPageContext = (): AutomatedPageContextT => {
   return context
 }
 
-export const getAutomatedPageContextFromRequest = (req: any): AutomatedPageContextT => {
-  const page = req.context.page
+// Non-throwing variant: returns null when there is no provider. For components that render
+// both inside and outside an AutomatedPageContext.Provider (e.g. the product sidebar, shared
+// across automated REST reference pages and conceptual REST pages). Call it unconditionally.
+export const useAutomatedPageContextOptional = (): AutomatedPageContextT | null => {
+  return useContext(AutomatedPageContext)
+}
+
+type AutomatedPageContextRequest = { context?: Partial<Context> } | IncomingMessage
+
+type AutomatedPage = {
+  title: string
+  intro: string
+  product?: string
+  permissions?: string
+  rawPermissions?: string
+}
+
+export const getAutomatedPageContextFromRequest = (
+  req: AutomatedPageContextRequest,
+): AutomatedPageContextT => {
+  const context = 'context' in req ? ((req.context as Partial<Context> | undefined) ?? {}) : {}
+  const page = context.page as AutomatedPage | undefined
+
+  if (!page) {
+    throw new Error('"getAutomatedPageContextFromRequest" requires req.context.page')
+  }
+
+  const renderedPage = context.renderedPage ?? ''
+  const miniTocItems = context.miniTocItems ?? []
 
   return {
     title: page.title,
     intro: page.intro,
-    renderedPage: req.context.renderedPage || '',
-    miniTocItems: req.context.miniTocItems || [],
-    product: page.product || '',
-    permissions: page.permissions || '',
+    renderedPage,
+    renderedPageHast: context.renderedPageHast ?? null,
+    miniTocItems,
+    product: page.product ?? '',
+    permissions: page.permissions ?? page.rawPermissions ?? '',
+    currentLayout: context.currentLayoutName ?? 'default',
+    currentJourneyTrack: (context.currentJourneyTrack as JourneyContext | null | undefined) ?? null,
   }
 }

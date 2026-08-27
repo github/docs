@@ -1,13 +1,12 @@
 ---
 title: About GitHub for enterprises
-intro: 'Learn about {% data variables.product.prodname_dotcom %}''s enterprise products and deployment options for {% data variables.product.prodname_enterprise %}.'
+intro: Learn about {% data variables.product.prodname_dotcom %}'s enterprise products and deployment options for {% data variables.product.prodname_enterprise %}.
 versions:
   ghec: '*'
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - Fundamentals
+contentType: concepts
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## Why should my business choose {% data variables.product.github %}?
@@ -51,10 +50,8 @@ Your business can:
 
 Your business can:
 
-{% ifversion ghas-products %}
 * Automate detection and remediation of vulnerabilities in code and dependencies using {% data variables.product.prodname_GH_code_security %}
-* Block users from leaking secrets and identify and remediate historic leaks using {% data variables.product.prodname_GH_secret_protection %}{% else %}
-* Be alerted to leaked secrets or vulnerable code patterns using {% data variables.product.prodname_GHAS %} tools{% endif %}
+* Block users from leaking secrets and identify and remediate historic leaks using {% data variables.product.prodname_GH_secret_protection %}
 * Keep software dependencies up to date with {% data variables.product.prodname_dependabot %}
 * Monitor the security landscape across your repositories with security overview
 
@@ -65,7 +62,7 @@ Your business can:
 * An enterprise account, which provides a single place to manage teams, grant access, enforce policies, and audit activity.
 * Additional features such as SAML authentication and internal repositories. For a detailed list, see {% data variables.product.pricing_link %}.
 * Extra allowances for usage-based products such as {% data variables.product.prodname_actions %}.
-* The option to add {% ifversion ghas-products %}<!-- Enterprise is no longer a pre-requisite with the GHAS products release -->{% else %}{% data variables.product.prodname_GHAS %}, {% endif %}{% data variables.contact.premium_support %}, and {% data variables.copilot.copilot_enterprise %}.
+* The option to add <!-- Enterprise is no longer a pre-requisite with the GHAS products release -->{% data variables.contact.premium_support %}, and {% data variables.copilot.copilot_enterprise %}.
 
 When businesses adopt {% data variables.product.prodname_enterprise %}, their return on investment (ROI) is high. For example, their developers **save 45 minutes per day**, and onboarding and **training time is reduced by 40%**. See [The Total Economic Impact of {% data variables.product.prodname_enterprise %}](https://resources.github.com/forrester/).
 

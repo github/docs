@@ -7,7 +7,10 @@ permissions: 'Organization owners who are admins for a classroom can use Git & {
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
 shortTitle: Starter assignment
+category:
+  - Create and manage assignments
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 The Git & {% data variables.product.company_short %} starter assignment is a pre-made course that summarizes the basics of Git and {% data variables.product.company_short %} and links students to resources to learn more about specific topics.
 
@@ -82,5 +85,5 @@ The Git & {% data variables.product.company_short %} starter assignment is only 
 
 ## Further reading
 
-* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
+* [AUTOTITLE](/education/about-github-education/github-education-for-teachers)
 * [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)

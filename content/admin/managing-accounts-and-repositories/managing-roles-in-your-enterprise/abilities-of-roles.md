@@ -15,10 +15,10 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 allowTitleToDifferFromFilename: true
 contentType: reference
+category:
+  - Manage accounts and repositories
 ---
 
 ## About roles in an enterprise
@@ -60,7 +60,7 @@ Enterprise owners have complete control over the enterprise and can take every a
 * Managing billing settings{% endif %}
 * Managing security settings
 
-Enterprise owners do not have access to organization settings or content by default, but they can gain access by joining any organization. See [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
+Enterprise owners do not have access to organization settings or content by default, but they can gain access by joining any organization. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
 
 {% ifversion ghec %}
 
@@ -68,7 +68,7 @@ Enterprise owners do not have access to organization settings or content by defa
 
 Billing managers only have access to your enterprise's billing settings. They can view and manage:
 
-* User licenses
+* {% data variables.product.github %} user licenses for self-serve volume licensing
 * Usage-based billing
 * Other billing settings
 
@@ -82,10 +82,10 @@ Billing managers do not have access to organization settings or content by defau
 
 {% data variables.product.prodname_github_app %} managers:
 
-* Can view, create, edit, and delete {% data variables.product.prodname_github_app %} registrations that are owned by the enterprise. For the specific app settings that {% data variables.product.prodname_github_app %} managers can control, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).
+* Can view, create, edit, and delete {% data variables.product.prodname_github_app %} registrations that are owned by the enterprise. For the specific app settings that {% data variables.product.prodname_github_app %} managers can control, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration).
 * Cannot install and uninstall {% data variables.product.prodname_github_apps %} on an enterprise or organization.
 
-App managers can also be assigned to individual apps. See [AUTOTITLE](/admin/managing-your-enterprise-account/adding-and-removing-github-app-managers-in-your-enterprise).
+App managers can also be assigned to individual apps. See [AUTOTITLE](/admin/managing-github-apps-for-your-enterprise/adding-and-removing-github-app-managers-in-your-enterprise).
 
 {% endif %}
 
@@ -124,12 +124,17 @@ If a user is a member or owner of any organization, they are listed as an **orga
 
 ### Unaffiliated users
 
-If a user is not a member of any organization, they are listed as an **unaffiliated user**. These users:
+If a user is not a member of any organization, and doesn't have the enterprise owner or billing manager role, the user is listed as an unaffiliated user.
 
-* Do not consume a {% data variables.product.prodname_enterprise %} license.
+Unaffiliated users:
+
+* Do not consume a {% data variables.product.prodname_enterprise %} license, unless they meet another criterion listed in [AUTOTITLE](/billing/reference/github-license-users#organizations-on-github-enterprise-cloud).
 * Cannot access private or internal repositories.
 * Can be added as members of enterprise teams.
-* Can receive a {% data variables.product.prodname_copilot_short %} license directly from your enterprise.
+* Can receive a {% data variables.product.prodname_copilot_short %} license or custom role directly from your enterprise.
+* Can remove themselves from the enterprise at any time, unless you use {% data variables.product.prodname_emus %}.
+
+If you have an enterprise with personal accounts, you can disable this role. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/control-offboarding).
 
 {% endif %}
 
@@ -155,6 +160,6 @@ To create a custom enterprise role, see [AUTOTITLE](/admin/managing-accounts-and
 
 ## Next steps
 
-When you have decided which roles your users require, assign the roles to them. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/assign-roles).
+When you have decided which roles your users require, assign the roles to them. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/assign-roles).
 
 {% endif %}

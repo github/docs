@@ -7,14 +7,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Block from your account
+category:
+  - Block users and report abuse
 ---
 
 ## About blocking users
 
-You can block a user in your account settings or from the user's profile. {% data variables.product.prodname_dotcom %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see [Blocking a user in your account settings](#blocking-a-user-in-your-account-settings). You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
+You can block a user in your account settings, from the user's profile, or from an issue or pull request in a repository you own. {% data variables.product.prodname_dotcom %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see [Blocking a user in your account settings](#blocking-a-user-in-your-account-settings). You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
 
 > [!TIP]
 > If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations).
@@ -52,6 +52,13 @@ In repositories you own, blocked users also cannot:
 * Send, close, or merge pull requests
 * Comment on issues, pull requests, or commits
 * Add or edit wiki pages
+
+## Blocking a user in an issue or pull request
+
+1. Navigate to an issue or pull request in a repository you own.
+1. In the upper-right corner of the description or comment whose author you would like to block, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Block user**.
+1. Optionally, add a note to describe why you blocked the user. The note will only be visible to you.
+1. To confirm, click **Block user**.
 
 ## Blocking a user in your account settings
 

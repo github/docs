@@ -92,9 +92,6 @@ const coreProps: JSONSchema = {
     type: {
       type: 'string',
     },
-    kind: {
-      type: 'string',
-    },
     id: {
       type: 'string',
     },
@@ -140,13 +137,13 @@ delete corePropsNoDescription.properties!.description
 const queries = dup(corePropsPlusArgs) as ValidatorSchema
 
 queries.type = 'object'
-queries.required = ['name', 'type', 'kind', 'id', 'href', 'description']
+queries.required = ['name', 'type', 'id', 'href', 'description']
 
 // MUTATIONS
 const mutations = dup(corePropsNoType) as ValidatorSchema
 
 mutations.type = 'object'
-mutations.required = ['name', 'kind', 'id', 'href', 'description', 'inputFields', 'returnFields']
+mutations.required = ['name', 'id', 'href', 'description', 'inputFields', 'returnFields']
 
 mutations.properties.inputFields = {
   type: 'array',
@@ -168,7 +165,7 @@ mutations.properties.returnFields = {
 const objects = dup(corePropsNoType) as ValidatorSchema
 
 objects.type = 'object'
-objects.required = ['name', 'kind', 'id', 'href', 'description', 'fields']
+objects.required = ['name', 'id', 'href', 'description', 'fields']
 
 objects.properties.fields = {
   type: 'array',
@@ -201,7 +198,7 @@ objects.properties.implements = {
 const interfaces = dup(corePropsNoType) as ValidatorSchema
 
 interfaces.type = 'object'
-interfaces.required = ['name', 'kind', 'id', 'href', 'description', 'fields']
+interfaces.required = ['name', 'id', 'href', 'description', 'fields']
 
 interfaces.properties.fields = {
   type: 'array',
@@ -215,7 +212,7 @@ interfaces.properties.fields = {
 const enums = dup(corePropsNoType) as ValidatorSchema
 
 enums.type = 'object'
-enums.required = ['name', 'kind', 'id', 'href', 'description', 'values']
+enums.required = ['name', 'id', 'href', 'description', 'values']
 
 enums.properties.values = {
   type: 'array',
@@ -237,7 +234,7 @@ enums.properties.values = {
 const unions = dup(corePropsNoType) as ValidatorSchema
 
 unions.type = 'object'
-unions.required = ['name', 'kind', 'id', 'href', 'description', 'possibleTypes']
+unions.required = ['name', 'id', 'href', 'description', 'possibleTypes']
 
 unions.properties.possibleTypes = {
   type: 'array',
@@ -262,7 +259,7 @@ unions.properties.possibleTypes = {
 const inputObjects = dup(corePropsNoType) as ValidatorSchema
 
 inputObjects.type = 'object'
-inputObjects.required = ['name', 'kind', 'id', 'href', 'description', 'inputFields']
+inputObjects.required = ['name', 'id', 'href', 'description', 'inputFields']
 
 inputObjects.properties.inputFields = {
   type: 'array',

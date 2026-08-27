@@ -31,7 +31,7 @@ export function cseCopilotPostAnswersMock(req: Request, res: Response) {
   }
 
   // Function to send a chunk with proper encoding
-  const sendEncodedChunk = (data: any, isLast = false) => {
+  const sendEncodedChunk = (data: string, isLast = false) => {
     const prefix = isLast ? '' : '\n' // Optionally, add delimiters if needed
     const buffer = Buffer.from(prefix + data, 'utf-8')
     res.write(buffer)

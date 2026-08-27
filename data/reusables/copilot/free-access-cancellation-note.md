@@ -1,0 +1,1 @@
+If you have been granted free access to {% data variables.product.prodname_copilot_short %} as a verified student, teacher, or maintainer of a popular open source project, you won’t be able to cancel your plan.

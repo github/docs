@@ -4,18 +4,16 @@ intro: You can restore deleted repositories to recover their contents.
 permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Privacy
-  - Repositories
 shortTitle: Restore a deleted repository
 redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository
+category:
+  - Manage accounts and repositories
 ---
 
 ## About repository restoration
 
-Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard).
+Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui).
 
 Unless a legal hold is in effect on a user or organization, after 90 days the repository is purged and deleted forever.
 
@@ -23,7 +21,7 @@ If a repository was part of a fork network when it was deleted, the restored rep
 
 It can take up to an hour after a repository is deleted before that repository is available for restoration.
 
-Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
+Restoring a repository will not restore release attachments or team permissions.
 
 ## Restoring a deleted repository
 
@@ -36,4 +34,4 @@ Restoring a repository will not restore release attachments or team permissions.
 
 ## Further reading
 
-* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)
+* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)

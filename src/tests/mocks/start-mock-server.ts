@@ -21,6 +21,7 @@ You should override the variable  in the overrideEnvForTesting function in this 
 */
 
 import express from 'express'
+import type { Server } from 'http'
 import { CSE_COPILOT_PREFIX, cseCopilotPostAnswersMock } from './cse-copilot-mock'
 
 // Define the default port for the mock server
@@ -30,7 +31,7 @@ const MOCK_SERVER_PORT = 3012
 const serverUrl = `http://localhost:${MOCK_SERVER_PORT}`
 
 // Variable to hold the server instance
-let server: any = null
+let server: Server | null = null
 
 // Override environment variables for testing purposes
 export function overrideEnvForTesting() {
@@ -55,7 +56,7 @@ export function startMockServer(port = MOCK_SERVER_PORT) {
 export function stopMockServer(): Promise<void> {
   return new Promise((resolve, reject) => {
     if (server) {
-      server.close((err: any) => {
+      server.close((err: Error | undefined) => {
         if (err) {
           console.error('Error stopping the mock server:', err)
           reject(err)
