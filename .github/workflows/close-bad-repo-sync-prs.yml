@@ -61,3 +61,20 @@ jobs:
               issue_number: prNumber,
               body: "Please leave this `repo-sync` branch to the robots!\n\nI'm going to close this pull request now, but feel free to open a new issue in the repository!"
             })
+# ระบุไฟล์ workflow ที่ต้องการลบ
+WORKFLOW=".github/workflows/close-bad-repo-sync-prs.yml"
+
+# ตรวจสอบก่อนลบ
+git status
+git diff -- "$WORKFLOW"
+
+# ลบไฟล์ออกจาก working tree และ Git index
+git rm -- "$WORKFLOW"
+
+# ตรวจสอบว่าถูกลบจริง
+git status
+git diff --cached -- "$WORKFLOW"
+
+# บันทึกการลบ
+git commit -m "Remove bad repo-sync PR workflow"
+find .github/workflows -type f \( -name "*.yml" -o -name "*.yaml" \) -print
