@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Test site locally with Jekyll
+category:
+  - Set up a GitHub Pages site
 ---
 
 Anyone with read permissions for a repository can test a {% data variables.product.prodname_pages %} site locally.
@@ -53,6 +53,8 @@ Before you can use Jekyll to test a site, you must:
    > * If you've installed Ruby 3.0 or later (which you may have if you installed the default version via Homebrew), you might get an error at this step. That's because these versions of Ruby no longer come with `webrick` installed.
    >
    >   To fix the error, try running `bundle add webrick`, then re-running `bundle exec jekyll serve`.
+   >
+   >   If you've installed Ruby 3.2 or later, you may see other errors related to missing gems and methods, due to compatibility issues with the `github-pages` gem. In this event, you should install Ruby 3.1.x or earlier instead.
    >
    > * If your `_config.yml` file's `baseurl` field contains your GitHub repository's link, you can use the following command when building locally to ignore that value and serve the site on `localhost:4000/`:
    >

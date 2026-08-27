@@ -1,28 +1,37 @@
 ---
 title: Reconciling Copilot usage metrics across dashboards, APIs, and reports
 shortTitle: Reconciling Copilot usage metrics
-intro: Understand how {% data variables.product.prodname_copilot_short %} usage metrics differ between dashboards, APIs, and exported reports.
+intro: '{% data variables.product.prodname_copilot_short %} usage metrics are derived from the same underlying telemetry but are aggregated and presented differently across dashboards, APIs, and exported reports.'
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /early-access/copilot-metrics/dashboards/best-practices-for-correlating-usage-metrics
   - /copilot/reference/reconciling-usage-metrics
+category:
+  - Copilot usage metrics
+  - Reconcile and validate metrics
+  - Track Copilot usage
 ---
-
-{% data reusables.copilot.usage-metrics-preview %}
 
 The {% data variables.product.prodname_copilot_short %} usage metrics dashboard, APIs, and export files all use the same underlying telemetry data, but they aggregate and present it differently. Understanding these differences helps you reconcile numbers across sources and trust your analysis when preparing internal reports.
 
+* The {% data variables.product.prodname_copilot_short %} usage metrics dashboards are available at the **enterprise** and **organization** level.
+* The {% data variables.product.prodname_copilot_short %} usage metrics APIs support **enterprise-, organization-, repository-, and user-level** records.
+* Team-level totals are not pre-aggregated. They are constructed by joining the user-teams report with the per-user usage metrics report. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
+* Repository-level reports provide daily pull request activity for repositories with activity on the requested day. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#repository-level-fields-api-only).
+
 ## Prerequisite
 
-{% data variables.product.prodname_copilot_short %} usage metrics depend on **telemetry from users’ IDEs**. If a developer has disabled telemetry in their IDE, their {% data variables.product.prodname_copilot_short %} activity will **not** appear in the dashboard, API reports, or exported data.
+IDE-based {% data variables.product.prodname_copilot_short %} usage metrics depend on **telemetry from users' IDEs**. If a developer has disabled telemetry in their IDE, their detailed IDE-based {% data variables.product.prodname_copilot_short %} activity, such as per-IDE, per-feature, and lines-of-code breakdowns, will **not** appear in the dashboard, API reports, or exported data. However, server-side telemetry may still surface these users in your active user counts even when client telemetry is unavailable.
 
 If you notice missing users or unexpectedly low adoption numbers, verify IDE telemetry settings before troubleshooting other causes.
+
+{% data variables.copilot.copilot_cli_short %} metrics (`daily_active_cli_users` and `totals_by_cli`) are collected and reported separately from IDE telemetry. CLI usage does **not** contribute to IDE-based active user counts or other IDE metrics.
+
+Do not reconcile `totals_by_3rd_party_agent[].user_initiated_interaction_count`, which counts user-initiated {% data variables.copilot.agent_app %} jobs, with the top-level `user_initiated_interaction_count`, which counts explicit prompts from other supported telemetry.
 
 ## Metric alignment
 
@@ -34,6 +43,7 @@ The dashboard and APIs use shared definitions for key metrics:
 | Acceptance rate | Code completion acceptance rate | `code_acceptance_activity_count` ÷ `code_generation_activity_count` | Both sources calculate acceptance rate the same way, though rounding may differ. |
 | Agent adoption | Agent adoption chart | `totals_by_feature` where feature = “agent” | Reflects users who interacted with the {% data variables.copilot.copilot_agent_short %}. |
 | Language usage | Language usage charts | `totals_by_language_feature` or `totals_by_language_model` | The dashboard visualizes these aggregated fields. |
+| Adoption cohort/phase | Adoption cohort distribution (impact dashboard) | `ai_adoption_phase`, `totals_by_ai_adoption_phase` | The phase definitions are shared, but the populations differ. The dashboard includes every user active during the trailing 28-day window, while the aggregated `totals_by_ai_adoption_phase` field counts users active on the record's specific day. Dashboard and API cohort counts and percentages therefore do not match. Users displayed as "Passive users" in the dashboard correspond to the `No Cohort` API value. |
 
 For complete field descriptions, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics).
 
@@ -51,7 +61,7 @@ Each data source aggregates data differently.
 | APIs | Daily | Each record represents a single day per user, enabling daily trend analysis. |
 | NDJSON exports | Daily | Mirrors API output for BI tools and long-term reporting. |
 
-Aligning your reporting period with the dashboard’s 28-day window ensures consistent comparisons.
+Aligning your reporting period with the dashboard’s 28-day window makes most comparisons more consistent. However, it does not make adoption cohort counts match because the dashboard counts distinct users across the window and the aggregated API fields contain daily counts.
 
 ### Delayed telemetry
 
@@ -72,3 +82,9 @@ The value `Unknown` appears in some API or export breakdowns when telemetry from
 | Model | Appears when the event lacks information identifying the model used. Some internal models (for example, `gpt-4o-mini`) may appear alongside `Unknown` when used for non-user-facing operations such as summarization or intent detection. |
 
 `Unknown` values are excluded from dashboard visualizations but appear in API and NDJSON data for completeness. The amount of `Unknown` data decreases as users upgrade to newer IDE and extension versions that send richer telemetry.
+
+## Users surfaced by server-side telemetry
+
+{% data variables.product.prodname_copilot_short %} usage metrics combine client-side and server-side telemetry to identify active users. Users confirmed as active through server-side telemetry, but for whom no client telemetry was received, are included in your active user totals (such as `daily_active_users`). When available, these users may also appear in `totals_by_ide` (and in per-user reports this includes the most recently detected IDE and {% data variables.product.prodname_copilot_short %} extension versions). However, other dimensional breakdowns (`totals_by_feature`, `totals_by_language_feature`, `totals_by_language_model`, `totals_by_model_feature`) and lines-of-code metrics will still be empty.
+
+This means your top-level active user counts may be higher than the sum of users reflected in the breakdown arrays. This is expected behavior and does not indicate a data error.

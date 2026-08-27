@@ -2,8 +2,6 @@
 title: Using GitHub Copilot to explore issues and discussions
 shortTitle: Explore issues and discussions
 intro: '{% data variables.copilot.copilot_chat %} can help you quickly gain context of lengthy discussions and issues.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:
@@ -51,4 +49,4 @@ The following prompts are examples of the kind of questions you can ask {% data 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase#further-reading)
+* [AUTOTITLE](/copilot/tutorials/explore-a-codebase#further-reading)

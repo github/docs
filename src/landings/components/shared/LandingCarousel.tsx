@@ -1,15 +1,18 @@
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { ChevronLeftIcon, ChevronRightIcon } from '@primer/octicons-react'
+import { ArrowLeftIcon, ArrowRightIcon } from '@primer/octicons-react'
+import { Card } from '@primer/react-brand'
 import cx from 'classnames'
 import type { ResolvedArticle } from '@/types'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { useVersion } from '@/versions/components/useVersion'
 import styles from './LandingCarousel.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type LandingCarouselProps = {
   heading?: string
-  recommended?: ResolvedArticle[]
+  carouselKey?: string // Optional key for translation lookup (e.g., "recommended")
+  carouselArticles?: ResolvedArticle[]
 }
 
 // Hook to get current items per view based on screen size
@@ -39,14 +42,32 @@ const useResponsiveItemsPerView = () => {
   return itemsPerView
 }
 
-export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselProps) => {
+export const LandingCarousel = ({
+  heading = '',
+  carouselKey,
+  carouselArticles,
+}: LandingCarouselProps) => {
   const [currentPage, setCurrentPage] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const itemsPerView = useResponsiveItemsPerView()
-  const { t } = useTranslation('product_landing')
+  const { t } = useTranslation('carousels')
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const headingText = heading || t('carousel.recommended')
+
+  // Determine heading text
+  let headingText = heading
+  if (!headingText && carouselKey) {
+    // Try to get translation for the carousel key
+    const translated = t(carouselKey)
+
+    // Check if we got a real translation or a fallback
+    const looksLikeFallback = !translated || translated === carouselKey
+
+    if (!looksLikeFallback) {
+      headingText = translated
+    }
+  }
+
   // Ref to store timeout IDs for cleanup
   const animationTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -55,7 +76,7 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
     setCurrentPage(0)
   }, [itemsPerView])
 
-  const processedItems: ResolvedArticle[] = recommended || []
+  const processedItems: ResolvedArticle[] = carouselArticles || []
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -116,27 +137,30 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
   }
 
   return (
-    <div className={styles.carousel} data-testid="landing-carousel">
+    <div
+      className={cx(styles.carousel, { [styles.noHeading]: !headingText })}
+      data-testid="landing-carousel"
+    >
       <div className={styles.header}>
-        <h2 className={styles.heading}>{headingText}</h2>
+        {headingText && <h2 className={styles.heading}>{headingText}</h2>}
         {totalItems > itemsPerView && (
           <div className={styles.navigation}>
             <button
               onClick={goToPrevious}
               disabled={currentPage === 0}
-              className={cx('btn btn-sm', styles.navButton)}
+              className={styles.navButton}
               aria-label="Previous articles"
             >
-              <ChevronLeftIcon size={16} />
+              <ArrowLeftIcon size={16} />
             </button>
 
             <button
               onClick={goToNext}
               disabled={currentPage >= totalPages - 1}
-              className={cx('btn btn-sm', styles.navButton)}
+              className={styles.navButton}
               aria-label="Next articles"
             >
-              <ChevronRightIcon size={16} />
+              <ArrowRightIcon size={16} />
             </button>
           </div>
         )}
@@ -147,21 +171,19 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
         data-testid="carousel-items"
       >
         {visibleItems.map((article: ResolvedArticle, index) => (
-          <a
+          <Card
             key={startIndex + index}
             href={`/${router.locale}/${currentVersion}${article.href}`}
-            className={cx(styles.articleCard, 'border', 'border-default', 'rounded-2')}
+            className={styles.card}
+            ctaVariant="none"
+            disableAnimation
+            fullWidth
           >
-            <h3 className={styles.articleTitle}>
-              <span className={styles.articleLink}>{article.title}</span>
-            </h3>
-            <div
-              className={styles.articleDescription}
-              dangerouslySetInnerHTML={{
-                __html: article.intro as TrustedHTML,
-              }}
-            />
-          </a>
+            <Card.Heading>{article.title}</Card.Heading>
+            <Card.Description>
+              <RenderedHTML as="span" html={article.intro} />
+            </Card.Description>
+          </Card>
         ))}
       </div>
     </div>

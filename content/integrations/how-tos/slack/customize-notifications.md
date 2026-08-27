@@ -1,21 +1,21 @@
 ---
 title: Customizing notifications for GitHub in Slack
 shortTitle: Customize notifications
-intro: 'Learn how to customize notifications for GitHub in Slack.'
+intro: Learn how to customize notifications for GitHub in Slack.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Integration
-contentType: reference
+contentType: how-tos
+category:
+  - Use integrations
 ---
 
 You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.
 
 ### Notifications enabled by default
 
-The following notifications are enabled by default, but you can disable any of them using the `/github unsubscribe owner/repo [event]` command.
+The following notifications are enabled by default, but you can disable any of them using the `/github unsubscribe OWNER/REPO [EVENT]` command.
 
 |Event|Description|
 |-------|-----------|
@@ -27,7 +27,7 @@ The following notifications are enabled by default, but you can disable any of t
 
 ### Notifications disabled by default
 
-The following notifications are disabled by default, but you can enable any of them using the `/github subscribe owner/repo [event]` command.
+The following notifications are disabled by default, but you can enable any of them using the `/github subscribe OWNER/REPO [EVENT]` command.
 
 |Event|Description|
 |-------|-----------|
@@ -37,12 +37,12 @@ The following notifications are disabled by default, but you can enable any of t
 |`comments`|New comments on issues and pull requests.|
 |`commits`|All commits to any branch.|
 |`discussions`|Discussions created or answered.|
-|`+label:"your label"`|Issues, pull-requests and comments based on their labels.|
+|`+label:"YOUR-LABEL"`|Issues, pull-requests and comments based on their labels.|
 
 You can subscribe or unsubscribe from multiple settings at once. For example:
 
-* To turn on activity for pull request reviews and comments, use `/github subscribe owner/repo reviews comments`.
-* To turn off activity for issues and pull requests, use `/github unsubscribe owner/repo issues pulls`.
+* To turn on activity for pull request reviews and comments, use `/github subscribe OWNER/REPO reviews comments`.
+* To turn off activity for issues and pull requests, use `/github unsubscribe OWNER/REPO issues pulls`.
 
 ## Filtering notifications
 
@@ -54,10 +54,10 @@ Branch filters allow you to filter commit notifications based on branch names. B
 
 |Example configuration|Description|
 |-------|-----------|
-|`/github subscribe owner/repo commits`|Receive commit notifications for the default branch.|
-|`/github subscribe owner/repo commits:main`|Only receive commit notifications for the `main` branch.|
-|`/github subscribe owner/repo commits:feature/*`|Receive commit notifications for all branches that start with `feature/`.|
-|`/github subscribe owner/repo commits:*`|Receive commit notifications for all branches.|
+|`/github subscribe OWNER/REPO commits`|Receive commit notifications for the default branch.|
+|`/github subscribe OWNER/REPO commits:main`|Only receive commit notifications for the `main` branch.|
+|`/github subscribe OWNER/REPO commits:feature/*`|Receive commit notifications for all branches that start with `feature/`.|
+|`/github subscribe OWNER/REPO commits:*`|Receive commit notifications for all branches.|
 
 >[!NOTE] You may have previously used the `commits:all` filter to receive commit notifications for all branches. This filter is {% data variables.release-phases.closing_down %}. To receive commit notifications for all branches, use the `commits:*` filter instead. If you have previously set up the `commits:all` filter, it will continue to work until you update your configuration to use the `commits:*` filter.
 
@@ -81,30 +81,30 @@ Currently, it is only possible to have one required label filter per repository.
 To create a label filter, use the following command format:
 
 ```text copy
-/github subscribe [owner/repo] +label:"your label"
+/github subscribe [OWNER/REPO] +label:"YOUR-LABEL"
 ```
 
-This creates a required-label filter with the value `your label`. Incoming events that support filters are discarded unless they have that label.
+This creates a required-label filter with the value `YOUR-LABEL`. Incoming events that support filters are discarded unless they have that label.
 
 #### Updating label filters
 
 You can update an existing label filter by specifying a new label value:
 
 ```text copy
-/github subscribe [owner/repo] +label:"new label"
+/github subscribe [OWNER/REPO] +label:"NEW-LABEL"
 ```
 
-This will replace the "your label" filter with the "new label" filter.
+This will replace the "YOUR-LABEL" filter with the "NEW-LABEL" filter.
 
 #### Removing label filters
 
 You can remove an existing label filter by using the unsubscribe command with the `+label` option:
 
 ```text copy
-/github unsubscribe [owner/repo] +label:"new label"
+/github unsubscribe [OWNER/REPO] +label:"NEW-LABEL"
 ```
 
-This will remove the "new label" filter, and the channel will receive all notifications for the subscribed events without any label filtering.
+This will remove the "NEW-LABEL" filter, and the channel will receive all notifications for the subscribed events without any label filtering.
 
 #### Viewing active label filters
 
@@ -120,7 +120,7 @@ The {% data variables.product.github %} app in Slack supports the most common sp
 
 ## Actions workflow notifications
 
-You can subscribe to {% data variables.product.prodname_actions %} workflow run notifications from your channel or personal app using "workflows" feature, using the format `/github subscribe owner/repo workflows`.
+You can subscribe to {% data variables.product.prodname_actions %} workflow run notifications from your channel or personal app using the "workflows" feature, using the format `/github subscribe OWNER/REPO workflows`.
 
 When you are subscribed to "workflows", the following functionality is available:
 
@@ -148,18 +148,18 @@ You can filter workflow notifications by using the following options:
 You can configure workflow notification filters with the following format:
 
 ```text copy
-/github subscribe owner/repo workflows:{name:"your workflow name" event:"workflow event" branch:"branch name" actor:"username"}
+/github subscribe OWNER/REPO workflows:{name:"YOUR-WORKFLOW-NAME" event:"WORKFLOW-EVENT" branch:"BRANCH-NAME" actor:"USERNAME"}
 ```
 
 You can also pass multiple values for each filter, separated by commas. For example:
 
 ```text copy
-/github subscribe owner/repo workflows:{name:"your workflow name","another workflow name" event:"workflow event","another workflow event" branch:"branch name","another branch name" actor:"username","another-username"}
+/github subscribe OWNER/REPO workflows:{name:"YOUR-WORKFLOW-NAME","ANOTHER-WORKFLOW-NAME" event:"WORKFLOW-EVENT","ANOTHER-WORKFLOW-EVENT" branch:"BRANCH-NAME","ANOTHER-BRANCH-NAME" actor:"USERNAME","ANOTHER-USERNAME"}
 ```
 
 By default, when you configure workflow notifications without passing any filters, it is configured for workflows triggered via pull requests targeting your default branch. You can pass one or multiple entries.
 
-You can unsubscribe from workflow notifications using the command: `/github unsubscribe owner/repo workflows`.
+You can unsubscribe from workflow notifications using the command: `/github unsubscribe OWNER/REPO workflows`.
 
 >[!NOTE] To receive {% data variables.product.prodname_actions %} notifications in Slack, the {% data variables.product.github %} app requires additional permissions. When you attempt to subscribe to workflows for the first time, you will be prompted to grant these permissions.
 
@@ -167,6 +167,6 @@ You can unsubscribe from workflow notifications using the command: `/github unsu
 
 You can also configure separate deployment notifications. These deployments can happen from {% data variables.product.prodname_actions %} or from external sources using the deployments API. See [AUTOTITLE](/rest/deployments/deployments?apiVersion=2022-11-28).
 
-You can subscribe/unsubscribe to deployment notifications using the command: `/github subscribe/unsubscribe owner/repo deployments`.
+You can subscribe or unsubscribe to deployment notifications using the command: `/github subscribe/unsubscribe OWNER/REPO deployments`.
 
 >[!NOTE] If you are using {% data variables.product.prodname_actions %} and want to track your deployments to environments, the `workflows` feature is recommended, as it provides a more complete picture and the ability to approve your deployments directly from Slack.

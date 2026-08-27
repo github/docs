@@ -8,7 +8,10 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
+category:
+  - Create and manage assignments
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About individual assignments
 
@@ -119,14 +122,14 @@ You can see whether a student has joined the classroom and accepted or submitted
 
 ## Next steps
 
-* Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.github %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and student can review the commit history for the repository. For more information, see [AUTOTITLE](/get-started), [AUTOTITLE](/repositories), and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests).
+* Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.github %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and student can review the commit history for the repository. For more information, see [AUTOTITLE](/get-started), [AUTOTITLE](/repositories), and [AUTOTITLE](/pull-requests).
 
 * When a student finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand the student's work. For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository).
 
-* You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) and [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue). For more information about creating saved replies to provide feedback for common errors, see [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/about-saved-replies).
+* You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/commenting-on-a-pull-request) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue). For more information about creating saved replies to provide feedback for common errors, see [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/about-saved-replies).
 
 ## Further reading
 
-* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
+* [AUTOTITLE](/education/about-github-education/github-education-for-teachers)
 * [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)
 * [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/using-github-classroom-with-github-cli)

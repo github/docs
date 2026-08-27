@@ -1,12 +1,12 @@
 import fs from 'fs'
 
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import type { NextFunction, Response } from 'express'
 
 import { liquid } from '@/content-render/index'
-import { ExtendedRequest, SecretScanningData } from '@/types'
+import { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
-import { getVersionInfo } from '@/app/lib/constants'
+import { getSecretScanningData } from '@/secret-scanning/lib/get-secret-scanning-data'
 
 const secretScanningDir = 'src/secret-scanning/data/pattern-docs'
 
@@ -28,7 +28,12 @@ export default async function secretScanning(
   const { currentVersion } = req.context
   if (!currentVersion) throw new Error('currentVersion not set in context')
 
-  const { isEnterpriseCloud, isEnterpriseServer } = getVersionInfo(currentVersion)
+  const isEnterpriseCloud = currentVersion.includes('cloud')
+  const isEnterpriseServer = currentVersion.includes('enterprise-server')
+
+  if (isEnterpriseServer && !allVersions[currentVersion]) {
+    return next()
+  }
 
   const versionPath = isEnterpriseCloud
     ? 'ghec'
@@ -37,24 +42,23 @@ export default async function secretScanning(
       : 'fpt'
   const filepath = `${secretScanningDir}/${versionPath}/public-docs.yml`
 
-  req.context.secretScanningData = yaml.load(
-    fs.readFileSync(filepath, 'utf-8'),
-  ) as SecretScanningData[]
+  req.context.secretScanningData = await getSecretScanningData(filepath)
 
   // Some entries might use Liquid syntax, so we need
   // to execute that Liquid to get the actual value.
   for (const entry of req.context.secretScanningData) {
     for (const [key, value] of Object.entries(entry)) {
-      if (key === 'hasValidityCheck' && typeof value === 'string' && value.includes('{%')) {
-        const evaluated = yaml.load(await liquid.parseAndRender(value, req.context))
-        entry[key] = evaluated as string
+      if (
+        (key === 'hasValidityCheck' || key === 'hasExtendedMetadata') &&
+        typeof value === 'string' &&
+        value.includes('{%')
+      ) {
+        const evaluated = load(await liquid.parseAndRender(value, req.context))
+        entry[key] = evaluated as boolean | string
       }
     }
     if (entry.isduplicate) {
       entry.secretType += ' <br/><a href="#token-versions">Token versions</a>'
-    }
-    if (entry.ismultipart) {
-      entry.secretType += ' <br/><a href="#multi-part-secrets">Multi-part secrets</a>'
     }
   }
 

@@ -6,14 +6,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Azure Static Web Apps
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app
   - /actions/use-cases-and-examples/deploying/deploying-to-azure-static-web-app
   - /actions/how-tos/use-cases-and-examples/deploying/deploying-to-azure-static-web-app
   - /actions/how-tos/managing-workflow-runs-and-deployments/deploying-to-third-party-platforms/deploying-to-azure-static-web-app
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites

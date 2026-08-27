@@ -5,7 +5,7 @@ import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '../helpers/utils'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
-// Yoink path validation approach from frontmatter-landing-recommended
+// Yoink path validation approach from frontmatter-landing-carousels
 function isValidGuidePath(guidePath: string, currentFilePath: string): boolean {
   const ROOT = process.env.ROOT || '.'
 
@@ -71,14 +71,19 @@ export const journeyTracksGuidePathExists = {
       const trackObj = track as Record<string, unknown>
       if (trackObj.guides && Array.isArray(trackObj.guides)) {
         for (let guideIndex = 0; guideIndex < trackObj.guides.length; guideIndex++) {
-          const guide: string = trackObj.guides[guideIndex]
-          if (typeof guide === 'string') {
-            if (!isValidGuidePath(guide, params.name)) {
+          const guideObj = trackObj.guides[guideIndex]
+
+          // Validate guide is an object with expected properties
+          if (!guideObj || typeof guideObj !== 'object') continue
+
+          // Validate href property
+          if ('href' in guideObj && typeof guideObj.href === 'string') {
+            if (!isValidGuidePath(guideObj.href, params.name)) {
               addError(
                 onError,
                 journeyTracksLineNumber,
-                `Journey track guide path does not exist: ${guide} (track ${trackIndex + 1}, guide ${guideIndex + 1})`,
-                guide,
+                `Journey track guide path does not exist: ${guideObj.href} (track ${trackIndex + 1}, guide ${guideIndex + 1})`,
+                guideObj.href,
               )
             }
           }

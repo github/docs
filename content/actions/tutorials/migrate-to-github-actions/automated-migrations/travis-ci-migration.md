@@ -1,21 +1,19 @@
 ---
 title: Migrating from Travis CI with GitHub Actions Importer
-intro: 'Learn how to use {% data variables.product.prodname_actions_importer %} to automate the migration of your Travis CI pipelines to {% data variables.product.prodname_actions %}.'
+intro: Learn how to use {% data variables.product.prodname_actions_importer %} to automate the migration of your Travis CI pipelines to {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Migration
-  - CI
-  - CD
 shortTitle: Travis CI migration
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/migrating-from-travis-ci-with-github-actions-importer
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-travis-ci-with-github-actions-importer
   - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-travis-ci-with-github-actions-importer
   - /actions/tutorials/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-travis-ci-with-github-actions-importer
+contentType: tutorials
+category:
+  - Migrate to GitHub Actions
 ---
 
 ## About migrating from Travis CI with GitHub Actions Importer
@@ -39,7 +37,7 @@ Certain Travis CI constructs must be migrated manually. These include:
 * Secrets
 * Unknown job properties
 
-For more information on manual migrations, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-travis-ci-to-github-actions).
+For more information on manual migrations, see [AUTOTITLE](/actions/tutorials/migrate-to-github-actions/manual-migrations/migrate-from-travis-ci).
 
 #### Travis CI project languages
 
@@ -312,7 +310,7 @@ gh actions-importer dry-run travis-ci --travis-ci-repository travis-org-name/tra
 
 ### Supported syntax for Travis CI pipelines
 
-The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Travis CI pipeline syntax aligns with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-travis-ci-to-github-actions).
+The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Travis CI pipeline syntax aligns with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/tutorials/migrate-to-github-actions/manual-migrations/migrate-from-travis-ci).
 
 | Travis CI    | GitHub Actions                     |              Status |
 | :------------------ | :--------------------------------- | ------------------: |

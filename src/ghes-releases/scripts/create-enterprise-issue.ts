@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Create release tracking issues for a new GHES version
+ */
 import { readFileSync } from 'fs'
 import { basename } from 'path'
 import { Liquid } from 'liquidjs'
@@ -50,7 +54,7 @@ const liquid = new Liquid()
 // [start-readme]
 //
 // This script creates enterprise release and deprecation issues in the
-// github/docs-content and github/docs-engineering repositories.
+// github/docs-content and github/technical-content repositories.
 // The script checks if an issue already exists for the release or deprecation.
 //
 // [end-readme]
@@ -76,7 +80,7 @@ async function run() {
 }
 
 async function createDeprecationIssue() {
-  const repo = 'github/docs-engineering'
+  const repo = 'github/technical-content'
   console.log('Next deprecation number: ', oldestSupported)
   // If an issue already exists for this release, do nothing
   const issueExists = await isExistingIssue(repo, {
@@ -99,12 +103,13 @@ async function createDeprecationIssue() {
   const issueTemplate = readFileSync('src/ghes-releases/lib/deprecation-steps.md', 'utf8')
   const { data, content } = matter(issueTemplate)
   const { title, labels } = data
+  const renderedContent = content.replaceAll('{{ release-number }}', oldestSupported)
   const body = `GHES ${oldestSupported} deprecation occurs on ${deprecationDate}.
-  \n${content}
-  '/cc @github/docs-engineering'`
+
+${renderedContent}`
   await createIssue(
     repo,
-    title.replace('{{ release-number }}', oldestSupported),
+    title.replaceAll('{{ release-number }}', oldestSupported),
     body,
     labels,
     oldestSupported,

@@ -7,8 +7,9 @@
  * https://github.com/github/token-scanning-service/blob/main/docs/public-docs
  * directory to src/secret-scanning/data/pattern-docs
  */
-import { writeFile } from 'fs/promises'
-import yaml from 'js-yaml'
+import { writeFile, mkdir } from 'fs/promises'
+import { load, dump } from 'js-yaml'
+import path from 'path'
 
 import { getDirectoryContents } from '@/workflows/git-utils'
 import schema from '@/secret-scanning/data/public-docs-schema'
@@ -35,7 +36,7 @@ async function main() {
     // ensure yaml can be parsed
     let yamlData
     try {
-      yamlData = yaml.load(file.content)
+      yamlData = load(file.content)
     } catch (error) {
       console.error('The public-docs.yml file being synced is not valid yaml')
       throw error
@@ -52,7 +53,8 @@ async function main() {
     const filePath = file.path.replace(`${directory}/`, '')
     const localFilePath = `${SECRET_SCANNING_DIR}/${filePath}`
 
-    await writeFile(localFilePath, yaml.dump(yamlData))
+    await mkdir(path.dirname(localFilePath), { recursive: true })
+    await writeFile(localFilePath, dump(yamlData))
   }
 }
 

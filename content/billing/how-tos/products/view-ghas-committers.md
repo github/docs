@@ -8,12 +8,10 @@ versions:
 redirect_from:
   - /billing/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: View GHAS committers
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## About the "Advanced Security Committers" dashboard
@@ -24,7 +22,7 @@ If you currently use {% data variables.product.prodname_cs_or_sp %}, this tool h
 
 If you're considering using {% data variables.product.prodname_cs_or_sp %}, you can use this tool to estimate potential costs to enable {% data variables.product.prodname_cs_or_sp %}.
 
-For more information about billing for {% data variables.product.prodname_AS %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+For more information about billing for {% data variables.product.prodname_AS %}, see [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security).
 
 ## Viewing committer information
 

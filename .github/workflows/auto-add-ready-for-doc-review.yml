@@ -25,18 +25,20 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Check team membership
         id: membership_check
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             try {
-              await github.rest.teams.getMembershipForUserInOrg({
-                org: 'github',
-                team_slug: 'docs',
+              // Team is addressed by numeric ID (org github = 9919, team docs = 325922)
+              // because IDs survive team renames and slugs do not.
+              await github.request('GET /organizations/{org_id}/team/{team_id}/memberships/{username}', {
+                org_id: 9919,
+                team_id: 325922,
                 username: context.payload.sender.login,
               });
               return true

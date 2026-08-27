@@ -7,10 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Scheduled reminders
+category:
+  - Organize teams
 ---
 
 ## About scheduled reminders for teams
@@ -71,4 +70,4 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 
 * [Getting started](https://github.com/integrations/slack?tab=readme-ov-file#getting-started) in the Slack integrations documentation
 * [AUTOTITLE](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/managing-your-scheduled-reminders)
+* [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-your-scheduled-reminders)

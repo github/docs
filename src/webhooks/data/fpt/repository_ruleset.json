@@ -1,0 +1,191 @@
+{
+  "created": {
+    "descriptionHtml": "<p>A repository ruleset was created.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repository rulesets.\nFor more information about repository rulesets, see \"<a href=\"https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets\">Managing rulesets</a>.\"\nFor more information on managing rulesets via the APIs, see <a href=\"https://docs.github.com/graphql/reference/objects#repositoryruleset\">Repository ruleset</a> in the GraphQL documentation or \"<a href=\"https://docs.github.com/rest/repos/rules\">Repository rules</a>\" and \"<a href=\"https://docs.github.com/rest/orgs/rules\">Organization rules</a> in the REST API documentation.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository or organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "created"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository_ruleset",
+        "description": "<p>A set of rules to apply when specified conditions are met.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "created",
+    "category": "repository_ruleset"
+  },
+  "deleted": {
+    "descriptionHtml": "<p>A repository ruleset was deleted.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repository rulesets.\nFor more information about repository rulesets, see \"<a href=\"https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets\">Managing rulesets</a>.\"\nFor more information on managing rulesets via the APIs, see <a href=\"https://docs.github.com/graphql/reference/objects#repositoryruleset\">Repository ruleset</a> in the GraphQL documentation or \"<a href=\"https://docs.github.com/rest/repos/rules\">Repository rules</a>\" and \"<a href=\"https://docs.github.com/rest/orgs/rules\">Organization rules</a> in the REST API documentation.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository or organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "deleted"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository_ruleset",
+        "description": "<p>A set of rules to apply when specified conditions are met.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "deleted",
+    "category": "repository_ruleset"
+  },
+  "edited": {
+    "descriptionHtml": "<p>A repository ruleset was edited.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repository rulesets.\nFor more information about repository rulesets, see \"<a href=\"https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets\">Managing rulesets</a>.\"\nFor more information on managing rulesets via the APIs, see <a href=\"https://docs.github.com/graphql/reference/objects#repositoryruleset\">Repository ruleset</a> in the GraphQL documentation or \"<a href=\"https://docs.github.com/rest/repos/rules\">Repository rules</a>\" and \"<a href=\"https://docs.github.com/rest/orgs/rules\">Organization rules</a> in the REST API documentation.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository or organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "edited"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository_ruleset",
+        "description": "<p>A set of rules to apply when specified conditions are met.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "edited",
+    "category": "repository_ruleset"
+  }
+}

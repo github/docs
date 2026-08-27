@@ -1,32 +1,29 @@
 ---
 title: Creating an enterprise account
-intro: "Learn the steps and effects of creating an enterprise account."
+intro: Learn the steps and effects of creating an enterprise account.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 permissions: Organization owners
 product: '{% data variables.product.prodname_ghe_cloud %}'
 shortTitle: Create enterprise account
 redirect_from:
   - /admin/overview/creating-an-enterprise-account
+contentType: how-tos
+category:
+  - Get started with GitHub Enterprise
 ---
 
-<!-- expires 2026-01-30 -->
+<!-- expires 2027-01-30 -->
 
-<!-- When this expires, check with the stakeholder for release #4079 on whether or not the content is still needed -->
-<!-- If the content is no longer needed, delete this entire article and all links to it. -->
+<!-- When this expires, check with the stakeholder for release #4079 on whether or not the content is still needed. See https://github.com/github/releases/issues/4079#issuecomment-3954280272 for context. If the content is no longer needed, delete this entire article and all links to it. -->
 
 {% data reusables.enterprise.single-organizations-enterprise-migration %}
 
-<!-- end expires 2026-01-30 -->
+<!-- end expires 2027-01-30 -->
 
 ## When should I create an enterprise account?
 
-{% data variables.product.prodname_ghe_cloud %} allows you to create an enterprise account, which enables collaboration between **multiple organizations** and gives administrators a single point of visibility and management. See [AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts).
+{% data variables.product.prodname_ghe_cloud %} allows you to create an enterprise account, which enables collaboration between **multiple organizations** and gives administrators a single point of visibility and management. See [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts).
 
 In most cases, you can create an enterprise account **yourself**.
 
@@ -38,15 +35,17 @@ You'll **need help** creating an enterprise account if you require:
 * {% data variables.product.prodname_ghe_server %}
 * {% data variables.enterprise.data_residency %}
 * Invoicing
-* A dedicated enterprise for managing {% data variables.copilot.copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}
 
 In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
+
+> [!NOTE]
+> {% data variables.product.company_short %} no longer provisions separate "dedicated" enterprise accounts for managing {% data variables.copilot.copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}. In any enterprise account, you can assign {% data variables.copilot.copilot_for_business %} licenses directly to members who don't belong to an organization, and those members don't consume a {% data variables.product.prodname_enterprise %} license. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-a-dedicated-enterprise-for-copilot-business).
 
 ## What will happen after I upgrade my organization?
 
 The following changes also apply to single organizations that are automatically upgraded to an enterprise account. For details, see [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-06-19-upcoming-automatic-upgrade-to-the-enterprise-account-experience/).
 
-* **Ownership transfer:** Your organization will automatically be owned by the enterprise account. For details, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account).
+* **Ownership transfer:** Your organization will automatically be owned by the enterprise account. For details, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise).
 * **Ownership roles:** All organization owners will become enterprise owners.
 * **Billing details:** The organization’s billing details will now apply to the enterprise account.
 * **Billing managers:** All organization billing managers will become enterprise billing managers.
@@ -71,8 +70,8 @@ The following changes also apply to single organizations that are automatically 
 
 ## Next steps
 
-Follow the [Get started with your enterprise account](/admin/guides#get-started-with-your-enterprise-account) learning path.
+Set up your new enterprise with our [AUTOTITLE](/enterprise-cloud@latest/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
 
 ## Further reading
 
-* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles)

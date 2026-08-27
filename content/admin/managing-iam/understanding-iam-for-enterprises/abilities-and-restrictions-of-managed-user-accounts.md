@@ -1,20 +1,18 @@
 ---
 title: Abilities and restrictions of managed user accounts
 shortTitle: Restrictions for managed users
-intro: 'Learn what users can and cannot do if you manage accounts from an identity provider (IdP).'
+intro: Learn what users can and cannot do if you manage accounts from an identity provider (IdP).
 versions:
   ghec: '*'
-type: reference
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/abilities-and-restrictions-of-managed-user-accounts
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts
+contentType: reference
+category:
+  - Configure authentication
 ---
 
-With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
+With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). See [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).
 
 {% data variables.enterprise.prodname_managed_users_caps %} can contribute only to private and internal repositories within their enterprise and their own private repositories. On {% data variables.product.prodname_dotcom_the_website %}, they have read-only access to the wider {% data variables.product.prodname_dotcom %} community. These visibility and access restrictions apply to all requests, including API requests.
 
@@ -40,16 +38,15 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 ## {% data variables.product.prodname_github_codespaces %}
 
-* On {% data variables.product.prodname_dotcom_the_website %}, {% data variables.enterprise.prodname_managed_users %} can only create codespaces that are owned by the enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:
+* {% data variables.enterprise.prodname_managed_users %} can only create codespaces that are owned by the enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:
   * Can create codespaces for repositories owned by their organization, or forks of these repositories, provided that the organization can pay for {% data variables.product.prodname_github_codespaces %}. See [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization).
   * Cannot create codespaces for their personal repositories, any repositories outside their organizations, or {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}.
   * Cannot publish a codespace created from a template to a new repository.
-* On {% data variables.enterprise.data_residency_site %}, {% data variables.product.prodname_github_codespaces %} is not available to any users.
 
 ## {% data variables.product.prodname_copilot %}
 
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_free %}. To allow a managed user to use {% data variables.product.prodname_copilot_short %}, you must grant the user access to a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} subscription. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
-* {% data reusables.copilot.coding-agent-emu-limitation %}
+* {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_free %}. To allow a managed user to use {% data variables.product.prodname_copilot_short %}, you must grant the user access to a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} subscription. See [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
+* {% data reusables.copilot.cloud-agent-emu-limitation %}
 
 ## {% data variables.product.prodname_pages %}
 
@@ -67,7 +64,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 ## Repository management
 
-* You can choose whether {% data variables.enterprise.prodname_managed_users %} are able to create repositories owned by their user accounts. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation).
+* You can choose whether {% data variables.enterprise.prodname_managed_users %} are able to create repositories owned by their user accounts. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation).
 * If you allow {% data variables.enterprise.prodname_managed_users %} to create repositories owned by their user accounts, they can only own private repositories and can only invite other enterprise members to collaborate on their user-owned repositories.
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Only private and internal repositories can be created in organizations owned by an {% data variables.enterprise.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings.

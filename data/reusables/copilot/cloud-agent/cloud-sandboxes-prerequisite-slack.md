@@ -1,0 +1,4 @@
+* To use {% data variables.copilot.copilot_cloud_agent %}, you must have cloud sandboxes enabled for your {% data variables.product.prodname_copilot_short %} plan. See [Cloud sandboxing for {% data variables.product.prodname_copilot %}](/copilot/concepts/about-cloud-and-local-sandboxes#cloud-sandboxing).
+
+   > [!NOTE]
+   > Cloud sandbox policies share the same configuration as {% data variables.copilot.copilot_cloud_agent %} policies. Members of an organization or enterprise, including an {% data variables.enterprise.prodname_emu_enterprise %} may need their owner to enable cloud sandboxes and {% data variables.copilot.copilot_cloud_agent %} before they can use {% data variables.product.prodname_copilot_short %} in Slack. See [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/enabling-or-disabling-cloud-sandboxes-for-your-organization).

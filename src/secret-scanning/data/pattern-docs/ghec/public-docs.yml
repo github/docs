@@ -5,6 +5,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Adafruit
@@ -14,6 +15,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Adobe
@@ -23,6 +25,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Adobe
@@ -32,6 +35,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Adobe
@@ -41,6 +45,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Adobe
@@ -50,6 +55,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Adobe
@@ -59,6 +65,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Adobe
@@ -68,6 +75,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Aikido
@@ -77,6 +85,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Aikido
@@ -86,6 +95,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Airtable
@@ -93,8 +103,9 @@
   secretType: airtable_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Airtable
@@ -103,7 +114,8 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Aiven
@@ -113,6 +125,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Aiven
@@ -122,6 +135,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Alibaba
@@ -130,7 +144,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Amazon AWS
@@ -140,6 +155,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Amazon AWS
@@ -147,8 +163,9 @@
   secretType: aws_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Amazon AWS
@@ -160,6 +177,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Anthropic
@@ -169,6 +187,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Anthropic
@@ -178,6 +197,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: true
   isduplicate: true
 - provider: Anthropic
@@ -187,6 +207,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: APIclub
+  supportedSecret: APIclub API Key
+  secretType: apiclub_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Apify
@@ -196,6 +227,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Apify
@@ -205,6 +237,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Apify
@@ -214,6 +247,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Apify
@@ -223,6 +257,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Apify
@@ -232,6 +267,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Apify
@@ -241,6 +277,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Apify
@@ -250,6 +287,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Asaas
@@ -257,8 +295,9 @@
   secretType: asaas_api_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Asana
@@ -267,7 +306,8 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Asana
@@ -276,7 +316,8 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Atlassian
@@ -286,6 +327,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Atlassian
@@ -295,6 +337,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Authress
@@ -304,6 +347,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -313,24 +357,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
-- provider: Azure
-  supportedSecret: Azure Active Directory User Credential
-  secretType: azure_active_directory_user_credential
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
 - provider: Azure
   supportedSecret: Azure AI Services Key
   secretType: azure_ai_services_key
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -339,7 +376,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -348,7 +386,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -358,6 +397,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -367,6 +407,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -376,6 +417,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -385,6 +427,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -394,6 +437,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -403,6 +447,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -412,15 +457,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
-  isduplicate: false
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Cache for Redis Access Key
   secretType: azure_cache_for_redis_access_key
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Azure
@@ -429,7 +476,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -439,6 +487,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -448,6 +497,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -457,6 +507,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -466,6 +517,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -474,7 +526,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -484,6 +537,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -492,7 +546,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Azure
@@ -501,7 +556,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -510,7 +566,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -520,6 +577,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Azure
@@ -529,6 +587,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Azure
@@ -537,7 +596,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -547,6 +607,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -556,6 +617,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -565,6 +627,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -573,7 +636,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Azure
@@ -583,6 +647,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -592,6 +657,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -601,6 +667,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -610,6 +677,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -619,6 +687,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -628,6 +697,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -637,6 +707,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -646,6 +717,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -655,6 +727,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -664,6 +737,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -673,6 +747,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -682,6 +757,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Azure
@@ -691,6 +767,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -700,6 +777,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -709,6 +787,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -718,6 +797,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -727,6 +807,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -736,6 +817,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -745,6 +827,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -754,6 +837,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -763,6 +847,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -772,6 +857,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Azure
@@ -781,6 +867,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -790,6 +877,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -799,6 +887,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -808,6 +897,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -816,7 +906,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -826,6 +917,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -835,6 +927,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -844,6 +937,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -852,7 +946,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -862,6 +957,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -871,6 +967,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Azure
@@ -880,6 +977,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -889,15 +987,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
-- provider: Azure
-  supportedSecret: Azure SQL Connection String
-  secretType: azure_sql_connection_string
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -907,6 +997,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -916,6 +1007,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -924,7 +1016,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Azure
@@ -934,6 +1027,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -942,7 +1036,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -952,6 +1047,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -961,6 +1057,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -970,6 +1067,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -979,6 +1077,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Azure
@@ -988,15 +1087,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
-- provider: Azure
-  supportedSecret: Microsoft Corporate Network User Credential
-  secretType: microsoft_corporate_network_user_credential
+- provider: Baidu
+  supportedSecret: Baidu AI API Key
+  secretType: baiduai_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Baidu
@@ -1006,6 +1107,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Beamer
@@ -1015,6 +1117,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Bitbucket
@@ -1024,6 +1127,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Bitrise
@@ -1033,6 +1137,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Bitrise
@@ -1042,6 +1147,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Block Protocol
@@ -1049,8 +1155,9 @@
   secretType: block_protocol_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Brevo
@@ -1060,6 +1167,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: true
   isduplicate: true
 - provider: Brevo
@@ -1069,6 +1177,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Buildkite
@@ -1078,6 +1187,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Buildkite
@@ -1087,6 +1197,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Buildkite
@@ -1096,6 +1207,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Buildkite
@@ -1105,6 +1217,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Buildkite
@@ -1114,6 +1227,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Buildkite
@@ -1123,6 +1237,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Buildkite
@@ -1132,6 +1247,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Buildkite
@@ -1141,6 +1257,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Buildkite
@@ -1150,6 +1267,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Buildkite
@@ -1159,6 +1277,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Canadian Digital Service
@@ -1168,6 +1287,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Canva
@@ -1177,6 +1297,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Canva
@@ -1186,6 +1307,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Canva
@@ -1195,6 +1317,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Cashfree
@@ -1204,6 +1327,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Cfx.re
@@ -1211,8 +1335,9 @@
   secretType: cfxre_server_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Checkout.com
@@ -1222,6 +1347,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Checkout.com
@@ -1231,6 +1357,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Chief Tools
@@ -1240,6 +1367,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: CircleCI
@@ -1249,6 +1377,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: CircleCI
@@ -1258,6 +1387,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: CircleCI
@@ -1267,6 +1397,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: CircleCI
@@ -1276,6 +1407,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Clojars
@@ -1285,15 +1417,47 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
-- provider: CloudBees
-  supportedSecret: CloudBees CodeShip Credential
-  secretType: codeship_credential
+- provider: Cloudflare
+  supportedSecret: Cloudflare Account API Token
+  secretType: cloudflare_account_api_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Cloudflare
+  supportedSecret: Cloudflare Global User API Key
+  secretType: cloudflare_global_user_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Cloudflare
+  supportedSecret: Cloudflare User API Token
+  secretType: cloudflare_user_api_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Cloudsmith
+  supportedSecret: Cloudsmith API Key
+  secretType: cloudsmith_api_key
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Cockroach Labs
@@ -1301,8 +1465,9 @@
   secretType: ccdb_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Cohere
@@ -1310,8 +1475,9 @@
   secretType: cohere_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
+  hasPushProtection: true
+  hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Contentful
@@ -1321,6 +1487,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Contentful
@@ -1330,6 +1497,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Contributed Systems
@@ -1339,6 +1507,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Coveo
@@ -1347,7 +1516,8 @@
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Coveo
@@ -1356,7 +1526,8 @@
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: crates.io
@@ -1366,6 +1537,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Databento
@@ -1375,6 +1547,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1383,7 +1556,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Databricks
@@ -1393,6 +1567,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1400,8 +1575,9 @@
   secretType: databricks_federated_account_session_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1409,8 +1585,9 @@
   secretType: databricks_oauth_code
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1418,8 +1595,9 @@
   secretType: databricks_oauth_refresh_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1429,6 +1607,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1436,8 +1615,9 @@
   secretType: databricks_oauth_single_use_refresh_token_child
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1445,8 +1625,9 @@
   secretType: databricks_oauth_single_use_refresh_token_parent
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1454,8 +1635,9 @@
   secretType: databricks_scoped_api_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1463,8 +1645,9 @@
   secretType: databricks_scoped_internal_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1472,8 +1655,9 @@
   secretType: databricks_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1481,8 +1665,9 @@
   secretType: databricks_workspace_session_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Datadog
@@ -1492,6 +1677,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Datadog
@@ -1501,6 +1687,17 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: true
+- provider: Datadog
+  supportedSecret: Datadog Personal Access Token
+  secretType: datadog_pat
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Datadog
@@ -1508,8 +1705,19 @@
   secretType: datadog_rcm
   isPublic: false
   isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Datadog
+  supportedSecret: Datadog Service Account Token
+  secretType: datadog_sat
+  isPublic: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Datastax
@@ -1519,6 +1727,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: DeepSeek
@@ -1526,8 +1735,9 @@
   secretType: deepseek_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
+  hasPushProtection: true
+  hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Defined Networking
@@ -1537,6 +1747,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: DevCycle
@@ -1546,6 +1757,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: DevCycle
@@ -1555,6 +1767,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: DevCycle
@@ -1564,6 +1777,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
@@ -1573,6 +1787,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
@@ -1582,6 +1797,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
@@ -1591,6 +1807,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
@@ -1600,6 +1817,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Discord
@@ -1609,6 +1827,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Docker
@@ -1618,6 +1837,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Docker
@@ -1627,6 +1847,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Docker
@@ -1636,6 +1857,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Docker
@@ -1645,6 +1867,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1654,6 +1877,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1663,6 +1887,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1672,6 +1897,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1681,6 +1907,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1690,6 +1917,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -1699,6 +1927,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Dropbox
@@ -1708,6 +1937,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Dropbox
@@ -1717,6 +1947,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Duffel
@@ -1726,6 +1957,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Duffel
@@ -1735,6 +1967,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Dynatrace
@@ -1744,6 +1977,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Dynatrace
@@ -1753,6 +1987,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: EasyPost
@@ -1762,6 +1997,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: EasyPost
@@ -1769,8 +2005,9 @@
   secretType: easypost_test_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: eBay
@@ -1780,6 +2017,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: eBay
@@ -1789,6 +2027,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Elastic
@@ -1798,8 +2037,19 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: Elastic
+  supportedSecret: Elastic Stack API Key
+  secretType: elastic_stack_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: true
+  isduplicate: true
 - provider: Facebook
   supportedSecret: Facebook Access Token
   secretType: facebook_access_token
@@ -1807,6 +2057,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Fastly
@@ -1814,10 +2065,21 @@
   secretType: fastly_api_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
+- provider: Fieldguide
+  supportedSecret: Fieldguide API Token
+  secretType: fieldguide_api_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Figma
   supportedSecret: Figma Personal Access Token
   secretType: figma_pat
@@ -1825,6 +2087,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Figma
+  supportedSecret: Figma SCIM API Token
+  secretType: figma_scim_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Finicity
@@ -1832,8 +2105,9 @@
   secretType: finicity_app_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Firebase
@@ -1843,6 +2117,17 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Flickr
+  supportedSecret: Flickr API Key
+  secretType: flickr_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Flutterwave
@@ -1852,6 +2137,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Flutterwave
@@ -1859,8 +2145,9 @@
   secretType: flutterwave_test_api_secret_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Frame.io
@@ -1870,6 +2157,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Frame.io
@@ -1879,6 +2167,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: FullStory
@@ -1888,6 +2177,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: GitHub
@@ -1897,6 +2187,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: true
   base64Supported: true
   isduplicate: true
 - provider: GitHub
@@ -1906,6 +2197,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: true
   base64Supported: true
   isduplicate: true
 - provider: GitHub
@@ -1915,6 +2207,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: true
   base64Supported: true
   isduplicate: true
 - provider: GitHub
@@ -1924,6 +2217,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: true
   base64Supported: true
   isduplicate: true
 - provider: GitHub
@@ -1933,6 +2227,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: true
   base64Supported: false
   isduplicate: false
 - provider: GitHub
@@ -1942,6 +2237,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: GitLab
@@ -1951,8 +2247,119 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: true
   isduplicate: true
+- provider: GitLab
+  supportedSecret: GitLab CI/CD Job Token
+  secretType: gitlab_ci_build_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Deploy Token
+  secretType: gitlab_deploy_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Feature Flag Client Token
+  secretType: gitlab_feature_flag_client_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Feed Token
+  secretType: gitlab_feed_token_v2
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Incoming Mail Token
+  secretType: gitlab_incoming_email_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Agent for Kubernetes Token
+  secretType: gitlab_kubernetes_agent_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab OAuth Application Secret
+  secretType: gitlab_oauth_app_secret
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Pipeline Trigger Token
+  secretType: gitlab_pipeline_trigger_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Runner Authentication Token
+  secretType: gitlab_runner_auth_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Runner Registration Token
+  secretType: gitlab_runner_registration_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab SCIM Token
+  secretType: gitlab_scim_oauth_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: GoCardless
   supportedSecret: GoCardless Live Access Token
   secretType: gocardless_live_access_token
@@ -1960,6 +2367,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: GoCardless
@@ -1969,6 +2377,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -1978,6 +2387,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -1987,6 +2397,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -1998,6 +2409,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -2009,6 +2421,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -2016,8 +2429,9 @@
   secretType: google_gcp_api_key_bound_service_account
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -2027,6 +2441,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -2036,6 +2451,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -2045,6 +2461,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Google
@@ -2054,6 +2471,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Grafana
@@ -2063,6 +2481,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Grafana
@@ -2072,6 +2491,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Grafana
@@ -2081,6 +2501,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Grafana
@@ -2090,6 +2511,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Groq
@@ -2099,6 +2521,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: GuardSquare
@@ -2108,6 +2531,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: GuardSquare
@@ -2117,6 +2541,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: GuardSquare
@@ -2126,6 +2551,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Hack Club
+  supportedSecret: Hack Club AI Key
+  secretType: hackclub_ai_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: HashiCorp
@@ -2135,6 +2571,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: HashiCorp
@@ -2144,6 +2581,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: HashiCorp
@@ -2153,6 +2591,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: HashiCorp
@@ -2162,6 +2601,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: hCaptcha
@@ -2171,6 +2611,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Heroku
@@ -2180,6 +2621,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Heroku
@@ -2187,8 +2629,9 @@
   secretType: heroku_postgres_connection_url
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Highnote
@@ -2198,6 +2641,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Highnote
@@ -2207,6 +2651,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Highnote
@@ -2216,6 +2661,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Highnote
@@ -2225,6 +2671,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: HOP
@@ -2234,6 +2681,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: HOP
@@ -2243,6 +2691,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: HOP
@@ -2252,6 +2701,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Hubspot
@@ -2261,6 +2711,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Hubspot
@@ -2270,6 +2721,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Hubspot
@@ -2277,8 +2729,9 @@
   secretType: hubspot_private_apps_user_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Hubspot
@@ -2288,6 +2741,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Hugging Face
@@ -2297,6 +2751,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Hugging Face
@@ -2306,6 +2761,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: true
   isduplicate: true
 - provider: IBM
@@ -2314,7 +2770,8 @@
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Intercom
@@ -2324,6 +2781,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Ionic
@@ -2333,6 +2791,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Ionic
@@ -2342,6 +2801,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Iterative
@@ -2351,6 +2811,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: JFrog
@@ -2360,6 +2821,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: JFrog
@@ -2369,6 +2831,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: JFrog
@@ -2378,72 +2841,97 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Langchain
-  supportedSecret: Langchain API Personal Key
+  supportedSecret: LangSmith Personal Access Token
   secretType: langchain_api_personal_key
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Langchain
-  supportedSecret: Langchain API Server Key
+  supportedSecret: LangSmith Service Key
   secretType: langchain_api_server_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: LangSmith License Key
+  secretType: langsmith_license_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: LangSmith SCIM Bearer Token
+  secretType: langsmith_scim_bearer_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Lark
-  supportedSecret: Lark APaaS Client ID
-  secretType: lark_apaas_client_id, </br>lark_apaas_client_secret
-  versions:
-    fpt: '*'
-    ghec: '*'
+  supportedSecret: Lark APaaS Client Secret
+  secretType: lark_apaas_client_secret
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Lark
+  supportedSecret: Lark Application Secret
+  secretType: lark_app_secret
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Lark
+  supportedSecret: Lark MCP Grant Token
+  secretType: lark_mcp_grant_token
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Lark
-  supportedSecret: Lark Application ID
-  secretType: lark_app_id, </br>lark_app_secret
-  versions:
-    fpt: '*'
-    ghec: '*'
+  supportedSecret: Lark Meego Plugin Secret
+  secretType: lark_meego_plugin_secret
   isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
-- provider: Lark
-  supportedSecret: Lark Meego Plugin ID
-  secretType: lark_meego_plugin_id, </br>lark_meego_plugin_secret
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
-  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Lark
   supportedSecret: Lark User Session
   secretType: lark_user_session
-  versions:
-    fpt: '*'
-    ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: LaunchDarkly
@@ -2451,8 +2939,9 @@
   secretType: launchdarkly_access_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Lichess
@@ -2462,6 +2951,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Lichess
@@ -2471,6 +2961,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Lightspeed
@@ -2480,6 +2971,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Limbar
+  supportedSecret: Limbar Token
+  secretType: limbar_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Linear
@@ -2489,6 +2991,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Linear
@@ -2498,6 +3001,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: LinkedIn
@@ -2507,6 +3011,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Lob
@@ -2514,8 +3019,9 @@
   secretType: lob_live_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Lob
@@ -2525,6 +3031,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Localstack
@@ -2534,6 +3041,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: LogicMonitor
@@ -2543,6 +3051,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: LogicMonitor
@@ -2552,6 +3061,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Login with Amazon
@@ -2561,6 +3071,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Lovable Labs
+  supportedSecret: Lovable API Key
+  secretType: lovable_api_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mailchimp
@@ -2570,6 +3091,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Mailchimp
@@ -2579,6 +3101,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mailersend
@@ -2588,6 +3111,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mailersend
@@ -2597,6 +3121,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mailersend
@@ -2606,6 +3131,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mailgun
@@ -2615,6 +3141,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Mailgun
@@ -2624,15 +3151,17 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mapbox
   supportedSecret: Mapbox Secret Access Token
   secretType: mapbox_secret_access_token
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: MaxMind
@@ -2642,6 +3171,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Meraki
+  supportedSecret: Meraki Dashboard API Key
+  secretType: meraki_api_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mercury
@@ -2651,6 +3191,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mercury
@@ -2660,6 +3201,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mergify
@@ -2669,6 +3211,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: MessageBird
@@ -2677,7 +3220,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Microsoft
@@ -2687,6 +3231,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Midtrans
@@ -2696,6 +3241,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Midtrans
@@ -2705,6 +3251,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Mistral AI
@@ -2712,8 +3259,9 @@
   secretType: mistral_ai_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
+  hasPushProtection: true
+  hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: MongoDB
@@ -2723,6 +3271,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: MongoDB
@@ -2732,6 +3281,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
@@ -2741,6 +3291,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
@@ -2750,6 +3301,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
@@ -2759,6 +3311,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
@@ -2768,6 +3321,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
@@ -2777,6 +3331,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
@@ -2786,6 +3341,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
@@ -2795,6 +3351,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
@@ -2804,6 +3361,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Neon
@@ -2813,6 +3371,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Neon
@@ -2822,6 +3381,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Netflix
@@ -2829,8 +3389,9 @@
   secretType: netflix_netkey
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: New Relic
@@ -2840,6 +3401,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: New Relic
@@ -2849,6 +3411,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: New Relic
@@ -2858,6 +3421,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: New Relic
@@ -2867,6 +3431,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Notion
@@ -2876,6 +3441,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Notion
@@ -2885,6 +3451,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Notion
@@ -2894,6 +3461,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: npm
@@ -2902,7 +3470,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: NuGet
@@ -2912,6 +3481,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Octopus Deploy
@@ -2919,8 +3489,9 @@
   secretType: octopus_deploy_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Oculus
@@ -2930,6 +3501,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: OneChronos
@@ -2939,6 +3511,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: OneChronos
@@ -2948,6 +3521,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: OneChronos
@@ -2957,6 +3531,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: OneChronos
@@ -2966,6 +3541,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: OneChronos
@@ -2975,6 +3551,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: OneSignal
@@ -2982,8 +3559,9 @@
   secretType: onesignal_rich_authentication_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Onfido
@@ -2993,6 +3571,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Onfido
@@ -3000,8 +3579,9 @@
   secretType: onfido_sandbox_api_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: OpenAI
@@ -3011,6 +3591,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: OpenRouter
@@ -3018,8 +3599,9 @@
   secretType: openrouter_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: OpenVSX
@@ -3027,8 +3609,9 @@
   secretType: openvsx_access_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Openweather
@@ -3036,8 +3619,9 @@
   secretType: openweather_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Oracle
@@ -3047,6 +3631,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Orbit
@@ -3056,6 +3641,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Paddle
@@ -3063,8 +3649,19 @@
   secretType: paddle_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Paddle
+  supportedSecret: Paddle Sandbox API Key
+  secretType: paddle_sandbox_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: PagerDuty
@@ -3074,6 +3671,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: PagerDuty
@@ -3083,6 +3681,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Palantir
@@ -3092,6 +3691,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Pangea
@@ -3101,6 +3701,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Perplexity
@@ -3110,6 +3711,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Persona  Identities
@@ -3119,6 +3721,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Persona  Identities
@@ -3128,6 +3731,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Pineapple Technologies Limited
@@ -3135,17 +3739,19 @@
   secretType: pineapple_technologies_incident_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Pinecone
   supportedSecret: Pinecone API Key
-  secretType: pinecone_api_key, </br>pinecone_environment
+  secretType: pinecone_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
+  hasPushProtection: true
+  hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Pinterest
@@ -3155,6 +3761,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Pinterest
@@ -3164,6 +3771,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: PlanetScale
@@ -3173,6 +3781,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: PlanetScale
@@ -3182,6 +3791,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: PlanetScale
@@ -3191,6 +3801,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Planning Center
@@ -3200,6 +3811,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Planning Center
@@ -3209,6 +3821,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Planning Center
@@ -3218,6 +3831,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Plivo
@@ -3227,6 +3841,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Polar
@@ -3236,6 +3851,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Polar
@@ -3245,6 +3861,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Polar
@@ -3254,6 +3871,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Polar
@@ -3263,6 +3881,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Polar
@@ -3272,6 +3891,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Polar
@@ -3281,6 +3901,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Polar
@@ -3290,6 +3911,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Polar
@@ -3299,6 +3921,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: PostHog
@@ -3306,8 +3929,29 @@
   secretType: posthog_feature_flags_secure_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: PostHog
+  supportedSecret: PostHog OAuth Access Token
+  secretType: posthog_oauth_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: PostHog
+  supportedSecret: PostHog OAuth Refresh Token
+  secretType: posthog_oauth_refresh_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: PostHog
@@ -3315,8 +3959,9 @@
   secretType: posthog_personal_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Postman
@@ -3326,6 +3971,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Postman
@@ -3335,6 +3981,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Prefect
@@ -3344,6 +3991,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Prefect
@@ -3353,6 +4001,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Proctorio
@@ -3360,8 +4009,9 @@
   secretType: proctorio_consumer_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Proctorio
@@ -3369,8 +4019,9 @@
   secretType: proctorio_linkage_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Proctorio
@@ -3380,6 +4031,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Proctorio
@@ -3389,8 +4041,19 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
+- provider: Proof
+  supportedSecret: Proof Full Access API Key
+  secretType: proof_full_access_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Pulumi
   supportedSecret: Pulumi Access Token
   secretType: pulumi_access_token
@@ -3398,6 +4061,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: PyPI
@@ -3407,6 +4071,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Rainforest Pay
@@ -3414,8 +4079,9 @@
   secretType: rainforest_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Rainforest Pay
@@ -3423,8 +4089,9 @@
   secretType: rainforest_sandbox_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Ramp
@@ -3434,6 +4101,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Ramp
@@ -3443,6 +4111,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Ramp
@@ -3450,8 +4119,9 @@
   secretType: ramp_oauth_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Raycast
@@ -3459,8 +4129,9 @@
   secretType: raycast_access_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: ReadMe
@@ -3470,6 +4141,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: redirect.pizza
@@ -3479,6 +4151,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Replicate
@@ -3488,6 +4161,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Resend
+  supportedSecret: Resend API Key
+  secretType: resend_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Rootly
@@ -3497,6 +4181,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: RubyGems
@@ -3506,6 +4191,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: RunPod
@@ -3515,6 +4201,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Salesforce
@@ -3523,7 +4210,18 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Salesforce
+  supportedSecret: Salesforce Marketing Cloud API OAuth2 Token
+  secretType: salesforce_marketing_cloud_api_oauth2_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Salesforce
@@ -3533,6 +4231,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Salesforce
@@ -3542,6 +4241,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Samsara
@@ -3551,6 +4251,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Samsara
@@ -3560,6 +4261,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Scalr
@@ -3569,6 +4271,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Segment
@@ -3578,6 +4281,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: SendGrid
@@ -3587,6 +4291,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Sentry
@@ -3596,24 +4301,27 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Sentry
   supportedSecret: Sentry Organization Token
   secretType: sentry_organization_token
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Sentry
   supportedSecret: Sentry Personal Token
   secretType: sentry_personal_token
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Sentry
@@ -3623,6 +4331,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shippo
@@ -3632,6 +4341,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shippo
@@ -3641,6 +4351,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shopee
@@ -3650,6 +4361,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shopify
@@ -3658,7 +4370,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shopify
@@ -3668,6 +4381,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shopify
@@ -3675,8 +4389,9 @@
   secretType: shopify_app_client_secret
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shopify
@@ -3686,6 +4401,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shopify
@@ -3694,7 +4410,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shopify
@@ -3702,8 +4419,9 @@
   secretType: shopify_marketplace_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shopify
@@ -3712,7 +4430,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shopify
@@ -3722,6 +4441,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Shopify
@@ -3730,7 +4450,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Siemens
@@ -3740,6 +4461,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Siemens
@@ -3749,6 +4471,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Sindri
@@ -3756,8 +4479,9 @@
   secretType: sindri_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: Slack
@@ -3767,6 +4491,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Slack
@@ -3776,6 +4501,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Slack
+  supportedSecret: Slack Workflow Trigger URL
+  secretType: slack_workflow_trigger_url
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Slack
@@ -3785,6 +4521,27 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Snowflake
+  supportedSecret: SFPG Connection String
+  secretType: snowflake_postgres_connection_string
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Snowflake
+  supportedSecret: SFPG Host
+  secretType: snowflake_postgres_host, </br>snowflake_postgres_password
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Snowflake
@@ -3794,6 +4551,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
@@ -3801,8 +4559,9 @@
   secretType: sourcegraph_access_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
@@ -3812,6 +4571,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
@@ -3819,8 +4579,9 @@
   secretType: sourcegraph_instance_identifier_access_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
@@ -3830,6 +4591,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
@@ -3837,8 +4599,9 @@
   secretType: sourcegraph_product_subscription_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Square
@@ -3848,6 +4611,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Square
@@ -3857,6 +4621,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Square
@@ -3866,6 +4631,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: SSLMate
@@ -3875,6 +4641,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: SSLMate
@@ -3884,6 +4651,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Stripe
@@ -3893,6 +4661,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Stripe
@@ -3902,6 +4671,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Stripe
@@ -3911,6 +4681,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Stripe
@@ -3920,6 +4691,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Stripe
@@ -3929,6 +4701,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Stripe
@@ -3938,17 +4711,49 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Supabase
-  supportedSecret: Supabase Service Key
-  secretType: supabase_service_key
+  supportedSecret: Supabase OAuth Access Token
+  secretType: supabase_oauth_access_token
   isPublic: true
-  isPrivateWithGhas: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
-  isduplicate: true
+  isduplicate: false
+- provider: Supabase
+  supportedSecret: Supabase Personal Access Token
+  secretType: supabase_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Supabase
+  supportedSecret: Supabase Personal Access Token (scoped)
+  secretType: supabase_scoped_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Supabase
+  supportedSecret: Supabase Secret Key
+  secretType: supabase_secret_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Tableau
   supportedSecret: Tableau Personal Access Token
   secretType: tableau_personal_access_token
@@ -3956,6 +4761,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Tailscale
@@ -3965,6 +4771,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Telegram
@@ -3974,6 +4781,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Telnyx
@@ -3983,6 +4791,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Temporal
@@ -3992,6 +4801,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Tencent
@@ -4001,6 +4811,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Tencent
@@ -4010,6 +4821,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Tencent
@@ -4019,6 +4831,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Tencent
@@ -4028,6 +4841,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Thunderstore
@@ -4037,6 +4851,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Twilio
@@ -4046,6 +4861,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Twilio
@@ -4055,6 +4871,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
 - provider: Twilio
@@ -4064,6 +4881,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Typeform
@@ -4073,6 +4891,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Uniwise
@@ -4082,6 +4901,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Unkey
@@ -4091,6 +4911,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Val Town
@@ -4100,6 +4921,67 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel API Key
+  secretType: vercel_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel App Refresh Token
+  secretType: vercel_app_refresh_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel App User Access Token
+  secretType: vercel_app_user_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel Integration Access Token
+  secretType: vercel_integration_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel Personal Access Token
+  secretType: vercel_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel Support Access Token
+  secretType: vercel_support_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: VolcEngine
@@ -4109,6 +4991,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: VolcEngine
+  supportedSecret: VolcEngine Ark API Key
+  secretType: volcengine_ark_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Wakatime
@@ -4118,6 +5011,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Wakatime
@@ -4127,6 +5021,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Wakatime
@@ -4136,6 +5031,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Wakatime
@@ -4145,6 +5041,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Weatherstack
+  supportedSecret: Weatherstack API Key
+  secretType: weatherstack_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Weights & Biases
@@ -4152,8 +5059,9 @@
   secretType: wandb_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Workato
@@ -4163,6 +5071,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: WorkOS
@@ -4172,6 +5081,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
 - provider: WorkOS
@@ -4181,8 +5091,19 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
+- provider: WSO2
+  supportedSecret: WSO2 Choreo Personal Access Token
+  secretType: wso2_choreo_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: xAI
   supportedSecret: xAI API Key
   secretType: xai_api_key
@@ -4190,6 +5111,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -4199,6 +5121,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -4208,6 +5131,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -4217,6 +5141,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -4226,6 +5151,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -4235,6 +5161,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -4244,6 +5171,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -4253,6 +5181,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -4262,6 +5191,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -4271,6 +5201,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: ZenHub
@@ -4280,6 +5211,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Zuplo
@@ -4289,5 +5221,6 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false

@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Get set up to contribute
 ---
 
 ## About {% data variables.product.prodname_github_codespaces %}
@@ -16,11 +18,11 @@ For more information, see [AUTOTITLE](/free-pro-team@latest/codespaces/quickstar
 
 ## Working on documentation in a codespace
 
-The following steps assume you have {% data variables.product.prodname_github_codespaces %} set up to edit files using {% data variables.product.prodname_vscode %} for Web. The steps are very similar if you have set a different editor. For more information, see [AUTOTITLE](/free-pro-team@latest/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces).
+The following steps assume you have {% data variables.product.prodname_github_codespaces %} set up to edit files using {% data variables.product.prodname_vscode %} for Web. The steps are very similar if you have set a different editor. For more information, see [AUTOTITLE](/free-pro-team@latest/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces).
 
 1. Navigate to the open source repository for {% data variables.product.prodname_docs %}, [`github/docs`](https://github.com/github/docs).
-1. If you're an open source contributor, create a fork of the repository, then follow the rest of the steps in this procedure from your fork. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
-1. Create a branch to work on. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository).
+1. If you're an open source contributor, create a fork of the repository, then follow the rest of the steps in this procedure from your fork. For more information, see [AUTOTITLE](/pull-requests/how-tos/work-with-forks/fork-a-repo).
+1. Create a branch to work on. For more information, see [AUTOTITLE](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository).
 1. On the main page of the repository, click **{% octicon "code" aria-hidden="true" aria-label="code" %} Code**, then click **Create codespace on BRANCH-NAME**.
 
    The "Setting up your codespace" page is displayed. After a short time the browser-based version of {% data variables.product.prodname_vscode %} is displayed.

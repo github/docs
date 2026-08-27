@@ -4,7 +4,10 @@ intro: You can grant individual students and groups extensions to allow them mor
 versions:
   fpt: '*'
 shortTitle: Extend deadline
+category:
+  - Create and manage assignments
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About extending assignment deadlines
 

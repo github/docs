@@ -6,9 +6,6 @@ product: '{% data variables.copilot.copilot_enterprise_short %} or {% data varia
 versions:
   feature: copilot
 allowTitleToDifferFromFilename: true
-topics:
-  - Copilot
-  - Enterprise
 shortTitle: Download activity report
 redirect_from:
   - /copilot/how-tos/administer/download-activity-report

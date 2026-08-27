@@ -1,18 +1,16 @@
 ---
 title: Using GitHub Codespaces for pull requests
 shortTitle: Pull requests
-intro: 'You can use {% data variables.product.prodname_github_codespaces %} in your web browser, or in {% data variables.product.prodname_vscode %} to create pull requests, review pull requests, and address review comments.'
+intro: You can use {% data variables.product.prodname_github_codespaces %} in your web browser, or in {% data variables.product.prodname_vscode %} to create pull requests, review pull requests, and address review comments.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Visual Studio Code
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
   - /codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests
+contentType: how-tos
+category:
+  - Write code in a codespace
 ---
 
 Using a codespace to work on a pull request gives you all the benefits of {% data variables.product.prodname_github_codespaces %}. For more information, see [AUTOTITLE](/codespaces/about-codespaces/codespaces-features).
@@ -68,7 +66,7 @@ Using a codespace to work on a pull request gives you all the benefits of {% dat
 
    ![Screenshot of the side bar showing the dropdown options "Comment and Submit," "Approve and Submit," and "Request Changes and Submit."](/assets/images/help/codespaces/submit-review.png)
 
-For more information on reviewing a pull request, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request).
+For more information on reviewing a pull request, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/reviewing-proposed-changes-in-a-pull-request).
 
 ## View comments from a review in {% data variables.product.prodname_codespaces %}
 

@@ -1,3 +1,0 @@
-# Ability to create new repository level projects (classic)
-versions:
-  ghes: '<=3.16'

@@ -1,0 +1,7 @@
+# Reference: #22071
+# Dependabot will stop inferring .npmrc [GA]
+# Add `scope` field to npm-registry credentials for explicit .npmrc generation [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.22'

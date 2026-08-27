@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Create a template repo
+category:
+  - Create and set up a repository
 ---
 
 ## About template repositories
