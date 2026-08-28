@@ -6,18 +6,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Profiles
 children:
-  - /about-your-profile
-  - /personal-account-management
-  - /contributions-visible-on-your-profile
-  - /about-your-organizations-profile
-  - /about-organization-membership
+  - /personal-profile
+  - /account-management
   - /username-changes
   - /email-addresses
-  - /scheduled-reminders
-  - /personal-repository-access-and-collaboration
+  - /contributions-on-your-profile
+  - /organization-membership
+  - /organization-profile
+contentType: concepts
 ---
 

@@ -11,7 +11,6 @@ children:
   - /run-scripts
   - /customize-containers
   - /configure-the-application
-  - /use-proxy-servers
   - /apply-labels
   - /use-in-a-workflow
   - /manage-access
@@ -23,6 +22,7 @@ redirect_from:
   - /actions/how-tos/managing-self-hosted-runners
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners
   - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

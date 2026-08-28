@@ -56,7 +56,7 @@ async function testCircularLinkFix(): Promise<boolean> {
     }
 
     console.log('\n--- Generated content preview ---')
-    console.log(result1.content.substring(0, 800) + '...')
+    console.log(`${result1.content.substring(0, 800)}...`)
 
     return !hasCircularLink && hasValidLink
   } catch (error) {

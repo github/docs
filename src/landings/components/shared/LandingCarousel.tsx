@@ -1,14 +1,18 @@
 import { useState, useEffect, useRef } from 'react'
-import { ChevronLeftIcon, ChevronRightIcon } from '@primer/octicons-react'
-import { Token } from '@primer/react'
+import { useRouter } from 'next/router'
+import { ArrowLeftIcon, ArrowRightIcon } from '@primer/octicons-react'
+import { Card } from '@primer/react-brand'
 import cx from 'classnames'
 import type { ResolvedArticle } from '@/types'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { useVersion } from '@/versions/components/useVersion'
 import styles from './LandingCarousel.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type LandingCarouselProps = {
   heading?: string
-  recommended?: ResolvedArticle[]
+  carouselKey?: string // Optional key for translation lookup (e.g., "recommended")
+  carouselArticles?: ResolvedArticle[]
 }
 
 // Hook to get current items per view based on screen size
@@ -38,12 +42,32 @@ const useResponsiveItemsPerView = () => {
   return itemsPerView
 }
 
-export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselProps) => {
+export const LandingCarousel = ({
+  heading = '',
+  carouselKey,
+  carouselArticles,
+}: LandingCarouselProps) => {
   const [currentPage, setCurrentPage] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const itemsPerView = useResponsiveItemsPerView()
-  const { t } = useTranslation('discovery_landing')
-  const headingText = heading || t('recommended')
+  const { t } = useTranslation('carousels')
+  const router = useRouter()
+  const { currentVersion } = useVersion()
+
+  // Determine heading text
+  let headingText = heading
+  if (!headingText && carouselKey) {
+    // Try to get translation for the carousel key
+    const translated = t(carouselKey)
+
+    // Check if we got a real translation or a fallback
+    const looksLikeFallback = !translated || translated === carouselKey
+
+    if (!looksLikeFallback) {
+      headingText = translated
+    }
+  }
+
   // Ref to store timeout IDs for cleanup
   const animationTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -52,7 +76,7 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
     setCurrentPage(0)
   }, [itemsPerView])
 
-  const processedItems: ResolvedArticle[] = recommended || []
+  const processedItems: ResolvedArticle[] = carouselArticles || []
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -78,11 +102,11 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
     setCurrentPage((prev) => Math.max(0, prev - 1))
 
     // Set animation state to false after transition completes
-    // Duration matches CSS custom property --carousel-transition-duration (300ms)
+    // Duration matches CSS custom property --carousel-transition-duration (100ms)
     animationTimeoutRef.current = setTimeout(() => {
       setIsAnimating(false)
       animationTimeoutRef.current = null
-    }, 300)
+    }, 100)
   }
 
   const goToNext = () => {
@@ -97,11 +121,11 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
     setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))
 
     // Set animation state to false after transition completes
-    // Duration matches CSS custom property --carousel-transition-duration (300ms)
+    // Duration matches CSS custom property --carousel-transition-duration (100ms)
     animationTimeoutRef.current = setTimeout(() => {
       setIsAnimating(false)
       animationTimeoutRef.current = null
-    }, 300)
+    }, 100)
   }
 
   // Calculate the start index based on current page
@@ -113,27 +137,30 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
   }
 
   return (
-    <div className={styles.carousel} data-testid="landing-carousel">
+    <div
+      className={cx(styles.carousel, { [styles.noHeading]: !headingText })}
+      data-testid="landing-carousel"
+    >
       <div className={styles.header}>
-        <h2 className={styles.heading}>{headingText}</h2>
+        {headingText && <h2 className={styles.heading}>{headingText}</h2>}
         {totalItems > itemsPerView && (
           <div className={styles.navigation}>
             <button
               onClick={goToPrevious}
               disabled={currentPage === 0}
-              className={cx('btn btn-sm', styles.navButton)}
+              className={styles.navButton}
               aria-label="Previous articles"
             >
-              <ChevronLeftIcon size={16} />
+              <ArrowLeftIcon size={16} />
             </button>
 
             <button
               onClick={goToNext}
               disabled={currentPage >= totalPages - 1}
-              className={cx('btn btn-sm', styles.navButton)}
+              className={styles.navButton}
               aria-label="Next articles"
             >
-              <ChevronRightIcon size={16} />
+              <ArrowRightIcon size={16} />
             </button>
           </div>
         )}
@@ -144,27 +171,19 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
         data-testid="carousel-items"
       >
         {visibleItems.map((article: ResolvedArticle, index) => (
-          <div
+          <Card
             key={startIndex + index}
-            className={cx(styles.articleCard, 'border', 'border-default', 'rounded-2')}
+            href={`/${router.locale}/${currentVersion}${article.href}`}
+            className={styles.card}
+            ctaVariant="none"
+            disableAnimation
+            fullWidth
           >
-            <div className="mb-2">
-              {article.category.map((cat: string) => (
-                <Token key={cat} text={cat} className="mr-1 mb-2" />
-              ))}
-            </div>
-            <h3 className={styles.articleTitle}>
-              <a href={article.href} className={styles.articleLink}>
-                {article.title}
-              </a>
-            </h3>
-            <div
-              className={styles.articleDescription}
-              dangerouslySetInnerHTML={{
-                __html: article.intro as TrustedHTML,
-              }}
-            />
-          </div>
+            <Card.Heading>{article.title}</Card.Heading>
+            <Card.Description>
+              <RenderedHTML as="span" html={article.intro} />
+            </Card.Description>
+          </Card>
         ))}
       </div>
     </div>

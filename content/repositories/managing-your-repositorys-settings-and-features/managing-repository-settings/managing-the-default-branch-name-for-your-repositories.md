@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories
@@ -16,10 +14,12 @@ redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories
 shortTitle: Manage default branch name
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 ## About management of the default branch name
 
-When you create a new repository on {% data variables.product.github %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.github %} uses for the default branch in new repositories you create. For more information about the default branch, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
+When you create a new repository on {% data variables.product.github %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.github %} uses for the default branch in new repositories you create. For more information about the default branch, see [AUTOTITLE](/pull-requests/reference/branches#about-the-default-branch).
 
 {% data reusables.branches.change-default-branch %}
 
@@ -27,8 +27,7 @@ When you create a new repository on {% data variables.product.github %}, the rep
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.repo-tab %}
-1. Under "Repository default branch", click **Change default branch name now**.
-1. In the text field, type the default name that you would like to use for new branches.
+1. In the text field, type the default name that you would like to use for new repositories.
 1. Click **Update**.
 
 ## Further reading

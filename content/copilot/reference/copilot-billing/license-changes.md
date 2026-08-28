@@ -4,26 +4,39 @@ shortTitle: License changes
 intro: 'Learn how changes to {% data variables.product.prodname_copilot %} licenses affect billing and user access for organizations, enterprises, and personal accounts.'
 versions:
   feature: copilot
-topics:
-  - Copilot
+category:
+  - Learn about Copilot
 allowTitleToDifferFromFilename: true
 contentType: reference
 ---
 
-This article provides details about what happens when you add or remove {% data variables.product.prodname_copilot_short %} licenses, for organizations, enterprises, and personal accounts. Use it to check:
-* **What** happens to billing and access
-* **When** those changes take effect
-* **How** proration or refunds are handled
+{% data variables.product.prodname_copilot_short %} follows the same billing rules as other license-based products on {% data variables.product.company_short %}.
+For the general concepts, see:
+
+* [AUTOTITLE](/billing/concepts/impact-of-plan-changes) – explains how upgrades, downgrades, and seat changes are billed.
+* [AUTOTITLE](/billing/concepts/enterprise-billing/usage-based-licenses) – explains how usage-based billing works compared to volume licensing.
+
+This article focuses on how those rules apply specifically to {% data variables.product.prodname_copilot_short %}, including:
+
+* **What** happens to billing and access when you add, remove, or change seats
+* **When** billing changes take effect
+* **How** partial billing cycles are handled
+* **{% data variables.product.prodname_copilot_short %}-only scenarios** such as revoking seats, disabling {% data variables.product.prodname_copilot_short %} at the organization or enterprise level, or removing organizations from an enterprise
 
 ## Personal accounts
 
 What you need to know about the following actions:
 
-* **Upgrading:** If you move from a monthly to a yearly plan, the change is **immediate**. You are charged a prorated amount for the new plan.
-* **Downgrading/canceling:**
-  * **Monthly plan:** Access remains until the end of the current cycle. **No refund for unused time**.
-  * **Yearly plan:** Access remains until the end of the annual term already paid for.
-* **Switching plans:** Proration applies when switching between monthly and yearly, and the new plan starts **right away**.
+* **Upgrading:** If you upgrade your plan (for example, from {% data variables.copilot.copilot_pro_short %} to {% data variables.copilot.copilot_pro_plus_short %}), the change is **immediate**. You are charged a prorated amount for the new plan.
+* **Downgrading/canceling:** Access remains until the end of the current billing cycle. **No refund for unused time**.
+
+### Included monthly allowance reset
+
+Paying for, renewing, upgrading, downgrading, converting from a trial, or resuming a plan after a lapse does not grant a fresh {% data variables.product.prodname_ai_credits_short %} allowance immediately. Your included monthly allowance resets at 00:00:00 UTC on the first day of each calendar month, regardless of your subscription billing date.
+
+For example, if you exhaust your {% data variables.product.prodname_ai_credits_short %} on May 28 and renew or upgrade your plan on May 30, your allowance does not reset until June 1.
+
+Any additional usage beyond the included allowance is charged separately and is unaffected by this monthly reset. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-budgets-for-your-personal-account).
 
 ## Organizations
 
@@ -54,7 +67,7 @@ What you need to know about the following actions:
 
 ### Adding seats
 
-* **Billing:** Additional seats are billed on a prorated basis for the remainder of the current billing cycle.
+* **Billing:** Additional seats are billed on a prorated basis for the remainder of the current billing cycle. Included {% data variables.product.prodname_ai_credits_short %} may also be prorated.
 * **Access:** Assigned users gain **immediate access** to {% data variables.product.prodname_copilot_short %}.
 
 ### Removing seats
@@ -75,13 +88,14 @@ Additionally:
 
 ## In summary
 
-* **Proration:** Applies when adding seats/licenses or upgrading plans. You pay only for the portion of the billing cycle remaining.
-* **Access:** Assignments and plan changes are effective immediately for affected users.
+* **Proration:** Applies when adding seats/licenses or upgrading plans. You pay only for the portion of the billing cycle remaining. Included {% data variables.product.prodname_ai_credits_short %} may also be prorated.
+* **Access:** Assignments and upgrades are effective immediately for affected users. Downgrades take effect at the end of the billing cycle.
 * **Removing or canceling:** No refunds are issued for unused time; access continues until the end of the cycle paid for, unless a seat/license is revoked.
 
 | Scenario                        | Plan                | When is billing affected? | Is proration applied? | When does access change? | Refund for unused time? |
 |----------------------------------|---------------------|--------------------------|----------------------|--------------------------|-------------------------|
-| Add seat/license                 | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| Next bill             | Yes                  | Immediately              | N/A                     |
-| Remove seat/license              | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}e| Next bill             | N/A                  | Immediately              | No                      |
+| Add seat/license                 | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| Immediately             | Yes                  | Immediately              | N/A                     |
+| Remove seat/license              | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| End of cycle             | N/A                  | End of cycle (immediately if revoked) | No                      |
 | Cancel subscription              | All plans           | End of cycle            | N/A                  | End of cycle            | No                      |
-| Upgrade/downgrade/switch plan    | All plans           | Immediate                | Yes                  | Immediately              | N/A (proration instead) |
+| Upgrade plan    | All plans           | Immediate                | Yes                  | Immediately              | N/A (proration instead) |
+| Downgrade plan  | All plans           | End of cycle                | No                  | End of cycle              | No |

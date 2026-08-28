@@ -4,12 +4,12 @@ intro: 'You can search for apps and actions that are available on {% data variab
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - GitHub search
 redirect_from:
   - /github/searching-for-information-on-github/searching-github-marketplace
   - /github/searching-for-information-on-github/searching-on-github/searching-github-marketplace
 shortTitle: Search GitHub Marketplace
+category:
+  - Find repositories and resources
 ---
 
 ## About searching {% data variables.product.prodname_marketplace %}
@@ -36,10 +36,7 @@ Anytime you search across all of {% data variables.product.prodname_dotcom %}, y
 
 ## Further reading
 
-{%- ifversion fpt %}
-* [AUTOTITLE](/search-github/searching-on-github/searching-github-models)
-{%- endif %}
-* [AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions)
+* [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/find-and-customize-actions)
 * [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account)
 * [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations)
 * [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-personal-account)

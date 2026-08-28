@@ -1,6 +1,18 @@
 import fs from 'fs'
 import path from 'path'
 
+interface ScraperResource {
+  isHtml(): boolean
+  isCss(): boolean
+  getText(): string
+  getFilename(): string
+  encoding: BufferEncoding
+}
+
+interface ResourceSavedArgs {
+  resource: ScraperResource
+}
+
 export class RewriteAssetPathsPlugin {
   tempDirectory: string
   localDev: boolean
@@ -12,8 +24,10 @@ export class RewriteAssetPathsPlugin {
     this.replaceUrl = replaceUrl
   }
 
-  apply(registerAction: Function) {
-    registerAction('onResourceSaved', async ({ resource }: any) => {
+  apply(
+    registerAction: (event: string, callback: (args: ResourceSavedArgs) => Promise<void>) => void,
+  ) {
+    registerAction('onResourceSaved', async ({ resource }: ResourceSavedArgs) => {
       // Show some activity
       process.stdout.write('.')
 

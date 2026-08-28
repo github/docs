@@ -7,8 +7,6 @@ import { useMainContext } from '@/frame/components/context/MainContext'
 import { useVersion } from '@/versions/components/useVersion'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@/languages/components/useTranslation'
-import { AISearchCTAPopup } from '@/search/components/input/AISearchCTAPopup'
-import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
 
 import styles from './SupportSection.module.scss'
 
@@ -17,7 +15,6 @@ export const SupportSection = () => {
   const { relativePath, enterpriseServerReleases } = useMainContext()
   const router = useRouter()
   const { t } = useTranslation('footer')
-  const { setIsSearchOpen } = useSearchOverlayContext()
 
   const isDeprecated =
     enterpriseServerReleases.isOldestReleaseDeprecated &&
@@ -29,7 +26,6 @@ export const SupportSection = () => {
   const showSurvey = !isDeprecated && !isSitePolicyDocs
   const showContribution = !isDeprecated && !isEarlyAccess && isEnglish
   const showSupport = true
-  const showCopilotCTA = !isDeprecated && !isEarlyAccess && isEnglish
 
   return (
     <section className="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
@@ -42,14 +38,6 @@ export const SupportSection = () => {
           styles.supportGrid /* ← adds the grid rules */,
         )}
       >
-        {showCopilotCTA && (
-          <AISearchCTAPopup
-            isOpen
-            setIsSearchOpen={setIsSearchOpen}
-            isDismissible={false}
-            bannerType="footer"
-          />
-        )}
         {showSurvey && <Survey />}
         {showContribution && <Contribution />}
         {showSupport && <Support />}

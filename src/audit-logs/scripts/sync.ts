@@ -13,6 +13,7 @@ import { mkdirp } from 'mkdirp'
 import path from 'path'
 
 import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index'
+import { writeDeduplicatedAuditLogData } from '../lib/deduplicate'
 import { getContents, getCommitSha } from '@/workflows/git-utils'
 import { latest, latestStable, releaseCandidate } from '@/versions/lib/enterprise-server-releases'
 import { loadPages, loadPageMap } from '@/frame/lib/page-data'
@@ -49,6 +50,22 @@ async function main() {
   const schemaFilePath = 'data/schema.json'
   const schemaEvents = JSON.parse(await getContents(owner, repo, ref, schemaFilePath))
   const mainSha = await getCommitSha(owner, repo, `heads/${ref}`)
+
+  // Fetch fields.json to get global fields that should be included in all events
+  const fieldsFilePath = 'allowlists/fields.json'
+  const fieldsData = JSON.parse(await getContents(owner, repo, ref, fieldsFilePath))
+
+  // Extract global fields (excluding those gated by feature flags)
+  if (!fieldsData.global?.include) {
+    console.warn('Warning: fieldsData.global.include not found, no global fields will be added')
+  }
+  type FieldsIncludeEntry = { fields: string[]; feature_flag?: string }
+  const globalFields: string[] =
+    fieldsData.global?.include
+      ?.filter((entry: FieldsIncludeEntry) => !entry.feature_flag)
+      ?.flatMap((entry: FieldsIncludeEntry) => entry.fields) || []
+
+  console.log(`Loaded ${globalFields.length} global fields from fields.json`)
 
   const configFilepath = `src/audit-logs/lib/config.json`
   const pipelineConfig = JSON.parse(await readFile(configFilepath, 'utf8'))
@@ -90,6 +107,7 @@ async function main() {
       currentEvents,
       pipelineConfig,
       titleContext,
+      globalFields,
     })
   // Wrapper around filterGhesByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
@@ -105,6 +123,7 @@ async function main() {
       pipelineConfig,
       auditLogPage,
       titleContext,
+      globalFields,
     })
 
   auditLogData.fpt = {}
@@ -180,7 +199,7 @@ async function main() {
       await mkdirp(auditLogVersionDirPath)
     }
 
-    Object.values(AUDIT_LOG_PAGES).forEach(async (page) => {
+    for (const page of Object.values(AUDIT_LOG_PAGES)) {
       const auditLogSchemaFilePath = path.join(auditLogVersionDirPath, `${page}.json`)
 
       if (auditLogData[version][page]) {
@@ -188,10 +207,12 @@ async function main() {
           auditLogSchemaFilePath,
           JSON.stringify(auditLogData[version][page], null, 2),
         )
-        console.log(`✅ Wrote ${auditLogSchemaFilePath}`)
       }
-    })
+    }
   }
+
+  // Write deduplicated shared format
+  await writeDeduplicatedAuditLogData(auditLogData)
 }
 
 main()

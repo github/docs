@@ -1,11 +1,11 @@
 import { Link } from '@/frame/components/Link'
-import { FeaturedLink } from '@/landings/components/ProductLandingContext'
+import type { FeaturedLink } from '@/landings/types'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'
 import { clsx } from 'clsx'
 import dayjs from 'dayjs'
-import styles from './ArticleList.module.css'
+import styles from './ArticleList.module.scss'
 
 export type ArticleListPropsT = {
   title?: string

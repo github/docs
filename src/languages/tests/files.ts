@@ -1,4 +1,4 @@
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { describe, expect, test, vi } from 'vitest'
 
 describe('files', () => {

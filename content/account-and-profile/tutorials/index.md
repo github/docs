@@ -6,11 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Profiles
 children:
   - /personalize-your-profile
   - /using-your-github-profile-to-enhance-your-resume
+contentType: tutorials
 ---
 

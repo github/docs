@@ -5,10 +5,9 @@ intro: You can configure features and settings to harden security for your enter
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /configuring-tls
+  - /configuring-tls-and-ssh-ciphers
   - /troubleshooting-tls-errors
   - /enabling-private-mode
   - /enabling-subdomain-isolation

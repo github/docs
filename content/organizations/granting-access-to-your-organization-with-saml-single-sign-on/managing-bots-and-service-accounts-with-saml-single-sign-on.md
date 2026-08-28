@@ -6,10 +6,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-bots-and-service-accounts-with-saml-single-sign-on
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage bots & service accounts
+category:
+  - Configure SAML single sign-on
 ---
 
 To retain access for bots and service accounts, organization administrators can [enable](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization), but **not** [enforce](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization) SAML single sign-on for their organization. If you need to enforce SAML single sign-on for your organization, you can create an external identity for the bot or service account with your identity provider (IdP).

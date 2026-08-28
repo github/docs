@@ -10,8 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
+category:
+  - Build and manage OAuth apps
 ---
 
 > [!NOTE]
@@ -23,7 +23,7 @@ topics:
 >
 > {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens.
 >
-> For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+> For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 {% ifversion fpt or ghec %}
 
@@ -49,10 +49,17 @@ topics:
 1. Optionally, in "Application description", type a description of your app that users will see.
 1. In "Authorization callback URL", type the callback URL of your app.
 
-   > [!NOTE]
-   > {% data variables.product.prodname_oauth_apps %} cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
+   {% ifversion fpt or ghec or ghes > 3.23 %}
 
-1. If your {% data variables.product.prodname_oauth_app %} will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow).
+   You can enter up to 10 callback URLs. To add additional callback URLs, click **Add callback URL**.
+
+   {% else %}
+
+   > [!NOTE]
+   > {% data variables.product.prodname_oauth_apps %} cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.{% endif %}
+
+1. If your {% data variables.product.prodname_oauth_app %} will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow).{% ifversion oauth-token-expiration %}
+1. **Expire user access tokens** is enabled by default. If your app's authentication code hasn't been updated to support short-lived tokens, uncheck the box until support is added. For more information about expiring tokens, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#expiring-access-tokens).{% endif %}
 1. Click **Register application**.
 
 ## Further reading

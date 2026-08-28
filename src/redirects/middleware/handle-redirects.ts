@@ -1,10 +1,16 @@
 import type { NextFunction, Response } from 'express'
 
 import patterns from '@/frame/lib/patterns'
-import { pathLanguagePrefixed } from '@/languages/lib/languages'
+import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
 import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases'
 import getRedirect from '../lib/get-redirect'
-import { defaultCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
+import { getVersionPreference } from '../lib/version-preference'
+import { applyGraphqlCategoryRedirect } from '../lib/graphql-category-redirect'
+import {
+  defaultCacheControl,
+  languageCacheControl,
+  languageAndVersionCacheControl,
+} from '@/frame/middleware/cache-control'
 import { ExtendedRequest, URLSearchParamsTypes } from '@/types'
 
 export default function handleRedirects(req: ExtendedRequest, res: Response, next: NextFunction) {
@@ -14,7 +20,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   // This must be done before checking if the path
   // is an asset (patterns.assetPaths)
   if (req.path.includes('//')) {
-    return res.redirect(301, req.path.replace(/\/+/g, '/'))
+    return res.safeRedirect(301, req.path.replace(/\/+/g, '/'))
   }
 
   // never redirect assets
@@ -27,13 +33,21 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
-    languageCacheControl(res)
+    languageAndVersionCacheControl(res)
+
+    // Build redirect path, optionally including user's preferred version
+    let redirectPath = `/${language}`
+    const userVersion = req.userVersion
+    if (userVersion && userVersion !== 'free-pro-team@latest') {
+      redirectPath += `/${userVersion}`
+    }
+
     // Forward query params to the new URL
-    let queryParams = new URLSearchParams((req?.query as any) || '').toString()
+    let queryParams = new URLSearchParams(req?.query as URLSearchParamsTypes).toString()
     if (queryParams) {
       queryParams = `?${queryParams}`
     }
-    return res.redirect(302, `/${language}${queryParams}`)
+    return res.safeRedirect(302, redirectPath + queryParams)
   }
 
   // begin redirect handling
@@ -47,12 +61,9 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   // The `q` param is deprecated, but we still need to support it in case
   // there are links out there that use it.
   const onSearch = req.path.endsWith('/search') || req.path.startsWith('/api/search')
-  // We have legacy links that links to the GraphQL Explorer with
-  // a `?query=...` in the URL. These should not redirect to the search page.
-  const onGraphqlExplorer = req.path.includes('/graphql/overview/explorer')
   const hasQ = 'q' in req.query
   const hasQuery = 'query' in req.query
-  if ((hasQ && !hasQuery) || (hasQuery && !onSearch && !onGraphqlExplorer)) {
+  if ((hasQ && !hasQuery) || (hasQuery && !onSearch)) {
     const language = getLanguage(req)
     const sp = new URLSearchParams(req.query as URLSearchParamsTypes)
     if (sp.has('q') && !sp.has('query')) {
@@ -71,12 +82,12 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
 
     redirectTo += `/search?${sp.toString()}`
-    return res.redirect(301, redirectTo)
+    return res.safeRedirect(301, redirectTo)
   }
 
   // have to do this now because searchPath replacement changes the path as well as the query params
   if (queryParams) {
-    queryParams = '?' + queryParams
+    queryParams = `?${queryParams}`
   }
 
   // remove query params temporarily so we can find the path in the redirects object
@@ -85,6 +96,17 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   const redirectTo = getRedirect(redirectWithoutQueryParams, req.context)
 
   redirectWithoutQueryParams = redirectTo || redirectWithoutQueryParams
+
+  // Resolve legacy `/graphql/reference/<kind>(#<name>)?` URLs to their
+  // per-category equivalent. Done before query-param re-application so the
+  // fragment parsing in the helper is unambiguous.
+  const graphqlRewrite = applyGraphqlCategoryRedirect(
+    redirectWithoutQueryParams,
+    req.context.userLanguage || 'en',
+  )
+  if (graphqlRewrite) {
+    redirectWithoutQueryParams = graphqlRewrite
+  }
 
   redirect = queryParams ? redirectWithoutQueryParams + queryParams : redirectWithoutQueryParams
 
@@ -98,8 +120,12 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     // But for example, a `/authentication/connecting-to-github-with-ssh`
     // needs to become `/en/authentication/connecting-to-github-with-ssh`
     const possibleRedirectTo = `/en${req.path}`
+    // Pages are keyed without .md, so strip it before lookup
+    const lookupPath = possibleRedirectTo.endsWith('.md')
+      ? possibleRedirectTo.replace(/\.md$/, '')
+      : possibleRedirectTo
     if (!req.context.pages) throw new Error('req.context.pages not yet set')
-    if (possibleRedirectTo in req.context.pages || isDeprecatedVersion(req.path)) {
+    if (lookupPath in req.context.pages || isDeprecatedVersion(req.path)) {
       const language = getLanguage(req)
 
       // Note, it's important to use `req.url` here and not `req.path`
@@ -109,16 +135,57 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
   }
 
+  if (!req.context.pages) throw new Error('req.context.pages not yet set')
+
+  // Honor the reader's version preference on a URL that does not name a version.
+  //
+  // Without this, the cookie is only ever consulted on the bare homepage, so a deep link
+  // from search, the product UI, or a bookmark silently serves Free/Pro/Team. See
+  // github/technical-content#7227 for the measurements.
+  //
+  // This is deliberately its own branch rather than a tweak to `redirect` below, because
+  // the ordinary path would emit a 301 for a language-prefixed URL. A redirect that
+  // depends on a cookie has to stay a 302, or a browser caches one reader's preference
+  // forever.
+  if (!redirect.includes('://')) {
+    const preference = getVersionPreference(
+      req.path,
+      removeQueryParams(redirect),
+      req.userVersion,
+      req.context.pages,
+    )
+    if (preference.vary && !preference.redirectTo) {
+      // Only needed when we do not redirect. The redirect below calls
+      // `languageAndVersionCacheControl`, which already lists `x-user-version`.
+      //
+      // We set it even though this response is not a redirect, because it still depends
+      // on the cookie: a cached copy without this header would be served to readers whose
+      // preference we should have honored.
+      //
+      // `append`, not `set`, so this survives the cache-control call that whatever
+      // handles the request downstream makes. Those all append too, so nothing clobbers
+      // it. The `varies on the cookie even for readers who have not set one` test in
+      // `src/versions/tests/version-cookie.ts` asserts the served 200 really does carry
+      // the header, so this holds even if that stops being true.
+      res.append('vary', 'x-user-version')
+    }
+    if (preference.redirectTo) {
+      languageAndVersionCacheControl(res)
+      return res.safeRedirect(302, preference.redirectTo + (queryParams || ''))
+    }
+  }
+
   // do not redirect a path to itself
   if (redirect === req.originalUrl) {
     return next()
   }
 
-  if (!req.context.pages) throw new Error('req.context.pages not yet set')
-
   // do not redirect if the redirected page can't be found
   if (
-    !(req.context.pages[removeQueryParams(redirect)] || isDeprecatedVersion(req.path)) &&
+    !(
+      req.context.pages[removeQueryParams(redirect).replace(/\.md$/, '')] ||
+      isDeprecatedVersion(req.path)
+    ) &&
     !redirect.includes('://')
   ) {
     // display error on the page in development, but not in production
@@ -137,12 +204,12 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   }
 
   const permanent = redirect.includes('://') || usePermanentRedirect(req)
-  return res.redirect(permanent ? 301 : 302, redirect)
+  return res.safeRedirect(permanent ? 301 : 302, redirect)
 }
 
 function getLanguage(req: ExtendedRequest, default_ = 'en') {
   // req.context.userLanguage, if it truthy, is always a valid supported
-  // language. It's whatever was in the user's request in lib/languages.js
+  // language. It's whatever was in the user's request in lib/languages.ts
   return req.context!.userLanguage || default_
 }
 

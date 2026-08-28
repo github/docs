@@ -1,7 +1,7 @@
 ---
 title: Setting exit codes for actions
 shortTitle: Set exit codes
-intro: 'You can use exit codes to set the status of an action. {% data variables.product.prodname_dotcom %} displays statuses to indicate passing or failing actions.'
+intro: You can use exit codes to set the status of an action. {% data variables.product.prodname_dotcom %} displays statuses to indicate passing or failing actions.
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
   - /actions/creating-actions/setting-exit-codes-for-actions
@@ -12,6 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Reuse and share automations
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -37,7 +40,7 @@ try {
 }
 ```
 
-For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-javascript-action).
+For more information, see [AUTOTITLE](/actions/tutorials/create-actions/create-a-javascript-action).
 
 ## Setting a failure exit code in a Docker container action
 
@@ -50,4 +53,4 @@ if <condition> ; then
 fi
 ```
 
-For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action).
+For more information, see [AUTOTITLE](/actions/tutorials/use-containerized-services/create-a-docker-container-action).

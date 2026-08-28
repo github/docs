@@ -1,6 +1,6 @@
 ---
 title: Configuring GitHub Pages for your enterprise
-intro: 'You can enable or disable {% data variables.product.prodname_pages %} for your enterprise and choose whether to make sites publicly accessible.'
+intro: You can enable or disable {% data variables.product.prodname_pages %} for your enterprise and choose whether to make sites publicly accessible.
 redirect_from:
   - /enterprise/admin/guides/installation/disabling-github-enterprise-pages
   - /enterprise/admin/guides/installation/configuring-github-enterprise-pages
@@ -13,11 +13,10 @@ redirect_from:
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-github-pages-for-your-enterprise
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Pages
 shortTitle: Configure GitHub Pages
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## Enabling public sites for {% data variables.product.prodname_pages %}
@@ -35,7 +34,7 @@ If private mode is enabled on your enterprise, the public cannot access {% data 
 
 ## Disabling {% data variables.product.prodname_pages %} for your enterprise
 
-If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation).
+If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/enabling-subdomain-isolation).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -60,4 +59,4 @@ You can add or override response headers for {% data variables.product.prodname_
 
 ## Further reading
 
-* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)
+* [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/enabling-private-mode)

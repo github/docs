@@ -1,0 +1,52 @@
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
+
+.sidebarFull {
+  @include breakpoint-xxl {
+    // Fixed width for consistent sidebar layout
+    width: 326px;
+    // 109px accounts for the header (65px) + the Docs 2026 secondary bar (44px)
+    height: calc(100vh - 109px);
+    top: 109px;
+  }
+}
+
+// When the mobile nav is expanded inline, the rail spans the full width and
+// flows in the page (no fixed height / sticky) below the xxl breakpoint. At xxl
+// the desktop rail takes over, so revert to the fixed rail width even if the
+// mobile-open state is momentarily still set (e.g. mid-resize) — otherwise the
+// full-width rail covers the article content.
+.sidebarFullMobileOpen {
+  width: 100%;
+
+  @include breakpoint-xxl {
+    width: 326px;
+  }
+}
+
+.sidebarContentFull {
+  @include breakpoint-xxl {
+    width: 326px;
+    // 219px accounts for header (65px) + secondary bar (44px) + sidebar header (110px)
+    height: calc(100vh - 219px);
+  }
+}
+
+.sidebarContentOverlay {
+  // Padding to account for header + sidebar header so content isn't cut off
+  padding-bottom: 185px;
+}
+
+.sidebarContentOverlayRest {
+  // Extra padding for REST pages (includes API version picker)
+  padding-bottom: 250px;
+}
+
+.sidebarContentFullWithPadding {
+  // Padding to account for header + sidebar header so content isn't cut off
+  padding-bottom: 185px;
+}
+
+.sidebarContentFullWithPaddingRest {
+  // Extra padding for REST pages (includes API version picker)
+  padding-bottom: 250px;
+}

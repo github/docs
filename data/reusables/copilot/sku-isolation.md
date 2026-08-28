@@ -1,10 +1,10 @@
 ## About {% data variables.copilot.copilot_sku_isolation %}
 
-As an enterprise or organization owner, you can use your network firewall to explicitly allow access to {% data variables.copilot.copilot_for_business %}, {% data variables.copilot.copilot_enterprise %}, or both, and/or block access to {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_free %}. This allows you to control which {% data variables.product.prodname_copilot %} plans your members can use within your network.
+As an enterprise or organization owner, you can use your network firewall to explicitly allow access to {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, or both, and/or block access to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, or {% data variables.copilot.copilot_free_short %}. This allows you to control which {% data variables.product.prodname_copilot %} plans your members can use within your network.
 
 Configuring {% data variables.copilot.copilot_sku_isolation %} will affect the following {% data variables.product.prodname_copilot_short %} features:
 
-* Code completion in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and Vim/NeoVim
+* {% data variables.product.prodname_copilot_short %} inline suggestions in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and Vim/NeoVim
 * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs
 * {% data variables.copilot.copilot_chat_short %} on {% data variables.product.github %}
 * {% data variables.product.prodname_mobile %} Apps
@@ -14,7 +14,7 @@ Configuring {% data variables.copilot.copilot_sku_isolation %} will affect the f
 
 ## Important steps to ensure continued access to {% data variables.product.prodname_copilot_short %}
 
-You should ensure that your firewall allows access to all of the hostnames listed in [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot).
+You should ensure that your firewall allows access to all of the hostnames listed in [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
 
 ## Configuring {% data variables.copilot.copilot_sku_isolation %} for your enterprise or organization
 

@@ -7,12 +7,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Block from your org
+category:
+  - Block users and report abuse
 ---
 
-You can block non-members from within your organization's settings or from a specific comment made by a user. When you block a user in a comment, you can choose to send the user a notification explaining that they were blocked and why. Otherwise, the user is not directly notified that you've blocked them. Blocked users can still delete their existing content.
+You can block non-members from within your organization's settings or from content in the organization's repositories.
+
+When you block a user from a comment, you can choose to send the user a notification explaining that they were blocked and why. Otherwise, the user is not directly notified that you've blocked them. Blocked users can still delete their existing content.
 
 {% data reusables.organizations.blocking-a-user %}
 
@@ -26,6 +28,7 @@ At the time that you block a user from your organization:
 * The user is removed as a collaborator on your organization's repositories
 * The user's contributions to your organization's repositories are no longer counted as contributions for them
 * Any pending repository or organization invitations to the blocked user are canceled
+* The user's comments on repository security advisories are hidden
 
 After you've blocked a user from your organization, they cannot:
 * Cross-reference your organization's repositories in comments
@@ -35,12 +38,17 @@ In your organization's repositories, blocked users also cannot:
 * Open issues
 * Send, close, or merge pull requests
 * Comment on issues, pull requests, or commits
+* Comment on repository security advisories
 * Add or edit wiki pages
 
-## Blocking a user in a comment
+Blocking a user from a comment doesn't delete the original issue, pull request, or security advisory.
 
-1. Navigate to the comment whose author you would like to block.
-1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Block user**.
+## Blocking a user from repository content
+
+You must be an organization owner or moderator to block a user from a repository security advisory.
+
+1. Navigate to the issue, pull request, or repository security advisory that contains the description or comment whose author you would like to block.
+1. In the upper-right corner of the description or comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Block user**.
 
    ![Screenshot of a pull request comment by octo-user. Below an icon of three dots, a dropdown menu is expanded, and "Block user" is outlined in orange.](/assets/images/help/repository/comment-menu-block-user.png)
 

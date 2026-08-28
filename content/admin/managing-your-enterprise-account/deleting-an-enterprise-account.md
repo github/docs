@@ -1,22 +1,22 @@
 ---
 title: Deleting an enterprise account
-intro: 'You can delete an enterprise account to stop paying for {% data variables.product.prodname_enterprise %}.'
+intro: You can delete an enterprise account to stop paying for {% data variables.product.prodname_enterprise %}.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 permissions: Enterprise owners can delete an enterprise account if the company pays by credit card or PayPal.
 shortTitle: Delete enterprise account
 redirect_from:
   - /admin/overview/deleting-an-enterprise-account
+contentType: how-tos
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## Prerequisites
 
-You must remove, transfer, or delete all organizations in the enterprise before you can delete the enterprise account. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
+Before you can delete an enterprise account, you must remove, transfer, or delete all organizations in the enterprise. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
+
+After removing organizations, check the "People" tab in your enterprise settings and remove any unaffiliated members who remain in the enterprise. Unaffiliated members are users who are not part of any organization within the enterprise.
 
 You cannot delete an enterprise account if any of the following apply:
 
@@ -40,7 +40,7 @@ If you upgraded to an enterprise account from a single organization and then del
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. If you are not trialing {% data variables.product.prodname_ghe_cloud %}, delete your enterprise account:
-   1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **Profile**.
+   1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **General**.
    1. In the "Danger Zone" section, click **Delete this enterprise**.
    1. In the text box, type the enterprise slug to confirm the deletion, then click **Delete this enterprise**.
 1. If you are trialing {% data variables.product.prodname_ghe_cloud %}, cancel your trial, or delete the expired trial:

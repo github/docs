@@ -4,9 +4,9 @@ intro: 'Enable mandatory two-factor authentication to secure your account and ma
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: About mandatory 2FA
+category:
+  - Learn about authentication
 ---
 
 {% data reusables.two_fa.mandatory-2fa-contributors-2023-nested %}
@@ -23,9 +23,6 @@ Your account is selected for mandatory 2FA if you have taken some action on {% d
 * Being an enterprise administrator
 
 {% data variables.product.prodname_dotcom %} is continually assessing improvements to our account security features and 2FA requirements, so these criteria may change over time.
-
-> [!NOTE]
-> If your account has an education coupon active, it is exempt from mandatory 2FA.
 
 ### About mandatory 2FA for organizations and enterprises
 

@@ -15,8 +15,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
+category:
+  - Register and configure a GitHub App
 ---
 
 ## About {% data variables.product.prodname_github_app %} permissions
@@ -25,23 +25,25 @@ topics:
 
 Although {% data variables.product.prodname_github_apps %} don't have any permissions by default, they do have implicit permissions to read public resources when acting on behalf of a user. When a user authorizes the app to act on their behalf, the {% data variables.product.prodname_github_app %} can use the resulting user access token to make requests to the REST API and the GraphQL API to read public resources. To learn more about acting on behalf of a user, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
 
-App permissions are classified as repository, organization,{% ifversion enterprise-installed-apps %} enterprise,{% endif %} or account permissions.
+App permissions are classified as repository, organization,{% ifversion fpt or enterprise-installed-apps %} enterprise,{% endif %} or account permissions.
 
 * Repository permissions allow your app to access resources related to repositories that are owned by the account where the app is installed.
 * Organization permissions allow your app to access resources related to the organization where the app is installed, if it is installed on an organization account.
-{%- ifversion enterprise-installed-apps %}
+{%- ifversion fpt or enterprise-installed-apps %}
 * Enterprise permissions allow the app to manage an enterprise, if it is installed on an enterprise account.{%- endif %}
 * Account permissions allow your app to access resources related to a user if the user has also authorized your app. For more information about user authorization of apps, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
 
-{% ifversion enterprise-installed-apps %}
+{% ifversion fpt or enterprise-installed-apps %}
 
-Enterprise permissions are only available if you are creating the app in an enterprise account or an organization that is enterprise-owned. An app with enterprise permissions must be `public` or `internal` to be installed on an enterprise account. The only enterprise it can be installed on is the enterprise that owns the app or the organization that owns the app, but there are no additional restrictions on which organizations or personal accounts it can be installed on.{% endif %}
+Any user, organization, or enterprise can create an app using any of the permission types. An app with enterprise permissions must be `public` or `internal` to be installed on an enterprise account. A `public` app can be installed by any enterprise, while an `internal` app can only be installed by the enterprise that owns the app or the enterprise of the organization that owns the app. There are no additional restrictions on which organizations or personal accounts an app can be installed on.
 
-When a user installs an app on their user account or organization, they see and grant the repository and organization permissions that the app requested.{% ifversion enterprise-installed-apps %} When they install it on their enterprise, they see and grant only the enterprise permissions that the app requested. {% endif %}They will also see a list of account permissions that the app can request for individual users. When a user authorizes an app to act on their behalf, they will see and grant the account permissions that the app requested.
+There is one exception to installing an app across enterprises. If an app requests the "Enterprise organization installations" or "Enterprise organization installation repositories" permissions, the only enterprise that can install it is the one that owns the app. You cannot install the app on another enterprise, and you cannot add either permission to an app that is already installed on an enterprise other than the one that owns it.{% endif %}
+
+When a user installs an app on their user account or organization, they see and grant the repository and organization permissions that the app requested.{% ifversion fpt or enterprise-installed-apps %} When they install it on their enterprise, they see and grant only the enterprise permissions that the app requested. {% endif %} They will also see a list of account permissions that the app can request for individual users. When a user authorizes an app to act on their behalf, they will see and grant the account permissions that the app requested.
 
 The success of an API request with a user access token depends on the user's permissions as well as the app's permissions. For example, if the app was granted permission to write the contents of a repository, but the user can only read the contents, then the user access token can only read the contents. The success of an API request with an installation access token only depends on the app's permissions.
 
-For more information about specifying permissions during {% data variables.product.prodname_github_app %} registration, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app).
+For more information about specifying permissions during {% data variables.product.prodname_github_app %} registration, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 
 Some webhooks and API access requires "Administration" permissions. If your app requires "Administration" permissions, consider explaining this requirement on your app's homepage. This will help users understand why your app needs a high level permission.
 
@@ -53,11 +55,11 @@ You can modify the permissions for apps you own or manage at any time.{% ifversi
 * When an enterprise app manager modifies the permissions of an app owned by an **enterprise account**, the changes are automatically accepted by organizations in the enterprise where the app manager is also an organization owner.{% endif %}
 * When you modify the permissions of an app owned by a **user or organization**,{% else %} When you do so,{% endif %} the owner of each account where the app was installed will be prompted to approve the new permissions. If the account owner does not approve the new permissions, their installation will continue to use the old permissions.
 
-For more information about modifying permissions, see [AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions).
+For more information about modifying permissions, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration).
 
 ## Choosing permissions for webhook access
 
-The webhook documentation indicates whether each webhook is available to {% data variables.product.prodname_github_apps %}. For each webhook that you want to subscribe to, refer to the webhook documentation to see what permissions a {% data variables.product.prodname_github_app %} needs to subscribe to that webhook. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads).
+The webhook documentation indicates whether each webhook is available to {% data variables.product.prodname_github_apps %}. For each webhook that you want to subscribe to, refer to the webhook documentation to see what permissions a {% data variables.product.prodname_github_app %} needs to subscribe to that webhook. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads).
 
 For example, if you want your app to subscribe to `team` events, your app must have the "Members" organization permission.
 
@@ -65,7 +67,7 @@ On your {% data variables.product.prodname_github_app %} registration page, the 
 
 ## Choosing permissions for REST API access
 
-The REST API reference documentation for each endpoint states whether the endpoint works with {% data variables.product.prodname_github_apps %} and states what permissions are required in order for the app to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.prodname_github_app %} can access with each permission, see [AUTOTITLE](/rest/overview/permissions-required-for-github-apps).
+The REST API reference documentation for each endpoint states whether the endpoint works with {% data variables.product.prodname_github_apps %} and states what permissions are required in order for the app to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.prodname_github_app %} can access with each permission, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps).
 
 For example, to use the `GET /orgs/{org}/dependabot/secrets` endpoint, your app must have at least read-level permission for the "organization dependabot secrets" permission.
 

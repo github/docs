@@ -1,4 +1,6 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
+import type { ExtendedRequest } from '@/types'
 
 import {
   AutomatedPageContextT,
@@ -36,15 +38,18 @@ export default function FineGrainedPatPermissions({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getAppsServerSideProps } = await import('@/github-apps/lib/index.js')
+  const { getAppsServerSideProps } = await import('@/github-apps/lib/index')
   const { currentVersion, appsItems, categoriesWithoutSubcategories } =
     await getAppsServerSideProps(context, 'fine-grained-pat-permissions', { useDisplayTitle: true })
 
   return {
     props: {
-      mainContext: await getMainContext(context.req, context.res),
+      mainContext: await getMainContext(
+        context.req as unknown as ExtendedRequest,
+        context.res as unknown as Response,
+      ),
       currentVersion,
-      appsItems,
+      appsItems: appsItems as PermissionListT,
       automatedPageContext: getAutomatedPageContextFromRequest(context.req),
       categoriesWithoutSubcategories,
     },

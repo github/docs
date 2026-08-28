@@ -2,6 +2,7 @@ import { expect, test, describe, beforeAll, afterAll } from 'vitest'
 
 import { post } from '@/tests/helpers/e2etest'
 import { startMockServer, stopMockServer } from '@/tests/mocks/start-mock-server'
+import { MAX_QUERY_LENGTH } from '@/search/lib/ai-search-constants'
 
 describe('AI Search Routes', () => {
   beforeAll(() => {
@@ -10,7 +11,7 @@ describe('AI Search Routes', () => {
   afterAll(() => stopMockServer())
 
   test('/api/ai-search/v1 should handle a successful response', async () => {
-    let apiBody = { query: 'How do I create a Repository?', language: 'en', version: 'dotcom' }
+    const apiBody = { query: 'How do I create a Repository?', language: 'en', version: 'dotcom' }
 
     const response = await fetch('http://localhost:4000/api/ai-search/v1', {
       method: 'POST',
@@ -80,7 +81,7 @@ describe('AI Search Routes', () => {
   })
 
   test('should handle validation errors: query missing', async () => {
-    let body = { language: 'en', version: 'dotcom' }
+    const body = { language: 'en', version: 'dotcom' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
@@ -95,7 +96,7 @@ describe('AI Search Routes', () => {
   })
 
   test('should handle validation errors: version missing', async () => {
-    let body = { query: 'example query' }
+    const body = { query: 'example query' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
@@ -110,7 +111,7 @@ describe('AI Search Routes', () => {
   })
 
   test('should handle multiple validation errors: query missing and version', async () => {
-    let body = { language: 'fr', version: 'fpt' }
+    const body = { language: 'fr', version: 'fpt' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
@@ -140,7 +141,7 @@ describe('AI Search Routes', () => {
     if (response.body) {
       const reader = response.body.getReader()
       const decoder = new TextDecoder()
-      let chunks = []
+      const chunks = []
 
       try {
         while (true) {
@@ -181,6 +182,23 @@ describe('AI Search Routes', () => {
     expect(response.statusCode).toBe(400)
     expect(responseBody.errors).toBeDefined()
     expect(responseBody.errors[0].message).toBe("Invalid 'query' in request body. Must be a string")
+  })
+
+  test('should reject queries longer than the maximum allowed length', async () => {
+    const longQuery = 'a'.repeat(MAX_QUERY_LENGTH + 1)
+    const response = await post('/api/ai-search/v1', {
+      body: JSON.stringify({ query: longQuery, version: 'dotcom' }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    const responseBody = JSON.parse(response.body)
+
+    expect(response.statusCode).toBe(413)
+    expect(responseBody.upstreamStatus).toBe(413)
+    expect(responseBody.errors).toBeDefined()
+    expect(responseBody.errors[0].message).toBe(
+      `Query exceeds maximum length of ${MAX_QUERY_LENGTH} characters`,
+    )
   })
 
   test('should handle malformed JSON in request body', async () => {

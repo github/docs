@@ -6,11 +6,11 @@ versions:
 category:
   - Custom instructions
   - Team collaboration
+  - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
 contentType: tutorials
 ---
 
@@ -23,7 +23,7 @@ When reviewing code, focus on:
 
 ## Security Critical Issues
 - Check for hardcoded secrets, API keys, or credentials
-- Look for SQL injection and XSS vulnerabilities  
+- Look for SQL injection and XSS vulnerabilities
 - Verify proper input validation and sanitization
 - Review authentication and authorization logic
 

@@ -14,7 +14,7 @@ describeIfElasticsearchURL('search v1 middleware in non-English', () => {
     // which clearly has a record with the title "Foo"
     sp.set('query', 'foo')
     sp.set('language', 'ja')
-    const res = await get('/api/search/v1?' + sp)
+    const res = await get(`/api/search/v1?${sp}`)
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.body)
 

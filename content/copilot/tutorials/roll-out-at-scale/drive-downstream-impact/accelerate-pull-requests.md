@@ -10,6 +10,9 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/driving-downstream-impact/accelerate-pull-requests
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/drive-downstream-impact/accelerate-pull-requests
 contentType: tutorials
+category:
+  - Accelerate PR velocity
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.essp-intro %}
@@ -33,7 +36,7 @@ This leads to bottlenecks in the development process and slows down the overall 
 
 {% data reusables.copilot.evaluate-options-intro %}
 
-<a href="https://github.com/github-copilot/purchase?ref_cta=Copilot+Enterprise+trial&ref_cta=Copilot+Business+trial&ref_loc=accelerate-pull-requests" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Contact Sales</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ### How {% data variables.product.prodname_copilot_short %} can help
 
@@ -152,11 +155,11 @@ Developers **should not**:
 
 ### Resources
 
-* [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/creating-a-pull-request-summary-with-github-copilot)
-* [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode#reviewing-changes)
-* [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
-* [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/automatic-code-review)
-* [AUTOTITLE](/copilot/customizing-copilot/adding-organization-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/copilot-for-github-tasks/create-a-pr-summary)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions)
 
 ## Metrics to watch
 

@@ -1,0 +1,5 @@
+# Issue 1518825892 - Secret scanning push protection bypass added to enterprises
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.20'

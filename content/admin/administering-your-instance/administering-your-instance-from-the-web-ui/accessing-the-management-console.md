@@ -1,22 +1,21 @@
 ---
 title: Accessing the Management Console
 shortTitle: Access Management Console
-intro: 'You can access the {% data variables.enterprise.management_console %} as the root site administrator or a {% data variables.enterprise.management_console %} user.'
+intro: You can access the {% data variables.enterprise.management_console %} as the root site administrator or a {% data variables.enterprise.management_console %} user.
 redirect_from:
   - /admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Authentication
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 {% data reusables.enterprise_site_admin_settings.management-console-access %}
 
 ## Accessing the {% data variables.enterprise.management_console %}
 
-The first time that you access the {% data variables.enterprise.management_console %} for {% data variables.location.product_location %}, you must upload your license file. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise).
+The first time that you access the {% data variables.enterprise.management_console %} for {% data variables.location.product_location %}, you must upload your license file. For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/download-your-license).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

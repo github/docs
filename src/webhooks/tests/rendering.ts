@@ -78,7 +78,7 @@ describe('webhooks events and payloads', () => {
         payloadExampleElem.each((i, elem) => {
           const siblings = $(elem)
             .nextUntil('[id^=webhook-payload-example]')
-            .filter((i, elem) => $(elem).hasClass('height-constrained-code-block'))
+            .filter((idx, sibling) => $(sibling).hasClass('height-constrained-code-block'))
           expect(siblings.length).toBeGreaterThan(0)
         })
       }

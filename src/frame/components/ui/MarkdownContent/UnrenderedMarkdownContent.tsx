@@ -1,6 +1,6 @@
-import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import type { Components } from 'react-markdown'
+import type { JSX } from 'react'
 import remarkGfm from 'remark-gfm'
 import cx from 'classnames'
 import { IconButton } from '@primer/react'
@@ -11,6 +11,8 @@ import { useTranslation } from '@/languages/components/useTranslation'
 import useCopyClipboard from '@/rest/components/useClipboard'
 import { EventType } from '@/events/types'
 import { sendEvent } from '@/events/components/events'
+
+import styles from './MarkdownContent.module.scss'
 
 export type MarkdownContentPropsT = {
   children: string
@@ -72,11 +74,11 @@ export const UnrenderedMarkdownContent = ({
       }
 
       return (
-        <div style={{ position: 'relative' }}>
+        <div className={styles.codeBlockContainer}>
           <IconButton
             size="small"
             icon={isCopied ? CheckIcon : CopyIcon}
-            className="btn-octicon"
+            className={cx('btn-octicon', styles.copyButton)}
             aria-label={getAriaLabel()}
             onClick={async () => {
               await copyToClipboard()
@@ -84,15 +86,9 @@ export const UnrenderedMarkdownContent = ({
               sendEvent({
                 type: EventType.clipboard,
                 clipboard_operation: 'copy',
-                eventGroupKey: eventGroupKey,
-                eventGroupId: eventGroupId,
+                eventGroupKey,
+                eventGroupId,
               })
-            }}
-            sx={{
-              position: 'absolute',
-              right: '-.7rem',
-              top: '-.7rem',
-              zIndex: 1,
             }}
           ></IconButton>
           <code {...props}>{props.children}</code>

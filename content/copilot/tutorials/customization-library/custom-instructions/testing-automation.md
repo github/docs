@@ -8,17 +8,17 @@ category:
   - Development workflows
   - Path-specific
   - Repository
+  - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Advanced
 octicon: book
-topics:
-  - Copilot
 contentType: tutorials
 ---
 
 {% data reusables.copilot.customization-examples-note %}
 
-This example shows a path-specifc `python-tests.instructions.md` file that applies only to Python test files in your repository, using the `applyTo` field. For more information about path-specific instructions files, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions#using-one-or-more-instructionsmd-files).
+This example shows a path-specific `python-tests.instructions.md` file that applies only to Python test files in your repository, using the `applyTo` field. For more information about path-specific instructions files, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#creating-path-specific-custom-instructions).
 
 ````text copy
 ---
@@ -48,16 +48,16 @@ class TestUserService:
     @pytest.fixture
     def user_service(self):
         return UserService()
-    
+
     @pytest.mark.parametrize("invalid_email", ["", "invalid", "@test.com"])
     def test_should_reject_invalid_emails(self, user_service, invalid_email):
         with pytest.raises(ValueError, match="Invalid email"):
             user_service.create_user({"email": invalid_email})
-    
+
     @patch('src.user_service.email_validator')
     def test_should_handle_validation_failure(self, mock_validator, user_service):
         mock_validator.validate.side_effect = ConnectionError()
-        
+
         with pytest.raises(ConnectionError):
             user_service.create_user({"email": "test@example.com"})
 ```

@@ -1,20 +1,13 @@
 ---
 title: Configuring private networking for GitHub-hosted runners in your organization
 shortTitle: Configuring private networking
-intro: 'Learn how to use {% data variables.product.company_short %}-hosted runners with an Azure private network in your organization.'
+intro: Learn how to use {% data variables.product.company_short %}-hosted runners with an Azure private network in your organization.
 versions:
   feature: actions-private-networking-azure-vnet
-type: how_to
 permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
-topics:
-  - Actions
-  - Action development
-  - Azure Virtual Network
-  - Administrator
-  - Developer
-  - CI
-  - CD
-  - Organizations
+contentType: how-tos
+category:
+  - Secure and monitor your organization
 ---
 
 ## About Azure private networking for {% data variables.product.company_short %}-hosted runners
@@ -92,9 +85,9 @@ https://api.github.com/graphql
 ### 2. Create a runner group for your organization
 
 > [!NOTE]
-> For the runner group to be accessible by repositories within your organizations, those repositories must have access to that runner group at the organization level. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#changing-which-repositories-can-access-a-runner-group).
+> For the runner group to be accessible by repositories within your organizations, those repositories must have access to that runner group at the organization level. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/control-access#changing-which-repositories-can-access-a-runner-group).
 
-1. Create a new runner group for your organization. For more information about how to create a runner group, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners#creating-a-runner-group-for-an-organization).
+1. Create a new runner group for your organization. For more information about how to create a runner group, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/control-access#creating-a-runner-group-for-an-organization).
 1. To choose a policy for repository access, select the **Repository access** dropdown menu and click a policy. You can configure a runner group to be accessible to a specific list of repositories, or all repositories in the organization.
 1. While configuring your runner group, under "Network configurations," use the dropdown menu to select the network configuration you created for the Azure VNET.
 1. To create the group and apply the policy, click **Create group**.
@@ -104,7 +97,7 @@ https://api.github.com/graphql
 > [!NOTE]
 > When adding your {% data variables.product.company_short %}-hosted runner to a runner group, select the runner group you created in the previous procedures.
 
-1. Add the {% data variables.product.company_short %}-hosted runner to the runner group. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization).
+1. Add the {% data variables.product.company_short %}-hosted runner to the runner group. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-organization).
 
 ### 4. Optionally, manage network configurations
 
@@ -114,6 +107,35 @@ https://api.github.com/graphql
 1. To edit a network configuration, to the right of the network configuration, click {% octicon "pencil" aria-label="Edit a network configuration" %}. Then click **Edit configuration**.
 1. To disable a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Disable**.
 1. To delete a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Delete**.
+
+### 5. Optionally, add a failover network to a network configuration
+
+{% data reusables.actions.azure-vnet-about-failover %}
+
+Before adding a failover network, ensure you have configured the Azure resources (VNET, subnet, network security group, and network settings resource) for the secondary subnet, following the same "Configuring your Azure resources" procedures above. The failover subnet can be in a different Azure region from your primary subnet.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the left sidebar, click **Hosted compute networking**.
+1. Click the edit icon ({% octicon "pencil" aria-label="Edit a network configuration" %}) next to the network configuration you want to add a failover network to. Then click **Edit configuration**.
+1. Click **Add failover network**.
+1. In the popup window, enter the network settings resource ID for your secondary (failover) Azure subnet.
+1. Click **Add Azure Virtual Network**.
+1. You will now see two subnets listed in the network configuration: the primary and the failover, labeled accordingly.
+
+### 6. Optionally, enable or disable the failover network
+
+After adding a failover network, you can enable it to route traffic through the secondary subnet, or disable it to return to the primary subnet.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the left sidebar, click **Hosted compute networking**.
+1. Click the edit icon ({% octicon "pencil" aria-label="Edit a network configuration" %}) next to the network configuration. Then click **Edit configuration**.
+1. To switch to the failover network, click **Enable failover VNET**. Runner traffic will be routed through the failover subnet.
+1. To switch back to the primary network, click **Disable failover VNET**. Runner traffic will return to the primary subnet.
+
+> [!NOTE]
+> If {% data variables.product.company_short %} enables failover automatically during a regional outage, you will be notified via audit log event and email. You must manually disable the failover to return to the primary subnet when the outage is resolved.
 
 ## Deleting a subnet
 

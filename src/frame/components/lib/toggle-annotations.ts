@@ -1,6 +1,7 @@
 import Cookies from '@/frame/components/lib/cookies'
 import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
+import { ANNOTATE_MODE_COOKIE_NAME } from '@/frame/lib/constants'
 
 enum annotationMode {
   Beside = 'beside',
@@ -23,7 +24,7 @@ export default function toggleAnnotation() {
   const annotationButtons = Array.from(document.querySelectorAll('.annotate-toggle button'))
   if (!annotationButtons.length) return
 
-  const cookie = validateMode(Cookies.get('annotate-mode')) // will default to beside
+  const cookie = validateMode(Cookies.get(ANNOTATE_MODE_COOKIE_NAME)) // will default to beside
   displayAnnotationMode(annotationButtons, cookie)
 
   // this loop adds event listeners for both the annotation buttons
@@ -33,7 +34,7 @@ export default function toggleAnnotation() {
 
       // validate the annotation mode and set the cookie with the valid mode
       const validMode = validateMode(annotationBtn.getAttribute('value')!)
-      Cookies.set('annotate-mode', validMode!)
+      Cookies.set(ANNOTATE_MODE_COOKIE_NAME, validMode!)
       sendEvent({
         type: EventType.preference,
         preference_name: 'code_display',
@@ -51,7 +52,7 @@ export default function toggleAnnotation() {
 function setActive(annotationButtons: Array<Element>, targetMode?: string) {
   const activeElements: Array<Element> = []
   targetMode = validateMode(targetMode)
-  annotationButtons.forEach((el) => {
+  for (const el of annotationButtons) {
     if (el.getAttribute('value') === targetMode) {
       el.ariaCurrent = 'true'
       el.classList.add('selected')
@@ -60,7 +61,7 @@ function setActive(annotationButtons: Array<Element>, targetMode?: string) {
       el.removeAttribute('aria-current')
       el.classList.remove('selected')
     }
-  })
+  }
 
   if (!activeElements.length)
     throw new Error('No annotationBtn item is active for code annotation.')
@@ -70,15 +71,15 @@ function setActive(annotationButtons: Array<Element>, targetMode?: string) {
 
 // displays the chosen annotation mode
 function displayAnnotationMode(annotationBtnItems: Array<Element>, targetMode?: string) {
-  if (!targetMode || targetMode === annotationMode.Beside)
-    annotationBtnItems.forEach((el) => {
+  if (!targetMode || targetMode === annotationMode.Beside) {
+    for (const el of annotationBtnItems) {
       el.closest('.annotate')?.classList.replace('inline', 'beside')
-    })
-  else if (targetMode === annotationMode.Inline)
-    annotationBtnItems.forEach((el) => {
+    }
+  } else if (targetMode === annotationMode.Inline) {
+    for (const el of annotationBtnItems) {
       el.closest('.annotate')?.classList.replace('beside', 'inline')
-    })
-  else throw new Error('Invalid target mode set for annotation.')
+    }
+  } else throw new Error('Invalid target mode set for annotation.')
 
   setActive(annotationBtnItems, targetMode)
 }

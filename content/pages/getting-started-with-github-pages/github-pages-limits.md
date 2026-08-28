@@ -6,8 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
+category:
+  - Set up a GitHub Pages site
 ---
 
 ## Usage limits
@@ -19,7 +19,7 @@ In addition, your use of {% data variables.product.prodname_pages %} is subject 
 {% data variables.product.prodname_pages %} sites are subject to the following usage limits:
 
 * You can only create one user or organization site for each account on {% data variables.product.github %}.
-* {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1 GB. {% ifversion fpt or ghec %}For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#file-and-repository-size-limitations){% endif %}.
+* {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1 GB. {% ifversion fpt or ghec %}For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github){% endif %}.
 * Published {% data variables.product.prodname_pages %} sites may be no larger than 1 GB.
 * {% data variables.product.prodname_pages %} deployments will timeout if they take longer than 10 minutes.
 {% ifversion fpt or ghec %}
@@ -41,7 +41,7 @@ If you're a {% data variables.enterprise.prodname_managed_user %}, your use of {
 * {% data variables.product.prodname_pages %} sites are always privately published, and you cannot change this visibility. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site).
 * You cannot create an organization site (a site published from a repository named `<organization>.github.io`)
 
-For more information about {% data variables.product.prodname_emus %}, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
+For more information about {% data variables.product.prodname_emus %}, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).
 
 {% endif %}
 

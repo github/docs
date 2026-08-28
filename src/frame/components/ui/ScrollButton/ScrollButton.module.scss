@@ -4,10 +4,12 @@
 
 .opacity0 {
   opacity: 0;
+  pointer-events: none;
 }
 
 .opacity100 {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .customFocus:focus:not(:focus-visible), // override primer css specificity
@@ -15,4 +17,16 @@
   outline: 2px solid var(--fgColor-accent, var(--color-accent-fg));
   outline-offset: -2px;
   box-shadow: 0 0 0 4px inset; // A little wider for the border radius :shrug:
+}
+
+.scrollButton {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+// When the viewport is too short to show the button permanently,
+// reveal it on keyboard focus so it remains accessible (a11y #16466).
+.scrollWrapper:has(.scrollButton:focus-visible) {
+  opacity: 1;
+  pointer-events: auto;
 }

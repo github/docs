@@ -4,13 +4,18 @@ intro: 'You can run queries on real {% data variables.product.prodname_dotcom %}
 redirect_from:
   - /v4/guides/using-the-explorer
   - /graphql/guides/using-the-explorer
+  - /graphql/overview/explorer
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
+category:
+  - Get started and make API calls
 ---
+
+
+> [!WARNING]
+> The GraphQL Explorer was removed from the documentation on November 11, 2025. See our [changelog announcement](https://github.blog/changelog/2025-11-07-graphql-explorer-removal-from-api-documentation-on-november-7-2025).
 
 ## Using GraphQL client IDEs
 

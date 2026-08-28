@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
 children:
   - /modifying-an-oauth-app
   - /activating-optional-features-for-oauth-apps

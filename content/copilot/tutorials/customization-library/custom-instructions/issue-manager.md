@@ -1,17 +1,17 @@
 ---
 title: Issue manager
-intro: 'Create well-structured issues and responses.'
+intro: Create well-structured issues and responses.
 versions:
   feature: copilot
 category:
   - Custom instructions
   - GitHub flows
+  - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
-  - Issues
+contentType: tutorials
 ---
 
 {% data reusables.copilot.customization-examples-note %}
@@ -50,7 +50,7 @@ When creating or managing {% data variables.product.prodname_dotcom %} issues:
 
 ## Key Response Guidelines
 - Request reproduction steps for unclear bugs
-- Ask for screenshots/logs when visual issues are reported  
+- Ask for screenshots/logs when visual issues are reported
 - Explain technical concepts clearly for non-technical users
 - Update issue status regularly with progress information
 

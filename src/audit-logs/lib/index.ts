@@ -2,7 +2,9 @@ import path from 'path'
 
 import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 import { getOpenApiVersion } from '@/versions/lib/all-versions'
+import { supported as supportedGhesReleases } from '@/versions/lib/enterprise-server-releases'
 import findPage from '@/frame/lib/find-page'
+import type { Context, Page } from '@/types'
 import type {
   AuditLogEventT,
   CategorizedEvents,
@@ -10,6 +12,8 @@ import type {
   RawAuditLogEventT,
   CategoryNotes,
   AuditLogConfig,
+  DeduplicatedAuditLogEntry,
+  AuditLogVersionIndex,
 } from '../types'
 import config from './config.json'
 
@@ -18,6 +22,86 @@ export const AUDIT_LOG_DATA_DIR = 'src/audit-logs/data'
 // cache of audit log data
 const auditLogEventsCache = new Map<string, Map<string, AuditLogEventT[]>>()
 const categorizedAuditLogEventsCache = new Map<string, Map<string, CategorizedEvents>>()
+
+// Shared dedup data — loaded once, shared across all versions
+let sharedEntries: DeduplicatedAuditLogEntry[] | null = null
+let sharedFieldsPool: string[][] | null = null
+let sharedVersionIndex: AuditLogVersionIndex | null = null
+let sharedFormatAvailable: boolean | null = null // null = not checked yet
+
+// A missing shared-format file is expected (per-version files are the fallback),
+// but a corrupt or unparseable file should fail loudly rather than silently
+// degrade to the per-version files and hide bad generated data.
+function isFileNotFoundError(err: unknown): boolean {
+  if (!(err instanceof Error) || !('code' in err)) return false
+  const code = (err as NodeJS.ErrnoException).code
+  return code === 'ENOENT' || code === 'ENOTDIR'
+}
+
+function loadSharedFormat(): boolean {
+  if (sharedFormatAvailable !== null) return sharedFormatAvailable
+  try {
+    sharedEntries = readCompressedJsonFileFallback(
+      path.join(AUDIT_LOG_DATA_DIR, 'shared', 'entries.json'),
+    ) as DeduplicatedAuditLogEntry[]
+    sharedFieldsPool = readCompressedJsonFileFallback(
+      path.join(AUDIT_LOG_DATA_DIR, 'shared', 'fields-pool.json'),
+    ) as string[][]
+    sharedVersionIndex = readCompressedJsonFileFallback(
+      path.join(AUDIT_LOG_DATA_DIR, 'version-index.json'),
+    ) as AuditLogVersionIndex
+    // Freeze pool data so reconstructed events (which return references into
+    // these pools) can't be mutated by downstream code and leak across versions.
+    Object.freeze(sharedEntries)
+    Object.freeze(sharedFieldsPool)
+    for (const fields of sharedFieldsPool) Object.freeze(fields)
+    sharedFormatAvailable = true
+  } catch (err) {
+    if (isFileNotFoundError(err)) {
+      // Shared files don't exist — fall back to per-version files silently.
+      sharedFormatAvailable = false
+    } else {
+      // Corrupt JSON, schema mismatch, etc. — surface this instead of hiding it.
+      console.error('Failed to load shared audit log dedup format (corrupt data?):', err)
+      throw err
+    }
+  }
+  return sharedFormatAvailable
+}
+
+function reconstructEventsFromSharedFormat(version: string, page: string): AuditLogEventT[] | null {
+  if (!loadSharedFormat()) return null
+  const indices = sharedVersionIndex?.[version]?.[page]
+  if (!indices) return null
+
+  return indices.map((idx) => {
+    if (idx < 0 || idx >= sharedEntries!.length) {
+      throw new RangeError(
+        `Audit log version-index references entry ${idx} for ${version}/${page}, ` +
+          `but the entries pool only has ${sharedEntries!.length} entries. ` +
+          `The shared dedup data may be stale or corrupt.`,
+      )
+    }
+    const entry = sharedEntries![idx]
+    const event: AuditLogEventT = {
+      action: entry.action,
+      description: entry.description,
+    }
+    if (entry.docs_reference_links) event.docs_reference_links = entry.docs_reference_links
+    if (entry.docs_reference_titles) event.docs_reference_titles = entry.docs_reference_titles
+    if (entry.fieldsIndex !== undefined) {
+      if (entry.fieldsIndex < 0 || entry.fieldsIndex >= sharedFieldsPool!.length) {
+        throw new RangeError(
+          `Audit log entry references fields index ${entry.fieldsIndex} for ${version}/${page}, ` +
+            `but the fields pool only has ${sharedFieldsPool!.length} entries. ` +
+            `The shared dedup data may be stale or corrupt.`,
+        )
+      }
+      event.fields = sharedFieldsPool![entry.fieldsIndex]
+    }
+    return event
+  })
+}
 
 type PipelineConfig = {
   sha: string
@@ -30,9 +114,78 @@ export function getCategoryNotes(): CategoryNotes {
   return auditLogConfig.categoryNotes || {}
 }
 
-type TitleResolutionContext = {
-  pages: Record<string, any>
+export type TitleResolutionContext = Context & {
+  pages: Record<string, Page>
   redirects: Record<string, string>
+}
+
+// Memoizes resolved reference links by their input string. The resolved markdown
+// only depends on the link string plus the pages/redirects indexes, and those
+// indexes are process-wide singletons that only change on deploy (a fresh
+// process). Without this, the audit-log pages re-render ~500 page titles on every
+// request (~90–150ms of repeated work). See docs-engineering#6650.
+const referenceLinksMarkdownCache = new Map<string, Promise<string>>()
+
+// Resolves docs_reference_links URLs to markdown links
+export function resolveReferenceLinksToMarkdown(
+  docsReferenceLinks: string,
+  context: TitleResolutionContext,
+): Promise<string> {
+  if (!docsReferenceLinks || docsReferenceLinks === 'N/A') {
+    return Promise.resolve('')
+  }
+
+  let cached = referenceLinksMarkdownCache.get(docsReferenceLinks)
+  if (!cached) {
+    cached = computeReferenceLinksToMarkdown(docsReferenceLinks, context)
+    referenceLinksMarkdownCache.set(docsReferenceLinks, cached)
+  }
+  return cached
+}
+
+async function computeReferenceLinksToMarkdown(
+  docsReferenceLinks: string,
+  context: TitleResolutionContext,
+): Promise<string> {
+  // Handle multiple comma-separated or space-separated links
+  const links = docsReferenceLinks
+    .split(/[,\s]+/)
+    .map((link) => link.trim())
+    .filter((link) => link && link !== 'N/A')
+
+  const markdownLinks = []
+  for (const link of links) {
+    try {
+      const page = findPage(link, context.pages, context.redirects)
+      if (page) {
+        // Create a minimal context for rendering the title
+        const renderContext = {
+          currentLanguage: 'en',
+          currentVersion: 'free-pro-team@latest',
+          pages: context.pages,
+          redirects: context.redirects,
+        } as unknown as Context
+        const title = await page.renderProp('title', renderContext, { textOnly: true })
+        markdownLinks.push(`[${title}](${link})`)
+      } else {
+        // If we can't resolve the link, use the original URL
+        markdownLinks.push(link)
+      }
+    } catch (error) {
+      // If resolution fails, use the original URL
+      console.warn(
+        `Failed to resolve title for link: ${link}`,
+        error instanceof Error
+          ? error instanceof Error
+            ? error.message
+            : String(error)
+          : String(error),
+      )
+      markdownLinks.push(link)
+    }
+  }
+
+  return markdownLinks.join(', ')
 }
 
 // Resolves docs_reference_links URLs to page titles
@@ -61,7 +214,7 @@ async function resolveReferenceLinksToTitles(
           currentVersion: 'free-pro-team@latest',
           pages: context.pages,
           redirects: context.redirects,
-        }
+        } as unknown as Context
         const title = await page.renderProp('title', renderContext, { textOnly: true })
         titles.push(title)
       } else {
@@ -96,33 +249,36 @@ async function resolveReferenceLinksToTitles(
 //     docs_reference_links: 'event reference links'
 //   },
 // ]
-export function getAuditLogEvents(page: string, version: string) {
+export function getAuditLogEvents(page: string, version: string): AuditLogEventT[] {
   const openApiVersion = getOpenApiVersion(version)
-  const auditLogFileName = path.join(AUDIT_LOG_DATA_DIR, openApiVersion, `${page}.json`)
 
   // If the data isn't cached for an entire version or a particular page, read
-  // the data from the JSON file the first time around
+  // the data from the shared dedup format or fall back to per-version JSON files
   if (!auditLogEventsCache.has(openApiVersion)) {
     auditLogEventsCache.set(openApiVersion, new Map())
-    auditLogEventsCache.get(openApiVersion)?.set(page, [])
-    auditLogEventsCache
-      .get(openApiVersion)
-      ?.set(page, readCompressedJsonFileFallback(auditLogFileName))
-  } else if (!auditLogEventsCache.get(openApiVersion)?.has(page)) {
-    auditLogEventsCache.get(openApiVersion)?.set(page, [])
-    auditLogEventsCache
-      .get(openApiVersion)
-      ?.set(page, readCompressedJsonFileFallback(auditLogFileName))
+  }
+  if (!auditLogEventsCache.get(openApiVersion)?.has(page)) {
+    // Try shared deduplicated format first
+    const events = reconstructEventsFromSharedFormat(openApiVersion, page)
+    if (events) {
+      auditLogEventsCache.get(openApiVersion)?.set(page, events)
+    } else {
+      // Fall back to per-version JSON file
+      const auditLogFileName = path.join(AUDIT_LOG_DATA_DIR, openApiVersion, `${page}.json`)
+      auditLogEventsCache
+        .get(openApiVersion)
+        ?.set(page, readCompressedJsonFileFallback(auditLogFileName) as AuditLogEventT[])
+    }
   }
 
-  const auditLogEvents = auditLogEventsCache.get(openApiVersion)?.get(page)!
+  const auditLogEvents = auditLogEventsCache.get(openApiVersion)?.get(page)
   // If an event doesn't yet have a description (value will be empty string or
   // "N/A"), then we don't show the event.
-  const filteredAuditLogEvents = auditLogEvents.filter(
+  const filteredAuditLogEvents = auditLogEvents?.filter(
     (event) => event.description !== 'N/A' && event.description !== '',
   )
 
-  return filteredAuditLogEvents
+  return filteredAuditLogEvents || []
 }
 
 // get categorized audit log event data for the requested page and version
@@ -137,7 +293,7 @@ export function getAuditLogEvents(page: string, version: string) {
 //   repo: [ [Object] ],
 //   user: [ [Object], [Object] ]
 // }
-export function getCategorizedAuditLogEvents(page: string, version: string) {
+export function getCategorizedAuditLogEvents(page: string, version: string): CategorizedEvents {
   const events = getAuditLogEvents(page, version)
   const openApiVersion = getOpenApiVersion(version)
 
@@ -148,7 +304,7 @@ export function getCategorizedAuditLogEvents(page: string, version: string) {
     categorizedAuditLogEventsCache.get(openApiVersion)?.set(page, categorizeEvents(events))
   }
 
-  return categorizedAuditLogEventsCache.get(openApiVersion)?.get(page)!
+  return categorizedAuditLogEventsCache.get(openApiVersion)?.get(page) || {}
 }
 
 // Filters audit log events based on allowlist values.
@@ -158,12 +314,14 @@ export async function filterByAllowlistValues({
   currentEvents = [],
   pipelineConfig,
   titleContext,
+  globalFields = [],
 }: {
   eventsToCheck: RawAuditLogEventT[]
   allowListValues: string | string[]
   currentEvents?: AuditLogEventT[]
   pipelineConfig: PipelineConfig
   titleContext?: TitleResolutionContext
+  globalFields?: string[]
 }) {
   if (!Array.isArray(allowListValues)) allowListValues = [allowListValues]
   if (!currentEvents) currentEvents = []
@@ -179,11 +337,18 @@ export async function filterByAllowlistValues({
       if (seen.has(event.action)) continue
       seen.add(event.action)
 
+      // Merge global fields with event-specific fields
+      const mergedFields = event.fields
+        ? [...new Set([...globalFields, ...event.fields])]
+        : globalFields.length > 0
+          ? [...globalFields]
+          : undefined
+
       const minimal: AuditLogEventT = {
         action: event.action,
         description: processAndGetEventDescription(event, eventAllowlists, pipelineConfig),
         docs_reference_links: event.docs_reference_links,
-        fields: event.fields,
+        fields: mergedFields,
       }
 
       // Resolve reference link titles if context is provided
@@ -239,6 +404,8 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
   pipelineConfig,
   auditLogPage,
   titleContext,
+  globalFields = [],
+  supportedGhesVersions = supportedGhesReleases,
 }: {
   eventsToCheck: RawAuditLogEventT[]
   allowListValue: string
@@ -246,8 +413,17 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
   pipelineConfig: PipelineConfig
   auditLogPage: string
   titleContext?: TitleResolutionContext
+  globalFields?: string[]
+  supportedGhesVersions?: string[]
 }) {
   if (!currentGhesEvents) currentGhesEvents = {}
+
+  // Upstream `audit-log-allowlists/data/schema.json` lags docs's deprecation
+  // schedule, so events still list `ghes` keys for versions we've already
+  // dropped from `supported` in `enterprise-server-releases.ts`. Without this
+  // filter, the nightly sync would re-add `src/audit-logs/data/ghes-X.Y/`
+  // dirs for those deprecated versions. See docs-engineering#6562.
+  const supportedGhesVersionSet = new Set(supportedGhesVersions)
 
   const seenByGhesVersion = new Map()
   for (const [ghesVersion, events] of Object.entries(currentGhesEvents)) {
@@ -258,6 +434,7 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
 
   for (const event of eventsToCheck) {
     for (const ghesVersion of Object.keys(event.ghes)) {
+      if (!supportedGhesVersionSet.has(ghesVersion)) continue
       const ghesVersionAllowlists = event.ghes[ghesVersion]._allowlists
       const fullGhesVersion = `ghes-${ghesVersion}`
 
@@ -265,11 +442,21 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
       if (seenByGhesVersion.get(fullGhesVersion)?.has(event.action)) continue
 
       if (ghesVersionAllowlists.includes(allowListValue)) {
+        // Get event-specific fields (prefer GHES version fields, fall back to base fields)
+        const eventFields = event.ghes[ghesVersion].fields || event.fields
+
+        // Merge global fields with event-specific fields
+        const mergedFields = eventFields
+          ? [...new Set([...globalFields, ...eventFields])]
+          : globalFields.length > 0
+            ? [...globalFields]
+            : undefined
+
         const minimal: AuditLogEventT = {
           action: event.action,
           description: processAndGetEventDescription(event, ghesVersionAllowlists, pipelineConfig),
           docs_reference_links: event.docs_reference_links,
-          fields: event.ghes[ghesVersion].fields || event.fields,
+          fields: mergedFields,
         }
 
         // Resolve reference link titles if context is provided
@@ -317,14 +504,14 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
 // Categorizes the given array of audit log events by event category
 function categorizeEvents(events: AuditLogEventT[]) {
   const categorizedEvents: CategorizedEvents = {}
-  events.forEach((event) => {
+  for (const event of events) {
     const [category] = event.action.split('.')
     if (!Object.hasOwn(categorizedEvents, category)) {
       categorizedEvents[category] = []
     }
 
     categorizedEvents[category].push(event)
-  })
+  }
 
   return categorizedEvents
 }

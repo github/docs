@@ -6,8 +6,6 @@ permissions: Organization owners
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot
@@ -17,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/content-exclusion/reviewing-changes-to-content-exclusions-for-github-copilot
   - /copilot/how-tos/content-exclusion/review-changes
 contentType: how-tos
+category:
+  - Configure Copilot
 ---
 
 Organization and repository settings include the ability to exclude content from being used by {% data variables.product.prodname_copilot %}. You can review any changes that are made to these content exclusion settings.
@@ -26,7 +26,7 @@ Organization and repository settings include the ability to exclude content from
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
-1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
 {% data reusables.copilot.view-last-change-content-exclusions %}
 1. Click the time of the last change.
 
@@ -56,15 +56,11 @@ Organization and repository settings include the ability to exclude content from
 
 ## Reviewing changes in your enterprise
 
-<!-- expires 2025-10-20 -->
-<!-- Temporarily documents the old and new UI for direct Copilot licensing -->
-<!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
-
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. If you see tabs at the top of the page, click the **Content exclusion** tab. Otherwise, click the {% octicon "chevron-right" aria-label="Go to content exclusion settings" %} icon next to "Content exclusion".
-1. At the bottom of the page you'll see the name of the person who last changed the content exclusion settings, and information about when they made this change. Click the time of the last change.
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+{% data reusables.enterprise-accounts.view-copilot-policies %}
+1. Click {% octicon "circle-slash" aria-hidden="true" aria-label="circle-slash" %} **Content exclusion**.
+1. At the bottom of the page, you'll see the name of the person who last changed the content exclusion settings, and information about when they made this change. Click the time of the last change.
 
    ![Screenshot of the last edited information. The time of change link is highlighted with a dark orange outline.](/assets/images/help/copilot/content-exclusions-last-edited-by.png)
 
@@ -74,10 +70,8 @@ Organization and repository settings include the ability to exclude content from
 
 {% data reusables.copilot.more-details-content-exclusion-logs %}
 
-<!-- end expires 2025-10-20 -->
-
 {% endif %}
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/content-exclusion-for-github-copilot)
+* [AUTOTITLE](/copilot/concepts/context/content-exclusion)

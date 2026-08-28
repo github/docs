@@ -2,7 +2,7 @@ import assert from 'assert'
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
-import yaml from 'js-yaml'
+import { loadYaml } from '@/frame/lib/load-yaml'
 import { isRegExp, setWith } from 'lodash-es'
 import filenameToKey from './filename-to-key'
 import matter from '@gr2m/gray-matter'
@@ -14,7 +14,7 @@ interface DataDirectoryOptions {
 }
 
 interface DataDirectoryResult {
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export default function dataDirectory(
@@ -54,7 +54,7 @@ export default function dataDirectory(
     fs.readFileSync(filename, 'utf8'),
   ])
 
-  files.forEach(([filename, fileContent]) => {
+  for (const [filename, fileContent] of files) {
     // derive `foo.bar.baz` object key from `foo/bar/baz.yml` filename
     const key = filenameToKey(path.relative(dir, filename))
     const extension = path.extname(filename).toLowerCase()
@@ -74,7 +74,7 @@ export default function dataDirectory(
         setWith(data, key, JSON.parse(processedContent), Object)
         break
       case '.yml':
-        setWith(data, key, yaml.load(processedContent, { filename }), Object)
+        setWith(data, key, loadYaml(processedContent, { filename }), Object)
         break
       case '.md':
       case '.markdown':
@@ -84,7 +84,7 @@ export default function dataDirectory(
         setWith(data, key, matter(processedContent).content, Object)
         break
     }
-  })
+  }
 
   return data
 }

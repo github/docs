@@ -8,12 +8,10 @@ redirect_from:
   - /admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Pre-receive hooks
 shortTitle: Pre-receive hook scripts
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.pre-receive-hook-examples %}
@@ -91,22 +89,22 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>auto-merge deployment api</pre> | Automatic merge of the base branch via a deployment created with the API | [AUTOTITLE](/rest/deployments#create-a-deployment) |
 | <pre>blob#save</pre> | Change to a file's contents in the web interface | [AUTOTITLE](/repositories/working-with-files/managing-files/editing-files) |
 | <pre>branch merge api</pre> | Merge of a branch via the API | [AUTOTITLE](/rest/branches#merge-a-branch) |
-| <pre>branches page delete button</pre> | Deletion of a branch in the web interface | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch) |
+| <pre>branches page delete button</pre> | Deletion of a branch in the web interface | [AUTOTITLE](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository#deleting-a-branch) |
 | <pre>git refs create api</pre> | Creation of a ref via the API | [AUTOTITLE](/rest/git/refs#create-a-reference) |
 | <pre>git refs delete api</pre> | Deletion of a ref via the API | [AUTOTITLE](/rest/git/refs#delete-a-reference) |
 | <pre>git refs update api</pre> | Update of a ref via the API | [AUTOTITLE](/rest/git/refs#update-a-reference) |
 | <pre>git repo contents api</pre> | Change to a file's contents via the API | [AUTOTITLE](/rest/repos/contents#create-or-update-file-contents) |
-| `merge` | Merge of a pull request using auto-merge | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request) |
+| `merge` | Merge of a pull request using auto-merge | [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/automatically-merging-a-pull-request) |
 | <pre>merge base into head</pre> | Update of the topic branch from the base branch when the base branch requires strict status checks (via **Update branch** in a pull request, for example) | [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging) |
 | <pre>pull request branch delete button</pre> | Deletion of a topic branch from a pull request in the web interface | [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request) |
 | <pre>pull request branch undo button</pre> | Restoration of a topic branch from a pull request in the web interface | [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch) |
 | <pre>pull request merge api</pre> | Merge of a pull request via the API | [AUTOTITLE](/rest/pulls/pulls#merge-a-pull-request) |
-| <pre>pull request merge button</pre> | Merge of a pull request in the web interface | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request#merging-a-pull-request-on-github) |
-| <pre>pull request revert button</pre> | Revert of a pull request | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request) |
+| <pre>pull request merge button</pre> | Merge of a pull request in the web interface | [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github) |
+| <pre>pull request revert button</pre> | Revert of a pull request | [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/reverting-a-pull-request) |
 | <pre>releases delete button</pre> | Deletion of a release | [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#deleting-a-release) |
-| <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | [AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#repositories) |
+| <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui) |
 | <pre>tag create api</pre> | Creation of a tag via the API | [AUTOTITLE](/rest/git/tags#create-a-tag-object) |
-| <pre>web branch create</pre> | Creation of a branch via the web interface | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) |
+| <pre>web branch create</pre> | Creation of a branch via the web interface | [AUTOTITLE](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository#creating-a-branch) |
 
 #### Available for pull request merges
 
@@ -149,7 +147,7 @@ We recommend consolidating hooks to a single repository. If the consolidated hoo
    git push
    ```
 
-1. [Create the pre-receive hook](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
+1. [Create the pre-receive hook](/admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-your-instance#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
 
 ## Testing pre-receive scripts locally
 

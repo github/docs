@@ -24,8 +24,8 @@ export const SharedUIContextProvider = ({ children }: { children: React.ReactNod
   return (
     <SharedUIContext.Provider
       value={{
-        hasOpenHeaderNotifications: hasOpenHeaderNotifications,
-        setHasOpenHeaderNotifications: setHasOpenHeaderNotifications,
+        hasOpenHeaderNotifications,
+        setHasOpenHeaderNotifications,
       }}
     >
       {children}

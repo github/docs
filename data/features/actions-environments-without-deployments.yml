@@ -1,0 +1,5 @@
+# Reference: https://github.com/github/docs-internal/pull/60278
+# The `deployment` property on environments allows opting out of deployment creation.
+versions:
+  fpt: '*'
+  ghec: '*'

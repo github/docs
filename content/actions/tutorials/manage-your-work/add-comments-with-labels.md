@@ -1,6 +1,6 @@
 ---
 title: Commenting on an issue when a label is added
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.'
+intro: You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.
 redirect_from:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
   - /actions/managing-issues-and-pull-requests/commenting-on-an-issue-when-a-label-is-added
@@ -11,18 +11,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Workflows
-  - Project management
 shortTitle: Add comments with labels
+contentType: tutorials
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
-This tutorial demonstrates how to use the {% data variables.product.prodname_cli %} to comment on an issue when a specific label is applied. For example, when the `help wanted` label is added to an issue, you can add a comment to encourage contributors to work on the issue. For more information about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/actions/using-workflows/using-github-cli-in-workflows).
+This tutorial demonstrates how to use the {% data variables.product.prodname_cli %} to comment on an issue when a specific label is applied. For example, when the `help wanted` label is added to an issue, you can add a comment to encourage contributors to work on the issue. For more information about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-github-cli).
 
 In the tutorial, you will first make a workflow file that uses the `gh issue comment` command to comment on an issue. Then, you will customize the workflow to suit your needs.
 
@@ -68,9 +67,9 @@ Every time an issue in your repository is labeled, this workflow will run. If th
 
 Test your workflow by applying your specified label to an issue.
 
-1. Open an issue in your repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
-1. Label the issue with the specified label in your workflow file. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests).
-1. To see the workflow run triggered by labeling the issue, view the history of your workflow runs. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
+1. Open an issue in your repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).
+1. Label the issue with the specified label in your workflow file. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-a-label).
+1. To see the workflow run triggered by labeling the issue, view the history of your workflow runs. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-workflow-run-history).
 1. When the workflow completes, the issue that you labeled should have a comment added.
 
 ## Next steps

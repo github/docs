@@ -1,21 +1,36 @@
-import { OctocatHeader } from '@/landings/components/OctocatHeader'
+import { Heading, Text } from '@primer/react-brand'
+
 import { useTranslation } from '@/languages/components/useTranslation'
+import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
+import styles from './HomePageHero.module.scss'
 
 export const HomePageHero = () => {
   const { t } = useTranslation(['header', 'homepage'])
+  const { setIsSearchOpen } = useSearchOverlayContext()
 
   return (
-    <section id="landing" className="color-bg-subtle p-6">
-      <div className="container-xl px-xl-6">
-        <div className="gutter gutter-xl-spacious d-lg-flex flex-row-reverse flex-items-center">
-          <div className="col-lg-6 col-xl-7 mb-4 mb-lg-0">
-            <OctocatHeader />
-          </div>
-          <div className="col-lg-6 col-xl-5">
-            <h1 id="title-h1">{t('github_docs')}</h1>
-            <p className="color-fg-muted f2 mb-0">{t('description')}</p>
-          </div>
+    <section id="landing" className={styles.hero}>
+      <div className={styles.rails}>
+        <div className={styles.titleRow}>
+          <Heading as="h1" size="display" className={styles.title}>
+            {t('github_docs')}
+          </Heading>
+          <Text as="p" size="200" variant="muted" className={styles.lede}>
+            {t('description')}
+          </Text>
         </div>
+
+        <button
+          type="button"
+          data-testid="homepage-search"
+          className={styles.searchRow}
+          onClick={() => setIsSearchOpen(true)}
+          aria-haspopup="dialog"
+          aria-label={t('search_placeholder')}
+        >
+          <span className={styles.searchPlaceholder}>{t('search_placeholder')}</span>
+          <kbd className={styles.searchHint}>/</kbd>
+        </button>
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { RequestHandler } from 'express'
 import path from 'path'
 
 import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file'
@@ -12,20 +12,22 @@ const clientSideRestAPIRedirects = readCompressedJsonFileFallbackLazily(
 const router = express.Router()
 
 // Returns a client side redirect if one exists for the given path.
-// Note: Using 'any' for req/res because Express types are complex and the
-// function signature is constrained by the router.get() overloads
-router.get('/', function redirects(req: any, res: any) {
+const redirects: RequestHandler = (req, res) => {
   if (!req.query.path) {
-    return res.status(400).send("Missing 'path' query string")
+    res.status(400).send("Missing 'path' query string")
+    return
   }
   if (!req.query.hash) {
-    return res.status(400).send("Missing 'hash' query string")
+    res.status(400).send("Missing 'hash' query string")
+    return
   }
 
   defaultCacheControl(res)
 
   const redirectFrom: string = `${req.query.path}#${req.query.hash}`
   res.status(200).send({ to: clientSideRestAPIRedirects()[redirectFrom] })
-})
+}
+
+router.get('/', redirects)
 
 export default router

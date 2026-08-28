@@ -11,8 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Community
 children:
   - /blocking-a-user-from-your-personal-account
   - /viewing-users-youve-blocked-from-your-personal-account

@@ -1,14 +1,16 @@
 # This Dockerfile is used solely for production deployments to Moda
 # For building this file locally, see src/deployments/production/README.md
-# Environment variables are set in the Moda configuration:
+# Most environment variables are set in the Moda configuration:
 #   config/moda/configuration/*/env.yaml
+# V8 heap sizing is set here via NODE_OPTIONS and mirrored in
+# the Moda config files for defense-in-depth.
 
 # ---------------------------------------------------------------
 # BASE STAGE: Install linux dependencies and set up the node user
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20250929-093120-g65a62eb8c AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20260813-231302-ge6a10052f@sha256:5b0e63cc812202f8b958afd73ad9d7409f78df895c724701fa9e17312d2dab90 AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos
@@ -16,7 +18,14 @@ FROM ghcr.io/github/gh-base-image/gh-base-noble:20250929-093120-g65a62eb8c AS ba
 # https://github.com/nodejs/release#release-schedule
 # Ubuntu's apt-get install nodejs is _very_ outdated
 # Must run as root
-RUN apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
+
+# From https://thehub.github.com/epd/engineering/devops/ci/actions/setting-up-new-github-action/
+# We passed pkg-mirror-host as a secret to the build but it is not sensitive data.
+RUN --mount=type=secret,id=pkg-mirror-host,target=/etc/pkg_mirror_host.txt \
+  if [ -f /etc/pkg_mirror_host.txt ]; then cat /etc/pkg_mirror_host.txt >> /etc/apt/mirrorlist.txt; fi
+
+RUN --mount=type=secret,id=apt-auth-conf,target=/etc/apt/auth.conf.d/apt_auth.conf \
+  apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
   && curl -sL https://deb.nodesource.com/setup_24.x | bash - \
   && apt-get install -y nodejs \
   && node --version
@@ -84,7 +93,7 @@ WORKDIR $APP_HOME
 # Source code
 COPY --chown=node:node src src/
 COPY --chown=node:node package.json ./
-COPY --chown=node:node next.config.js ./
+COPY --chown=node:node next.config.ts ./
 COPY --chown=node:node tsconfig.json ./
 
 # From the clones stage
@@ -112,8 +121,11 @@ RUN npm run warmup-remotejson
 # --------------------------------------
 FROM build AS precompute_stage
 
-# Generate precomputed page info
-RUN npm run precompute-pageinfo -- --max-versions 2
+# Generate precomputed page info. Only English + free-pro-team@latest
+# permalinks are cached; cache misses for older versions and translated
+# pages fall through to runtime compute (which is cheap and Fastly-cached
+# per pathname after the first hit).
+RUN npm run precompute-pageinfo -- --max-versions 1
 
 # -------------------------------------------------
 # PRODUCTION STAGE: What will run on the containers
@@ -125,7 +137,7 @@ WORKDIR $APP_HOME
 # Source code
 COPY --chown=node:node src src/
 COPY --chown=node:node package.json ./
-COPY --chown=node:node next.config.js ./
+COPY --chown=node:node next.config.ts ./
 COPY --chown=node:node tsconfig.json ./
 
 # From clones stage
@@ -151,7 +163,13 @@ COPY --chown=node:node --from=precompute_stage $APP_HOME/.pageinfo-cache.json.br
 ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA
 
+# V8 heap limit as a percentage of the container cgroup memory limit.
+# Uses --max-old-space-size-percentage (Node 24+) so the heap adapts
+# automatically when K8s memory limits change. 80% leaves ~20% headroom
+# for off-heap memory (Buffers, V8 code cache, libuv) and OS overhead.
+# Raised from 75% on advice from performance engineering to reduce GC
+# pressure during traffic spikes.
+ENV NODE_OPTIONS="--max-old-space-size-percentage=80"
+
 # Entrypoint to start the server
-# Note: Currently we have to use tsx because
-# we have a mix of `.ts` and `.js` files with multiple import patterns
 CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]

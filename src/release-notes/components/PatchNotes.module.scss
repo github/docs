@@ -14,3 +14,12 @@
     top: 65px;
   }
 }
+
+.patchHeader {
+  z-index: 1;
+  margin-top: -1px;
+}
+
+.releaseLabel {
+  white-space: pre;
+}

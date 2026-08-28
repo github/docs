@@ -7,7 +7,10 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/archive-a-classroom
   - /education/manage-coursework-with-github-classroom/manage-classrooms
+category:
+  - Set up GitHub Classroom
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About classrooms
 

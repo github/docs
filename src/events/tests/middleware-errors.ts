@@ -10,9 +10,9 @@ describe('formatErrors', () => {
     const { errors } = validateJson({ type: 'string' }, 0)
     const formattedErrors = formatErrors(errors || [], '')
     for (const formatted of formattedErrors) {
-      const { isValid, errors } = validateJson(schemas.validation, formatted)
+      const { isValid, errors: validationErrors } = validateJson(schemas.validation, formatted)
       if (!isValid) {
-        throw new Error(errors?.map((e) => e.message).join(' -- '))
+        throw new Error(validationErrors?.map((e) => e.message).join(' -- '))
       }
     }
   })

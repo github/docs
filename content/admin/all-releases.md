@@ -4,17 +4,16 @@ intro: "Review information for each version of {% data variables.product.prodnam
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Releases
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise.constantly-improving %} See [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases).
 
 ## Releases of {% data variables.product.prodname_ghe_server %}
 
-{% data variables.product.company_short %} supports the **four** most recent feature releases.
+{% data variables.product.company_short %} supports at least the **four** most recent feature releases.
 
 We provide documentation for both supported and unsupported versions of {% data variables.product.prodname_ghe_server %}. We do not maintain or update the documentation for unsupported versions.
 
@@ -54,10 +53,15 @@ We hosted developer documentation for {% data variables.product.prodname_ghe_ser
 
 For instances with a {% data variables.product.prodname_GHAS_or_code_security %} license and {% data variables.product.prodname_code_scanning %} enabled, the {% data variables.product.prodname_codeql %} action for {% data variables.product.prodname_code_scanning %} analysis uses a minimum recommended version of the {% data variables.product.prodname_codeql_cli %} by default.
 
-If you run analysis in an external CI system, we recommend using the same version of the {% data variables.product.prodname_codeql_cli %}. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance).
+If you run analysis in an external CI system, we recommend using the same version of the {% data variables.product.prodname_codeql_cli %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance).
 
 | {% data variables.product.prodname_ghe_server %} version | Recommended {% data variables.product.prodname_codeql_cli %} version |
 | ------------------------------------------------- | ---------------------- |
+| 3.22 | 2.25.6 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.25.6/)) |
+| 3.21 | 2.24.3 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.3/)) |
+| 3.20 | 2.23.9 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.23.9/)) |
+| 3.19 | 2.22.4 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.22.4/)) |
+| 3.18 | 2.21.4 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.21.4/)) |
 | 3.17 | 2.20.7 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.20.7/)) |
 | 3.16 | 2.20.3 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.20.3/)) |
 | 3.15 | 2.18.4 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.18.4/)) |
@@ -73,10 +77,15 @@ If you run analysis in an external CI system, we recommend using the same versio
 For instances with {% data variables.product.prodname_actions %} enabled, self-hosted {% data variables.product.prodname_actions %} runners must run a minimum required version of the {% data variables.product.prodname_actions %} Runner application.
 
 * For most instances, the Runner application is updated automatically.
-* If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners before upgrading {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines).
+* If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners before upgrading {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/actions/reference/runners/self-hosted-runners#requirements-for-self-hosted-runner-machines).
 
 | {% data variables.product.prodname_ghe_server %} version | Minimum Runner version |
 | ------------------------------------------------- | ---------------------- |
+| 3.22 | 2.334.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.334.0)) |
+| 3.21 | 2.331.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.331.0)) |
+| 3.20 | 2.330.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.330.0)) |
+| 3.19 | 2.328.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.328.0)) |
+| 3.18 | 2.324.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.324.0)) |
 | 3.17 | 2.322.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.322.0)) |
 | 3.16 | 2.321.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.321.0)) |
 | 3.15 | 2.319.1 ([release notes](https://github.com/actions/runner/releases/tag/v2.319.1)) |

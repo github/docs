@@ -11,13 +11,12 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import * as github from '@actions/github'
-import core from '@actions/core'
+import * as core from '@actions/core'
 
 import walk from 'walk-sync'
-import { Octokit } from '@octokit/rest'
-import { retry } from '@octokit/plugin-retry'
 
 import { getContents } from './git-utils'
+import { retryingGithub } from '@/workflows/github'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { allVersionShortnames } from '@/versions/lib/all-versions'
@@ -56,10 +55,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     throw new Error(`APP_URL environment variable not set`)
   }
 
-  const RetryingOctokit = Octokit.plugin(retry)
-  const octokit = new RetryingOctokit({
-    auth: `token ${GITHUB_TOKEN}`,
-  })
+  const octokit = retryingGithub(GITHUB_TOKEN)
 
   // get the list of file changes from the PR
   // this works even if the head commit is from a fork
@@ -167,13 +163,13 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     `| ${headings.map((heading) => `**${heading}**`).join(' | ')} |`,
     `| ${headings.map(() => ':---').join(' | ')} |`,
   ]
-  let markdownTable = markdownTableHead.join('\n') + '\n'
+  let markdownTable = `${markdownTableHead.join('\n')}\n`
   for (const filteredLine of filteredLines) {
     if ((markdownTable + filteredLine).length > MAX_COMMENT_SIZE) {
       markdownTable += '\n**Note** There are more changes in this PR than we can show.'
       break
     }
-    markdownTable += filteredLine + '\n'
+    markdownTable += `${filteredLine}\n`
   }
 
   return markdownTable
@@ -201,7 +197,7 @@ function makeRow({
   fileUrl: string
   fileName: string
   sourceUrl: string
-  data: any
+  data: { versions?: Record<string, string | string[]> } | undefined
   fromReusable?: boolean
 }) {
   let contentCell = ''
@@ -216,7 +212,7 @@ function makeRow({
     // the try/catch is needed because getApplicableVersions() returns either [] or throws an error when it can't parse the versions frontmatter
     // try/catch can be removed if docs-engineering#1821 is resolved
     // i.e. for feature based versioning, like ghec: 'issue-6337'
-    const fileVersions: string[] = getApplicableVersions(data.versions)
+    const fileVersions: string[] = getApplicableVersions(data?.versions)
 
     for (const plan in allVersionShortnames) {
       // plan is the shortName (i.e., fpt)
@@ -247,10 +243,10 @@ function makeRow({
         reviewCell += `${plan}@ `
         prodCell += `${plan}@ `
 
-        versions.forEach((version) => {
+        for (const version of versions) {
           reviewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
           prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
-        })
+        }
         reviewCell += '<br>'
         prodCell += '<br>'
       }

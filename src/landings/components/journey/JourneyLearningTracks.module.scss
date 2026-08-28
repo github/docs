@@ -1,0 +1,202 @@
+/* Multi-track journey: a vertical rail of numbered badges with a disclosure card per track. */
+.tracks {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Each track: a numbered badge sitting above the card, with a connector line
+   running through the gaps between cards (badge x is 12px inside the card edge). */
+.trackItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.railBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background-color: var(
+    --bgColor-neutral-muted,
+    var(--color-neutral-muted, #d2d9d4)
+  );
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  font-family: var(--brand-fontStack-monospace, "Mona Sans Mono", monospace);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Connector segments are centered under the badge (badge is 24px wide → center at 12px). */
+.connectorAbove,
+.connectorBelow {
+  width: 1px;
+  margin-left: 11px;
+  background-color: var(
+    --borderColor-default,
+    var(--color-border-default, #d2d9d4)
+  );
+}
+
+.connectorAbove {
+  height: 1.5rem;
+}
+
+.connectorBelow {
+  height: 0.75rem;
+}
+
+.trackCard {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d2d9d4));
+  border-radius: 8px;
+  background-color: var(--bgColor-muted, var(--color-canvas-subtle, #fafafa));
+  overflow: hidden;
+  transition:
+    box-shadow 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+
+  // hover lift only while collapsed
+  &:not([open]):hover {
+    box-shadow:
+      0 0.25rem 0.5rem 0 rgba(31, 35, 40, 0.12),
+      0 0.125rem 0.25rem 0 rgba(31, 35, 40, 0.08);
+    transform: translateY(-2px);
+  }
+
+  &[open] .chevron {
+    transform: rotate(180deg);
+  }
+}
+
+.trackSummary {
+  list-style: none;
+  cursor: pointer;
+  display: block;
+  padding: 1.5rem;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.trackHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.trackTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.trackHeaderRow .trackTitle {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.16px;
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+}
+
+.articlesPill {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 1px 7px;
+  border-radius: 100px;
+  background-color: var(
+    --bgColor-neutral-muted,
+    var(--color-neutral-muted, #f2f5f3)
+  );
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--fgColor-muted, var(--color-fg-muted, #58635b));
+  transition: transform 0.2s ease-in-out;
+}
+
+.trackDescription {
+  margin: 0.25rem 0 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.14px;
+  color: var(--fgColor-muted, var(--color-fg-muted, #58635b));
+}
+
+.trackGuides {
+  list-style: none;
+  margin: 0;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.trackGuides li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 6px 0;
+}
+
+/* Single-track pages render the list without a surrounding card, so it must sit
+   flush with the heading rather than inside the card's 24px inset. */
+.trackGuidesFlush {
+  padding: 0;
+}
+
+.guideBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 0.5rem;
+  border-radius: 4px;
+  background-color: var(
+    --bgColor-neutral-muted,
+    var(--color-neutral-muted, #e4ebe6)
+  );
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  font-family: var(--brand-fontStack-monospace, "Mona Sans Mono", monospace);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.guideLink {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--fgColor-accent, var(--color-accent-fg, #005dd5));
+}
+
+.singleTrackHeading {
+  margin: 0 0 1rem 0;
+}
+
+/* Stack the title and its "N articles" pill on narrow viewports. */
+@media (max-width: 767px) {
+  .trackTitleGroup {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import type { JSX } from 'react'
 import cx from 'classnames'
 
 import { Enum } from './Enum'

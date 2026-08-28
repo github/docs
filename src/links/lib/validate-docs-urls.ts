@@ -1,5 +1,5 @@
 import type { Response } from 'express'
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 
 import warmServer from '@/frame/lib/warm-server'
 import { liquid } from '@/content-render/index'
@@ -89,7 +89,7 @@ export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = fal
     if (checkFragments && fragment) {
       const permalink = (redirectedPage || page).permalinks[0]
       const html = await renderInnerHTML(redirectedPage || page, permalink)
-      const $ = cheerio.load(html)
+      const $ = load(html)
       check.fragmentFound = $(`#${fragment}`).length > 0 || $(`a[name="${fragment}"]`).length > 0
       if (!check.fragmentFound) {
         const fragmentCandidates: string[] = []
@@ -129,7 +129,7 @@ async function renderInnerHTML(page: Page, permalink: Permalink) {
   }
   await contextualize(req as ExtendedRequest, res as Response, next)
   await shortVersions(req as ExtendedRequest, res as Response, next)
-  await findPage(req, res, next)
+  await findPage(req as ExtendedRequest, res as Response, next)
   features(req as ExtendedRequest, res as Response, next)
 
   const markdown = await liquid.parseAndRender(page.markdown, req.context)

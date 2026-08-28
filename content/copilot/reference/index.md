@@ -1,20 +1,27 @@
 ---
-title: 'Reference for {% data variables.product.prodname_copilot %}'
+title: Reference for {% data variables.product.prodname_copilot %}
 shortTitle: Reference
-intro: 'Find information to apply to your work with {% data variables.product.prodname_copilot %}.'
+intro: Find information to apply to your work with {% data variables.product.prodname_copilot %}.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
-  - /cheat-sheet
+  - /chat-cheat-sheet
+  - /customization-cheat-sheet
   - /ai-models
+  - /copilot-feature-matrix
   - /keyboard-shortcuts
-  - /policy-conflicts
-  - /allowlist-reference
+  - /copilot-cli-reference
+  - /github-copilot-app-reference
+  - /custom-agents-configuration
+  - /custom-instructions-support
+  - /hooks-reference
+  - /supported-surfaces-for-policies
+  - /copilot-allowlist-reference
   - /metrics-data
   - /copilot-billing
-  - /extensions-glossary
+  - /review-excluded-files
+  - /copilot-usage-metrics
+  - /enterprise-administrators
 contentType: reference
 ---
 

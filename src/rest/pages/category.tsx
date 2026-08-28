@@ -1,12 +1,10 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
+import type { ServerResponse } from 'http'
 import { Operation } from '@/rest/components/types'
+import type { ExtendedRequest, AllVersions } from '@/types/types'
 import { RestReferencePage } from '@/rest/components/RestReferencePage'
-import {
-  addUINamespaces,
-  getMainContext,
-  MainContext,
-  MainContextT,
-} from '@/frame/components/context/MainContext'
+import { getMainContext, MainContext, MainContextT } from '@/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
@@ -61,21 +59,22 @@ export default function Category({
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index')
-  const nonEnterpriseDefaultVersionModule = await import(
-    '@/versions/lib/non-enterprise-default-version'
-  )
+  const nonEnterpriseDefaultVersionModule =
+    await import('@/versions/lib/non-enterprise-default-version')
   const nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersionModule.default as string
 
-  const req = context.req as any
-  const res = context.res as any
-  const tocLandingContext = getTocLandingContextFromRequest(req)
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as ServerResponse
+  const tocLandingContext = getTocLandingContextFromRequest(
+    req as unknown as Parameters<typeof getTocLandingContextFromRequest>[0],
+  )
   // e.g. the `activity` from `/en/rest/activity/events`
   const category = context.params!.category as string
   let subcategory = context.params!.subcategory as string
   const currentVersion = context.params!.versionId as string
-  const currentLanguage = req.context.currentLanguage as string
-  const allVersions = req.context.allVersions
-  const queryApiVersion = context.query.apiVersion
+  const currentLanguage = req.context!.currentLanguage as string
+  const allVersions = req.context!.allVersions as AllVersions
+  const queryApiVersion = context.query.apiVersion as string
   const apiVersion = allVersions[currentVersion].apiVersions.includes(queryApiVersion)
     ? queryApiVersion
     : allVersions[currentVersion].latestApiVersion
@@ -86,8 +85,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     subcategory = category
   }
 
-  const restData = await getRest(currentVersion, apiVersion)
-  const restOperations = (restData && restData[category] && restData[category][subcategory]) || []
+  const categoryData = await getRest(currentVersion, apiVersion, category)
+  const restOperations = (categoryData && categoryData[subcategory]) || []
 
   // Build table of contents for all category operations for TocLanding:
   //
@@ -95,7 +94,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // * loop over subcategories and get the operations per subcategory
   //   * get the minitoc items per set of subcategory operations
   //   * with this data, build a collection of toc items that can be used by TocLanding
-  const restCategoryOperations = (restData && restData[category]) || {}
+  const restCategoryOperations = categoryData || {}
   const restCategoryTocItems = []
 
   for (const [subCat, subCatOperations] of Object.entries(restCategoryOperations)) {
@@ -141,10 +140,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       subCatOperations,
       currentLanguage,
       currentVersion,
-      req.context,
+      req.context!,
     )) as MinitocItemsT
 
-    miniTocItems.restOperationsMiniTocItems.forEach((operationMinitoc) => {
+    for (const operationMinitoc of miniTocItems.restOperationsMiniTocItems) {
       const { title, href: miniTocAnchor } = operationMinitoc.contents
       const fullPath = `/${context.locale}${versionPathSegment}rest/${context.params?.category}/${subCat}${miniTocAnchor}`
 
@@ -152,7 +151,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
         fullPath,
         title,
       })
-    })
+    }
 
     // TocLanding expects a collection of objects that looks like this:
     //
@@ -197,20 +196,19 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       restOperations,
       currentLanguage,
       currentVersion,
-      req.context,
+      req.context!,
     )) as MinitocItemsT
 
-    restOperationsMiniTocItems && miniTocItems.push(...restOperationsMiniTocItems)
+    if (restOperationsMiniTocItems) {
+      miniTocItems.push(...restOperationsMiniTocItems)
+    }
   }
 
   // Replace the toc items in the context with the REST toc items we just
   // created.
   tocLandingContext.tocItems = restCategoryTocItems
 
-  const mainContext = await getMainContext(req, res)
-  if (tocLandingContext.currentLearningTrack?.trackName) {
-    addUINamespaces(req, mainContext.data.ui, ['learning_track_nav'])
-  }
+  const mainContext = await getMainContext(req, res as unknown as Response)
 
   return {
     props: {

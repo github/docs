@@ -1,8 +1,6 @@
 ---
 title: Writing tests with GitHub Copilot
 intro: 'Use {% data variables.product.prodname_copilot_short %} to generate unit and integration tests, and help improve code quality.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:
@@ -11,6 +9,9 @@ redirect_from:
   - /copilot/tutorials/writing-tests-with-github-copilot
 shortTitle: Write tests
 contentType: tutorials
+category:
+  - Improve quality and maintainability
+  - Author and optimize with Copilot
 ---
 
 ## Introduction
@@ -20,9 +21,9 @@ contentType: tutorials
 ## Prerequisites
 
 Before getting started you must have the following:
-* A [{% data variables.product.prodname_copilot %} subscription plan](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* A [{% data variables.product.prodname_copilot %} subscription plan](/copilot/get-started/plans).
 * {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, or any JetBrains IDE.
-* The [{% data variables.product.prodname_copilot %} extension](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment) installed in your IDE.
+* The [{% data variables.product.prodname_copilot %} extension](/copilot/how-tos/set-up/install-copilot-extension) installed in your IDE.
 
 ## Writing unit tests with {% data variables.copilot.copilot_chat_short %}
 
@@ -336,4 +337,4 @@ Or:
 
 > Write a unit test for the refund logic in `refund.js`, following the structure in the existing test suite.
 
-For more information about using {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
+For more information about using {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/concepts/context/spaces).

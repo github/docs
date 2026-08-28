@@ -1,13 +1,14 @@
 ---
 title: About assignments
-intro: 'You can use individual or group assignments in {% data variables.product.prodname_classroom %} to teach students and grade their work.'
+intro: You can use individual or group assignments in {% data variables.product.prodname_classroom %} to teach students and grade their work.
 shortTitle: About assignments
-type: overview
-topics:
-  - Fundamentals
 versions:
   fpt: '*'
+contentType: concepts
+category:
+  - Create and manage assignments
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About assignments in {% data variables.product.prodname_classroom %}
 
