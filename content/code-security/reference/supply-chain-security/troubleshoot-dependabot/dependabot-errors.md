@@ -88,7 +88,7 @@ If a security vulnerability is released for `B` versions `<2.0.0` and a patch is
 
 ### Can't close pull request for an update that's already been applied
 
-**Error message:** `{% data variables.product.prodname_dependabot %} fails to close a open pull request for an update that has already been applied on the default branch`
+**Error message:** `{% data variables.product.prodname_dependabot %} fails to close an open pull request for an update that has already been applied on the default branch`
 
 {% data variables.product.prodname_dependabot %} will close pull requests for dependency updates, once it detects these updates have been committed to the default branch. However, in rare circumstances, the pull request may remain open.
 
