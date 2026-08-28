@@ -12274,7 +12274,7 @@
       "inputFields": [
         {
           "name": "allowListValue",
-          "description": "<p>An IP address or range of addresses in CIDR notation.</p>",
+          "description": "<p>An IP address or range of addresses in CIDR notation. Ranges that cover the\nentire address space, such as <code>0.0.0.0/0</code> or <code>::/0</code>, are not accepted for\norganizations or enterprises.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -13739,7 +13739,7 @@
       "inputFields": [
         {
           "name": "allowListValue",
-          "description": "<p>An IP address or range of addresses in CIDR notation.</p>",
+          "description": "<p>An IP address or range of addresses in CIDR notation. Ranges that cover the\nentire address space, such as <code>0.0.0.0/0</code> or <code>::/0</code>, are not accepted for\norganizations or enterprises.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
