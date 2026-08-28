@@ -16,6 +16,7 @@ category:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.blocked_users %}
 1. Under "Blocked users", review the list of users you've blocked from your account.
+1. Optionally, to close all open issues, pull requests, and discussions a blocked user has opened in repositories you own, next to the user, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Close all content**.
 
 ## Further reading
 

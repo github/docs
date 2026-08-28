@@ -16,7 +16,7 @@ category:
 
 You can block a user in your account settings, from the user's profile, or from content in a repository you own.
 
-{% data variables.product.github %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see [Blocking a user in your account settings](#blocking-a-user-in-your-account-settings). You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
+When you block a user, you can also close any open issues, pull requests, and discussions they have opened in repositories you own. {% data variables.product.github %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see [Blocking a user in your account settings](#blocking-a-user-in-your-account-settings). You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
 
 > [!TIP]
 > If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations).
@@ -65,6 +65,7 @@ You must own the repository to block a user from its content.
 
 1. Navigate to the issue, pull request, or repository security advisory that contains the description or comment whose author you would like to block.
 1. In the upper-right corner of the description or comment whose author you would like to block, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Block user**.
+{% data reusables.organizations.close-all-content-when-blocking-user %}
 1. Optionally, add a note to describe why you blocked the user. The note will only be visible to you.
 1. To confirm, click **Block user**.
 
@@ -72,7 +73,9 @@ You must own the repository to block a user from its content.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.blocked_users %}
-1. Under "Block a user", type the username of the user you'd like to block, then click **Block user**.
+1. Under "Block a user", type the username of the user you'd like to block.
+{% data reusables.organizations.close-all-content-when-blocking-user %}
+1. Click **Block user**.
 1. Optionally, to add a note to describe why a user was blocked, click **Add Note**. The note will only be visible to you.
 1. Optionally, you can display a warning when you visit a repository where a blocked user is a contributor. Under "Blocked users", select **Warn me when a blocked user is a prior contributor to a repository**.
 
@@ -80,6 +83,7 @@ You must own the repository to block a user from its content.
 
 {% data reusables.profile.user_profile_page_navigation %}
 {% data reusables.profile.user_profile_page_block_or_report %}
+1. Optionally, select **Close all issues, pull requests, and discussions opened by this user**.
 1. Optionally, add a note to describe why a user was blocked. The note will only be visible to you.
 1. Click **Block user**.
 
