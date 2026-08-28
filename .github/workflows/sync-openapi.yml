@@ -1,6 +1,6 @@
 name: Sync OpenAPI schema
 
-# **What it does**: Once a day, this workflow syncs the REST, Webhooks, and GitHub Apps automated pipelines with the github/rest-api-description repository, and creates a pull request if there are updates to any of the data files we generate from the OpenAPI.
+# **What it does**: Syncs the REST, Webhooks, and GitHub Apps automated pipelines with the github/rest-api-description repository, and creates a pull request if there are updates to any of the data files we generate from the OpenAPI. Runs on a weekday schedule or a `sync-openapi` repository dispatch.
 # **Why we have it**: So we can automate updates to REST, Webhooks, and GitHub Apps documentation
 # **Who does it impact**: Anyone making OpenAPI changes in `github/github`, and wanting to get them published on the docs site.
 
@@ -12,6 +12,8 @@ on:
         type: string
         required: true
         default: 'main'
+  repository_dispatch:
+    types: [sync-openapi]
   schedule:
     - cron: '20 16 * * 1-5' # Run Mon-Fri at 16:20 UTC / 8:20 PST
 
@@ -40,7 +42,7 @@ jobs:
           # will be checked out
           repository: github/rest-api-description
           path: rest-api-description
-          ref: ${{ inputs.SOURCE_BRANCH }}
+          ref: ${{ inputs.SOURCE_BRANCH || github.event.client_payload.ref || 'main' }}
 
       - uses: ./.github/actions/node-npm-setup
 
