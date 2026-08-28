@@ -37,13 +37,13 @@ You can allow members to use {% data variables.product.prodname_spark_short %} f
 
 {% data reusables.enterprise-accounts.policy-enablement-next-steps %}
 
-{% note %}
+<div class="border rounded-2 p-3">
 
 Was this article helpful in enabling and managing {% data variables.product.prodname_spark_short %} for your enterprise?
 
 <a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
 
-{% endnote %}
+</div>
 
 ## Further reading
 

@@ -37,19 +37,13 @@ Before you enable CCR, confirm the following.
 * Your instance is configured for high availability with at least two appliances (a primary and one or more replicas).
 * You have an updated {% data variables.product.prodname_ghe_server %} license that includes the Elasticsearch entitlement required for CCR. Contact {% data variables.contact.contact_enterprise_sales %} or {% data variables.contact.github_support %} to have your enterprise enabled for the new license, then download the updated license file.
 
-{% warning %}
-
-**Warning:** When CCR is enabled, the upgrade preflight check requires a valid CCR-enabled license. If the flag is enabled and the license check fails, the upgrade will not proceed. Make sure your updated license is installed before you enable the feature or upgrade. If you are unsure whether your license includes the Elasticsearch entitlement, contact {% data variables.contact.github_support %}.
-
-{% endwarning %}
+> [!WARNING]
+> When CCR is enabled, the upgrade preflight check requires a valid CCR-enabled license. If the flag is enabled and the license check fails, the upgrade will not proceed. Make sure your updated license is installed before you enable the feature or upgrade. If you are unsure whether your license includes the Elasticsearch entitlement, contact {% data variables.contact.github_support %}.
 
 ## Enabling Elasticsearch Cross-Cluster Replication
 
-{% note %}
-
-**Note:** The migration may take a significant amount of time depending on the size of your instance, because search data is consolidated onto the primary before replication restarts. Plan to enable CCR during a maintenance window, and test the process in a non-production environment first. For more information, see [AUTOTITLE](/admin/upgrading-your-instance).
-
-{% endnote %}
+> [!NOTE]
+> The migration may take a significant amount of time depending on the size of your instance, because search data is consolidated onto the primary before replication restarts. Plan to enable CCR during a maintenance window, and test the process in a non-production environment first. For more information, see [AUTOTITLE](/admin/upgrading-your-instance).
 
 1. Contact {% data variables.contact.github_support %} and request access to the new HA search architecture. {% data variables.product.company_short %} will enable your enterprise so that you can download the required CCR-enabled license.
 1. Download your updated license and upload it to your instance. For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/download-your-license).
@@ -81,11 +75,8 @@ After a failover with CCR enabled, the promoted appliance becomes the new leader
 
 ### Disabling Elasticsearch Cross-Cluster Replication
 
-{% warning %}
-
-**Warning:** Do not disable CCR on a production instance without guidance from {% data variables.contact.github_support %}. Disabling CCR is not a routine self-service operation. Turning the feature off can trigger removal of replica Elasticsearch data as part of returning to the previous mode.
-
-{% endwarning %}
+> [!WARNING]
+> Do not disable CCR on a production instance without guidance from {% data variables.contact.github_support %}. Disabling CCR is not a routine self-service operation. Turning the feature off can trigger removal of replica Elasticsearch data as part of returning to the previous mode.
 
 If you need to return to the previous search architecture, contact {% data variables.contact.github_support %} before making any changes. {% data variables.product.company_short %} will help you confirm that your license, replication state, and upgrade path are handled safely.
 
