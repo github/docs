@@ -14,7 +14,7 @@ category:
 
 You can block non-members from within your organization's settings or from content in the organization's repositories.
 
-When you block a user from a comment, you can choose to send the user a notification explaining that they were blocked and why. Otherwise, the user is not directly notified that you've blocked them. Blocked users can still delete their existing content.
+You can also close any open issues, pull requests, and discussions the user has opened in repositories owned by the organization. Organization moderators can close content only in repositories where they have write access. When you block a user from a comment, you can choose to send the user a notification explaining that they were blocked and why. Otherwise, the user is not directly notified that you've blocked them. Blocked users can still delete their existing content.
 
 {% data reusables.organizations.blocking-a-user %}
 
@@ -53,6 +53,7 @@ You must be an organization owner or moderator to block a user from a repository
    ![Screenshot of a pull request comment by octo-user. Below an icon of three dots, a dropdown menu is expanded, and "Block user" is outlined in orange.](/assets/images/help/repository/comment-menu-block-user.png)
 
 1. If you'd like to set a time limit for the block, select the **Block user** dropdown menu, and click the amount of time you'd like to block the user.
+{% data reusables.organizations.close-all-content-when-blocking-user %}
 1. If you'd like to hide all of the comments the user has made in the organization, select **Hide this user's comments** and choose a reason.
 1. If you'd like to notify the user why they're being blocked, select **Send a notification to this user**.
 1. To block the user, click **Block user from organization** or **Block user from organization and send message**.
@@ -75,6 +76,7 @@ You must be an organization owner or moderator to block a user from a repository
 {% data reusables.organizations.block_users %}
 1. Under "Block a user", in the text field, type the username of the user you'd like to block.
 1. If you'd like to set a time limit for the block, next to the text field, select the **Block options** dropdown menu, and click the amount of time you'd like to block the user.
+{% data reusables.organizations.close-all-content-when-blocking-user %}
 1. Click **Block user**.
 1. Optionally, to add a note to describe why a user was blocked, click **Add Note**. The note will be visible to the owners and moderators of the organization.
 
@@ -86,9 +88,8 @@ You must be an organization owner or moderator to block a user from a repository
    ![Screenshot of a pull request comment by octo-user. Below an icon of three dots, a dropdown menu is expanded, and "Block user" is outlined in orange.](/assets/images/help/repository/comment-menu-block-user.png)
 
 1. If you'd like to set a time limit for the block, select the **Block user** dropdown menu, and click the amount of time you'd like to block the user.
+{% data reusables.organizations.close-all-content-when-blocking-user %}
 1. If you'd like to hide all of the comments the user has made in the organization, select **Hide this user's comments** and choose a reason.
-1. If you'd like to delete just the discussion you're viewing, select **Delete this discussion**.
-1. If you'd like to delete all of the discussions the user has made in the organization, select **Delete all of USER's discussions in ORGANIZATION**.
 1. Click **Block user from organization**.
 
 ## Further reading

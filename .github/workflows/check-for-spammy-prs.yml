@@ -35,11 +35,13 @@ jobs:
             });
 
             const onlyDeletes = files.length > 0 && files.every(f => f.status === 'removed')
-            const emptyCommit = !files.length 
+            const isEmptyCommit = !files.length 
             const touchesTooMany = files.length > 10
+            const totalChanges = files.reduce((sum, f) => sum + f.additions + f.deletions, 0)
+            const isOneLineAddition = files.every(f => f.status === 'added') && totalChanges <= 1
 
             // Close the PR and add the invalid label
-            if (onlyDeletes || emptyCommit || touchesTooMany) {
+            if (onlyDeletes || isEmptyCommit || touchesTooMany || isOneLineAddition) {
               await github.rest.issues.update({
                 owner: owner,
                 repo: repo,
