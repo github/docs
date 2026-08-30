@@ -48,7 +48,6 @@ By default, the restrictions of a branch protection rule don't apply to people w
 For each branch protection rule, you can choose to enable or disable the following settings.
 * [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
 * [Require status checks before merging](#require-status-checks-before-merging)
-* [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
 * [Require signed commits](#require-signed-commits)
 * [Require linear history](#require-linear-history)
 * [Require merge queue](#require-merge-queue)
@@ -86,6 +85,8 @@ Optionally, you can choose to require reviews from code owners. If you do, any p
 
 Optionally, you can require that the most recent reviewable push must be approved by someone other than the person who pushed it. This means at least one other authorized reviewer has approved any changes. For example, the "last reviewer" can check that the latest set of changes incorporates feedback from other reviews, and does not add new, unreviewed content.
 
+Optionally, you can select Require conversation resolution before merging to require all comments on the pull request to be resolved before it can be merged into a protected branch. This ensures that all comments are addressed or acknowledged before the pull request is merged.
+
 For complex pull requests that require many reviews, requiring an approval from someone other than the last person to push can be a compromise that avoids the need to dismiss all stale reviews: with this option, "stale" reviews are not dismissed, and the pull request remains approved as long as someone other than the person who made the most recent changes approves it. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement. If you are concerned about pull requests being "hijacked" (where unapproved content is added to approved pull requests), it is safer to dismiss stale reviews.
 
 {% data reusables.pull_requests.security-changes-mergeability %}
@@ -109,10 +110,6 @@ You can set up required status checks to either be "loose" or "strict." The type
 | **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
 
 For troubleshooting information, see [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks).
-
-### Require conversation resolution before merging
-
-Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
 
 ### Require signed commits
 
