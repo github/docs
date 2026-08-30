@@ -261,7 +261,7 @@ CLIENT_SECRET = ENV['GH_BASIC_SECRET_ID']
 use Rack::Session::Pool, :cookie_only => false
 
 def authenticated?
-  session[:access_token]
+  session[:refresh_token]
 end
 
 def authenticate!
