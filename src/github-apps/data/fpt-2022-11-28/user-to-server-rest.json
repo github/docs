@@ -3233,6 +3233,12 @@
   ],
   "enterprise-teams": [
     {
+      "slug": "list-enterprise-teams-for-a-user",
+      "subcategory": "enterprise-team-members",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/members/{username}/teams"
+    },
+    {
       "slug": "list-enterprise-teams",
       "subcategory": "enterprise-teams",
       "verb": "get",

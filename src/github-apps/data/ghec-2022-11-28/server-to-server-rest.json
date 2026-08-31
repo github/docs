@@ -3251,6 +3251,12 @@
       "requestPath": "/enterprises/{enterprise}/consumed-licenses"
     },
     {
+      "slug": "revoke-enterprise-delegated-credential-authorizations",
+      "subcategory": "credential-authorizations",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations"
+    },
+    {
       "slug": "revoke-all-credential-authorizations-for-an-enterprise",
       "subcategory": "credential-authorizations",
       "verb": "post",
@@ -3552,6 +3558,12 @@
     }
   ],
   "enterprise-teams": [
+    {
+      "slug": "list-enterprise-teams-for-a-user",
+      "subcategory": "enterprise-team-members",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/members/{username}/teams"
+    },
     {
       "slug": "list-enterprise-teams",
       "subcategory": "enterprise-teams",

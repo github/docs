@@ -694,17 +694,29 @@
                       "type": "string"
                     },
                     "company": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "uri"
                     },
                     "location": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "email"
                     },
                     "twitter_username": {
@@ -1270,17 +1282,29 @@
                       "type": "string"
                     },
                     "company": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "uri"
                     },
                     "location": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "email"
                     },
                     "twitter_username": {
@@ -1899,17 +1923,29 @@
                       "type": "string"
                     },
                     "company": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "uri"
                     },
                     "location": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "email"
                     },
                     "twitter_username": {
@@ -2425,17 +2461,29 @@
                       "type": "string"
                     },
                     "company": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "uri"
                     },
                     "location": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "email"
                     },
                     "twitter_username": {
@@ -5328,17 +5376,29 @@
                       "type": "string"
                     },
                     "company": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "uri"
                     },
                     "location": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "email"
                     },
                     "twitter_username": {
@@ -5948,17 +6008,29 @@
                       "type": "string"
                     },
                     "company": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "uri"
                     },
                     "location": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "email"
                     },
                     "twitter_username": {
@@ -6473,17 +6545,29 @@
                       "type": "string"
                     },
                     "company": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "uri"
                     },
                     "location": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "format": "email"
                     },
                     "twitter_username": {
@@ -9359,17 +9443,29 @@
                         "type": "string"
                       },
                       "company": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "blog": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "uri"
                       },
                       "location": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "email"
                       },
                       "twitter_username": {
