@@ -53,7 +53,6 @@ You can keep steering from Teams, or continue the work on the agent-generated ar
 
 * You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through a paid {% data variables.product.prodname_copilot_short %} plan.
 * You must have a Teams account.
-* You must have Microsoft Public Developer Preview enabled for your Microsoft Teams client, see [Public developer preview for Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/dev-preview/developer-preview-intro) in the Microsoft Learn documentation.
 {% data reusables.copilot.cloud-agent.cloud-sandboxes-prerequisite-teams %}
 
 ## Installing the {% data variables.product.github %} app in Teams

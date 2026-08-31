@@ -9,7 +9,6 @@ children:
   - /manage-access
   - /manage-enterprise-policies
   - /manage-agents
-  - /manage-spark
   - /manage-availability-of-default-models
   - /enable-custom-models
   - /review-audit-logs

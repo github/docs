@@ -279,7 +279,7 @@ Use per-session tokens for content exclusion, model routing, quota checks, and u
 
 ## Integration ID
 
-Partners building branded agents can set an integration ID for Mission Control requests. The runtime reads `GITHUB_COPILOT_INTEGRATION_ID` and stamps it as the `Copilot-Integration-Id` HTTP header on every Mission Control request.
+Partners building branded agents can set an integration ID for agent session requests. The runtime reads `GITHUB_COPILOT_INTEGRATION_ID` and stamps it as the `Copilot-Integration-Id` HTTP header on every agent session request.
 
 ```bash
 GITHUB_COPILOT_INTEGRATION_ID=my-product-agent copilot --headless --port 4321
