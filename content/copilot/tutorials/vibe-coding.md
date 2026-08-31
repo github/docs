@@ -413,4 +413,3 @@ After working with {% data variables.product.prodname_copilot_short %} to build,
 
 * Continue iterating on this project, making improvements to your time tracker.
 * Using the same methodology, create another application.
-* Find out about another way you can create applications without writing the code yourself. See [AUTOTITLE](/copilot/concepts/spark).

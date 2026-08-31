@@ -9,7 +9,6 @@ children:
   - /chat
   - /agents
   - /about-cloud-and-local-sandboxes
-  - /spark
   - /copilot-usage-metrics
   - /prompting
   - /context
