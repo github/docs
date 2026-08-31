@@ -18,7 +18,11 @@ category:
 
 Default community health files are a set of predefined files that provide guidance and templates for maintaining a healthy and collaborative open source project. These files help you automate and standardize various aspects of your project's development and community interaction, promoting transparency, good practices, and collaboration.
 
-You can add default community health files to a repository called `.github`. {% ifversion ghec %}For an {% data variables.enterprise.prodname_emu_org %}, the `.github` repository must be **internal**. For all other accounts, the `.github` repository must be **public**.{% else %}The `.github` repository must be **public**.{% endif %}
+You can add default community health files to a repository called `.github`. {% ifversion ghec %}For an {% data variables.enterprise.prodname_emu_org %}, the `.github` repository must be **internal**. For all other eligible accounts, the `.github` repository must be **public**.{% else %}The `.github` repository must be **public**.{% endif %} 
+
+{% ifversion ghec %}
+>[!NOTE] A {% data variables.enterprise.prodname_managed_user %} cannot host default community health files for their personal account because their personal `.github` repository can only be private.
+{% endif %}
 
 {% data variables.product.github %} will use and display default files for any repository owned by the account, regardless of the destination repository's visibility, that does not have its own file of that type. For supported files that can be stored in more than one location, {% data variables.product.github %} uses the following order of precedence:
 
@@ -72,11 +76,11 @@ You cannot create a default license file. License files must be added to individ
 ## Creating a repository for default files
 
 {% data reusables.repositories.create_new %}
-1. Use the **Owner** drop-down menu, and select the organization or personal account you want to create default files for.
+1. Use the **Owner** drop-down menu, and select the organization or personal account you want to create default files for. {% ifversion ghec %}If you are signed in with a {% data variables.enterprise.prodname_managed_user %}, you must select an organization.{% endif %}
    ![Screenshot of the owner menu for a new {% data variables.product.prodname_dotcom %} repository. The menu shows two options, octocat and github.](/assets/images/help/repository/create-repository-owner.png)
 1. In the "Repository name" field, type **.github**.
 1. Optionally, in the "Description" field, type a description.
-1. {% ifversion ghec %}If you are creating the repository for an {% data variables.enterprise.prodname_emu_org %}, set the repository status to **Internal**. For any other account, set the status to **Public**.{% else %}Make sure the repository status is set to **Public**.{% endif %} A repository for default files cannot be private.
+1. {% ifversion ghec %}If you are creating the repository for an {% data variables.enterprise.prodname_emu_org %}, set the repository status to **Internal**. For any other eligible account, set the status to **Public**.{% else %}Make sure the repository status is set to **Public**.{% endif %} A repository for default files cannot be private.
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 1. In the repository, create one of the supported community health files. Discussion category forms must be in a folder called `.github/DISCUSSION_TEMPLATE`. Issue templates and their configuration file must be in a folder called `.github/ISSUE_TEMPLATE`. {% ifversion fpt or ghec %}A `FUNDING.yml` file must be in the `.github` folder. {% endif %}All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files).
