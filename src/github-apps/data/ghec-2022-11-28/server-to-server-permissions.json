@@ -757,6 +757,17 @@
     "permissions": [
       {
         "category": "enterprise-admin",
+        "slug": "revoke-enterprise-delegated-credential-authorizations",
+        "subcategory": "credential-authorizations",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/credential-authorizations",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "revoke-all-credential-authorizations-for-an-enterprise",
         "subcategory": "credential-authorizations",
         "verb": "post",
@@ -1082,6 +1093,17 @@
     "title": "Enterprise teams",
     "displayTitle": "Enterprise permissions for \"Enterprise teams\"",
     "permissions": [
+      {
+        "category": "enterprise-teams",
+        "slug": "list-enterprise-teams-for-a-user",
+        "subcategory": "enterprise-team-members",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/members/{username}/teams",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
       {
         "category": "enterprise-teams",
         "slug": "list-enterprise-teams",

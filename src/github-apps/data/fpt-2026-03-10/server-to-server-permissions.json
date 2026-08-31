@@ -77,6 +77,17 @@
     "permissions": [
       {
         "category": "enterprise-teams",
+        "slug": "list-enterprise-teams-for-a-user",
+        "subcategory": "enterprise-team-members",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/members/{username}/teams",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
         "slug": "list-enterprise-teams",
         "subcategory": "enterprise-teams",
         "verb": "get",
