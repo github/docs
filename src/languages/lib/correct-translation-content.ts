@@ -570,6 +570,57 @@ export function correctTranslatedContentStrings(
       'は一定のルールに従って、インスタンス{% endif %}上のエンタープライズ{% elsif ghes %}内の各ユーザーアカウント{% ifversion ghec %}のユーザー名を決定します。',
       'は一定のルールに従って、{% ifversion ghec %}エンタープライズ内{% elsif ghes %}インスタンス上{% endif %}の各ユーザーアカウントのユーザー名を決定します。',
     )
+
+    // data/reusables/audit_log/audit-log-search-by-repo.md: the second
+    // `{%- ifversion ghec or fpt %}` block lost its trim dash (`{%-` →
+    // `{%`) and the final `{% endif %}` closing the block was dropped
+    // entirely, leaving the tag unclosed (`tag {% ifversion ghec or fpt %}
+    // not closed`). This affects both audit-log-search-by-repo.md and its
+    // transcluding page audit-log-search.md. Restore the trim dash and
+    // append the missing `{% endif %}`.
+    content = content.replaceAll(
+      '{% ifversion ghec or fpt %}\n* `repo:my-org/our-repo` は、`my-org` 組織内の `our-repo` リポジトリで発生したすべてのイベントを検索します。\n* `repo:my-org/our-repo repo:my-org/another-repo` は、`my-org`組織内の `our-repo` および `another-repo` リポジトリで発生したすべてのイベントを検索します。\n* `-repo:my-org/not-this-repo` は、`my-org` 組織内の `not-this-repo` リポジトリで発生したすべてのイベントを除外します。\n\n`repo` 修飾子内にアカウント名を含める必要があります。`repo:our-repo` を検索するだけでは作動しません。',
+      '{%- ifversion ghec or fpt %}\n* `repo:my-org/our-repo` は、`my-org` 組織内の `our-repo` リポジトリで発生したすべてのイベントを検索します。\n* `repo:my-org/our-repo repo:my-org/another-repo` は、`my-org`組織内の `our-repo` および `another-repo` リポジトリで発生したすべてのイベントを検索します。\n* `-repo:my-org/not-this-repo` は、`my-org` 組織内の `not-this-repo` リポジトリで発生したすべてのイベントを除外します。\n\n`repo` 修飾子内にアカウント名を含める必要があります。`repo:our-repo` を検索するだけでは作動しません。{% endif %}',
+    )
+
+    // data/reusables/enterprise-managed/assigning-users.md: the translator
+    // scrambled `{% ifversion ghec %}...{% else %}...{% endif %}` so that
+    // `{% endif %}` was relocated to the start of the sentence (as an
+    // orphan) and `{% ifversion ghec %}` moved into the middle, leaving the
+    // tag never closed (`tag "endif" not found`). Reconstruct to match
+    // English ordering: assigning users/groups to the
+    // {% ifversion ghec %}EMU IdP application{% else %}relevant application
+    // in your IdP{% endif %}.
+    content = content.replaceAll(
+      'ユーザーまたはグループを IdP {% endif %} の {% ifversion ghec %} {% data variables.product.prodname_emu_idp_application %} アプリケーション {% else %} 関連アプリケーションに割り当てることで',
+      'ユーザーまたはグループを {% ifversion ghec %}{% data variables.product.prodname_emu_idp_application %} アプリケーション{% else %}IdP の関連アプリケーション{% endif %}に割り当てることで',
+    )
+
+    // data/reusables/actions/self-hosted-runner-management-permissions-required.md:
+    // the `{% ifversion fpt or ghec %}...{% elsif ghes %}...{% endif %}`
+    // block was scrambled — `{% endif %}` and `{% elsif ghes %}` were moved
+    // earlier in the sentence, and `{% ifversion fpt or ghec %}` was moved to
+    // the end, leaving the tag never closed (`tag "endif" not found`).
+    // Reconstruct to match English ordering: located in your repository,
+    // organization, or {% ifversion fpt or ghec %}enterprise account
+    // settings on {% data variables.product.prodname_dotcom %}{% elsif ghes %}
+    // enterprise settings on {% data variables.product.prodname_ghe_server %}{% endif %}.
+    content = content.replaceAll(
+      'セルフホステッド ランナーは、リポジトリまたは Organization のいずれかに配置するか、{% data variables.product.prodname_ghe_server %}{% endif %} の {% data variables.product.prodname_dotcom %}{% elsif ghes %} Enterprise 設定の {% ifversion fpt or ghec %} Enterprise アカウント設定に配置することができます。',
+      'セルフホステッド ランナーは、リポジトリまたは Organization のいずれかに配置するか、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} の Enterprise アカウント設定{% elsif ghes %}{% data variables.product.prodname_ghe_server %} の Enterprise 設定{% endif %}に配置することができます。',
+    )
+
+    // data/reusables/codespaces/when-an-org-pays.md: the translator split
+    // `{% elsif fpt %}...{% endif %}` away from its `{% ifversion ghec %}`
+    // opener, moving `{% ifversion ghec %}` to the end of the sentence and
+    // leaving the block never closed (`tag "elsif" not found`).
+    // Reconstruct to match English: This includes {% ifversion ghec %}
+    // public, private, and internal{% elsif fpt %}both public and
+    // private{% endif %} repositories.
+    content = content.replaceAll(
+      'これには、パブリック リポジトリ、プライベート リポジトリ、および内部{% elsif fpt %}both パブリック リポジトリとプライベート リポジトリ{% endif %}{% ifversion ghec %}が含まれます。',
+      'これには、{% ifversion ghec %}パブリック リポジトリ、プライベート リポジトリ、および内部{% elsif fpt %}パブリック リポジトリとプライベート リポジトリの両方{% endif %}が含まれます。',
+    )
   }
 
   if (context.code === 'pt') {
@@ -1031,6 +1082,42 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '会按照特定规则确定您实例{% endif %}上您企业{% elsif ghes %}中各个用户帐户{% ifversion ghec %}的用户名。',
       '会按照特定规则确定{% ifversion ghec %}您企业中{% elsif ghes %}您实例上{% endif %}各个用户帐户的用户名。',
+    )
+
+    // data/reusables/codespaces/when-an-org-pays.md: the translator moved
+    // `{% ifversion ghec %}` from the start of the conditional to the end
+    // of the sentence and left `{% elsif fpt %}` mid-sentence with no
+    // closing tag, so the block never closes (`tag "elsif" not found`).
+    // Reconstruct to match English: This includes {% ifversion ghec %}
+    // public, private, and internal{% elsif fpt %}both public and
+    // private{% endif %} repositories.
+    content = content.replaceAll(
+      '这包括{% ifversion ghec %}公共存储库、专用存储库和{% endif %}内部{% elsif fpt %}存储库。',
+      '这包括{% ifversion ghec %}公共存储库、专用存储库和内部存储库{% elsif fpt %}公共存储库和专用存储库{% endif %}。',
+    )
+
+    // data/reusables/actions/permissions-statement-secrets-and-variables-organization.md:
+    // the translator moved `{% endif %}` from the end of the first
+    // conditional to the start of the sentence, leaving the tag unclosed
+    // (`tag "endif" not found`). Reconstruct to match English: Organization
+    // owners{% ifversion custom-org-roles %} and users with the "..."
+    // permissions{% endif %} can create secrets or variables...
+    content = content.replaceAll(
+      '具有“管理组织操作变量”或“管理组织操作机密”权限{% endif %}的组织所有者{% ifversion custom-org-roles %}和用户可以在组织级别创建机密或变量。',
+      '组织所有者{% ifversion custom-org-roles %}和具有“管理组织操作变量”或“管理组织操作机密”权限的用户{% endif %}可以在组织级别创建机密或变量。',
+    )
+
+    // data/reusables/apps/redirect-uri-wildcard-matching.md: the translator
+    // scrambled the trailing conditional so `{% else %}` and the date/version
+    // branches were reordered and `{% ifversion fpt or ghec %}` was moved to
+    // after `{% endif %}`, leaving `{% else %}` an orphan (`tag "else" not
+    // found`). Reconstruct to match English: Apps that had a single callback
+    // URL enabled prior to {% ifversion fpt or ghec %}August 3,
+    // 2026{% else %}{% data variables.product.prodname_ghe_server %}
+    // 3.24{% endif %} have wildcard matching enabled...
+    content = content.replaceAll(
+      '在 {% else %}2026 年 8 月 3 日{% data variables.product.prodname_ghe_server %}{% endif %} 3.24{% ifversion fpt or ghec %} 之前已启用单个回调 URL 的应用，其回调 URL 已启用通配符匹配。',
+      '在{% ifversion fpt or ghec %}2026 年 8 月 3 日{% else %}{% data variables.product.prodname_ghe_server %} 3.24{% endif %} 之前已启用单个回调 URL 的应用，其回调 URL 已启用通配符匹配。',
     )
   }
 
@@ -1835,6 +1922,42 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif%} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 {% ifversion fpt or ghec %}있습니다.',
       '{% ifversion fpt or ghec %}이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif %} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 있습니다.',
+    )
+
+    // data/reusables/codespaces/when-an-org-pays.md: the translator split
+    // `{% elsif fpt %}...{% endif %}` away from its `{% ifversion ghec %}`
+    // opener, moving `{% ifversion ghec %}` to the end of the sentence and
+    // leaving the block never closed (`tag "elsif" not found`).
+    // Reconstruct to match English: This includes {% ifversion ghec %}
+    // public, private, and internal{% elsif fpt %}both public and
+    // private{% endif %} repositories.
+    content = content.replaceAll(
+      '여기에는 공용, 프라이빗 및 내부{% elsif fpt %}모두 공용 및 프라이빗{% endif %} 리포지토리가 포함됩니다{% ifversion ghec %}.',
+      '여기에는 {% ifversion ghec %}공용, 프라이빗 및 내부{% elsif fpt %}공용 및 프라이빗 모두{% endif %} 리포지토리가 포함됩니다.',
+    )
+
+    // data/reusables/actions/permissions-statement-secrets-and-variables-organization.md:
+    // the translator moved `{% endif %}` from the end of the first
+    // conditional to the start of the sentence, leaving the tag unclosed
+    // (`tag "endif" not found`). Reconstruct to match English: Organization
+    // owners{% ifversion custom-org-roles %} and users with the "..."
+    // permissions{% endif %} can create secrets or variables...
+    content = content.replaceAll(
+      '"조직 작업 변수 관리" 또는 "조직 작업 비밀 관리" 권한이{% endif %} 있는 조직 소유자{% ifversion custom-org-roles %} 및 사용자는 조직 수준에서 비밀 또는 변수를 만들 수 있습니다.',
+      '조직 소유자{% ifversion custom-org-roles %} 및 "조직 작업 변수 관리" 또는 "조직 작업 비밀 관리" 권한이 있는 사용자{% endif %}는 조직 수준에서 비밀 또는 변수를 만들 수 있습니다.',
+    )
+
+    // data/reusables/apps/redirect-uri-wildcard-matching.md: the translator
+    // scrambled the trailing conditional so the date/version branches and
+    // `{% else %}` were reordered ahead of `{% ifversion fpt or ghec %}`,
+    // leaving `{% else %}` an orphan (`tag "else" not found`). Reconstruct to
+    // match English: Apps that had a single callback URL enabled prior to
+    // {% ifversion fpt or ghec %}August 3, 2026{% else %}
+    // {% data variables.product.prodname_ghe_server %} 3.24{% endif %} have
+    // wildcard matching enabled...
+    content = content.replaceAll(
+      '2026{% else %}{% data variables.product.prodname_ghe_server %}년 8월 3일 3.24{% endif %} 이전에 {% ifversion fpt or ghec %}단일 콜백 URL을 사용하도록 설정된 앱에는 해당 콜백 URL에 대해 와일드카드 일치가 활성화되어 있습니다.',
+      '{% ifversion fpt or ghec %}2026년 8월 3일{% else %}{% data variables.product.prodname_ghe_server %} 3.24{% endif %} 이전에 단일 콜백 URL을 사용하도록 설정된 앱에는 해당 콜백 URL에 대해 와일드카드 일치가 활성화되어 있습니다.',
     )
   }
 

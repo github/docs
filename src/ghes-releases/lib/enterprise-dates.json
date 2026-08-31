@@ -247,7 +247,7 @@
   },
   "3.17": {
     "releaseDate": "2025-05-13",
-    "deprecationDate": "2026-08-25",
+    "deprecationDate": "2026-09-22",
     "releaseCandidateDate": "2025-05-13",
     "generalAvailabilityDate": "2025-06-03"
   },
@@ -276,10 +276,10 @@
     "generalAvailabilityDate": "2026-06-11"
   },
   "3.22": {
-    "releaseDate": "2026-08-04",
-    "deprecationDate": "2027-08-25",
-    "releaseCandidateDate": "2026-08-04",
-    "generalAvailabilityDate": "2026-08-25"
+    "releaseDate": "2026-08-11",
+    "deprecationDate": "2027-09-01",
+    "releaseCandidateDate": "2026-08-11",
+    "generalAvailabilityDate": "2026-09-01"
   },
   "3.23": {
     "releaseDate": "2026-11-10",

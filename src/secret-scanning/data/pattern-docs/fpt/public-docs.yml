@@ -3925,7 +3925,7 @@
   base64Supported: false
   isduplicate: false
 - provider: PostHog
-  supportedSecret: PostHog Feature Flags Secure API Key
+  supportedSecret: PostHog Project Secret API Key
   secretType: posthog_feature_flags_secure_api_key
   isPublic: true
   isPrivateWithGhas: true
