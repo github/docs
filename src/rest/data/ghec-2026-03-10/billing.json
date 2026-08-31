@@ -399,6 +399,11 @@
                           "will_alert",
                           "alert_recipients"
                         ]
+                      },
+                      "expires_at": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.\nIf not provided, the budget will not expire.\n\nOnly supported for budgets with `budget_scope` of `user`"
                       }
                     },
                     "required": [
@@ -597,6 +602,11 @@
                           "will_alert",
                           "alert_recipients"
                         ]
+                      },
+                      "expires_at": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.\nIf not provided, the budget will not expire.\n\nOnly supported for budgets with `budget_scope` of `user`"
                       }
                     },
                     "required": [
@@ -767,6 +777,11 @@
           "type": "string",
           "name": "user",
           "description": "<p>The username of the user for <code>user</code> scope budgets. This field is required when <code>budget_scope</code> is <code>user</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "expires_at",
+          "description": "<p>The date the budget will expire in <code>YYYY-MM-DD</code> format. Only dates in the future are accepted.\nIf not provided, the budget will not expire.</p>\n<p>Only supported for budgets with <code>budget_scope</code> of <code>user</code></p>"
         }
       ],
       "descriptionHTML": "<p>Creates a new budget for an enterprise. Enterprise owners and billing managers can create budgets scoped to the enterprise, all users in the enterprise, or any organization in it. Organization administrators can create budgets for their organizations, and repository-scoped budgets require administration of the repository's owning organization. A custom role holder with fine-grained write access to enterprise billing can create budgets scoped to a single user or a cost center, including all users in a cost center, without an additional administrator role; the role requirements above still apply to the other scopes. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can create budgets for any target in the enterprise.</p>",
@@ -888,6 +903,11 @@
                           "description": "Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them."
                         }
                       }
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.\nIf not provided, the budget will not expire.\n\nOnly supported for budgets with `budget_scope` of `user`"
                     }
                   }
                 }
@@ -1215,6 +1235,11 @@
           "type": "string",
           "name": "user",
           "description": "<p>The username of the user for <code>user</code> scope budgets.</p>"
+        },
+        {
+          "type": "string or null or integer",
+          "name": "expires_at",
+          "description": "<p>The date the budget will expire in <code>YYYY-MM-DD</code> format. Only dates in the future are accepted.\nIf not set, the budget will not expire. Setting to <code>null</code> or <code>0</code> will remove the expiration date from a budget if set.</p>\n<p>Only supported for budgets with <code>budget_scope</code> of <code>user</code></p>"
         }
       ],
       "descriptionHTML": "<p>Updates an existing budget for an enterprise. Enterprise owners and billing managers can update budgets scoped to the enterprise, all users in the enterprise, or any organization in it. Organization administrators can update budgets for their organizations, and repository-scoped budgets require administration of the repository's owning organization. A custom role holder with fine-grained write access to enterprise billing can update budgets scoped to a single user or a cost center, including all users in a cost center, without an additional administrator role; the role requirements above still apply to the other scopes. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can update any budget in the enterprise.</p>",
@@ -1344,6 +1369,11 @@
                           "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is always disabled for them."
                         }
                       }
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.\nIf not provided, the budget will not expire.\n\nOnly supported for budgets with `budget_scope` of `user`"
                     }
                   }
                 }
