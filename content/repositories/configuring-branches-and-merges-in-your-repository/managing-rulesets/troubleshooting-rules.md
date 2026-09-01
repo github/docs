@@ -68,7 +68,7 @@ Ruleset workflows do not run on events triggered by the `GITHUB_TOKEN`. For more
 
 A required workflow can block people from creating a repository, since a workflow can't run against a repository that's being initialized. To get around this, the ruleset either needs to have "Evaluate" as the enforcement status, or someone with bypass permissions needs to create the repository and bypass the branch protection.
 
-For more information about enforcement statuses and "Evaluate" mode, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#about-using-enforcement-statuses).
+For more information about enforcement statuses and "Evaluate" mode, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-ruleset-enforcement-statuses).
 
 For more information about bypass permissions, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
 
