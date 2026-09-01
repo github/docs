@@ -59,6 +59,10 @@ There are two ways to dictate prompts.
 Rather than holding down the space bar, you can toggle voice recording on and off. This is more convenient for longer prompts.
 
 1. Press <kbd>Ctrl</kbd>+<kbd>X</kbd> followed by <kbd>V</kbd> to start recording.
+
+   > [!NOTE]
+   > In some terminals, you can use <kbd>Ctrl</kbd>+<kbd>Space</kbd> as an alternative. This shortcut only works if your terminal and OS pass it through. You may also need to free it in your terminal or OS key bindings.
+
 1. Speak your prompt.
 1. Press any key to stop recording and insert the transcription.
 
@@ -85,7 +89,7 @@ If you have more than one microphone available on your system, you can switch in
    A list of available input devices is shown.
 
 1. Use the arrow keys on your keyboard to select the microphone you want to use, then press <kbd>Enter</kbd>.
-   
+
 ## Switching voice models
 
 You can dictate prompts in English or Spanish, but the appropriate voice model must be downloaded and activated for the language you want to use.

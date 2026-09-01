@@ -9,7 +9,7 @@ In some situations, {% data variables.product.prodname_actions %} applies limits
 
 * If a push contains more than 1,000 commits, the workflow will **always** run.
 * If generating the diff times out, the workflow will **always** run.
-* If the generated diff contains more than 3,000 files and the files the workflow filter matches are not in the first 3,000 returned by the filter, the workflow will **not** run.
+* If the generated diff contains more than {% ifversion actions-paths-filter-limit %}3,000{% else %}300{% endif %} files and the files the workflow filter matches are not in the first {% ifversion actions-paths-filter-limit %}3,000{% else %}300{% endif %} returned by the filter, the workflow will **not** run.
 
 If you observe these behaviors, you might need to make your filters more specific, or change how you work with pushes and pull requests to generate simpler diffs.
 

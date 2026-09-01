@@ -2,6 +2,11 @@ import { describe, expect, test } from 'vitest'
 import { performance } from 'perf_hooks'
 
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
+import { liquid } from '@/content-render/index'
+import { allVersions } from '@/versions/lib/all-versions'
+import { supported } from '@/versions/lib/enterprise-server-releases'
+import shortVersionsMiddleware from '@/versions/middleware/short-versions'
+import type { ExtendedRequest } from '@/types'
 
 function fix(content: string, code: string, englishContent = '') {
   return correctTranslatedContentStrings(content, englishContent, {
@@ -9,6 +14,26 @@ function fix(content: string, code: string, englishContent = '') {
     relativePath: 'test.md',
     skipOrphanStripping: true,
   })
+}
+
+const ghesVersion = `enterprise-server@${supported[0]}`
+
+// A string fix can produce valid Liquid that still renders the wrong thing for
+// a given version: a dropped separator, or a branch that swallows the whole
+// sentence. `render` evaluates a corrected string per version so those failures
+// are caught. Product names resolve from the English data directory, since only
+// `en` is loaded in tests, but the branch structure under test is language
+// independent.
+async function render(content: string, currentVersion: string) {
+  const req = {} as ExtendedRequest
+  req.context = {
+    allVersions,
+    currentVersion,
+    currentVersionObj: allVersions[currentVersion],
+    currentLanguage: 'en',
+  }
+  shortVersionsMiddleware(req, null, () => {})
+  return (await liquid.parseAndRender(content, req.context)).trim()
 }
 
 describe('correctTranslatedContentStrings', () => {
@@ -2834,6 +2859,84 @@ Para más información, consulta "[AUTOTITLE](/path)".
         '{% ifversion fpt or ghec %}2026년 8월 3일{% else %}{% data variables.product.prodname_ghe_server %} 3.24{% endif %} 이전에 단일 콜백 URL을 사용하도록 설정된 앱에는 해당 콜백 URL에 대해 와일드카드 일치가 활성화되어 있습니다.'
       expect(fix(broken, 'ko')).toBe(fixed)
       expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+  })
+
+  describe('ru: gated-features/ghas-ghec.md per-file fix', () => {
+    const broken =
+      '{% data variables.product.prodname_GH_code_security %}и доступны для аккаунтов и {% data variables.product.prodname_team %}{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}аккаунтов на {% data variables.product.prodname_ghe_server %}{% endif %}.{% ifversion fpt or ghec %}{% data variables.product.prodname_GH_secret_protection %}'
+    const fixed =
+      '{% data variables.product.prodname_GH_code_security %} и {% data variables.product.prodname_GH_secret_protection %} доступны для {% ifversion fpt or ghec %}аккаунтов на {% data variables.product.prodname_team %} и {% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}аккаунтов на {% data variables.product.prodname_ghe_server %}{% endif %}.'
+
+    test('moves ifversion tag back to the start of the conditional and reunites split data tags', () => {
+      expect(fix(broken, 'ru')).toBe(fixed)
+      expect(fix(fixed, 'ru')).toBe(fixed)
+    })
+
+    test('renders readable Russian on fpt and ghec, with the products separated', async () => {
+      for (const version of ['free-pro-team@latest', 'enterprise-cloud@latest']) {
+        const output = await render(fix(broken, 'ru'), version)
+        expect(output).toBe(
+          'GitHub Code Security и GitHub Secret Protection доступны для аккаунтов на GitHub Team и GitHub Enterprise Cloud.',
+        )
+      }
+    })
+
+    test('renders the ghes branch alone on ghes', async () => {
+      const output = await render(fix(broken, 'ru'), ghesVersion)
+      expect(output).toBe(
+        'GitHub Code Security и GitHub Secret Protection доступны для аккаунтов на GitHub Enterprise Server.',
+      )
+    })
+  })
+
+  describe('ko: gated-features/ghas-ghec.md per-file fix', () => {
+    const broken =
+      '{% data variables.product.prodname_team %}의 {% ifversion fpt or ghec %}계정과 {% data variables.product.prodname_ghe_server %}{% endif %}의 {% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}계정에서 사용할 수 있습니다.'
+    const fixed =
+      '{% ifversion fpt or ghec %}{% data variables.product.prodname_team %}의 계정과 {% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}{% data variables.product.prodname_ghe_server %}의 계정{% endif %}에서 사용할 수 있습니다.'
+
+    test('reconstructs the scrambled ifversion/elsif/endif structure', () => {
+      expect(fix(broken, 'ko')).toBe(fixed)
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+
+    test('renders only the cloud products on fpt and ghec', async () => {
+      for (const version of ['free-pro-team@latest', 'enterprise-cloud@latest']) {
+        const output = await render(fix(broken, 'ko'), version)
+        expect(output).toBe('GitHub Team의 계정과 GitHub Enterprise Cloud에서 사용할 수 있습니다.')
+      }
+    })
+
+    test('renders only the server product on ghes', async () => {
+      const output = await render(fix(broken, 'ko'), ghesVersion)
+      expect(output).toBe('GitHub Enterprise Server의 계정에서 사용할 수 있습니다.')
+    })
+  })
+
+  describe('ko: change-retention-period-for-artifacts-logs.md per-file fix', () => {
+    const broken =
+      '1. {% ifversion ghes %} **아티팩트 및 로그 보존**의 "아티팩트, 로그 및 캐시 설정" 구역에서 새 값을 입력합니다.'
+    const fixed =
+      '1. {% ifversion ghes %}"아티팩트, 로그 및 캐시 설정" 구역의 {% endif %}**아티팩트 및 로그 보존**에서 새 값을 입력합니다.'
+
+    test('scopes the unclosed ifversion tag to the GHES-only clause', () => {
+      expect(fix(broken, 'ko')).toBe(fixed)
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+
+    test('keeps the step on fpt and ghec without the GHES-only section name', async () => {
+      for (const version of ['free-pro-team@latest', 'enterprise-cloud@latest']) {
+        const output = await render(fix(broken, 'ko'), version)
+        expect(output).toBe('1. **아티팩트 및 로그 보존**에서 새 값을 입력합니다.')
+      }
+    })
+
+    test('keeps the GHES-only section name on ghes', async () => {
+      const output = await render(fix(broken, 'ko'), ghesVersion)
+      expect(output).toBe(
+        '1. "아티팩트, 로그 및 캐시 설정" 구역의 **아티팩트 및 로그 보존**에서 새 값을 입력합니다.',
+      )
     })
   })
 })

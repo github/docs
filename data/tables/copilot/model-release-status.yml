@@ -57,6 +57,10 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
+- name: 'Claude Fable 5.1'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 - name: 'Claude Haiku 4.5'
   provider: 'Anthropic'
   release_status: 'GA'

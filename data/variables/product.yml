@@ -59,6 +59,7 @@ prodname_ghos: GitHub-owned blob storage
 ## Enterprise Live Migrations
 prodname_elm: Enterprise Live Migrations
 prodname_elm_short: ELM
+prodname_elm_cli: ELM CLI
 
 # GitHub Education
 prodname_education: 'GitHub Education'

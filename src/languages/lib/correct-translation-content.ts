@@ -1488,6 +1488,23 @@ export function correctTranslatedContentStrings(
       'доступом {% ifversion ghec %}к организациям, принадлежащим вашей организации{% endif %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %}.',
       'доступом {% ifversion ghec %}к организациям, принадлежащим вашей организации на {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}к {% data variables.location.product_location %}{% endif %}.',
     )
+
+    // gated-features/ghas-ghec.md: `{% ifversion fpt or ghec %}` was moved to
+    // the very end of the sentence (after `{% endif %}`), leaving an orphan
+    // `elsif` with no matching opener (`tag "elsif" not found`). Move the
+    // `{% ifversion fpt or ghec %}` tag back to open the conditional, and move
+    // `{% data variables.product.prodname_GH_secret_protection %}` back next
+    // to the first `{% data ... %}` tag it was separated from.
+    // The corruption also dropped the preposition `на` and left `и` before the
+    // first product, so the fpt/ghec branch has to be reconstructed to
+    // `аккаунтов на {% team %} и {% ghe_cloud %}`. That matches the English
+    // ("accounts on GitHub Team and GitHub Enterprise Cloud") and parallels the
+    // surviving `elsif ghes` branch. Without it the branch renders as
+    // `аккаунтов и GitHub TeamGitHub Enterprise Cloud`: valid Liquid, broken prose.
+    content = content.replaceAll(
+      '{% data variables.product.prodname_GH_code_security %}и доступны для аккаунтов и {% data variables.product.prodname_team %}{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}аккаунтов на {% data variables.product.prodname_ghe_server %}{% endif %}.{% ifversion fpt or ghec %}{% data variables.product.prodname_GH_secret_protection %}',
+      '{% data variables.product.prodname_GH_code_security %} и {% data variables.product.prodname_GH_secret_protection %} доступны для {% ifversion fpt or ghec %}аккаунтов на {% data variables.product.prodname_team %} и {% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}аккаунтов на {% data variables.product.prodname_ghe_server %}{% endif %}.',
+    )
   }
 
   if (context.code === 'fr') {
@@ -1718,6 +1735,28 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 데이터 reusables.', '{% data reusables.')
     content = content.replaceAll('{% 데이터 변수.', '{% data variables.')
     content = content.replaceAll('{% 데이터 변숫값.', '{% data variables.')
+    // data/reusables/actions/change-retention-period-for-artifacts-logs.md:
+    // the `{% else %}...{% endif %}` branch was dropped entirely, leaving an
+    // unclosed `{% ifversion ghes %}` (`tag {% ifversion ghes %} not closed`).
+    // The English step renders for every version and only its opening clause is
+    // GHES-only, so the conditional has to wrap just the section name. Closing
+    // the tag at the end of the sentence instead would delete step 1 for
+    // FPT/GHEC, and dropping the opener would leak the GHES-only "Artifact,
+    // log, and cache settings" section name to dotcom readers.
+    // The corruption also inverted the containment relationship, so the two
+    // clauses are reordered: the section contains the setting, not the reverse.
+    content = content.replace(
+      /1\. \{% ifversion ghes %\} \*\*아티팩트 및 로그 보존\*\*의 "아티팩트, 로그 및 캐시 설정" 구역에서 새 값을 입력합니다\./,
+      '1. {% ifversion ghes %}"아티팩트, 로그 및 캐시 설정" 구역의 {% endif %}**아티팩트 및 로그 보존**에서 새 값을 입력합니다.',
+    )
+    // gated-features/ghas-ghec.md: the `{% data ...ghe_server %}{% endif %}`
+    // and `{% data ...ghe_cloud %}{% elsif ghes %}` clauses were swapped, and
+    // the final `{% endif %}` was dropped (`tag "elsif" not found`).
+    // Reconstruct the intended ifversion/elsif/endif structure.
+    content = content.replaceAll(
+      '{% data variables.product.prodname_team %}의 {% ifversion fpt or ghec %}계정과 {% data variables.product.prodname_ghe_server %}{% endif %}의 {% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}계정에서 사용할 수 있습니다.',
+      '{% ifversion fpt or ghec %}{% data variables.product.prodname_team %}의 계정과 {% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}{% data variables.product.prodname_ghe_server %}의 계정{% endif %}에서 사용할 수 있습니다.',
+    )
     content = content.replaceAll('{% 기타 %}', '{% else %}')
     content = content.replaceAll('{%- 기타 %}', '{%- else %}')
     // `{% other %}` — English "other" used as an alias for else by the translator
