@@ -1,10 +1,6 @@
 date: '2025-08-25'
 intro: |
-  {% warning %}
-
-  **Warning**: We are lifting the pause on upgrade to 3.17. You can now upgrade to version 3.17.5, but not to earlier releases of 3.17. This release includes optimizations that address performance issues reported in recent versions of GitHub Enterprise Server. As an additional step, it is recommended to check system capacity before upgrading. See [check system capacity before upgrading](/admin/upgrading-your-instance/preparing-to-upgrade/check-system-capacity-before-upgrading).
-
-  {% endwarning %}
+  > [!WARNING] We are lifting the pause on upgrade to 3.17. You can now upgrade to version 3.17.5, but not to earlier releases of 3.17. This release includes optimizations that address performance issues reported in recent versions of GitHub Enterprise Server. As an additional step, it is recommended to check system capacity before upgrading. See [check system capacity before upgrading](/admin/upgrading-your-instance/preparing-to-upgrade/check-system-capacity-before-upgrading).
 sections:
   security_fixes:
     - |

@@ -40,15 +40,4 @@ $colors:
       color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
     }
   }
-
-  // Temporary: so that the existing "notes" "callouts" etc color the first word
-  .ghd-spotlight-#{$color} {
-    p:first-child {
-      strong:first-child,
-      b:first-child {
-        color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
-      }
-    }
-  }
-  // End temporary
 }
