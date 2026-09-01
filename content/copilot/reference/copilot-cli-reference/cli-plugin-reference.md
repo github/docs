@@ -64,7 +64,7 @@ In addition to installing a plugin from a specification, `copilot plugins instal
 
 Installing a directory registers it as a custom skill source rather than copying it; installing a file or URL copies the skill's content into your personal or project skills directory.
 
-MCP servers install from a policy-configured registry, which requires authentication and interactive secret entry. Use the `/plugin` or `/mcp` dashboard (Online mode) to add MCP servers instead of `copilot plugins install`.
+MCP servers install from a policy-configured registry, which requires authentication and interactive secret entry. Use the **Online** view of the `/mcp` dashboard to add MCP servers instead of `copilot plugins install`.
 
 ### `copilot plugins update` options
 
@@ -93,7 +93,7 @@ Built-in default marketplaces ship with the runtime and can't be removed.
 | `browse NAME [--json]`  | List the plugins offered by a marketplace's catalog                        |
 | `update [NAME]` (alias `refresh`) | Refresh the plugin catalog for one marketplace, or all if `NAME` is omitted |
 
-In interactive mode, run `/plugin marketplace update [NAME]` (alias `/plugin marketplace refresh`), or press `r` in the plugins dashboard's Marketplace tab, to refresh every registered marketplace's catalog.
+In interactive mode, run `/plugin marketplace update [NAME]` (alias `/plugin marketplace refresh`), or press <kbd>R</kbd> in the **Marketplace** view of the `/plugin` dashboard, to refresh every registered marketplace's catalog.
 
 ## `plugin.json`
 
