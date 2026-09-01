@@ -84,7 +84,7 @@ Hook configuration files use JSON format with version `1`.
 
 ### Command hooks
 
-Command hooks run shell scripts and are supported on all hook types.
+Command hooks run shell scripts or executables and are supported on all hook types.
 
 > [!NOTE]
 > **Cloud agent only.** Cloud agent runs hooks in a Linux sandbox. Only the `bash` field is honored; `powershell` entries are ignored. The cross-platform `command` field is honored as a fallback.
@@ -107,13 +107,39 @@ Command hooks run shell scripts and are supported on all hook types.
 }
 ```
 
+In {% data variables.copilot.copilot_cli_short %}, you can use `exec` and `args` to run an executable directly instead of using a shell:
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "exec": "YOUR_EXECUTABLE",
+        "args": ["YOUR_ARGUMENT"],
+        "cwd": "OPTIONAL/WORKING/DIRECTORY",
+        "env": { "VAR": "VALUE" },
+        "timeoutSec": 30
+      }
+    ]
+  }
+}
+```
+
+Replace `YOUR_EXECUTABLE` with the executable name or path and `YOUR_ARGUMENT` with an argument to pass to it. You can include additional arguments in the `args` array.
+
+Do not combine `exec` with `bash`, `powershell`, or `command`. Arguments are passed directly to the executable without shell interpretation, so shell features such as pipes, redirection, and glob expansion are not available.
+
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `bash` | string | One of `bash`, `powershell`, or `command` | Shell command for Unix. |
-| `command` | string | One of `bash`, `powershell`, or `command` | Cross-platform fallback. Copied to both `bash` and `powershell` when those fields are absent; explicit `bash` or `powershell` entries take precedence on their respective platforms. |
+| `args` | array of strings | No | Arguments passed directly to `exec`. Only supported in {% data variables.copilot.copilot_cli_short %}. |
+| `bash` | string | One of `bash`, `powershell`, or `command`, unless `exec` is specified | Shell command for Unix. |
+| `command` | string | One of `bash`, `powershell`, or `command`, unless `exec` is specified | Cross-platform fallback. Copied to both `bash` and `powershell` when those fields are absent; explicit `bash` or `powershell` entries take precedence on their respective platforms. |
 | `cwd` | string | No | Working directory for the command (relative to repository root or absolute). |
 | `env` | object | No | Environment variables to set (supports variable expansion). |
-| `powershell` | string | One of `bash`, `powershell`, or `command` | Shell command for Windows. |
+| `exec` | string | Instead of `bash`, `powershell`, and `command` | Executable name or path. Runs the executable directly without a shell. Only supported in {% data variables.copilot.copilot_cli_short %}. |
+| `powershell` | string | One of `bash`, `powershell`, or `command`, unless `exec` is specified | Shell command for Windows. |
 | `timeout` | number | No | Alias for `timeoutSec`, in seconds. Used only when `timeoutSec` is absent; `timeoutSec` takes precedence when both are present. |
 | `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
 | `type` | `"command"` | No | Hook type. Defaults to `"command"` when omitted. |
