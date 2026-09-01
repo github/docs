@@ -190,7 +190,7 @@ With `--skill`, pass either a skill name or the path to a custom skill directory
 | <kbd>Ctrl</kbd>+<kbd>L</kbd>        | Clear the screen.                     |
 | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Ctrl</kbd>+<kbd>Q</kbd> | Queue a message to send while the agent is busy. |
 | <kbd>Ctrl</kbd>+<kbd>R</kbd>        | Reverse search through command history. |
-| <kbd>Ctrl</kbd>+<kbd>Space</kbd>    | Toggle voice dictation on or off (alias for <kbd>Ctrl</kbd>+<kbd>X</kbd> then `v`). Hold <kbd>Space</kbd> to record instead of toggling. |
+| <kbd>Ctrl</kbd>+<kbd>Space</kbd>    | Toggle voice dictation on or off (alias for <kbd>Ctrl</kbd>+<kbd>X</kbd> then `v`). This only works if your terminal and OS pass it through. You may need to free this in your OS or terminal key bindings. Use <kbd>Ctrl</kbd>+<kbd>X</kbd> then `v` as an alternative. |
 | <kbd>Ctrl</kbd>+<kbd>V</kbd> | Paste from clipboard as an attachment. |
 | <kbd>Alt</kbd>+<kbd>V</kbd> | Paste image from clipboard as an attachment. |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `/`  | After you have started typing a prompt, this allows you to run a slash command—for example, if you want to change the model without having to retype your prompt. |
