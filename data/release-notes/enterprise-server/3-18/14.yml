@@ -1,0 +1,90 @@
+date: '2026-08-25'
+sections:
+  security_fixes:
+    - |
+      **HIGH:** An attacker could execute arbitrary code on the instance by exploiting a race condition that replaced a validated upload with attacker-controlled content before processing. Exploitation required an authenticated user with write access to a repository. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/) and was assigned [CVE-2026-19118](https://www.cve.org/cverecord?id=CVE-2026-19118).
+    - |
+      **HIGH:** An unauthenticated attacker could cause a GitHub Enterprise Server instance to send crafted outbound requests to an attacker-controlled host via an unauthenticated Manage API endpoint that parsed an attacker-supplied cluster configuration. An attacker positioned to intercept the outbound request could capture a replayable management bearer token. High-availability deployments were not affected. GitHub has requested [CVE-2026-18730](https://www.cve.org/cverecord?id=CVE-2026-18730) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **HIGH:** An attacker could execute arbitrary code on a GitHub Enterprise Server instance by using a configured pre-receive hook to redirect trusted internal requests to a privileged internal service. Exploitation required pre-receive hook networking to be enabled and the ability to configure or modify a pre-receive hook. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/) and was assigned [CVE-2026-76851](https://www.cve.org/cverecord?id=CVE-2026-76851).
+    - |
+      **LOW**: An attacker using a mail service that forwards nonstandard SMTP sequences unchanged could exploit the upstream Postfix SMTP smuggling vulnerability [CVE-2023-51764](https://www.cve.org/CVERecord?id=CVE-2023-51764) to potentially bypass email security controls and spoof sender addresses on messages delivered locally by a GitHub Enterprise Server instance. GitHub has updated the Postfix configuration to enable the applicable mitigation.
+  bugs:
+    - |
+      Dependabot processes multi-ecosystem groups configured in `dependabot.yml`. This was previously gated by a legacy feature flag which did not always apply. 
+    - |
+      Backups using rsync could fail with signature verification. 
+    - |
+      The Management Console would not allow setting a SMTP password with special characters although those should be permitted and valid. 
+    - |
+      On repositories with many packfiles, concurrent Git operations could consume excessive system CPU and complete more slowly. Pack metadata checks were optimized to reduce CPU contention and improve Git operation performance. 
+    - |
+      Cached license information was not cleared until the instance was restarted. 
+    - |
+      An enterprises license usage page did not load at all if there was a timeout affecting the GitHub Advanced Security section. 
+    - |
+      Users who edited, created, or deleted files in the web UI saw a generic rule violation message when a pre-receive hook blocked the commit, even when no rule was violated. 
+    - |
+      The `ghe-spokes cache-replica sync` command exited immediately with an error on all instances, regardless of whether a cache replica was configured or not. 
+    - |
+      Some API and web requests on instances with large organizations could respond slowly or time out intermittently. Loading configuration settings for many repositories in a single request—such as listing an organization teams repositories or viewing a pull request or issue—allocated an excessive number of objects and triggered heavy garbage collection. Configuration loading in these requests is now more memory-efficient, reducing latency and timeouts on affected endpoints. 
+    - |
+      Site administrators received an HTTP 500 error when applying a new Elasticsearch Cross Cluster Replication (CCR) compatible license file to the instance. 
+    - |
+      Secret scanning operations that look up blob origins returned spurious timeout errors (HTTP 408), even when the underlying work would have completed quickly. This caused a significant drop in success rate for affected requests. 
+    - |
+      During background repository maintenance, a failed Git repack operation was incorrectly reported as successful. This could also result in Git objects being pruned without a backup, potentially causing data loss if those objects were still referenced by active operations. 
+    - |
+      On instances running GitHub Enterprise Server 3.18 or later, Git-related services generated excessive syslog output, increasing log volume by up to several orders of magnitude compared to previous versions. In some cases, this caused log storage and monitoring issues for administrators. 
+  changes:
+    - |
+      Administrators can run three new command-line utilities over administrative SSH to perform common SAML troubleshooting operations that GitHub Enterprise Support would otherwise guide them through manually: `ghe-saml-mapping-find` looks up a users SAML mapping, `ghe-saml-debug` toggles global SAML debug logging, and `ghe-saml-mapping-destroy` deletes SAML mappings matching a NameID. 
+    - |
+      Administrators can configure multiple WireGuard tunnels for high-availability deployments by setting `wireguard.num-tunnels`. Multiple tunnels distribute inter-node traffic across network queues and CPU cores, improving performance during high-volume traffic. The default configuration remains unchanged. See [Mitigating single-core softirq saturation](/admin/monitoring-and-managing-your-instance/additional-nodes/configuring-additional-nodes#mitigating-single-core-softirq-saturation).
+  known_issues:
+    - |
+      During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [Troubleshooting access to the Management Console](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      In a cluster, the host running restore requires access the storage nodes via their private IPs.
+    - |
+      On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      Unexpected elements may appear in the UI on the repository overview page for locked repositories.
+    - |
+      When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
+    - |
+      The setting to define private registries at the organization level for code scanning is only available if Dependabot is also enabled for the instance.
+    - |
+      Custom NTP settings are removed during the upgrade process.
+    - |
+      Enterprise owners who apply a security configuration, such as Secret Scanning or Code Scanning, to all repositories in an enterprise may experience increased system load and degraded performance because GitHub Enterprise Server simultaneously queues enablement jobs for every organization. To reduce the impact, apply security configurations at the organization level and enable them incrementally while monitoring system performance.
