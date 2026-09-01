@@ -29,6 +29,22 @@ There are three types, listed from the broadest scope to the most specific:
 
 When more than one type applies to a user, the most specific budget wins: an individual user-level budget takes precedence over a cost center user-level budget, which takes precedence over the universal user-level budget.
 
+#### Expiration dates for individual user-level budgets
+
+You can set an optional expiration date on an individual user-level budget, so a temporary override cleans itself up instead of requiring you to remember to remove it. This is useful when you raise a user's limit for a single sprint, an incident, or a short-term project.
+
+You can choose one of the following:
+
+* **No expiration**, which is the default and means the budget applies until you edit or delete it.
+* **Expiration at the end of the current billing cycle.**
+* **Expiration on a specific date.**
+
+At the end of the expiration period, {% data variables.product.github %} removes the individual budget. The user then falls back to their cost center user-level budget, if they have one, or otherwise to the universal user-level budget. If no broader budget applies, the user has no remaining user-level budget.
+
+You can change or clear an expiration date at any time. Expiration is only available for individual user-level budgets, not for universal or cost center user-level budgets.
+
+To set an expiration date, see [AUTOTITLE](/billing/how-tos/set-up-budgets#creating-a-budget). You can also set an expiration date with the REST API by using the `expires_at` field when creating or updating a budget. See [AUTOTITLE](/rest/billing/budgets).
+
 #### When users appear in a universal user-level budget
 
 A universal user-level budget can apply to thousands of licensed users. {% data variables.product.github %} creates each user's budget record the first time they consume {% data variables.product.prodname_ai_credits_short %} after the budget is created, or after the start of a new billing cycle. As a result, users appear in the universal budget list gradually rather than all at once, and a licensed user who does not use {% data variables.product.prodname_copilot_short %} in a given billing cycle will not appear in the list for that billing cycle.
