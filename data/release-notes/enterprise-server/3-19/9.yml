@@ -5,6 +5,8 @@ sections:
   features:
     - |
       Site administrators can configure a customer-managed cloud object store (Amazon S3, Azure Blob Storage, or Google Cloud Storage) as an Elasticsearch snapshot repository. This enables incremental Elasticsearch snapshots for backup, restore, and disaster recovery. Management scripts are available for manual snapshot operations and testing.
+    - |
+      The Enterprise Live Migrations (ELM) service is generally available, allowing enterprises to migrate repositories from GitHub Enterprise Server to GHE.com with minimal downtime. A new GitHub CLI extension allows administrators to operate the service from their local machine. See [AUTOTITLE](/migrations/elm/about-live-migrations). [Updated: 2026-08-25]
   security_fixes:
     - |
       **HIGH**: An attacker who had code execution inside the Dependabot updater container could write attacker-controlled files to arbitrary paths in a repository that Dependabot updates, including GitHub Actions workflow files. This was possible because dependency-file path validation checked only the declared file name and not the effective path derived from the file's directory and symlink target. If the repository used a pull_request_target workflow or had auto-merge enabled, the injected workflow could execute with access to the repository's GitHub Actions secrets. GitHub has requested CVE ID [CVE-2026-15343](https://www.cve.org/cverecord?id=CVE-2026-15343) for this vulnerability.
