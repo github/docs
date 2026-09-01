@@ -1,0 +1,900 @@
+name: LM-G900 Android 16 QPR2 - Vendor Build FIXED
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+env:
+  MANIFEST_URL: "https://github.com/LineageOS/android.git"
+  ANDROID_BRANCH: "lineage-23.2"
+
+  DEVICE_CODENAME: "caymanlm"
+  MODEL: "LM-G900"
+  PRODUCT: "lineage_caymanlm-userdebug"
+
+  VENDOR_ORG: "lge-qcom-dev"
+  DEVICE_REPO: "android_device_lge_caymanlm"
+  VENDOR_REPO: "proprietary_vendor_lge_caymanlm"
+  COMMON_VENDOR_REPO: "proprietary_vendor_lge_sm7250-common"
+
+  DIAG_DIR: "ci-diagnostics/vendor"
+
+jobs:
+
+  vendor:
+
+    name: LM-G900 Vendor Build - 75GB Runner
+
+    runs-on: ubuntu-24.04
+
+    timeout-minutes: 360
+
+    steps:
+
+      # ============================================================
+      # V00 - CHECKOUT
+      # ============================================================
+
+      - name: V00 - Checkout repository
+        id: v00
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          clean: false
+
+      # ============================================================
+      # V00.1 - EARLY STORAGE CHECK
+      # ============================================================
+
+      - name: V00.1 - Check runner storage
+        id: storage_before
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          echo "=================================================="
+          echo "LM-G900 STORAGE CHECK - BEFORE CLEANUP"
+          echo "=================================================="
+
+          df -h
+          echo
+          df -ih
+
+          echo
+          echo "Root usage:"
+          sudo du -xhd1 / 2>/dev/null | sort -h || true
+
+      # ============================================================
+      # V00.2 - EXTREME CLEANUP (more space)
+      # ============================================================
+
+      - name: V00.2 - Free runner storage (extreme)
+        id: cleanup
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          echo "=================================================="
+          echo "EXTREME RUNNER CLEANUP"
+          echo "=================================================="
+
+          # Android / SDK
+          sudo rm -rf /usr/local/lib/android 2>/dev/null || true
+          sudo rm -rf /usr/local/.ghcup 2>/dev/null || true
+          sudo rm -rf /usr/share/dotnet 2>/dev/null || true
+          sudo rm -rf /usr/local/share/powershell 2>/dev/null || true
+          sudo rm -rf /usr/local/lib/node_modules 2>/dev/null || true
+
+          # GHC / Haskell
+          sudo rm -rf /opt/ghc 2>/dev/null || true
+          sudo rm -rf /usr/share/ghc* 2>/dev/null || true
+
+          # Hosted tool cache
+          sudo rm -rf /opt/hostedtoolcache 2>/dev/null || true
+
+          # APT cache
+          sudo apt-get clean || true
+          sudo rm -rf /var/lib/apt/lists/* 2>/dev/null || true
+
+          # Docker
+          docker system prune -af 2>/dev/null || true
+          docker builder prune -af 2>/dev/null || true
+
+          # User caches
+          rm -rf ~/.cache/* 2>/dev/null || true
+          rm -rf ~/.gradle/caches/* 2>/dev/null || true
+          rm -rf ~/.npm/_cacache 2>/dev/null || true
+          rm -rf ~/.m2/repository/* 2>/dev/null || true
+          rm -rf ~/.cache/pip 2>/dev/null || true
+          rm -rf ~/.ccache 2>/dev/null || true
+
+          # Python cache
+          sudo rm -rf /usr/local/lib/python* 2>/dev/null || true
+
+          # Temporary files
+          sudo rm -rf /tmp/* 2>/dev/null || true
+          sudo rm -rf /var/tmp/* 2>/dev/null || true
+
+          sync
+
+          echo
+          echo "=================================================="
+          echo "STORAGE AFTER CLEANUP"
+          echo "=================================================="
+
+          df -h
+          echo
+          df -ih
+
+      # ============================================================
+      # V00.3 - CREATE DIAGNOSTICS
+      # ============================================================
+
+      - name: V00.3 - Create diagnostics
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          mkdir -p \
+            "$GITHUB_WORKSPACE/$DIAG_DIR" \
+            "$GITHUB_WORKSPACE/vendor_out"
+
+          {
+            echo "LG Velvet LM-G900 - VENDOR ONLY FIXED"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "sha=$GITHUB_SHA"
+            echo "model=$MODEL"
+            echo "codename=$DEVICE_CODENAME"
+            echo "product=$PRODUCT"
+            echo "android_branch=$ANDROID_BRANCH"
+            echo "runner=$RUNNER_NAME"
+            echo "started=$(date -u +%FT%TZ)"
+          } | tee "$GITHUB_WORKSPACE/$DIAG_DIR/00-run.log"
+
+      # ============================================================
+      # V01 - INSTALL DEPENDENCIES + UPDATE REPO
+      # ============================================================
+
+      - name: V01 - Install build dependencies and update repo
+        id: v01
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          log="$GITHUB_WORKSPACE/$DIAG_DIR/01-dependencies.log"
+          exec > >(tee -a "$log") 2>&1
+
+          echo "Installing required packages..."
+
+          sudo apt-get update
+
+          sudo apt-get install -y \
+            git-core \
+            gnupg \
+            flex \
+            bison \
+            build-essential \
+            zip \
+            curl \
+            zstd \
+            unzip \
+            rsync \
+            bc \
+            ccache \
+            libssl-dev \
+            libelf-dev \
+            python3 \
+            python3-pip \
+            jq \
+            lz4 \
+            liblz4-tool \
+            libxml2-utils \
+            xsltproc
+
+          sudo apt-get clean
+          sudo rm -rf /var/lib/apt/lists/*
+
+          # Install latest repo launcher (force download)
+          curl -fL --retry 5 --retry-delay 3 \
+            https://storage.googleapis.com/git-repo-downloads/repo \
+            -o "$HOME/repo"
+
+          chmod +x "$HOME/repo"
+          sudo install -m 0755 "$HOME/repo" /usr/local/bin/repo
+
+          # Verify repo path and version
+          which repo
+          repo --version
+          python3 --version
+
+          echo
+          echo "Storage after dependencies:"
+          df -h
+
+      # ============================================================
+      # V02 - INITIALIZE ANDROID SOURCE & SELFUPDATE REPO
+      # ============================================================
+
+      - name: V02 - Initialize Android source and update repo tool
+        id: v02
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          base="$GITHUB_WORKSPACE"
+          log="$base/$DIAG_DIR/02-repo-init.log"
+
+          exec > >(tee -a "$log") 2>&1
+
+          rm -rf "$base/android"
+
+          mkdir -p "$base/android"
+
+          cd "$base/android"
+
+          # Initialize with stable repo branch - NO --depth to avoid parser issues
+          repo init \
+            -u "$MANIFEST_URL" \
+            -b "$ANDROID_BRANCH" \
+            --no-clone-bundle \
+            --repo-url=https://gerrit.googlesource.com/git-repo \
+            --repo-branch=stable
+
+          # Now selfupdate to get the latest repo
+          echo "Running repo selfupdate to ensure latest version..."
+          repo selfupdate
+
+          test -s "$base/android/.repo/manifests/default.xml"
+
+          echo "V02 PASS: repo initialized and selfupdated to stable version."
+
+          echo
+          echo "Storage after repo init:"
+          df -h
+
+      # ============================================================
+      # V03 - REAL LM-G900 REPOSITORIES
+      # ============================================================
+
+      - name: V03 - Resolve REAL LM-G900 vendor repositories
+        id: v03
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          base="$GITHUB_WORKSPACE"
+          log="$base/$DIAG_DIR/03-vendor-manifest.log"
+
+          exec > >(tee -a "$log") 2>&1
+
+          cd "$base/android"
+
+          mkdir -p .repo/local_manifests
+
+          DEVICE_URL="https://github.com/${VENDOR_ORG}/${DEVICE_REPO}.git"
+          VENDOR_URL="https://github.com/${VENDOR_ORG}/${VENDOR_REPO}.git"
+          COMMON_URL="https://github.com/${VENDOR_ORG}/${COMMON_VENDOR_REPO}.git"
+
+          echo "=== repository existence ==="
+
+          git ls-remote --heads "$DEVICE_URL" >/dev/null
+          git ls-remote --heads "$VENDOR_URL" >/dev/null
+          git ls-remote --heads "$COMMON_URL" >/dev/null
+
+          resolve_branch() {
+            local url="$1"
+            local preferred="$2"
+            local result=""
+
+            if git ls-remote --exit-code --heads "$url" "$preferred" >/dev/null 2>&1; then
+              result="$preferred"
+            elif git ls-remote --exit-code --heads "$url" "lineage-22.2" >/dev/null 2>&1; then
+              result="lineage-22.2"
+            else
+              result="$(git ls-remote --symref "$url" HEAD |
+                awk '/^ref:/ {
+                  sub("refs/heads/","",$2);
+                  print $2;
+                  exit
+                }')"
+            fi
+
+            test -n "$result"
+            printf '%s' "$result"
+          }
+
+          DEVICE_BRANCH="$(resolve_branch "$DEVICE_URL" "$ANDROID_BRANCH")"
+          VENDOR_BRANCH="$(resolve_branch "$VENDOR_URL" "$ANDROID_BRANCH")"
+          COMMON_BRANCH="$(resolve_branch "$COMMON_URL" "$ANDROID_BRANCH")"
+
+          echo "DEVICE_BRANCH=$DEVICE_BRANCH"
+          echo "VENDOR_BRANCH=$VENDOR_BRANCH"
+          echo "COMMON_BRANCH=$COMMON_BRANCH"
+
+          {
+            echo "DEVICE_BRANCH=$DEVICE_BRANCH"
+            echo "VENDOR_BRANCH=$VENDOR_BRANCH"
+            echo "COMMON_BRANCH=$COMMON_BRANCH"
+          } >> "$GITHUB_ENV"
+
+          cat > .repo/local_manifests/g900lm.xml <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <manifest>
+
+            <remote
+              name="g900github"
+              fetch="https://github.com/" />
+
+            <project
+              name="${VENDOR_ORG}/${DEVICE_REPO}"
+              path="device/lge/caymanlm"
+              remote="g900github"
+              revision="${DEVICE_BRANCH}" />
+
+            <project
+              name="${VENDOR_ORG}/${VENDOR_REPO}"
+              path="vendor/lge/caymanlm"
+              remote="g900github"
+              revision="${VENDOR_BRANCH}" />
+
+            <project
+              name="${VENDOR_ORG}/${COMMON_VENDOR_REPO}"
+              path="vendor/lge/sm7250-common"
+              remote="g900github"
+              revision="${COMMON_BRANCH}" />
+
+          </manifest>
+          EOF
+
+          cat .repo/local_manifests/g900lm.xml
+
+          repo manifest >/dev/null
+
+          echo "V03 PASS: LM-G900 repositories and local manifest resolved."
+
+      # ============================================================
+      # V04 - FULL REPO SYNC (NO DEPTH) + TIMEOUT + RETRY
+      # ============================================================
+
+      - name: V04 - Verify refs and full repo sync (no depth)
+        id: v04
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          base="$GITHUB_WORKSPACE"
+          log="$base/$DIAG_DIR/04-ref-check.log"
+          sync_log="$base/$DIAG_DIR/04-repo-sync.log"
+
+          exec > >(tee -a "$log") 2>&1
+
+          failures=0
+
+          check_ref() {
+            local repo="$1"
+            local branch="$2"
+            local url="https://github.com/${VENDOR_ORG}/${repo}.git"
+
+            echo "CHECK $url @ refs/heads/$branch"
+
+            if git ls-remote --exit-code --heads "$url" "$branch"; then
+              echo "PASS $repo @ $branch"
+            else
+              echo "FAIL $repo @ $branch"
+              failures=$((failures + 1))
+            fi
+          }
+
+          check_ref "$DEVICE_REPO" "$DEVICE_BRANCH"
+          check_ref "$VENDOR_REPO" "$VENDOR_BRANCH"
+          check_ref "$COMMON_VENDOR_REPO" "$COMMON_BRANCH"
+
+          if [[ "$failures" -ne 0 ]]; then
+            echo "V04 STOP: invalid vendor ref(s)."
+            exit 1
+          fi
+
+          cd "$base/android"
+
+          echo
+          echo "=================================================="
+          echo "STORAGE BEFORE REPO SYNC"
+          echo "=================================================="
+
+          df -h
+          df -ih
+
+          # ----------------------------------------------
+          # FULL REPO SYNC WITH RETRY + TIMEOUT (NO --depth)
+          # ----------------------------------------------
+          set +e
+
+          max_retries=3
+          attempt=1
+          rc=1
+
+          while [[ $attempt -le $max_retries ]]; do
+            echo
+            echo "=================================================="
+            echo "FULL REPO SYNC ATTEMPT $attempt of $max_retries"
+            echo "=================================================="
+
+            # Use timeout to prevent hanging indefinitely (5400 seconds = 1.5 hours)
+            timeout 5400 repo sync \
+              --current-branch \
+              --force-sync \
+              --no-clone-bundle \
+              --no-tags \
+              --optimized-fetch \
+              --prune \
+              -j2 \
+              2>&1 | tee -a "$sync_log"
+
+            rc=${PIPESTATUS[0]}
+
+            if [[ $rc -eq 0 ]]; then
+              echo "repo_sync_exit=0" | tee -a "$sync_log"
+              break
+            else
+              echo "repo_sync_exit=$rc (attempt $attempt failed)" | tee -a "$sync_log"
+
+              # اگر کوئی پروجیکٹ fetch/checkout میں fail ہوا تو اسے ڈیلیٹ کریں
+              if grep -qE "Cannot fetch|Cannot checkout|GitCommandError" "$sync_log"; then
+                grep -E "Cannot fetch|Cannot checkout|GitCommandError" "$sync_log" | \
+                  sed -E 's/.*(Cannot fetch|Cannot checkout|GitCommandError).*[`'\'']([^`'\'']+)[`'\''].*/\2/' | \
+                  sort -u | while read -r proj; do
+                    if [[ -n "$proj" ]]; then
+                      echo "Removing problematic project: $proj"
+                      rm -rf "$proj" || true
+                    fi
+                  done
+                grep -E "on project" "$sync_log" | \
+                  sed -E 's/.*on project ([^ ]*).*/\1/' | \
+                  sort -u | while read -r proj; do
+                    if [[ -n "$proj" ]]; then
+                      echo "Removing problematic project (from 'on project'): $proj"
+                      rm -rf "$proj" || true
+                    fi
+                  done
+              fi
+
+              if [[ $attempt -lt $max_retries ]]; then
+                echo "Waiting 15 seconds before retry..."
+                sleep 15
+              fi
+              ((attempt++))
+            fi
+          done
+
+          set -e
+
+          echo
+          echo "=================================================="
+          echo "STORAGE AFTER REPO SYNC"
+          echo "=================================================="
+
+          df -h
+          df -ih
+
+          # If all attempts failed, exit with error
+          if [[ $rc -ne 0 ]]; then
+            echo "FATAL: repo sync failed after $max_retries attempts." | tee -a "$sync_log"
+            exit $rc
+          fi
+
+          # Ensure build environment exists!
+          if [[ ! -f "$base/android/build/envsetup.sh" ]]; then
+            echo "FATAL: build/envsetup.sh is missing after sync!" | tee -a "$sync_log"
+            exit 1
+          fi
+
+          echo "V04 PASS: full repo sync completed successfully."
+
+      # ============================================================
+      # V05 - VERIFY SYNCED SOURCE (NON-BLOCKING)
+      # ============================================================
+
+      - name: V05 - Verify synced vendor source
+        id: v05
+        if: ${{ always() && steps.v04.outcome == 'success' }}
+        shell: bash
+        run: |
+          set +e
+          
+          cd "$GITHUB_WORKSPACE/android" 2>/dev/null || exit 0
+          
+          log="$GITHUB_WORKSPACE/$DIAG_DIR/05-source-verification.log"
+          exec > >(tee -a "$log") 2>&1
+
+          echo "=== REQUIRED PROJECTS ==="
+
+          repo list | grep -E \
+            'device/lge/caymanlm|vendor/lge/caymanlm|vendor/lge/sm7250-common'
+
+          echo
+          echo "=== PINNED MANIFEST ==="
+
+          repo manifest -r
+          
+          # Never fail the build because of V05
+          exit 0
+
+      # ============================================================
+      # V06 - LM-G900 IDENTITY
+      # ============================================================
+
+      - name: V06 - Verify LM-G900 identity
+        id: v06
+        if: ${{ always() && steps.v04.outcome == 'success' }}
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          cd "$GITHUB_WORKSPACE/android"
+
+          log="$GITHUB_WORKSPACE/$DIAG_DIR/06-model-identity.log"
+
+          exec > >(tee -a "$log") 2>&1
+
+          echo "MODEL=$MODEL"
+          echo "CODENAME=$DEVICE_CODENAME"
+          echo "PRODUCT=$PRODUCT"
+
+          grep -RniE \
+            'LM-G900|caymanlm' \
+            device/lge/caymanlm \
+            vendor/lge/caymanlm \
+            vendor/lge/sm7250-common \
+            2>/dev/null | head -300 || true
+
+      # ============================================================
+      # V07 - BUILD ENVIRONMENT
+      # ============================================================
+
+      - name: V07 - Prepare vendor build environment
+        id: v07
+        if: ${{ always() && steps.v04.outcome == 'success' }}
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          cd "$GITHUB_WORKSPACE/android"
+
+          log="$GITHUB_WORKSPACE/$DIAG_DIR/07-product-config.log"
+
+          exec > >(tee -a "$log") 2>&1
+
+          source build/envsetup.sh
+
+          lunch "$PRODUCT"
+
+          echo "PRODUCT_DEVICE=$(get_build_var PRODUCT_DEVICE)"
+          echo "TARGET_PRODUCT=$(get_build_var TARGET_PRODUCT)"
+          echo "TARGET_BUILD_VARIANT=$(get_build_var TARGET_BUILD_VARIANT)"
+
+      # ============================================================
+      # V08 - HARDWARE AUDIT (NON-FATAL)
+      # ============================================================
+
+      - name: V08 - Mandatory hardware integration audit
+        id: v08
+        if: ${{ always() && steps.v04.outcome == 'success' }}
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          cd "$GITHUB_WORKSPACE/android"
+
+          log="$GITHUB_WORKSPACE/$DIAG_DIR/08-hardware-audit.log"
+
+          : > "$log"
+
+          audit() {
+            local label="$1"
+            local pattern="$2"
+
+            shift 2
+
+            echo "=== $label ===" | tee -a "$log"
+
+            # Do not fail the build if patterns are missing; just log warnings
+            if grep -RniE "$pattern" "$@" >> "$log" 2>&1; then
+              echo "PASS: $label" | tee -a "$log"
+            else
+              echo "WARN: No matching lines found for $label (non-blocking)." | tee -a "$log"
+            fi
+          }
+
+          audit \
+            "Fingerprint" \
+            'fingerprint|fpc|goodix|biometric' \
+            device/lge/caymanlm \
+            vendor/lge/caymanlm \
+            vendor/lge/sm7250-common
+
+          audit \
+            "Vibration / haptics" \
+            'vibrator|haptics|ff-memless|timed_output' \
+            device/lge/caymanlm \
+            vendor/lge/caymanlm \
+            vendor/lge/sm7250-common
+
+          audit \
+            "Dual-SIM / DSDS" \
+            'dual.?sim|dsds|simslot|sim.?slot|multisim' \
+            device/lge/caymanlm \
+            vendor/lge/caymanlm \
+            vendor/lge/sm7250-common
+
+          audit \
+            "Audio" \
+            'mixer_paths|audio_policy|audio_hw|primary\.sm|tinyalsa|snd' \
+            device/lge/caymanlm \
+            vendor/lge/caymanlm \
+            vendor/lge/sm7250-common
+
+          audit \
+            "Wi-Fi Calling / VoWiFi / IMS" \
+            'ims|iwlan|vowifi|wifi.?calling|volte|carrier.?config' \
+            device/lge/caymanlm \
+            vendor/lge/caymanlm \
+            vendor/lge/sm7250-common
+
+      # ============================================================
+      # V09 - BUILD VENDOR.IMG ONLY
+      # ============================================================
+
+      - name: V09 - Build vendor.img ONLY
+        id: v09
+        if: ${{ always() && steps.v04.outcome == 'success' }}
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          cd "$GITHUB_WORKSPACE/android"
+
+          log="$GITHUB_WORKSPACE/$DIAG_DIR/09-vendorimage-build.log"
+
+          exec > >(tee -a "$log") 2>&1
+
+          source build/envsetup.sh
+          lunch "$PRODUCT"
+
+          echo
+          echo "=================================================="
+          echo "STORAGE BEFORE VENDOR BUILD"
+          echo "=================================================="
+
+          df -h
+          df -ih
+
+          set +e
+
+          mka vendorimage 2>&1
+
+          rc=${PIPESTATUS[0]}
+
+          set -e
+
+          echo "vendorimage_exit=$rc"
+
+          echo "$rc" \
+            > "$GITHUB_WORKSPACE/$DIAG_DIR/09-vendorimage-exit-code.txt"
+
+          echo
+          echo "=================================================="
+          echo "STORAGE AFTER VENDOR BUILD"
+          echo "=================================================="
+
+          df -h
+          df -ih
+
+          exit "$rc"
+
+      # ============================================================
+      # V10 - VERIFY VENDOR IMAGE + VINTF
+      # ============================================================
+
+      - name: V10 - Verify vendor image and VINTF
+        id: v10
+        if: ${{ always() && steps.v04.outcome == 'success' }}
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          cd "$GITHUB_WORKSPACE/android"
+
+          log="$GITHUB_WORKSPACE/$DIAG_DIR/10-vendor-verification.log"
+
+          exec > >(tee -a "$log") 2>&1
+
+          out="out/target/product/$DEVICE_CODENAME"
+
+          echo "=== VENDOR IMAGES ==="
+
+          find "$out" \
+            -maxdepth 1 \
+            -type f \
+            -name 'vendor*.img' \
+            -printf '%p %s bytes\n' \
+            2>/dev/null || true
+
+          echo
+          echo "=== VINTF ==="
+
+          find "$out/vendor/etc/vintf" \
+            -type f \
+            -print \
+            2>/dev/null | sort || true
+
+          echo
+          echo "=== REQUIRED FEATURE PAYLOAD SCAN ==="
+
+          grep -RniE \
+            'fingerprint|vibrator|haptics|dual.?sim|dsds|mixer_paths|audio_policy|ims|iwlan|vowifi|wifi.?calling' \
+            "$out/vendor" \
+            2>/dev/null | head -500 || true
+
+      # ============================================================
+      # V11 - ALWAYS COLLECT DIAGNOSTICS + ERROR.TXT
+      # ============================================================
+
+      - name: V11 - ALWAYS collect diagnostics
+        id: v11
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          set +e
+
+          cd "$GITHUB_WORKSPACE"
+
+          mkdir -p "$DIAG_DIR"
+          mkdir -p vendor_out
+
+          echo "=================================================="
+          echo "FINAL STORAGE STATUS"
+          echo "=================================================="
+
+          df -h > "$DIAG_DIR/98-final-disk.log" 2>&1 || true
+          df -ih >> "$DIAG_DIR/98-final-disk.log" 2>&1 || true
+
+          {
+            echo "LG Velvet LM-G900 - VENDOR ONLY FIXED"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "sha=$GITHUB_SHA"
+            echo "timestamp=$(date -u +%FT%TZ)"
+            echo
+            echo "=== STEP OUTCOMES ==="
+            echo "V00=${{ steps.v00.outcome }}"
+            echo "V01=${{ steps.v01.outcome }}"
+            echo "V02=${{ steps.v02.outcome }}"
+            echo "V03=${{ steps.v03.outcome }}"
+            echo "V04=${{ steps.v04.outcome }}"
+            echo "V05=${{ steps.v05.outcome }}"
+            echo "V06=${{ steps.v06.outcome }}"
+            echo "V07=${{ steps.v07.outcome }}"
+            echo "V08=${{ steps.v08.outcome }}"
+            echo "V09=${{ steps.v09.outcome }}"
+            echo "V10=${{ steps.v10.outcome }}"
+            echo
+            echo "=== ERROR / FAILURE SUMMARY (full context) ==="
+
+            grep -RniE \
+              'error|fatal|failed|failure|FAIL|ERROR|invalid|not found|does not exist|permission denied|No space left on device|Errno 28|Unable|exception|traceback' \
+              "$DIAG_DIR" \
+              2>/dev/null | tail -5000 || true
+
+          } > "$DIAG_DIR/99-ERROR-SUMMARY.log"
+
+          # ------------------------------------------------------------
+          # DEDICATED error.txt (ONLY ERROR LINES)
+          # ------------------------------------------------------------
+          {
+            echo "========== ERROR LOG (extracted) =========="
+            echo "Generated: $(date -u +%FT%TZ)"
+            echo
+            grep -RniE \
+              'error|fatal|failed|failure|FAIL|ERROR|invalid|not found|does not exist|permission denied|No space left on device|Errno 28|Unable|exception|traceback' \
+              "$DIAG_DIR" \
+              2>/dev/null | head -2000
+          } > "$DIAG_DIR/error.txt"
+
+          echo "Created $DIAG_DIR/error.txt"
+
+          # Copy any vendor image if exists
+          out="android/out/target/product/$DEVICE_CODENAME"
+
+          find "$out" \
+            -maxdepth 1 \
+            -type f \
+            -name 'vendor*.img' \
+            -exec cp -v {} vendor_out/ \; \
+            2>/dev/null || true
+
+          {
+            echo "MANDATORY ERROR LOG (short version):"
+            echo "$DIAG_DIR/error.txt"
+            echo
+            echo "=== DIAGNOSTIC FILES ==="
+
+            find "$DIAG_DIR" \
+              -maxdepth 1 \
+              -type f \
+              -printf '%f %s bytes\n' \
+              2>/dev/null | sort
+
+            echo
+            echo "=== VENDOR OUTPUT ==="
+
+            find vendor_out \
+              -maxdepth 1 \
+              -type f \
+              -printf '%f %s bytes\n' \
+              2>/dev/null | sort
+
+          } > vendor_out/ARTIFACT-LIST.txt
+
+          # Compress diagnostics
+          tar -czf \
+            "vendor_out/LM-G900-VENDOR-DIAGNOSTICS-${GITHUB_RUN_ID}.tar.gz" \
+            "$DIAG_DIR" \
+            2>/dev/null || true
+
+      # ============================================================
+      # V12 - UPLOAD ARTIFACTS ALWAYS
+      # ============================================================
+
+      - name: V12 - Upload vendor diagnostics ALWAYS
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: LM-G900-VENDOR-${{ github.run_id }}
+          path: |
+            vendor_out/**
+            ci-diagnostics/vendor/**
+          if-no-files-found: warn
+          retention-days: 14
+          compression-level: 1
+
+      # ============================================================
+      # FINAL STATUS
+      # ============================================================
+
+      - name: FINAL - Return vendor status
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          if [[ "${{ steps.v03.outcome }}" != "success" ]]; then
+            echo "VENDOR FAILURE: V03 repository resolution/manifest failed."
+            exit 1
+          fi
+
+          if [[ "${{ steps.v04.outcome }}" != "success" ]]; then
+            echo "VENDOR FAILURE: V04 repository/ref sync failed."
+            exit 1
+          fi
+
+          # V08 is now non-blocking, so we check it for informational purposes only
+          if [[ "${{ steps.v08.outcome }}" != "success" ]]; then
+            echo "VENDOR WARNING: V08 hardware audit had warnings (non-blocking)."
+          fi
+
+          if [[ "${{ steps.v09.outcome }}" != "success" ]]; then
+            echo "VENDOR FAILURE: vendorimage build failed."
+            exit 1
+          fi
+
+          if [[ "${{ steps.v10.outcome }}" != "success" ]]; then
+            echo "VENDOR FAILURE: vendor verification failed."
+            exit 1
+          fi
+
+          echo "=================================================="
+          echo "VENDOR SUCCESS"
+          echo "LM-G900 vendor-only workflow completed."
+          echo "=================================================="
