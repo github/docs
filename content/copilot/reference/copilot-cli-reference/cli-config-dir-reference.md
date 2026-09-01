@@ -485,6 +485,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file mention picker. When `false`, the picker includes files normally excluded by `.gitignore`. |
 | `sandbox.allowBypass` | `boolean` | `true` | Allow sandboxed commands to request a bypass for specific operations (surfaces a permission prompt) so tools like `grep` and `glob` keep working when the sandbox would otherwise block them. Set to `false` to opt out. |
 | `sandbox.enabled` | `boolean` | `false` | Restrict shell commands, MCP/LSP servers, and built-in file/web tools to a sandboxed environment with limited file system and network access. Enable it from the `/sandbox` dialog or with `/sandbox enable`. |
+| `sandbox.failIfUnavailable` | `boolean` | `false` | Make sandboxing mandatory instead of falling back to unsandboxed execution: blocks model and tool execution if the policy can't be validated, compiled, or enforced by a usable sandbox backend. Typically set by a managed policy alongside `sandbox.enabled: true`; when set that way, you can't disable it. |
 | `sandbox.auth.git` | `boolean` | `true` | Inject Git credentials into the sandbox so commands running inside it can authenticate with Git. Set to `false` to opt out. Renamed from `sandbox.gitAuth`; the old key has no migration and is ignored wherever it still appears. |
 | `sandbox.auth.gh` | `boolean` | `true` | Inject {% data variables.product.prodname_cli %} (`gh`) credentials into the sandbox so commands running inside it can authenticate with the {% data variables.product.prodname_cli %}. Set to `false` to opt out. Renamed from `sandbox.ghAuth`; the old key has no migration and is ignored wherever it still appears. |
 | `sandbox.userPolicy.network.allowLocalNetwork` | `boolean` | `true` | Allow sandboxed commands to reach local network addresses (for example, local dev servers). Set to `false` to opt out. |
@@ -517,6 +518,19 @@ These settings apply across all your sessions and repositories. You can use the 
 
 > [!TIP]
 > Run `copilot help sandbox` for the full sandbox reference, including supported hosts and all `sandbox` settings keys.
+
+#### Proxy client certificates (mTLS)
+
+When a request routed through an `https://` proxy (set with `proxyUrl`, `HTTPS_PROXY`, or `HTTP_PROXY`) requests a client certificate, {% data variables.copilot.copilot_cli_short %} automatically selects an OS-managed client identity. You don't need to configure a certificate path, private key, or passphrase. Private keys never leave the platform store.
+
+| Platform | Identity source |
+|----------|-----------------|
+| Windows | Current user's `MY` certificate store. |
+| macOS | User keychain search list, including a preferred identity for the proxy host. |
+| Linux (glibc) | Chromium-compatible NSS database and its configured PKCS#11 modules. |
+| Linux (musl) and other platforms | Unsupported. Ordinary proxy behavior is unchanged. |
+
+Client identity selection only activates for `https://` proxies. Direct requests, `NO_PROXY` matches, and plaintext `http://` proxies never install a client identity. The platform store is re-read on every request, so certificate rotation or smart-card insertion doesn't require a session restart.
 
 The `/sandbox` dialog groups `git`, `gh`, and keychain access under a dedicated **Auth** tab, and shows the `settings.json` path where the current sandbox configuration is stored. Press <kbd>Ctrl</kbd>+<kbd>E</kbd> in the `/sandbox` dialog to save any pending changes and open `settings.json` in your editor (`COPILOT_EDITOR`, `VISUAL`, or `EDITOR`), matching the same shortcut in `/settings`. The dialog reloads its state from disk after you edit and save the file.
 
@@ -640,6 +654,9 @@ Only the following keys are supported in MDM managed settings.
 | `remoteControl` | Control whether sessions on this device can be controlled from other devices. `mode` is `"enabled"`, `"disabled"`, or `"requireSSO"` (requires `githubDotComOrganizations` when set). |
 | `shellShortcut` | Force-enable or force-disable the `$` interactive shell shortcut for all users. A managed value always overrides the user's own `shellShortcut` setting. |
 | `strictKnownMarketplaces` | Restrict plugins to known marketplaces |
+| `strictPluginOnlyCustomization` | Customization lockdown baseline. Prevents standalone user and workspace/project customizations from the named surfaces, so eligible customizations may then originate only from plugins or managed settings. `true` locks all four surfaces (`skills`, `agents`, `hooks`, MCP servers); an array (for example, `["skills", "mcp"]`) locks only the named surfaces. Unset preserves existing behavior. This does **not** mean managed-plugin-only—plugin-provided customizations are still permitted. Use `allowManagedMcpServersOnly` and `allowManagedHooksOnly` for the stricter managed-only overlays described below. |
+| `allowManagedMcpServersOnly` | A stricter overlay on top of `strictPluginOnlyCustomization`. When `true`, only the managed `allowedMcpServers` allowlist (plus MCP servers from managed or force-enabled plugins, and any fixed managed-MCP deployment) governs which MCP servers are eligible. Lower-precedence user and workspace/project allowlist entries can't broaden it; `deniedMcpServers` still applies. Trusted first-party servers (for example, the built-in {% data variables.product.github %} MCP server) remain exempt. See [Managed MCP server allow/deny list](#managed-mcp-server-allowdeny-list). |
+| `allowManagedHooksOnly` | A stricter overlay on top of `strictPluginOnlyCustomization`. When `true`, only enterprise-managed hooks and hooks supplied by plugins force-enabled through managed `enabledPlugins` may load; user, workspace/project, and otherwise user-enabled plugin hooks are blocked. Normal managed permission and sandbox policies still apply. |
 | `telemetry` | Push baseline OpenTelemetry export configuration: `enabled`, `endpoint`, `protocol`, `headers`, `resourceAttributes`, `captureContent`, `lockCaptureContent`, and `serviceName`. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#opentelemetry-monitoring). |
 
 > [!NOTE]
@@ -653,6 +670,9 @@ Only the following keys are supported in MDM managed settings.
 
 > [!NOTE]
 > Most managed keys lock the entire row: a local edit is silently overridden by the managed value on the next load. `enabledPlugins` and `extraKnownMarketplaces` are the exception—the managed layer merges these maps with your own entries field-by-field instead of replacing them outright. This means the lock applies **per entry**, not to the whole key: a plugin or marketplace pinned by a managed policy can't be re-enabled, disabled, or repointed locally, but other entries in the same map remain fully user-controlled.
+
+> [!NOTE]
+> `strictPluginOnlyCustomization`, `allowManagedMcpServersOnly`, and `allowManagedHooksOnly` compose across managed sources with a most-restrictive-wins strategy: a surface locked, or an overlay set to `true`, by any managed source stays locked or `true` even if a lower-priority managed source leaves it unset.
 
 ### Managed permission rules
 
@@ -711,6 +731,8 @@ Rules:
 * **Unset or empty `deniedMcpServers`** blocks nothing.
 * **Deny always wins**—a server matching `deniedMcpServers` is blocked even if it also matches `allowedMcpServers`.
 * For remote servers, a match must come from a `serverUrl` entry; `serverName` only counts when no `serverUrl` entries exist. For stdio servers, a match must come from a `serverCommand` entry; `serverName` only counts when no `serverCommand` entries exist.
+
+Set the managed `allowManagedMcpServersOnly` key to `true` for a stricter overlay: only the managed `allowedMcpServers` allowlist (plus MCP servers from managed or force-enabled plugins, and any fixed managed-MCP deployment) governs which servers are eligible, and lower-precedence user or workspace/project allowlist entries can no longer broaden it. `deniedMcpServers` still applies, and trusted first-party servers remain exempt.
 
 ## Further reading
 
