@@ -19,7 +19,7 @@ You can use content exclusion to configure {% data variables.product.prodname_co
 
 * Inline suggestions will not be available in the affected files.
 * The content in affected files will not inform inline suggestions in other files.
-* The content in affected files will not inform {% data variables.copilot.copilot_chat %}'s responses.
+* The content in affected files will not inform {% data variables.product.prodname_copilot_short %}'s responses.
 * Affected files will not be reviewed in a {% data variables.product.prodname_copilot_short %} code review.
 
 ### Who can configure content exclusion
@@ -32,17 +32,19 @@ Repository administrators, organization owners, and enterprise owners can config
 
 The {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans provide the following level of support for content exclusion.
 
-| Tool                                            |            Inline suggestions support         | {% data variables.copilot.copilot_chat_short %} support |
-|-------------------------------------------------|:---------------------------------------------:|:----------------------------------------------------------------:|
-| {% data variables.product.prodname_vs %}        | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
-| {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
-| JetBrains IDEs                                  | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
-| Vim/Neovim                                      | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
-| Xcode                                           | {% octicon "check" aria-label="Supported" %}  |           {% octicon "x" aria-label="Not supported" %}           |
-| Eclipse                                         | {% octicon "check" aria-label="Supported" %}  |           {% octicon "x" aria-label="Not supported" %}           |
-| Azure Data Studio                               | {% octicon "x" aria-label="Not supported" %}  |                          Not applicable                          |
-| The {% data variables.product.github %} website |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
-| {% data variables.product.prodname_mobile %}    |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
+| Tool                                            | Inline suggestions support                    | Chat and agent support                         |
+|-------------------------------------------------|:---------------------------------------------:|:----------------------------------------------:|
+| {% data variables.product.prodname_vs %}        | {% octicon "check" aria-label="Supported" %}  | {% octicon "check" aria-label="Supported" %}   |
+| {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  | {% octicon "check" aria-label="Supported" %}   |
+| JetBrains IDEs                                  | {% octicon "check" aria-label="Supported" %}  | {% octicon "check" aria-label="Supported" %}   |
+| Vim/Neovim                                      | {% octicon "check" aria-label="Supported" %}  | Not applicable                                 |
+| Xcode                                           | {% octicon "check" aria-label="Supported" %}  | {% octicon "x" aria-label="Not supported" %}   |
+| Eclipse                                         | {% octicon "check" aria-label="Supported" %}  | {% octicon "x" aria-label="Not supported" %}   |
+| Azure Data Studio                               | {% octicon "x" aria-label="Not supported" %}  | Not applicable                                 |
+| The {% data variables.product.github %} website | Not applicable                                | {% octicon "check" aria-label="Supported" %}   |
+| {% data variables.product.prodname_mobile %}    | Not applicable                                | {% octicon "check" aria-label="Supported" %}   |
+| {% data variables.copilot.github_copilot_app %} | Not applicable                                | {% octicon "check" aria-label="Supported" %}   |
+| {% data variables.copilot.copilot_cli %}        | Not applicable                                | {% octicon "check" aria-label="Supported" %}   |
 
 Content exclusions also apply to {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website.
 
