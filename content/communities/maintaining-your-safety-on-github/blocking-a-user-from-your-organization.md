@@ -74,7 +74,7 @@ You must be an organization owner or moderator to block a user from a repository
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
-1. Under "Block a user", in the text field, type the username of the user you'd like to block.
+1. Under "Block a user", search for the user by username, full name, or email address, then select the user.
 1. If you'd like to set a time limit for the block, next to the text field, select the **Block options** dropdown menu, and click the amount of time you'd like to block the user.
 {% data reusables.organizations.close-all-content-when-blocking-user %}
 1. Click **Block user**.
