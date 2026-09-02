@@ -21,7 +21,7 @@ carousels:
     - /actions/get-started/understand-github-actions
     - /actions/how-tos/manage-runners/github-hosted-runners/use-github-hosted-runners
     - /actions/reference/workflows-and-actions/workflow-syntax
-    - /actions/reference/workflows-and-actions/events-that-trigger-workflows
+    - /actionsws-and-actions/events-that-trigger-workflows
     - /actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations
     - /actions/tutorials/migrate-to-github-actions
     - /actions/how-tos/reuse-automations/reuse-workflows
