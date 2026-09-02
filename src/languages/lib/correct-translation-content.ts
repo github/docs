@@ -1122,6 +1122,17 @@ export function correctTranslatedContentStrings(
   }
 
   if (context.code === 'ru') {
+    // configuring-custom-footers.md: the translator scrambled the sentence
+    // around `{% data variables.product.prodname_dotcom %} footer{% ifversion
+    // ghes %}, ...{% elsif ghec %}...{% endif %}`, duplicating `{% данных`
+    // (data) twice, merging `ifversion ghes`/`elsif ghec` into a single
+    // invalid `{% ghversion %}` tag, and dropping the space before the final
+    // `{%endif %}` (`tag "ghversion" not found`). Reconstruct the original
+    // ifversion/elsif/endif structure with the correct Russian prose.
+    content = content.replaceAll(
+      '{% данных {% данных variables.product.prodname_dotcom %} нижнего колонтитула {% ghversion %}, для всех пользователей и участников совместной работы на всех страницах репозитория и организации для репозиториев и организаций, принадлежащих к корпоративным variables.location.product_location_enterprise{%endif %}.',
+      '{% data variables.product.prodname_dotcom %} нижнего колонтитула{% ifversion ghes %}, для всех пользователей и на всех страницах {% data variables.location.product_location_enterprise %}{% elsif ghec %} для всех пользователей и участников совместной работы на всех страницах репозитория и организации для репозиториев и организаций, принадлежащих к предприятию{% endif %}.',
+    )
     content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
     content = content.replaceAll('[АВТОЗАГОЛОВОК](', '[AUTOTITLE](')
     // `[{% autoTITLE](url)` — Liquid-embedded lowercase autotitle (translator lowercased
@@ -2655,6 +2666,28 @@ export function correctTranslatedContentStrings(
       'g',
     )
     content = content.replace(reorderRegex, '$1$2{% else %}$3{% endif %}')
+  }
+
+  // Restore a trailing `{% endif %}` that translators dropped when it was
+  // the very last token of the file (with no space before it in English, so
+  // there was nothing visually separating it from the preceding prose for
+  // the translator to notice and carry over). We only do this when the
+  // English content truly ends with an unspaced `{% endif %}` and the
+  // translated content is missing exactly one closer relative to its
+  // `ifversion`/`elsif` openers, so we don't add a spurious closer to
+  // content that is unrelated or already balanced.
+  if (englishContent) {
+    const englishTrimmed = englishContent.trimEnd()
+    if (englishTrimmed.endsWith('{% endif %}') && !/\s\{% endif %\}$/.test(englishTrimmed)) {
+      const contentTrimmed = content.trimEnd()
+      if (!contentTrimmed.endsWith('{% endif %}')) {
+        const openers = (contentTrimmed.match(/\{%-?\s*ifversion\b/g) || []).length
+        const closers = (contentTrimmed.match(/\{%-?\s*endif\b/g) || []).length
+        if (openers - closers === 1) {
+          content = `${contentTrimmed}{% endif %}\n`
+        }
+      }
+    }
   }
 
   // Final catch-all: earlier normalizations (e.g. space-in-braces regex) can

@@ -78,6 +78,10 @@ For more detailed optimization tips, see [AUTOTITLE](/copilot/tutorials/optimize
 
 To share feedback, click the **Give feedback** icon in the bottom-left corner of the app.
 
+## Content exclusion
+
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users, the {% data variables.copilot.github_copilot_app %} respects content exclusion policies configured at the enterprise, organization, and repository levels. Excluded files are not used as context. For more information, see [AUTOTITLE](/copilot/concepts/context/content-exclusion).
+
 ## Public code
 
 {% data variables.copilot.github_copilot_app %} may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block." See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
