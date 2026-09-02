@@ -2722,6 +2722,91 @@
   "credential-authorizations": [
     {
       "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations",
+      "title": "Revoke enterprise-delegated credential authorizations",
+      "category": "enterprise-admin",
+      "subcategory": "credential-authorizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "integration_id",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          },
+          "description": "<p>The database ID of a GitHub App currently owned by the enterprise or one of its organizations,\nor a formerly owned GitHub App with delegation history for the enterprise.\nWhen provided, only credential authorizations delegated by that App are revoked. When omitted,\nall enterprise-delegated credential authorizations for the enterprise are revoked.</p>"
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Queues revocation of every active organization credential authorization created through enterprise\ndelegation for the enterprise. Credential authorizations created through SAML or other flows are not affected.</p>\n<p>The authenticated GitHub App must be owned by the enterprise or one of its organizations,\ninstalled on the enterprise, and have the <code>enterprise_credentials:write</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Delegated credential authorization revocation was queued.</p>",
+            "example": {
+              "message": "Enterprise-delegated credential authorization revocation has been queued"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "message"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Delegated credential authorization revocation was queued.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise credentials\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
       "verb": "post",
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all",
       "title": "Revoke all credential authorizations for an enterprise",

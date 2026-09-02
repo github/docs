@@ -21,6 +21,12 @@ If a branch or tag is targeted by rules restricting the metadata of commits, you
 
 When utilizing push rulesets, a maximum of 1000 reference updates are allowed per push. If your push exceeds this limit, it will be rejected. For more information see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#creating-a-push-ruleset).
 
+{% ifversion push-rule-allowed-exceptions %}
+
+If your push is blocked by a rule restricting file paths or file size, check whether the ruleset defines allowed exceptions. A repository, organization, or enterprise administrator can add an allowed exception for a file that must remain pushable. See [Restrict file paths](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#restrict-file-paths) and [Restrict file size](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#restrict-file-size).
+
+{% endif %}
+
 Additionally, push rulesets apply to the "Create a blob", "Create a tree", and "Create or update file contents" endpoints in the REST API. See [AUTOTITLE](/rest/git/blobs?apiVersion=2022-11-28#create-a-blob), [AUTOTITLE](/rest/git/trees?apiVersion=2022-11-28#create-a-tree), and [AUTOTITLE](/rest/repos/contents?apiVersion=2022-11-28#create-or-update-file-contents).
 
 ## Troubleshooting required status checks
@@ -62,7 +68,7 @@ Ruleset workflows do not run on events triggered by the `GITHUB_TOKEN`. For more
 
 A required workflow can block people from creating a repository, since a workflow can't run against a repository that's being initialized. To get around this, the ruleset either needs to have "Evaluate" as the enforcement status, or someone with bypass permissions needs to create the repository and bypass the branch protection.
 
-For more information about enforcement statuses and "Evaluate" mode, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#about-using-enforcement-statuses).
+For more information about enforcement statuses and "Evaluate" mode, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-ruleset-enforcement-statuses).
 
 For more information about bypass permissions, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
 

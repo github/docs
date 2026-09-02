@@ -89,7 +89,7 @@ Use the rule insights dashboard to review the evaluation activity of rulesets ac
 
 * Review aggregated rule evaluation metrics across all repositories in your organization to understand where and how your rulesets take effect.
 * Identify the repositories with the most bypasses so you can prioritize your review.
-* Filter results by evaluation status, branch, ruleset, and date range to focus on the activity that matters to you.
+* Filter results by evaluation status and date range to focus on the activity that matters to you.
 * Export the data to a CSV file for further analysis.
 
 {% data reusables.profile.access_org %}

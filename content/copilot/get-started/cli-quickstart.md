@@ -6,7 +6,9 @@ allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/cli-getting-started
+contentType: get-started
 category:
   - Build with Copilot CLI
   - Quickstarts

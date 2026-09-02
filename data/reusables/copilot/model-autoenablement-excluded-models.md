@@ -1,18 +1,8 @@
-<!-- expires 2026-08-26 -->
+The default policy applies to models that you have not explicitly configured. These models are indicated in your enterprise or organization's model settings with the **Delegate to Default Policy** label. When a new model is released, it inherits the default until you explicitly configure it.
 
-New and existing unconfigured models will follow the default set in the policy. Unconfigured models are:
+The following models are **not** in scope. They are disabled by default, regardless of your "Default availability" policy setting.
 
-<!-- end expires 2026-08-26 -->
-
-* At the enterprise level, models that have not been added to the models list on the models configuration page.
-* At the organization level, models that have been made "optional" by an enterprise administrator, and that an organization owner has not explicitly enabled or disabled. (**Does not apply** if you are opted in to the enterprise teams model access preview.)
-
-When a new model is released, it is unconfigured by default.
-
-The following models are **not** eligible for default enablement, regardless of whether they are new or existing:
-
-* Models that have been explicitly disabled
 * Pre-GA models
 * Open weight models (DeepSeek, {% data variables.copilot.copilot_kimi_k27_code %}, {% data variables.copilot.copilot_kimi_k3 %})
-* Models that are not covered by {% data variables.product.company_short %}'s data retention agreement ({% data variables.copilot.copilot_claude_fable_5 %})
+* Models that are not covered by {% data variables.product.company_short %}'s data retention agreement ({% data variables.copilot.copilot_claude_fable_5 %}, {% data variables.copilot.copilot_claude_fable_51 %})
 * For enterprises that have restricted models to data-resident or FedRAMP-compliant models, any models that do not respect these policies

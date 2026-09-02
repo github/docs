@@ -211,7 +211,7 @@ You can manage your configured MCP servers using the `/mcp` commands in interact
 
 ### Using `/mcp` commands in interactive mode
 
-* **List configured MCP servers:** Use the command `/mcp show`. This displays all configured MCP servers and their current status.
+* **List configured MCP servers:** Use the command `/mcp`. This opens the plugins dashboard showing all configured MCP servers and their current status. Use `/mcp list` to print the same information as plain text.
 
 * **View details about a specific server:** Use the command `/mcp show SERVER-NAME`. This displays the status of the specified server and the list of tools it provides.
 

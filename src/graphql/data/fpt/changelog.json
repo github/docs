@@ -4,6 +4,54 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>AddCloseIssueReferencesInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>AddCloseIssueReferencesInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>AddCloseIssueReferencesInput</code></p>",
+          "<p>Input field <code>pullRequestIds</code> of type '[ID!]!<code>was added to input object type</code>AddCloseIssueReferencesInput'</p>",
+          "<p>Type <code>AddCloseIssueReferencesPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>AddCloseIssueReferencesPayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>AddCloseIssueReferencesPayload</code></p>",
+          "<p>Type <code>RemoveCloseIssueReferencesInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RemoveCloseIssueReferencesInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>RemoveCloseIssueReferencesInput</code></p>",
+          "<p>Input field <code>pullRequestIds</code> of type '[ID!]!<code>was added to input object type</code>RemoveCloseIssueReferencesInput'</p>",
+          "<p>Type <code>RemoveCloseIssueReferencesPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RemoveCloseIssueReferencesPayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>RemoveCloseIssueReferencesPayload</code></p>",
+          "<p>Argument 'userLogins: [String!]<code>added to field</code>Enterprise.enterpriseTeams'</p>",
+          "<p>Field <code>addCloseIssueReferences</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: AddCloseIssueReferencesInput!</code> added to field <code>Mutation.addCloseIssueReferences</code></p>",
+          "<p>Field <code>removeCloseIssueReferences</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RemoveCloseIssueReferencesInput!</code> added to field <code>Mutation.removeCloseIssueReferences</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-08-26"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>PullRequestReviewThreadResolutionReason</code> was added</p>",
+          "<p>Enum value <code>ADDRESSED</code> was added to enum <code>PullRequestReviewThreadResolutionReason</code></p>",
+          "<p>Enum value <code>INVALID</code> was added to enum <code>PullRequestReviewThreadResolutionReason</code></p>",
+          "<p>Enum value 'WONT_FIX<code>was added to enum</code>PullRequestReviewThreadResolutionReason'</p>",
+          "<p>Input field <code>resolutionReason</code> of type <code>PullRequestReviewThreadResolutionReason</code> was added to input object type <code>ResolveReviewThreadInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-08-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>IssueFieldUpdateInput</code> was added</p>",
           "<p>Input field <code>fieldName</code> of type <code>String!</code> was added to input object type <code>IssueFieldUpdateInput</code></p>",
           "<p>Input field <code>operation</code> of type <code>IssueFieldUpdateOperation!</code> was added to input object type <code>IssueFieldUpdateInput</code></p>",

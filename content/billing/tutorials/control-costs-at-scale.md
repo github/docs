@@ -262,7 +262,7 @@ gh api \
   -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/budgets \
   -f budget_type='SkuPricing' \
-  -f budget_product_sku='copilot_ai_credits' \
+  -f budget_product_sku='copilot_ai_credit' \
   -f budget_scope='cost_center' \
   -f budget_entity_name='COST_CENTER_ID' \
   -F budget_amount=1000.0 \
@@ -276,7 +276,7 @@ The response confirms the budget was created and returns its configuration. Noti
 {
   "id": "budget-uuid-here",
   "budget_type": "SkuPricing",
-  "budget_product_sku": "copilot_ai_credits",
+  "budget_product_sku": "copilot_ai_credit",
   "budget_scope": "cost_center",
   "budget_entity_name": "3312fdf2-5950-4f64-913d-e734124059c9",
   "budget_amount": 1000.0,

@@ -67,7 +67,7 @@ What you need to know about the following actions:
 
 ### Adding seats
 
-* **Billing:** Additional seats are billed on a prorated basis for the remainder of the current billing cycle.
+* **Billing:** Additional seats are billed on a prorated basis for the remainder of the current billing cycle. Included {% data variables.product.prodname_ai_credits_short %} may also be prorated.
 * **Access:** Assigned users gain **immediate access** to {% data variables.product.prodname_copilot_short %}.
 
 ### Removing seats
@@ -88,7 +88,7 @@ Additionally:
 
 ## In summary
 
-* **Proration:** Applies when adding seats/licenses or upgrading plans. You pay only for the portion of the billing cycle remaining.
+* **Proration:** Applies when adding seats/licenses or upgrading plans. You pay only for the portion of the billing cycle remaining. Included {% data variables.product.prodname_ai_credits_short %} may also be prorated.
 * **Access:** Assignments and upgrades are effective immediately for affected users. Downgrades take effect at the end of the billing cycle.
 * **Removing or canceling:** No refunds are issued for unused time; access continues until the end of the cycle paid for, unless a seat/license is revoked.
 

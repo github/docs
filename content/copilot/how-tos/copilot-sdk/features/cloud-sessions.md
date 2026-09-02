@@ -2,10 +2,10 @@
 title: Cloud sessions
 shortTitle: Cloud Sessions
 intro: >-
-  Cloud sessions run Copilot work on GitHub-hosted compute through Mission
-  Control. Use them when your app should create a session that executes remotely
-  instead of starting a local Copilot CLI session on the user's machine or your
-  server.
+  Cloud sessions run {% data variables.product.prodname_copilot_short %} work on {% data variables.product.github %}-hosted compute and appear in the
+  agents panel on {% data variables.product.github %}. Use them when your app
+  should create a session that executes remotely instead of starting a local
+  {% data variables.copilot.copilot_cli %} session on the user's machine or your server.
 versions:
   fpt: '*'
   ghec: '*'
@@ -21,7 +21,7 @@ Before creating a cloud session, make sure:
 
 * The user has Copilot access with cloud-agent entitlement.
 * The session can authenticate to GitHub, either with a user token or a logged-in Copilot CLI identity.
-* You can associate the session with a GitHub repository. This is optional in the SDK type, but recommended so Mission Control and the cloud agent have repository context.
+* You can associate the session with a GitHub repository. This is optional in the SDK type, but recommended so the cloud agent has the correct repository context.
 * Organization policies allow remote control and viewing sessions from cloud surfaces.
 
 ## Creating a cloud session
@@ -160,7 +160,7 @@ let session = client.create_session(
 
 ## Sending the first prompt
 
-Cloud sessions initialize in two phases: `createSession` resolves as soon as Mission Control has reserved a task, but the remote `copilot-agent` worker takes another second or two to connect and emit `session.start`. If you call `session.send` before that, the runtime's `RemoteSession.send` throws `"Remote session is still starting"` — but the schema wrapper is fire-and-forget and **silently swallows the error** while still returning a fresh `messageId` to your code. The prompt is dropped on the server and never reaches the worker.
+Cloud sessions initialize in two phases: `createSession` resolves as soon as the agent has reserved the task, but the remote `copilot-agent` worker takes another second or two to connect and emit `session.start`. If you call `session.send` before that, the runtime's `RemoteSession.send` throws `"Remote session is still starting"`, but the schema wrapper is fire-and-forget and **silently swallows the error** while still returning a fresh `messageId` to your code. The prompt is dropped on the server and never reaches the worker.
 
 To send reliably, subscribe to events **before** sending and await the first `session.start` event whose `producer` is `"copilot-agent"`:
 
@@ -196,12 +196,12 @@ A few notes:
 
 * Set `streaming: true` on `createSession` so the runtime emits `assistant.message_delta` events. Without it, the only assistant signal you get is the final `assistant.message` — fine for batch use, but the chat will look frozen if you're rendering a live UI. See [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/streaming-events).
 * Only the **first** `session.send` is sensitive to this race. Subsequent sends on the same session work normally because the runtime keeps `hasSessionStarted` set for the life of the session.
-* Apply a timeout (e.g. 60 s) around the `ready` promise so a stuck Mission Control provisioning doesn't hang your app forever.
+* Apply a timeout (e.g. 60 s) around the `ready` promise so a stuck session doesn't hang your app forever.
 * The same pattern works in every SDK language — subscribe to `session.start`, check `producer === "copilot-agent"`, then call `send`.
 
-## Accessing the Mission Control URL
+## Accessing the agent session URL
 
-Cloud sessions are inherently remote: once the worker connects, Mission Control publishes the session at `https://github.com/copilot/tasks/{sessionId}` and the runtime emits a `session.info` event with the URL. You do **not** need to call `remote.enable()` — that API is only for promoting a local session to Mission Control.
+Cloud sessions are inherently remote: once the worker connects, the session is published to `https://github.com/copilot/tasks/{sessionId}` and the runtime emits a `session.info` event with the URL. You do **not** need to call `remote.enable()`— that API is only for syncing a local session to {% data variables.product.github %}.
 
 Capture the URL by subscribing to `session.info` and filtering by `infoType: "remote"`:
 
@@ -230,7 +230,7 @@ The `cloud.repository` object associates the cloud session with a GitHub reposit
 | `name` | Yes | Repository name. |
 | `branch` | No | Branch to use for repository context. Omit it to let the runtime choose the default branch or current repository context. |
 
-Repository association is optional in the SDK type, but include it whenever your app knows the target repository. It helps Mission Control display the session in the right context and gives the cloud agent a clearer starting point.
+Repository association is optional in the SDK type, but include it whenever your app knows the target repository. It helps the session appear with the right repository context in the agents panel and gives the cloud agent a clearer starting point.
 
 Use `branch` when the work should start from a specific branch. If your app is creating sessions from pull requests, issue triage flows, or deployment workflows, pass the branch that matches the user-visible task.
 
@@ -269,15 +269,15 @@ In languages where SDK errors are represented differently, inspect the surfaced 
 
 ## Integration ID and routing
 
-Cloud sessions are stamped with a `Copilot-Integration-Id` header derived from the `GITHUB_COPILOT_INTEGRATION_ID` environment variable. This integration ID is used by Mission Control for routing, attribution, and integration-specific behavior.
+Cloud sessions are stamped with a `Copilot-Integration-Id` header derived from the `GITHUB_COPILOT_INTEGRATION_ID` environment variable. This integration ID is used for routing, attribution, and integration-specific behavior.
 
 For multi-user server guidance and full integration ID details, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy).
 
-Mission Control routes SDK-created cloud sessions to the `copilot-developer-sandbox` agent slug. The name is an internal routing slug for the cloud agent and does not mean the session uses the local Windows sandbox.
+SDK-created cloud sessions are routed to the `copilot-developer-sandbox` agent slug. The name is an internal routing slug for the cloud agent and does not mean the session uses the local Windows sandbox.
 
 ## Advanced: `COPILOT_MC_BASE_URL`
 
-By default, the runtime derives the Mission Control base URL from the configured Copilot API URL. Set `COPILOT_MC_BASE_URL` only when you need to override that Mission Control endpoint.
+By default, the runtime derives the agent session base URL from the configured {% data variables.product.prodname_copilot_short %} API URL. Set `COPILOT_MC_BASE_URL` only when you need to override that session endpoint.
 
 This may be required for GitHub Enterprise Server deployments. Confirm the correct value and support status with your GitHub representative before relying on it in production.
 
@@ -290,12 +290,12 @@ COPILOT_MC_BASE_URL="https://example.com/agents"
 | Capability | Remote sessions | Cloud sessions |
 |------------|-----------------|----------------|
 | Execution location | Local machine or your server | GitHub-hosted compute |
-| Mission Control role | Shares a local session to GitHub web/mobile | Creates and routes the hosted session |
+| Session role | Shares a local session to GitHub web/mobile | Creates and routes the hosted session |
 | SDK option | `remote: true` on the client or session | `cloud: { ... }` on create session |
 | Resume path | Standard resume | Standard resume |
 | Windows sandbox relation | Unrelated | Unrelated |
 
-Use remote sessions when the session should execute where the SDK runtime is already running, but also be accessible from Mission Control. Use cloud sessions when the session should execute on GitHub-hosted compute.
+Use remote sessions when the session should execute where the SDK runtime is already running, but also be accessible from the agents panel on {% data variables.product.github %}. Use cloud sessions when the session should execute on GitHub-hosted compute.
 
 ## Troubleshooting
 
@@ -305,13 +305,13 @@ Use remote sessions when the session should execute where the SDK runtime is alr
 | Session creates without repository context | `cloud.repository` was omitted | Pass `owner`, `name`, and optionally `branch` |
 | Resume ignores a new `cloud` option | `cloud` only applies to new sessions | Resume the existing session normally |
 | Confusion with sandbox settings | Windows sandbox and cloud sessions are separate | Do not use `SANDBOX=true` for cloud execution |
-| `session.send` resolves with a `messageId` but no `assistant.*` events fire and Mission Control shows no prompt | The session.send raced ahead of `session.start` from the remote worker; the runtime swallowed the prompt | Await the first `session.start` event with `producer === "copilot-agent"` before sending. See [Sending the first prompt](#sending-the-first-prompt) |
+| `session.send` resolves with a `messageId` but no `assistant.*` events fire and no prompt appears in the session log | The session.send raced ahead of `session.start` from the remote worker; the runtime swallowed the prompt | Await the first `session.start` event with `producer === "copilot-agent"` before sending. See [Sending the first prompt](#sending-the-first-prompt) |
 | Live UI never updates even though the cloud worker is processing | `streaming` was not set on `createSession`, so only the final `assistant.message` is emitted | Set `streaming: true` on `createSession` and re-launch |
-| Cloud session works but no shareable URL appears in your UI | App never subscribed to `session.info` for the URL | Subscribe to `session.info` and filter `infoType === "remote"`. See [Accessing the Mission Control URL](#accessing-the-mission-control-url) |
+| Cloud session works but no shareable URL appears in your UI | App never subscribed to `session.info` for the URL | Subscribe to `session.info` and filter `infoType === "remote"`. See [Accessing the agent session URL](#accessing-the-agent-session-url) |
 
 ## See also
 
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/remote-sessions): share locally hosted sessions through Mission Control
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/remote-sessions): share locally hosted sessions to the agents panel on {% data variables.product.github %}
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/streaming-events): subscribe to `assistant.*` deltas for live UI rendering
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy): integration IDs and server deployment patterns
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth): configure GitHub authentication for SDK sessions

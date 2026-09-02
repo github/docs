@@ -87,16 +87,22 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 
 ### {% data variables.product.prodname_copilot %} SKUs
 
-* `copilot_ai_credits` - Copilot {% data variables.product.prodname_ai_credits_short %}
+* `coding_agent_ai_credit` - Copilot Cloud Agent
+* `copilot_ai_credit` - {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}
 * `copilot_enterprise` - Copilot Enterprise
 * `copilot_for_business` - Copilot for Business
 * `copilot_standalone` - Copilot standalone
 
 ### {% data variables.product.prodname_GH_advanced_security %} SKUs
 
-* `ghas_code_security_licenses` - GHAS code security licenses
-* `ghas_licenses` - GHAS licenses
-* `ghas_secret_protection_licenses` - GHAS secret protection licenses
+* `ghas_code_security_licenses` - Code Security
+* `ghas_licenses` - Advanced Security
+* `ghas_secret_protection_licenses` - Secret Protection
+
+### {% data variables.product.prodname_code_quality %} SKUs
+
+* `code_quality_licenses` - Code Quality Licenses
+* `code_quality_ai_credit` - Code Quality {% data variables.product.prodname_ai_credits_short %}
 
 ### Cloud and local sandboxes for {% data variables.product.prodname_copilot %} SKUs
 
@@ -110,7 +116,7 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 * `git_lfs_bandwidth` - Git LFS bandwidth
 * `git_lfs_storage` - Git LFS storage
 * `models_inference` - Models inference
-* `packages_bandwidth` - Packages bandwidth
+* `packages_bandwidth` - Packages data transfer
 * `packages_storage` - Packages storage
 * `spark_ai_credits` - Spark {% data variables.product.prodname_ai_credits_short %}
 

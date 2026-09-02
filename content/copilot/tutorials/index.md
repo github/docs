@@ -9,7 +9,6 @@ children:
   - /customization-library
   - /cloud-agent
   - /budgets
-  - /spark
   - /customize-code-review
   - /use-copilot-code-review-across-the-pull-request-lifecycle
   - /enhance-agent-mode-with-mcp
