@@ -8400,6 +8400,10 @@
           "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "ADDED_TO_STACK_EVENT",
+          "description": "<p>Represents an<code>added_to_stack</code>event on a given pull request.</p>"
+        },
+        {
           "name": "ARCHIVED_EVENT",
           "description": "<p>Represents an<code>archived</code>event on a given pull request.</p>"
         },
@@ -8638,6 +8642,10 @@
         {
           "name": "REMOVED_FROM_PROJECT_V2_EVENT",
           "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_STACK_EVENT",
+          "description": "<p>Represents a<code>removed_from_stack</code>event on a given pull request.</p>"
         },
         {
           "name": "RENAMED_TITLE_EVENT",
