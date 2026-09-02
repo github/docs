@@ -63,15 +63,15 @@ When **Include working directory** is enabled in the filesystem settings for loc
 
 ### Tools on your PATH
 
-To run a program such as `python` or `git`, the sandbox has to let the command see the directory the program lives in. Your `PATH` environment variable lists these directories, and {% data variables.product.prodname_copilot_short %} grants them **read-only** access, along with directories named by related tool variables such as `GOPATH`, `CARGO_HOME`, and `PYTHONPATH`. Read-only is the right level for external tools: a command needs to run `git`, not modify it. For the complete list of the `PATH` and toolchain environment variables the sandbox inspects, and how each one is interpreted, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#sandbox-tool-directory-grants).
+To run a program such as `python` or `git`, the sandbox has to let the command see the directory the program lives in. When **Allow dev tool access** is enabled—as it is by default—{% data variables.product.prodname_copilot_short %} grants **read-only** access to the directories listed in your `PATH` environment variable, along with directories named by related tool variables such as `GOPATH`, `JAVA_HOME`, and `PYTHONPATH`. Read-only is the right level for external tools: a command needs to run `git`, not modify it. If you turn **Allow dev tool access** off, these directories are no longer granted automatically and must come from your own allow rules. For the complete list of the `PATH` and toolchain environment variables the sandbox inspects, and how each one is interpreted, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#sandbox-tool-directory-grants).
 
 ### System and profile locations
 
-Standard system locations and your user profile (home) directory are granted read-only, so that commands can read configuration files and shared libraries without being able to change them.
+On macOS, standard system locations are granted read-only so that commands can load shared libraries and read system configuration without being able to change them. The application directories in your user profile are also granted read-only when **Allow dev tool access** is enabled, so that commands can read the tools you have installed there without being able to modify them.
 
 ### Package-manager caches
 
-To let installs and builds work inside the sandbox, {% data variables.product.prodname_copilot_short %} also grants access to the caches and registries used by common package managers and toolchains—read-only for registries and toolchains, and read/write for build caches. In the `/sandbox policy` report, this appears as **dev-tool access**.
+To let installs and builds work inside the sandbox, {% data variables.product.prodname_copilot_short %} also grants access to the caches and registries used by common package managers and toolchains—read-only for most locations, and read/write for selected writable locations, such as build caches and package-manager dependency stores. In the `/sandbox policy` report, this appears as **dev-tool access**.
 
 ### Git repositories
 
