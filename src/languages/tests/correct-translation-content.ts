@@ -2939,4 +2939,54 @@ Para más información, consulta "[AUTOTITLE](/path)".
       )
     })
   })
+
+  describe('universal: restores a trailing {% endif %} dropped at end of file', () => {
+    const english = 'Some text is only shown{% ifversion fpt %} on the free plan{% endif %}'
+
+    test('appends the missing endif when the translation drops it at end of file', () => {
+      const broken = 'Algún texto solo se muestra{% ifversion fpt %} en el plan gratuito'
+      const fixed =
+        'Algún texto solo se muestra{% ifversion fpt %} en el plan gratuito{% endif %}\n'
+      expect(fix(broken, 'es', english)).toBe(fixed)
+    })
+
+    test('leaves already-correct translations unchanged', () => {
+      const correct =
+        'Algún texto solo se muestra{% ifversion fpt %} en el plan gratuito{% endif %}'
+      expect(fix(correct, 'es', english)).toBe(correct)
+    })
+
+    test('does not add an endif when the translation is already balanced', () => {
+      const balanced = 'Texto normal sin condicionales.'
+      expect(fix(balanced, 'es', 'Texto normal sin condicionales.')).toBe(balanced)
+    })
+
+    test('renders the conditional text once the endif is restored', async () => {
+      const broken = 'Algún texto solo se muestra{% ifversion fpt %} en el plan gratuito'
+      const output = await render(fix(broken, 'es', english), 'free-pro-team@latest')
+      expect(output).toBe('Algún texto solo se muestra en el plan gratuito')
+    })
+  })
+
+  describe('ru: configuring-custom-footers.md per-file fix', () => {
+    const broken =
+      'Вы можете настроить веб-интерфейс для вашего предприятия, чтобы отобразить настраиваемый нижний колонтитул с до пяти дополнительных ссылок. Настраиваемый нижний колонтитул по умолчанию отображается над нижним колонтитулов {% данных {% данных variables.product.prodname_dotcom %} нижнего колонтитула {% ghversion %}, для всех пользователей и участников совместной работы на всех страницах репозитория и организации для репозиториев и организаций, принадлежащих к корпоративным variables.location.product_location_enterprise{%endif %}.'
+    const fixed =
+      'Вы можете настроить веб-интерфейс для вашего предприятия, чтобы отобразить настраиваемый нижний колонтитул с до пяти дополнительных ссылок. Настраиваемый нижний колонтитул по умолчанию отображается над нижним колонтитулов {% data variables.product.prodname_dotcom %} нижнего колонтитула{% ifversion ghes %}, для всех пользователей и на всех страницах {% data variables.location.product_location_enterprise %}{% elsif ghec %} для всех пользователей и участников совместной работы на всех страницах репозитория и организации для репозиториев и организаций, принадлежащих к предприятию{% endif %}.'
+
+    test('reconstructs the scrambled data/ifversion/elsif/endif structure', () => {
+      expect(fix(broken, 'ru')).toBe(fixed)
+      expect(fix(fixed, 'ru')).toBe(fixed)
+    })
+
+    test('renders the enterprise-cloud branch on ghec', async () => {
+      const output = await render(fix(broken, 'ru'), 'enterprise-cloud@latest')
+      expect(output).toContain('GitHub нижнего колонтитула для всех пользователей')
+    })
+
+    test('renders the ghes branch on ghes', async () => {
+      const output = await render(fix(broken, 'ru'), ghesVersion)
+      expect(output).toContain('GitHub нижнего колонтитула, для всех пользователей')
+    })
+  })
 })
