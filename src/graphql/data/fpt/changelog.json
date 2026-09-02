@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value 'ENTERPRISE_ORGANIZATION_CREATION<code>was added to enum</code>OrganizationInvitationSource'</p>",
+          "<p>Enum value 'ADDED_TO_STACK_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'REMOVED_FROM_STACK_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>AddCloseIssueReferencesInput</code> was added</p>",
           "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>AddCloseIssueReferencesInput</code></p>",
           "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>AddCloseIssueReferencesInput</code></p>",
