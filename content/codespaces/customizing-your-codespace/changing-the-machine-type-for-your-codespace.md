@@ -1,6 +1,6 @@
 ---
-title: Changing the machine type for your codespace
-shortTitle: Change the machine type
+title: Changing the type of your codespace machine.
+shortTitle: Change Codespace Machine Type.
 intro: You can change the type of machine that's running your codespace, so that you're using resources appropriate for the work you're doing.
 versions:
   fpt: '*'
