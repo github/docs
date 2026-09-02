@@ -29,6 +29,10 @@ Additionally, creating an immutable release automatically generates a **release 
 
 If a release is immutable, you will see {% octicon "lock" aria-hidden="true" %} **Immutable**"  below the title on the release page.
 
+## What you can still change
+
+Immutability protects the assets and Git tag of a release. After an immutable release is published, you can still edit its title and release notes, and change whether it is marked as a pre-release or as the latest release.
+
 ## Best practices for publishing immutable releases
 
 We recommend you use the following workflow for publishing an immutable release.
@@ -38,6 +42,8 @@ We recommend you use the following workflow for publishing an immutable release.
 1. Publish the draft release.
 
 This ensures that all assets are in place before the release becomes immutable, preventing the need to work around immutability restrictions.
+
+Draft releases are not public, so their assets cannot be downloaded the way consumers download them. To check that path before you promote a release, publish it as a pre-release, verify the published assets, then edit the release to clear **This is a pre-release** and select **Set as latest release**.
 
 ## Next steps
 
