@@ -143,5 +143,5 @@ Survey responses with comments are analyzed for sentiment:
 
 - Validation errors appear in server logs
 - Production validation errors sent to Hydro for tracking
-- Use `analyze-comment-cli.ts` to test sentiment analysis locally
+- Use `scripts/analyze-comment-cli.ts` to test sentiment analysis locally
 

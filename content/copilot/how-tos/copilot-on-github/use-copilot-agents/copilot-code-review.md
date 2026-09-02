@@ -25,7 +25,7 @@ category:
 
    ![Screenshot of a code review left by {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/code-review/review-comment@2x.png)
 
-{% data variables.product.prodname_copilot_short %} always leaves a "Comment" review, not an "Approve" or "Request changes" review. Its reviews do not count toward required approvals and will not block merging.
+By default, {% data variables.product.prodname_copilot_short %} leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that, by default, {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request. However, if configured to do so, {% data variables.product.prodname_copilot_short %} can leave "Approve" reviews. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review#pull-request-approvals-from-copilot).
 
 {% data variables.product.prodname_copilot_short %}'s review comments work like comments from human reviewers. Add reactions, reply, resolve, or hide them. Any replies you add are visible to other people but not to {% data variables.product.prodname_copilot_short %}.
 

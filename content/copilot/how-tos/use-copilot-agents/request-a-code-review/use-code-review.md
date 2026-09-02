@@ -45,7 +45,7 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
    ![Screenshot of a code review left by {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/code-review/review-comment@2x.png)
 
-   {% data variables.product.prodname_copilot_short %} always leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request, and {% data variables.product.prodname_copilot_short %}'s reviews will not block merging changes. For more details, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/approving-a-pull-request-with-required-reviews).
+   By default, {% data variables.product.prodname_copilot_short %} leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that, by default, {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request. However, if configured to do so, {% data variables.product.prodname_copilot_short %} can leave "Approve" reviews. For more information, see [Pull request approvals from {% data variables.product.prodname_copilot_short %}](#pull-request-approvals-from-copilot).
 
 1. {% data variables.product.prodname_copilot_short %}'s review comments behave like review comments from humans. You can add reactions to them, comment on them, resolve them and hide them.
 
@@ -88,6 +88,17 @@ To manually request a re-review from {% data variables.product.prodname_copilot_
 To automatically request re-reviews from {% data variables.product.prodname_copilot_short %} on every push, enable automatic code review for the repository and select **Review new pushes** in the ruleset settings. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#configuring-automatic-code-review-for-repositories-in-an-organization).
 
 > [!NOTE] When re-reviewing a pull request, {% data variables.product.prodname_copilot_short %} may repeat the same comments again, even if they have been dismissed with the "Resolve conversation" button or downvoted with the thumbs down (:-1:) button.
+
+## Pull request approvals from {% data variables.product.prodname_copilot_short %}
+
+> [!NOTE]
+> {% data reusables.copilot.automatic-approvals-public-preview %}
+
+Every {% data variables.copilot.copilot_code-review_short %} includes an approval assessment in the overview comment, indicating whether {% data variables.product.prodname_copilot_short %} considers the pull request ready to approve. On its own, this assessment does not count toward merge requirements.
+
+When approvals are enabled, {% data variables.product.prodname_copilot_short %} can submit an approving review that satisfies your repository's required-approval rule the same way a teammate's approval would. If new commits are pushed after {% data variables.product.prodname_copilot_short %} approves, the approval is dismissed, and you can re-request a review. For more details on required reviews, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/approving-a-pull-request-with-required-reviews).
+
+Approvals are off by default and can be configured at the enterprise, organization, and repository levels. Repository administrators can also use file paths to control which {% data variables.product.prodname_copilot_short %} approvals count toward merge requirements. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#customizing-copilot-code-review).
 
 ## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with custom instructions
 

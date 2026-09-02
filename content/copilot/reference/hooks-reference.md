@@ -84,7 +84,7 @@ Hook configuration files use JSON format with version `1`.
 
 ### Command hooks
 
-Command hooks run shell scripts and are supported on all hook types.
+Command hooks run shell scripts or executables and are supported on all hook types.
 
 > [!NOTE]
 > **Cloud agent only.** Cloud agent runs hooks in a Linux sandbox. Only the `bash` field is honored; `powershell` entries are ignored. The cross-platform `command` field is honored as a fallback.
@@ -107,13 +107,39 @@ Command hooks run shell scripts and are supported on all hook types.
 }
 ```
 
+In {% data variables.copilot.copilot_cli_short %}, you can use `exec` and `args` to run an executable directly instead of using a shell:
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "exec": "YOUR_EXECUTABLE",
+        "args": ["YOUR_ARGUMENT"],
+        "cwd": "OPTIONAL/WORKING/DIRECTORY",
+        "env": { "VAR": "VALUE" },
+        "timeoutSec": 30
+      }
+    ]
+  }
+}
+```
+
+Replace `YOUR_EXECUTABLE` with the executable name or path and `YOUR_ARGUMENT` with an argument to pass to it. You can include additional arguments in the `args` array.
+
+Do not combine `exec` with `bash`, `powershell`, or `command`. Arguments are passed directly to the executable without shell interpretation, so shell features such as pipes, redirection, and glob expansion are not available.
+
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `bash` | string | One of `bash`, `powershell`, or `command` | Shell command for Unix. |
-| `command` | string | One of `bash`, `powershell`, or `command` | Cross-platform fallback. Copied to both `bash` and `powershell` when those fields are absent; explicit `bash` or `powershell` entries take precedence on their respective platforms. |
+| `args` | array of strings | No | Arguments passed directly to `exec`. Only supported in {% data variables.copilot.copilot_cli_short %}. |
+| `bash` | string | One of `bash`, `powershell`, or `command`, unless `exec` is specified | Shell command for Unix. |
+| `command` | string | One of `bash`, `powershell`, or `command`, unless `exec` is specified | Cross-platform fallback. Copied to both `bash` and `powershell` when those fields are absent; explicit `bash` or `powershell` entries take precedence on their respective platforms. |
 | `cwd` | string | No | Working directory for the command (relative to repository root or absolute). |
 | `env` | object | No | Environment variables to set (supports variable expansion). |
-| `powershell` | string | One of `bash`, `powershell`, or `command` | Shell command for Windows. |
+| `exec` | string | Instead of `bash`, `powershell`, and `command` | Executable name or path. Runs the executable directly without a shell. Only supported in {% data variables.copilot.copilot_cli_short %}. |
+| `powershell` | string | One of `bash`, `powershell`, or `command`, unless `exec` is specified | Shell command for Windows. |
 | `timeout` | number | No | Alias for `timeoutSec`, in seconds. Used only when `timeoutSec` is absent; `timeoutSec` takes precedence when both are present. |
 | `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
 | `type` | `"command"` | No | Hook type. Defaults to `"command"` when omitted. |
@@ -797,7 +823,7 @@ If multiple hooks of the same type are configured, they execute in order. For `p
 | `0` | Success. `stdout` is parsed as the hook output JSON if present. |
 | `2` | Treated as a warning by default. `stderr` is surfaced to the user but the run continues. For `permissionRequest` and `preToolUse`, exit `2` is treated as a deny: any `stdout` JSON is merged with the deny decision and the tool call is denied even if that JSON reports `permissionDecision: "allow"`. For `postToolUseFailure`, exit `2` is treated as `additionalContext` and `stdout` is appended to the failure shown to the agent. |
 | Other non-zero | Logged as a hook failure. The run continues (fail-open). **Exception: `preToolUse` is fail-closed**—a non-zero exit (other than exit 2) denies the tool call with `"Denied by preToolUse hook (hook errored)"`. |
-| Timeout        | Killed after `timeoutSec`. Error logged, execution continues. **Timeouts are fail-open for every event, including `preToolUse` and admin-deployed policy hooks**—a warning is surfaced and processing proceeds as if the hook had not run. For `preToolUse`, the tool call proceeds through the normal permission flow rather than being denied. A crashed or explicitly-denying hook still fails-closed; only timeouts are exempt. |
+| Timeout        | Killed after `timeoutSec`. Error logged, execution continues. **Timeouts are fail-open for every event, including `preToolUse` and admin-deployed policy hooks**—a warning is surfaced and processing proceeds as if the hook had not run. For `preToolUse`, the tool call proceeds through the normal permission flow rather than being denied. A crashed or explicitly-denying hook still fails-closed; only timeouts are exempt. The logged message includes the command that timed out, for example `Hook command timed out after 30 seconds: my-validation-script.sh` (the bash/PowerShell script text, or `program arg1 arg2 …` for exec hooks), truncated to 80 characters. |
 
 For most events, non-zero exits and timeouts are logged and skipped—agent execution continues. For `preToolUse` command hooks, exit 2, crashes, and other non-zero exits all fail-closed and deny the tool call—exit 2 always denies, even if the hook's `stdout` JSON reports `permissionDecision: "allow"`—but **timeouts always fail-open**—a slow or unreachable hook must not silently block tool calls or work, even when the hook was deployed by an administrator as policy.
 

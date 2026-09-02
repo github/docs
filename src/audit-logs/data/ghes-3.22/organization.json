@@ -515,6 +515,7 @@
       "oauth_application_id",
       "old_alert_enabled",
       "old_budget_limit_type",
+      "old_expires_at",
       "old_pricing_target_id",
       "old_pricing_target_type",
       "old_target_amount",

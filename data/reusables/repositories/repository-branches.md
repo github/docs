@@ -1,1 +1,1 @@
-1. In the "Code and automation" section of the sidebar, click **{% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} Branches**.
+1. In the{% ifversion fpt or ghec %} "Code, planning, and automation"{% elsif ghes %} "Code and automation"{% endif %} section of the sidebar, click **{% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} Branches**.

@@ -57,7 +57,13 @@ If a user receives a seat from multiple organizations in the same enterprise, th
 
 ## Billing cycles
 
-Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. Although you can add or remove seats at any time during the billing cycle, billing for removed seats continues until the end of the current billing cycle. See [AUTOTITLE](/copilot/reference/copilot-billing/license-changes).
+Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. You can add or remove seats at any time during the billing cycle.
+
+When you add seats, you will be billed pro rata for those seats for the rest of the billing cycle. Included {% data variables.product.prodname_ai_credits_short %} for the seats may also be prorated.
+
+When you remove seats, billing for those seats continues until the end of the current billing cycle.
+
+For more information, see [AUTOTITLE](/copilot/reference/copilot-billing/license-changes).
 
 ## Managing costs
 

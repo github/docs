@@ -9956,6 +9956,11 @@
           "type": "string or null",
           "name": "type",
           "description": "<p>The name of the issue type to associate with this issue. <em>NOTE: Only users with push access can set the type for new issues. The type is silently dropped otherwise.</em></p>"
+        },
+        {
+          "type": "integer",
+          "name": "parent_issue_id",
+          "description": "<p>The id of the parent issue to add this issue to as a sub-issue. <em>NOTE: Only users with triage access to both the parent issue's repository and this repository can set the parent issue.</em></p>"
         }
       ],
       "descriptionHTML": "<p>Any user with pull access to a repository can create an issue. If <a href=\"https://docs.github.com/enterprise-server@3.20/articles/disabling-issues/\">issues are disabled in the repository</a>, the API returns a <code>410 Gone</code> status.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-server@3.20/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
@@ -81021,6 +81026,11 @@
           "type": "string",
           "name": "description",
           "description": "<p>A short description of the label. Must be 100 characters or fewer.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "archived",
+          "description": "<p>Whether to archive or unarchive the label. Archived labels cannot be added to issues or pull requests. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/issues/organizing-your-work-with-labels/managing-labels\">Archiving labels</a>.\"</p>"
         }
       ],
       "descriptionHTML": "<p>Updates a label using the given label name.</p>",

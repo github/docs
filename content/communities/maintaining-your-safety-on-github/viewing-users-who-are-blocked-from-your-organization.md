@@ -17,6 +17,7 @@ category:
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 1. Under "Blocked users", review the list of users who are blocked from your organization.
+1. Optionally, to close all open issues, pull requests, and discussions a blocked user has opened in repositories owned by the organization, next to the user, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Close all content**. If you are an organization moderator, only content in repositories where you have write access will be closed.
 
 ## Further reading
 
