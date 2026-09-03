@@ -2940,6 +2940,27 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
+  describe('ko: single-brace translated data reusables tag', () => {
+    test('fixes the fully-translated single-brace save-settings tag', () => {
+      expect(fix('{ 데이터 재사용 가능의 엔터프라이즈 관리 콘솔 설정 저장 }', 'ko')).toBe(
+        '{% data reusables.enterprise_management_console.save-settings %}',
+      )
+    })
+
+    test('fixes the fully-translated single-brace retention-periods tag', () => {
+      expect(fix('{ 데이터 재사용 가능.감사_로그.보존_기간 }', 'ko')).toBe(
+        '{% data reusables.audit_log.retention-periods %}',
+      )
+    })
+
+    test('leaves already-correct translations unchanged', () => {
+      const correct = '{% data reusables.enterprise_management_console.save-settings %}'
+      expect(fix(correct, 'ko')).toBe(correct)
+      const correct2 = '{% data reusables.audit_log.retention-periods %}'
+      expect(fix(correct2, 'ko')).toBe(correct2)
+    })
+  })
+
   describe('universal: restores a trailing {% endif %} dropped at end of file', () => {
     const english = 'Some text is only shown{% ifversion fpt %} on the free plan{% endif %}'
 

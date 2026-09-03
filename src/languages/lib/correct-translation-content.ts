@@ -1886,6 +1886,21 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- 데이터 재사용 가능 항목.', '{%- data reusables.')
     content = content.replaceAll('{% 데이터 재사용 가능.', '{% data reusables.')
     content = content.replaceAll('{%- 데이터 재사용 가능.', '{%- data reusables.')
+    // `{ 데이터 재사용 가능의 엔터프라이즈 관리 콘솔 설정 저장 }` — single-brace
+    // (missing `%`) Korean translation of the entire
+    // `{% data reusables.enterprise_management_console.save-settings %}` tag,
+    // including a translated path. Restore the whole tag.
+    content = content.replaceAll(
+      '{ 데이터 재사용 가능의 엔터프라이즈 관리 콘솔 설정 저장 }',
+      '{% data reusables.enterprise_management_console.save-settings %}',
+    )
+    // `{ 데이터 재사용 가능.감사_로그.보존_기간 }` — single-brace (missing `%`)
+    // Korean translation of `{% data reusables.audit_log.retention-periods %}`,
+    // with the path segments translated but dots preserved.
+    content = content.replaceAll(
+      '{ 데이터 재사용 가능.감사_로그.보존_기간 }',
+      '{% data reusables.audit_log.retention-periods %}',
+    )
     // Korean "if" / "elsif" word translations
     // `{% 만약 X %}` / `{% 만일 X %}` — "if" in Korean
     content = content.replace(/\{%-?\s*만약\s+/g, (m) =>
