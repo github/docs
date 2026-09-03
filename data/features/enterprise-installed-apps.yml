@@ -2,3 +2,4 @@
 # GitHub Apps can now be installed at the enterprise level in addition to organizations
 versions:
   ghec: '*'
+  ghes: '>=3.19'

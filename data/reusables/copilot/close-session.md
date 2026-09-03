@@ -1,0 +1,1 @@
+Sessions that are running are ended, saved, and removed from the sidebar. Sessions that are not running are simply removed from the sidebar. Sessions you remove in this way are not displayed in the sidebar in future sessions unless you resume the session—for example, from the <code>>/resume</code> session picker.

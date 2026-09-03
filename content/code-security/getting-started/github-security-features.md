@@ -138,7 +138,7 @@ Automatically detect hardcoded credentials that have been checked into a reposit
 
 ### {% data variables.secret-scanning.ai-detected-secrets-caps %}
 
-{% data variables.secret-scanning.ai-detected-secrets-caps %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert. For more information, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).
+{% data variables.secret-scanning.ai-detected-secrets-caps %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).{% endif %}
 
 {% endif %}
 

@@ -19,7 +19,7 @@ category:
 
 {% data reusables.repositories.about-READMEs %}
 
-For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project) and {% endif %}[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions).
+For more information about providing guidelines for your project, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project) and [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions).
 
 A README is often the first item a visitor will see when visiting your repository. README files typically include information on:
 * What the project does

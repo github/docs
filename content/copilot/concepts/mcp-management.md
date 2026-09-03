@@ -38,8 +38,6 @@ Alternatively, you can host your own MCP registry and restrict access to servers
 
 To configure an allowlist on {% data variables.product.github %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist).
 
-If you  create your own MCP registry, see
-
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

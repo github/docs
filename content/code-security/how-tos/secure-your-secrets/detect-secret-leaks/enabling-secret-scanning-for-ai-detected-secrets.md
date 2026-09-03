@@ -41,6 +41,10 @@ You must configure {% data variables.secret-scanning.generic-secret-detection %}
 
 For information on how to view alerts for generic secrets that have been detected with AI, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/viewing-alerts).
 
+{% ifversion fpt or ghec %}
+
 ## Further reading
 
 * [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features)
+
+{% endif %}
