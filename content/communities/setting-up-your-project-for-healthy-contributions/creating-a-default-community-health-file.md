@@ -61,7 +61,7 @@ You can create defaults in your organization or personal account for the followi
 
 | Community health file | Description |
 | --- | --- |
-| _CODE_OF_CONDUCT.md_ | A CODE_OF_CONDUCT file defines standards for how to engage in a community.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project).{% endif %} |
+| _CODE_OF_CONDUCT.md_ | A CODE_OF_CONDUCT file defines standards for how to engage in a community. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project). |
 | _CONTRIBUTING.md_ | A CONTRIBUTING file communicates how people should contribute to your project. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors). |
 | Discussion category forms | Discussion category forms customize the templates that are available for community members to use when they open new discussions in your repository. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/creating-discussion-category-forms). |
 |  {% ifversion fpt or ghec %} |

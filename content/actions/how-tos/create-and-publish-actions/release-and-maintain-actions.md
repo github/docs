@@ -89,8 +89,8 @@ Using semantic releases means that the users of your actions can pin their workf
 {% data variables.product.github %} provides tools and guides to help you work with the open source community. Here are a few tools we recommend setting up for healthy bidirectional communication. By providing the following signals to the community, you encourage others to use, modify, and contribute to your action:
 
 * Maintain a `README` with plenty of usage examples and guidance. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
-* Include a workflow status badge in your `README` file. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/add-a-status-badge). Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
-* Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file#supported-file-types).{% endif %}
+* Include a workflow status badge in your `README` file. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/add-a-status-badge). Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.
+* Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file#supported-file-types).
 * Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).{% ifversion fpt or ghec %}
 * Use {% data variables.product.github %}'s security features to communicate about vulnerabilities and how to fix them. For more information, see [AUTOTITLE](/actions/reference/security/secure-use#protecting-actions-youve-created).{% endif %}
 
