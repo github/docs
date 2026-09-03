@@ -19,3 +19,101 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+repo-sync
+
+# Intellectual Property & Sovereign Notice
+
+Copyright © 2026 徐嘉糧
+GUBON LUCID OS / GUBON-EX
+All rights reserved.
+
+## 中文
+
+除另有明確書面授權或契約約定外，GUBON LUCID OS
+及 GUBON-EX 所涉及之原始碼、軟體架構、系統設計、
+演算法與程式邏輯、資料結構、私有化簽章及驗證機制、
+商業流程、決策流程、產品設計及相關技術文件，
+其依法可受保護之智慧財產權及其他權利均由權利人享有。
+
+未經適當授權，任何人不得對受保護內容進行未經授權之
+複製、重製、修改、散布、公開傳輸、轉讓、再授權、
+商業利用或部署。
+
+本聲明不影響第三方軟體、開源元件、API、SDK、模型、
+服務或其他內容所適用之原有授權條款。
+
+## English
+
+Unless expressly licensed or otherwise agreed in writing,
+all legally protectable intellectual property and other rights
+relating to GUBON LUCID OS and GUBON-EX, including source code,
+software architecture, system design, algorithms and program logic,
+data structures, sovereign signing and verification mechanisms,
+commercial workflows, decision processes, product designs,
+and related technical documentation, are owned by the rights holder.
+
+Without appropriate authorization, no person may reproduce,
+modify, distribute, publicly communicate, transfer, sublicense,
+commercially exploit, or deploy protected materials.
+
+Nothing in this notice overrides the applicable license terms
+of third-party software, open-source components, APIs, SDKs,
+models, services, or other third-party materials.🚀 GUBON-EX SssR: First Cash & MCP Integration Blueprint
+一、 核心商業閉環驗收狀態 (Production Gate Status)
+[ ARCHITECTURE LOCKED ] ──> [ CODE IMPLEMENTED ] ──> [ PENDING: REAL EXECUTION ]
+
+
+Production Gates (P0 ~ P18): READY / DEPLOYED
+First Cash & Real Transaction (P19 ~ P23): ARMED / AWAITING FIRST LIVE PAYLOAD
+MCP / Connectors Extension: MAPPED / READY FOR SECURE TUNNELING
+二、 First Cash 執行驗證清單 (First Cash Execution Checklist)
+階段
+驗收項目 (Gate Item)
+技術實作對應 (Code Mapping)
+驗收標準 (Definition of Done)
+狀態
+01
+Webhook 簽章驗證
+verifyPaymentSignature()
+拒絕偽造請求，正式環境強制校驗 Provider 標頭。
+🟢 READY
+02
+Idempotency 防護
+prisma.idempotencyKey
+確保同一事件 ID 僅執行一次，防範重複回調。
+🟢 READY
+03
+訂單狀態機流轉
+prisma.$transaction
+狀態由 PENDING 嚴格過渡至 PAID。
+🟢 READY
+04
+Entitlement 授權
+prisma.entitlement.upsert
+確保 1 Payment = 1 完整報告訪問權。
+🟢 READY
+05
+Revenue Ledger 總帳
+prisma.revenueLedger.create
+金流成功寫入總帳，作為 LTV / ARPU 數據源。
+🟢 READY
+
+三、 MCP / Connectors 擴展架構 (External Capability Integration)
+在完成 First Cash 閉環後，系統將解鎖外部工具與上下文擴展能力：
+[ GUBON-EX SssR Core ] 
+       │
+       ├──> [ Remote MCP Server ] ──> DnD MCP / 私有 AI 運算節點
+       ├──> [ Secure MCP Tunnel ] ──> 防火牆後端安全連接
+       └──> [ Official Connectors ] ──> Google Workspace / Dropbox OAuth
+
+
+工具與資源過濾 (allowedtools)：限制大模型僅能調用白名單內的 MCP 工具，降低 Token 消耗與延遲。
+安全性防護：強制進行傳輸加密與憑證校驗，確保敏感商業數據不外洩。
+四、 最終落地流程圖 (End-to-End Execution Flow)
+Traffic ➔ Landing ➔ Identity Input ➔ Decision Session ➔ 40% Preview
+  ➔ Paywall ➔ Checkout ➔ Payment Provider ➔ Signed Webhook
+  ➔ Idempotency Check ➔ Order State Machine (PAID) 
+  ➔ Entitlement Active ➔ Full Report Delivered ➔ Revenue Ledger
+  ➔ MCP Integration Verified ➔ [ PRODUCTION VERIFIED ]
+
+
