@@ -22,16 +22,14 @@ When you enable immutable releases, the following protections are enforced:
 * **Git tags cannot be moved**: Once an immutable release is published, its associated Git tag is locked to a specific commit, cannot be changed, and cannot be deleted while the release exists. If you delete the immutable release, you can delete the tag, but you cannot reuse the same tag name.
 * **Release assets cannot be modified or deleted**: All files attached to the release (such as binaries and archives) are protected from modification or deletion.
 
+Only the assets and tag are locked. You can still edit the title and release notes of a published immutable release, and change whether it is marked as a pre-release or as the latest release.
+
 Additionally, creating an immutable release automatically generates a **release attestation**, which is a cryptographically verifiable record of a release containing the release tag, commit SHA, and release assets. Consumers can use this attestation to make sure the releases and artifacts they are using exactly match the published {% data variables.product.github %} releases.
 
 > [!NOTE]
 > Immutable releases include protection against repository resurrection attacks. Even if you delete a repository and create a new one with the same name, you cannot reuse tags that were associated with immutable releases in the original repository.
 
 If a release is immutable, you will see {% octicon "lock" aria-hidden="true" %} **Immutable**"  below the title on the release page.
-
-## What you can still change
-
-Immutability protects the assets and Git tag of a release. After an immutable release is published, you can still edit its title and release notes, and change whether it is marked as a pre-release or as the latest release.
 
 ## Best practices for publishing immutable releases
 
@@ -41,9 +39,7 @@ We recommend you use the following workflow for publishing an immutable release.
 1. Attach all associated assets to the draft release.
 1. Publish the draft release.
 
-This ensures that all assets are in place before the release becomes immutable, preventing the need to work around immutability restrictions.
-
-Draft releases are not public, so their assets cannot be downloaded the way consumers download them. To check that path before you promote a release, publish it as a pre-release, verify the published assets, then edit the release to clear **This is a pre-release** and select **Set as latest release**.
+This ensures that all assets are in place before the release becomes immutable, preventing the need to work around immutability restrictions. For more information, see [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release).
 
 ## Next steps
 
