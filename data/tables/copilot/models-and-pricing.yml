@@ -343,6 +343,16 @@
   cached_input: $0.075
   output: $3.75
 
+- model: 'Gemini 3.8 Flash[^gemini-flash-promo]'
+  provider: google
+  release_status: GA
+  category: Versatile
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $0.75
+  cached_input: $0.075
+  output: $3.75
+
 # xAI
 - model: 'Grok 4.5'
   provider: xai

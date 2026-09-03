@@ -120,6 +120,11 @@
   excels_at: Fast, reliable answers to lightweight coding questions
   further_reading: '[Gemini 3.7 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-7-Flash-Model-Card.pdf)'
 
+- name: Gemini 3.8 Flash
+  task_area: Fast help with simple or repetitive tasks
+  excels_at: Fast, reliable answers to lightweight coding questions
+  further_reading: '[Gemini 3.8 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-8-Flash-Model-Card.pdf)'
+
 # Microsoft
 - name: MAI-Code-1-Flash
   task_area: General-purpose coding and writing
