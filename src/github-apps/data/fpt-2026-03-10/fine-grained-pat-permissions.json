@@ -3158,6 +3158,15 @@
       },
       {
         "category": "actions",
+        "slug": "get-runner-version-end-of-life-schedule-for-an-organization",
+        "subcategory": "self-hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runners/deprecations/{version}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
         "slug": "list-runner-applications-for-an-organization",
         "subcategory": "self-hosted-runners",
         "verb": "get",
@@ -4095,6 +4104,15 @@
         "subcategory": "self-hosted-runners",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/runners",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "get-runner-version-end-of-life-schedule-for-a-repository",
+        "subcategory": "self-hosted-runners",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/deprecations/{version}",
         "additional-permissions": false,
         "access": "read"
       },

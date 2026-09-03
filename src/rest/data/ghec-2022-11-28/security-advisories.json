@@ -7814,7 +7814,7 @@
         },
         {
           "httpStatusCode": "422",
-          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+          "description": "<p>Validation failed.</p>"
         }
       ],
       "previews": [],
@@ -9689,7 +9689,7 @@
         },
         {
           "httpStatusCode": "422",
-          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+          "description": "<p>Validation failed.</p>"
         }
       ],
       "previews": [],

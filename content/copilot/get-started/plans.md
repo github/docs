@@ -38,14 +38,11 @@ category:
 
 * Ideal for sustained, high-volume AI power users who want access to the most AI credits available to them. This paid plan includes everything in {% data variables.copilot.copilot_pro_plus_short %}, plus our highest individual monthly allowance of {% data variables.product.prodname_ai_credits_short %}. 
 
-> [!IMPORTANT] 
-> {% data reusables.copilot.plans.organization-plans-paused %}
-
-**{% data variables.copilot.copilot_for_business %}**: To get started, [contact sales](https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase&ref_style=text).
+**{% data variables.copilot.copilot_for_business %}**: [Subscribe to {% data variables.copilot.copilot_business_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=business).
 
 * Made for organizations an enterprises, this plan offers centralized management and {% data variables.product.prodname_copilot_short %} policy control for organization members.
 
-**{% data variables.copilot.copilot_enterprise %}**: [Contact sales](https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase&ref_style=text) to get started.
+**{% data variables.copilot.copilot_enterprise %}**: [Subscribe to {% data variables.copilot.copilot_enterprise_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=enterprise).
 
 * Designed for enterprises using {% data variables.product.prodname_ghe_cloud %}. This plan includes all the features of {% data variables.copilot.copilot_business_short %}, offers a larger monthly pool of {% data variables.product.prodname_ai_credits_short %}, plus additional enterprise-grade capabilities. 
 

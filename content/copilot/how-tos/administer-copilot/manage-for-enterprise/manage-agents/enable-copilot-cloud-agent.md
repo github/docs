@@ -3,7 +3,7 @@ title: Enabling GitHub Copilot cloud agent in your enterprise
 intro: 'Choose which organizations can use {% data variables.copilot.copilot_cloud_agent %} and connect it to MCP servers.'
 allowTitleToDifferFromFilename: true
 permissions: Enterprise owners and AI managers
-product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Contact Sales</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span>{% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 shortTitle: 'Enable {% data variables.copilot.copilot_cloud_agent %}'

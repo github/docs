@@ -29,7 +29,7 @@ category:
 To upgrade an instance, you must:
 1. **Plan your upgrade strategy** by choosing your upgrade version and the appropriate upgrade package, and scheduling a maintenance window.
 1. **Communicate the upgrade** before and during the upgrade process.
-1. **Prepare your backup strategy** by creating a backup and taking a virtual machine snapshot.
+1. **Prepare your backup strategy** by creating a backup and taking a VM or disk snapshot.
 1. **Install the upgrade package** using the appropriate package and method.
 1. **Complete post-upgrade tasks**.
 
@@ -94,11 +94,13 @@ Check if you need to upgrade the following applications:
 
 Ensure you have a recent, successful backup snapshot of your instance's primary node before you start the upgrade process. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server) and the [README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
-### Create a VM snapshot
+### Create a VM or disk snapshot
 
-If you're upgrading to a new feature release, a virtual machine (VM) snapshot is required. If you're upgrading to a patch release, you can attach the existing data disk.
+This snapshot is separate from the backup snapshot described above. If you're upgrading to a new feature release, a VM or disk snapshot is required. If you're upgrading to a patch release, you can attach the existing data disk.
 
-Create a virtual machine (VM) snapshot of your instance's primary node immediately before upgrading, and only when maintenance mode has been enabled or the instance has been powered down. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot).
+Create the snapshot of your instance's primary node immediately before upgrading, and only when maintenance mode has been enabled or the instance has been powered down.
+
+Which type you can take depends on your platform. AWS and Google Compute Engine support disk snapshots only. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot).
 
 ## Installing an upgrade package
 
@@ -118,6 +120,6 @@ The instructions for upgrading your {% data variables.product.prodname_ghe_serve
 * Check the status of background jobs, and review the upgrade log for errors.
 * Check basic {% data variables.product.prodname_ghe_server %} functionality. For example, ensure you can sign in via the user interface, and verify that several of your organizations, repositories and issues can be reached as expected. It's also a good idea to manually run several Git fetches, clones, and pushes using SSH and/or HTTPS, and check that API requests and webhook deliveries complete successfully.
 * Reapply any custom firewall rules. See [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/configuring-built-in-firewall-rules).
-* Delete any VM snapshots taken prior to upgrading. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot).
+* Delete any VM or disk snapshots taken prior to upgrading. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot).
 * Disable maintenance mode, and update any pre-upgrade communications such as announcement banners. See [AUTOTITLE](/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner) and [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 * Monitor all queued background jobs on your instance to ensure they complete successfully. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities).
