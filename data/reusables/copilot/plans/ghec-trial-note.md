@@ -1,0 +1,1 @@
+If you are currently in a trial of {% data variables.product.prodname_ghe_cloud %}, you must convert to a paid enterprise before you can purchase {% data variables.product.prodname_copilot %}.

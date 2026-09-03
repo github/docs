@@ -44,7 +44,7 @@ What you need to know about the following actions:
 
 ### Adding seats
 
-* **Billing:** Additional {% data variables.product.prodname_copilot_short %} seats are billed for the remainder of the current billing cycle. Charges are prorated based on the date seats are added.
+* **Billing:** Additional {% data variables.product.prodname_copilot_short %} seats are billed for the remainder of the current billing cycle. Charges are prorated based on the date seats are added. If you pay by credit card or PayPal, you will need to pay the prorated amount for new seats upfront.
 * **Access:** Users assigned to new seats get access **immediately** after assignment.
 
 ### Removing seats
@@ -67,7 +67,7 @@ What you need to know about the following actions:
 
 ### Adding seats
 
-* **Billing:** Additional seats are billed on a prorated basis for the remainder of the current billing cycle. Included {% data variables.product.prodname_ai_credits_short %} may also be prorated.
+* **Billing:** Additional seats are billed on a prorated basis for the remainder of the current billing cycle. Included {% data variables.product.prodname_ai_credits_short %} may also be prorated. If you pay by credit card or PayPal, you will need to pay the prorated amount for new seats upfront.
 * **Access:** Assigned users gain **immediate access** to {% data variables.product.prodname_copilot_short %}.
 
 ### Removing seats

@@ -1,8 +1,8 @@
 ---
 title: About billing for GitHub Copilot in organizations and enterprises
-shortTitle: Organizations and enterprises
-intro: 'Learn about pricing and billing cycles for {% data variables.product.prodname_copilot_short %}.'
-product: 'Organizations on a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan, or organizations and enterprises on {% data variables.product.prodname_ghe_cloud %}'
+shortTitle: Fundamentals
+intro: Learn about pricing and billing cycles for {% data variables.product.prodname_copilot_short %}.
+product: Organizations on a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan, or organizations and enterprises on {% data variables.product.prodname_ghe_cloud %}
 versions:
   feature: copilot
 redirect_from:
@@ -16,8 +16,9 @@ redirect_from:
   - /copilot/concepts/copilot-billing/billing-for-enterprises
   - /copilot/concepts/billing/billing-for-enterprises
   - /copilot/concepts/billing/billing-for-organizations
+  - /copilot/concepts/billing/organizations-and-enterprises
 contentType: concepts
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -31,7 +32,7 @@ category:
 <!-- expires 2026-09-01 -->
 
 > [!NOTE]
-> Existing customers receive higher included {% data variables.product.prodname_ai_credits_short %} during the promotional period (June–August 2026). See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises#promotional-amounts-for-existing-customers).
+> Existing customers receive higher included {% data variables.product.prodname_ai_credits_short %} during the promotional period (June–August 2026). See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing#promotional-amounts-for-existing-customers).
 
 <!-- end expires 2026-09-01 -->
 
@@ -51,7 +52,7 @@ For a full explanation of how {% data variables.product.prodname_ai_credits_shor
 
 A {% data variables.product.prodname_copilot_short %} seat is a license to use {% data variables.product.prodname_copilot %} for a user. Each month, your organization or enterprise is billed for the number of assigned seats.
 
-Seat assignment is managed by organization owners. With {% data variables.product.prodname_ghe_cloud %}, an enterprise owner must have enabled {% data variables.product.prodname_copilot %} for the organization before an organization owner can assign seats. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/grant-access).
+Seat assignment is managed by enterprise or organization owners. With {% data variables.product.prodname_ghe_cloud %}, an enterprise owner must have enabled {% data variables.product.prodname_copilot %} for the organization before an organization owner can assign seats. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access) or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/grant-access).
 
 If a user receives a seat from multiple organizations in the same enterprise, the enterprise will be billed only once, and one organization is selected and billed for the seat. To determine which organization is billed for a given user, request a detailed usage report and refer to the `organization` column for the user's {% data variables.product.prodname_copilot_short %} license. See [AUTOTITLE](/billing/reference/billing-reports).
 
@@ -59,7 +60,7 @@ If a user receives a seat from multiple organizations in the same enterprise, th
 
 Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. You can add or remove seats at any time during the billing cycle.
 
-When you add seats, you will be billed pro rata for those seats for the rest of the billing cycle. Included {% data variables.product.prodname_ai_credits_short %} for the seats may also be prorated.
+When you add seats, you will be billed pro rata for those seats for the rest of the billing cycle. Included {% data variables.product.prodname_ai_credits_short %} for the seats may also be prorated. If you pay by credit card or PayPal, you will need to pay a prorated amount upfront to cover the seats for the rest of the current billing cycle. 
 
 When you remove seats, billing for those seats continues until the end of the current billing cycle.
 

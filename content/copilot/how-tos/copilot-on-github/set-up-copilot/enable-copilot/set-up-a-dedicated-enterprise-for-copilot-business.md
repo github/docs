@@ -22,9 +22,15 @@ Before you begin, see [AUTOTITLE](/copilot/concepts/about-enterprise-accounts-fo
 
 ## Create an enterprise account
 
-If you don't have an enterprise account yet, contact {% data variables.product.company_short %}'s [sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase&ref_style=text). They will provision you with a standard enterprise account with {% data variables.product.prodname_copilot_short %} enabled.
+If you will pay by credit card or PayPal, you can create an enterprise account and purchase {% data variables.copilot.copilot_business_short %} yourself.
 
-If you already have an enterprise account, you can use it to assign {% data variables.copilot.copilot_business_short %} licenses. Continue to the next section.
+>[!NOTE] For other payment methods, contact [{% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text) and ask for an enterprise account with {% data variables.product.prodname_copilot_short %} enabled.
+
+1. Start a trial of {% data variables.product.prodname_ghe_cloud %}.
+
+   <a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+
+1. End the trial immediately and add a credit card or PayPal as a payment method. This is required because trial enterprises cannot sign up for {% data variables.copilot.copilot_business_short %}. However, with the setup described in this article, you will **not** pay for {% data variables.product.prodname_ghe_cloud %} licenses even when the trial has ended.
 
 ## Add users to your enterprise
 
@@ -38,14 +44,13 @@ Provisioned managed users appear automatically in your enterprise's **People** l
 
 Group users to scale license assignment by creating enterprise teams. Unaffiliated users can be members of enterprise teams, so you can assign {% data variables.copilot.copilot_business_short %} licenses to a whole team without creating an organization. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
 
-## Convert your trial to a paid enterprise account
-
-To begin using {% data variables.copilot.copilot_business_short %} after your trial, convert to a paid enterprise account. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#purchasing-github-enterprise).
-
 ## Enable {% data variables.product.prodname_copilot_short %} for the enterprise
 
-1. Ensure you are signed in as an enterprise administrator on {% data variables.product.github %}.
-1. To purchase {% data variables.product.prodname_copilot %} for your enterprise, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
+An enterprise owner must purchase a {% data variables.copilot.copilot_business_short %} plan so you can start assigning licenses to users.
+
+If you pay by credit card or PayPal, you can [subscribe to {% data variables.copilot.copilot_business_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=business) yourself.
+
+For other payment methods, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 ## Assign {% data variables.product.prodname_copilot_short %} licenses
 
