@@ -174,6 +174,107 @@ copilot plugins remove spark@copilot-plugins
 
 With `--skill`, pass either a skill name or the path to a custom skill directory you added. A skill name deletes that skill's files; a custom directory path only unregisters the directory and leaves its files on disk. Only personal and project skills you added can be deleted—skills provided by a plugin or the builtin set can't be removed this way (disable them instead). Instruction sources are discovered from disk and can't be removed here.
 
+## The sessions sidebar
+
+The sessions sidebar is a panel docked beside your current conversation that provides a quick way of working with your local {% data variables.copilot.copilot_cli %} sessions.
+
+When the sidebar has focus, the following keyboard shortcuts are available.
+
+| Shortcut | Purpose |
+|----------|---------|
+| <kbd>←</kbd> | From the conversation, open the sidebar and move focus into it (Vim: `h`). |
+| <kbd>→</kbd> | Move focus back to the conversation; press again to close the sidebar (Vim: `l`). |
+| <kbd>↑</kbd>/<kbd>↓</kbd> | Move between sessions in the sidebar (also `k`/`j`). |
+| <kbd>Enter</kbd> | Open the selected session and return focus to the conversation. |
+| `n` | Start a new session. |
+| `x` twice | Close the selected session. |
+| <kbd>↑</kbd> then <kbd>Tab</kbd> | From the top of the sessions list, <kbd>↑</kbd> moves onto the header buttons (**←** close sidebar, **+** new session). <kbd>Tab</kbd> switches between them. |
+| `?` | Show the sidebar help. |
+
+The sidebar also responds to the mouse.
+
+| Gesture | Purpose |
+|---------|---------|
+| Click a session | Switch to that session and return to the conversation. |
+| Double-click a session | Switch to that session and stay in the sidebar. |
+| Drag the divider | Resize the sidebar. |
+| Hover the sidebar and scroll | Scroll the session list. |
+| Click a header button | **←** to close the sidebar, **+** to start a new session. |
+| Hover over the right side of a session | Show the close button (requires `sidebar.showCloseButton`). |
+
+### Session status indicators
+
+Each session in the sidebar shows an indicator of its current state.
+
+| Indicator | Meaning |
+|-----------|---------|
+| `●` steady | A running but idle session—waiting for your next prompt. |
+| `●` pulsing | A running session. The agent is actively processing a turn. |
+| `!` | The session needs permission to continue. |
+| `?` | The session is waiting for you (a question or a choice). |
+| `○` | A resumable session—saved, but not currently running. |
+
+The text of sessions in the default CLI chat mode uses the default text color. Different colors are used in plan mode and in autopilot mode.
+
+### Sessions sidebar settings
+
+Use the `/settings sidebar` slash command in an interactive CLI session to adjust these settings for the sessions sidebar.
+
+<!-- This table is written as an HTML table, rather than Markdown, so that the Description column can be given more width. -->
+<table>
+  <colgroup>
+    <col width="25%">
+    <col width="65%">
+    <col width="10%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>sidebar.enabled</code></td>
+      <td>Allow the sessions sidebar to be displayed.</td>
+      <td>On</td>
+    </tr>
+    <tr>
+      <td><code>sidebar.showResumableSessions</code></td>
+      <td>The sidebar includes previous sessions that you can resume. When set to <code>off</code>, only active sessions are listed. Changes to this setting take effect the next time {% data variables.copilot.copilot_cli_short %} is started.</td>
+      <td>On</td>
+    </tr>
+    <tr>
+      <td><code>sidebar.showHeaderButtons</code></td>
+      <td>Show the row of buttons at the top of the sidebar for collapsing it (<strong>←</strong>) and starting a new session (<strong>+</strong>).</td>
+      <td>On</td>
+    </tr>
+    <tr>
+      <td><code>sidebar.showCloseButton</code></td>
+    <td>As an alternative to clicking <kbd>X</kbd>, hovering the mouse towards the right of a session in the sidebar displays a <strong>close session</strong> button. Click this, then click again to confirm. {% data reusables.copilot.close-session %}</td>
+      <td>Off</td>
+    </tr>
+    <tr>
+      <td><code>sidebar.hoverFocus</code></td>
+      <td>The focus changes from the main CLI tab to the sidebar depending on where the mouse pointer is.</td>
+      <td>Off</td>
+    </tr>
+    <tr>
+      <td><code>sidebar.coloredHints</code></td>
+      <td>While the sidebar is open and your conversation is focused, show the <strong>use sidebar</strong> hint in the sidebar's accent color to call attention to it. When off, the same color as other hints is used. While the sidebar is closed, the same color as other hints is always used.</td>
+      <td>On</td>
+    </tr>
+    <tr>
+      <td><code>sidebar.accentActiveSession</code></td>
+      <td>Change the session selection highlighting in the sidebar. When on, the session currently open in your conversation gets the main highlighting. When off the session selected with the keyboard up and down arrows (or with the mouse) gets the main highlighting.</td>
+      <td>On</td>
+    </tr>
+  </tbody>
+</table>
+
+For more information about the sessions sidebar, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/work-with-multiple-sessions).
+
 ## Global shortcuts in the interactive interface
 
 | Shortcut                            | Purpose                               |
