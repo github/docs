@@ -70,7 +70,7 @@ Parameter name | Type | Description
 
 You can use query parameters to select the permissions for the {% data variables.product.prodname_github_app %} registration. For the URL query parameter, use the permission name as the query parameter name, and set the query value to one of the possible values for that permission set.
 
-For example, to select "Read & write" permissions in the user interface for `contents`, your query string would include `contents=write`. To select "Read-only" permissions in the user interface for `blocking`, your query string would include `blocking=read`. To select "No access" in the user interface for `checks`, your query string would not include the `checks` permission.{% ifversion enterprise-installed-apps %}
+For example, to select "Read & write" permissions in the user interface for `contents`, your query string would include `contents=write`. To select "Read-only" permissions in the user interface for `blocking`, your query string would include `blocking=read`. To select "No access" in the user interface for `checks`, your query string would not include the `checks` permission.{% ifversion ghes < 3.23 %}
 
 If the owning account is not an enterprise or an enterprise-owned organization, it cannot request enterprise permissions.{% endif %}
 
