@@ -230,6 +230,15 @@
   xcode: false
   jetbrains: false
 
+- name: GPT-6 Astra
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Grok 4.5
   dotcom: false
   cli: true

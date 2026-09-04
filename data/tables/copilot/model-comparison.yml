@@ -48,6 +48,11 @@
   excels_at: Balanced everyday interactive and agentic coding
   further_reading: '[GPT-5.6 model card](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf)'
 
+- name: GPT-6 Astra
+  task_area: Long-horizon, autonomous coding and agentic tasks
+  excels_at: Long-horizon coding tasks with continuous planning, batched diagnosis and verification, and independent result confirmation
+  further_reading: '[GPT-6 Astra model card](https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf)'
+
 # Anthropic
 - name: Claude Fable 5
   task_area: Long-horizon, autonomous coding and knowledge-work
