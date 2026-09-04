@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>enterpriseRoleDatabaseId</code> was added to object type <code>RepositoryRulesetBypassActor</code></p>",
+          "<p>Input field <code>enterpriseRoleDatabaseId</code> of type <code>BigInt</code> was added to input object type <code>RepositoryRulesetBypassActorInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'ENTERPRISE_ORGANIZATION_CREATION<code>was added to enum</code>OrganizationInvitationSource'</p>",
           "<p>Enum value 'ADDED_TO_STACK_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
           "<p>Enum value 'REMOVED_FROM_STACK_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
