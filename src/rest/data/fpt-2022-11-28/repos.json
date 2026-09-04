@@ -30537,7 +30537,10 @@
                   "value": {
                     "oneOf": [
                       {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       {
                         "type": "array",
