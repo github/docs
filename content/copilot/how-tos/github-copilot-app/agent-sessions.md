@@ -73,7 +73,7 @@ You can run the `/security-review` slash command in an active agent session to r
 
 This lightweight, on-demand review complements {% data variables.product.github %} {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %}, and {% data variables.product.prodname_secret_scanning %} by giving you an initial check on your local changes before opening a pull request.
 
-## Using the rubber duck agent
+## Using the `/rubber-duck` agent
 
 The rubber duck agent is a built-in agent that acts as a constructive critic, reviewing your current plan, implementation, or tests and returning concrete feedback. The agent runs on a different model from the one driving your current session.
 
