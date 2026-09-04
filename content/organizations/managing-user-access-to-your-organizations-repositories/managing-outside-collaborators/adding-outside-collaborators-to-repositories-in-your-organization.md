@@ -27,7 +27,7 @@ category:
 {% ifversion fpt %}
 Organizations that use {% data variables.product.prodname_ghe_cloud %} can restrict the ability to invite collaborators. For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 {% else %}
-Organization and enterprise owners can restrict the ability to invite collaborators. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories).
+Organization and enterprise owners can restrict the ability to invite collaborators. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
 {% endif %}
 
 {% ifversion ghes %}

@@ -74,7 +74,7 @@ For example, to select "Read & write" permissions in the user interface for `con
 
 If the owning account is not an enterprise or an enterprise-owned organization, it cannot request enterprise permissions.{% endif %}
 
-For more information about permissions and {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app). To see the list of permissions available for use and their parameterized names, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#account-permissions).
+For more information about permissions and {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app). To see the list of permissions available for use and their parameterized names, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps).
 
 ## {% data variables.product.prodname_github_app %} webhook events
 
