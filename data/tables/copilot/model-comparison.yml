@@ -84,11 +84,6 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Opus 5 model card](https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf)'
 
-- name: Claude Sonnet 4.5
-  task_area: General-purpose coding and agent tasks
-  excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: '[Claude Sonnet 4.5 model card](https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf)'
-
 - name: Claude Sonnet 4.6
   task_area: General-purpose coding and agent tasks
   excels_at: Complex problem-solving challenges, sophisticated reasoning
@@ -100,11 +95,6 @@
   further_reading: '[Claude Sonnet 5 model card](https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf)'
 
 # Google
-- name: Gemini 3.1 Pro
-  task_area: Deep reasoning and debugging
-  excels_at: Effective and efficient edit-then-test loops with high tool precision
-  further_reading: '[Gemini 3.1 Pro model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf)'
-
 - name: Gemini 3.5 Flash
   task_area: Fast help with simple or repetitive tasks
   excels_at: Fast, reliable answers to lightweight coding questions
@@ -152,11 +142,6 @@
   task_area: General-purpose coding and writing
   excels_at: Code generation, reasoning, and code repair / debugging
   further_reading: '[Qwen2.5 model card](https://arxiv.org/pdf/2409.12186)'
-
-- name: Raptor mini
-  task_area: General-purpose coding and writing
-  excels_at: Fast, accurate code completions and explanations
-  further_reading: 'Coming soon'
 
 # Open-weight models
 - name: Kimi K2.7 Code

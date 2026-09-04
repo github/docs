@@ -79,7 +79,6 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 | Model | 1 million token context window | Configurable reasoning |
 | --- | --- | --- |
 | {% data variables.copilot.copilot_claude_sonnet_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| {% data variables.copilot.copilot_claude_opus_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_47 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_48 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -122,7 +121,6 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 
 | Model                                                    | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
 |----------------------------------------------------------|----------------------------------------------|------------------------------------------|----------------|-------|---------|
-| {% data variables.copilot.copilot_gemini_31_pro %}       | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
 | {% data variables.copilot.copilot_gemini_35_flash %}     | `v1.115.0` | `17.14.22` or `18.1.0`         | `1.5.62` | `0.46.0` | `0.14.0` |
 | {% data variables.copilot.copilot_gemini_36_flash %}     | `v1.128.0` | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_gemini_37_flash %}     | `v1.128.0` | `17.14.22` or `18.1.0`         | TBD | TBD | TBD |

@@ -71,9 +71,9 @@ We'll create a time-tracking app in a new {% data variables.product.github %} re
 1. Choose a model from the models dropdown.
 
    > [!NOTE]
-   > The responses referred to in this tutorial were received while using Claude Sonnet 4.5. Other models will respond differently, but you should get roughly similar results. Claude Sonnet 4.5 is a good choice, if it's available, as it provides useful commentary in the chat view, explaining what it is doing, and giving detailed summaries when it has finished coding.
+   > The responses referred to in this tutorial were received while using {% data variables.copilot.copilot_claude_sonnet_45 %}, which has since been retired. Other models will respond differently, but you should get roughly similar results.
    >
-   > If Claude Sonnet 4.5 is not available, set the model to **Auto** or select a model of your choice.
+   > Set the model to **Auto**, or select a model of your choice.
 
 1. Enter this prompt in the chat:
 

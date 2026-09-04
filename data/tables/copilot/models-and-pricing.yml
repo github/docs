@@ -193,15 +193,6 @@
   output: $15.00
   cache_write: $3.75
 
-- model: Claude Sonnet 4.5
-  provider: anthropic
-  release_status: GA
-  category: Versatile
-  input: $3.00
-  cached_input: $0.30
-  output: $15.00
-  cache_write: $3.75
-
 - model: Claude Sonnet 4.6
   provider: anthropic
   release_status: GA
@@ -210,24 +201,6 @@
   cached_input: $0.30
   output: $15.00
   cache_write: $3.75
-
-- model: Claude Opus 4.5
-  provider: anthropic
-  release_status: GA
-  category: Powerful
-  input: $5.00
-  cached_input: $0.50
-  output: $25.00
-  cache_write: $6.25
-
-- model: Claude Opus 4.6
-  provider: anthropic
-  release_status: GA
-  category: Powerful
-  input: $5.00
-  cached_input: $0.50
-  output: $25.00
-  cache_write: $6.25
 
 - model: Claude Opus 4.7
   provider: anthropic
@@ -293,26 +266,6 @@
   cache_write: $12.50
 
 # Google
-- model: 'Gemini 3.1 Pro'
-  provider: google
-  release_status: Public preview
-  category: Powerful
-  threshold: '≤ 200K'
-  tier: 'Default'
-  input: $2.00
-  cached_input: $0.20
-  output: $12.00
-
-- model: 'Gemini 3.1 Pro'
-  provider: google
-  release_status: Public preview
-  category: Powerful
-  threshold: '> 200K'
-  tier: 'Long context'
-  input: $4.00
-  cached_input: $0.40
-  output: $18.00
-
 - model: 'Gemini 3.5 Flash'
   provider: google
   release_status: GA
@@ -410,16 +363,6 @@
   input: $0.20
   cached_input: $0.02
   output: $1.20
-
-# Fine-tuned (GitHub)
-- model: 'Raptor mini'
-  provider: github
-  release_status: GA
-  category: Versatile
-  input: $0.25
-  cached_input: $0.025
-  output: $2.00
-  notes: Uses GPT-5 mini pricing
 
 # Open-weight models
 - model: 'Kimi K2.7 Code'
