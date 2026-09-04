@@ -29,7 +29,7 @@ Both examples rely only on the SDK that's bundled with the {% data variables.cop
 
 ## Prerequisites
 
-* **{% data variables.copilot.copilot_cli %}**: You need {% data variables.copilot.copilot_cli_short %} installed and set up. See [AUTOTITLE](/copilot/how-tos/copilot-cli/cli-getting-started).
+* **{% data variables.copilot.copilot_cli %}**: You need {% data variables.copilot.copilot_cli_short %} installed and set up. See [AUTOTITLE](/copilot/get-started/cli-quickstart).
 * **Experimental features enabled**: Extensions are currently an experimental feature. The steps in this tutorial turn on experimental features each time you start the CLI, using the `‑‑experimental` command line option.
 * **JavaScript**: Extensions are written in JavaScript, so you'll need to be familiar with this language to create your own extensions.
 * **A repository**: The second example adds a project-level extension, so you'll need a local copy of a Git repository in which to add the extension.

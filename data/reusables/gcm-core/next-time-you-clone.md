@@ -4,7 +4,7 @@ The next time you clone an HTTPS URL that requires authentication, Git will prom
 
 > [!TIP]
 >
-> If you're a member of an enterprise that uses {% data variables.product.prodname_emus %}, your enterprise view has the "Users managed by ACCOUNT NAME" header bar at the top of the screen. In that case you will need to disable account filtering locally in GCM to prevent getting prompted for authentication each time a remote Git operation is performed. For more details, see the [`git-credential-manager` repository](https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/configuration.md#credentialgithubaccountfiltering).
+> If you're a member of an enterprise that uses {% data variables.product.prodname_emus %}, your enterprise view has the "Users managed by ACCOUNT NAME" header bar at the top of the screen. In that case you will need to disable account filtering locally in GCM to prevent getting prompted for authentication each time a remote Git operation is performed. For more details, see the [`git-credential-manager` repository](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/configuration.md#credentialgithubaccountfiltering).
 >
 > To configure the Git Credential Manager run the following command:
 >
