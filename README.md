@@ -1,38 +1,53 @@
-# GitHub Docs <!-- omit in toc -->
+Herzlich willkommen! Dieses Repository bündelt alle wichtigen Sicherheitsrichtlinien und bricht das oft komplexe Thema so herunter, dass auch Programmier-Lehrlinge und Einsteiger ohne Vorkenntnisse sofort durchsteigen.
 
-Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone from inside or outside the company can contribute. For full contributing guidelines, visit our [contributing guide](https://docs.github.com/en/contributing).
+Weil herkömmliche Repository-Anleitungen oft zu technisch geschrieben sind oder mit unklaren Beispielen mehr Fragen aufwerfen als sie beantworten, setzt dieses Projekt auf maximale Klarheit, echtes Verständnis und Schritt-für-Schritt-Anleitungen auf Augenhöhe.
 
+Darüber hinaus haben wir dieses Repository mit dem offiziellen GitHub Docs-Projekt verknüpft und erweitert, um direkten Zugriff auf die vollständigen, öffentlichen Dokumentationen von GitHub zu bieten. So hast du alle offiziellen Anleitungen, Erklärungen und Workflows direkt an einem Ort gesammelt.
 
-## Quick links by contributor type
+Wichtige Sicherheitsrichtlinien & Basis-Setup
+Bevor du mit diesem Repository arbeitest oder eigene Projekte startest, legen wir das Fundament: Dein GitHub-Account muss absolut sicher sein.
 
-* **Hubbers (GitHub employees):** See [CONTRIBUTING.md](https://github.com/github/docs-content/blob/main/CONTRIBUTING.md) in the `docs-content` repository for GitHub-specific processes.
+1. Sicheres Passwort erstellen
+Passwort-Manager nutzen: Verwende einen Passwort-Manager, um ein langes, zufälliges und einzigartiges Passwort zu generieren (mindestens 16 Zeichen mit einer Mischung aus Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen).
 
-* **Open source contributors:** See [CONTRIBUTING.md](https://github.com/github/docs/blob/main/.github/CONTRIBUTING.md) in the `docs` repository for a quick-start summary.
+Keine Wiederverwendung: Nutze dieses Passwort ausschließlich für GitHub und nirgendwo sonst.
 
-## How we sync changes across Docs repositories
+2. Zwei-Faktor-Authentifizierung (2FA) aktivieren
+Die Zwei-Faktor-Authentifizierung schützt dein Konto selbst dann, wenn dein Passwort in falsche Hände gerät.
 
-There are two GitHub Docs repositories: 
+Logge dich bei GitHub ein und klicke oben rechts auf dein Profilbild.
 
-- **`github/docs`** (public): Open to external contributions
+Gehe in den direkten [suspicious link removed] zu den Sicherheitseinstellungen.
 
-- **`github/docs-internal`** (private): For GitHub employee contributions. 
+Scrolle zum Bereich Two-factor authentication und klicke auf Enable two-factor authentication.
 
-The two repositories sync frequently. Content changes in one are reflected in the other.  Hubbers might prefer to post in `docs` when working with a customer, but `docs` has limitations on the types of contributions it accepts to safeguard the site and our workflows. Internal contributions should usually go to `docs-internal`.
+Wähle eine Authentifizierungs-App (z. B. Google Authenticator, Aegis oder Bitwarden Authenticator) und scanne den QR-Code mit deinem Smartphone.
 
-**Important:** The `docs` repository accepts contributions to content files (`.md` files in `/content` and select `/data` sections like reusables only). Infrastructure files, workflows, and site-building code are not open for external modification.
+Gib den generierten 6-stelligen Code ein, um die Einrichtung abzuschließen.
 
-## New to contributing
+3. Wiederherstellungs-E-Mail eintragen
+Stelle sicher, dass eine aktuelle und erreichbare E-Mail-Adresse hinterlegt ist, falls du den Zugriff auf deine primäre Adresse verlierst.
 
-Here are some resources to help you get started with open source contributions:
+Gehe in die direkten GitHub Email Settings.
 
-* [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
-* [Set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git)
-* [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
-* [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
+Füge deine primäre und eine alternative Wiederherstellungs-E-Mail-Adresse hinzu und bestätige diese über den Link in der Bestätigungsmail.
 
-## License
+4. Wiederherstellungscodes (Recovery Codes) erstellen und speichern
+Falls du dein Smartphone verlierst und keinen Zugriff mehr auf deine Authentifizierungs-App hast, sind diese Codes deine einzige Rettung.
 
-This project is dual-licensed under:
+Gehe zu den [suspicious link removed].
 
-* **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
-* **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))
+Suche den Bereich für deine 2FA-Wiederherstellungscodes und klicke auf View recovery codes (bzw. generiere sie neu).
+
+Wichtig: Lade die Codes als Textdatei herunter oder drucke sie aus. Bewahre sie an einem sicheren Ort auf (niemals unverschlüsselt in der Cloud oder im Projekt-Repository speichern!).
+
+Der absolute Worst-Case-Tipp: Schreib dir am besten 3 dieser Codes zusätzlich auf einen physischen Zettel und verstaue ihn sicher an einem Ort, den du immer erreichen kannst (zum Beispiel im Geldbeutel oder in einem sicheren Dokumentenordner zu Hause). Wenn nämlich der Ernstfall eintritt und das Handy kaputtgeht, die alte Handynummer nicht mehr existiert und du gleichzeitig keinen Zugriff mehr auf deine Cloud hast, bist du ohne physischen Notfallcode komplett ausgesperrt und hast keine Chance mehr, an dein Konto zu kommen.
+
+5. Passkey einrichten und speichern
+Passkeys ermöglichen dir eine passwortfreie und hochsichere Anmeldung (z. B. über den Fingerabdruck auf deinem Smartphone, Windows Hello oder einen physischen Sicherheitsschlüssel wie YubiKey).
+
+Gehe zu den [suspicious link removed].
+
+Suche den Bereich Passkeys und klicke auf Add a passkey.
+
+Folge den Anweisungen deines Betriebssystems oder Browsers, um den Passkey zu registrieren und auf deinem Gerät zu speichern.
