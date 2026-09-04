@@ -19,6 +19,7 @@ For workflows initiated by {% data variables.product.prodname_dependabot %} (`gi
 
 * `GITHUB_TOKEN` has read-only permissions by default.
 * Secrets are populated from {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available.
+* Actions variables (`vars` context) are accessible.
 
 For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request_target` event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.event.pull_request.user.login == 'dependabot[bot]'`), the `GITHUB_TOKEN` will be read-only and secrets are not available.
 
