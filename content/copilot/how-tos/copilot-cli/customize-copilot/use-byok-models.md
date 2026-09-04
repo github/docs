@@ -43,12 +43,18 @@ Models must support **tool calling** (also called function calling) and **stream
 ## Configuring your provider
 
 You configure your model provider by setting environment variables before starting {% data variables.copilot.copilot_cli_short %}.
-
 | Environment variable | Required | Description |
 |---|---|---|
 | `COPILOT_PROVIDER_BASE_URL` | Yes | The base URL of your model provider's API endpoint. |
 | `COPILOT_PROVIDER_TYPE` | No | The provider type: `openai` (default), `azure`, or `anthropic`. |
 | `COPILOT_PROVIDER_API_KEY` | No | Your API key for the provider. Not required for providers that do not use authentication, such as a local Ollama instance. |
+| `COPILOT_PROVIDER_BEARER_TOKEN` | No | Bearer token used for provider authentication when API-key authentication is not used. |
+| `COPILOT_PROVIDER_WIRE_API` | No | Specifies the API protocol used when communicating with the provider. |
+| `COPILOT_PROVIDER_AZURE_API_VERSION` | Azure only | The Azure OpenAI API version used for requests. |
+| `COPILOT_PROVIDER_MODEL_ID` | Azure only | The Azure OpenAI deployment name used to route requests. |
+| `COPILOT_PROVIDER_WIRE_MODEL` | Azure only | The underlying model name associated with the deployment. |
+| `COPILOT_PROVIDER_MAX_PROMPT_TOKENS` | No | Maximum number of prompt tokens allowed in a request. |
+| `COPILOT_PROVIDER_MAX_OUTPUT_TOKENS` | No | Maximum number of tokens generated in a response. |
 | `COPILOT_MODEL` | Yes | The model identifier to use. You can also set this with the `--model` command-line flag. |
 
 ## Connecting to an OpenAI-compatible endpoint
@@ -81,17 +87,28 @@ Use the following steps if you are connecting to OpenAI, Ollama, vLLM, Foundry L
 1. Set the environment variables for Azure OpenAI.
 
    ```shell
-   export COPILOT_PROVIDER_BASE_URL=https://YOUR-RESOURCE-NAME.openai.azure.com/openai/deployments/YOUR-DEPLOYMENT-NAME
+   export COPILOT_PROVIDER_BASE_URL=https://YOUR-RESOURCE-NAME.openai.azure.com
    export COPILOT_PROVIDER_TYPE=azure
    export COPILOT_PROVIDER_API_KEY=YOUR-AZURE-API-KEY
+   export COPILOT_PROVIDER_AZURE_API_VERSION=YOUR-AZURE-API-VERSION
+   export COPILOT_PROVIDER_MODEL_ID=YOUR-DEPLOYMENT-NAME
+   export COPILOT_PROVIDER_WIRE_MODEL=YOUR-MODEL-NAME
    export COPILOT_MODEL=YOUR-DEPLOYMENT-NAME
    ```
 
    Replace the following placeholders:
 
-     * `YOUR-RESOURCE-NAME`: your Azure OpenAI resource name
-     * `YOUR-DEPLOYMENT-NAME`: the name of your model deployment
-     * `YOUR-AZURE-API-KEY`: your Azure OpenAI API key
+    * `YOUR-RESOURCE-NAME`: your Azure OpenAI resource name
+    * `YOUR-DEPLOYMENT-NAME`: the deployment name that receives requests
+    * `YOUR-MODEL-NAME`: the underlying model associated with the deployment (for example, `gpt-4o`)
+    * `YOUR-AZURE-API-VERSION`: the Azure OpenAI API version
+    * `YOUR-AZURE-API-KEY`: your Azure OpenAI API key
+### Azure-specific environment variables
+
+| Variable | Description |
+|---|---|
+| `COPILOT_PROVIDER_MODEL_ID` | The Azure OpenAI deployment name. Azure OpenAI routes requests through deployments rather than directly through model names. |
+| `COPILOT_PROVIDER_WIRE_MODEL` | The underlying model name associated with the deployment. This allows {% data variables.copilot.copilot_cli_short %} to identify model capabilities while Azure routes requests through the deployment specified by `COPILOT_PROVIDER_MODEL_ID`. |
 
 {% data reusables.copilot.copilot-cli.start-cli %}
 
@@ -126,3 +143,4 @@ You can run {% data variables.copilot.copilot_cli_short %} in offline mode to pr
    ```
    
 1. {% data reusables.copilot.copilot-cli.start-cli %}
+
