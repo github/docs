@@ -9,7 +9,7 @@
       "subcategory": "users",
       "parameters": [],
       "bodyParameters": [],
-      "descriptionHTML": "<p>OAuth app tokens and personal access tokens (classic) need the <code>user</code> scope in order for the response to include private profile information.</p>",
+      "descriptionHTML": "<p>OAuth app tokens and personal access tokens (classic) need the <code>read:user</code> scope, or the broader <code>user</code> scope, for this endpoint to return the private user response. The private user response includes additional fields such as <code>private_gists</code>, <code>total_private_repos</code>, <code>owned_private_repos</code>, <code>disk_usage</code>, <code>collaborators</code>, and <code>two_factor_authentication</code>. Tokens without these scopes receive the public user response.</p>\n<p>The private and public user response types are unrelated to the <a href=\"https://docs.github.com/enterprise-server@3.17/account-and-profile/concepts/personal-profile#private-profiles\">private profile</a> setting. A token without scopes still authenticates as the token's owner, so values subject to private profile visibility, such as <code>followers</code> and <code>following</code>, may differ from an unauthenticated response.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2754,7 +2754,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Provides publicly available information about someone with a GitHub account.</p>\n<p>The <code>events_url</code> value is a URI template. Replace <code>{/privacy}</code> with <code>/public</code> to retrieve only public events. Omit it to retrieve public events and, when authenticated as the user, private events. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/activity/events#list-events-for-the-authenticated-user\">List events for the authenticated user</a>.\"</p>\n<p>The <code>email</code> key in the following response is the publicly visible email address from your GitHub Enterprise Server <a href=\"https://github.com/settings/profile\">profile page</a>. When setting up your profile, you can select a primary email address to be public which provides an email entry for this endpoint. If you do not set a public email address for <code>email</code>, then it will have a value of <code>null</code>. You only see publicly visible email addresses when authenticated with GitHub Enterprise Server. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.17/rest/guides/getting-started-with-the-rest-api#authentication\">Authentication</a>.</p>\n<p>The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.17/rest/users/emails\">Emails API</a>.</p>",
+      "descriptionHTML": "<p>Provides publicly available information about someone with a GitHub account.</p>\n<p>If the specified user has a <a href=\"https://docs.github.com/enterprise-server@3.17/account-and-profile/concepts/personal-profile#private-profiles\">private profile</a>, the <code>followers</code> and <code>following</code> values are <code>0</code> unless the request is authenticated as that user. A request authenticated as the specified user returns the actual values even if the token has no OAuth scopes.</p>\n<p>The <code>events_url</code> value is a URI template. Replace <code>{/privacy}</code> with <code>/public</code> to retrieve only public events. Omit it to retrieve public events and, when authenticated as the user, private events. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/activity/events#list-events-for-the-authenticated-user\">List events for the authenticated user</a>.\"</p>\n<p>The <code>email</code> key in the following response is the publicly visible email address from your GitHub Enterprise Server <a href=\"https://github.com/settings/profile\">profile page</a>. When setting up your profile, you can select a primary email address to be public which provides an email entry for this endpoint. If you do not set a public email address for <code>email</code>, then it will have a value of <code>null</code>. You only see publicly visible email addresses when authenticated with GitHub Enterprise Server. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.17/rest/guides/getting-started-with-the-rest-api#authentication\">Authentication</a>.</p>\n<p>The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.17/rest/users/emails\">Emails API</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5032,7 +5032,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the people following the specified user.</p>",
+      "descriptionHTML": "<p>Lists the people following the specified user.</p>\n<p>If the specified user has a <a href=\"https://docs.github.com/enterprise-server@3.17/account-and-profile/concepts/personal-profile#private-profiles\">private profile</a>, this endpoint returns an empty list unless the request is authenticated as that user. A request authenticated as the specified user returns the list even if the token has no OAuth scopes.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5238,7 +5238,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the people who the specified user follows.</p>",
+      "descriptionHTML": "<p>Lists the people who the specified user follows.</p>\n<p>If the specified user has a <a href=\"https://docs.github.com/enterprise-server@3.17/account-and-profile/concepts/personal-profile#private-profiles\">private profile</a>, this endpoint returns an empty list unless the request is authenticated as that user. A request authenticated as the specified user returns the list even if the token has no OAuth scopes.</p>",
       "codeExamples": [
         {
           "request": {

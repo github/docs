@@ -88,4 +88,4 @@ For {% data variables.copilot.copilot_business_short %} and {% data variables.co
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started)
+* [AUTOTITLE](/copilot/get-started/quickstart-copilot-app)

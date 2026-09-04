@@ -171,7 +171,7 @@ If you need to allocate more resources to your primary MySQL (or MySQL and MSSQL
    If {% data variables.product.prodname_actions %} is enabled in the cluster, you will have to wait for MSSQL replication to complete.
 
    Shortly after adding the node to the cluster, you may see an error for replication status while replication catches up. Replication can take hours depending on the instance's load, the amount of database data, and the last time the instance generated a database seed.
-1. During your scheduled maintenance window, enable maintenance mode. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli).
+1. During your scheduled maintenance window, enable maintenance mode. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#managing-maintenance-mode-for-a-cluster-using-ssh).
 1. Ensure that MySQL(or MySQL and MSSQL) replication is finished from any node in the cluster by running `ghe-cluster-status -v`.
 
    > [!WARNING]
@@ -269,4 +269,4 @@ If you need to allocate more resources to your primary MySQL (or MySQL and MSSQL
    Confirm that `ghe-redis-cli PING` returns `PONG` through the default HAProxy Redis endpoint, the new node's entry reports `ok`, and the former primary Redis node's entry reports `ok` and `Redis replication is in sync`.
 
 1. Check the status of the MySQL(or MySQL and MSSQL) replication from any node in the cluster by running `ghe-cluster-status -v`.
-1. When the MySQL(or MySQL and MSSQL) replication is finished, from any node in the cluster, disable maintenance mode. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli).
+1. When the MySQL(or MySQL and MSSQL) replication is finished, from any node in the cluster, disable maintenance mode. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#managing-maintenance-mode-for-a-cluster-using-ssh).

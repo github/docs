@@ -79,7 +79,7 @@ After you fail over from the cluster's active nodes to the cluster's replica nod
 
 The process for reconfiguring high availability is identical to the initial configuration of high availability. For more information, see [Creating a high availability replica for a cluster](#creating-a-high-availability-replica-for-a-cluster).
 
-If you use the original active nodes, after reconfiguring high availability, you will need to unset maintenance mode on the nodes. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli).
+If you use the original active nodes, after reconfiguring high availability, you will need to unset maintenance mode on the nodes. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#managing-maintenance-mode-for-a-cluster-using-ssh).
 
 ## Disabling high availability replication for a cluster
 
