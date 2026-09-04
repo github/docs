@@ -23,6 +23,7 @@ Once you create {% data variables.copilot.custom_agents_short %}, they become av
 
 * **{% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}**: The agents tab and panel, issue assignment, and pull requests
 * **{% data variables.copilot.copilot_cloud_agent %} in IDEs**: {% data variables.product.prodname_vscode %}, JetBrains IDEs, Eclipse, and Xcode
+* **{% data variables.copilot.github_copilot_app %}**
 * **{% data variables.copilot.copilot_cli %}**
 
 You can use {% data variables.copilot.agent_profiles %} directly in {% data variables.product.prodname_vscode %}, JetBrains IDEs, Eclipse, and Xcode. Some properties may function differently or be ignored between environments.

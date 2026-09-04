@@ -2721,6 +2721,14 @@ export function correctTranslatedContentStrings(
   content = content.replaceAll('{%endraw %}', '{% endraw %}')
   content = content.replaceAll('{%endraw -%}', '{% endraw -%}')
 
+  // `{% note %}` / `{% warning %}` / `{% tip %}` / `{% danger %}` were removed
+  // from the Liquid renderer (replaced by GFM alert blockquotes, see
+  // PR #62960 / commit 8b174bc4), but many translation files were forked
+  // before that change and still use the old tag syntax, which now fails
+  // with "tag not found" render errors. Strip the obsolete tags so the rest
+  // of the content renders.
+  content = stripLegacyAlertTags(content)
+
   // Strip stray closing-only Liquid tags that have no matching opener anywhere
   // in the content. Translators sometimes insert spurious closers (e.g. an
   // extra `{% endif %}`) when they re-arrange paragraphs. We only remove a
@@ -2989,6 +2997,95 @@ function joinDanglingMarkers(content: string): string {
     }
 
     out.push(line)
+  }
+
+  return out.join('\n')
+}
+
+/**
+ * Remove the obsolete `{% note %}` / `{% warning %}` / `{% tip %}` /
+ * `{% danger %}` Liquid tags (and their closers) from translated content.
+ *
+ * These tags were removed from the renderer in favour of GFM alert
+ * blockquotes, so any leftover occurrence now fails to render. Stripping
+ * them leaves the surrounding text intact.
+ *
+ * Skips YAML frontmatter, fenced code blocks, `{% raw %}` blocks, and inline
+ * code spans, where the tags are literal examples rather than markup.
+ */
+function stripLegacyAlertTags(content: string): string {
+  const tagPattern = /\{%-?\s*(?:end)?(?:note|warning|tip|danger)\s*-?%\}[ \t]*/g
+  const lines = content.split('\n')
+  const out: string[] = []
+  let inFence = false
+  let fenceChar = ''
+  let fenceLen = 0
+  let inRaw = false
+  let inFrontmatter = lines[0] === '---'
+
+  const stripOutsideInlineCode = (line: string): string =>
+    line
+      .split('`')
+      .map((segment, index) => (index % 2 === 0 ? segment.replace(tagPattern, '') : segment))
+      .join('`')
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+
+    if (inFrontmatter) {
+      if (i > 0 && (line === '---' || line === '...')) inFrontmatter = false
+      out.push(line)
+      continue
+    }
+
+    const fenceMatch = line.match(/^[ \t]*(`{3,}|~{3,})/)
+    if (fenceMatch) {
+      const marker = fenceMatch[1]
+      if (!inFence) {
+        inFence = true
+        fenceChar = marker[0]
+        fenceLen = marker.length
+      } else if (marker[0] === fenceChar && marker.length >= fenceLen) {
+        inFence = false
+        fenceChar = ''
+        fenceLen = 0
+      }
+      out.push(line)
+      continue
+    }
+
+    if (inFence) {
+      out.push(line)
+      continue
+    }
+
+    if (inRaw) {
+      if (/\{%-?\s*endraw\s*-?%\}/.test(line)) inRaw = false
+      out.push(line)
+      continue
+    }
+    if (/\{%-?\s*raw\s*-?%\}/.test(line) && !/\{%-?\s*endraw\s*-?%\}/.test(line)) {
+      inRaw = true
+      out.push(line)
+      continue
+    }
+
+    const withoutTags = stripOutsideInlineCode(line)
+    if (withoutTags === line) {
+      out.push(line)
+      continue
+    }
+    const stripped = withoutTags.replace(/[ \t]+$/, '')
+
+    // The line contained only the tag: drop it, and collapse the surrounding
+    // blank lines into one so the alert body keeps its original spacing.
+    if (stripped === '') {
+      const previousIsBlank = out.length === 0 || out[out.length - 1] === ''
+      if (previousIsBlank && lines[i + 1] === '') i++
+      continue
+    }
+
+    out.push(stripped)
   }
 
   return out.join('\n')
