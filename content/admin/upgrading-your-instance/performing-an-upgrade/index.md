@@ -6,6 +6,7 @@ versions:
 children:
   - /upgrading-with-a-hotpatch
   - /upgrading-with-an-upgrade-package
+  - /automating-an-upgrade
   - /migrating-from-github-enterprise-1110x-to-2123
 shortTitle: Perform an upgrade
 redirect_from:
