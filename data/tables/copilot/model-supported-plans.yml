@@ -19,20 +19,6 @@
   business: true
   enterprise: true
 
-- name: Claude Opus 4.5
-  pro: false
-  pro_plus: false
-  max: false
-  business: true
-  enterprise: true
-
-- name: Claude Opus 4.6
-  pro: false
-  pro_plus: false
-  max: false
-  business: true
-  enterprise: true
-
 - name: Claude Opus 4.7
   pro: false
   pro_plus: true
@@ -75,28 +61,14 @@
   business: true
   enterprise: true
 
-- name: Claude Sonnet 4.5
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
 - name: Claude Sonnet 4.6
   pro: true
   pro_plus: true
-  max: true
-  business: true
-  enterprise: true
+  max: false
+  business: false
+  enterprise: false
 
 - name: Claude Sonnet 5
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 3.1 Pro
   pro: true
   pro_plus: true
   max: true
@@ -235,10 +207,3 @@
   max: true
   business: true
   enterprise: true
-
-- name: Raptor mini
-  pro: true
-  pro_plus: true
-  max: true
-  business: false
-  enterprise: false

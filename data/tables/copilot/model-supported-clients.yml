@@ -23,24 +23,6 @@
   xcode: true
   jetbrains: true
 
-- name: Claude Opus 4.5
-  dotcom: false
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
-- name: Claude Opus 4.6
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: Claude Opus 4.7
   dotcom: true
   cli: true
@@ -95,15 +77,6 @@
   xcode: true
   jetbrains: true
 
-- name: Claude Sonnet 4.5
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: Claude Sonnet 4.6
   dotcom: true
   cli: true
@@ -115,15 +88,6 @@
 
 - name: Claude Sonnet 5
   dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
-- name: Gemini 3.1 Pro
-  dotcom: false
   cli: true
   vscode: true
   vs: true
@@ -301,12 +265,3 @@
   eclipse: true
   xcode: true
   jetbrains: true
-
-- name: Raptor mini
-  dotcom: false
-  cli: false
-  vscode: true
-  vs: false
-  eclipse: false
-  xcode: false
-  jetbrains: false

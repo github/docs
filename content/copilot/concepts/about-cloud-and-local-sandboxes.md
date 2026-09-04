@@ -74,11 +74,30 @@ For more information, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes
 
 ### Cross-platform support
 
-Local sandboxing is available on macOS and Linux, and on Windows Insiders builds. Support and isolation behavior vary by platform because each operating system uses a different isolation backend:
+Local sandboxing is available on macOS, on Linux, and on recent Windows 11 builds. Each operating system uses a different isolation backend, so the requirements are different:
 
-* **macOS** uses the Seatbelt backend (`sandbox-exec`).
-* **Linux** uses the bubblewrap backend, which requires the `bwrap` command to be installed and available on your `PATH`. If `/sandbox` reports that sandboxing isn't supported on Linux, install bubblewrap.
-* **Windows** uses the ProcessContainer backend.
+* **macOS** uses the Seatbelt backend. {% data variables.copilot.copilot_cli_short %} applies a process-scoped profile to each sandboxed command. Use macOS 15 (Sequoia) or later. {% data variables.copilot.copilot_cli_short %} does not block an older macOS, but the backend is not tested there.
+* **Linux** uses the bubblewrap backend. Install bubblewrap 0.5.0 or later, and make sure `bwrap` is on your `PATH`. If `/sandbox` reports that your `bwrap` is too old, upgrade the package.
+* **Windows** uses the BaseContainer tier of the ProcessContainer backend. {% data variables.copilot.copilot_cli_short %} does not use the AppContainer fallback tiers. If your Windows build cannot supply BaseContainer, {% data variables.copilot.copilot_cli_short %} reports that sandboxing is not supported. To find the supported Windows versions, see [Windows OS support for Copilot sandboxing](https://aka.ms/ghcp-sandbox-os-support).
+
+#### Proxy support
+
+The sandbox proxy operates differently on each operating system:
+
+* **macOS**: {% data variables.copilot.copilot_cli_short %} does not give the proxy to Seatbelt. It sets `HTTP_PROXY`, `HTTPS_PROXY`, and `ALL_PROXY` in the sandboxed environment instead. Only programs that obey these variables use the proxy. A program that ignores them connects directly.
+* **Linux**: bubblewrap enforces the proxy. The sandbox gets a private network namespace, and only the proxy endpoint is permitted. This mode has more requirements. You must have:
+  * `slirp4netns` on your `PATH`.
+  * `unshare` and `nsenter` from util-linux 2.35 or later, with `--map-current-user` and `--keep-caps` support.
+  * `iptables` and `ip6tables`. Use the `nf_tables` backend. The legacy backend also operates, but only if you can write to `/run/xtables.lock`.
+
+  Two more limits apply on Linux. The proxy must have an IPv4 address, because {% data variables.copilot.copilot_cli_short %} refuses a proxy that only IPv6 can reach. The proxy URL must not contain credentials, so give the credentials to the proxy itself.
+
+  Also on Linux, bubblewrap cannot control local network access independently of outbound access. Your local network setting therefore does not have a separate effect there.
+* **Windows**: the proxy is not available. Do not use denied paths on Windows either. {% data variables.copilot.copilot_cli_short %} cannot enforce these settings, and the sandboxed command fails with an error.
+
+#### If your host does not support local sandboxing
+
+{% data variables.copilot.copilot_cli_short %} turns the sandbox off for the session and shows a notice. Shell commands and sandboxed services then run without a sandbox, and your `sandbox.enabled` setting does not change. If your enterprise enforces sandboxing through device-managed settings, the session fails closed instead: sandboxed commands do not run.
 
 ### Enterprise policy enforcement
 
