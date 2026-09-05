@@ -17,7 +17,7 @@ There are two GitHub Docs repositories:
 
 - **`github/docs-internal`** (private): For GitHub employee contributions. 
 
-The two repositories sync frequently. Content changes in one are reflected in the other.  Hubbers might prefer to post in `docs` when working with a customer, but `docs` has limitations on the types of contributions it accepts to safeguard the site and our workflows. Internal contributions should usually go to `docs-internal`.
+The two repositories sync frequently. Content changes in one are reflected in the other.  Hubbers might prefer to post in `docs` when working with a customer, but `docs` has limitations on the type of contributions it accepts to safeguard the site and our workflows. Internal contributions should usually go to `docs-internal`.
 
 **Important:** The `docs` repository accepts contributions to content files (`.md` files in `/content` and select `/data` sections like reusables only). Infrastructure files, workflows, and site-building code are not open for external modification.
 
