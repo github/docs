@@ -30,7 +30,7 @@ contentType: concepts
 Runners are the machines that execute jobs in a {% data variables.product.prodname_actions %} workflow. For example, a runner can clone your repository locally, install testing software, and then run commands that evaluate your code.
 
 {% data variables.product.prodname_dotcom %} provides runners that you can use to run your jobs, or you can [host your own runners](/actions/concepts/runners/self-hosted-runners). {% data reusables.actions.single-cpu-runners %}
-// Please update % data reusables.actions.single-cpu-runners to use https://docs.github.com/en/actions/reference/runners/github-hosted-runners
+!!Please update % data reusables.actions.single-cpu-runners to use link mentioned in PR description
 
 Each runner comes with the runner application and other tools preinstalled. {% data variables.product.prodname_dotcom %}-hosted runners are available with Ubuntu Linux, Windows, or macOS operating systems. When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you.
 
