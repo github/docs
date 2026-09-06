@@ -45,7 +45,7 @@ In order to use ARC, ensure you have the following.
 
     For additional Helm configuration options, see [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set-controller/values.yaml) in the ARC documentation.
 
-1. To enable ARC to authenticate to {% data variables.product.company_short %}, generate a {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/authenticate-to-the-api#authenticating-arc-with-a-personal-access-token-classic).
+1. To enable ARC to authenticate to {% data variables.product.company_short %}, create credentials using one of the authentication methods described in [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/authenticate-to-the-api). For repository and organization runners, {% data variables.product.company_short %} recommends authenticating with a {% data variables.product.prodname_github_app %}. For runners at the enterprise level, you must use a {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/authenticate-to-the-api#authenticating-arc-with-a-github-app) and [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/authenticate-to-the-api#authenticating-arc-with-a-personal-access-token-classic).
 
 ## Configuring a runner scale set
 
@@ -66,6 +66,7 @@ In order to use ARC, ensure you have the following.
         > [!NOTE]
         > * {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
         > * {% data reusables.actions.actions-runner-controller-security-practices-secret %} For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/deploy-runner-scale-sets).
+        > * If you authenticate ARC with a {% data variables.product.prodname_github_app %} for repository or organization runners, configure `githubConfigSecret` with the app credentials (`github_app_id`, `github_app_installation_id`, and `github_app_private_key`) instead of `github_token`. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/authenticate-to-the-api#authenticating-arc-with-a-github-app).
 
         ```bash copy
         INSTALLATION_NAME="arc-runner-set"
