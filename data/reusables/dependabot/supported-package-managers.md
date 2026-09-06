@@ -29,6 +29,9 @@ git submodule  | `gitsubmodule`   | Not applicable | {% octicon "check" aria-lab
 [{% data variables.product.prodname_actions %}](#github-actions)   | `github-actions` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 Go modules     | `gomod`          | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 [Gradle](#gradle)         | `gradle`         | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-kotlin-toolchain-support %} |
+[Kotlin Toolchain](#kotlin-toolchain) ({% data variables.release-phases.public_preview %}) | `kotlin-toolchain` | >=v0.11 | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
 [Maven](#maven)       | `maven`          | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% ifversion dependabot-nix-support %} |
 [Nix](#nix)    | `nix`         | Not applicable               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable | Not applicable |
@@ -162,6 +165,27 @@ For {% data variables.product.prodname_dependabot_security_updates %}, Gradle su
 The `helm-registry` type only supports HTTP Basic Auth and does not support OCI-compliant registries. If you need to access an OCI-compliant registry for Helm charts, configure a `docker-registry` instead. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#docker-registry).
 
 When configuring {% data variables.product.prodname_dependabot %} for Helm charts, it will also automatically update the Docker images referenced within those charts, ensuring that both the chart versions and their contained images stay up to date.
+
+{% ifversion dependabot-kotlin-toolchain-support %}
+
+### Kotlin Toolchain
+
+{% data variables.product.prodname_dependabot %} support for Kotlin Toolchain is in {% data variables.release-phases.public_preview %}. To enable it, set `enable-beta-ecosystems: true` in your `dependabot.yml` file. For more information, see [`enable-beta-ecosystems`](/code-security/reference/supply-chain-security/dependabot-options-reference#enable-beta-ecosystems-).
+
+{% data variables.product.prodname_dependabot %} reads the toolchain version from the `kotlin` and `kotlin.bat` wrapper scripts in your project. Versions 0.11 and later are supported.
+
+{% data variables.product.prodname_dependabot %} updates Maven dependencies in the following files without running the toolchain:
+
+* `project.yaml`
+* `module.yaml`
+* `*.module-template.yaml`
+* `libs.versions.toml` or `gradle/libs.versions.toml`
+
+{% data variables.product.prodname_dependabot %} also updates the `kotlin` and `kotlin.bat` wrapper scripts when a new toolchain version is available. Kotlin Toolchain projects don't use a lockfile.
+
+Private registry support uses the `maven-repository` type, including `replaces-base`. For more information, see `maven-repository` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#maven-repository).
+
+{% endif %}
 
 ### Maven
 

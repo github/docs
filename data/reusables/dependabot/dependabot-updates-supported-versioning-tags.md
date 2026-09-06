@@ -45,6 +45,9 @@ The `dependabot.yml` file doesn't control the versioning tags that you can use, 
 | {% ifversion dependabot-julia-support %} |
 | Julia               | `julia`        | Any SemVer prerelease identifier (commonly `rc`, `DEV`, `beta`) | `HTTP@1.10.0-rc1`, `Plots@2.0.0-DEV`, `DataFrames@1.6.0-beta.1` |
 | {% endif %} |
+| {% ifversion dependabot-kotlin-toolchain-support %} |
+| Kotlin Toolchain    | `kotlin-toolchain` | `alpha`, `a`, `beta`, `b`, `milestone`, `m`, `rc`, `cr`, `snapshot`, `ga`, `final`, `release`, `sp` (case-insensitive) | `kotlin-toolchain@0.12.0-dev-4188`, `kotlinx-coroutines-core@1.10.0-RC`, `ktor-server-core@3.0.0-rc-1` |
+| {% endif %} |
 | {% ifversion dependabot-nix-support %} |
 | Nix                 | `nix`          | None—tracks flake input commits (no versioning scheme) | `nixpkgs@a1b2c3d`, `devenv@e4f5a6b`, `flake-utils@c7d8e9f` |
 | {% endif %} |

@@ -1,0 +1,6 @@
+# Reference: https://github.com/dependabot/dependabot-core/pull/16203
+# Kotlin Toolchain support for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.22'

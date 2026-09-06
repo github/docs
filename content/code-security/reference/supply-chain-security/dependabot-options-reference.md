@@ -258,6 +258,9 @@ The table below shows the package managers that support `cooldown`. The `default
 | {% ifversion dependabot-julia-support %} |
 | Julia                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% endif %} |
+| {% ifversion dependabot-kotlin-toolchain-support %} |
+| Kotlin Toolchain      | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
 | Maven                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% ifversion dependabot-nix-support %} |
 | Nix flakes            | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
@@ -309,7 +312,31 @@ If you need to use more than one block in the configuration file to define updat
 
 ## `enable-beta-ecosystems` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
+{% ifversion dependabot-kotlin-toolchain-support %}
+
+By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
+
+Ecosystems currently in {% data variables.release-phases.public_preview %}:
+
+* Kotlin Toolchain (`kotlin-toolchain`)
+
+```yaml copy
+# Configure an ecosystem in public preview
+
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "kotlin-toolchain"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+{% else %}
+
 Not currently in use.
+
+{% endif %}
 
 ## `groups` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -589,6 +616,9 @@ Package manager | YAML value      | Supported versions |
 | {% data variables.product.prodname_actions %}  | `github-actions` | Not applicable |
 | Go modules     | `gomod`          | v1               |
 | Gradle        | `gradle`         | Not applicable   |
+| {% ifversion dependabot-kotlin-toolchain-support %} |
+| Kotlin Toolchain | `kotlin-toolchain` | >=v0.11   |
+| {% endif %} |
 | Maven      | `maven`          | Not applicable   |
 | {% ifversion dependabot-nix-support %} |
 | Nix flakes | `nix`            | Not applicable   |
