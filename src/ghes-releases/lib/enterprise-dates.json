@@ -277,9 +277,9 @@
   },
   "3.22": {
     "releaseDate": "2026-08-11",
-    "deprecationDate": "2027-09-01",
+    "deprecationDate": "2027-09-08",
     "releaseCandidateDate": "2026-08-11",
-    "generalAvailabilityDate": "2026-09-01"
+    "generalAvailabilityDate": "2026-09-08"
   },
   "3.23": {
     "releaseDate": "2026-11-10",

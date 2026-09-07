@@ -99,7 +99,7 @@
       "name": "createEnterpriseOrganization",
       "id": "createenterpriseorganization",
       "href": "/graphql/reference/enterprise-admin#mutation-createenterpriseorganization",
-      "description": "<p>Creates an organization as part of an enterprise account. User-authenticated\nrequests make the viewer an owner and invite users in <code>adminLogins</code>.\nInstallation requests directly add listed enterprise members and invite other\nlisted users. Enterprise Managed User enterprises directly add managed users.\nInvitation failures do not roll back organization creation. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
+      "description": "<p>Creates an organization as part of an enterprise account. User-authenticated\nrequests make the viewer an owner. Users listed in <code>adminLogins</code> are invited\nas owners unless owner invitations are disabled, in which case they are added\ndirectly. Installation requests also add existing enterprise members directly.\nInvitation failures do not roll back organization creation. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -10163,7 +10163,7 @@
       "inputFields": [
         {
           "name": "adminLogins",
-          "description": "<p>For user-authenticated requests, the logins of additional owners to invite.\nFor installation requests, existing enterprise members are added directly and\nother listed users are invited.</p>",
+          "description": "<p>The logins of additional organization owners. Listed users are invited unless\nowner invitations are disabled, in which case they are added directly.\nInstallation requests also add existing enterprise members directly.</p>",
           "type": "[String!]!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
