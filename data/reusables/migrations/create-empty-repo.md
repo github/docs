@@ -1,0 +1,1 @@
+1. Create a new repository on {% data variables.product.github %}. To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to {% data variables.product.github %}. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).

@@ -1,0 +1,6 @@
+# Issue 17880
+# You can create saved views on your issues dashboard.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.18'

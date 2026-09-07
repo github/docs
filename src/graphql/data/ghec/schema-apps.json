@@ -1,0 +1,1052 @@
+{
+  "queries": [
+    {
+      "name": "marketplaceCategories",
+      "type": "[MarketplaceCategory!]!",
+      "id": "marketplacecategory",
+      "href": "/graphql/reference/apps#object-marketplacecategory",
+      "description": "<p>Get alphabetically sorted list of Marketplace categories.</p>",
+      "args": [
+        {
+          "name": "excludeEmpty",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Exclude categories with no listings.</p>"
+        },
+        {
+          "name": "excludeSubcategories",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Returns top level categories only, excluding any subcategories.</p>"
+        },
+        {
+          "name": "includeCategories",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Return only the specified categories.</p>"
+        }
+      ],
+      "category": "apps"
+    },
+    {
+      "name": "marketplaceCategory",
+      "type": "MarketplaceCategory",
+      "id": "marketplacecategory",
+      "href": "/graphql/reference/apps#object-marketplacecategory",
+      "description": "<p>Look up a Marketplace category by its slug.</p>",
+      "args": [
+        {
+          "name": "slug",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>The URL slug of the category.</p>"
+        },
+        {
+          "name": "useTopicAliases",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Also check topic aliases for the category slug.</p>"
+        }
+      ],
+      "category": "apps"
+    },
+    {
+      "name": "marketplaceListing",
+      "type": "MarketplaceListing",
+      "id": "marketplacelisting",
+      "href": "/graphql/reference/apps#object-marketplacelisting",
+      "description": "<p>Look up a single Marketplace listing.</p>",
+      "args": [
+        {
+          "name": "slug",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Select the listing that matches this slug. It's the short name of the listing used in its URL.</p>"
+        }
+      ],
+      "category": "apps"
+    },
+    {
+      "name": "marketplaceListings",
+      "type": "MarketplaceListingConnection!",
+      "id": "marketplacelistingconnection",
+      "href": "/graphql/reference/apps#object-marketplacelistingconnection",
+      "description": "<p>Look up Marketplace listings.</p>",
+      "args": [
+        {
+          "name": "adminId",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "description": "<p>Select listings that can be administered by the specified user.</p>"
+        },
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "allStates",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Select listings visible to the viewer even if they are not approved. If omitted or\nfalse, only approved listings will be returned.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "categorySlug",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Select only listings with the given category.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "organizationId",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "description": "<p>Select listings for products owned by the specified organization.</p>"
+        },
+        {
+          "name": "primaryCategoryOnly",
+          "defaultValue": false,
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Select only listings where the primary category matches the given category slug.</p>"
+        },
+        {
+          "name": "slugs",
+          "type": "[String]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Select the listings with these slugs, if they are visible to the viewer.</p>"
+        },
+        {
+          "name": "useTopicAliases",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Also check topic aliases for the category slug.</p>"
+        },
+        {
+          "name": "viewerCanAdmin",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Select listings to which user has admin access. If omitted, listings visible to the\nviewer are returned.</p>"
+        },
+        {
+          "name": "withFreeTrialsOnly",
+          "defaultValue": false,
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Select only listings that offer a free trial.</p>"
+        }
+      ],
+      "category": "apps"
+    }
+  ],
+  "objects": [
+    {
+      "name": "App",
+      "id": "app",
+      "href": "/graphql/reference/apps#object-app",
+      "description": "<p>A GitHub App.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "clientId",
+          "description": "<p>The client ID of the app.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description of the app.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the App object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "ipAllowListEntries",
+          "description": "<p>The IP addresses of the app.</p>",
+          "type": "IpAllowListEntryConnection!",
+          "id": "ipallowlistentryconnection",
+          "href": "/graphql/reference/enterprise-admin#object-ipallowlistentryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for IP allow list entries returned.</p>",
+              "type": {
+                "name": "IpAllowListEntryOrder",
+                "id": "ipallowlistentryorder",
+                "href": "/graphql/reference/enterprise-admin#input-object-ipallowlistentryorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "logoBackgroundColor",
+          "description": "<p>The hex color code, without the leading '#', for the logo background.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "logoUrl",
+          "description": "<p>A URL pointing to the app's logo.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "arguments": [
+            {
+              "name": "size",
+              "description": "<p>The size of the resulting image.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the app.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "slug",
+          "description": "<p>A slug based on the name of the app for use in URLs.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The URL to the app's homepage.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "apps"
+    },
+    {
+      "name": "Bot",
+      "id": "bot",
+      "href": "/graphql/reference/apps#object-bot",
+      "description": "<p>A special type of user which takes actions on behalf of GitHub Apps.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "avatarUrl",
+          "description": "<p>A URL pointing to the GitHub App's public avatar.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "arguments": [
+            {
+              "name": "size",
+              "description": "<p>The size of the resulting square image.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Bot object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "login",
+          "description": "<p>The username of the actor.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this bot.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this bot.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "apps"
+    },
+    {
+      "name": "MarketplaceCategory",
+      "id": "marketplacecategory",
+      "href": "/graphql/reference/apps#object-marketplacecategory",
+      "description": "<p>A public description of a Marketplace category.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "description",
+          "description": "<p>The category's description.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "howItWorks",
+          "description": "<p>The technical description of how apps listed in this category work with GitHub.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MarketplaceCategory object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The category's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "primaryListingCount",
+          "description": "<p>How many Marketplace listings have this as their primary category.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this Marketplace category.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "secondaryListingCount",
+          "description": "<p>How many Marketplace listings have this as their secondary category.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "slug",
+          "description": "<p>The short name of the category used in its URL.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this Marketplace category.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "apps"
+    },
+    {
+      "name": "MarketplaceListing",
+      "id": "marketplacelisting",
+      "href": "/graphql/reference/apps#object-marketplacelisting",
+      "description": "<p>A listing in the GitHub integration marketplace.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "app",
+          "description": "<p>The GitHub App this listing represents.</p>",
+          "type": "App",
+          "id": "app",
+          "href": "/graphql/reference/apps#object-app"
+        },
+        {
+          "name": "companyUrl",
+          "description": "<p>URL to the listing owner's company site.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "configurationResourcePath",
+          "description": "<p>The HTTP path for configuring access to the listing's integration or OAuth app.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "configurationUrl",
+          "description": "<p>The HTTP URL for configuring access to the listing's integration or OAuth app.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "documentationUrl",
+          "description": "<p>URL to the listing's documentation.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "extendedDescription",
+          "description": "<p>The listing's detailed description.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "extendedDescriptionHTML",
+          "description": "<p>The listing's detailed description rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "fullDescription",
+          "description": "<p>The listing's introductory description.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "fullDescriptionHTML",
+          "description": "<p>The listing's introductory description rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "hasPublishedFreeTrialPlans",
+          "description": "<p>Does this listing have any plans with a free trial?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "hasTermsOfService",
+          "description": "<p>Does this listing have a terms of service link?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "hasVerifiedOwner",
+          "description": "<p>Whether the creator of the app is a verified org.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "howItWorks",
+          "description": "<p>A technical description of how this app works with GitHub.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "howItWorksHTML",
+          "description": "<p>The listing's technical description rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MarketplaceListing object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "installationUrl",
+          "description": "<p>URL to install the product to the viewer's account or organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "installedForViewer",
+          "description": "<p>Whether this listing's app has been installed for the current viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isArchived",
+          "description": "<p>Whether this listing has been removed from the Marketplace.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isDraft",
+          "description": "<p>Whether this listing is still an editable draft that has not been submitted\nfor review and is not publicly visible in the Marketplace.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isPaid",
+          "description": "<p>Whether the product this listing represents is available as part of a paid plan.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isPublic",
+          "description": "<p>Whether this listing has been approved for display in the Marketplace.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isRejected",
+          "description": "<p>Whether this listing has been rejected by GitHub for display in the Marketplace.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isUnverified",
+          "description": "<p>Whether this listing has been approved for unverified display in the Marketplace.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isUnverifiedPending",
+          "description": "<p>Whether this draft listing has been submitted for review for approval to be unverified in the Marketplace.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isVerificationPendingFromDraft",
+          "description": "<p>Whether this draft listing has been submitted for review from GitHub for approval to be verified in the Marketplace.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isVerificationPendingFromUnverified",
+          "description": "<p>Whether this unverified listing has been submitted for review from GitHub for approval to be verified in the Marketplace.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isVerified",
+          "description": "<p>Whether this listing has been approved for verified display in the Marketplace.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "logoBackgroundColor",
+          "description": "<p>The hex color code, without the leading '#', for the logo background.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "logoUrl",
+          "description": "<p>URL for the listing's logo image.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "arguments": [
+            {
+              "name": "size",
+              "defaultValue": "400",
+              "description": "<p>The size in pixels of the resulting square image.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "description": "<p>The listing's full name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "normalizedShortDescription",
+          "description": "<p>The listing's very short description without a trailing period or ampersands.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pricingUrl",
+          "description": "<p>URL to the listing's detailed pricing.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "primaryCategory",
+          "description": "<p>The category that best describes the listing.</p>",
+          "type": "MarketplaceCategory!",
+          "id": "marketplacecategory",
+          "href": "/graphql/reference/apps#object-marketplacecategory"
+        },
+        {
+          "name": "privacyPolicyUrl",
+          "description": "<p>URL to the listing's privacy policy, may return an empty string for listings that do not require a privacy policy URL.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for the Marketplace listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "screenshotUrls",
+          "description": "<p>The URLs for the listing's screenshots.</p>",
+          "type": "[String]!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "secondaryCategory",
+          "description": "<p>An alternate category that describes the listing.</p>",
+          "type": "MarketplaceCategory",
+          "id": "marketplacecategory",
+          "href": "/graphql/reference/apps#object-marketplacecategory"
+        },
+        {
+          "name": "shortDescription",
+          "description": "<p>The listing's very short description.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "slug",
+          "description": "<p>The short name of the listing used in its URL.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "statusUrl",
+          "description": "<p>URL to the listing's status page.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "supportEmail",
+          "description": "<p>An email address for support for this listing's app.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "supportUrl",
+          "description": "<p>Either a URL or an email address for support for this listing's app, may\nreturn an empty string for listings that do not require a support URL.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "termsOfServiceUrl",
+          "description": "<p>URL to the listing's terms of service.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for the Marketplace listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "viewerCanAddPlans",
+          "description": "<p>Can the current viewer add plans for this Marketplace listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanApprove",
+          "description": "<p>Can the current viewer approve this Marketplace listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanDelist",
+          "description": "<p>Can the current viewer delist this Marketplace listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanEdit",
+          "description": "<p>Can the current viewer edit this Marketplace listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanEditCategories",
+          "description": "<p>Can the current viewer edit the primary and secondary category of this\nMarketplace listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanEditPlans",
+          "description": "<p>Can the current viewer edit the plans for this Marketplace listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanRedraft",
+          "description": "<p>Can the current viewer return this Marketplace listing to draft state\nso it becomes editable again.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanReject",
+          "description": "<p>Can the current viewer reject this Marketplace listing by returning it to\nan editable draft state or rejecting it entirely.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanRequestApproval",
+          "description": "<p>Can the current viewer request this listing be reviewed for display in\nthe Marketplace as verified.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerHasPurchased",
+          "description": "<p>Indicates whether the current user has an active subscription to this Marketplace listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerHasPurchasedForAllOrganizations",
+          "description": "<p>Indicates if the current user has purchased a subscription to this Marketplace listing\nfor all of the organizations the user owns.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerIsListingAdmin",
+          "description": "<p>Does the current viewer role allow them to administer this Marketplace listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "apps"
+    },
+    {
+      "name": "MarketplaceListingConnection",
+      "id": "marketplacelistingconnection",
+      "href": "/graphql/reference/apps#object-marketplacelistingconnection",
+      "description": "<p>Look up Marketplace Listings.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[MarketplaceListingEdge]",
+          "id": "marketplacelistingedge",
+          "href": "/graphql/reference/apps#object-marketplacelistingedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[MarketplaceListing]",
+          "id": "marketplacelisting",
+          "href": "/graphql/reference/apps#object-marketplacelisting"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "apps"
+    },
+    {
+      "name": "MarketplaceListingEdge",
+      "id": "marketplacelistingedge",
+      "href": "/graphql/reference/apps#object-marketplacelistingedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "MarketplaceListing",
+          "id": "marketplacelisting",
+          "href": "/graphql/reference/apps#object-marketplacelisting"
+        }
+      ],
+      "category": "apps"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "OauthApplicationAuditEntryData",
+      "id": "oauthapplicationauditentrydata",
+      "href": "/graphql/reference/apps#interface-oauthapplicationauditentrydata",
+      "description": "<p>Metadata for an audit entry with action oauth_application.*.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "oauthApplicationName",
+          "description": "<p>The name of the OAuth application.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "oauthApplicationResourcePath",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "oauthApplicationUrl",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "apps"
+    }
+  ],
+  "enums": [
+    {
+      "name": "OauthApplicationCreateAuditEntryState",
+      "id": "oauthapplicationcreateauditentrystate",
+      "href": "/graphql/reference/apps#enum-oauthapplicationcreateauditentrystate",
+      "description": "<p>The state of an OAuth application when it was created.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ACTIVE",
+          "description": "<p>The OAuth application was active and allowed to have OAuth Accesses.</p>"
+        },
+        {
+          "name": "PENDING_DELETION",
+          "description": "<p>The OAuth application was in the process of being deleted.</p>"
+        },
+        {
+          "name": "SUSPENDED",
+          "description": "<p>The OAuth application was suspended from generating OAuth Accesses due to abuse or security concerns.</p>"
+        }
+      ],
+      "category": "apps"
+    }
+  ]
+}

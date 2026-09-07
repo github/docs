@@ -10,6 +10,7 @@ on:
       - reopened
 
 permissions:
+  contents: read
   repository-projects: write
 
 jobs:
@@ -17,7 +18,7 @@ jobs:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
           script: |
             const issueNumber = context.issue.number;
@@ -25,13 +26,13 @@ jobs:
             const triageColumnId = 11007039;
 
             try {
-              const cards = await github.projects.listCards({
+              const cards = await github.rest.projects.listCards({
                 column_id: doneColumnId
               });
 
               for (const card of cards) {
                 if (card.content_url.endsWith(`/${issueNumber}`)) {
-                  await github.projects.moveCard({
+                  await github.rest.projects.moveCard({
                     card_id: card.id,
                     position: 'position',
                     column_id: triageColumnId
@@ -41,3 +42,18 @@ jobs:
             } catch(e) {
               console.log(e);
             }
+
+      - name: Check out repo
+        if: ${{ failure() }}
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

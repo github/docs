@@ -1,0 +1,5 @@
+# Reference: #releases/issues/4919
+# Enterprise admins can assign pre-defined and create custom enterprise roles for their enterprise users and teams. [Public Preview]
+versions:
+  ghec: '*'
+  ghes: '>=3.20'

@@ -1,1 +1,1 @@
-1. In the left sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} GitHub Copilot**.
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Copilot settings**.

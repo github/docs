@@ -1,34 +1,33 @@
 ---
-title: GitHub Copilot
-shortTitle: GitHub Copilot
-intro: 'You can use {% data variables.product.prodname_copilot %} to get autocomplete-style suggestions from an AI pair programmer as you code.'
+title: '{% data variables.product.prodname_copilot %} documentation'
+shortTitle: '{% data variables.product.prodname_copilot %}'
+intro: 'You can use {% data variables.product.prodname_copilot %} to enhance your productivity and assist as you work on code.'
 redirect_from:
   - /github/copilot
-changelog:
-  label: copilot
+  - /copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request
 introLinks:
-  overview: /copilot/overview-of-github-copilot/about-github-copilot
-  quickstart: /copilot/quickstart
-featuredLinks:
-  guides:
-    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
-    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
-    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
-    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
-  popular:
-    - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
-    - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
-    - /copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide
-    - /copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom
-layout: product-landing
+  overview: /copilot/get-started/what-is-github-copilot
+  quickstart: /copilot/get-started/quickstart
+layout: discovery-landing
+heroImage: /assets/images/banner-images/hero-6
 versions:
   feature: copilot
 children:
-  - /quickstart
-  - /overview-of-github-copilot
-  - /getting-started-with-github-copilot
-  - /configuring-github-copilot
-topics:
-  - Copilot
+  - /get-started
+  - /concepts
+  - /how-tos
+  - /reference
+  - /tutorials
+  - /responsible-use
+contentType: landing
+includedCategories:
+  - Learn about Copilot
+  - Configure Copilot
+  - Author and optimize with Copilot
+  - Integrate Copilot with your tools
+  - Manage Copilot for a team
+  - Track Copilot usage
+  - Troubleshooting Copilot
+  - Responsible use
+  - Copilot in the CLI
 ---
-

@@ -1,0 +1,84 @@
+@import "./stylesheets/code.scss";
+@import "./stylesheets/headers.scss";
+@import "./stylesheets/lists.scss";
+@import "./stylesheets/table.scss";
+@import "./stylesheets/images.scss";
+
+.markdownBody {
+  :not(h1, h2, h3, h4, h5, h6, [role="tablist"]) {
+    > a {
+      text-decoration: underline;
+      text-underline-offset: 25%;
+    }
+  }
+
+  summary {
+    outline: none;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      display: inline-block;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  :global(.ghd-codetabs) {
+    margin: 1.5rem 0;
+  }
+
+  :global(.ghd-codetabs-nav) {
+    margin-bottom: 0;
+
+    :global(ul) {
+      padding-left: 0 !important;
+    }
+
+    :global(a) {
+      text-decoration: none !important;
+    }
+  }
+
+  :global(.ghd-codetab + .ghd-codetab) {
+    margin-top: 1rem;
+  }
+
+  :global(.ghd-codetabs-enhanced .ghd-codetab) {
+    margin-top: 0;
+  }
+
+  :global(.ghd-codetab-fallback-label) {
+    margin-bottom: 0.75rem;
+    color: var(--fgColor-muted, #59636e);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  :global(.ghd-codetabs-enhanced .ghd-codetab-fallback-label) {
+    display: none;
+  }
+
+  :global(.ghd-codetabs-enhanced .ghd-codetab-hidden) {
+    display: none;
+  }
+}
+
+.codeBlockContainer {
+  position: relative;
+}
+
+.copyButton {
+  position: absolute;
+  right: -0.7rem;
+  top: -0.7rem;
+  z-index: 1;
+}

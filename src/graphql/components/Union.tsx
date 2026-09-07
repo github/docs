@@ -1,0 +1,28 @@
+import { Link } from '@/frame/components/Link'
+import { GraphqlItem } from './GraphqlItem'
+import { useTranslation } from '@/languages/components/useTranslation'
+import type { UnionT } from './types'
+
+type Props = {
+  item: UnionT
+  headingLevel?: number
+}
+
+export function Union({ item, headingLevel = 2 }: Props) {
+  const { t } = useTranslation('graphql')
+  const heading = t('reference.possible_types').replace('{{ GraphQLItemTitle }}', item.name)
+
+  return (
+    <GraphqlItem item={item} heading={heading} headingLevel={headingLevel} kind="unions">
+      <ul>
+        {item.possibleTypes.map((type) => (
+          <li key={type.id}>
+            <Link href={type.href} makeAbsolute>
+              <code>{type.name}</code>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </GraphqlItem>
+  )
+}

@@ -1,1 +1,1 @@
-The example uses the `ubuntu-latest` {% data variables.product.prodname_dotcom %}-hosted runner as the Docker host.
+The example uses the `ubuntu-latest` {% ifversion not ghes %} {% data variables.product.prodname_dotcom %}-hosted {%- endif %} runner as the Docker host.

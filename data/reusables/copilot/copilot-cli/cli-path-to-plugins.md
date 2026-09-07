@@ -1,0 +1,1 @@
+The value of the `source` field for each plugin is the path to the plugin's directory, relative to the root of the repository. It is not necessary to use `./` at the start of the path. For example, `"./plugins/plugin-name"` and `"plugins/plugin-name"` resolve to the same directory.

@@ -1,0 +1,6 @@
+# Reference: #16634
+# Use for content that is only available in GitHub Cloud.
+# GitHub Advanced Security products available as two separate SKUS: Secret Protection and Code Security
+versions:
+  fpt: '*'
+  ghec: '*'

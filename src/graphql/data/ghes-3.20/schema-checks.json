@@ -1,0 +1,1936 @@
+{
+  "mutations": [
+    {
+      "name": "createCheckRun",
+      "id": "createcheckrun",
+      "href": "/graphql/reference/checks#mutation-createcheckrun",
+      "description": "<p>Create a check run.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateCheckRunInput!",
+          "id": "createcheckruninput",
+          "href": "/graphql/reference/checks#input-object-createcheckruninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "checkRun",
+          "type": "CheckRun",
+          "id": "checkrun",
+          "href": "/graphql/reference/checks#object-checkrun",
+          "description": "<p>The newly created check run.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "createCheckSuite",
+      "id": "createchecksuite",
+      "href": "/graphql/reference/checks#mutation-createchecksuite",
+      "description": "<p>Create a check suite.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateCheckSuiteInput!",
+          "id": "createchecksuiteinput",
+          "href": "/graphql/reference/checks#input-object-createchecksuiteinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "checkSuite",
+          "type": "CheckSuite",
+          "id": "checksuite",
+          "href": "/graphql/reference/checks#object-checksuite",
+          "description": "<p>The newly created check suite.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "rerequestCheckSuite",
+      "id": "rerequestchecksuite",
+      "href": "/graphql/reference/checks#mutation-rerequestchecksuite",
+      "description": "<p>Rerequests an existing check suite.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RerequestCheckSuiteInput!",
+          "id": "rerequestchecksuiteinput",
+          "href": "/graphql/reference/checks#input-object-rerequestchecksuiteinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "checkSuite",
+          "type": "CheckSuite",
+          "id": "checksuite",
+          "href": "/graphql/reference/checks#object-checksuite",
+          "description": "<p>The requested check suite.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "updateCheckRun",
+      "id": "updatecheckrun",
+      "href": "/graphql/reference/checks#mutation-updatecheckrun",
+      "description": "<p>Update a check run.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateCheckRunInput!",
+          "id": "updatecheckruninput",
+          "href": "/graphql/reference/checks#input-object-updatecheckruninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "checkRun",
+          "type": "CheckRun",
+          "id": "checkrun",
+          "href": "/graphql/reference/checks#object-checkrun",
+          "description": "<p>The updated check run.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "updateCheckSuitePreferences",
+      "id": "updatechecksuitepreferences",
+      "href": "/graphql/reference/checks#mutation-updatechecksuitepreferences",
+      "description": "<p>Modifies the settings of an existing check suite.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateCheckSuitePreferencesInput!",
+          "id": "updatechecksuitepreferencesinput",
+          "href": "/graphql/reference/checks#input-object-updatechecksuitepreferencesinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository",
+          "description": "<p>The updated repository.</p>"
+        }
+      ],
+      "category": "checks"
+    }
+  ],
+  "objects": [
+    {
+      "name": "CheckAnnotation",
+      "id": "checkannotation",
+      "href": "/graphql/reference/checks#object-checkannotation",
+      "description": "<p>A single check annotation.</p>",
+      "fields": [
+        {
+          "name": "annotationLevel",
+          "description": "<p>The annotation's severity level.</p>",
+          "type": "CheckAnnotationLevel",
+          "id": "checkannotationlevel",
+          "href": "/graphql/reference/checks#enum-checkannotationlevel"
+        },
+        {
+          "name": "blobUrl",
+          "description": "<p>The path to the file that this annotation was made on.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "location",
+          "description": "<p>The position of this annotation.</p>",
+          "type": "CheckAnnotationSpan!",
+          "id": "checkannotationspan",
+          "href": "/graphql/reference/checks#object-checkannotationspan"
+        },
+        {
+          "name": "message",
+          "description": "<p>The annotation's message.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "path",
+          "description": "<p>The path that this annotation was made on.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "rawDetails",
+          "description": "<p>Additional information about the annotation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "title",
+          "description": "<p>The annotation's title.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckAnnotationConnection",
+      "id": "checkannotationconnection",
+      "href": "/graphql/reference/checks#object-checkannotationconnection",
+      "description": "<p>The connection type for CheckAnnotation.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CheckAnnotationEdge]",
+          "id": "checkannotationedge",
+          "href": "/graphql/reference/checks#object-checkannotationedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[CheckAnnotation]",
+          "id": "checkannotation",
+          "href": "/graphql/reference/checks#object-checkannotation"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckAnnotationEdge",
+      "id": "checkannotationedge",
+      "href": "/graphql/reference/checks#object-checkannotationedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "CheckAnnotation",
+          "id": "checkannotation",
+          "href": "/graphql/reference/checks#object-checkannotation"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckAnnotationPosition",
+      "id": "checkannotationposition",
+      "href": "/graphql/reference/checks#object-checkannotationposition",
+      "description": "<p>A character position in a check annotation.</p>",
+      "fields": [
+        {
+          "name": "column",
+          "description": "<p>Column number (1 indexed).</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "line",
+          "description": "<p>Line number (1 indexed).</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckAnnotationSpan",
+      "id": "checkannotationspan",
+      "href": "/graphql/reference/checks#object-checkannotationspan",
+      "description": "<p>An inclusive pair of positions for a check annotation.</p>",
+      "fields": [
+        {
+          "name": "end",
+          "description": "<p>End position (inclusive).</p>",
+          "type": "CheckAnnotationPosition!",
+          "id": "checkannotationposition",
+          "href": "/graphql/reference/checks#object-checkannotationposition"
+        },
+        {
+          "name": "start",
+          "description": "<p>Start position (inclusive).</p>",
+          "type": "CheckAnnotationPosition!",
+          "id": "checkannotationposition",
+          "href": "/graphql/reference/checks#object-checkannotationposition"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckRun",
+      "id": "checkrun",
+      "href": "/graphql/reference/checks#object-checkrun",
+      "description": "<p>A check run.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "RequirableByPullRequest",
+          "id": "requirablebypullrequest",
+          "href": "/graphql/reference/pulls#interface-requirablebypullrequest"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "annotations",
+          "description": "<p>The check run's annotations.</p>",
+          "type": "CheckAnnotationConnection",
+          "id": "checkannotationconnection",
+          "href": "/graphql/reference/checks#object-checkannotationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "checkSuite",
+          "description": "<p>The check suite that this run is a part of.</p>",
+          "type": "CheckSuite!",
+          "id": "checksuite",
+          "href": "/graphql/reference/checks#object-checksuite"
+        },
+        {
+          "name": "completedAt",
+          "description": "<p>Identifies the date and time when the check run was completed.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "conclusion",
+          "description": "<p>The conclusion of the check run.</p>",
+          "type": "CheckConclusionState",
+          "id": "checkconclusionstate",
+          "href": "/graphql/reference/checks#enum-checkconclusionstate"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "deployment",
+          "description": "<p>The corresponding deployment for this job, if any.</p>",
+          "type": "Deployment",
+          "id": "deployment",
+          "href": "/graphql/reference/deployments#object-deployment"
+        },
+        {
+          "name": "detailsUrl",
+          "description": "<p>The URL from which to find full details of the check run on the integrator's site.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "externalId",
+          "description": "<p>A reference for the check run on the integrator's system.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the CheckRun object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "href": "/graphql/reference/other#scalar-id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the check for this check run.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pendingDeploymentRequest",
+          "description": "<p>Information about a pending deployment, if any, in this check run.</p>",
+          "type": "DeploymentRequest",
+          "id": "deploymentrequest",
+          "href": "/graphql/reference/deployments#object-deploymentrequest"
+        },
+        {
+          "name": "permalink",
+          "description": "<p>The permalink to the check run summary.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with this check run.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this check run.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "startedAt",
+          "description": "<p>Identifies the date and time when the check run was started.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "status",
+          "description": "<p>The current status of the check run.</p>",
+          "type": "CheckStatusState!",
+          "id": "checkstatusstate",
+          "href": "/graphql/reference/checks#enum-checkstatusstate"
+        },
+        {
+          "name": "steps",
+          "description": "<p>The check run's steps.</p>",
+          "type": "CheckStepConnection",
+          "id": "checkstepconnection",
+          "href": "/graphql/reference/checks#object-checkstepconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "number",
+              "description": "<p>Step number.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "summary",
+          "description": "<p>A string representing the check run's summary.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "text",
+          "description": "<p>A string representing the check run's text.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "title",
+          "description": "<p>A string representing the check run.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this check run.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckRunConnection",
+      "id": "checkrunconnection",
+      "href": "/graphql/reference/checks#object-checkrunconnection",
+      "description": "<p>The connection type for CheckRun.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CheckRunEdge]",
+          "id": "checkrunedge",
+          "href": "/graphql/reference/checks#object-checkrunedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[CheckRun]",
+          "id": "checkrun",
+          "href": "/graphql/reference/checks#object-checkrun"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckRunEdge",
+      "id": "checkrunedge",
+      "href": "/graphql/reference/checks#object-checkrunedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "CheckRun",
+          "id": "checkrun",
+          "href": "/graphql/reference/checks#object-checkrun"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckRunStateCount",
+      "id": "checkrunstatecount",
+      "href": "/graphql/reference/checks#object-checkrunstatecount",
+      "description": "<p>Represents a count of the state of a check run.</p>",
+      "fields": [
+        {
+          "name": "count",
+          "description": "<p>The number of check runs with this state.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of a check run.</p>",
+          "type": "CheckRunState!",
+          "id": "checkrunstate",
+          "href": "/graphql/reference/checks#enum-checkrunstate"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckStep",
+      "id": "checkstep",
+      "href": "/graphql/reference/checks#object-checkstep",
+      "description": "<p>A single check step.</p>",
+      "fields": [
+        {
+          "name": "completedAt",
+          "description": "<p>Identifies the date and time when the check step was completed.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "conclusion",
+          "description": "<p>The conclusion of the check step.</p>",
+          "type": "CheckConclusionState",
+          "id": "checkconclusionstate",
+          "href": "/graphql/reference/checks#enum-checkconclusionstate"
+        },
+        {
+          "name": "externalId",
+          "description": "<p>A reference for the check step on the integrator's system.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The step's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "number",
+          "description": "<p>The index of the step in the list of steps of the parent check run.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "secondsToCompletion",
+          "description": "<p>Number of seconds to completion.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "startedAt",
+          "description": "<p>Identifies the date and time when the check step was started.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "status",
+          "description": "<p>The current status of the check step.</p>",
+          "type": "CheckStatusState!",
+          "id": "checkstatusstate",
+          "href": "/graphql/reference/checks#enum-checkstatusstate"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckStepConnection",
+      "id": "checkstepconnection",
+      "href": "/graphql/reference/checks#object-checkstepconnection",
+      "description": "<p>The connection type for CheckStep.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CheckStepEdge]",
+          "id": "checkstepedge",
+          "href": "/graphql/reference/checks#object-checkstepedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[CheckStep]",
+          "id": "checkstep",
+          "href": "/graphql/reference/checks#object-checkstep"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckStepEdge",
+      "id": "checkstepedge",
+      "href": "/graphql/reference/checks#object-checkstepedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "CheckStep",
+          "id": "checkstep",
+          "href": "/graphql/reference/checks#object-checkstep"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckSuite",
+      "id": "checksuite",
+      "href": "/graphql/reference/checks#object-checksuite",
+      "description": "<p>A check suite.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "app",
+          "description": "<p>The GitHub App which created this check suite.</p>",
+          "type": "App",
+          "id": "app",
+          "href": "/graphql/reference/apps#object-app"
+        },
+        {
+          "name": "branch",
+          "description": "<p>The name of the branch for this check suite.</p>",
+          "type": "Ref",
+          "id": "ref",
+          "href": "/graphql/reference/git#object-ref"
+        },
+        {
+          "name": "checkRuns",
+          "description": "<p>The check runs associated with a check suite.</p>",
+          "type": "CheckRunConnection",
+          "id": "checkrunconnection",
+          "href": "/graphql/reference/checks#object-checkrunconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "filterBy",
+              "description": "<p>Filters the check runs by this type.</p>",
+              "type": {
+                "name": "CheckRunFilter",
+                "id": "checkrunfilter",
+                "href": "/graphql/reference/checks#input-object-checkrunfilter"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "commit",
+          "description": "<p>The commit for this check suite.</p>",
+          "type": "Commit!",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "conclusion",
+          "description": "<p>The conclusion of this check suite.</p>",
+          "type": "CheckConclusionState",
+          "id": "checkconclusionstate",
+          "href": "/graphql/reference/checks#enum-checkconclusionstate"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "creator",
+          "description": "<p>The user who triggered the check suite.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the CheckSuite object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "matchingPullRequests",
+          "description": "<p>A list of open pull requests matching the check suite.</p>",
+          "type": "PullRequestConnection",
+          "id": "pullrequestconnection",
+          "href": "/graphql/reference/pulls#object-pullrequestconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "baseRefName",
+              "description": "<p>The base ref name to filter the pull requests by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "headRefName",
+              "description": "<p>The head ref name to filter the pull requests by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "labels",
+              "description": "<p>A list of label names to filter the pull requests by.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for pull requests returned from the connection.</p>",
+              "type": {
+                "name": "IssueOrder",
+                "id": "issueorder",
+                "href": "/graphql/reference/issues#input-object-issueorder"
+              }
+            },
+            {
+              "name": "states",
+              "description": "<p>A list of states to filter the pull requests by.</p>",
+              "type": {
+                "name": "[PullRequestState!]",
+                "id": "pullrequeststate",
+                "href": "/graphql/reference/pulls#enum-pullrequeststate"
+              }
+            }
+          ]
+        },
+        {
+          "name": "push",
+          "description": "<p>The push that triggered this check suite.</p>",
+          "type": "Push",
+          "id": "push",
+          "href": "/graphql/reference/git#object-push"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with this check suite.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this check suite.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of this check suite.</p>",
+          "type": "CheckStatusState!",
+          "id": "checkstatusstate",
+          "href": "/graphql/reference/checks#enum-checkstatusstate"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this check suite.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "workflowRun",
+          "description": "<p>The workflow run associated with this check suite.</p>",
+          "type": "WorkflowRun",
+          "id": "workflowrun",
+          "href": "/graphql/reference/actions#object-workflowrun"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckSuiteConnection",
+      "id": "checksuiteconnection",
+      "href": "/graphql/reference/checks#object-checksuiteconnection",
+      "description": "<p>The connection type for CheckSuite.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CheckSuiteEdge]",
+          "id": "checksuiteedge",
+          "href": "/graphql/reference/checks#object-checksuiteedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[CheckSuite]",
+          "id": "checksuite",
+          "href": "/graphql/reference/checks#object-checksuite"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckSuiteEdge",
+      "id": "checksuiteedge",
+      "href": "/graphql/reference/checks#object-checksuiteedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "CheckSuite",
+          "id": "checksuite",
+          "href": "/graphql/reference/checks#object-checksuite"
+        }
+      ],
+      "category": "checks"
+    }
+  ],
+  "enums": [
+    {
+      "name": "CheckAnnotationLevel",
+      "id": "checkannotationlevel",
+      "href": "/graphql/reference/checks#enum-checkannotationlevel",
+      "description": "<p>Represents an annotation's information level.</p>",
+      "values": [
+        {
+          "name": "FAILURE",
+          "description": "<p>An annotation indicating an inescapable error.</p>"
+        },
+        {
+          "name": "NOTICE",
+          "description": "<p>An annotation indicating some information.</p>"
+        },
+        {
+          "name": "WARNING",
+          "description": "<p>An annotation indicating an ignorable error.</p>"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckConclusionState",
+      "id": "checkconclusionstate",
+      "href": "/graphql/reference/checks#enum-checkconclusionstate",
+      "description": "<p>The possible states for a check suite or run conclusion.</p>",
+      "values": [
+        {
+          "name": "ACTION_REQUIRED",
+          "description": "<p>The check suite or run requires action.</p>"
+        },
+        {
+          "name": "CANCELLED",
+          "description": "<p>The check suite or run has been cancelled.</p>"
+        },
+        {
+          "name": "FAILURE",
+          "description": "<p>The check suite or run has failed.</p>"
+        },
+        {
+          "name": "NEUTRAL",
+          "description": "<p>The check suite or run was neutral.</p>"
+        },
+        {
+          "name": "SKIPPED",
+          "description": "<p>The check suite or run was skipped.</p>"
+        },
+        {
+          "name": "STALE",
+          "description": "<p>The check suite or run was marked stale by GitHub. Only GitHub can use this conclusion.</p>"
+        },
+        {
+          "name": "STARTUP_FAILURE",
+          "description": "<p>The check suite or run has failed at startup.</p>"
+        },
+        {
+          "name": "SUCCESS",
+          "description": "<p>The check suite or run has succeeded.</p>"
+        },
+        {
+          "name": "TIMED_OUT",
+          "description": "<p>The check suite or run has timed out.</p>"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckRunState",
+      "id": "checkrunstate",
+      "href": "/graphql/reference/checks#enum-checkrunstate",
+      "description": "<p>The possible states of a check run in a status rollup.</p>",
+      "values": [
+        {
+          "name": "ACTION_REQUIRED",
+          "description": "<p>The check run requires action.</p>"
+        },
+        {
+          "name": "CANCELLED",
+          "description": "<p>The check run has been cancelled.</p>"
+        },
+        {
+          "name": "COMPLETED",
+          "description": "<p>The check run has been completed.</p>"
+        },
+        {
+          "name": "FAILURE",
+          "description": "<p>The check run has failed.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The check run is in progress.</p>"
+        },
+        {
+          "name": "NEUTRAL",
+          "description": "<p>The check run was neutral.</p>"
+        },
+        {
+          "name": "PENDING",
+          "description": "<p>The check run is in pending state.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The check run has been queued.</p>"
+        },
+        {
+          "name": "SKIPPED",
+          "description": "<p>The check run was skipped.</p>"
+        },
+        {
+          "name": "STALE",
+          "description": "<p>The check run was marked stale by GitHub. Only GitHub can use this conclusion.</p>"
+        },
+        {
+          "name": "STARTUP_FAILURE",
+          "description": "<p>The check run has failed at startup.</p>"
+        },
+        {
+          "name": "SUCCESS",
+          "description": "<p>The check run has succeeded.</p>"
+        },
+        {
+          "name": "TIMED_OUT",
+          "description": "<p>The check run has timed out.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check run is in waiting state.</p>"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckRunType",
+      "id": "checkruntype",
+      "href": "/graphql/reference/checks#enum-checkruntype",
+      "description": "<p>The possible types of check runs.</p>",
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>Every check run available.</p>"
+        },
+        {
+          "name": "LATEST",
+          "description": "<p>The latest check run.</p>"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckStatusState",
+      "id": "checkstatusstate",
+      "href": "/graphql/reference/checks#enum-checkstatusstate",
+      "description": "<p>The possible states for a check suite or run status.</p>",
+      "values": [
+        {
+          "name": "COMPLETED",
+          "description": "<p>The check suite or run has been completed.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The check suite or run is in progress.</p>"
+        },
+        {
+          "name": "PENDING",
+          "description": "<p>The check suite or run is in pending state.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The check suite or run has been queued.</p>"
+        },
+        {
+          "name": "REQUESTED",
+          "description": "<p>The check suite or run has been requested.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check suite or run is in waiting state.</p>"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "RequestableCheckStatusState",
+      "id": "requestablecheckstatusstate",
+      "href": "/graphql/reference/checks#enum-requestablecheckstatusstate",
+      "description": "<p>The possible states that can be requested when creating a check run.</p>",
+      "values": [
+        {
+          "name": "COMPLETED",
+          "description": "<p>The check suite or run has been completed.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The check suite or run is in progress.</p>"
+        },
+        {
+          "name": "PENDING",
+          "description": "<p>The check suite or run is in pending state.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The check suite or run has been queued.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check suite or run is in waiting state.</p>"
+        }
+      ],
+      "category": "checks"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "CheckAnnotationData",
+      "id": "checkannotationdata",
+      "href": "/graphql/reference/checks#input-object-checkannotationdata",
+      "description": "<p>Information from a check run analysis to specific lines of code.</p>",
+      "inputFields": [
+        {
+          "name": "annotationLevel",
+          "description": "<p>Represents an annotation's information level.</p>",
+          "type": "CheckAnnotationLevel!",
+          "id": "checkannotationlevel",
+          "href": "/graphql/reference/checks#enum-checkannotationlevel"
+        },
+        {
+          "name": "location",
+          "description": "<p>The location of the annotation.</p>",
+          "type": "CheckAnnotationRange!",
+          "id": "checkannotationrange",
+          "href": "/graphql/reference/checks#input-object-checkannotationrange"
+        },
+        {
+          "name": "message",
+          "description": "<p>A short description of the feedback for these lines of code.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "path",
+          "description": "<p>The path of the file to add an annotation to.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "rawDetails",
+          "description": "<p>Details about this annotation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "title",
+          "description": "<p>The title that represents the annotation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckAnnotationRange",
+      "id": "checkannotationrange",
+      "href": "/graphql/reference/checks#input-object-checkannotationrange",
+      "description": "<p>Information from a check run analysis to specific lines of code.</p>",
+      "inputFields": [
+        {
+          "name": "endColumn",
+          "description": "<p>The ending column of the range.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "endLine",
+          "description": "<p>The ending line of the range.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "startColumn",
+          "description": "<p>The starting column of the range.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "startLine",
+          "description": "<p>The starting line of the range.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckRunAction",
+      "id": "checkrunaction",
+      "href": "/graphql/reference/checks#input-object-checkrunaction",
+      "description": "<p>Possible further actions the integrator can perform.</p>",
+      "inputFields": [
+        {
+          "name": "description",
+          "description": "<p>A short explanation of what this action would do.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "identifier",
+          "description": "<p>A reference for the action on the integrator's system.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "label",
+          "description": "<p>The text to be displayed on a button in the web UI.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckRunFilter",
+      "id": "checkrunfilter",
+      "href": "/graphql/reference/checks#input-object-checkrunfilter",
+      "description": "<p>The filters that are available when fetching check runs.</p>",
+      "inputFields": [
+        {
+          "name": "appId",
+          "description": "<p>Filters the check runs created by this application ID.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "checkName",
+          "description": "<p>Filters the check runs by this name.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "checkType",
+          "description": "<p>Filters the check runs by this type.</p>",
+          "type": "CheckRunType",
+          "id": "checkruntype",
+          "href": "/graphql/reference/checks#enum-checkruntype"
+        },
+        {
+          "name": "conclusions",
+          "description": "<p>Filters the check runs by these conclusions.</p>",
+          "type": "[CheckConclusionState!]",
+          "id": "checkconclusionstate",
+          "href": "/graphql/reference/checks#enum-checkconclusionstate"
+        },
+        {
+          "name": "status",
+          "description": "<p>Filters the check runs by this status. Superceded by statuses.</p>",
+          "type": "CheckStatusState",
+          "id": "checkstatusstate",
+          "href": "/graphql/reference/checks#enum-checkstatusstate"
+        },
+        {
+          "name": "statuses",
+          "description": "<p>Filters the check runs by this status. Overrides status.</p>",
+          "type": "[CheckStatusState!]",
+          "id": "checkstatusstate",
+          "href": "/graphql/reference/checks#enum-checkstatusstate"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckRunOutput",
+      "id": "checkrunoutput",
+      "href": "/graphql/reference/checks#input-object-checkrunoutput",
+      "description": "<p>Descriptive details about the check run.</p>",
+      "inputFields": [
+        {
+          "name": "annotations",
+          "description": "<p>The annotations that are made as part of the check run.</p>",
+          "type": "[CheckAnnotationData!]",
+          "id": "checkannotationdata",
+          "href": "/graphql/reference/checks#input-object-checkannotationdata"
+        },
+        {
+          "name": "images",
+          "description": "<p>Images attached to the check run output displayed in the GitHub pull request UI.</p>",
+          "type": "[CheckRunOutputImage!]",
+          "id": "checkrunoutputimage",
+          "href": "/graphql/reference/checks#input-object-checkrunoutputimage"
+        },
+        {
+          "name": "summary",
+          "description": "<p>The summary of the check run (supports Commonmark).</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "text",
+          "description": "<p>The details of the check run (supports Commonmark).</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "title",
+          "description": "<p>A title to provide for this check run.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckRunOutputImage",
+      "id": "checkrunoutputimage",
+      "href": "/graphql/reference/checks#input-object-checkrunoutputimage",
+      "description": "<p>Images attached to the check run output displayed in the GitHub pull request UI.</p>",
+      "inputFields": [
+        {
+          "name": "alt",
+          "description": "<p>The alternative text for the image.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "caption",
+          "description": "<p>A short image description.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "imageUrl",
+          "description": "<p>The full URL of the image.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckSuiteAutoTriggerPreference",
+      "id": "checksuiteautotriggerpreference",
+      "href": "/graphql/reference/checks#input-object-checksuiteautotriggerpreference",
+      "description": "<p>The auto-trigger preferences that are available for check suites.</p>",
+      "inputFields": [
+        {
+          "name": "appId",
+          "description": "<p>The node ID of the application that owns the check suite.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "setting",
+          "description": "<p>Set to <code>true</code> to enable automatic creation of CheckSuite events upon pushes to the repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CheckSuiteFilter",
+      "id": "checksuitefilter",
+      "href": "/graphql/reference/checks#input-object-checksuitefilter",
+      "description": "<p>The filters that are available when fetching check suites.</p>",
+      "inputFields": [
+        {
+          "name": "appId",
+          "description": "<p>Filters the check suites created by this application ID.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "checkName",
+          "description": "<p>Filters the check suites by this name.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CreateCheckRunInput",
+      "id": "createcheckruninput",
+      "href": "/graphql/reference/checks#input-object-createcheckruninput",
+      "description": "<p>Autogenerated input type of CreateCheckRun.</p>",
+      "inputFields": [
+        {
+          "name": "actions",
+          "description": "<p>Possible further actions the integrator can perform, which a user may trigger.</p>",
+          "type": "[CheckRunAction!]",
+          "id": "checkrunaction",
+          "href": "/graphql/reference/checks#input-object-checkrunaction"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "completedAt",
+          "description": "<p>The time that the check run finished.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "conclusion",
+          "description": "<p>The final conclusion of the check.</p>",
+          "type": "CheckConclusionState",
+          "id": "checkconclusionstate",
+          "href": "/graphql/reference/checks#enum-checkconclusionstate"
+        },
+        {
+          "name": "detailsUrl",
+          "description": "<p>The URL of the integrator's site that has the full details of the check.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "externalId",
+          "description": "<p>A reference for the run on the integrator's system.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "headSha",
+          "description": "<p>The SHA of the head commit.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the check.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "output",
+          "description": "<p>Descriptive details about the run.</p>",
+          "type": "CheckRunOutput",
+          "id": "checkrunoutput",
+          "href": "/graphql/reference/checks#input-object-checkrunoutput"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "startedAt",
+          "description": "<p>The time that the check run began.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "status",
+          "description": "<p>The current status.</p>",
+          "type": "RequestableCheckStatusState",
+          "id": "requestablecheckstatusstate",
+          "href": "/graphql/reference/checks#enum-requestablecheckstatusstate"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "CreateCheckSuiteInput",
+      "id": "createchecksuiteinput",
+      "href": "/graphql/reference/checks#input-object-createchecksuiteinput",
+      "description": "<p>Autogenerated input type of CreateCheckSuite.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "headSha",
+          "description": "<p>The SHA of the head commit.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The Node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "RerequestCheckSuiteInput",
+      "id": "rerequestchecksuiteinput",
+      "href": "/graphql/reference/checks#input-object-rerequestchecksuiteinput",
+      "description": "<p>Autogenerated input type of RerequestCheckSuite.</p>",
+      "inputFields": [
+        {
+          "name": "checkSuiteId",
+          "description": "<p>The Node ID of the check suite.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The Node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "UpdateCheckRunInput",
+      "id": "updatecheckruninput",
+      "href": "/graphql/reference/checks#input-object-updatecheckruninput",
+      "description": "<p>Autogenerated input type of UpdateCheckRun.</p>",
+      "inputFields": [
+        {
+          "name": "actions",
+          "description": "<p>Possible further actions the integrator can perform, which a user may trigger.</p>",
+          "type": "[CheckRunAction!]",
+          "id": "checkrunaction",
+          "href": "/graphql/reference/checks#input-object-checkrunaction"
+        },
+        {
+          "name": "checkRunId",
+          "description": "<p>The node of the check.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "completedAt",
+          "description": "<p>The time that the check run finished.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "conclusion",
+          "description": "<p>The final conclusion of the check.</p>",
+          "type": "CheckConclusionState",
+          "id": "checkconclusionstate",
+          "href": "/graphql/reference/checks#enum-checkconclusionstate"
+        },
+        {
+          "name": "detailsUrl",
+          "description": "<p>The URL of the integrator's site that has the full details of the check.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "externalId",
+          "description": "<p>A reference for the run on the integrator's system.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the check.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "output",
+          "description": "<p>Descriptive details about the run.</p>",
+          "type": "CheckRunOutput",
+          "id": "checkrunoutput",
+          "href": "/graphql/reference/checks#input-object-checkrunoutput"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "startedAt",
+          "description": "<p>The time that the check run began.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "status",
+          "description": "<p>The current status.</p>",
+          "type": "RequestableCheckStatusState",
+          "id": "requestablecheckstatusstate",
+          "href": "/graphql/reference/checks#enum-requestablecheckstatusstate"
+        }
+      ],
+      "category": "checks"
+    },
+    {
+      "name": "UpdateCheckSuitePreferencesInput",
+      "id": "updatechecksuitepreferencesinput",
+      "href": "/graphql/reference/checks#input-object-updatechecksuitepreferencesinput",
+      "description": "<p>Autogenerated input type of UpdateCheckSuitePreferences.</p>",
+      "inputFields": [
+        {
+          "name": "autoTriggerPreferences",
+          "description": "<p>The check suite preferences to modify.</p>",
+          "type": "[CheckSuiteAutoTriggerPreference!]!",
+          "id": "checksuiteautotriggerpreference",
+          "href": "/graphql/reference/checks#input-object-checksuiteautotriggerpreference"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The Node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "checks"
+    }
+  ]
+}

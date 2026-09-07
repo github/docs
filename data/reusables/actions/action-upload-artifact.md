@@ -1,1 +1,1 @@
-actions/upload-artifact@{% ifversion actions-node16-action %}v3{% else %}v2{% endif %}
+actions/upload-artifact@{% ifversion artifacts-v3-deprecation %}v4{% else %}v3{% endif %}

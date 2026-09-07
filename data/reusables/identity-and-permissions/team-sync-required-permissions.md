@@ -2,5 +2,5 @@ To enable team synchronization with any IdP, you must obtain administrative acce
 
   | IdP | Required permissions |
   | --- | -------------------- |
-  | Azure AD | <ul><li>Global administrator</li><li>Privileged Role administrator</li></ul>
+  | Entra ID | <ul><li>Global administrator</li><li>Privileged Role administrator</li></ul>
   | Okta | <ul><li>Service user with read-only administrator permissions</li></ul>

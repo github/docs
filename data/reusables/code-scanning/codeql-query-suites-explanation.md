@@ -2,4 +2,8 @@ The following query suites are built into {% data variables.product.prodname_cod
 
 {% data reusables.code-scanning.codeql-query-suites %}
 
-When you specify a query suite, the {% data variables.product.prodname_codeql %} analysis engine will run the default set of queries and any extra queries defined in the additional query suite. {% ifversion codeql-ml-queries %}The `security-extended` and `security-and-quality` query suites for JavaScript contain experimental queries. For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% endif %}
+Each of these query suites contains a different subset of the queries included in the built-in {% data variables.product.prodname_codeql %} query pack for that language. The query suites are automatically generated using the metadata for each query. For more information, see [Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/).
+
+<!--See lists of query tables linked in the reusable above.-->
+
+When you specify a query suite, the {% data variables.product.prodname_codeql %} analysis engine will run the default set of queries and any extra queries defined in the additional query suite.

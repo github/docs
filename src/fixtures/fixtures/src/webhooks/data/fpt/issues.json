@@ -1,0 +1,23 @@
+{
+  "opened": {
+    "descriptionHtml": "<p>Issue is <em>opened</em>.</p>",
+    "summaryHtml": "",
+    "bodyParameters": [
+      {
+        "name": "action",
+        "description": "The action performed",
+        "isRequired": true,
+        "type": "string"
+      },
+      {
+        "name": "issue",
+        "description": "The issue object",
+        "isRequired": false,
+        "type": "object"
+      }
+    ],
+    "availability": ["Repository", "Organization"],
+    "action": "opened",
+    "category": "issues"
+  }
+}

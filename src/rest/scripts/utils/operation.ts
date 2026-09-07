@@ -1,0 +1,237 @@
+import httpStatusCodes from 'http-status-code'
+import { get, isPlainObject } from 'lodash-es'
+import { parseTemplate } from 'url-template'
+import mergeAllOf from 'json-schema-merge-allof'
+
+import { renderContent } from './render-content'
+import getCodeSamples from './create-rest-examples'
+import operationSchema from './operation-schema'
+import { validateJson } from '@/tests/lib/validate-json-schema'
+import { getBodyParams, type TransformedParam } from './get-body-params'
+import type { OpenApiOperation, OpenApiParameter, OpenApiServer } from './openapi-types'
+import type { MergedExample } from './create-rest-examples'
+
+export default class Operation {
+  #operation: OpenApiOperation
+  serverUrl: string
+  verb: string
+  requestPath: string
+  title: string
+  category: string
+  subcategory: string
+  parameters: OpenApiParameter[]
+  // Body parameters are dynamically generated from OpenAPI schema
+  bodyParameters: TransformedParam[]
+  descriptionHTML?: string
+  codeExamples?: MergedExample[]
+  statusCodes?: Array<{ httpStatusCode: string; description: string }>
+  previews?: string[]
+  progAccess?: Record<string, unknown>
+
+  constructor(
+    verb: string,
+    requestPath: string,
+    operation: OpenApiOperation,
+    globalServers?: OpenApiServer[],
+  ) {
+    this.#operation = operation
+    // The global server object sets metadata including the base url for
+    // all operations in a version. Individual operations can override
+    // the global server url at the operation level.
+    this.serverUrl = (
+      operation.servers ? operation.servers[0].url : globalServers?.[0]?.url
+    ) as string
+
+    const serverVariables = operation.servers
+      ? operation.servers[0].variables
+      : globalServers?.[0]?.variables
+    if (serverVariables) {
+      const templateVariables: Record<string, string> = {}
+      for (const key of Object.keys(serverVariables)) {
+        templateVariables[key] = serverVariables[key].default
+      }
+      this.serverUrl = parseTemplate(this.serverUrl).expand(templateVariables)
+    }
+
+    this.serverUrl = this.serverUrl.replace('http:', 'http(s):')
+
+    // Attach some global properties to the operation object to use
+    // during processing
+    this.#operation.serverUrl = this.serverUrl
+    this.#operation.requestPath = requestPath
+    this.#operation.verb = verb
+
+    this.verb = verb
+    this.requestPath = requestPath
+    this.title = operation.summary as string
+    this.category = operation['x-github'].category
+    this.subcategory = operation['x-github'].subcategory
+    // Shallow-clone each parameter so that renderParameterDescriptions() can
+    // safely delete fields (e.g. deprecated, example, examples) without
+    // mutating this.#operation.parameters, which renderCodeExamples() reads
+    // concurrently via getParameterExamples().
+    this.parameters = (operation.parameters || []).map((p) => ({ ...p }))
+    this.bodyParameters = []
+    return this
+  }
+
+  async process(progAccessData: Record<string, unknown>): Promise<void> {
+    await Promise.all([
+      this.renderCodeExamples(),
+      this.renderDescription(),
+      this.renderStatusCodes(),
+      this.renderParameterDescriptions(),
+      this.renderBodyParameterDescriptions(),
+      this.renderPreviewNotes(),
+      this.programmaticAccess(progAccessData),
+    ])
+
+    const { isValid, errors } = validateJson(operationSchema, this)
+    if (!isValid) {
+      console.error(JSON.stringify(errors, null, 2))
+      throw new Error('Invalid OpenAPI operation found')
+    }
+  }
+
+  async renderDescription(): Promise<this> {
+    try {
+      this.descriptionHTML = await renderContent(this.#operation.description ?? '')
+      return this
+    } catch (error) {
+      console.error(error)
+      throw new Error(`Error rendering description for ${this.verb} ${this.requestPath}`)
+    }
+  }
+
+  async renderCodeExamples(): Promise<MergedExample[]> {
+    const codeExamples = await getCodeSamples(this.#operation)
+    try {
+      this.codeExamples = await Promise.all(
+        codeExamples.map(async (codeExample) => {
+          if (codeExample.response) {
+            codeExample.response.description = await renderContent(codeExample.response.description)
+          }
+          return codeExample
+        }),
+      )
+      return this.codeExamples
+    } catch (error) {
+      console.error(error)
+      throw new Error(`Error generating code examples for ${this.verb} ${this.requestPath}`)
+    }
+  }
+
+  async renderStatusCodes(): Promise<void> {
+    const responses = this.#operation.responses
+    const responseKeys = Object.keys(responses)
+    if (responseKeys.length === 0) return
+
+    try {
+      this.statusCodes = await Promise.all(
+        responseKeys.map(async (responseCode) => {
+          const response = responses[responseCode]
+          const httpStatusCode = responseCode
+          const httpStatusMessage = httpStatusCodes.getMessage(Number(responseCode), 'HTTP/2')
+          // The OpenAPI should be updated to provide better descriptions, but
+          // until then, we can catch some known generic descriptions and replace
+          // them with the default http status message.
+          const responseDescription =
+            !response.description || response.description?.toLowerCase() === 'response'
+              ? await renderContent(httpStatusMessage)
+              : await renderContent(response.description)
+
+          return {
+            httpStatusCode,
+            description: responseDescription,
+          }
+        }),
+      )
+    } catch (error) {
+      console.error(error)
+      throw new Error(`Error rendering status codes for ${this.verb} ${this.requestPath}`)
+    }
+  }
+
+  async renderParameterDescriptions(): Promise<OpenApiParameter[]> {
+    try {
+      return Promise.all(
+        this.parameters.map(async (param) => {
+          param.description = await renderContent(param.description ?? '')
+          // Remove fields that are not used at runtime to keep schema.json lean
+          delete param.deprecated
+          delete param.example
+          delete param.examples
+          delete param['x-multi-segment']
+          // Strip unused parameter schema sub-fields; only type, default, and
+          // enum are consumed by renderers
+          if (param.schema && typeof param.schema === 'object') {
+            const { type, default: defaultVal, enum: enumVal } = param.schema
+            param.schema = { type }
+            if (defaultVal !== undefined) param.schema.default = defaultVal
+            if (enumVal !== undefined) param.schema.enum = enumVal
+          }
+          return param
+        }),
+      )
+    } catch (error) {
+      console.error(error)
+      throw new Error(`Error rendering parameter descriptions for ${this.verb} ${this.requestPath}`)
+    }
+  }
+
+  async renderBodyParameterDescriptions(): Promise<void> {
+    if (!this.#operation.requestBody) return
+
+    // There is currently only one operation with more than one content type
+    // and the request body parameter types are the same for both.
+    // Operation Id: markdown/render-raw
+    const contentType = Object.keys(this.#operation.requestBody.content)[0]
+    const schema = get(this.#operation, `requestBody.content.${contentType}.schema`, {})
+    // Merges any instances of allOf in the schema using a deep merge
+    const mergedAllofSchema = mergeAllOf(schema as Parameters<typeof mergeAllOf>[0])
+    try {
+      this.bodyParameters = isPlainObject(schema)
+        ? await getBodyParams(mergedAllofSchema as Parameters<typeof getBodyParams>[0], true)
+        : []
+    } catch (error) {
+      console.error(error)
+      throw new Error(
+        `Error rendering body parameter descriptions for ${this.verb} ${this.requestPath}`,
+      )
+    }
+  }
+
+  async renderPreviewNotes(): Promise<void> {
+    const previews = get(this.#operation, 'x-github.previews', []) as Array<{ note: string }>
+    try {
+      this.previews = await Promise.all(
+        previews.map(async (preview) => {
+          const note = preview.note
+            // remove extra leading and trailing newlines
+            .replace(/```\n\n\n/gm, '```\n')
+            .replace(/```\n\n/gm, '```\n')
+            .replace(/\n\n\n```/gm, '\n```')
+            .replace(/\n\n```/gm, '\n```')
+
+            // convert single-backtick code snippets to fully fenced triple-backtick blocks
+            // example: This is the description.\n\n`application/vnd.github.machine-man-preview+json`
+            .replace(/\n`application/, '\n```\napplication')
+            .replace(/json`$/, 'json\n```')
+          return await renderContent(note)
+        }),
+      )
+    } catch (error) {
+      console.error(error)
+      throw new Error(`Error rendering preview notes for ${this.verb} ${this.requestPath}`)
+    }
+  }
+
+  programmaticAccess(progAccessData: Record<string, unknown>): void {
+    this.progAccess = progAccessData[this.#operation.operationId as string] as
+      | Record<string, unknown>
+      | undefined
+    if (this.progAccess) {
+      delete this.progAccess.disabledForPatV2
+    }
+  }
+}

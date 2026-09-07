@@ -1,8 +1,8 @@
 name: Triage new issue comments
 
-# **What it does**:
-# **Why we have it**:
-# **Who does it impact**:
+# **What it does**: Adds label triage to new issue comments in the open source repository.
+# **Why we have it**: Update open source project board for review.
+# **Who does it impact**: Docs open source.
 
 on:
   issue_comment:
@@ -10,6 +10,7 @@ on:
       - created
 
 permissions:
+  contents: read
   issues: write
 
 jobs:
@@ -19,7 +20,7 @@ jobs:
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: is-internal-contributor
         with:
           result-encoding: string
@@ -40,9 +41,40 @@ jobs:
               console.log(`This issue was commented on by an external contributor.`)
               return 'false'
             }
+
+      - name: Check out repo
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Check issue exists
+        id: exists
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          if gh issue view $ISSUE_URL > /dev/null 2>&1
+          then
+            echo "exists=y" >> $GITHUB_OUTPUT
+          else
+            echo "exists=n" >> $GITHUB_OUTPUT
+          fi
+
       - name: Label issues with new comments with 'triage'
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
-        if: ${{ steps.is-internal-contributor.outputs.result == 'false' }}
+        uses: ./.github/actions/labeler
+        if: ${{ steps.is-internal-contributor.outputs.result == 'false' && steps.exists.outputs.exists == 'y' }}
         with:
-          add-labels: 'triage'
-          ignore-if-labeled: true
+          addLabels: 'triage'
+          ignoreIfLabeled: true
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

@@ -1,0 +1,2519 @@
+{
+  "mutations": [
+    {
+      "name": "addProjectCard",
+      "id": "addprojectcard",
+      "href": "/graphql/reference/projects-classic#mutation-addprojectcard",
+      "description": "<p>Adds a card to a ProjectColumn. Either <code>contentId</code> or <code>note</code> must be provided but <strong>not</strong> both.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddProjectCardInput!",
+          "id": "addprojectcardinput",
+          "href": "/graphql/reference/projects-classic#input-object-addprojectcardinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "cardEdge",
+          "type": "ProjectCardEdge",
+          "id": "projectcardedge",
+          "href": "/graphql/reference/projects-classic#object-projectcardedge",
+          "description": "<p>The edge from the ProjectColumn's card connection.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectColumn",
+          "type": "ProjectColumn",
+          "id": "projectcolumn",
+          "href": "/graphql/reference/projects-classic#object-projectcolumn",
+          "description": "<p>The ProjectColumn.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "addProjectColumn",
+      "id": "addprojectcolumn",
+      "href": "/graphql/reference/projects-classic#mutation-addprojectcolumn",
+      "description": "<p>Adds a column to a Project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddProjectColumnInput!",
+          "id": "addprojectcolumninput",
+          "href": "/graphql/reference/projects-classic#input-object-addprojectcolumninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "columnEdge",
+          "type": "ProjectColumnEdge",
+          "id": "projectcolumnedge",
+          "href": "/graphql/reference/projects-classic#object-projectcolumnedge",
+          "description": "<p>The edge from the project's column connection.</p>"
+        },
+        {
+          "name": "project",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "description": "<p>The project.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "cloneProject",
+      "id": "cloneproject",
+      "href": "/graphql/reference/projects-classic#mutation-cloneproject",
+      "description": "<p>Creates a new project by cloning configuration from an existing project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CloneProjectInput!",
+          "id": "cloneprojectinput",
+          "href": "/graphql/reference/projects-classic#input-object-cloneprojectinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "jobStatusId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>The id of the JobStatus for populating cloned fields.</p>"
+        },
+        {
+          "name": "project",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "description": "<p>The new cloned project.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "convertProjectCardNoteToIssue",
+      "id": "convertprojectcardnotetoissue",
+      "href": "/graphql/reference/projects-classic#mutation-convertprojectcardnotetoissue",
+      "description": "<p>Convert a project note card to one associated with a newly created issue.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ConvertProjectCardNoteToIssueInput!",
+          "id": "convertprojectcardnotetoissueinput",
+          "href": "/graphql/reference/projects-classic#input-object-convertprojectcardnotetoissueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectCard",
+          "type": "ProjectCard",
+          "id": "projectcard",
+          "href": "/graphql/reference/projects-classic#object-projectcard",
+          "description": "<p>The updated ProjectCard.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "createProject",
+      "id": "createproject",
+      "href": "/graphql/reference/projects-classic#mutation-createproject",
+      "description": "<p>Creates a new project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateProjectInput!",
+          "id": "createprojectinput",
+          "href": "/graphql/reference/projects-classic#input-object-createprojectinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "project",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "description": "<p>The new project.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "deleteProject",
+      "id": "deleteproject",
+      "href": "/graphql/reference/projects-classic#mutation-deleteproject",
+      "description": "<p>Deletes a project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteProjectInput!",
+          "id": "deleteprojectinput",
+          "href": "/graphql/reference/projects-classic#input-object-deleteprojectinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "ProjectOwner",
+          "id": "projectowner",
+          "href": "/graphql/reference/projects-classic#interface-projectowner",
+          "description": "<p>The repository or organization the project was removed from.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "deleteProjectCard",
+      "id": "deleteprojectcard",
+      "href": "/graphql/reference/projects-classic#mutation-deleteprojectcard",
+      "description": "<p>Deletes a project card.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteProjectCardInput!",
+          "id": "deleteprojectcardinput",
+          "href": "/graphql/reference/projects-classic#input-object-deleteprojectcardinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "column",
+          "type": "ProjectColumn",
+          "id": "projectcolumn",
+          "href": "/graphql/reference/projects-classic#object-projectcolumn",
+          "description": "<p>The column the deleted card was in.</p>"
+        },
+        {
+          "name": "deletedCardId",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "description": "<p>The deleted card ID.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "deleteProjectColumn",
+      "id": "deleteprojectcolumn",
+      "href": "/graphql/reference/projects-classic#mutation-deleteprojectcolumn",
+      "description": "<p>Deletes a project column.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteProjectColumnInput!",
+          "id": "deleteprojectcolumninput",
+          "href": "/graphql/reference/projects-classic#input-object-deleteprojectcolumninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "deletedColumnId",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "description": "<p>The deleted column ID.</p>"
+        },
+        {
+          "name": "project",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "description": "<p>The project the deleted column was in.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "linkRepositoryToProject",
+      "id": "linkrepositorytoproject",
+      "href": "/graphql/reference/projects-classic#mutation-linkrepositorytoproject",
+      "description": "<p>Creates a repository link for a project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "LinkRepositoryToProjectInput!",
+          "id": "linkrepositorytoprojectinput",
+          "href": "/graphql/reference/projects-classic#input-object-linkrepositorytoprojectinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "project",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "description": "<p>The linked Project.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository",
+          "description": "<p>The linked Repository.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "moveProjectCard",
+      "id": "moveprojectcard",
+      "href": "/graphql/reference/projects-classic#mutation-moveprojectcard",
+      "description": "<p>Moves a project card to another place.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "MoveProjectCardInput!",
+          "id": "moveprojectcardinput",
+          "href": "/graphql/reference/projects-classic#input-object-moveprojectcardinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "cardEdge",
+          "type": "ProjectCardEdge",
+          "id": "projectcardedge",
+          "href": "/graphql/reference/projects-classic#object-projectcardedge",
+          "description": "<p>The new edge of the moved card.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "moveProjectColumn",
+      "id": "moveprojectcolumn",
+      "href": "/graphql/reference/projects-classic#mutation-moveprojectcolumn",
+      "description": "<p>Moves a project column to another place.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "MoveProjectColumnInput!",
+          "id": "moveprojectcolumninput",
+          "href": "/graphql/reference/projects-classic#input-object-moveprojectcolumninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "columnEdge",
+          "type": "ProjectColumnEdge",
+          "id": "projectcolumnedge",
+          "href": "/graphql/reference/projects-classic#object-projectcolumnedge",
+          "description": "<p>The new edge of the moved column.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "unlinkRepositoryFromProject",
+      "id": "unlinkrepositoryfromproject",
+      "href": "/graphql/reference/projects-classic#mutation-unlinkrepositoryfromproject",
+      "description": "<p>Deletes a repository link from a project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnlinkRepositoryFromProjectInput!",
+          "id": "unlinkrepositoryfromprojectinput",
+          "href": "/graphql/reference/projects-classic#input-object-unlinkrepositoryfromprojectinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "project",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "description": "<p>The linked Project.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository",
+          "description": "<p>The linked Repository.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "updateProject",
+      "id": "updateproject",
+      "href": "/graphql/reference/projects-classic#mutation-updateproject",
+      "description": "<p>Updates an existing project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectInput!",
+          "id": "updateprojectinput",
+          "href": "/graphql/reference/projects-classic#input-object-updateprojectinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "project",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "description": "<p>The updated project.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "updateProjectCard",
+      "id": "updateprojectcard",
+      "href": "/graphql/reference/projects-classic#mutation-updateprojectcard",
+      "description": "<p>Updates an existing project card.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectCardInput!",
+          "id": "updateprojectcardinput",
+          "href": "/graphql/reference/projects-classic#input-object-updateprojectcardinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectCard",
+          "type": "ProjectCard",
+          "id": "projectcard",
+          "href": "/graphql/reference/projects-classic#object-projectcard",
+          "description": "<p>The updated ProjectCard.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "updateProjectColumn",
+      "id": "updateprojectcolumn",
+      "href": "/graphql/reference/projects-classic#mutation-updateprojectcolumn",
+      "description": "<p>Updates an existing project column.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectColumnInput!",
+          "id": "updateprojectcolumninput",
+          "href": "/graphql/reference/projects-classic#input-object-updateprojectcolumninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectColumn",
+          "type": "ProjectColumn",
+          "id": "projectcolumn",
+          "href": "/graphql/reference/projects-classic#object-projectcolumn",
+          "description": "<p>The updated project column.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    }
+  ],
+  "objects": [
+    {
+      "name": "AddedToProjectEvent",
+      "id": "addedtoprojectevent",
+      "href": "/graphql/reference/projects-classic#object-addedtoprojectevent",
+      "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the AddedToProjectEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "projectCard",
+          "description": "<p>Project card referenced by this project event.</p>",
+          "type": "ProjectCard",
+          "id": "projectcard",
+          "href": "/graphql/reference/projects-classic#object-projectcard",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "projectColumnName",
+          "description": "<p>Column name referenced by this project event.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "MovedColumnsInProjectEvent",
+      "id": "movedcolumnsinprojectevent",
+      "href": "/graphql/reference/projects-classic#object-movedcolumnsinprojectevent",
+      "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MovedColumnsInProjectEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "previousProjectColumnName",
+          "description": "<p>Column name the issue or pull request was moved from.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "projectCard",
+          "description": "<p>Project card referenced by this project event.</p>",
+          "type": "ProjectCard",
+          "id": "projectcard",
+          "href": "/graphql/reference/projects-classic#object-projectcard",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "projectColumnName",
+          "description": "<p>Column name the issue or pull request was moved to.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "Project",
+      "id": "project",
+      "href": "/graphql/reference/projects-classic#object-project",
+      "description": "<p>Projects manage issues, pull requests and notes within a project owner.</p>",
+      "implements": [
+        {
+          "name": "Closable",
+          "id": "closable",
+          "href": "/graphql/reference/issues#interface-closable"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Updatable",
+          "id": "updatable",
+          "href": "/graphql/reference/issues#interface-updatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The project's description body.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "bodyHTML",
+          "description": "<p>The projects description body rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "closed",
+          "description": "<p>Indicates if the object is closed (definition of closed may depend on type).</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "closedAt",
+          "description": "<p>Identifies the date and time when the object was closed.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "columns",
+          "description": "<p>List of columns in the project.</p>",
+          "type": "ProjectColumnConnection!",
+          "id": "projectcolumnconnection",
+          "href": "/graphql/reference/projects-classic#object-projectcolumnconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "creator",
+          "description": "<p>The actor who originally created the project.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Project object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "name",
+          "description": "<p>The project's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "number",
+          "description": "<p>The project's number.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "owner",
+          "description": "<p>The project's owner. Currently limited to repositories, organizations, and users.</p>",
+          "type": "ProjectOwner!",
+          "id": "projectowner",
+          "href": "/graphql/reference/projects-classic#interface-projectowner",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "pendingCards",
+          "description": "<p>List of pending cards in this project.</p>",
+          "type": "ProjectCardConnection!",
+          "id": "projectcardconnection",
+          "href": "/graphql/reference/projects-classic#object-projectcardconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "archivedStates",
+              "description": "<p>A list of archived states to filter the cards by.</p>",
+              "type": {
+                "name": "[ProjectCardArchivedState]",
+                "id": "projectcardarchivedstate",
+                "href": "/graphql/reference/projects-classic#enum-projectcardarchivedstate"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "progress",
+          "description": "<p>Project progress details.</p>",
+          "type": "ProjectProgress!",
+          "id": "projectprogress",
+          "href": "/graphql/reference/projects-classic#object-projectprogress",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this project.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "state",
+          "description": "<p>Whether the project is open or closed.</p>",
+          "type": "ProjectState!",
+          "id": "projectstate",
+          "href": "/graphql/reference/projects-classic#enum-projectstate",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this project.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "viewerCanClose",
+          "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanReopen",
+          "description": "<p>Indicates if the object can be reopened by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpdate",
+          "description": "<p>Check if the current viewer can update this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectCard",
+      "id": "projectcard",
+      "href": "/graphql/reference/projects-classic#object-projectcard",
+      "description": "<p>A card in a project.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "column",
+          "description": "<p>The project column this card is associated under. A card may only belong to one\nproject column at a time. The column field will be null if the card is created\nin a pending state and has yet to be associated with a column. Once cards are\nassociated with a column, they will not become pending in the future.</p>",
+          "type": "ProjectColumn",
+          "id": "projectcolumn",
+          "href": "/graphql/reference/projects-classic#object-projectcolumn",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "content",
+          "description": "<p>The card content item.</p>",
+          "type": "ProjectCardItem",
+          "id": "projectcarditem",
+          "href": "/graphql/reference/projects-classic#union-projectcarditem",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "creator",
+          "description": "<p>The actor who created this card.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ProjectCard object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "isArchived",
+          "description": "<p>Whether the card is archived.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "note",
+          "description": "<p>The card note.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "project",
+          "description": "<p>The project that contains this card.</p>",
+          "type": "Project!",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this card.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of ProjectCard.</p>",
+          "type": "ProjectCardState",
+          "id": "projectcardstate",
+          "href": "/graphql/reference/projects-classic#enum-projectcardstate",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this card.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectCardConnection",
+      "id": "projectcardconnection",
+      "href": "/graphql/reference/projects-classic#object-projectcardconnection",
+      "description": "<p>The connection type for ProjectCard.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectCardEdge]",
+          "id": "projectcardedge",
+          "href": "/graphql/reference/projects-classic#object-projectcardedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectCard]",
+          "id": "projectcard",
+          "href": "/graphql/reference/projects-classic#object-projectcard"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectCardEdge",
+      "id": "projectcardedge",
+      "href": "/graphql/reference/projects-classic#object-projectcardedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectCard",
+          "id": "projectcard",
+          "href": "/graphql/reference/projects-classic#object-projectcard"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectColumn",
+      "id": "projectcolumn",
+      "href": "/graphql/reference/projects-classic#object-projectcolumn",
+      "description": "<p>A column inside a project.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "cards",
+          "description": "<p>List of cards in the column.</p>",
+          "type": "ProjectCardConnection!",
+          "id": "projectcardconnection",
+          "href": "/graphql/reference/projects-classic#object-projectcardconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "archivedStates",
+              "description": "<p>A list of archived states to filter the cards by.</p>",
+              "type": {
+                "name": "[ProjectCardArchivedState]",
+                "id": "projectcardarchivedstate",
+                "href": "/graphql/reference/projects-classic#enum-projectcardarchivedstate"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ProjectColumn object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "name",
+          "description": "<p>The project column's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "project",
+          "description": "<p>The project that contains this column.</p>",
+          "type": "Project!",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "purpose",
+          "description": "<p>The semantic purpose of the column.</p>",
+          "type": "ProjectColumnPurpose",
+          "id": "projectcolumnpurpose",
+          "href": "/graphql/reference/projects-classic#enum-projectcolumnpurpose",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this project column.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this project column.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectColumnConnection",
+      "id": "projectcolumnconnection",
+      "href": "/graphql/reference/projects-classic#object-projectcolumnconnection",
+      "description": "<p>The connection type for ProjectColumn.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectColumnEdge]",
+          "id": "projectcolumnedge",
+          "href": "/graphql/reference/projects-classic#object-projectcolumnedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectColumn]",
+          "id": "projectcolumn",
+          "href": "/graphql/reference/projects-classic#object-projectcolumn"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectColumnEdge",
+      "id": "projectcolumnedge",
+      "href": "/graphql/reference/projects-classic#object-projectcolumnedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectColumn",
+          "id": "projectcolumn",
+          "href": "/graphql/reference/projects-classic#object-projectcolumn"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectConnection",
+      "id": "projectconnection",
+      "href": "/graphql/reference/projects-classic#object-projectconnection",
+      "description": "<p>A list of projects associated with the owner.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectEdge]",
+          "id": "projectedge",
+          "href": "/graphql/reference/projects-classic#object-projectedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Project]",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectEdge",
+      "id": "projectedge",
+      "href": "/graphql/reference/projects-classic#object-projectedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectProgress",
+      "id": "projectprogress",
+      "href": "/graphql/reference/projects-classic#object-projectprogress",
+      "description": "<p>Project progress stats.</p>",
+      "fields": [
+        {
+          "name": "doneCount",
+          "description": "<p>The number of done cards.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "donePercentage",
+          "description": "<p>The percentage of done cards.</p>",
+          "type": "Float!",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "enabled",
+          "description": "<p>Whether progress tracking is enabled and cards with purpose exist for this project.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "inProgressCount",
+          "description": "<p>The number of in-progress cards.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "inProgressPercentage",
+          "description": "<p>The percentage of in-progress cards.</p>",
+          "type": "Float!",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "todoCount",
+          "description": "<p>The number of to do cards.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "todoPercentage",
+          "description": "<p>The percentage of to do cards.</p>",
+          "type": "Float!",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "RemovedFromProjectEvent",
+      "id": "removedfromprojectevent",
+      "href": "/graphql/reference/projects-classic#object-removedfromprojectevent",
+      "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the RemovedFromProjectEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "projectColumnName",
+          "description": "<p>Column name referenced by this project event.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "ProjectOwner",
+      "id": "projectowner",
+      "href": "/graphql/reference/projects-classic#interface-projectowner",
+      "description": "<p>Represents an owner of a Project.</p>",
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ProjectOwner object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "project",
+          "description": "<p>Find project by number.</p>",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The project number to find.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "projects",
+          "description": "<p>A list of projects under the owner.</p>",
+          "type": "ProjectConnection!",
+          "id": "projectconnection",
+          "href": "/graphql/reference/projects-classic#object-projectconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for projects returned from the connection.</p>",
+              "type": {
+                "name": "ProjectOrder",
+                "id": "projectorder",
+                "href": "/graphql/reference/projects-classic#input-object-projectorder"
+              }
+            },
+            {
+              "name": "search",
+              "description": "<p>Query to search projects by, currently only searching by name.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "states",
+              "description": "<p>A list of states to filter the projects by.</p>",
+              "type": {
+                "name": "[ProjectState!]",
+                "id": "projectstate",
+                "href": "/graphql/reference/projects-classic#enum-projectstate"
+              }
+            }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "projectsResourcePath",
+          "description": "<p>The HTTP path listing owners projects.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "projectsUrl",
+          "description": "<p>The HTTP URL listing owners projects.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "viewerCanCreateProjects",
+          "description": "<p>Can the current viewer create new projects on this owner.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    }
+  ],
+  "enums": [
+    {
+      "name": "ProjectCardArchivedState",
+      "id": "projectcardarchivedstate",
+      "href": "/graphql/reference/projects-classic#enum-projectcardarchivedstate",
+      "description": "<p>The possible archived states of a project card.</p>",
+      "values": [
+        {
+          "name": "ARCHIVED",
+          "description": "<p>A project card that is archived.</p>"
+        },
+        {
+          "name": "NOT_ARCHIVED",
+          "description": "<p>A project card that is not archived.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectCardState",
+      "id": "projectcardstate",
+      "href": "/graphql/reference/projects-classic#enum-projectcardstate",
+      "description": "<p>Various content states of a ProjectCard.</p>",
+      "values": [
+        {
+          "name": "CONTENT_ONLY",
+          "description": "<p>The card has content only.</p>"
+        },
+        {
+          "name": "NOTE_ONLY",
+          "description": "<p>The card has a note only.</p>"
+        },
+        {
+          "name": "REDACTED",
+          "description": "<p>The card is redacted.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectColumnPurpose",
+      "id": "projectcolumnpurpose",
+      "href": "/graphql/reference/projects-classic#enum-projectcolumnpurpose",
+      "description": "<p>The semantic purpose of the column - todo, in progress, or done.</p>",
+      "values": [
+        {
+          "name": "DONE",
+          "description": "<p>The column contains cards which are complete.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The column contains cards which are currently being worked on.</p>"
+        },
+        {
+          "name": "TODO",
+          "description": "<p>The column contains cards still to be worked on.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectOrderField",
+      "id": "projectorderfield",
+      "href": "/graphql/reference/projects-classic#enum-projectorderfield",
+      "description": "<p>Properties by which project connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order projects by creation time.</p>"
+        },
+        {
+          "name": "NAME",
+          "description": "<p>Order projects by name.</p>"
+        },
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>Order projects by update time.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectState",
+      "id": "projectstate",
+      "href": "/graphql/reference/projects-classic#enum-projectstate",
+      "description": "<p>State of the project; either<code>open</code>or 'closed'.</p>",
+      "values": [
+        {
+          "name": "CLOSED",
+          "description": "<p>The project is closed.</p>"
+        },
+        {
+          "name": "OPEN",
+          "description": "<p>The project is open.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectTemplate",
+      "id": "projecttemplate",
+      "href": "/graphql/reference/projects-classic#enum-projecttemplate",
+      "description": "<p>GitHub-provided templates for Projects.</p>",
+      "values": [
+        {
+          "name": "AUTOMATED_KANBAN_V2",
+          "description": "<p>Create a board with v2 triggers to automatically move cards across To do, In progress and Done columns.</p>"
+        },
+        {
+          "name": "AUTOMATED_REVIEWS_KANBAN",
+          "description": "<p>Create a board with triggers to automatically move cards across columns with review automation.</p>"
+        },
+        {
+          "name": "BASIC_KANBAN",
+          "description": "<p>Create a board with columns for To do, In progress and Done.</p>"
+        },
+        {
+          "name": "BUG_TRIAGE",
+          "description": "<p>Create a board to triage and prioritize bugs with To do, priority, and Done columns.</p>"
+        }
+      ],
+      "category": "projects-classic"
+    }
+  ],
+  "unions": [
+    {
+      "name": "ProjectCardItem",
+      "id": "projectcarditem",
+      "href": "/graphql/reference/projects-classic#union-projectcarditem",
+      "description": "<p>Types that can be inside Project Cards.</p>",
+      "possibleTypes": [
+        {
+          "name": "Issue",
+          "id": "issue",
+          "href": "/graphql/reference/issues#object-issue"
+        },
+        {
+          "name": "PullRequest",
+          "id": "pullrequest",
+          "href": "/graphql/reference/pulls#object-pullrequest"
+        }
+      ],
+      "category": "projects-classic"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "AddProjectCardInput",
+      "id": "addprojectcardinput",
+      "href": "/graphql/reference/projects-classic#input-object-addprojectcardinput",
+      "description": "<p>Autogenerated input type of AddProjectCard.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "contentId",
+          "description": "<p>The content of the card. Must be a member of the ProjectCardItem union.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "note",
+          "description": "<p>The note on the card.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectColumnId",
+          "description": "<p>The Node ID of the ProjectColumn.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "AddProjectColumnInput",
+      "id": "addprojectcolumninput",
+      "href": "/graphql/reference/projects-classic#input-object-addprojectcolumninput",
+      "description": "<p>Autogenerated input type of AddProjectColumn.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the column.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The Node ID of the project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "CloneProjectInput",
+      "id": "cloneprojectinput",
+      "href": "/graphql/reference/projects-classic#input-object-cloneprojectinput",
+      "description": "<p>Autogenerated input type of CloneProject.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The description of the project.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "includeWorkflows",
+          "description": "<p>Whether or not to clone the source project's workflows.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the project.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "public",
+          "description": "<p>The visibility of the project, defaults to false (private).</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "sourceId",
+          "description": "<p>The source project to clone.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "targetOwnerId",
+          "description": "<p>The owner ID to create the project under.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ConvertProjectCardNoteToIssueInput",
+      "id": "convertprojectcardnotetoissueinput",
+      "href": "/graphql/reference/projects-classic#input-object-convertprojectcardnotetoissueinput",
+      "description": "<p>Autogenerated input type of ConvertProjectCardNoteToIssue.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the newly created issue.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectCardId",
+          "description": "<p>The ProjectCard ID to convert.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository to create the issue in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "title",
+          "description": "<p>The title of the newly created issue. Defaults to the card's note text.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "CreateProjectInput",
+      "id": "createprojectinput",
+      "href": "/graphql/reference/projects-classic#input-object-createprojectinput",
+      "description": "<p>Autogenerated input type of CreateProject.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The description of project.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of project.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The owner ID to create the project under.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryIds",
+          "description": "<p>A list of repository IDs to create as linked repositories for the project.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "template",
+          "description": "<p>The name of the GitHub-provided template.</p>",
+          "type": "ProjectTemplate",
+          "id": "projecttemplate",
+          "href": "/graphql/reference/projects-classic#enum-projecttemplate"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "DeleteProjectCardInput",
+      "id": "deleteprojectcardinput",
+      "href": "/graphql/reference/projects-classic#input-object-deleteprojectcardinput",
+      "description": "<p>Autogenerated input type of DeleteProjectCard.</p>",
+      "inputFields": [
+        {
+          "name": "cardId",
+          "description": "<p>The id of the card to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "DeleteProjectColumnInput",
+      "id": "deleteprojectcolumninput",
+      "href": "/graphql/reference/projects-classic#input-object-deleteprojectcolumninput",
+      "description": "<p>Autogenerated input type of DeleteProjectColumn.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "columnId",
+          "description": "<p>The id of the column to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "DeleteProjectInput",
+      "id": "deleteprojectinput",
+      "href": "/graphql/reference/projects-classic#input-object-deleteprojectinput",
+      "description": "<p>Autogenerated input type of DeleteProject.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The Project ID to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "LinkRepositoryToProjectInput",
+      "id": "linkrepositorytoprojectinput",
+      "href": "/graphql/reference/projects-classic#input-object-linkrepositorytoprojectinput",
+      "description": "<p>Autogenerated input type of LinkRepositoryToProject.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project to link to a Repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the Repository to link to a Project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "MoveProjectCardInput",
+      "id": "moveprojectcardinput",
+      "href": "/graphql/reference/projects-classic#input-object-moveprojectcardinput",
+      "description": "<p>Autogenerated input type of MoveProjectCard.</p>",
+      "inputFields": [
+        {
+          "name": "afterCardId",
+          "description": "<p>Place the new card after the card with this id. Pass null to place it at the top.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "cardId",
+          "description": "<p>The id of the card to move.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "columnId",
+          "description": "<p>The id of the column to move it into.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "MoveProjectColumnInput",
+      "id": "moveprojectcolumninput",
+      "href": "/graphql/reference/projects-classic#input-object-moveprojectcolumninput",
+      "description": "<p>Autogenerated input type of MoveProjectColumn.</p>",
+      "inputFields": [
+        {
+          "name": "afterColumnId",
+          "description": "<p>Place the new column after the column with this id. Pass null to place it at the front.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "columnId",
+          "description": "<p>The id of the column to move.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectCardImport",
+      "id": "projectcardimport",
+      "href": "/graphql/reference/projects-classic#input-object-projectcardimport",
+      "description": "<p>An issue or PR and its owning repository to be used in a project card.</p>",
+      "inputFields": [
+        {
+          "name": "number",
+          "description": "<p>The issue or pull request number.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "repository",
+          "description": "<p>Repository name with owner (owner/repository).</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectColumnImport",
+      "id": "projectcolumnimport",
+      "href": "/graphql/reference/projects-classic#input-object-projectcolumnimport",
+      "description": "<p>A project column and a list of its issues and PRs.</p>",
+      "inputFields": [
+        {
+          "name": "columnName",
+          "description": "<p>The name of the column.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "issues",
+          "description": "<p>A list of issues and pull requests in the column.</p>",
+          "type": "[ProjectCardImport!]",
+          "id": "projectcardimport",
+          "href": "/graphql/reference/projects-classic#input-object-projectcardimport"
+        },
+        {
+          "name": "position",
+          "description": "<p>The position of the column, starting from 0.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "ProjectOrder",
+      "id": "projectorder",
+      "href": "/graphql/reference/projects-classic#input-object-projectorder",
+      "description": "<p>Ways in which lists of projects can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order projects by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order projects by.</p>",
+          "type": "ProjectOrderField!",
+          "id": "projectorderfield",
+          "href": "/graphql/reference/projects-classic#enum-projectorderfield"
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "UnlinkRepositoryFromProjectInput",
+      "id": "unlinkrepositoryfromprojectinput",
+      "href": "/graphql/reference/projects-classic#input-object-unlinkrepositoryfromprojectinput",
+      "description": "<p>Autogenerated input type of UnlinkRepositoryFromProject.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project linked to the Repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the Repository linked to the Project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "UpdateProjectCardInput",
+      "id": "updateprojectcardinput",
+      "href": "/graphql/reference/projects-classic#input-object-updateprojectcardinput",
+      "description": "<p>Autogenerated input type of UpdateProjectCard.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isArchived",
+          "description": "<p>Whether or not the ProjectCard should be archived.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "note",
+          "description": "<p>The note of ProjectCard.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectCardId",
+          "description": "<p>The ProjectCard ID to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "UpdateProjectColumnInput",
+      "id": "updateprojectcolumninput",
+      "href": "/graphql/reference/projects-classic#input-object-updateprojectcolumninput",
+      "description": "<p>Autogenerated input type of UpdateProjectColumn.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of project column.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectColumnId",
+          "description": "<p>The ProjectColumn ID to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "projects-classic"
+    },
+    {
+      "name": "UpdateProjectInput",
+      "id": "updateprojectinput",
+      "href": "/graphql/reference/projects-classic#input-object-updateprojectinput",
+      "description": "<p>Autogenerated input type of UpdateProject.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The description of project.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of project.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The Project ID to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "public",
+          "description": "<p>Whether the project is public or not.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "state",
+          "description": "<p>Whether the project is open or closed.</p>",
+          "type": "ProjectState",
+          "id": "projectstate",
+          "href": "/graphql/reference/projects-classic#enum-projectstate"
+        }
+      ],
+      "category": "projects-classic"
+    }
+  ]
+}

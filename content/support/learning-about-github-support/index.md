@@ -6,13 +6,14 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 redirect_from:
   - /enterprise/admin/enterprise-support/overview
   - /admin/enterprise-support/overview
 children:
   - about-github-support
   - about-github-premium-support
+  - about-github-special-events-support
+  - about-copilot-in-github-support
   - about-ticket-priority
   - github-marketplace-support
 ---

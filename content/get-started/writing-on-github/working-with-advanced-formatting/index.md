@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /organizing-information-with-tables
@@ -17,7 +16,7 @@ children:
   - /writing-mathematical-expressions
   - /autolinked-references-and-urls
   - /attaching-files
-  - /about-task-lists
+  - /about-tasklists
   - /creating-a-permanent-link-to-a-code-snippet
   - /using-keywords-in-issues-and-pull-requests
 shortTitle: Work with advanced formatting

@@ -25,5 +25,4 @@ jobs:
             datacenter: "site-a"
           - site: "staging"
             datacenter: "site-b"
-
 ```

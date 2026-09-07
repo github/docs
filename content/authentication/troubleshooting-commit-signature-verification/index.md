@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting commit signature verification
-intro: 'You may need to troubleshoot unexpected issues that arise when signing commits locally for verification on {% data variables.product.product_name %}.'
+intro: 'You may need to troubleshoot unexpected issues that arise when signing commits locally for verification on {% data variables.product.github %}.'
 redirect_from:
   - /articles/troubleshooting-gpg
   - /articles/troubleshooting-commit-signature-verification
@@ -8,14 +8,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 children:
   - /checking-your-commit-and-tag-signature-verification-status
   - /using-a-verified-email-address-in-your-gpg-key
 shortTitle: Troubleshoot verification
 ---
-

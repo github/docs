@@ -1,0 +1,188 @@
+// [start-readme]
+//
+// This script adds and removes placeholder data files in the
+// automation pipelines data directories and
+// data/release-notes/enterprise-server directories. This script
+// uses the supported and deprecated versions to determine what
+// directories should exist. This script also modifies the `api-versions`
+// key if it exists in a pipeline's lib/config.json file.
+//
+// [end-readme]
+
+import { existsSync } from 'fs'
+import { readFile, readdir, writeFile, cp } from 'fs/promises'
+import { rimrafSync } from 'rimraf'
+import { difference, intersection } from 'lodash-es'
+import { mkdirp } from 'mkdirp'
+
+import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
+
+const [currentReleaseNumber, previousReleaseNumber] = supported
+const pipelines = JSON.parse(await readFile('src/automated-pipelines/lib/config.json', 'utf-8'))[
+  'automation-pipelines'
+]
+
+// If the config file for a pipeline includes `api-versions` update that list
+// based on the supported and deprecated releases.
+export async function updateAutomatedConfigFiles() {
+  for (const pipeline of pipelines) {
+    const configFilepath = `src/${pipeline}/lib/config.json`
+    const configData = JSON.parse(await readFile(configFilepath, 'utf-8'))
+    const apiVersions = configData['api-versions']
+    if (!apiVersions) continue
+    for (const key of Object.keys(apiVersions)) {
+      // Copy the previous release's calendar date versions to the new release
+      if (key.endsWith(previousReleaseNumber)) {
+        const newKey = key.replace(previousReleaseNumber, currentReleaseNumber)
+        apiVersions[newKey] = apiVersions[key]
+      }
+      // Remove any deprecated versions
+      for (const deprecatedRelease of deprecated) {
+        if (key.endsWith(deprecatedRelease)) {
+          delete apiVersions[key]
+        }
+      }
+    }
+    const newConfigData = Object.assign({}, configData)
+    newConfigData['api-versions'] = apiVersions
+    await writeFile(configFilepath, JSON.stringify(newConfigData, null, 2))
+  }
+  await updateAutomatedPipelines()
+}
+
+export async function updateAutomatedPipelines() {
+  // The allVersions object uses the 'api-versions' data stored in the
+  // src/rest/lib/config.json file. We want to update 'api-versions'
+  // before the allVersions object is created so we need to import it
+  // after calling updateAutomatedConfigFiles.
+  const { allVersions } = await import('@/versions/lib/all-versions')
+
+  // Gets all of the base names (e.g., ghes-) in the allVersions object
+  // Currently, this is only ghes- but if we had more than one type of
+  // numbered release it would get all of them.
+  const numberedReleaseBaseNames = Array.from(
+    new Set(
+      Object.values(allVersions)
+        .filter((version) => version.hasNumberedReleases)
+        .map((version) => version.openApiBaseName),
+    ),
+  )
+
+  // A list of currently supported versions (calendar date inclusive)
+  // in the format using the short name rather than full format
+  // (e.g., enterprise-server@). The list is filtered
+  // to only include versions that have numbered releases (e.g. ghes-).
+  // The list is generated from the `apiVersions` key in allVersions.
+  // This is currently only needed for the rest and github-apps pipelines.
+  const versionNamesCalDate = Object.values(allVersions)
+    .filter((version) => version.hasNumberedReleases)
+    .map((version) =>
+      version.apiVersions.length
+        ? version.apiVersions.map((apiVersion) => `${version.openApiVersionName}-${apiVersion}`)
+        : version.openApiVersionName,
+    )
+    .flat()
+  // A list of currently supported versions in the format using the short name
+  // rather than the full format (e.g., enterprise-server@). The list is filtered
+  // to only include versions that have numbered releases (e.g. ghes-).
+  // Currently, this is used for the graphql and webhooks pipelines.
+  const versionNames = Object.values(allVersions)
+    .filter((version) => version.hasNumberedReleases)
+    .map((version) => version.openApiVersionName)
+
+  for (const pipeline of pipelines) {
+    // secret-scanning has a different directory structure than the others
+    const directoryWithReleases =
+      pipeline === 'secret-scanning'
+        ? 'src/secret-scanning/data/pattern-docs'
+        : `src/${pipeline}/data`
+    if (!existsSync(directoryWithReleases)) continue
+
+    const isCalendarDateVersioned = JSON.parse(
+      await readFile(`src/${pipeline}/lib/config.json`, 'utf-8'),
+    )['api-versions']
+
+    const directoryListing = await readdir(directoryWithReleases)
+    // filter the directory list to only include directories that start with
+    // basenames with numbered releases (e.g., ghes-).
+    const existingDataDir = directoryListing.filter((directory) =>
+      numberedReleaseBaseNames.some((basename) => directory.startsWith(basename)),
+    )
+
+    if (!existingDataDir.length) {
+      throw new Error(`Cannot find ghes- release directories in ${directoryWithReleases}.`)
+    }
+
+    const expectedDirectory = isCalendarDateVersioned ? versionNamesCalDate : versionNames
+
+    // Get a list of data directories to remove (deprecate) and remove them
+    // This should only happen if a release is being deprecated.
+    const removeFiles = difference(existingDataDir, expectedDirectory)
+    for (const directory of removeFiles) {
+      console.log(`Removing src/${pipeline}/data/${directory}`)
+      rimrafSync(`src/${pipeline}/data/${directory}`)
+    }
+
+    // Get a list of data directories to create (release) and create them
+    // This should only happen if a release is being added.
+    const addFiles = difference(expectedDirectory, existingDataDir)
+
+    // Verify all new directories belong to the current release
+    for (const dir of addFiles) {
+      if (!dir.includes(currentReleaseNumber)) {
+        throw new Error(
+          `Unexpected directory to add: ${dir}. Only directories for the current release ` +
+            `(${currentReleaseNumber}) should be added. Check that the lib/enterprise-server-releases.ts is correct.`,
+        )
+      }
+    }
+
+    for (const base of numberedReleaseBaseNames) {
+      // Find ALL directories to add for this base name (may be multiple
+      // when a release has more than one calendar-date version).
+      const dirsToAdd = addFiles.filter((item) => item.startsWith(base))
+      for (const dirToAdd of dirsToAdd) {
+        // Derive the previous release's corresponding directory by replacing
+        // the current release number with the previous one. This correctly
+        // maps each calendar-date variant to its predecessor, e.g.:
+        //   ghes-3.20-2022-11-28 → ghes-3.19-2022-11-28
+        //   ghes-3.20-2026-03-10 → ghes-3.19-2026-03-10
+        const previousDirName = dirToAdd.replace(currentReleaseNumber, previousReleaseNumber)
+        if (!existingDataDir.includes(previousDirName)) {
+          throw new Error(
+            `Cannot find previous release directory '${previousDirName}' to copy from ` +
+              `when creating '${dirToAdd}' in src/${pipeline}/data/.`,
+          )
+        }
+
+        console.log(
+          `Copying src/${pipeline}/data/${previousDirName} to src/${pipeline}/data/${dirToAdd}`,
+        )
+        await cp(`src/${pipeline}/data/${previousDirName}`, `src/${pipeline}/data/${dirToAdd}`, {
+          recursive: true,
+        })
+      }
+    }
+  }
+
+  // Add and remove the GHES release note data. Once we create an automation
+  // pipeline for release notes, we can remove this because it will use the
+  // same directory structure as the other pipeline data directories.
+  const ghesReleaseNotesDirs = await readdir('data/release-notes/enterprise-server')
+  const supportedHyphenated = supported.map((version) => version.replace('.', '-'))
+  const deprecatedHyphenated = deprecated.map((version) => version.replace('.', '-'))
+  const addRelNoteDirs = difference(supportedHyphenated, ghesReleaseNotesDirs)
+  const removeRelNoteDirs = intersection(deprecatedHyphenated, ghesReleaseNotesDirs)
+  for (const directory of removeRelNoteDirs) {
+    console.log(`Removing data/release-notes/enterprise-server/${directory}`)
+    rimrafSync(`data/release-notes/enterprise-server/${directory}`)
+  }
+  for (const directory of addRelNoteDirs) {
+    console.log(`Create new directory data/release-notes/enterprise-server/${directory}`)
+    await mkdirp(`data/release-notes/enterprise-server/${directory}`)
+    await cp(
+      `data/release-notes/PLACEHOLDER-TEMPLATE.yml`,
+      `data/release-notes/enterprise-server/${directory}/PLACEHOLDER.yml`,
+    )
+  }
+}

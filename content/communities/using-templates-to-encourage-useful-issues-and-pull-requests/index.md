@@ -10,17 +10,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Community
 children:
   - /about-issue-and-pull-request-templates
   - /configuring-issue-templates-for-your-repository
   - /syntax-for-issue-forms
   - /syntax-for-githubs-form-schema
   - /creating-a-pull-request-template-for-your-repository
-  - /manually-creating-a-single-issue-template-for-your-repository
   - /common-validation-errors-when-creating-issue-forms
 ---
 

@@ -1,0 +1,253 @@
+{
+  "default": {
+    "commits": [
+      {
+        "type": "array of strings",
+        "name": "added",
+        "description": "<p>An array of files added in the commit. A maximum of 3000 changed files will be reported per commit.</p>"
+      },
+      {
+        "type": "object",
+        "name": "author",
+        "description": "<p>Metaproperties for Git author/committer information.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "date",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The git author's name.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "username",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "committer",
+        "description": "<p>Metaproperties for Git author/committer information.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "date",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The git author's name.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "username",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "type": "boolean",
+        "name": "distinct",
+        "description": "<p>Whether this commit is distinct from any that have been pushed before.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "message",
+        "description": "<p>The commit message.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "array of strings",
+        "name": "modified",
+        "description": "<p>An array of files modified by the commit. A maximum of 3000 changed files will be reported per commit.</p>"
+      },
+      {
+        "type": "array of strings",
+        "name": "removed",
+        "description": "<p>An array of files removed in the commit. A maximum of 3000 changed files will be reported per commit.</p>"
+      },
+      {
+        "type": "string",
+        "name": "timestamp",
+        "description": "<p>The ISO 8601 timestamp of the commit.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "tree_id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "<p>URL that points to the commit API resource.</p>",
+        "isRequired": true
+      }
+    ],
+    "head_commit": [
+      {
+        "type": "array of strings",
+        "name": "added",
+        "description": "<p>An array of files added in the commit.</p>"
+      },
+      {
+        "type": "object",
+        "name": "author",
+        "description": "<p>Metaproperties for Git author/committer information.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "date",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The git author's name.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "username",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "committer",
+        "description": "<p>Metaproperties for Git author/committer information.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "date",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The git author's name.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "username",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "type": "boolean",
+        "name": "distinct",
+        "description": "<p>Whether this commit is distinct from any that have been pushed before.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "message",
+        "description": "<p>The commit message.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "array of strings",
+        "name": "modified",
+        "description": "<p>An array of files modified by the commit.</p>"
+      },
+      {
+        "type": "array of strings",
+        "name": "removed",
+        "description": "<p>An array of files removed in the commit.</p>"
+      },
+      {
+        "type": "string",
+        "name": "timestamp",
+        "description": "<p>The ISO 8601 timestamp of the commit.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "tree_id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "<p>URL that points to the commit API resource.</p>",
+        "isRequired": true
+      }
+    ],
+    "pusher": [
+      {
+        "type": "string",
+        "name": "date",
+        "description": ""
+      },
+      {
+        "type": "string or null",
+        "name": "email",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": "<p>The git author's name.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "username",
+        "description": ""
+      }
+    ]
+  }
+}

@@ -2,20 +2,15 @@
 title: Privacy Policies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 children:
-  - /github-privacy-statement
-  - /global-privacy-practices
-  - /github-subprocessors-and-cookies
-  - /github-codespaces-privacy-statement
+  - /github-general-privacy-statement
+  - /github-subprocessors
+  - /github-cookies
   - /github-candidate-privacy-policy
-  - /github-copilot-for-business-privacy-statement
 redirect_from:
   - /github/site-policy/github-data-protection-addendum
   - /github/site-policy-deprecated/github-data-protection-addendum
   - /github/site-policy/github-data-protection-agreement-non-enterprise-customers
   - /site-policy/privacy-policies/github-data-protection-agreement
+  - /site-policy/privacy-policies/github-octernships-terms-of-service
 ---
-

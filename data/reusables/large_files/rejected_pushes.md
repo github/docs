@@ -1,1 +1,1 @@
-Users cannot push {% data variables.large_files.product_name_short %} assets to {% data variables.product.product_name %} if {% data variables.large_files.product_name_short %} is disabled on the enterprise or repository.
+Users cannot push {% data variables.large_files.product_name_short %} assets to {% data variables.product.github %} if {% data variables.large_files.product_name_short %} is disabled on the enterprise or repository.

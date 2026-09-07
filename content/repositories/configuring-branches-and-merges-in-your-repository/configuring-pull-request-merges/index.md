@@ -7,10 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Repositories
 children:
   - /about-merge-methods-on-github
   - /configuring-commit-merging-for-pull-requests

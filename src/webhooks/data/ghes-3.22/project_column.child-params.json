@@ -1,0 +1,245 @@
+{
+  "created": {
+    "project_column": [
+      {
+        "type": "integer or null",
+        "name": "after_id",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "cards_url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "created_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "<p>The unique identifier of the project column</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": "<p>Name of the project column</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "node_id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "project_url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "updated_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "",
+        "isRequired": true
+      }
+    ]
+  },
+  "deleted": {
+    "project_column": [
+      {
+        "type": "integer or null",
+        "name": "after_id",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "cards_url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "created_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "<p>The unique identifier of the project column</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": "<p>Name of the project column</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "node_id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "project_url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "updated_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "",
+        "isRequired": true
+      }
+    ]
+  },
+  "edited": {
+    "changes": [
+      {
+        "type": "object",
+        "name": "name",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "from",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      }
+    ],
+    "project_column": [
+      {
+        "type": "integer or null",
+        "name": "after_id",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "cards_url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "created_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "<p>The unique identifier of the project column</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": "<p>Name of the project column</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "node_id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "project_url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "updated_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "",
+        "isRequired": true
+      }
+    ]
+  },
+  "moved": {
+    "project_column": [
+      {
+        "type": "integer or null",
+        "name": "after_id",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "cards_url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "created_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "<p>The unique identifier of the project column</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": "<p>Name of the project column</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "node_id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "project_url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "updated_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": "",
+        "isRequired": true
+      }
+    ]
+  }
+}

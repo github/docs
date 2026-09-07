@@ -1,5 +1,5 @@
 # Issue 7874
-# npm NuGet Registry Improvements (v2) Public Beta
+# npm NuGet Registry Improvements (v2)
 versions:
   fpt: '*'
   ghec: '*'

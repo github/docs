@@ -1,2 +1,2 @@
-1. Click **Add a domain**.
-    ![Add a domain button](/assets/images/help/enterprises/add-a-domain-button.png)
+
+1. Next to "Verified & approved domains for your enterprise account", click **Add a domain**.

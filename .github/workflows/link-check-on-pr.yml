@@ -1,115 +1,68 @@
-name: 'Link Checker: On PR'
+name: 'Link Check: On PR'
 
-# **What it does**: Renders the content of every page and check all internal links on PR.
-# **Why we have it**: To make sure all links connect correctly on changed files.
+# **What it does**: Checks internal links in changed content files.
+# **Why we have it**: To catch broken links before they're merged.
 # **Who does it impact**: Docs content.
 
 on:
   workflow_dispatch:
-  merge_group:
-  push:
-    branches:
-      - main
+  # merge_group:
   pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: read
-  # TODO: Uncomment if we uncomment below
-  # Needed for the 'trilom/file-changes-action' action
-  # pull-requests: read
+  pull-requests: write
+  issues: write
 
-# This allows a subsequently queued workflow run to interrupt previous runs
+# Cancel in-progress runs for the same PR
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
 jobs:
   check-links:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    name: Check links
+    runs-on: ubuntu-latest
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-
-      - name: Setup node
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          node-version: '16.15.0'
-          cache: npm
+          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
+          fetch-depth: 2
 
-      - name: Install
-        run: npm ci --ignore-scripts
+      - uses: ./.github/actions/node-npm-setup
 
-      - name: Figure out which docs-early-access branch to checkout, if internal repo
+      - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
-        id: check-early-access
-        env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
-        run: node .github/actions-scripts/what-docs-early-access-branch.js
-
-      - name: Check out docs-early-access too, if internal repo
-        if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: docs-early-access
-          ref: ${{ steps.check-early-access.outputs.branch }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
-      - name: Merge docs-early-access repo's folders
-        if: ${{ github.repository == 'github/docs-internal' }}
-        run: .github/actions-scripts/merge-early-access.sh
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
+        with:
+          files: |
+            content/**/*.md
+            data/**/*.md
 
-      # TODO: When we want to fix redirects on changed files we can uncomment everything below
-      # Creates file "${{ env.HOME }}/files.json", among others
-      # - name: Gather files changed
-      #   if: github.event_name != 'merge_group'
-      #   id: file_changes
-      #   uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-      #   with:
-      #     fileOutput: 'json'
-
-      # For verification
-      # - name: Show files changed (debug)
-      #   if: github.event_name != 'merge_group'
-      #   run: cat $HOME/files.json
-
-      # - name: Link check changed pages (external links only)
-      #   if: github.event_name != 'merge_group'
-      #   id: changed_links
-      #   env:
-      #     LEVEL: 'warning'
-      #     FILES_CHANGED: ${{ steps.file_changes.outputs.files }}
-      #     ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-      #     GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
-      #     SHOULD_COMMENT: true
-      #     CREATE_REPORT: false
-      #   run: node .github/actions-scripts/rendered-content-link-checker.js
-
-      - name: Link check all pages (internal links only)
-        id: all_links
+      - name: Check links in changed files
+        if: steps.changed-files.outputs.any_changed == 'true'
         env:
-          LEVEL: 'critical'
+          FILES_CHANGED: ${{ steps.changed-files.outputs.all_changed_files }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
-          SHOULD_COMMENT: ${{ secrets.DOCS_BOT_FR != '' }}
-          CHECK_EXTERNAL_LINKS: false
-          CREATE_REPORT: false
-          # Not strictly necessary bit it makes warmServer() a bit faster
-          # because it only bothers with English to begin with, which
-          # we're filtering on anyway once the list of all pages has
-          # been loaded.
+          SHOULD_COMMENT: ${{ secrets.DOCS_BOT_PAT_BASE != '' }}
+          FAIL_ON_FLAW: true
+          # Cross-page anchor checking is on, but non-blocking during rollout: broken
+          # anchors are reported in the PR comment without failing the build. Flip
+          # FAIL_ON_ANCHOR_FLAW to true once false-positive/perf rates look clean.
+          CHECK_ANCHORS: true
+          FAIL_ON_ANCHOR_FLAW: false
           ENABLED_LANGUAGES: en
-        run: node .github/actions-scripts/rendered-content-link-checker.js
+        run: npm run check-links-pr
 
-      - name: Upload artifact(s)
-        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
-        with:
-          name: artifacts
-          path: ./artifacts
-
-      - name: Fail if either check has broken links in its level
-        if: ${{ steps.changed_links.outputs.has_flaws_at_level == 'true' || steps.all_links.outputs.has_flaws_at_level == 'true' }}
-        run: |
-          exit 1
+      - name: No content changes
+        if: steps.changed-files.outputs.any_changed != 'true'
+        run: echo "No content files changed. Skipping link check."

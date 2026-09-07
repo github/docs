@@ -8,12 +8,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Team profile picture
+category:
+  - Organize teams
 ---
 Unless you set a profile picture for a team, the team profile picture will match the organization's profile picture.
 
@@ -21,7 +19,5 @@ Unless you set a profile picture for a team, the team profile picture will match
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. Click **Upload new picture** and select your desired profile picture.
-![Upload new picture](/assets/images/help/teams/org-team-profile-picture-upload.png)
-6. Click and drag to crop the image as needed, then click **Set new team avatar**.
-![Set new team avatar](/assets/images/help/teams/org-team-set-new-team-avatar.png)
+1. Under "Profile picture", click **Upload new picture**, then select your desired profile picture.
+1. Click and drag to crop the image as needed, then click **Set new team avatar**.

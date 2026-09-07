@@ -1,0 +1,223 @@
+{
+  "renamed": {
+    "account": [
+      {
+        "type": "string or null",
+        "name": "archived_at",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "avatar_url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "created_at",
+        "description": ""
+      },
+      {
+        "type": "null",
+        "name": "description",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "events_url",
+        "description": ""
+      },
+      {
+        "type": "integer",
+        "name": "followers",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "followers_url",
+        "description": ""
+      },
+      {
+        "type": "integer",
+        "name": "following",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "following_url",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "gists_url",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "gravatar_id",
+        "description": ""
+      },
+      {
+        "type": "boolean",
+        "name": "has_organization_projects",
+        "description": ""
+      },
+      {
+        "type": "boolean",
+        "name": "has_repository_projects",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "hooks_url",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "html_url",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "boolean",
+        "name": "is_verified",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "issues_url",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "login",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "members_url",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "node_id",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "organizations_url",
+        "description": ""
+      },
+      {
+        "type": "integer",
+        "name": "public_gists",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "public_members_url",
+        "description": ""
+      },
+      {
+        "type": "integer",
+        "name": "public_repos",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "received_events_url",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "repos_url",
+        "description": ""
+      },
+      {
+        "type": "boolean",
+        "name": "site_admin",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "slug",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "starred_url",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "subscriptions_url",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "type",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "updated_at",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "url",
+        "description": ""
+      },
+      {
+        "type": "null",
+        "name": "website_url",
+        "description": ""
+      },
+      {
+        "type": "string",
+        "name": "user_view_type",
+        "description": ""
+      }
+    ],
+    "changes": [
+      {
+        "type": "object",
+        "name": "login",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "from",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "slug",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "from",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -11,9 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /converting-an-owners-team-to-improved-organization-permissions
   - /converting-an-admin-team-to-improved-organization-permissions

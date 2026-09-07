@@ -1,0 +1,5 @@
+# 16433
+# SCIM for GitHub Enterprise Server, GA
+
+versions:
+  ghes: '>=3.17'

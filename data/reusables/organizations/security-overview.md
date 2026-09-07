@@ -1,2 +1,1 @@
-1. Under your organization name, click {% octicon "shield" aria-label="The Security shield" %} **Security**.
-![Organization security button](/assets/images/help/organizations/organization-security-tab.png)
+1. Under your organization name, click the **{% data variables.product.prodname_security_and_quality_tab %}** tab.

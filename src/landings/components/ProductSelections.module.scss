@@ -1,0 +1,32 @@
+// "All Docs" section — bordered gridline layout mirroring the Docs 2026 design.
+// The container supplies the outer left/right rails; internal dividers are drawn
+// by each cell (left border, skipping the first column) and each row (bottom
+// border). There is deliberately no divider directly under the "All Docs"
+// heading.
+.section {
+  max-width: 82rem;
+  margin: 0 auto;
+  border-inline: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-muted);
+}
+
+.heading {
+  padding: 3rem 2rem 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 34rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 63.25rem) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 80rem) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

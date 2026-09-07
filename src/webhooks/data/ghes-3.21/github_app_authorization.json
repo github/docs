@@ -1,0 +1,30 @@
+{
+  "revoked": {
+    "descriptionHtml": "<p>Someone revoked their authorization of a GitHub App.</p>",
+    "summaryHtml": "<p>This event occurs when a user revokes their authorization of a GitHub App. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/developers/apps/getting-started-with-apps/about-apps#about-github-apps\">About apps</a>.\" For information about the API to manage GitHub Apps, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#app\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/apps\">Apps</a>\" in the REST API documentation.</p>\n<p>A GitHub App receives this webhook by default and cannot unsubscribe from this event.</p>\n<p>Anyone can revoke their authorization of a GitHub App from their <a href=\"https://github.com/settings/apps/authorizations\">GitHub account settings page</a>. Revoking the authorization of a GitHub App does not uninstall the GitHub App. You should program your GitHub App so that when it receives this webhook, it stops calling the API on behalf of the person who revoked the token. If your GitHub App continues to use a revoked access token, it will receive the <code>401 Bad Credentials</code> error. For details about requests with a user access token, which require GitHub App authorization, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user\">Authenticating with a GitHub App on behalf of a user</a>.\"</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "revoked"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "app"
+    ],
+    "action": "revoked",
+    "category": "github_app_authorization"
+  }
+}

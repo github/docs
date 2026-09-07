@@ -1,0 +1,68 @@
+import { Link } from '@/frame/components/Link'
+import type { TocItem } from '@/landings/types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
+
+type Props = {
+  items: Array<TocItem>
+  variant?: 'compact' | 'expanded'
+}
+export const TableOfContents = (props: Props) => {
+  const { items, variant = 'expanded' } = props
+
+  return (
+    <div data-testid="table-of-contents">
+      {variant === 'expanded' &&
+        items.map((item) => {
+          const { fullPath: href, title, intro } = item
+
+          return (
+            <div
+              key={href}
+              data-testid="expanded-item"
+              className="pt-4 pb-3 f4 d-list-item width-full list-style-none border-bottom"
+            >
+              <h2 className="py-1 h4">
+                <Link href={href} className="color-fg-accent">
+                  {title}
+                </Link>
+              </h2>
+              {intro && <RenderedHTML as="div" className="f4 color-fg-muted" html={intro} />}
+            </div>
+          )
+        })}
+
+      {variant === 'compact' && (
+        <ul role="list" className="list-style-none f4">
+          {items.map((item, index) => {
+            const { fullPath, title, childTocItems } = item
+            const filteredChildren = (childTocItems || []).filter(Boolean)
+            return (
+              <li key={fullPath} role="listitem" className="mb-2">
+                <Link href={fullPath} className="text-underline mb-2 d-block">
+                  {title}
+                  <span className="visually-hidden">
+                    , {index + 1} of {items.length}
+                  </span>
+                </Link>
+                {filteredChildren.length > 0 && (
+                  <ul role="list" className="pl-4 list-style-none">
+                    {filteredChildren.map((childItem, childIndex) => (
+                      <li key={childItem.fullPath} role="listitem" className="mb-2">
+                        <Link href={childItem.fullPath} className="text-underline">
+                          {childItem.title}
+                          <span className="visually-hidden">
+                            , {childIndex + 1} of {filteredChildren.length}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            )
+          })}
+        </ul>
+      )}
+    </div>
+  )
+}

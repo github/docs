@@ -1,106 +1,193 @@
+### Standard {% data variables.product.prodname_dotcom %}-hosted runners for public repositories
+
+For public repositories, jobs using the workflow labels shown in the table below will run with the associated specifications. {% data reusables.actions.single-cpu-runners %} Use of the standard {% data variables.product.prodname_dotcom %}-hosted runners is free and unlimited on public repositories.
+
 <table style="width:100%">
-<thead>
-  <tr>
-    <th style="width:35%"><b>Runner image</b></th>
-    <th style="width:25%"><b>YAML workflow label</b></th>
-    <th style="width:40%"><b>Notes</b></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Windows Server 2022
-</td>
-<td>
-<code>windows-latest</code> or <code>windows-2022</code>
-</td>
-<td>
-The <code>windows-latest</code> label currently uses the Windows Server 2022 runner image.
-</td>
-</tr>
-<tr>
-<td>
-Windows Server 2019
-</td>
-<td>
-<code>windows-2019</code>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Ubuntu 22.04
-</td>
-<td>
-<code>ubuntu-22.04</code>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Ubuntu 20.04
-</td>
-<td>
-<code>ubuntu-latest</code> or <code>ubuntu-20.04</code>
-</td>
-<td>
-The <code>ubuntu-latest</code> label is currently transitioning to the Ubuntu 22.04 runner image. During the transition, the label might refer to the runner image for either Ubuntu 20.04 or 22.04. For more information, see <a href="https://github.blog/changelog/2022-11-09-github-actions-ubuntu-latest-workflows-will-use-ubuntu-22-04/">this {% data variables.product.prodname_dotcom %} blog post</a>.
-</rd>
-</tr>
-<tr>
-<td>
-Ubuntu 18.04 <sup>[deprecated]</sup>
-</td>
-<td>
-<code>ubuntu-18.04</code>
-</td>
-<td>
-Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more information, see <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">this GitHub blog post</A>.
-</td>
-</tr>
-<tr>
-<td>
-macOS Monterey 12
-</td>
-<td>
-<code>macos-12</code>
-  </td>
-</tr>
-<tr>
-<td>
-macOS Big Sur 11
-</td>
-<td>
-<code>macos-latest</code> or <code>macos-11</code>
-</td>
-<td>
-The <code>macos-latest</code> label is currently transitioning to the macOS Monterey 12 runner image. During the transition, the label might refer to the runner image for either macOS 11 or 12. For more information, see <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">this {% data variables.product.prodname_dotcom %} blog post</a>.
-</td>
-</tr>
-<tr>
-<td>
-macOS Catalina 10.15 <sup>[deprecated]</sup>
-</td>
-<td>
-<code>macos-10.15</code>
-</td>
-<td>
-Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th scope="col"><b>Virtual machine / container</b></th>
+      <th scope="col"><b>Processor (CPU)</b></th>
+      <th scope="col"><b>Memory (RAM)</b></th>
+      <th scope="col"><b>Storage (SSD)</b></th>
+      <th scope="col"><b>Architecture</b></th>
+      <th scope="col"><b>Workflow label</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% data reusables.actions.single-cpu-table-row %}
+    <tr>
+      <td>Linux</td>
+      <td>4</td>
+      <td>16 GB</td>
+      <td>14 GB</td>
+      <td> x64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Readme.md">ubuntu-26.04</a></code> ({% data variables.release-phases.public_preview_caps %})
+      </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>4</td>
+      <td>16 GB</td>
+      <td>14 GB</td>
+      <td> x64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
+         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-VS2026-Readme.md">windows-2025-vs2026</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>Linux</td>
+      <td>4</td>
+      <td>16 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Arm64-Readme.md">ubuntu-24.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Arm64-Readme.md">ubuntu-22.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Arm64-Readme.md">ubuntu-26.04-arm</a></code> ({% data variables.release-phases.public_preview_caps %})
+      </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>4</td>
+      <td>16 GB</td>
+      <td>14 GB</td>
+      <td>arm64</td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-VS2026-Arm64-Readme.md">windows-11-vs2026-arm</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>macOS</td>
+      <td>4</td>
+      <td>14 GB</td>
+      <td>14 GB</td>
+      <td> Intel </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15-intel</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-Readme.md">macos-26-intel</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>macOS</td>
+      <td>3 (M1)</td>
+      <td>7 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md">macos-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-arm64-Readme.md">macos-14</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md">macos-15</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md">macos-26</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/xcode-27-arm64-Readme.md">xcode-27</a></code> ({% data variables.release-phases.public_preview_caps %})
+      </td>
+    </tr>
+  </tbody>
+
 </table>
 
-{% note %}
+### Standard {% data variables.product.prodname_dotcom %}-hosted runners for {% ifversion ghec %}internal and{% endif %} private repositories
 
-**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
+For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using the workflow labels shown in the table below will run on virtual machines with the associated specifications. These runners use your {% data variables.product.prodname_dotcom %} account's allotment of free minutes, and are then charged at the per minute rates. See [AUTOTITLE](/billing/reference/actions-runner-pricing).
 
-{% endnote %}
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th scope="col"><b>Virtual Machine</b></th>
+      <th scope="col"><b>Processor (CPU)</b></th>
+      <th scope="col"><b>Memory (RAM)</b></th>
+      <th scope="col"><b>Storage (SSD)</b></th>
+      <th scope="col"><b>Architecture</b></th>
+      <th scope="col"><b>Workflow label</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% data reusables.actions.single-cpu-table-row %}
+    <tr>
+      <td>Linux</td>
+      <td>2</td>
+      <td>8 GB</td>
+      <td>14 GB</td>
+      <td> x64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Readme.md">ubuntu-26.04</a></code> ({% data variables.release-phases.public_preview_caps %})
+      </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>2</td>
+      <td>8 GB</td>
+      <td>14 GB</td>
+      <td> x64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>Linux</td>
+      <td>2</td>
+      <td>8 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Arm64-Readme.md">ubuntu-24.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Arm64-Readme.md">ubuntu-22.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Arm64-Readme.md">ubuntu-26.04-arm</a></code> ({% data variables.release-phases.public_preview_caps %})
+      </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>2</td>
+      <td>8 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-VS2026-Readme.md">windows-11-vs2026-arm</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>macOS</td>
+      <td>4</td>
+      <td>14 GB</td>
+      <td>14 GB</td>
+      <td> Intel </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15-intel</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-Readme.md">macos-26-intel</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>macOS</td>
+      <td>3 (M1)</td>
+      <td>7 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md">macos-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-arm64-Readme.md">macos-14</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md">macos-15</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md">macos-26</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/xcode-27-arm64-Readme.md">xcode-27</a></code> ({% data variables.release-phases.public_preview_caps %})
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-{% warning %}
+{% ifversion ghec %}
 
-**Warning:** Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
+> [!NOTE] {% data reusables.actions.macos-unavailable-ghecom %}
 
-{% endwarning %}
+{% endif %}

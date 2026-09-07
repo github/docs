@@ -9,10 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Community
 children:
   - /about-community-management-and-moderation
   - /about-community-profiles-for-public-repositories

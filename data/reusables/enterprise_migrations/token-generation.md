@@ -1,1 +1,1 @@
-[Generate an access token](/enterprise/user/articles/creating-an-access-token-for-command-line-use/) with the `repo` and  `admin:org` scopes
+[Generate an access token](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) with the `repo` and `admin:org` scopes

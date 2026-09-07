@@ -1,3 +1,3 @@
 You can use team synchronization with supported IdPs.
-  - Azure AD
-  - Okta
+* Entra ID commercial tenants (Gov Cloud is not supported)
+* Okta

@@ -7,12 +7,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Organization dashboard
+category:
+  - Set up your organization
 ---
 
 ## Accessing your organization dashboard
@@ -29,23 +27,21 @@ In the "Recent activity" section of your news feed, you can quickly find and fol
 
 In the left sidebar of your dashboard, you can access your organization's top repositories you're active in.
 
-![List of repositories you're most active in from your organization](/assets/images/help/dashboard/repositories-from-organization-dashboard.png)
-
 ## Staying updated with activity from the organization
 
 In the "All activity" section of your news feed, you can view updates from other teams and repositories in your organization.
 
-The "All activity" section shows all recent activity in the organization, including activity in repositories you're not subscribed to and of people you're not following. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" and "[Following people](/articles/following-people)."
+The "All activity" section shows all recent activity in the organization, including activity in repositories you're not subscribed to and of people you're not following. For more information, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications) and [AUTOTITLE](/get-started/exploring-projects-on-github/following-people).
 
 For instance, the organization news feed shows updates when someone in the organization:
- - Creates a new branch.
- - Comments on an issue or pull request.
- - Submits a pull request review comment.
- - Forks a repository.
- - Creates a wiki page.
- - Pushes commits.{% ifversion fpt or ghes or ghec %}
- - Creates a public repository.{% endif %}
+* Creates a new branch.
+* Comments on an issue or pull request.
+* Submits a pull request review comment.
+* Forks a repository.
+* Creates a wiki page.
+* Pushes commits.
+* Creates a public repository.
 
 ## Further information
 
-- "[About your personal dashboard](/articles/about-your-personal-dashboard)"
+* [AUTOTITLE](/account-and-profile/get-started/personal-dashboard-quickstart)

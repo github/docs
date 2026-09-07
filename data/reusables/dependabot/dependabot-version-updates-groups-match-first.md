@@ -1,0 +1,1 @@
+{% data variables.product.prodname_dependabot %} creates groups in the order they appear in your `dependabot.yml` file. If a dependency update could belong to more than one group, it is only assigned to the first group it matches with.

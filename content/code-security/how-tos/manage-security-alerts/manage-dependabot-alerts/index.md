@@ -1,0 +1,16 @@
+---
+title: Manage Dependabot alerts
+shortTitle: Dependabot alerts
+intro: Learn how to view, manage, and resolve {% data variables.product.prodname_dependabot_alerts %} to keep your dependencies secure.
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+contentType: how-tos
+children:
+  - view-dependabot-alerts
+  - manage-malware-alerts
+  - managing-automatically-dismissed-alerts
+  - enable-delegated-alert-dismissal
+---
+

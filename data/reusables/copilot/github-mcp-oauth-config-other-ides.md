@@ -1,0 +1,10 @@
+```json copy
+{
+  "servers": {
+      "github": {
+          "type": "http",
+          "url": "https://api.githubcopilot.com/mcp/"
+      }
+  }
+}
+```

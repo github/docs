@@ -9,9 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /about-oauth-app-access-restrictions
   - /enabling-oauth-app-access-restrictions-for-your-organization

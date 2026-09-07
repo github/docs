@@ -1,0 +1,102 @@
+// Docs 2026 landing hero (Figma node 341:117125). A content column — brand
+// Heading + muted lede + a large Button group — with the right-anchored
+// isometric banner art on desktop. On mobile the art drops below the content as
+// a full-width band (matching the Figma mobile layout). The framing borders are
+// drawn by the wrapping LandingSection.
+.landingHero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  // Desktop: right-anchored banner art behind the content column. `auto 100%`
+  // scales it to the band's own (content-driven) height; pinned to the right
+  // border box so the right-side text gutter insets only the text, not the art.
+  background-size: auto 100%;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+}
+
+// Content column: heading + lede + actions. Only vertical padding here — the
+// horizontal inset comes from the wrapping LandingSection frame so the hero
+// content aligns with the other sections' headers/cards.
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-block: 2rem;
+  width: 100%;
+}
+
+// Brand `Heading size="2"` owns the type scale; this only adds an optical
+// max-width so long titles wrap before the edge.
+.heroHeading {
+  margin: 0;
+  max-width: 48rem;
+}
+
+// Wraps the RenderedHTML intro (kept as raw HTML rather than a Text `as="p"`,
+// which can't hold block-level intro markup). Brand `Text size="200" muted`
+// owns the type/color (16px, per Figma); this only bounds the line length.
+.heroDescription {
+  margin: 0;
+  max-width: 48rem;
+}
+
+// Slight top gap above the actions (Figma "buttons + text" spacing).
+.heroButtons {
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 865px) {
+  // Drop the right-anchored background art; show the image as a band instead.
+  .landingHero {
+    background-image: none !important;
+  }
+
+  .heroContent {
+    padding-block: 1.5rem;
+  }
+
+  // Stack the CTA buttons full-width (Figma mobile layout). Brand ButtonGroup
+  // renders a <section> laying children in a row; force a full-width column and
+  // make each Button fill it.
+  .heroButtons {
+    width: 100%;
+
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    a,
+    button {
+      width: 100%;
+    }
+  }
+}
+
+// Where the art IS shown, the intro can extend far enough right to overlap the
+// right-anchored isometric art (the heading is short enough that it never
+// does). Instead of reserving a right gutter that shrinks the text column, put
+// a frosted-glass panel behind the intro so it stays readable over the art —
+// matching the homepage hero treatment (HomePageHero.module.scss `.content`).
+// Guarded to >=866px because the art is hidden below that, so no panel is
+// needed on mobile.
+@media (min-width: 866px) {
+  .heroIntroScrim {
+    display: inline-block;
+    backdrop-filter: blur(1rem);
+    background-color: color-mix(
+      in srgb,
+      var(--color-canvas-default) 70%,
+      transparent
+    );
+    border-radius: var(--brand-borderRadius-medium, 0.75rem);
+    padding: 0.5rem 0.75rem;
+    margin: -0.5rem -0.75rem;
+  }
+}

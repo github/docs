@@ -11,10 +11,7 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Community
 children:
   - /about-wikis
   - /adding-or-editing-wiki-pages

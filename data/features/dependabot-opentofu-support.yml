@@ -1,0 +1,6 @@
+# Reference: #20650
+# OpenTofu support for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.19'

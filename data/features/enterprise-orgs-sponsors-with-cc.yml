@@ -1,0 +1,5 @@
+# Reference: #11645
+# GitHub Sponsors for organizations owned by self-serve enterprise accounts
+
+versions:
+  ghec: '*'

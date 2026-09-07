@@ -1,2 +1,3 @@
 1. In the **Repository** menu, click **Repository settings...**.
-![Repository settings menu option](/assets/images/help/desktop/repository-settings-win.png)
+
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the open "Repository" dropdown menu, "Repository Settings" is outlined in orange.](/assets/images/help/desktop/repository-settings-win.png)

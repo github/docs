@@ -1,0 +1,1 @@
+The `Dismiss low impact issues for development-scoped dependencies` rule is a {% data variables.product.company_short %} preset that auto-dismisses certain types of vulnerabilities that are found in npm dependencies used in development.

@@ -1,0 +1,6 @@
+# Reference: #15296
+# Docs for the ruleset update to allow skipping enforcement of status checks and workflows on new branches.
+
+versions:
+  ghec: '*'
+  ghes: '>=3.15'

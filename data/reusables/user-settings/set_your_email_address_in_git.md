@@ -1,1 +1,1 @@
-Set an email address in Git. You can use {% ifversion fpt or ghec %}your [{% data variables.product.product_name %}-provided `noreply` email address](/articles/setting-your-commit-email-address) or {% endif %}any email address.
+Set an email address in Git. You can use {% ifversion fpt or ghec %}your [{% data variables.product.github %}-provided `noreply` email address](/account-and-profile/reference/email-addresses-reference#your-noreply-email-address) or {% endif %}any email address.

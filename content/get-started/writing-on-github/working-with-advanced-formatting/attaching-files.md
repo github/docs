@@ -1,6 +1,7 @@
 ---
 title: Attaching files
 intro: You can convey information by attaching a variety of file types to your issues and pull requests.
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/file-attachments-on-issues-and-pull-requests
   - /articles/issue-attachments
@@ -10,52 +11,125 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Write and format content
 ---
 
-{% data reusables.repositories.anyone-can-view-anonymized-url %}
+> [!NOTE]
+> For public repositories, uploaded files can be accessed without authentication. In the case of private and internal repositories, only people with access to the repository can view the uploaded files.
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
+You can attach files to issues, pull requests, and comments in your browser.{% ifversion fpt or ghec %} You can also attach local images and videos from the command line with {% data variables.product.prodname_cli %}. For more information, see [AUTOTITLE](/github-cli/github-cli/attaching-files-with-github-cli).{% endif %}
 
-![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
+To attach a file in your browser, drag and drop it into the comment box.
+Alternatively, you can click {% octicon "paperclip" aria-label="Attach files" %} below the issue comment box to browse, select, and add a file from your computer.
 
-When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+![Screenshot of the issue comment box. The "Attach files" icon is outlined in orange.](/assets/images/help/issues/attach-file.png)
 
-{% tip %}
+For a pull request, you can also click {% octicon "paperclip" aria-label="Attach files" %} in the formatting bar above the pull request comment box.
 
-**Tip:** In many browsers, you can copy-and-paste images directly into the box.
+![Screenshot of the pull request comment box. The "Attach files" icon is outlined in orange.](/assets/images/help/pull_requests/attach-file.png)
 
-{% endtip %}
+When you attach a file, it is uploaded immediately to {% data variables.product.github %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-anonymized-urls).{% endif %}
+
+> [!NOTE]
+> In many browsers, you can copy-and-paste images directly into the box.
 
 The maximum file size is:
-- 10MB for images and gifs{% ifversion fpt or ghec %}
-- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
-- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif ghes %}
-- 100MB for videos{% endif %}
-- 25MB for all other files
 
-We support these files:
+* 10MB for images and gifs{% ifversion fpt or ghec %}
+* 10MB for videos uploaded to a repository owned by a user or organization on a free {% data variables.product.prodname_dotcom %} plan
+* 100MB for videos uploaded to a repository owned by a user or organization on a paid {% data variables.product.prodname_dotcom %} plan{% elsif ghes %}
+* 100MB for videos{% endif %}
+* 25MB for all other files
 
-* PNG (*.png*)
-* GIF (*.gif*)
-* JPEG (*.jpg*)
+> [!NOTE]
+> To upload videos greater than 10MB to a repository owned by a user or organization on a paid {% data variables.product.prodname_dotcom %} plan, you must either be an organization member or outside collaborator, or be on a paid plan.
+
+## Supported file types
+
+The following image and media file types are supported in all contexts.
+
+### Image and media files
+
+* PNG (`.png`)
+* GIF (`.gif`)
+* JPEG (`.jpg`, `.jpeg`)
 {%- ifversion svg-support %}
-* SVG (*.svg*)
+* SVG (`.svg`)
 {%- endif %}
-* Log files (*.log*)
-* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
-* Text files (*.txt*)
-* PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*, *.tgz*){% ifversion fpt or ghec or ghes %}
-* Video (*.mp4*, *.mov*, *.webm*){% endif %}
+* Video (`.mp4`, `.mov`, `.webm`)
 
-{% ifversion fpt or ghec or ghes %}{% note %}
+  > [!NOTE]
+  > Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using H.264 for greatest compatibility.
 
-**Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
+## Additional file types
 
-{% endnote %}{% endif %}
+The following file types are supported for uploads in issue comments, pull request comments, and discussion comments within repositories. This list of file types is also supported in organization discussions.
 
-![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
+### Documents
+
+* PDFs (`.pdf`)
+* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`{% ifversion fpt or ghec or ghes > 3.18 %}, `.xlsm`{% endif %})
+{%- ifversion fpt or ghec or ghes > 3.18 %}
+* OpenDocument formats (`.odt`, `.fodt`, `.ods`, `.fods`, `.odp`, `.fodp`, `.odg`, `.fodg`, `.odf`)
+* Rich text and word processing files (`.rtf`, `.doc`)
+{%- endif %}
+
+### Text and data files
+
+* Plain text and markup (`.txt`{% ifversion fpt or ghec or ghes > 3.18 %}, `.md`, `.copilotmd`{% endif %})
+* Data and tabular files (`.csv`,{% ifversion fpt or ghec or ghes > 3.18 %} `.tsv`,{% endif %} `.log`, `.json`, `.jsonc`)
+
+### Development and code files
+
+{%- ifversion fpt or ghec or ghes > 3.18 %}
+* C files (`.c`)
+* C# files (`.cs`)
+* C++ files (`.cpp`)
+* CSS files (`.css`)
+* Diagrams (`.drawio`)
+{%- endif %}
+* Dump files (`.dmp`)
+{%- ifversion fpt or ghec or ghes > 3.18 %}
+* HTML files (`.html`, `.htm`)
+* Java files (`.java`)
+* JavaScript files (`.js`)
+* Jupyter notebooks (`.ipynb`)
+{%- endif %}
+* Patch files (`.patch`)
+{%- ifversion fpt or ghec or ghes > 3.18 %}
+* PHP files (`.php`)
+{%- endif %}
+* Profiling files (`.cpuprofile`)
+{%- ifversion fpt or ghec or ghes > 3.18 %}
+* Program database files (`.pdb`)
+* Python files (`.py`)
+* Shell scripts (`.sh`)
+* SQL files (`.sql`)
+* TypeScript files (`.ts`, `.tsx`)
+* XML files (`.xml`)
+* YAML files (`.yaml`, `.yml`)
+{%- endif %}
+
+> [!NOTE]
+> If you use Linux and try to upload a `.patch` file, you will receive an error message. This is a known issue.
+
+### Archive and compressed files
+
+* Archives and packages (`.zip`, `.gz`, `.tgz`)
+
+{% ifversion fpt or ghec or ghes > 3.18 %}
+
+### Communication and logs
+
+* Text and email files (`.debug`, `.msg`, `.eml`)
+
+### Images
+
+* Bitmap and TIFF images (`.bmp`, `.tif`, `.tiff`)
+
+### Audio
+
+* Audio files (`.mp3`, `.wav`)
+{% endif %}

@@ -10,10 +10,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Pages
 children:
   - /about-github-pages-and-jekyll
   - /creating-a-github-pages-site-with-jekyll

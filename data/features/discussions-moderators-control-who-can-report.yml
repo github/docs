@@ -1,0 +1,5 @@
+# Issue #9162
+# Giving moderators more controls over who can report content and make changes in Discussions
+versions:
+  fpt: '*'
+  ghec: '*'

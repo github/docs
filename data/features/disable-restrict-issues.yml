@@ -1,0 +1,6 @@
+# Reference: TODO: add internal tracking issue number for restricting issues to collaborators
+# Disable/restrict issues for a repository
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.21'

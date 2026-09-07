@@ -1,5 +1,2 @@
-{% note %}
-
-**Note:** Issue forms are currently in beta for public repositories on {% data variables.product.prodname_dotcom_the_website %} only.
-
-{% endnote %}
+> [!NOTE]
+> Issue forms are currently in {% data variables.release-phases.public_preview %} and subject to change.

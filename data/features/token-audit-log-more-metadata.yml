@@ -1,0 +1,4 @@
+# Reference: #11368
+# Additional authentication metadata in enterprise and organization audit logs
+versions:
+  ghec: '*'

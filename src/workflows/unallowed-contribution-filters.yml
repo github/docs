@@ -1,0 +1,12 @@
+notAllowed:
+  - '*'
+  - '.devcontainer/**'
+  - '.github/**'
+  - 'data/reusables/rai/**'
+  - 'src/**'
+  - 'content/actions/how-tos/secure-your-work/security-harden-deployments/**'
+contentTypes:
+  - 'content/**'
+# allows getting a list of just added files from the dorny/paths-filter action
+added:
+  - added: 'content/**'

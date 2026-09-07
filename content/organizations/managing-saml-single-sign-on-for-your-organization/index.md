@@ -7,9 +7,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-saml-single-sign-on-for-your-organization
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /about-identity-and-access-management-with-saml-single-sign-on
   - /about-scim-for-organizations
@@ -20,6 +17,7 @@ children:
   - /enforcing-saml-single-sign-on-for-your-organization
   - /downloading-your-organizations-saml-single-sign-on-recovery-codes
   - /managing-team-synchronization-for-your-organization
+  - /disabling-saml-single-sign-on-for-your-organization
   - /accessing-your-organization-if-your-identity-provider-is-unavailable
   - /troubleshooting-identity-and-access-management-for-your-organization
 shortTitle: Manage SAML single sign-on

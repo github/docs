@@ -1,0 +1,615 @@
+{
+  "objects": [
+    {
+      "name": "Release",
+      "id": "release",
+      "href": "/graphql/reference/releases#object-release",
+      "description": "<p>A release contains the content for a release.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Reactable",
+          "id": "reactable",
+          "href": "/graphql/reference/reactions#interface-reactable"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "author",
+          "description": "<p>The author of the release.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description of the release.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "descriptionHTML",
+          "description": "<p>The description of this release rendered to HTML.</p>",
+          "type": "HTML",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Release object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isDraft",
+          "description": "<p>Whether or not the release is a draft.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isLatest",
+          "description": "<p>Whether or not the release is the latest releast.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isPrerelease",
+          "description": "<p>Whether or not the release is a prerelease.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "mentions",
+          "description": "<p>A list of users mentioned in the release description.</p>",
+          "type": "UserConnection",
+          "id": "userconnection",
+          "href": "/graphql/reference/users#object-userconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "description": "<p>The title of the release.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "publishedAt",
+          "description": "<p>Identifies the date and time when the release was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "reactionGroups",
+          "description": "<p>A list of reactions grouped by content left on the subject.</p>",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "href": "/graphql/reference/reactions#object-reactiongroup"
+        },
+        {
+          "name": "reactions",
+          "description": "<p>A list of Reactions left on the Issue.</p>",
+          "type": "ReactionConnection!",
+          "id": "reactionconnection",
+          "href": "/graphql/reference/reactions#object-reactionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "content",
+              "description": "<p>Allows filtering Reactions by emoji.</p>",
+              "type": {
+                "name": "ReactionContent",
+                "id": "reactioncontent",
+                "href": "/graphql/reference/reactions#enum-reactioncontent"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Allows specifying the order in which reactions are returned.</p>",
+              "type": {
+                "name": "ReactionOrder",
+                "id": "reactionorder",
+                "href": "/graphql/reference/reactions#input-object-reactionorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "releaseAssets",
+          "description": "<p>List of releases assets which are dependent on this release.</p>",
+          "type": "ReleaseAssetConnection!",
+          "id": "releaseassetconnection",
+          "href": "/graphql/reference/releases#object-releaseassetconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "name",
+              "description": "<p>A name to filter the assets by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository that the release belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this issue.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "shortDescriptionHTML",
+          "description": "<p>A description of the release, rendered to HTML without any links in it.</p>",
+          "type": "HTML",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html",
+          "arguments": [
+            {
+              "name": "limit",
+              "defaultValue": "200",
+              "description": "<p>How many characters to return.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "tag",
+          "description": "<p>The Git tag the release points to.</p>",
+          "type": "Ref",
+          "id": "ref",
+          "href": "/graphql/reference/git#object-ref"
+        },
+        {
+          "name": "tagCommit",
+          "description": "<p>The tag commit for this release.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "tagName",
+          "description": "<p>The name of the release's Git tag.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this issue.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "viewerCanReact",
+          "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "releases"
+    },
+    {
+      "name": "ReleaseAsset",
+      "id": "releaseasset",
+      "href": "/graphql/reference/releases#object-releaseasset",
+      "description": "<p>A release asset contains the content for a release asset.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "contentType",
+          "description": "<p>The asset's content-type.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "digest",
+          "description": "<p>The SHA256 digest of the asset.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "downloadCount",
+          "description": "<p>The number of times this asset was downloaded.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "downloadUrl",
+          "description": "<p>Identifies the URL where you can download the release asset via the browser.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ReleaseAsset object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "name",
+          "description": "<p>Identifies the title of the release asset.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "release",
+          "description": "<p>Release that the asset is associated with.</p>",
+          "type": "Release",
+          "id": "release",
+          "href": "/graphql/reference/releases#object-release"
+        },
+        {
+          "name": "size",
+          "description": "<p>The size (in bytes) of the asset.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "uploadedBy",
+          "description": "<p>The user that performed the upload.</p>",
+          "type": "User!",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "url",
+          "description": "<p>Identifies the URL of the release asset.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "releases"
+    },
+    {
+      "name": "ReleaseAssetConnection",
+      "id": "releaseassetconnection",
+      "href": "/graphql/reference/releases#object-releaseassetconnection",
+      "description": "<p>The connection type for ReleaseAsset.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ReleaseAssetEdge]",
+          "id": "releaseassetedge",
+          "href": "/graphql/reference/releases#object-releaseassetedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ReleaseAsset]",
+          "id": "releaseasset",
+          "href": "/graphql/reference/releases#object-releaseasset"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "releases"
+    },
+    {
+      "name": "ReleaseAssetEdge",
+      "id": "releaseassetedge",
+      "href": "/graphql/reference/releases#object-releaseassetedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ReleaseAsset",
+          "id": "releaseasset",
+          "href": "/graphql/reference/releases#object-releaseasset"
+        }
+      ],
+      "category": "releases"
+    },
+    {
+      "name": "ReleaseConnection",
+      "id": "releaseconnection",
+      "href": "/graphql/reference/releases#object-releaseconnection",
+      "description": "<p>The connection type for Release.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ReleaseEdge]",
+          "id": "releaseedge",
+          "href": "/graphql/reference/releases#object-releaseedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Release]",
+          "id": "release",
+          "href": "/graphql/reference/releases#object-release"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "releases"
+    },
+    {
+      "name": "ReleaseEdge",
+      "id": "releaseedge",
+      "href": "/graphql/reference/releases#object-releaseedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Release",
+          "id": "release",
+          "href": "/graphql/reference/releases#object-release"
+        }
+      ],
+      "category": "releases"
+    }
+  ],
+  "enums": [
+    {
+      "name": "ReleaseOrderField",
+      "id": "releaseorderfield",
+      "href": "/graphql/reference/releases#enum-releaseorderfield",
+      "description": "<p>Properties by which release connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order releases by creation time.</p>"
+        },
+        {
+          "name": "NAME",
+          "description": "<p>Order releases alphabetically by name.</p>"
+        }
+      ],
+      "category": "releases"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "ReleaseOrder",
+      "id": "releaseorder",
+      "href": "/graphql/reference/releases#input-object-releaseorder",
+      "description": "<p>Ways in which lists of releases can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order releases by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order releases by.</p>",
+          "type": "ReleaseOrderField!",
+          "id": "releaseorderfield",
+          "href": "/graphql/reference/releases#enum-releaseorderfield"
+        }
+      ],
+      "category": "releases"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Reference: #11173, and 14966
+# This feature is not yet available for GitHub Enterprise Server.
+versions:
+  ghec: '*'
+  fpt: '*'

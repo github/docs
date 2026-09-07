@@ -1,0 +1,1 @@
+By default, {% data variables.product.prodname_dependabot %} applies a cooldown period of 3 days to version updates, so a new version is not considered for a version update until 3 days after its release. **This default cooldown does not apply to security updates.**

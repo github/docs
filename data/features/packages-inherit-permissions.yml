@@ -1,0 +1,5 @@
+# Issue 9145
+# Packages inherit access permissions by default
+versions:
+  fpt: '*'
+  ghec: '*'

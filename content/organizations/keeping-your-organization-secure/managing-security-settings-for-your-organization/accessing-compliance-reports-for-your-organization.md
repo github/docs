@@ -1,14 +1,14 @@
 ---
 title: Accessing compliance reports for your organization
-intro: 'You can access {% data variables.product.company_short %}''s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your organization.'
+intro: You can access {% data variables.product.company_short %}'s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your organization.
 versions:
+  fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Organizations
-  - Teams
 permissions: Organization owners can access compliance reports for the organization.
 shortTitle: Access compliance reports
+contentType: how-tos
+category:
+  - Secure and monitor your organization
 ---
 
 ## About {% data variables.product.company_short %}'s compliance reports
@@ -19,19 +19,17 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 ## Accessing compliance reports for your organization
 
-{% note %}
-
-**Note:** To view compliance reports, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
-
-{% endnote %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.compliance %}
-1. To the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
+1. To the right of the report you want to access, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Download** or **{% octicon "link-external" aria-hidden="true" aria-label="link-external" %} View**.
 
    {% data reusables.security.compliance-report-screenshot %}
 
+{% ifversion ghec %}
+
 ## Further reading
 
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+* [AUTOTITLE](/admin/overview/accessing-compliance-reports-for-your-enterprise)
+
+{% endif %}

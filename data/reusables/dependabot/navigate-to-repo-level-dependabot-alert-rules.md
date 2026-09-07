@@ -1,0 +1,1 @@
+1. In the "{% data variables.product.prodname_dependabot %}" section, to the right of "{% data variables.product.prodname_dependabot %} rules", click {% octicon "gear" aria-label="Configure Dependabot rules" %}.

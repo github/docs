@@ -1,6 +1,7 @@
 ---
-title: Authentication
-intro: 'Keep your account and data secure with features like {% ifversion not ghae %}two-factor authentication, {% endif %}SSH{% ifversion not ghae %},{% endif %} and commit signature verification.'
+title: Authentication documentation
+shortTitle: Authentication
+intro: 'Authenticate securely to {% data variables.product.github %} with passwords, tokens, SSH keys, and more—and keep your account protected.'
 redirect_from:
   - /categories/56/articles
   - /categories/ssh
@@ -16,45 +17,36 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 introLinks:
   overview: /authentication/keeping-your-account-and-data-secure/about-authentication-to-github
-featuredLinks:
-  guides:
-    - /authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-    - /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+layout: discovery-landing
+carousels:
+  recommended:
+    - /authentication/keeping-your-account-and-data-secure/about-authentication-to-github
+    - /authentication/connecting-to-github-with-ssh
+    - /authentication/managing-commit-signature-verification
     - /authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
-    - '{% ifversion ghae %}/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials{% endif %}'
-  popular:
-    - /authentication/troubleshooting-ssh
-    - /authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys
-    - /authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
-    - '{% ifversion ghae %}/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection{% endif %}'
-    - /authentication/authenticating-with-saml-single-sign-on
-    - /authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits
-  guideCards:
+    - /authentication/authenticating-with-a-passkey/signing-in-with-a-passkey
+    - /authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+    - /authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
     - /authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials
     - /authentication/troubleshooting-ssh/error-permission-denied-publickey
-    - /authentication/keeping-your-account-and-data-secure/creating-a-strong-password
-    - '{% ifversion ghae %}/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials{% endif %}'
-    - '{% ifversion ghae %}/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on{% endif %}'
-changelog:
-  label: '2FA,authentication,security keys,SSH,token authentication'
-layout: product-landing
-topics:
-  - 2FA
-  - Identity
-  - Access management
-  - Usernames
-  - Device verification
+includedCategories:
+  - Learn about authentication
+  - Set up two-factor authentication
+  - Connect with SSH
+  - Sign in with SSO or a passkey
+  - Sign your commits
+  - Manage access credentials
+  - Troubleshoot authentication issues
 children:
   - /keeping-your-account-and-data-secure
   - /securing-your-account-with-two-factor-authentication-2fa
-  - /authenticating-with-saml-single-sign-on
+  - /authenticating-with-a-passkey
+  - /authenticating-with-single-sign-on
   - /connecting-to-github-with-ssh
   - /troubleshooting-ssh
   - /managing-commit-signature-verification
   - /troubleshooting-commit-signature-verification
 ---
-

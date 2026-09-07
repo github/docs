@@ -8,11 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /inviting-users-to-join-your-organization
   - /canceling-or-editing-an-invitation-to-join-your-organization

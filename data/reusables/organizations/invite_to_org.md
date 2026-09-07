@@ -1,4 +1,1 @@
-{% ifversion fpt or ghec %}1. Type the username, full name, or email address of the person you want to invite and click **Invite**.
-  ![Invite member form](/assets/images/help/organizations/org-invite-modal.png){% else %}
-1. Type the username, full name, or email address of the person you want to add and click **Invite**.
-  ![Invite member form](/assets/images/help/organizations/org-invite-modal.png){% endif %}
+1. In the search field, type the username, full name, or email address of the person you want to invite and click {% ifversion fpt or ghec %}**Invite**{% else %}**Add**{% endif %}.

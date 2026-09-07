@@ -1,0 +1,656 @@
+{
+  "objects": [
+    {
+      "name": "Workflow",
+      "id": "workflow",
+      "href": "/graphql/reference/actions#object-workflow",
+      "description": "<p>A workflow contains meta information about an Actions workflow file.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Workflow object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the workflow.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this workflow.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "runs",
+          "description": "<p>The runs of the workflow.</p>",
+          "type": "WorkflowRunConnection!",
+          "id": "workflowrunconnection",
+          "href": "/graphql/reference/actions#object-workflowrunconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the connection.</p>",
+              "type": {
+                "name": "WorkflowRunOrder",
+                "id": "workflowrunorder",
+                "href": "/graphql/reference/actions#input-object-workflowrunorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of the workflow.</p>",
+          "type": "WorkflowState!",
+          "id": "workflowstate",
+          "href": "/graphql/reference/actions#enum-workflowstate"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this workflow.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "actions"
+    },
+    {
+      "name": "WorkflowFileReference",
+      "id": "workflowfilereference",
+      "href": "/graphql/reference/actions#object-workflowfilereference",
+      "description": "<p>A workflow that must run for this rule to pass.</p>",
+      "fields": [
+        {
+          "name": "path",
+          "description": "<p>The path to the workflow file.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "ref",
+          "description": "<p>The ref (branch or tag) of the workflow file to use.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository where the workflow is defined.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "sha",
+          "description": "<p>The commit SHA of the workflow file to use.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "actions"
+    },
+    {
+      "name": "WorkflowRun",
+      "id": "workflowrun",
+      "href": "/graphql/reference/actions#object-workflowrun",
+      "description": "<p>A workflow run.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "checkSuite",
+          "description": "<p>The check suite this workflow run belongs to.</p>",
+          "type": "CheckSuite!",
+          "id": "checksuite",
+          "href": "/graphql/reference/checks#object-checksuite"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "deploymentReviews",
+          "description": "<p>The log of deployment reviews.</p>",
+          "type": "DeploymentReviewConnection!",
+          "id": "deploymentreviewconnection",
+          "href": "/graphql/reference/deployments#object-deploymentreviewconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "event",
+          "description": "<p>The event that triggered the workflow run.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "file",
+          "description": "<p>The workflow file.</p>",
+          "type": "WorkflowRunFile",
+          "id": "workflowrunfile",
+          "href": "/graphql/reference/actions#object-workflowrunfile"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the WorkflowRun object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "pendingDeploymentRequests",
+          "description": "<p>The pending deployment requests of all check runs in this workflow run.</p>",
+          "type": "DeploymentRequestConnection!",
+          "id": "deploymentrequestconnection",
+          "href": "/graphql/reference/deployments#object-deploymentrequestconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this workflow run.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "runNumber",
+          "description": "<p>A number that uniquely identifies this workflow run in its parent workflow.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this workflow run.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "workflow",
+          "description": "<p>The workflow executed in this workflow run.</p>",
+          "type": "Workflow!",
+          "id": "workflow",
+          "href": "/graphql/reference/actions#object-workflow"
+        }
+      ],
+      "category": "actions"
+    },
+    {
+      "name": "WorkflowRunConnection",
+      "id": "workflowrunconnection",
+      "href": "/graphql/reference/actions#object-workflowrunconnection",
+      "description": "<p>The connection type for WorkflowRun.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[WorkflowRunEdge]",
+          "id": "workflowrunedge",
+          "href": "/graphql/reference/actions#object-workflowrunedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[WorkflowRun]",
+          "id": "workflowrun",
+          "href": "/graphql/reference/actions#object-workflowrun"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "actions"
+    },
+    {
+      "name": "WorkflowRunEdge",
+      "id": "workflowrunedge",
+      "href": "/graphql/reference/actions#object-workflowrunedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "WorkflowRun",
+          "id": "workflowrun",
+          "href": "/graphql/reference/actions#object-workflowrun"
+        }
+      ],
+      "category": "actions"
+    },
+    {
+      "name": "WorkflowRunFile",
+      "id": "workflowrunfile",
+      "href": "/graphql/reference/actions#object-workflowrunfile",
+      "description": "<p>An executed workflow file for a workflow run.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the WorkflowRunFile object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "path",
+          "description": "<p>The path of the workflow file relative to its repository.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryFileUrl",
+          "description": "<p>The direct link to the file in the repository which stores the workflow file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The repository name and owner which stores the workflow file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this workflow run file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "run",
+          "description": "<p>The parent workflow run execution for this file.</p>",
+          "type": "WorkflowRun!",
+          "id": "workflowrun",
+          "href": "/graphql/reference/actions#object-workflowrun"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this workflow run file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "viewerCanPushRepository",
+          "description": "<p>If the viewer has permissions to push to the repository which stores the workflow.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanReadRepository",
+          "description": "<p>If the viewer has permissions to read the repository which stores the workflow.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "actions"
+    },
+    {
+      "name": "WorkflowsParameters",
+      "id": "workflowsparameters",
+      "href": "/graphql/reference/actions#object-workflowsparameters",
+      "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>",
+      "fields": [
+        {
+          "name": "doNotEnforceOnCreate",
+          "description": "<p>Allow repositories and branches to be created if a check would otherwise prohibit it.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "workflows",
+          "description": "<p>Workflows that must pass for this rule to pass.</p>",
+          "type": "[WorkflowFileReference!]!",
+          "id": "workflowfilereference",
+          "href": "/graphql/reference/actions#object-workflowfilereference"
+        }
+      ],
+      "category": "actions"
+    }
+  ],
+  "enums": [
+    {
+      "name": "WorkflowRunOrderField",
+      "id": "workflowrunorderfield",
+      "href": "/graphql/reference/actions#enum-workflowrunorderfield",
+      "description": "<p>Properties by which workflow run connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order workflow runs by most recently created.</p>"
+        }
+      ],
+      "category": "actions"
+    },
+    {
+      "name": "WorkflowState",
+      "id": "workflowstate",
+      "href": "/graphql/reference/actions#enum-workflowstate",
+      "description": "<p>The possible states for a workflow.</p>",
+      "values": [
+        {
+          "name": "ACTIVE",
+          "description": "<p>The workflow is active.</p>"
+        },
+        {
+          "name": "DELETED",
+          "description": "<p>The workflow was deleted from the git repository.</p>"
+        },
+        {
+          "name": "DISABLED_FORK",
+          "description": "<p>The workflow was disabled by default on a fork.</p>"
+        },
+        {
+          "name": "DISABLED_INACTIVITY",
+          "description": "<p>The workflow was disabled for inactivity in the repository.</p>"
+        },
+        {
+          "name": "DISABLED_MANUALLY",
+          "description": "<p>The workflow was disabled manually.</p>"
+        }
+      ],
+      "category": "actions"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "WorkflowFileReferenceInput",
+      "id": "workflowfilereferenceinput",
+      "href": "/graphql/reference/actions#input-object-workflowfilereferenceinput",
+      "description": "<p>A workflow that must run for this rule to pass.</p>",
+      "inputFields": [
+        {
+          "name": "path",
+          "description": "<p>The path to the workflow file.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "ref",
+          "description": "<p>The ref (branch or tag) of the workflow file to use.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository where the workflow is defined.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "sha",
+          "description": "<p>The commit SHA of the workflow file to use.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "actions"
+    },
+    {
+      "name": "WorkflowRunOrder",
+      "id": "workflowrunorder",
+      "href": "/graphql/reference/actions#input-object-workflowrunorder",
+      "description": "<p>Ways in which lists of workflow runs can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order workflow runs by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order workflows.</p>",
+          "type": "WorkflowRunOrderField!",
+          "id": "workflowrunorderfield",
+          "href": "/graphql/reference/actions#enum-workflowrunorderfield"
+        }
+      ],
+      "category": "actions"
+    },
+    {
+      "name": "WorkflowsParametersInput",
+      "id": "workflowsparametersinput",
+      "href": "/graphql/reference/actions#input-object-workflowsparametersinput",
+      "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>",
+      "inputFields": [
+        {
+          "name": "doNotEnforceOnCreate",
+          "description": "<p>Allow repositories and branches to be created if a check would otherwise prohibit it.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "workflows",
+          "description": "<p>Workflows that must pass for this rule to pass.</p>",
+          "type": "[WorkflowFileReferenceInput!]!",
+          "id": "workflowfilereferenceinput",
+          "href": "/graphql/reference/actions#input-object-workflowfilereferenceinput"
+        }
+      ],
+      "category": "actions"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# Reference: actions/runner#4527
+# Versioning for the GITHUB_ARTIFACTS and GITHUB_ARTIFACTS_LIST environment files.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.22'

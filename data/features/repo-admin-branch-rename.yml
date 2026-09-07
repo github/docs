@@ -1,0 +1,6 @@
+# Reference: github/releases#8431
+# Allow repo admins to rename branches protected by org/enterprise rulesets
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.22'

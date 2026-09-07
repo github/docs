@@ -6,21 +6,19 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Change insight visibility
+category:
+  - Configure organization features
 ---
+
+{% data reusables.dependency-graph.dependency-insights-maintenance-mode %}
 
 Organization owners can set limitations for viewing organization dependency insights. All members of an organization can view organization dependency insights by default.
 
-{% ifversion ghec %}
-Enterprise owners can set limitations for viewing organization dependency insights on all organizations in your enterprise account. For more information, see "[Enforcing policies for dependency insights in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."
-{% endif %}
+Enterprise owners can set limitations for viewing organization dependency insights on all organizations in your enterprise account. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-visibility-of-dependency-insights).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Member organization permissions", select or unselect **Allow members to view dependency insights**.
-![Checkbox to allow members to view insights](/assets/images/help/organizations/allow-members-to-view-insights.png)
-6. Click **Save**.
+1. Under "Member organization permissions", select or deselect **Allow members to view dependency insights**.
+1. Click **Save**.

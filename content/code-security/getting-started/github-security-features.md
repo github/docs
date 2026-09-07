@@ -1,122 +1,248 @@
 ---
 title: GitHub security features
-intro: 'An overview of {% data variables.product.prodname_dotcom %} security features.'
+intro: An overview of {% data variables.product.github %}'s security features.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-type: overview
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Advanced Security
+contentType: get-started
+category:
+  - Plan your security strategy
 ---
 
-## About {% data variables.product.prodname_dotcom %}'s security features
+## About {% data variables.product.github %}'s security features
 
-{% data variables.product.prodname_dotcom %} has security features that help keep code and secrets secure in repositories and across organizations. {% data reusables.advanced-security.security-feature-availability %}
+{% data variables.product.github %}'s security features help keep your code and secrets secure in repositories and across organizations.
+
+{% ifversion fpt or ghec %}
+
+* Some features are available for all {% data variables.product.github %} plans.
+* Additional features are available to organizations {% ifversion ghec %}and enterprises{% endif %} on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} that purchase a {% data variables.product.prodname_GHAS %} product:
+  * [{% data variables.product.prodname_GH_secret_protection %}](#available-with-github-secret-protection)
+  * [{% data variables.product.prodname_GH_code_security %}](#available-with-github-code-security)
+* In addition, a number of {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_GH_code_security %} features can be run on public repositories for free.{% endif %}
+
+{%- ifversion ghes %}
+
+* Some features are available for all repositories by default.
+* Additional features are available to enterprises that purchase a {% data variables.product.prodname_GHAS %} product:
+  * [{% data variables.product.prodname_GH_secret_protection %}](#available-with-github-secret-protection)
+  * [{% data variables.product.prodname_GH_code_security %}](#available-with-github-code-security){% endif %}
+
+## Available for all {% data variables.product.github %} plans
+
+The following security features are available for you to use, regardless of the {% data variables.product.github %} plan you are on. You don't need to purchase {% data variables.product.prodname_GH_cs_or_sp %} to use these features.
+
+{% ifversion fpt or ghec %}
+
+Most of these features are available for public{% ifversion ghec %}, internal,{% endif %} and private repositories.
+Some features are _only_ available for public repositories.
+
+{% endif %}
+
+### Security policy
+
+Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/add-security-policy).
+
+### Dependency graph
+
+The dependency graph allows you to explore the ecosystems and packages that your repository depends on and the repositories and packages that depend on your repository.
+
+You can find the dependency graph on the **Insights** tab for your repository. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph).
+
+### Software Bill of Materials (SBOM)
+
+You can export the dependency graph of your repository as an SPDX-compatible, Software Bill of Materials (SBOM). For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/export-dependencies-as-sbom).
+
+### {% data variables.product.prodname_advisory_database %}
 
 The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that you can view, search, and filter. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-## Available for all repositories
-### Security policy
-
-Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
-
-{% ifversion fpt or ghec %}
-### Security advisories
-
-Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[About repository security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-
-{% endif %}
-{% ifversion fpt or ghec or ghes %}
-
 ### {% data variables.product.prodname_dependabot_alerts %} and security updates
 
-View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
-and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts)
+and [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-security-updates).
+
+You can also use default {% data variables.dependabot.auto_triage_rules %} curated by {% data variables.product.github %} to automatically filter out a substantial amount of false positives.
+
+{% data reusables.dependabot.quickstart-link %}
+
+{% ifversion dependabot-malware-alerts %}
+
+#### {% data variables.product.prodname_dependabot_malware_alerts %}
+
+On {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} 3.22+, you can view alerts for malicious dependencies in your repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/malware-alerts).
+
 {% endif %}
 
-{% ifversion ghae %}
-### {% data variables.product.prodname_dependabot_alerts %}
+### {% data variables.product.prodname_dependabot_version_updates %}
 
-{% data reusables.dependabot.dependabot-alerts-beta %}
-
-View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
-{% endif %}
-
-{% ifversion fpt or ghec or ghes %}
-### {% data variables.product.prodname_dependabot %} version updates
-
-Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)."
-{% endif %}
-
-### Dependency graph
-The dependency graph allows you to explore the ecosystems and packages that your repository depends on and the repositories and packages that depend on your repository.
-
-You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
-
-{% ifversion security-overview-displayed-alerts %}
-### Security overview
-
-The security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
-
-{% else %}
-### Security overview for repositories
-The security overview shows which security features are enabled for the repository, and offers you the option of configuring any available security features that are not already enabled.
-{% endif %}
-
-## Available with {% data variables.product.prodname_GH_advanced_security %}
-
-{% ifversion fpt %}
-The following {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can use the full set of features in any of their repositories. For a list of the features available with {% data variables.product.prodname_ghe_cloud %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
-
-{% elsif ghec %}
-Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that have a {% data variables.product.prodname_GH_advanced_security %} license can use the following features on all their repositories. {% data reusables.advanced-security.more-info-ghas %}
-
-{% elsif ghes %}
-{% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
-
-{% elsif ghae %}
-{% data variables.product.prodname_GH_advanced_security %} features are available for repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
-{% endif %}
-
-### {% data variables.product.prodname_code_scanning_capc %}
-
-Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
+Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. You can also customize {% data variables.product.prodname_dependabot_version_updates %} to streamline their integration into your repositories. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-version-updates).
 
 {% ifversion fpt or ghec %}
-### {% data variables.product.prodname_secret_scanning_partner_caps %}
 
-Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+### Security advisories
+
+Privately discuss and fix security vulnerabilities in your public repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/repository-security-advisories).
+
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
-### {% data variables.product.prodname_secret_scanning_GHAS_caps %}
+### Repository rulesets
 
-{% ifversion ghec %}
-Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
+Enforce consistent code standards, security, and compliance across branches and tags. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
+
+{% ifversion fpt or ghec %}
+
+### Artifact attestations
+
+Create unfalsifiable provenance and integrity guarantees for the software you build. For more information, see [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).
+
+{% ifversion fpt %}
+
+> [!NOTE]
+> If you are on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} plan, artifact attestations are only available for public repositories. To use artifact attestations in private or internal repositories, you must be on a {% data variables.product.prodname_ghe_cloud %} plan.{% endif %}
+
+### {% data variables.secret-scanning.partner_alerts_caps %}
+
+When {% data variables.product.github %} detects a leaked secret in a public repository, or a public npm packages, {% data variables.product.github %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns).
+
+{% ifversion secret-scanning-push-protection-for-users %}
+
+### Push protection for users
+
+Push protection for users automatically protects you from accidentally committing secrets to public repositories, regardless of whether the repository itself has {% data variables.product.prodname_secret_scanning %} enabled. Push protection for users is on by default, but you can disable the feature at any time through your personal account settings. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/manage-user-push-protection).
+
 {% endif %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, so that you know which tokens or credentials to treat as compromised. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."
 {% endif %}
+
+## Available with {% data variables.product.prodname_GH_secret_protection %}
+
+For accounts on {% ifversion fpt or ghec %}{% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}{% endif %}{% ifversion ghes %} {% data variables.product.prodname_ghe_server %}{% endif %}, you can access additional security features when you purchase **{% data variables.product.prodname_GH_secret_protection %}**.
+
+{% data variables.product.prodname_GH_secret_protection %} includes features that help you detect and prevent credential leaks and secret sprawl, such as {% data variables.product.prodname_secret_scanning %} for detecting hardcoded credentials and push protection for blocking them before they reach your repository.
+
+These features are available for all repository types. {% ifversion fpt or ghec %}Some of these features are available for public repositories free of charge, meaning that you don't need to purchase {% data variables.product.prodname_GH_secret_protection %} to enable the feature on a public repository.{% endif %}
+
+<!--Hiding information on setting up a trial for now, as there is no available link for fpt yet. Needs versioning for fpt, ghec and ghes.
+For information about how you can try {% data variables.product.prodname_GH_secret_protection %} for free, see [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/trial-advanced-security).
+-->
+
+### {% data variables.secret-scanning.user_alerts_caps %}
+
+Automatically detect hardcoded credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.github %} finds in your code, in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of your repository, so you can respond to credential leaks quickly. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning).
+
+{% data reusables.advanced-security.available-for-public-repos %}
+
+{% ifversion secret-scanning-ai-generic-secret-detection %}
+
+### {% data variables.secret-scanning.ai-detected-secrets-caps %}
+
+{% data variables.secret-scanning.ai-detected-secrets-caps %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).{% endif %}
+
+{% endif %}
+
+### Push protection
+
+Push protection proactively scans your code, and any repository contributors' code, for hardcoded secrets during the push process and blocks the push if any credential leaks are detected. If a contributor bypasses the block, an alert is generated. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection).
+
+{% data reusables.advanced-security.available-for-public-repos %}
+
+### Delegated bypass for push protection
+
+Delegated bypass for push protection lets you control which individuals, roles, and teams:
+* Can bypass push protection{% ifversion push-protection-org-enterprise-exemptions %}
+* Are exempt from push protection{% endif %}
+* Can review bypass requests from other contributors
+
+For more information, see [AUTOTITLE](/code-security/concepts/secret-security/delegated-bypass).
+
+### Custom patterns
+
+You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}, such as patterns that are internal to your organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns).
+
+<!--Hiding security overview for earlier GHES versions, so it isn't duplicated below-->
+
+### Security overview
+
+Security overview allows you to review the overall security landscape of your organization, view trends and other insights, and manage security configurations, making it easy to monitor your organization's security status and identify the repositories and organizations at greatest risk. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview).
+
+## Available with {% data variables.product.prodname_GH_code_security %}
+
+For accounts on {% ifversion fpt or ghec %}{% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}{% endif %}{% ifversion ghes %} {% data variables.product.prodname_ghe_server %}{% endif %}, you can access additional security features when you purchase **{% data variables.product.prodname_GH_code_security %}**.
+
+{% data variables.product.prodname_GH_code_security %} includes features that help you find and fix vulnerabilities, like {% data variables.product.prodname_code_scanning %}, premium {% data variables.product.prodname_dependabot %} features, and dependency review.
+
+These features are available for all repository types. {% ifversion fpt or ghec %}Some of these features are available for public repositories free of charge, meaning that you don't need to purchase {% data variables.product.prodname_GH_code_security %} to enable the feature on a public repository.{% endif %}
+
+<!--Hiding information on setting up a trial for now, as there is no available link for fpt yet. Needs versioning for fpt, ghec & ghes.
+
+For information about how you can try {% data variables.product.prodname_GH_code_security %} for free, see [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/trial-advanced-security).
+
+-->
+
+### {% data variables.product.prodname_code_scanning_caps %}
+
+Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning).
+
+{% data reusables.advanced-security.available-for-public-repos %}
+
+### {% data variables.product.prodname_codeql_cli %}
+
+Run {% data variables.product.prodname_codeql %} processes locally on software projects or to generate {% data variables.product.prodname_code_scanning %} results for upload to {% data variables.product.github %}. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-cli).
+
+{% data reusables.advanced-security.available-for-public-repos %}
+
+{% ifversion code-scanning-autofix %}
+
+### {% data variables.copilot.copilot_autofix_short %}
+
+Get automatically generated fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).
+
+{% data reusables.advanced-security.available-for-public-repos %}
+
+{% endif %}
+
+{% ifversion ai-powered-security-detections %}
+
+### AI-powered security detections
+
+Find vulnerabilities in languages and frameworks not covered by {% data variables.product.prodname_codeql %} with an AI-based scanning engine that runs during pull request review. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+
+{% endif %}
+
+### {% data variables.dependabot.custom_rules_caps %} for {% data variables.product.prodname_dependabot %}
+
+{% data reusables.dependabot.dependabot-custom-rules-ghas %}
 
 ### Dependency review
 
-Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review).
 
-{% ifversion security-overview-displayed-alerts %}<!--Section appears in non-GHAS features above-->
+{% data reusables.advanced-security.available-for-public-repos %}
 
-{% elsif fpt %}<!--Feature requires enterprise product-->
+{% ifversion security-campaigns %}
 
-{% else %}
-### Security overview for organizations{% ifversion ghes > 3.4 or ghae > 3.4 %}, enterprises,{% endif %} and teams
+### Security campaigns
 
-Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+Fix security alerts at scale by creating security campaigns and collaborating with developers to reduce your security backlog. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/about-security-campaigns).
+
+{% endif %}
+
+### Security overview
+
+Security overview allows you to review the overall security landscape of your organization, view trends and other insights, and manage security configurations, making it easy to monitor your organization's security status and identify the repositories and organizations at greatest risk. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview).
+
+{% ifversion copilot-chat-ghas-alerts %}
+
+## Leveraging {% data variables.copilot.copilot_chat %} to understand security alerts
+
+With a {% data variables.copilot.copilot_enterprise %} license, you can also ask {% data variables.copilot.copilot_chat %} for help to better understand security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github).
+
 {% endif %}
 
 ## Further reading
-- "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)"
-- "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)"
+
+* [AUTOTITLE](/get-started/learning-about-github/githubs-plans)
+* [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)
+* [AUTOTITLE](/get-started/learning-about-github/github-language-support)

@@ -1,3 +1,3 @@
-```java{:copy}
-int calculateDaysBetweenDates(
+```java copy
+private int calculateDaysBetweenDates(Date date1,
 ```

@@ -1,3 +1,1 @@
-{%- ifversion fpt or ghec or ghes %}
-1. If prompted, confirm access to your account on {% data variables.product.product_name %}. For more information, see "[Sudo mode](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
-{%- endif %}
+1. If prompted, confirm access to your account on {% data variables.product.github %}. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/sudo-mode).

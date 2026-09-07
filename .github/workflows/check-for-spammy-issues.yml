@@ -1,6 +1,6 @@
 name: Check for Spammy Issues
 
-# **What it does**: This action closes low value pull requests in the open-source repository.
+# **What it does**: This action closes low value issues in the open-source repository.
 # **Why we have it**: We get lots of spam in the open-source repository.
 # **Who does it impact**: Open-source contributors.
 
@@ -9,7 +9,7 @@ on:
     types: [opened]
 
 permissions:
-  contents: none
+  contents: read
 
 jobs:
   spammy-title-check:
@@ -17,9 +17,9 @@ jobs:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
-          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
 
             const issue = context.payload.issue
@@ -28,9 +28,11 @@ jobs:
 
             const titleWordCount = issue.title.trim().split(' ').length
             const titleWordCountMin = 3
+            const urlRegex = /https?:\/\/\S+/i
+            const titleHasUrl = urlRegex.test(issue.title)
 
             try {
-              await github.teams.getMembershipForUserInOrg({
+              await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
                 team_slug: 'employees',
                 username: context.payload.sender.login,
@@ -43,7 +45,7 @@ jobs:
               // An error will be thrown if the user is not a GitHub employee
               // If a user is not a GitHub employee, we should check to see if title has at least the minimum required number of words in it and if it does, we can exit the workflow
 
-              if (titleWordCount >= titleWordCountMin) {
+              if (titleWordCount >= titleWordCountMin && !titleHasUrl) {
                 return
               }
             }
@@ -54,7 +56,7 @@ jobs:
             //
 
             // Close the issue and add the invalid label
-            await github.issues.update({
+            await github.rest.issues.update({
               owner: owner,
               repo: repo,
               issue_number: issue.number,
@@ -63,16 +65,16 @@ jobs:
             });
 
             // Comment on the issue
-            await github.issues.createComment({
+            await github.rest.issues.createComment({
               owner: owner,
               repo: repo,
               issue_number: issue.number,
-              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title or ask any questions in [discussions](https://github.com/github/docs/discussions)!`
+              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title!`
             });
 
             // Add the issue to the Done column on the triage board
             try {
-              await github.projects.createCard({
+              await github.rest.projects.createCard({
                 column_id: 11167427,
                 content_id: context.payload.issue.id,
                 content_type: "Issue"

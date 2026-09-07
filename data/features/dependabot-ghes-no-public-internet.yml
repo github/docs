@@ -1,0 +1,4 @@
+# Reference: #9914 Dependabot does not access public registries when configured with private registries
+
+versions:
+  ghes: '>3.7'

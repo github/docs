@@ -1,0 +1,4 @@
+# Ability to view counts for and revoke tokens in the enterprise, issue #21100
+
+versions:
+  ghec: '*'

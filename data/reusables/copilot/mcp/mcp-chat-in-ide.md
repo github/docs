@@ -1,0 +1,1 @@
+You can use MCP to extend the capabilities of {% data variables.copilot.copilot_chat_short %} by integrating it with a wide range of existing tools and services. For additional information, see [AUTOTITLE](/copilot/concepts/context/mcp).

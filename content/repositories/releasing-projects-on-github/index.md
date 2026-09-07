@@ -8,10 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
-topics:
-  - Repositories
 children:
   - /about-releases
   - /managing-releases-in-a-repository
@@ -23,4 +20,3 @@ children:
   - /automation-for-release-forms-with-query-parameters
 shortTitle: Release projects
 ---
-

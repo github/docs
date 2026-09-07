@@ -4,8 +4,6 @@ intro: 'To speed up codespace creation, you can configure your project to prebui
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
 redirect_from:
   - /codespaces/customizing-your-codespace/prebuilding-codespaces-for-your-project
 children:
@@ -14,5 +12,6 @@ children:
   - /allowing-a-prebuild-to-access-other-repositories
   - /managing-prebuilds
   - /testing-dev-container-changes
+product: 'You create and configure prebuilds in your repository''s settings. {% data reusables.gated-features.codespaces-repo %}'
 ---
 

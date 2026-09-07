@@ -1,7 +1,6 @@
 {% ifversion ghes %}
-{% note %}
 
-**Note:** {% data variables.product.prodname_registry %} on {% data variables.product.product_name %} does not currently support clustering.
+> [!NOTE]
+> {% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %} does not currently support clustering.
 
-{% endnote %}
 {% endif %}
