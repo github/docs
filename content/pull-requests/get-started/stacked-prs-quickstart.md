@@ -31,7 +31,7 @@ gh extension install https://github.com/github/gh-stack
 > To use stacked pull requests with AI coding agents, like {% data variables.product.prodname_copilot %}, install the `gh-stack` skill.
 > 
 > ```shell copy
-gh skill install https://github.com/github/gh-stack gh-stack
+> gh skill install https://github.com/github/gh-stack gh-stack
 > ```
 
 ## Create your first stack
