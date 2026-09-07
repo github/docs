@@ -9,8 +9,6 @@ To use {% data variables.product.prodname_copilot_short %}, you’ll need a pers
 * Start with {% data variables.copilot.copilot_free_short %} to explore limited features without subscribing to a plan.
 * Upgrade to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} to unlock more features, models, and request limits.
 
-  > [!IMPORTANT] {% data reusables.copilot.plans.organization-plans-paused %}
-
 For more information about the different plans for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/get-started/plans).
 
 {% elsif ghec %}

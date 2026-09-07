@@ -22,7 +22,7 @@ category:
   - Configure Copilot
 ---
 
-This quickstart covers using {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website, in IDEs, and in {% data variables.product.prodname_windows_terminal %}. To try an agent-driven workflow in the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
+This quickstart covers using {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website, in IDEs, and in {% data variables.product.prodname_windows_terminal %}. To try an agent-driven workflow in the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/get-started/quickstart-copilot-app).
 
 ## Introduction
 

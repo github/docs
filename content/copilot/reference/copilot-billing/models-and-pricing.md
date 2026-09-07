@@ -33,7 +33,7 @@ All prices are **per 1 million tokens**.
 
 {% data reusables.copilot.extended-context-pricing %}
 
-{% data variables.copilot.copilot_gpt_56_sol %}, {% data variables.copilot.copilot_gpt_56_terra %}, and {% data variables.copilot.copilot_gpt_56_luna %} include a cache write cost in addition to cached input. Earlier OpenAI models have no cache write cost.
+{% data variables.copilot.copilot_gpt_56_sol %}, {% data variables.copilot.copilot_gpt_56_terra %}, {% data variables.copilot.copilot_gpt_56_luna %}, and {% data variables.copilot.copilot_gpt_6_astra %} include a cache write cost in addition to cached input. Earlier OpenAI models have no cache write cost.
 
 | Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Cache write | Output |
 | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
@@ -116,6 +116,4 @@ You can view your current {% data variables.product.prodname_actions %} usage fo
 
 {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on **existing annual billing plans** using the **request-based billing** model have different model multipliers. See [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/model-multipliers-for-annual-plans).
 
-[^gemini-flash-promo]: {% data variables.copilot.copilot_gemini_36_flash %} and {% data variables.copilot.copilot_gemini_37_flash %} are available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.
-
-[^gpt-56-sol-promo]: {% data variables.copilot.copilot_gpt_56_sol %} is available at promotional pricing, 50% off standard rates, through September 3, 2026. The default tier is $2.00 per 1M input tokens, $0.20 per 1M cached input tokens, $2.50 per 1M cache write tokens, and $10.00 per 1M output tokens. The long context tier is $4.00 per 1M input tokens, $0.40 per 1M cached input tokens, $5.00 per 1M cache write tokens, and $15.00 per 1M output tokens.
+[^gemini-flash-promo]: {% data variables.copilot.copilot_gemini_36_flash %}, {% data variables.copilot.copilot_gemini_37_flash %}, and {% data variables.copilot.copilot_gemini_38_flash %} are available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.

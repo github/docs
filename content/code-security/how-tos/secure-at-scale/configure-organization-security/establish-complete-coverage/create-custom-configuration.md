@@ -56,7 +56,7 @@ When creating a security configuration, keep in mind that:
     > [!NOTE]
     > You can only enable extended metadata checks if validity checks are enabled.{% endif %}
     * **Generic patterns**. To learn more about scanning for generic patterns, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-generic-patterns) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/viewing-alerts).{% ifversion secret-scanning-ai-generic-secret-detection %}
-    * **Scan for AI-detected secrets**. To learn more, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).{% endif %}
+    * **Scan for AI-detected secrets**. {% ifversion fpt or ghec %}To learn more, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).{% endif %}{% endif %}
     * **Push protection**. To learn about push protection, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection).
     * **Bypass privileges**. By assigning bypass privileges{% ifversion push-protection-org-enterprise-exemptions %} or exemptions{% endif %}, selected actors can bypass{% ifversion push-protection-org-enterprise-exemptions %} or skip{% endif %} push protection. There is a review and approval process for all other contributors. See [AUTOTITLE](/code-security/concepts/secret-security/delegated-bypass).
     * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/enable-delegated-dismissal).
@@ -98,7 +98,7 @@ When creating a security configuration, keep in mind that:
     * **Alerts**. To learn about {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning).{% endif %} {% ifversion secret-scanning-validity-check-partner-patterns %}
     * **Validity checks**. To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#checking-a-secrets-validity).{% endif %}
     * **Generic patterns**. To learn more about scanning for generic patterns, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-generic-patterns) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/viewing-alerts).{% ifversion secret-scanning-ai-generic-secret-detection %}
-    * **Scan for AI-detected secrets**. To learn more, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).{% endif %}
+    * **Scan for AI-detected secrets**. {% ifversion fpt or ghec %}To learn more, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).{% endif %}{% endif %}
     * **Push protection**. To learn about push protection, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection).
     * **Bypass privileges**. By assigning bypass privileges{% ifversion push-protection-org-enterprise-exemptions %} or exemptions{% endif %}, selected actors can bypass{% ifversion push-protection-org-enterprise-exemptions %} or skip{% endif %} push protection. There is a review and approval process for all other contributors. See [AUTOTITLE](/code-security/concepts/secret-security/delegated-bypass).
     * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/enable-delegated-dismissal).

@@ -1122,6 +1122,17 @@ export function correctTranslatedContentStrings(
   }
 
   if (context.code === 'ru') {
+    // configuring-custom-footers.md: the translator scrambled the sentence
+    // around `{% data variables.product.prodname_dotcom %} footer{% ifversion
+    // ghes %}, ...{% elsif ghec %}...{% endif %}`, duplicating `{% данных`
+    // (data) twice, merging `ifversion ghes`/`elsif ghec` into a single
+    // invalid `{% ghversion %}` tag, and dropping the space before the final
+    // `{%endif %}` (`tag "ghversion" not found`). Reconstruct the original
+    // ifversion/elsif/endif structure with the correct Russian prose.
+    content = content.replaceAll(
+      '{% данных {% данных variables.product.prodname_dotcom %} нижнего колонтитула {% ghversion %}, для всех пользователей и участников совместной работы на всех страницах репозитория и организации для репозиториев и организаций, принадлежащих к корпоративным variables.location.product_location_enterprise{%endif %}.',
+      '{% data variables.product.prodname_dotcom %} нижнего колонтитула{% ifversion ghes %}, для всех пользователей и на всех страницах {% data variables.location.product_location_enterprise %}{% elsif ghec %} для всех пользователей и участников совместной работы на всех страницах репозитория и организации для репозиториев и организаций, принадлежащих к предприятию{% endif %}.',
+    )
     content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
     content = content.replaceAll('[АВТОЗАГОЛОВОК](', '[AUTOTITLE](')
     // `[{% autoTITLE](url)` — Liquid-embedded lowercase autotitle (translator lowercased
@@ -1875,6 +1886,21 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- 데이터 재사용 가능 항목.', '{%- data reusables.')
     content = content.replaceAll('{% 데이터 재사용 가능.', '{% data reusables.')
     content = content.replaceAll('{%- 데이터 재사용 가능.', '{%- data reusables.')
+    // `{ 데이터 재사용 가능의 엔터프라이즈 관리 콘솔 설정 저장 }` — single-brace
+    // (missing `%`) Korean translation of the entire
+    // `{% data reusables.enterprise_management_console.save-settings %}` tag,
+    // including a translated path. Restore the whole tag.
+    content = content.replaceAll(
+      '{ 데이터 재사용 가능의 엔터프라이즈 관리 콘솔 설정 저장 }',
+      '{% data reusables.enterprise_management_console.save-settings %}',
+    )
+    // `{ 데이터 재사용 가능.감사_로그.보존_기간 }` — single-brace (missing `%`)
+    // Korean translation of `{% data reusables.audit_log.retention-periods %}`,
+    // with the path segments translated but dots preserved.
+    content = content.replaceAll(
+      '{ 데이터 재사용 가능.감사_로그.보존_기간 }',
+      '{% data reusables.audit_log.retention-periods %}',
+    )
     // Korean "if" / "elsif" word translations
     // `{% 만약 X %}` / `{% 만일 X %}` — "if" in Korean
     content = content.replace(/\{%-?\s*만약\s+/g, (m) =>
@@ -2657,6 +2683,28 @@ export function correctTranslatedContentStrings(
     content = content.replace(reorderRegex, '$1$2{% else %}$3{% endif %}')
   }
 
+  // Restore a trailing `{% endif %}` that translators dropped when it was
+  // the very last token of the file (with no space before it in English, so
+  // there was nothing visually separating it from the preceding prose for
+  // the translator to notice and carry over). We only do this when the
+  // English content truly ends with an unspaced `{% endif %}` and the
+  // translated content is missing exactly one closer relative to its
+  // `ifversion`/`elsif` openers, so we don't add a spurious closer to
+  // content that is unrelated or already balanced.
+  if (englishContent) {
+    const englishTrimmed = englishContent.trimEnd()
+    if (englishTrimmed.endsWith('{% endif %}') && !/\s\{% endif %\}$/.test(englishTrimmed)) {
+      const contentTrimmed = content.trimEnd()
+      if (!contentTrimmed.endsWith('{% endif %}')) {
+        const openers = (contentTrimmed.match(/\{%-?\s*ifversion\b/g) || []).length
+        const closers = (contentTrimmed.match(/\{%-?\s*endif\b/g) || []).length
+        if (openers - closers === 1) {
+          content = `${contentTrimmed}{% endif %}\n`
+        }
+      }
+    }
+  }
+
   // Final catch-all: earlier normalizations (e.g. space-in-braces regex) can
   // recreate `{{% KEYWORD` patterns after the per-keyword fixes already ran.
   // Strip the extra `{` for known Liquid tag names.
@@ -2672,6 +2720,14 @@ export function correctTranslatedContentStrings(
   content = content.replaceAll('{%raw -%}', '{% raw -%}')
   content = content.replaceAll('{%endraw %}', '{% endraw %}')
   content = content.replaceAll('{%endraw -%}', '{% endraw -%}')
+
+  // `{% note %}` / `{% warning %}` / `{% tip %}` / `{% danger %}` were removed
+  // from the Liquid renderer (replaced by GFM alert blockquotes, see
+  // PR #62960 / commit 8b174bc4), but many translation files were forked
+  // before that change and still use the old tag syntax, which now fails
+  // with "tag not found" render errors. Strip the obsolete tags so the rest
+  // of the content renders.
+  content = stripLegacyAlertTags(content)
 
   // Strip stray closing-only Liquid tags that have no matching opener anywhere
   // in the content. Translators sometimes insert spurious closers (e.g. an
@@ -2941,6 +2997,95 @@ function joinDanglingMarkers(content: string): string {
     }
 
     out.push(line)
+  }
+
+  return out.join('\n')
+}
+
+/**
+ * Remove the obsolete `{% note %}` / `{% warning %}` / `{% tip %}` /
+ * `{% danger %}` Liquid tags (and their closers) from translated content.
+ *
+ * These tags were removed from the renderer in favour of GFM alert
+ * blockquotes, so any leftover occurrence now fails to render. Stripping
+ * them leaves the surrounding text intact.
+ *
+ * Skips YAML frontmatter, fenced code blocks, `{% raw %}` blocks, and inline
+ * code spans, where the tags are literal examples rather than markup.
+ */
+function stripLegacyAlertTags(content: string): string {
+  const tagPattern = /\{%-?\s*(?:end)?(?:note|warning|tip|danger)\s*-?%\}[ \t]*/g
+  const lines = content.split('\n')
+  const out: string[] = []
+  let inFence = false
+  let fenceChar = ''
+  let fenceLen = 0
+  let inRaw = false
+  let inFrontmatter = lines[0] === '---'
+
+  const stripOutsideInlineCode = (line: string): string =>
+    line
+      .split('`')
+      .map((segment, index) => (index % 2 === 0 ? segment.replace(tagPattern, '') : segment))
+      .join('`')
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+
+    if (inFrontmatter) {
+      if (i > 0 && (line === '---' || line === '...')) inFrontmatter = false
+      out.push(line)
+      continue
+    }
+
+    const fenceMatch = line.match(/^[ \t]*(`{3,}|~{3,})/)
+    if (fenceMatch) {
+      const marker = fenceMatch[1]
+      if (!inFence) {
+        inFence = true
+        fenceChar = marker[0]
+        fenceLen = marker.length
+      } else if (marker[0] === fenceChar && marker.length >= fenceLen) {
+        inFence = false
+        fenceChar = ''
+        fenceLen = 0
+      }
+      out.push(line)
+      continue
+    }
+
+    if (inFence) {
+      out.push(line)
+      continue
+    }
+
+    if (inRaw) {
+      if (/\{%-?\s*endraw\s*-?%\}/.test(line)) inRaw = false
+      out.push(line)
+      continue
+    }
+    if (/\{%-?\s*raw\s*-?%\}/.test(line) && !/\{%-?\s*endraw\s*-?%\}/.test(line)) {
+      inRaw = true
+      out.push(line)
+      continue
+    }
+
+    const withoutTags = stripOutsideInlineCode(line)
+    if (withoutTags === line) {
+      out.push(line)
+      continue
+    }
+    const stripped = withoutTags.replace(/[ \t]+$/, '')
+
+    // The line contained only the tag: drop it, and collapse the surrounding
+    // blank lines into one so the alert body keeps its original spacing.
+    if (stripped === '') {
+      const previousIsBlank = out.length === 0 || out[out.length - 1] === ''
+      if (previousIsBlank && lines[i + 1] === '') i++
+      continue
+    }
+
+    out.push(stripped)
   }
 
   return out.join('\n')

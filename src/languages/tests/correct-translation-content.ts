@@ -127,9 +127,9 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes translated note block tags', () => {
-      expect(fix('{% nota %}', 'es')).toBe('{% note %}')
-      expect(fix('{%- nota %}', 'es')).toBe('{%- note %}')
-      expect(fix('{%- nota -%}', 'es')).toBe('{%- note -%}')
+      expect(fix('{% nota %}', 'es')).toBe('')
+      expect(fix('{%- nota %}', 'es')).toBe('')
+      expect(fix('{%- nota -%}', 'es')).toBe('')
     })
 
     test('fixes otra → else', () => {
@@ -238,8 +238,8 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes note keyword', () => {
-      expect(fix('{% メモ %}', 'ja')).toBe('{% note %}')
-      expect(fix('{%- メモ %}', 'ja')).toBe('{%- note %}')
+      expect(fix('{% メモ %}', 'ja')).toBe('')
+      expect(fix('{%- メモ %}', 'ja')).toBe('')
     })
 
     test('fixes Japanese or (または) in ifversion tags', () => {
@@ -557,8 +557,8 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes observação → note', () => {
-      expect(fix('{% observação %}', 'pt')).toBe('{% note %}')
-      expect(fix('{%- observação %}', 'pt')).toBe('{%- note %}')
+      expect(fix('{% observação %}', 'pt')).toBe('')
+      expect(fix('{%- observação %}', 'pt')).toBe('')
     })
 
     test('fixes comentário → comment', () => {
@@ -567,8 +567,8 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes nota de fim → endnote', () => {
-      expect(fix('{% nota de fim %}', 'pt')).toBe('{% endnote %}')
-      expect(fix('{%- nota de fim %}', 'pt')).toBe('{%- endnote %}')
+      expect(fix('{% nota de fim %}', 'pt')).toBe('')
+      expect(fix('{%- nota de fim %}', 'pt')).toBe('')
     })
 
     test('fixes Dados variables → data variables', () => {
@@ -912,8 +912,8 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes other translated keywords', () => {
       expect(fix('{% конечным %}', 'ru')).toBe('{% endif %}')
       expect(fix('{%- конечным %}', 'ru')).toBe('{%- endif %}')
-      expect(fix('{% примечание %}', 'ru')).toBe('{% note %}')
-      expect(fix('{%- примечание %}', 'ru')).toBe('{%- note %}')
+      expect(fix('{% примечание %}', 'ru')).toBe('')
+      expect(fix('{%- примечание %}', 'ru')).toBe('')
       expect(fix('{% конечных головщиков %}', 'ru')).toBe('{% endrowheaders %}')
       expect(fix('{% эндкёрл %}', 'ru')).toBe('{% endcurl %}')
       expect(fix('{%- эндкёрл %}', 'ru')).toBe('{%- endcurl %}')
@@ -1098,15 +1098,15 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes translated block tags', () => {
-      expect(fix('{% remarque %}', 'fr')).toBe('{% note %}')
-      expect(fix('{%- remarque %}', 'fr')).toBe('{%- note %}')
-      expect(fix('{%- remarque -%}', 'fr')).toBe('{%- note -%}')
-      expect(fix('{% avertissement %}', 'fr')).toBe('{% warning %}')
-      expect(fix('{%- avertissement %}', 'fr')).toBe('{%- warning %}')
-      expect(fix('{%- avertissement -%}', 'fr')).toBe('{%- warning -%}')
-      expect(fix('{% conseil %}', 'fr')).toBe('{% tip %}')
-      expect(fix('{%- conseil %}', 'fr')).toBe('{%- tip %}')
-      expect(fix('{%- conseil -%}', 'fr')).toBe('{%- tip -%}')
+      expect(fix('{% remarque %}', 'fr')).toBe('')
+      expect(fix('{%- remarque %}', 'fr')).toBe('')
+      expect(fix('{%- remarque -%}', 'fr')).toBe('')
+      expect(fix('{% avertissement %}', 'fr')).toBe('')
+      expect(fix('{%- avertissement %}', 'fr')).toBe('')
+      expect(fix('{%- avertissement -%}', 'fr')).toBe('')
+      expect(fix('{% conseil %}', 'fr')).toBe('')
+      expect(fix('{%- conseil %}', 'fr')).toBe('')
+      expect(fix('{%- conseil -%}', 'fr')).toBe('')
     })
 
     test('removes orphaned endif when no matching ifversion/elsif opener exists', () => {
@@ -1136,8 +1136,8 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes note de fin → endnote', () => {
-      expect(fix('{% note de fin %}', 'fr')).toBe('{% endnote %}')
-      expect(fix('{%- note de fin %}', 'fr')).toBe('{%- endnote %}')
+      expect(fix('{% note de fin %}', 'fr')).toBe('')
+      expect(fix('{%- note de fin %}', 'fr')).toBe('')
     })
 
     test('fixes éclipse → eclipse platform tag', () => {
@@ -1282,8 +1282,8 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes translated keywords', () => {
       expect(fix('{% 기타 %}', 'ko')).toBe('{% else %}')
       expect(fix('{%- 기타 %}', 'ko')).toBe('{%- else %}')
-      expect(fix('{% 참고 %}', 'ko')).toBe('{% note %}')
-      expect(fix('{%- 참고 %}', 'ko')).toBe('{%- note %}')
+      expect(fix('{% 참고 %}', 'ko')).toBe('')
+      expect(fix('{%- 참고 %}', 'ko')).toBe('')
       expect(fix('{% 원시 %}', 'ko')).toBe('{% raw %}')
       expect(fix('{%- 원시 %}', 'ko')).toBe('{%- raw %}')
     })
@@ -1338,8 +1338,8 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes 주석 끝 → endnote', () => {
-      expect(fix('{% 주석 끝 %}', 'ko')).toBe('{% endnote %}')
-      expect(fix('{%- 주석 끝 %}', 'ko')).toBe('{%- endnote %}')
+      expect(fix('{% 주석 끝 %}', 'ko')).toBe('')
+      expect(fix('{%- 주석 끝 %}', 'ko')).toBe('')
     })
 
     test('fixes capitalized Variables → data variables', () => {
@@ -1405,15 +1405,15 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes translated block tags', () => {
-      expect(fix('{% Hinweis %}', 'de')).toBe('{% note %}')
-      expect(fix('{%- Hinweis %}', 'de')).toBe('{%- note %}')
-      expect(fix('{%- Hinweis -%}', 'de')).toBe('{%- note -%}')
-      expect(fix('{% Warnung %}', 'de')).toBe('{% warning %}')
-      expect(fix('{%- Warnung %}', 'de')).toBe('{%- warning %}')
-      expect(fix('{%- Warnung -%}', 'de')).toBe('{%- warning -%}')
-      expect(fix('{% Tipp %}', 'de')).toBe('{% tip %}')
-      expect(fix('{%- Tipp %}', 'de')).toBe('{%- tip %}')
-      expect(fix('{%- Tipp -%}', 'de')).toBe('{%- tip -%}')
+      expect(fix('{% Hinweis %}', 'de')).toBe('')
+      expect(fix('{%- Hinweis %}', 'de')).toBe('')
+      expect(fix('{%- Hinweis -%}', 'de')).toBe('')
+      expect(fix('{% Warnung %}', 'de')).toBe('')
+      expect(fix('{%- Warnung %}', 'de')).toBe('')
+      expect(fix('{%- Warnung -%}', 'de')).toBe('')
+      expect(fix('{% Tipp %}', 'de')).toBe('')
+      expect(fix('{%- Tipp %}', 'de')).toBe('')
+      expect(fix('{%- Tipp -%}', 'de')).toBe('')
     })
 
     test('fixes capitalized Codespaces platform tag', () => {
@@ -1515,8 +1515,8 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes Endnotiz → endnote', () => {
-      expect(fix('{% Endnotiz %}', 'de')).toBe('{% endnote %}')
-      expect(fix('{%- Endnotiz %}', 'de')).toBe('{%- endnote %}')
+      expect(fix('{% Endnotiz %}', 'de')).toBe('')
+      expect(fix('{%- Endnotiz %}', 'de')).toBe('')
     })
 
     test('fixes endifen → endif (via generic)', () => {
@@ -2937,6 +2937,111 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(output).toBe(
         '1. "아티팩트, 로그 및 캐시 설정" 구역의 **아티팩트 및 로그 보존**에서 새 값을 입력합니다.',
       )
+    })
+  })
+
+  describe('ko: single-brace translated data reusables tag', () => {
+    test('fixes the fully-translated single-brace save-settings tag', () => {
+      expect(fix('{ 데이터 재사용 가능의 엔터프라이즈 관리 콘솔 설정 저장 }', 'ko')).toBe(
+        '{% data reusables.enterprise_management_console.save-settings %}',
+      )
+    })
+
+    test('fixes the fully-translated single-brace retention-periods tag', () => {
+      expect(fix('{ 데이터 재사용 가능.감사_로그.보존_기간 }', 'ko')).toBe(
+        '{% data reusables.audit_log.retention-periods %}',
+      )
+    })
+
+    test('leaves already-correct translations unchanged', () => {
+      const correct = '{% data reusables.enterprise_management_console.save-settings %}'
+      expect(fix(correct, 'ko')).toBe(correct)
+      const correct2 = '{% data reusables.audit_log.retention-periods %}'
+      expect(fix(correct2, 'ko')).toBe(correct2)
+    })
+  })
+
+  describe('universal: restores a trailing {% endif %} dropped at end of file', () => {
+    const english = 'Some text is only shown{% ifversion fpt %} on the free plan{% endif %}'
+
+    test('appends the missing endif when the translation drops it at end of file', () => {
+      const broken = 'Algún texto solo se muestra{% ifversion fpt %} en el plan gratuito'
+      const fixed =
+        'Algún texto solo se muestra{% ifversion fpt %} en el plan gratuito{% endif %}\n'
+      expect(fix(broken, 'es', english)).toBe(fixed)
+    })
+
+    test('leaves already-correct translations unchanged', () => {
+      const correct =
+        'Algún texto solo se muestra{% ifversion fpt %} en el plan gratuito{% endif %}'
+      expect(fix(correct, 'es', english)).toBe(correct)
+    })
+
+    test('does not add an endif when the translation is already balanced', () => {
+      const balanced = 'Texto normal sin condicionales.'
+      expect(fix(balanced, 'es', 'Texto normal sin condicionales.')).toBe(balanced)
+    })
+
+    test('renders the conditional text once the endif is restored', async () => {
+      const broken = 'Algún texto solo se muestra{% ifversion fpt %} en el plan gratuito'
+      const output = await render(fix(broken, 'es', english), 'free-pro-team@latest')
+      expect(output).toBe('Algún texto solo se muestra en el plan gratuito')
+    })
+  })
+
+  describe('ru: configuring-custom-footers.md per-file fix', () => {
+    const broken =
+      'Вы можете настроить веб-интерфейс для вашего предприятия, чтобы отобразить настраиваемый нижний колонтитул с до пяти дополнительных ссылок. Настраиваемый нижний колонтитул по умолчанию отображается над нижним колонтитулов {% данных {% данных variables.product.prodname_dotcom %} нижнего колонтитула {% ghversion %}, для всех пользователей и участников совместной работы на всех страницах репозитория и организации для репозиториев и организаций, принадлежащих к корпоративным variables.location.product_location_enterprise{%endif %}.'
+    const fixed =
+      'Вы можете настроить веб-интерфейс для вашего предприятия, чтобы отобразить настраиваемый нижний колонтитул с до пяти дополнительных ссылок. Настраиваемый нижний колонтитул по умолчанию отображается над нижним колонтитулов {% data variables.product.prodname_dotcom %} нижнего колонтитула{% ifversion ghes %}, для всех пользователей и на всех страницах {% data variables.location.product_location_enterprise %}{% elsif ghec %} для всех пользователей и участников совместной работы на всех страницах репозитория и организации для репозиториев и организаций, принадлежащих к предприятию{% endif %}.'
+
+    test('reconstructs the scrambled data/ifversion/elsif/endif structure', () => {
+      expect(fix(broken, 'ru')).toBe(fixed)
+      expect(fix(fixed, 'ru')).toBe(fixed)
+    })
+
+    test('renders the enterprise-cloud branch on ghec', async () => {
+      const output = await render(fix(broken, 'ru'), 'enterprise-cloud@latest')
+      expect(output).toContain('GitHub нижнего колонтитула для всех пользователей')
+    })
+
+    test('renders the ghes branch on ghes', async () => {
+      const output = await render(fix(broken, 'ru'), ghesVersion)
+      expect(output).toContain('GitHub нижнего колонтитула, для всех пользователей')
+    })
+  })
+
+  describe('universal: strips legacy {% note/warning/tip/danger %} tags', () => {
+    test('strips a simple flush-left {% note %} block', () => {
+      const broken = '{% note %}\n\n**Note:** Some note text.\n\n{% endnote %}\n'
+      expect(fix(broken, 'es')).toBe('**Note:** Some note text.\n')
+    })
+
+    test('strips {% warning %}, {% tip %}, and {% danger %} tags', () => {
+      expect(fix('{% warning %}\nBe careful.\n{% endwarning %}', 'ja')).toBe('Be careful.')
+      expect(fix('{% tip %}\nHelpful hint.\n{% endtip %}', 'de')).toBe('Helpful hint.')
+      expect(fix('{% danger %}\nDangerous.\n{% enddanger %}', 'fr')).toBe('Dangerous.')
+    })
+
+    test('strips a {% note %} block indented inside a list item', () => {
+      const broken = '- Item text.\n\n  {% note %}\n\n  Nested note text.\n\n  {% endnote %}\n'
+      expect(fix(broken, 'pt')).toBe('- Item text.\n\n  Nested note text.\n')
+    })
+
+    test('leaves already-converted GFM alerts unchanged', () => {
+      const correct = '> [!NOTE]\n> Already converted note.'
+      expect(fix(correct, 'ko')).toBe(correct)
+    })
+
+    test('strips tags that share a line with other Liquid tags', () => {
+      const broken = '{% ifversion fpt %} {% note %}\n\nText.\n\n{% endnote %} {% endif %}'
+      expect(fix(broken, 'zh')).toBe('{% ifversion fpt %}\n\nText.\n\n{% endif %}')
+    })
+
+    test('leaves legacy tags inside fenced code blocks and inline code alone', () => {
+      const example = '```\n{% note %}\nExample.\n{% endnote %}\n```\n'
+      expect(fix(example, 'es')).toBe(example)
+      expect(fix('Use `{% note %}` here.', 'es')).toBe('Use `{% note %}` here.')
     })
   })
 })

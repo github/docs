@@ -8,28 +8,16 @@
 - model: 'Claude Haiku 4.5'
   new_multiplier: '0.33'
 
-- model: 'Claude Opus 4.5'
-  new_multiplier: '15'
-
-- model: 'Claude Opus 4.6'
-  new_multiplier: '27'
-
 - model: 'Claude Opus 4.7'
   new_multiplier: '27'
 
 - model: 'Claude Opus 4.8'
   new_multiplier: '27'
 
-- model: 'Claude Sonnet 4.5'
-  new_multiplier: '6'
-
 - model: 'Claude Sonnet 4.6'
   new_multiplier: '9'
 
 - model: 'Gemini 3 Pro'
-  new_multiplier: '6'
-
-- model: 'Gemini 3.1 Pro'
   new_multiplier: '6'
 
 - model: 'Gemini 3.5 Flash'
@@ -66,9 +54,6 @@
   new_multiplier: '57'
 
 - model: 'GPT-5 mini'
-  new_multiplier: '0.33'
-
-- model: 'Raptor mini'
   new_multiplier: '0.33'
 
 - model: 'MAI-Code-1-Flash'

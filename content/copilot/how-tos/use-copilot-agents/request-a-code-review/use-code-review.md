@@ -45,7 +45,18 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
    ![Screenshot of a code review left by {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/code-review/review-comment@2x.png)
 
+   {% data variables.product.prodname_copilot_short %} labels each comment with a severity level of "High," "Medium," or "Low" to help you prioritize the issues it finds based on their importance.
+
    By default, {% data variables.product.prodname_copilot_short %} leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that, by default, {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request. However, if configured to do so, {% data variables.product.prodname_copilot_short %} can leave "Approve" reviews. For more information, see [Pull request approvals from {% data variables.product.prodname_copilot_short %}](#pull-request-approvals-from-copilot).
+
+1. Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
+
+   If you're happy with the changes, you can accept a single suggestion from {% data variables.product.prodname_copilot_short %} and commit it, or accept a group of suggestions together in a single commit. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/incorporating-feedback-in-your-pull-request).
+
+   You can also invoke {% data variables.copilot.copilot_cloud_agent %} to implement suggested changes. To do this, you must:
+
+   * Enable {% data variables.copilot.copilot_code-review %} and {% data variables.copilot.copilot_cloud_agent %}.
+   * On review comments from {% data variables.copilot.copilot_code-review %}, click **Fix with {% data variables.product.prodname_copilot_short %}**. This creates a draft comment on the pull request, where you can instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. You can then select whether {% data variables.product.prodname_copilot_short %} will create a new pull request against your branch or a commit to the same pull request with the suggestions applied.
 
 1. {% data variables.product.prodname_copilot_short %}'s review comments behave like review comments from humans. You can add reactions to them, comment on them, resolve them and hide them.
 
@@ -57,28 +68,6 @@ You can also request a review from {% data variables.product.prodname_copilot_sh
 
 By default, you manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request, in the same way you would request a review from a human. However, you can set up {% data variables.product.prodname_copilot_short %} to automatically review all pull requests. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
 
-## Choosing a review effort level
-
-{% data variables.copilot.copilot_code-review_short %} supports multiple review effort levels, so you can choose the level of thoroughness that matches the criticality of your code.
-
-* **Lite**: Standard review that provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies (default).
-* **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes, using a higher-reasoning model.
-
-You can select the review effort level in the pull request, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. Organization owners and repository administrators can also set a default effort level for automatic reviews.
-
-For more information, see [AUTOTITLE](/copilot/concepts/agents/code-review#review-effort-level).
-
-## Working with suggested changes provided by {% data variables.product.prodname_copilot_short %}
-
-Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
-
-If you're happy with the changes, you can accept a single suggestion from {% data variables.product.prodname_copilot_short %} and commit it, or accept a group of suggestions together in a single commit. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/incorporating-feedback-in-your-pull-request).
-
-You can also invoke {% data variables.copilot.copilot_cloud_agent %} to implement suggested changes. To do this, you must:
-
-* Enable {% data variables.copilot.copilot_code-review %} and {% data variables.copilot.copilot_cloud_agent %}.
-* On review comments from {% data variables.copilot.copilot_code-review %}, click **Fix with {% data variables.product.prodname_copilot_short %}**. This creates a draft comment on the pull request, where you can instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. You can then select whether {% data variables.product.prodname_copilot_short %} will create a new pull request against your branch or a commit to the same pull request with the suggestions applied.
-
 ## Requesting a re-review from {% data variables.product.prodname_copilot_short %}
 
 When you push changes to a pull request that {% data variables.product.prodname_copilot_short %} has reviewed, it won't automatically re-review your changes unless you've configured it to review new pushes after enabling automatic reviews.
@@ -88,6 +77,17 @@ To manually request a re-review from {% data variables.product.prodname_copilot_
 To automatically request re-reviews from {% data variables.product.prodname_copilot_short %} on every push, enable automatic code review for the repository and select **Review new pushes** in the ruleset settings. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#configuring-automatic-code-review-for-repositories-in-an-organization).
 
 > [!NOTE] When re-reviewing a pull request, {% data variables.product.prodname_copilot_short %} may repeat the same comments again, even if they have been dismissed with the "Resolve conversation" button or downvoted with the thumbs down (:-1:) button.
+
+## Choosing a review effort level
+
+With review effort levels, you can choose the level of thoroughness of {% data variables.product.prodname_copilot_short %}'s review that matches the criticality of your code.
+
+* **Lite**: Cost-efficient review that provides targeted feedback on glaring issues such as bugs, security vulnerabilities, and style inconsistencies.
+* **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes, using a higher-reasoning model.
+
+You can select the review effort level in the pull request before you request a review from {% data variables.product.prodname_copilot_short %}, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. Organization owners and repository administrators can also set a default effort level for automatic reviews.
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/code-review#review-effort-level).
 
 ## Pull request approvals from {% data variables.product.prodname_copilot_short %}
 

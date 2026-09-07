@@ -98,7 +98,7 @@ To upgrade a multi-node {% data variables.product.prodname_ghe_server %} environ
 
 ## Upgrading an instance using phased upgrade execution
 
-Phased upgrade execution allows {% data variables.product.prodname_ghe_server %} operators running versions 3.22 or greater better control over downtime-inducing actions by isolating those actions to their own phase. To use phased execution perform the following after downloading the upgrade package:
+Phased upgrade execution allows {% data variables.product.prodname_ghe_server %} operators running versions 3.21 or greater better control over downtime-inducing actions by isolating those actions to their own phase. To use phased execution perform the following after downloading the upgrade package:
 1. Run the package's pre-upgrade phase
 
    ```shell

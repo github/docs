@@ -1239,6 +1239,12 @@
       "requestPath": "/repos/{owner}/{repo}/stargazers/count"
     },
     {
+      "slug": "get-repository-star-history",
+      "subcategory": "starring",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/history"
+    },
+    {
       "slug": "list-watchers",
       "subcategory": "watching",
       "verb": "get",

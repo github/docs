@@ -159,6 +159,12 @@ The join is an inner join: a team appears in the result for a given day only if 
 
 Per-dimension breakdowns live in array fields on each per-user row (`totals_by_ide`, `totals_by_language_feature`, `totals_by_language_model`, `totals_by_model_feature`). To group by a dimension, expand the relevant array as part of the join, add the dimension columns to your grouping, and aggregate the per-element counters scoped to that dimension. `language` and `ide` live in separate arrays, so a team-level `(language × ide)` cross-tab takes two queries combined in your application.
 
+### Cutting by {% data variables.copilot.agent_app %}
+
+Usage for each {% data variables.copilot.agent_app %} is in the `totals_by_3rd_party_agent` array on each per-user row. To create team-level {% data variables.copilot.agent_app %} metrics, expand the array after joining the reports, group by `team_id` and `agent_id`, and sum the nested `user_initiated_interaction_count`. Use `agent_id` as the stable grouping key and `agent_name` for display.
+
+Per-user {% data variables.copilot.agent_app %} entries do not include `session_count`, so you cannot derive team-level session counts from the user-teams join.
+
 ### Building rolling-window team reports
 
 To produce a rolling-window team report (for example, a 28-day rollup):

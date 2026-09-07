@@ -10486,6 +10486,10 @@
       "isDeprecated": false,
       "values": [
         {
+          "name": "ENTERPRISE_ORGANIZATION_CREATION",
+          "description": "<p>The invitation was created with an enterprise organization.</p>"
+        },
+        {
           "name": "MEMBER",
           "description": "<p>The invitation was created from the web interface or from API.</p>"
         },

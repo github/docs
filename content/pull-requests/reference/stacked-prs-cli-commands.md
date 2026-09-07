@@ -93,7 +93,9 @@ Add a new branch on top of the current stack.
 gh stack add [flags] [branch]
 ```
 
-Creates a new branch at the current HEAD, adds it to the top of the stack, and checks it out. You must run this command while on the topmost branch of a stack. If you do not provide a branch name, the command prompts for one.
+For an existing stack, creates a new branch at the current HEAD, adds it to the top of the stack, and checks it out. You must run this command while on the topmost branch of a stack. If you do not provide a branch name, the command prompts for one.
+
+When you run the command interactively from a branch that is not part of a stack, `add` offers to initialize a new stack instead. The branch name you supply, or the auto-generated name, becomes the first layer. If you don't supply a name, the standard `init` prompts are used.
 
 You can optionally stage changes and create a commit as part of the `add` flow. When you provide `-m` without an explicit branch name, the branch name is generated automatically in date and slug format, such as `03-24-add_login`.
 
@@ -143,7 +145,7 @@ Shows all branches in the stack, their ordering, pull request links, and the mos
 
 | Flag | Description |
 |------|-------------|
-| `-s, --short` | Compact output (branch names only) |
+| `-s, --short` | Compact one-line-per-branch output |
 | `--json` | Output stack data as JSON |
 
 **Examples:**
@@ -153,6 +155,8 @@ gh stack view
 gh stack view --short
 gh stack view --json
 ```
+
+`gh stack view --short` uses OSC 8 hyperlinks for pull request numbers when the terminal supports them. Otherwise, the full URL is shown for copy and paste. Set `GH_STACK_HYPERLINKS=1` or `GH_STACK_HYPERLINKS=0` to override terminal detection.
 
 ### `gh stack checkout`
 
@@ -166,9 +170,9 @@ A bare number is interpreted first as a stack or pull request number. These are 
 
 When you reference a remote stack, the command fetches the stack on {% data variables.product.github %}, pulls the branches, and sets up the stack locally. If the stack already exists locally and matches, the command switches to the branch. If the local and remote stacks have different compositions, you are prompted to resolve the conflict.
 
-When you provide a branch name, the command resolves it against locally tracked stacks only.
+When you provide a branch name, the command checks locally tracked stacks first. If the branch is not tracked locally, the command looks for the branch on remote stacks and pulls down the matching stack. If more than one stack matches, use a stack or pull request number to choose one explicitly.
 
-When you run the command without arguments in an interactive terminal, it opens a searchable picker listing every stack available to you, both the stacks tracked locally and the stacks that exist only on {% data variables.product.github %}. Each row shows the stack number, its bottom and top branch, base branch, a status bar summarizing how many of its pull requests are merged, open, closed, or not yet pushed, and whether the stack is available locally or only on the remote. Filter with the **All**, **Local**, and **Remote** tabs, or type `/` to search. Fully merged stacks are omitted. Selecting a remote-only stack clones it locally before switching to it.
+When you run the command without arguments in an interactive terminal, it first checks whether the current branch belongs to a stack on the remote that is not tracked locally, and offers to check it out. If there is no unique match, or you decline, it opens a searchable picker listing every stack available to you, both the stacks tracked locally and the stacks that exist only on {% data variables.product.github %}. Each row shows the stack number, its bottom and top branch, base branch, a status bar summarizing how many of its pull requests are merged, open, closed, or not yet pushed, and whether the stack is available locally or only on the remote. Filter with the **All**, **Local**, and **Remote** tabs, or type `/` to search. Fully merged stacks are omitted. Selecting a remote-only stack clones it locally before switching to it.
 
 **Examples:**
 
@@ -182,7 +186,7 @@ gh stack checkout 42
 # Check out a stack by pull request URL
 gh stack checkout https://github.com/owner/repo/pull/42
 
-# Check out a stack by branch name (local only)
+# Check out a stack by branch name
 gh stack checkout feature-auth
 
 # Interactive — pick from all available stacks (local and remote)
@@ -687,6 +691,7 @@ gh stack feedback "Support for reordering branches"
 | Variable | Values | Description |
 |----------|--------|-------------|
 | `GH_STACK_THEME` | `auto` (default), `light`, `dark` | Controls the color palette of the interactive screens for `submit`, `modify`, and `view`, and all colored command output. Colors adapt to your terminal background automatically. Set this variable to force the light or dark palette when a terminal does not report its background, which can happen in some SSH or `tmux` setups. |
+| `GH_STACK_HYPERLINKS` | `0`, `1` | Disables or enables OSC 8 hyperlinks when terminal detection is incorrect. Unsupported terminals show the full URL by default. |
 
 ```shell
 # Force the light palette for one command

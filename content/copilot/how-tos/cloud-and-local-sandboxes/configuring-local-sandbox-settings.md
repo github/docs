@@ -36,7 +36,7 @@ The **General** tab controls the top-level sandbox behavior. When enterprise man
 | Setting | Description |
 | --- | --- |
 | **Enable sandbox** | Run shell commands inside the sandbox. You can also toggle this with `/sandbox enable` and `/sandbox disable`. |
-| **Allow sandbox bypass** | Let the model request that individual commands run outside the sandbox, subject to approval. Turned on by default. For more information, see [Allowing sandbox bypass](#allowing-sandbox-bypass). |
+| **Allow sandbox bypass** | Let the model request that individual commands run outside the sandbox, subject to approval. A bypass prompt can also let you disable sandboxing for the rest of the current session. Turned on by default. For more information, see [Allowing sandbox bypass](#allowing-sandbox-bypass). |
 | **Sandbox MCP servers** | Run MCP servers inside the sandbox. Turned on by default. |
 | **Sandbox LSP servers** | Run language servers (LSP servers) inside the sandbox. Turned on by default. |
 
@@ -46,6 +46,8 @@ The **Allow sandbox bypass** setting controls what happens when {% data variable
 
 * **On (default)**: If a command fails inside the sandbox, you are prompted to allow {% data variables.product.prodname_copilot_short %} to run the command outside the sandbox. Your response to this prompt applies to this specific attempt to run the command. Optionally, you can choose to disable the sandbox for the rest of the session (if permitted by your enterprise), or you can enter an instruction for {% data variables.product.prodname_copilot_short %} to work on instead.
 * **Off**: If {% data variables.product.prodname_copilot_short %} can't run a command successfully in the sandbox, it stops working on the task and reports the failure.
+
+If enterprise managed settings set `sandbox.allowBypass` to `false`, you cannot approve individual commands to run outside the sandbox or disable sandboxing for the rest of the session. If managed settings require sandboxing but the effective policy permits bypass, you can disable sandboxing only from an active bypass permission prompt, not through ordinary settings or `/sandbox disable`.
 
 ## Configuring authentication settings
 

@@ -1,6 +1,6 @@
 ---
 title: Usage-based billing for organizations and enterprises
-shortTitle: Billing for organizations and enterprises
+shortTitle: Usage-based billing
 intro: 'Under usage-based billing, {% data variables.product.prodname_copilot_short %} usage in organizations and enterprises is measured in {% data variables.product.prodname_ai_credits_short %}.'
 permissions: Enterprise and organization owners and billing managers
 versions:
@@ -8,6 +8,7 @@ versions:
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 redirect_from:
   - /copilot/how-tos/manage-and-track-spending/prepare-for-usage-based-billing
+  - /copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises
 contentType: concepts
 category:
   - Manage Copilot for a team
@@ -61,7 +62,7 @@ After the promotional period, included usage returns to the standard amounts abo
 
 When your pooled {% data variables.product.prodname_ai_credits_short %} are exhausted, what happens next depends on how you have configured policies for additional usage.
 
-* **Additional usage allowed**: Usage continues at published per-credit rates. The additional spend is charged to your organization or enterprise.
+* **Additional usage allowed**: Usage continues at published per-credit rates. The additional spend is charged to your organization or enterprise. Note that additional usage **may be capped**: if you hit the cap, you'll need to pay off any additional usage you've already consumed in order to continue.
 * **Additional usage not allowed**: Usage is blocked until the next billing cycle when monthly amounts are refreshed.
 
 > [!NOTE]

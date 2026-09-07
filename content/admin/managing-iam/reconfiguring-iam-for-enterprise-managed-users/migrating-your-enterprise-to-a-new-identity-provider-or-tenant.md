@@ -26,7 +26,7 @@ After authentication and provisioning is reconfigured at the end of the migratio
 ## Prerequisites
 
 * {% data reusables.enterprise-managed.emu-prerequisite %}
-* Review and understand the requirements for integration with {% data variables.product.prodname_emus %} from an external identity management system. To simplify configuration and support, you can use a single partner IdP for a "paved-path" integration. Alternatively, you can configure authentication using a system that adheres to the Security Assertion Markup Language (SAML) 2.0 and System for Cross-domain Identity Management (SCIM) 2.0 standards. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users#about-authentication-and-user-provisioning).
+* Review and understand the requirements for integration with {% data variables.product.prodname_emus %} from an external identity management system. To simplify configuration and support, you can use a single partner IdP for a "paved-path" integration. Alternatively, you can configure authentication using a system that adheres to the Security Assertion Markup Language (SAML) 2.0 and System for Cross-domain Identity Management (SCIM) 2.0 standards. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).
 * You must have already configured authentication and SCIM provisioning for your enterprise.
 
 ## Preparing for migration

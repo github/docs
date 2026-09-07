@@ -204,6 +204,10 @@ When you use {% data variables.copilot.copilot_cli_short %}, {% data variables.p
 
 You should therefore always keep security considerations in mind when using {% data variables.copilot.copilot_cli_short %}, just as you would when working directly with files yourself, or running commands directly in your terminal. You should always review suggested commands carefully when {% data variables.copilot.copilot_cli_short %} requests your approval.
 
+### Content exclusion
+
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users, {% data variables.copilot.copilot_cli_short %} respects content exclusion policies configured at the enterprise, organization, and repository levels. Excluded files are not used as context. For more information, see [AUTOTITLE](/copilot/concepts/context/content-exclusion).
+
 ### Trusted directories
 
 Trusted directories control where {% data variables.copilot.copilot_cli_short %} can read, modify, and execute files.

@@ -27,6 +27,7 @@ Used for:
 * {% data variables.copilot.copilot_gpt_56_luna %}
 * {% data variables.copilot.copilot_gpt_56_sol %}
 * {% data variables.copilot.copilot_gpt_56_terra %}
+* {% data variables.copilot.copilot_gpt_6_astra %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
@@ -41,11 +42,8 @@ All input requests and output responses processed by {% data variables.product.p
 Used for:
 
 * {% data variables.copilot.copilot_claude_haiku_45 %}
-* {% data variables.copilot.copilot_claude_sonnet_45 %}
 * {% data variables.copilot.copilot_claude_sonnet_46 %}
 * {% data variables.copilot.copilot_claude_sonnet_5 %}
-* {% data variables.copilot.copilot_claude_opus_45 %}
-* {% data variables.copilot.copilot_claude_opus_46 %}
 * {% data variables.copilot.copilot_claude_opus_47 %}
 * {% data variables.copilot.copilot_claude_opus_48 %}
 * {% data variables.copilot.copilot_claude_opus_48_fast %}
@@ -80,10 +78,10 @@ When using {% data variables.copilot.copilot_claude %}, input prompts and output
 
 Used for:
 
-* {% data variables.copilot.copilot_gemini_31_pro %}
 * {% data variables.copilot.copilot_gemini_35_flash %}
 * {% data variables.copilot.copilot_gemini_36_flash %}
 * {% data variables.copilot.copilot_gemini_37_flash %}
+* {% data variables.copilot.copilot_gemini_38_flash %}
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini %} models hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
 
@@ -120,7 +118,6 @@ Used for:
 
 * {% data variables.copilot.copilot_mai_code_1_flash %}
 * {% data variables.copilot.copilot_mai_code_1_1_flash %}
-* {% data variables.copilot.copilot_raptor_mini %}
 
 {% data variables.copilot.copilot_mai_code_1_flash %} and {% data variables.copilot.copilot_mai_code_1_1_flash %} are first-party Microsoft models hosted on Azure in {% data variables.product.github %}'s tenant.
 

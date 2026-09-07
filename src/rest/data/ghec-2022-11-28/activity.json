@@ -95558,6 +95558,139 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/history",
+      "title": "Get repository star history",
+      "category": "activity",
+      "subcategory": "starring",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 30). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns repository stars grouped by calendar weeks, most recent first. Pages move backward toward the repository's creation week, and weeks within a page are ordered newest to oldest, so concatenating pages produces one continuous series. Weeks without stars contain zero counts. Week and day boundaries are not guaranteed to align with UTC. The <code>days</code> array contains the number of stars created on each day of the week, starting on Sunday.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Repository star history</p>",
+            "example": [
+              {
+                "week": 1754784000,
+                "total": 19,
+                "days": [
+                  0,
+                  12,
+                  7,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "maxItems": 30,
+              "items": {
+                "title": "Stargazer History",
+                "description": "Stargazer History",
+                "type": "object",
+                "properties": {
+                  "days": {
+                    "description": "The number of stars created on each day of the week, starting on Sunday.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "total": {
+                    "description": "The number of stars created during the week.",
+                    "type": "integer"
+                  },
+                  "week": {
+                    "description": "The start of the week, given as a Unix timestamp.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "days",
+                  "total",
+                  "week"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Repository star history</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
       "requestPath": "/user/starred",
       "title": "List repositories starred by the authenticated user",
       "category": "activity",
@@ -97600,7 +97733,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists repositories a user has starred.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.star+json</code></strong>: Includes a timestamp of when the star was created.</li>\n</ul>",
+      "descriptionHTML": "<p>Lists repositories a user has starred.</p>\n<p>If the specified user has a <a href=\"https://docs.github.com/enterprise-cloud@latest/account-and-profile/concepts/personal-profile#private-profiles\">private profile</a>, this endpoint returns an empty list unless the request is authenticated as that user. A request authenticated as the specified user returns starred repositories visible to the token even if the token has no OAuth scopes.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.star+json</code></strong>: Includes a timestamp of when the star was created.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {

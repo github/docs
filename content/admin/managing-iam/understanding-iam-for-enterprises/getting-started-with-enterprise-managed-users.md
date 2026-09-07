@@ -51,7 +51,7 @@ Using an **incognito or private browsing window**:
 
 {% data reusables.enterprise-accounts.emu-configure-authentication %}
 
-{% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a partner IdP for both authentication and provisioning. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. For more details, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users#identity-management-systems).
+{% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a partner IdP for both authentication and provisioning. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. For more details, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users#how-does-emus-integrate-with-identity-management-systems).
 
 ## Configure provisioning
 

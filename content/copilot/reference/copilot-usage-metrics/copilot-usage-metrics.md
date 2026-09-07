@@ -143,9 +143,9 @@ Active-user counts:
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
-| `daily_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} on a given day, including users active only in the {% data variables.copilot.github_copilot_app_short %}. |
-| `weekly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing seven-day window, including users active only in the {% data variables.copilot.github_copilot_app_short %}. |
-| `monthly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing 28-day window, including users active only in the {% data variables.copilot.github_copilot_app_short %}. |
+| `daily_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} on a given day. |
+| `weekly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing seven-day window. |
+| `monthly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing 28-day window. |
 | `monthly_active_chat_users` | `integer` | No | Number of unique users who used chat during a trailing 28-day window. |
 | `monthly_active_agent_users` | `integer` | No | Number of unique users who used agent mode during a trailing 28-day window. |
 | `daily_active_copilot_cloud_agent_users` | `integer` | No | Number of unique users who used {% data variables.copilot.copilot_cloud_agent %} on a given day. |
@@ -281,6 +281,9 @@ The `totals_by_copilot_app` object contains the following nested fields when {% 
 
 ### {% data variables.copilot.agent_apps_caps %} metrics fields
 
+> [!NOTE]
+> {% data reusables.copilot.agent-apps-preview %}
+
 The `totals_by_3rd_party_agent` array contains one entry for each recognized {% data variables.copilot.agent_app %} used during the reporting period. Entries are grouped by `agent_id`, and integrations that map to the same agent are combined. Use `agent_id` as the stable grouping key and `agent_name` for display. The array is omitted when no recognized {% data variables.copilot.agent_app %} activity is available during the reporting period.
 
 These metrics come from server-side job activity. The nested `user_initiated_interaction_count` counts {% data variables.copilot.agent_app %} job starts and is distinct from the top-level field with the same name, which counts explicit prompts from other supported telemetry.
@@ -333,6 +336,8 @@ A user is classified into a phase based on the {% data variables.product.prodnam
 | Phase 3: Multi-agent | Engaged with the {% data variables.copilot.github_copilot_app_short %} (the `copilot_app` value of the `feature` dimension), or engaged with two or more of the agent surfaces listed for Phase 2. |
 
 A user only needs to be engaged with a phase's own signals to reach that phase. A user doesn't need to independently meet Phase 1 criteria to reach Phase 2 or Phase 3, although in practice agent-surface usage often co-occurs with completions or agent edits.
+
+Of the agent surfaces, only the first-party surfaces listed in the table affect a user's AI adoption phase. Activity from partner-built {% data variables.copilot.agent_apps %} doesn't affect the phase. The same classification logic applies to enterprise and organization reports, including 1-day and 28-day reports.
 
 > [!NOTE]
 > Because classification uses feature-level engagement, some activity doesn't affect a user's phase on its own. Using IDE chat (`used_chat`) or agent mode (`used_agent`) doesn't qualify a user for Phase 1 unless it produces `code_completion` or `agent_edit` activity.
