@@ -63,11 +63,11 @@ To use the CLI programmatically, include the `-p` or `--prompt` command-line opt
 > [!CAUTION]
 > If you use an automatic approval option such as `--allow-all-tools`, {% data variables.product.prodname_copilot_short %} has the same access as you do to files on your computer, and can run any shell commands that you can run, without getting your prior approval. See [Security considerations](#security-considerations), later in this article.
 
-## Running in a sandbox with {% data variables.copilot.sandbox %}
+## Running {% data variables.copilot.copilot_cli_short %} commands in a sandbox
 
 {% data reusables.cli.public-preview-sandbox %}
 
-{% data variables.copilot.sandbox_caps %} provides isolated execution environments for {% data variables.copilot.copilot_cli_short %}, both locally and in the cloud. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+To prevent {% data variables.product.prodname_copilot_short %} from modifying files you don't want it to touch, you can force agents to run commands within a local sandboxed environment. Alternatively, you can run an entire CLI session in an isolated environment in the cloud. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 ### Local sandboxing
 
@@ -204,6 +204,10 @@ When you use {% data variables.copilot.copilot_cli_short %}, {% data variables.p
 
 You should therefore always keep security considerations in mind when using {% data variables.copilot.copilot_cli_short %}, just as you would when working directly with files yourself, or running commands directly in your terminal. You should always review suggested commands carefully when {% data variables.copilot.copilot_cli_short %} requests your approval.
 
+### Content exclusion
+
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users, {% data variables.copilot.copilot_cli_short %} respects content exclusion policies configured at the enterprise, organization, and repository levels. Excluded files are not used as context. For more information, see [AUTOTITLE](/copilot/concepts/context/content-exclusion).
+
 ### Trusted directories
 
 Trusted directories control where {% data variables.copilot.copilot_cli_short %} can read, modify, and execute files.
@@ -310,7 +314,7 @@ You can control which tools {% data variables.copilot.copilot_cli_short %} can u
 
 ### Risk mitigation
 
-You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a sandboxed environment. {% data variables.copilot.sandbox_caps %} provides a first-party solution for this, with local sandboxing to restrict access on your machine and cloud sandboxing for fully isolated execution. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a sandboxed environment. {% data variables.product.github %} provides first-party sandboxing for this, with local sandboxing to restrict access on your machine and cloud sandboxing for fully isolated execution. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 Alternatively, you can run {% data variables.copilot.copilot_cli_short %} in a virtual machine, container, or dedicated system with tightly controlled permissions and network access.
 
@@ -321,7 +325,7 @@ Alternatively, you can run {% data variables.copilot.copilot_cli_short %} in a v
 * **MCP servers in {% data variables.product.prodname_copilot_short %}**, which controls whether MCP servers can be used at all by {% data variables.product.prodname_copilot_short %}.
 * **MCP Registry URL**, which controls which MCP registry {% data variables.product.prodname_copilot_short %} will allow MCP servers to be used from.
 
-For more information about these policies, see [AUTOTITLE](/copilot/concepts/mcp-management#mcp-policy-settings).
+For more information about these policies, see [AUTOTITLE](/copilot/concepts/mcp-management#mcp-allowlists).
 
 ## Model usage
 

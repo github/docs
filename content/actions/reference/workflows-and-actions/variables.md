@@ -29,7 +29,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 
 | Variable | Description |
 | ---------|------------ |
-| `CI` | Always set to `true`. |
+| `CI` | Always set to `true`. You can use this variable to differentiate when tests are being run locally or by {% data variables.product.prodname_actions %}. |
 | `GITHUB_ACTION` | The name of the action currently running, or the [`id`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsid) of a step. For example, for an action, `__repo-owner_name-of-action-repo`.<br><br>{% data variables.product.prodname_dotcom %} removes special characters, and uses the name `__run` when the current step runs a script without an `id`. If you use the same script or action more than once in the same job, the name will include a suffix that consists of the sequence number preceded by an underscore. For example, the first script you run will have the name `__run`, and the second script will be named `__run_2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
 | `GITHUB_ACTION_PATH` | The path where an action is located. This property is only supported in composite actions. You can use this path to change directories to where the action is located and access other files in that same repository. For example, `/home/runner/work/_actions/repo-owner/name-of-action-repo/v1`. |
 | `GITHUB_ACTION_REPOSITORY` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`. |
@@ -37,6 +37,10 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_ACTOR` | The name of the person or app that initiated the workflow. For example, `octocat`. |
 | `GITHUB_ACTOR_ID` | {% data reusables.actions.actor_id-description %} |
 | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.rest_url %}`. |
+| {% ifversion actions-artifacts-file %} |
+| `GITHUB_ARTIFACTS` | The path on the runner to the file that declares workflow artifacts for the current step. Write one declaration per line to identify files or OCI digest references as workflow artifacts. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-commands#declaring-workflow-artifacts). |
+| `GITHUB_ARTIFACTS_LIST` | The path on the runner to a read-only file that contains aggregated workflow artifact metadata for the current job as a JSON object. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-commands#reading-workflow-artifacts). |
+| {% endif %} |
 | `GITHUB_BASE_REF` | The name of the base ref or target branch of the pull request in a workflow run. This is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `main`. |
 | `GITHUB_ENV` | The path on the runner to the file that sets variables from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_env_87406d6e-4979-4d42-98e1-3dab1f48b13a`. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-commands#setting-an-environment-variable). |
 | `GITHUB_EVENT_NAME` | The name of the event that triggered the workflow. For example, `workflow_dispatch`. |

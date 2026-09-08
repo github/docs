@@ -6,10 +6,6 @@ versions:
   ghes: "*"
   ghec: "*"
 children:
-  - /warnings
-  - /danger
-  - /tips
-  - /notes
   - /raw
   - /platform-specific
   - /whitespace

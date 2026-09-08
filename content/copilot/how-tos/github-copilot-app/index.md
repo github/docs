@@ -12,11 +12,10 @@ sidebarLink:
   href: /copilot/how-tos/github-copilot-app
 introLinks:
   overview: /copilot/concepts/agents/github-copilot-app
-  quickstart: /copilot/how-tos/github-copilot-app/getting-started
+  quickstart: /copilot/get-started/quickstart-copilot-app
 redirect_from:
   - /copilot/how-tos/github-app
 children:
-  - /getting-started
   - /customize-github-copilot-app
   - /agent-sessions
   - /working-with-canvas-extensions

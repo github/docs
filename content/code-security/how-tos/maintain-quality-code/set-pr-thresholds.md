@@ -1,7 +1,7 @@
 ---
 title: Setting code quality thresholds for pull requests
 shortTitle: Set quality thresholds
-intro: Enforce your code quality standards automatically by blocking pull requests that fall below the thresholds you set, at the repository or organization level.
+intro: Keep low-quality changes out of your codebase by using {% data variables.product.prodname_code_quality_short %} thresholds to block pull requests that don't meet your standards.
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-quality
@@ -21,7 +21,7 @@ You can block pull requests that don't meet your code quality standards by addin
 You can set thresholds for:
 
 * **{% data variables.product.prodname_codeql %} findings**, by the lowest severity of results you require to be resolved.
-* **Code coverage**, by the minimum percentage of code that must be covered by tests.
+* **Code coverage**, by the minimum percentage of lines that must be covered by tests.
 
 You can enforce these thresholds at the **repository** level, or at the **organization** level to apply the same standard across many repositories at once. Choose the organization level when you want a consistent quality bar across teams, and the repository level when a single project needs its own standard. {% data variables.product.prodname_code_quality_short %} {% data variables.code-quality.recent_suggestions %} cannot be set as a threshold.
 
@@ -35,7 +35,7 @@ You can enforce these thresholds at the **repository** level, or at the **organi
 
 ## Confirming {% data variables.product.prodname_code_quality_short %} runs successfully on pull requests
 
-Before you add or update a ruleset to include a threshold for {% data variables.product.prodname_code_quality_short %}, confirm that the {% data variables.code-quality.workflow_name_actions %} workflow is running and reporting results back to pull requests. Otherwise, the ruleset could block the merging of **all** pull requests.
+Before you add or update a ruleset to include a threshold for {% data variables.product.prodname_code_quality_short %}, confirm that the {% data variables.product.prodname_code_quality_short %} workflow is running and reporting results back to pull requests. Otherwise, the ruleset could block the merging of **all** pull requests.
 
 1. Open a recent pull request and scroll to the "Checks" summary at the bottom of the pull request.
 1. Confirm that the "{% data variables.code-quality.check_status_name %}" check ran successfully and reported its status.
@@ -51,7 +51,7 @@ The following steps create or update a ruleset at the repository level. To enfor
 1. If you don't already have a ruleset to protect your default branch, expand **New ruleset** and click **New branch ruleset**. Alternatively, open your existing ruleset for the default branch and move to step 5.
 1. If you are creating a new ruleset:
    * Define a name for the ruleset.
-   * Set the "Enforcement status" to "Active."
+   * Set the "Enforcement status" to "Evaluate" while you calibrate the threshold during a pilot. If you want to enforce the threshold immediately, select "Active."
    * Under "Target branches" add a target of "Include default branch."
 1. Under "Branch rules", enable "Require code quality results".
 1. Set "Severity" to define the lowest severity of code quality results that must be resolved before a pull request can be merged into the default branch. For example:
@@ -61,10 +61,8 @@ The following steps create or update a ruleset at the repository level. To enfor
    * Set "All" to block pull requests with **any** unresolved code quality results being merged.
 1. When you have finished defining or editing the ruleset, click **Create** or **Save changes**.
 
+If you selected "Evaluate", review the ruleset insights to see which pull requests would have been blocked. When the results match the quality bar you want, change the enforcement status to "Active."
+
 ## Setting a code coverage threshold
 
 You can also block pull requests that fall below a code coverage threshold. This uses a separate **Restrict code coverage** rule, not the **Require code quality results** rule used above, and your repository must upload code coverage data first. For the full procedure, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/restrict-code-coverage).
-
-## Next steps
-
-Learn how {% data variables.product.prodname_code_quality %} works on pull requests to prevent code quality issues from reaching your default branch. See [AUTOTITLE](/code-security/tutorials/improve-code-quality/catch-issues-before-merge).

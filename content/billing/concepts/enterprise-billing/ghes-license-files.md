@@ -23,7 +23,7 @@ If your license expires, you won't be able to access {% data variables.product.p
 
 ## Next steps
 
-* To download your license file, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/download-your-license).
+* To download your license file, see [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/how-tos/manage-server-licenses/download-your-license).
 * To upload your license file to {% data variables.product.prodname_ghe_server %}, see {% ifversion fpt or ghec %}[AUTOTITLE](/enterprise-server@latest/billing/how-tos/manage-server-licenses/upload-new-license) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/billing/how-tos/manage-server-licenses/upload-new-license).{% endif %}
 * To back up your {% data variables.product.prodname_ghe_server %} instance, see {% ifversion fpt or ghec %}[Configuring backups on your appliance](/enterprise-server@latest/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance).{% endif %}
 * If you have questions about renewing your license, contact {% data variables.contact.contact_enterprise_sales %}.

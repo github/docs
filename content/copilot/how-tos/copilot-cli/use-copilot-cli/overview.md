@@ -83,7 +83,7 @@ Optimize your experience with {% data variables.copilot.copilot_cli_short %} wit
 
 ### Stop a currently running operation
 
-If you enter a prompt and then decide you want to stop {% data variables.product.prodname_copilot_short %} from completing the task while it is still "Thinking," press <kbd>Esc</kbd>.
+If you enter a prompt and then decide you want to stop {% data variables.product.prodname_copilot_short %} from completing the task while it is still "Thinking," press <kbd>Esc</kbd> twice within half a second.
 
 ### Use plan mode
 
@@ -263,7 +263,23 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 {% data variables.copilot.copilot_cli_short %} comes with the {% data variables.product.github %} MCP server already configured. This MCP server allows you to interact with resources on {% data variables.product.prodname_dotcom_the_website %}—for example, allowing you to merge pull requests from the CLI.
 
-To extend the functionality available to you in {% data variables.copilot.copilot_cli_short %}, you can add more MCP servers:
+To extend the functionality available to you in {% data variables.copilot.copilot_cli_short %}, you can add more MCP servers.
+
+To add a remote HTTP server directly from your terminal without starting an interactive session, use:
+
+```shell copy
+copilot mcp add --transport http SERVER-NAME URL
+```
+
+For example:
+
+```shell copy
+copilot mcp add --transport http sentry https://mcp.sentry.dev/mcp
+```
+
+For local servers and additional options, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers#using-the-copilot-mcp-add-subcommand).
+
+Alternatively, add a server from an interactive session:
 
 1. Use the following slash command:
 
@@ -289,15 +305,17 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 * `/context`: Provides a visual overview of your current token usage
 * `/compact`: Manually compresses your conversation history to free up context space
 
-{% data variables.copilot.copilot_cli %} automatically compresses your history in the background when your conversation approaches 95% of the token limit, without interrupting your workflow.
+{% data variables.copilot.copilot_cli %} automatically starts compressing your history in the background when your conversation approaches 80% of the token limit. This starting point is dynamic: when static context—your system messages and tool definitions—already uses a large share of the limit (roughly 75% or more), {% data variables.product.prodname_copilot_short %} waits until usage is closer to 90% before compacting, because compressing the conversation reclaims less space in that situation. If usage reaches approximately 95% before background compaction has finished, the CLI waits for it to complete before continuing.
 
 ### Enable all permissions
 
 For situations where you trust {% data variables.product.prodname_copilot_short %} to run freely, you can use the `--allow-all` or `--yolo` flags to enable all permissions at once.
 
-### Run in a sandbox
+### Use sandboxing
 
-You can run {% data variables.copilot.copilot_cli_short %} sessions inside a sandbox to restrict access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session. To start a cloud-backed session instead, run `copilot --cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+You can use sandboxing to restrict what {% data variables.product.prodname_copilot_short %} can access. Local sandboxing does not run the CLI itself in a sandbox; instead, the commands and tools that {% data variables.copilot.copilot_cli_short %} runs on your behalf are restricted, limiting their access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session.
+
+Alternatively, with cloud sandboxing, the entire {% data variables.copilot.copilot_cli_short %} session runs remotely in an isolated environment. To start a {% data variables.copilot.copilot_cli_short %} session in the cloud, run `copilot ‑‑cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 ### Toggle reasoning visibility
 

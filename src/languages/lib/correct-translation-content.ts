@@ -58,6 +58,17 @@ export function correctTranslatedContentStrings(
     '{%$1 data variables.$2$3',
   )
 
+  // Translators sometimes inserted a stray space right after a dot inside
+  // a `{% data variables.X.Y %}` path (e.g. `{% data variables.product.
+  // prodname_pages %}` or `{% data variables. product.prodname_pages %}`).
+  // Liquid parses the space as ending the variable lookup early, breaking
+  // the tag. Collapse the space back out. The English source never has
+  // a space after a dot in a variable path, so this is safe globally.
+  content = content.replace(
+    /\{%(-?)\s*data\s+(?:variables|reusables)(?:\.\s*[A-Za-z0-9_-]+)+(?=\s*-?%\})/g,
+    (path) => path.replace(/\.\s+/g, '.'),
+  )
+
   // The translation pipeline frequently splits Markdown bullet markers
   // (`*` and `-`) and table-cell pipes (`|`) onto their own line, with
   // the actual content pushed to the next line as deeply indented text.
@@ -88,6 +99,13 @@ export function correctTranslatedContentStrings(
   if (content.startsWith('\n') && !englishContent.startsWith('\n')) {
     content = content.replace(/^\n[ \t]*/, '')
   }
+
+  // Translators sometimes dropped the space between `{%` and `data` when the
+  // tag references `variables.X` or `reusables.X`, e.g. `{%data variables.X %}`
+  // or `{%data reusables.X %}`. This corruption shows up across multiple
+  // languages (ja, pt, zh, ko, de), so fix it universally rather than
+  // duplicating the same rule per language.
+  content = content.replace(/\{%(-?)data (variables|reusables)\./g, '{%$1 data $2.')
 
   // --- Per-language fixes (es, ja, pt, zh, ru, fr, ko, de) ---
 
@@ -249,6 +267,17 @@ export function correctTranslatedContentStrings(
       '{% ifversion ghec %}SCIM{% else %} con Okta',
       '{% ifversion ghec %}SCIM{% else %} con Okta{% endif %}',
     )
+
+    // data/reusables/repositories/you-can-fork.md: translation starts with
+    // `{% elsif ghes or ghec %}` instead of `{% ifversion ghes or ghec %}` —
+    // the opening `{% ifversion %}` was replaced with `{% elsif %}`, leaving no
+    // opener and causing "elsif not found" errors in fork-a-repo.md and forks.md.
+    if (
+      context.dottedPath === 'reusables.repositories.you-can-fork' ||
+      context.relativePath?.endsWith('data/reusables/repositories/you-can-fork.md')
+    ) {
+      content = content.replace(/^\{%-?\s*elsif\s+/, '{% ifversion ')
+    }
   }
 
   if (context.code === 'ja') {
@@ -452,6 +481,16 @@ export function correctTranslatedContentStrings(
     // `{% indented_data_reference 再利用可能.X.Y spaces=N %}` — translated path
     content = content.replace(/(\{%-?\s*indented_data_reference\s+)再利用可能\./g, '$1reusables.')
 
+    // `{% ifversion コマンド パレット %}` — translated flag name "command palette" = command-palette
+    content = content.replaceAll(
+      '{% ifversion コマンド パレット %}',
+      '{% ifversion command-palette %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion コマンド パレット %}',
+      '{%- ifversion command-palette %}',
+    )
+
     // [SCRAPE-6548] Per-file fixes for ja pages whose intro/title/shortTitle
     // Liquid was structurally scrambled (orphan endif, swapped tag order,
     // unclosed ifversion). Each replacement is scoped by the unique broken
@@ -538,11 +577,79 @@ export function correctTranslatedContentStrings(
       'は一定のルールに従って、インスタンス{% endif %}上のエンタープライズ{% elsif ghes %}内の各ユーザーアカウント{% ifversion ghec %}のユーザー名を決定します。',
       'は一定のルールに従って、{% ifversion ghec %}エンタープライズ内{% elsif ghes %}インスタンス上{% endif %}の各ユーザーアカウントのユーザー名を決定します。',
     )
+
+    // data/reusables/audit_log/audit-log-search-by-repo.md: the second
+    // `{%- ifversion ghec or fpt %}` block lost its trim dash (`{%-` →
+    // `{%`) and the final `{% endif %}` closing the block was dropped
+    // entirely, leaving the tag unclosed (`tag {% ifversion ghec or fpt %}
+    // not closed`). This affects both audit-log-search-by-repo.md and its
+    // transcluding page audit-log-search.md. Restore the trim dash and
+    // append the missing `{% endif %}`.
+    content = content.replaceAll(
+      '{% ifversion ghec or fpt %}\n* `repo:my-org/our-repo` は、`my-org` 組織内の `our-repo` リポジトリで発生したすべてのイベントを検索します。\n* `repo:my-org/our-repo repo:my-org/another-repo` は、`my-org`組織内の `our-repo` および `another-repo` リポジトリで発生したすべてのイベントを検索します。\n* `-repo:my-org/not-this-repo` は、`my-org` 組織内の `not-this-repo` リポジトリで発生したすべてのイベントを除外します。\n\n`repo` 修飾子内にアカウント名を含める必要があります。`repo:our-repo` を検索するだけでは作動しません。',
+      '{%- ifversion ghec or fpt %}\n* `repo:my-org/our-repo` は、`my-org` 組織内の `our-repo` リポジトリで発生したすべてのイベントを検索します。\n* `repo:my-org/our-repo repo:my-org/another-repo` は、`my-org`組織内の `our-repo` および `another-repo` リポジトリで発生したすべてのイベントを検索します。\n* `-repo:my-org/not-this-repo` は、`my-org` 組織内の `not-this-repo` リポジトリで発生したすべてのイベントを除外します。\n\n`repo` 修飾子内にアカウント名を含める必要があります。`repo:our-repo` を検索するだけでは作動しません。{% endif %}',
+    )
+
+    // data/reusables/enterprise-managed/assigning-users.md: the translator
+    // scrambled `{% ifversion ghec %}...{% else %}...{% endif %}` so that
+    // `{% endif %}` was relocated to the start of the sentence (as an
+    // orphan) and `{% ifversion ghec %}` moved into the middle, leaving the
+    // tag never closed (`tag "endif" not found`). Reconstruct to match
+    // English ordering: assigning users/groups to the
+    // {% ifversion ghec %}EMU IdP application{% else %}relevant application
+    // in your IdP{% endif %}.
+    content = content.replaceAll(
+      'ユーザーまたはグループを IdP {% endif %} の {% ifversion ghec %} {% data variables.product.prodname_emu_idp_application %} アプリケーション {% else %} 関連アプリケーションに割り当てることで',
+      'ユーザーまたはグループを {% ifversion ghec %}{% data variables.product.prodname_emu_idp_application %} アプリケーション{% else %}IdP の関連アプリケーション{% endif %}に割り当てることで',
+    )
+
+    // data/reusables/actions/self-hosted-runner-management-permissions-required.md:
+    // the `{% ifversion fpt or ghec %}...{% elsif ghes %}...{% endif %}`
+    // block was scrambled — `{% endif %}` and `{% elsif ghes %}` were moved
+    // earlier in the sentence, and `{% ifversion fpt or ghec %}` was moved to
+    // the end, leaving the tag never closed (`tag "endif" not found`).
+    // Reconstruct to match English ordering: located in your repository,
+    // organization, or {% ifversion fpt or ghec %}enterprise account
+    // settings on {% data variables.product.prodname_dotcom %}{% elsif ghes %}
+    // enterprise settings on {% data variables.product.prodname_ghe_server %}{% endif %}.
+    content = content.replaceAll(
+      'セルフホステッド ランナーは、リポジトリまたは Organization のいずれかに配置するか、{% data variables.product.prodname_ghe_server %}{% endif %} の {% data variables.product.prodname_dotcom %}{% elsif ghes %} Enterprise 設定の {% ifversion fpt or ghec %} Enterprise アカウント設定に配置することができます。',
+      'セルフホステッド ランナーは、リポジトリまたは Organization のいずれかに配置するか、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} の Enterprise アカウント設定{% elsif ghes %}{% data variables.product.prodname_ghe_server %} の Enterprise 設定{% endif %}に配置することができます。',
+    )
+
+    // data/reusables/codespaces/when-an-org-pays.md: the translator split
+    // `{% elsif fpt %}...{% endif %}` away from its `{% ifversion ghec %}`
+    // opener, moving `{% ifversion ghec %}` to the end of the sentence and
+    // leaving the block never closed (`tag "elsif" not found`).
+    // Reconstruct to match English: This includes {% ifversion ghec %}
+    // public, private, and internal{% elsif fpt %}both public and
+    // private{% endif %} repositories.
+    content = content.replaceAll(
+      'これには、パブリック リポジトリ、プライベート リポジトリ、および内部{% elsif fpt %}both パブリック リポジトリとプライベート リポジトリ{% endif %}{% ifversion ghec %}が含まれます。',
+      'これには、{% ifversion ghec %}パブリック リポジトリ、プライベート リポジトリ、および内部{% elsif fpt %}パブリック リポジトリとプライベート リポジトリの両方{% endif %}が含まれます。',
+    )
   }
 
   if (context.code === 'pt') {
     // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
     content = content.replaceAll('{%–', '{%-')
+
+    // `{% vscode %}` inserted mid-sentence with no matching `{% endvscode %}`
+    // and no `{% vscode %}` in the English source at all. The translator
+    // apparently mistranslated a phrase ("the latest releases of VS Code")
+    // into a stray opening tag. Confirmed in
+    // `data/reusables/copilot/code-completion-switch-prereqs-vscode.md`,
+    // which then breaks tag balance in every file that wraps this reusable
+    // in its own `{% vscode %}...{% endvscode %}` block. Strip the stray
+    // opener (and any following whitespace) when it has no closer and the
+    // English source never used this tag.
+    if (
+      content.includes('{% vscode %}') &&
+      !content.includes('{% endvscode %}') &&
+      !englishContent.includes('{% vscode %}')
+    ) {
+      content = content.replaceAll(/\{% vscode %\}\s*/g, '')
+    }
 
     content = content.replaceAll('{% dados variables', '{% data variables')
     content = content.replaceAll('{% de dados variables', '{% data variables')
@@ -597,6 +704,14 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% variáveis de dados ', '{% data variables ')
     // `{% dados variáveis.` — alternate word order "data variables"
     content = content.replaceAll('{% dados variáveis.', '{% data variables.')
+    // `{% data variables.produto.X %}` — translated `product` path segment inside a
+    // `data` tag's variable path. Scoped to the tag prefix so prose, URLs, and code
+    // samples containing these words aren't rewritten. Must run after the
+    // `dados variáveis.` → `data variables.` fix above.
+    content = content.replace(
+      /(\{%-?\s*data\s+)(?:variables|variáveis)\.produto\./g,
+      '$1variables.product.',
+    )
     // `{% Espaços de Código %}` / `{% espaços de código %}` — "Code Spaces" = codespaces
     content = content.replaceAll('{% Espaços de Código %}', '{% codespaces %}')
     content = content.replaceAll('{%- Espaços de Código %}', '{%- codespaces %}')
@@ -620,6 +735,10 @@ export function correctTranslatedContentStrings(
     // Catch "ou" between any plan names in ifversion/elsif/if tags
     content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
+    })
+    // Portuguese "não" for "not" in ifversion/elsif/if tags (e.g. `{% ifversion não ghes %}`)
+    content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?\bnão\b[^%]*?%\}/g, (match) => {
+      return match.replace(/\bnão\b/g, 'not')
     })
     // Fully translated reusable path in audit log article:
     // `{% dados agrupados por categoria.complemento.audit_log.reference-grouped-by-category %}`
@@ -745,6 +864,19 @@ export function correctTranslatedContentStrings(
       'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.',
       'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.{% endif %}',
     )
+
+    // [SCRAPE-6781] Per-file fix:
+    // codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization.md
+    // (intro): the translator reordered the inline Liquid tags to match
+    // Portuguese word order, so `{% endif %}` lands before the
+    // `{% ifversion ghec %}` that opens the block. English source is
+    // `...private {% ifversion ghec %}and internal {% endif %}repositories`.
+    // Reorder the tags around the existing translated words so ghec reads
+    // "privados e internos" and fpt reads "privados".
+    content = content.replaceAll(
+      'nos repositórios internos e {% endif %}privados {% ifversion ghec %}da sua organização.',
+      'nos repositórios privados {% ifversion ghec %}e internos {% endif %}da sua organização.',
+    )
   }
 
   if (context.code === 'zh') {
@@ -797,6 +929,16 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- 行标头 %}', '{%- rowheaders %}')
     content = content.replaceAll('{% 行标题 %}', '{% rowheaders %}')
     content = content.replaceAll('{%- 行标题 %}', '{%- rowheaders %}')
+
+    // `{% ifversion 命令面板 %}` — translated flag name "command panel" = command-palette
+    content = content.replaceAll('{% ifversion 命令面板 %}', '{% ifversion command-palette %}')
+    content = content.replaceAll('{%- ifversion 命令面板 %}', '{%- ifversion command-palette %}')
+    // `{% ifversion 子问题 %}` — translated flag name "sub-issues" (子问题)
+    content = content.replaceAll('{% ifversion 子问题 %}', '{% ifversion sub-issues %}')
+    content = content.replaceAll('{%- ifversion 子问题 %}', '{%- ifversion sub-issues %}')
+    // `{% ifversion 问题类型 %}` — translated flag name "issue types" = issue-types
+    content = content.replaceAll('{% ifversion 问题类型 %}', '{% ifversion issue-types %}')
+    content = content.replaceAll('{%- ifversion 问题类型 %}', '{%- ifversion issue-types %}')
     // `{% 结束行标题 %}` / `{% 结束行标头 %}` / `{% 结束行头 %}` — endrowheaders
     content = content.replaceAll('{% 结束行标题 %}', '{% endrowheaders %}')
     content = content.replaceAll('{%- 结束行标题 %}', '{%- endrowheaders %}')
@@ -807,6 +949,12 @@ export function correctTranslatedContentStrings(
     // `{% 行标题结束 %}` — order swap (rowheaders + end)
     content = content.replaceAll('{% 行标题结束 %}', '{% endrowheaders %}')
     content = content.replaceAll('{%- 行标题结束 %}', '{%- endrowheaders %}')
+    // `{% 结束表头列 %}` — "end table header column" = endrowheaders. Found in
+    // codeql-query-tables reusables (python/rust/java/go/ruby/javascript), where
+    // the opener `{% rowheaders %}` was correctly left in English but the closer
+    // was translated, leaving the tag unclosed and breaking table rendering.
+    content = content.replaceAll('{% 结束表头列 %}', '{% endrowheaders %}')
+    content = content.replaceAll('{%- 结束表头列 %}', '{%- endrowheaders %}')
     // Capitalized `{% Variables.X %}` / `{% Reusables.X %}` — translator title-cased
     content = content.replaceAll('{% data Variables.', '{% data variables.')
     content = content.replaceAll('{% data Reusables.', '{% data reusables.')
@@ -942,9 +1090,56 @@ export function correctTranslatedContentStrings(
       '会按照特定规则确定您实例{% endif %}上您企业{% elsif ghes %}中各个用户帐户{% ifversion ghec %}的用户名。',
       '会按照特定规则确定{% ifversion ghec %}您企业中{% elsif ghes %}您实例上{% endif %}各个用户帐户的用户名。',
     )
+
+    // data/reusables/codespaces/when-an-org-pays.md: the translator moved
+    // `{% ifversion ghec %}` from the start of the conditional to the end
+    // of the sentence and left `{% elsif fpt %}` mid-sentence with no
+    // closing tag, so the block never closes (`tag "elsif" not found`).
+    // Reconstruct to match English: This includes {% ifversion ghec %}
+    // public, private, and internal{% elsif fpt %}both public and
+    // private{% endif %} repositories.
+    content = content.replaceAll(
+      '这包括{% ifversion ghec %}公共存储库、专用存储库和{% endif %}内部{% elsif fpt %}存储库。',
+      '这包括{% ifversion ghec %}公共存储库、专用存储库和内部存储库{% elsif fpt %}公共存储库和专用存储库{% endif %}。',
+    )
+
+    // data/reusables/actions/permissions-statement-secrets-and-variables-organization.md:
+    // the translator moved `{% endif %}` from the end of the first
+    // conditional to the start of the sentence, leaving the tag unclosed
+    // (`tag "endif" not found`). Reconstruct to match English: Organization
+    // owners{% ifversion custom-org-roles %} and users with the "..."
+    // permissions{% endif %} can create secrets or variables...
+    content = content.replaceAll(
+      '具有“管理组织操作变量”或“管理组织操作机密”权限{% endif %}的组织所有者{% ifversion custom-org-roles %}和用户可以在组织级别创建机密或变量。',
+      '组织所有者{% ifversion custom-org-roles %}和具有“管理组织操作变量”或“管理组织操作机密”权限的用户{% endif %}可以在组织级别创建机密或变量。',
+    )
+
+    // data/reusables/apps/redirect-uri-wildcard-matching.md: the translator
+    // scrambled the trailing conditional so `{% else %}` and the date/version
+    // branches were reordered and `{% ifversion fpt or ghec %}` was moved to
+    // after `{% endif %}`, leaving `{% else %}` an orphan (`tag "else" not
+    // found`). Reconstruct to match English: Apps that had a single callback
+    // URL enabled prior to {% ifversion fpt or ghec %}August 3,
+    // 2026{% else %}{% data variables.product.prodname_ghe_server %}
+    // 3.24{% endif %} have wildcard matching enabled...
+    content = content.replaceAll(
+      '在 {% else %}2026 年 8 月 3 日{% data variables.product.prodname_ghe_server %}{% endif %} 3.24{% ifversion fpt or ghec %} 之前已启用单个回调 URL 的应用，其回调 URL 已启用通配符匹配。',
+      '在{% ifversion fpt or ghec %}2026 年 8 月 3 日{% else %}{% data variables.product.prodname_ghe_server %} 3.24{% endif %} 之前已启用单个回调 URL 的应用，其回调 URL 已启用通配符匹配。',
+    )
   }
 
   if (context.code === 'ru') {
+    // configuring-custom-footers.md: the translator scrambled the sentence
+    // around `{% data variables.product.prodname_dotcom %} footer{% ifversion
+    // ghes %}, ...{% elsif ghec %}...{% endif %}`, duplicating `{% данных`
+    // (data) twice, merging `ifversion ghes`/`elsif ghec` into a single
+    // invalid `{% ghversion %}` tag, and dropping the space before the final
+    // `{%endif %}` (`tag "ghversion" not found`). Reconstruct the original
+    // ifversion/elsif/endif structure with the correct Russian prose.
+    content = content.replaceAll(
+      '{% данных {% данных variables.product.prodname_dotcom %} нижнего колонтитула {% ghversion %}, для всех пользователей и участников совместной работы на всех страницах репозитория и организации для репозиториев и организаций, принадлежащих к корпоративным variables.location.product_location_enterprise{%endif %}.',
+      '{% data variables.product.prodname_dotcom %} нижнего колонтитула{% ifversion ghes %}, для всех пользователей и на всех страницах {% data variables.location.product_location_enterprise %}{% elsif ghec %} для всех пользователей и участников совместной работы на всех страницах репозитория и организации для репозиториев и организаций, принадлежащих к предприятию{% endif %}.',
+    )
     content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
     content = content.replaceAll('[АВТОЗАГОЛОВОК](', '[AUTOTITLE](')
     // `[{% autoTITLE](url)` — Liquid-embedded lowercase autotitle (translator lowercased
@@ -1311,6 +1506,23 @@ export function correctTranslatedContentStrings(
       'доступом {% ifversion ghec %}к организациям, принадлежащим вашей организации{% endif %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %}.',
       'доступом {% ifversion ghec %}к организациям, принадлежащим вашей организации на {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}к {% data variables.location.product_location %}{% endif %}.',
     )
+
+    // gated-features/ghas-ghec.md: `{% ifversion fpt or ghec %}` was moved to
+    // the very end of the sentence (after `{% endif %}`), leaving an orphan
+    // `elsif` with no matching opener (`tag "elsif" not found`). Move the
+    // `{% ifversion fpt or ghec %}` tag back to open the conditional, and move
+    // `{% data variables.product.prodname_GH_secret_protection %}` back next
+    // to the first `{% data ... %}` tag it was separated from.
+    // The corruption also dropped the preposition `на` and left `и` before the
+    // first product, so the fpt/ghec branch has to be reconstructed to
+    // `аккаунтов на {% team %} и {% ghe_cloud %}`. That matches the English
+    // ("accounts on GitHub Team and GitHub Enterprise Cloud") and parallels the
+    // surviving `elsif ghes` branch. Without it the branch renders as
+    // `аккаунтов и GitHub TeamGitHub Enterprise Cloud`: valid Liquid, broken prose.
+    content = content.replaceAll(
+      '{% data variables.product.prodname_GH_code_security %}и доступны для аккаунтов и {% data variables.product.prodname_team %}{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}аккаунтов на {% data variables.product.prodname_ghe_server %}{% endif %}.{% ifversion fpt or ghec %}{% data variables.product.prodname_GH_secret_protection %}',
+      '{% data variables.product.prodname_GH_code_security %} и {% data variables.product.prodname_GH_secret_protection %} доступны для {% ifversion fpt or ghec %}аккаунтов на {% data variables.product.prodname_team %} и {% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}аккаунтов на {% data variables.product.prodname_ghe_server %}{% endif %}.',
+    )
   }
 
   if (context.code === 'fr') {
@@ -1504,6 +1716,24 @@ export function correctTranslatedContentStrings(
       '{%- collaborateurs invités ifversion %}',
       '{%- ifversion guest-collaborators %}',
     )
+
+    // `{% ifversion <ghec %}` / `{% ifversion <fpt %}` etc. — stray `<` immediately
+    // before the plan name in an ifversion/elsif tag (e.g. from HTML entity confusion).
+    // Remove the stray `<` so the version expression is valid Liquid.
+    content = content.replace(
+      /\{%(-?\s+(?:ifversion|elsif|if)\s+)(?:<|&lt;)(fpt|ghec|ghes|ghae|ghecom)\b/g,
+      '{%$1$2',
+    )
+
+    // education/manage-coursework-with-github-classroom/.../leave-feedback-with-pull-requests.md
+    // The `{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}`
+    // tag was fully translated (both keyword and path) by the translator:
+    // `{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}`
+    // Restore the canonical English form so the reusable can be looked up.
+    content = content.replaceAll(
+      '{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}',
+      '{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}',
+    )
   }
 
   if (context.code === 'ko') {
@@ -1523,6 +1753,28 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 데이터 reusables.', '{% data reusables.')
     content = content.replaceAll('{% 데이터 변수.', '{% data variables.')
     content = content.replaceAll('{% 데이터 변숫값.', '{% data variables.')
+    // data/reusables/actions/change-retention-period-for-artifacts-logs.md:
+    // the `{% else %}...{% endif %}` branch was dropped entirely, leaving an
+    // unclosed `{% ifversion ghes %}` (`tag {% ifversion ghes %} not closed`).
+    // The English step renders for every version and only its opening clause is
+    // GHES-only, so the conditional has to wrap just the section name. Closing
+    // the tag at the end of the sentence instead would delete step 1 for
+    // FPT/GHEC, and dropping the opener would leak the GHES-only "Artifact,
+    // log, and cache settings" section name to dotcom readers.
+    // The corruption also inverted the containment relationship, so the two
+    // clauses are reordered: the section contains the setting, not the reverse.
+    content = content.replace(
+      /1\. \{% ifversion ghes %\} \*\*아티팩트 및 로그 보존\*\*의 "아티팩트, 로그 및 캐시 설정" 구역에서 새 값을 입력합니다\./,
+      '1. {% ifversion ghes %}"아티팩트, 로그 및 캐시 설정" 구역의 {% endif %}**아티팩트 및 로그 보존**에서 새 값을 입력합니다.',
+    )
+    // gated-features/ghas-ghec.md: the `{% data ...ghe_server %}{% endif %}`
+    // and `{% data ...ghe_cloud %}{% elsif ghes %}` clauses were swapped, and
+    // the final `{% endif %}` was dropped (`tag "elsif" not found`).
+    // Reconstruct the intended ifversion/elsif/endif structure.
+    content = content.replaceAll(
+      '{% data variables.product.prodname_team %}의 {% ifversion fpt or ghec %}계정과 {% data variables.product.prodname_ghe_server %}{% endif %}의 {% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}계정에서 사용할 수 있습니다.',
+      '{% ifversion fpt or ghec %}{% data variables.product.prodname_team %}의 계정과 {% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}{% data variables.product.prodname_ghe_server %}의 계정{% endif %}에서 사용할 수 있습니다.',
+    )
     content = content.replaceAll('{% 기타 %}', '{% else %}')
     content = content.replaceAll('{%- 기타 %}', '{%- else %}')
     // `{% other %}` — English "other" used as an alias for else by the translator
@@ -1554,6 +1806,8 @@ export function correctTranslatedContentStrings(
     // `{% 데이터 재사용 ` (no period) — variant of `{% data reusables`
     content = content.replaceAll('{% 데이터 재사용가능항목.', '{% data reusables.')
     content = content.replaceAll('{% 데이터 재사용 가능 항목.', '{% data reusables.')
+    // `{% 데이터 재사용 가능항목.` — missing space between "가능" and "항목" (mixed variant)
+    content = content.replaceAll('{% 데이터 재사용 가능항목.', '{% data reusables.')
     content = content.replaceAll('{% 데이터 재사용.', '{% data reusables.')
     content = content.replaceAll('{% 데이터 재사용 ', '{% data reusables.')
     // `{% indented_data_reference 재사용...` — translated `reusables` path prefix
@@ -1576,6 +1830,31 @@ export function correctTranslatedContentStrings(
     // `{% 옥티콘` — Korean transliteration of "octicon"
     content = content.replaceAll('{% 옥티콘 ', '{% octicon ')
     content = content.replaceAll('{%- 옥티콘 ', '{%- octicon ')
+
+    // `{% ifversion 명령 팔레트 %}` — translated flag name "command palette" = command-palette
+    content = content.replaceAll('{% ifversion 명령 팔레트 %}', '{% ifversion command-palette %}')
+    content = content.replaceAll('{%- ifversion 명령 팔레트 %}', '{%- ifversion command-palette %}')
+    // `{% ifversion 하위 문제 %}` — translated flag name "sub-issues" (하위 문제)
+    content = content.replaceAll('{% ifversion 하위 문제 %}', '{% ifversion sub-issues %}')
+    content = content.replaceAll('{%- ifversion 하위 문제 %}', '{%- ifversion sub-issues %}')
+    // `{% ifversion 리포지토리-규칙 관리 %}` — translated flag name "repository-rules management"
+    content = content.replaceAll(
+      '{% ifversion 리포지토리-규칙 관리 %}',
+      '{% ifversion repo-rules-management %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion 리포지토리-규칙 관리 %}',
+      '{%- ifversion repo-rules-management %}',
+    )
+    // `{% ifversion 업데이트 알림 설정-22 %}` — translated flag name "update notification settings-22"
+    content = content.replaceAll(
+      '{% ifversion 업데이트 알림 설정-22 %}',
+      '{% ifversion update-notification-settings-22 %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion 업데이트 알림 설정-22 %}',
+      '{%- ifversion update-notification-settings-22 %}',
+    )
 
     // `{% data Variables.` — capital V in "Variables" (Korean translator capitalised the word)
     content = content.replaceAll('{% data Variables.', '{% data variables.')
@@ -1616,6 +1895,21 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- 데이터 재사용 가능 항목.', '{%- data reusables.')
     content = content.replaceAll('{% 데이터 재사용 가능.', '{% data reusables.')
     content = content.replaceAll('{%- 데이터 재사용 가능.', '{%- data reusables.')
+    // `{ 데이터 재사용 가능의 엔터프라이즈 관리 콘솔 설정 저장 }` — single-brace
+    // (missing `%`) Korean translation of the entire
+    // `{% data reusables.enterprise_management_console.save-settings %}` tag,
+    // including a translated path. Restore the whole tag.
+    content = content.replaceAll(
+      '{ 데이터 재사용 가능의 엔터프라이즈 관리 콘솔 설정 저장 }',
+      '{% data reusables.enterprise_management_console.save-settings %}',
+    )
+    // `{ 데이터 재사용 가능.감사_로그.보존_기간 }` — single-brace (missing `%`)
+    // Korean translation of `{% data reusables.audit_log.retention-periods %}`,
+    // with the path segments translated but dots preserved.
+    content = content.replaceAll(
+      '{ 데이터 재사용 가능.감사_로그.보존_기간 }',
+      '{% data reusables.audit_log.retention-periods %}',
+    )
     // Korean "if" / "elsif" word translations
     // `{% 만약 X %}` / `{% 만일 X %}` — "if" in Korean
     content = content.replace(/\{%-?\s*만약\s+/g, (m) =>
@@ -1677,6 +1971,67 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '{% data variables.product.prodname_dotcom %}.{% ifversion default-setup-self-hosted-runners-GHEC %}',
       '{% data variables.product.prodname_dotcom %}.{% endif %}',
+    )
+
+    // data/reusables/repositories/about-READMEs.md: the translation contains an
+    // orphaned `{% endif %}` immediately before the first `{% ifversion fpt or ghec %}`
+    // tag. The English source has no such tag at that position. Remove the orphan
+    // so the opening ifversion block balances.
+    if (
+      context.dottedPath === 'reusables.repositories.about-READMEs' ||
+      context.relativePath?.endsWith('data/reusables/repositories/about-READMEs.md')
+    ) {
+      content = content.replace(/\{%-?\s*endif\s*-?%\}\s*(\{%-?\s*ifversion\s)/g, '$1')
+    }
+
+    // [SCRAPE-6781] Per-file fix:
+    // organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization.md
+    // (intro): the translator reordered the inline Liquid tags to match Korean
+    // word order, so `{% else %}` and `{% endif%}` both land before the
+    // `{% ifversion fpt or ghec %}` that opens the block, which broke the
+    // /ko/organizations landing page scrape. Move the opener to the front so
+    // fpt/ghec reads "이전 조직 구성원을 초대하여 다시 추가하고" and ghes reads
+    // "조직에 이전 멤버를 다시 추가하고". Note the English source also writes
+    // `{% endif%}` without a leading space, which the translation preserved.
+    content = content.replaceAll(
+      '이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif%} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 {% ifversion fpt or ghec %}있습니다.',
+      '{% ifversion fpt or ghec %}이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif %} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 있습니다.',
+    )
+
+    // data/reusables/codespaces/when-an-org-pays.md: the translator split
+    // `{% elsif fpt %}...{% endif %}` away from its `{% ifversion ghec %}`
+    // opener, moving `{% ifversion ghec %}` to the end of the sentence and
+    // leaving the block never closed (`tag "elsif" not found`).
+    // Reconstruct to match English: This includes {% ifversion ghec %}
+    // public, private, and internal{% elsif fpt %}both public and
+    // private{% endif %} repositories.
+    content = content.replaceAll(
+      '여기에는 공용, 프라이빗 및 내부{% elsif fpt %}모두 공용 및 프라이빗{% endif %} 리포지토리가 포함됩니다{% ifversion ghec %}.',
+      '여기에는 {% ifversion ghec %}공용, 프라이빗 및 내부{% elsif fpt %}공용 및 프라이빗 모두{% endif %} 리포지토리가 포함됩니다.',
+    )
+
+    // data/reusables/actions/permissions-statement-secrets-and-variables-organization.md:
+    // the translator moved `{% endif %}` from the end of the first
+    // conditional to the start of the sentence, leaving the tag unclosed
+    // (`tag "endif" not found`). Reconstruct to match English: Organization
+    // owners{% ifversion custom-org-roles %} and users with the "..."
+    // permissions{% endif %} can create secrets or variables...
+    content = content.replaceAll(
+      '"조직 작업 변수 관리" 또는 "조직 작업 비밀 관리" 권한이{% endif %} 있는 조직 소유자{% ifversion custom-org-roles %} 및 사용자는 조직 수준에서 비밀 또는 변수를 만들 수 있습니다.',
+      '조직 소유자{% ifversion custom-org-roles %} 및 "조직 작업 변수 관리" 또는 "조직 작업 비밀 관리" 권한이 있는 사용자{% endif %}는 조직 수준에서 비밀 또는 변수를 만들 수 있습니다.',
+    )
+
+    // data/reusables/apps/redirect-uri-wildcard-matching.md: the translator
+    // scrambled the trailing conditional so the date/version branches and
+    // `{% else %}` were reordered ahead of `{% ifversion fpt or ghec %}`,
+    // leaving `{% else %}` an orphan (`tag "else" not found`). Reconstruct to
+    // match English: Apps that had a single callback URL enabled prior to
+    // {% ifversion fpt or ghec %}August 3, 2026{% else %}
+    // {% data variables.product.prodname_ghe_server %} 3.24{% endif %} have
+    // wildcard matching enabled...
+    content = content.replaceAll(
+      '2026{% else %}{% data variables.product.prodname_ghe_server %}년 8월 3일 3.24{% endif %} 이전에 {% ifversion fpt or ghec %}단일 콜백 URL을 사용하도록 설정된 앱에는 해당 콜백 URL에 대해 와일드카드 일치가 활성화되어 있습니다.',
+      '{% ifversion fpt or ghec %}2026년 8월 3일{% else %}{% data variables.product.prodname_ghe_server %} 3.24{% endif %} 이전에 단일 콜백 URL을 사용하도록 설정된 앱에는 해당 콜백 URL에 대해 와일드카드 일치가 활성화되어 있습니다.',
     )
   }
 
@@ -1852,6 +2207,16 @@ export function correctTranslatedContentStrings(
     // Translated tag name `{% eingerucktes_datenverweis ... %}` → `{% indented_data_reference ... %}`
     content = content.replaceAll('{% eingerucktes_datenverweis ', '{% indented_data_reference ')
     content = content.replaceAll('{%- eingerucktes_datenverweis ', '{%- indented_data_reference ')
+    // `{% ifversion unveränderliche Versionen %}` — translated flag name
+    // "immutable releases" = immutable-releases
+    content = content.replaceAll(
+      '{% ifversion unveränderliche Versionen %}',
+      '{% ifversion immutable-releases %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion unveränderliche Versionen %}',
+      '{%- ifversion immutable-releases %}',
+    )
 
     // [SCRAPE-6548] Per-file fix:
     // organizations/.../permissions-of-custom-organization-roles.md (intro):
@@ -2158,6 +2523,9 @@ export function correctTranslatedContentStrings(
   content = content.replaceAll('["AUTOTITLE]', '"[AUTOTITLE]')
   content = content.replaceAll('[ AUTOTITLE](', '[AUTOTITLE](')
   content = content.replaceAll('[ "AUTOTITLE](', '[AUTOTITLE](')
+  // Extra space between the closing `]` and opening `(` breaks the Markdown
+  // link so it renders as literal text instead of a hyperlink.
+  content = content.replaceAll('[AUTOTITLE] (', '[AUTOTITLE](')
 
   // Double-brace Liquid tag corruptions.
   content = content.replaceAll('{{% octicon', '{% octicon')
@@ -2302,6 +2670,50 @@ export function correctTranslatedContentStrings(
   // Collapsed Markdown table rows — restore linebreaks between `|` cells.
   content = content.replaceAll(' | | ', ' |\n| ')
 
+  // Translators sometimes reorder an `{% ifversion %}...{% endif %}` block so
+  // that `{% endif %}` appears BEFORE its matching `{% else %}`, e.g.
+  // `{% ifversion X %}A{% endif %}B{% else %}` instead of the correct
+  // `{% ifversion X %}A{% else %}B{% endif %}`. This produces a
+  // "tag 'else' not found" parse error. Confirmed identically across all
+  // eight translated languages for
+  // `data/reusables/organizations/custom-org-roles-intro.md`, so this fix
+  // runs universally as a post-fix (after the more specific per-file/
+  // per-language exact-string fixes above, which take priority when they
+  // match). We only swap `{% endif %}` and `{% else %}` when they appear
+  // back-to-back (with no other Liquid tag between them and the matching
+  // `{% ifversion %}`), to avoid disturbing legitimately nested or unrelated
+  // tags.
+  {
+    const noTag = '(?:(?!\\{%)[\\s\\S])*?'
+    const reorderRegex = new RegExp(
+      `(\\{%-?\\s*ifversion\\s+[^%]+?%\\})(${noTag})\\{%-?\\s*endif\\s*-?%\\}(${noTag})\\{%-?\\s*else\\s*-?%\\}`,
+      'g',
+    )
+    content = content.replace(reorderRegex, '$1$2{% else %}$3{% endif %}')
+  }
+
+  // Restore a trailing `{% endif %}` that translators dropped when it was
+  // the very last token of the file (with no space before it in English, so
+  // there was nothing visually separating it from the preceding prose for
+  // the translator to notice and carry over). We only do this when the
+  // English content truly ends with an unspaced `{% endif %}` and the
+  // translated content is missing exactly one closer relative to its
+  // `ifversion`/`elsif` openers, so we don't add a spurious closer to
+  // content that is unrelated or already balanced.
+  if (englishContent) {
+    const englishTrimmed = englishContent.trimEnd()
+    if (englishTrimmed.endsWith('{% endif %}') && !/\s\{% endif %\}$/.test(englishTrimmed)) {
+      const contentTrimmed = content.trimEnd()
+      if (!contentTrimmed.endsWith('{% endif %}')) {
+        const openers = (contentTrimmed.match(/\{%-?\s*ifversion\b/g) || []).length
+        const closers = (contentTrimmed.match(/\{%-?\s*endif\b/g) || []).length
+        if (openers - closers === 1) {
+          content = `${contentTrimmed}{% endif %}\n`
+        }
+      }
+    }
+  }
+
   // Final catch-all: earlier normalizations (e.g. space-in-braces regex) can
   // recreate `{{% KEYWORD` patterns after the per-keyword fixes already ran.
   // Strip the extra `{` for known Liquid tag names.
@@ -2317,6 +2729,14 @@ export function correctTranslatedContentStrings(
   content = content.replaceAll('{%raw -%}', '{% raw -%}')
   content = content.replaceAll('{%endraw %}', '{% endraw %}')
   content = content.replaceAll('{%endraw -%}', '{% endraw -%}')
+
+  // `{% note %}` / `{% warning %}` / `{% tip %}` / `{% danger %}` were removed
+  // from the Liquid renderer (replaced by GFM alert blockquotes, see
+  // PR #62960 / commit 8b174bc4), but many translation files were forked
+  // before that change and still use the old tag syntax, which now fails
+  // with "tag not found" render errors. Strip the obsolete tags so the rest
+  // of the content renders.
+  content = stripLegacyAlertTags(content)
 
   // Strip stray closing-only Liquid tags that have no matching opener anywhere
   // in the content. Translators sometimes insert spurious closers (e.g. an
@@ -2586,6 +3006,95 @@ function joinDanglingMarkers(content: string): string {
     }
 
     out.push(line)
+  }
+
+  return out.join('\n')
+}
+
+/**
+ * Remove the obsolete `{% note %}` / `{% warning %}` / `{% tip %}` /
+ * `{% danger %}` Liquid tags (and their closers) from translated content.
+ *
+ * These tags were removed from the renderer in favour of GFM alert
+ * blockquotes, so any leftover occurrence now fails to render. Stripping
+ * them leaves the surrounding text intact.
+ *
+ * Skips YAML frontmatter, fenced code blocks, `{% raw %}` blocks, and inline
+ * code spans, where the tags are literal examples rather than markup.
+ */
+function stripLegacyAlertTags(content: string): string {
+  const tagPattern = /\{%-?\s*(?:end)?(?:note|warning|tip|danger)\s*-?%\}[ \t]*/g
+  const lines = content.split('\n')
+  const out: string[] = []
+  let inFence = false
+  let fenceChar = ''
+  let fenceLen = 0
+  let inRaw = false
+  let inFrontmatter = lines[0] === '---'
+
+  const stripOutsideInlineCode = (line: string): string =>
+    line
+      .split('`')
+      .map((segment, index) => (index % 2 === 0 ? segment.replace(tagPattern, '') : segment))
+      .join('`')
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+
+    if (inFrontmatter) {
+      if (i > 0 && (line === '---' || line === '...')) inFrontmatter = false
+      out.push(line)
+      continue
+    }
+
+    const fenceMatch = line.match(/^[ \t]*(`{3,}|~{3,})/)
+    if (fenceMatch) {
+      const marker = fenceMatch[1]
+      if (!inFence) {
+        inFence = true
+        fenceChar = marker[0]
+        fenceLen = marker.length
+      } else if (marker[0] === fenceChar && marker.length >= fenceLen) {
+        inFence = false
+        fenceChar = ''
+        fenceLen = 0
+      }
+      out.push(line)
+      continue
+    }
+
+    if (inFence) {
+      out.push(line)
+      continue
+    }
+
+    if (inRaw) {
+      if (/\{%-?\s*endraw\s*-?%\}/.test(line)) inRaw = false
+      out.push(line)
+      continue
+    }
+    if (/\{%-?\s*raw\s*-?%\}/.test(line) && !/\{%-?\s*endraw\s*-?%\}/.test(line)) {
+      inRaw = true
+      out.push(line)
+      continue
+    }
+
+    const withoutTags = stripOutsideInlineCode(line)
+    if (withoutTags === line) {
+      out.push(line)
+      continue
+    }
+    const stripped = withoutTags.replace(/[ \t]+$/, '')
+
+    // The line contained only the tag: drop it, and collapse the surrounding
+    // blank lines into one so the alert body keeps its original spacing.
+    if (stripped === '') {
+      const previousIsBlank = out.length === 0 || out[out.length - 1] === ''
+      if (previousIsBlank && lines[i + 1] === '') i++
+      continue
+    }
+
+    out.push(stripped)
   }
 
   return out.join('\n')

@@ -3,7 +3,7 @@ title: About {% data variables.product.prodname_copilot %} plugins
 shortTitle: Plugins
 allowTitleToDifferFromFilename: true
 intro: 'Plugins are installable packages that extend {% data variables.product.prodname_copilot_short %} with reusable agents, skills, hooks, and integrations.'
-product: '{% data reusables.gated-features.copilot-cli %}<br><br>{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-cli %}<br><br>{% data reusables.gated-features.copilot-cloud-agent %}<br><br>{% data reusables.gated-features.github-app %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: concepts
@@ -16,7 +16,7 @@ redirect_from:
   - /copilot/concepts/agents/copilot-cli/about-cli-plugins
 ---
 
-Plugins provide a way to distribute custom {% data variables.product.prodname_copilot_short %} functionality. You can use a plugin to add a preconfigured set of capabilities to {% data variables.product.prodname_copilot_short %}, including {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_cloud_agent %}.
+Plugins provide a way to distribute custom {% data variables.product.prodname_copilot_short %} functionality. You can use a plugin to add a preconfigured set of capabilities to {% data variables.product.prodname_copilot_short %}, including {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent %}, and the {% data variables.copilot.github_copilot_app %}.
 
 ## What is a plugin?
 
@@ -84,6 +84,7 @@ How you install a plugin depends on which client you're using:
 
 * In {% data variables.copilot.copilot_cli_short %}, you can install plugins imperatively using the `copilot plugin install` command or the `/plugin install` slash command, or declaratively by adding the plugin to the `enabledPlugins` field of either a user-level `~/.copilot/settings.json` file or a repository-level `.github/copilot/settings.json` file. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing).
 * In {% data variables.copilot.copilot_cloud_agent %}, you install plugins declaratively by adding them to the `enabledPlugins` field of the repository's `.github/copilot/settings.json` file. To install plugins from a marketplace that isn't registered by default, you can also add the marketplace to the `extraKnownMarketplaces` field in the same file.
+* In the {% data variables.copilot.github_copilot_app %}, click **Customize**, then click **Plugins** to browse marketplaces and install plugins.
 
 Enterprise administrators can define plugin standards that apply to users on the enterprise's {% data variables.product.prodname_copilot_short %} plan, including specifying additional marketplaces and plugins that are automatically installed. See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
 

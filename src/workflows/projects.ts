@@ -2,6 +2,17 @@ import { graphql } from '@octokit/graphql'
 
 // Shared functions for managing projects (memex)
 
+/**
+ * The team whose members count as "Docs team" on the review board.
+ *
+ * Renamed from `docs` to `technical-content`. GraphQL looks teams up by slug, so a rename
+ * silently turns the lookup into `null` rather than erroring, which is why the old slug
+ * kept "working" right up until it didn't. Numeric team IDs survive renames, but the
+ * GraphQL `team` field only accepts a slug, so this has to be updated by hand if the team
+ * is renamed again.
+ */
+const DOCS_TEAM_SLUG = 'technical-content'
+
 export interface ProjectV2FieldNode {
   name: string
   id: string
@@ -25,7 +36,7 @@ interface TeamMemberData {
       members: {
         nodes: Array<{ login: string }>
       }
-    }
+    } | null
   }
 }
 
@@ -156,9 +167,9 @@ export async function isDocsTeamMember(login: string) {
   // Get all members of the docs team
   const data: TeamMemberData = await graphql(
     `
-      query {
+      query ($slug: String!) {
         organization(login: "github") {
-          team(slug: "docs") {
+          team(slug: $slug) {
             members {
               nodes {
                 login
@@ -169,13 +180,28 @@ export async function isDocsTeamMember(login: string) {
       }
     `,
     {
+      slug: DOCS_TEAM_SLUG,
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
     },
   )
 
-  const teamMembers = data.organization.team.members.nodes.map((entry) => entry.login)
+  // `team` is null when the slug no longer resolves, which is what a rename looks like from
+  // here. Dereferencing it threw and killed the whole job *after* the PR had already been
+  // added to the board, leaving an item with no fields populated. Fall through to the
+  // hubber fallback instead so the board stays usable, and say why.
+  const team = data.organization.team
+  if (!team) {
+    console.warn(
+      `Team "${DOCS_TEAM_SLUG}" did not resolve in the github org, so no author can be ` +
+        `identified as a docs team member. The team was probably renamed: update ` +
+        `DOCS_TEAM_SLUG in src/workflows/projects.ts.`,
+    )
+    return false
+  }
+
+  const teamMembers = team.members.nodes.map((entry) => entry.login)
 
   return teamMembers.includes(login)
 }

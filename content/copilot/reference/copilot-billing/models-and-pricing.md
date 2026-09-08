@@ -33,10 +33,12 @@ All prices are **per 1 million tokens**.
 
 {% data reusables.copilot.extended-context-pricing %}
 
-| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Output |
-| --- | --- | --- | --- | --- | ---: | ---: | ---: |
+{% data variables.copilot.copilot_gpt_56_sol %}, {% data variables.copilot.copilot_gpt_56_terra %}, {% data variables.copilot.copilot_gpt_56_luna %}, and {% data variables.copilot.copilot_gpt_6_astra %} include a cache write cost in addition to cached input. Earlier OpenAI models have no cache write cost.
+
+| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Cache write | Output |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
 | {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "openai" %} |
-| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.cache_write }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
 ### Anthropic
@@ -75,6 +77,16 @@ Anthropic models include a cache write cost in addition to cached input.
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
+### xAI
+
+{% data reusables.copilot.extended-context-pricing %}
+
+| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Output |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: |
+| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "xai" %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {% endif %}{% endfor %} |
+
 ### Moonshot AI
 
 | Model | Release status | Category | Input | Cached input | Output |
@@ -93,7 +105,7 @@ For most {% data variables.product.prodname_copilot_short %} features, the model
 
 Each code review is billed in two ways: token consumption is billed in {% data variables.product.prodname_ai_credits_short %}, and the agentic infrastructure that powers the review consumes {% data variables.product.prodname_actions %} minutes.
 
-{% data variables.product.prodname_actions %} minutes are attributed to the repository, and from there to the enterprise or cost center where applicable. {% data variables.product.prodname_ai_credits_short %} are charged to the person who requests the review, or to the author of a pull request where a policy automatically triggers a review. If neither has a {% data variables.product.prodname_copilot_short %} seat, usage is billed to the enterprise or cost center instead.
+{% data variables.product.prodname_actions %} minutes are attributed to the repository, and from there to the enterprise or cost center where applicable. {% data variables.product.prodname_ai_credits_short %} are charged to the person who requests the review, or to the author of a pull request where a policy automatically triggers a review. If that person does not have a {% data variables.product.prodname_copilot_short %} seat, usage is billed to the enterprise or cost center instead. For pull requests authored by {% data variables.copilot.copilot_cloud_agent %}, usage is attributed first to the human co-author associated with the change. If the co-author cannot be billed, usage is billed directly to the organization. For pull requests authored by other bots, or when a bot requests the review, usage is also billed directly to the organization. These pull requests are eligible for agentic review.
 
 You can view your current {% data variables.product.prodname_actions %} usage for {% data variables.copilot.copilot_code-review_short %} in the following ways:
 
@@ -104,4 +116,4 @@ You can view your current {% data variables.product.prodname_actions %} usage fo
 
 {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on **existing annual billing plans** using the **request-based billing** model have different model multipliers. See [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy/model-multipliers-for-annual-plans).
 
-[^sonnet-5-promo]: {% data variables.copilot.copilot_claude_sonnet_5 %} is available at the promotional pricing of $2.00 per 1M input tokens, $0.20 per 1M cached input tokens, $2.50 per 1M cache write tokens, and $10.00 per 1M output tokens through August 31, 2026. 
+[^gemini-flash-promo]: {% data variables.copilot.copilot_gemini_36_flash %}, {% data variables.copilot.copilot_gemini_37_flash %}, and {% data variables.copilot.copilot_gemini_38_flash %} are available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.

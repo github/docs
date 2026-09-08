@@ -36,7 +36,9 @@ Metrics are available through:
 
 ## Which usage is included?
 
-{% data variables.product.prodname_copilot_short %} usage metrics are derived from telemetry across multiple {% data variables.product.prodname_copilot_short %} surfaces, including IDE and {% data variables.copilot.copilot_cli_short %} activity. Most metrics come from client-side IDE telemetry, and **end users need telemetry enabled in their IDE** for the richest data in these metrics.
+{% data variables.product.prodname_copilot_short %} usage metrics are derived from telemetry across multiple {% data variables.product.prodname_copilot_short %} surfaces, including IDE, {% data variables.copilot.copilot_cli_short %}, and {% data variables.copilot.agent_apps %} activity. Most metrics come from client-side IDE telemetry, and **end users need telemetry enabled in their IDE** for the richest data in these metrics.
+
+Individual {% data variables.copilot.agent_app %} metrics are available in the usage metrics APIs and NDJSON exports. They are not available in the usage metrics dashboards. Activity from {% data variables.copilot.agent_apps %} is already included in daily, weekly, and monthly active-user totals through server-side telemetry. The individual metrics provide a detailed breakdown but do not change these totals.
 
 In addition, {% data variables.product.prodname_copilot_short %} usage metrics incorporate **server-side telemetry** to identify active users that client-side telemetry alone may miss. Network conditions, proxy configurations, and client settings can prevent client telemetry from reaching {% data variables.product.github %}, so server-side signals ensure those users still appear in your reports.
 
@@ -121,14 +123,16 @@ Users are grouped into the following phases:
 
 | Phase | What it represents |
 |:--|:--|
-| Passive users | The user has not met the engagement threshold for a phase during the period. In the underlying data, this phase is labeled `No Cohort`. |
-| Phase 1: Code first | The user engaged with code completions and/or IDE agent mode. |
-| Phase 2: Agent first | The user engaged with a single {% data variables.product.github %}-based agent surface, such as {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, or {% data variables.copilot.copilot_cli_short %}. Only active engagement with {% data variables.copilot.copilot_code-review_short %} counts here; having it automatically assigned to review a pull request without further engagement does not. |
+| Passive users | The user has not met the engagement threshold for a phase during the period. A passive user may still be using {% data variables.product.prodname_copilot_short %} regularly, for example by asking questions in {% data variables.copilot.copilot_chat_short %} or agent mode without applying any code edits. In the API, this phase is labeled `No Cohort`. |
+| Phase 1: Code first | The user engaged with code completions and/or agent edits, where {% data variables.product.prodname_copilot_short %} writes changes directly into files in the IDE. Using {% data variables.copilot.copilot_chat_short %} or agent mode without producing code completion or agent edit activity does not qualify on its own. |
+| Phase 2: Agent first | The user engaged with a single {% data variables.product.github %}-based agent surface, such as {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, or {% data variables.copilot.copilot_cli_short %}. Both active engagement with {% data variables.copilot.copilot_code-review_short %} and having it automatically assigned to review a pull request count as the same surface. |
 | Phase 3: Multi-agent | The user engaged with two or more {% data variables.product.github %}-based agent surfaces, or with the {% data variables.copilot.github_copilot_app %}. |
 
 To be grouped into a phase, a user must meet an engagement threshold of at least two active days out of the trailing 28-day window, using the surfaces associated with that phase. A user only needs two qualifying days on a higher phase's surfaces to progress to that phase. Agent usage alone can qualify a user, without separate days of plain completions.
 
 Phase assignment is recalculated daily from the trailing 28-day window, so a user's phase can shift from one day to the next as their activity within that window changes. This is expected behavior, not a data error.
+
+The impact dashboard counts every user who was active during the trailing 28-day window and groups each user by their current phase. The phase classification rules are the same, but the dashboard population is broader than the `totals_by_ai_adoption_phase.total_engaged_users` field in API and NDJSON reports, which counts users who were active on a specific day.
 
 Users who haven't met any phase's threshold are grouped into **Passive users**, which is not a measure of inactivity, but a signal that a user's engagement hasn't yet reached the level needed to reliably classify their adoption depth. For example, a user with fewer than two active days in the trailing 28-day window, or one who only lightly uses a surface like {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}, shows as a passive user.
 
@@ -141,6 +145,14 @@ The impact dashboard's **adoption multiplier** divides the average amount of pul
 This shows the relative impact of deeper adoption, independent of how many users fall into each phase. This is a measurement to understand the potential lift that becoming a more engaged user can provide.
 
 For example, if users in the engaged cohorts averaged 20 pull requests/user/month and the passive cohort averaged 10, then the equation is 20 / 10 = 2x multiplier.
+
+### Estimating potential return on investment
+
+The impact dashboard's **Potential return on investment** section provides a comparison of cost and pull request output between **Phase 0-1 Passive and Code First Users** and **Phase 2-3 Agent First Users**.
+
+For each phase group, the dashboard shows the monthly {% data variables.product.prodname_copilot_short %} cost per developer, based on actual {% data variables.product.prodname_ai_credits_short %} consumption, and that cost as a percentage of developer compensation. It also shows average pull requests per developer per month.
+
+You can select a compensation band to update estimates that depend on developer compensation. These figures are estimates rather than exact financial results, so interpret them alongside the adoption multiplier's code-shipped and time-to-merge comparisons. The return-on-investment estimates are available only in the dashboard and are not included in the {% data variables.product.prodname_copilot_short %} usage metrics API or NDJSON exports.
 
 ### Interpreting pull request lifecycle metrics across scopes
 
@@ -166,13 +178,3 @@ These metrics can be used together to answer key questions about your teams' usa
 | How do I act on the insights from the dashboard? | See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics#reviewing-adoption-cohorts) |
 
 Look for patterns across these signals rather than focusing on any single number. For example, a steady DAU paired with a rising acceptance rate indicates growing trust and value.
-
-## Next steps
-
-Now that you understand what each {% data variables.product.prodname_copilot_short %} metric measures and how to use them, you can explore the dashboards to see these metrics in action.
-
-* To view adoption and usage trends across your enterprise and organizations, see [AUTOTITLE](/copilot/how-tos/administer-copilot/view-usage-and-adoption).
-* To analyze how code is being generated by users and agents, see [AUTOTITLE](/copilot/how-tos/administer-copilot/view-code-generation).
-* To view adoption cohorts and depth of adoption, see [AUTOTITLE](/copilot/how-tos/administer-copilot/view-impact-dashboard).
-* To access {% data variables.product.prodname_copilot_short %} usage metrics programmatically, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
-* To construct team-level metrics by aggregating per-user records, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).

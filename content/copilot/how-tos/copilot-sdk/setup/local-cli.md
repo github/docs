@@ -16,7 +16,7 @@ contentType: how-tos
 <!-- markdownlint-disable GHD046 GHD005 -->
 <!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
 
-**Use when:** You need to pin a specific CLI version, or work with the Go SDK (which does not bundle a CLI).
+**Use when:** You need to pin a specific CLI version, or work with the Go SDK (which does not include a CLI automatically).
 
 ## How it works
 
@@ -78,38 +78,7 @@ await client.stop()
 {% codetab go %}
 
 > [!NOTE]
-> The Go SDK does not bundle a CLI, so you must always provide `Connection`.
-
-```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	"log"
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	ctx := context.Background()
-
-	client := copilot.NewClient(&copilot.ClientOptions{
-		Connection: copilot.StdioConnection{Path: "/usr/local/bin/copilot"},
-	})
-	if err := client.Start(ctx); err != nil {
-		log.Fatal(err)
-	}
-	defer client.Stop()
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{Model: "gpt-5.4"})
-	response, _ := session.SendAndWait(ctx, copilot.MessageOptions{Prompt: "Hello!"})
-	if response != nil {
-		if d, ok := response.Data.(*copilot.AssistantMessageData); ok {
-			fmt.Println(d.Content)
-		}
-	}
-}
-```
+> The Go SDK does not ship a CLI automatically. Install `copilot` on `PATH`, set the `COPILOT_CLI_PATH` environment variable, embed a CLI with the [bundler tool](https://github.com/github/copilot-sdk/tree/main/go/README.md#distributing-your-application-with-an-embedded-github-copilot-cli), or point `StdioConnection.Path` at an installed binary.
 
 ```golang
 client := copilot.NewClient(&copilot.ClientOptions{

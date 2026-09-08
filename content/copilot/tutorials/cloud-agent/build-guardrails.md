@@ -29,7 +29,6 @@ Some questions to ask are:
 
 The following {% data variables.product.prodname_copilot_short %} policies don't apply to {% data variables.copilot.copilot_cloud_agent %}:
 
-* Content exclusions
 * Custom models (providing your own LLM API keys)
 * Private MCP registries
 

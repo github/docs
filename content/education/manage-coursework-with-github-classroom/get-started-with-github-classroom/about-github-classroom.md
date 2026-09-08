@@ -7,6 +7,7 @@ contentType: concepts
 category:
   - Set up GitHub Classroom
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About {% data variables.product.prodname_classroom %}
 

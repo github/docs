@@ -2939,6 +2939,16 @@
               }
             },
             {
+              "name": "excludeUserLinked",
+              "defaultValue": false,
+              "description": "<p>Exclude manually linked Issues.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {
@@ -8310,6 +8320,28 @@
       "category": "pulls"
     },
     {
+      "name": "PullRequestReviewThreadResolutionReason",
+      "id": "pullrequestreviewthreadresolutionreason",
+      "href": "/graphql/reference/pulls#enum-pullrequestreviewthreadresolutionreason",
+      "description": "<p>The possible reasons a pull request review thread was resolved.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ADDRESSED",
+          "description": "<p>The review comment was addressed.</p>"
+        },
+        {
+          "name": "INVALID",
+          "description": "<p>The review comment is invalid.</p>"
+        },
+        {
+          "name": "WONT_FIX",
+          "description": "<p>The review comment will not be addressed.</p>"
+        }
+      ],
+      "category": "pulls"
+    },
+    {
       "name": "PullRequestReviewThreadSubjectType",
       "id": "pullrequestreviewthreadsubjecttype",
       "href": "/graphql/reference/pulls#enum-pullrequestreviewthreadsubjecttype",
@@ -8366,6 +8398,10 @@
         {
           "name": "ADDED_TO_PROJECT_V2_EVENT",
           "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_STACK_EVENT",
+          "description": "<p>Represents an<code>added_to_stack</code>event on a given pull request.</p>"
         },
         {
           "name": "ARCHIVED_EVENT",
@@ -8606,6 +8642,10 @@
         {
           "name": "REMOVED_FROM_PROJECT_V2_EVENT",
           "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_STACK_EVENT",
+          "description": "<p>Represents a<code>removed_from_stack</code>event on a given pull request.</p>"
         },
         {
           "name": "RENAMED_TITLE_EVENT",
@@ -10559,6 +10599,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "resolutionReason",
+          "description": "<p>The reason a Copilot code review thread was resolved.</p>",
+          "type": "PullRequestReviewThreadResolutionReason",
+          "id": "pullrequestreviewthreadresolutionreason",
+          "href": "/graphql/reference/pulls#enum-pullrequestreviewthreadresolutionreason"
         },
         {
           "name": "threadId",

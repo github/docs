@@ -31,10 +31,10 @@ jobs:
 
             const issueNo = context.number || context.issue.number
 
-            // Create an issue in docs-team repo
+            // Create an issue in technical-content repo
             await github.rest.issues.create({
               owner: 'github',
-              repo: 'docs-team',
+              repo: 'technical-content',
               title: `SME tracking issue for \#${issueNo}`,
               body: `### Issue / PR that requires an SME review
 

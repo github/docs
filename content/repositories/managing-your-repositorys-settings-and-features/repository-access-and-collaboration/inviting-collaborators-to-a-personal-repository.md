@@ -25,7 +25,7 @@ category:
 
 You can send an invitation to collaborate in your repository directly to someone on {% data variables.product.prodname_dotcom %}{% ifversion fpt or ghec %}, or to the person's email address{% elsif ghes %}.{% endif %}.
 
-1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}
+1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/account-and-profile/how-tos/account-management/creating-an-account-on-github).{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Access" section of the sidebar, click **{% octicon "people" aria-hidden="true" aria-label="people" %} Collaborators**.

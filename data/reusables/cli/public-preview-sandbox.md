@@ -1,2 +1,2 @@
 > [!NOTE]
-> {% data variables.copilot.sandbox_caps %} is in {% data variables.release-phases.public_preview %} and subject to change.
+> Cloud and local sandboxes for {% data variables.product.prodname_copilot %} are in {% data variables.release-phases.public_preview %} and subject to change.

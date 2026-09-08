@@ -89,7 +89,6 @@ Your enterprise account is a collection of all the organizations on {% data vari
 
 ## Further reading
 
-{% ifversion fpt or ghec %}
-* [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github){% endif %}
+* [AUTOTITLE](/account-and-profile/how-tos/account-management/creating-an-account-on-github)
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
 * [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources

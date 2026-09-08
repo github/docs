@@ -9,6 +9,8 @@ permissions: 'Organization owners who are admins for a classroom can enable {% d
 category:
   - Integrate GitHub Classroom with an IDE
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## About {% data variables.product.prodname_github_codespaces %}
 
 {% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_github_codespaces %} is also configurable, allowing you to create a customized development environment that is the same for all users of your project. See [AUTOTITLE](/codespaces/quickstart).

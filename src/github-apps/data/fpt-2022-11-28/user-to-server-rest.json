@@ -427,6 +427,12 @@
       "requestPath": "/orgs/{org}/actions/runners"
     },
     {
+      "slug": "get-runner-version-end-of-life-schedule-for-an-organization",
+      "subcategory": "self-hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/runners/deprecations/{version}"
+    },
+    {
       "slug": "list-runner-applications-for-an-organization",
       "subcategory": "self-hosted-runners",
       "verb": "get",
@@ -817,6 +823,12 @@
       "requestPath": "/repos/{owner}/{repo}/actions/runners"
     },
     {
+      "slug": "get-runner-version-end-of-life-schedule-for-a-repository",
+      "subcategory": "self-hosted-runners",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/runners/deprecations/{version}"
+    },
+    {
       "slug": "list-runner-applications-for-a-repository",
       "subcategory": "self-hosted-runners",
       "verb": "get",
@@ -1201,6 +1213,18 @@
       "subcategory": "starring",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/stargazers"
+    },
+    {
+      "slug": "get-stargazer-count",
+      "subcategory": "starring",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/count"
+    },
+    {
+      "slug": "get-repository-star-history",
+      "subcategory": "starring",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/history"
     },
     {
       "slug": "list-watchers",
@@ -1913,37 +1937,37 @@
   ],
   "classroom": [
     {
-      "slug": "closing-down---get-an-assignment",
+      "slug": "closed---get-an-assignment",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}"
     },
     {
-      "slug": "closing-down---list-accepted-assignments-for-an-assignment",
+      "slug": "closed---list-accepted-assignments-for-an-assignment",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}/accepted_assignments"
     },
     {
-      "slug": "closing-down---get-assignment-grades",
+      "slug": "closed---get-assignment-grades",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}/grades"
     },
     {
-      "slug": "closing-down---list-classrooms",
+      "slug": "closed---list-classrooms",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/classrooms"
     },
     {
-      "slug": "closing-down---get-a-classroom",
+      "slug": "closed---get-a-classroom",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/classrooms/{classroom_id}"
     },
     {
-      "slug": "closing-down---list-assignments-for-a-classroom",
+      "slug": "closed---list-assignments-for-a-classroom",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/classrooms/{classroom_id}/assignments"
@@ -3227,6 +3251,12 @@
   ],
   "enterprise-teams": [
     {
+      "slug": "list-enterprise-teams-for-a-user",
+      "subcategory": "enterprise-team-members",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/members/{username}/teams"
+    },
+    {
       "slug": "list-enterprise-teams",
       "subcategory": "enterprise-teams",
       "verb": "get",
@@ -3565,6 +3595,18 @@
       "requestPath": "/orgs/{org}/interaction-limits"
     },
     {
+      "slug": "get-pull-request-creation-cap-for-an-org",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap"
+    },
+    {
+      "slug": "update-pull-request-creation-cap-for-an-org",
+      "subcategory": "orgs",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/interaction-limits/pulls/creation-cap"
+    },
+    {
       "slug": "get-interaction-restrictions-for-a-repository",
       "subcategory": "repos",
       "verb": "get",
@@ -3885,6 +3927,24 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues/priority"
     },
     {
+      "slug": "list-issue-suggestions",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions"
+    },
+    {
+      "slug": "approve-an-issue-suggestion",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/approve"
+    },
+    {
+      "slug": "dismiss-an-issue-suggestion",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/suggestions/{suggestion_id}/dismiss"
+    },
+    {
       "slug": "list-timeline-events-for-an-issue",
       "subcategory": "timeline",
       "verb": "get",
@@ -4177,6 +4237,18 @@
       "subcategory": "artifact-metadata",
       "verb": "post",
       "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}"
+    },
+    {
+      "slug": "create-a-cluster-deployment-records-job",
+      "subcategory": "artifact-metadata",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs"
+    },
+    {
+      "slug": "get-cluster-deployment-records-job-status",
+      "subcategory": "artifact-metadata",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs/{job_id}"
     },
     {
       "slug": "create-artifact-metadata-storage-record",
@@ -5263,6 +5335,18 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
     },
     {
+      "slug": "merge-a-pull-request-asynchronously",
+      "subcategory": "pulls",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async"
+    },
+    {
+      "slug": "get-the-result-of-an-asynchronous-merge",
+      "subcategory": "pulls",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge-async/{uuid}"
+    },
+    {
       "slug": "get-all-requested-reviewers-for-a-pull-request",
       "subcategory": "review-requests",
       "verb": "get",
@@ -5333,6 +5417,36 @@
       "subcategory": "pulls",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
+    },
+    {
+      "slug": "list-pull-request-stacks",
+      "subcategory": "stacks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stacks"
+    },
+    {
+      "slug": "create-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks"
+    },
+    {
+      "slug": "get-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}"
+    },
+    {
+      "slug": "add-pull-requests-to-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/add"
+    },
+    {
+      "slug": "remove-pull-requests-from-a-pull-request-stack",
+      "subcategory": "stacks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/stacks/{stack_number}/unstack"
     }
   ],
   "rate-limit": [

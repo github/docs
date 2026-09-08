@@ -66,7 +66,7 @@ Using a codespace to work on a pull request gives you all the benefits of {% dat
 
    ![Screenshot of the side bar showing the dropdown options "Comment and Submit," "Approve and Submit," and "Request Changes and Submit."](/assets/images/help/codespaces/submit-review.png)
 
-For more information on reviewing a pull request, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request).
+For more information on reviewing a pull request, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/reviewing-proposed-changes-in-a-pull-request).
 
 ## View comments from a review in {% data variables.product.prodname_codespaces %}
 

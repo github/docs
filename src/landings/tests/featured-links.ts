@@ -10,39 +10,30 @@ describe('featuredLinks', () => {
     expect($('[data-testid=article-list]')).toHaveLength(0)
   })
 
-  test('landing page intro links have expected properties', async () => {
-    const $ = await getDOM('/en')
-    const $featuredLinks = $('[data-testid=article-list] a')
-    expect($featuredLinks).toHaveLength(7)
-    expect($featuredLinks.eq(0).attr('href')).toBe('/en/get-started/start-your-journey/hello-world')
-    expect($featuredLinks.eq(0).find('[data-testid=link-with-intro-title]').text()).toMatch(
-      'Hello World',
-    )
-    expect($featuredLinks.eq(0).find('[data-testid=link-with-intro-intro]').text()).toMatch(
-      /follow.+this.+hello.+world.+exercise/i,
-    )
-  })
-
   test('Enterprise get-started landing renders', async () => {
     const $ = await getDOM('/en/enterprise-server@latest/get-started')
     // get-started uses discovery-landing, so it has hero/spotlight, not article-list.
     expect($('h1').text()).toMatch(/Getting started/)
   })
+})
 
-  // This is an important test because one of the popular links,
-  // in the front matter of `src/fixtures/fixtures/content/index.md`, uses
-  // Liquid to conditionally include with `{% ifversion ghec %}`.
-  test.each(['', '/enterprise-cloud@latest'])(
-    'never more than 4 links per category in %a',
-    async (version) => {
-      const $ = await getDOM(`/en${version}`)
-      const columns = $('[data-testid=article-list]')
-      expect(columns.length).toBe(2)
-      for (const column of columns) {
-        const $featuredLinks = $('a', column)
-        // See MAX_FEATURED_LINKS constant in featured-links.ts middleware
-        expect($featuredLinks.length).toBeLessThanOrEqual(4)
-      }
-    },
-  )
+describe('homepage', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
+  test('renders the hero search entry that opens the overlay', async () => {
+    const $ = await getDOM('/en')
+    const $search = $('[data-testid=homepage-search]')
+    expect($search).toHaveLength(1)
+    // The redesigned homepage no longer renders the featured article lists.
+    expect($('[data-testid=article-list]')).toHaveLength(0)
+  })
+
+  test('renders the "All docs" product grid with links', async () => {
+    const $ = await getDOM('/en')
+    const $grid = $('[data-testid=product]')
+    expect($grid).toHaveLength(1)
+    // Category group headings and their product links.
+    expect($grid.find('h3').length).toBeGreaterThan(0)
+    expect($grid.find('a').length).toBeGreaterThan(0)
+  })
 })

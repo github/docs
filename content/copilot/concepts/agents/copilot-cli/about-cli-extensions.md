@@ -53,7 +53,7 @@ The two locations follow exactly the same structure—a named subdirectory conta
 
 Extensions are currently an experimental feature, so you need to turn on experimental features. You can do this by doing either of the following:
 
-* Start the CLI with the `--experimental` flag.
+* Start the CLI with the `‑‑experimental` flag.
 * Run the `/experimental on` slash command inside an interactive session.
 
 ## Changing how the CLI handles extensions

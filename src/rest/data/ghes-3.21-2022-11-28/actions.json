@@ -27671,11 +27671,13 @@
               "properties": {
                 "id": {
                   "description": "The id of the job.",
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "run_id": {
                   "description": "The id of the associated workflow run.",
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "run_url": {
                   "type": "string"
@@ -28191,11 +28193,13 @@
                     "properties": {
                       "id": {
                         "description": "The id of the job.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_id": {
                         "description": "The id of the associated workflow run.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_url": {
                         "type": "string"
@@ -28648,11 +28652,13 @@
                     "properties": {
                       "id": {
                         "description": "The id of the job.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_id": {
                         "description": "The id of the associated workflow run.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_url": {
                         "type": "string"
@@ -29380,6 +29386,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the workflow run."
                       },
                       "name": {
@@ -29394,6 +29401,7 @@
                       },
                       "check_suite_id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the associated check suite."
                       },
                       "check_suite_node_id": {
@@ -31674,6 +31682,7 @@
               "properties": {
                 "id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the workflow run."
                 },
                 "name": {
@@ -31688,6 +31697,7 @@
                 },
                 "check_suite_id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the associated check suite."
                 },
                 "check_suite_node_id": {
@@ -34336,6 +34346,7 @@
               "properties": {
                 "id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the workflow run."
                 },
                 "name": {
@@ -34350,6 +34361,7 @@
                 },
                 "check_suite_id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the associated check suite."
                 },
                 "check_suite_node_id": {
@@ -38564,6 +38576,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the workflow run."
                       },
                       "name": {
@@ -38578,6 +38591,7 @@
                       },
                       "check_suite_id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the associated check suite."
                       },
                       "check_suite_node_id": {

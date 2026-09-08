@@ -18,16 +18,16 @@ Each REST API endpoint is documented individually, and the endpoints are categor
 
 ## Getting started with the REST API
 
-**If you are new to REST APIs**, you may find it helpful to refer to the Quickstart or Getting Started guide for an introduction. For more information, see:
+**If you are new to REST APIs**, start with the Quickstart or Getting Started guide:
 
 * [AUTOTITLE](/rest/quickstart)
 * [AUTOTITLE](/rest/using-the-rest-api/getting-started-with-the-rest-api)
 
-**If you are familiar with REST APIs** but new to {% data variables.product.company_short %}'s REST API, you may find it helpful to refer to the authentication documentation. For more information, see:
+**If you are familiar with REST APIs** but new to {% data variables.product.company_short %}'s REST API, see the authentication documentation:
 
 * [AUTOTITLE](/rest/authentication/authenticating-to-the-rest-api)
 
-**If you are building scripts or applications** that use the REST API, you may find some of the following guides helpful. For examples of scripting with the REST API, see:
+**If you are building scripts or applications** that use the REST API, the following guides can help:
 
 * [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)
 * [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-ruby)

@@ -2,6 +2,9 @@ date: '2026-07-16'
 intro: |
   > [!NOTE] As part of a security enhancement to {% data variables.product.prodname_ghe_server %} support bundle uploads, {% data variables.product.company_short %} will begin rejecting uploads from older unpatched appliances on August 18, 2026. Please update to this patch release to avoid interruptions when submitting support bundles with `ghe-support-bundle`, `ghe-cluster-support-bundle`, or `ghe-support-upload`. The minimum required patch versions to submit support bundles are 3.21.3, 3.20.5, 3.19.9, 3.18.12, and 3.17.18. If you cannot update to the required patch version before August 18, 2026, and need to upload a support bundle, contact [GitHub Support](https://support.github.com/enterprise-and-teams#enterprise-administrators-server) for guidance.
 sections:
+  features:
+    - |
+      The Enterprise Live Migrations (ELM) service is generally available, allowing enterprises to migrate repositories from GitHub Enterprise Server to GHE.com with minimal downtime. A new GitHub CLI extension allows administrators to operate the service from their local machine. See [AUTOTITLE](/migrations/elm/about-live-migrations). [Updated: 2026-08-25]
   security_fixes:
     - |
       **HIGH**: An attacker who had code execution inside the Dependabot updater container could write attacker-controlled files to arbitrary paths in a repository that Dependabot updates, including GitHub Actions workflow files. This was possible because dependency-file path validation checked only the declared file name and not the effective path derived from the file's directory and symlink target. If the repository used a pull_request_target workflow or had auto-merge enabled, the injected workflow could execute with access to the repository's GitHub Actions secrets. GitHub has requested CVE ID [CVE-2026-15343](https://www.cve.org/cverecord?id=CVE-2026-15343) for this vulnerability.
@@ -73,9 +76,9 @@ sections:
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
     - |
-      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
       When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
     - |

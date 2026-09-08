@@ -13,6 +13,7 @@ You'll need Node.js to run the site. Check the version in `package.json`. To ins
 Once you've installed Node.js (which includes the popular `npm` package manager), open Terminal and run the following:
 
 ```shell
+# github/docs is public; GitHub staff should clone github/docs-internal instead
 git clone https://github.com/github/docs
 cd docs
 npm ci
@@ -40,7 +41,7 @@ In a matter of minutes, you will be ready to edit, review and test your changes 
 
 ### Enabling different languages
 
-By default the local server won't run with all supported languages enabled. If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable. For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.
+By default the local server won't run with all supported languages enabled. If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable. For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect. If you need all languages rather than a specific set, run `npm run start-all-languages` instead, which requires no edit.
 
 The supported language codes are defined in [lib/languages.ts](../src/languages/lib/languages.ts).
 

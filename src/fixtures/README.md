@@ -136,7 +136,7 @@ When adding new functionality:
 Fixture content is maintained by the team. If tests break due to fixture issues:
 1. Check if fixture content needs updating
 2. Run `./src/tests/scripts/copy-fixture-data.ts` to sync
-3. Ask in #docs-engineering if unclear
+3. Ask in #technical-content if unclear
 
 ### Maintenance responsibilities
 - Keep fixtures minimal but functional

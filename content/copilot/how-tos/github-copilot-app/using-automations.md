@@ -43,18 +43,25 @@ To use cloud {% data variables.copilot.copilot_automations %}, make sure the fol
 ## Creating an {% data variables.copilot.copilot_automation %}
 
 1. Click **New automation** in the top-right corner.
-1. Enter a **name** for the {% data variables.copilot.copilot_automation %}.
-1. Select one or more **triggers** that determine when the {% data variables.copilot.copilot_automation %} runs:
+1. Enter a name for the {% data variables.copilot.copilot_automation %}.
+1. Select a **Trigger** from the dropdown. Selecting a trigger will reveal additional fields for you to populate.
 
-   * **Manual**: Run the {% data variables.copilot.copilot_automation %} manually.
-   * **On a schedule**: choose a recurring interval, either hourly, daily, or weekly.
-   * **When an issue is created**: the {% data variables.copilot.copilot_automation %} runs each time an issue is opened in the repository. You can add a search query filter for specific issues.
+   * **Manual**: Run the {% data variables.copilot.copilot_automation %} only when you start it.
+   * **Hourly**: Run the {% data variables.copilot.copilot_automation %} every hour.
+   * **Daily**: Choose one or more hours and a minute. The {% data variables.copilot.copilot_automation %} runs at each selected time.
+   * **Weekly**: Choose one or more days of the week and a time of day.
+   * **CRON**: For a local {% data variables.copilot.copilot_automation %}, enter a custom CRON expression. The app validates the expression and shows a human-readable preview of the schedule.
+   * **Issue**: Choose the repository event that triggers the {% data variables.copilot.copilot_automation %}, such as an issue being created. You can add a search query to limit which issues trigger it.
+   * **Pull request**: Choose the repository event that triggers the {% data variables.copilot.copilot_automation %}, such as a pull request being opened or new commits being pushed to it. You can add filters to limit which pull requests trigger it.
+
+   To configure more than one trigger, click **Add another trigger**. The {% data variables.copilot.copilot_automation %} runs when any of its triggers occur.
 1. Optionally, enable **Run in the cloud** to let the {% data variables.copilot.copilot_automation %} run in a cloud environment, allowing the {% data variables.copilot.copilot_automation %} to run even when your computer is off.
 
-    For cloud {% data variables.copilot.copilot_automations %}, you can also use the **Tools** dropdown to select the tools {% data variables.product.prodname_copilot_short %} can use when the automation runs, such as pushing changes, updating issue labels, or creating a pull request. Select only the tools the task requires. The tools you select control what actions {% data variables.product.prodname_copilot_short %} can take in your repository.
-1. In the **prompt** field, describe the task you want {% data variables.product.prodname_copilot_short %} to perform each time the {% data variables.copilot.copilot_automation %} runs.
-1. Optionally, select the **project** and **model** you want {% data variables.product.prodname_copilot_short %} to use.
-1. Click **Create** to save, or select **Create and run** to save and test the {% data variables.copilot.copilot_automation %} immediately.
+   For a cloud {% data variables.copilot.copilot_automation %}, use the **Tools** dropdown to select the tools {% data variables.product.prodname_copilot_short %} can use, such as pushing changes, updating issue labels, or creating a pull request. Select only the tools the task requires.
+1. In the prompt box, describe the task you want {% data variables.product.prodname_copilot_short %} to perform each time the {% data variables.copilot.copilot_automation %} runs. You can type `/` to use an available skill.
+1. Use the controls below the prompt box to select the model, reasoning effort, and agent for the {% data variables.copilot.copilot_automation %}.
+1. Click **Select project**, then choose the project where the {% data variables.copilot.copilot_automation %} will run.
+1. Click **Create** to save the {% data variables.copilot.copilot_automation %}. To save and test it immediately, open the dropdown next to **Create**, then click **Create and run**.
 
 ## Running an {% data variables.copilot.copilot_automation %} on demand
 

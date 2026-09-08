@@ -2,13 +2,13 @@
 title: 'Connecting to your code locally'
 shortTitle: 'Connect locally'
 intro: 'Connect {% data variables.product.prodname_desktop %} to your account and clone your repository to edit files locally.'
-category:
-  - Learn to code
-contentType: get-started
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Start your GitHub journey
+contentType: get-started
 ---
 
 So far, you've worked in the browser. In this tutorial, you'll use {% data variables.product.prodname_desktop %} to clone your repository to your computer so you can edit files in your own code editor.

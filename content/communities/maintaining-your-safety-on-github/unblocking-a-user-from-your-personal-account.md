@@ -16,7 +16,12 @@ When you unblock a user, they'll be able to invite you to be a collaborator to t
 
 In repositories you own, the user will be able to collaborate normally.
 
-You can unblock a user in your account settings or from the user's profile page.
+You can unblock a user in your account settings, from the user's profile page, or from an issue or pull request in a repository you own.
+
+## Unblocking a user in an issue or pull request
+
+1. Navigate to an issue or pull request in a repository you own.
+1. In the upper-right corner of the description or comment whose author you would like to unblock, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Unblock user**.
 
 ## Unblocking a user in your account settings
 

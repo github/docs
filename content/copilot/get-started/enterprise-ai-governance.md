@@ -32,7 +32,7 @@ journeyTracks:
       - href: '/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents'
       - href: '/copilot/concepts/agents/enterprise-management'
       - href: '/copilot/tutorials/cloud-agent/build-guardrails'
-      - href: '/copilot/concepts/mcp-management'
+      - href: '/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist'
   - id: 'enable_agents'
     title: 'Enabling agents'
     description: 'Roll out and monitor agentic features.'
@@ -47,6 +47,6 @@ journeyTracks:
     title: 'Adopting new features'
     description: 'Expand your capabilities by assessing and rolling out any new feature or model.'
     guides:
-      - href: '/copilot/concepts/preparing-for-new-features-and-models'
+      - href: '/copilot/concepts/learning-about-new-features-and-models'
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/pilot-a-feature-or-model'
 ---

@@ -22,7 +22,7 @@ You qualify for {% data variables.product.prodname_global_campus %} if you:
 
 * Are enrolled in a degree- or diploma-granting program, such as a high school, college, university, or homeschool.
 * Provide documents that prove your current student status. See [Academic email requirements](#academic-email-requirements) below.
-* Own a [{% data variables.product.prodname_dotcom %} personal account](/get-started/start-your-journey/creating-an-account-on-github).
+* Own a [{% data variables.product.prodname_dotcom %} personal account](/account-and-profile/how-tos/account-management/creating-an-account-on-github).
 * Are at least 13 years old.
 
 ## What documents can I use to prove I'm a student?

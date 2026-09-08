@@ -32,6 +32,8 @@ The Agent Client Protocol (ACP) is a protocol that standardizes communication be
 
 Use the `--acp` option of the `copilot` command to start the CLI's ACP server. You can specify the transport mode with either the `--stdio` or `--port` options. If no transport mode is specified, the server defaults to stdio mode.
 
+ACP mode allows sessions with a configured bring-your-own-key (BYOK) provider (`COPILOT_PROVIDER_*` environment variables) to run without {% data variables.product.github %} login, matching the behavior of `-p`/interactive mode.
+
 ### Options applied to every session
 
 The ACP `session/new` request only lets a client set a few session parameters, such as the working directory and the MCP servers to use. It does not carry tool-filtering or reasoning settings. To configure those, pass the corresponding options when you **start the server**. The server stores the values and applies them as the initial configuration for every session it creates or loads, for any client that connects. A connecting client does not choose these values—whoever launches the server does.
@@ -91,7 +93,7 @@ There is a growing ecosystem of libraries for interacting with ACP servers progr
 To run this example, you need the following dependencies:
 
 * [Node.js](https://nodejs.org) version 18 or later.
-* {% data variables.copilot.copilot_cli %}, installed and authenticated.
+* {% data variables.copilot.copilot_cli %}, installed and either authenticated with {% data variables.product.github %} or configured with a BYOK provider (see [Starting the ACP server](#starting-the-acp-server)).
 * The `@agentclientprotocol/sdk` package, which provides the ACP TypeScript library. Install it by running `npm install @agentclientprotocol/sdk`.
 
 ```typescript copy

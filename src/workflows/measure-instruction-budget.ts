@@ -26,8 +26,8 @@ import { encode } from 'gpt-tokenizer/encoding/o200k_base'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 
 // Single source of truth for the guardrails. Keep these in sync with the
-// instruction architecture doc (github/docs-team) and any future CI check.
-// Derived in github/docs-team#6829: frontier models stay near-perfect to
+// instruction architecture doc (github/technical-content) and any future CI check.
+// Derived in github/technical-content#6829: frontier models stay near-perfect to
 // ~150 discrete instructions; ~45 tokens/rule puts the token backstop at ~6,500.
 const RULE_BUDGET = 150
 const TOKEN_BUDGET = 6500

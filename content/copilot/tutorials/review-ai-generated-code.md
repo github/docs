@@ -22,7 +22,7 @@ Always run automated tests and static analysis tools first.
 
 * Make sure the code compiles and all tests pass. Check for any new warnings or errors.
 * Use tools like [{% data variables.product.prodname_codeql %}](https://codeql.github.com/) and [{% data variables.product.prodname_dependabot %}](/code-security/concepts/supply-chain-security/dependabot-version-updates) to catch vulnerabilities and dependency issues.
-* Use {% data variables.product.prodname_code_quality %} to catch reliability and maintainability issues and see code coverage. [AUTOTITLE](/code-security/concepts/about-code-quality).
+* Use {% data variables.product.prodname_code_quality %} to catch reliability and maintainability issues and see code coverage. [AUTOTITLE](/code-security/concepts/code-quality/code-quality).
 * See [AUTOTITLE](/copilot/tutorials/copilot-cookbook/testing-code/generate-unit-tests) and [AUTOTITLE](/copilot/tutorials/copilot-cookbook/testing-code/create-end-to-end-tests) for examples of verifying code with {% data variables.product.prodname_copilot_short %}.
 
 ### Example prompts

@@ -48,7 +48,7 @@ When you delegate tasks to {% data variables.copilot.copilot_cloud_agent %}, you
 
 While working on a coding task, {% data variables.copilot.copilot_cloud_agent %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
 
-> [!NOTE] Deep research, planning, and iterating on code changes before creating a pull request are only available with {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.copilot.copilot_cloud_agent_short_cap_c %} integrations (such as Azure Boards, JIRA, Linear, Slack, or Teams) only support creating a pull request directly.
+> [!NOTE] Deep research, planning, and iterating on code changes before creating a pull request are only available with {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}, and in {% data variables.release-phases.public_preview %} for the Microsoft Teams and Slack integrations. Other {% data variables.copilot.copilot_cloud_agent_short %} integrations (such as Azure Boards, JIRA, or Linear) only support creating a pull request directly.
 
 ### Benefits over traditional AI workflows
 
@@ -94,7 +94,11 @@ These metrics can help you track adoption of {% data variables.copilot.copilot_c
 
 ## Integrating {% data variables.copilot.copilot_cloud_agent %} with third-party tools
 
-You can also invoke {% data variables.copilot.copilot_cloud_agent %} from external tools, allowing you to assign tasks to {% data variables.product.prodname_copilot_short %}, provide context, and open pull requests without leaving your workflow. See [AUTOTITLE](/copilot/concepts/tools/about-copilot-integrations)
+You can invoke {% data variables.copilot.copilot_cloud_agent %} from external tools, allowing you to assign tasks to {% data variables.product.prodname_copilot_short %}, provide context, and open pull requests without leaving your workflow.
+
+Use {% data variables.copilot.copilot_cloud_agent %} in Microsoft Teams and Slack to collaborate with your team on agent-assisted work. You can @mention {% data variables.product.github %} in channels, threads, and direct messages to work alongside teammates and {% data variables.product.prodname_copilot_short %} on research, planning, and coding tasks. Teammates can add context, steer {% data variables.product.prodname_copilot_short %} sessions, monitor progress, and then review the resulting artifacts.
+
+For more information, see [AUTOTITLE](/copilot/concepts/tools/about-copilot-integrations).
 
 ## Making {% data variables.copilot.copilot_cloud_agent %} available
 
@@ -156,7 +160,6 @@ You can customize {% data variables.copilot.copilot_cloud_agent %} in a number o
 ### Limitations in {% data variables.copilot.copilot_cloud_agent %}'s compatibility with other features
 
 * **{% data variables.product.prodname_copilot_short %} isn't able to comply with certain rules that may be configured for your repository**. If you have configured a ruleset or branch protection rule that isn't compatible with {% data variables.copilot.copilot_cloud_agent %}, access to the agent will be blocked. For example, a rule that only allows specific commit authors can prevent {% data variables.copilot.copilot_cloud_agent %} from creating or updating pull requests. If the rule is configured using rulesets, you can add {% data variables.product.prodname_copilot_short %} as a bypass actor to enable access. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-branch-or-tag-ruleset).
-* **{% data variables.copilot.copilot_cloud_agent %} doesn't account for content exclusions**. Content exclusions allow administrators to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When using {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_copilot_short %} will not ignore these files, and will be able to see and update them. See [AUTOTITLE](/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot).
 * **{% data variables.copilot.copilot_cloud_agent %} only works with repositories hosted on {% data variables.product.github %}**. If your repository is stored using a different code hosting platform, {% data variables.product.prodname_copilot_short %} won't be able to work on it.
 
 ## Hands-on practice

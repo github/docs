@@ -109,12 +109,6 @@ The snippet below shows a `dependabot.yml` file configuration that uses a token.
 
 Docker supports using a username and password for registries. For more information, see `docker-registry` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#docker-registry).
 
-{% ifversion org-automatic-registry-access %}
-
-For images stored in {% data variables.product.prodname_container_registry %}, you can grant your repository **Read** access in the package settings instead of configuring credentials in your `dependabot.yml` file. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#configuring-private-github-hosted-registries).
-
-{% endif %}
-
 Snippet of `dependabot.yml` file using a username and password.
 
 {% raw %}

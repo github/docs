@@ -297,7 +297,18 @@ The following examples are designed to give you an idea of some of the build com
 * Swift project built with `xcodebuild`:
 
   ```shell
-  codeql database create -l swift -c "xcodebuild build -target your-target" swift-database
+  # Build using the following xcodebuild flags:
+  # `CODE_SIGNING_REQUIRED=NO` and `CODE_SIGNING_ALLOWED=NO`: turn off code signing, which may fail with CodeQL
+  # `COMPILATION_CACHE_ENABLE_CACHING=NO` and `SWIFT_ENABLE_COMPILE_CACHE=NO`: turn off build caching, which may skip compilation steps
+  # `SWIFT_USE_INTEGRATED_DRIVER=NO`: turn off the Swift integrated driver, which is incompatible with CodeQL
+  codeql database create -l swift \
+  -c "xcodebuild build -target your-target
+    CODE_SIGNING_REQUIRED=NO
+    CODE_SIGNING_ALLOWED=NO
+    COMPILATION_CACHE_ENABLE_CACHING=NO
+    SWIFT_ENABLE_COMPILE_CACHE=NO
+    SWIFT_USE_INTEGRATED_DRIVER=NO" \
+  swift-database
   ```
 
   You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that {% data variables.product.prodname_codeql %} requires for a successful scan.

@@ -51,7 +51,7 @@ export async function syncRestData(
         operations.push(...newOperations)
       } catch (error) {
         throw new Error(
-          `${error}\n\n🐛 Whoops! It looks like the script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.`,
+          `${error}\n\n🐛 Whoops! It looks like the script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #technical-content slack channel for help.`,
         )
       }
       try {
@@ -59,7 +59,7 @@ export async function syncRestData(
         await processOperations(operations, progAccessData)
       } catch (error) {
         throw new Error(
-          `${error}\n\n🐛 Whoops! It looks like some Markdown in the dereferenced schema wasn't able to be rendered. Please reach out in the #docs-engineering slack channel for help.`,
+          `${error}\n\n🐛 Whoops! It looks like some Markdown in the dereferenced schema wasn't able to be rendered. Please reach out in the #technical-content slack channel for help.`,
         )
       }
 

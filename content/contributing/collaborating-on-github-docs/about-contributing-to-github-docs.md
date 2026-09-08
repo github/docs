@@ -21,11 +21,11 @@ The documentation repository is the place to discuss and collaborate on the docu
 If you've found something in the documentation content, or something about the docs.github.com website, that should be updated, search the open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you'd like to be fixed.<!-- markdownlint-disable-line search-replace -->
 
 > [!NOTE]
-> {% data variables.product.prodname_dotcom %} employees should open issues in the private `docs-content` repository.
+> For larger updates, we highly recommend that you open an issue first, to give us the opportunity to review your proposal before you go ahead and raise a pull request.
 
 ## Pull requests
 
-A [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) is a way to suggest changes in our repository. When we merge those changes, they're deployed to the live site within 24 hours.
+A [pull request](/pull-requests/reference/pull-requests) is a way to suggest changes in our repository. When we merge those changes, they're deployed to the live site within 24 hours.
 
 We cannot accept contributions to the [REST API reference documentation](/rest). If you spot an inaccuracy in the REST API reference documentation, open an issue in the [`rest-api-description`](https://github.com/github/rest-api-description/issues/new?template=schema-inaccuracy.md) repository.
 

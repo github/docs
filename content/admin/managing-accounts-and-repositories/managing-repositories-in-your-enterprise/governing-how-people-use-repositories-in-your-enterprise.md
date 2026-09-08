@@ -8,13 +8,13 @@ shortTitle: Govern repository usage
 contentType: how-tos
 category:
   - Manage accounts and repositories
+redirect_from:
+  - /enterprise-onboarding/govern-people-and-repositories/create-repository-policies
 ---
 
 {% data reusables.enterprise.repo-policy-rules-preview %}
 
 {% data reusables.enterprise.repo-policy-rules-intro %}
-
->[!TIP] If you're an **organization owner**, you can create a repository policy for a specific organization. See [AUTOTITLE](/organizations/managing-organization-settings/governing-how-people-use-repositories-in-your-organization).
 
 ## Examples
 
@@ -24,7 +24,9 @@ category:
 
 First, you'll target organizations in your enterprise. You can select all organizations, choose from a list, or create a dynamic rule using `fnmatch` syntax. If you use {% data variables.product.prodname_emus %}, you can also choose to target all repositories owned by users in your enterprise.
 
-Then, you'll target repositories in the selected organizations. {% data reusables.enterprise.repo-policy-rules-with-custom-properties %}
+Then, you'll target repositories in the selected organizations. We recommend using repository policies alongside **custom repository properties**. By adding custom properties to repositories, you can flexibly target those repositories in a policy.
+
+For example, you can add a property to mark repositories that contain production data or other sensitive information, then prevent anyone from making those repositories public.
 
 ## Interaction with other policies
 
@@ -73,11 +75,3 @@ Choose which repositories (current or future) to target in the selected organiza
 ### Delegating bypass of policies
 
 {% data reusables.enterprise.repo-policy-rules-delegated-bypass %}
-
-#### Managing bypass requests
-
-{% data reusables.enterprise.repo-policy-rules-manage-bypass-request %}
-
-## Further reading
-
-To set additional policies for repository management, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).

@@ -84,7 +84,7 @@ Hook configuration files use JSON format with version `1`.
 
 ### Command hooks
 
-Command hooks run shell scripts and are supported on all hook types.
+Command hooks run shell scripts or executables and are supported on all hook types.
 
 > [!NOTE]
 > **Cloud agent only.** Cloud agent runs hooks in a Linux sandbox. Only the `bash` field is honored; `powershell` entries are ignored. The cross-platform `command` field is honored as a fallback.
@@ -107,13 +107,39 @@ Command hooks run shell scripts and are supported on all hook types.
 }
 ```
 
+In {% data variables.copilot.copilot_cli_short %}, you can use `exec` and `args` to run an executable directly instead of using a shell:
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "exec": "YOUR_EXECUTABLE",
+        "args": ["YOUR_ARGUMENT"],
+        "cwd": "OPTIONAL/WORKING/DIRECTORY",
+        "env": { "VAR": "VALUE" },
+        "timeoutSec": 30
+      }
+    ]
+  }
+}
+```
+
+Replace `YOUR_EXECUTABLE` with the executable name or path and `YOUR_ARGUMENT` with an argument to pass to it. You can include additional arguments in the `args` array.
+
+Do not combine `exec` with `bash`, `powershell`, or `command`. Arguments are passed directly to the executable without shell interpretation, so shell features such as pipes, redirection, and glob expansion are not available.
+
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `bash` | string | One of `bash`, `powershell`, or `command` | Shell command for Unix. |
-| `command` | string | One of `bash`, `powershell`, or `command` | Cross-platform fallback. Copied to both `bash` and `powershell` when those fields are absent; explicit `bash` or `powershell` entries take precedence on their respective platforms. |
+| `args` | array of strings | No | Arguments passed directly to `exec`. Only supported in {% data variables.copilot.copilot_cli_short %}. |
+| `bash` | string | One of `bash`, `powershell`, or `command`, unless `exec` is specified | Shell command for Unix. |
+| `command` | string | One of `bash`, `powershell`, or `command`, unless `exec` is specified | Cross-platform fallback. Copied to both `bash` and `powershell` when those fields are absent; explicit `bash` or `powershell` entries take precedence on their respective platforms. |
 | `cwd` | string | No | Working directory for the command (relative to repository root or absolute). |
 | `env` | object | No | Environment variables to set (supports variable expansion). |
-| `powershell` | string | One of `bash`, `powershell`, or `command` | Shell command for Windows. |
+| `exec` | string | Instead of `bash`, `powershell`, and `command` | Executable name or path. Runs the executable directly without a shell. Only supported in {% data variables.copilot.copilot_cli_short %}. |
+| `powershell` | string | One of `bash`, `powershell`, or `command`, unless `exec` is specified | Shell command for Windows. |
 | `timeout` | number | No | Alias for `timeoutSec`, in seconds. Used only when `timeoutSec` is absent; `timeoutSec` takes precedence when both are present. |
 | `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
 | `type` | `"command"` | No | Hook type. Defaults to `"command"` when omitted. |
@@ -218,7 +244,7 @@ The table below lists every supported event. The **Cloud agent** column shows wh
 | `agentStop` | The main agent finishes a turn. | Yes — can block and force continuation. | Fires. `decision: "block"` forces another turn, which still counts against the job's timeout. |
 | `errorOccurred` | An error occurs during execution. | No | Fires. |
 | `notification` | Fires asynchronously when the CLI emits a system notification (shell completion, agent completion or idle, permission prompts, elicitation dialogs). Fire-and-forget: never blocks the session. Supports a `matcher` regex pattern (the value of the `matcher` field) on `notification_type`. | Optional — can inject `additionalContext` into the session. | **Does not fire.** Cloud agent does not surface notifications to a user (see the **Interactivity** row in the Cloud agent execution environment table above). |
-| `permissionRequest` | Fires before the permission service runs (rules engine, session approvals, auto-allow/auto-deny, and user prompting). If the merged hook output returns `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow. Supports a `matcher` regex pattern (the value of the `matcher` field) on `toolName`. | Yes — can allow or deny programmatically. | Tool calls are pre-approved, so this hook either does not fire or has no effect. Use `preToolUse` to make permission decisions instead. |
+| `permissionRequest` | Fires before the permission service runs (rules engine, session approvals, auto-allow/auto-deny, and user prompting). If the merged hook output returns `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow—except for a sandbox-bypass request (`requestSandboxBypass: true`), where an `allow` does not pre-approve the escape and only `deny` propagates (see the [`permissionRequest` decision control](#permissionrequest-decision-control) sandbox-bypass exception). Supports a `matcher` regex pattern (the value of the `matcher` field) on `toolName`. | Yes — can allow or deny programmatically. | Tool calls are pre-approved, so this hook either does not fire or has no effect. Use `preToolUse` to make permission decisions instead. |
 | `postToolUse` | After each tool completes successfully. | Yes — can modify the tool result or inject additional context for the model. | Fires. |
 | `postToolUseFailure` | After a tool completes with a failure. | Yes — can provide recovery guidance via `additionalContext` (exit code `2` for command hooks). | Fires. |
 | `preCompact` | Context compaction is about to begin (manual or automatic). Supports a `matcher` regex pattern (the value of the `matcher` field) to filter by trigger (`"manual"` or `"auto"`). | No — notification only. | Fires only with `trigger: "auto"`. There is no user to request manual compaction. |
@@ -227,7 +253,7 @@ The table below lists every supported event. The **Cloud agent** column shows wh
 | `sessionStart` | A new or resumed session begins. | Optional — can inject `additionalContext` into the session. | Fires once per job, as a new session (not a resume). See the Prompt hooks note above for the behavior of `prompt` entries under cloud agent. |
 | `subagentStart` | A subagent is spawned (before it runs). Supports a `matcher` regex pattern (the value of the `matcher` field) to filter by agent name. | Optional — cannot block creation, but `additionalContext` is prepended to the subagent's prompt. | Fires. |
 | `subagentStop` | A subagent completes. | Yes — can block and force continuation. | Fires. |
-| `userPromptSubmitted` | The user submits a prompt. | No | Fires at most once, for the prompt supplied to the job. There is no follow-up user input. |
+| `userPromptSubmitted` | The user submits a prompt. | Optional—`modifiedPrompt` is honored only by SDK programmatic hooks. | Fires at most once, for the prompt supplied to the job. There is no follow-up user input. |
 | `userPromptTransformed` | Fires after the runtime transforms a submitted prompt into its model-facing content, just before that content is emitted and persisted to session history. Runs for the primary message and for every preceding message in a batched submission. Mutation-only — it can rewrite the content the model receives, but not block or handle the turn. System notifications never trigger it. | Yes — can rewrite the model-facing content. | Fires. |
 
 ## Hook event input payloads
@@ -313,6 +339,20 @@ Each hook event delivers a JSON payload to the hook handler. Two payload formats
     prompt: string;
 }
 ```
+
+**Output:**
+
+```typescript
+{
+    modifiedPrompt?: string; // Replaces the prompt for the rest of the turn (SDK programmatic hooks only)
+}
+```
+
+Return `{}` or empty to leave the prompt unchanged.
+
+> [!NOTE]
+> * `modifiedPrompt` is only honored by SDK programmatic hooks. Command and HTTP config-file `userPromptSubmitted` hooks have their output dropped, including `modifiedPrompt`. The lighter hooks-processing runtime used by hosted or steering {% data variables.copilot.copilot_cloud_agent %} sessions also ignores it. This is the same runtime split as `preToolUse`.
+> * A non-string `modifiedPrompt`, `modifiedTransformedPrompt`, or a handled `responseContent` value is ignored rather than corrupting the session—a type warning naming the field is logged and emitted as a `session.warning` event. An empty-string override is rejected instead of blanking the model-facing content. A `null` `additionalContext` value is treated as absent instead of being injected as the literal text `null`. Hook output (stdout for command hooks, the response body for HTTP hooks) is bounded at 10 MiB per invocation—a larger response is truncated rather than exhausting memory.
 
 ### `userPromptTransformed`
 
@@ -510,6 +550,8 @@ Tools with no Claude equivalent keep their runtime names.
 
 ### `subagentStop` / `SubagentStop`
 
+Fires when a subagent completes normally, before returning results to the parent. `stopReason` is currently always `"end_turn"`. This hook fires before large-response spill handling, so `response` (or `last_assistant_message` in the {% data variables.product.prodname_vscode_shortname %} compatible format) carries the full final subagent response text.
+
 **camelCase input:**
 
 ```typescript
@@ -518,8 +560,11 @@ Tools with no Claude equivalent keep their runtime names.
     timestamp: number;
     cwd: string;
     transcriptPath: string;
+    agentId: string;
+    agentType: string;
     agentName: string;
     agentDisplayName?: string;
+    response: string;       // Full final subagent response text
     stopReason: "end_turn";
 }
 ```
@@ -533,8 +578,11 @@ Tools with no Claude equivalent keep their runtime names.
     timestamp: string;      // ISO 8601 timestamp
     cwd: string;
     transcript_path: string;
+    agent_id: string;
+    agent_type: string;
     agent_name: string;
     agent_display_name?: string;
+    last_assistant_message: string; // The `response` text
     stop_reason: "end_turn";
 }
 ```
@@ -615,12 +663,21 @@ The `preToolUse` hook can control tool execution by writing a JSON object to std
 | `permissionDecisionReason` | string | Reason shown to the agent. Required when decision is `"deny"`. |
 | `modifiedArgs` | object | Substitute tool arguments to use instead of the originals. |
 
+When {% data variables.copilot.copilot_cli_short %} can show the hook-permission prompt, the user can type optional feedback along with a denial. That feedback is appended to the message the agent receives: `Denied by user via preToolUse hook prompt: <permissionDecisionReason>. The user provided the following feedback: <feedback>`.
+
 ## `agentStop` / `subagentStop` decision control
 
 | Field | Values | Description |
 |-------|--------|-------------|
 | `decision` | `"block"`, `"allow"` | `"block"` forces another agent turn using `reason` as the prompt. |
 | `reason` | string | Prompt for the next turn when `decision` is `"block"`. |
+| `modifiedResponse` | string | **`subagentStop` only.** Replaces the response returned to the parent when the subagent is allowed to complete—useful for redacting or reformatting subagent output. Not applicable to `agentStop`. |
+
+`decision` and `reason` behave the same for both `agentStop` and `subagentStop`. `modifiedResponse` applies only to `subagentStop`:
+
+* A valid `block` decision wins over `modifiedResponse`: if a hook returns both, the subagent continues and the rewrite is discarded.
+* Rewrites do not compose across multiple matching hooks. Every hook receives the same original `response`, and the last hook to return `modifiedResponse` wins—chaining a redactor and a formatter does not feed the redacted text into the formatter.
+* The output field names (`decision`, `reason`, `modifiedResponse`) are the same for both the camelCase and {% data variables.product.prodname_vscode_shortname %} compatible configs.
 
 > [!NOTE]
 > **Runaway guard.** After 8 consecutive `block` continuations, the CLI overrides the hook and ends the turn anyway, to prevent an unbounded loop. Use the `stop_hook_active` input field on `agentStop` to detect that this turn was already forced to continue, and self-limit before hitting the cap.
@@ -667,6 +724,8 @@ Return `{}` or empty output to keep the original successful result.
 The `permissionRequest` hook fires before the permission service runs—before rule checks, session approvals, auto-allow/auto-deny, and user prompting. If hooks return `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow. Returning nothing falls through to normal permission handling. Use it to approve or deny tool calls programmatically—especially useful in CLI pipe mode (`-p`) and other CLI CI usages where no interactive prompt is available. It does not apply to cloud agent.
 
 All configured `permissionRequest` hooks run for each request (except `read` and `hook` permission kinds, which short-circuit before hooks). Hook outputs are merged with later hook outputs overriding earlier ones.
+
+**Sandbox-bypass exception:** for any request that asks to escape the sandbox (`requestSandboxBypass: true` in `toolInput`), a hook `allow` does not pre-approve the request or short-circuit the user prompt—leaving the sandbox is a privilege escalation the user must always confirm interactively. This covers a shell command asking to run outside the sandbox and a `web_fetch` whose URL the sandbox network policy denies. Only `deny` still propagates (so a policy hook can block the escape); an `allow` (or no decision) falls through to the normal prompt.
 
 **Matcher:** Optional regex tested against `toolName`. The regex pattern is the value of the `matcher` field, anchored as `^(?:PATTERN)$`, and must match the full tool name. When set, the hook fires only for matching tool names.
 
@@ -764,7 +823,7 @@ If multiple hooks of the same type are configured, they execute in order. For `p
 | `0` | Success. `stdout` is parsed as the hook output JSON if present. |
 | `2` | Treated as a warning by default. `stderr` is surfaced to the user but the run continues. For `permissionRequest` and `preToolUse`, exit `2` is treated as a deny: any `stdout` JSON is merged with the deny decision and the tool call is denied even if that JSON reports `permissionDecision: "allow"`. For `postToolUseFailure`, exit `2` is treated as `additionalContext` and `stdout` is appended to the failure shown to the agent. |
 | Other non-zero | Logged as a hook failure. The run continues (fail-open). **Exception: `preToolUse` is fail-closed**—a non-zero exit (other than exit 2) denies the tool call with `"Denied by preToolUse hook (hook errored)"`. |
-| Timeout        | Killed after `timeoutSec`. Error logged, execution continues. **Timeouts are fail-open for every event, including `preToolUse` and admin-deployed policy hooks**—a warning is surfaced and processing proceeds as if the hook had not run. For `preToolUse`, the tool call proceeds through the normal permission flow rather than being denied. A crashed or explicitly-denying hook still fails-closed; only timeouts are exempt. |
+| Timeout        | Killed after `timeoutSec`. Error logged, execution continues. **Timeouts are fail-open for every event, including `preToolUse` and admin-deployed policy hooks**—a warning is surfaced and processing proceeds as if the hook had not run. For `preToolUse`, the tool call proceeds through the normal permission flow rather than being denied. A crashed or explicitly-denying hook still fails-closed; only timeouts are exempt. The logged message includes the command that timed out, for example `Hook command timed out after 30 seconds: my-validation-script.sh` (the bash/PowerShell script text, or `program arg1 arg2 …` for exec hooks), truncated to 80 characters. |
 
 For most events, non-zero exits and timeouts are logged and skipped—agent execution continues. For `preToolUse` command hooks, exit 2, crashes, and other non-zero exits all fail-closed and deny the tool call—exit 2 always denies, even if the hook's `stdout` JSON reports `permissionDecision: "allow"`—but **timeouts always fail-open**—a slow or unreachable hook must not silently block tool calls or work, even when the hook was deployed by an administrator as policy.
 

@@ -2,6 +2,7 @@ Enterprise teams can:
 
 {%- ifversion not ghes %}
 * Receive **{% data variables.copilot.copilot_business_short %} licenses** directly from the enterprise.
+* Be granted access to specific {% data variables.product.prodname_copilot_short %} models (opt-in preview).
 {%- endif %}
 * Be assigned **predefined and custom enterprise roles**, giving members access to enterprise settings.
 * Be **added to organizations**, where organization administrators can grant the team additional access and permissions.

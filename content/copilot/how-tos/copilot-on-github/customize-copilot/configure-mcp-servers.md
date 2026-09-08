@@ -31,8 +31,7 @@ As a repository administrator, you can configure MCP servers for use within your
 This repository-level MCP configuration is shared by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. For information on disabling use of MCP servers by {% data variables.copilot.copilot_code-review_short %}, see [Disabling MCP tools for {% data variables.copilot.copilot_code-review_short %}](#disabling-mcp-tools-for-code-review).
 
 > [!NOTE]
-> * Support for agent skills and MCP servers with {% data variables.copilot.copilot_code-review_short %} is in {% data variables.release-phases.public_preview %} and subject to change.
-> * Existing repository MCP configurations that were previously managed under {% data variables.copilot.copilot_cloud_agent %} settings were automatically moved to the new shared MCP settings page. No migration action is required.
+> Existing repository MCP configurations that were previously managed under {% data variables.copilot.copilot_cloud_agent %} settings were automatically moved to the new shared MCP settings page. No migration action is required.
 
 The {% data variables.product.github %} MCP server and Playwright MCP server are enabled by default. You can add your own MCP servers alongside these defaults.
 
@@ -384,9 +383,6 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
 For information on using the {% data variables.product.github %} MCP server in other environments, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
 
 ## Disabling MCP tools for code review
-
-> [!NOTE]
-> Support for agent skills and MCP servers with {% data variables.copilot.copilot_code-review_short %} is in {% data variables.release-phases.public_preview %} and subject to change.
 
 In repository settings, use of MCP tools by {% data variables.copilot.copilot_code-review_short %} is enabled by default.
 

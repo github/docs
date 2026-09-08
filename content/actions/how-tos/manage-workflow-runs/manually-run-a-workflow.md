@@ -93,3 +93,4 @@ When using the REST API, you configure the `inputs` and `ref` as request body pa
 > You can define up to {% ifversion fpt or ghec %}25 {% else %}10 {% endif %} `inputs` for a `workflow_dispatch` event.
 
 For more information about using the REST API, see [AUTOTITLE](/rest/actions/workflows#create-a-workflow-dispatch-event).
+

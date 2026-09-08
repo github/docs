@@ -74,8 +74,3 @@ Be aware of two limits so there are no surprises:
 
 * **You can't pre-estimate spend** before you enable {% data variables.product.prodname_code_quality_short %}. Usage depends on your committers, scan frequency, and findings, so plan to watch actuals after you turn it on rather than forecast them precisely.
 * **You can't turn off the in-pull-request AI features.** {% data variables.product.prodname_code_quality_short %} generates a fix for every detected finding, so {% data variables.product.prodname_ai_credits_short %} usage is inherent to running it. To stop that usage entirely, disable {% data variables.product.prodname_code_quality_short %} on the repository.
-
-## Next steps
-
-* **Roll out across your organization.** See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/roll-out-at-scale).
-* **Assess health across your organization.** See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/explore-code-quality).

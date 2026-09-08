@@ -85,11 +85,11 @@ For example:
 
 {% else %}
 
-## 4. Assign licenses
+## 4. Grant access to {% data variables.product.prodname_copilot_short %}
 
-You can assign {% data variables.product.prodname_copilot %} licenses to an enterprise team. This allows you to manage {% data variables.product.prodname_copilot_short %} access through team membership, independent of organizations. Once you have assigned licenses to a team, users will gain or lose access to {% data variables.product.prodname_copilot_short %} when they are added or removed from the team.
+You can assign {% data variables.product.prodname_copilot %} licenses to an enterprise team. This allows you to manage {% data variables.product.prodname_copilot_short %} access through team membership, independent of organizations. Once you have assigned licenses to a team, users will gain or lose access to {% data variables.product.prodname_copilot_short %} when they are added or removed from the team. For instructions, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#assigning-licenses-to-users-or-teams).
 
-For instructions, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#assigning-licenses-to-users-or-teams).
+As an opt-in preview, you can also grant enterprise teams access to specific {% data variables.product.prodname_copilot_short %} models. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models).
 
 ## 5. Assign roles
 

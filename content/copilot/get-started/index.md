@@ -6,6 +6,8 @@ versions:
   feature: copilot
 children:
   - /quickstart
+  - /cli-quickstart
+  - /quickstart-copilot-app
   - /what-is-github-copilot
   - /plans
   - /features

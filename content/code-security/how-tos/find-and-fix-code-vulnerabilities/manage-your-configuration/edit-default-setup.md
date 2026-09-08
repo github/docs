@@ -16,7 +16,7 @@ category:
   - Find and fix code vulnerabilities
 ---
 
-After running an initial analysis of your code with default setup, you can make changes to your configuration to better meet your needs. See [AUTOTITLE](/code-security/concepts/code-scanning/setup-types){% ifversion codeql-custom-properties %} and [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties){% endif %}.
+After running an initial analysis of your code with default setup, you can make changes to your configuration to better meet your needs. You can customize your configuration in the user interface{% ifversion codeql-custom-properties %}, or using repository properties to add custom queries{% ifversion codeql-config-property %} or apply a custom configuration file{% endif %}{% endif %}. See [AUTOTITLE](/code-security/concepts/code-scanning/setup-types){% ifversion codeql-custom-properties %} and [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties){% endif %}.
 
 ## Customizing your existing configuration of default setup
 
@@ -82,6 +82,39 @@ For more information about {% data variables.product.prodname_codeql %} model pa
     ![Screenshot of the "Expand CodeQL analysis" view" in the settings for an organization.](/assets/images/help/security/enable-codeql-org-model-packs.png)
 
 1. The model packs will be automatically detected and used when {% data variables.product.prodname_code_scanning %} runs on any repository in the organization with default setup enabled.
+
+{% ifversion codeql-config-property %}
+
+## Customizing default setup with a configuration file
+
+You can further customize default setup by applying a {% data variables.product.prodname_codeql %} configuration file, using the `github-codeql-config-file` repository property. The configuration in the file is merged with the configuration default setup generates automatically, so you can, for example, add extra queries or exclude paths without needing to switch to advanced setup. For more information about what you can configure in a {% data variables.product.prodname_codeql %} configuration file, and how it's merged with default setup, see [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties#custom-configuration-files).
+
+### Applying a configuration file to all repositories in an organization
+
+The recommended way to customize default setup at scale is to set an organization-wide default value for the `github-codeql-config-file` repository property, so that you don't need to update individual repositories as you add more of them to your organization.
+
+1. Create a {% data variables.product.prodname_codeql %} configuration file in a central repository. You can either create a new repository for this purpose or add the file to an existing one. Your organization-wide configuration can then be maintained in one place. For information about the format of the configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
+
+   {% data reusables.code-scanning.remote-config-file-registry %}
+
+1. Create a `github-codeql-config-file` repository property for your organization and set its default value to the path of the configuration file. For example, if you have committed your configuration file as `codeql.yml` to the `main` branch of `octo-org/config`, you would set the value of the repository property to `remote=octo-org/config@main:codeql.yml`.
+
+   We recommend testing the configuration file on a single repository before setting the organization-wide default. See [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties#testing-changes-before-applying-them).
+
+1. The configuration file will be automatically detected and merged with the configuration default setup generates the next time {% data variables.product.prodname_code_scanning %} runs on each repository in the organization. Repositories that already have an explicit value set for the `github-codeql-config-file` property continue to use that value instead of the organization-wide default. For more information about how default and explicit repository property values interact, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization#adding-custom-properties).
+
+### Applying a configuration file to a repository
+
+If you only need to customize default setup for a single repository, or to test a configuration before rolling it out to your organization, you can set the property directly on that repository instead.
+
+1. Create a {% data variables.product.prodname_codeql %} configuration file. This can be a file within the repository being analyzed, or a file in a separate repository. For information about the format of the configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
+
+   {% data reusables.code-scanning.remote-config-file-registry %}
+
+1. Set the `github-codeql-config-file` repository property for the repository to the local or remote path of the configuration file. See [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties#custom-configuration-files) for more information about acceptable values for this property, and [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization#setting-values-for-repositories-in-your-organization) for how to set a repository property value.
+1. The configuration file will be automatically detected and merged with the configuration default setup generates the next time {% data variables.product.prodname_code_scanning %} runs on the repository.
+
+{% endif %}
 
 {% ifversion code-scanning-inactive-repos %}
 

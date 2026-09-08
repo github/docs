@@ -12,3 +12,4 @@ children:
   - /glossary
   - /export-or-migrate-github-classroom-data
 ---
+{% data reusables.classroom.closing-down-notice %}

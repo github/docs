@@ -138,7 +138,7 @@ let limits = SessionLimitsConfig {
 
 let session = client
     .create_session(
-        SessionConfig::new()
+        SessionConfig::default()
             .approve_all_permissions()
             .with_session_limits(limits.clone()),
     )

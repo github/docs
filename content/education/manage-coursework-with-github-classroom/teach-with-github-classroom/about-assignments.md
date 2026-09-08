@@ -8,6 +8,7 @@ contentType: concepts
 category:
   - Create and manage assignments
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About assignments in {% data variables.product.prodname_classroom %}
 

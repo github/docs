@@ -37,7 +37,7 @@ Once you complete this project, you should understand how to build your own Java
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
-1. Download and install Node.js 20.x, which includes npm.
+1. Download and install Node.js 24.x, which includes npm.
 
    https://nodejs.org/en/download/
 
@@ -76,7 +76,7 @@ outputs:
     description: The time we greeted you
 
 runs:
-  using: node20
+  using: node24
   main: dist/index.js
 ```
 

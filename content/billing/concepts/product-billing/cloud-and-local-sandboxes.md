@@ -1,7 +1,7 @@
 ---
-title: Billing for {% data variables.copilot.sandbox %}
+title: Billing for cloud and local sandboxes for {% data variables.product.prodname_copilot %}
 shortTitle: Cloud and local sandboxes
-intro: 'Learn how usage of {% data variables.copilot.sandbox %} is measured and billed.'
+intro: 'Learn how usage of {% data variables.product.prodname_copilot_short %} cloud and local sandboxes is measured and billed.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,7 +12,7 @@ category:
 
 {% data reusables.cli.public-preview-sandbox %}
 
-## How {% data variables.copilot.sandbox %} usage is measured
+## How sandbox usage is measured
 
 Billing applies to cloud sandboxing only. Local sandboxing is included in the standard {% data variables.product.prodname_copilot %} seat at no additional cost.
 
@@ -34,9 +34,9 @@ The memory meter tracks the memory allocated to a cloud sandbox while it is runn
 
 ### Storage
 
-The storage meter tracks snapshot storage for stopped sessions. When you stop {% data variables.copilot.sandbox_short %}, {% data variables.product.github %} retains a snapshot of the sandbox's state so you can resume it later. Snapshot storage is metered from the time the sandbox is stopped until the sandbox is deleted.
+The storage meter tracks snapshot storage for stopped sessions. When you stop a cloud sandbox, {% data variables.product.github %} retains a snapshot of the sandbox's state so you can resume it later. Snapshot storage is metered from the time the sandbox is stopped until the sandbox is deleted.
 
-For more information about {% data variables.copilot.sandbox %}, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
+For more information about cloud and local sandboxes, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 ## Free and billed use
 
@@ -58,7 +58,11 @@ You pay for cloud sandboxes using the payment method set up for your {% data var
 
 ## How costs are assigned to a billable account
 
-Cloud sandbox usage is billed to the organization that owns the sandbox. When you create a cloud sandbox session with `copilot --cloud`, you are prompted to select the owning organization. All usage for that session is billed to the selected organization.
+Cloud sandbox usage is billed to the account that owns the sandbox.
+
+You are prompted to select an owner for the session only if you are not currently in a Git repository. In this case, when you create a cloud sandbox session with `copilot ‑‑cloud`, you are prompted to select an owner—your own personal account is listed first, ahead of any organizations you belong to. You must choose either your personal account or one of the listed organizations, and all usage for that session is billed to the account you select.
+
+If you are in a repository, the owner of the repository is billed and no owner selection is required.
 
 ## Managing your budget for cloud sandboxes
 
@@ -74,9 +78,9 @@ When you create a budget for cloud sandboxes, you can choose between two budget 
 If you enable **Stop usage when budget limit is reached**, additional cloud sandbox usage is blocked once the budget reaches 100%, and a banner notifies users in the affected scope.
 
 > [!NOTE]
-> {% data variables.copilot.sandbox_caps %} is not part of the "Bundled AI credits" budget type. Bundled AI credits budgets apply only to SKUs that consume AI credits (such as {% data variables.product.prodname_copilot %} AI credits, cloud agent AI credits, and {% data variables.product.prodname_spark %} AI credits). To control cloud sandbox spending, use a product-level or SKU-level budget.
+> Cloud sandboxes for {% data variables.product.prodname_copilot %} are not part of the "Bundled AI credits" budget type. Bundled AI credits budgets apply only to SKUs that consume AI credits (such as {% data variables.product.prodname_copilot %} AI credits, cloud agent AI credits, and {% data variables.product.prodname_spark %} AI credits). To control cloud sandbox spending, use a product-level or SKU-level budget.
 
-## Viewing your {% data variables.copilot.sandbox %} usage
+## Viewing your cloud sandbox usage
 
 To view your cloud sandbox usage, billable amounts, and the monthly preview entitlement, see [AUTOTITLE](/billing/how-tos/products/estimate-spending) and [AUTOTITLE](/billing/tutorials/gather-insights).
 

@@ -651,30 +651,6 @@ unsubscribeIdle();
 {% codetab python %}
 
 ```python
-from copilot import CopilotClient, PermissionDecisionApproveOnce
-from copilot.session_events import SessionEvent, SessionEventType
-
-client = CopilotClient()
-
-session = await client.create_session(on_permission_request=lambda req, inv: PermissionDecisionApproveOnce())
-
-# Subscribe to all events
-unsubscribe = session.on(lambda event: print(f"Event: {event.type}"))
-
-# Filter by event type in your handler
-def handle_event(event: SessionEvent) -> None:
-    if event.type == SessionEventType.SESSION_IDLE:
-        print("Session is idle")
-    elif event.type == SessionEventType.ASSISTANT_MESSAGE:
-        print(f"Message: {event.data.content}")
-
-unsubscribe = session.on(handle_event)
-
-# Later, to unsubscribe:
-unsubscribe()
-```
-
-```python
 # Subscribe to all events
 unsubscribe = session.on(lambda event: print(f"Event: {event.type}"))
 
@@ -693,39 +669,6 @@ unsubscribe()
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	session := &copilot.Session{}
-
-	// Subscribe to all events
-	unsubscribe := session.On(func(event copilot.SessionEvent) {
-		fmt.Println("Event:", event.Type)
-	})
-
-	// Filter by event type in your handler
-	session.On(func(event copilot.SessionEvent) {
-		switch d := event.Data.(type) {
-		case *copilot.SessionIdleData:
-			_ = d
-			fmt.Println("Session is idle")
-		case *copilot.AssistantMessageData:
-			fmt.Println("Message:", d.Content)
-		}
-	})
-
-	// Later, to unsubscribe:
-	unsubscribe()
-}
-```
 
 ```golang
 // Subscribe to all events
@@ -773,36 +716,6 @@ tokio::spawn(async move {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-public static class EventSubscriptionExample
-{
-    public static void Example(CopilotSession session)
-    {
-        // Subscribe to all events
-        var unsubscribe = session.On<SessionEvent>(ev => Console.WriteLine($"Event: {ev.Type}"));
-
-        // Filter by event type using pattern matching
-        session.On<SessionEvent>(ev =>
-        {
-            switch (ev)
-            {
-                case SessionIdleEvent:
-                    Console.WriteLine("Session is idle");
-                    break;
-                case AssistantMessageEvent msg:
-                    Console.WriteLine($"Message: {msg.Data.Content}");
-                    break;
-            }
-        });
-
-        // Later, to unsubscribe:
-        unsubscribe.Dispose();
-    }
-}
-```
 
 ```csharp
 // Subscribe to all events
@@ -1944,35 +1857,6 @@ session = await client.create_session(on_permission_request=PermissionHandler.ap
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"log"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	ctx := context.Background()
-
-    client := copilot.NewClient(&copilot.ClientOptions{
-        Connection: copilot.URIConnection{URL: "localhost:4321"},
-    })
-
-	if err := client.Start(ctx); err != nil {
-		log.Fatal(err)
-	}
-	defer client.Stop()
-
-	// Use the client normally
-	_, _ = client.CreateSession(ctx, &copilot.SessionConfig{
-		OnPermissionRequest: copilot.PermissionHandler.ApproveAll,
-	})
-}
-```
-
-```golang
 import copilot "github.com/github/copilot-sdk/go"
 
 client := copilot.NewClient(&copilot.ClientOptions{
@@ -2004,6 +1888,7 @@ let mut options = ClientOptions::default();
 options.transport = Transport::External {
     host: "localhost".to_string(),
     port: 4321,
+    connection_token: None,
 };
 let client = Client::start(options).await?;
 
@@ -2105,7 +1990,7 @@ Install with telemetry extras: `pip install copilot-sdk[telemetry]` (provides `o
 <!-- docs-validate: skip -->
 
 ```golang
-client, err := copilot.NewClient(copilot.ClientOptions{
+client := copilot.NewClient(&copilot.ClientOptions{
     Telemetry: &copilot.TelemetryConfig{
         OTLPEndpoint: "http://localhost:4318",
     },
@@ -2209,7 +2094,7 @@ Trace context is propagated automatically—no manual instrumentation is needed:
 ## Learn more
 
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/authenticate) - GitHub OAuth, environment variables, and BYOK
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) - Use your own API keys from Azure AI Foundry, OpenAI, etc.
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) - Use your own API keys from Microsoft Foundry, OpenAI, etc.
 * [Node.js SDK Reference](https://github.com/github/copilot-sdk/tree/main/nodejs/README.md)
 * [Python SDK Reference](https://github.com/github/copilot-sdk/tree/main/python/README.md)
 * [Go SDK Reference](https://github.com/github/copilot-sdk/tree/main/go/README.md)

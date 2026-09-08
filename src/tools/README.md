@@ -62,7 +62,7 @@ npm run liquid-markdown-tables -- convert content/path/to/article.md
 
 ## Ownership
 
-- **Team**: `@github/docs-engineering`
+- `#technical-content`
 - **Content Strategy**: The list of supported tools is maintained in collaboration with the Content team based on product requirements.
 
 ## Current State & Next Steps

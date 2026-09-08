@@ -2,7 +2,7 @@
 title: About autofix for code scanning
 shortTitle: Autofix
 allowTitleToDifferFromFilename: true
-intro: 'Autofix provides targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts and avoid introducing new security vulnerabilities.'
+intro: 'Autofix automatically generates fixes for {% data variables.product.prodname_code_scanning %} alerts, helping you remediate existing vulnerabilities.'
 product: '{% data reusables.rai.code-scanning.gated-feature-autofix %}'
 versions:
   feature: code-scanning-autofix
@@ -40,6 +40,6 @@ Keep the following in mind:
 
 You do not need a subscription to {% data variables.product.prodname_copilot %} to use {% data variables.copilot.copilot_autofix %}, and it does not consume {% data variables.product.prodname_ai_credits_short %}. {% data variables.copilot.copilot_autofix_short %} is available to all public repositories on {% data variables.product.prodname_dotcom_the_website %}, as well as internal or private repositories owned by organizations and enterprises that have a license for {% data variables.product.prodname_GH_code_security %}.
 
-{% data variables.copilot.copilot_autofix_short %} is allowed by default and enabled for every repository that uses {% data variables.product.prodname_codeql %}, regardless of whether it uses default or advanced setup for {% data variables.product.prodname_code_scanning %}. There is no separate step to enable {% data variables.copilot.copilot_autofix_short %}: enabling {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} is sufficient. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
+{% data variables.copilot.copilot_autofix_short %} is allowed by default and enabled for every repository that uses {% data variables.product.prodname_codeql %}, regardless of whether it uses default or advanced setup for {% data variables.product.prodname_code_scanning %}. There is no separate step to enable {% data variables.copilot.copilot_autofix_short %}: enabling {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} is sufficient. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning).
 
 Administrators at the enterprise, organization, and repository levels can choose to disable {% data variables.copilot.copilot_autofix_short %}. If {% data variables.copilot.copilot_autofix_short %} has been disabled at your level, you can re-enable it by following the same steps used to disable it and selecting the option to allow {% data variables.copilot.copilot_autofix_short %}. To learn how to manage {% data variables.copilot.copilot_autofix_short %} at each level, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/disabling-autofix-for-code-scanning).

@@ -1,7 +1,7 @@
 ---
 title: Allowing use of {% data variables.product.prodname_code_quality %} in your enterprise
 shortTitle: Allow {% data variables.product.prodname_code_quality_short %}
-intro: Control {% data variables.product.prodname_code_quality_short %} enablement for your repositories by defining policies.
+intro: Set enterprise policies for {% data variables.product.prodname_code_quality_short %} to give organizations access while keeping repository enablement under your control.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -17,8 +17,7 @@ category:
 ---
 
 > [!NOTE]
-> * {% data variables.product.prodname_code_quality %} is currently in {% data variables.release-phases.public_preview %} and subject to change. During {% data variables.release-phases.public_preview %}, {% data variables.product.prodname_code_quality_short %} will not be billed, although {% data variables.product.prodname_code_quality_short %} scans will consume {% data variables.product.prodname_actions %} minutes.
-> * Previously, {% data variables.product.prodname_AS %} policies also controlled access to {% data variables.product.prodname_code_quality_short %}. Those existing policy settings are automatically applied to the standalone {% data variables.product.prodname_code_quality_short %} policies.
+> Previously, {% data variables.product.prodname_AS %} policies also controlled access to {% data variables.product.prodname_code_quality_short %}. Those existing policy settings are automatically applied to the standalone {% data variables.product.prodname_code_quality_short %} policies.
 
 1. Navigate to your enterprise. For example, from [https://github.com/settings/enterprises](https://github.com/settings/enterprises?ref_product=ghec&ref_type=engagement&ref_style=text).
 {% data reusables.enterprise-accounts.policies-tab %}

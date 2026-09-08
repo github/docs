@@ -3,13 +3,16 @@ title: 'Creating a repository for your project on GitHub'
 shortTitle: 'Create your repository'
 intro: 'Create a repository on {% data variables.product.github %} to store your code, track its history, and build a software project you can share.'
 allowTitleToDifferFromFilename: true
-category:
-  - Learn to code
-contentType: get-started
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+redirect_from:
+  - /get-started/quickstart/uploading-a-project-to-github
+  - /get-started/start-your-journey/uploading-a-project-to-github
+category:
+  - Start your GitHub journey
+contentType: get-started
 ---
 
 In this tutorial, you'll create the repository you'll use throughout this series. You'll build a small software project called `stargazers-log`. By the end of the journey, you'll plan work, write code, review changes, and deploy your code to a live website.
@@ -20,15 +23,9 @@ In this tutorial, you'll create the repository you'll use throughout this series
 
 ## Prerequisites
 
-{% ifversion fpt or ghec %}
-
 * An account on {% data variables.product.github %}. To sign up, go to [https://github.com/signup](https://github.com/signup?ref_product=github&ref_type=engagement&ref_style=text).
 
-{% else %}
-
-* An account on your {% data variables.product.prodname_ghe_server %} instance.
-
-{% endif %}
+If you use {% data variables.product.prodname_emus %} or {% data variables.product.prodname_ghe_server %}, contact your enterprise or site administrator for information about your account on {% data variables.product.prodname_enterprise %}.
 
 ## What is a repository?
 

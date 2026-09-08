@@ -1,6 +1,13 @@
 @import "@primer/css/support/variables/layout.scss";
 @import "@primer/css/support/mixins/layout.scss";
 
+// The section frame (four-sided border) is drawn by the wrapping LandingSection.
+// This only owns the internal vertical padding.
+.gridSection {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 .headerTitleText {
   font-size: var(--h3-size, 1.25rem);
   font-weight: var(--base-text-weight-semibold, 600);
@@ -16,100 +23,122 @@
   color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 }
 
-.articleCardBox {
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem;
-  min-height: 7.5rem;
-  box-shadow:
-    0 0.0625rem 0.1875rem 0 rgba(31, 35, 40, 0.08),
-    0 0.0625rem 0 0 rgba(31, 35, 40, 0.06);
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  text-decoration: none !important;
-  color: inherit;
+// Docs 2026 Articles grid (Figma): a seamless collapsed-border grid, NOT
+// separate cards. Cells touch with shared 1px dividers; no per-card radius,
+// shadow, or outer top/bottom/side borders. brand Card renders an outer
+// wrapper div (Card__outer) that is the actual grid item — so the divider
+// nth-child logic must live on `.articleGrid > *`, not on the inner .card
+// (which is always :first-child of its own wrapper).
+.card {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 32px !important;
+  // Top-align the card content so the tags/title sit at a consistent baseline
+  // across cards regardless of description length (brand Card otherwise
+  // distributes rows down the full cell height).
+  align-content: start !important;
+  // Green top border on hover, matching the brand NavList active indicator
+  // (--brand-color-accent-primary). Uses box-shadow (not border) so it overlays
+  // the seamless grid divider without shifting the 1px collapsed layout.
+  transition: box-shadow 0.1s ease-in-out;
 
   &:hover {
-    box-shadow:
-      0 0.25rem 0.5rem 0 rgba(31, 35, 40, 0.12),
-      0 0.125rem 0.25rem 0 rgba(31, 35, 40, 0.08);
-    transform: translateY(-2px);
-    background-color: var(--bgColor-muted, var(--color-canvas-subtle));
-    text-decoration: none !important;
+    box-shadow: inset 0 2px 0 0 var(--brand-color-accent-primary) !important;
+  }
+
+  // Compress brand Card's generous inter-row margins so cards hug their content
+  // instead of ballooning. Targets the sub-element classes that merge onto
+  // Card.Tokens / Heading / Description. Figma tag→content gap is 36px for a
+  // single tag; shrink it when multiple tags are present (they can wrap and
+  // already add vertical bulk).
+  :global([class*="Card__tokens"]) {
+    margin-bottom: 36px !important;
+
+    &:has(> :nth-child(2)) {
+      margin-bottom: 16px !important;
+    }
+  }
+
+  :global([class*="Card__heading"]) {
+    margin-block-end: 8px !important;
+    // Figma card title ("Subheading Medium"): 16px / 550, not brand Card's
+    // default 22px heading.
+    font-size: 1rem !important;
+    font-weight: 550 !important;
+    line-height: 1.5 !important;
+  }
+
+  :global([class*="Card__description"]) {
+    margin-block-end: 0 !important;
+    // Figma card intro ("Body/Small"): 14px, not brand Card's default 16px.
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
   }
 }
 
-.cardHeader {
-  display: flex;
-  flex-direction: column;
-}
-
-.cardTitle {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
-  font-weight: var(--base-text-weight-semibold, 600);
-}
-
-.cardTitleLink {
-  color: var(--fgColor-accent);
-  text-decoration: none;
-}
-
-.cardIntro {
-  margin: 0;
-  color: var(--fgColor-muted);
-  font-size: 0.9rem;
-  line-height: 1.4;
-  text-decoration: none !important;
-}
-
-.tagsContainer {
-  margin-bottom: 0.5rem;
+// Filled inset pill tags (Figma "Forms/Label"). className merges onto each
+// Token span inside Card.Tokens. 12px / 500 weight; the Figma pill is 23px tall
+// with 8px horizontal padding, centered.
+.cardToken {
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 23px !important;
+  background-color: var(--brand-color-canvas-inset) !important;
+  border-color: transparent !important;
+  border-radius: 4px !important;
+  color: var(--brand-color-text-default) !important;
+  padding: 0 8px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 150% !important;
 }
 
 .filterHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  // Mobile: 2-column grid. Row 1 = title (left) + category dropdown (right, on
+  // the same row as the heading). Row 2 = full-width search spanning both cols.
+  display: grid;
+  // Col 1 (title) takes what it needs; col 2 (category) gets the remaining
+  // space (1fr) and can shrink to 0 so a long category value ellipsises
+  // instead of overflowing the row.
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 0.75rem;
+  row-gap: 1.25rem;
   border-bottom: 1px solid var(--borderColor-default);
   padding-bottom: 1rem;
-  margin-top: 3rem;
   margin-bottom: 1rem;
-  gap: 0.75rem;
 
-  // Medium screens: horizontal layout with tighter spacing
+  // Medium screens and up: single row — title on the left, controls on the
+  // right.
   @include breakpoint(md) {
+    display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.75rem;
-  }
-
-  // Large screens: horizontal layout with normal spacing
-  @include breakpoint(lg) {
+    justify-content: space-between;
     gap: 1rem;
   }
 }
 
-.titleAndDropdownRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.75rem;
-  flex-shrink: 0;
+// `display: contents` on mobile so the category + search become direct grid
+// items of .filterHeader (category shares row 1 with the title; search spans
+// row 2). On md+ it's a normal right-aligned flex group.
+.controls {
+  display: contents;
 
-  // Medium screens and up: maintain tight spacing, don't grow
   @include breakpoint(md) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 1rem;
-    flex-shrink: 0;
-    flex-grow: 0;
   }
 }
 
 .headerTitle {
   flex-shrink: 0;
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
+  line-height: 2rem;
   text-align: left;
   width: auto;
 
@@ -120,82 +149,176 @@
   }
 }
 
+// Category dropdown styled as a text control (Docs 2026 "Sort by: Newest"
+// pattern) rather than a bordered button: muted "Category:" label + bold value,
+// Action/Small type, transparent background.
 .categoryDropdown {
-  min-width: 12rem;
-  flex: 1;
+  // Mobile: sit at the right end of row 1 (next to the title) and allow the
+  // control to shrink so a long category value ellipsises rather than pushing
+  // the row wider. overflow: hidden clips any button content (e.g. the trailing
+  // caret) that would otherwise spill past the column edge.
+  justify-self: end;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 
   button {
-    width: fit-content;
+    max-width: 100%;
+    min-width: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
     text-align: left !important;
 
+    // Primer's ButtonBase sets min-width: max-content on the button and its
+    // inner content/label spans, preventing the label from shrinking. Force the
+    // whole track to shrink, and make the label a flex row so the value can
+    // take the remaining space and ellipsise.
     span {
+      min-width: 0 !important;
+      max-width: 100%;
       justify-content: start !important;
     }
 
-    // Medium screens: full width but constrained by container
-    @include breakpoint(md) {
-      width: 100%;
+    // The label span holds "Category:" (fixed) + the value (flexible). Make it
+    // a flex row so the value can take the remaining space and ellipsise.
+    // Target by class substring (Primer's hashed class is version-specific).
+    :global([class*="Button-Label"]) {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      overflow: hidden;
+    }
+
+    // Primer's Button-Content is a grid [label][visual]; let the label track
+    // shrink so the trailing caret stays inside the button (not pushed past the
+    // edge by a long, ellipsised value).
+    :global([class*="Button-Content"]) {
+      grid-template-columns: minmax(0, auto) auto;
+      overflow: hidden;
     }
   }
 
-  // Medium screens: smaller min-width and constrained max-width
   @include breakpoint(md) {
-    min-width: 20rem;
-    max-width: 30%;
+    flex-shrink: 0;
+    justify-self: auto;
   }
+}
 
-  // Large screens: larger sizing
-  @include breakpoint(lg) {
-    min-width: 20rem;
-    max-width: 40%;
+// Keep the "Category:" label whole; it should never be the thing that clips.
+.categoryLabel {
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: var(--brand-color-text-muted);
+  font-family: var(--brand-fontStack-sansSerif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  // Line height must leave room for descenders — a line-height equal to the
+  // font size clips them (the value span has overflow: hidden for the ellipsis).
+  line-height: 1.4;
+  letter-spacing: 0.008125rem;
+
+  @include breakpoint(md) {
+    font-size: 0.875rem;
+    letter-spacing: 0.00875rem;
+  }
+}
+
+.categoryValue {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--brand-color-text-default);
+  font-family: var(--brand-fontStack-sansSerif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.008125rem;
+
+  @include breakpoint(md) {
+    font-size: 0.875rem;
+    letter-spacing: 0.00875rem;
   }
 }
 
 .searchContainer {
   margin-left: 0;
   width: auto;
+  // Mobile: span both grid columns on row 2 (below the title + category row).
+  grid-column: 1 / -1;
 
   input {
     font-size: 1rem;
   }
 
-  // Medium screens: flexible width with spacing
   @include breakpoint(md) {
-    flex: 0 1 25%;
-    min-width: 12.5rem;
-    margin-left: auto;
-  }
-
-  // Large screens: larger width with auto margin
-  @include breakpoint(lg) {
-    width: 30%;
-    flex: 0 0 30%;
-    margin-left: auto;
+    width: 17rem;
   }
 }
 
 .articleGrid {
   display: grid;
-  gap: 1.5rem;
+  // Bleed out to the frame's vertical border rules (cancel the frame's content
+  // padding) so the card grid dividers reach the border with no gap. Each card's
+  // own 32px padding then re-insets the text to align with the section header.
+  margin-inline: -16px;
+
+  @include breakpoint(md) {
+    margin-inline: -32px;
+  }
 
   // Mobile: 1 column
   grid-template-columns: 1fr;
 
+  // Shared 1px dividers via each grid item's top + left border. The first row's
+  // top and first column's left are removed per breakpoint so only internal
+  // dividers show (no outer top/bottom/side borders).
+  > * {
+    border-top: 1px solid var(--brand-color-border-default);
+  }
+
+  // Mobile (1 col): horizontal dividers only; drop the first item's top border.
+  > *:first-child {
+    border-top: none;
+  }
+
   // Tablet: 2 columns
   @include breakpoint(md) {
     grid-template-columns: repeat(2, 1fr);
+
+    > * {
+      border-left: 1px solid var(--brand-color-border-default);
+    }
+
+    > *:nth-child(2n + 1) {
+      border-left: none;
+    }
+
+    > *:nth-child(-n + 2) {
+      border-top: none;
+    }
   }
 
   // Desktop: 3 columns
   @include breakpoint(lg) {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
 
-.articleCard {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    > *:nth-child(2n + 1) {
+      border-left: 1px solid var(--brand-color-border-default);
+    }
+
+    > *:nth-child(3n + 1) {
+      border-left: none;
+    }
+
+    > *:nth-child(-n + 3) {
+      border-top: none;
+    }
+  }
 }
 
 .paginationContainer {

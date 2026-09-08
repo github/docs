@@ -9,6 +9,7 @@ import { loadPages } from '@/frame/lib/page-data'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
+  makePageSurrogateKey,
 } from '@/frame/middleware/set-fastly-surrogate-key'
 
 interface Category {
@@ -75,19 +76,36 @@ describe('server', () => {
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
   })
 
+  test('caches responses with short edge freshness and a week-long stale window', async () => {
+    const week = 60 * 60 * 24 * 7
+    for (const path of ['/en/get-started', '/robots.txt']) {
+      const res = await get(path)
+      expect(res.statusCode).toBe(200)
+      const surrogate = res.headers['surrogate-control']
+      expect(surrogate).toContain(`stale-while-revalidate=${week}`)
+      expect(surrogate).toContain(`stale-if-error=${week}`)
+      // Edge freshness is short (well under the week-long stale window).
+      const maxAge = Number(surrogate.match(/(?:^|[ ,])max-age=(\d+)/)?.[1])
+      expect(maxAge).toBeGreaterThan(0)
+      expect(maxAge).toBeLessThan(week)
+    }
+    // Browser cache stays short: 60s, unpurgeable.
+    const res = await get('/en/get-started')
+    expect(res.headers['cache-control']).toMatch(/(^|[ ,])max-age=60([ ,]|$)/)
+  })
+
   test('sets fine-grained product and version surrogate keys on content pages', async () => {
-    // docs-engineering#6719: content pages emit language, product, version, and
-    // a product,language compound key so per-deploy purges can target the
-    // tightest key instead of a whole language.
     const res = await get('/en/get-started')
     expect(res.statusCode).toBe(200)
     const keys = res.headers['surrogate-key'].split(/\s/g)
-    // Language key stays first for anything that only reads the first token.
     expect(keys[0]).toBe(makeLanguageSurrogateKey('en'))
     expect(keys).toContain('product:get-started')
     expect(keys).toContain('product:get-started,language:en')
     expect(keys.some((key: string) => /^version:.+/.test(key))).toBe(true)
-    // Stays well under Fastly's limits: about 4 keys per page.
+    // Exact key, not just a pattern, to lock the render side byte-for-byte to what
+    // the purge job rebuilds from a changed file path (content/get-started/index.md).
+    expect(keys).toContain('language:en,path:get-started/index.md')
+    expect(keys).toContain(makePageSurrogateKey('en', 'get-started/index.md'))
     expect(keys.length).toBeLessThanOrEqual(6)
   })
 
@@ -354,7 +372,7 @@ describe('server', () => {
     })
 
     test('regular article .md URL includes title and intro', async () => {
-      const res = await get('/en/get-started/start-your-journey/hello-world.md')
+      const res = await get('/en/get-started/using-github/hello-world.md')
       expect(res.statusCode).toBe(200)
       expect(res.headers['content-type']).toContain('text/markdown')
       expect(res.body).toMatch(/^# Hello World/)

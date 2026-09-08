@@ -2,13 +2,13 @@
 title: 'Planning your work'
 shortTitle: 'Plan your work'
 intro: 'Organize your work and track your progress so you always know what to build next.'
-category:
-  - Learn to code
-contentType: get-started
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Start your GitHub journey
+contentType: get-started
 ---
 
 Before you write code, capture what you want to build and track your progress. In this tutorial, you'll plan and organize work for your website's first feature using {% data variables.product.prodname_github_issues %} and {% data variables.product.prodname_projects_v2 %}.

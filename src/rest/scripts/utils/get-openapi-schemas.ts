@@ -74,7 +74,7 @@ export async function validateVersionsOptions(versions: string[]): Promise<void>
       schemas.deprecated.includes(`${version}.deref.json`) ||
       schemas.unpublished.includes(`${version}.deref.json`)
     ) {
-      const errorMsg = `🛑 This script doesn't support generating individual deprecated or unpublished schemas. Please reach out to #docs-engineering if this is a use case that you need.`
+      const errorMsg = `🛑 This script doesn't support generating individual deprecated or unpublished schemas. Please reach out to #technical-content if this is a use case that you need.`
       throw new Error(errorMsg)
     } else if (!schemas.currentReleases.includes(`${version}.deref.json`)) {
       throw new Error(`🛑 The version (${version}) you specified is not valid.`)

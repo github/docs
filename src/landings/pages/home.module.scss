@@ -1,0 +1,25 @@
+// Full-bleed gap between the hero and the "All Docs" section. The hero supplies
+// the top border (its own border-bottom); this band adds the responsive height
+// and the bottom border, both spanning edge-to-edge.
+.sectionGap {
+  height: 1.5rem;
+  border-bottom: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-muted);
+
+  @media (min-width: 34rem) {
+    height: 2rem;
+  }
+
+  @media (min-width: 63.25rem) {
+    height: 4rem;
+  }
+}
+
+// Full-bleed border closing off the bottom of the "All Docs" grid, mirroring the
+// gap band at the top. The grid cells only draw rail-width borders, so this
+// spans edge-to-edge before the footer.
+.sectionEnd {
+  height: 4rem;
+  border-top: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-muted);
+}

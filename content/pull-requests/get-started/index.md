@@ -8,8 +8,10 @@ versions:
   ghec: '*'
 children:
   - /about-pull-requests
+  - /about-stacked-prs
   - /about-forks
   - /pull-request-quickstart
+  - /stacked-prs-quickstart
   - /reviewing-pull-requests-quickstart
 contentType: get-started
 ---

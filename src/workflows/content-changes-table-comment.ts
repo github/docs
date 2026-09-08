@@ -14,10 +14,9 @@ import * as github from '@actions/github'
 import * as core from '@actions/core'
 
 import walk from 'walk-sync'
-import { Octokit } from '@octokit/rest'
-import { retry } from '@octokit/plugin-retry'
 
 import { getContents } from './git-utils'
+import { retryingGithub } from '@/workflows/github'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { allVersionShortnames } from '@/versions/lib/all-versions'
@@ -56,10 +55,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     throw new Error(`APP_URL environment variable not set`)
   }
 
-  const RetryingOctokit = Octokit.plugin(retry)
-  const octokit = new RetryingOctokit({
-    auth: `token ${GITHUB_TOKEN}`,
-  })
+  const octokit = retryingGithub(GITHUB_TOKEN)
 
   // get the list of file changes from the PR
   // this works even if the head commit is from a fork

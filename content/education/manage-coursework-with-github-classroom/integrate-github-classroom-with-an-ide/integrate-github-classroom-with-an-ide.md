@@ -12,6 +12,8 @@ redirect_from:
 category:
   - Integrate GitHub Classroom with an IDE
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## About integration with an IDE
 
 {% data reusables.classroom.about-online-ides %}

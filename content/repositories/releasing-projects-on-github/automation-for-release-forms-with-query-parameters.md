@@ -32,4 +32,4 @@ Query parameter | Example
 ## Further reading
 
 * [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue#creating-an-issue-from-a-url-query)
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)
+* [AUTOTITLE](/pull-requests/reference/using-query-parameters-to-create-a-pull-request)

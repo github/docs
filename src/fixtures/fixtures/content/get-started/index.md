@@ -41,6 +41,7 @@ children:
   - /learning-about-github
   - /empty-categories
   - /test-journey
+  - /test-journey-single
   - /carousel
   - /article-grid-discovery
   - /article-grid-bespoke

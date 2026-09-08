@@ -9,7 +9,6 @@ children:
   - /customization-library
   - /cloud-agent
   - /budgets
-  - /spark
   - /customize-code-review
   - /use-copilot-code-review-across-the-pull-request-lifecycle
   - /enhance-agent-mode-with-mcp
@@ -22,8 +21,10 @@ children:
   - /write-tests
   - /refactor-code
   - /optimize-ai-usage
+  - /optimize-chat-usage
   - /optimize-code-reviews
   - /reduce-technical-debt
+  - /stack-ai-generated-code-in-pull-requests
   - /review-ai-generated-code
   - /learn-a-new-language
   - /modernize-legacy-code

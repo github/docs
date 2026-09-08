@@ -10,7 +10,7 @@ redirect_from:
   - /get-started/quickstart/about-github-and-git
   - /get-started/start-your-journey/about-github-and-git
 category:
-  - Set up your account on GitHub
+  - Start your GitHub journey
 contentType: concepts
 ---
 

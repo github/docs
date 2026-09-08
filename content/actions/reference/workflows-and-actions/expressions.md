@@ -275,6 +275,8 @@ Creates a hash for all `.rb` files in the `lib` directory at root level, includi
 
 `hashFiles('/lib/**/*.rb', '!/lib/foo/*.rb')`
 
+{% ifversion fpt or ghec %}
+
 ### case
 
 `case( pred1, val1, pred2, val2, ..., default )`
@@ -312,6 +314,8 @@ env:
 {% endraw %}
 
 Sets `MY_ENV_VAR` based on the branch: `production` for `main`, `staging` for `staging`, `development` for branches starting with `feature/`, or `unknown` for all other branches.
+
+{% endif %}
 
 ## Status check functions
 

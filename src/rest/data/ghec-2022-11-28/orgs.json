@@ -304,17 +304,29 @@
                   "type": "string"
                 },
                 "company": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "blog": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "uri"
                 },
                 "location": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "email": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "email"
                 },
                 "twitter_username": {
@@ -949,17 +961,29 @@
                   "type": "string"
                 },
                 "company": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "blog": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "uri"
                 },
                 "location": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "email": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "email"
                 },
                 "twitter_username": {
@@ -1872,6 +1896,249 @@
     },
     {
       "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/revoke-all",
+      "title": "Revoke all credential authorizations for an organization",
+      "category": "orgs",
+      "subcategory": "orgs",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Revokes all SAML SSO credential authorizations for every member of the\norganization. This removes the sign-in authorizations for personal access\ntokens, SSH keys, OAuth app tokens, and user-to-server tokens that members\nhave authorized for the organization. Members will need to authorize their\ncredentials again to access the organization.</p>\n<p>This operation is performed asynchronously. A background job will be queued to process\nthe revocations.</p>\n<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\nIf you use a personal access token to call this endpoint, that token's\nauthorization for the organization may also be revoked as part of this operation.</p>\n</div>\n<p>The authenticated user must be an organization owner to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example 1: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential authorization revocation has been queued"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 2: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential authorization revocation has been queued",
+              "warning": "The token used for this request may also have its authorization revoked as part of this operation"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted - The revocation request has been queued</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/revoke-credential-type",
+      "title": "Revoke a single credential type for an organization",
+      "category": "orgs",
+      "subcategory": "orgs",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "credential_type",
+          "description": "<p>The type of credential to revoke across the organization.</p>",
+          "isRequired": true,
+          "enum": [
+            "classic_pat",
+            "fine_grained_pat",
+            "ssh_key",
+            "oauth_app_token"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Revokes a single credential type (for example, classic personal access tokens)\nacross the organization. This removes the sign-in authorizations for that\ncredential type for every member of the organization.</p>\n<p>This operation is performed asynchronously. A background job will be queued to process\nthe revocations.</p>\n<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\nIf you use a personal access token to call this endpoint and revoke classic\npersonal access tokens, that token's authorization for the organization may\nalso be revoked as part of this operation.</p>\n</div>\n<p>The authenticated user must be an organization owner to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 1: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "credential_type": "classic_pat"
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential type revocation has been queued"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "credential_type": "classic_pat"
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential type revocation has been queued",
+              "warning": "The token used for this request may also have its authorization revoked as part of this operation"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted - The revocation request has been queued</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation error - The <code>credential_type</code> is missing or invalid</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
       "verb": "delete",
       "requestPath": "/orgs/{org}/credential-authorizations/{credential_id}",
       "title": "Remove a SAML SSO authorization for an organization",
@@ -1923,6 +2190,271 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke",
+      "title": "Revoke credential authorizations for a user in an organization",
+      "category": "orgs",
+      "subcategory": "orgs",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "username",
+          "description": "<p>The handle for the GitHub user account.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Revokes all SAML SSO credential authorizations for a single user within the\norganization. This removes the sign-in authorizations for the user's personal\naccess tokens, SSH keys, OAuth app tokens, and user-to-server tokens that they\nhave authorized for the organization. The user will need to authorize their\ncredentials again to access the organization.</p>\n<p>This operation is performed asynchronously. A background job will be queued to process\nthe revocations.</p>\n<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\nIf you use a personal access token to call this endpoint and target yourself,\nthat token's authorization for the organization may also be revoked as part of\nthis operation.</p>\n</div>\n<p>The authenticated user must be an organization owner to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example 1: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "username": "USERNAME"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential authorization revocation for user 'octocat' has been queued"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 2: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "username": "USERNAME"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential authorization revocation for user 'octocat' has been queued",
+              "warning": "The token used for this request may also have its authorization revoked as part of this operation"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted - The revocation request has been queued</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke-credential-type",
+      "title": "Revoke a single credential type for a user in an organization",
+      "category": "orgs",
+      "subcategory": "orgs",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "username",
+          "description": "<p>The handle for the GitHub user account.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "credential_type",
+          "description": "<p>The type of credential to revoke for the user.</p>",
+          "isRequired": true,
+          "enum": [
+            "classic_pat",
+            "fine_grained_pat",
+            "ssh_key",
+            "oauth_app_token"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Revokes a single credential type (for example, classic personal access tokens)\nfor a single user within the organization. This removes the sign-in authorizations\nfor that credential type for the user in the organization.</p>\n<p>This operation is performed asynchronously. A background job will be queued to process\nthe revocations.</p>\n<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\nIf you use a personal access token to call this endpoint, target yourself, and\nrevoke classic personal access tokens, that token's authorization for the\norganization may also be revoked as part of this operation.</p>\n</div>\n<p>The authenticated user must be an organization owner to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 1: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "credential_type": "classic_pat"
+            },
+            "parameters": {
+              "org": "ORG",
+              "username": "USERNAME"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential type revocation for user 'octocat' has been queued"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "credential_type": "classic_pat"
+            },
+            "parameters": {
+              "org": "ORG",
+              "username": "USERNAME"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential type revocation for user 'octocat' has been queued",
+              "warning": "The token used for this request may also have its authorization revoked as part of this operation"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted - The revocation request has been queued</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation error - The <code>credential_type</code> is missing or invalid</p>"
         }
       ],
       "previews": [],
@@ -4714,7 +5246,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get API request count statistics for an actor broken down by route within a specified time frame.</p>",
+      "descriptionHTML": "<p>Get API request count statistics for an actor broken down by route within a specified time frame.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -4885,7 +5417,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get API request statistics for all subjects within an organization within a specified time frame. Subjects can be users or GitHub Apps.</p>",
+      "descriptionHTML": "<p>Get API request statistics for all subjects within an organization within a specified time frame. Subjects can be users or GitHub Apps.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5003,7 +5535,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get overall statistics of API requests made within an organization by all users and apps within a specified time frame.</p>",
+      "descriptionHTML": "<p>Get overall statistics of API requests made within an organization by all users and apps within a specified time frame.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5105,7 +5637,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get overall statistics of API requests within the organization for a user.</p>",
+      "descriptionHTML": "<p>Get overall statistics of API requests within the organization for a user.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5224,7 +5756,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get overall statistics of API requests within the organization made by a specific actor. Actors can be GitHub App installations, OAuth apps or other tokens on behalf of a user.</p>",
+      "descriptionHTML": "<p>Get overall statistics of API requests within the organization made by a specific actor. Actors can be GitHub App installations, OAuth apps or other tokens on behalf of a user.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5328,7 +5860,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization over a specified time period.</p>",
+      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization over a specified time period.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5471,7 +6003,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization by a specific user over a specified time period.</p>",
+      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization by a specific user over a specified time period.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5631,7 +6163,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization by a specific actor within a specified time period.</p>",
+      "descriptionHTML": "<p>Get the number of API requests and rate-limited requests made within an organization by a specific actor within a specified time period.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5817,7 +6349,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get API usage statistics within an organization for a user broken down by the type of access.</p>",
+      "descriptionHTML": "<p>Get API usage statistics within an organization for a user broken down by the type of access.</p>\n<p>Under normal conditions, you can expect API data to appear within 4–6 hours after making a request. During incidents or periods of unusually high volume, it may take longer to show up.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6637,6 +7169,319 @@
         "permissions": [
           {
             "\"Artifact metadata\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs",
+      "title": "Create a cluster deployment records job",
+      "category": "orgs",
+      "subcategory": "artifact-metadata",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cluster",
+          "in": "path",
+          "description": "<p>The cluster name.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "logical_environment",
+          "description": "<p>The stage of the deployment.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "physical_environment",
+          "description": "<p>The physical region of the deployment.</p>"
+        },
+        {
+          "type": "array of objects",
+          "name": "deployments",
+          "description": "<p>The list of deployments to record.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "name",
+              "description": "<p>The name of the artifact.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "digest",
+              "description": "<p>The hex encoded digest of the artifact.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "version",
+              "description": "<p>The artifact version.</p>"
+            },
+            {
+              "type": "string",
+              "name": "status",
+              "description": "<p>The deployment status of the artifact.</p>",
+              "enum": [
+                "deployed",
+                "decommissioned"
+              ],
+              "default": "deployed"
+            },
+            {
+              "type": "string",
+              "name": "deployment_name",
+              "description": "<p>The unique identifier for the deployment represented by the new record.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "github_repository",
+              "description": "<p>The name of the GitHub repository associated with the artifact.</p>"
+            },
+            {
+              "type": "object",
+              "name": "tags",
+              "description": "<p>Key-value pairs to tag the deployment record.</p>"
+            },
+            {
+              "type": "array of strings",
+              "name": "runtime_risks",
+              "description": "<p>A list of runtime risks associated with the deployment.\nSupported values are: <code>critical-resource</code>, <code>internet-exposed</code>, <code>lateral-movement</code>, <code>sensitive-data</code></p>"
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Create a background job to set deployment records for a given cluster.\nPerforms validation and permission checks synchronously, returning rejected\ndeployments immediately, then enqueues a background job for the actual\ndeployment updates. Use the companion GET endpoint to poll for job status.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "logical_environment": "prod",
+              "physical_environment": "pacific-east",
+              "deployments": [
+                {
+                  "name": "awesome-image",
+                  "digest": "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72",
+                  "version": "2.1.0",
+                  "status": "deployed",
+                  "deployment_name": "deployment-pod",
+                  "tags": {
+                    "owning-team": "platform"
+                  },
+                  "runtime_risks": [
+                    "sensitive-data"
+                  ]
+                }
+              ]
+            },
+            "parameters": {
+              "org": "ORG",
+              "cluster": "CLUSTER"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Job created successfully. Authorized deployments will be processed in the background.</p>",
+            "example": {
+              "job_id": 123
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "job_id": {
+                  "description": "The ID of the created job.",
+                  "type": "integer"
+                },
+                "errors": {
+                  "description": "Deployments that were rejected during authorization.",
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              },
+              "required": [
+                "job_id"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Job created successfully. Authorized deployments will be processed in the background.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>A job is already in progress for this cluster.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Artifact metadata\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}/jobs/{job_id}",
+      "title": "Get cluster deployment records job status",
+      "category": "orgs",
+      "subcategory": "artifact-metadata",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cluster",
+          "in": "path",
+          "description": "<p>The cluster name.</p>",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "job_id",
+          "in": "path",
+          "description": "<p>The ID of the job.</p>",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get the status and results of a previously created cluster deployment records job.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "cluster": "CLUSTER",
+              "job_id": "JOB_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Job status retrieved successfully.</p>",
+            "example": {
+              "job_id": 123,
+              "status": "completed",
+              "started_at": "2026-06-10T12:00:00Z",
+              "total_count": 5
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "job_id": {
+                  "description": "The ID of the job.",
+                  "type": "integer"
+                },
+                "status": {
+                  "description": "The current status of the job.",
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "processing",
+                    "completed",
+                    "failed"
+                  ]
+                },
+                "started_at": {
+                  "description": "When the job started processing (only present when processing, completed, or failed).",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "total_count": {
+                  "description": "The number of records successfully mutated (only present when completed).",
+                  "type": "integer"
+                },
+                "errors": {
+                  "description": "Processing errors (only present when completed or failed).",
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              },
+              "required": [
+                "job_id",
+                "status"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Job status retrieved successfully.</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Artifact metadata\" repository permissions": "read"
           }
         ]
       }
@@ -9837,7 +10682,10 @@
                         "value": {
                           "oneOf": [
                             {
-                              "type": "string"
+                              "type": [
+                                "string",
+                                "null"
+                              ]
                             },
                             {
                               "type": "array",
@@ -10075,7 +10923,10 @@
                   "value": {
                     "oneOf": [
                       {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       {
                         "type": "array",

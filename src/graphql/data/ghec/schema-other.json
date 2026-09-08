@@ -21,43 +21,6 @@
   ],
   "objects": [
     {
-      "name": "IssueEventRationale",
-      "id": "issueeventrationale",
-      "href": "/graphql/reference/other#object-issueeventrationale",
-      "description": "<p>Rationale text associated with an issue timeline event.</p>",
-      "fields": [
-        {
-          "name": "actor",
-          "description": "<p>The agent or user who produced the rationale.</p>",
-          "type": "Actor",
-          "id": "actor",
-          "href": "/graphql/reference/users#interface-actor"
-        },
-        {
-          "name": "createdAt",
-          "description": "<p>Identifies the date and time when the rationale was created.</p>",
-          "type": "DateTime!",
-          "id": "datetime",
-          "href": "/graphql/reference/other#scalar-datetime"
-        },
-        {
-          "name": "issueEvent",
-          "description": "<p>The issue timeline event this rationale is associated with.</p>",
-          "type": "IssueEventWithRationale",
-          "id": "issueeventwithrationale",
-          "href": "/graphql/reference/issues#union-issueeventwithrationale"
-        },
-        {
-          "name": "rationale",
-          "description": "<p>The reasoning or explanation text for the event.</p>",
-          "type": "String!",
-          "id": "string",
-          "href": "/graphql/reference/other#scalar-string"
-        }
-      ],
-      "category": "other"
-    },
-    {
       "name": "PageInfo",
       "id": "pageinfo",
       "href": "/graphql/reference/other#object-pageinfo",

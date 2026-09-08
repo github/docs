@@ -37,7 +37,11 @@ You can also configure optional features on {% data variables.product.prodname_g
 
 {% data reusables.enterprise.github-distributes-ghes %} Installing third-party software or making changes to the underlying operating system is not supported.
 
-You can deploy {% data variables.product.prodname_ghe_server %} to a virtualization hypervisor within your on-premises datacenter, or to a public cloud service.
+You can deploy {% data variables.product.prodname_ghe_server %} to a virtualization hypervisor within your on-premises datacenter, or to a public cloud service. Images obtained from sources other than the channels listed below are not supported.
+
+We publish images through:
+ * [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/)
+ * [Microsoft Marketplace](https://marketplace.microsoft.com/) (only images published by {% data variables.product.company_short %} or Microsoft are supported)
 
 ### Supported on-premises hypervisors
 

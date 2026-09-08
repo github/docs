@@ -71,7 +71,7 @@ The date of the last license sync occurred is shown under "Enterprise Server ins
 * "{% data variables.product.prodname_github_connect %} server usage synced" indicates license usage between environments was automatically updated.
 * "{% data variables.product.prodname_github_connect %} server usage never synced" indicates that {% data variables.product.prodname_github_connect %} is configured, but license usage between environments has never updated successfully.
 
-For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/sync-license-usage).
+For more information, see [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/how-tos/manage-server-licenses/sync-license-usage).
 
 ### Synchronization of {% data variables.visual_studio.prodname_vss_ghe %} subscriptions
 

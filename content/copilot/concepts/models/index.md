@@ -9,7 +9,6 @@ children:
   - /bring-your-own-key
   - /utility-models
   - /auto-model-selection
-  - /fedramp-models
   - /fallback-and-lts-models
 ---
 

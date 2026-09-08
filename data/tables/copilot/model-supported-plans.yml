@@ -19,20 +19,6 @@
   business: true
   enterprise: true
 
-- name: Claude Opus 4.5
-  pro: false
-  pro_plus: false
-  max: false
-  business: true
-  enterprise: true
-
-- name: Claude Opus 4.6
-  pro: false
-  pro_plus: false
-  max: false
-  business: true
-  enterprise: true
-
 - name: Claude Opus 4.7
   pro: false
   pro_plus: true
@@ -68,8 +54,8 @@
   business: true
   enterprise: true
 
-- name: Claude Sonnet 4.5
-  pro: true
+- name: Claude Fable 5.1
+  pro: false
   pro_plus: true
   max: true
   business: true
@@ -78,32 +64,11 @@
 - name: Claude Sonnet 4.6
   pro: true
   pro_plus: true
-  max: true
-  business: true
-  enterprise: true
+  max: false
+  business: false
+  enterprise: false
 
 - name: Claude Sonnet 5
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 2.5 Pro
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 3 Flash
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 3.1 Pro
   pro: true
   pro_plus: true
   max: true
@@ -118,6 +83,20 @@
   enterprise: true
 
 - name: Gemini 3.6 Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 3.7 Flash
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Gemini 3.8 Flash
   pro: true
   pro_plus: true
   max: true
@@ -187,7 +166,35 @@
   business: true
   enterprise: true
 
+- name: GPT-6 Astra
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Grok 4.5
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Grok 4.6
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Kimi K2.7 Code
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Kimi K3
   pro: true
   pro_plus: true
   max: true
@@ -201,9 +208,9 @@
   business: true
   enterprise: true
 
-- name: Raptor mini
+- name: MAI-Code-1.1-Flash
   pro: true
   pro_plus: true
   max: true
-  business: false
-  enterprise: false
+  business: true
+  enterprise: true

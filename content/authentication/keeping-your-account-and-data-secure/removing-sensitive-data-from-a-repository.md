@@ -65,7 +65,7 @@ Consider these limitations and challenges in your decision to rewrite your repos
 
 ## Purging a file from your local repository's history using git-filter-repo
 
-1. Install the latest release of [the `git-filter-repo` tool](https://github.com/newren/git-filter-repo). You need a version with the `--sensitive-data-removal` flag, meaning at least version 2.47.  You can install `git-filter-repo` manually or by using a package manager. For example, to install the tool with HomeBrew, use the `brew install` command.
+1. Install the latest release of [the `git-filter-repo` tool](https://github.com/newren/git-filter-repo). You need a version with the `--sensitive-data-removal` flag, meaning at least version 2.47.  You can install `git-filter-repo` manually or by using a package manager. For example, to install the tool with Homebrew, use the `brew install` command.
 
    ```shell
    brew install git-filter-repo

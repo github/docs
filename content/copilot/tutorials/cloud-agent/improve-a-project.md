@@ -200,4 +200,4 @@ Now that you have created issues, the next step is to delegate an issue to {% da
 
 ## Next steps
 
-Read this case study on the {% data variables.product.github %} blog: [How the {% data variables.product.github %} billing team uses the {% data variables.copilot.copilot_cloud_agent_short %} in {% data variables.product.prodname_copilot %} to continuously burn down technical debt](https://github.blog/ai-and-ml/github-copilot/how-the-github-billing-team-uses-the-cloud-agent-in-github-copilot-to-continuously-burn-down-technical-debt/).
+Read this case study on the {% data variables.product.github %} blog: [How the {% data variables.product.github %} billing team uses the {% data variables.copilot.copilot_cloud_agent_short %} in {% data variables.product.prodname_copilot %} to continuously burn down technical debt](https://github.blog/ai-and-ml/github-copilot/how-the-github-billing-team-uses-the-coding-agent-in-github-copilot-to-continuously-burn-down-technical-debt/).

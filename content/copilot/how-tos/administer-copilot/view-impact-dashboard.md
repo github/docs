@@ -15,7 +15,7 @@ category:
 
 Instead of a flat active-user count, the impact dashboard groups users into adoption cohorts based on how they engage with {% data variables.product.prodname_copilot_short %}, and connects that engagement to pull request throughput. This gives you a more meaningful signal of adoption depth than daily or weekly active user counts alone.
 
-For a detailed explanation of what the dashboard shows, including adoption cohorts, engagement trends, and recommendations, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
+For a detailed explanation of what the dashboard shows, including adoption cohorts, engagement trends, potential return on investment, and recommendations, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
 
 ## Prerequisite
 
@@ -26,7 +26,11 @@ For a detailed explanation of what the dashboard shows, including adoption cohor
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %} impact**.
 
-## Next steps
+## Estimating potential return on investment
 
-* To learn how to interpret cohort shifts and what action to take, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics#reviewing-adoption-cohorts).
-* For raw per-team NDJSON data, such as for custom BI reporting, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
+The "Potential return on investment" section provides a directional comparison of cost and pull request output across adoption phases.
+
+1. Under "Average developer cost in your organization", select a compensation band.
+1. In the "Transition your developers to be agent-first" card, compare the cost, payroll, and pull request estimates for "Phase 0-1 Passive and Code First Users" and "Phase 2-3 Agent First Users".
+
+Treat the figures as directional estimates rather than exact financial results. Use them with the adoption multiplier metrics for code shipped and time to merge pull requests.

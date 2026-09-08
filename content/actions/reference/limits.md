@@ -30,6 +30,7 @@ These limits are subject to change.
 | Workflow execution limit | Gate approval time | 30 days | A workflow may wait for up to [30 days on environment approvals](/actions/reference/workflows-and-actions/deployments-and-environments#wait-timer). | {% octicon "x" aria-label="No" %} |
 | Workflow execution limit | Job Matrix | 256 jobs / workflow run | A job matrix can generate a maximum of 256 jobs per workflow run. This limit applies to both {% data variables.product.github %}-hosted and self-hosted runners. | {% octicon "x" aria-label="No" %} |
 | Workflow execution limit | Re-run | 50 re-runs | A workflow run can be re-run a maximum of 50 times. This limit includes both full re-runs and re-runs of a subset of jobs. | {% octicon "check" aria-label="Yes" %} Support ticket |
+| Workflow file | Workflow file size | 500 KB per file | A workflow file larger than 500 KB will not start runs. See [Workflow file size](#workflow-file-size). | {% octicon "x" aria-label="No" %} |
 | Checks | Check runs per check suite | 50,000 check runs / check suite | A check suite can have a maximum of 50,000 check runs. This limit applies to check runs created through the Checks API and by {% data variables.product.prodname_actions %} workflow runs. When a check suite reaches this limit, additional check runs cannot be created for that check suite. | {% octicon "check" aria-label="Yes" %} Support ticket |
 | Workflows queuing | Workflow trigger event rate limit | 1500 events / 10 seconds / repository | Each repository is limited to events triggering a workflow run. | {% octicon "check" aria-label="Yes" %} Support ticket |
 | Workflows queuing | Workflow run queued | 500 workflow runs / 10 seconds | When the limit is reached, the workflow runs that were supposed to be triggered by the webhook events will be blocked and will not be queued. Reusable workflows are viewed as a single entity. For example, a run with 30 reusable workflows counts as 1 in this instance. | {% octicon "x" aria-label="No" %} |
@@ -51,6 +52,10 @@ These limits are subject to change.
 | Dependency caching | Uploads per minute | 200 per minute | Each repository is limited to 200 cache entry uploads per minute. If this limit is exceeded, subsequent cache upload attempts will fail until the rate limit resets. | {% octicon "x" aria-label="No" %} |
 | Dependency caching | Downloads per minute | 1500 per minute | Each repository is limited to 1500 cache entry downloads per minute. If this limit is exceeded, subsequent cache download attempts will fail until the rate limit resets. | {% octicon "x" aria-label="No" %} |
 | Dependency caching | Deletes per minute | 400 per minute | Each repository is limited to 400 cache delete operations per minute. If this limit is exceeded, subsequent cache delete attempts will fail until the rate limit resets. Each request to delete caches either by key or by ID counts towards this limit. | {% octicon "x" aria-label="No" %} |
+
+### Workflow file size
+
+Each workflow file in the `.github/workflows` directory must be 500 KB or smaller to trigger a run. To reduce the size of a workflow file, move shared logic into a reusable workflow or a composite action. See [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows) or [AUTOTITLE](/actions/tutorials/create-actions/create-a-composite-action).
 
 ### Job concurrency limits for {% data variables.product.github %}-hosted runners
 

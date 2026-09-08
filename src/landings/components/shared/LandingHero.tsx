@@ -1,6 +1,7 @@
 import { LinkExternalIcon } from '@primer/octicons-react'
 import { Button, ButtonGroup, Heading, Text } from '@primer/react-brand'
 import styles from './LandingHero.module.scss'
+import { LandingSection } from './LandingSection'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
@@ -27,42 +28,45 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
   const linkEntries = introLinks ? Object.entries(introLinks) : []
 
   return (
-    <div className="container-xl px-3 px-md-6">
+    <LandingSection>
       <div className={styles.landingHero} style={heroBackgroundCss(heroImage)}>
-        <Heading as="h1" size="2" className={styles.heroHeading}>
-          {title}
-        </Heading>
-        {intro && (
-          <Text
-            as="div"
-            size="200"
-            variant="muted"
-            className={`${styles.heroDescription} ${styles.heroIntroScrim}`}
-          >
-            <RenderedHTML as="div" html={intro} />
-          </Text>
-        )}
-        {linkEntries.length > 0 && (
-          <ButtonGroup>
-            {linkEntries.map(([label, href], i) => (
-              <Button
-                key={label}
-                as="a"
-                href={href}
-                variant={i === 0 ? 'primary' : 'secondary'}
-                size="small"
-                trailingVisual={
-                  href.startsWith('https') ? (
-                    <LinkExternalIcon aria-label="(external site)" size="small" />
-                  ) : undefined
-                }
-              >
-                {t(label)}
-              </Button>
-            ))}
-          </ButtonGroup>
-        )}
+        <div className={styles.heroContent}>
+          <Heading as="h1" size="2" className={styles.heroHeading}>
+            {title}
+          </Heading>
+          {intro && (
+            <Text
+              as="div"
+              size="200"
+              variant="muted"
+              className={`${styles.heroDescription} ${styles.heroIntroScrim}`}
+            >
+              <RenderedHTML as="div" html={intro} />
+            </Text>
+          )}
+          {linkEntries.length > 0 && (
+            <div className={styles.heroButtons}>
+              <ButtonGroup>
+                {linkEntries.map(([label, href], i) => (
+                  <Button
+                    key={label}
+                    as="a"
+                    href={href}
+                    variant={i === 0 ? 'primary' : 'secondary'}
+                    trailingVisual={
+                      href.startsWith('https') ? (
+                        <LinkExternalIcon aria-label="(external site)" size="small" />
+                      ) : undefined
+                    }
+                  >
+                    {t(label)}
+                  </Button>
+                ))}
+              </ButtonGroup>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </LandingSection>
   )
 }

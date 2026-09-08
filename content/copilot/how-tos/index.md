@@ -15,6 +15,7 @@ children:
   - /copilot-sdk
   - /github-agentic-workflows
   - /use-copilot-agents
+  - /copilot-integrations
   - /use-ai-models
   - /provide-context
   - /configure-custom-instructions-in-your-ide

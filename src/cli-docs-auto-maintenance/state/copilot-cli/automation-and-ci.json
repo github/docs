@@ -1,0 +1,13 @@
+{
+  "name": "Automation and CI",
+  "sha": "7b8276b2bcaafc444a3dcf482a033352ebb3faa1",
+  "articles": [
+    "content/copilot/concepts/agents/copilot-cli/copilot-cli-in-github-actions.md",
+    "content/copilot/how-tos/copilot-cli/automate-copilot-cli/automate-with-actions.md",
+    "content/copilot/how-tos/copilot-cli/automate-copilot-cli/index.md",
+    "content/copilot/how-tos/copilot-cli/automate-copilot-cli/quickstart.md",
+    "content/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically.md",
+    "content/copilot/how-tos/copilot-cli/automate-copilot-cli/schedule-prompts.md",
+    "content/copilot/how-tos/copilot-cli/use-copilot-cli-in-actions.md"
+  ]
+}

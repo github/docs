@@ -356,13 +356,13 @@ By automating routine refactoring and maintenance tasks, {% data variables.produ
 
 ### Quick survey
 
-{% note %}
+<div class="border rounded-2 p-3">
 
 After reading this tutorial, do you feel confident you can use {% data variables.product.prodname_copilot_short %} to reduce the technical debt in a codebase?
 
 <a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
 
-{% endnote %}
+</div>
 
 ## Next steps
 
@@ -376,4 +376,4 @@ After reading this tutorial, do you feel confident you can use {% data variables
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent)
 * [AUTOTITLE](/copilot/tutorials/refactor-code)
 * [How to use GitHub Copilot in your IDE: Tips, tricks, and best practices](https://github.blog/developer-skills/github/how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/) in the {% data variables.product.company_short %} blog
-* [5 ways to integrate GitHub {% data variables.copilot.copilot_cloud_agent %} into your workflow](https://github.blog/ai-and-ml/github-copilot/5-ways-to-integrate-github-copilot-cloud-agent-into-your-workflow/) in the {% data variables.product.company_short %} blog
+* [5 ways to integrate GitHub {% data variables.copilot.copilot_cloud_agent %} into your workflow](https://github.blog/ai-and-ml/github-copilot/5-ways-to-integrate-github-copilot-coding-agent-into-your-workflow/) in the {% data variables.product.company_short %} blog

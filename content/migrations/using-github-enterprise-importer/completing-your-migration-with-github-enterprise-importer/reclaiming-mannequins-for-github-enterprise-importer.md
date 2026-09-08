@@ -38,6 +38,9 @@ The exact command you need to use depends on which extension of the {% data vari
 * [Reclaiming mannequins with the {% data variables.product.prodname_gei_cli_short %}](#reclaiming-mannequins-with-the-gei-extension)
 * [Reclaiming mannequins with the {% data variables.product.prodname_ado2gh_cli_short %}](#reclaiming-mannequins-with-the-ado2gh-extension)
 * [Reclaiming mannequins with the {% data variables.product.prodname_bbs2gh_cli_short %}](#reclaiming-mannequins-with-the-bbs2gh-extension)
+{%- ifversion fpt or ghec %}
+* [Reclaiming mannequins with the {% data variables.product.prodname_gl2gh_cli_short %}](#reclaiming-mannequins-with-the-gl2gh-extension)
+{%- endif %}
 
 #### Reclaiming mannequins with the {% data variables.product.prodname_gei_cli_short %}
 
@@ -140,6 +143,44 @@ If your migration source is Bitbucket Server, you can reclaim mannequins with th
       ```
 
 {% data reusables.enterprise-migration-tool.mannequin-reclaim-must-accept %}
+
+{% ifversion fpt or ghec %}
+
+#### Reclaiming mannequins with the {% data variables.product.prodname_gl2gh_cli_short %}
+
+If your migration source is GitLab, you can reclaim mannequins with the {% data variables.product.prodname_gl2gh_cli %}.
+
+* If you don't already have a `GH_PAT` environment variable set for a {% data variables.product.pat_generic %} with access to the destination organization, add `--github-pat TOKEN` to each command below, replacing `TOKEN` with the {% data variables.product.pat_generic %}. For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrate-from-gitlab/manage-access).
+* {% data reusables.enterprise-migration-tool.add-target-api-url %}
+
+{% data reusables.enterprise-migration-tool.create-csv-mannequins %}
+
+   * To generate a CSV file with a list of mannequins for an organization, use the `gh gl2gh generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
+
+     {% data reusables.enterprise-migration-tool.include-reclaimed %}
+
+     ```shell copy
+     gh gl2gh generate-mannequin-csv --github-org DESTINATION --output FILENAME.csv
+     ```
+
+   {% data reusables.enterprise-migration-tool.edit-csv %}
+1. To reclaim mannequins, use the `gh gl2gh reclaim-mannequin` command.
+
+    {% data reusables.enterprise-migration-tool.reclaim-bulk-csv %}
+
+      ```shell copy
+      gh gl2gh reclaim-mannequin --github-org DESTINATION --csv FILENAME.csv
+      ```
+
+   {% data reusables.enterprise-migration-tool.reclaim-individual-mannequin %}
+
+      ```shell copy
+      gh gl2gh reclaim-mannequin --github-org DESTINATION --mannequin-user MANNEQUIN --target-user USERNAME
+      ```
+
+{% data reusables.enterprise-migration-tool.mannequin-reclaim-must-accept %}
+
+{% endif %}
 
 ### Reclaiming mannequins in your browser
 

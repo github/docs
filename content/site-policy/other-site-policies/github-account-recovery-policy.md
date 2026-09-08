@@ -26,7 +26,7 @@ Please contact Support to request removal of a payment method from a locked out 
 
 ## Can I recover the contents of a user or organization account I lost access to?
 
-If you have lost access to a user account, you may [clone](/repositories/creating-and-managing-repositories/cloning-a-repository) or [fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) any content that is public.
+If you have lost access to a user account, you may [clone](/repositories/creating-and-managing-repositories/cloning-a-repository) or [fork](/pull-requests/how-tos/work-with-forks/fork-a-repo) any content that is public.
 
 If you have lost access to an organization account, you may clone or fork any content that is public and you may be able to request that remaining members of the organization clone or fork any private content.
 

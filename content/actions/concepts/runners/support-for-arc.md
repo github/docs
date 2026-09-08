@@ -17,20 +17,20 @@ contentType: concepts
 
 ## Overview
 
-The Actions Runner Controller (ARC) project [was adopted by GitHub](https://github.com/actions/actions-runner-controller/discussions/2072) to release as a new GitHub product. As a result, there are currently two ARC releases: the legacy community-maintained ARC and GitHub's Autoscaling Runner Sets.
+The Actions Runner Controller (ARC) project [was adopted by GitHub](https://github.com/actions/actions-runner-controller/discussions/2072) to release as a new GitHub product. As a result, there are currently two ARC releases: the legacy community-maintained ARC and GitHub's Autoscaling Runner Sets. {% data variables.product.company_short %}'s Autoscaling Runner Sets work with both Kubernetes and OpenShift.
 
 GitHub only supports the latest Autoscaling Runner Sets version of ARC. Support for the legacy ARC is provided by the community in the [Actions Runner Controller](https://github.com/actions/actions-runner-controller) repository only.
 
 ## Scope of support for Actions Runner Controller
 
-To ensure a smooth adoption of Actions Runner Controller, we recommend that organizations have a Kubernetes expert on staff. Many aspects of ARC installation, including container orchestration, networking, policy application, and integration with managed Kubernetes providers, fall outside GitHub Support’s scope and require in-depth Kubernetes knowledge. If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.github_support %}. Your support request is out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
+To ensure a smooth adoption of {% data variables.product.prodname_actions_runner_controller %}, we recommend that organizations have staff with expert-level knowledge of container orchestration. Many aspects of ARC installation, including orchestration, networking, policy application, and integration with managed cluster providers, fall outside {% data variables.contact.github_support %}'s scope and require in-depth knowledge of your clustering tools (i.e. Kubernetes or OpenShift). If your support request is outside of the scope of what our team can help you with, we may be able to recommend next steps to help resolve your issue or provide other guidance. Your support request is out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
 
 * The legacy community-maintained version of ARC
 * Installing, configuring, or maintaining dependencies
 * Template spec customization
-* Container orchestration, such as Kubernetes setup, networking, building images in ARC (DinD), etc.
-* Applying Kubernetes policies
-* Managed Kubernetes providers or provider-specific configurations
+* Container orchestration, such as Kubernetes/OpenShift setup, networking, building images in ARC (DinD), etc.
+* Applying cluster policies
+* Managed container orchestration providers or provider-specific configurations
 * [Runner Container Hooks](https://github.com/actions/runner-container-hooks) in conjunction with ARC's `kubernetes` mode
 * Installation tooling other than Helm
 * Storage provisioners and PersistentVolumeClaims (PVCs)
@@ -44,7 +44,6 @@ While ARC may be deployed successfully with different tooling and configurations
 For more information about contacting {% data variables.contact.github_support %}, see [AUTOTITLE](/support/contacting-github-support).
 
 > [!NOTE]
-> * OpenShift clusters are in public preview. See guidance from [Red Hat](https://developers.redhat.com/articles/2025/02/17/how-securely-deploy-github-arc-openshift#arc_architecture) for configuration recommendations.
 > * ARC is only supported on GitHub Enterprise Server versions 3.9 and greater.
 
 ## Working with {% data variables.contact.github_support %} for Actions Runner Controller

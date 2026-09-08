@@ -88,7 +88,7 @@ If you see an `external_identity.scim_api_incomplete` or `external_group.scim_ap
 Re-trigger provisioning from your identity provider for the affected user or group. SCIM operations are idempotent, so re-provisioning will not create duplicates.
 
 * **Entra ID:** In the Microsoft Entra admin center, go to **Enterprise Applications** > your SCIM app > **Provisioning**, and use **Provision on demand** for the affected user or group, or **Restart provisioning** for a full sync. For more information, see [On-demand provisioning in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/provision-on-demand) in the Microsoft documentation.
-* **Okta:** Re-push the affected group from **Push Groups**, or re-assign the app to the affected user. For more information, see [Push Groups](https://help.okta.com/en-us/content/topics/users-groups/usgr-push-groups.htm) in the Okta documentation.
+* **Okta:** Re-push the affected group from **Push Groups**, or re-assign the app to the affected user. For more information, see [Group push](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-about-group-push.htm) in the Okta documentation.
 * **Other identity providers:** Consult your identity provider's documentation for how to re-trigger SCIM provisioning for a specific user or group.
 
 ### Checking if the change was applied

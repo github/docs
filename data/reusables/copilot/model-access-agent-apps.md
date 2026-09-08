@@ -1,0 +1,1 @@
+By default, {% data variables.copilot.agent_apps %} have access to the models that are enabled in the organization or personal account where the app is installed. However, in the enterprise teams mode for model access, available models for {% data variables.copilot.agent_apps_short %} are controlled at the enterprise level. 

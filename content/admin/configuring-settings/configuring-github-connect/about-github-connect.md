@@ -31,6 +31,8 @@ To enable {% data variables.product.prodname_github_connect %}, you configure a 
 
 After you configure the connection between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %}, you can enable individual features of {% data variables.product.prodname_github_connect %}.
 
+If you're connecting to an enterprise on **{% data variables.enterprise.data_residency_site %}**:
+
 {% data reusables.github-connect.what-is-available-ghecom %}
 
 | Feature | Description | More information |

@@ -26,8 +26,10 @@ jobs:
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
+            // Team is addressed by numeric ID (org github = 9919, team docs = 325922)
+            // because IDs survive team renames and slugs do not.
             const teamMembers = await github.request(
-              `/orgs/github/teams/docs/members?per_page=100`
+              `/organizations/9919/team/325922/members?per_page=100`
             )
             const logins = teamMembers.data.map(member => member.login)
             if (logins.includes(triggerer_login)) {
@@ -74,9 +76,16 @@ jobs:
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Check out repo
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' && github.repository == 'github/docs-internal' }}
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
       - uses: ./.github/actions/slack-alert
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' && github.repository == 'github/docs-internal' }}
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

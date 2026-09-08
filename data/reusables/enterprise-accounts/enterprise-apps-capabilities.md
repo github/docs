@@ -4,6 +4,9 @@ Enterprise-installed {% data variables.product.prodname_github_apps %} cannot ca
 * [Manage users in your enterprise](/graphql/reference/enterprise-admin#object-enterprise)
 * Create and manage {% data variables.product.prodname_github_app %} installations in your organizations
 * Manage enterprise custom repository properties
+{%- ifversion enterprise-billing-github-app %}
+* Manage enterprise billing, including budgets, cost centers, and usage reports. For more information, see [AUTOTITLE](/rest/billing).
+{%- endif %}
 * Call the enterprise SCIM APIs
 
 Check the [changelog](https://github.blog/changelog/) for updates on new APIs and permissions for {% data variables.product.prodname_github_apps %}.

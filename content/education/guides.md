@@ -13,7 +13,7 @@ category:
 
 Teachers, students, and researchers can use tools from {% data variables.product.github %} to enrich a software development curriculum and develop real-world collaboration skills.
 
-* [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)
+* [AUTOTITLE](/account-and-profile/how-tos/account-management/creating-an-account-on-github)
 * [Git and {% data variables.product.prodname_dotcom %} quickstart](/get-started/start-your-journey)
 
 ## Applying for {% data variables.product.prodname_education %}

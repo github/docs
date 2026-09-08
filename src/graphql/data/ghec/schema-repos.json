@@ -7472,6 +7472,13 @@
           "href": "/graphql/reference/other#scalar-boolean"
         },
         {
+          "name": "enterpriseRoleDatabaseId",
+          "description": "<p>If the actor is an enterprise role, the enterprise role's ID that can bypass.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/other#scalar-bigint"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the RepositoryRulesetBypassActor object.</p>",
           "type": "ID!",
@@ -10721,7 +10728,7 @@
       "name": "RepositoryRulesetBypassActorInput",
       "id": "repositoryrulesetbypassactorinput",
       "href": "/graphql/reference/repos#input-object-repositoryrulesetbypassactorinput",
-      "description": "<p>Specifies the attributes for a new or updated ruleset bypass actor. Only one of\n<code>actor_id</code>, <code>repository_role_database_id</code>, <code>organization_admin</code>,\n<code>enterprise_owner</code>, or <code>deploy_key</code> should be specified.</p>",
+      "description": "<p>Specifies the attributes for a new or updated ruleset bypass actor. Exactly one\nof <code>actor_id</code>, <code>repository_role_database_id</code>, <code>organization_admin</code>,\n<code>enterprise_owner</code>, <code>enterprise_role_database_id</code>, or <code>deploy_key</code> should be specified.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -10757,7 +10764,16 @@
           "description": "<p>For enterprise role bypasses, true. NOTE: This bypass actor is in beta.</p>",
           "type": "Boolean",
           "id": "boolean",
-          "href": "/graphql/reference/other#scalar-boolean"
+          "href": "/graphql/reference/other#scalar-boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Use enterpriseRoleDatabaseId.</p>"
+        },
+        {
+          "name": "enterpriseRoleDatabaseId",
+          "description": "<p>For enterprise role bypasses, the enterprise role database ID. NOTE: This bypass actor is in beta.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/other#scalar-bigint"
         },
         {
           "name": "organizationAdmin",

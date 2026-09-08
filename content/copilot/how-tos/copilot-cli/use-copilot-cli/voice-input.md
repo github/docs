@@ -20,7 +20,7 @@ You need a working microphone connected to your machine. By default, voice input
 
 ## Limitation
 
-Voice input is currently only supported for English and Spanish dictation. English is the default language for speech recognition.
+{% data variables.copilot.copilot_cli_short %} offers a fixed set of speech-to-text models: a multilingual model, which is the default, plus a dedicated English model and a dedicated Spanish model. Only these models are listed in the voice models picker.
 
 ## Enabling voice input
 
@@ -31,12 +31,12 @@ Before you can dictate prompts, you need to download the voice runtime that powe
 
    The download runs in the background. You can keep using {% data variables.copilot.copilot_cli_short %} while it completes.
 
-1. When you're prompted to choose a voice model, press <kbd>Enter</kbd> with "Download default model" selected to download the English speech-to-text model.
+1. When you're prompted to choose a voice model, press <kbd>Enter</kbd> with "Download default model" selected to download the default multilingual speech-to-text model.
 
-   Alternatively, if you want to dictate in Spanish:
+   Alternatively, if you want to use the dedicated English or Spanish model:
 
    1. Use the arrow keys on your keyboard to select "Browse models", then press <kbd>Enter</kbd>.
-   1. In the voice models picker, use the arrow keys to select the Spanish speech-to-text model, then press <kbd>Enter</kbd> to download it.
+   1. In the voice models picker, use the arrow keys to select the model you want, then press <kbd>Enter</kbd> to download it.
    1. Press <kbd>Esc</kbd> to exit the picker.
 
 ## Using voice input
@@ -59,6 +59,10 @@ There are two ways to dictate prompts.
 Rather than holding down the space bar, you can toggle voice recording on and off. This is more convenient for longer prompts.
 
 1. Press <kbd>Ctrl</kbd>+<kbd>X</kbd> followed by <kbd>V</kbd> to start recording.
+
+   > [!NOTE]
+   > In some terminals, you can use <kbd>Ctrl</kbd>+<kbd>Space</kbd> as an alternative. This shortcut only works if your terminal and OS pass it through. You may also need to free it in your terminal or OS key bindings.
+
 1. Speak your prompt.
 1. Press any key to stop recording and insert the transcription.
 
@@ -85,10 +89,10 @@ If you have more than one microphone available on your system, you can switch in
    A list of available input devices is shown.
 
 1. Use the arrow keys on your keyboard to select the microphone you want to use, then press <kbd>Enter</kbd>.
-   
+
 ## Switching voice models
 
-You can dictate prompts in English or Spanish, but the appropriate voice model must be downloaded and activated for the language you want to use.
+The default multilingual model handles more than one language, but you can switch to the dedicated English or Spanish model if you prefer. The model you want must be downloaded and activated before you can use it.
 
 To change to a different voice model:
 
@@ -96,7 +100,7 @@ To change to a different voice model:
 
    The voice models picker is displayed. A check mark indicates the currently active model.
 
-1. In the voice models picker, use the arrow keys on your keyboard to select the English or Spanish speech-to-text, then press <kbd>Enter</kbd>.
+1. In the voice models picker, use the arrow keys on your keyboard to select the model you want to use, then press <kbd>Enter</kbd>.
 
    If the model is not already downloaded, it will be downloaded to your machine.
 

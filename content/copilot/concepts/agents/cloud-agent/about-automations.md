@@ -80,7 +80,7 @@ When an {% data variables.copilot.copilot_automation %} changes an issue, it can
 
 * **Custom instructions**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 * **Agent skills**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills).
-* **Firewall rules**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
+* **Firewall rules**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
 * **Secrets and variables**. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
 {% data variables.copilot.copilot_automations_cap %} are stored separately from your repository's contents. They are not committed to Git, so they are not versioned alongside your code or managed through pull requests.
@@ -112,3 +112,4 @@ For more information about how {% data variables.product.github %} mitigates the
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations)
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+* To learn how to store your automation as code, review it through pull requests, or run it with a different coding agent, see [AUTOTITLE](/copilot/concepts/agents/about-github-agentic-workflows)

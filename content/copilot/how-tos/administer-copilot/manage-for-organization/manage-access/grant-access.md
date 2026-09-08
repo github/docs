@@ -42,7 +42,9 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 
 {% ifversion ghec %}
 
-> [!NOTE] You can automatically enable access for every member of a group in your identity provider (IdP) by synchronizing that group with a {% data variables.product.prodname_dotcom %} team, then giving that team access to {% data variables.product.prodname_copilot %}. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
+You can automatically enable access for every member of a group in your identity provider (IdP) by synchronizing that group with a {% data variables.product.prodname_dotcom %} team, then giving that team access to {% data variables.product.prodname_copilot %}. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
+
+When access is granted this way, the `copilot.cfb_seat_added` audit log event attributes the action to whoever originally granted {% data variables.product.prodname_copilot_short %} access to the team, not the account or sync process that added the new team member. See [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization).
 
 {% endif %}
 

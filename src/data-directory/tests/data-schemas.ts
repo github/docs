@@ -31,7 +31,8 @@ for (const dataDir of directorySchemas) {
   })
 
   describe(dataDirectoryName, () => {
-    test.each(yamlFileList)('%p', async (yamlAbsPath) => {
+    // '%s' rather than '%p' so the failing filename appears in the test title.
+    test.each(yamlFileList)('%s', async (yamlAbsPath) => {
       const yamlContent = load(readFileSync(yamlAbsPath, 'utf8'))
       const isValid = validate(yamlContent)
       const formattedErrors = isValid ? undefined : formatAjvErrors(validate.errors || [])
@@ -41,7 +42,7 @@ for (const dataDir of directorySchemas) {
 }
 
 describe('single data files', () => {
-  test.each(singleFilesSchemas)('%p', async (filepath) => {
+  test.each(singleFilesSchemas)('%s', async (filepath) => {
     const ymlData = load(readFileSync(filepath, 'utf8'))
     const schema = (await import(dataSchemas[filepath])).default
     const { isValid, errors } = validateJson(schema, ymlData)

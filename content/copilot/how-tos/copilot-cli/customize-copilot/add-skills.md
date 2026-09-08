@@ -43,7 +43,7 @@ Use the /frontend-design skill to create a responsive navigation bar in React.
   What skills do you have?
   ```
 
-* **Enable or disable specific skills:** use the command `/skills` and then use the up and down keys on your keyboard, and the space bar, to toggle skills on or off.
+* **Enable or disable specific skills:** use the command `/skills`, then use the up and down keys on your keyboard to select a skill, press <kbd>Enter</kbd>, and choose **Enable** or **Disable**.
 
 * **Find out more about a skill** (including its location): use the command `/skills info`.
 

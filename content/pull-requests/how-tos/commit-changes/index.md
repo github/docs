@@ -13,7 +13,7 @@ redirect_from:
   - /articles/viewing-and-comparing-commits
   - /github/committing-changes-to-your-project/viewing-and-comparing-commits
 shortTitle: Commit changes
-intro: Create, modify, compare, and troubleshoot branches and commits to streamline collaboration in your pull requests.
+intro: Create, modify, compare, and troubleshoot branches and commits.
 versions:
   fpt: '*'
   ghes: '*'

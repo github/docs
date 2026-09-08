@@ -23,7 +23,11 @@ You can control the use of {% data variables.copilot.copilot_cli_short %} by con
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. To manage policies for **{% data variables.product.prodname_copilot_short %}**, in the sidebar, click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}**.
-1. In the "{% data variables.product.prodname_copilot_short %} Clients" section, for {% data variables.copilot.copilot_cli_short %}, select your preferred policy.
+1. Under "Features & clients," click **Configure features & clients**.
+1. In the "Clients" section, for {% data variables.copilot.copilot_cli_short %}, select your preferred policy.
+
+> [!NOTE]
+> Disabling {% data variables.copilot.copilot_cli_short %} does not disable the {% data variables.copilot.github_copilot_app %}. The app is governed by its own policy. For more information, see [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
 
 ## How do other AI controls affect {% data variables.copilot.copilot_cli_short %}?
 
@@ -37,7 +41,7 @@ You can enable or disable {% data variables.copilot.copilot_cli_short %} at the 
 
 Users can only access AI models that are enabled at the enterprise level. When you enable or disable models in your enterprise settings, those changes are reflected in {% data variables.copilot.copilot_cli_short %}. Users can view which models are available to them using the `/model` command.
 
-Enterprise and organization owners can provide keys for custom models. Users can select these like any other model: with the {% data variables.copilot.copilot_cli_short %} model selector, the `--model` flag, or environment variables. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+Enterprise and organization owners can provide keys for custom models. Users can select these like any other model: with the {% data variables.copilot.copilot_cli_short %} model selector, the `--model` flag, or environment variables. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models).
 
 Separately, users can also provide their own LLM keys locally. This is not controlled by enterprise policies. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models).
 
@@ -45,9 +49,13 @@ Separately, users can also provide their own LLM keys locally. This is not contr
 
 Enterprise-configured custom agents are available to use with {% data variables.copilot.copilot_cli_short %}.
 
+### Content exclusion
+
+Content exclusion policies configured at the enterprise, organization, and repository levels apply to {% data variables.copilot.copilot_cli_short %}. Excluded files are not used as context. For more information, see [AUTOTITLE](/copilot/concepts/context/content-exclusion).
+
 ### MCP server policies
 
-Enterprise and organization MCP policies apply to {% data variables.copilot.copilot_cli_short %}. You can configure an MCP registry URL so developers can discover approved servers, and set an allowlist policy to restrict which MCP servers can run. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-server-access).
+Enterprise and organization MCP policies apply to {% data variables.copilot.copilot_cli_short %}. You can configure an MCP registry URL so developers can discover approved servers, and set an allowlist policy to restrict which MCP servers can run. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/restrict-based-on-registry).
 
 ### {% data variables.copilot.copilot_cloud_agent %} enablement
 
@@ -66,7 +74,6 @@ Users must have an assigned {% data variables.product.prodname_copilot %} seat t
 All other controls do **not** affect {% data variables.copilot.copilot_cli_short %}, notably:
 
 * **IDE-specific policies**: Policies configured for specific IDEs or editor extensions
-* **Content exclusions**: File path-based content exclusions
 
 ## Why can't my developers access {% data variables.copilot.copilot_cli_short %}?
 

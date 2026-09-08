@@ -141,6 +141,12 @@ You can also check that the key is being used by trying to connect to `git@{% da
 ssh -vT git@{% data variables.product.product_url %}
 ```
 
+If you use a private key with a non-default file name, use the `-i` option to specify the path to the key:
+
+```shell copy
+ssh -i ~/.ssh/KEY-FILE -vT git@{% data variables.product.product_url %}
+```
+
 You'll see output like this:
 
 ```shell

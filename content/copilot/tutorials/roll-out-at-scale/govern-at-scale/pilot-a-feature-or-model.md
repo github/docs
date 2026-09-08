@@ -15,7 +15,7 @@ This tutorial walks you through running a pilot end to end: setting a budget, en
 
 ## Before you start your pilot
 
-Before you enable anything, make sure you've evaluated the feature or model and confirmed it meets your compliance requirements. See [AUTOTITLE](/copilot/concepts/preparing-for-new-features-and-models).
+Before you enable anything, make sure you've evaluated the feature or model and confirmed it meets your compliance requirements. See [AUTOTITLE](/copilot/concepts/learning-about-new-features-and-models).
 
 If you're not sure whether a feature or model is safe to enable, check with security and compliance teams at your company before you start the pilot.
 

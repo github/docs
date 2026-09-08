@@ -30,7 +30,7 @@ When you assign licenses to an enterprise team, users receive or lose access to 
 ### Prerequisites
 
 * Set the **Policies for enterprise-assigned users** policy to define a default setting for these users when other enterprise policies are set to "No policy". See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise).
-* If you want to assign licenses to users who are not already in your enterprise, you must first invite the users (personal accounts) or provision them from your identity provider ({% data variables.product.prodname_emus %}). For personal accounts, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/invite-users-directly).
+* If you want to assign licenses to users who are not already in your enterprise, you must first invite the users (personal accounts) or provision them from your identity provider ({% data variables.product.prodname_emus %}). For personal accounts, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/add-users).
 * If you want to assign a license to an enterprise team, you must create the team first. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
 
 ### Assigning licenses
