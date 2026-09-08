@@ -49,7 +49,7 @@ To use OIDC with Docker, establish a trust relationship between {% data variable
 
 Once you have created an OIDC connection in Docker, update your workflow to authenticate using the [`docker/login-action`](https://github.com/docker/login-action) action.
 
-The following example uses the placeholder `YOUR_CONNECTION_ID` for the connection ID you copied from Docker, and `YOUR_DOCKER_ORG` for your Docker organization name.
+The following example uses the placeholder `YOUR-CONNECTION-ID` for the connection ID you copied from Docker, and `YOUR-DOCKER-ORG` for your Docker organization name.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -67,15 +67,15 @@ jobs:
       - name: Sign in to Docker Hub with OIDC
         uses: docker/login-action@abd2ef45e78c5afb21d64d4ca52ee8550d9572c7 # v4.5.1
         with:
-          username: YOUR_DOCKER_ORG
+          username: YOUR-DOCKER-ORG
         env:
-          DOCKERHUB_OIDC_CONNECTIONID: YOUR_CONNECTION_ID
+          DOCKERHUB_OIDC_CONNECTIONID: YOUR-CONNECTION-ID
 
       - name: Build and push
         uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
         with:
           push: true
-          tags: YOUR_DOCKER_ORG/my-image:latest
+          tags: YOUR-DOCKER-ORG/my-image:latest
 ```
 
 ### Key workflow settings
@@ -102,12 +102,12 @@ jobs:
         id: docker-oidc
         uses: docker/oidc-action@3f002d200df5620744c973221788e401898c6f86 # v1
         with:
-          connection_id: YOUR_CONNECTION_ID
+          connection_id: YOUR-CONNECTION-ID
 
       - name: Sign in to Docker Hub
         uses: docker/login-action@abd2ef45e78c5afb21d64d4ca52ee8550d9572c7 # v4.5.1
         with:
-          username: YOUR_DOCKER_ORG
+          username: YOUR-DOCKER-ORG
           password: {% raw %}${{ steps.docker-oidc.outputs.token }}{% endraw %}
 ```
 
@@ -134,7 +134,3 @@ Different workflow triggers produce different subject claims. For example:
 You can use wildcard patterns in your rulesets to match multiple repositories or branches. For example, `repo:my-org/*` matches all repositories in your organization.
 
 For more information, see [Rulesets and subject claims](https://docs.docker.com/enterprise/security/oidc-connections/rulesets-claims/) in the Docker documentation.
-
-## Further reading
-
-* [AUTOTITLE](/actions/concepts/security/openid-connect)
