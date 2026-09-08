@@ -80,7 +80,7 @@ You can start a {% data variables.copilot.copilot_cli_short %} session inside an
 To start a cloud-backed session, run:
 
 ```bash copy
-copilot ‑‑cloud
+copilot --cloud
 ```
 
 ## Use cases for {% data variables.copilot.copilot_cli %}
