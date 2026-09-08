@@ -50,19 +50,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: {% data reusables.actions.action-checkout %}
+        with:
+          fetch-depth: 2
       - name: Install Copilot CLI
         run: npm install -g @github/copilot
       - name: Run Copilot
-        run: copilot --yolo -p "Summarize the changes in this commit"
+        run: copilot -p "Use git show HEAD to summarize the changes in this commit" -s --allow-tool='shell(git show:*)'
         env:
           GITHUB_TOKEN: {% raw %}${{ github.token }}{% endraw %}
 ```
 
 Key details about this example:
 
-* The `--yolo` flag automatically approves all tool, path, and URL permission requests. Non-interactive (`-p`) runs can't display an interactive approval prompt, so any action that isn't pre-approved is denied automatically. To grant only the permissions the task needs, use narrower options such as `--allow-tool`, `--add-dir`, and `--allow-url` instead.
+* The `fetch-depth: 2` option fetches the current commit and its parent, allowing `git show HEAD` to calculate the changes introduced by the current commit.
+* The `--allow-tool='shell(git show:*)'` option allows {% data variables.copilot.copilot_cli_short %} to run `git show` commands without requesting approval. Non-interactive (`-p`) runs can't display an interactive approval prompt, so any action that isn't pre-approved is denied automatically.
 * The `copilot-requests: write` permission is required for the workflow to make {% data variables.product.prodname_copilot_short %} requests.
-* The `GITHUB_TOKEN` provided by {% data variables.product.prodname_actions %} handles authentication automatically, no additional secrets are needed.
+* The `GITHUB_TOKEN` provided by {% data variables.product.prodname_actions %} handles authentication automatically. No additional secrets are needed.
 
 > [!NOTE]
 > You must be on a recent version of {% data variables.copilot.copilot_cli_short %} to use `GITHUB_TOKEN` authentication. Update with `copilot update`, or reinstall the latest version with `npm install -g @github/copilot`.

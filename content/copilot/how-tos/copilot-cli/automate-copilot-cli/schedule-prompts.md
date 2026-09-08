@@ -73,7 +73,7 @@ The prompt fires once, after the delay has elapsed, and is then removed from the
 You can use `/every` and `/after` to schedule a skill. To do this, you can reference the skill explicitly by using its slash command, or you can use natural language to tell {% data variables.product.prodname_copilot_short %} to run the skill.
 
 > [!NOTE]
-> Only user-invocable skills can be scheduled this way. You cannot include built-in slash commands (such as `/clear`) in a scheduled prompt.
+> Only user-invocable skills and a subset of built-in slash commands can be scheduled. Commands that start a self-contained piece of work—such as `/plan`, `/review`, `/research`, or `/security-review`—are schedulable. Commands that change your session or configuration (for example, `/model`, `/clear`, `/compact`, `/permissions`, or `/sandbox`), that only display information (such as `/usage` or `/context`), or that manage scheduling itself (`/every` and `/after`) can't be scheduled, and {% data variables.product.prodname_copilot_short %} rejects them when you try.
 
 ### Examples
 
@@ -94,9 +94,11 @@ You can use `/every` and `/after` to schedule a skill. To do this, you can refer
 | `h`    | hours   | `2h`    |
 | `d`    | days    | `1d`    |
 
-A bare number with no suffix is interpreted as minutes—for example, `/every 30 remind me to check for Slack messages` schedules the prompt every 30 minutes.
+When you specify a numeric duration, always include the suffix. A bare number—for example, `/every 30 remind me to check for Slack messages`—is not recognized as an interval.
 
-The minimum interval is **10 seconds** and the maximum is **1 day** (24 hours).
+For a fixed interval, the minimum is **10 seconds** and the maximum is **1 day** (24 hours).
+
+You can also describe the timing in plain language instead of using a duration—for example, `/after at 3pm push the release`, or `/every day at 9am post the standup`. {% data variables.product.prodname_copilot_short %} uses a model to interpret the phrase, then creates the schedule from it.
 
 ## Identifying scheduled prompts in the session
 
@@ -116,9 +118,9 @@ Press <kbd>Esc</kbd> to exit the schedule list.
 
 Scheduled prompts are scoped to the session they were created in, and they are only triggered while that session is running.
 
-When you reopen the session (using the `--continue` or `--resume` command line options) the schedules are restarted, with interval before a schedule is triggered measured from the moment you reopen the session.
+When you reopen the session (using the `--continue` or `--resume` command line options) the schedules are restored. For a recurring schedule created with a fixed interval, the wait before the next run is measured from the moment you reopen the session.
 
-If an `/after` schedule had not been triggered before you closed the session, it remains in the schedule list and will be triggered after the specified delay in the reopened session.
+An `/after` schedule that had not been triggered before you closed the session keeps its original target time, rather than restarting the delay. If that time passed while the session was closed, the prompt is submitted as soon as you reopen the session.
 
 ## Running a prompt from an external scheduler
 
