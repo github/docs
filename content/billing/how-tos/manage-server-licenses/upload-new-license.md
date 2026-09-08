@@ -4,21 +4,19 @@ intro: 'You can upload your license file for {% data variables.product.prodname_
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Upload new license
 redirect_from:
   - /billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server
 contentType: how-tos
+category:
+  - Manage enterprise licenses
 ---
 
 ## About license files for {% data variables.product.prodname_ghe_server %}
 
 When you purchase or download a new license for {% data variables.product.prodname_ghe_server %} you must upload the new license file to {% data variables.product.prodname_ghe_server %} to unlock your new user licenses.
 
-If you use {% data variables.product.prodname_ghe_cloud %}, you can download a license from your enterprise. For more information, see [AUTOTITLE](/billing/concepts/enterprise-billing/ghes-license-files) and [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).
+If you use {% data variables.product.prodname_ghe_cloud %}, you can download a license from your enterprise. For more information, see [AUTOTITLE](/billing/concepts/enterprise-billing/ghes-license-files) and [AUTOTITLE](/billing/how-tos/manage-server-licenses/download-your-license).
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 

@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: View 2FA usage
+category:
+  - Manage authentication methods
 ---
 
 > [!NOTE]
@@ -33,19 +32,15 @@ shortTitle: View 2FA usage
 
 {% else %}
 
-1. To view organization members, including organization owners, who have enabled or disabled two-factor authentication, on the right, select {% ifversion ghes > 3.16 %}**Two-factor authentication**{% else %}**2FA**{% endif %}, then click {% ifversion ghes > 3.16 %}**Secure**{% else %}**Enabled**{% endif %} or **Disabled**.
+1. To view organization members, including organization owners, who have enabled or disabled two-factor authentication, on the right, select **Two-factor authentication**, then click **Secure** or **Disabled**.
 
-   {% ifversion ghes > 3.16 %}
    ![Screenshot of the list of organization members. A dropdown menu, labeled "Two-factor Authentication", is expanded and outlined in orange.](/assets/images/help/2fa/ghes-filter-org-members-by-2fa.png)
-   {% else %}
-   ![Screenshot of the list of organization members. A dropdown menu, labeled "2FA", is expanded and outlined in orange.](/assets/images/help/2fa/legacy-filter-org-members-by-2fa.png)
-   {% endif %}
 
 1. To view outside collaborators in your organization, in the "Organization permissions" sidebar, click **Outside collaborators**.
-1. To view which outside collaborators have enabled or disabled two-factor authentication, above the list of outside collaborators, select {% ifversion ghes > 3.16 %}**Two-factor authentication**{% else %}**2FA**{% endif %}, then click {% ifversion ghes > 3.16 %}**Secure**{% else %}**Enabled**{% endif %} or **Disabled**.
+1. To view which outside collaborators have enabled or disabled two-factor authentication, above the list of outside collaborators, select **Two-factor authentication**, then click **Secure** or **Disabled**.
 
 {% endif %}
 
 ## Further reading
 
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)
+* [AUTOTITLE](/account-and-profile/how-tos/organization-membership/viewing-peoples-roles-in-an-organization)

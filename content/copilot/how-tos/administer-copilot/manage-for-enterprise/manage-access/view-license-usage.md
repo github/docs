@@ -6,8 +6,6 @@ product: 'Enterprises with a {% data variables.copilot.copilot_enterprise_short 
 permissions: Enterprise owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/viewing-your-github-copilot-usage
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/viewing-copilot-usage-for-your-enterprise

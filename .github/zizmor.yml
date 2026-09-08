@@ -1,0 +1,22 @@
+rules:
+  # pull_request_target is required for workflows that need write access
+  # on PRs from forks (e.g. labeling, commenting). We audit these manually.
+  dangerous-triggers:
+    disable: true
+
+  # moda-ci uses reusable workflows (uses:) which don't support job-level
+  # permissions. id-token:write and attestations:write are needed by docker-image
+  # for attestation but can't be scoped to that job alone.
+  excessive-permissions:
+    ignore:
+      - moda-ci.yaml
+
+  # actions/* has immutable tags, so ref-pinning is sufficient.
+  # github/internal-actions is a private GitHub org repo, ref-pin is fine.
+  # Everything else must be hash-pinned.
+  unpinned-uses:
+    config:
+      policies:
+        'actions/*': ref-pin
+        'github/internal-actions/*': ref-pin
+        '*': hash-pin

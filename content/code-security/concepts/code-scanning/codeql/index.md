@@ -6,15 +6,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code scanning
 contentType: concepts
 children:
-  - /about-code-scanning-with-codeql
+  - /codeql-code-scanning
+  - /codeql-for-compiled-languages
   - /codeql-query-suites
-  - /about-the-codeql-cli
-  - /about-codeql-for-vs-code
-  - /about-codeql-workspaces
+  - /custom-queries
+  - /codeql-cli
+  - /codeql-for-vs-code
+  - /codeql-workspaces
   - /query-reference-files
-  - /codeql-query-packs
+  - /query-packs
 ---
+

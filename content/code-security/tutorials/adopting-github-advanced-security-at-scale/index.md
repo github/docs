@@ -5,11 +5,6 @@ intro: A phased approach to rolling out {% data variables.product.prodname_GHAS 
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret scanning
-  - Code Security
-  - Secret Protection
-  - Repositories
 children:
   - /introduction-to-adopting-github-advanced-security-at-scale
   - /phase-1-align-on-your-rollout-strategy-and-goals

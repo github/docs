@@ -11,9 +11,9 @@ export type LoggerContext = {
   requestUuid: string
   path: string
   method: string
-  headers: any
-  query?: any
-  body?: any
+  headers: Record<string, string>
+  query?: Record<string, unknown>
+  body?: unknown
   language?: string
   userLanguage?: string
   userVersion?: string
@@ -26,7 +26,7 @@ export function getLoggerContext(): LoggerContext {
     requestUuid: '',
     path: '',
     method: '',
-    headers: '',
+    headers: {},
     language: '',
     userLanguage: '',
     query: '',

@@ -1,6 +1,6 @@
 ---
 title: Enabling and scheduling maintenance mode
-intro: 'Some standard maintenance procedures, such as upgrading {% data variables.location.product_location %} or restoring backups, require the instance to be taken offline for normal use.'
+intro: Some standard maintenance procedures, such as upgrading {% data variables.location.product_location %} or restoring backups, require the instance to be taken offline for normal use.
 redirect_from:
   - /enterprise/admin/maintenance-mode
   - /enterprise/admin/categories/maintenance-mode
@@ -15,13 +15,10 @@ redirect_from:
   - /admin/administering-your-instance/enabling-and-scheduling-maintenance-mode
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Maintenance
-  - Upgrades
 shortTitle: Configure maintenance mode
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About maintenance mode
@@ -58,7 +55,7 @@ The IP exception list provides controlled and restricted access to {% data varia
 
 If you re-enable maintenance mode, the IP exception list will be disabled and {% data variables.location.product_location %} will return to maintenance mode. If you just disable the IP exception list, {% data variables.location.product_location %} will return to normal operation.
 
-You can also use a command-line utility to configure the IP exception list. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
+You can also use a command-line utility to configure the IP exception list. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-maintenance) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

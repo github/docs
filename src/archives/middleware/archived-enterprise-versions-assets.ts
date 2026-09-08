@@ -1,4 +1,4 @@
-import { fetchWithRetry } from '@/frame/lib/fetch-utils'
+import { fetchWithRetry, readBodyWithTimeout } from '@/frame/lib/fetch-utils'
 import type { Response, NextFunction } from 'express'
 
 import patterns from '@/frame/lib/patterns'
@@ -6,6 +6,9 @@ import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { archivedCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
 import type { ExtendedRequest } from '@/types'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 // This module handles requests for the CSS and JS assets for
 // deprecated GitHub Enterprise versions by routing them to static content in
@@ -91,10 +94,13 @@ export default async function archivedEnterpriseVersionsAssets(
       {
         retries: 0,
         throwHttpErrors: true,
+        // Stay safely under MAX_REQUEST_TIMEOUT (10s) so the upstream
+        // can't push us past the request budget.
+        timeout: 8_000,
       },
     )
 
-    const body = await r.arrayBuffer()
+    const body = await readBodyWithTimeout(r, () => r.arrayBuffer(), 8_000)
 
     res.set('accept-ranges', 'bytes')
     const contentType = r.headers.get('content-type')
@@ -126,6 +132,11 @@ export default async function archivedEnterpriseVersionsAssets(
     if (err instanceof Error && err.toString().includes('Nock: No match for request')) {
       throw err
     }
+
+    logger.warn('Failed to proxy archived enterprise asset', {
+      url: proxyPath,
+      error: err instanceof Error ? err : new Error(String(err)),
+    })
 
     // It's important that we don't give up on this by returning a 404
     // here. It's better to let this through in case the asset exists

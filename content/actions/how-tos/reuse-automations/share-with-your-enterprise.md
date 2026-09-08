@@ -4,15 +4,14 @@ intro: You can share an action or reusable workflow with your enterprise without
 versions:
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Actions
-  - Action development
 shortTitle: Share with your enterprise
 redirect_from:
   - /actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise
   - /actions/sharing-automations/sharing-actions-and-workflows-with-your-enterprise
   - /actions/how-tos/sharing-automations/sharing-actions-and-workflows-with-your-enterprise
+contentType: how-tos
+category:
+  - Reuse and share automations
 ---
 
 ## Overview
@@ -32,5 +31,5 @@ Any actions or reusable workflows stored in the internal or private repository c
 
 ## Further reading
 
-* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
-* [AUTOTITLE](/actions/using-workflows/reusing-workflows)
+* [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts)
+* [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows)

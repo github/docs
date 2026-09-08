@@ -191,4 +191,65 @@ describe('Non-child page resolution', () => {
       expect(sidebarChildPages.map((c) => c.title)).toEqual(['Foo', 'Bar'])
     })
   })
+
+  describe('descendant-of-sibling filtering in sidebar', () => {
+    test('filters out children that are descendants of another sibling', () => {
+      // Simulate the sidebarTree descendant filtering logic.
+      // When a bespoke landing page lists both individual articles and their
+      // parent group as children, the individual articles should be filtered out
+      // from the sidebar (they appear nested under their parent group instead).
+      const childPages = [
+        {
+          href: '/en/get-started/copilot/add-custom-instructions',
+          title: 'Add custom instructions',
+        },
+        { href: '/en/get-started/copilot/create-skills', title: 'Create skills' },
+        { href: '/en/get-started/copilot', title: 'Copilot' },
+        { href: '/en/get-started/actions', title: 'Actions' },
+      ]
+
+      const siblingHrefs = childPages.map((c) => c.href)
+      const dedupedChildPages = childPages.filter(
+        (child) => !siblingHrefs.some((sh) => sh !== child.href && child.href.startsWith(`${sh}/`)),
+      )
+
+      // The two individual articles under /copilot/ should be removed
+      expect(dedupedChildPages).toHaveLength(2)
+      expect(dedupedChildPages.map((c) => c.title)).toEqual(['Copilot', 'Actions'])
+    })
+
+    test('does not filter children that are not descendants of any sibling', () => {
+      // Normal case: no overlapping paths, nothing should be filtered
+      const childPages = [
+        { href: '/en/get-started/copilot', title: 'Copilot' },
+        { href: '/en/get-started/actions', title: 'Actions' },
+        { href: '/en/get-started/packages', title: 'Packages' },
+      ]
+
+      const siblingHrefs = childPages.map((c) => c.href)
+      const dedupedChildPages = childPages.filter(
+        (child) => !siblingHrefs.some((sh) => sh !== child.href && child.href.startsWith(`${sh}/`)),
+      )
+
+      expect(dedupedChildPages).toHaveLength(3)
+    })
+
+    test('handles multiple overlapping groups correctly', () => {
+      // Multiple groups each with their own individual articles listed
+      const childPages = [
+        { href: '/en/get-started/copilot/article-a', title: 'Article A' },
+        { href: '/en/get-started/copilot', title: 'Copilot' },
+        { href: '/en/get-started/actions/article-b', title: 'Article B' },
+        { href: '/en/get-started/actions', title: 'Actions' },
+      ]
+
+      const siblingHrefs = childPages.map((c) => c.href)
+      const dedupedChildPages = childPages.filter(
+        (child) => !siblingHrefs.some((sh) => sh !== child.href && child.href.startsWith(`${sh}/`)),
+      )
+
+      expect(dedupedChildPages).toHaveLength(2)
+      expect(dedupedChildPages.map((c) => c.title)).toEqual(['Copilot', 'Actions'])
+    })
+  })
 })

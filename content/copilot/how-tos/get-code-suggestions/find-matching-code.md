@@ -8,8 +8,6 @@ redirect_from:
   - /copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions
   - /copilot/how-tos/completions/finding-public-code-that-matches-github-copilot-suggestions
   - /copilot/how-tos/completions/find-matching-code
-topics:
-  - Copilot
 versions:
   feature: copilot
 contentType: how-tos
@@ -49,7 +47,7 @@ If you allow {% data variables.product.prodname_copilot %} to make suggestions t
 
 References to matching code are only generated if you use a product that does not support "Block" mode, or if {% data variables.product.prodname_copilot_short %} is configured to allow suggestions that match publicly available code. This is configured in either your personal{% ifversion ghec %},{% else %} or {% endif %} organization{% ifversion ghec %} or enterprise{% endif %} settings.
 
-For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code){% ifversion ghec %},{% else %} or {% endif %} [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#policies-for-suggestion-matching){% ifversion ghec %} or [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% endif %}.
+For more information, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code){% ifversion ghec %},{% else %} or {% endif %} [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies#enabling-copilot-features-and-models-in-your-organization){% ifversion ghec %} or [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies){% endif %}.
 
 {% jetbrains %}
 
@@ -233,9 +231,9 @@ To see details of the matching code:
 
 1. Click the name of a repository to display that repository on {% data variables.product.prodname_dotcom_the_website %}.
 
-## View code references for {% data variables.copilot.copilot_coding_agent %}
+## View code references for {% data variables.copilot.copilot_cloud_agent %}
 
-When {% data variables.product.prodname_copilot_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+When {% data variables.product.prodname_copilot_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 {% endwebui %}
 

@@ -11,6 +11,8 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-to-github-enterprise-cloud/migrating-repositories-from-githubcom-to-github-enterprise-cloud
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-githubcom-to-github-enterprise-cloud
   - /migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-githubcom-to-github-enterprise-cloud
+category:
+  - Run an enterprise migration
 ---
 
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
@@ -199,7 +201,7 @@ gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATIO
 | Argument | Description |
 | -------- | ----------- |
 | `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
-| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-migration-logs-for-an-organization). |
+| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-the-repository-migration-logs-for-a-migration-script). |
 
 ### Reviewing the migration script
 

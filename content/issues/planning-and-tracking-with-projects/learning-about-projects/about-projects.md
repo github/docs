@@ -1,5 +1,5 @@
 ---
-title: 'About {% data variables.product.prodname_projects_v2 %}'
+title: About {% data variables.product.prodname_projects_v2 %}
 intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -8,9 +8,9 @@ versions:
   ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/about-projects
-type: overview
-topics:
-  - Projects
+contentType: concepts
+category:
+  - Set up and manage projects
 ---
 
 ## About {% data variables.product.prodname_projects_v2 %}
@@ -65,7 +65,7 @@ For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-project
 
 You can keep your team up to date and share high-level overviews, which people can use to determine the status of your project. You can set a status, such as "On track" or "At risk", to allow people to quickly determine the current state of the project. You can also set start dates and target dates. Your status update can also contain a message that supports formatting with Markdown. Status updates are found on your project's side panel, below the description and README, and in the project's header and in lists when you're browsing projects.
 
-For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/sharing-project-updates).
+For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/sharing-project-updates).
 
 ## Next steps
 

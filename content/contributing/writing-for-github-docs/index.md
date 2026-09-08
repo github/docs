@@ -14,7 +14,7 @@ children:
   - /versioning-documentation
   - /using-markdown-and-liquid-in-github-docs
   - /using-yaml-frontmatter
-  - /using-videos-in-github-docs
+
   - /creating-reusable-content
   - /creating-screenshots
   - /creating-diagrams-for-github-docs
@@ -25,4 +25,5 @@ children:
   - /templates
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs
+  - /contributing/writing-for-github-docs/using-videos-in-github-docs
 ---

@@ -1,4 +1,4 @@
-The {% data variables.product.prodname_actions %} service supports a subset of all the regions that Azure provides. To facilitate communication between the {% data variables.product.prodname_actions %} service and your subnet, your subnet must be in one of the supported regions.
+{% data variables.product.company_short %} deploys your runners in the same Azure region as the subnet you connect them to. Because of this, your subnet must be in one of the supported regions. The {% data variables.product.prodname_actions %} service supports a subset of all the regions that Azure provides, which facilitates communication between the {% data variables.product.prodname_actions %} service and your subnet.
 
 > [!NOTE] If you use {% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %}, the supported regions are different. See [AUTOTITLE](/admin/data-residency/network-details-for-ghecom#supported-regions-for-azure-private-networking).
 
@@ -50,4 +50,4 @@ Azure private networking supports arm64 runners in the following regions.
 * `WestUs2`
 * `WestUs3`
 
-If your desired region is not supported, please submit a request for new region availability in [this GitHub form](https://resources.github.com/private-networking-for-github-hosted-runners-with-azure-virtual-networks/). You may also use global virtual network peering to connect virtual networks across Azure regions. For more information, see [Virtual network peering](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) in the Azure documentation.
+We will be launching a process to request support for new regions soon. You may also use global virtual network peering to connect virtual networks across Azure regions. For more information, see [Virtual network peering](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) in the Azure documentation.

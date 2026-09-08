@@ -27,7 +27,6 @@ export type UpcomingChangesT = {
 
 export type GraphqlT = {
   name: string
-  kind: string
   id: string
   href: string
   description: string
@@ -52,7 +51,6 @@ export type ArgumentT = {
   type: {
     name: string
     id: string
-    kind: string
     href: string
   }
 }
@@ -100,9 +98,7 @@ export type InputObjectT = GraphqlT & {
   inputFields: FieldT[]
 }
 
-export type ScalarT = GraphqlT & {
-  kind?: string
-}
+export type ScalarT = GraphqlT
 
 export type AllVersionsT = {
   [versions: string]: {

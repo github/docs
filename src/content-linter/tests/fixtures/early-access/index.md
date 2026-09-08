@@ -1,7 +1,6 @@
 ---
 title: Early Access Documentation
-layout: product-landing
-product_video_transcript: '/video-transcripts/transcript--my-awesome-video'
+layout: discovery-landing
 children:
   - /hidden
   - /not-hidden

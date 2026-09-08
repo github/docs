@@ -1,17 +1,16 @@
 ---
 title: About GitHub Sponsors for open source contributors
-intro: 'If you provide value to an open source project, you can become a sponsored contributor to receive payments for your work.'
+intro: If you provide value to an open source project, you can become a sponsored contributor to receive payments for your work.
 redirect_from:
   - /articles/about-github-sponsors-for-sponsored-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
-topics:
-  - Open Source
-  - Fundamentals
 shortTitle: Open source contributors
+contentType: concepts
+category:
+  - Understand sponsorships
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}

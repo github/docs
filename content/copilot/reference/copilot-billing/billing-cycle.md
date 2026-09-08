@@ -4,8 +4,6 @@ intro: 'Learn about the billing cycle for {% data variables.product.prodname_cop
 shortTitle: Billing cycle
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 allowTitleToDifferFromFilename: true

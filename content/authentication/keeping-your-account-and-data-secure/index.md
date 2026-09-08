@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 children:
   - /about-authentication-to-github
   - /creating-a-strong-password
@@ -21,6 +18,7 @@ children:
   - /reviewing-your-ssh-keys
   - /reviewing-your-deploy-keys
   - /token-expiration-and-revocation
+  - /revoking-your-credentials
   - /reviewing-your-security-log
   - /security-log-events
   - /removing-sensitive-data-from-a-repository

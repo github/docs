@@ -7,12 +7,13 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /enabling-the-dependency-graph-for-your-enterprise
+  - /enable-dependency-graph
   - /allow-github-code-quality-in-enterprise
   - /configuring-code-scanning-for-your-appliance
-  - /configuring-dependency-review-for-your-appliance
-  - /configuring-secret-scanning-for-your-appliance
-  - /viewing-the-vulnerability-data-for-your-enterprise
-  - /configuring-dependabot-to-work-with-limited-internet-access
+  - /configure-dependency-review
+  - /configure-secret-scanning
+  - /view-vulnerability-data
+  - /configure-limited-internet-access
   - /setting-dependabot-to-run-on-github-hosted-runners-using-vnet
 ---
+

@@ -12,9 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Pin an issue
+category:
+  - Triage and organize issues
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

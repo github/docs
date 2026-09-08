@@ -2,14 +2,13 @@
 title: GitHub Codespaces features
 shortTitle: Codespaces features
 allowTitleToDifferFromFilename: true
-intro: 'Learn about what GitHub Codespaces offer.'
+intro: Learn about what GitHub Codespaces offer.
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
-topics:
-  - Codespaces
-  - Developer
+contentType: concepts
+category:
+  - Get started
 ---
 
 ## {% data variables.product.prodname_github_codespaces %} features

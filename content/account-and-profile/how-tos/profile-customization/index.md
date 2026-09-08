@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 children:
   - /managing-your-profile-readme
   - /pinning-items-to-your-profile

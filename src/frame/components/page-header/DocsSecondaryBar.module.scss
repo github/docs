@@ -1,0 +1,73 @@
+// Docs 2026 secondary bar — sits below the main header. On desktop the left
+// segment matches the 326px rail width (toggle cell + breadcrumbs) and carries
+// the rail's right divider; a bottom border separates the bar from the content
+// and nav below. On mobile the left segment spans the full width.
+@import "../../stylesheets/breakpoint-xxl.scss";
+
+.bar {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));
+  background-color: var(--bgColor-default, var(--color-canvas-default));
+
+  // Stick just below the sticky main header (65px) on desktop so breadcrumbs +
+  // collapse toggle stay in view while the content scrolls.
+  @include breakpoint-xxl {
+    position: sticky;
+    top: 65px;
+    z-index: 1;
+  }
+}
+
+.leftSegment {
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-width: 0;
+
+  // Match the fixed rail width and continue its right divider up through the bar.
+  @include breakpoint-xxl {
+    flex: 0 0 326px;
+    width: 326px;
+    border-right: 1px solid var(--borderColor-muted, var(--color-border-muted));
+  }
+}
+
+// When the rail is collapsed there is no rail to align to, so the breadcrumbs
+// span the full width and the rail divider is dropped.
+.leftSegmentExpanded {
+  @include breakpoint-xxl {
+    flex: 1 1 auto;
+    width: auto;
+    border-right: 0;
+  }
+}
+
+// The nav toggle sits in its own cell with a divider between it and the
+// breadcrumbs, matching the design.
+.toggleCell {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 0 12px;
+  border-right: 1px solid var(--borderColor-muted, var(--color-border-muted));
+}
+
+// The desktop rail-collapse toggle shows only at the xxl breakpoint; the mobile
+// nav trigger shows only below it. The repo's d-xxl-* utilities cover block/none
+// but not inline-flex, so gate these here.
+.desktopOnly {
+  display: none !important;
+
+  @include breakpoint-xxl {
+    display: inline-flex !important;
+  }
+}
+
+.mobileOnly {
+  display: inline-flex !important;
+
+  @include breakpoint-xxl {
+    display: none !important;
+  }
+}

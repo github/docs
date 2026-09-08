@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Manage cookie preferences
 redirect_from:
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
@@ -14,11 +12,13 @@ redirect_from:
   - /account-and-profile/tutorials/managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/manage-cookie-preferences
 contentType: how-tos
+category:
+  - Configure account settings
 ---
 
 ## Changing your cookie preferences
 
-You can customize how non-essential cookies behave on any {% data variables.product.company_short %} enterprise marketing page.  For more information about how {% data variables.product.company_short %} uses cookies, see [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement).
+You can customize how non-essential cookies behave on any {% data variables.product.company_short %} enterprise marketing page.  For more information about how {% data variables.product.company_short %} uses cookies, see [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement).
 
 1. Navigate to the {% data variables.product.company_short %} enterprise marketing page where you'd like to change your cookie preferences. For example, navigate to [{% data variables.product.company_short %} Resources](https://resources.github.com/).
 1. Scroll to the bottom of the page, then click **Manage Cookies**.

@@ -1,0 +1,6 @@
+# Reference: #61409
+# Deno support for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.19'

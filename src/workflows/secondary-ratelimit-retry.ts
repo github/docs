@@ -1,4 +1,4 @@
-import { RequestError } from '@octokit/request-error'
+import { isRequestError } from '@/workflows/github'
 
 const DEFAULT_SLEEPTIME = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_SLEEPTIME || '30000', 10)
 const DEFAULT_ATTEMPTS = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_ATTEMPTS || '5', 10)
@@ -17,8 +17,7 @@ export async function octoSecondaryRatelimitRetry<T>(
       return await fn()
     } catch (error) {
       if (
-        error instanceof RequestError &&
-        error.status === 403 &&
+        isRequestError(error, 403) &&
         /You have exceeded a secondary rate limit/.test(error.message)
       ) {
         if (tries < attempts) {

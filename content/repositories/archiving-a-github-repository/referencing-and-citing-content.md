@@ -8,9 +8,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Reference & cite content
+category:
+  - Manage, move, and archive a repository
 ---
 ## Issuing a persistent identifier for your repository with Zenodo
 

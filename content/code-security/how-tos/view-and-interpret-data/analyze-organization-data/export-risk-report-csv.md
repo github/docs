@@ -7,14 +7,10 @@ permissions: '{% data reusables.permissions.secret-risk-assessment-report-genera
 contentType: how-tos
 versions:
   feature: secret-risk-assessment
-topics:
-  - Code Security
-  - Secret scanning
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/export-risk-report-csv
+category:
+  - Secure at scale
 ---
 
 {% data reusables.organizations.navigate-to-org %}
@@ -24,4 +20,4 @@ redirect_from:
 
 ## Next steps
 
-To better understand the fields of your CSV file, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/risk-report-csv-contents).
+To better understand the fields of your CSV file, see [AUTOTITLE](/code-security/reference/secret-security/risk-report-csv-contents).

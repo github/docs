@@ -1,0 +1,136 @@
+{
+  "default": {
+    "descriptionHtml": "",
+    "summaryHtml": "<p>This event occurs when the status of a Git commit changes. For example, commits can be marked as <code>error</code>, <code>failure</code>, <code>pending</code>, or <code>success</code>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks\">About status checks</a>.\" For information about the APIs to manage commit statuses, see <a href=\"https://docs.github.com/enterprise-server@3.17/graphql/reference/objects#status\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/commits/statuses\">Commit statuses</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Commit statuses\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string or null",
+        "name": "avatar_url",
+        "description": "",
+        "childParamsGroups": []
+      },
+      {
+        "type": "array of objects",
+        "name": "branches",
+        "description": "<p>An array of branch objects containing the status' SHA. Each branch contains the given SHA, but the SHA may or may not be the head of the branch. The array includes a maximum of 10 branches.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "commit",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "context",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "created_at",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string or null",
+        "name": "description",
+        "description": "<p>The optional human-readable description added to the status.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.17/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "<p>The unique identifier of the status.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.17/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "sha",
+        "description": "<p>The Commit SHA.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "state",
+        "description": "<p>The new state. Can be <code>pending</code>, <code>success</code>, <code>failure</code>, or <code>error</code>.</p>",
+        "isRequired": true,
+        "enum": [
+          "pending",
+          "success",
+          "failure",
+          "error"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "string or null",
+        "name": "target_url",
+        "description": "<p>The optional link added to the status.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "updated_at",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "default",
+    "category": "status"
+  }
+}

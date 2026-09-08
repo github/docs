@@ -11,3 +11,6 @@ children:
   - /learn-with-github-classroom
 ---
 
+> [!NOTE]
+> As of May 2026, new {% data variables.product.prodname_classroom %} sign-ups are no longer available as we transition to partner solutions. For more information on this transition, please see [the {% data variables.product.prodname_classroom %} transition announcement](https://gh.io/classroom-sunset).
+

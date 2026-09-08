@@ -16,9 +16,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /about-teams
   - /creating-a-team

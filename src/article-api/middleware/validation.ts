@@ -109,6 +109,7 @@ export const pageValidationMiddleware = (
     if (!req.pageinfo.archived.isArchived) {
       const redirect = getRedirect(pathname, redirectsContext)
       if (redirect) {
+        req.pageinfo.redirectedFrom = pathname
         pathname = redirect
       }
     }

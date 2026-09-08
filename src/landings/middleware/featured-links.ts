@@ -1,12 +1,11 @@
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, FeaturedLinkExpanded } from '@/types'
-import getLinkData from '@/learning-track/lib/get-link-data'
-import { renderContent } from '@/content-render/index'
+import getLinkData from '@/frame/lib/get-link-data'
 
 /**
  * This is the max. number of featured links, by any category, that we
- * display on the product landing pages.
+ * display on index landing pages (homepage and TOC landings).
  * The reason it's variable is that some featured links are conditional.
  * For example:
  *
@@ -21,12 +20,15 @@ import { renderContent } from '@/content-render/index'
  * would end up being blank and thus omitted.
  *
  * The reason we don't want to display too many is because it might
- * make the product landing page columns that lists links far too
+ * make the landing page columns that lists links far too
  * long ("high").
  */
 const MAX_FEATURED_LINKS = 4
 
-// this middleware adds properties to the context object
+// This middleware resolves `featuredLinks` from the page's frontmatter into
+// a `req.context.featuredLinks` object consumed by the homepage and toc
+// landing renderers. It runs for any `index.md` page that defines
+// `featuredLinks` in frontmatter.
 export default async function featuredLinks(
   req: ExtendedRequest,
   res: Response,
@@ -35,59 +37,27 @@ export default async function featuredLinks(
   if (!req.context) throw new Error('request is not contextualized')
   if (!req.context.page) return next()
 
-  if (
-    !(
-      req.context.page.relativePath.endsWith('index.md') ||
-      req.context.page.layout === 'product-landing'
-    )
-  )
-    return next()
+  if (!req.context.page.relativePath.endsWith('index.md')) return next()
 
   if (!req.context.page.featuredLinks) return next()
 
   req.context.featuredLinks = {}
   for (const key in req.context.page.featuredLinks) {
-    if (key === 'videos') {
-      // Videos are external URLs so don't run through getLinkData, they're
-      // objects with title and href properties.
-      // When the title contains Liquid versioning tags, it will be either
-      // the provided string title or an empty title. When the title is empty,
-      // it indicates the video is not versioned for the current version
-      req.context.featuredLinks[key] = []
-      if (!(key in req.context.page.featuredLinks))
-        throw new Error('featureLinks key not found in Page')
-      for (const featuredLink of req.context.page.featuredLinks[key]!) {
-        const title = await renderContent(featuredLink.title, req.context, {
-          textOnly: true,
-        })
-        const item = { title, href: featuredLink.href }
+    const pageFeaturedLink = req.context.page.featuredLinks[key]
+    // Handle different types of featuredLinks by converting to string array
+    const stringLinks = Array.isArray(pageFeaturedLink)
+      ? pageFeaturedLink.map((item) => (typeof item === 'string' ? item : item.href))
+      : []
 
-        if (item.title) {
-          req.context.featuredLinks[key].push(item)
-          if (req.context.featuredLinks[key].length >= MAX_FEATURED_LINKS) {
-            break
-          }
-        }
-      }
-    } else {
-      if (!(key in req.context.page.featuredLinks))
-        throw new Error('featureLinks key not found in Page')
-      const pageFeaturedLink = req.context.page.featuredLinks[key]
-      // Handle different types of featuredLinks by converting to string array
-      const stringLinks = Array.isArray(pageFeaturedLink)
-        ? pageFeaturedLink.map((item) => (typeof item === 'string' ? item : item.href))
-        : []
-
-      const linkData = await getLinkData(
-        stringLinks,
-        req.context,
-        { title: true, intro: true, fullTitle: true },
-        MAX_FEATURED_LINKS,
-      )
-      // We need to use a type assertion here because the Page interfaces are incompatible
-      // between our local types and the global types, but the actual runtime objects are compatible
-      req.context.featuredLinks[key] = (linkData || []) as unknown as FeaturedLinkExpanded[]
-    }
+    const linkData = await getLinkData(
+      stringLinks,
+      req.context,
+      { title: true, intro: true, fullTitle: true },
+      MAX_FEATURED_LINKS,
+    )
+    // We need to use a type assertion here because the Page interfaces are incompatible
+    // between our local types and the global types, but the actual runtime objects are compatible
+    req.context.featuredLinks[key] = (linkData || []) as unknown as FeaturedLinkExpanded[]
   }
 
   return next()

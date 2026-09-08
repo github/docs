@@ -1,4 +1,4 @@
-In this example, Ubuntu runners have been added to a group called `ubuntu-runners`. The `runs-on` key sends the job to any available runner in the `ubuntu-runners` group:
+In this example, runners have been added to a group called `build-runners`. The `runs-on` key sends the job to any available runner in the `build-runners` group:
 
 ```yaml
 name: learn-github-actions
@@ -6,7 +6,7 @@ on: [push]
 jobs:
   check-bats-version:
     runs-on: 
-      group: ubuntu-runners
+      group: build-runners
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-node %}

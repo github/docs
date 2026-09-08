@@ -5,8 +5,6 @@ intro: 'Organization owners can set up a {% data variables.copilot.copilot_busin
 permissions: Organization owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise
@@ -22,12 +20,13 @@ category:
   - Manage Copilot for a team
 ---
 
-{% ifversion ghec %}
->[!NOTE]
-> If your organization is part of an enterprise, you can gain {% data variables.product.prodname_copilot_short %} through your enterprise instead. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise).
-{% endif %}
+> [!NOTE]
+> If your organization is part of an enterprise, you will gain {% data variables.product.prodname_copilot_short %} through your enterprise instead. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise).
 
-{% data reusables.copilot.signup-procedure-org %}
+1. Navigate to the [{% data variables.product.prodname_copilot %} sign up page](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=text).
+1. Ensure you are signed in to the right organization account. If you are not, click **{% octicon "arrow-switch" aria-hidden="true" aria-label="arrow-switch" %} Switch** and select the organization for which you want to purchase {% data variables.product.prodname_copilot %}.
+1. Click **Enable {% data variables.product.prodname_copilot %}**.
+1. Enable {% data variables.product.prodname_copilot_short %} for some or all members of your organization. For more information about assigning seats, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 
 ## Next steps
 

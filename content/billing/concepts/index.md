@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 children:
   - /billing-cycles
   - /budgets-and-alerts

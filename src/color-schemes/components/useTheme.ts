@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import Cookies from '../../frame/components/lib/cookies'
+import { COLOR_MODE_COOKIE_NAME } from '@/frame/lib/constants'
 
-enum CssColorMode {
+export enum CssColorMode {
   auto = 'auto',
   light = 'light',
   dark = 'dark',
@@ -13,7 +14,7 @@ enum ComponentColorMode {
   night = 'night',
 }
 
-enum SupportedTheme {
+export enum SupportedTheme {
   light = 'light',
   dark = 'dark',
   dark_dimmed = 'dark_dimmed',
@@ -118,7 +119,7 @@ export function useTheme() {
     // under the hood, which Primer is planning to do in the next couple quarters.
     // Reference: https://github.com/primer/react/issues/2229
     setTimeout(() => {
-      const cookieValue = Cookies.get('color_mode')
+      const cookieValue = Cookies.get(COLOR_MODE_COOKIE_NAME)
       const css = getCssTheme(cookieValue)
       const component = getComponentTheme(cookieValue)
       setTheme({ css, component })

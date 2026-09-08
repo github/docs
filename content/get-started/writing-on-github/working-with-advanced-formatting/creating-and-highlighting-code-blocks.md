@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Create code blocks
+category:
+  - Write and format content
 ---
 
 ## Fenced code blocks

@@ -11,8 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
+category:
+  - Build and manage OAuth apps
 ---
 
 
@@ -75,7 +75,7 @@ Next, in _views/index.erb_, paste this content:
     </p>
     <p>
       We're going to now talk to the GitHub API. Ready?
-      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>">Click here</a> to begin!
+      <a href="https://github.com/login/oauth/authorize?scope=user:email+offline_access&client_id=<%= client_id %>">Click here</a> to begin!
     </p>
     <p>
       If that link doesn't work, remember to provide your own <a href="/apps/building-oauth-apps/authorizing-oauth-apps/">Client ID</a>!
@@ -88,7 +88,7 @@ Next, in _views/index.erb_, paste this content:
 
 Also, notice that the URL uses the `scope` query parameter to define the
 [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) requested by the application. For our application, we're
-requesting `user:email` scope for reading private email addresses.
+requesting `user:email` scope for reading private email addresses. We'll also request the `offline_access` scope to get expiring tokens, which are better for security.
 
 Navigate your browser to `http://127.0.0.1:4567`. After clicking on the link, you should be taken to {% data variables.product.github %}, and presented with an "Authorize application" dialog.
 
@@ -125,7 +125,7 @@ You'll need to `POST` this code back to {% data variables.product.github %} with
 in exchange for an `access_token`.
 To simplify our GET and POST HTTP requests, we're using the [rest-client](https://github.com/archiloque/rest-client).
 Note that you'll probably never access the API through REST. For a more serious
-application, you should probably use [a library written in the language of your choice](/rest/overview/libraries).
+application, you should probably use [a library written in the language of your choice](/rest/using-the-rest-api/libraries-for-the-rest-api).
 
 ### Checking granted scopes
 
@@ -226,12 +226,20 @@ Our little server above is rather simple. In order to wedge in some intelligent
 authentication, we're going to switch over to using sessions for storing tokens.
 This will make authentication transparent to the user.
 
-Also, since we're persisting scopes within the session, we'll need to
-handle cases when the user updates the scopes after we checked them, or revokes
-the token. To do that, we'll use a `rescue` block and check that the first API
+Also, since we're persisting tokens within the session, we'll need to
+handle cases when the user updates the scopes after we checked them, revokes
+the token, or the token expires. To do that, we'll use a `rescue` block and check that the first API
 call succeeded, which verifies that the token is still valid. After that, we'll
 check the `X-OAuth-Scopes` response header to verify that the user hasn't revoked
 the `user:email` scope.
+
+Access tokens can also expire if you configure your app to request short-lived tokens.
+When you exchange the temporary `code`, the
+response can include a `refresh_token` alongside the `access_token`. We'll persist
+the refresh token in the session too, and if an API call fails because the access
+token has expired or was revoked, we'll use the refresh token to request a new
+access token and retry the request. Only if the refresh also fails do we start
+the OAuth flow again.
 
 Create a file called _advanced_server.rb_, and paste these lines into it:
 
@@ -260,23 +268,55 @@ def authenticate!
   erb :index, :locals => {:client_id => CLIENT_ID}
 end
 
+def refresh_access_token!
+  # exchange the stored refresh token for a new access token
+  result = RestClient.post('https://github.com/login/oauth/access_token',
+                          {:client_id => CLIENT_ID,
+                           :client_secret => CLIENT_SECRET,
+                           :grant_type => 'refresh_token',
+                           :refresh_token => session[:refresh_token]},
+                           :accept => :json)
+
+  parsed_result = JSON.parse(result)
+  new_access_token = parsed_result['access_token']
+
+  # if we didn't get a new access token back, the refresh failed
+  return false unless new_access_token
+
+  # store the new access token and refresh token in the session
+  session[:access_token] = new_access_token
+  session[:refresh_token] = parsed_result['refresh_token']
+  true
+rescue
+  false
+end
+
 get '/' do
   if !authenticated?
     authenticate!
   else
-    access_token = session[:access_token]
     scopes = []
+    refreshed = false
 
     begin
+      access_token = session[:access_token]
       auth_result = RestClient.get('{% data variables.product.rest_url %}/user',
                                    {:params => {:access_token => access_token},
                                     :accept => :json})
     rescue => e
-      # request didn't succeed because the token was revoked so we
-      # invalidate the token stored in the session and render the
-      # index page so that the user can start the OAuth flow again
+      # the request didn't succeed because the token was revoked or has
+      # expired. If we haven't already tried and we have a refresh token,
+      # get a new access token and retry the request once
+      if !refreshed && session[:refresh_token] && refresh_access_token!
+        refreshed = true
+        retry
+      end
 
+      # we couldn't refresh the token, so we invalidate the tokens stored in
+      # the session and render the index page so that the user can start the
+      # OAuth flow again
       session[:access_token] = nil
+      session[:refresh_token] = nil
       return authenticate!
     end
 
@@ -307,7 +347,9 @@ get '/callback' do
                            :code => session_code},
                            :accept => :json)
 
-  session[:access_token] = JSON.parse(result)['access_token']
+  parsed_result = JSON.parse(result)
+  session[:access_token] = parsed_result['access_token']
+  session[:refresh_token] = parsed_result['refresh_token']
 
   redirect '/'
 end
@@ -320,6 +362,16 @@ in an ERB template (this time, it's called `advanced.erb`).
 Also, we now have the `authenticated?` method which checks if the user is already
 authenticated. If not, the `authenticate!` method is called, which performs the
 OAuth flow and updates the session with the granted token and scopes.
+
+The `refresh_access_token!` method exchanges the `refresh_token` we saved in the
+session for a fresh `access_token`. When an API call fails in the `rescue` block,
+we call this method and use Ruby's `retry` keyword to run the request again with
+the new token. If the refresh fails because the refresh token has
+also expired or the token was revoked, we clear the session and send the user back
+through the OAuth flow. To prevent an infinite authentication loop, we also remember
+that we've refreshed the token - so if the API fails again, it might be because the user 
+lost access to the resource. If that's the case, no amount of refreshing the token will fix 
+the API call.
 
 Next, create a file in _views_ called _advanced.erb_, and paste this markup into it:
 

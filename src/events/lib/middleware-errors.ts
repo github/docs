@@ -15,7 +15,7 @@ const errorKeys = [
   'data',
 ]
 
-export function formatErrors(errors: ErrorObject[], body: any) {
+export function formatErrors(errors: ErrorObject[], body: unknown) {
   return errors.map((error) => ({
     event_id: randomUUID(),
     version: '1.0.0',
@@ -34,6 +34,6 @@ export function formatErrors(errors: ErrorObject[], body: any) {
 }
 
 // Leave strings alone, otherwise convert to either string or undefined
-function makeString(value: any) {
+function makeString(value: unknown) {
   return typeof value === 'string' ? value : JSON.stringify(value)
 }

@@ -9,16 +9,13 @@ redirect_from:
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
   - /admin/user-management/suspending-and-unsuspending-users
   - /admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users
-intro: 'If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.location.product_location %}.'
+intro: If a user leaves or moves to a different part of the company, you should remove or modify their ability to access {% data variables.location.product_location %}.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Access management
-  - Enterprise
-  - Security
-  - User account
 shortTitle: Manage user suspension
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About suspended users
@@ -39,11 +36,11 @@ fatal: The remote end hung up unexpectedly
 
 ## Scenarios where you cannot suspend users
 
-Before suspending site administrators, you must demote them to regular users. See [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
+Before suspending site administrators, you must demote them to regular users. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
 
 If you use certain external authentication features, you cannot manage user suspension from the site admin dashboard or command line:
 
-* If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
+* If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in [AUTOTITLE](/admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
 * If SCIM provisioning is enabled, SCIM-provisioned users must be suspended or unsuspended through your identity provider. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api#provisioning-users-with-the-rest-api).
 
 ## Viewing suspended users in the site admin dashboard
@@ -77,7 +74,7 @@ As when suspending a user, unsuspending a user takes effect immediately. The use
 ## Suspending a user from the command line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. Run [ghe-user-suspend](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-suspend) with the username to suspend.
+1. Run [ghe-user-suspend](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-user-suspend) with the username to suspend.
 
    ```shell
    ghe-user-suspend USERNAME
@@ -100,7 +97,7 @@ You can create a custom message that suspended users will see when attempting to
 ## Unsuspending a user from the command line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. Run [ghe-user-unsuspend](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
+1. Run [ghe-user-unsuspend](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
 
    ```shell
    ghe-user-unsuspend USERNAME

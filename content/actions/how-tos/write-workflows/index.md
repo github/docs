@@ -16,5 +16,6 @@ children:
   - /choose-when-workflows-run
   - /choose-where-workflows-run
   - /choose-what-workflows-do
+contentType: how-tos
 ---
 

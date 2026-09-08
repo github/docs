@@ -4,13 +4,12 @@ shortTitle: Roll out at scale
 intro: Learn how to manage a Copilot rollout in your organization or enterprise.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /assign-licenses
-  - /establish-ai-managers
+  - /govern-at-scale
   - /enable-developers
   - /drive-downstream-impact
+  - /measure-copilot-impact
   - /measure-success
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale
@@ -18,3 +17,4 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale
 contentType: tutorials
 ---
+

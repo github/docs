@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: About 2FA
+category:
+  - Learn about authentication
 ---
 
 {% ifversion mandatory-2fa-dotcom-contributors %}

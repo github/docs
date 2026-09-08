@@ -1,21 +1,21 @@
 ---
 title: Adding organizations to your enterprise
-intro: 'Learn how to add organizations to your enterprise using three different methods.'
+intro: Add organizations to your enterprise using three different methods.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /articles/adding-organizations-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
+  - /enterprise-onboarding/setting-up-organizations-and-teams/setting-up-an-organization
+  - /enterprise-onboarding/setting-up-organizations-and-teams/managing-your-organizations
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - Organizations
 shortTitle: Add organizations
 permissions: Enterprise owners
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 There are three ways to add organizations to your enterprise.
@@ -40,8 +40,8 @@ If you use {% data variables.product.prodname_emus %}, the following limitations
 After you add an existing organization to your enterprise, the organization's resources remain accessible to members at the same URLs, and the following changes will apply.
 
 * **Two-factor authentication (2FA):** If required by the enterprise, members without 2FA, or with insecure 2FA, will be unable to access organization resources until they configure 2FA that meets the enterprise's 2FA security requirements.
-* **Enterprise licenses:** Members become part of the enterprise, and usage is billed to the enterprise account. You must ensure that the enterprise account has enough licenses to accommodate any new members. See [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise).
-* **Enterprise role management:** Enterprise owners can manage their roles within the organization. See [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
+* **Enterprise licenses:** Members become part of the enterprise, and usage is billed to the enterprise account. You must ensure that the enterprise account has enough licenses to accommodate any new members. See [AUTOTITLE](/billing/concepts/enterprise-billing/billing-for-enterprises).
+* **Enterprise role management:** Enterprise owners can manage their roles within the organization. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
 * **Enterprise policies:** Any policies applied to the enterprise will apply to the organization. {% data reusables.actions.org-to-enterprise-actions-permissions %}
 
 * **SAML SSO Configuration:**
@@ -52,25 +52,16 @@ After you add an existing organization to your enterprise, the organization's re
   * If SAML is **not** configured for the destination enterprise, the organization will retain any existing SAML and SCIM settings.
   * If organization members have existing SAML authorizations for {% data variables.product.pat_generic_plural %} or SSH keys to access the organization, these authorizations will remain active.
     * To see these authorizations, SAML must be configured for either the organization or enterprise, and the user must have a linked SAML identity.
-    * To access additional organizations owned by the enterprise, members must authorize the {% data variables.product.pat_generic %} or key. See [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) and [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on).
+    * To access additional organizations owned by the enterprise, members must authorize the {% data variables.product.pat_generic %} or key. See [AUTOTITLE](/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on) and [AUTOTITLE](/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on).
 
 * **Trial enterprise:** Certain features may be disabled if added to a trial enterprise. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial).
-* **{% data variables.product.prodname_github_connect %}:** If the organization was connected to {% data variables.product.prodname_ghe_server %} using {% data variables.product.prodname_github_connect %}, adding the organization to an enterprise will not update the connection. {% data variables.product.prodname_github_connect %} features will no longer function for the organization. To continue using {% data variables.product.prodname_github_connect %}, you must disable and re-enable the feature. See [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect) in the {% data variables.product.prodname_ghe_server %} documentation.
+* **{% data variables.product.prodname_github_connect %}:** If the organization was connected to {% data variables.product.prodname_ghe_server %} using {% data variables.product.prodname_github_connect %}, adding the organization to an enterprise will not update the connection. {% data variables.product.prodname_github_connect %} features will no longer function for the organization. To continue using {% data variables.product.prodname_github_connect %}, you must disable and re-enable the feature. See [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom) in the {% data variables.product.prodname_ghe_server %} documentation.
 * **{% data variables.product.prodname_marketplace %} apps:** If you add a standalone organization that uses billed {% data variables.product.prodname_marketplace %} apps, the organization can continue to use the apps, but usage will be billable to the enterprise.
   * If your enterprise is billed via invoice, contact the app vendor and pay directly.
   * If your enterprise is billed via credit card or PayPal, billing continues automatically.
   To transfer an existing organization with billed apps between enterprise accounts, first remove the billed apps and then re-add the apps after the transfer is complete.
-* **Sponsorships:** Any sponsorships by the organization will be canceled.
+* **Sponsorships:** Any sponsorships by the organization will be canceled. Additionally, if your enterprise uses Azure metered billing, you will need to create a separate "shell" organization to continue using {% data variables.product.prodname_sponsors %}. See [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes#github-sponsors-when-adding-an-organization-to-an-enterprise).
 * **Coupons:** Any coupons will be removed from the organization. To reapply the coupon, [contact our sales team](https://github.com/enterprise/contact).
-
-## Handling {% data variables.product.prodname_sponsors %} with Azure billing
-
-If your organization is added to an enterprise account with Azure metered billing, any active {% data variables.product.prodname_sponsors %} sponsorships will be canceled. While your organization remains under enterprise billing through Azure, you will not be able to reactivate these sponsorships, as sponsoring is not currently supported for organizations billed through Azure.
-
-To continue using {% data variables.product.prodname_sponsors %}, create a new, separate "shell" organization that is not linked to your enterprise account or Azure billing. You can use this shell organization to manage sponsorships independently.
-
-> [!NOTE]
-> After you create a shell organization, update any public references or documentation to point sponsors to the new organization.
 
 ## Creating a new organization
 

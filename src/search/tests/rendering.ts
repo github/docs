@@ -15,7 +15,6 @@ import { expect, test, vi } from 'vitest'
 
 import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs'
 import { get, getDOM } from '@/tests/helpers/e2etest'
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
@@ -57,7 +56,6 @@ describeIfElasticsearchURL('search rendering page', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toMatch(SURROGATE_ENUMS.DEFAULT)
     expect(res.headers['surrogate-key']).toMatch('language:en')
   })
 

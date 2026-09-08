@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Set Markdown processor
+category:
+  - Managing a GitHub Pages site
 ---
 
 {% data reusables.pages.actions-is-preferred %}

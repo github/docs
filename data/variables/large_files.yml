@@ -10,12 +10,6 @@ included_storage_free_pro: '10 GiB'
 included_bandwidth_team_enterprise: '250 GiB'
 included_storage_team_enterprise: '250 GiB'
 # storage and bandwidth quota for billing that is not Billing vNext
-initial_bandwidth_quota: '1 GiB'
-initial_storage_quota: '1 GiB'
-max_lfs_size: '2 GiB'
 max_file_size: '2 GiB'
 command_name: lfs
 version_name: https://git-lfs.github.com/spec/v1
-pack_monthly_price: $5 per month
-pack_monthly_bandwidth: '50 GiB'
-pack_monthly_storage: '50 GiB'

@@ -1,0 +1,1 @@
+Use stacked pull requests to break large code changes into a chain of smaller, dependent pull requests that you can review and merge independently.

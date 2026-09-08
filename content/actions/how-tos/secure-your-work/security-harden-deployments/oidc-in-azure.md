@@ -6,14 +6,14 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Security
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure
   - /actions/security-for-github-actions/security-guides/security-hardening-your-deployments/configuring-openid-connect-in-azure
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure
+contentType: how-tos
+category:
+  - Secure your workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -32,6 +32,8 @@ This guide gives an overview of how to configure Azure to trust {% data variable
 
 {% data reusables.actions.oidc-on-ghecom %}
 
+For repositories created after July 15, 2026, and repository renames or transfers after that date, use an immutable default OIDC `sub` claim that includes owner and repository IDs (not available on {% data variables.product.prodname_ghe_server %}). Existing repositories keep the previous format unless they opt in. For more information, see [AUTOTITLE](/actions/reference/security/oidc#immutable-subject-claims).
+
 {% ifversion ghes %}
 {% data reusables.actions.oidc-endpoints %}
   <!-- This note is indented to align with the above reusable. -->
@@ -39,7 +41,7 @@ This guide gives an overview of how to configure Azure to trust {% data variable
   > [!NOTE]
   > Microsoft Entra ID (previously known as Azure AD) does not have fixed IP ranges defined for these endpoints.
 
-* Make sure that the value of the issuer claim that's included with the JSON Web Token (JWT) is set to a publicly routable URL. For more information, see [AUTOTITLE](/enterprise-server@latest/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+* Make sure that the value of the issuer claim that's included with the JSON Web Token (JWT) is set to a publicly routable URL. For more information, see [AUTOTITLE](/enterprise-server@latest/actions/concepts/security/openid-connect).
 {% endif %}
 
 ## Adding the federated credentials to Azure
@@ -56,7 +58,7 @@ To configure the OIDC identity provider in Azure, you will need to perform the f
 
 Additional guidance for configuring the identity provider:
 
-* For security hardening, make sure you've reviewed [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
+* For security hardening, make sure you've reviewed {% ifversion ghec %}[AUTOTITLE](/actions/concepts/security/openid-connect#establishing-oidc-trust-with-your-cloud-provider){% else %}[AUTOTITLE](/actions/reference/security/oidc#oidc-claims-used-to-define-trust-conditions-on-cloud-roles){% endif %}. For an example, see [AUTOTITLE](/actions/reference/security/oidc#configuring-the-subject-in-your-cloud-provider).
 * For the `audience` setting, `api://AzureADTokenExchange` is the recommended value, but you can also specify other values here.
 
 ## Updating your {% data variables.product.prodname_actions %} workflow

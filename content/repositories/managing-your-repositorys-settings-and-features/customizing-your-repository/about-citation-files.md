@@ -7,8 +7,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Customize and configure a repository
 ---
 ## About CITATION files
 

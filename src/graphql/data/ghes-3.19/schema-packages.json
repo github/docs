@@ -1,0 +1,900 @@
+{
+  "mutations": [
+    {
+      "name": "deletePackageVersion",
+      "id": "deletepackageversion",
+      "href": "/graphql/reference/packages#mutation-deletepackageversion",
+      "description": "<p>Delete a package version.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeletePackageVersionInput!",
+          "id": "deletepackageversioninput",
+          "href": "/graphql/reference/packages#input-object-deletepackageversioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Whether or not the operation succeeded.</p>"
+        }
+      ],
+      "category": "packages"
+    }
+  ],
+  "objects": [
+    {
+      "name": "Package",
+      "id": "package",
+      "href": "/graphql/reference/packages#object-package",
+      "description": "<p>Information for an uploaded package.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Package object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "latestVersion",
+          "description": "<p>Find the latest version for the package.</p>",
+          "type": "PackageVersion",
+          "id": "packageversion",
+          "href": "/graphql/reference/packages#object-packageversion"
+        },
+        {
+          "name": "name",
+          "description": "<p>Identifies the name of the package.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "packageType",
+          "description": "<p>Identifies the type of the package.</p>",
+          "type": "PackageType!",
+          "id": "packagetype",
+          "href": "/graphql/reference/packages#enum-packagetype"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository this package belongs to.</p>",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "statistics",
+          "description": "<p>Statistics about package activity.</p>",
+          "type": "PackageStatistics",
+          "id": "packagestatistics",
+          "href": "/graphql/reference/packages#object-packagestatistics"
+        },
+        {
+          "name": "version",
+          "description": "<p>Find package version by version string.</p>",
+          "type": "PackageVersion",
+          "id": "packageversion",
+          "href": "/graphql/reference/packages#object-packageversion",
+          "arguments": [
+            {
+              "name": "version",
+              "description": "<p>The package version.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "versions",
+          "description": "<p>list of versions for this package.</p>",
+          "type": "PackageVersionConnection!",
+          "id": "packageversionconnection",
+          "href": "/graphql/reference/packages#object-packageversionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering of the returned packages.</p>",
+              "type": {
+                "name": "PackageVersionOrder",
+                "id": "packageversionorder",
+                "href": "/graphql/reference/packages#input-object-packageversionorder"
+              }
+            }
+          ]
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageConnection",
+      "id": "packageconnection",
+      "href": "/graphql/reference/packages#object-packageconnection",
+      "description": "<p>The connection type for Package.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[PackageEdge]",
+          "id": "packageedge",
+          "href": "/graphql/reference/packages#object-packageedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Package]",
+          "id": "package",
+          "href": "/graphql/reference/packages#object-package"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageEdge",
+      "id": "packageedge",
+      "href": "/graphql/reference/packages#object-packageedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Package",
+          "id": "package",
+          "href": "/graphql/reference/packages#object-package"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageFile",
+      "id": "packagefile",
+      "href": "/graphql/reference/packages#object-packagefile",
+      "description": "<p>A file in a package version.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PackageFile object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "md5",
+          "description": "<p>MD5 hash of the file.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>Name of the file.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "packageVersion",
+          "description": "<p>The package version this file belongs to.</p>",
+          "type": "PackageVersion",
+          "id": "packageversion",
+          "href": "/graphql/reference/packages#object-packageversion"
+        },
+        {
+          "name": "sha1",
+          "description": "<p>SHA1 hash of the file.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sha256",
+          "description": "<p>SHA256 hash of the file.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "size",
+          "description": "<p>Size of the file in bytes.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>URL to download the asset.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageFileConnection",
+      "id": "packagefileconnection",
+      "href": "/graphql/reference/packages#object-packagefileconnection",
+      "description": "<p>The connection type for PackageFile.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[PackageFileEdge]",
+          "id": "packagefileedge",
+          "href": "/graphql/reference/packages#object-packagefileedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[PackageFile]",
+          "id": "packagefile",
+          "href": "/graphql/reference/packages#object-packagefile"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageFileEdge",
+      "id": "packagefileedge",
+      "href": "/graphql/reference/packages#object-packagefileedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "PackageFile",
+          "id": "packagefile",
+          "href": "/graphql/reference/packages#object-packagefile"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageStatistics",
+      "id": "packagestatistics",
+      "href": "/graphql/reference/packages#object-packagestatistics",
+      "description": "<p>Represents a object that contains package activity statistics such as downloads.</p>",
+      "fields": [
+        {
+          "name": "downloadsTotalCount",
+          "description": "<p>Number of times the package was downloaded since it was created.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageTag",
+      "id": "packagetag",
+      "href": "/graphql/reference/packages#object-packagetag",
+      "description": "<p>A version tag contains the mapping between a tag name and a version.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PackageTag object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "name",
+          "description": "<p>Identifies the tag name of the version.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "version",
+          "description": "<p>Version that the tag is associated with.</p>",
+          "type": "PackageVersion",
+          "id": "packageversion",
+          "href": "/graphql/reference/packages#object-packageversion"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageVersion",
+      "id": "packageversion",
+      "href": "/graphql/reference/packages#object-packageversion",
+      "description": "<p>Information about a specific package version.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "files",
+          "description": "<p>List of files associated with this package version.</p>",
+          "type": "PackageFileConnection!",
+          "id": "packagefileconnection",
+          "href": "/graphql/reference/packages#object-packagefileconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering of the returned package files.</p>",
+              "type": {
+                "name": "PackageFileOrder",
+                "id": "packagefileorder",
+                "href": "/graphql/reference/packages#input-object-packagefileorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PackageVersion object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "package",
+          "description": "<p>The package associated with this version.</p>",
+          "type": "Package",
+          "id": "package",
+          "href": "/graphql/reference/packages#object-package"
+        },
+        {
+          "name": "platform",
+          "description": "<p>The platform this version was built for.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "preRelease",
+          "description": "<p>Whether or not this version is a pre-release.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "readme",
+          "description": "<p>The README of this package version.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "release",
+          "description": "<p>The release associated with this package version.</p>",
+          "type": "Release",
+          "id": "release",
+          "href": "/graphql/reference/releases#object-release"
+        },
+        {
+          "name": "statistics",
+          "description": "<p>Statistics about package activity.</p>",
+          "type": "PackageVersionStatistics",
+          "id": "packageversionstatistics",
+          "href": "/graphql/reference/packages#object-packageversionstatistics"
+        },
+        {
+          "name": "summary",
+          "description": "<p>The package version summary.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "version",
+          "description": "<p>The version string.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageVersionConnection",
+      "id": "packageversionconnection",
+      "href": "/graphql/reference/packages#object-packageversionconnection",
+      "description": "<p>The connection type for PackageVersion.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[PackageVersionEdge]",
+          "id": "packageversionedge",
+          "href": "/graphql/reference/packages#object-packageversionedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[PackageVersion]",
+          "id": "packageversion",
+          "href": "/graphql/reference/packages#object-packageversion"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageVersionEdge",
+      "id": "packageversionedge",
+      "href": "/graphql/reference/packages#object-packageversionedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "PackageVersion",
+          "id": "packageversion",
+          "href": "/graphql/reference/packages#object-packageversion"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageVersionStatistics",
+      "id": "packageversionstatistics",
+      "href": "/graphql/reference/packages#object-packageversionstatistics",
+      "description": "<p>Represents a object that contains package version activity statistics such as downloads.</p>",
+      "fields": [
+        {
+          "name": "downloadsTotalCount",
+          "description": "<p>Number of times the package was downloaded since it was created.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "packages"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "PackageOwner",
+      "id": "packageowner",
+      "href": "/graphql/reference/packages#interface-packageowner",
+      "description": "<p>Represents an owner of a package.</p>",
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PackageOwner object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "packages",
+          "description": "<p>A list of packages under the owner.</p>",
+          "type": "PackageConnection!",
+          "id": "packageconnection",
+          "href": "/graphql/reference/packages#object-packageconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "names",
+              "description": "<p>Find packages by their names.</p>",
+              "type": {
+                "name": "[String]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering of the returned packages.</p>",
+              "type": {
+                "name": "PackageOrder",
+                "id": "packageorder",
+                "href": "/graphql/reference/packages#input-object-packageorder"
+              }
+            },
+            {
+              "name": "packageType",
+              "description": "<p>Filter registry package by type.</p>",
+              "type": {
+                "name": "PackageType",
+                "id": "packagetype",
+                "href": "/graphql/reference/packages#enum-packagetype"
+              }
+            },
+            {
+              "name": "repositoryId",
+              "description": "<p>Find packages in a repository by ID.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "href": "/graphql/reference/other#scalar-id"
+              }
+            }
+          ]
+        }
+      ],
+      "category": "packages"
+    }
+  ],
+  "enums": [
+    {
+      "name": "PackageFileOrderField",
+      "id": "packagefileorderfield",
+      "href": "/graphql/reference/packages#enum-packagefileorderfield",
+      "description": "<p>Properties by which package file connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order package files by creation time.</p>"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageOrderField",
+      "id": "packageorderfield",
+      "href": "/graphql/reference/packages#enum-packageorderfield",
+      "description": "<p>Properties by which package connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order packages by creation time.</p>"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageType",
+      "id": "packagetype",
+      "href": "/graphql/reference/packages#enum-packagetype",
+      "description": "<p>The possible types of a package.</p>",
+      "values": [
+        {
+          "name": "DEBIAN",
+          "description": "<p>A debian package.</p>"
+        },
+        {
+          "name": "DOCKER",
+          "description": "<p>A docker image.</p>"
+        },
+        {
+          "name": "MAVEN",
+          "description": "<p>A maven package.</p>"
+        },
+        {
+          "name": "NPM",
+          "description": "<p>An npm package.</p>"
+        },
+        {
+          "name": "NUGET",
+          "description": "<p>A nuget package.</p>"
+        },
+        {
+          "name": "PYPI",
+          "description": "<p>A python package.</p>"
+        },
+        {
+          "name": "RUBYGEMS",
+          "description": "<p>A rubygems package.</p>"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageVersionOrderField",
+      "id": "packageversionorderfield",
+      "href": "/graphql/reference/packages#enum-packageversionorderfield",
+      "description": "<p>Properties by which package version connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order package versions by creation time.</p>"
+        }
+      ],
+      "category": "packages"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "DeletePackageVersionInput",
+      "id": "deletepackageversioninput",
+      "href": "/graphql/reference/packages#input-object-deletepackageversioninput",
+      "description": "<p>Autogenerated input type of DeletePackageVersion.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "packageVersionId",
+          "description": "<p>The ID of the package version to be deleted.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageFileOrder",
+      "id": "packagefileorder",
+      "href": "/graphql/reference/packages#input-object-packagefileorder",
+      "description": "<p>Ways in which lists of package files can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order package files by the specified field.</p>",
+          "type": "OrderDirection",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order package files by.</p>",
+          "type": "PackageFileOrderField",
+          "id": "packagefileorderfield",
+          "href": "/graphql/reference/packages#enum-packagefileorderfield"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageOrder",
+      "id": "packageorder",
+      "href": "/graphql/reference/packages#input-object-packageorder",
+      "description": "<p>Ways in which lists of packages can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order packages by the specified field.</p>",
+          "type": "OrderDirection",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order packages by.</p>",
+          "type": "PackageOrderField",
+          "id": "packageorderfield",
+          "href": "/graphql/reference/packages#enum-packageorderfield"
+        }
+      ],
+      "category": "packages"
+    },
+    {
+      "name": "PackageVersionOrder",
+      "id": "packageversionorder",
+      "href": "/graphql/reference/packages#input-object-packageversionorder",
+      "description": "<p>Ways in which lists of package versions can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order package versions by the specified field.</p>",
+          "type": "OrderDirection",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order package versions by.</p>",
+          "type": "PackageVersionOrderField",
+          "id": "packageversionorderfield",
+          "href": "/graphql/reference/packages#enum-packageversionorderfield"
+        }
+      ],
+      "category": "packages"
+    }
+  ]
+}

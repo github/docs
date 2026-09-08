@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Testing
 ---
 
 # Article Three

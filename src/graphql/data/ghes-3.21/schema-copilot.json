@@ -1,0 +1,80 @@
+{
+  "objects": [
+    {
+      "name": "CopilotEndpoints",
+      "id": "copilotendpoints",
+      "href": "/graphql/reference/copilot#object-copilotendpoints",
+      "description": "<p>Copilot endpoint information.</p>",
+      "fields": [
+        {
+          "name": "api",
+          "description": "<p>Copilot API endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "originTracker",
+          "description": "<p>Copilot origin tracker endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "proxy",
+          "description": "<p>Copilot proxy endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "telemetry",
+          "description": "<p>Copilot telemetry endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "copilot"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "Agentic",
+      "id": "agentic",
+      "href": "/graphql/reference/copilot#interface-agentic",
+      "description": "<p>Copilot Agentic fields in context of the current viewer.</p>",
+      "fields": [
+        {
+          "name": "viewerCopilotAgentCreatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session creations.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "viewerCopilotAgentLogUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session log updates.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "viewerCopilotAgentTaskUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for task updates.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "viewerCopilotAgentUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session updates.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "copilot"
+    }
+  ]
+}

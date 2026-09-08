@@ -6,19 +6,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
-  - Code Security
-  - Code scanning
-  - Vulnerabilities
-  - Code Quality
 contentType: rai
-children:
-  - /responsible-use-autofix-code-scanning
-  - /responsible-ai-generic-secrets
-  - /responsible-ai-regex-generator
-  - /code-quality
 redirect_from:
   - /code-security/code-quality/responsible-use
+children:
+  - /security-and-quality-ai-features
 ---
+

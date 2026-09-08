@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
 children:
   - /creating-webhooks
   - /handling-webhook-deliveries

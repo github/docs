@@ -7,16 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Code Security
-  - Code scanning
-  - Dependabot
-  - Alerts
-  - Repositories
-  - Security updates
-  - Dependencies
 children:
   - filtering-alerts-in-security-overview
   - creating-managing-security-campaigns

@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
 import type { Node, Parent } from 'unist'
-import type { Element } from 'hast'
+import type { Element, Text } from 'hast'
 
 /**
  * A rehype plugin that automatically adds aria-labelledby attributes to tables
@@ -96,7 +96,7 @@ function findPrecedingHeading(parent: Parent, tableIndex: number): HeadingInfo |
 
 function extractTextFromNode(node: Node): string {
   if (node.type === 'text') {
-    return (node as any).value
+    return (node as Text).value
   }
 
   if (node.type === 'element' && (node as Element).children) {

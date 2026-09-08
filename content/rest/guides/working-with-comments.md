@@ -8,8 +8,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
+category:
+  - Build apps and integrations
 ---
 
 
@@ -31,7 +31,7 @@ Request is just an Issue with code, it makes sense to use these endpoints to
 create comments on a Pull Request.
 
 We'll demonstrate fetching Pull Request comments by creating a Ruby script using
-[Octokit.rb](https://github.com/octokit/octokit.rb). You'll also want to create a [{% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+[Octokit.rb](https://github.com/octokit/octokit.rb). You'll also want to create a [{% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 The following code should help you get started accessing comments from a Pull Request
 using Octokit.rb:
@@ -115,3 +115,9 @@ end
 
 Note that this API call will retrieve single line comments, as well as comments made
 on the entire commit.
+
+{% ifversion ghes > 3.21 %}
+
+Creating commit comments can be enabled or disabled for a repository. Organization owners can configure the default setting for repositories in their organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-commit-comments-for-your-organization).
+
+{% endif %}

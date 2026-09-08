@@ -14,7 +14,11 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
   - /education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom
 shortTitle: Connect an LMS course
+category:
+  - Set up GitHub Classroom
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## About connecting an LMS to your classroom
 
 You can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %} and import a roster of student identifiers from the LMS.

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: About writing & formatting
+category:
+  - Write and format content
 ---
 {% data reusables.getting-started.what-is-markdown %}
 

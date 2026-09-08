@@ -9,9 +9,9 @@ redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces
-topics:
-  - Codespaces
-type: how_to
+contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 On the settings page, you can set your editor preference so that when you create a codespace, or open an existing codespace, it is opened in your choice of:

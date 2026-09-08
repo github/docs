@@ -1,0 +1,1970 @@
+{
+  "mutations": [
+    {
+      "name": "createBranchProtectionRule",
+      "id": "createbranchprotectionrule",
+      "href": "/graphql/reference/branches#mutation-createbranchprotectionrule",
+      "description": "<p>Create a new branch protection rule.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateBranchProtectionRuleInput!",
+          "id": "createbranchprotectionruleinput",
+          "href": "/graphql/reference/branches#input-object-createbranchprotectionruleinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "branchProtectionRule",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule",
+          "description": "<p>The newly created BranchProtectionRule.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "deleteBranchProtectionRule",
+      "id": "deletebranchprotectionrule",
+      "href": "/graphql/reference/branches#mutation-deletebranchprotectionrule",
+      "description": "<p>Delete a branch protection rule.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteBranchProtectionRuleInput!",
+          "id": "deletebranchprotectionruleinput",
+          "href": "/graphql/reference/branches#input-object-deletebranchprotectionruleinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "mergeBranch",
+      "id": "mergebranch",
+      "href": "/graphql/reference/branches#mutation-mergebranch",
+      "description": "<p>Merge a head into a branch.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "MergeBranchInput!",
+          "id": "mergebranchinput",
+          "href": "/graphql/reference/branches#input-object-mergebranchinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "mergeCommit",
+          "type": "Commit",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit",
+          "description": "<p>The resulting merge Commit.</p>"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "updateBranchProtectionRule",
+      "id": "updatebranchprotectionrule",
+      "href": "/graphql/reference/branches#mutation-updatebranchprotectionrule",
+      "description": "<p>Update a branch protection rule.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateBranchProtectionRuleInput!",
+          "id": "updatebranchprotectionruleinput",
+          "href": "/graphql/reference/branches#input-object-updatebranchprotectionruleinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "branchProtectionRule",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule",
+          "description": "<p>The newly created BranchProtectionRule.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "branches"
+    }
+  ],
+  "objects": [
+    {
+      "name": "BranchNamePatternParameters",
+      "id": "branchnamepatternparameters",
+      "href": "/graphql/reference/branches#object-branchnamepatternparameters",
+      "description": "<p>Parameters to be used for the branch_name_pattern rule.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule appears when configuring it.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BranchProtectionRule",
+      "id": "branchprotectionrule",
+      "href": "/graphql/reference/branches#object-branchprotectionrule",
+      "description": "<p>A branch protection rule.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "blocksCreations",
+          "description": "<p>Is branch creation a protected operation.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "branchProtectionRuleConflicts",
+          "description": "<p>A list of conflicts matching branches protection rule and other branch protection rules.</p>",
+          "type": "BranchProtectionRuleConflictConnection!",
+          "id": "branchprotectionruleconflictconnection",
+          "href": "/graphql/reference/branches#object-branchprotectionruleconflictconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "bypassForcePushAllowances",
+          "description": "<p>A list of actors able to force push for this branch protection rule.</p>",
+          "type": "BypassForcePushAllowanceConnection!",
+          "id": "bypassforcepushallowanceconnection",
+          "href": "/graphql/reference/branches#object-bypassforcepushallowanceconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "bypassPullRequestAllowances",
+          "description": "<p>A list of actors able to bypass PRs for this branch protection rule.</p>",
+          "type": "BypassPullRequestAllowanceConnection!",
+          "id": "bypasspullrequestallowanceconnection",
+          "href": "/graphql/reference/branches#object-bypasspullrequestallowanceconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "creator",
+          "description": "<p>The actor who created this branch protection rule.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "dismissesStaleReviews",
+          "description": "<p>Will new commits pushed to matching branches dismiss pull request review approvals.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BranchProtectionRule object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isAdminEnforced",
+          "description": "<p>Can admins override branch protection.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "matchingRefs",
+          "description": "<p>Repository refs that are protected by this rule.</p>",
+          "type": "RefConnection!",
+          "id": "refconnection",
+          "href": "/graphql/reference/git#object-refconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>Filters refs with query on name.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "pattern",
+          "description": "<p>Identifies the protection rule pattern.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pushAllowances",
+          "description": "<p>A list push allowances for this branch protection rule.</p>",
+          "type": "PushAllowanceConnection!",
+          "id": "pushallowanceconnection",
+          "href": "/graphql/reference/branches#object-pushallowanceconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with this branch protection rule.</p>",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiredApprovingReviewCount",
+          "description": "<p>Number of approving reviews required to update matching branches.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>List of required deployment environments that must be deployed successfully to update matching branches.</p>",
+          "type": "[String]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "requiredStatusCheckContexts",
+          "description": "<p>List of required status check contexts that must pass for commits to be accepted to matching branches.</p>",
+          "type": "[String]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>List of required status checks that must pass for commits to be accepted to matching branches.</p>",
+          "type": "[RequiredStatusCheckDescription!]",
+          "id": "requiredstatuscheckdescription",
+          "href": "/graphql/reference/branches#object-requiredstatuscheckdescription"
+        },
+        {
+          "name": "requiresApprovingReviews",
+          "description": "<p>Are approving reviews required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresCodeOwnerReviews",
+          "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresCommitSignatures",
+          "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresDeployments",
+          "description": "<p>Does this branch require deployment to specific environments before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresStatusChecks",
+          "description": "<p>Are status checks required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresStrictStatusChecks",
+          "description": "<p>Are branches required to be up to date before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "restrictsPushes",
+          "description": "<p>Is pushing to matching branches restricted.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "restrictsReviewDismissals",
+          "description": "<p>Is dismissal of pull request reviews restricted.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "reviewDismissalAllowances",
+          "description": "<p>A list review dismissal allowances for this branch protection rule.</p>",
+          "type": "ReviewDismissalAllowanceConnection!",
+          "id": "reviewdismissalallowanceconnection",
+          "href": "/graphql/reference/branches#object-reviewdismissalallowanceconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BranchProtectionRuleConflict",
+      "id": "branchprotectionruleconflict",
+      "href": "/graphql/reference/branches#object-branchprotectionruleconflict",
+      "description": "<p>A conflict between two branch protection rules.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "branchProtectionRule",
+          "description": "<p>Identifies the branch protection rule.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule"
+        },
+        {
+          "name": "conflictingBranchProtectionRule",
+          "description": "<p>Identifies the conflicting branch protection rule.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule"
+        },
+        {
+          "name": "ref",
+          "description": "<p>Identifies the branch ref that has conflicting rules.</p>",
+          "type": "Ref",
+          "id": "ref",
+          "href": "/graphql/reference/git#object-ref"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BranchProtectionRuleConflictConnection",
+      "id": "branchprotectionruleconflictconnection",
+      "href": "/graphql/reference/branches#object-branchprotectionruleconflictconnection",
+      "description": "<p>The connection type for BranchProtectionRuleConflict.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[BranchProtectionRuleConflictEdge]",
+          "id": "branchprotectionruleconflictedge",
+          "href": "/graphql/reference/branches#object-branchprotectionruleconflictedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[BranchProtectionRuleConflict]",
+          "id": "branchprotectionruleconflict",
+          "href": "/graphql/reference/branches#object-branchprotectionruleconflict"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BranchProtectionRuleConflictEdge",
+      "id": "branchprotectionruleconflictedge",
+      "href": "/graphql/reference/branches#object-branchprotectionruleconflictedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "BranchProtectionRuleConflict",
+          "id": "branchprotectionruleconflict",
+          "href": "/graphql/reference/branches#object-branchprotectionruleconflict"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BranchProtectionRuleConnection",
+      "id": "branchprotectionruleconnection",
+      "href": "/graphql/reference/branches#object-branchprotectionruleconnection",
+      "description": "<p>The connection type for BranchProtectionRule.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[BranchProtectionRuleEdge]",
+          "id": "branchprotectionruleedge",
+          "href": "/graphql/reference/branches#object-branchprotectionruleedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[BranchProtectionRule]",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BranchProtectionRuleEdge",
+      "id": "branchprotectionruleedge",
+      "href": "/graphql/reference/branches#object-branchprotectionruleedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BypassForcePushAllowance",
+      "id": "bypassforcepushallowance",
+      "href": "/graphql/reference/branches#object-bypassforcepushallowance",
+      "description": "<p>A user, team, or app who has the ability to bypass a force push requirement on a protected branch.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor that can force push.</p>",
+          "type": "BranchActorAllowanceActor",
+          "id": "branchactorallowanceactor",
+          "href": "/graphql/reference/branches#union-branchactorallowanceactor"
+        },
+        {
+          "name": "branchProtectionRule",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BypassForcePushAllowance object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BypassForcePushAllowanceConnection",
+      "id": "bypassforcepushallowanceconnection",
+      "href": "/graphql/reference/branches#object-bypassforcepushallowanceconnection",
+      "description": "<p>The connection type for BypassForcePushAllowance.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[BypassForcePushAllowanceEdge]",
+          "id": "bypassforcepushallowanceedge",
+          "href": "/graphql/reference/branches#object-bypassforcepushallowanceedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[BypassForcePushAllowance]",
+          "id": "bypassforcepushallowance",
+          "href": "/graphql/reference/branches#object-bypassforcepushallowance"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BypassForcePushAllowanceEdge",
+      "id": "bypassforcepushallowanceedge",
+      "href": "/graphql/reference/branches#object-bypassforcepushallowanceedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "BypassForcePushAllowance",
+          "id": "bypassforcepushallowance",
+          "href": "/graphql/reference/branches#object-bypassforcepushallowance"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BypassPullRequestAllowance",
+      "id": "bypasspullrequestallowance",
+      "href": "/graphql/reference/branches#object-bypasspullrequestallowance",
+      "description": "<p>A user, team, or app who has the ability to bypass a pull request requirement on a protected branch.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor that can bypass.</p>",
+          "type": "BranchActorAllowanceActor",
+          "id": "branchactorallowanceactor",
+          "href": "/graphql/reference/branches#union-branchactorallowanceactor"
+        },
+        {
+          "name": "branchProtectionRule",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BypassPullRequestAllowance object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BypassPullRequestAllowanceConnection",
+      "id": "bypasspullrequestallowanceconnection",
+      "href": "/graphql/reference/branches#object-bypasspullrequestallowanceconnection",
+      "description": "<p>The connection type for BypassPullRequestAllowance.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[BypassPullRequestAllowanceEdge]",
+          "id": "bypasspullrequestallowanceedge",
+          "href": "/graphql/reference/branches#object-bypasspullrequestallowanceedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[BypassPullRequestAllowance]",
+          "id": "bypasspullrequestallowance",
+          "href": "/graphql/reference/branches#object-bypasspullrequestallowance"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "BypassPullRequestAllowanceEdge",
+      "id": "bypasspullrequestallowanceedge",
+      "href": "/graphql/reference/branches#object-bypasspullrequestallowanceedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "BypassPullRequestAllowance",
+          "id": "bypasspullrequestallowance",
+          "href": "/graphql/reference/branches#object-bypasspullrequestallowance"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "PushAllowance",
+      "id": "pushallowance",
+      "href": "/graphql/reference/branches#object-pushallowance",
+      "description": "<p>A team, user, or app who has the ability to push to a protected branch.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor that can push.</p>",
+          "type": "PushAllowanceActor",
+          "id": "pushallowanceactor",
+          "href": "/graphql/reference/branches#union-pushallowanceactor"
+        },
+        {
+          "name": "branchProtectionRule",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PushAllowance object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "PushAllowanceConnection",
+      "id": "pushallowanceconnection",
+      "href": "/graphql/reference/branches#object-pushallowanceconnection",
+      "description": "<p>The connection type for PushAllowance.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[PushAllowanceEdge]",
+          "id": "pushallowanceedge",
+          "href": "/graphql/reference/branches#object-pushallowanceedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[PushAllowance]",
+          "id": "pushallowance",
+          "href": "/graphql/reference/branches#object-pushallowance"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "PushAllowanceEdge",
+      "id": "pushallowanceedge",
+      "href": "/graphql/reference/branches#object-pushallowanceedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "PushAllowance",
+          "id": "pushallowance",
+          "href": "/graphql/reference/branches#object-pushallowance"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "RefNameConditionTarget",
+      "id": "refnameconditiontarget",
+      "href": "/graphql/reference/branches#object-refnameconditiontarget",
+      "description": "<p>Parameters to be used for the ref_name condition.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of ref names or patterns to include. One of these patterns must match\nfor the condition to pass. Also accepts <code>~DEFAULT_BRANCH</code> to include the\ndefault branch or <code>~ALL</code> to include all branches.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "RequiredStatusCheckDescription",
+      "id": "requiredstatuscheckdescription",
+      "href": "/graphql/reference/branches#object-requiredstatuscheckdescription",
+      "description": "<p>Represents a required status check for a protected branch, but not any specific run of that check.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "app",
+          "description": "<p>The App that must provide this status in order for it to be accepted.</p>",
+          "type": "App",
+          "id": "app",
+          "href": "/graphql/reference/apps#object-app"
+        },
+        {
+          "name": "context",
+          "description": "<p>The name of this status.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "RequiredStatusChecksParameters",
+      "id": "requiredstatuschecksparameters",
+      "href": "/graphql/reference/branches#object-requiredstatuschecksparameters",
+      "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "doNotEnforceOnCreate",
+          "description": "<p>Allow repositories and branches to be created if a check would otherwise prohibit it.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>Status checks that are required.</p>",
+          "type": "[StatusCheckConfiguration!]!",
+          "id": "statuscheckconfiguration",
+          "href": "/graphql/reference/commits#object-statuscheckconfiguration"
+        },
+        {
+          "name": "strictRequiredStatusChecksPolicy",
+          "description": "<p>Whether pull requests targeting a matching branch must be tested with the\nlatest code. This setting will not take effect unless at least one status\ncheck is enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "ReviewDismissalAllowance",
+      "id": "reviewdismissalallowance",
+      "href": "/graphql/reference/branches#object-reviewdismissalallowance",
+      "description": "<p>A user, team, or app who has the ability to dismiss a review on a protected branch.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor that can dismiss.</p>",
+          "type": "ReviewDismissalAllowanceActor",
+          "id": "reviewdismissalallowanceactor",
+          "href": "/graphql/reference/branches#union-reviewdismissalallowanceactor"
+        },
+        {
+          "name": "branchProtectionRule",
+          "description": "<p>Identifies the branch protection rule associated with the allowed user, team, or app.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ReviewDismissalAllowance object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "ReviewDismissalAllowanceConnection",
+      "id": "reviewdismissalallowanceconnection",
+      "href": "/graphql/reference/branches#object-reviewdismissalallowanceconnection",
+      "description": "<p>The connection type for ReviewDismissalAllowance.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ReviewDismissalAllowanceEdge]",
+          "id": "reviewdismissalallowanceedge",
+          "href": "/graphql/reference/branches#object-reviewdismissalallowanceedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ReviewDismissalAllowance]",
+          "id": "reviewdismissalallowance",
+          "href": "/graphql/reference/branches#object-reviewdismissalallowance"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "ReviewDismissalAllowanceEdge",
+      "id": "reviewdismissalallowanceedge",
+      "href": "/graphql/reference/branches#object-reviewdismissalallowanceedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ReviewDismissalAllowance",
+          "id": "reviewdismissalallowance",
+          "href": "/graphql/reference/branches#object-reviewdismissalallowance"
+        }
+      ],
+      "category": "branches"
+    }
+  ],
+  "unions": [
+    {
+      "name": "BranchActorAllowanceActor",
+      "id": "branchactorallowanceactor",
+      "href": "/graphql/reference/branches#union-branchactorallowanceactor",
+      "description": "<p>Types which can be actors for <code>BranchActorAllowance</code> objects.</p>",
+      "isDeprecated": false,
+      "possibleTypes": [
+        {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/apps#object-app"
+        },
+        {
+          "name": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "PushAllowanceActor",
+      "id": "pushallowanceactor",
+      "href": "/graphql/reference/branches#union-pushallowanceactor",
+      "description": "<p>Types that can be an actor.</p>",
+      "isDeprecated": false,
+      "possibleTypes": [
+        {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/apps#object-app"
+        },
+        {
+          "name": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "ReviewDismissalAllowanceActor",
+      "id": "reviewdismissalallowanceactor",
+      "href": "/graphql/reference/branches#union-reviewdismissalallowanceactor",
+      "description": "<p>Types that can be an actor.</p>",
+      "isDeprecated": false,
+      "possibleTypes": [
+        {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/apps#object-app"
+        },
+        {
+          "name": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "branches"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "BranchNamePatternParametersInput",
+      "id": "branchnamepatternparametersinput",
+      "href": "/graphql/reference/branches#input-object-branchnamepatternparametersinput",
+      "description": "<p>Parameters to be used for the branch_name_pattern rule.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule appears when configuring it.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "CreateBranchProtectionRuleInput",
+      "id": "createbranchprotectionruleinput",
+      "href": "/graphql/reference/branches#input-object-createbranchprotectionruleinput",
+      "description": "<p>Autogenerated input type of CreateBranchProtectionRule.</p>",
+      "inputFields": [
+        {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "blocksCreations",
+          "description": "<p>Is branch creation a protected operation.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "bypassForcePushActorIds",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "bypassPullRequestActorIds",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "dismissesStaleReviews",
+          "description": "<p>Will new commits pushed to matching branches dismiss pull request review approvals.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isAdminEnforced",
+          "description": "<p>Can admins override branch protection.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The glob-like pattern used to determine matching branches.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pushActorIds",
+          "description": "<p>A list of User, Team, or App IDs allowed to push to matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The global relay id of the repository in which a new branch protection rule should be created in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiredApprovingReviewCount",
+          "description": "<p>Number of approving reviews required to update matching branches.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>The list of required deployment environments.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "requiredStatusCheckContexts",
+          "description": "<p>List of required status check contexts that must pass for commits to be accepted to matching branches.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>The list of required status checks.</p>",
+          "type": "[RequiredStatusCheckInput!]",
+          "id": "requiredstatuscheckinput",
+          "href": "/graphql/reference/branches#input-object-requiredstatuscheckinput"
+        },
+        {
+          "name": "requiresApprovingReviews",
+          "description": "<p>Are approving reviews required to update matching branches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresCodeOwnerReviews",
+          "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresCommitSignatures",
+          "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresDeployments",
+          "description": "<p>Are successful deployments required before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresStatusChecks",
+          "description": "<p>Are status checks required to update matching branches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresStrictStatusChecks",
+          "description": "<p>Are branches required to be up to date before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "restrictsPushes",
+          "description": "<p>Is pushing to matching branches restricted.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "restrictsReviewDismissals",
+          "description": "<p>Is dismissal of pull request reviews restricted.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "reviewDismissalActorIds",
+          "description": "<p>A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "DeleteBranchProtectionRuleInput",
+      "id": "deletebranchprotectionruleinput",
+      "href": "/graphql/reference/branches#input-object-deletebranchprotectionruleinput",
+      "description": "<p>Autogenerated input type of DeleteBranchProtectionRule.</p>",
+      "inputFields": [
+        {
+          "name": "branchProtectionRuleId",
+          "description": "<p>The global relay id of the branch protection rule to be deleted.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "MergeBranchInput",
+      "id": "mergebranchinput",
+      "href": "/graphql/reference/branches#input-object-mergebranchinput",
+      "description": "<p>Autogenerated input type of MergeBranch.</p>",
+      "inputFields": [
+        {
+          "name": "authorEmail",
+          "description": "<p>The email address to associate with this commit.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "base",
+          "description": "<p>The name of the base branch that the provided head will be merged into.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "commitMessage",
+          "description": "<p>Message to use for the merge commit. If omitted, a default will be used.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "head",
+          "description": "<p>The head to merge into the base branch. This can be a branch name or a commit GitObjectID.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The Node ID of the Repository containing the base branch that will be modified.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "RefNameConditionTargetInput",
+      "id": "refnameconditiontargetinput",
+      "href": "/graphql/reference/branches#input-object-refnameconditiontargetinput",
+      "description": "<p>Parameters to be used for the ref_name condition.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of ref names or patterns to include. One of these patterns must match\nfor the condition to pass. Also accepts <code>~DEFAULT_BRANCH</code> to include the\ndefault branch or <code>~ALL</code> to include all branches.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "RequiredStatusCheckInput",
+      "id": "requiredstatuscheckinput",
+      "href": "/graphql/reference/branches#input-object-requiredstatuscheckinput",
+      "description": "<p>Specifies the attributes for a new or updated required status check.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "appId",
+          "description": "<p>The ID of the App that must set the status in order for it to be accepted.\nOmit this value to use whichever app has recently been setting this status, or\nuse \"any\" to allow any app to set the status.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "context",
+          "description": "<p>Status check context that must pass for commits to be accepted to the matching branch.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "RequiredStatusChecksParametersInput",
+      "id": "requiredstatuschecksparametersinput",
+      "href": "/graphql/reference/branches#input-object-requiredstatuschecksparametersinput",
+      "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "doNotEnforceOnCreate",
+          "description": "<p>Allow repositories and branches to be created if a check would otherwise prohibit it.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>Status checks that are required.</p>",
+          "type": "[StatusCheckConfigurationInput!]!",
+          "id": "statuscheckconfigurationinput",
+          "href": "/graphql/reference/commits#input-object-statuscheckconfigurationinput"
+        },
+        {
+          "name": "strictRequiredStatusChecksPolicy",
+          "description": "<p>Whether pull requests targeting a matching branch must be tested with the\nlatest code. This setting will not take effect unless at least one status\ncheck is enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "branches"
+    },
+    {
+      "name": "UpdateBranchProtectionRuleInput",
+      "id": "updatebranchprotectionruleinput",
+      "href": "/graphql/reference/branches#input-object-updatebranchprotectionruleinput",
+      "description": "<p>Autogenerated input type of UpdateBranchProtectionRule.</p>",
+      "inputFields": [
+        {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "blocksCreations",
+          "description": "<p>Is branch creation a protected operation.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "branchProtectionRuleId",
+          "description": "<p>The global relay id of the branch protection rule to be updated.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "bypassForcePushActorIds",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass force push targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "bypassPullRequestActorIds",
+          "description": "<p>A list of User, Team, or App IDs allowed to bypass pull requests targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "dismissesStaleReviews",
+          "description": "<p>Will new commits pushed to matching branches dismiss pull request review approvals.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isAdminEnforced",
+          "description": "<p>Can admins override branch protection.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lockAllowsFetchAndMerge",
+          "description": "<p>Whether users can pull changes from upstream when the branch is locked. Set to\n<code>true</code> to allow fork syncing. Set to <code>false</code> to prevent fork syncing.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lockBranch",
+          "description": "<p>Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The glob-like pattern used to determine matching branches.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pushActorIds",
+          "description": "<p>A list of User, Team, or App IDs allowed to push to matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiredApprovingReviewCount",
+          "description": "<p>Number of approving reviews required to update matching branches.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>The list of required deployment environments.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "requiredStatusCheckContexts",
+          "description": "<p>List of required status check contexts that must pass for commits to be accepted to matching branches.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>The list of required status checks.</p>",
+          "type": "[RequiredStatusCheckInput!]",
+          "id": "requiredstatuscheckinput",
+          "href": "/graphql/reference/branches#input-object-requiredstatuscheckinput"
+        },
+        {
+          "name": "requiresApprovingReviews",
+          "description": "<p>Are approving reviews required to update matching branches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresCodeOwnerReviews",
+          "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresCommitSignatures",
+          "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresDeployments",
+          "description": "<p>Are successful deployments required before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresStatusChecks",
+          "description": "<p>Are status checks required to update matching branches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresStrictStatusChecks",
+          "description": "<p>Are branches required to be up to date before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "restrictsPushes",
+          "description": "<p>Is pushing to matching branches restricted.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "restrictsReviewDismissals",
+          "description": "<p>Is dismissal of pull request reviews restricted.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "reviewDismissalActorIds",
+          "description": "<p>A list of User, Team, or App IDs allowed to dismiss reviews on pull requests targeting matching branches.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        }
+      ],
+      "category": "branches"
+    }
+  ]
+}

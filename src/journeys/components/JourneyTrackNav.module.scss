@@ -1,0 +1,74 @@
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+
+.upNext {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  border-top: 1px solid var(--color-border-muted);
+  border-bottom: 1px solid var(--color-border-muted);
+  background: linear-gradient(
+    to bottom,
+    var(--color-canvas-subtle),
+    var(--color-canvas-default)
+  );
+
+  @include breakpoint(md) {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--brand-fontStack-monospace, "Mona Sans Mono", monospace);
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+  text-transform: uppercase;
+  color: var(--brand-color-text-muted);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-fg-default);
+
+  &:hover {
+    text-decoration: none;
+
+    .title {
+      text-decoration: underline;
+    }
+  }
+}
+
+.title {
+  font-family: var(--brand-fontStack-sansSerif, "Mona Sans", sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0.14px;
+}
+
+.progress {
+  margin: 0;
+  font-family: var(--brand-fontStack-sansSerif, "Mona Sans", sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.14px;
+  color: var(--brand-color-text-muted);
+  white-space: nowrap;
+}

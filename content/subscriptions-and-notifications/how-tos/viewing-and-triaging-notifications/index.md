@@ -11,11 +11,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Notifications
 children:
   - /managing-notifications-from-your-inbox
   - /triaging-a-single-notification
 shortTitle: Customize a workflow
+contentType: how-tos
 ---
 

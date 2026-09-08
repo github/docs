@@ -5,13 +5,10 @@ intro: 'Learn how to configure Okta for {% data variables.product.prodname_emus 
 product: '{% data reusables.gated-features.emus %}'
 versions:
   ghec: '*'
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users
+category:
+  - Provision and manage enterprise users
 ---
 
 >[!WARNING]
@@ -52,4 +49,4 @@ The {% data variables.product.prodname_emu_idp_application %} application on Okt
 
 ## Enabling provisioning
 
-After you enable SAML SSO, enable provisioning. For more information, see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta).
+After you enable SAML SSO, enable provisioning. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta).

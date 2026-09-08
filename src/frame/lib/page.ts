@@ -1,25 +1,29 @@
 import assert from 'assert'
 import path from 'path'
 import fs from 'fs/promises'
-import cheerio from 'cheerio'
+import { stripOuterTag } from '@/frame/lib/strip-outer-tag'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import generateRedirectsForPermalinks from '@/redirects/lib/permalinks'
 import getEnglishHeadings from '@/languages/lib/get-english-headings'
 import { getAlertTitles } from '@/languages/lib/get-alert-titles'
 import Permalink from './permalink'
 import { renderContent } from '@/content-render/index'
-import processLearningTracks from '@/learning-track/lib/process-learning-tracks'
+
 import { productMap } from '@/products/lib/all-products'
 import slash from 'slash'
 import readFileContents from './read-file-contents'
-import getLinkData from '@/learning-track/lib/get-link-data'
+
 import getDocumentType from '@/events/lib/get-document-type'
 import { allTools } from '@/tools/lib/all-tools'
 import { renderContentWithFallback } from '@/languages/lib/render-with-fallback'
 import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
 import { allPlatforms } from '@/tools/lib/all-platforms'
-
 import type { Context, FrontmatterVersions, FeaturedLinksExpanded } from '@/types'
+import type { Product } from '@/products/lib/all-products'
+import { createLogger } from '@/observability/logger'
+const logger = createLogger(import.meta.url)
+
+const isProduction = process.env.NODE_ENV === 'production'
 
 // We're going to check a lot of pages' "ID" (the first part of
 // the relativePath) against `productMap` to make sure it's valid.
@@ -27,10 +31,17 @@ import type { Context, FrontmatterVersions, FeaturedLinksExpanded } from '@/type
 // every single time, we turn it into a Set once.
 const productMapKeysAsSet = new Set(Object.keys(productMap))
 
+type FrontmatterError = {
+  reason: string
+  message?: string
+  filepath?: string
+  property?: string
+}
+
 type ReadFileContentsResult = {
-  data?: any
+  data?: Record<string, unknown>
   content?: string
-  errors?: any[]
+  errors?: FrontmatterError[]
 }
 
 type PageInitOptions = {
@@ -42,8 +53,9 @@ type PageInitOptions = {
 type PageReadResult = PageInitOptions & {
   fullPath: string
   markdown: string
-  frontmatterErrors?: any[]
-} & any
+  frontmatterErrors?: FrontmatterError[]
+  [key: string]: unknown
+}
 
 type RenderOptions = {
   preferShort?: boolean
@@ -57,17 +69,10 @@ type CommunityRedirect = {
   href: string
 }
 
-type GuideWithType = {
-  href: string
-  title: string
-  type?: string
-  topics?: string[]
-}
-
 export class FrontmatterErrorsError extends Error {
-  public frontmatterErrors: string[]
+  public frontmatterErrors: FrontmatterError[]
 
-  constructor(message: string, frontmatterErrors: string[]) {
+  constructor(message: string, frontmatterErrors: FrontmatterError[]) {
     super(message)
     this.frontmatterErrors = frontmatterErrors
   }
@@ -89,10 +94,6 @@ class Page {
   public showMiniToc?: boolean
   public hidden?: boolean
   public redirect_from?: string[]
-  public learningTracks?: any[]
-  public rawLearningTracks?: string[]
-  public includeGuides?: GuideWithType[]
-  public rawIncludeGuides?: string[]
   public introLinks?: Record<string, string>
   public rawIntroLinks?: Record<string, string>
   public carousels?: Record<string, string[]>
@@ -147,8 +148,8 @@ class Page {
       }: ReadFileContentsResult = await readFileContents(fullPath)
 
       // Get file modification time
-      const stats = await fs.stat(fullPath)
-      const mtime = stats.mtimeMs
+      // Only used to quick reload local dev; not needed for production
+      const mtime = isProduction ? 1 : (await fs.stat(fullPath)).mtimeMs
 
       // The `|| ''` is for pages that are purely frontmatter.
       // So the `content` property will be `undefined`.
@@ -191,19 +192,20 @@ class Page {
         mtime,
         frontmatterErrors,
       } as PageReadResult
-    } catch (err: any) {
-      if (err.code === 'ENOENT') return false
-      console.error(err)
+    } catch (err) {
+      if (err instanceof Error && (err as NodeJS.ErrnoException).code === 'ENOENT') return false
+      logger.error('Failed to read page file', { error: err, fullPath })
       return false
     }
   }
 
   constructor(opts: PageReadResult) {
     if (opts.frontmatterErrors && opts.frontmatterErrors.length) {
-      console.error(
-        `${opts.frontmatterErrors.length} frontmatter errors trying to load ${opts.fullPath}:`,
-      )
-      console.error(opts.frontmatterErrors)
+      logger.error('Frontmatter errors loading page', {
+        errorCount: opts.frontmatterErrors.length,
+        fullPath: opts.fullPath,
+        frontmatterErrors: opts.frontmatterErrors,
+      })
       throw new FrontmatterErrorsError(
         `${opts.frontmatterErrors.length} frontmatter errors in ${opts.fullPath}`,
         opts.frontmatterErrors,
@@ -221,8 +223,6 @@ class Page {
     this.rawShortTitle = this.shortTitle
     this.rawProduct = this.product
     this.rawPermissions = this.permissions
-    this.rawLearningTracks = this.learningTracks
-    this.rawIncludeGuides = this.includeGuides as any
     this.rawIntroLinks = this.introLinks
     this.rawCarousels = this.carousels
 
@@ -246,7 +246,7 @@ class Page {
 
       if (versionsParentProductIsNotAvailableIn.length) {
         throw new Error(
-          `\`versions\` frontmatter in ${this.fullPath} contains ${versionsParentProductIsNotAvailableIn}, which ${this.parentProduct.id} product is not available in!`,
+          `\`versions\` frontmatter in ${this.fullPath} contains ${versionsParentProductIsNotAvailableIn}, which ${this.parentProduct?.id} product is not available in!`,
         )
       }
     }
@@ -301,7 +301,7 @@ class Page {
     return id
   }
 
-  get parentProduct(): any {
+  get parentProduct(): Product | undefined {
     const id = this.parentProductId
     return id ? productMap[id] : undefined
   }
@@ -359,12 +359,6 @@ class Page {
       this.permissions = await renderContentWithFallback(this, 'rawPermissions', context)
     }
 
-    // Learning tracks may contain Liquid and need to have versioning processed.
-    if (this.rawLearningTracks) {
-      const { learningTracks } = await processLearningTracks(this.rawLearningTracks, context)
-      this.learningTracks = learningTracks
-    }
-
     // introLinks may contain Liquid and need to have versioning processed.
     if (this.rawIntroLinks) {
       const introLinks: Record<string, string> = {}
@@ -375,19 +369,6 @@ class Page {
       }
 
       this.introLinks = introLinks
-    }
-
-    if (this.rawIncludeGuides) {
-      this.includeGuides = (await getLinkData(this.rawIncludeGuides, context)) as GuideWithType[]
-      this.includeGuides?.map((guide: any) => {
-        const { page } = guide
-        guide.type = page.type
-        if (page.topics) {
-          guide.topics = page.topics
-        }
-        delete guide.page
-        return guide
-      })
     }
 
     // set a flag so layout knows whether to render a mac/windows/linux switcher element
@@ -440,8 +421,7 @@ class Page {
     if (!opts.unwrap) return html
 
     // The unwrap option removes surrounding tags from a string, preserving any inner HTML
-    const $ = cheerio.load(html, { xmlMode: true })
-    return $.root().contents().html() || ''
+    return stripOuterTag(html)
   }
 
   // infer current page's corresponding homepage

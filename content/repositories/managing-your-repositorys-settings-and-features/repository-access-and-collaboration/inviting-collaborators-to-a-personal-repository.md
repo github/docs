@@ -15,18 +15,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
 shortTitle: Invite collaborators
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 
 ## Inviting a collaborator to a personal repository
 
 You can send an invitation to collaborate in your repository directly to someone on {% data variables.product.prodname_dotcom %}{% ifversion fpt or ghec %}, or to the person's email address{% elsif ghes %}.{% endif %}.
 
-1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}
+1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/account-and-profile/how-tos/account-management/creating-an-account-on-github).{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Access" section of the sidebar, click **{% octicon "people" aria-hidden="true" aria-label="people" %} Collaborators**.
@@ -39,4 +38,4 @@ You can send an invitation to collaborate in your repository directly to someone
 
 ## Next steps
 
-* For reference information, see [AUTOTITLE](/account-and-profile/reference/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)
+* For reference information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)

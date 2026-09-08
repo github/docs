@@ -17,8 +17,6 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/managing-access-to-github-copilot-in-your-organization/grant-access
   - /copilot/how-tos/administer/organizations/manage-access/grant-access
   - /copilot/how-tos/administer/manage-for-organization/manage-access/grant-access
-topics:
-  - Copilot
 contentType: how-tos
 category: 
   - Manage Copilot for a team
@@ -28,7 +26,7 @@ category:
 
 {% ifversion ghec %}After a {% data variables.product.prodname_dotcom %} enterprise owner enables {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} for an organization, an owner of that organization can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% else %}After setting up a {% data variables.copilot.copilot_business_short %} plan, an organization owner can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% endif %}
 
-Billing for {% data variables.product.prodname_copilot %} starts when you grant an organization member access, irrespective of when they first use {% data variables.product.prodname_copilot_short %}. If you grant an organization member access midway through a billing cycle, the cost is prorated for the remainder of the cycle. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+Billing for {% data variables.product.prodname_copilot %} starts when you grant an organization member access, irrespective of when they first use {% data variables.product.prodname_copilot_short %}. If you grant an organization member access midway through a billing cycle, the cost is prorated for the remainder of the cycle. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).
 
 ## Granting access to {% data variables.product.prodname_copilot %} for all current and future users in your organization
 
@@ -44,7 +42,9 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 
 {% ifversion ghec %}
 
-> [!NOTE] You can automatically enable access for every member of a group in your identity provider (IdP) by synchronizing that group with a {% data variables.product.prodname_dotcom %} team, then giving that team access to {% data variables.product.prodname_copilot %}. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
+You can automatically enable access for every member of a group in your identity provider (IdP) by synchronizing that group with a {% data variables.product.prodname_dotcom %} team, then giving that team access to {% data variables.product.prodname_copilot %}. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
+
+When access is granted this way, the `copilot.cfb_seat_added` audit log event attributes the action to whoever originally granted {% data variables.product.prodname_copilot_short %} access to the team, not the account or sync process that added the new team member. See [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization).
 
 {% endif %}
 
@@ -60,13 +60,13 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 
    * Click **Users and teams** to search for and add individual users or teams.
 
-     To search for a user, type their username or full name in the search bar. If you select a user who is not currently a member of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**.
+     To search for a user, type their username or full name in the search bar. If you select a user who is not currently a member of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**. Outside collaborators will receive a {% data variables.product.prodname_copilot_short %} seat but will not be sent an organization invite.
 
    * Click **Upload CSV** to add users in bulk by uploading a CSV file.
 
      To add members in bulk, click **Choose CSV to upload**, and then upload a CSV file including either the username or email address for each member you want to add, separated by a comma. The file can contain a mixture of usernames and email addresses.
 
-     > [!WARNING] When you upload a CSV file, unless you're using {% data variables.product.prodname_emus %}, {% data variables.product.prodname_copilot %} will search all users on {% data variables.product.prodname_dotcom_the_website %} for matches. If the CSV includes users who are not members of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**. This warning does not apply to accounts using {% data variables.product.prodname_emus %}.
+     > [!WARNING] When you upload a CSV file, unless you're using {% data variables.product.prodname_emus %}, {% data variables.product.prodname_copilot %} will search all users on {% data variables.product.prodname_dotcom_the_website %} for matches. If the CSV includes users who are not members of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**. Outside collaborators will receive a {% data variables.product.prodname_copilot_short %} seat but will not be sent an organization invite. This warning does not apply to accounts using {% data variables.product.prodname_emus %}.
 
      Review the list of users generated from your CSV file. Clear the selection of any users you do not want to add.
 
@@ -81,6 +81,6 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to grant acc
 ## Further reading
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/review-activity/review-user-activity-data)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/revoke-access)

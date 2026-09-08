@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Workflows
 shortTitle: Customize runners
 redirect_from:
   - /actions/using-github-hosted-runners/customizing-github-hosted-runners
@@ -15,13 +12,16 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/customizing-github-hosted-runners
+contentType: how-tos
+category:
+  - Set up runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 If you require additional software packages on {% data variables.product.prodname_dotcom %}-hosted runners, you can create a job that installs the packages as part of your workflow.
 
-To see which packages are already installed by default, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software).
+To see which packages are already installed by default, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners#preinstalled-software-for-github-owned-images).
 
 This guide demonstrates how to create a job that installs additional software on a {% data variables.product.prodname_dotcom %}-hosted runner.
 

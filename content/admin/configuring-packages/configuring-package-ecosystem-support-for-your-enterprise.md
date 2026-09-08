@@ -1,18 +1,17 @@
 ---
 title: Configuring package ecosystem support for your enterprise
-intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% data variables.product.prodname_container_registry %}, Docker, and npm. Learn about other configuration requirements to support specific package ecosystems.'
-permissions: 'Site administrators can enable {% data variables.product.prodname_registry %} and configure enterprise settings.'
+intro: You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% data variables.product.prodname_container_registry %}, Docker, and npm. Learn about other configuration requirements to support specific package ecosystems.
+permissions: Site administrators can enable {% data variables.product.prodname_registry %} and configure enterprise settings.
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-package-ecosystem-support-for-your-enterprise
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Packages
 shortTitle: Configure package ecosystems
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -23,7 +22,7 @@ You can choose which package ecosystems you'd like to enable, disable, or set to
 
 ## Prerequisites
 
-Before you can configure individual package ecosystems, {% data variables.product.prodname_registry %} must be enabled and configured for your instance. For more information, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise).
+Before you can configure individual package ecosystems, {% data variables.product.prodname_registry %} must be enabled and configured for your instance. For more information, see [AUTOTITLE](/admin/configuring-packages/getting-started-with-github-packages-for-your-enterprise).
 
 ## Enabling or disabling individual package ecosystems
 
@@ -55,4 +54,4 @@ If you wish to enable npm upstream sources, select `Enabled` for `npm upstreamin
 
 ## Next steps
 
-As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise).
+As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see [AUTOTITLE](/admin/configuring-packages/getting-started-with-github-packages-for-your-enterprise).

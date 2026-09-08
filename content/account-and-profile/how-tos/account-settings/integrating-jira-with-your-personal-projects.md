@@ -13,6 +13,8 @@ versions:
   ghes: '*'
 shortTitle: Jira project integration
 contentType: how-tos
+category:
+  - Configure account settings
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
@@ -27,7 +29,5 @@ contentType: how-tos
 
 ## Next steps
 
-{% ifversion projects-v1 %}
-* [AUTOTITLE](/organizations/managing-organization-settings/integrating-jira-with-your-organization-project-board){% endif %}
 * [Connect Jira Cloud to GitHub](https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html) in the Atlassian documentation
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/personal-account-reference).

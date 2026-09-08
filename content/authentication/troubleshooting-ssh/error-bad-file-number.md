@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
+category:
+  - Troubleshoot authentication issues
 ---
 When running remote Git commands or SSH, your connection might time out:
 

@@ -6,9 +6,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/granting-access-to-your-organization-with-saml-single-sign-on
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /managing-bots-and-service-accounts-with-saml-single-sign-on
   - /viewing-and-managing-a-members-saml-access-to-your-organization

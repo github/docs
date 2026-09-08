@@ -9,8 +9,6 @@ redirect_from:
   - /apps/building-github-apps
   - /apps/creating-github-apps/creating-github-apps
   - /apps/creating-github-apps/setting-up-a-github-app
-topics:
-  - GitHub Apps
 children:
   - /registering-a-github-app
   - /about-the-user-authorization-callback-url

@@ -53,12 +53,12 @@ describe('developer redirects', () => {
     test('graphql reference paths with child pages', async () => {
       const sclarRes = await get('/en/v4/scalar/boolean')
       expect(sclarRes.statusCode).toBe(301)
-      const sclarResFinalPath = '/en/graphql/reference/scalars#boolean'
+      const sclarResFinalPath = '/en/graphql/reference/other#scalar-boolean'
       expect(sclarRes.headers.location).toBe(sclarResFinalPath)
 
       const enumRes = await get('/en/v4/enum/searchtype')
       expect(enumRes.statusCode).toBe(301)
-      const enumResFinalPath = '/en/graphql/reference/enums#searchtype'
+      const enumResFinalPath = '/en/graphql/reference/search#enum-searchtype'
       expect(enumRes.headers.location).toBe(enumResFinalPath)
     })
   })
@@ -109,7 +109,7 @@ describe('developer redirects', () => {
       const fixtures = readJsonFile(FIXTURES[label as keyof typeof FIXTURES])
       // Don't use a `Promise.all()` because it's actually slower
       // because of all the eventloop context switching.
-      for (let [oldPath, newPath] of Object.entries(fixtures)) {
+      for (let [oldPath, newPath] of Object.entries(fixtures as Record<string, string>)) {
         // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
         // We make an exception to always redirect versionless paths to the latest version.
         newPath = (newPath as string).replace(

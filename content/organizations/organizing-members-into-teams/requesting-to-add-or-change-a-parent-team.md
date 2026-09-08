@@ -8,10 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Add or change parent team
+category:
+  - Organize teams
 ---
 
 When you request to add or change your team's parent, a request is sent to the maintainers of the parent team. When a maintainer of the new parent team approves your request, your team is nested as a child team under the parent team in your organization's hierarchy.

@@ -6,17 +6,15 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Webhooks
-  - Events
-  - Open Source
 shortTitle: Webhooks for events
+contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## About webhooks for events in your sponsored account
 
-To monitor changes to your sponsorships, such as cancellations at the end of a pay period, you can create webhooks for your sponsored user or organization account. When you set up a webhook for your sponsored account, you'll receive updates when sponsorships are created, edited, or deleted. For more information, see the [`sponsorship` webhook event](/webhooks-and-events/webhooks/webhook-events-and-payloads#sponsorship).
+To monitor changes to your sponsorships, such as cancellations at the end of a pay period, you can create webhooks for your sponsored user or organization account. When you set up a webhook for your sponsored account, you'll receive updates when sponsorships are created, edited, or deleted. For more information, see the [`sponsorship` webhook event](/webhooks/webhook-events-and-payloads#sponsorship).
 
 ## Adding a webhook
 

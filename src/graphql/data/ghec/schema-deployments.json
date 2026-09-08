@@ -1,0 +1,2352 @@
+{
+  "mutations": [
+    {
+      "name": "approveDeployments",
+      "id": "approvedeployments",
+      "href": "/graphql/reference/deployments#mutation-approvedeployments",
+      "description": "<p>Approve all pending deployments under one or more environments.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ApproveDeploymentsInput!",
+          "id": "approvedeploymentsinput",
+          "href": "/graphql/reference/deployments#input-object-approvedeploymentsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "deployments",
+          "type": "[Deployment!]",
+          "id": "deployment",
+          "href": "/graphql/reference/deployments#object-deployment",
+          "description": "<p>The affected deployments.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "createDeployment",
+      "id": "createdeployment",
+      "href": "/graphql/reference/deployments#mutation-createdeployment",
+      "description": "<p>Creates a new deployment event.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateDeploymentInput!",
+          "id": "createdeploymentinput",
+          "href": "/graphql/reference/deployments#input-object-createdeploymentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "autoMerged",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>True if the default branch has been auto-merged into the deployment ref.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "deployment",
+          "type": "Deployment",
+          "id": "deployment",
+          "href": "/graphql/reference/deployments#object-deployment",
+          "description": "<p>The new deployment.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "createDeploymentStatus",
+      "id": "createdeploymentstatus",
+      "href": "/graphql/reference/deployments#mutation-createdeploymentstatus",
+      "description": "<p>Create a deployment status.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateDeploymentStatusInput!",
+          "id": "createdeploymentstatusinput",
+          "href": "/graphql/reference/deployments#input-object-createdeploymentstatusinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "deploymentStatus",
+          "type": "DeploymentStatus",
+          "id": "deploymentstatus",
+          "href": "/graphql/reference/deployments#object-deploymentstatus",
+          "description": "<p>The new deployment status.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "createEnvironment",
+      "id": "createenvironment",
+      "href": "/graphql/reference/deployments#mutation-createenvironment",
+      "description": "<p>Creates an environment or simply returns it if already exists.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateEnvironmentInput!",
+          "id": "createenvironmentinput",
+          "href": "/graphql/reference/deployments#input-object-createenvironmentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "environment",
+          "type": "Environment",
+          "id": "environment",
+          "href": "/graphql/reference/deployments#object-environment",
+          "description": "<p>The new or existing environment.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "deleteDeployment",
+      "id": "deletedeployment",
+      "href": "/graphql/reference/deployments#mutation-deletedeployment",
+      "description": "<p>Deletes a deployment.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteDeploymentInput!",
+          "id": "deletedeploymentinput",
+          "href": "/graphql/reference/deployments#input-object-deletedeploymentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "deleteEnvironment",
+      "id": "deleteenvironment",
+      "href": "/graphql/reference/deployments#mutation-deleteenvironment",
+      "description": "<p>Deletes an environment.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteEnvironmentInput!",
+          "id": "deleteenvironmentinput",
+          "href": "/graphql/reference/deployments#input-object-deleteenvironmentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "pinEnvironment",
+      "id": "pinenvironment",
+      "href": "/graphql/reference/deployments#mutation-pinenvironment",
+      "description": "<p>Pin an environment to a repository.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "PinEnvironmentInput!",
+          "id": "pinenvironmentinput",
+          "href": "/graphql/reference/deployments#input-object-pinenvironmentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "environment",
+          "type": "Environment",
+          "id": "environment",
+          "href": "/graphql/reference/deployments#object-environment",
+          "description": "<p>The environment that was pinned.</p>"
+        },
+        {
+          "name": "pinnedEnvironment",
+          "type": "PinnedEnvironment",
+          "id": "pinnedenvironment",
+          "href": "/graphql/reference/deployments#object-pinnedenvironment",
+          "description": "<p>The pinned environment if we pinned.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "rejectDeployments",
+      "id": "rejectdeployments",
+      "href": "/graphql/reference/deployments#mutation-rejectdeployments",
+      "description": "<p>Reject all pending deployments under one or more environments.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RejectDeploymentsInput!",
+          "id": "rejectdeploymentsinput",
+          "href": "/graphql/reference/deployments#input-object-rejectdeploymentsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "deployments",
+          "type": "[Deployment!]",
+          "id": "deployment",
+          "href": "/graphql/reference/deployments#object-deployment",
+          "description": "<p>The affected deployments.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "reorderEnvironment",
+      "id": "reorderenvironment",
+      "href": "/graphql/reference/deployments#mutation-reorderenvironment",
+      "description": "<p>Reorder a pinned repository environment.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ReorderEnvironmentInput!",
+          "id": "reorderenvironmentinput",
+          "href": "/graphql/reference/deployments#input-object-reorderenvironmentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "environment",
+          "type": "Environment",
+          "id": "environment",
+          "href": "/graphql/reference/deployments#object-environment",
+          "description": "<p>The environment that was reordered.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "updateEnvironment",
+      "id": "updateenvironment",
+      "href": "/graphql/reference/deployments#mutation-updateenvironment",
+      "description": "<p>Updates an environment.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateEnvironmentInput!",
+          "id": "updateenvironmentinput",
+          "href": "/graphql/reference/deployments#input-object-updateenvironmentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "environment",
+          "type": "Environment",
+          "id": "environment",
+          "href": "/graphql/reference/deployments#object-environment",
+          "description": "<p>The updated environment.</p>"
+        }
+      ],
+      "category": "deployments"
+    }
+  ],
+  "objects": [
+    {
+      "name": "DeployedEvent",
+      "id": "deployedevent",
+      "href": "/graphql/reference/deployments#object-deployedevent",
+      "description": "<p>Represents a<code>deployed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "deployment",
+          "description": "<p>The deployment associated with the<code>deployed</code>event.</p>",
+          "type": "Deployment!",
+          "id": "deployment",
+          "href": "/graphql/reference/deployments#object-deployment"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the DeployedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest!",
+          "id": "pullrequest",
+          "href": "/graphql/reference/pulls#object-pullrequest"
+        },
+        {
+          "name": "ref",
+          "description": "<p>The ref associated with the<code>deployed</code>event.</p>",
+          "type": "Ref",
+          "id": "ref",
+          "href": "/graphql/reference/git#object-ref"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "Deployment",
+      "id": "deployment",
+      "href": "/graphql/reference/deployments#object-deployment",
+      "description": "<p>Represents triggered deployment instance.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "commit",
+          "description": "<p>Identifies the commit sha of the deployment.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "commitOid",
+          "description": "<p>Identifies the oid of the deployment commit, even if the commit has been deleted.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "creator",
+          "description": "<p>Identifies the actor who triggered the deployment.</p>",
+          "type": "Actor!",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "description",
+          "description": "<p>The deployment description.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environment",
+          "description": "<p>The latest environment to which this deployment was made.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Deployment object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "latestEnvironment",
+          "description": "<p>The latest environment to which this deployment was made.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "latestStatus",
+          "description": "<p>The latest status of this deployment.</p>",
+          "type": "DeploymentStatus",
+          "id": "deploymentstatus",
+          "href": "/graphql/reference/deployments#object-deploymentstatus"
+        },
+        {
+          "name": "originalEnvironment",
+          "description": "<p>The original environment to which this deployment was made.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "payload",
+          "description": "<p>Extra information that a deployment system might need.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "ref",
+          "description": "<p>Identifies the Ref of the deployment, if the deployment was created by ref.</p>",
+          "type": "Ref",
+          "id": "ref",
+          "href": "/graphql/reference/git#object-ref"
+        },
+        {
+          "name": "repository",
+          "description": "<p>Identifies the repository associated with the deployment.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "state",
+          "description": "<p>The current state of the deployment.</p>",
+          "type": "DeploymentState",
+          "id": "deploymentstate",
+          "href": "/graphql/reference/deployments#enum-deploymentstate"
+        },
+        {
+          "name": "statuses",
+          "description": "<p>A list of statuses associated with the deployment.</p>",
+          "type": "DeploymentStatusConnection",
+          "id": "deploymentstatusconnection",
+          "href": "/graphql/reference/deployments#object-deploymentstatusconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "task",
+          "description": "<p>The deployment task.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentConnection",
+      "id": "deploymentconnection",
+      "href": "/graphql/reference/deployments#object-deploymentconnection",
+      "description": "<p>The connection type for Deployment.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DeploymentEdge]",
+          "id": "deploymentedge",
+          "href": "/graphql/reference/deployments#object-deploymentedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Deployment]",
+          "id": "deployment",
+          "href": "/graphql/reference/deployments#object-deployment"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentEdge",
+      "id": "deploymentedge",
+      "href": "/graphql/reference/deployments#object-deploymentedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Deployment",
+          "id": "deployment",
+          "href": "/graphql/reference/deployments#object-deployment"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentEnvironmentChangedEvent",
+      "id": "deploymentenvironmentchangedevent",
+      "href": "/graphql/reference/deployments#object-deploymentenvironmentchangedevent",
+      "description": "<p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "deploymentStatus",
+          "description": "<p>The deployment status that updated the deployment environment.</p>",
+          "type": "DeploymentStatus!",
+          "id": "deploymentstatus",
+          "href": "/graphql/reference/deployments#object-deploymentstatus"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the DeploymentEnvironmentChangedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest!",
+          "id": "pullrequest",
+          "href": "/graphql/reference/pulls#object-pullrequest"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentProtectionRule",
+      "id": "deploymentprotectionrule",
+      "href": "/graphql/reference/deployments#object-deploymentprotectionrule",
+      "description": "<p>A protection rule.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "preventSelfReview",
+          "description": "<p>Whether deployments to this environment can be approved by the user who created the deployment.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "reviewers",
+          "description": "<p>The teams or users that can review the deployment.</p>",
+          "type": "DeploymentReviewerConnection!",
+          "id": "deploymentreviewerconnection",
+          "href": "/graphql/reference/deployments#object-deploymentreviewerconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "timeout",
+          "description": "<p>The timeout in minutes for this protection rule.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "type",
+          "description": "<p>The type of protection rule.</p>",
+          "type": "DeploymentProtectionRuleType!",
+          "id": "deploymentprotectionruletype",
+          "href": "/graphql/reference/deployments#enum-deploymentprotectionruletype"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentProtectionRuleConnection",
+      "id": "deploymentprotectionruleconnection",
+      "href": "/graphql/reference/deployments#object-deploymentprotectionruleconnection",
+      "description": "<p>The connection type for DeploymentProtectionRule.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DeploymentProtectionRuleEdge]",
+          "id": "deploymentprotectionruleedge",
+          "href": "/graphql/reference/deployments#object-deploymentprotectionruleedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DeploymentProtectionRule]",
+          "id": "deploymentprotectionrule",
+          "href": "/graphql/reference/deployments#object-deploymentprotectionrule"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentProtectionRuleEdge",
+      "id": "deploymentprotectionruleedge",
+      "href": "/graphql/reference/deployments#object-deploymentprotectionruleedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DeploymentProtectionRule",
+          "id": "deploymentprotectionrule",
+          "href": "/graphql/reference/deployments#object-deploymentprotectionrule"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentRequest",
+      "id": "deploymentrequest",
+      "href": "/graphql/reference/deployments#object-deploymentrequest",
+      "description": "<p>A request to deploy a workflow run to an environment.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "currentUserCanApprove",
+          "description": "<p>Whether or not the current user can approve the deployment.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "environment",
+          "description": "<p>The target environment of the deployment.</p>",
+          "type": "Environment!",
+          "id": "environment",
+          "href": "/graphql/reference/deployments#object-environment"
+        },
+        {
+          "name": "reviewers",
+          "description": "<p>The teams or users that can review the deployment.</p>",
+          "type": "DeploymentReviewerConnection!",
+          "id": "deploymentreviewerconnection",
+          "href": "/graphql/reference/deployments#object-deploymentreviewerconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "waitTimer",
+          "description": "<p>The wait timer in minutes configured in the environment.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "waitTimerStartedAt",
+          "description": "<p>The wait timer in minutes configured in the environment.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentRequestConnection",
+      "id": "deploymentrequestconnection",
+      "href": "/graphql/reference/deployments#object-deploymentrequestconnection",
+      "description": "<p>The connection type for DeploymentRequest.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DeploymentRequestEdge]",
+          "id": "deploymentrequestedge",
+          "href": "/graphql/reference/deployments#object-deploymentrequestedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DeploymentRequest]",
+          "id": "deploymentrequest",
+          "href": "/graphql/reference/deployments#object-deploymentrequest"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentRequestEdge",
+      "id": "deploymentrequestedge",
+      "href": "/graphql/reference/deployments#object-deploymentrequestedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DeploymentRequest",
+          "id": "deploymentrequest",
+          "href": "/graphql/reference/deployments#object-deploymentrequest"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentReview",
+      "id": "deploymentreview",
+      "href": "/graphql/reference/deployments#object-deploymentreview",
+      "description": "<p>A deployment review.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "comment",
+          "description": "<p>The comment the user left.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "environments",
+          "description": "<p>The environments approved or rejected.</p>",
+          "type": "EnvironmentConnection!",
+          "id": "environmentconnection",
+          "href": "/graphql/reference/deployments#object-environmentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the DeploymentReview object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "state",
+          "description": "<p>The decision of the user.</p>",
+          "type": "DeploymentReviewState!",
+          "id": "deploymentreviewstate",
+          "href": "/graphql/reference/deployments#enum-deploymentreviewstate"
+        },
+        {
+          "name": "user",
+          "description": "<p>The user that reviewed the deployment.</p>",
+          "type": "User!",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentReviewConnection",
+      "id": "deploymentreviewconnection",
+      "href": "/graphql/reference/deployments#object-deploymentreviewconnection",
+      "description": "<p>The connection type for DeploymentReview.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DeploymentReviewEdge]",
+          "id": "deploymentreviewedge",
+          "href": "/graphql/reference/deployments#object-deploymentreviewedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DeploymentReview]",
+          "id": "deploymentreview",
+          "href": "/graphql/reference/deployments#object-deploymentreview"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentReviewEdge",
+      "id": "deploymentreviewedge",
+      "href": "/graphql/reference/deployments#object-deploymentreviewedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DeploymentReview",
+          "id": "deploymentreview",
+          "href": "/graphql/reference/deployments#object-deploymentreview"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentReviewerConnection",
+      "id": "deploymentreviewerconnection",
+      "href": "/graphql/reference/deployments#object-deploymentreviewerconnection",
+      "description": "<p>The connection type for DeploymentReviewer.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DeploymentReviewerEdge]",
+          "id": "deploymentrevieweredge",
+          "href": "/graphql/reference/deployments#object-deploymentrevieweredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DeploymentReviewer]",
+          "id": "deploymentreviewer",
+          "href": "/graphql/reference/deployments#union-deploymentreviewer"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentReviewerEdge",
+      "id": "deploymentrevieweredge",
+      "href": "/graphql/reference/deployments#object-deploymentrevieweredge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DeploymentReviewer",
+          "id": "deploymentreviewer",
+          "href": "/graphql/reference/deployments#union-deploymentreviewer"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentStatus",
+      "id": "deploymentstatus",
+      "href": "/graphql/reference/deployments#object-deploymentstatus",
+      "description": "<p>Describes the status of a given deployment attempt.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "creator",
+          "description": "<p>Identifies the actor who triggered the deployment.</p>",
+          "type": "Actor!",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "deployment",
+          "description": "<p>Identifies the deployment associated with status.</p>",
+          "type": "Deployment!",
+          "id": "deployment",
+          "href": "/graphql/reference/deployments#object-deployment"
+        },
+        {
+          "name": "description",
+          "description": "<p>Identifies the description of the deployment.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environment",
+          "description": "<p>Identifies the environment of the deployment at the time of this deployment status.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environmentUrl",
+          "description": "<p>Identifies the environment URL of the deployment.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the DeploymentStatus object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "logUrl",
+          "description": "<p>Identifies the log URL of the deployment.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "state",
+          "description": "<p>Identifies the current state of the deployment.</p>",
+          "type": "DeploymentStatusState!",
+          "id": "deploymentstatusstate",
+          "href": "/graphql/reference/deployments#enum-deploymentstatusstate"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentStatusConnection",
+      "id": "deploymentstatusconnection",
+      "href": "/graphql/reference/deployments#object-deploymentstatusconnection",
+      "description": "<p>The connection type for DeploymentStatus.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DeploymentStatusEdge]",
+          "id": "deploymentstatusedge",
+          "href": "/graphql/reference/deployments#object-deploymentstatusedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DeploymentStatus]",
+          "id": "deploymentstatus",
+          "href": "/graphql/reference/deployments#object-deploymentstatus"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentStatusEdge",
+      "id": "deploymentstatusedge",
+      "href": "/graphql/reference/deployments#object-deploymentstatusedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DeploymentStatus",
+          "id": "deploymentstatus",
+          "href": "/graphql/reference/deployments#object-deploymentstatus"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "Environment",
+      "id": "environment",
+      "href": "/graphql/reference/deployments#object-environment",
+      "description": "<p>An environment.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Environment object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isPinned",
+          "description": "<p>Indicates whether or not this environment is currently pinned to the repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "latestCompletedDeployment",
+          "description": "<p>The latest completed deployment with status success, failure, or error if it exists.</p>",
+          "type": "Deployment",
+          "id": "deployment",
+          "href": "/graphql/reference/deployments#object-deployment"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the environment.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pinnedPosition",
+          "description": "<p>The position of the environment if it is pinned, null if it is not pinned.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "protectionRules",
+          "description": "<p>The protection rules defined for this environment.</p>",
+          "type": "DeploymentProtectionRuleConnection!",
+          "id": "deploymentprotectionruleconnection",
+          "href": "/graphql/reference/deployments#object-deploymentprotectionruleconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "EnvironmentConnection",
+      "id": "environmentconnection",
+      "href": "/graphql/reference/deployments#object-environmentconnection",
+      "description": "<p>The connection type for Environment.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnvironmentEdge]",
+          "id": "environmentedge",
+          "href": "/graphql/reference/deployments#object-environmentedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Environment]",
+          "id": "environment",
+          "href": "/graphql/reference/deployments#object-environment"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "EnvironmentEdge",
+      "id": "environmentedge",
+      "href": "/graphql/reference/deployments#object-environmentedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Environment",
+          "id": "environment",
+          "href": "/graphql/reference/deployments#object-environment"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "PinnedEnvironment",
+      "id": "pinnedenvironment",
+      "href": "/graphql/reference/deployments#object-pinnedenvironment",
+      "description": "<p>Represents a pinned environment on a given repository.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the pinned environment was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "environment",
+          "description": "<p>Identifies the environment associated.</p>",
+          "type": "Environment!",
+          "id": "environment",
+          "href": "/graphql/reference/deployments#object-environment"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PinnedEnvironment object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "position",
+          "description": "<p>Identifies the position of the pinned environment.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository that this environment was pinned to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "PinnedEnvironmentConnection",
+      "id": "pinnedenvironmentconnection",
+      "href": "/graphql/reference/deployments#object-pinnedenvironmentconnection",
+      "description": "<p>The connection type for PinnedEnvironment.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[PinnedEnvironmentEdge]",
+          "id": "pinnedenvironmentedge",
+          "href": "/graphql/reference/deployments#object-pinnedenvironmentedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[PinnedEnvironment]",
+          "id": "pinnedenvironment",
+          "href": "/graphql/reference/deployments#object-pinnedenvironment"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "PinnedEnvironmentEdge",
+      "id": "pinnedenvironmentedge",
+      "href": "/graphql/reference/deployments#object-pinnedenvironmentedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "PinnedEnvironment",
+          "id": "pinnedenvironment",
+          "href": "/graphql/reference/deployments#object-pinnedenvironment"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "RequiredDeploymentsParameters",
+      "id": "requireddeploymentsparameters",
+      "href": "/graphql/reference/deployments#object-requireddeploymentsparameters",
+      "description": "<p>Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>The environments that must be successfully deployed to before branches can be merged.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "deployments"
+    }
+  ],
+  "enums": [
+    {
+      "name": "DeploymentOrderField",
+      "id": "deploymentorderfield",
+      "href": "/graphql/reference/deployments#enum-deploymentorderfield",
+      "description": "<p>Properties by which deployment connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order collection by creation time.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentProtectionRuleType",
+      "id": "deploymentprotectionruletype",
+      "href": "/graphql/reference/deployments#enum-deploymentprotectionruletype",
+      "description": "<p>The possible protection rule types.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "BRANCH_POLICY",
+          "description": "<p>Branch policy.</p>"
+        },
+        {
+          "name": "REQUIRED_REVIEWERS",
+          "description": "<p>Required reviewers.</p>"
+        },
+        {
+          "name": "WAIT_TIMER",
+          "description": "<p>Wait timer.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentReviewState",
+      "id": "deploymentreviewstate",
+      "href": "/graphql/reference/deployments#enum-deploymentreviewstate",
+      "description": "<p>The possible states for a deployment review.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "APPROVED",
+          "description": "<p>The deployment was approved.</p>"
+        },
+        {
+          "name": "REJECTED",
+          "description": "<p>The deployment was rejected.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentState",
+      "id": "deploymentstate",
+      "href": "/graphql/reference/deployments#enum-deploymentstate",
+      "description": "<p>The possible states in which a deployment can be.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ABANDONED",
+          "description": "<p>The pending deployment was not updated after 30 minutes.</p>"
+        },
+        {
+          "name": "ACTIVE",
+          "description": "<p>The deployment is currently active.</p>"
+        },
+        {
+          "name": "DESTROYED",
+          "description": "<p>An inactive transient deployment.</p>"
+        },
+        {
+          "name": "ERROR",
+          "description": "<p>The deployment experienced an error.</p>"
+        },
+        {
+          "name": "FAILURE",
+          "description": "<p>The deployment has failed.</p>"
+        },
+        {
+          "name": "INACTIVE",
+          "description": "<p>The deployment is inactive.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The deployment is in progress.</p>"
+        },
+        {
+          "name": "PENDING",
+          "description": "<p>The deployment is pending.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The deployment has queued.</p>"
+        },
+        {
+          "name": "SUCCESS",
+          "description": "<p>The deployment was successful.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The deployment is waiting.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentStatusState",
+      "id": "deploymentstatusstate",
+      "href": "/graphql/reference/deployments#enum-deploymentstatusstate",
+      "description": "<p>The possible states for a deployment status.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ERROR",
+          "description": "<p>The deployment experienced an error.</p>"
+        },
+        {
+          "name": "FAILURE",
+          "description": "<p>The deployment has failed.</p>"
+        },
+        {
+          "name": "INACTIVE",
+          "description": "<p>The deployment is inactive.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The deployment is in progress.</p>"
+        },
+        {
+          "name": "PENDING",
+          "description": "<p>The deployment is pending.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The deployment is queued.</p>"
+        },
+        {
+          "name": "SUCCESS",
+          "description": "<p>The deployment was successful.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The deployment is waiting.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "EnvironmentOrderField",
+      "id": "environmentorderfield",
+      "href": "/graphql/reference/deployments#enum-environmentorderfield",
+      "description": "<p>Properties by which environments connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "NAME",
+          "description": "<p>Order environments by name.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "EnvironmentPinnedFilterField",
+      "id": "environmentpinnedfilterfield",
+      "href": "/graphql/reference/deployments#enum-environmentpinnedfilterfield",
+      "description": "<p>Properties by which environments connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>All environments will be returned.</p>"
+        },
+        {
+          "name": "NONE",
+          "description": "<p>Environments exclude pinned will be returned.</p>"
+        },
+        {
+          "name": "ONLY",
+          "description": "<p>Only pinned environment will be returned.</p>"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "PinnedEnvironmentOrderField",
+      "id": "pinnedenvironmentorderfield",
+      "href": "/graphql/reference/deployments#enum-pinnedenvironmentorderfield",
+      "description": "<p>Properties by which pinned environments connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "POSITION",
+          "description": "<p>Order pinned environments by position.</p>"
+        }
+      ],
+      "category": "deployments"
+    }
+  ],
+  "unions": [
+    {
+      "name": "DeploymentReviewer",
+      "id": "deploymentreviewer",
+      "href": "/graphql/reference/deployments#union-deploymentreviewer",
+      "description": "<p>Users and teams.</p>",
+      "isDeprecated": false,
+      "possibleTypes": [
+        {
+          "name": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "deployments"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "ApproveDeploymentsInput",
+      "id": "approvedeploymentsinput",
+      "href": "/graphql/reference/deployments#input-object-approvedeploymentsinput",
+      "description": "<p>Autogenerated input type of ApproveDeployments.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "comment",
+          "description": "<p>Optional comment for approving deployments.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environmentIds",
+          "description": "<p>The ids of environments to reject deployments.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "workflowRunId",
+          "description": "<p>The node ID of the workflow run containing the pending deployments.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "CreateDeploymentInput",
+      "id": "createdeploymentinput",
+      "href": "/graphql/reference/deployments#input-object-createdeploymentinput",
+      "description": "<p>Autogenerated input type of CreateDeployment.</p>",
+      "inputFields": [
+        {
+          "name": "autoMerge",
+          "description": "<p>Attempt to automatically merge the default branch into the requested ref, defaults to true.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "description",
+          "description": "<p>Short description of the deployment.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environment",
+          "description": "<p>Name for the target deployment environment.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "payload",
+          "description": "<p>JSON payload with extra information about the deployment.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "refId",
+          "description": "<p>The node ID of the ref to be deployed.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "requiredContexts",
+          "description": "<p>The status contexts to verify against commit status checks. To bypass required\ncontexts, pass an empty array. Defaults to all unique contexts.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "task",
+          "description": "<p>Specifies a task to execute.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "CreateDeploymentStatusInput",
+      "id": "createdeploymentstatusinput",
+      "href": "/graphql/reference/deployments#input-object-createdeploymentstatusinput",
+      "description": "<p>Autogenerated input type of CreateDeploymentStatus.</p>",
+      "inputFields": [
+        {
+          "name": "autoInactive",
+          "description": "<p>Adds a new inactive status to all non-transient, non-production environment\ndeployments with the same repository and environment name as the created\nstatus's deployment.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "deploymentId",
+          "description": "<p>The node ID of the deployment.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "description",
+          "description": "<p>A short description of the status. Maximum length of 140 characters.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environment",
+          "description": "<p>If provided, updates the environment of the deploy. Otherwise, does not modify the environment.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environmentUrl",
+          "description": "<p>Sets the URL for accessing your environment.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "logUrl",
+          "description": "<p>The log URL to associate with this status.       This URL should contain\noutput to keep the user updated while the task is running       or serve as\nhistorical information for what happened in the deployment.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of the deployment.</p>",
+          "type": "DeploymentStatusState!",
+          "id": "deploymentstatusstate",
+          "href": "/graphql/reference/deployments#enum-deploymentstatusstate"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "CreateEnvironmentInput",
+      "id": "createenvironmentinput",
+      "href": "/graphql/reference/deployments#input-object-createenvironmentinput",
+      "description": "<p>Autogenerated input type of CreateEnvironment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the environment.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeleteDeploymentInput",
+      "id": "deletedeploymentinput",
+      "href": "/graphql/reference/deployments#input-object-deletedeploymentinput",
+      "description": "<p>Autogenerated input type of DeleteDeployment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the deployment to be deleted.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeleteEnvironmentInput",
+      "id": "deleteenvironmentinput",
+      "href": "/graphql/reference/deployments#input-object-deleteenvironmentinput",
+      "description": "<p>Autogenerated input type of DeleteEnvironment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the environment to be deleted.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "DeploymentOrder",
+      "id": "deploymentorder",
+      "href": "/graphql/reference/deployments#input-object-deploymentorder",
+      "description": "<p>Ordering options for deployment connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order deployments by.</p>",
+          "type": "DeploymentOrderField!",
+          "id": "deploymentorderfield",
+          "href": "/graphql/reference/deployments#enum-deploymentorderfield"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "Environments",
+      "id": "environments",
+      "href": "/graphql/reference/deployments#input-object-environments",
+      "description": "<p>Ordering options for environments.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order environments by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order environments by.</p>",
+          "type": "EnvironmentOrderField!",
+          "id": "environmentorderfield",
+          "href": "/graphql/reference/deployments#enum-environmentorderfield"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "PinEnvironmentInput",
+      "id": "pinenvironmentinput",
+      "href": "/graphql/reference/deployments#input-object-pinenvironmentinput",
+      "description": "<p>Autogenerated input type of PinEnvironment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environmentId",
+          "description": "<p>The ID of the environment to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "pinned",
+          "description": "<p>The desired state of the environment. If true, environment will be pinned. If false, it will be unpinned.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "PinnedEnvironmentOrder",
+      "id": "pinnedenvironmentorder",
+      "href": "/graphql/reference/deployments#input-object-pinnedenvironmentorder",
+      "description": "<p>Ordering options for pinned environments.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order pinned environments by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order pinned environments by.</p>",
+          "type": "PinnedEnvironmentOrderField!",
+          "id": "pinnedenvironmentorderfield",
+          "href": "/graphql/reference/deployments#enum-pinnedenvironmentorderfield"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "RejectDeploymentsInput",
+      "id": "rejectdeploymentsinput",
+      "href": "/graphql/reference/deployments#input-object-rejectdeploymentsinput",
+      "description": "<p>Autogenerated input type of RejectDeployments.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "comment",
+          "description": "<p>Optional comment for rejecting deployments.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environmentIds",
+          "description": "<p>The ids of environments to reject deployments.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "workflowRunId",
+          "description": "<p>The node ID of the workflow run containing the pending deployments.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "ReorderEnvironmentInput",
+      "id": "reorderenvironmentinput",
+      "href": "/graphql/reference/deployments#input-object-reorderenvironmentinput",
+      "description": "<p>Autogenerated input type of ReorderEnvironment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environmentId",
+          "description": "<p>The ID of the environment to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "position",
+          "description": "<p>The desired position of the environment.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "RequiredDeploymentsParametersInput",
+      "id": "requireddeploymentsparametersinput",
+      "href": "/graphql/reference/deployments#input-object-requireddeploymentsparametersinput",
+      "description": "<p>Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>The environments that must be successfully deployed to before branches can be merged.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "deployments"
+    },
+    {
+      "name": "UpdateEnvironmentInput",
+      "id": "updateenvironmentinput",
+      "href": "/graphql/reference/deployments#input-object-updateenvironmentinput",
+      "description": "<p>Autogenerated input type of UpdateEnvironment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "environmentId",
+          "description": "<p>The node ID of the environment.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "preventSelfReview",
+          "description": "<p>Whether deployments to this environment can be approved by the user who created the deployment.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "reviewers",
+          "description": "<p>The ids of users or teams that can approve deployments to this environment.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "waitTimer",
+          "description": "<p>The wait timer in minutes.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deployments"
+    }
+  ]
+}

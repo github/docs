@@ -3,12 +3,11 @@ title: About GitHub Connect
 intro: '{% data variables.product.prodname_github_connect %} enhances {% data variables.product.prodname_ghe_server %} by giving you access to data and workflows from {% data variables.product.prodname_ghe_cloud %}.'
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - GitHub Connect
 redirect_from:
   - /admin/configuration/configuring-github-connect/about-github-connect
+contentType: concepts
+category:
+  - Install and configure your instance
 ---
 
 {% data variables.product.prodname_github_connect %} allows {% data variables.location.product_location %} to connect to your enterprise on {% data variables.product.prodname_ghe_cloud %} in limited ways.
@@ -32,14 +31,16 @@ To enable {% data variables.product.prodname_github_connect %}, you configure a 
 
 After you configure the connection between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %}, you can enable individual features of {% data variables.product.prodname_github_connect %}.
 
+If you're connecting to an enterprise on **{% data variables.enterprise.data_residency_site %}**:
+
 {% data reusables.github-connect.what-is-available-ghecom %}
 
 | Feature | Description | More information |
 | ----------- | ----------- | ----------- |
 {% data reusables.github-connect.license-sync %}
-| {% data variables.product.prodname_dependabot %} | Allow users to find and fix vulnerabilities in code dependencies. | [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise) |
-| {% data variables.product.prodname_dotcom_the_website %} actions | Allow users to use actions from {% data variables.product.prodname_dotcom_the_website %} in public workflow files. | [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) |
-| {% data variables.product.prodname_server_statistics %} | Analyze your own aggregate data from GitHub Enterprise Server, and help us improve GitHub products. | [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise) |
+| {% data variables.product.prodname_dependabot %} | Allow users to find and fix vulnerabilities in code dependencies. | [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-dependabot-for-your-enterprise) |
+| {% data variables.product.prodname_dotcom_the_website %} actions | Allow users to use actions from {% data variables.product.prodname_dotcom_the_website %} in public workflow files. | [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) |
+| {% data variables.product.prodname_server_statistics %} | Analyze your own aggregate data from GitHub Enterprise Server, and help us improve GitHub products. | [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-server-statistics-for-your-enterprise) |
 {% data reusables.github-connect.unified-search %}
 {% data reusables.github-connect.unified-contributions %}
 
@@ -74,7 +75,7 @@ Additional data is transmitted if you enable individual features of {% data vari
 
 | Feature | Data | Which way does the data flow? | Where is the data used? |
 | ------- | ---- | --------- | ------ |
-| Automatic user license sync | Each {% data variables.product.prodname_ghe_server %} user's user ID and email addresses{% ifversion ghas-in-license-sync %}, and whether the user consumes a license for {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %}.{% endif %} | From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
+| Automatic user license sync | Each {% data variables.product.prodname_ghe_server %} user's user ID and email addresses{% ifversion ghas-in-license-sync %}, and whether the user consumes a license for {% data variables.product.prodname_GHAS %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}.{% endif %} | From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
 | {% data variables.product.prodname_dependabot_alerts %} | Vulnerability alerts | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %} | {% data variables.product.prodname_ghe_server %} |
 | {% data variables.product.prodname_dependabot_updates %} | Dependencies and the metadata for each dependency's repository<br><br>If a dependency is stored in a private repository on {% data variables.product.prodname_dotcom_the_website %}, data will only be transmitted if {% data variables.product.prodname_dependabot %} is configured and authorized to access that repository. | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %} | {% data variables.product.prodname_ghe_server %} |
 | {% data variables.product.prodname_dotcom_the_website %} actions | Name of action, action (YAML file from {% data variables.product.prodname_marketplace %}) | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}<br><br>From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.prodname_ghe_server %} |

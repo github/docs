@@ -1,0 +1,2007 @@
+{
+  "mutations": [
+    {
+      "name": "createRef",
+      "id": "createref",
+      "href": "/graphql/reference/git#mutation-createref",
+      "description": "<p>Create a new Git Ref.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateRefInput!",
+          "id": "createrefinput",
+          "href": "/graphql/reference/git#input-object-createrefinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "ref",
+          "type": "Ref",
+          "id": "ref",
+          "href": "/graphql/reference/git#object-ref",
+          "description": "<p>The newly created ref.</p>"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "deleteRef",
+      "id": "deleteref",
+      "href": "/graphql/reference/git#mutation-deleteref",
+      "description": "<p>Delete a Git Ref.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteRefInput!",
+          "id": "deleterefinput",
+          "href": "/graphql/reference/git#input-object-deleterefinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "updateRef",
+      "id": "updateref",
+      "href": "/graphql/reference/git#mutation-updateref",
+      "description": "<p>Update a Git Ref.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateRefInput!",
+          "id": "updaterefinput",
+          "href": "/graphql/reference/git#input-object-updaterefinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "ref",
+          "type": "Ref",
+          "id": "ref",
+          "href": "/graphql/reference/git#object-ref",
+          "description": "<p>The updated Ref.</p>"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "updateRefs",
+      "id": "updaterefs",
+      "href": "/graphql/reference/git#mutation-updaterefs",
+      "description": "<p>Creates, updates and/or deletes multiple refs in a repository.</p>\n<p>This mutation takes a list of <code>RefUpdate</code>s and performs these updates\non the repository. All updates are performed atomically, meaning that\nif one of them is rejected, no other ref will be modified.</p>\n<p><code>RefUpdate.beforeOid</code> specifies that the given reference needs to point\nto the given value before performing any updates. A value of\n<code>0000000000000000000000000000000000000000</code> can be used to verify that\nthe references should not exist.</p>\n<p><code>RefUpdate.afterOid</code> specifies the value that the given reference\nwill point to after performing all updates. A value of\n<code>0000000000000000000000000000000000000000</code> can be used to delete a\nreference.</p>\n<p>If <code>RefUpdate.force</code> is set to <code>true</code>, a non-fast-forward updates\nfor the given reference will be allowed.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateRefsInput!",
+          "id": "updaterefsinput",
+          "href": "/graphql/reference/git#input-object-updaterefsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "git"
+    }
+  ],
+  "objects": [
+    {
+      "name": "Blame",
+      "id": "blame",
+      "href": "/graphql/reference/git#object-blame",
+      "description": "<p>Represents a Git blame.</p>",
+      "fields": [
+        {
+          "name": "ranges",
+          "description": "<p>The list of ranges from a Git blame.</p>",
+          "type": "[BlameRange!]!",
+          "id": "blamerange",
+          "href": "/graphql/reference/git#object-blamerange"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "BlameRange",
+      "id": "blamerange",
+      "href": "/graphql/reference/git#object-blamerange",
+      "description": "<p>Represents a range of information from a Git blame.</p>",
+      "fields": [
+        {
+          "name": "age",
+          "description": "<p>Identifies the recency of the change, from 1 (new) to 10 (old). This is\ncalculated as a 2-quantile and determines the length of distance between the\nmedian age of all the changes in the file and the recency of the current\nrange's change.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "commit",
+          "description": "<p>Identifies the line author.</p>",
+          "type": "Commit!",
+          "id": "commit",
+          "href": "/graphql/reference/commits#object-commit"
+        },
+        {
+          "name": "endingLine",
+          "description": "<p>The ending line for the range.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "startingLine",
+          "description": "<p>The starting line for the range.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "Blob",
+      "id": "blob",
+      "href": "/graphql/reference/git#object-blob",
+      "description": "<p>Represents a Git blob.</p>",
+      "implements": [
+        {
+          "name": "GitObject",
+          "id": "gitobject",
+          "href": "/graphql/reference/git#interface-gitobject"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "abbreviatedOid",
+          "description": "<p>An abbreviated version of the Git object ID.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "byteSize",
+          "description": "<p>Byte size of Blob object.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "commitResourcePath",
+          "description": "<p>The HTTP path for this Git object.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "commitUrl",
+          "description": "<p>The HTTP URL for this Git object.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Blob object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isBinary",
+          "description": "<p>Indicates whether the Blob is binary or text. Returns null if unable to determine the encoding.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isTruncated",
+          "description": "<p>Indicates whether the contents is truncated.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "oid",
+          "description": "<p>The Git object ID.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The Repository the Git object belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "text",
+          "description": "<p>UTF8 text data or null if the Blob is binary.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "GitActor",
+      "id": "gitactor",
+      "href": "/graphql/reference/git#object-gitactor",
+      "description": "<p>Represents an actor in a Git commit (ie. an author or committer).</p>",
+      "fields": [
+        {
+          "name": "avatarUrl",
+          "description": "<p>A URL pointing to the author's public avatar.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "arguments": [
+            {
+              "name": "size",
+              "description": "<p>The size of the resulting square image.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "date",
+          "description": "<p>The timestamp of the Git action (authoring or committing).</p>",
+          "type": "GitTimestamp",
+          "id": "gittimestamp",
+          "href": "/graphql/reference/other#scalar-gittimestamp"
+        },
+        {
+          "name": "email",
+          "description": "<p>The email in the Git commit.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name in the Git commit.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "user",
+          "description": "<p>The GitHub user corresponding to the email field. Null if no such user exists.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "GitActorConnection",
+      "id": "gitactorconnection",
+      "href": "/graphql/reference/git#object-gitactorconnection",
+      "description": "<p>The connection type for GitActor.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[GitActorEdge]",
+          "id": "gitactoredge",
+          "href": "/graphql/reference/git#object-gitactoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[GitActor]",
+          "id": "gitactor",
+          "href": "/graphql/reference/git#object-gitactor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "GitActorEdge",
+      "id": "gitactoredge",
+      "href": "/graphql/reference/git#object-gitactoredge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "GitActor",
+          "id": "gitactor",
+          "href": "/graphql/reference/git#object-gitactor"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "GpgSignature",
+      "id": "gpgsignature",
+      "href": "/graphql/reference/git#object-gpgsignature",
+      "description": "<p>Represents a GPG signature on a Commit or Tag.</p>",
+      "implements": [
+        {
+          "name": "GitSignature",
+          "id": "gitsignature",
+          "href": "/graphql/reference/git#interface-gitsignature"
+        }
+      ],
+      "fields": [
+        {
+          "name": "email",
+          "description": "<p>Email used to sign this object.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isValid",
+          "description": "<p>True if the signature is valid and verified by GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "keyId",
+          "description": "<p>Hex-encoded ID of the key that signed this object.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "payload",
+          "description": "<p>Payload for GPG signing object. Raw ODB object without the signature header.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "signature",
+          "description": "<p>ASCII-armored signature header from object.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "signer",
+          "description": "<p>GitHub user corresponding to the email signing this commit.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this signature. <code>VALID</code> if signature is valid and verified by\nGitHub, otherwise represents reason why signature is considered invalid.</p>",
+          "type": "GitSignatureState!",
+          "id": "gitsignaturestate",
+          "href": "/graphql/reference/git#enum-gitsignaturestate"
+        },
+        {
+          "name": "verifiedAt",
+          "description": "<p>The date the signature was verified, if valid.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "wasSignedByGitHub",
+          "description": "<p>True if the signature was made with GitHub's signing key.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "Push",
+      "id": "push",
+      "href": "/graphql/reference/git#object-push",
+      "description": "<p>A Git push.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Push object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "nextSha",
+          "description": "<p>The SHA after the push.</p>",
+          "type": "GitObjectID",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "permalink",
+          "description": "<p>The permalink for this push.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "previousSha",
+          "description": "<p>The SHA before the push.</p>",
+          "type": "GitObjectID",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "pusher",
+          "description": "<p>The actor who pushed.</p>",
+          "type": "Actor!",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository that was pushed to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "Ref",
+      "id": "ref",
+      "href": "/graphql/reference/git#object-ref",
+      "description": "<p>Represents a Git reference.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "associatedPullRequests",
+          "description": "<p>A list of pull requests with this ref as the head ref.</p>",
+          "type": "PullRequestConnection!",
+          "id": "pullrequestconnection",
+          "href": "/graphql/reference/pulls#object-pullrequestconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "baseRefName",
+              "description": "<p>The base ref name to filter the pull requests by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "headRefName",
+              "description": "<p>The head ref name to filter the pull requests by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "labels",
+              "description": "<p>A list of label names to filter the pull requests by.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for pull requests returned from the connection.</p>",
+              "type": {
+                "name": "IssueOrder",
+                "id": "issueorder",
+                "href": "/graphql/reference/issues#input-object-issueorder"
+              }
+            },
+            {
+              "name": "states",
+              "description": "<p>A list of states to filter the pull requests by.</p>",
+              "type": {
+                "name": "[PullRequestState!]",
+                "id": "pullrequeststate",
+                "href": "/graphql/reference/pulls#enum-pullrequeststate"
+              }
+            }
+          ]
+        },
+        {
+          "name": "branchProtectionRule",
+          "description": "<p>Branch protection rules for this ref.</p>",
+          "type": "BranchProtectionRule",
+          "id": "branchprotectionrule",
+          "href": "/graphql/reference/branches#object-branchprotectionrule"
+        },
+        {
+          "name": "compare",
+          "description": "<p>Compares the current ref as a base ref to another head ref, if the comparison can be made.</p>",
+          "type": "Comparison",
+          "id": "comparison",
+          "href": "/graphql/reference/commits#object-comparison",
+          "arguments": [
+            {
+              "name": "headRef",
+              "description": "<p>The head ref to compare against.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Ref object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The ref name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "prefix",
+          "description": "<p>The ref's prefix, such as <code>refs/heads/</code> or <code>refs/tags/</code>.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "refUpdateRule",
+          "description": "<p>Branch protection rules that are viewable by non-admins.</p>",
+          "type": "RefUpdateRule",
+          "id": "refupdaterule",
+          "href": "/graphql/reference/git#object-refupdaterule"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository the ref belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "rules",
+          "description": "<p>A list of rules from active Repository and Organization rulesets that apply to this ref.</p>",
+          "type": "RepositoryRuleConnection",
+          "id": "repositoryruleconnection",
+          "href": "/graphql/reference/repos#object-repositoryruleconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for repository rules.</p>",
+              "type": {
+                "name": "RepositoryRuleOrder",
+                "id": "repositoryruleorder",
+                "href": "/graphql/reference/repos#input-object-repositoryruleorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "target",
+          "description": "<p>The object the ref points to. Returns null when object does not exist.</p>",
+          "type": "GitObject",
+          "id": "gitobject",
+          "href": "/graphql/reference/git#interface-gitobject"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "RefConnection",
+      "id": "refconnection",
+      "href": "/graphql/reference/git#object-refconnection",
+      "description": "<p>The connection type for Ref.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[RefEdge]",
+          "id": "refedge",
+          "href": "/graphql/reference/git#object-refedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Ref]",
+          "id": "ref",
+          "href": "/graphql/reference/git#object-ref"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "RefEdge",
+      "id": "refedge",
+      "href": "/graphql/reference/git#object-refedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Ref",
+          "id": "ref",
+          "href": "/graphql/reference/git#object-ref"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "RefUpdateRule",
+      "id": "refupdaterule",
+      "href": "/graphql/reference/git#object-refupdaterule",
+      "description": "<p>Branch protection rules that are enforced on the viewer.</p>",
+      "fields": [
+        {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "blocksCreations",
+          "description": "<p>Can matching branches be created.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>Identifies the protection rule pattern.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "requiredApprovingReviewCount",
+          "description": "<p>Number of approving reviews required to update matching branches.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "requiredStatusCheckContexts",
+          "description": "<p>List of required status check contexts that must pass for commits to be accepted to matching branches.</p>",
+          "type": "[String]",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "requiresCodeOwnerReviews",
+          "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresConversationResolution",
+          "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "requiresSignatures",
+          "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerAllowedToDismissReviews",
+          "description": "<p>Is the viewer allowed to dismiss reviews.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanPush",
+          "description": "<p>Can the viewer push to the branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "SmimeSignature",
+      "id": "smimesignature",
+      "href": "/graphql/reference/git#object-smimesignature",
+      "description": "<p>Represents an S/MIME signature on a Commit or Tag.</p>",
+      "implements": [
+        {
+          "name": "GitSignature",
+          "id": "gitsignature",
+          "href": "/graphql/reference/git#interface-gitsignature"
+        }
+      ],
+      "fields": [
+        {
+          "name": "email",
+          "description": "<p>Email used to sign this object.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isValid",
+          "description": "<p>True if the signature is valid and verified by GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "payload",
+          "description": "<p>Payload for GPG signing object. Raw ODB object without the signature header.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "signature",
+          "description": "<p>ASCII-armored signature header from object.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "signer",
+          "description": "<p>GitHub user corresponding to the email signing this commit.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this signature. <code>VALID</code> if signature is valid and verified by\nGitHub, otherwise represents reason why signature is considered invalid.</p>",
+          "type": "GitSignatureState!",
+          "id": "gitsignaturestate",
+          "href": "/graphql/reference/git#enum-gitsignaturestate"
+        },
+        {
+          "name": "verifiedAt",
+          "description": "<p>The date the signature was verified, if valid.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "wasSignedByGitHub",
+          "description": "<p>True if the signature was made with GitHub's signing key.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "SshSignature",
+      "id": "sshsignature",
+      "href": "/graphql/reference/git#object-sshsignature",
+      "description": "<p>Represents an SSH signature on a Commit or Tag.</p>",
+      "implements": [
+        {
+          "name": "GitSignature",
+          "id": "gitsignature",
+          "href": "/graphql/reference/git#interface-gitsignature"
+        }
+      ],
+      "fields": [
+        {
+          "name": "email",
+          "description": "<p>Email used to sign this object.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isValid",
+          "description": "<p>True if the signature is valid and verified by GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "keyFingerprint",
+          "description": "<p>Hex-encoded fingerprint of the key that signed this object.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "payload",
+          "description": "<p>Payload for GPG signing object. Raw ODB object without the signature header.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "signature",
+          "description": "<p>ASCII-armored signature header from object.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "signer",
+          "description": "<p>GitHub user corresponding to the email signing this commit.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this signature. <code>VALID</code> if signature is valid and verified by\nGitHub, otherwise represents reason why signature is considered invalid.</p>",
+          "type": "GitSignatureState!",
+          "id": "gitsignaturestate",
+          "href": "/graphql/reference/git#enum-gitsignaturestate"
+        },
+        {
+          "name": "verifiedAt",
+          "description": "<p>The date the signature was verified, if valid.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "wasSignedByGitHub",
+          "description": "<p>True if the signature was made with GitHub's signing key.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "Submodule",
+      "id": "submodule",
+      "href": "/graphql/reference/git#object-submodule",
+      "description": "<p>A pointer to a repository at a specific revision embedded inside another repository.</p>",
+      "fields": [
+        {
+          "name": "branch",
+          "description": "<p>The branch of the upstream submodule for tracking updates.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "gitUrl",
+          "description": "<p>The git URL of the submodule repository.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the submodule in .gitmodules.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "nameRaw",
+          "description": "<p>The name of the submodule in .gitmodules (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "href": "/graphql/reference/other#scalar-base64string"
+        },
+        {
+          "name": "path",
+          "description": "<p>The path in the superproject that this submodule is located in.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The path in the superproject that this submodule is located in (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "href": "/graphql/reference/other#scalar-base64string"
+        },
+        {
+          "name": "subprojectCommitOid",
+          "description": "<p>The commit revision of the subproject repository being tracked by the submodule.</p>",
+          "type": "GitObjectID",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "SubmoduleConnection",
+      "id": "submoduleconnection",
+      "href": "/graphql/reference/git#object-submoduleconnection",
+      "description": "<p>The connection type for Submodule.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SubmoduleEdge]",
+          "id": "submoduleedge",
+          "href": "/graphql/reference/git#object-submoduleedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Submodule]",
+          "id": "submodule",
+          "href": "/graphql/reference/git#object-submodule"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "SubmoduleEdge",
+      "id": "submoduleedge",
+      "href": "/graphql/reference/git#object-submoduleedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Submodule",
+          "id": "submodule",
+          "href": "/graphql/reference/git#object-submodule"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "Tag",
+      "id": "tag",
+      "href": "/graphql/reference/git#object-tag",
+      "description": "<p>Represents a Git tag.</p>",
+      "implements": [
+        {
+          "name": "GitObject",
+          "id": "gitobject",
+          "href": "/graphql/reference/git#interface-gitobject"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "abbreviatedOid",
+          "description": "<p>An abbreviated version of the Git object ID.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "commitResourcePath",
+          "description": "<p>The HTTP path for this Git object.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "commitUrl",
+          "description": "<p>The HTTP URL for this Git object.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Tag object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "message",
+          "description": "<p>The Git tag message.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The Git tag name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "oid",
+          "description": "<p>The Git object ID.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The Repository the Git object belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "tagger",
+          "description": "<p>Details about the tag author.</p>",
+          "type": "GitActor",
+          "id": "gitactor",
+          "href": "/graphql/reference/git#object-gitactor"
+        },
+        {
+          "name": "target",
+          "description": "<p>The Git object the tag points to.</p>",
+          "type": "GitObject!",
+          "id": "gitobject",
+          "href": "/graphql/reference/git#interface-gitobject"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "Tree",
+      "id": "tree",
+      "href": "/graphql/reference/git#object-tree",
+      "description": "<p>Represents a Git tree.</p>",
+      "implements": [
+        {
+          "name": "GitObject",
+          "id": "gitobject",
+          "href": "/graphql/reference/git#interface-gitobject"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "abbreviatedOid",
+          "description": "<p>An abbreviated version of the Git object ID.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "commitResourcePath",
+          "description": "<p>The HTTP path for this Git object.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "commitUrl",
+          "description": "<p>The HTTP URL for this Git object.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "entries",
+          "description": "<p>A list of tree entries.</p>",
+          "type": "[TreeEntry!]",
+          "id": "treeentry",
+          "href": "/graphql/reference/git#object-treeentry"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Tree object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "oid",
+          "description": "<p>The Git object ID.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The Repository the Git object belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "TreeEntry",
+      "id": "treeentry",
+      "href": "/graphql/reference/git#object-treeentry",
+      "description": "<p>Represents a Git tree entry.</p>",
+      "fields": [
+        {
+          "name": "extension",
+          "description": "<p>The extension of the file.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isGenerated",
+          "description": "<p>Whether or not this tree entry is generated.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "language",
+          "description": "<p>The programming language this file is written in.</p>",
+          "type": "Language",
+          "id": "language",
+          "href": "/graphql/reference/repos#object-language"
+        },
+        {
+          "name": "lineCount",
+          "description": "<p>Number of lines in the file.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "mode",
+          "description": "<p>Entry file mode.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "name",
+          "description": "<p>Entry file name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "nameRaw",
+          "description": "<p>Entry file name. (Base64-encoded).</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "href": "/graphql/reference/other#scalar-base64string"
+        },
+        {
+          "name": "object",
+          "description": "<p>Entry file object.</p>",
+          "type": "GitObject",
+          "id": "gitobject",
+          "href": "/graphql/reference/git#interface-gitobject"
+        },
+        {
+          "name": "oid",
+          "description": "<p>Entry file Git object ID.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "path",
+          "description": "<p>The full path of the file.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "pathRaw",
+          "description": "<p>The full path of the file. (Base64-encoded).</p>",
+          "type": "Base64String",
+          "id": "base64string",
+          "href": "/graphql/reference/other#scalar-base64string"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The Repository the tree entry belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "size",
+          "description": "<p>Entry byte size.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "submodule",
+          "description": "<p>If the TreeEntry is for a directory occupied by a submodule project, this returns the corresponding submodule.</p>",
+          "type": "Submodule",
+          "id": "submodule",
+          "href": "/graphql/reference/git#object-submodule"
+        },
+        {
+          "name": "type",
+          "description": "<p>Entry file type.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "UnknownSignature",
+      "id": "unknownsignature",
+      "href": "/graphql/reference/git#object-unknownsignature",
+      "description": "<p>Represents an unknown signature on a Commit or Tag.</p>",
+      "implements": [
+        {
+          "name": "GitSignature",
+          "id": "gitsignature",
+          "href": "/graphql/reference/git#interface-gitsignature"
+        }
+      ],
+      "fields": [
+        {
+          "name": "email",
+          "description": "<p>Email used to sign this object.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isValid",
+          "description": "<p>True if the signature is valid and verified by GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "payload",
+          "description": "<p>Payload for GPG signing object. Raw ODB object without the signature header.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "signature",
+          "description": "<p>ASCII-armored signature header from object.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "signer",
+          "description": "<p>GitHub user corresponding to the email signing this commit.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this signature. <code>VALID</code> if signature is valid and verified by\nGitHub, otherwise represents reason why signature is considered invalid.</p>",
+          "type": "GitSignatureState!",
+          "id": "gitsignaturestate",
+          "href": "/graphql/reference/git#enum-gitsignaturestate"
+        },
+        {
+          "name": "verifiedAt",
+          "description": "<p>The date the signature was verified, if valid.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "wasSignedByGitHub",
+          "description": "<p>True if the signature was made with GitHub's signing key.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "git"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "GitObject",
+      "id": "gitobject",
+      "href": "/graphql/reference/git#interface-gitobject",
+      "description": "<p>Represents a Git object.</p>",
+      "fields": [
+        {
+          "name": "abbreviatedOid",
+          "description": "<p>An abbreviated version of the Git object ID.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "commitResourcePath",
+          "description": "<p>The HTTP path for this Git object.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "commitUrl",
+          "description": "<p>The HTTP URL for this Git object.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the GitObject object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "oid",
+          "description": "<p>The Git object ID.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The Repository the Git object belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "GitSignature",
+      "id": "gitsignature",
+      "href": "/graphql/reference/git#interface-gitsignature",
+      "description": "<p>Information about a signature (GPG or S/MIME) on a Commit or Tag.</p>",
+      "fields": [
+        {
+          "name": "email",
+          "description": "<p>Email used to sign this object.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isValid",
+          "description": "<p>True if the signature is valid and verified by GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "payload",
+          "description": "<p>Payload for GPG signing object. Raw ODB object without the signature header.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "signature",
+          "description": "<p>ASCII-armored signature header from object.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "signer",
+          "description": "<p>GitHub user corresponding to the email signing this commit.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this signature. <code>VALID</code> if signature is valid and verified by\nGitHub, otherwise represents reason why signature is considered invalid.</p>",
+          "type": "GitSignatureState!",
+          "id": "gitsignaturestate",
+          "href": "/graphql/reference/git#enum-gitsignaturestate"
+        },
+        {
+          "name": "verifiedAt",
+          "description": "<p>The date the signature was verified, if valid.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "wasSignedByGitHub",
+          "description": "<p>True if the signature was made with GitHub's signing key.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "git"
+    }
+  ],
+  "enums": [
+    {
+      "name": "GitSignatureState",
+      "id": "gitsignaturestate",
+      "href": "/graphql/reference/git#enum-gitsignaturestate",
+      "description": "<p>The state of a Git signature.</p>",
+      "values": [
+        {
+          "name": "BAD_CERT",
+          "description": "<p>The signing certificate or its chain could not be verified.</p>"
+        },
+        {
+          "name": "BAD_EMAIL",
+          "description": "<p>Invalid email used for signing.</p>"
+        },
+        {
+          "name": "EXPIRED_KEY",
+          "description": "<p>Signing key expired.</p>"
+        },
+        {
+          "name": "GPGVERIFY_ERROR",
+          "description": "<p>Internal error - the GPG verification service misbehaved.</p>"
+        },
+        {
+          "name": "GPGVERIFY_UNAVAILABLE",
+          "description": "<p>Internal error - the GPG verification service is unavailable at the moment.</p>"
+        },
+        {
+          "name": "INVALID",
+          "description": "<p>Invalid signature.</p>"
+        },
+        {
+          "name": "MALFORMED_SIG",
+          "description": "<p>Malformed signature.</p>"
+        },
+        {
+          "name": "NOT_SIGNING_KEY",
+          "description": "<p>The usage flags for the key that signed this don't allow signing.</p>"
+        },
+        {
+          "name": "NO_USER",
+          "description": "<p>Email used for signing not known to GitHub.</p>"
+        },
+        {
+          "name": "OCSP_ERROR",
+          "description": "<p>Valid signature, though certificate revocation check failed.</p>"
+        },
+        {
+          "name": "OCSP_PENDING",
+          "description": "<p>Valid signature, pending certificate revocation checking.</p>"
+        },
+        {
+          "name": "OCSP_REVOKED",
+          "description": "<p>One or more certificates in chain has been revoked.</p>"
+        },
+        {
+          "name": "UNKNOWN_KEY",
+          "description": "<p>Key used for signing not known to GitHub.</p>"
+        },
+        {
+          "name": "UNKNOWN_SIG_TYPE",
+          "description": "<p>Unknown signature type.</p>"
+        },
+        {
+          "name": "UNSIGNED",
+          "description": "<p>Unsigned.</p>"
+        },
+        {
+          "name": "UNVERIFIED_EMAIL",
+          "description": "<p>Email used for signing unverified on GitHub.</p>"
+        },
+        {
+          "name": "VALID",
+          "description": "<p>Valid signature and verified by GitHub.</p>"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "RefOrderField",
+      "id": "reforderfield",
+      "href": "/graphql/reference/git#enum-reforderfield",
+      "description": "<p>Properties by which ref connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "ALPHABETICAL",
+          "description": "<p>Order refs by their alphanumeric name.</p>"
+        },
+        {
+          "name": "TAG_COMMIT_DATE",
+          "description": "<p>Order refs by underlying commit date if the ref prefix is refs/tags/.</p>"
+        }
+      ],
+      "category": "git"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "CommittableBranch",
+      "id": "committablebranch",
+      "href": "/graphql/reference/git#input-object-committablebranch",
+      "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\n<code>repositoryNameWithOwner</code> and <code>branchName</code>.</p>\n<h3 id=\"examples\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#examples\">Examples<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using <code>repositoryNameWithOwner</code> and <code>branchName</code>:</p>\n<pre><code>{\n  \"repositoryNameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
+      "inputFields": [
+        {
+          "name": "branchName",
+          "description": "<p>The unqualified name of the branch to append the commit to.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Ref to be updated.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "repositoryNameWithOwner",
+          "description": "<p>The nameWithOwner of the repository to commit to.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "CreateRefInput",
+      "id": "createrefinput",
+      "href": "/graphql/reference/git#input-object-createrefinput",
+      "description": "<p>Autogenerated input type of CreateRef.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The fully qualified name of the new Ref (ie: <code>refs/heads/my_new_branch</code>).</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "oid",
+          "description": "<p>The GitObjectID that the new Ref shall target. Must point to a commit.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The Node ID of the Repository to create the Ref in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "DeleteRefInput",
+      "id": "deleterefinput",
+      "href": "/graphql/reference/git#input-object-deleterefinput",
+      "description": "<p>Autogenerated input type of DeleteRef.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "refId",
+          "description": "<p>The Node ID of the Ref to be deleted.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "FileAddition",
+      "id": "fileaddition",
+      "href": "/graphql/reference/git#input-object-fileaddition",
+      "description": "<p>A command to add a file at the given path with the given contents as part of a\ncommit.  Any existing file at that that path will be replaced.</p>",
+      "inputFields": [
+        {
+          "name": "contents",
+          "description": "<p>The base64 encoded contents of the file.</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "href": "/graphql/reference/other#scalar-base64string"
+        },
+        {
+          "name": "path",
+          "description": "<p>The path in the repository where the file will be located.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "FileChanges",
+      "id": "filechanges",
+      "href": "/graphql/reference/git#input-object-filechanges",
+      "description": "<p>A description of a set of changes to a file tree to be made as part of\na git commit, modeled as zero or more file <code>additions</code> and zero or more\nfile <code>deletions</code>.</p>\n<p>Both fields are optional; omitting both will produce a commit with no\nfile changes.</p>\n<p><code>deletions</code> and <code>additions</code> describe changes to files identified\nby their path in the git tree using unix-style path separators, i.e.\n<code>/</code>.  The root of a git tree is an empty string, so paths are not\nslash-prefixed.</p>\n<p><code>path</code> values must be unique across all <code>additions</code> and <code>deletions</code>\nprovided.  Any duplication will result in a validation error.</p>\n<h3 id=\"encoding\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#encoding\">Encoding<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>File contents must be provided in full for each <code>FileAddition</code>.</p>\n<p>The <code>contents</code> of a <code>FileAddition</code> must be encoded using RFC 4648\ncompliant base64, i.e. correct padding is required and no characters\noutside the standard alphabet may be used.  Invalid base64\nencoding will be rejected with a validation error.</p>\n<p>The encoded contents may be binary.</p>\n<p>For text files, no assumptions are made about the character encoding of\nthe file contents (after base64 decoding).  No charset transcoding or\nline-ending normalization will be performed; it is the client's\nresponsibility to manage the character encoding of files they provide.\nHowever, for maximum compatibility we recommend using UTF-8 encoding\nand ensuring that all files in a repository use a consistent\nline-ending convention (<code>\\n</code> or <code>\\r\\n</code>), and that all files end\nwith a newline.</p>\n<h3 id=\"modeling-file-changes\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#modeling-file-changes\">Modeling file changes<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Each of the the five types of conceptual changes that can be made in a\ngit commit can be described using the <code>FileChanges</code> type as follows:</p>\n<ol>\n<li>\n<p>New file addition: create file <code>hello world\\n</code> at path <code>docs/README.txt</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file modification: change existing <code>docs/README.txt</code> to have new\ncontent <code>new content here\\n</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"new content here\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file deletion: remove existing file <code>docs/README.txt</code>.\nNote that the path is required to exist -- specifying a\npath that does not exist on the given branch will abort the\ncommit and return an error.</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\"\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with no changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to the same content at\n<code>newdocs/README.txt</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to a file at path\n<code>newdocs/README.txt</code> with content <code>new contents\\n</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"new contents\\n\")\n    }\n  ]\n}.\n</code></pre>\n</li>\n</ol>",
+      "inputFields": [
+        {
+          "name": "additions",
+          "description": "<p>File to add or change.</p>",
+          "type": "[FileAddition!]",
+          "id": "fileaddition",
+          "href": "/graphql/reference/git#input-object-fileaddition"
+        },
+        {
+          "name": "deletions",
+          "description": "<p>Files to delete.</p>",
+          "type": "[FileDeletion!]",
+          "id": "filedeletion",
+          "href": "/graphql/reference/git#input-object-filedeletion"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "FileDeletion",
+      "id": "filedeletion",
+      "href": "/graphql/reference/git#input-object-filedeletion",
+      "description": "<p>A command to delete the file at the given path as part of a commit.</p>",
+      "inputFields": [
+        {
+          "name": "path",
+          "description": "<p>The path to delete.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "RefOrder",
+      "id": "reforder",
+      "href": "/graphql/reference/git#input-object-reforder",
+      "description": "<p>Ways in which lists of git refs can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order refs by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order refs by.</p>",
+          "type": "RefOrderField!",
+          "id": "reforderfield",
+          "href": "/graphql/reference/git#enum-reforderfield"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "RefUpdate",
+      "id": "refupdate",
+      "href": "/graphql/reference/git#input-object-refupdate",
+      "description": "<p>A ref update.</p>",
+      "inputFields": [
+        {
+          "name": "afterOid",
+          "description": "<p>The value this ref should be updated to.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "beforeOid",
+          "description": "<p>The value this ref needs to point to before the update.</p>",
+          "type": "GitObjectID",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "force",
+          "description": "<p>Force a non fast-forward update.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>The fully qualified name of the ref to be update. For example <code>refs/heads/branch-name</code>.</p>",
+          "type": "GitRefname!",
+          "id": "gitrefname",
+          "href": "/graphql/reference/other#scalar-gitrefname"
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "UpdateRefInput",
+      "id": "updaterefinput",
+      "href": "/graphql/reference/git#input-object-updaterefinput",
+      "description": "<p>Autogenerated input type of UpdateRef.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "force",
+          "description": "<p>Permit updates of branch Refs that are not fast-forwards?.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "oid",
+          "description": "<p>The GitObjectID that the Ref shall be updated to target.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "refId",
+          "description": "<p>The Node ID of the Ref to be updated.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "git"
+    },
+    {
+      "name": "UpdateRefsInput",
+      "id": "updaterefsinput",
+      "href": "/graphql/reference/git#input-object-updaterefsinput",
+      "description": "<p>Autogenerated input type of UpdateRefs.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "refUpdates",
+          "description": "<p>A list of ref updates.</p>",
+          "type": "[RefUpdate!]!",
+          "id": "refupdate",
+          "href": "/graphql/reference/git#input-object-refupdate"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The Node ID of the repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "git"
+    }
+  ]
+}

@@ -9,6 +9,8 @@ children:
   - /github-hosted-runners
   - /self-hosted-runners
   - /larger-runners
+  - /use-actions-runner-controller
   - /use-proxy-servers
+contentType: how-tos
 ---
 

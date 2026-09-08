@@ -1,0 +1,310 @@
+{
+  "objects": [
+    {
+      "name": "App",
+      "id": "app",
+      "href": "/graphql/reference/apps#object-app",
+      "description": "<p>A GitHub App.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "clientId",
+          "description": "<p>The client ID of the app.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description of the app.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the App object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "ipAllowListEntries",
+          "description": "<p>The IP addresses of the app.</p>",
+          "type": "IpAllowListEntryConnection!",
+          "id": "ipallowlistentryconnection",
+          "href": "/graphql/reference/enterprise-admin#object-ipallowlistentryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for IP allow list entries returned.</p>",
+              "type": {
+                "name": "IpAllowListEntryOrder",
+                "id": "ipallowlistentryorder",
+                "href": "/graphql/reference/enterprise-admin#input-object-ipallowlistentryorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "logoBackgroundColor",
+          "description": "<p>The hex color code, without the leading '#', for the logo background.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "logoUrl",
+          "description": "<p>A URL pointing to the app's logo.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "arguments": [
+            {
+              "name": "size",
+              "description": "<p>The size of the resulting image.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the app.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "slug",
+          "description": "<p>A slug based on the name of the app for use in URLs.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The URL to the app's homepage.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "apps"
+    },
+    {
+      "name": "Bot",
+      "id": "bot",
+      "href": "/graphql/reference/apps#object-bot",
+      "description": "<p>A special type of user which takes actions on behalf of GitHub Apps.</p>",
+      "implements": [
+        {
+          "name": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "avatarUrl",
+          "description": "<p>A URL pointing to the GitHub App's public avatar.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "arguments": [
+            {
+              "name": "size",
+              "description": "<p>The size of the resulting square image.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Bot object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "login",
+          "description": "<p>The username of the actor.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this bot.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this bot.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "apps"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "OauthApplicationAuditEntryData",
+      "id": "oauthapplicationauditentrydata",
+      "href": "/graphql/reference/apps#interface-oauthapplicationauditentrydata",
+      "description": "<p>Metadata for an audit entry with action oauth_application.*.</p>",
+      "fields": [
+        {
+          "name": "oauthApplicationName",
+          "description": "<p>The name of the OAuth application.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "oauthApplicationResourcePath",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "oauthApplicationUrl",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "apps"
+    }
+  ],
+  "enums": [
+    {
+      "name": "OauthApplicationCreateAuditEntryState",
+      "id": "oauthapplicationcreateauditentrystate",
+      "href": "/graphql/reference/apps#enum-oauthapplicationcreateauditentrystate",
+      "description": "<p>The state of an OAuth application when it was created.</p>",
+      "values": [
+        {
+          "name": "ACTIVE",
+          "description": "<p>The OAuth application was active and allowed to have OAuth Accesses.</p>"
+        },
+        {
+          "name": "PENDING_DELETION",
+          "description": "<p>The OAuth application was in the process of being deleted.</p>"
+        },
+        {
+          "name": "SUSPENDED",
+          "description": "<p>The OAuth application was suspended from generating OAuth Accesses due to abuse or security concerns.</p>"
+        }
+      ],
+      "category": "apps"
+    }
+  ]
+}

@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 children:
   - /set-up-payment
   - /manage-plan-and-licenses

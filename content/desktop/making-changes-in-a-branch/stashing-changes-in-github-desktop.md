@@ -10,6 +10,8 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/stashing-changes
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/stashing-changes
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/stashing-changes-in-github-desktop
+category:
+  - Work with branches and pull requests
 ---
 ## About stashed changes
 

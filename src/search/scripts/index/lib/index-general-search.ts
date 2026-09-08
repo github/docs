@@ -42,7 +42,9 @@ export async function indexGeneralSearch(sourceDirectory: string, opts: Options)
     throw new Error("Can't combine --language and --not-language")
   }
 
-  const client = getElasticsearchClient(opts.elasticsearchUrl, opts.verbose)
+  const client = getElasticsearchClient(opts.elasticsearchUrl, opts.verbose, {
+    requestTimeout: 5 * 60 * 1000,
+  })
   await client.ping() // Will throw if not available
 
   let versions: string[] | 'all' = []

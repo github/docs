@@ -12,14 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Xamarin
-  - Xamarin.iOS
-  - Xamarin.Android
-  - Android
-  - iOS
 shortTitle: Xamarin apps
+category:
+  - Build and test code
+contentType: tutorials
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -34,7 +30,7 @@ For a full list of available Xamarin SDK versions on the {% data variables.produ
 
 We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
-* [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)
+* [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax)
 * [Getting started with .NET](https://dotnet.microsoft.com/learn)
 * [Learn Xamarin](https://dotnet.microsoft.com/learn/xamarin)
 

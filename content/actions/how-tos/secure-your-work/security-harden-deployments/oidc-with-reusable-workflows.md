@@ -11,19 +11,18 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Workflows
-  - Security
+contentType: how-tos
+category:
+  - Secure your workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About reusable workflows
 
-Rather than copying and pasting deployment jobs from one workflow to another, you can create a reusable workflow that performs the deployment steps. A reusable workflow can be used by another workflow if it meets one of the access requirements described in [AUTOTITLE](/actions/using-workflows/reusing-workflows#access-to-reusable-workflows).
+Rather than copying and pasting deployment jobs from one workflow to another, you can create a reusable workflow that performs the deployment steps. A reusable workflow can be used by another workflow if it meets one of the access requirements described in [AUTOTITLE](/actions/reference/workflows-and-actions/reusing-workflow-configurations#access-to-reusable-workflows).
 
-You should be familiar with the concepts described in [AUTOTITLE](/actions/using-workflows/reusing-workflows) and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+You should be familiar with the concepts described in [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows) and [AUTOTITLE](/actions/reference/security/oidc#customizing-the-token-claims).
 
 ## Defining the trust conditions
 
@@ -31,14 +30,14 @@ When combined with OpenID Connect (OIDC), reusable workflows let you enforce con
 
 * **Using `job_workflow_ref`:**
   * To create trust conditions based on reusable workflows, your cloud provider must support custom claims for `job_workflow_ref`. This allows your cloud provider to identify which repository the job originally came from.
-  * For clouds that only support the standard claims (audience (`aud`) and subject (`sub`)), you can use the API to customize the `sub` claim to include `job_workflow_ref`. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims). Support for custom claims is currently available for Google Cloud Platform and HashiCorp Vault.
+  * For clouds that only support the standard claims (audience (`aud`) and subject (`sub`)), you can use the API to customize the `sub` claim to include `job_workflow_ref`. For more information, see [AUTOTITLE](/actions/reference/security/oidc#customizing-the-token-claims). Support for custom claims is currently available for Google Cloud Platform and HashiCorp Vault.
 
 * **Customizing the token claims:**
-  * You can configure more granular trust conditions by customizing the {% ifversion ghec %}issuer (`iss`) and {% endif %}subject (`sub`) claim{% ifversion ghec %}s that are{% else %} that's{% endif %} included with the JWT. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims).
+  * You can configure more granular trust conditions by customizing the {% ifversion ghec %}issuer (`iss`) and {% endif %}subject (`sub`) claim{% ifversion ghec %}s that are{% else %} that's{% endif %} included with the JWT. For more information, see [AUTOTITLE](/actions/concepts/security/openid-connect).
 
 ## How the token works with reusable workflows
 
-During a workflow run, {% data variables.product.prodname_dotcom %}'s OIDC provider presents a OIDC token to the cloud provider which contains information about the job. If that job is part of a reusable workflow, the token will include the standard claims that contain information about the calling workflow, and will also include a custom claim called `job_workflow_ref` that contains information about the called workflow.
+During a workflow run, {% data variables.product.prodname_dotcom %}'s OIDC provider presents an OIDC token to the cloud provider which contains information about the job. If that job is part of a reusable workflow, the token will include the standard claims that contain information about the calling workflow, and will also include a custom claim called `job_workflow_ref` that contains information about the called workflow.
 
 For example, the following OIDC token is for a job that was part of a called workflow. The `workflow`, `ref`, and other attributes describe the caller workflow, while `job_workflow_ref` refers to the called workflow:
 

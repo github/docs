@@ -22,8 +22,7 @@ export default function handleMalformedUrls(
   } catch {
     // If any decoding fails, this is a malformed URL
     defaultCacheControl(res)
-    res.setHeader('content-type', 'text/plain')
-    res.status(400).send('Bad Request: Malformed URL')
+    res.status(400).type('text').send('Bad Request: Malformed URL')
     return
   }
 

@@ -1,0 +1,5 @@
+# Allows the CodeQL Action to use repository properties.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.21'

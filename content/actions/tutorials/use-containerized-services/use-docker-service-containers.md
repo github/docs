@@ -1,7 +1,7 @@
 ---
 title: Communicating with Docker service containers
 shortTitle: Use Docker service containers
-intro: 'Learn how to use Docker service containers to connect databases, web services, memory caches, and other tools to your workflow.'
+intro: Learn how to use Docker service containers to connect databases, web services, memory caches, and other tools to your workflow.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
   - /actions/configuring-and-managing-workflows/about-service-containers
@@ -15,10 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
-topics:
-  - Containers
-  - Docker
+contentType: tutorials
+category:
+  - Build and test code
 ---
 
 ## Communicating with Docker service containers
@@ -43,11 +42,11 @@ You don't need to configure any ports for service containers. By default, all co
 
 When running jobs directly on the runner machine, you can access service containers using `localhost:<port>` or `127.0.0.1:<port>`. {% data variables.product.prodname_dotcom %} configures the container network to enable communication from the service container to the Docker host.
 
-When a job runs directly on a runner machine, the service running in the Docker container does not expose its ports to the job on the runner by default. You need to map ports on the service container to the Docker host. For more information, see [AUTOTITLE](/actions/using-containerized-services/about-service-containers#mapping-docker-host-and-service-container-ports).
+When a job runs directly on a runner machine, the service running in the Docker container does not expose its ports to the job on the runner by default. You need to map ports on the service container to the Docker host. For more information, see [AUTOTITLE](/actions/tutorials/use-containerized-services/use-docker-service-containers#mapping-docker-host-and-service-container-ports).
 
 ## Creating service containers
 
-You can use the `services` keyword to create service containers that are part of a job in your workflow. For more information, see [`jobs.<job_id>.services`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idservices).
+You can use the `services` keyword to create service containers that are part of a job in your workflow. For more information, see [`jobs.<job_id>.services`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idservices).
 
 This example creates a service called `redis` in a job called `container-job`. The Docker host in this example is the `node:16-bullseye` container.
 
@@ -79,7 +78,7 @@ jobs:
 
 If your job runs in a Docker container, you do not need to map ports on the host or the service container. If your job runs directly on the runner machine, you'll need to map any required service container ports to ports on the host runner machine.
 
-You can map service containers ports to the Docker host using the `ports` keyword. For more information, see [`jobs.<job_id>.services`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idservices).
+You can map service containers ports to the Docker host using the `ports` keyword. For more information, see [`jobs.<job_id>.services`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idservices).
 
 | Value of `ports` |	Description |
 |------------------|--------------|
@@ -89,7 +88,7 @@ You can map service containers ports to the Docker host using the `ports` keywor
 
 When you map ports using the `ports` keyword, {% data variables.product.prodname_dotcom %} uses the `--publish` command to publish the container’s ports to the Docker host. For more information, see [Docker container networking](https://docs.docker.com/config/containers/container-networking/) in the Docker documentation.
 
-When you specify the container port but not the Docker host port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#job-context).
+When you specify the container port but not the Docker host port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#job-context).
 
 ### Example mapping Redis ports
 
@@ -151,7 +150,44 @@ jobs:
 
 {% endraw %}
 
+{% ifversion fpt or ghec %}
+
+## Customizing service container entrypoints and commands
+
+By default, service containers run with the entrypoint and command defined in the Docker image. You can override these using the `entrypoint` and `command` keys. This is useful when you need to pass flags to a service (such as a database) or swap the image entrypoint entirely, without building a custom wrapper image.
+
+The `command` key overrides the image's default command (`CMD`). Most scenarios only need `command`—the image already has the right entrypoint, you just need to pass flags:
+
+```yaml copy
+services:
+  mysql:
+    image: mysql:8
+    command: --sql_mode=STRICT_TRANS_TABLES --max_allowed_packet=512M
+    env:
+      MYSQL_ROOT_PASSWORD: test
+    ports:
+      - 3306:3306
+```
+
+The `entrypoint` key overrides the image's `ENTRYPOINT`. You can combine it with `command` to pass arguments to the custom entrypoint:
+
+```yaml copy
+services:
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.17
+    entrypoint: etcd
+    command: >-
+      --listen-client-urls http://0.0.0.0:2379
+      --advertise-client-urls http://0.0.0.0:2379
+    ports:
+      - 2379:2379
+```
+
+The naming and behavior match Docker Compose. For more information, see [`jobs.<job_id>.services.<service_id>.command`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idservicesservice_idcommand) and [`jobs.<job_id>.services.<service_id>.entrypoint`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idservicesservice_identrypoint).
+
+{% endif %}
+
 ## Further reading
 
-* [AUTOTITLE](/actions/using-containerized-services/creating-redis-service-containers)
-* [AUTOTITLE](/actions/using-containerized-services/creating-postgresql-service-containers)
+* [AUTOTITLE](/actions/tutorials/use-containerized-services/create-redis-service-containers)
+* [AUTOTITLE](/actions/tutorials/use-containerized-services/create-postgresql-service-containers)

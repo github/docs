@@ -1,20 +1,19 @@
 ---
 title: Extractor options
+shortTitle: Extractor options
 intro: Control how the {% data variables.product.prodname_codeql_cli %} builds databases for analysis with extractor options.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/extractor-options
   - /code-security/codeql-cli/using-the-codeql-cli/extractor-options
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/extractor-options
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 <!--The CodeQL CLI man pages include a link to this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/codeql-cli-docs/extractor-options.-->

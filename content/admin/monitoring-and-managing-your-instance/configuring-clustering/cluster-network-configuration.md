@@ -1,6 +1,6 @@
 ---
 title: Cluster network configuration
-intro: 'A {% data variables.product.prodname_ghe_server %} cluster requires proper DNS name resolution, load balancing, and communication between nodes.'
+intro: A {% data variables.product.prodname_ghe_server %} cluster requires proper DNS name resolution, load balancing, and communication between nodes.
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/cluster-network-configuration
@@ -10,13 +10,10 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/cluster-network-configuration
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Clustering
-  - Enterprise
-  - Infrastructure
-  - Networking
 shortTitle: Configure a cluster network
+contentType: reference
+category:
+  - Scale your instance
 ---
 
 ## About networking for a {% data variables.product.prodname_ghe_server %} cluster

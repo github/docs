@@ -5,15 +5,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: reference
-topics:
-  - Migration
-  - CI
-  - CD
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/supplemental-arguments-and-settings
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/supplemental-arguments-and-settings
   - /actions/reference/supplemental-arguments-and-settings
+contentType: reference
+category:
+  - Migrate to GitHub Actions
 ---
 
 This article provides general information for configuring {% data variables.product.prodname_actions_importer %}'s supplemental arguments and settings, such as optional parameters, path arguments, and network settings.
@@ -179,7 +177,7 @@ gh actions-importer audit --output-dir /data/out
 
 ## Using a proxy
 
-To access servers that are configured with a HTTP proxy, you must set the following environment variables with the proxy's URL:
+To access servers that are configured with an HTTP proxy, you must set the following environment variables with the proxy's URL:
 
 * `OCTOKIT_PROXY`: for any {% data variables.product.prodname_dotcom %} server.
 * `HTTP_PROXY` (or `HTTPS_PROXY`): for any other servers.

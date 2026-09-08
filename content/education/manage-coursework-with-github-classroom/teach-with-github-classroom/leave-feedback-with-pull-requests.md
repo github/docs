@@ -8,7 +8,11 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/leaving-feedback-in-github
   - /education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests
 shortTitle: Pull requests
+category:
+  - Track assignment progress
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## About feedback pull requests for assignments
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
@@ -26,7 +30,7 @@ To create and access the feedback pull request, you must enable the feedback pul
 {% data reusables.classroom.click-assignment-in-list %}
 1. Each student will have a submission row, press the Feedback link to navigate to the student's pull request.
 1. On the Feedback PR select the Files changed tab.
-1. Review the pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
+1. Review the pull request. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/commenting-on-a-pull-request).
 
 ## Further reading
 

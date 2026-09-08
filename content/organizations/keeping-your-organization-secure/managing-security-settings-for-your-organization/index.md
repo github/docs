@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /managing-security-and-analysis-settings-for-your-organization
   - /managing-allowed-ip-addresses-for-your-organization

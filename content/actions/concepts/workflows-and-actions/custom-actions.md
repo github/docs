@@ -1,7 +1,7 @@
 ---
 title: About custom actions
 shortTitle: Custom actions
-intro: 'Actions are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.'
+intro: Actions are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.
 redirect_from:
   - /articles/about-actions
   - /github/automating-your-workflow-with-github-actions/about-actions
@@ -15,10 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
-topics:
-  - Action development
-  - Fundamentals
+contentType: concepts
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -65,8 +64,8 @@ If you're developing a Node.js project, the {% data variables.product.prodname_a
 
 ### Composite Actions
 
-A _composite_ action allows you to combine multiple workflow steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out [AUTOTITLE](/actions/creating-actions/creating-a-composite-action).
+A _composite_ action allows you to combine multiple workflow steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out [AUTOTITLE](/actions/tutorials/create-actions/create-a-composite-action).
 
 ## Next steps
 
-To learn about how to manage your custom actions, see [AUTOTITLE](/actions/how-tos/administering-github-actions/managing-custom-actions).
+To learn about how to manage your custom actions, see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/manage-custom-actions).

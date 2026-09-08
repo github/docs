@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Permission denied (publickey)
+category:
+  - Troubleshoot authentication issues
 ---
 {% ifversion ghec %}
 
@@ -67,6 +67,17 @@ You should see this output:
 ```shell
 > Hi USERNAME! You've successfully authenticated...
 ```
+
+{% ifversion ghec %}
+
+> [!WARNING]
+> {% data reusables.enterprise-data-residency.ssh-user %}
+>
+> ```shell
+> ssh -T {% data variables.enterprise.data_residency_example_git_ssh %}
+> ```
+
+{% endif %}
 
 ## Make sure you have a key that is being used
 
@@ -128,6 +139,12 @@ You can also check that the key is being used by trying to connect to `git@{% da
 
 ```shell copy
 ssh -vT git@{% data variables.product.product_url %}
+```
+
+If you use a private key with a non-default file name, use the `-i` option to specify the path to the key:
+
+```shell copy
+ssh -i ~/.ssh/KEY-FILE -vT git@{% data variables.product.product_url %}
 ```
 
 You'll see output like this:

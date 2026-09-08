@@ -5,9 +5,6 @@ intro: Learn how to install {% data variables.copilot.copilot_cli_short %} so th
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - CLI
 redirect_from:
   - /copilot/how-tos/set-up/install-copilot-in-the-cli
   - /copilot/github-copilot-in-the-cli/enabling-github-copilot-in-the-cli
@@ -20,19 +17,20 @@ redirect_from:
   - /copilot/how-tos/copilot-cli/install-copilot-cli
 contentType: how-tos
 category:
-  - Configure Copilot
+  - Configure Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
-{% data reusables.cli.preview-note-cli %}
-
-To find out about {% data variables.copilot.copilot_cli_short %} before you install it, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
+To find out about {% data variables.copilot.copilot_cli_short %} before you install it, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
 
 ## Prerequisites
 
 * **An active {% data variables.product.prodname_copilot %} subscription**. See [{% data variables.product.prodname_copilot_short %} plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=text).
 * (On Windows) **PowerShell** v6 or higher
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.copilot.copilot_cli_short %} if your organization owner or enterprise administrator has disabled it in the organization or enterprise settings. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
+If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.copilot.copilot_cli_short %} if your organization owner or enterprise administrator has disabled it in the organization or enterprise settings. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
 
 ## Installing or updating {% data variables.copilot.copilot_cli_short %}
 
@@ -74,13 +72,13 @@ winget install GitHub.Copilot.Prerelease
 ### Installing with Homebrew (macOS and Linux)
 
 ```shell copy
-brew install copilot-cli
+brew install --cask copilot-cli
 ```
 
 To install the prerelease version:
 
 ```shell copy
-brew install copilot-cli@prerelease
+brew install --cask copilot-cli@prerelease
 ```
 
 ### Installing with the install script (macOS and Linux)
@@ -115,17 +113,16 @@ Download the executable for your platform, unpack it, and run.
 
 ## Authenticating with {% data variables.copilot.copilot_cli_short %}
 
-On first launch, if you're not currently logged in to {% data variables.product.github %}, you'll be prompted to use the `/login` slash command. Enter this command and follow the on-screen instructions to authenticate.
+On first launch, if you're not currently logged in to {% data variables.product.github %}, you'll be prompted to use the `/login` slash command. Enter this command and follow the on-screen instructions to authenticate. For more information on the authentication process, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli).
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
 You can also authenticate using a {% data variables.product.pat_v2 %} with the "{% data variables.product.prodname_copilot_short %} Requests" permission enabled.
 
-1. Visit [{% data variables.product.pat_v2_caps_plural %}](https://github.com/settings/personal-access-tokens/new).
-1. Under "Permissions," click **Add permissions** and select **{% data variables.product.prodname_copilot_short %} Requests**.
-1. Click **Generate token**.
-1. Add the token to your environment using the `GH_TOKEN` or `GITHUB_TOKEN` environment variable (in order of precedence).
+{% data reusables.copilot.copilot-cli-pat-steps %}
 
 ## Next steps
 
-You can now use {% data variables.product.prodname_copilot_short %} from the command line. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli).
+You can now use {% data variables.product.prodname_copilot_short %} from the command line. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview).
+
+For a list of commands for {% data variables.copilot.copilot_cli_short %}, including the command to update, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference).

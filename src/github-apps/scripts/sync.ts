@@ -1,9 +1,9 @@
-import { existsSync } from 'fs'
+import fs, { existsSync } from 'fs'
 import { mkdirp } from 'mkdirp'
 import { readFile, writeFile } from 'fs/promises'
 import path from 'path'
 import { slug } from 'github-slugger'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import walk from 'walk-sync'
 
 import { getContents, getDirectoryContents } from '@/workflows/git-utils'
@@ -227,11 +227,11 @@ export async function syncGitHubAppsData(
               const worksWithData = {
                 'user-to-server': Boolean(
                   isUserAccessToken &&
-                    !isActorExcluded(excludedActors, 'user_to_server', actorTypeMap),
+                  !isActorExcluded(excludedActors, 'user_to_server', actorTypeMap),
                 ),
                 'server-to-server': Boolean(
                   isInstallationAccessToken &&
-                    !isActorExcluded(excludedActors, 'server_to_server', actorTypeMap),
+                  !isActorExcluded(excludedActors, 'server_to_server', actorTypeMap),
                 ),
                 'additional-permissions': additionalPermissions,
               }
@@ -308,6 +308,97 @@ export async function syncGitHubAppsData(
       console.log(`✅ Wrote ${targetPath}`)
     }
   }
+
+  // Write deduplicated shared format
+  await writeDeduplicatedAppsFormat()
+}
+
+async function writeDeduplicatedAppsFormat() {
+  console.log(`\n▶️  Writing deduplicated GitHub Apps data...\n`)
+
+  // Read all the per-version files we just wrote to build the shared format
+  const versions = fs.readdirSync(ENABLED_APPS_DIR).filter((f) => {
+    const fullPath = path.join(ENABLED_APPS_DIR, f)
+    return fs.statSync(fullPath).isDirectory() && f !== 'shared'
+  })
+
+  // Pool for unique leaf objects (operations and permission entries)
+  const entriesPool: unknown[] = []
+  const entriesMap = new Map<string, number>()
+
+  function getEntryIndex(obj: unknown): number {
+    const key = JSON.stringify(obj)
+    if (entriesMap.has(key)) return entriesMap.get(key)!
+    const index = entriesPool.length
+    entriesPool.push(obj)
+    entriesMap.set(key, index)
+    return index
+  }
+
+  // version-index structure:
+  // For rest pages: { version: { pageType: { category: number[] } } }
+  // For permission pages: { version: { pageType: { permName: { title, displayTitle, indices: number[] } } } }
+  const versionIndex: Record<string, Record<string, unknown>> = {}
+  let totalItems = 0
+
+  for (const version of versions) {
+    versionIndex[version] = {}
+    const versionDir = path.join(ENABLED_APPS_DIR, version)
+    const files = fs.readdirSync(versionDir).filter((f) => f.endsWith('.json'))
+
+    for (const file of files) {
+      const pageType = path.basename(file, '.json')
+      const data = JSON.parse(fs.readFileSync(path.join(versionDir, file), 'utf8'))
+      const isPermissions = pageType.includes('permissions')
+
+      if (isPermissions) {
+        // Permission data: { permName: { title, displayTitle, permissions: [...] } }
+        const pageIndex: Record<
+          string,
+          { title: string; displayTitle: string; indices: number[] }
+        > = {}
+        for (const [permName, permData] of Object.entries(data as Record<string, PermissionData>)) {
+          const indices = permData.permissions.map((perm) => {
+            totalItems++
+            return getEntryIndex(perm)
+          })
+          pageIndex[permName] = {
+            title: permData.title,
+            displayTitle: permData.displayTitle,
+            indices,
+          }
+        }
+        versionIndex[version][pageType] = pageIndex
+      } else {
+        // Rest data: { category: [...operations] }
+        const pageIndex: Record<string, number[]> = {}
+        for (const [category, operations] of Object.entries(
+          data as Record<string, AppDataOperation[]>,
+        )) {
+          pageIndex[category] = (operations as AppDataOperation[]).map((op) => {
+            totalItems++
+            return getEntryIndex(op)
+          })
+        }
+        versionIndex[version][pageType] = pageIndex
+      }
+    }
+  }
+
+  // Write shared files
+  const sharedDir = path.join(ENABLED_APPS_DIR, 'shared')
+  if (!existsSync(sharedDir)) {
+    await mkdirp(sharedDir)
+  }
+
+  await writeFile(path.join(sharedDir, 'entries.json'), JSON.stringify(entriesPool))
+  await writeFile(path.join(ENABLED_APPS_DIR, 'version-index.json'), JSON.stringify(versionIndex))
+
+  const uniqueEntries = entriesPool.length
+  const dedupRate = totalItems > 0 ? ((1 - uniqueEntries / totalItems) * 100).toFixed(1) : '0'
+  console.log(
+    `✅ Deduplicated GitHub Apps data: ${totalItems} total → ${uniqueEntries} unique entries (${dedupRate}% dedup)`,
+  )
 }
 
 export async function getProgAccessData(
@@ -329,14 +420,14 @@ export async function getProgAccessData(
     'config/access_control/fine_grained_permissions/programmatic_actor_fine_grained_resources'
 
   if (!useRemoteGitHubFiles) {
-    progAccessDataRaw = yaml.load(
+    progAccessDataRaw = load(
       await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8'),
     ) as ProgAccessRawOperation[]
     progActorResources = await getProgActorResourceContent({
       gitHubSourceDirectory: path.join(progAccessSource, progActorDirectory),
     })
   } else {
-    progAccessDataRaw = yaml.load(
+    progAccessDataRaw = load(
       await getContents('github', 'github', 'master', progAccessFilepath),
     ) as ProgAccessRawOperation[]
     progActorResources = await getProgActorResourceContent({
@@ -589,7 +680,7 @@ async function getProgActorResourceContent({
   // to the object.
   const progActorResources: ProgActorResources = {}
   for (const file of files) {
-    const fileContent = yaml.load(file) as Record<string, ProgActorResource>
+    const fileContent = load(file) as Record<string, ProgActorResource>
     // Each file should only contain a single key and value.
     if (Object.keys(fileContent).length !== 1) {
       throw new Error(`Error: The file ${JSON.stringify(fileContent)} must only have one key.`)

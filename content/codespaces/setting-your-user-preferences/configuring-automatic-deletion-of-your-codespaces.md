@@ -1,20 +1,20 @@
 ---
 title: Configuring automatic deletion of your codespaces
 shortTitle: Configure automatic deletion
-intro: 'Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
+intro: Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.
 redirect_from:
   - /codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
-type: how_to
+contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 By default, {% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for 30 days.
 
-However, because {% data variables.product.prodname_github_codespaces %} incurs storage charges, you may prefer to reduce the retention period by changing your default period in your personal settings for {% data variables.product.prodname_github_codespaces %}. For more information about storage charges, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing).
+However, because {% data variables.product.prodname_github_codespaces %} incurs storage charges, you may prefer to reduce the retention period by changing your default period in your personal settings for {% data variables.product.prodname_github_codespaces %}. For more information about storage charges, see [AUTOTITLE](/billing/concepts/product-billing/github-codespaces#pricing).
 
 > [!NOTE]
 > Whether or not you have set a personal codespace retention period, it's a good idea to get into the habit of deleting codespaces that you no longer need. See [AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace).

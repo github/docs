@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Supported OS
+category:
+  - Set up GitHub Desktop
 ---
 ## About supported operating systems
 

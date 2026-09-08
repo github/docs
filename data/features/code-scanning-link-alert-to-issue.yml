@@ -1,0 +1,5 @@
+# Reference: #20489 - Code scanning alerts link to GitHub issues to facilitate collaboration and work management
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.21'

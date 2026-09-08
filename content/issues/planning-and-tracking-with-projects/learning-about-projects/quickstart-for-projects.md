@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart for {% data variables.product.prodname_projects_v2 %}'
-intro: 'Experience the speed, flexibility, and customization of {% data variables.product.prodname_projects_v2 %} by creating a project in this interactive guide.'
+title: Quickstart for {% data variables.product.prodname_projects_v2 %}
+intro: Experience the speed, flexibility, and customization of {% data variables.product.prodname_projects_v2 %} by creating a project in this interactive guide.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -8,9 +8,9 @@ versions:
   ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/quickstart
-type: quick_start
-topics:
-  - Projects
+contentType: get-started
+category:
+  - Set up and manage projects
 ---
 
 ## Introduction
@@ -21,7 +21,7 @@ This guide demonstrates how to use {% data variables.product.prodname_projects_v
 
 You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 
-In this guide, you will add issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
+In this guide, you will add issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).
 
 ## Creating a project
 

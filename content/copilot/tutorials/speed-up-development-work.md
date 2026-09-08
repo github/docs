@@ -5,8 +5,6 @@ intro: 'Learn how to use {% data variables.copilot.copilot_spaces %} to help you
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/copilot-spaces/speeding-up-development-work-with-copilot-spaces
   - /copilot/tutorials/speeding-up-development-work-with-copilot-spaces
@@ -93,4 +91,4 @@ Try the [Scale institutional knowledge using Copilot Spaces](https://github.com/
 
 ## Next steps
 
-After you create a space to help with development tasks, consider sharing it with your team to reduce handoffs and repeated questions. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/collaborating-with-your-team-using-copilot-spaces).
+After you create a space to help with development tasks, consider sharing it with your team to reduce handoffs and repeated questions. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/collaborate-with-others).

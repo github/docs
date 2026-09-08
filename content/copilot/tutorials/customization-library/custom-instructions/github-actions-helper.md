@@ -1,6 +1,6 @@
 ---
 title: GitHub Actions helper
-intro: 'Generate and improve {% data variables.product.prodname_actions %} workflows.'
+intro: Generate and improve {% data variables.product.prodname_actions %} workflows.
 versions:
   feature: copilot
 category:
@@ -9,17 +9,16 @@ category:
   - Path-specific
   - Repository
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
-  - Actions
+contentType: tutorials
 ---
 
 {% data reusables.copilot.customization-examples-note %}
 
-The following example shows a path-specific `actions.instructions.md` file that applies only to {% data variables.product.prodname_actions %} workflow files in your repository, using the `applyTo` field. For more information about path-specific instructions files, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions#using-one-or-more-instructionsmd-files).
+The following example shows a path-specific `actions.instructions.md` file that applies only to {% data variables.product.prodname_actions %} workflow files in your repository, using the `applyTo` field. For more information about path-specific instructions files, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions#creating-path-specific-custom-instructions).
 
 ````text copy
 ---

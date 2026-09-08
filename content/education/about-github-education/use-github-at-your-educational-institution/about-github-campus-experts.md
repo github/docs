@@ -1,6 +1,6 @@
 ---
 title: About GitHub Campus Experts
-intro: 'Enrich your college’s technical community by becoming a {% data variables.product.prodname_student_leader_program_singular %}.'
+intro: "Enrich your college's technical community by becoming a {% data variables.product.prodname_student_leader_program_singular %}."
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-campus-experts
   - /github/teaching-and-learning-with-github-education/about-campus-experts
@@ -11,9 +11,11 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: GitHub Campus Experts Program
+category:
+  - Participate in campus and community programs
 ---
 
-Learn the skills to build and grow diverse technology communities on campus with training, mentorship, and support from {% data variables.product.prodname_dotcom %} as part of the {% data variables.product.prodname_student_leader_program %} program. For more information on applying to the {% data variables.product.prodname_student_leader_program %}, see “[Applying to be a {% data variables.product.prodname_student_leader_program_singular %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert).”
+Learn the skills to build and grow diverse technology communities on campus with training, mentorship, and support from {% data variables.product.prodname_dotcom %} as part of the {% data variables.product.prodname_student_leader_program %} program. For more information on applying to the {% data variables.product.prodname_student_leader_program %}, see “[Applying to be a {% data variables.product.prodname_student_leader_program_singular %}](/education/about-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert).”
 
 ## About {% data variables.product.prodname_student_leader_program %}
 
@@ -36,4 +38,4 @@ Optionally, to learn more about the program, contact your closest {% data variab
 
 ## Further reading
 
-* “[Applying to be a {% data variables.product.prodname_student_leader_program_singular %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert)”
+* “[Applying to be a {% data variables.product.prodname_student_leader_program_singular %}](/education/about-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert)”

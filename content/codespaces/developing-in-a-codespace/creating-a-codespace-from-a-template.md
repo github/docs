@@ -1,17 +1,15 @@
 ---
 title: Creating a codespace from a template
-intro: 'If you''re starting a new project, you can create a codespace from a blank template or choose a template specially designed for the type of work you want to do.'
+intro: If you're starting a new project, you can create a codespace from a blank template or choose a template specially designed for the type of work you want to do.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 shortTitle: Create a codespace from a template
 redirect_from:
   - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
+contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 # About templates for {% data variables.product.prodname_github_codespaces %}
@@ -23,7 +21,7 @@ You can start from a blank template, choose from templates maintained by {% data
 {% ifversion ghec %}
 
 > [!NOTE]
-> If you have a {% data variables.enterprise.prodname_managed_user %}, you cannot use {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}, because you can only create codespaces that are owned and paid for by your organization or enterprise. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts).
+> If you have a {% data variables.enterprise.prodname_managed_user %}, you cannot use {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}, because you can only create codespaces that are owned and paid for by your organization or enterprise. For more information, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
 
 {% endif %}
 

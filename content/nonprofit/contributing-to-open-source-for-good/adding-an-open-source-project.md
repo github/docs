@@ -7,6 +7,8 @@ versions:
 shortTitle: For Good First Issue
 redirect_from:
   - /nonprofit/contributing-to-open-source-for-good/for-good-first-issue
+category:
+  - Contribute to open source for good
 ---
 
 ## Introduction
