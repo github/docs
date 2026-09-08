@@ -1,14 +1,7 @@
-date: '2026-08-11'
-release_candidate: true
-deprecated: true
+date: '2026-09-08'
+release_candidate: false
+deprecated: false
 intro: |
-  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
-  >
-  > Do not upgrade to an RC from a supported, earlier version.
-  >
-  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
-
-  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 sections:
 
   features:
@@ -19,13 +12,16 @@ sections:
           Phased upgrade execution gives you better control over downtime-inducing actions by isolating those actions to their own phase. You can now run the pre-upgrade stage of an upgrade outside the maintenance window using `ghe-upgrade --phase pre-upgrade -y UPGRADE-PACKAGE-FILENAME`. Running the pre-upgrade stage in advance can reduce in-maintenance upgrade time by up to 20 minutes. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package#upgrading-an-instance-using-phased-upgrade-execution).
         # https://github.com/github/releases/issues/10384
         - |
-          Replication operations such as starting and stopping replication and Config Apply are less dependent on each other, reducing runtime and the risk of unrelated component failures. A new replication controller service is introduced, and it manages data replication by monitoring the desired state of the system and reconciling replication configuration for Git, Pages, storage, MySQL, Elasticsearch, GitHooks, and Redis.
+          Replication operations such as starting and stopping replication and Config Apply are less dependent on each other, reducing runtime and the risk of unrelated component failures. A new replication controller service is introduced, and it manages data replication by monitoring the desired state of the system and reconciling replication configuration for Git, Pages, storage, MySQL, Elasticsearch, GitHooks, and Redis. This is an internal change, and there is no other documentation.
+        # https://github.com/github/releases/issues/4841
+        - |
+          The Enterprise Live Migrations (ELM) service is generally available, allowing enterprises to migrate repositories from GitHub Enterprise Server to GHE.com with minimal downtime. A new GitHub CLI extension allows administrators to operate the service from their local machine. See [AUTOTITLE](/migrations/elm/about-live-migrations).
     
     - heading: Copilot
       notes:
         # https://github.com/github/releases/issues/10164
         - |
-          {% data variables.copilot.copilot_cli_short %} can be configured to work with {% data variables.product.prodname_ghe_server %} for enterprises that operate in disconnected or air-gapped environments without connectivity to {% data variables.product.prodname_ghe_cloud %}. An administrator can configure a model provider once in {% data variables.product.prodname_ghe_server %}, and end users across the enterprise can use {% data variables.copilot.copilot_cli_short %} with their {% data variables.product.prodname_ghe_server %} credentials. This capability is in {% data variables.release-phases.technical_preview %} and subject to change. We recommend waiting until {% data variables.product.prodname_ghe_server %} 3.22 reaches general availability (GA) before validating and using this capability. We are publishing the note early to provide visibility into what is coming.
+          {% data variables.copilot.copilot_cli_short %} can be configured to work with {% data variables.product.prodname_ghe_server %} for enterprises that operate in disconnected or air-gapped environments without connectivity to {% data variables.product.prodname_ghe_cloud %}. An administrator can configure a model provider once in {% data variables.product.prodname_ghe_server %}, and end users across the enterprise can use {% data variables.copilot.copilot_cli_short %} with their {% data variables.product.prodname_ghe_server %} credentials. This capability is in {% data variables.release-phases.technical_preview %} and subject to change. See [AUTOTITLE](/admin/github-copilot/copilot-cli/set-up-and-use-copilot-cli).
     
     - heading: Identity and access management
       notes:
@@ -120,7 +116,7 @@ sections:
           Developers using Swift packages in Xcode projects can now get automated dependency updates from {% data variables.product.prodname_dependabot %}, even when their project doesn't include a standalone `Package.swift` file. {% data variables.product.prodname_dependabot %} now discovers and updates Swift package dependencies in Xcode projects that use `.xcodeproj` manifests with `Package.resolved` files. For more information, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories).
         # https://github.com/github/releases/issues/7255
         - |
-          {% data variables.product.prodname_dependabot %} now detects and alerts on known malicious package versions, starting with npm packages and expanding to additional ecosystems over time. Previously, customers had little to no signal from {% data variables.product.github %} when a dependency was compromised by a supply chain attack, making it difficult to identify and remediate malware quickly. With this release, repositories that depend on packages identified as malware receive proactive {% data variables.product.prodname_dependabot_alerts %}, helping administrators and developers respond faster to targeted attacks. For details, see the [changelog](https://github.blog/changelog/2026-03-17-dependabot-now-detects-malware-in-npm-dependencies/).
+          {% data variables.product.prodname_dependabot %} now detects and alerts on known malicious package versions, starting with npm packages and expanding to additional ecosystems over time. Previously, users had little to no signal from {% data variables.product.github %} when a dependency was compromised by a supply chain attack, making it difficult to identify and remediate malware quickly. With this release, repositories that depend on packages identified as malware receive proactive {% data variables.product.prodname_dependabot_alerts %}, helping administrators and developers respond faster to targeted attacks. For details, see the [changelog](https://github.blog/changelog/2026-03-17-dependabot-now-detects-malware-in-npm-dependencies/).
 
     - heading: GitHub Actions
       notes:
@@ -132,7 +128,7 @@ sections:
           {% data variables.product.prodname_actions_runner_controller %} (ARC) now supports multiple labels for a single scale set. Previously, ARC supported only one label per scale set, which forced enterprises to create multiple scale sets to cover overlapping configurations, leading to operational complexity and inefficient resource utilization. With multi-label support, administrators can target runners based on combined attributes, such as operating system, hardware tier, compliance zone, and network configuration, within a single scale set. This reduces the number of redundant scale sets, improves utilization, and preserves backward compatibility with existing single-label configurations.
         # https://github.com/github/releases/issues/7068
         - |
-          {% data variables.product.prodname_actions_runner_controller %} (ARC) 0.14.0 delivers quality-of-life improvements that reduce operational complexity for customers running self-hosted runners on Kubernetes. This release includes refined Helm charts for easier Docker configuration, improved logging for better troubleshooting, updated metrics aligned with recent platform availability initiatives, and formalized versioning requirements for ARC. For more information, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller).
+          {% data variables.product.prodname_actions_runner_controller %} (ARC) 0.14.0 delivers quality-of-life improvements that reduce operational complexity for users running self-hosted runners on Kubernetes. This release includes refined Helm charts for easier Docker configuration, improved logging for better troubleshooting, updated metrics aligned with recent platform availability initiatives, and formalized versioning requirements for ARC. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
         # https://github.com/github/releases/issues/7066
         - |
           Developers can now specify a timezone when scheduling workflows with the `cron` syntax, allowing scheduled workflow runs to be localized to a specific timezone instead of only UTC. This feature is in public preview and subject to change.
@@ -159,7 +155,7 @@ sections:
           Repository and organization rulesets now support bypassing by individual users, in addition to roles, teams, and apps. This gives administrators more granular control over rule bypass permissions, such as adding a service account to a bypass list without needing to create a dedicated role or team.
         # https://github.com/github/releases/issues/7902
         - |
-          Repository administrators and maintainers can now delete commit comments. Previously, commit comments could not be removed, which allowed spam and abusive comments to persist in repositories. This gives maintainers another tool to reduce spam and unwanted content. For details, see the [changelog](https://github.blog/changelog/2026-03-19-disable-comments-on-individual-commits/).
+          Repository administrators and maintainers can now delete commit comments. Previously, commit comments could not be removed, which allowed spam and abusive comments to persist in repositories. This gives maintainers another tool to reduce spam and unwanted content. For details, see the [changelog](https://github.blog/changelog/2026-03-25-disable-comments-on-individual-commits/).
         # https://github.com/github/releases/issues/7340
         - |
           Organization owners and repository administrators can require specific reviewers for pull requests targeting a given branch by adding a required reviewers rule to a repository ruleset. This provides more granular control over code ownership than a single `CODEOWNERS` file, which is difficult to scale for large organizations or monorepos. For example, administrators can require QA reviewers on a release branch, security team members on the default branch, or product and design reviewers on feature branches, including setting the minimum number of required reviews per team.
@@ -171,7 +167,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/8570
         - |
-          Developers can now see release status directly in the issue sidebar. When a linked pull request has been included in a release, the sidebar displays a "Latest release" or "Pre-release" badge, making it easy to tell whether a fix has shipped without leaving the issue. For details, see the [changelog](https://github.blog/changelog/2026-04-09-release-info-in-issue-sidebar-and-project-defaults/).
+          Developers can now see release status directly in the issue sidebar. When a linked pull request has been included in a release, the sidebar displays a "Latest" or "Pre-release" badge, making it easy to tell whether a fix has shipped without leaving the issue. For details, see the [changelog](https://github.blog/changelog/2026-04-09-release-info-in-issue-sidebar-and-project-defaults/).
 
     - heading: Projects
       notes:
@@ -195,6 +191,9 @@ sections:
     # https://github.com/github/ghes/issues/18667
     - |
       Starting in version 3.20, we have reserved the `/repos` path for a forthcoming product feature. If you currently use `/repos` for a route (for example, a username, organization name, a {% data variables.product.prodname_github_app %}, {% data variables.product.prodname_oauth_app %}, reverse proxy, or internal integration), you may need to update your configuration to avoid routing conflicts. Starting in 3.22, the `/repos` path will show new functionality.
+    # https://github.com/github/github/issues/446559
+    - |
+      {% data variables.product.prodname_ghe_server %} now uses fewer CPU resources when serving REST and GraphQL API requests by skipping unused MySQL query backtrace collection.
 
   known_issues:
     # Known issues from "GHES Release Note Tracking" project
@@ -207,17 +206,17 @@ sections:
     - |
       {% data reusables.release-notes.large-adoc-files-issue %}
     - |
-      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+      Admin stats REST API endpoints may time out on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
     - |
-      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
     - |
       When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a nightly scheduled job. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |
-      In a cluster, the host running restore requires access the storage nodes via their private IPs.
+      In a cluster, the host running restore requires access to the storage nodes via their private IPs.
     - |
       On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.
     - |
@@ -234,6 +233,16 @@ sections:
       When booting a cluster in Terraform-based environments, node names may appear unidentifiable in cluster status output.
     - |
       In cluster HA environments, `ghe-cluster-repl-status` may report inconsistent Spokes or Storage status after running `ghe-cluster-repl-bootstrap` or `ghe-cluster-repl-teardown`.
+    - |
+      In some cases, pull requests using auto-merge or merge queue may not merge automatically until mergeability is recalculated.
+    - |
+      After upgrading to {% data variables.product.prodname_ghe_server %} 3.22, scheduled {% data variables.product.prodname_dependabot_version_updates %} may stop running for pre-existing configurations. If you have already upgraded and want to trigger scheduled version updates, save a change to each affected repository's `.github/dependabot.yml` file.
+    - |
+      When restoring an instance with `ghe-restore` while the replication controller is enabled, the storage directory is not restored.
+    - |
+      In clustered {% data variables.product.prodname_ghe_server %} environments, nodes that remain in the cluster after losing the `git-server`, `pages-server`, or `storage-server` role may stay online and remain eligible to vote in the corresponding replication tables. Review the replication state for each role, and contact {% data variables.contact.github_support %} if stale rows affect replication.
+    - |      
+      On a newly booted {% data variables.product.prodname_ghe_server %} instance, the merge box on a newly created pull request can stay on "Checking for the ability to merge automatically" and not show the merge status. If encountered, refreshing the page shows the correct merge status.
 
   closing_down:
     # https://github.com/github/releases/issues/9775
@@ -241,7 +250,7 @@ sections:
       {% data variables.product.prodname_nes %}, introduced for cluster topologies and gated by the app.nes.enabled feature flag, is closing down in {% data variables.product.prodname_ghe_server %} 3.22 and will be removed in {% data variables.product.prodname_ghe_server %} 3.23. There is no replacement; cluster administrators do not need to take any action. If you previously enabled the `app.nes.enabled` flag, you can disable it now with `ghe-config app.nes.enabled false && ghe-config-apply`. In 3.22, a closing down warning will appear during `ghe-config-apply` if the flag is set to true. {% data variables.product.prodname_nes %} will continue to function in 3.22, but we recommend planning to stop using it before upgrading to 3.23.
     # https://github.com/github/releases/issues/7068
     - |
-      With the release of {% data variables.product.prodname_actions_runner_controller %} (ARC) 0.14.0, {% data variables.product.github %} has officially announced the closing down of legacy ARC. Customers still running legacy ARC versions should migrate to the latest ARC release to continue receiving critical improvements and observability features. For more information, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller).
+      With the release of {% data variables.product.prodname_actions_runner_controller %} (ARC) 0.14.0, {% data variables.product.github %} has officially announced the closing down of legacy ARC. Users still running legacy ARC versions should migrate to the latest ARC release to continue receiving critical improvements and observability features. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
     # https://github.com/github/releases/issues/8875
     - |
       Collectd metrics will be retired starting in version 3.23. There won't be a Collectd metrics stack in 3.23. We will continue to support the Collectd stack in 3.22 and earlier versions during their respective support windows. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
@@ -252,7 +261,7 @@ sections:
   retired:
     # https://github.com/github/releases/issues/8843
     - |
-      The `code_scanning_upload` field is no longer included in the response from the `rate_limit` REST API endpoint. This field displayed a separate rate limit value that was actually joined with the `core` rate limit, which caused confusion for customers. Removing the field simplifies the `rate_limit` endpoint response and provides a clearer picture of the rate limits that apply.
+      The `code_scanning_upload` field is no longer included in the response from the `rate_limit` REST API endpoint. This field displayed a separate rate limit value that was actually joined with the `core` rate limit, which caused confusion for users. Removing the field simplifies the `rate_limit` endpoint response and provides a clearer picture of the rate limits that apply.
     # https://github.com/github/releases/issues/7795
     - |
       The `*_enabled_for_new_repositories` fields are removed from the REST API for organizations, including `advanced_security_enabled_for_new_repositories`, `dependabot_alerts_enabled_for_new_repositories`, `dependabot_security_updates_enabled_for_new_repositories`, `dependency_graph_enabled_for_new_repositories`, `secret_scanning_enabled_for_new_repositories`, `secret_scanning_push_protection_enabled_for_new_repositories`, and `secret_scanning_validity_checks_enabled`. Use the {% data variables.product.prodname_code_scanning %} configurations API to manage security feature enablement for new repositories instead. For more information, see [AUTOTITLE](/rest/orgs/security-managers).
