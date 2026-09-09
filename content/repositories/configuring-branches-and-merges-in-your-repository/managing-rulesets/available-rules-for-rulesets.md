@@ -211,6 +211,24 @@ Enabling force pushes will not override any other rules. For example, if a branc
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other branch or tag.{% endif %}
 
+{% ifversion secret-scanning-merge-protection %}
+
+## Require {% data variables.product.prodname_secret_scanning %} alerts are resolved
+
+> [!NOTE]
+> {% data reusables.secret-scanning.merge-protection-public-preview %}
+
+If your repositories use {% data variables.product.prodname_secret_scanning %}, you can prevent a pull request from merging when either of these conditions applies:
+
+* A {% data variables.product.prodname_secret_scanning %} scan has not completed for the head commit of the pull request.
+* A commit in the pull request introduced an open {% data variables.product.prodname_secret_scanning %} alert that matches a secret type selected in the ruleset.
+
+You can configure the rule for provider, custom, and generic patterns. AI-detected secrets are not supported.
+
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/block-merges-with-secrets).
+
+{% endif %}
+
 ## Require {% data variables.product.prodname_code_scanning %} results
 
 If your repositories are configured with {% data variables.product.prodname_code_scanning %}, you can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
