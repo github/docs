@@ -58,7 +58,11 @@ name: "Copilot Setup Steps"
 # allow manual testing through the repository's "Actions" tab
 on:
   workflow_dispatch:
+  # Limit `push` to your default branch. Changes on any other branch are already validated
+  # by the `pull_request` trigger, so this avoids two runs for the same commit.
   push:
+    branches:
+      - main
     paths:
       - .github/workflows/copilot-setup-steps.yml
   pull_request:

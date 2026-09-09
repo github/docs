@@ -98,6 +98,8 @@ Creating this file is optional but is a good idea if you use {% data variables.c
    on:
      workflow_dispatch:
      push:
+       branches:
+         - main
        paths:
          - .github/workflows/copilot-setup-steps.yml
      pull_request:
