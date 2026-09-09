@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest'
-import type { CheerioAPI } from 'cheerio'
+import type { Cheerio, CheerioAPI } from 'cheerio'
+import type { Element } from 'domhandler'
 
 import { TRANSLATIONS_FIXTURE_ROOT } from '@/frame/lib/constants'
 import { getDOM, head } from '@/tests/helpers/e2etest'
@@ -19,14 +20,14 @@ describe('translations', () => {
 
     const links = $('[data-testid=product] a[href]')
     const hrefs = links
-      .filter((i: number, link: any) => {
+      .filter((i: number, link: Element) => {
         const href = $(link).attr('href')
         return href !== undefined && href.startsWith('/')
       })
-      .map((i: number, link: any) => $(link))
+      .map((i: number, link: Element) => $(link))
       .get()
     const linkTexts = Object.fromEntries(
-      hrefs.map(($link: any) => [$link.attr('href'), $link.text()]),
+      hrefs.map(($link: Cheerio<Element>) => [$link.attr('href'), $link.text()]),
     )
     expect(linkTexts['/ja/get-started']).toBe('はじめに')
   })
@@ -40,11 +41,11 @@ describe('translations', () => {
   test('internal links get prefixed with /ja', async () => {
     const $: CheerioAPI = await getDOM('/ja/get-started/start-your-journey/link-rewriting')
     const links = $('#article-contents a[href]')
-    const jaLinks = links.filter((i: number, element: any) => {
+    const jaLinks = links.filter((i: number, element: Element) => {
       const href = $(element).attr('href')
       return href !== undefined && href.startsWith('/ja')
     })
-    const enLinks = links.filter((i: number, element: any) => {
+    const enLinks = links.filter((i: number, element: Element) => {
       const href = $(element).attr('href')
       return href !== undefined && href.startsWith('/en')
     })
@@ -55,7 +56,7 @@ describe('translations', () => {
   test('internal links with AUTOTITLE resolves', async () => {
     const $: CheerioAPI = await getDOM('/ja/get-started/foo/autotitling')
     const links = $('#article-contents a[href]')
-    links.each((i: number, element: any) => {
+    links.each((i: number, element: Element) => {
       if ($(element).attr('href')?.includes('/ja/get-started/start-your-journey/hello-world')) {
         expect($(element).text()).toBe('こんにちは World')
       }
@@ -73,7 +74,7 @@ describe('translations', () => {
       expect(paragraph).toMatch('mention of HubGit in Liquid')
 
       const tds = $('#article-contents td')
-        .map((i: number, element: any) => $(element).text())
+        .map((i: number, element: Element) => $(element).text())
         .get()
       expect(tds.length).toBe(2)
       expect(tds[1]).toBe('Not')
@@ -88,7 +89,7 @@ describe('translations', () => {
       expect(paragraph).toMatch('mention of HubGit Enterprise Server in Liquid')
 
       const tds = $('#article-contents td')
-        .map((i: number, element: any) => $(element).text())
+        .map((i: number, element: Element) => $(element).text())
         .get()
       expect(tds.length).toBe(2)
       expect(tds[1]).toBe('Present')
@@ -98,7 +99,7 @@ describe('translations', () => {
   test('automatic correction of bad AUTOTITLE in reusables', async () => {
     const $: CheerioAPI = await getDOM('/ja/get-started/start-your-journey/hello-world')
     const links = $('#article-contents a[href]')
-    const texts = links.map((i: number, element: any) => $(element).text()).get()
+    const texts = links.map((i: number, element: Element) => $(element).text()).get()
     // That Japanese page uses AUTOTITLE links. Both in the main `.md` file
     // but also inside a reusable.
     // E.g. `["AUTOTITLE](/get-started/start-your-journey/hello-world)."`
@@ -129,11 +130,11 @@ describe('translations', () => {
     const $: CheerioAPI = await getDOM('/ja/get-started/start-your-journey/hello-world')
     const links = $('#article-contents a[href]')
     const texts = links
-      .filter((i: number, element: any) => {
+      .filter((i: number, element: Element) => {
         const href = $(element).attr('href')
         return href !== undefined && href.includes('get-started/foo/bar')
       })
-      .map((i: number, element: any) => $(element).text())
+      .map((i: number, element: Element) => $(element).text())
       .get()
     // Check that the text contains the essential parts rather than exact spacing
     const foundBarLink = texts.find(

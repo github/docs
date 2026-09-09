@@ -14,7 +14,7 @@ category:
 {% ifversion fpt or ghec %}
 
 > [!NOTE]
-> You can only archive an organization if it's using {% data variables.product.prodname_free_team %} or if the organization is part of an enterprise. If you want to archive an individually-billed organization, you must downgrade your organization to {% data variables.product.prodname_free_team %} first. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription).
+> You can only archive an organization if it's using {% data variables.product.prodname_free_team %} or if the organization is part of an enterprise. If you want to archive an individually-billed organization, you must downgrade your organization to {% data variables.product.prodname_free_team %} first. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/downgrade-plan).
 
 {% endif %}
 

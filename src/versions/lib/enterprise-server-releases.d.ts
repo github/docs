@@ -81,6 +81,7 @@ const allExports = {
   dates,
   nextDeprecationDate,
   isOldestReleaseDeprecated,
+  releasesWithOldestDeprecationDate,
   deprecatedOnNewSite,
   deprecatedReleasesWithLegacyFormat,
   deprecatedReleasesWithNewFormat,

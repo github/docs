@@ -8,6 +8,7 @@ children:
   - /about-rulesets
   - /creating-rulesets-for-a-repository
   - /managing-rulesets-for-a-repository
+  - /converting-branch-protections-to-rulesets
   - /available-rules-for-rulesets
   - /troubleshooting-rules
 shortTitle: Manage rulesets

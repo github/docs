@@ -60,11 +60,29 @@ function renderTypeConstraints(schema: JsonSchema): string {
   return parts.join(', ') || 'object'
 }
 
+// When a titled object type has already been fully expanded once in a schema,
+// later occurrences are rendered as a short "(see above)" reference instead of
+// being re-expanded. Large REST response schemas reuse shared types (e.g.
+// `Simple User` recurs dozens of times), so this keeps output compact and fast
+// to render. Returns true if the caller should emit a reference; marks the
+// title as seen when it is about to be expanded for the first time.
+function shouldReference(
+  title: string | undefined,
+  canExpand: boolean,
+  seen: Set<string>,
+): boolean {
+  if (!canExpand || !title) return false
+  if (seen.has(title)) return true
+  seen.add(title)
+  return false
+}
+
 function renderCompositionVariants(
   keyword: string,
   variants: JsonSchema[],
   indent: number,
   depth: number,
+  seen: Set<string>,
 ): string {
   const prefix = '  '.repeat(indent)
   const label = keyword.replace('Of', ' of')
@@ -72,9 +90,14 @@ function renderCompositionVariants(
 
   for (const variant of variants) {
     const name = variant.title || renderTypeConstraints(variant)
+    const canExpand = depth < MAX_DEPTH && Boolean(variant.properties)
+    if (shouldReference(variant.title, canExpand, seen)) {
+      lines.push(`${prefix}  * **${name}** (see above)`)
+      continue
+    }
     lines.push(`${prefix}  * **${name}**`)
-    if (depth < MAX_DEPTH && variant.properties) {
-      const nested = renderProperties(variant, indent + 2, depth + 1)
+    if (canExpand) {
+      const nested = renderProperties(variant, indent + 2, depth + 1, seen)
       if (nested) lines.push(nested)
     }
   }
@@ -86,6 +109,7 @@ function renderProperties(
   schema: JsonSchema,
   indent: number,
   depth: number,
+  seen: Set<string>,
   requiredFields?: string[],
 ): string {
   const props = schema.properties || {}
@@ -103,9 +127,14 @@ function renderProperties(
       lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
       for (const variant of prop[compositionKey]!) {
         const vName = variant.title || renderTypeConstraints(variant)
+        const canExpand = depth < MAX_DEPTH && Boolean(variant.properties)
+        if (shouldReference(variant.title, canExpand, seen)) {
+          lines.push(`${prefix}  * **${vName}** (see above)`)
+          continue
+        }
         lines.push(`${prefix}  * **${vName}**`)
-        if (depth < MAX_DEPTH && variant.properties) {
-          const nested = renderProperties(variant, indent + 2, depth + 1)
+        if (canExpand) {
+          const nested = renderProperties(variant, indent + 2, depth + 1, seen)
           if (nested) lines.push(nested)
         }
       }
@@ -118,12 +147,17 @@ function renderProperties(
 
     if (propType === 'array' && prop.items) {
       const itemTitle = prop.items.title
-      if (prop.items.properties && depth < MAX_DEPTH) {
+      const canExpand = Boolean(prop.items.properties) && depth < MAX_DEPTH
+      if (shouldReference(itemTitle, canExpand, seen)) {
+        lines.push(
+          `${prefix}* \`${name}\`: ${reqStr}array of \`${itemTitle}\`${isNullable ? ' or null' : ''} (see above)`,
+        )
+      } else if (canExpand) {
         const label = itemTitle
           ? `array of \`${itemTitle}\`${isNullable ? ' or null' : ''}`
           : `array of objects${isNullable ? ' or null' : ''}`
         lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
-        lines.push(renderProperties(prop.items, indent + 1, depth + 1))
+        lines.push(renderProperties(prop.items, indent + 1, depth + 1, seen))
       } else {
         lines.push(
           `${prefix}* \`${name}\`: ${reqStr}array of ${renderTypeConstraints(prop.items)}${isNullable ? ' or null' : ''}`,
@@ -132,8 +166,12 @@ function renderProperties(
     } else if (prop.properties && depth < MAX_DEPTH) {
       // renderTypeConstraints handles string[] types (e.g. ["object","null"] → "object or null")
       const label = prop.title ? `\`${prop.title}\`` : renderTypeConstraints(prop)
-      lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
-      lines.push(renderProperties(prop, indent + 1, depth + 1))
+      if (shouldReference(prop.title, true, seen)) {
+        lines.push(`${prefix}* \`${name}\`: ${reqStr}${label} (see above)`)
+      } else {
+        lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
+        lines.push(renderProperties(prop, indent + 1, depth + 1, seen))
+      }
     } else {
       // renderTypeConstraints handles string[] types (e.g. ["string","null"] → "string or null")
       lines.push(`${prefix}* \`${name}\`: ${reqStr}${renderTypeConstraints(prop)}`)
@@ -151,10 +189,15 @@ function renderProperties(
 export function summarizeSchema(schema: JsonSchema): string {
   if (!schema || typeof schema !== 'object') return ''
 
+  // Tracks titled object types already expanded once in this schema. Later
+  // occurrences are rendered as a "(see above)" reference to keep output
+  // compact and fast to render (shared types can recur dozens of times).
+  const seen = new Set<string>()
+
   // Handle top-level composition
   for (const keyword of ['oneOf', 'anyOf', 'allOf'] as const) {
     if (schema[keyword]) {
-      return renderCompositionVariants(keyword, schema[keyword]!, 0, 0)
+      return renderCompositionVariants(keyword, schema[keyword]!, 0, 0, seen)
     }
   }
 
@@ -181,9 +224,14 @@ export function summarizeSchema(schema: JsonSchema): string {
       const lines = [`Array${constraintStr} of ${titlePart}objects${nullSuffix}: ${label}:`]
       for (const variant of items[compositionKey]!) {
         const name = variant.title || renderTypeConstraints(variant)
+        const canExpand = Boolean(variant.properties)
+        if (shouldReference(variant.title, canExpand, seen)) {
+          lines.push(`  * **${name}** (see above)`)
+          continue
+        }
         lines.push(`  * **${name}**`)
-        if (variant.properties) {
-          const nested = renderProperties(variant, 2, 1)
+        if (canExpand) {
+          const nested = renderProperties(variant, 2, 1, seen)
           if (nested) lines.push(nested)
         }
       }
@@ -193,7 +241,8 @@ export function summarizeSchema(schema: JsonSchema): string {
     if (items.properties) {
       const label = itemTitle ? `\`${itemTitle}\`` : 'objects'
       const nullSuffix = isNullable ? ' or null' : ''
-      return `Array${constraintStr} of ${label}${nullSuffix}:\n${renderProperties(items, 1, 1)}`
+      if (itemTitle) seen.add(itemTitle)
+      return `Array${constraintStr} of ${label}${nullSuffix}:\n${renderProperties(items, 1, 1, seen)}`
     }
 
     return `Array${constraintStr} of ${renderTypeConstraints(items)}${isNullable ? ' or null' : ''}`
@@ -201,7 +250,12 @@ export function summarizeSchema(schema: JsonSchema): string {
 
   // Handle top-level object
   if (schema.properties) {
-    return renderProperties(schema, 0, 0)
+    // Note: we deliberately do NOT pre-mark schema.title here. Unlike the
+    // array-items case above, a top-level object emits no visible titled
+    // header, so pre-marking would make a self-referential property render a
+    // dangling "(see above)" pointing at nothing. Letting it expand one
+    // depth-bounded level is correct and clearer.
+    return renderProperties(schema, 0, 0, seen)
   }
 
   return renderTypeConstraints(schema)

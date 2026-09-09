@@ -1,4 +1,4 @@
-To facilitate communication between {% data variables.product.company_short %} networks and your VNET, a {% data variables.product.company_short %}-hosted runner's network interface card (NIC) deploys into your Azure VNET.
+To facilitate communication between {% data variables.product.company_short %} networks and your VNET, a {% data variables.product.company_short %}-hosted runner's network interface card (NIC) deploys into your Azure VNET. The runner is always deployed in the same Azure region as your subnet.
 
 Because the NIC lives within your VNET, {% data variables.product.company_short %} cannot block inbound connections. By default, Azure virtual machines will accept inbound connections from the same VNET. For more information, see [`AllowVNetInBound`](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview#allowvnetinbound) on Microsoft Learn. It is recommended to explicitly block all inbound connections to the runners. {% data variables.product.company_short %} will never require inbound connections to these machines.
 

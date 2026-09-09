@@ -29,9 +29,9 @@ The instructions below will guide you through configuring your environment to us
 There are some limitations when migrating from Bitbucket Pipelines to {% data variables.product.prodname_actions %} with {% data variables.product.prodname_actions_importer %}.
 
 * Images in a private AWS ECR are not supported.
-* The Bitbucket Pipelines option `size` is not supported. {% ifversion fpt or ghec %}If additional runner resources are required in {% data variables.product.prodname_actions %}, consider using {% data variables.actions.hosted_runner %}s. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).{% endif %}
+* The Bitbucket Pipelines option `size` is not supported. {% ifversion fpt or ghec %}If additional runner resources are required in {% data variables.product.prodname_actions %}, consider using {% data variables.actions.hosted_runner %}s. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners).{% endif %}
 * Metrics detailing the queue time of jobs is not supported by the `forecast` command.
-* Bitbucket [after-scripts](https://support.atlassian.com/bitbucket-cloud/docs/step-options/#After-script) are supported using {% data variables.product.prodname_actions %} `always()` in combination with checking the `steps.<step_id>.conclusion` of the previous step. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#steps-context).
+* Bitbucket [after-scripts](https://support.atlassian.com/bitbucket-cloud/docs/step-options/#After-script) are supported using {% data variables.product.prodname_actions %} `always()` in combination with checking the `steps.<step_id>.conclusion` of the previous step. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#steps-context).
 
   The following is an example of using the `always()` with `steps.<step_id>.conclusion`.
 

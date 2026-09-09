@@ -17,7 +17,7 @@ category:
 
 ## About recovery for a high availability configuration
 
-You can use the former primary appliance as the new replica appliance if the failover was planned or was not related to the health of the appliance. If the failover was related to an issue with the primary appliance, you may prefer to create a new replica appliance. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica).
+You can use the former primary appliance as the new replica appliance if the failover was planned or was not related to the health of the appliance. If the failover was related to an issue with the primary appliance, you may prefer to create a new replica appliance. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica).
 
 > [!WARNING]
 > You must enable maintenance mode before configuring a former primary appliance as a new replica. If you do not enable maintenance mode, you will cause a production outage.
@@ -30,7 +30,7 @@ You can use the former primary appliance as the new replica appliance if the fai
    ssh -p 122 admin@ FORMER_PRIMARY_IP
    ```
 
-1. Enable maintenance mode on the former primary appliance. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
+1. Enable maintenance mode on the former primary appliance. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 1. On the former primary appliance, run `ghe-repl-setup` with the IP address of the former replica. You may need to use the `--force` option to replace the existing configuration.
 
    ```shell

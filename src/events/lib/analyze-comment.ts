@@ -1,5 +1,5 @@
 import fs from 'fs'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { cuss } from 'cuss'
 import { cuss as cussPt } from 'cuss/pt'
 import { cuss as cussFr } from 'cuss/fr'
@@ -225,7 +225,7 @@ function splitWords(text: string) {
   return [...segmentedText].filter((s) => s.isWordLike).map((s) => s.segment)
 }
 
-const surveyYaml = yaml.load(fs.readFileSync('data/survey-words.yml', 'utf8')) as {
+const surveyYaml = load(fs.readFileSync('data/survey-words.yml', 'utf8')) as {
   words: string[]
 }
 const surveyWords = surveyYaml.words.map((word: string) => word.toLowerCase())

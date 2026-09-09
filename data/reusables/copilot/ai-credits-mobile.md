@@ -1,0 +1,1 @@
+> [!NOTE] The option to purchase additional {% data variables.product.prodname_ai_credits_short %} is not available if you subscribe, or have subscribed, to a {% data variables.product.prodname_copilot_short %} plan through {% data variables.product.prodname_mobile %} on iOS or Android.

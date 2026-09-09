@@ -1,4 +1,4 @@
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import { groupBy } from 'lodash-es'
 import { renderContent } from '@/content-render/index'
 
@@ -16,7 +16,7 @@ interface UpcomingChangesData {
 export default async function processUpcomingChanges(
   upcomingChangesYml: string,
 ): Promise<Record<string, UpcomingChange[]>> {
-  const upcomingChanges = (yaml.load(upcomingChangesYml) as UpcomingChangesData).upcoming_changes
+  const upcomingChanges = (load(upcomingChangesYml) as UpcomingChangesData).upcoming_changes
 
   for (const change of upcomingChanges) {
     change.date = change.date.slice(0, 10)

@@ -244,6 +244,57 @@ var a = 1
     // Generates a murmurhash based ID that matches a <pre>
   })
 
+  describe('wrap-code-terms (<wbr> in table code)', () => {
+    const table = (term: string) =>
+      nl(`
+| Term | Description |
+| --- | --- |
+| \`${term}\` | a long code term |
+`)
+
+    test('breaks camelCase code terms in tables', async () => {
+      const html = await renderContent(table('hasOrganizationProjects'))
+      const code = load(html)('td code').first()
+      expect(code.html()).toBe('has<wbr>Organization<wbr>Projects')
+    })
+
+    test('breaks long underscore code terms after the 12th character', async () => {
+      const html = await renderContent(table('has_organization_projects_enabled'))
+      const code = load(html)('td code').first()
+      expect(code.html()).toBe('has_organization_<wbr>projects_enabled')
+    })
+
+    test('breaks code terms separated by slashes', async () => {
+      const html = await renderContent(table('actions/checkout/setup-node'))
+      const code = load(html)('td code').first()
+      expect(code.html()).toBe('actions/<wbr>checkout/<wbr>setup-node')
+    })
+
+    test('leaves short code terms untouched', async () => {
+      const html = await renderContent(table('shortTerm'))
+      const code = load(html)('td code').first()
+      expect(code.html()).toBe('shortTerm')
+    })
+
+    test('does not insert <wbr> into code outside of tables', async () => {
+      const html = await renderContent(nl('Inline `hasOrganizationProjects` term.'))
+      expect(html).not.toContain('<wbr>')
+    })
+
+    test('breaks a code term whose text lives inside a child anchor', async () => {
+      const html = await renderContent(
+        nl(`
+| Term | Description |
+| --- | --- |
+| [\`hasOrganizationProjects\`](/foo) | a long code term |
+`),
+      )
+      const $ = load(html)
+      expect($('td a').attr('href')).toBe('/foo')
+      expect($('td a code').html()).toBe('has<wbr>Organization<wbr>Projects')
+    })
+  })
+
   test('renders alerts with data-container attribute for analytics', async () => {
     const template = nl(`
 > [!NOTE]

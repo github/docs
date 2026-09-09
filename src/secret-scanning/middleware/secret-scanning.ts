@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import type { NextFunction, Response } from 'express'
 
 import { liquid } from '@/content-render/index'
@@ -48,9 +48,13 @@ export default async function secretScanning(
   // to execute that Liquid to get the actual value.
   for (const entry of req.context.secretScanningData) {
     for (const [key, value] of Object.entries(entry)) {
-      if (key === 'hasValidityCheck' && typeof value === 'string' && value.includes('{%')) {
-        const evaluated = yaml.load(await liquid.parseAndRender(value, req.context))
-        entry[key] = evaluated as string
+      if (
+        (key === 'hasValidityCheck' || key === 'hasExtendedMetadata') &&
+        typeof value === 'string' &&
+        value.includes('{%')
+      ) {
+        const evaluated = load(await liquid.parseAndRender(value, req.context))
+        entry[key] = evaluated as boolean | string
       }
     }
     if (entry.isduplicate) {

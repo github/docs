@@ -1068,7 +1068,7 @@
         },
         {
           "name": "visibility",
-          "description": "<p>The selected visibility of the packages.  This parameter is optional and only filters an existing result set.</p>\n<p>The <code>internal</code> visibility is only supported for GitHub Packages registries that allow for granular permissions. For other ecosystems <code>internal</code> is synonymous with <code>private</code>.\nFor the list of GitHub Packages registries that support granular permissions, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+          "description": "<p>The selected visibility of the packages.  This parameter is optional and only filters an existing result set.</p>\n<p>The <code>internal</code> visibility is only supported for GitHub Packages registries that allow for granular permissions. For other ecosystems <code>internal</code> is synonymous with <code>private</code>.\nFor the list of GitHub Packages registries that support granular permissions, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -1082,7 +1082,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1091,7 +1091,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1100,7 +1100,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists packages in an organization readable by the user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Lists packages in an organization readable by the user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -2113,8 +2113,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -2162,7 +2161,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a specific package in an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Gets a specific package in an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -3129,8 +3128,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3178,7 +3176,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes an entire package in an organization. You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact GitHub support for further assistance.</p>\n<p>The authenticated user must have admin permissions in the organization to use this endpoint. If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must also have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Deletes an entire package in an organization. You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact GitHub support for further assistance.</p>\n<p>The authenticated user must have admin permissions in the organization to use this endpoint. If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must also have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -3220,8 +3218,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3278,7 +3275,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Restores an entire package in an organization.</p>\n<p>You can restore a deleted package under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>The authenticated user must have admin permissions in the organization to use this endpoint. If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must also have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Restores an entire package in an organization.</p>\n<p>You can restore a deleted package under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>The authenticated user must have admin permissions in the organization to use this endpoint. If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must also have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -3320,8 +3317,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3369,7 +3365,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -3378,7 +3374,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -3392,16 +3388,16 @@
           "description": "<p>The state of the package, either active or deleted.</p>",
           "schema": {
             "type": "string",
+            "default": "active",
             "enum": [
               "active",
               "deleted"
-            ],
-            "default": "active"
+            ]
           }
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists package versions for a package owned by an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Lists package versions for a package owned by an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -3573,8 +3569,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3631,7 +3626,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a specific package version in an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Gets a specific package version in an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -3780,8 +3775,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3838,7 +3832,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes a specific package version in an organization. If the package is public and the package version has more than 5,000 downloads, you cannot delete the package version. In this scenario, contact GitHub support for further assistance.</p>\n<p>The authenticated user must have admin permissions in the organization to use this endpoint. If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must also have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Deletes a specific package version in an organization. If the package is public and the package version has more than 5,000 downloads, you cannot delete the package version. In this scenario, contact GitHub support for further assistance.</p>\n<p>The authenticated user must have admin permissions in the organization to use this endpoint. If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must also have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -3881,8 +3875,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3939,7 +3932,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Restores a specific package version in an organization.</p>\n<p>You can restore a deleted package under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>The authenticated user must have admin permissions in the organization to use this endpoint. If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must also have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Restores a specific package version in an organization.</p>\n<p>You can restore a deleted package under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>The authenticated user must have admin permissions in the organization to use this endpoint. If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must also have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -3982,8 +3975,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -5023,7 +5015,7 @@
         },
         {
           "name": "visibility",
-          "description": "<p>The selected visibility of the packages.  This parameter is optional and only filters an existing result set.</p>\n<p>The <code>internal</code> visibility is only supported for GitHub Packages registries that allow for granular permissions. For other ecosystems <code>internal</code> is synonymous with <code>private</code>.\nFor the list of GitHub Packages registries that support granular permissions, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+          "description": "<p>The selected visibility of the packages.  This parameter is optional and only filters an existing result set.</p>\n<p>The <code>internal</code> visibility is only supported for GitHub Packages registries that allow for granular permissions. For other ecosystems <code>internal</code> is synonymous with <code>private</code>.\nFor the list of GitHub Packages registries that support granular permissions, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -5037,7 +5029,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5046,7 +5038,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5055,7 +5047,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists packages owned by the authenticated user within the user's namespace.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Lists packages owned by the authenticated user within the user's namespace.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -6057,8 +6049,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -6097,7 +6088,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a specific package for a package owned by the authenticated user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Gets a specific package for a package owned by the authenticated user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -7130,8 +7121,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7170,7 +7160,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes a package owned by the authenticated user. You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact GitHub support for further assistance.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Deletes a package owned by the authenticated user. You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact GitHub support for further assistance.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -7211,8 +7201,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7260,7 +7249,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Restores a package owned by the authenticated user.</p>\n<p>You can restore a deleted package under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Restores a package owned by the authenticated user.</p>\n<p>You can restore a deleted package under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -7301,8 +7290,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7341,7 +7329,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -7350,7 +7338,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -7364,16 +7352,16 @@
           "description": "<p>The state of the package, either active or deleted.</p>",
           "schema": {
             "type": "string",
+            "default": "active",
             "enum": [
               "active",
               "deleted"
-            ],
-            "default": "active"
+            ]
           }
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists package versions for a package owned by the authenticated user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Lists package versions for a package owned by the authenticated user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -7552,8 +7540,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7601,7 +7588,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a specific package version for a package owned by the authenticated user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Gets a specific package version for a package owned by the authenticated user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -7749,8 +7736,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7798,7 +7784,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes a specific package version for a package owned by the authenticated user.  If the package is public and the package version has more than 5,000 downloads, you cannot delete the package version. In this scenario, contact GitHub support for further assistance.</p>\n<p>The authenticated user must have admin permissions in the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Deletes a specific package version for a package owned by the authenticated user.  If the package is public and the package version has more than 5,000 downloads, you cannot delete the package version. In this scenario, contact GitHub support for further assistance.</p>\n<p>The authenticated user must have admin permissions in the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -7840,8 +7826,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7889,7 +7874,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Restores a package version owned by the authenticated user.</p>\n<p>You can restore a deleted package version under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Restores a package version owned by the authenticated user.</p>\n<p>You can restore a deleted package version under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -7931,8 +7916,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -8994,7 +8978,7 @@
         },
         {
           "name": "visibility",
-          "description": "<p>The selected visibility of the packages.  This parameter is optional and only filters an existing result set.</p>\n<p>The <code>internal</code> visibility is only supported for GitHub Packages registries that allow for granular permissions. For other ecosystems <code>internal</code> is synonymous with <code>private</code>.\nFor the list of GitHub Packages registries that support granular permissions, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+          "description": "<p>The selected visibility of the packages.  This parameter is optional and only filters an existing result set.</p>\n<p>The <code>internal</code> visibility is only supported for GitHub Packages registries that allow for granular permissions. For other ecosystems <code>internal</code> is synonymous with <code>private</code>.\nFor the list of GitHub Packages registries that support granular permissions, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -9017,7 +9001,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -9026,7 +9010,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -9035,7 +9019,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all packages in a user's namespace for which the requesting user has access.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Lists all packages in a user's namespace for which the requesting user has access.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -10048,8 +10032,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -10097,7 +10080,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a specific package metadata for a public package owned by a user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Gets a specific package metadata for a public package owned by a user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -11131,8 +11114,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11180,7 +11162,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes an entire package for a user. You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact GitHub support for further assistance.</p>\n<p>If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Deletes an entire package for a user. You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact GitHub support for further assistance.</p>\n<p>If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -11222,8 +11204,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11280,7 +11261,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Restores an entire package for a user.</p>\n<p>You can restore a deleted package under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Restores an entire package for a user.</p>\n<p>You can restore a deleted package under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -11322,8 +11303,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11371,7 +11351,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists package versions for a public package owned by a specified user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Lists package versions for a public package owned by a specified user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -11560,8 +11540,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11618,7 +11597,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a specific package version for a public package owned by a specified user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Gets a specific package version for a public package owned by a specified user.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> scope to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -11764,8 +11743,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11822,7 +11800,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes a specific package version for a user. If the package is public and the package version has more than 5,000 downloads, you cannot delete the package version. In this scenario, contact GitHub support for further assistance.</p>\n<p>If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Deletes a specific package version for a user. If the package is public and the package version has more than 5,000 downloads, you cannot delete the package version. In this scenario, contact GitHub support for further assistance.</p>\n<p>If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>delete:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -11865,8 +11843,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11923,7 +11900,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Restores a specific package version for a user.</p>\n<p>You can restore a deleted package under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
+      "descriptionHTML": "<p>Restores a specific package version for a user.</p>\n<p>You can restore a deleted package under the following conditions:</p>\n<ul>\n<li>The package was deleted within the last 30 days.</li>\n<li>The same package namespace and version is still available and not reused for a new package. If the same package namespace is not available, you will not be able to restore your package. In this scenario, to restore the deleted package, you must delete the new package that uses the deleted package's namespace first.</li>\n</ul>\n<p>If the <code>package_type</code> belongs to a GitHub Packages registry that supports granular permissions, the authenticated user must have admin permissions to the package. For the list of these registries, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:packages</code> and <code>write:packages</code> scopes to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages\">About permissions for GitHub Packages</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -11966,8 +11943,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     }
   ]

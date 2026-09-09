@@ -4,7 +4,7 @@ shortTitle: Migrate from LDAP
 intro: Learn how to migrate your {% data variables.product.prodname_ghe_server %} instance from LDAP authentication to SAML single sign-on with SCIM provisioning for centralized user management.
 permissions: Site administrators can migrate authentication methods on {% data variables.product.prodname_ghe_server %}.
 versions:
-  ghes: '>=3.17'
+  ghes: '*'
 contentType: how-tos
 category:
   - Provision and manage enterprise users
@@ -63,7 +63,7 @@ The critical migration challenge is bridging between the LDAP and SCIM user mana
 **LDAP users (existing state)**:
 
 * Have GitHub usernames that may have changed since initial creation
-* Retain authentication ability through LDAP mappings regardless of username changes  
+* Retain authentication ability through LDAP mappings regardless of username changes
 
 **SCIM users (target state)**:
 

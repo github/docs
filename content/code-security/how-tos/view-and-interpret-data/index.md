@@ -10,7 +10,7 @@ contentType: how-tos
 children:
   - /analyze-organization-data
   - /view-code-scanning-logs
-  - /viewing-dependabot-job-logs
+  - /view-dependabot-logs
   - /view-custom-pattern-metrics
   - /change-used-by-data
 ---

@@ -1,0 +1,6 @@
+# Reference: https://github.com/github/repos-security/discussions/1485
+# Public preview for requiring an additional approval on unattributed Copilot pull requests
+
+versions:
+  fpt: '*'
+  ghec: '*'

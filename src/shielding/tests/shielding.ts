@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
 import { get } from '@/tests/helpers/e2etest'
 
 describe('honeypotting', () => {
@@ -136,8 +136,8 @@ describe('404 pages and their content-type', () => {
     expect(res.headers['cache-control']).toMatch('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d\d+/)
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    // The default is that it'll be purged at the next deploy.
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
+    // Keyed by language so it's purged at the next per-language deploy purge.
+    expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
   })

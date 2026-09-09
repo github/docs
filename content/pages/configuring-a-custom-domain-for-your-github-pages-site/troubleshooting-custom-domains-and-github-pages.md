@@ -65,7 +65,7 @@ If you're using Certification Authority Authorization (CAA) records, at least on
 
 ## URL formatting on Linux
 
-If the URL for your site contains a username or organization name that begins or ends with a dash, or contains consecutive dashes, people browsing with Linux will receive a server error when they attempt to visit your site. To fix this, change your {% data variables.product.github %} username to remove non-alphanumeric characters. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username).
+If the URL for your site contains a username or organization name that begins or ends with a dash, or contains consecutive dashes, people browsing with Linux will receive a server error when they attempt to visit your site. To fix this, change your {% data variables.product.github %} username to remove non-alphanumeric characters. For more information, see [AUTOTITLE](/account-and-profile/concepts/username-changes).
 
 ## Browser cache
 

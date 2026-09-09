@@ -34,5 +34,5 @@ You can choose whether an account you sponsor can send you email updates about t
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)
-* [AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)
+* [AUTOTITLE](/billing/how-tos/pay-third-parties/upgrade-sponsorship)
+* [AUTOTITLE](/billing/how-tos/pay-third-parties/downgrade-sponsorship)

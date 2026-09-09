@@ -3,9 +3,12 @@ import type { NextFunction, Response } from 'express'
 import FailBot from '../lib/failbot'
 import { nextApp } from '@/frame/middleware/next'
 import { minimumNotFoundHtml } from '@/frame/lib/constants'
-import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import {
+  setFastlySurrogateKey,
+  makeLanguageSurrogateKey,
+} from '@/frame/middleware/set-fastly-surrogate-key'
 import { errorCacheControl } from '@/frame/middleware/cache-control'
-import statsd from '@/observability/lib/statsd'
+import { toError } from '@/observability/lib/to-error'
 import { ExtendedRequest } from '@/types'
 import { createLogger } from '@/observability/logger'
 
@@ -42,33 +45,12 @@ async function logException(error: ErrorWithCode, req: ExtendedRequest) {
   }
 }
 
-function timedOut(req: ExtendedRequest) {
-  // The `req.pagePath` can come later so it's not guaranteed to always
-  // be present. It's added by the `handle-next-data-path.ts` middleware
-  // we translates those "cryptic" `/_next/data/...` URLs from
-  // client-side routing.
-  const incrementTags = [`path:${req.pagePath || req.path}`]
-  if (req.context?.currentCategory) {
-    incrementTags.push(`product:${req.context.currentCategory}`)
-  }
-  statsd.increment('middleware.timeout', 1, incrementTags)
-  logger.warn('Request timed out', {
-    path: req.pagePath || req.path,
-    method: req.method,
-  })
-}
-
 async function handleError(
   error: ErrorWithCode | number,
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ) {
-  // Potentially set by the `connect-timeout` middleware.
-  if (req.timedout) {
-    timedOut(req)
-  }
-
   const responseDone = res.headersSent || req.aborted
 
   if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {
@@ -82,11 +64,12 @@ async function handleError(
       errorCacheControl(res)
       // Makes sure the surrogate key is NOT the manual one if it failed.
       // This basically unsets what was assumed in the beginning of
-      // loading all the middlewares.
-      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+      // loading all the middlewares. Falls back to `no-language` when
+      // `req.language` isn't set yet (e.g. errors before language detection).
+      setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
     }
   } else if (DEBUG_MIDDLEWARE_TESTS) {
-    console.warn('An error occurred in some middleware handler', error)
+    logger.warn('An error occurred in some middleware handler', { error })
   }
 
   try {
@@ -109,7 +92,7 @@ async function handleError(
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
       errorCacheControl(res)
-      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+      setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
       res.status(404).type('html').send(minimumNotFoundHtml)
       return
     }
@@ -147,7 +130,9 @@ async function handleError(
       await logException(error, req)
     }
   } catch (handlingError) {
-    console.error('An error occurred in the error handling middleware!', handlingError)
+    logger.error('An error occurred in the error handling middleware', {
+      error: toError(handlingError),
+    })
     next(handlingError)
     return
   }

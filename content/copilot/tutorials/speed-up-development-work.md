@@ -91,4 +91,4 @@ Try the [Scale institutional knowledge using Copilot Spaces](https://github.com/
 
 ## Next steps
 
-After you create a space to help with development tasks, consider sharing it with your team to reduce handoffs and repeated questions. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/collaborating-with-your-team-using-copilot-spaces).
+After you create a space to help with development tasks, consider sharing it with your team to reduce handoffs and repeated questions. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/collaborate-with-others).

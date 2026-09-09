@@ -23,7 +23,7 @@ When you remove members from an organization:
 
 {% ifversion fpt or ghec %}
 
-* If you use volume license billing, the paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan).
+* If you use volume license billing, the paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/downgrade-plan).
 * Removed members will lose access to private forks of your organization's private repositories, but they may still have local copies. However, they cannot sync local copies with your organization's repositories. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
 * When private repositories are forked to other organizations, those organizations are able to control access to the fork network. This means users may retain access to the forks even after losing access to the original organization because they will still have explicit access via a fork.
 * Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account.
@@ -45,7 +45,7 @@ When you remove members from an organization:
 
 ## 2. Share best practices
 
-To help the person you're removing from your organization transition and help ensure they delete confidential information or intellectual property, we recommend sharing a checklist of best practices for leaving your organization. For an example, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/best-practices-for-leaving-your-company).
+To help the person you're removing from your organization transition and help ensure they delete confidential information or intellectual property, we recommend sharing a checklist of best practices for leaving your organization. For an example, see [AUTOTITLE](/account-and-profile/how-tos/account-settings/prepare-for-job-change).
 
 ## 3. Understand how you manage organization membership (enterprises only)
 
@@ -81,4 +81,4 @@ If the user's organization membership is **not** managed with by a SCIM integrat
 ## Further reading
 
 * [AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team){% ifversion remove-enterprise-members %}
-* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise){% endif %}
+* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise){% endif %}

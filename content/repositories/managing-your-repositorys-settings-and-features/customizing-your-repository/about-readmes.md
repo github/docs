@@ -19,7 +19,7 @@ category:
 
 {% data reusables.repositories.about-READMEs %}
 
-For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project) and {% endif %}[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions).
+For more information about providing guidelines for your project, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project) and [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions).
 
 A README is often the first item a visitor will see when visiting your repository. README files typically include information on:
 * What the project does
@@ -59,5 +59,5 @@ A README should only contain information necessary for developers to get started
 * [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
 * [5 tips for making your {% data variables.product.company_short %} profile page accessible](https://github.blog/2023-10-26-5-tips-for-making-your-github-profile-page-accessible/) in the {% data variables.product.company_short %} blog
 {%- ifversion fpt or ghec %}
-* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)
+* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)
 {%- endif %}

@@ -8,6 +8,6 @@
 1. To finish unlinking your email, click **Unlink**.
 1. Optionally, to create a new account and link your newly unlinked email, click **Create a new account**.
    > [!NOTE]
-   > You can also link your unlinked email to an existing {% data variables.product.prodname_dotcom %} account. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account).
+   > You can also link your unlinked email to an existing {% data variables.product.prodname_dotcom %} account. See [AUTOTITLE](/account-and-profile/how-tos/email-preferences/adding-an-email-address-to-your-github-account).
 
 1. Optionally, if you have any form of payment set up on the locked account, please contact us through the {% data variables.contact.contact_support_portal %} to cancel future payments. For example, you might have a paid subscription or sponsor developers through {% data variables.product.prodname_sponsors %}. If you are sponsored through {% data variables.product.prodname_sponsors %}, please mention this so that the team can help you migrate your sponsorships.

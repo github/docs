@@ -26,10 +26,10 @@ Most features are released on {% data variables.product.prodname_dotcom_the_webs
 
 You can also configure optional features on {% data variables.product.prodname_ghe_server %} to improve the software development lifecycle for your enterprise.
 
-* **{% data variables.product.prodname_actions %}:** Automate CI/CD and development workflows{% ifversion ghas-products %}
+* **{% data variables.product.prodname_actions %}:** Automate CI/CD and development workflows
 * **{% data variables.product.prodname_GH_code_security %}:** Automate detection and remediation of vulnerabilities in code and dependencies
-* **{% data variables.product.prodname_GH_secret_protection %}:** Block users from leaking secrets and identify and remediate historic leaks{% else %}
-* **{% data variables.product.prodname_GHAS %}:** Scan code for secrets and vulnerabilities{% endif %}
+* **{% data variables.product.prodname_GH_secret_protection %}:** Block users from leaking secrets and identify and remediate historic leaks
+
 * **{% data variables.product.prodname_github_connect %}:** Benefit from data and features on {% data variables.product.prodname_dotcom_the_website %}
 * **{% data variables.product.prodname_registry %}:** Host software packages for your enterprise
 
@@ -37,7 +37,11 @@ You can also configure optional features on {% data variables.product.prodname_g
 
 {% data reusables.enterprise.github-distributes-ghes %} Installing third-party software or making changes to the underlying operating system is not supported.
 
-You can deploy {% data variables.product.prodname_ghe_server %} to a virtualization hypervisor within your on-premises datacenter, or to a public cloud service.
+You can deploy {% data variables.product.prodname_ghe_server %} to a virtualization hypervisor within your on-premises datacenter, or to a public cloud service. Images obtained from sources other than the channels listed below are not supported.
+
+We publish images through:
+ * [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/)
+ * [Microsoft Marketplace](https://marketplace.microsoft.com/) (only images published by {% data variables.product.company_short %} or Microsoft are supported)
 
 ### Supported on-premises hypervisors
 

@@ -1,12 +1,14 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import {
+  CheckIcon,
   CopyIcon,
   CopilotIcon,
   FileIcon,
   LinkExternalIcon,
   TriangleDownIcon,
 } from '@primer/octicons-react'
-import { ActionList, ActionMenu, Button, ButtonGroup, VisuallyHidden } from '@primer/react'
+import { ActionList, ActionMenu, ButtonGroup, VisuallyHidden } from '@primer/react'
+import { Button } from '@primer/react-brand'
 import { announce } from '@primer/live-region-element'
 import { MARKDOWN_SOURCE_MENU_EVENT_GROUP } from '@/events/components/event-groups'
 import { sendEvent } from '@/events/components/events'
@@ -21,6 +23,15 @@ interface CopyMarkdownMenuProps {
 
 export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
   const { t } = useTranslation('pages')
+
+  const [copied, setCopied] = useState(false)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    }
+  }, [])
 
   const encodedPath = encodeURIComponent(currentPath).replace(/%2F/g, '/').replace(/%40/g, '@')
   const markdownUrl = `/api/article/body?pathname=${encodedPath}`
@@ -64,6 +75,9 @@ export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
       const text = await res.text()
       await navigator.clipboard.writeText(text)
       announce(t('copied'))
+      setCopied(true)
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+      timeoutRef.current = setTimeout(() => setCopied(false), 2000)
     } catch {
       // Fallback: open in new tab if fetch or clipboard fails
       window.open(markdownUrl, '_blank')
@@ -74,14 +88,14 @@ export const CopyMarkdownMenu = ({ currentPath }: CopyMarkdownMenuProps) => {
     <div className="mb-3 ml-3">
       <ButtonGroup>
         <Button
-          variant="default"
-          className={cx(
-            'd-inline-flex flex-items-center text-decoration-none color-fg-default',
-            styles.button,
-          )}
+          variant="secondary"
+          size="small"
+          className={cx('text-decoration-none color-fg-default', styles.button, styles.copyButton)}
+          leadingVisual={
+            copied ? <CheckIcon aria-hidden="true" /> : <CopyIcon aria-hidden="true" />
+          }
           onClick={handleCopyClick}
         >
-          <CopyIcon size={12} className="mr-1" aria-hidden="true" />
           {t('copy_as_markdown')}
         </Button>
         <ActionMenu>

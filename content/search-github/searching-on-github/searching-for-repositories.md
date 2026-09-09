@@ -216,6 +216,19 @@ You can search for repositories that have a funding file using the `has:funding-
 
 {% endif %}
 
+{% ifversion virtual-registry %}
+
+## Search based on deployment context
+
+If your organization has added records to the {% data variables.product.virtual_registry %}, you can use this data to filter lists of repositories, such as the organization's "Repositories" page. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).
+
+| Qualifier | Description |
+| --------- | ----------- |
+| `deployable:true` | There is an active **storage record** for the repository in the {% data variables.product.virtual_registry %}. |
+| `deployed:true` | There is an active **deployment record** for the repository in the {% data variables.product.virtual_registry %}. |
+
+{% endif %}
+
 ## Further reading
 
 * [AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)

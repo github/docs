@@ -22,9 +22,9 @@ import { sendEvent, uuidv4 } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { generateAISearchLinksJson } from '../helpers/ai-search-links-json'
 import { ASK_AI_EVENT_GROUP } from '@/events/components/event-groups'
-import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 
 import type { AIReference } from '../types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type AIQueryResultsProps = {
   query: string
@@ -83,7 +83,6 @@ export function AskAIResults({
     aiCouldNotAnswer: boolean
     connectedEventId?: string
   }>('ai-query-cache', 1000, 7)
-  const { isOpen: isCTAOpen, permanentDismiss: permanentlyDismissCTA } = useCTAPopoverContext()
 
   let copyUrl = ``
   if (window?.location?.href) {
@@ -144,12 +143,6 @@ export function AskAIResults({
     setInitialLoading(true)
     setResponseLoading(true)
     disclaimerRef.current?.focus()
-
-    // We permanently dismiss the CTA after performing an AI Search because the
-    // user has tried it and doesn't require additional CTA prompting to try it
-    if (isCTAOpen) {
-      permanentlyDismissCTA()
-    }
 
     const cachedData = getItem(query, version, router.locale || 'en')
     if (cachedData) {
@@ -243,12 +236,20 @@ export function AskAIResults({
         let leftover = '' // <= carry‑over buffer
         setInitialLoading(false)
 
-        const processLine = (parsedLine: any) => {
+        type ParsedLine = {
+          chunkType?: string
+          conversation_id?: string
+          sources?: AIReference[]
+          text?: string
+          errors?: unknown
+        }
+
+        const processLine = (parsedLine: ParsedLine) => {
           switch (parsedLine.chunkType) {
             // A conversation ID will still be sent when a question cannot be answered
             case 'CONVERSATION_ID':
-              conversationIdBuffer = parsedLine.conversation_id
-              setConversationId(parsedLine.conversation_id)
+              conversationIdBuffer = parsedLine.conversation_id ?? ''
+              setConversationId(parsedLine.conversation_id ?? '')
               break
 
             case 'NO_CONTENT_SIGNAL':
@@ -259,7 +260,7 @@ export function AskAIResults({
             case 'SOURCES':
               if (!isCancelled) {
                 sourcesBuffer = uniqBy(
-                  sourcesBuffer.concat(parsedLine.sources as AIReference[]),
+                  sourcesBuffer.concat((parsedLine.sources ?? []) as AIReference[]),
                   'url',
                 )
                 setReferences(sourcesBuffer)
@@ -268,7 +269,7 @@ export function AskAIResults({
 
             case 'MESSAGE_CHUNK':
               if (!isCancelled) {
-                messageBuffer += parsedLine.text
+                messageBuffer += parsedLine.text ?? ''
                 setMessage(messageBuffer)
               }
               break
@@ -306,7 +307,7 @@ export function AskAIResults({
             for (const raw of lines) {
               if (!raw.trim()) continue
 
-              let parsedLine: any
+              let parsedLine: ParsedLine
               try {
                 parsedLine = JSON.parse(raw)
                 if (parsedLine?.errors) {
@@ -339,7 +340,7 @@ export function AskAIResults({
             console.warn('Failed to parse tail JSON:', leftover, err)
           }
         }
-      } catch (error: any) {
+      } catch (error: unknown) {
         if (!isCancelled) {
           console.error('Failed to fetch search results:', error)
           setAISearchError()
@@ -398,7 +399,7 @@ export function AskAIResults({
         <article aria-busy={responseLoading} aria-live="assertive">
           {!aiCouldNotAnswer && message !== '' ? (
             <span ref={disclaimerRef} className={styles.disclaimerText}>
-              <span dangerouslySetInnerHTML={{ __html: t('search.ai.disclaimer') }} />
+              <RenderedHTML as="span" html={t('search.ai.disclaimer')} />
             </span>
           ) : null}
           <UnrenderedMarkdownContent

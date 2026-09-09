@@ -67,22 +67,24 @@ export async function getGeneralSearchResults(
     },
   })
 
-  const matchQuery: Record<string, any> = {
-    bool: {
-      should: matchQueries,
-      // This allows filtering by toplevel later.
-      minimum_should_match: 1,
-    },
+  const matchBool: estypes.QueryDslBoolQuery = {
+    should: matchQueries,
+    // This allows filtering by toplevel later.
+    minimum_should_match: 1,
+  }
+  const matchQuery: estypes.QueryDslQueryContainer = {
+    bool: matchBool,
   }
 
   const toplevelArray = toplevel || []
   if (toplevelArray.length) {
-    matchQuery.bool.filter = matchQuery.bool.filter || []
-    matchQuery.bool.filter.push({
+    const filters = Array.isArray(matchBool.filter) ? matchBool.filter : []
+    filters.push({
       terms: {
         toplevel: toplevelArray,
       },
     })
+    matchBool.filter = filters
   }
 
   const highlightFields = Array.from(highlights || DEFAULT_HIGHLIGHT_FIELDS)
@@ -152,7 +154,7 @@ export async function getGeneralSearchResults(
     throw new Error(`Unrecognized sort enum '${sort}'`)
   }
 
-  const result = await client.search(searchQuery)
+  const result = await client.search<GeneralSearchSource>(searchQuery)
 
   const hitsAll = result.hits
   const hits = getHits(hitsAll.hits, {
@@ -177,10 +179,12 @@ export async function getGeneralSearchResults(
   return { meta, hits, aggregations: aggregationsResult }
 }
 
-function getAggregations(aggregate?: string[]): Record<string, any> | undefined {
+function getAggregations(
+  aggregate?: string[],
+): Record<string, estypes.AggregationsAggregationContainer> | undefined {
   if (!aggregate || !aggregate.length) return undefined
 
-  const aggs: Record<string, any> = {}
+  const aggs: Record<string, estypes.AggregationsAggregationContainer> = {}
   for (const key of aggregate) {
     aggs[key] = {
       terms: {
@@ -194,18 +198,19 @@ function getAggregations(aggregate?: string[]): Record<string, any> | undefined 
 
 function getAggregationsResult(
   aggregate?: string[],
-  result?: Record<string, any>,
+  result?: Record<string, estypes.AggregationsAggregate>,
 ): Record<string, SearchAggregation[]> | undefined {
   if (!aggregate || !aggregate.length || !result) return undefined
   const aggregations: Record<string, SearchAggregation[]> = {}
   for (const key of aggregate) {
-    if (result[key]?.buckets) {
-      aggregations[key] = result[key].buckets
-        .map((bucket: any) => ({
+    const agg = result[key] as { buckets?: Array<{ key: string; doc_count: number }> } | undefined
+    if (agg?.buckets) {
+      aggregations[key] = agg.buckets
+        .map((bucket) => ({
           key: bucket.key as string,
           count: bucket.doc_count as number,
         }))
-        .sort((a: { key: string }, b: { key: string }) => a.key.localeCompare(b.key))
+        .sort((a, b) => a.key.localeCompare(b.key))
     }
   }
   return aggregations
@@ -417,8 +422,16 @@ interface GetHitsOptions {
   include: AdditionalIncludes[]
 }
 
+interface GeneralSearchSource {
+  url: string
+  title: string
+  breadcrumbs: string
+  popularity?: number
+  [key: string]: unknown
+}
+
 function getHits(
-  hits: estypes.SearchHit<any>[],
+  hits: estypes.SearchHit<GeneralSearchSource>[],
   { indexName, debug = false, highlightFields, include }: GetHitsOptions,
 ): GeneralSearchHit[] {
   return hits.map((hit) => {
@@ -435,22 +448,23 @@ function getHits(
       hitHighlights[key] = (hit.highlight && hit.highlight[key]) || []
     }
 
+    const source = hit._source!
     const result: GeneralSearchHit = {
       id: hit._id!,
-      url: hit._source.url,
-      title: hit._source.title,
-      breadcrumbs: hit._source.breadcrumbs,
+      url: source.url,
+      title: source.title,
+      breadcrumbs: source.breadcrumbs,
       highlights: hitHighlights,
     }
     if (debug) {
       result.score = hit._score ?? 0.0
-      result.popularity = hit._source.popularity ?? 0.0
+      result.popularity = source.popularity ?? 0.0
       if (isDevMode) {
         result.es_url = `http://localhost:9200/${indexName}/_doc/${hit._id}`
       }
     }
     for (const field of include) {
-      result[field] = hit._source[field]
+      result[field] = source[field] as string
     }
     return result
   })

@@ -1,4 +1,3 @@
-import React from 'react'
 import GithubSlugger from 'github-slugger'
 import cx from 'classnames'
 

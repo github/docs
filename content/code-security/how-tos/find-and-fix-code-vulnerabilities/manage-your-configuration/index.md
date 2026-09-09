@@ -10,10 +10,10 @@ redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration
   - /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration
 children:
-  - /editing-your-configuration-of-default-setup
+  - /edit-default-setup
   - /use-the-tools-status-page-for-code-scanning
-  - /set-code-scanning-merge-protection
-  - /configuring-larger-runners-for-default-setup
-  - /codeql-code-scanning-for-compiled-languages
+  - /set-merge-protection
+  - /configure-larger-runners
+  - /codeql-for-compiled-languages
 ---
 

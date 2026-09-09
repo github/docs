@@ -15,7 +15,10 @@ To update the credential secret for your {% data variables.product.prodname_acti
 > [!WARNING]
 > This process is only for updating the secret key used to authenticate to your existing external storage provider. It assumes that your networking configuration, storage provider, and storage account remain unchanged.
 >
-> Do not use this process to switch between credential-based and OIDC-based authentication in the management console. Changing the authentication method for {% data variables.product.prodname_actions %} storage may result in data loss.
+> Do not use this process to switch between credential-based and OIDC-based authentication in the {% data variables.enterprise.management_console %}. Changing the authentication method for {% data variables.product.prodname_actions %} storage may result in data loss.
+
+> [!NOTE]
+> To move {% data variables.product.prodname_actions %} external storage to a new bucket, account, or region on the same provider, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/migrating-github-actions-external-storage).
 
 1. Enable maintenance mode on the server. 
 1. Update the secret or obtain the updated secret from the storage provider.

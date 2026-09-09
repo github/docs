@@ -1,6 +1,6 @@
 ---
 title: Managing your payment and billing information
-intro: 'Learn how to view and manage your payment information and billing contacts using the new billing platform.'
+intro: 'Learn how to view, modify, and remove your payment information and billing contacts using the new billing platform.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:

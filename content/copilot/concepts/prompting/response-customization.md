@@ -38,7 +38,7 @@ There are three main types of custom instructions that you can use to customize 
 
 {% data reusables.copilot.personal-instructions-note %}
 
-You can customize how {% data variables.copilot.copilot_chat_short %} responds to you on {% data variables.product.prodname_dotcom_the_website %} by adding personal instructions, which {% data variables.product.prodname_copilot_short %} will only apply to you. You do this in a popup on the {% data variables.copilot.copilot_chat_short %} page on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-personal-instructions).
+You can customize how {% data variables.copilot.copilot_chat_short %} responds to you on {% data variables.product.prodname_dotcom_the_website %} by adding personal instructions, which {% data variables.product.prodname_copilot_short %} will only apply to you. You do this in a popup on the {% data variables.copilot.copilot_chat_short %} page on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-personal-instructions).
 
 ## About repository custom instructions
 
@@ -97,9 +97,9 @@ Here are some common use cases and examples for each type of custom instructions
 
 ## Next steps
 
-* [AUTOTITLE](/copilot/customizing-copilot/adding-personal-custom-instructions-for-github-copilot)
-* [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
-* [AUTOTITLE](/copilot/customizing-copilot/adding-organization-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-personal-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions)
 
 ## Further reading
 
@@ -184,14 +184,14 @@ The following examples demonstrate how to use prompt files.
   …
   ```
 
-For information on how to enable, create, and use prompt files, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=vscode#enabling-and-using-prompt-files).
+For information on how to enable, create, and use prompt files, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide?tool=vscode#enabling-and-using-prompt-files).
 
 {% data reusables.copilot.custom-instructions-effective %}
 
 ## Next steps
 
-* [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
-* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
+* [AUTOTITLE](/copilot/tutorials/customize-code-review)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endvscode %}
@@ -282,13 +282,13 @@ The following examples demonstrate how to use prompt files.
   …
   ```
 
-For information on how to create and use prompt files, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=visualstudio#using-prompt-files).
+For information on how to create and use prompt files, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide?tool=visualstudio#using-prompt-files).
 
 {% data reusables.copilot.custom-instructions-effective %}
 
 ## Next steps
 
-* [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endvisualstudio %}
@@ -391,8 +391,8 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 
 ## Next steps
 
-* [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
-* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
+* [AUTOTITLE](/copilot/tutorials/customize-code-review)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endjetbrains %}
@@ -437,8 +437,8 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 
 ## Next steps
 
-* [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
-* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
+* [AUTOTITLE](/copilot/tutorials/customize-code-review)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endxcode %}
@@ -484,8 +484,8 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 
 ## Next steps
 
-* [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
-* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions)
+* [AUTOTITLE](/copilot/tutorials/customize-code-review)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endeclipse %}

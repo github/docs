@@ -49,10 +49,10 @@ When creating a new pipeline, the source data that is being consumed may not hav
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about automation pipelines, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with one of the automation pipelines, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about automation pipelines, you can ask in the `#technical-content` Slack channel. If you notice a problem with one of the automation pipelines, you can open an issue in the `github/technical-content` repository.
 
 ## Sample Pipeline Template
 

@@ -41,4 +41,4 @@ If you disallow publication of {% data variables.product.prodname_pages %} sites
 
 ## Further reading
 
-* [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)
+* [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages)

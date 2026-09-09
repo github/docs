@@ -14,10 +14,42 @@ import GithubSlugger from 'github-slugger'
 // These are only used by REST templates and kept here (not in engine.ts)
 // to avoid a circular dependency: rest-tags → renderContent → engine.
 for (const [tagName, tagClass] of Object.entries(apiTransformerTags)) {
-  engine.registerTag(tagName, tagClass as any)
+  engine.registerTag(tagName, tagClass as unknown as Parameters<typeof engine.registerTag>[1])
 }
 
 const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
+
+type PreparedCodeExample = {
+  request: {
+    description: string
+    url: string
+    acceptHeader?: string
+    bodyParameters: string | null
+  }
+  response: {
+    statusCode?: string
+    schema: string | null
+  }
+}
+
+type PreparedOperation = Omit<Operation, 'statusCodes' | 'codeExamples'> & {
+  description: string
+  hasParameters: boolean
+  showHeaders: boolean
+  needsContentTypeHeader: boolean
+  statusCodes?: Array<{ httpStatusCode: string; description?: string }>
+  codeExamples: PreparedCodeExample[]
+}
+
+type PreparedTemplateData = {
+  page: {
+    title: Page['title']
+    intro: string
+  }
+  manualContent: string
+  restOperations: PreparedOperation[]
+  apiVersion?: string
+}
 
 /**
  * Transformer for REST API pages
@@ -114,12 +146,14 @@ export class RestTransformer implements PageTransformer {
     // Load and render template
     const templateContent = loadTemplate(this.templateName)
 
-    // Render the template with Liquid
+    // Render the template with Liquid. templateData intentionally replaces
+    // context.page with a simplified, text-rendered {title, intro} for the
+    // template, so the merged object is not a strict Context.
     const rendered = await renderContent(templateContent, {
       ...context,
       ...templateData,
       markdownRequested: true,
-    })
+    } as unknown as Context)
 
     if (DEBUG) console.log(`[DEBUG] RestTransformer completed in ${Date.now() - startTime}ms`)
     return rendered
@@ -134,7 +168,7 @@ export class RestTransformer implements PageTransformer {
     context: Context,
     manualContent: string,
     apiVersion?: string,
-  ): Promise<Record<string, any>> {
+  ): Promise<PreparedTemplateData> {
     // Prepare page intro
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
 
@@ -152,8 +186,7 @@ export class RestTransformer implements PageTransformer {
     }
     const schemaMap = new Map<string, string>()
     for (const op of preparedOperations) {
-      if (!op.codeExamples) continue
-      for (const example of op.codeExamples as any[]) {
+      for (const example of op.codeExamples) {
         const schema = example.response?.schema
         if (!schema || typeof schema !== 'string') continue
 
@@ -181,7 +214,7 @@ export class RestTransformer implements PageTransformer {
   /**
    * Prepare a single operation for template rendering
    */
-  private async prepareOperation(operation: Operation): Promise<Record<string, any>> {
+  private async prepareOperation(operation: Operation): Promise<PreparedOperation> {
     // Convert HTML description to text
     const description = operation.descriptionHTML ? fastTextOnly(operation.descriptionHTML) : ''
 
@@ -213,6 +246,9 @@ export class RestTransformer implements PageTransformer {
           }
         }
 
+        const responseSchema = (
+          example.response as { schema?: Parameters<typeof summarizeSchema>[0] } | undefined
+        )?.schema
         return {
           request: {
             description: example.request?.description
@@ -226,9 +262,7 @@ export class RestTransformer implements PageTransformer {
           },
           response: {
             statusCode: example.response?.statusCode,
-            schema: (example.response as any)?.schema
-              ? summarizeSchema((example.response as any).schema)
-              : null,
+            schema: responseSchema ? summarizeSchema(responseSchema) : null,
           },
         }
       }) || []

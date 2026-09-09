@@ -23,7 +23,7 @@ Once a user account has been deleted, the username will be available for use wit
 You cannot delete a user that is currently an **organization owner**.
 
 * **If the user is the only owner:** Transfer ownership to another person, or delete the organization. See [AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership) and [AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account).
-* **If there are other owners:** Remove the user from the organization. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization).
+* **If there are other owners:** Remove the user from the organization. See [AUTOTITLE](/account-and-profile/how-tos/organization-membership/removing-yourself-from-an-organization).
 
 You cannot delete **your own user account**. If you need to delete your own user account, ask another site administrator to delete your account for you.
 
@@ -37,7 +37,7 @@ As an alternative to deleting or suspending a user account, to stop a user's rep
 
 ## Deleting a user from the site admin dashboard
 
-Before deleting a user account, you should consider if a backup or copy of the repositories, private forks, wikis, issues, and pull requests owned by the user account is required. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance) and [AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository).
+Before deleting a user account, you should consider if a backup or copy of the repositories, private forks, wikis, issues, and pull requests owned by the user account is required. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/about-the-backup-service-for-github-enterprise-server) and [AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}

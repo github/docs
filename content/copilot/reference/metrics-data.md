@@ -20,7 +20,7 @@ The timestamp of a user's most recent interaction with {% data variables.product
 
 This property is consistent across the following surfaces:
 
-* The CSV report downloaded from the "Access management" page (see [AUTOTITLE](/copilot/how-tos/administer/organizations/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-user-activity-data-for-copilot-in-your-organization))
+* The CSV report downloaded from the "Access management" page (see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/review-activity/review-user-activity-data))
 * The [AUTOTITLE](/rest/copilot/copilot-user-management)
 
 ### Calculation

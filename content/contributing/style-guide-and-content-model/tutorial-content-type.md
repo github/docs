@@ -53,10 +53,10 @@ Contents of tutorials:
 ## Examples of tutorials
 
 Tutorials:
-* [AUTOTITLE](/actions/managing-issues-and-pull-requests/adding-labels-to-issues)
-* [AUTOTITLE](/actions/deployment/deploying-xcode-applications/installing-an-apple-certificate-on-macos-runners-for-xcode-development)
+* [AUTOTITLE](/actions/tutorials/manage-your-work/add-labels-to-issues)
+* [AUTOTITLE](/actions/how-tos/deploy/deploy-to-third-party-platforms/sign-xcode-applications)
 
 Language and framework guides:
-* [AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-nodejs)
-* [AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-python)
-* [AUTOTITLE](/actions/publishing-packages/publishing-java-packages-with-maven)
+* [AUTOTITLE](/actions/tutorials/build-and-test-code/nodejs)
+* [AUTOTITLE](/actions/tutorials/build-and-test-code/python)
+* [AUTOTITLE](/actions/tutorials/publish-packages/publish-java-packages-with-maven)

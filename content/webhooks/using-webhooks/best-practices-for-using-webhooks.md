@@ -12,7 +12,7 @@ category:
 
 ## Subscribe to the minimum number of events
 
-You should only subscribe to the webhook events that you need. This will reduce the amount of work your server needs to do. For more information about subscribing to events, see [AUTOTITLE](/webhooks/creating-webhooks) and [AUTOTITLE](/webhooks/using-webhooks/editing-webhooks).
+You should only subscribe to the webhook events that you need. This will reduce the amount of work your server needs to do. For more information about subscribing to events, see [AUTOTITLE](/webhooks/using-webhooks/creating-webhooks) and [AUTOTITLE](/webhooks/using-webhooks/editing-webhooks).
 
 ## Use a webhook secret
 
@@ -61,5 +61,5 @@ In a replay attack, a bad actor intercepts a webhook delivery and re-sends the d
 
 ## Further reading
 
-* [AUTOTITLE](/rest/guides/best-practices-for-integrators)
+* [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api)
 * [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)

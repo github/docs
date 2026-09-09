@@ -9,6 +9,7 @@ children:
   - /using-a-staging-environment
   - /troubleshooting-github-actions-for-your-enterprise
   - /updating-the-credentials-for-github-actions-storage
+  - /migrating-github-actions-external-storage
 shortTitle: HA & troubleshooting
 redirect_from:
   - /admin/github-actions/advanced-configuration-and-troubleshooting

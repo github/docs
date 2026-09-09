@@ -10,6 +10,10 @@ category:
   - Set up GitHub Classroom
 ---
 
+> [!WARNING]
+> **Closing down:** This `gh` extension is closing down. The {% data variables.product.prodname_classroom %} application will be retired on August 28, 2026.
+> For more information, see the [{% data variables.product.prodname_classroom %} closing down notice](https://gh.io/classroom-sunset).
+
 ## About {% data variables.product.prodname_classroom %} CLI <!-- omit in toc -->
 
 {% data reusables.cli.about-cli %} For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).

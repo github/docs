@@ -40,4 +40,4 @@ Before running an analysis with the {% data variables.product.prodname_codeql_cl
 
 ## Further reading
 
-You can also analyze databases from {% data variables.product.prodname_dotcom_the_website %} using the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries).
+You can also analyze databases from {% data variables.product.prodname_dotcom_the_website %} using the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-vs-code/running-codeql-queries).

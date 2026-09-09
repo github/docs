@@ -28,7 +28,7 @@ Self-hosted runners:
 * Let you create custom hardware configurations that meet your needs with processing power or memory to run larger jobs, install software available on your local network.
 * Receive automatic updates for the self-hosted runner application only, though you may disable automatic updates of the runner.
 * Don't need to have a clean instance for every job execution.{% ifversion ghec or ghes %}
-* Can be organized into groups to restrict access to specific workflows, organizations, and repositories. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
+* Can be organized into groups to restrict access to specific workflows, organizations, and repositories. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/manage-access).{% endif %}
 * Can be physical, virtual, in a container, on-premises, or in a cloud.
 
 You can use self-hosted runners anywhere in the management hierarchy. Repository-level runners are dedicated to a single repository, while organization-level runners can process jobs for multiple repositories in an organization. Organization owners can choose which repositories are allowed to create repository-level self-hosted runners. See [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#limiting-the-use-of-self-hosted-runners). Finally, enterprise-level runners can be assigned to multiple organizations in an enterprise account.
@@ -36,9 +36,9 @@ You can use self-hosted runners anywhere in the management hierarchy. Repository
 ## Next steps
 
 {% ifversion ghec or ghes %}
-To get hands-on experience with the policies and usage of self-hosted runners, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)
+To get hands-on experience with the policies and usage of self-hosted runners, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)
 {% else %}
-To set up a self-hosted runner in your workspace, see [AUTOTITLE](/actions/how-tos/managing-self-hosted-runners/adding-self-hosted-runners).
+To set up a self-hosted runner in your workspace, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/add-runners).
 {% endif %}
 
-To find information about the requirements and supported software and hardware for self-hosted runners, see [AUTOTITLE](/actions/reference/self-hosted-runners-reference).
+To find information about the requirements and supported software and hardware for self-hosted runners, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners).

@@ -42,10 +42,10 @@ Writers can also add an introduction paragraph _above_ the following Markdown co
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about the CodeQL CLI pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the CodeQL CLI pipeline, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about the CodeQL CLI pipeline, you can ask in the `#technical-content` Slack channel. If you notice a problem with the CodeQL CLI pipeline, you can open an issue in the `github/technical-content` repository.
 
 ## Dependency Matrix
 
@@ -75,7 +75,7 @@ If you have a question about the CodeQL CLI pipeline, you can ask in the `#docs-
 - **Source team**: Code Security (CodeQL team)
 
 ### Escalation path
-1. **Pipeline failures** → #docs-engineering Slack
+1. **Pipeline failures** → #technical-content Slack
 2. **Source data issues** → #code-security-docs Slack
 3. **Pandoc conversion issues** → Check Pandoc version and file format
 4. **Repo access issues** → Request access to `github/semmle-code`

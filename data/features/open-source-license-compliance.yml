@@ -1,0 +1,4 @@
+# Open source license compliance (public preview)
+versions:
+  fpt: '*'
+  ghec: '*'

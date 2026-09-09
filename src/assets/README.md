@@ -61,7 +61,7 @@ To request a resized version:
 
 ## Ownership
 
-- **Team**: `@github/docs-engineering`
+- `#technical-content`
 - **Escalation**: If image serving fails or performance degrades, check the `dynamic-assets` middleware and `sharp` processing.
 
 ## Current State & Known Issues

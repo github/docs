@@ -210,4 +210,38 @@ describe('POST /events', () => {
     })
     expect(statusCode).toBe(400)
   })
+
+  test('should accept a tableInteraction filter event', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'tableInteraction',
+      context: pageExample.context,
+      table_interaction_name: 'secret-scanning-patterns',
+      table_interaction_type: 'filter',
+      table_interaction_field_name: 'pushProtection',
+      table_interaction_field_value: 'yes',
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should accept a tableInteraction event without optional fields', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'tableInteraction',
+      context: pageExample.context,
+      table_interaction_name: 'secret-scanning-patterns',
+      table_interaction_type: 'reset',
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should reject a tableInteraction event with an invalid interaction type', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'tableInteraction',
+      context: pageExample.context,
+      table_interaction_name: 'secret-scanning-patterns',
+      table_interaction_type: 'not-a-valid-type',
+      table_interaction_field_name: 'pushProtection',
+      table_interaction_field_value: 'yes',
+    })
+    expect(statusCode).toBe(400)
+  })
 })

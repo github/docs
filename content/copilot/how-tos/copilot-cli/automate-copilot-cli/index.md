@@ -8,6 +8,7 @@ contentType: how-tos
 children:
   - /quickstart
   - /run-cli-programmatically
+  - /schedule-prompts
   - /automate-with-actions
 docsTeamMetrics:
   - copilot-cli

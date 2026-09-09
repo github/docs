@@ -1,6 +1,6 @@
 ---
 title: Using organization roles
-intro: 'Learn how to{% ifversion org-pre-defined-roles %} view organization role permissions and{% endif %} manage organization role assignments.'
+intro: 'Learn how to view organization role permissions and manage organization role assignments.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -18,11 +18,9 @@ You can have more granular, scalable control over the access you grant to your o
 
 {% ifversion ghec or ghes %}
 
-In addition to pre-defined roles, you can also create up to 20 custom roles that define groups of permissions. Your enterprise owner can also create organization roles for you to use. On {% data variables.product.prodname_ghe_server %} earlier than 3.19, you can create up to 10 custom roles. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise).
+In addition to pre-defined roles, you can also create up to 20 custom roles that define groups of permissions. Your enterprise owner can also create organization roles for you to use. On {% data variables.product.prodname_ghe_server %} earlier than 3.19, you can create up to 10 custom roles. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles).
 
 {% endif %}
-
-{% ifversion org-pre-defined-roles %}
 
 ## Viewing organization role permissions
 
@@ -31,8 +29,6 @@ In addition to pre-defined roles, you can also create up to 20 custom roles that
 1. In the "Access" section of the left sidebar, click **Organization roles**. Then click **Role management**.
 1. To the right of any role, click **{% octicon "fold" aria-label="Show role permissions" %}**.
 1. Optionally, to hide the role permissions again, click **{% octicon "fold" aria-label="Hide role permissions" %}**.
-
-{% endif %}
 
 ## Assigning an organization role
 

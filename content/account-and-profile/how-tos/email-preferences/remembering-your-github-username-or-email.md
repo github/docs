@@ -28,7 +28,7 @@ category:
 1. In the **GitHub Desktop** menu, click **Preferences**.
 1. In the Preferences window, verify the following:
     * To view your {% data variables.product.github %} username, click **Accounts**.
-    * To view your Git email, click **Git**. Note that this email is not guaranteed to be [your primary email](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
+    * To view your Git email, click **Git**. Note that this email is not guaranteed to be [your primary email](/account-and-profile/how-tos/email-preferences/changing-your-primary-email-address).
 
 {% endmac %}
 
@@ -37,7 +37,7 @@ category:
 1. In the **File** menu, click **Options**.
 1. In the Options window, verify the following:
     * To view your {% data variables.product.github %} username, click **Accounts**.
-    * To view your Git email, click **Git**. Note that this email is not guaranteed to be [your primary email](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
+    * To view your Git email, click **Git**. Note that this email is not guaranteed to be [your primary email](/account-and-profile/how-tos/email-preferences/changing-your-primary-email-address).
 
 {% endwindows %}
 
@@ -72,5 +72,5 @@ Your username is what immediately follows the `https://{% data variables.product
 
 ## Further reading
 
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)
+* [AUTOTITLE](/account-and-profile/how-tos/email-preferences/verifying-your-email-address)
 {% endif %}

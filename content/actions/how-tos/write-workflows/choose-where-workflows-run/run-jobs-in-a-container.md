@@ -27,7 +27,7 @@ A Dockerfile contains instructions and arguments that define the contents and st
 
 Some Docker instructions interact with {% data variables.product.prodname_actions %}, and an action's metadata file can override some Docker instructions. Ensure that you are familiar with how your Dockerfile interacts with {% data variables.product.prodname_actions %} to prevent any unexpected behavior.
 
-For reference information, see [AUTOTITLE](/actions/reference/dockerfile-support-for-github-actions).
+For reference information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dockerfile-support).
 
 ## Defining the container image
 

@@ -22,12 +22,12 @@
           "description": "<p>If specified, only advisories of this type will be returned. By default, a request with no other parameters defined will only return reviewed advisories that are not malware.</p>",
           "schema": {
             "type": "string",
+            "default": "reviewed",
             "enum": [
               "reviewed",
               "malware",
               "unreviewed"
-            ],
-            "default": "reviewed"
+            ]
           }
         },
         {
@@ -44,7 +44,6 @@
           "description": "<p>If specified, only advisories for these ecosystems will be returned.</p>",
           "schema": {
             "type": "string",
-            "description": "The package's language or package management ecosystem.",
             "enum": [
               "rubygems",
               "npm",
@@ -81,19 +80,7 @@
           "name": "cwes",
           "in": "query",
           "description": "<p>If specified, only advisories with these Common Weakness Enumerations (CWEs) will be returned.</p>\n<p>Example: <code>cwes=79,284,22</code> or <code>cwes[]=79&#x26;cwes[]=284&#x26;cwes[]=22</code></p>",
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "is_withdrawn",
@@ -107,20 +94,7 @@
           "name": "affects",
           "in": "query",
           "description": "<p>If specified, only return advisories that affect any of <code>package</code> or <code>package@version</code>. A maximum of 1000 packages can be specified.\nIf the query parameter causes the URL to exceed the maximum URL length supported by your client, you must specify fewer packages.</p>\n<p>Example: <code>affects=package1,package2@1.0.0,package3@2.0.0</code> or <code>affects[]=package1&#x26;affects[]=package2@1.0.0</code></p>",
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 1000,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "published",
@@ -187,11 +161,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -200,8 +174,6 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 100,
             "default": 30
           }
         },
@@ -212,13 +184,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "published",
             "enum": [
               "updated",
               "published",
               "epss_percentage",
               "epss_percentile"
-            ],
-            "default": "published"
+            ]
           }
         }
       ],

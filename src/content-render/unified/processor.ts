@@ -26,6 +26,7 @@ import rewriteEmptyTableRows from './rewrite-empty-table-rows'
 import rewriteForRowheaders from './rewrite-for-rowheaders'
 import rewriteTableCaptions from './rewrite-table-captions'
 import wrapProceduralImages from './wrap-procedural-images'
+import wrapCodeTerms from './wrap-code-terms'
 import parseInfoString from './parse-info-string'
 import annotate from './annotate'
 import alerts from './alerts'
@@ -54,7 +55,7 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(useEnglishHeadings as unknown as (ctx: Context) => void, context || {})
       .use(headingLinks)
       .use(codeHeader)
-      .use(annotate, context)
+      .use(annotate as unknown as (ctx: Context) => void, context)
       // Using type assertion for highlight plugin due to complex type mismatch between unified and rehype-highlight
       .use(highlight as unknown as (options: unknown) => void, {
         languages: { ...common, graphql, dockerfile, http, groovy, erb, powershell },
@@ -84,6 +85,7 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(rewriteTheadThScope)
       .use(rewriteForRowheaders)
       .use(rewriteTableCaptions)
+      .use(wrapCodeTerms)
       .use(rewriteImgSources)
       .use(rewriteAssetImgTags)
       // alerts plugin requires context with alertTitles property

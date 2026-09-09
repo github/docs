@@ -18,8 +18,8 @@ contentType: how-tos
 
 Before starting this guide, you should be familiar with:
 * The usage and security benefits of artifact attestations. See [AUTOTITLE](/actions/concepts/security/artifact-attestations).
-* Generating artifact attestations. See [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
-* Writing and using reusable workflows. See [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+* Generating artifact attestations. See [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).
+* Writing and using reusable workflows. See [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).
 
 ## Step 1: Configuring your builds
 

@@ -36,7 +36,7 @@ To run the REST pipeline locally:
 
 1. Clone the [`github/rest-api-description`](https://github.com/github/rest-api-description) repository inside your local `docs-internal` repository. 
 1. Set a `GITHUB_TOKEN` in your `.env` with (classic) `repo` scopes & enable SSO for the github org. 
-1. Run `npm run sync-rest -- -s rest-api-description models-gateway -o rest`. Note, by default `-o rest` is specified, so you can omit it.
+1. Run `npm run sync-rest -- -s rest-api-description -o rest`. Note, by default `-o rest` is specified, so you can omit it.
 
 ## About this directory
 
@@ -74,10 +74,10 @@ Writers can also add an introduction paragraph _above_ the following Markdown co
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about the REST pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the REST pipeline, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about the REST pipeline, you can ask in the `#technical-content` Slack channel. If you notice a problem with the REST pipeline, you can open an issue in the `github/technical-content` repository.
 
 ## Ownership & Escalation
 
@@ -86,7 +86,7 @@ If you have a question about the REST pipeline, you can ask in the `#docs-engine
 - **Source data**: API Platform team (github/rest-api-description)
 
 ### Escalation path
-1. **Pipeline failures** → #docs-engineering Slack
+1. **Pipeline failures** → #technical-content Slack
 2. **OpenAPI schema issues** → #api-platform Slack
 
 ### On-call procedures

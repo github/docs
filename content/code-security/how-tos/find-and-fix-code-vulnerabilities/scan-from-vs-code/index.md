@@ -11,19 +11,19 @@ redirect_from:
   - /code-security/codeql-for-vs-code
   - /code-security/how-tos/scan-code-for-vulnerabilities/scan-from-vs-code
 children:
-  - /installing-codeql-for-vs-code
-  - /managing-codeql-databases
+  - /install-codeql-for-vs-code
+  - /manage-codeql-databases
   - /running-codeql-queries
-  - /exploring-data-flow-with-path-queries
-  - /running-codeql-queries-at-scale-with-multi-repository-variant-analysis
-  - /using-the-codeql-model-editor
-  - /creating-a-custom-query
+  - /explore-data-flow
+  - /run-queries-at-scale
+  - /use-the-model-editor
+  - /create-custom-query
   - /managing-codeql-packs
-  - /exploring-the-structure-of-your-source-code
+  - /explore-code-structure
   - /testing-codeql-queries-in-vs-code
-  - /customizing-settings
-  - /setting-up-a-codeql-workspace
-  - /configuring-access-to-the-codeql-cli
+  - /customize-settings
+  - /set-up-codeql-workspace
+  - /manage-codeql-cli
   - /accessing-logs
 ---
 

@@ -13,6 +13,7 @@ import styles from './HeaderNotifications.module.scss'
 import { useSharedUIContext } from '@/frame/components/context/SharedUIContext'
 import Cookies from '@/frame/components/lib/cookies'
 import { MACHINE_TRANSLATION_BANNER_COOKIE_NAME } from '@/frame/lib/constants'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML'
 
 enum NotificationType {
   RELEASE = 'RELEASE',
@@ -140,7 +141,7 @@ export const HeaderNotifications = () => {
                 <XIcon size="small" className="octicon mr-1" />
               </button>
             )}
-            <p dangerouslySetInnerHTML={{ __html: content }} />
+            <RenderedHTML as="p" html={content} />
           </div>
         )
       })}

@@ -5,7 +5,6 @@ intro: Build skills and knowledge about billing through examples and hands-on ac
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '*'
 children:
   - /automate-usage-reporting
   - /soft-budgets

@@ -207,12 +207,24 @@
           "description": "<p>OK</p>"
         },
         {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
           "httpStatusCode": "403",
           "description": "<p>Response for a private repository when GitHub Advanced Security is not enabled, or if used against a fork</p>"
         },
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
         }
       ],
       "previews": [],
@@ -292,7 +304,7 @@
         {
           "type": "string",
           "name": "sha",
-          "description": "<p>The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.</p>",
+          "description": "<p>The commit SHA associated with this dependency snapshot. Maximum length: 64 characters.</p>",
           "isRequired": true
         },
         {
@@ -563,7 +575,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Exports the software bill of materials (SBOM) for a repository in SPDX JSON format.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> This operation is closing down and will not be accessible after November 13, 2026. Please migrate to the asynchronous flow. Use \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependency-graph/sboms#request-generation-of-a-software-bill-of-materials-sbom-for-a-repository\">Request generation of a software bill of materials (SBOM) for a repository</a>\" to trigger the report, then \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependency-graph/sboms#fetch-a-software-bill-of-materials-sbom-for-a-repository\">Fetch a software bill of materials (SBOM) for a repository</a>\" to retrieve it. For more information, see the <a href=\"https://github.blog/changelog/2026-05-12-synchronous-sbom-api-deprecated/\">changelog</a>.</p>\n</div>\n<p>Exports the software bill of materials (SBOM) for a repository in SPDX JSON format.</p>",
       "codeExamples": [
         {
           "request": {
@@ -814,6 +826,177 @@
         {
           "httpStatusCode": "200",
           "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/fetch-report/{sbom_uuid}",
+      "title": "Fetch a software bill of materials (SBOM) for a repository.",
+      "category": "dependency-graph",
+      "subcategory": "sboms",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "sbom_uuid",
+          "in": "path",
+          "required": true,
+          "description": "<p>The unique identifier of the SBOM export.</p>",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Fetches a previously generated software bill of materials (SBOM) for a repository.\nWhen the SBOM is ready, the response is a 302 redirect to a temporary download URL for the SBOM in SPDX JSON format.\nThe generated SBOM report may be retained for up to one week from the original request.\nThe temporary download URL returned by this endpoint expires separately, and its expiry is set when the fetch request is made.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "sbom_uuid": "SBOM_UUID"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "description": "<p>SBOM is still being processed, no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>SBOM is still being processed, no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "302",
+          "description": "<p>Redirects to a temporary download URL for the completed SBOM.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/generate-report",
+      "title": "Request generation of a software bill of materials (SBOM) for a repository.",
+      "category": "dependency-graph",
+      "subcategory": "sboms",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Triggers a job to generate a software bill of materials (SBOM) for a repository in SPDX JSON format.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "sbom_url": "https://api.github.com/repos/github/example/dependency-graph/sbom/fetch-report/4bab1a7e-da63-4828-9488-44e0e01a7c1b"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sbom_url": {
+                  "type": "string",
+                  "description": "URL to poll for the SBOM export result."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
         },
         {
           "httpStatusCode": "403",

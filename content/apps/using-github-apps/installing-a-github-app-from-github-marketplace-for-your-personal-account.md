@@ -57,5 +57,5 @@ For more information about authorizing {% data variables.product.prodname_github
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information)
-* [AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)
+* [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info)
+* [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations)

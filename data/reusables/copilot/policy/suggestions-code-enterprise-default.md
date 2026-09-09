@@ -1,0 +1,1 @@
+**Suggestions matching public code** is set to **Blocked** by default for {% data variables.copilot.copilot_business_short %} users. You can change this setting in the **Privacy** section of the {% data variables.product.prodname_copilot_short %} policy page.

@@ -17,6 +17,9 @@ category:
 
 {% data reusables.actions.enterprise-storage-about-oidc %}
 
+> [!TIP]
+> If {% data variables.product.prodname_actions %} is already configured and you need to move its data to a new storage account or region on Azure Blob Storage, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/migrating-github-actions-external-storage).
+
 ## Prerequisites
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:

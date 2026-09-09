@@ -11,6 +11,8 @@ redirect_from:
 category:
   - Integrate GitHub Classroom with an IDE
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## What’s changing with Repl.it integration
 
 As of July 13 2021, Repl.it integration is no longer available. Here’s what’s changed:

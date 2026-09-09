@@ -36,7 +36,7 @@ There are many variables that may affect how long you might take to complete thi
 ## Prerequisites
 
 Before getting started you must have the following:
-* A [{% data variables.product.prodname_copilot %} subscription plan](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* A [{% data variables.product.prodname_copilot %} subscription plan](/copilot/get-started/plans).
 * One of these IDEs:
   * {% data variables.product.prodname_vscode %}
   * Any JetBrains IDE that supports {% data variables.product.prodname_copilot_short %}, with the {% data variables.product.prodname_copilot %} extension for JetBrains installed. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=jetbrains).
@@ -71,9 +71,9 @@ We'll create a time-tracking app in a new {% data variables.product.github %} re
 1. Choose a model from the models dropdown.
 
    > [!NOTE]
-   > The responses referred to in this tutorial were received while using Claude Sonnet 4.5. Other models will respond differently, but you should get roughly similar results. Claude Sonnet 4.5 is a good choice, if it's available, as it provides useful commentary in the chat view, explaining what it is doing, and giving detailed summaries when it has finished coding.
+   > The responses referred to in this tutorial were received while using {% data variables.copilot.copilot_claude_sonnet_45 %}, which has since been retired. Other models will respond differently, but you should get roughly similar results.
    >
-   > If Claude Sonnet 4.5 is not available, set the model to **Auto** or select a model of your choice.
+   > Set the model to **Auto**, or select a model of your choice.
 
 1. Enter this prompt in the chat:
 
@@ -413,4 +413,3 @@ After working with {% data variables.product.prodname_copilot_short %} to build,
 
 * Continue iterating on this project, making improvements to your time tracker.
 * Using the same methodology, create another application.
-* Find out about another way you can create applications without writing the code yourself. See [AUTOTITLE](/copilot/concepts/spark).

@@ -27,7 +27,7 @@ If your refresh token expires before you use it, you can regenerate a user acces
 
 ## Configuring your app to use user access tokens that expire
 
-When you create your app, expiration of user access tokens is enabled unless you opt out. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app). You can also configure this setting after your app has been created.
+When you create your app, expiration of user access tokens is enabled unless you opt out. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app). You can also configure this setting after your app has been created.
 
 {% data reusables.apps.settings-step %}
 {% data reusables.apps.enterprise-apps-steps %}

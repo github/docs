@@ -5,8 +5,6 @@ intro: '{% data reusables.cli.about-cli %}'
 introLinks:
   overview: /github-cli/github-cli/about-github-cli
   quickstart: /github-cli/github-cli/quickstart
-changelog:
-  label: cli
 layout: discovery-landing
 includedCategories:
   - Learn the basics

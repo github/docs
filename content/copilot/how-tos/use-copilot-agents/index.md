@@ -5,7 +5,6 @@ intro: Learn how to use {% data variables.product.prodname_copilot %} agents.
 versions:
   feature: copilot
 children:
-  - /manage-agents
   - /cloud-agent
   - /request-a-code-review
   - /copilot-memory

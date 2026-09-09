@@ -34,7 +34,3 @@ You can see {% data variables.product.prodname_secret_scanning %} metrics for a 
 * The `admin` role for the repository
 * A custom repository role with the "View {% data variables.product.prodname_secret_scanning %} alerts" fine-grained permissions for the repository
 * Access to alerts for the repository
-
-## Next steps
-
-To find your push protection metrics, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-metrics-for-secret-scanning-push-protection).

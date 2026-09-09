@@ -17,7 +17,7 @@ docsTeamMetrics:
 
 The `/fleet` slash command in {% data variables.copilot.copilot_cli_short %} is designed to take an implementation plan and break it down into smaller, independent tasks that can be executed in parallel by subagents. This allows for faster completion of complex requests that involve multiple steps.
 
-This article gives an overview of the `/fleet` slash command. For details of how to use it, see [AUTOTITLE](/copilot/how-tos/copilot-cli/speeding-up-task-completion).
+This article gives an overview of the `/fleet` slash command. For details of how to use it, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion).
 
 ## How `/fleet` works
 
@@ -29,7 +29,7 @@ When you use the `/fleet` command, the main {% data variables.product.prodname_c
 
 * **Specialization**: If you've defined custom agents that are specialized for certain types of work, these may be used by the subagents. This allows for specialization, with the subagents using the custom agents best suited to the specific subtask they are working on.
 
-  By default, subagents use a low-cost AI model. However, you can tell {% data variables.product.prodname_copilot_short %} to use a specific model for part of the work. For example, within a larger prompt, you could specify `... Use GPT-5.3-Codex, to create ... Use Claude Opus 4.5, to analyze ...`. If a subagent uses a custom agent profile that specifies a particular AI model, then that model will be used by the subagent. Using a specific model may produce better quality results for particular types of subtask.
+  By default, subagents use a low-cost AI model. However, you can tell {% data variables.product.prodname_copilot_short %} to use a specific model for part of the work. For example, within a larger prompt, you could specify `... Use GPT-5.3-Codex, to create ... Use Claude Opus 5, to analyze ...`. If a subagent uses a custom agent profile that specifies a particular AI model, then that model will be used by the subagent. Using a specific model may produce better quality results for particular types of subtask.
 
   If custom agents are available, {% data variables.product.prodname_copilot_short %} will decide whether to use one to complete a particular subtask. However, if you know that a specific custom agent is well-suited to a particular subtask, you can specify this in your prompt by using `@CUSTOM-AGENT-NAME`. For example, within a larger prompt: `... Use @test-writer to create comprehensive unit tests for ...`.
 
@@ -45,11 +45,9 @@ When you use the `/fleet` command, the main {% data variables.product.prodname_c
 
 ## Points to consider
 
-* **Premium request usage**: When you submit a prompt in the CLI and {% data variables.product.prodname_copilot_short %} interacts with the selected large language model (LLM) to generate a response, this consumes premium requests. The number of premium requests consumed depends on the model that's currently selected. More interactions with the LLM result in more premium requests being consumed.
+* **{% data variables.product.prodname_ai_credits %} usage**: When you submit a prompt in the CLI and {% data variables.product.prodname_copilot_short %} interacts with the selected large language model (LLM) to generate a response, this consumes {% data variables.product.prodname_ai_credits %}. More interactions with the LLM result in a higher consumption of {% data variables.product.prodname_ai_credits %}.
 
-  Each subagent can interact with the LLM independently of the main agent, so splitting work up into smaller tasks that are run by subagents may result in more LLM interactions than if the work was handled by the main agent. Using `/fleet` in a prompt may therefore cause more premium requests to be consumed.
-
-  {% data reusables.cli.billable-prus %}
+  Each subagent can interact with the LLM independently of the main agent, so splitting work up into smaller tasks that are run by subagents may result in more LLM interactions than if the work was handled by the main agent. Using `/fleet` in a prompt may therefore cause more {% data variables.product.prodname_ai_credits %} to be consumed.
 
 * **Task composition**: Work is best suited to execution by multiple subagents if it can be decomposed into independent subtasks. If your request is inherently sequential, using the `/fleet` slash command mode may not provide any benefit.
 
@@ -70,6 +68,6 @@ For more information about autopilot mode, see [AUTOTITLE](/copilot/concepts/age
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/speeding-up-task-completion)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)

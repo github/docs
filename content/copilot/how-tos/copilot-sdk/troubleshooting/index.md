@@ -1,12 +1,17 @@
 ---
-title: Troubleshooting Copilot SDK
-shortTitle: Troubleshooting
-intro: Find solutions to common issues and resolve problems when using {% data variables.copilot.copilot_sdk_short %}.
+title: Troubleshooting
+intro: Diagnose and resolve issues with the GitHub Copilot SDK.
 versions:
-  feature: copilot
-children:
-  - /sdk-and-cli-compatibility
-  - /debug-copilot-sdk
-  - /debug-mcp-servers
+  fpt: '*'
+  ghec: '*'
 contentType: how-tos
+children:
+  - /compatibility
+  - /debugging
+  - /mcp-debugging
 ---
+
+<!-- markdownlint-disable GHD046 GHD005 -->
+<!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
+
+

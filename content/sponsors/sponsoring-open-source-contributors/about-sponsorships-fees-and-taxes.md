@@ -25,7 +25,7 @@ We may share certain limited tax information with sponsored accounts. For more i
 
 You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
 
-If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship) and [AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship).
+If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see [AUTOTITLE](/billing/how-tos/pay-third-parties/upgrade-sponsorship) and [AUTOTITLE](/billing/how-tos/pay-third-parties/downgrade-sponsorship).
 
 If the account you want to sponsor does not have a profile on {% data variables.product.prodname_sponsors %}, you can encourage the account to join. For more information, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account) and [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization).
 
@@ -34,22 +34,22 @@ If the account you want to sponsor does not have a profile on {% data variables.
 
 ## About billing and sponsorship payments
 
-GitHub provides the following billing methods to show love and support to your fellow collaborators and developers in the form of paid sponsorships: debit or credit cards, and Patreon.
+{% data variables.product.github %} provides the following billing methods to show love and support to your fellow collaborators and developers in the form of paid sponsorships: debit or credit cards, and Patreon.
 For additional information on your preferred funding, please click on any of the links below.
 * [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-github)
 * [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-patreon)
 
 > [!NOTE]
-> When sponsoring through GitHub, your balance will be charged effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
+> When sponsoring through {% data variables.product.github %}, your balance will be charged effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
 
 Alternatively, enterprises and organizations may opt to be billed by recurring invoice. For additional information on billing by invoice, please click on [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice).
 
 > [!WARNING]
-> As of February 23, 2023, GitHub Sponsors does not support PayPal. While this only affects GitHub Sponsors, please note that it is still possible to fund GitHub Pro, GitHub Copilot, Actions and Packages, Storage, Codespaces and Git LFS Data using PayPal.
+> As of February 23, 2023, {% data variables.product.prodname_sponsors %} does not support PayPal. While this only affects {% data variables.product.prodname_sponsors %}, please note that it is still possible to fund {% data variables.product.prodname_pro %}, {% data variables.product.prodname_copilot %}, Actions, {% data variables.product.prodname_registry %}, Storage, {% data variables.product.prodname_codespaces %} and Git LFS Data using PayPal.
 
 {% ifversion enterprise-orgs-sponsors-with-cc %}
 
-When an enterprise opts to pay by credit card, it can enforce policies within its organizations that allow sponsoring of open source contributors by payments from the same card that was used for billing. For additional information, please click on [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise).
+When an enterprise opts to pay by credit card, it can enforce policies within its organizations that allow sponsoring of open source contributors by payments from the same card that was used for billing. For additional information, please click on [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise).
 
 {% endif %}
 
@@ -67,7 +67,7 @@ You can access the sponsorships dashboard through your organization's profile.
 
 {% data reusables.sponsors.no-fees %}
 
-For more information on fees and billing, see [AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors).
+For more information on fees and billing, see [AUTOTITLE](/billing/concepts/third-party-payments/github-sponsors).
 
 ## Tax information
 
@@ -81,3 +81,16 @@ As a sponsor, you acknowledge that we may disclose to the owner of each account 
 This information is necessary to enable payment and reporting of any taxes arising from such sponsorship payments.
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
+
+{% ifversion ghec %}
+
+## {% data variables.product.prodname_sponsors %} when adding an organization to an enterprise
+
+If you add an organization to an enterprise account with Azure metered billing, any active {% data variables.product.prodname_sponsors %} sponsorships will be canceled. While your organization remains under enterprise billing through Azure, you will not be able to reactivate these sponsorships, as sponsoring is not currently supported for organizations billed through Azure.
+
+To continue using {% data variables.product.prodname_sponsors %}, create a new, separate "shell" organization that is not linked to your enterprise account or Azure billing. You can use this shell organization to manage sponsorships independently. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise).
+
+> [!NOTE]
+> After you create a shell organization, update any public references or documentation to point sponsors to the new organization.
+
+{% endif %}

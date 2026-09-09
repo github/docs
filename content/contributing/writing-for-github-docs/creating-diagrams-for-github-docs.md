@@ -203,7 +203,7 @@ The preferred colors for diagrams in {% data variables.product.prodname_docs %} 
 * File size of 250 KB or less
 * Descriptive file names, such as `merge-conflict-diagram.png` instead of `diagram-02.png`
 
-If you need to create a diagram that is difficult to view at small resolutions, include a link to a larger version of the diagram in a relevant repository or other appropriate location. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller) for an example.
+If you need to create a diagram that is difficult to view at small resolutions, include a link to a larger version of the diagram in a relevant repository or other appropriate location. See [AUTOTITLE](/actions/concepts/runners/actions-runner-controller) for an example.
 
 ## Tools for creating diagrams
 
@@ -215,7 +215,7 @@ Diagrams must have proper contrast and alt text.
 
 If you use colors defined in the Primer Design System, your diagram should have proper contrast. To check contrast on other background colors, use the [Color Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/).
 
-Write alt text for a diagram that describes what the diagram looks like and why it is included in the article. Do not try to explain everything the diagram conveys in the alt text since it could become too long to be useful. For more information on writing alt text, see [AUTOTITLE](/contributing/writing-for-github-docs/style-guide#alt-text).
+Write alt text for a diagram that describes what the diagram looks like and why it is included in the article. Do not try to explain everything the diagram conveys in the alt text since it could become too long to be useful. For more information on writing alt text, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alt-text).
 
 All information in diagrams must be also conveyed in text accompanying the diagrams.
 
@@ -231,7 +231,7 @@ If a diagram is only relevant to some versions and apt to become quickly out of 
 
 Diagrams are stored in the relevant directory in the `assets/images/help/` directory in the `docs` repository. If you are creating a new diagram, add it to the proper folder. If you are updating an existing diagram, replace the existing diagram with the updated version.
 
-When you create a new diagram, add it to the Diagrams project in the Docs Figma team or provide a copy of the Figma file to a member of the Docs team. If you create a diagram in another program, it can be included in {% data variables.product.prodname_docs %} if it meets the requirements and recommendations in this guide, but it is much more likely to be removed rather than updated if it becomes out of date.
+When you create a new diagram, add it to the Diagrams project in the Docs Figma team or provide a copy of the Figma file to a member of the Technical Content team. If you create a diagram in another program, it can be included in {% data variables.product.prodname_docs %} if it meets the requirements and recommendations in this guide, but it is much more likely to be removed rather than updated if it becomes out of date.
 
 ## Examples
 

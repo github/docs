@@ -13,5 +13,6 @@ children:
   - monitoring-alerts
   - viewing-alerts
   - resolving-alerts
-  - enabling-delegated-alert-dismissal-for-secret-scanning
+  - enable-delegated-dismissal
 ---
+

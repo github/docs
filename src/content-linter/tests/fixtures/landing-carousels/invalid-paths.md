@@ -1,6 +1,6 @@
 ---
 title: Landing with Invalid Paths
-layout: product-landing
+layout: discovery-landing
 versions:
   fpt: '*'
   ghec: '*'

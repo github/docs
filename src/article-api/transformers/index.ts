@@ -14,8 +14,8 @@ import { BespokeLandingTransformer } from './bespoke-landing-transformer'
 import { JourneyLandingTransformer } from './journey-landing-transformer'
 import { CategoryLandingTransformer } from './category-landing-transformer'
 import { DiscoveryLandingTransformer } from './discovery-landing-transformer'
-import { ProductLandingTransformer } from './product-landing-transformer'
 import { SearchPageTransformer } from './search-page-transformer'
+import { ReleaseNotesTransformer } from './release-notes-transformer'
 import { ArticleTransformer } from './article-transformer'
 
 /**
@@ -39,8 +39,8 @@ transformerRegistry.register(new BespokeLandingTransformer())
 transformerRegistry.register(new JourneyLandingTransformer())
 transformerRegistry.register(new CategoryLandingTransformer())
 transformerRegistry.register(new DiscoveryLandingTransformer())
-transformerRegistry.register(new ProductLandingTransformer())
 transformerRegistry.register(new SearchPageTransformer())
+transformerRegistry.register(new ReleaseNotesTransformer())
 // ArticleTransformer is the catch-all — must be registered last.
 transformerRegistry.register(new ArticleTransformer())
 

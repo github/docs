@@ -20,9 +20,6 @@ carousels:
     - /packages/working-with-a-github-packages-registry/working-with-the-container-registry
     - /packages/working-with-a-github-packages-registry/working-with-the-npm-registry
     - /packages/learn-github-packages/configuring-a-packages-access-control-and-visibility
-changelog:
-  label: packages
-  prefix: 'Packages: '
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry

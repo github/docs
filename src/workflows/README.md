@@ -26,7 +26,7 @@ Scripts are registered in `package.json`:
 | check-content-type | `npm run check-content-type` | Validates content types |
 | delete-orphan-translation-files | `npm run delete-orphan-translation-files` | Removes orphaned translations |
 | enable-automerge | `npm run enable-automerge` | Enables PR automerge |
-| purge-fastly-edge-cache | `npm run purge-fastly-edge-cache` | Purges Fastly CDN cache |
+| purge-fastly | `npm run purge-fastly` | Purges Fastly CDN cache (per-language, single-key, or entire cache) |
 | prevent-pushes-to-main | (Husky hook) | Prevents pushing to main |
 
 ### Running tests

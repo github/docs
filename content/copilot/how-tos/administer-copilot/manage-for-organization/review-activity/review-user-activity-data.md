@@ -50,8 +50,8 @@ For more information about this property and other data in the activity report, 
 ## Further reading
 
 {% ifversion ghec %}
-* [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/viewing-copilot-usage-for-your-enterprise){% endif %}
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/view-license-usage){% endif %}
 * [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
-* [AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)
-* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization)
-* [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/reviewing-changes-to-content-exclusions-for-github-copilot)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/grant-access)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/revoke-access)
+* [AUTOTITLE](/copilot/how-tos/configure-content-exclusion/review-changes)

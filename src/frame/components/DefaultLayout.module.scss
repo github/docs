@@ -1,3 +1,16 @@
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
+
 .mainContent {
   scroll-margin-top: 5rem;
+}
+
+// When the inline mobile/tablet nav is open, it takes over the viewport — hide
+// the content column so the full-width rail isn't squeezed beside it. Above the
+// xxl breakpoint the rail is a fixed-width sibling, so content always shows.
+.contentHiddenForNav {
+  display: none;
+
+  @include breakpoint-xxl {
+    display: flex;
+  }
 }

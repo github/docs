@@ -31,7 +31,7 @@ This article will demonstrate how to write an action that retrieves a specific v
 
 ## Prerequisites
 
-You should have an understanding of how to write a custom action. For more information, see [AUTOTITLE](/actions/how-tos/creating-and-publishing-actions/managing-custom-actions).
+You should have an understanding of how to write a custom action. For more information, see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/manage-custom-actions).
 
 ## Example
 
@@ -64,7 +64,7 @@ module.exports = setup
 
 {% endraw %}
 
-To use this script, replace `getDownloadURL` with a function that downloads your CLI. You will also need to create an actions metadata file (`action.yml`) that accepts a `version` input and that runs this script. For full details about how to create an action, see [AUTOTITLE](/actions/creating-actions/creating-a-javascript-action).
+To use this script, replace `getDownloadURL` with a function that downloads your CLI. You will also need to create an actions metadata file (`action.yml`) that accepts a `version` input and that runs this script. For full details about how to create an action, see [AUTOTITLE](/actions/tutorials/create-actions/create-a-javascript-action).
 
 ## Further reading
 

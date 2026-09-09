@@ -11,6 +11,7 @@ shortTitle: Run code in IDE
 category:
   - Track assignment progress
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About student code and IDEs
 

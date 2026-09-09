@@ -10,12 +10,13 @@ contentType: how-tos
 children:
   - /assessing-code-security-risk
   - /assessing-adoption-code-security
-  - /explore-code-quality
   - /find-insecure-repositories
-  - /exporting-data-from-security-overview
+  - /export-data
   - /viewing-security-insights
   - /viewing-metrics-for-pull-request-alerts
   - /viewing-metrics-for-secret-scanning-push-protection
+  - /viewing-public-monitoring-alerts
   - /viewing-metrics-for-dependabot-alerts
   - /export-risk-report-csv
 ---
+

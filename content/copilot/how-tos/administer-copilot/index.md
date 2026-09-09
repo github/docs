@@ -11,6 +11,7 @@ children:
   - /download-activity-report
   - /view-usage-and-adoption
   - /view-code-generation
+  - /view-impact-dashboard
 redirect_from:
   - /copilot/how-tos/administer
 contentType: how-tos

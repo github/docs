@@ -2,10 +2,4 @@
    * Use the date picker to set the time range that you want to view alert activity and metrics for.
    * Click in the search box to add further filters on the alerts and metrics displayed.
 
-    {% ifversion security-overview-3-tab-dashboard %}![Screenshot of the overview page in security overview. Filtering options are outlined in dark orange, including the date picker and search field.](/assets/images/help/security-overview/security-overview-dashboard-filters-3-tab.png)
-    {% else %}![Screenshot of the overview page in security overview. Filtering options are outlined in dark orange, including the date picker and search field.](/assets/images/help/security-overview/security-overview-dashboard-filters.png)
-    {% endif %}
-
-{% ifversion security-overview-3-tab-dashboard %}{% else %}
-1. For the alert trends graph at the top of the page, you can click **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Open alerts** or **{% octicon "shield-x" aria-hidden="true" aria-label="shield-x" %} Closed alerts** to toggle between showing the trends for open or closed alerts. The toggle will only affect the alert trends graph. For more information, see [Alert trends graph](#alert-trends-graph).
-{% endif %}
+    ![Screenshot of the overview page in security overview. Filtering options are outlined in dark orange, including the date picker and search field.](/assets/images/help/security-overview/security-overview-dashboard-filters-3-tab.png)

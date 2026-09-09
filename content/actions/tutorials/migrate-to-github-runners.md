@@ -76,7 +76,6 @@ Configuring runner groups before provisioning runners helps ensure that migratio
 1. Add new {% data variables.product.github %}-hosted runners to the appropriate group and set concurrency limits based on the usage patterns you identified in step 3. For details on automatic scaling, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#configuring-autoscaling-for-larger-runners).
 1. Review policy settings to ensure runners are only used by the intended workflows. For example, restricting use to specific repositories or preventing untrusted workflows from accessing more powerful machine types.
 
->[!NOTE] macOS larger runners cannot be added to runner groups and must be referenced directly in your workflow files.
 
 ## 5. Set up {% data variables.product.github %}-hosted runners
 

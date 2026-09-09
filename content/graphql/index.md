@@ -5,8 +5,6 @@ shortTitle: GraphQL API
 introLinks:
   overview: /graphql/overview/about-the-graphql-api
   quickstart: /graphql/guides/forming-calls-with-graphql
-changelog:
-  label: 'api, apis'
 layout: discovery-landing
 redirect_from:
   - /v4

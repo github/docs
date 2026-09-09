@@ -159,7 +159,9 @@ describe('REST references docs', () => {
   })
 })
 
-function formatErrors(differences: Record<string, any>): string {
+function formatErrors(
+  differences: Record<string, Record<string, { contentDir: string[]; openAPI: string[] }>>,
+): string {
   let errorMessage = 'There are differences in Categories/Subcategories in:\n'
   for (const schema in differences) {
     errorMessage += `Version: ${schema}\n`
@@ -177,6 +179,6 @@ If you have made changes to the categories or subcategories in the content/rest 
 
 If you come across this error in an Update OpenAPI Descriptions PR it's likely that a category/subcategory has been added or removed and our content/rest directory no longer in sync with our OpenAPI Descriptions. First, please check for an open docs-internal PR that updates the content/rest directory. If you find one, merge that PR into the Update OpenAPI Descriptions PR to fix this failure. Otherwise, follow the link in the Update OpenAPI Descriptions PR body to find the author of the PR that introduced this change. Verify that the new operations are ready to be published. If yes, ask them to follow these instructions to open a docs-internal PR: https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/#adding-or-changing-category-or-subcategory. If no, ask them to open a github/github PR to unpublish the operations.
 
-If you have any questions contact #docs-engineering, #docs-content, or #docs-apis-and-events if you need help.`
+If you have any questions contact #technical-content, #docs-content, or #docs-apis-and-events if you need help.`
   return errorMessage
 }

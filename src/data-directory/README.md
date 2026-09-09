@@ -18,7 +18,7 @@ Purpose-built utilities, schemas, and workflows that power our Liquid `{% data %
 
 ## Data loading contracts
 - `lib/get-data.ts`
-  - `getDataByLanguage(dottedPath, langCode)`: Returns a single value (YAML/MD/variables/reusables/ui/glossaries/release-notes/product-examples).
+  - `getDataByLanguage(dottedPath, langCode)`: Returns a single value (YAML/MD/variables/reusables/ui/glossaries/release-notes).
   - `getDeepDataByLanguage(dottedPath, langCode)`: Returns nested objects for an entire subtree (e.g., `tables`, `features`).
   - Translation fallbacks: If a localized file is missing or unparsable, falls back to English. Certain files are forced-English (`ALWAYS_ENGLISH_YAML_FILES`, `ALWAYS_ENGLISH_MD_FILES`).
   - Memoization: Caches reads except in `NODE_ENV=development` to simplify local debugging.

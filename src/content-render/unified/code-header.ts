@@ -3,7 +3,7 @@
  * Optionally, adds a prompt button to Copilot Chat blocks.
  */
 
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import fs from 'fs'
 import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
@@ -22,7 +22,7 @@ interface LanguageConfig {
 
 type Languages = Record<string, LanguageConfig>
 
-const languages = yaml.load(fs.readFileSync('./data/code-languages.yml', 'utf8')) as Languages
+const languages = load(fs.readFileSync('./data/code-languages.yml', 'utf8')) as Languages
 
 export default function codeHeader() {
   return (tree: Root) => {

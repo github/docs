@@ -1,5 +1,5 @@
 ---
-title: About the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
+title: About the monitor dashboards
 allowTitleToDifferFromFilename: true
 intro: View historical data for details like CPU and storage usage, application and authentication response times, and general system health.
 redirect_from:
@@ -12,22 +12,21 @@ redirect_from:
   - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
 versions:
   ghes: '*'
-shortTitle: About monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
+shortTitle: About monitor dashboards
 contentType: how-tos
 category:
   - Monitor and audit your enterprise
 ---
 
-## Accessing the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
+## Accessing the monitor dashboards
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. In the top navigation bar, click **Monitor**.
 
-   ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Monitor", is highlighted with an orange outline.]({% ifversion ghes > 3.15 %}/assets/images/enterprise/management-console/monitor-dash-link.png{% else %}/assets/images/enterprise/management-console/monitor-dash-link-old.png{% endif %})
+   ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Monitor", is highlighted with an orange outline.](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
 1. In HA and cluster environments you can switch between nodes using the dropdown and clicking on a different hostname.
-{% ifversion ghes > 3.15 %}
 
 ## Using the monitor dashboards
 
@@ -73,23 +72,6 @@ For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitor
 
 For more information about collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
 
-{% else %}
-
-## Using the monitor dashboard
-
-The page visualizes metrics which can be useful for troubleshooting performance issues and better understanding how your {% data variables.product.prodname_ghe_server %} appliance is being used. The data behind the graphs is gathered by the monitoring services and sampled regularly.
-
-Within the pre-built dashboard you can find various sections grouping graphs of different types of system resources.
-
-Building your own dashboard and alerts requires the data to be forwarded to an external instance. You can use collectd forwarding for external monitoring.
-
-{% ifversion ghes-opentelemetry %}
-For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
-{% endif %}
-
-For more information about collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
-{% endif %}
-
 ## About the metrics on the monitor dashboards
 
 The monitor dashboards provide a comprehensive view of various metrics that help in understanding the performance and health of your {% data variables.product.prodname_ghe_server %} instance. These metrics are categorized into different sections to make it easier to analyze specific aspects of the system.
@@ -97,7 +79,6 @@ The monitor dashboards provide a comprehensive view of various metrics that help
 ### System Health
 
 The system health graphs provide a general overview of services and system resource utilization. The CPU, memory, and load average graphs are useful for identifying trends or times where provisioned resource saturation has occurred. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds).
-{% ifversion ghes > 3.15 %}
 
 ### Application Health
 
@@ -109,7 +90,6 @@ These graphs include key metrics for the resource utilization of services that p
 * **Active workers:** The number of web workers busy per {% data variables.product.prodname_ghe_server %} application.
 * **Queued requests:** The number of web requests queued per {% data variables.product.prodname_ghe_server %} application. It is expected for this panel to display 'No data' when no requests are queued up.
 * **ElasticSearch Cluster Health:** The health status of the ElasticSearch cluster, based on the state of its primary and replica shards. This cluster powers {% data variables.product.prodname_ghe_server %} search.
-{% endif %}
 
 ### Processes
 
@@ -133,7 +113,7 @@ The **App request/response** section looks at the rate of requests, how quickly 
 
 ### Actions
 
-The graphs break down different metrics about {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} including an overview of {% data variables.product.prodname_actions %} services web requests {% ifversion ghes > 3.15 %} and MSSQL database transaction log size{% endif %}.
+The graphs break down different metrics about {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} including an overview of {% data variables.product.prodname_actions %} services web requests and MSSQL database transaction log size.
 
 ### Background jobs
 
@@ -149,7 +129,7 @@ The network interface graphs can be useful in profiling user activity, and throu
 
 ### Storage
 
-{% data variables.product.prodname_ghe_server %} repository performance is very dependent on the underlying storage system. Low latency, local SSD disks provide the highest performance. For more information on the {% data variables.product.prodname_enterprise %} storage architecture, see [AUTOTITLE](/enterprise-server@3.14/admin/overview/system-overview).
+{% data variables.product.prodname_ghe_server %} repository performance is very dependent on the underlying storage system. Low latency, local SSD disks provide the highest performance. For more information on the {% data variables.product.prodname_enterprise %} storage architecture, see [AUTOTITLE](/admin/overview/system-overview).
 
 ### Appliance-specific system services
 

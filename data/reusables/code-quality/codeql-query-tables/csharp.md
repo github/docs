@@ -25,7 +25,6 @@
 | [Static field written by instance method](https://codeql.github.com/codeql-query-help/csharp/cs-static-field-written-by-instance/) | Maintainability | Recommendation |
 | [Unnecessarily complex Boolean expression](https://codeql.github.com/codeql-query-help/csharp/cs-simplifiable-boolean-expression/) | Maintainability | Recommendation |
 | [Unused label](https://codeql.github.com/codeql-query-help/csharp/cs-unused-label/) | Maintainability | Warning |
-| [Useless assignment to local variable](https://codeql.github.com/codeql-query-help/csharp/cs-useless-assignment-to-local/) | Maintainability | Warning |
 | [Useless call to GetHashCode()](https://codeql.github.com/codeql-query-help/csharp/cs-useless-gethashcode-call/) | Maintainability | Recommendation |
 | [A lock is held during a wait](https://codeql.github.com/codeql-query-help/csharp/cs-locked-wait/) | Reliability | Warning |
 | [Call to 'System.IO.Path.Combine' may silently drop its earlier arguments](https://codeql.github.com/codeql-query-help/csharp/cs-path-combine/) | Reliability | Recommendation |
@@ -34,7 +33,6 @@
 | [Calls to unmanaged code](https://codeql.github.com/codeql-query-help/csharp/cs-call-to-unmanaged-code/) | Reliability | Recommendation |
 | [Cast of 'this' to a type parameter](https://codeql.github.com/codeql-query-help/csharp/cs-cast-of-this-to-type-parameter/) | Reliability | Recommendation |
 | [Character passed to StringBuilder constructor](https://codeql.github.com/codeql-query-help/csharp/cs-stringbuilder-initialized-with-character/) | Reliability | Error |
-| [Comparison is constant](https://codeql.github.com/codeql-query-help/csharp/cs-constant-comparison/) | Reliability | Warning |
 | [Comparison of identical values](https://codeql.github.com/codeql-query-help/csharp/cs-comparison-of-identical-expressions/) | Reliability | Warning |
 | [Container contents are never initialized](https://codeql.github.com/codeql-query-help/csharp/cs-empty-collection/) | Reliability | Error |
 | [Container size compared to zero](https://codeql.github.com/codeql-query-help/csharp/cs-test-for-negative-container-size/) | Reliability | Warning |

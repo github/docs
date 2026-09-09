@@ -31,7 +31,7 @@ If you want to work with Git locally, but do not want to use the command line, y
 If you do not need to work with files locally, {% data variables.product.github %} lets you complete many Git-related actions directly in the browser, including:
 
 * [AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+* [AUTOTITLE](/pull-requests/how-tos/work-with-forks/fork-a-repo)
 * [Managing files](/repositories/working-with-files/managing-files)
 
 ## Setting up Git
@@ -47,7 +47,7 @@ If you do not need to work with files locally, {% data variables.product.github 
    > 1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `pkg install git` and then type `y` when prompted.
 
 1. [Set your username in Git](/get-started/git-basics/setting-your-username-in-git).
-1. [Set your commit email address in Git](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
+1. [Set your commit email address in Git](/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address).
 
 ## Authenticating with {% data variables.product.github %} from Git
 

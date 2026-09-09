@@ -140,7 +140,7 @@ For example, you can create a TopoJSON map by specifying coordinates and shapes.
 
 ![Screenshot of a rendered TopoJSON map of Indonesia, Singapore, and Malaysia with a blue point, a purple rectangular overlay, and blue zigzag lines.](/assets/images/help/writing/fenced-topojson-rendered-map.png)
 
-For more information on working with `.geojson` and `.topojson` files, see [AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github).
+For more information on working with `.geojson` and `.topojson` files, see [AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojsontopojson-files-on-github).
 
 ## Creating STL 3D models
 

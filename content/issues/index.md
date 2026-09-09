@@ -1,7 +1,7 @@
 ---
-title: "{% data variables.product.prodname_github_issues %} documentation"
-shortTitle: "{% data variables.product.prodname_github_issues %}"
-intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
+title: '{% data variables.product.prodname_github_issues %} documentation'
+shortTitle: '{% data variables.product.prodname_github_issues %}'
+intro: Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.
 introLinks:
   overview: /issues/tracking-your-work-with-issues/learning-about-issues/about-issues
   quickstart: /issues/tracking-your-work-with-issues/learning-about-issues/quickstart
@@ -25,7 +25,6 @@ carousels:
     - /issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations
     - /issues/tracking-your-work-with-issues/administering-issues/triaging-an-issue-with-ai
 layout: discovery-landing
-beta_product: false
 versions:
   fpt: '*'
   ghes: '*'
@@ -33,7 +32,6 @@ versions:
 children:
   - /tracking-your-work-with-issues
   - /planning-and-tracking-with-projects
-  - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests

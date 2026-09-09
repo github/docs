@@ -8,8 +8,10 @@ versions:
   ghec: '*'
 contentType: reference
 children:
-  - /security-overview-dashboard-metrics
-  - /available-filters-for-security-overview
-  - /security-configuration-enforcement
+  - /overview-dashboard-metrics
+  - /overview-dashboard-filters
+  - /configuration-enforcement
+  - /configuration-statuses
   - /troubleshoot-security-configurations
 ---
+

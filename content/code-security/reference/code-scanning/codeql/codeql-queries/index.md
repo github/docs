@@ -8,7 +8,7 @@ versions:
   ghec: '*'
   ghes: '*'
 children:
-  - /about-built-in-queries
+  - /built-in-queries
   - /actions-built-in-queries
   - /c-cpp-built-in-queries
   - /csharp-built-in-queries

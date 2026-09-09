@@ -22,7 +22,7 @@ For a full list of features included with {% data variables.product.prodname_ghe
 
 ## What are the differences between {% data variables.product.prodname_ghe_cloud %} and other plans?
 
-A key difference between {% data variables.product.prodname_ghe_cloud %} and other {% data variables.product.prodname_dotcom %} plans is access to an enterprise account, which gives administrators a central point for managing multiple organizations. See [AUTOTITLE](/admin/overview/about-enterprise-accounts).
+A key difference between {% data variables.product.prodname_ghe_cloud %} and other {% data variables.product.prodname_dotcom %} plans is access to an enterprise account, which gives administrators a central point for managing multiple organizations. See [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts).
 
 {% data reusables.enterprise.ghe-includes-ghec-and-ghes %} For more information about {% data variables.product.prodname_ghe_server %} and how it differs from {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/admin/overview/about-github-for-enterprises#about-deployment-options).
 

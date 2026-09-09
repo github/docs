@@ -1,0 +1,1 @@
+Existing exports are reused for a two-hour window, so if someone else has requested a bulk export or an export for the same user within the last two hours, you may find the results are slightly out of date. Exports are limited to 10 per hour.

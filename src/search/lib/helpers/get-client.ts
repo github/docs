@@ -1,5 +1,8 @@
 import { Client } from '@elastic/elasticsearch'
 import { safeUrlDisplay } from '@/search/lib/helpers/strings'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 const DEFAULT_REQUEST_TIMEOUT = 5000
 
@@ -10,7 +13,7 @@ export function getElasticsearchClient(
 ): Client {
   const node = getElasticsearchURL(overrideURL)
   if (verbose) {
-    console.log('Connecting to Elasticsearch URL:', safeUrlDisplay(node))
+    logger.info('Connecting to Elasticsearch URL', { url: safeUrlDisplay(node) })
   }
   const client = new Client({
     node,

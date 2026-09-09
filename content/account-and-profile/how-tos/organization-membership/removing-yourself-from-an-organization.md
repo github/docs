@@ -21,7 +21,7 @@ category:
 {% ifversion fpt or ghec %}
 
 > [!WARNING]
-> If you're currently responsible for paying for {% data variables.product.github %} in your organization, removing yourself from the organization **does not** update the billing information on file for the organization. If you are currently responsible for billing, **you must** have another owner or billing manager for the organization [update the organization's payment method](/billing/managing-your-billing/managing-your-payment-and-billing-information).
+> If you're currently responsible for paying for {% data variables.product.github %} in your organization, removing yourself from the organization **does not** update the billing information on file for the organization. If you are currently responsible for billing, **you must** have another owner or billing manager for the organization [update the organization's payment method](/billing/how-tos/set-up-payment/manage-payment-info).
 >
 > For more information, see [AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership).
 

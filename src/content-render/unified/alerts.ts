@@ -6,6 +6,9 @@ import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
 import octicons from '@primer/octicons'
 import type { Element, Root, ElementContent } from 'hast'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 interface AlertType {
   icon: string
@@ -33,9 +36,7 @@ export default function alerts({ alertTitles = {} }: { alertTitles?: Record<stri
         return
       const key = getAlertKey(el)
       if (!(key in alertTypes)) {
-        console.warn(
-          `Alert key '${key}' should be all uppercase (change it to '${key.toUpperCase()}')`,
-        )
+        logger.warn('Alert key should be all uppercase', { key, expected: key.toUpperCase() })
       }
       const alertType = alertTypes[getAlertKey(el).toUpperCase()]
       el.tagName = 'div'

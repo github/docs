@@ -20,7 +20,7 @@ This article demonstrates how to use the GraphQL API to manage a project. For mo
 
 {% curl %}
 
-In all of the following `curl` command examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app).
+In all of the following `curl` command examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app).
 
 When using an installation access token for a {% data variables.product.prodname_github_app %}, some GraphQL mutations require additional permissions. For example, when using the `createProjectV2` mutation, if you specify a `repositoryId` input parameter, the `Contents` permission for that repository is also required in order to link the project to the target repository.
 
@@ -637,13 +637,13 @@ gh api graphql -f query='
 > [!NOTE]
 > You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you may use the following mutations:
 >
-> * [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
-> * [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
-> * [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
-> * [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
-> * [updateIssue](/graphql/reference/mutations#updateissue)
-> * [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
-> * [transferIssue](/graphql/reference/mutations#transferissue)
+> * [addAssigneesToAssignable](/graphql/reference/issues#mutation-addassigneestoassignable)
+> * [removeAssigneesFromAssignable](/graphql/reference/issues#mutation-removeassigneesfromassignable)
+> * [addLabelsToLabelable](/graphql/reference/issues#mutation-addlabelstolabelable)
+> * [removeLabelsFromLabelable](/graphql/reference/issues#mutation-removelabelsfromlabelable)
+> * [updateIssue](/graphql/reference/issues#mutation-updateissue)
+> * [updatePullRequest](/graphql/reference/pulls#mutation-updatepullrequest)
+> * [transferIssue](/graphql/reference/issues#mutation-transferissue)
 
 ### Updating a single select field
 
@@ -830,4 +830,4 @@ gh api graphql -f query='
 
 ## Using webhooks
 
-You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.github %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see [AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks). To learn more about the `projects_v2_item` webhook event, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item).
+You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.github %} can send an HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see [AUTOTITLE](/webhooks/about-webhooks). To learn more about the `projects_v2_item` webhook event, see [AUTOTITLE](/webhooks/webhook-events-and-payloads#projects_v2_item).

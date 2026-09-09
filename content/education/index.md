@@ -8,8 +8,6 @@ redirect_from:
   - /education/explore-internship-projects-with-github-octernships/about-github-octernships
   - /education/explore-internship-projects-with-github-octernships/applying-for-github-octernships
   - /education/explore-internship-projects-with-github-octernships
-changelog:
-  label: education
 layout: discovery-landing
 includedCategories:
   - Apply for GitHub Education

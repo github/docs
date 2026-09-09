@@ -30,4 +30,4 @@ Collaborators do not receive a notification when issues are deleted. When visiti
 
 ## Further reading
 
-* [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)

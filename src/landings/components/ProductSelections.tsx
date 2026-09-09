@@ -1,7 +1,9 @@
-import React from 'react'
-
 import type { ProductT } from '@/frame/components/context/MainContext'
+import { Heading } from '@primer/react-brand'
+
+import { useTranslation } from '@/languages/components/useTranslation'
 import { ProductSelectionCard } from './ProductSelectionCard'
+import styles from './ProductSelections.module.scss'
 
 export type ProductGroupT = {
   name: string
@@ -15,14 +17,19 @@ type Props = {
 }
 
 export const ProductSelections = ({ productGroups }: Props) => {
+  const { t } = useTranslation('homepage')
+
+  const groups = productGroups.filter((group) => group.children && group.children.length > 0)
+
   return (
-    <section className="container-xl pb-lg-4 mt-6 px-3 px-md-6" data-testid="product">
-      <div className="">
-        <div className="d-flex flex-wrap gutter gutter-xl-spacious">
-          {productGroups.map((group) => {
-            return <ProductSelectionCard key={group.name} group={group} />
-          })}
-        </div>
+    <section className={styles.section} data-testid="product">
+      <Heading as="h2" size="5" className={styles.heading}>
+        {t('all_docs')}
+      </Heading>
+      <div className={styles.grid}>
+        {groups.map((group) => (
+          <ProductSelectionCard key={group.name} group={group} />
+        ))}
       </div>
     </section>
   )

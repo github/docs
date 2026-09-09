@@ -109,7 +109,7 @@ try {
 
 By adopting the in-the-moment fix approach, you help to ensure that substandard code does not get added to your codebase, and you avoid the creation of a backlog issue that may never be addressed.
 
-For more details on using {% data variables.product.prodname_copilot_short %} in your IDE, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+For more details on using {% data variables.product.prodname_copilot_short %} in your IDE, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 ## Using {% data variables.copilot.copilot_cloud_agent %} for large-scale refactoring
 
@@ -166,7 +166,7 @@ Examples include:
 1. Iterate in this way until the work is completed correctly.
 1. Approve and merge the pull request.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr#assigning-an-issue-to-copilot) and [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/review-copilot-prs).
+For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output).
 
 ### Safety guardrails
 
@@ -217,7 +217,7 @@ Here's an example of effective custom instructions:
 - Test both success and failure paths
 ```
 
-For detailed guidance on writing custom instructions, see [AUTOTITLE](/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot).
+For detailed guidance on writing custom instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
 ### Benefits of custom instructions
 
@@ -356,13 +356,13 @@ By automating routine refactoring and maintenance tasks, {% data variables.produ
 
 ### Quick survey
 
-{% note %}
+<div class="border rounded-2 p-3">
 
 After reading this tutorial, do you feel confident you can use {% data variables.product.prodname_copilot_short %} to reduce the technical debt in a codebase?
 
 <a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
 
-{% endnote %}
+</div>
 
 ## Next steps
 
@@ -374,6 +374,6 @@ After reading this tutorial, do you feel confident you can use {% data variables
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent)
-* [AUTOTITLE](/copilot/tutorials/refactoring-code-with-github-copilot)
+* [AUTOTITLE](/copilot/tutorials/refactor-code)
 * [How to use GitHub Copilot in your IDE: Tips, tricks, and best practices](https://github.blog/developer-skills/github/how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/) in the {% data variables.product.company_short %} blog
-* [5 ways to integrate GitHub {% data variables.copilot.copilot_cloud_agent %} into your workflow](https://github.blog/ai-and-ml/github-copilot/5-ways-to-integrate-github-copilot-cloud-agent-into-your-workflow/) in the {% data variables.product.company_short %} blog
+* [5 ways to integrate GitHub {% data variables.copilot.copilot_cloud_agent %} into your workflow](https://github.blog/ai-and-ml/github-copilot/5-ways-to-integrate-github-copilot-coding-agent-into-your-workflow/) in the {% data variables.product.company_short %} blog

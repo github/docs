@@ -28,6 +28,11 @@ To add a billing manager, see:
 * [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization#inviting-a-billing-manager)
 * [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)
 
+{% ifversion enterprise-billing-github-app %}
+
+Enterprise owners can also grant a {% data variables.product.prodname_github_app %} the enterprise billing permission, so that an app can access enterprise billing data through the REST API without using a token that belongs to an individual. For more information, see [AUTOTITLE](/billing/tutorials/automate-usage-reporting).
+{% endif %}
+
 ## Organization owners
 
 You have full administrative access to your organization. You can:
@@ -59,4 +64,4 @@ You can:
 ## Further reading
 
 * [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)
-* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles)

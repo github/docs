@@ -1,6 +1,6 @@
 ---
 title: Landing with Duplicates
-layout: product-landing
+layout: discovery-landing
 versions:
   fpt: '*'
   ghec: '*'

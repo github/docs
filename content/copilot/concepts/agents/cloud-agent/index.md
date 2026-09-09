@@ -9,8 +9,8 @@ children:
   - /about-cloud-agent
   - /agent-management
   - /about-custom-agents
-  - /about-hooks
-  - /access-management
+  - /about-automations
+  - /about-automation-rationale-and-approvals
   - /mcp-and-cloud-agent
   - /risks-and-mitigations
 contentType: concepts

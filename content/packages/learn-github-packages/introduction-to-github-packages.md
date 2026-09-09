@@ -33,7 +33,7 @@ You can view a package's README, as well as metadata such as licensing, download
 
 {% ifversion ghes %}
 
-For more information about the configuration of {% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise).
+For more information about the configuration of {% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/configuring-packages/getting-started-with-github-packages-for-your-enterprise).
 
 {% endif %}
 
@@ -72,7 +72,7 @@ For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-secur
 
 {% data reusables.billing.default-over-quota-behavior %}
 
-For more information, see [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages).
+For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-packages).
 
 {% endif %}
 
@@ -95,7 +95,7 @@ For more information, see [AUTOTITLE](/billing/managing-billing-for-github-packa
 {% ifversion ghes %}
 
 > [!NOTE]
-> When enabling the Docker registry, we highly recommend also enabling subdomain isolation. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation).
+> When enabling the Docker registry, we highly recommend also enabling subdomain isolation. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/enabling-subdomain-isolation).
 
 {% endif %}
 
@@ -126,7 +126,7 @@ When you use the GraphQL API to query and delete private packages, you must use 
 
 For more information, see {% ifversion ghes %}[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package) and {% endif %}[AUTOTITLE](/graphql/guides/forming-calls-with-graphql).
 
-You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#package).
+You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the [AUTOTITLE](/webhooks/webhook-events-and-payloads#package).
 
 ## Contacting support
 

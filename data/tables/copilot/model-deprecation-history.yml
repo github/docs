@@ -11,6 +11,65 @@
 # - retirement_date: The official retirement date for the model (YYYY-MM-DD).
 # - suggested_alternative: The model recommended for migration.
 
+- name: 'MAI-Code-1-Flash'
+  retirement_date: '2026-09-10'
+  suggested_alternative: 'MAI-Code-1.1-Flash'
+
+- name: 'Claude Opus 4.5'
+  retirement_date: '2026-09-01'
+  suggested_alternative: 'Claude Opus 5'
+
+- name: 'Claude Opus 4.6'
+  retirement_date: '2026-09-01'
+  suggested_alternative: 'Claude Opus 5'
+
+- name: 'Claude Sonnet 4.5'
+  retirement_date: '2026-09-01'
+  suggested_alternative: 'Claude Sonnet 5'
+
+- name: 'Claude Sonnet 4.6'
+  retirement_date: '2026-09-01'
+  suggested_alternative: 'Claude Sonnet 5'
+
+- name: 'Gemini 3.1 Pro'
+  retirement_date: '2026-09-01'
+  suggested_alternative: 'Gemini 3.6 Flash'
+
+- name: 'Raptor mini'
+  retirement_date: '2026-09-01'
+  suggested_alternative: 'MAI-Code-1-Flash'
+
+- name: 'Gemini 2.5 Pro'
+  retirement_date: '2026-07-31'
+  suggested_alternative: 'Gemini 3.1 Pro'
+
+- name: 'Gemini 3 Flash'
+  retirement_date: '2026-07-31'
+  suggested_alternative: 'Gemini 3.6 Flash'
+
+- name: 'Claude Opus 4.6 (fast mode) (preview)'
+  retirement_date: '2026-06-29'
+  suggested_alternative: 'Claude Opus 4.8 (fast mode) (preview)'
+
+- name: 'GPT-4.1'
+  retirement_date: '2026-06-01'
+  suggested_alternative: 'GPT-5.5'
+
+- name: 'GPT-5.2'
+  retirement_date: '2026-06-01'
+  suggested_alternative: 'GPT-5.5'
+
+- name: 'GPT-5.2-Codex'
+  retirement_date: '2026-06-01'
+  suggested_alternative: 'GPT-5.3-Codex'
+- name: 'Grok Code Fast 1'
+  retirement_date: '2026-05-15'
+  suggested_alternative: 'GPT-5 mini'
+
+- name: 'Claude Sonnet 4'
+  retirement_date: '2026-05-01'
+  suggested_alternative: 'Claude Sonnet 4.6'
+
 - name: 'GPT-5.1'
   retirement_date: '2026-04-15'
   suggested_alternative: 'GPT-5.3-Codex'
@@ -37,11 +96,11 @@
 
 - name: 'GPT-5'
   retirement_date: '2026-02-17'
-  suggested_alternative: 'GPT-5.2'
+  suggested_alternative: 'GPT-5.5'
 
 - name: 'GPT-5-Codex'
   retirement_date: '2026-02-17'
-  suggested_alternative: 'GPT-5.2-Codex'
+  suggested_alternative: 'GPT-5.3-Codex'
 
 - name: 'Claude Sonnet 3.5'
   retirement_date: '2025-11-06'
@@ -69,7 +128,7 @@
 
 - name: 'o3'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'GPT-5.2'
+  suggested_alternative: 'GPT-5.5'
 
 - name: 'o3-mini'
   retirement_date: '2025-10-23'

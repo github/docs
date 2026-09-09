@@ -4,3 +4,24 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+.copyButton {
+  // Brand Button defaults to a 12px gap, a 16px leading-visual icon, and lets
+  // the label wrap. The narrow TOC column can't fit that, so tighten the
+  // icon/text spacing, shrink the icon back to the pre-migration 12px, and keep
+  // the label on a single line. Scoped to the copy button so the sibling
+  // dropdown's 16px triangle icon is left untouched.
+  gap: 4px;
+  white-space: nowrap;
+
+  svg {
+    height: 12px;
+    width: 12px;
+  }
+
+  // The brand Button renders its label through an internal Text component fixed
+  // at 14px; drop it to 12px to match the compact pre-migration button.
+  [class*="Button--label"] {
+    font-size: 12px;
+  }
+}

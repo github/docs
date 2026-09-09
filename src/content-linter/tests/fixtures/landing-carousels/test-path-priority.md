@@ -1,6 +1,6 @@
 ---
 title: Test Path Priority Resolution
-layout: product-landing
+layout: discovery-landing
 versions:
   fpt: '*'
 carousels:

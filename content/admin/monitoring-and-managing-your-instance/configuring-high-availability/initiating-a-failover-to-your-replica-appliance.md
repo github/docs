@@ -22,7 +22,7 @@ The time required to failover depends on how long it takes to manually promote t
 
    * Put the appliance into maintenance mode.
 
-     * To use the management console, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)
+     * To use the management console, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 
      * You can also use the `ghe-maintenance -s` command.
 
@@ -41,7 +41,7 @@ The time required to failover depends on how long it takes to manually promote t
      ghe-repl-status -vv
      ```
 
-1. Enable maintenance mode on all active replica appliances. For more information, see [AUTOTITLE](/admin/administering-your-instance/enabling-and-scheduling-maintenance-mode).
+1. Enable maintenance mode on all active replica appliances. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 
 1. On the replica appliance you'd like to fail over to, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command.
 
@@ -54,7 +54,7 @@ The time required to failover depends on how long it takes to manually promote t
 
 1. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
 1. Notify users that they can resume normal operations.
-1. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management).
+1. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management).
    > [!NOTE]
    > If there were multiple replicas before failover, the replicas that were not promoted during failover will remain part of the high availability group associated with the previous primary. Before re-establishing replication from the new primary, you must remove these replicas from the high availability configuration of the old primary. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/removing-a-high-availability-replica#removing-replication-permanently).
 1. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
@@ -75,4 +75,4 @@ The time required to failover depends on how long it takes to manually promote t
 
 ## Further reading
 
-* [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)
+* [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)

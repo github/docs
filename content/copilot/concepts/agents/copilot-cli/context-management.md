@@ -26,7 +26,13 @@ The context window has a fixed size, measured in tokens, that varies by model. T
 
 All of this accumulates in the context window. In a long or complex session, the context window can fill up.
 
-### Why the context window matters
+### Managing large tool output
+
+To prevent a single tool response from consuming too much of the context window, tool output larger than 20 KiB is saved to a temporary file by default. The model receives the file path and a preview instead of the full output. This applies to all tools, including tools provided by MCP servers.
+
+To change the limit, set `COPILOT_LARGE_OUTPUT_THRESHOLD_BYTES` to a positive number of UTF-8 bytes before starting the CLI. Increasing the limit leaves less context available for the conversation and subsequent tool calls.
+
+## Why the context window matters
 
 The context window is what gives {% data variables.product.prodname_copilot_short %} its "memory" of your conversation. Everything inside the context window is available for {% data variables.product.prodname_copilot_short %} to reference when responding to you.
 
@@ -34,12 +40,15 @@ This means that in a very long session, {% data variables.product.prodname_copil
 
 ## Checking your context usage
 
-You can check how much of the context window is currently in use by entering the `/context` slash command. This displays a visual breakdown of your token usage, showing:
+You can use the `/context` slash command to visualize your current context window usage. The first line of the output shows the active model and the number of tokens currently in use out of the model's total context window capacity. The remainder of the output shows token usage, and context window percentage, for:
 
-* **System/Tools**: The fixed overhead of system instructions and tool definitions.
-* **Messages**: The space used by your conversation history.
-* **Free Space**: How much room is left for new messages.
-* **Buffer**: A reserved portion that triggers automatic context management.
+* **System Prompt**: the base system prompt.
+* **Custom Instructions**: your loaded custom instructions (shown only when present).
+* **System Tools**: built-in tool definitions.
+* **MCP Tools**: tool definitions contributed by MCP servers.
+* **Messages**: your conversation history.
+* **Free Space**: unused context still available.
+* **Buffer**: capacity reserved for the model's response and headroom.
 
 ![Screenshot of the output of the '/context' CLI command.](/assets/images/help/copilot/copilot-cli-context-usage.png)
 
@@ -141,5 +150,5 @@ Starting a new session is better when:
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

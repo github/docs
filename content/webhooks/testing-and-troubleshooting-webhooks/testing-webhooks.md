@@ -32,7 +32,7 @@ You can trigger a webhook event and verify that {% data variables.product.compan
 
    You can also redeliver a previous webhook delivery. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks).
 
-   If you are using an organization or repository webhook, you can also use the REST API to trigger the `ping` event for your webhook. If you are using a repository webhook and your webhook is subscribed to the `push` event, you can use the REST API to trigger a test `push` event for your webhook. For more information, see [AUTOTITLE](/rest/webhooks/repos) and [AUTOTITLE](/rest/orgs/webhooks).
+   If you are using an organization or repository webhook, you can also use the REST API to trigger the `ping` event for your webhook. If you are using a repository webhook and your webhook is subscribed to the `push` event, you can use the REST API to trigger a test `push` event for your webhook. For more information, see [AUTOTITLE](/rest/repos/webhooks) and [AUTOTITLE](/rest/orgs/webhooks).
 
 1. Check {% data variables.product.company_short %} to verify that a webhook delivery was sent. For information about how to do this for each webhook type, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries).
 

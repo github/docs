@@ -12,6 +12,8 @@ category:
   - Manage Copilot for a team
 ---
 
+> [!IMPORTANT] {% data reusables.copilot.mcp.registry-alternative %}
+
 ## Prerequisites
 
 Before you create your Model Context Protocol (MCP) registry, you should understand the functionality and benefits of MCP management for your company. See [AUTOTITLE](/copilot/concepts/mcp-management).
@@ -24,7 +26,7 @@ At its core, an MCP registry is a set of HTTPS endpoints that serve details abou
 * Publish your own custom implementation.
 
 > [!NOTE]
-> If you want your developers to have access to local MCP servers, include those servers in your registry with the correct server ID. For more information, see [AUTOTITLE](/copilot/reference/mcp-allowlist-enforcement).
+> If you want your developers to have access to local MCP servers, include those servers in your registry with the correct server ID. For more information, see [AUTOTITLE](/copilot/reference/enterprise-administrators/mcp-private-registry-enforcement).
 
 To create a valid MCP registry that is reachable by {% data variables.product.prodname_copilot %}, the registry must meet the following requirements:
 * [Endpoint and specification requirements](#endpoint-and-specification-requirements)
@@ -41,9 +43,9 @@ For more details and example JSON responses to requests, see the [Official MCP R
 
 #### Support for the v0.1 specification
 
-While the MCP registry launched using the v0 specification, that version is now considered unstable and should not be implemented. Instead, create your registry according to the v0.1 specification, which is supported in the following IDEs:
+While the MCP registry launched using the v0 specification, that version is now considered unstable and should not be implemented. Instead, create your registry according to the v0.1 specification, which is supported in the following surfaces:
 
-| IDE           | v0.1 support |
+| Surface       | v0.1 support |
 | ---------------------- | ----------------- |
 | {% data variables.product.prodname_vscode_shortname %} Insiders | {% octicon "check" aria-label="Supported" %}  |
 | {% data variables.product.prodname_vscode_shortname %}   | {% octicon "check" aria-label="Supported" %} |
@@ -51,6 +53,7 @@ While the MCP registry launched using the v0 specification, that version is now 
 | Eclipse | {% octicon "check" aria-label="Supported" %} |
 | JetBrains IDEs     | {% octicon "check" aria-label="Supported" %} |
 | Xcode    | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_cli_short %} | {% octicon "check" aria-label="Supported" %} |
 
 ### Cross-Origin Resource Sharing requirements
 
@@ -67,7 +70,7 @@ Access-Control-Allow-Headers: Authorization, Content-Type
 Azure API Center provides a fully managed MCP registry with automatic CORS configuration, built-in governance features, and no additional web server setup.
 
 1. To complete the initial setup for your registry, see [Register and discover remote MCP servers in your API inventory](https://learn.microsoft.com/azure/api-center/register-discover-mcp-server) in the Azure documentation.
-1. If you want your developers to have access to local MCP servers, include those servers in your registry with the correct server ID. For more information, see [AUTOTITLE](/copilot/reference/mcp-allowlist-enforcement).
+1. If you want your developers to have access to local MCP servers, include those servers in your registry with the correct server ID. For more information, see [AUTOTITLE](/copilot/reference/enterprise-administrators/mcp-private-registry-enforcement).
 1. To ensure {% data variables.product.prodname_copilot %} can fetch your registry, in the visibility settings of your API Center, allow anonymous access.
 1. Copy your API Center endpoint URL. In the next article, you will use this URL to make your registry available across your company.
 
@@ -77,4 +80,4 @@ Azure API Center offers a **free tier** for basic API cataloging and discovery, 
 
 ## Next steps
 
-Now that you have created your MCP registry, you can set MCP policies for your company. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-server-access).
+Now that you have created your MCP registry, you can set MCP policies for your company. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/restrict-based-on-registry).

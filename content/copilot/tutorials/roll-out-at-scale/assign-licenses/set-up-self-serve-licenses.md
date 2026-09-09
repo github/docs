@@ -33,7 +33,7 @@ The process, which you should **communicate with users**, is as follows.
 
 1. An organization or enterprise owner ensures {% data variables.copilot.copilot_business_short %} is enabled in the organization where you want to manage access.
 1. Members of the organization go to their personal settings page at https://github.com/settings/copilot and click **Ask admin for access**.
-1. An organization owner reviews and approves requests on the "Requests from members" page in the organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/managing-requests-for-copilot-business-in-your-organization).
+1. An organization owner reviews and approves requests on the "Requests from members" page in the organization. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/manage-requests-for-access).
 
 You should set up a process where requests are reviewed regularly, so that interested users can get access to {% data variables.product.prodname_copilot_short %} quickly.
 
@@ -69,7 +69,7 @@ const response = await octokit.request('POST /orgs/{org}/copilot/billing/selecte
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/driving-copilot-adoption-in-your-company)
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/reminding-inactive-users)
-* [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/analyzing-usage-over-time-with-the-copilot-metrics-api)
-* [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-requests-for-copilot-business-from-organizations-in-your-enterprise){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/remind-inactive-users)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption)
+* [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-requests-for-copilot-business){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

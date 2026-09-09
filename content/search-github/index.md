@@ -3,8 +3,6 @@ title: Search on GitHub documentation
 intro: 'Learn how to use the search functions available on GitHub to find different types of information, like projects, people, and code.'
 introLinks:
   overview: /search-github/getting-started-with-searching-on-github/about-searching-on-github
-changelog:
-  label: search
 layout: discovery-landing
 includedCategories:
   - Get started with search

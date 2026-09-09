@@ -1,4 +1,4 @@
-The {% data variables.product.prodname_actions %} service supports a subset of all the regions that Azure provides. To facilitate communication between the {% data variables.product.prodname_actions %} service and your subnet, your subnet must be in one of the supported regions.
+{% data variables.product.company_short %} deploys your runners in the same Azure region as the subnet you connect them to. Because of this, your subnet must be in one of the supported regions. The {% data variables.product.prodname_actions %} service supports a subset of all the regions that Azure provides, which facilitates communication between the {% data variables.product.prodname_actions %} service and your subnet.
 
 > [!NOTE] If you use {% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %}, the supported regions are different. See [AUTOTITLE](/admin/data-residency/network-details-for-ghecom#supported-regions-for-azure-private-networking).
 

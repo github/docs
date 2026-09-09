@@ -71,7 +71,7 @@ This workflow is useful when you want to:
 * Agree on an approach with {% data variables.product.prodname_copilot_short %} before any code is written.
 * Review and iterate on changes before opening a pull request for review.
 
-See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/research-plan-iterate).
+See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/research-plan-iterate).
 
 ## Using comments to iterate on a pull request
 
@@ -79,7 +79,7 @@ Working with {% data variables.product.prodname_copilot_short %} on a pull reque
 
 Additionally, you can:
 * Mention `@copilot` in comments on the pull request, explaining what you think is incorrect, or could be improved, and {% data variables.product.prodname_copilot_short %} will push commits directly to the pull request's branch. 
-* Ask {% data variables.product.prodname_copilot_short %} to resolve merge conflicts on the pull request. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/make-changes-to-an-existing-pr#resolving-merge-conflicts). 
+* Ask {% data variables.product.prodname_copilot_short %} to resolve merge conflicts on the pull request. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-on-github#resolving-merge-conflicts). 
 * Work on the feature branch yourself and push changes to the pull request.
 
 After a user with write access mentions `@copilot` in a comment, {% data variables.product.prodname_copilot_short %} will start to make any required changes, and will update the pull request when it's done. Because {% data variables.product.prodname_copilot_short %} starts looking at comments as soon as they are submitted, if you are likely to make multiple comments on a pull request it's best to batch them by clicking **Start a review**, rather than clicking **Add single comment**. You can then submit all of your comments at once, triggering {% data variables.product.prodname_copilot_short %} to work on your entire review, rather than working on individual comments separately.
@@ -103,13 +103,13 @@ If {% data variables.product.prodname_copilot_short %} is able to build, test an
 * `/CLAUDE.md`
 * `/GEMINI.md`
 
-For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=webui).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions?tool=webui).
 
 ### Repository-wide instructions
 
 To add instructions that apply to all tasks assigned to {% data variables.product.prodname_copilot_short %} in your repository, create a `.github/copilot-instructions.md` file in the root of your repository. This file should contain information about your project, such as how to build and test it, and any coding standards or conventions you want {% data variables.product.prodname_copilot_short %} to follow. Note that the instructions will also apply to {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_code-review_short %}.
 
-The first time you ask {% data variables.product.prodname_copilot_short %} to create a pull request in a given repository, {% data variables.product.prodname_copilot_short %} will leave a comment with a link to automatically generate custom instructions. You can also ask {% data variables.product.prodname_copilot_short %} to generate custom instructions for you at any time using our recommended prompt. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=webui#asking-copilot-cloud-agent-to-generate-a-copilot-instructionsmd-file).
+The first time you ask {% data variables.product.prodname_copilot_short %} to create a pull request in a given repository, {% data variables.product.prodname_copilot_short %} will leave a comment with a link to automatically generate custom instructions. You can also ask {% data variables.product.prodname_copilot_short %} to generate custom instructions for you at any time using our recommended prompt. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions?tool=webui#asking-copilot-cloud-agent-to-generate-a-copilot-instructionsmd-file).
 
 You can also choose to write your own custom instructions at any time. Here is an example of an effective `copilot-instructions.md` file:
 
@@ -176,11 +176,11 @@ When writing Playwright tests, please follow these guidelines to ensure consiste
 
 ## Organization-wide custom instructions
 
-{% data variables.copilot.copilot_cloud_agent %} leverages your organization's custom instructions as part of its work. {% data variables.copilot.copilot_cloud_agent %} first prioritizes repository-wide custom instructions. For more information on how to configure organization custom instructions, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions).
+{% data variables.copilot.copilot_cloud_agent %} leverages your organization's custom instructions as part of its work. {% data variables.copilot.copilot_cloud_agent %} first prioritizes repository-wide custom instructions. For more information on how to configure organization custom instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-organization-instructions).
 
 ## Using the Model Context Protocol (MCP)
 
-You can extend the capabilities of {% data variables.copilot.copilot_cloud_agent %} by using MCP. This allows {% data variables.copilot.copilot_cloud_agent %} to use tools provided by local and remote MCP servers. The {% data variables.product.github %} MCP server and [Playwright MCP server](https://github.com/microsoft/playwright-mcp) are enabled by default. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
+You can extend the capabilities of {% data variables.copilot.copilot_cloud_agent %} by using MCP. This allows {% data variables.copilot.copilot_cloud_agent %} to use tools provided by local and remote MCP servers. The {% data variables.product.github %} MCP server and [Playwright MCP server](https://github.com/microsoft/playwright-mcp) are enabled by default. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 
 ## Creating {% data variables.copilot.custom_agents_short %}
 
@@ -194,7 +194,7 @@ By default, {% data variables.copilot.custom_agents_short %} inherit any MCP ser
 
 You can use {% data variables.copilot.custom_agents_short %} anywhere you use {% data variables.copilot.copilot_cloud_agent %}, including when assigning an issue or prompting with a task.
 
-For more information on creating and configuring {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents).
+For more information on creating and configuring {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents).
 
 ## Pre-installing dependencies in {% data variables.product.prodname_copilot %}'s environment
 
@@ -204,4 +204,4 @@ If {% data variables.product.prodname_copilot_short %} is able to build, test an
 
 To do that, it will need your project's dependencies. {% data variables.product.prodname_copilot_short %} can discover and install these dependencies itself via a process of trial and error - but this can be slow and unreliable, given the non-deterministic nature of large language models (LLMs).
 
-You can configure a `copilot-setup-steps.yml` file to pre-install these dependencies before the agent starts working so it can hit the ground running. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment#preinstalling-tools-or-dependencies-in-copilots-environment).
+You can configure a `copilot-setup-steps.yml` file to pre-install these dependencies before the agent starts working so it can hit the ground running. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment#preinstalling-tools-or-dependencies-in-copilots-environment).

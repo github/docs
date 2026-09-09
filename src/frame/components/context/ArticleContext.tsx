@@ -17,6 +17,7 @@ export type ArticleContextT = {
   intro: string
   effectiveDate: string
   renderedPage: string | JSX.Element[]
+  renderedPageHast?: import('hast').Root | null
   miniTocItems: Array<MiniTocItem>
   permissions?: string
   includesPlatformSpecificContent: boolean
@@ -54,11 +55,28 @@ const PagePathToVaFlowMapping: Record<string, string> = {
     'pages_ssl_check',
 }
 
-export const getArticleContextFromRequest = (req: any): ArticleContextT => {
+// Request type for context extraction — uses Record<string, unknown> for the page
+// because the Page type doesn't include all runtime-computed properties.
+interface ContextRequest {
+  context: {
+    page: Record<string, unknown> & { fullPath: string; title: string; intro: string }
+    renderedPage?: string
+    renderedPageHast?: import('hast').Root
+    miniTocItems?: MiniTocItem[]
+    currentJourneyTrack?: JourneyContext
+    currentLayoutName?: string
+    currentPath?: string
+    [key: string]: unknown
+  }
+  [key: string]: unknown
+}
+
+export const getArticleContextFromRequest = (req: ContextRequest): ArticleContextT => {
   const page = req.context.page
 
-  if (page.effectiveDate) {
-    if (isNaN(Date.parse(page.effectiveDate))) {
+  const effectiveDate = (page.effectiveDate as string) || ''
+  if (effectiveDate) {
+    if (isNaN(Date.parse(effectiveDate))) {
       throw new Error(
         'The "effectiveDate" frontmatter property is not valid. Please make sure it is YEAR-MONTH-DAY',
       )
@@ -79,19 +97,20 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
   return {
     title: page.title,
     intro: page.intro,
-    effectiveDate: page.effectiveDate || '',
-    renderedPage: req.context.renderedPage || '',
+    effectiveDate,
+    renderedPage: (req.context.renderedPage as string) || '',
+    renderedPageHast: req.context.renderedPageHast ?? null,
     miniTocItems: req.context.miniTocItems || [],
-    permissions: page.permissions || '',
-    includesPlatformSpecificContent: page.includesPlatformSpecificContent || false,
-    includesToolSpecificContent: page.includesToolSpecificContent || false,
-    defaultPlatform: page.defaultPlatform || '',
-    defaultTool: page.defaultTool || '',
-    product: page.product || '',
+    permissions: (page.permissions as string) || '',
+    includesPlatformSpecificContent: (page.includesPlatformSpecificContent as boolean) || false,
+    includesToolSpecificContent: (page.includesToolSpecificContent as boolean) || false,
+    defaultPlatform: (page.defaultPlatform as string) || '',
+    defaultTool: (page.defaultTool as string) || '',
+    product: (page.product as string) || '',
     currentJourneyTrack: req.context.currentJourneyTrack,
-    detectedPlatforms: page.detectedPlatforms || [],
-    detectedTools: page.detectedTools || [],
-    allTools: page.allToolsParsed || [], // this is set at the page level, see lib/page.ts
+    detectedPlatforms: (page.detectedPlatforms as string[]) || [],
+    detectedTools: (page.detectedTools as string[]) || [],
+    allTools: (page.allToolsParsed as Record<string, string>) || {},
     supportPortalVaIframeProps,
     currentLayout: req.context.currentLayoutName,
     currentPath: req.context.currentPath || '',

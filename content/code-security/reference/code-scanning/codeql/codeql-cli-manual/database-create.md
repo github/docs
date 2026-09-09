@@ -71,7 +71,7 @@ delete the entire database directory.
 \[Advanced] Read a Code Scanning configuration file specifying options
 on how to create the CodeQL databases and what queries to run in later
 steps. For more details on the format of this configuration file, refer
-to [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning). To run queries from
+to [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options). To run queries from
 this file in a later step, invoke [codeql database analyze](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-analyze) without any other queries specified.
 
 #### `--[no-]db-cluster`
@@ -314,10 +314,10 @@ configuration files that should work in most situations.
 
 #### `--working-dir=<dir>`
 
-\[Advanced] The directory in which the specified command should be
-executed. If this argument is not provided, the command is executed in
-the value of `--source-root` passed to codeql database create, if one exists. If no `--source-root` argument is provided, the command is executed in the
-current working directory.
+\[Advanced] The working directory for this command. If this argument is
+not provided, the working directory defaults to the value of
+`--source-root` passed to codeql database create, if one exists. If no `--source-root` argument is provided, the current working directory is
+used.
 
 #### `--no-run-unnecessary-builds`
 

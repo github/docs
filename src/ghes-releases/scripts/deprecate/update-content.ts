@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import walkFiles from 'walk-sync'
 
 import frontmatter from '@/frame/lib/read-frontmatter'
@@ -30,7 +30,7 @@ export function updateContentFiles() {
     if (data.versions.feature) {
       const featureFilePath = `data/features/${data.versions.feature}.yml`
       const featureContent = fs.readFileSync(featureFilePath, 'utf8')
-      featureData = yaml.load(featureContent) as featureDataType
+      featureData = load(featureContent) as featureDataType
       if (!featureData || !featureData.versions)
         throw new Error(`Could not load feature versions from ${featureFilePath}`)
     }
@@ -58,7 +58,12 @@ export function updateContentFiles() {
       // To preserve newlines when stringifying,
       // you can set the lineWidth option to -1
       // This prevents updates to the file that aren't actual changes.
-      fs.writeFileSync(file, frontmatter.stringify(content!, data, { lineWidth: -1 } as any))
+      fs.writeFileSync(
+        file,
+        frontmatter.stringify(content!, data, { lineWidth: -1 } as unknown as Parameters<
+          typeof frontmatter.stringify
+        >[2]),
+      )
       continue
     }
     if (featureAppliesToAllVersions) {
@@ -71,7 +76,12 @@ export function updateContentFiles() {
       // To preserve newlines when stringifying,
       // you can set the lineWidth option to -1
       // This prevents updates to the file that aren't actual changes.
-      fs.writeFileSync(file, frontmatter.stringify(content!, data, { lineWidth: -1 } as any))
+      fs.writeFileSync(
+        file,
+        frontmatter.stringify(content!, data, { lineWidth: -1 } as unknown as Parameters<
+          typeof frontmatter.stringify
+        >[2]),
+      )
       continue
     }
 
@@ -94,7 +104,12 @@ export function updateContentFiles() {
         // Remove the ghes property from versions Fm and return
         delete data.versions.ghes
         console.log('Removing GHES version from: ', file)
-        fs.writeFileSync(file, frontmatter.stringify(content!, data, { lineWidth: -1 } as any))
+        fs.writeFileSync(
+          file,
+          frontmatter.stringify(content!, data, { lineWidth: -1 } as unknown as Parameters<
+            typeof frontmatter.stringify
+          >[2]),
+        )
       }
     }
   }
@@ -130,7 +145,9 @@ function removeFileUpdateParent(filePath: string) {
     console.log('..Updating children in: ', parentFilePath)
     fs.writeFileSync(
       parentFilePath,
-      frontmatter.stringify(content || '', data, { lineWidth: -1 } as any),
+      frontmatter.stringify(content || '', data, { lineWidth: -1 } as unknown as Parameters<
+        typeof frontmatter.stringify
+      >[2]),
     )
   }
 }

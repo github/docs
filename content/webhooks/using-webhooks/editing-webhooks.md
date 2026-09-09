@@ -18,7 +18,7 @@ You can edit a webhook to change any of the settings that were selected when the
 
 You can edit a webhook that was created in a specific repository. You must be a repository owner or have admin access in the repository to edit webhooks in that repository.
 
-You can use the {% data variables.product.github %} web interface or the REST API to edit a repository webhook. For more information about using the REST API to edit a repository webhook, see [AUTOTITLE](/rest/webhooks/repos#update-a-repository-webhook).
+You can use the {% data variables.product.github %} web interface or the REST API to edit a repository webhook. For more information about using the REST API to edit a repository webhook, see [AUTOTITLE](/rest/repos/webhooks#update-a-repository-webhook).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -65,7 +65,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 ## Editing a {% data variables.product.prodname_marketplace %} webhook
 
-You can edit a webhook that was created for an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the app, can edit a {% data variables.product.prodname_marketplace %} webhook. For more information, see [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api).
+You can edit a webhook that was created for an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the app, can edit a {% data variables.product.prodname_marketplace %} webhook. For more information, see [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api).
 
 1. Navigate to your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage).
 1. Next to the {% data variables.product.prodname_marketplace %} listing that you want to view webhook deliveries for, click **Manage listing**.
@@ -90,7 +90,7 @@ You can edit a webhook that was created for a {% data variables.product.prodname
 
 Each {% data variables.product.prodname_github_app %} has one webhook. You cannot delete the webhook, but you can activate or deactivate the webhook, change the webhook events that the webhook subscribes to, or make changes to other basic settings for the webhook.
 
-The owner of a {% data variables.product.prodname_github_app %} can edit the webhook configuration for the app. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also edit the webhook configuration. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps).
+The owner of a {% data variables.product.prodname_github_app %} can edit the webhook configuration for the app. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also edit the webhook configuration. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps).
 
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
@@ -103,7 +103,7 @@ The owner of a {% data variables.product.prodname_github_app %} can edit the web
    1. In the sidebar, click **Permissions & events**.
    1. {% data reusables.apps.webhooks-and-apps %}
 
-      Under the sections "Repository permissions," "Organization permissions," and "Account permissions," select the permissions that are required for the events your app will subscribe to. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app). For more information about things to consider when changing the permissions, see [Modifying a {% data variables.product.prodname_github_app %} registration](/apps/maintaining-github-apps/modifying-a-github-app-registration#changing-the-permissions-of-a-github-app).
+      Under the sections "Repository permissions," "Organization permissions," and "Account permissions," select the permissions that are required for the events your app will subscribe to. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app). For more information about things to consider when changing the permissions, see [Modifying a {% data variables.product.prodname_github_app %} registration](/apps/maintaining-github-apps/modifying-a-github-app-registration#changing-the-permissions-of-a-github-app).
    1. Under "Subscribe to Events," select the webhook events you would like your {% data variables.product.prodname_github_app %} to receive.
    1. Click **Save changes**.
 

@@ -14,6 +14,6 @@ category:
 
 ## About {% data variables.product.prodname_actions %} OIDC
 
-You can use the REST API to query and manage a customization template for an OpenID Connect (OIDC) subject claim. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+You can use the REST API to query and manage a customization template for an OpenID Connect (OIDC) subject claim. For more information, see [AUTOTITLE](/actions/concepts/security/openid-connect).
 
 <!-- Content after this section is automatically generated -->

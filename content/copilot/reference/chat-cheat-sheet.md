@@ -20,11 +20,12 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.copilot.copilot_chat_short %} in the {% data variables.product.github %} website, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in the {% data variables.product.github %} website, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github).
 
 ## Mentions
 
 Use `@` mentions in to attach relevant context directly to your conversations. Type `@` in the chat prompt box to display a list of items you can attach, such as:
+
 * Discussions
 * Extensions
 * Files
@@ -59,7 +60,7 @@ Below is a list of the MCP skills that are currently available in {% data variab
 | `get_me`                    | Tell me about myself.                                                                                                                                 |
 | `search_users`              | Search for users with the name "Mona Octocat"                                                                                       |
 
-For more information about using MCP skills in {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
+For more information about using MCP skills in {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
 
 {% endwebui %}
 
@@ -69,7 +70,7 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 ## Slash commands
 
@@ -113,10 +114,9 @@ Below is a list of some of the most common chat participants for using {% data v
 | Variable    | Description |
 |--------------|----------------------------------------------------------------------------------------------|
 | `@azure`     | Has context about Azure services and how to use, deploy and manage them. Use `@azure` when you want help with Azure. The `@azure` chat participant is currently in {% data variables.release-phases.public_preview %} and is subject to change. |
-| `@github`    | Allows you to use {% data variables.product.github %}-specific {% data variables.product.prodname_copilot_short %} skills. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#using-github-skills-for-copilot). |
+| `@github`    | Allows you to use {% data variables.product.github %}-specific {% data variables.product.prodname_copilot_short %} skills. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide#using-github-skills-for-copilot). |
 | `@terminal`  | Has context about the {% data variables.product.prodname_vscode %} terminal shell and its contents. Use `@terminal` when you want help creating or debugging terminal commands. |
 | `@vscode`    | Has context about {% data variables.product.prodname_vscode %} commands and features. Use `@vscode` when you want help with {% data variables.product.prodname_vscode %}. |
-| `@workspace` | Has context about the code in your workspace. Use `@workspace` when you want {% data variables.product.prodname_copilot_short %} to consider the structure of your project, how different parts of your code interact, or design patterns in your project. |
 
 {% endvscode %}
 
@@ -126,7 +126,7 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %}, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %}, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 ## Slash commands
 
@@ -162,7 +162,7 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.copilot.copilot_chat_short %} in JetBrains, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in JetBrains, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 ## Slash commands
 
@@ -170,11 +170,16 @@ Use slash commands to avoid writing complex prompts for common scenarios. To use
 
 Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of some of the most common slash commands for using {% data variables.copilot.copilot_chat_short %}.
 
+If you run interactive {% data variables.copilot.copilot_cli_short %} sessions in JetBrains, you can also use CLI-specific slash commands from that session.
+
 | Command | Description |
 | --- | --- |
+| `/chronicle` | Review and analyze your session history. Available subcommands: `standup`, `tips`, `search`, and `improve`. For more details on these subcommands, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle). |
+| `/compact` | Manually compress the current {% data variables.copilot.copilot_cli_short %} session context to keep a long-running session manageable. |
 | `/explain` | Explain how the code in your active editor works. |
 | `/fix` | Propose a fix for problems in the selected code. |
 | `/help` | Quick reference and basics of using {% data variables.product.prodname_copilot %}. |
+| `/remote` | ({% data variables.copilot.copilot_cli_short %} session only) Enable or manage remote control for the current session so you can access it from {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_mobile %}. |
 | `/tests` | Generate unit tests for the selected code. |
 
 {% endjetbrains %}
@@ -185,7 +190,7 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.copilot.copilot_chat_short %} in Xcode, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in Xcode, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 ## Slash commands
 

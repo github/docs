@@ -6,6 +6,8 @@ children:
   - /creating-github-apps-for-your-enterprise
   - /adding-and-removing-github-app-managers-in-your-enterprise
   - /automate-installations
+redirect_from:
+  - /enterprise-onboarding/github-apps
 shortTitle: GitHub Apps
 versions:
   feature: enterprise-apps-public-beta

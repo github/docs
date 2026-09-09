@@ -27,4 +27,4 @@ This article explains how SARIF files are used on {% data variables.product.gith
 
 ## Upload methods
 
-You can upload a SARIF file using {% data variables.product.prodname_actions %}, the {% data variables.product.prodname_code_scanning %} API, or the {% data variables.product.prodname_codeql_cli %}. The best upload method depends on how you generate the SARIF file. For more information, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github).
+You can upload a SARIF file using {% data variables.product.prodname_actions %}, the {% data variables.product.prodname_code_scanning %} API, or the {% data variables.product.prodname_codeql_cli %}. The best upload method depends on how you generate the SARIF file. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/integrate-with-existing-tools/upload-sarif-file).

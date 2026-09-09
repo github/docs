@@ -10,7 +10,8 @@ contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/enabling-secret-scanning-features
 children:
-  - /enabling-secret-scanning-for-your-repository
-  - /enabling-secret-scanning-for-non-provider-patterns
-  - /enabling-ai-powered-generic-secret-detection
+  - /enable-secret-scanning
+  - /enabling-secret-scanning-for-generic-patterns
+  - /enabling-secret-scanning-for-ai-detected-secrets
 ---
+

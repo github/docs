@@ -1,15 +1,15 @@
 import fs from 'fs'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 
 const allowedCodeFenceLanguages = Object.keys(
-  yaml.load(fs.readFileSync('data/code-languages.yml', 'utf8')) as Record<string, unknown>,
+  load(fs.readFileSync('data/code-languages.yml', 'utf8')) as Record<string, unknown>,
 )
 
 type RuleConfig = {
   severity: 'error' | 'warning'
   'partial-markdown-files': boolean
   'yml-files': boolean
-  [key: string]: any
+  [key: string]: unknown
 }
 
 type BaseConfig = {

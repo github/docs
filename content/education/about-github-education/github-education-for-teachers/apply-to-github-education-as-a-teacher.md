@@ -23,7 +23,7 @@ category:
 
 {% data reusables.education.educator-requirements %}
 
-For more information about personal accounts on {% data variables.product.github %}, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).
+For more information about personal accounts on {% data variables.product.github %}, see [AUTOTITLE](/account-and-profile/how-tos/account-management/creating-an-account-on-github).
 
 ## Applying to {% data variables.product.prodname_global_campus %}
 
@@ -33,7 +33,7 @@ Once your application is approved, navigate to your [{% data variables.product.p
 
 ## Further reading
 
-* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/why-wasnt-my-application-to-global-campus-for-teachers-approved)
+* [AUTOTITLE](/education/about-github-education/github-education-for-teachers/why-wasnt-my-application-to-github-education-for-teachers-approved)
 * [{% data variables.product.prodname_education %}](https://education.github.com)
 * [{% data variables.product.prodname_classroom %} Videos](https://classroom.github.com/videos)
 * [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})

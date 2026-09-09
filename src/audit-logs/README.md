@@ -65,10 +65,10 @@ To edit the event descriptions and reference links, writers can update https://g
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about the audit log events pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the audit log events pipeline, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about the audit log events pipeline, you can ask in the `#technical-content` Slack channel. If you notice a problem with the audit log events pipeline, you can open an issue in the `github/technical-content` repository.
 
 ## Ownership & On-call
 
@@ -81,7 +81,7 @@ If the audit log pipeline fails:
 1. Check workflow logs in `.github/workflows/sync-audit-logs.yml`
 2. Verify access to `github/audit-log-allowlists` repo
 3. Check for schema changes in source data
-4. Escalate to #docs-engineering if stuck
+4. Escalate to #technical-content if stuck
 
 ### Monitoring
 - Daily workflow runs automatically

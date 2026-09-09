@@ -21,27 +21,30 @@ The agent can use tools provided by local and remote MCP servers. Some MCP serve
 
 For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction). For information on some of the currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
 
-{% data reusables.copilot.mcp.cloud-agent-limitations %}
+{% data reusables.copilot.mcp.repo-mcp-limitations %}
 
 ## Default MCP servers
 
 The following MCP servers are configured automatically for {% data variables.copilot.copilot_cloud_agent %}:
 
-* **{% data variables.product.github %}**: The {% data variables.product.github %} MCP server gives {% data variables.product.prodname_copilot_short %} access to {% data variables.product.github %} data like issues and pull requests. To learn more, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
-  * By default, the {% data variables.product.github %} MCP server connects to {% data variables.product.github %} using a specially scoped token that only has read-only access to the current repository. You can customize it to use a different token with broader access. For more details, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#customizing-the-built-in-github-mcp-server).
+* **{% data variables.product.github %}**: The {% data variables.product.github %} MCP server gives {% data variables.product.prodname_copilot_short %} access to {% data variables.product.github %} data like issues and pull requests. To learn more, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
+  * By default, the {% data variables.product.github %} MCP server connects to {% data variables.product.github %} using a specially scoped token that only has read-only access to the current repository. You can customize it to use a different token with broader access. For more details, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers#customizing-the-built-in-github-mcp-server).
 
 * **Playwright**: The [Playwright MCP server](https://github.com/microsoft/playwright-mcp) gives {% data variables.product.prodname_copilot_short %} access to web pages, including the ability to read, interact and take screenshots.
   * By default, the Playwright MCP server is only able to access web resources hosted within {% data variables.product.prodname_copilot_short %}'s own environment, accessible on `localhost` or `127.0.0.1`.
 
 ## Setting up MCP servers in a repository
 
-Repository administrators can configure MCP servers for use within that repository. This is done via a JSON-formatted configuration that specifies the details of the MCP servers that {% data variables.copilot.copilot_cloud_agent %} can use.
+Repository administrators can configure MCP servers for use within that repository. This is done via a JSON-formatted configuration in repository settings on {% data variables.product.github %}.
+
+> [!NOTE]
+> Repository MCP configuration on {% data variables.product.github %} applies to both {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}. MCP servers configured in repository MCP settings are available to both agents.
 
 Once MCP servers are configured for use within a repository, the tools specified in the configuration will be available to {% data variables.copilot.copilot_cloud_agent %} during each assigned task.
 
 {% data variables.product.prodname_copilot_short %} will use available tools autonomously, and will not ask for approval before use.
 
-For details of how to set up MCP servers for {% data variables.copilot.copilot_cloud_agent %} in a repository, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
+For details of how to set up MCP servers in a repository, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 
 ## MCP servers for {% data variables.copilot.custom_agents_short %}
 

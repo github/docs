@@ -15,7 +15,7 @@ category:
 
 ## About permissions required for {% data variables.product.pat_v2 %}
 
-When you create a {% data variables.product.pat_v2 %}, you grant it a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+When you create a {% data variables.product.pat_v2 %}, you grant it a set of permissions. Permissions define what resources the token can access via the API. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 {% data reusables.rest-api.permission-header %}
 

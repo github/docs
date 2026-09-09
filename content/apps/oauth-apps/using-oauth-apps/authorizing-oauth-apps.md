@@ -18,7 +18,7 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 {% ifversion fpt or ghec %}
 
 > [!TIP]
-> You must [verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
+> You must [verify your email address](/account-and-profile/how-tos/email-preferences/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
 
 {% endif %}
 
@@ -54,7 +54,7 @@ When you want to use an {% data variables.product.prodname_oauth_app %} that int
 | Commit status | You can grant access for an app to report your commit status. Commit status access allows apps to determine if a build is a successful against a specific commit. Apps won't have access to your code, but they can read and write status information against a specific commit. |
 | Deployments | Deployment status access allows apps to determine if a deployment is successful against a specific commit for public and private repositories. Apps won't have access to your code. |
 | Gists | [Gist](https://gist.github.com) access allows apps to read or write to both your public and secret Gists. |
-| Hooks | [Webhooks](/webhooks-and-events/webhooks/about-webhooks) access allows apps to read or write hook configurations on repositories you manage. |
+| Hooks | [Webhooks](/webhooks/about-webhooks) access allows apps to read or write hook configurations on repositories you manage. |
 | Notifications | Notification access allows apps to read your {% data variables.product.github %} notifications, such as comments on issues and pull requests. However, apps remain unable to access anything in your repositories. |
 | Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
 | Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |

@@ -28,7 +28,7 @@ For a list of featured {% data variables.product.company_short %} integrations, 
 
 If you want your {% data variables.product.prodname_ghe_server %} instance to use a third-party {% data variables.product.prodname_github_app %}, you can contact the app developer about making the {% data variables.product.prodname_github_app %} available for {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server).
 
-If you want your {% data variables.product.prodname_ghe_server %} instance to use third-party custom actions, you need to enable {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).
+If you want your {% data variables.product.prodname_ghe_server %} instance to use third-party custom actions, you need to enable {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
 {% endif %}
 
@@ -36,6 +36,6 @@ For more information about using integrations, see:
 
 * [AUTOTITLE](/apps/using-github-apps/about-using-github-apps)
 * [AUTOTITLE](/apps/oauth-apps/using-oauth-apps)
-* [AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions)
+* [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/find-and-customize-actions)
 
-You can also build your own integrations. For more information, see [AUTOTITLE](/get-started/exploring-integrations/about-building-integrations).
+You can also build your own integrations. For more information, see [AUTOTITLE](/integrations/concepts/about-building-integrations).

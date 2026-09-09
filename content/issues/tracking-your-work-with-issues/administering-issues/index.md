@@ -12,5 +12,5 @@ children:
   - /transferring-an-issue-to-another-repository
   - /closing-an-issue
   - /deleting-an-issue
-  - /duplicating-an-issue
+  - /cloning-an-issue
 ---

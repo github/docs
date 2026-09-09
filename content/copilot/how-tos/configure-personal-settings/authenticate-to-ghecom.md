@@ -71,7 +71,7 @@ If you ever need to switch to an account on {% data variables.product.prodname_d
 1. Open the "{% data variables.product.prodname_copilot %} for Xcode" application.
 1. Click the **Advanced** tab.
 1. In the "Auth provider URL" field, enter the URL where you access {% data variables.product.github %}. For example: `https://{% data variables.enterprise.data_residency_example_domain %}`.
-1. Authorize the extension by following the instructions in [Signing in to {% data variables.product.prodname_copilot %}](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=xcode#signing-in-to-github-copilot).
+1. Authorize the extension by following the instructions in [Signing in to {% data variables.product.prodname_copilot %}](/copilot/how-tos/set-up/install-copilot-extension?tool=xcode#signing-in-to-github-copilot).
 
 {% endxcode %}
 

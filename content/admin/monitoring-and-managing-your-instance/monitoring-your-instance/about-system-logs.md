@@ -21,9 +21,9 @@ To trace, review, and troubleshoot activity and exceptions on {% data variables.
 
 By default, {% data variables.product.prodname_ghe_server %} rotates system logs automatically every 24 hours and retains rotated logs for seven days. System logs include system-level events, application logs, and data about Git events. Because log files are written often and can be large in size, you may prefer to extract and parse log entries on a host separate from {% data variables.location.product_location %}.
 
-People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can access and read system logs. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
+People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can access and read system logs. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).
 
-You can forward system logs and audit logs to an external system for analysis or longer retention. For more information see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding) and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
+You can forward system logs and audit logs to an external system for analysis or longer retention. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/log-forwarding) and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
 
 In addition to reviewing your system logs, you can monitor activity on your instance in other ways. For example, you can review audit logs and push logs, or configure global webhooks. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise).
 
@@ -74,12 +74,12 @@ The following log files record events from the instance's HTTP server.
 | <pre>/var/log/nginx/gist.error.log</pre> | Records errors related to HTTP requests for gists. |
 | <pre>/var/log/nginx/github.log</pre> | Records HTTP requests to the {% data variables.product.prodname_dotcom %} application. |
 | <pre>/var/log/nginx/github.error.log</pre> | Records errors associated with HTTP requests. |
-| <pre>/var/log/nginx/pages.log</pre> | Records HTTP requests associated with {% data variables.product.prodname_pages %}. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages). |
+| <pre>/var/log/nginx/pages.log</pre> | Records HTTP requests associated with {% data variables.product.prodname_pages %}. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages). |
 | <pre>/var/log/nginx/pages.error.log</pre> | Records errors related to HTTP requests for {% data variables.product.prodname_pages %}. |
 
 ### Log files for the {% data variables.enterprise.management_console %}
 
-The following log files contain events from your instance's {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/about-the-management-console).
+The following log files contain events from your instance's {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/about-the-management-console).
 
 | Path | Description |
 | :- | :- |
@@ -92,7 +92,7 @@ The following log files contain events related to the configuration of your inst
 
 | Path | Description |
 | :- | :- |
-| <pre>/data/user/common/ghe-config.log</pre> | Records events associated with the latest configuration run. If a configuration run fails, output to the log stops. This log also records information about migrations that run during the process of upgrading an instance's software. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config-apply). |
+| <pre>/data/user/common/ghe-config.log</pre> | Records events associated with the latest configuration run. If a configuration run fails, output to the log stops. This log also records information about migrations that run during the process of upgrading an instance's software. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-config-apply). |
 | <pre>/data/user/config-apply/logs/YYYYMMDD/*</pre> | Stores log files for previous configuration runs. The instance stores the files in a directory that reflects the date, and each file name reflects the node and the ID of the run. |
 
 ### Log files for search
@@ -111,10 +111,10 @@ The following logs contain events from system services on your instance.
 | :- | :- |
 | <pre>/var/log/coredumps.log</pre> | Records information about system processes that terminate unexpectedly. |
 | <pre>/var/log/boot.log</pre> | Records information about the instance's boot process. |
-| <pre>/var/log/chrony/</pre> | This directory contains logs related to Network Time Protocol (NTP) synchronization and the instance's system clock. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-time-synchronization). |
+| <pre>/var/log/chrony/</pre> | This directory contains logs related to Network Time Protocol (NTP) synchronization and the instance's system clock. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/configuring-time-synchronization). |
 | <pre>/var/log/haproxy.log</pre> | Records all web and API requests to the instance. For HTTP connections, entries include the URL that the client requested, as well as the HTTP method for the request. |
-| <pre>/var/log/ssh-console-audit.log</pre> | Records commands that administrators run using the administrative shell (SSH). For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh). |
-| <pre>/var/log/mail-replies/metroplex.log</pre> | Records information about mail that your instance receives. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications). |
+| <pre>/var/log/ssh-console-audit.log</pre> | Records commands that administrators run using the administrative shell (SSH). For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh). |
+| <pre>/var/log/mail-replies/metroplex.log</pre> | Records information about mail that your instance receives. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-email-for-notifications). |
 
 ## System logs in the systemd journal
 
@@ -138,8 +138,8 @@ The following logs record events from the {% data variables.product.prodname_dot
 
 | Service name | Description |
 | :- | :- |
-| <pre>github-resqued</pre> | Records events related to background jobs. If the job involves built-in or external authentication, this log includes information about the request. <br/><br/> If the instance uses LDAP authentication and LDAP Sync is enabled, events for LDAP Sync appear in this log. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync). |
-| <pre>github-unicorn</pre> | Records HTTP and HTTPS operations that users perform in the instance's web UI or via the APIs. If the operation involves built-in or external authentication, this log includes information about the request. <br/><br/> If debug logging is enabled for LDAP or SAML authentication, the debug-level information for authenticated requests appear in this log. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap) or [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging). |
+| <pre>github-resqued</pre> | Records events related to background jobs. If the job involves built-in or external authentication, this log includes information about the request. <br/><br/> If the instance uses LDAP authentication and LDAP Sync is enabled, events for LDAP Sync appear in this log. For more information, see [AUTOTITLE](/admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync). |
+| <pre>github-unicorn</pre> | Records HTTP and HTTPS operations that users perform in the instance's web UI or via the APIs. If the operation involves built-in or external authentication, this log includes information about the request. <br/><br/> If debug logging is enabled for LDAP or SAML authentication, the debug-level information for authenticated requests appear in this log. For more information, see [AUTOTITLE](/admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap) or [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging). |
 
 ### Journal logs for Git
 

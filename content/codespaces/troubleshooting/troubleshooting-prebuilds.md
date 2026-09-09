@@ -42,7 +42,7 @@ cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME
 
 You can check whether a repository is using prebuilds in the "{% data variables.product.prodname_codespaces %}" page of the repository's settings.
 
-You can check how much storage space has been consumed by prebuilds in your current billing cycle by reviewing the billing data for your personal or organization account. You can also generate a usage report to see which repositories have been using prebuilds. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
+You can check how much storage space has been consumed by prebuilds in your current billing cycle by reviewing the billing data for your personal or organization account. You can also generate a usage report to see which repositories have been using prebuilds. For more information, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ## The "Prebuild Ready" label is sometimes missing
 
@@ -67,7 +67,7 @@ If the `devcontainer.json` configuration file for a prebuild configuration speci
 
 ### Increasing the {% data variables.product.prodname_actions %} spending limit
 
-Prebuilds are created and updated using {% data variables.product.prodname_actions %}. Your prebuild workflows will fail if you have used all of your {% data variables.product.prodname_actions %} minutes and have reached your spending limit. If this occurs you can increase your {% data variables.product.prodname_actions %} spending limit to allow the workflows to run. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions).
+Prebuilds are created and updated using {% data variables.product.prodname_actions %}. Your prebuild workflows will fail if you have used all of your {% data variables.product.prodname_actions %} minutes and have reached your spending limit. If this occurs you can increase your {% data variables.product.prodname_actions %} spending limit to allow the workflows to run. For more information, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 ### Authorizing access permissions
 

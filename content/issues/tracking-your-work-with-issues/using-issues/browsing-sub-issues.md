@@ -28,3 +28,40 @@ When you view a sub-issue, you can always find a link back to the parent issue i
 ## Using sub-issues in your projects
 
 You can add sub-issues to your projects and make use of the hierarchy data for building views, grouping items, and filtering your views. See [AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-parent-issue-and-sub-issue-progress-fields).
+
+## Browsing issue hierarchy with {% data variables.product.prodname_cli %}
+
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
+
+To view a parent issue along with its sub-issues, use the `gh issue view` subcommand.
+
+```shell
+gh issue view ISSUE-NUMBER
+```
+
+The output includes the parent reference (if any) and a "Sub-issues" section that lists each sub-issue with its state and completion progress.
+
+```text
+Build a scoreboard octo-org/octo-repo#123
+Feature · Open • monalisa opened 3 days ago • 2 comments
+Assignees: monalisa
+Labels: enhancement
+Type: Feature
+
+
+  Track player scores across rounds.
+
+
+Sub-issues · 1/3 (33%)
+Closed octo-org/octo-repo#124 Design scoreboard layout
+Open octo-org/octo-repo#125 Persist scores between sessions
+Open octo-org/octo-repo#126 Add a leaderboard view
+
+View this issue on GitHub: https://github.com/octo-org/octo-repo/issues/123
+```
+
+To get the same information in a machine-readable form, use the `--json` flag with the `parent`, `subIssues`, and `subIssuesSummary` fields.
+
+```shell
+gh issue view ISSUE-NUMBER --json parent,subIssues,subIssuesSummary
+```

@@ -31,5 +31,5 @@ Any actions or reusable workflows stored in the internal or private repository c
 
 ## Further reading
 
-* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
-* [AUTOTITLE](/actions/using-workflows/reusing-workflows)
+* [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts)
+* [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows)

@@ -8,7 +8,7 @@ You can grant certain roles, teams, or apps bypass permissions {% ifversion push
 * Deploy keys
 {%- endif %}
 * {% data variables.product.prodname_github_apps %}
-* {% data variables.product.prodname_dependabot %}. For more information about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide).
+* {% data variables.product.prodname_dependabot %}. For more information about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/dependabot-quickstart).
 {%- ifversion ghec %}
 * {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features).
 {%- endif %}

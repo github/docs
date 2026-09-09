@@ -23,7 +23,7 @@ When authorizing the {% data variables.product.prodname_github_app %}, you shoul
 * Know which resources you can access: When authorized, the {% data variables.product.prodname_github_app %} will be able to determine which resources you can access that the app can also access. The app may use this, for example, so that it can show you an appropriate list of repositories.
 * Act on your behalf: When authorized, the application may perform tasks on {% data variables.product.company_short %} on your behalf. This might include creating an issue or commenting on a pull request. For more information, see [About {% data variables.product.prodname_github_apps %} acting on your behalf](#about-github-apps-acting-on-your-behalf).
 
-You can review and revoke your authorization at any time. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations).
+You can review and revoke your authorization at any time. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps).
 
 {% ifversion ghec %}
 
@@ -48,4 +48,4 @@ Similarly, if the activity triggers a corresponding entry in the audit logs and 
 
 {% data reusables.apps.install-vs-authorize %}
 
-For more information about installation, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party), {% ifversion ghec or fpt %}[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-personal-account) and [AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization).{% else %}[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps).{% endif %}
+For more information about installation, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party), {% ifversion ghec or fpt %}[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account) and [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations).{% else %}[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app).{% endif %}

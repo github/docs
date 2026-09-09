@@ -38,13 +38,13 @@ For more detailed instructions, see [Managing payment information](/billing/how-
 
 Some international banks place restrictions on international, e-commerce, and automatically recurring transactions. If you're having trouble making a payment with your international credit card, call your bank to see if there are any restrictions on your card.
 
-We also support payments through PayPal. For more information, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
+We also support payments through PayPal. For more information, see [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
 
 ## 3. Contact your bank for details about the transaction
 
 If your card is still valid, you have no restrictions on it, or the restrictions don't apply to your payments for {% data variables.product.company_short %} services, you need to call your bank. Your bank can provide additional information about declined payments if you specifically ask about the attempted transaction. Important information to provide includes:
 
-* **The amount you're being charged.** The amount for your subscription appears on your account's receipts. For more information, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
+* **The amount you're being charged.** The amount for your subscription appears on your account's receipts. For more information, see [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
 * **The date when {% data variables.product.company_short %} bills you.** Your account's billing date appears on your receipts.
 * **The transaction ID number.** Your account's transaction ID appears on your receipts.
 * **The merchant name.** The merchant name is {% data variables.product.prodname_dotcom %}.

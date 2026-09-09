@@ -1,7 +1,7 @@
 ---
-title: 'Reference for {% data variables.product.prodname_copilot %}'
+title: Reference for {% data variables.product.prodname_copilot %}
 shortTitle: Reference
-intro: 'Find information to apply to your work with {% data variables.product.prodname_copilot %}.'
+intro: Find information to apply to your work with {% data variables.product.prodname_copilot %}.
 versions:
   feature: copilot
 children:
@@ -11,17 +11,17 @@ children:
   - /copilot-feature-matrix
   - /keyboard-shortcuts
   - /copilot-cli-reference
+  - /github-copilot-app-reference
   - /custom-agents-configuration
   - /custom-instructions-support
-  - /hooks-configuration
-  - /policy-conflicts
+  - /hooks-reference
+  - /supported-surfaces-for-policies
   - /copilot-allowlist-reference
-  - /mcp-allowlist-enforcement
   - /metrics-data
   - /copilot-billing
-  - /agentic-audit-log-events
-  - /agent-session-filters
   - /review-excluded-files
   - /copilot-usage-metrics
+  - /enterprise-administrators
 contentType: reference
 ---
+

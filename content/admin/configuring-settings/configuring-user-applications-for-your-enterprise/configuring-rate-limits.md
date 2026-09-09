@@ -21,13 +21,13 @@ Rate limits help prevent excessive resource use on {% data variables.location.pr
 
 Implement rate limits carefully and communicate with your users as you tune them. Start with permissive rate limits and gradually adjust them to suit your environment.
 
-You can also configure rate limits for authentication attempts to the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console).
+You can also configure rate limits for authentication attempts to the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console).
 
 ## Enabling rate limits for the {% data variables.product.prodname_enterprise_api %}
 
-Too many requests to the {% data variables.product.prodname_enterprise_api %} can slow down your instance or make it unavailable. For more information about how API rate limits affect your users, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api).
+Too many requests to the {% data variables.product.prodname_enterprise_api %} can slow down your instance or make it unavailable. For more information about how API rate limits affect your users, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
-You can exempt specific users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config).
+You can exempt specific users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-config).
 
 > [!NOTE]
 > The {% data variables.enterprise.management_console %} lists the time period (per minute or per hour) for each rate limit.
@@ -64,7 +64,7 @@ If a member of {% data variables.product.company_short %}'s staff has recommende
 
 ## Configuring rate limits for {% data variables.product.prodname_actions %}
 
-You can apply a rate limit to {% data variables.product.prodname_actions %} workflow runs. For more information about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).
+You can apply a rate limit to {% data variables.product.prodname_actions %} workflow runs. For more information about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).
 
 ### About rate limits for {% data variables.product.prodname_actions %}
 
@@ -74,7 +74,7 @@ To avoid this, you can configure a rate limit for {% data variables.product.prod
 
 > You've exceeded the rate limit for workflow run requests. Please wait before retrying the run.
 
-A good rate limit protects {% data variables.location.product_location %} from unusual spikes in {% data variables.product.prodname_actions %} usage without interfering with day-to-day operations. The right threshold depends on your instance's available resources and typical workload. For more information about hardware requirements for {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements).
+A good rate limit protects {% data variables.location.product_location %} from unusual spikes in {% data variables.product.prodname_actions %} usage without interfering with day-to-day operations. The right threshold depends on your instance's available resources and typical workload. For more information about hardware requirements for {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements).
 
 By default, the rate limit for {% data variables.product.prodname_actions %} is disabled. {% data variables.product.prodname_ghe_server %} can handle temporary usage spikes without problems, so this rate limit protects against sustained high load. Leave it disabled unless you experience performance problems. In some cases, {% data variables.contact.github_support %} may recommend enabling a rate limit for {% data variables.product.prodname_actions %}.
 

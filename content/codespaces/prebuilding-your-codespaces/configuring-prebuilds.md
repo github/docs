@@ -27,7 +27,7 @@ You can set up prebuilds in any repository owned by a personal account. The preb
 > [!NOTE]
 > {% data reusables.codespaces.prebuilds-billing-for-forks %} See [AUTOTITLE](/billing/concepts/product-billing/github-codespaces#how-costs-are-assigned-to-a-billable-account).
 
-For repositories owned by an organization, you can set up prebuilds if the organization is on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan. Additionally, you must have added a payment method and set a spending limit for {% data variables.product.prodname_github_codespaces %} on the organization account or its parent enterprise. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account) and [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
+For repositories owned by an organization, you can set up prebuilds if the organization is on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan. Additionally, you must have added a payment method and set a spending limit for {% data variables.product.prodname_github_codespaces %} on the organization account or its parent enterprise. See [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-budgets-for-your-organization-or-enterprise) and [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
 
 ## Configuring prebuilds
 
@@ -83,14 +83,14 @@ For repositories owned by an organization, you can set up prebuilds if the organ
 
    If you set the number of prebuild versions to save to 1, {% data variables.product.prodname_github_codespaces %} will only save the latest version of the prebuild and will delete the older version each time the template is updated. This means you will not get a prebuilt codespace if you go back to an older dev container configuration.
 
-   There is a storage cost associated with each prebuild version that's retained. For example, if you are generating prebuilds in 4 regions and retaining 2 versions, you will be charged for storage of up to 8 prebuilds. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing).
+   There is a storage cost associated with each prebuild version that's retained. For example, if you are generating prebuilds in 4 regions and retaining 2 versions, you will be charged for storage of up to 8 prebuilds. See [AUTOTITLE](/billing/concepts/product-billing/github-codespaces#pricing).
 
 1. Optionally, add users or teams to notify when the prebuild workflow run fails for this configuration. You can begin typing a username, team name, or full name, then click the name once it appears to add them to the list. The users or teams you add will receive an email when prebuild failures occur, containing a link to the workflow run logs to help with further investigation.
 
    ![Screenshot of the "Failure notifications" setting. The team named "octocat-team" has been added.](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
 
    > [!NOTE]
-   > People will only receive notifications of failed prebuilds if they have enabled notifications for failed Actions workflows in their personal settings. See [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#github-actions-notification-options).
+   > People will only receive notifications of failed prebuilds if they have enabled notifications for failed Actions workflows in their personal settings. See [AUTOTITLE](/actions/concepts/workflows-and-actions/notifications-for-workflow-runs).
 
 1. Optionally, at the bottom of the page, click **Show advanced options**.
 

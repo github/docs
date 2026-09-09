@@ -20,15 +20,17 @@ jobs:
     steps:
       - name: Check if PR author is in docs-content team
         id: check_team
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             try {
               const pr = context.payload.pull_request;
-              await github.rest.teams.getMembershipForUserInOrg({
-                org: 'github',
-                team_slug: 'docs-content',
+              // Team is addressed by numeric ID (org github = 9919, team docs-content = 2796154)
+              // because IDs survive team renames and slugs do not.
+              await github.request('GET /organizations/{org_id}/team/{team_id}/memberships/{username}', {
+                org_id: 9919,
+                team_id: 2796154,
                 username: pr.user.login,
               });
               core.exportVariable('CONTINUE_WORKFLOW', 'true');
@@ -41,7 +43,7 @@ jobs:
 
         if: env.CONTINUE_WORKFLOW == 'true'
 
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |

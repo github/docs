@@ -10,10 +10,10 @@ New GHES releases are cut about every 3 months and around the same time, the old
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about this feature, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with this feature, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about this feature, you can ask in the `#technical-content` Slack channel. If you notice a problem with this feature, you can open an issue in the `github/technical-content` repository.
 
 ## GHES releases
 
@@ -68,6 +68,11 @@ The following scripts are available for manual execution:
 | `npm run deprecate-ghes-archive`    | Archive deprecation tracking issues.              |
 | `npm run release-banner`            | Update the release banner.                        |
 | `npm run update-enterprise-dates`   | Update enterprise release dates.                  |
+| `npm run generate-release-notes`    | Generate draft release notes using Copilot agent. |
+| `npm run notify-release-pms`        | Notify PMs to review their release notes.         |
+| `npm run check-release-approvals`   | Check PM approval status for release notes.       |
+
+See the [scripts README](scripts/README.md) for a full usage guide covering the release notes generation, notification, and approval workflow.
 
 For example, to create new release tracking issues, run:
 ```bash

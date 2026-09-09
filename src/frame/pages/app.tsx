@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
 import { useRouter } from 'next/router'
 
+import { BrandThemeProvider } from '@/color-schemes/components/BrandThemeProvider'
 import { initializeEvents } from '@/events/components/events'
 import {
   initializeExperiments,
@@ -17,7 +18,6 @@ import {
 } from '@/languages/components/LanguagesContext'
 import { useTheme } from '@/color-schemes/components/useTheme'
 import { SharedUIContextProvider } from '@/frame/components/context/SharedUIContext'
-import { CTAPopoverProvider } from '@/frame/components/context/CTAContext'
 import { ClientSideHashFocus } from '@/frame/components/ClientSideHashFocus'
 import type { ExtendedRequest } from '@/types'
 
@@ -87,37 +87,6 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
     }
   }, [router, router.query, pageProps.mainContext])
 
-  useEffect(() => {
-    // The CSS from primer looks something like this:
-    //
-    //   @media (prefers-color-scheme: dark) [data-color-mode=auto][data-dark-theme=dark] {
-    //       --color-canvas-default: black;
-    //   }
-    //   html {
-    //       background-color: var(--color-canvas-default);
-    //   }
-    //
-    // So if that `[data-color-mode][data-dark-theme=dark]` isn't present
-    // on the html, but on a top-level wrapping `<div>` then the `<html>`
-    // doesn't get the right CSS.
-    // Normally, with Primer you make sure you set these things in the
-    // `<html>` tag and you can use `_document.tsx` for that but that's
-    // only something you can do in server-side rendering. So,
-    // we use a hook to assure that the `<html>` tag has the correct
-    // dataset attribute values.
-    const html = document.querySelector('html')
-    if (html) {
-      // Note, this is the same as setting `<html data-color-mode="...">`
-      // But you can't do `html.dataset['color-mode']` so you use the
-      // camelCase variant and you get the same effect.
-      // Appears Next.js can't modify <html> after server rendering:
-      // https://stackoverflow.com/a/54774431
-      html.dataset.colorMode = theme.css.colorMode
-      html.dataset.darkTheme = theme.css.darkTheme
-      html.dataset.lightTheme = theme.css.lightTheme
-    }
-  }, [theme])
-
   return (
     <>
       <Head>
@@ -142,16 +111,23 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
         colorMode={theme.component.colorMode}
         dayScheme={theme.component.dayScheme}
         nightScheme={theme.component.nightScheme}
-        preventSSRMismatch
       >
-        <LanguagesContext.Provider value={languagesContext}>
-          <SharedUIContextProvider>
-            <CTAPopoverProvider>
+        {/*
+          Primer Brand ThemeProvider, nested so migrated @primer/react-brand
+          components receive brand theme context during the Docs 2026 migration
+          (github/docs-engineering#5879). Runs alongside the @primer/react
+          ThemeProvider above while the component-by-component swap is in progress.
+          Resolve Brand's color mode from Primer React's active color scheme so
+          opposite-mode day/night schemes stay in sync.
+        */}
+        <BrandThemeProvider>
+          <LanguagesContext.Provider value={languagesContext}>
+            <SharedUIContextProvider>
               <ClientSideHashFocus />
               <Component {...pageProps} />
-            </CTAPopoverProvider>
-          </SharedUIContextProvider>
-        </LanguagesContext.Provider>
+            </SharedUIContextProvider>
+          </LanguagesContext.Provider>
+        </BrandThemeProvider>
       </ThemeProvider>
     </>
   )

@@ -47,7 +47,7 @@ If you choose the `docs` folder on any branch as your publishing source, then la
 
 Your {% data variables.product.prodname_pages %} site will always be deployed with a {% data variables.product.prodname_actions %} workflow run, even if you've configured your {% data variables.product.prodname_pages %} site to be built using a different CI tool. Most external CI workflows "deploy" to {% data variables.product.prodname_pages %} by committing the build output to the `gh-pages` branch of the repository, and typically include a `.nojekyll` file. When this happens, the {% data variables.product.prodname_actions %} workflow will detect the state that the branch does not need a build step, and will execute only the steps necessary to deploy the site to {% data variables.product.prodname_pages %} servers.
 
-To find potential errors with either the build or deployment, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history). For more information about how to re-run the workflow in case of an error, see [AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs).
+To find potential errors with either the build or deployment, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see [AUTOTITLE](/actions/how-tos/monitor-workflows/view-workflow-run-history). For more information about how to re-run the workflow in case of an error, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs).
 
 {% endif %}
 
@@ -75,7 +75,7 @@ When you configure your site to publish with {% data variables.product.prodname_
 1. Use the [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) action to upload the static files as an artifact.
 1. If the workflow was triggered by a push to the default branch, use the [`actions/deploy-pages`](https://github.com/actions/deploy-pages) action to deploy the artifact. This step is skipped if the workflow was triggered by a pull request.
 
-The workflow templates use a deployment environment called `github-pages`. If your repository does not already include an environment called `github-pages`, the environment will be created automatically. We recommend that you add a deployment protection rule so that only the default branch can deploy to this environment. For more information, see [AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment).
+The workflow templates use a deployment environment called `github-pages`. If your repository does not already include an environment called `github-pages`, the environment will be created automatically. We recommend that you add a deployment protection rule so that only the default branch can deploy to this environment. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
 
 {% ifversion fpt or ghec %}
 
@@ -86,4 +86,4 @@ The workflow templates use a deployment environment called `github-pages`. If yo
 
 ### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
 
-For information about how to troubleshoot your {% data variables.product.prodname_actions %} workflow, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting).
+For information about how to troubleshoot your {% data variables.product.prodname_actions %} workflow, see [AUTOTITLE](/actions/how-tos/monitor-workflows).

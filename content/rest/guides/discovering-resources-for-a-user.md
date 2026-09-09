@@ -29,7 +29,7 @@ In addition to having their own personal repositories, a user may be a collabora
 
 [OAuth scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) and [organization application policies](https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/) determine which of those repositories your app can access for a user. Use the workflow below to discover those repositories.
 
-As always, first we'll require [GitHub's Octokit.rb](https://github.com/octokit/octokit.rb) Ruby library. Then we'll configure Octokit.rb to automatically handle pagination for us. For more information about pagination, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api).
+As always, first we'll require [GitHub's Octokit.rb](https://github.com/octokit/octokit.rb) Ruby library. Then we'll configure Octokit.rb to automatically handle pagination for us. For more information about pagination, see [AUTOTITLE](/rest/using-the-rest-api/using-pagination-in-the-rest-api).
 
 ``` ruby
 require 'octokit'
@@ -66,7 +66,7 @@ end
 
 Applications can perform all sorts of organization-related tasks for a user. To perform these tasks, the app needs an [OAuth authorization](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) with sufficient permission. For example, the `read:org` scope allows you to [list teams](/rest/teams/teams#list-teams), and the `user` scope lets you [publicize the user’s organization membership](/rest/orgs/members#set-public-organization-membership-for-the-authenticated-user). Once a user has granted one or more of these scopes to your app, you're ready to fetch the user’s organizations.
 
-Just as we did when discovering repositories above, we'll start by requiring [GitHub's Octokit.rb](https://github.com/octokit/octokit.rb) Ruby library and configuring it to take care of pagination for us. For more information about pagination, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api).
+Just as we did when discovering repositories above, we'll start by requiring [GitHub's Octokit.rb](https://github.com/octokit/octokit.rb) Ruby library and configuring it to take care of pagination for us. For more information about pagination, see [AUTOTITLE](/rest/using-the-rest-api/using-pagination-in-the-rest-api).
 
 ``` ruby
 require 'octokit'

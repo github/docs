@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import type { CheerioAPI } from 'cheerio'
+import type { Element } from 'domhandler'
 
 import { getDOM, head } from '@/tests/helpers/e2etest'
 
@@ -12,13 +13,13 @@ describe('subcategories', () => {
     const links = $('[data-testid=table-of-contents] a[href]')
     expect(links.length).toBeGreaterThan(0)
     // They all have the same prefix
-    const hrefs = links.map((i: number, el: any) => $(el).attr('href')).get()
+    const hrefs = links.map((i: number, el: Element) => $(el).attr('href')).get()
     expect(
       hrefs.every((href: string) => href.startsWith('/en/get-started/start-your-journey/')),
     ).toBeTruthy()
     // The all resolve to a 200 OK without redirects
     const responses = await Promise.all(hrefs.map((href: string) => head(href)))
-    expect(responses.every((r: any) => r.statusCode === 200)).toBeTruthy()
+    expect(responses.every((r: { statusCode: number }) => r.statusCode === 200)).toBeTruthy()
   })
 
   test('actions/category/subcategory subcategory has its articles intro', async () => {
@@ -27,7 +28,7 @@ describe('subcategories', () => {
     expect(lead).toMatch("Here's the intro for HubGit Actions.")
 
     const links = $('[data-testid=table-of-contents] a[href]')
-    const hrefs = links.map((i: number, el: any) => $(el).attr('href')).get()
+    const hrefs = links.map((i: number, el: Element) => $(el).attr('href')).get()
     expect(hrefs.every((href: string) => href.startsWith('/en/actions/category/'))).toBeTruthy()
 
     const firstArticleH2 = $('[data-testid=table-of-contents] h2').first()
@@ -50,10 +51,10 @@ describe('categories', () => {
     const links = $('[data-testid=table-of-contents] a[href]')
     expect(links.length).toBeGreaterThan(0)
     // They all have the same prefix
-    const hrefs = links.map((i: number, el: any) => $(el).attr('href')).get()
+    const hrefs = links.map((i: number, el: Element) => $(el).attr('href')).get()
     expect(hrefs.every((href: string) => href.startsWith('/en/actions/category/'))).toBeTruthy()
     // The all resolve to a 200 OK without redirects
     const responses = await Promise.all(hrefs.map((href: string) => head(href)))
-    expect(responses.every((r: any) => r.statusCode === 200)).toBeTruthy()
+    expect(responses.every((r: { statusCode: number }) => r.statusCode === 200)).toBeTruthy()
   })
 })

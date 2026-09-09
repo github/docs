@@ -24,7 +24,7 @@ category:
 
 {% data variables.product.prodname_dependabot %} helps users find and fix vulnerabilities in their dependencies. You must first set up {% data variables.product.prodname_dependabot %} for your enterprise, and then you can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
 
-{% data variables.product.prodname_dependabot %} is just one of many features available to harden supply chain security for {% data variables.product.prodname_dotcom %}. For more information about the other features, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise).
+{% data variables.product.prodname_dependabot %} is just one of many features available to harden supply chain security for {% data variables.product.prodname_dotcom %}. For more information about the other features, see [AUTOTITLE](/code-security/concepts/security-at-scale/supply-chain-security).
 
 ### About {% data variables.product.prodname_dependabot_alerts %}
 
@@ -34,14 +34,14 @@ With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.
 
 After you set up {% data variables.product.prodname_dependabot %} for your enterprise, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. Only {% data variables.product.company_short %}-reviewed advisories are synchronized. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-You can also choose to manually sync vulnerability data at any time. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise).
+You can also choose to manually sync vulnerability data at any time. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/view-vulnerability-data).
 
 > [!NOTE]
 > When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.prodname_ghe_server %} is uploaded to {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}.
 
 When {% data variables.product.prodname_ghe_server %} receives information about a vulnerability, it identifies repositories that use the affected version of the dependency and generates {% data variables.product.prodname_dependabot_alerts %}. You can choose whether or not to notify users automatically about new {% data variables.product.prodname_dependabot_alerts %}.
 
-For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning is triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added, {% data variables.product.prodname_ghe_server %} scans all existing repositories and generates alerts for any repository that is vulnerable. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning is triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added, {% data variables.product.prodname_ghe_server %} scans all existing repositories and generates alerts for any repository that is vulnerable. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts).
 
 {% ifversion dependabot-malware-alerts %}
 
@@ -65,18 +65,18 @@ After you enable {% data variables.product.prodname_dependabot_alerts %}, you ca
 
 By default, {% data variables.product.prodname_actions %} runners used by {% data variables.product.prodname_dependabot %} need access to the internet, to download updated packages from upstream package managers. For {% data variables.product.prodname_dependabot_updates %} powered by {% data variables.product.prodname_github_connect %}, internet access provides your runners with a token that allows access to dependencies and advisories hosted on {% data variables.product.prodname_dotcom_the_website %}.
 
-You can enable {% data variables.product.prodname_dependabot_updates %} for specific private registries on {% data variables.product.prodname_ghe_server %} instances with limited, or no, internet access. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/configuring-dependabot-to-work-with-limited-internet-access).
+You can enable {% data variables.product.prodname_dependabot_updates %} for specific private registries on {% data variables.product.prodname_ghe_server %} instances with limited, or no, internet access. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configure-limited-internet-access).
 
 With {% data variables.product.prodname_dependabot_updates %}, {% data variables.product.company_short %} automatically creates pull requests to update dependencies in two ways.
 
-* **{% data variables.product.prodname_dependabot_version_updates %}:** Users add a {% data variables.product.prodname_dependabot %} configuration file to the repository to enable {% data variables.product.prodname_dependabot %} to create pull requests when a new version of a tracked dependency is released. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).
-* **{% data variables.product.prodname_dependabot_security_updates %}:** Users toggle a repository setting to enable {% data variables.product.prodname_dependabot %} to create pull requests when {% data variables.product.prodname_dotcom %} detects a vulnerability in one of the dependencies of the dependency graph for the repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
+* **{% data variables.product.prodname_dependabot_version_updates %}:** Users add a {% data variables.product.prodname_dependabot %} configuration file to the repository to enable {% data variables.product.prodname_dependabot %} to create pull requests when a new version of a tracked dependency is released. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-version-updates).
+* **{% data variables.product.prodname_dependabot_security_updates %}:** Users toggle a repository setting to enable {% data variables.product.prodname_dependabot %} to create pull requests when {% data variables.product.prodname_dotcom %} detects a vulnerability in one of the dependencies of the dependency graph for the repository. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts) and [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-security-updates).
 
 ## Enabling {% data variables.product.prodname_dependabot_alerts %}
 
 Before you can enable {% data variables.product.prodname_dependabot_alerts %}, you must first set up {% data variables.product.prodname_dependabot %} for your enterprise:
-* You must enable {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect).
-* You must enable the dependency graph. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).
+* You must enable {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom).
+* You must enable the dependency graph. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/enable-dependency-graph).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
@@ -90,14 +90,14 @@ Before you can enable {% data variables.product.prodname_dependabot_alerts %}, y
     > [!TIP]
    > We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of realtime notifications. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
 
-You can now enable {% data variables.product.prodname_dependabot_alerts %} for all existing or new private and internal repositories in the enterprise settings page for "{% data variables.product.UI_advanced_security_ent %}." Alternatively, repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for each repository and organization. Public repositories are always enabled by default. For more information, see [AUTOTITLE](/enterprise-server@latest/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+You can now enable {% data variables.product.prodname_dependabot_alerts %} for all existing or new private and internal repositories in the enterprise settings page for "{% data variables.product.UI_advanced_security_ent %}." Alternatively, repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for each repository and organization. Public repositories are always enabled by default. For more information, see [AUTOTITLE](/enterprise-server@latest/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-dependabot-alerts).
 
 ## Enabling {% data variables.product.prodname_dependabot_updates %}
 
 Before you can enable {% data variables.product.prodname_dependabot_updates %}:
 * You must enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise. For more information, see "Enabling {% data variables.product.prodname_dependabot_alerts %}" above.
-* You must enable TLS. {% data variables.product.prodname_dependabot_updates %} run on self-hosted runners, which need to have TLS enabled. For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise#prerequisites).
-* You must configure {% data variables.product.prodname_ghe_server %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
+* You must enable TLS. {% data variables.product.prodname_dependabot_updates %} run on self-hosted runners, which need to have TLS enabled. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise#prerequisites).
+* You must configure {% data variables.product.prodname_ghe_server %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
 
 {% data variables.product.prodname_dependabot_updates %} are not supported on {% data variables.product.prodname_ghe_server %} if your enterprise uses clustering.
 
@@ -111,11 +111,11 @@ Before you can enable {% data variables.product.prodname_dependabot_updates %}:
 1. Under "Security", select **{% data variables.product.prodname_dependabot_updates %}**.
 {% data reusables.enterprise_management_console.save-settings %}
 1. Click **Visit your instance**.
-1. Configure dedicated self-hosted runners to create the pull requests that will update dependencies. This is required because the workflows use a specific runner label. For more information, see [AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates).
+1. Configure dedicated self-hosted runners to create the pull requests that will update dependencies. This is required because the workflows use a specific runner label. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates).
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 1. Under "{% data variables.product.prodname_dependabot %}", to the right of "Users can easily upgrade to non-vulnerable open source code dependencies", click **Enable**.
 
-When you enable {% data variables.product.prodname_dependabot_alerts %}, you should consider also setting up {% data variables.product.prodname_actions %} for {% data variables.product.prodname_dependabot_security_updates %}. This feature allows developers to fix vulnerabilities in their dependencies. For more information, see [AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates).
+When you enable {% data variables.product.prodname_dependabot_alerts %}, you should consider also setting up {% data variables.product.prodname_actions %} for {% data variables.product.prodname_dependabot_security_updates %}. This feature allows developers to fix vulnerabilities in their dependencies. For more information, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates).
 
-If you need enhanced security, we recommend configuring {% data variables.product.prodname_dependabot %} to use private registries. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#configuring-private-registries).
+If you need enhanced security, we recommend configuring {% data variables.product.prodname_dependabot %} to use private registries. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#configuring-private-registries).

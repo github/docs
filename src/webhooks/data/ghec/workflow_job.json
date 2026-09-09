@@ -1,0 +1,278 @@
+{
+  "completed": {
+    "descriptionHtml": "<p>A job in a workflow run finished. This event occurs when a job in a workflow is completed, regardless of whether the job was successful or unsuccessful.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a job in a GitHub Actions workflow. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/using-jobs/using-jobs-in-a-workflow\">Using jobs in a workflow</a>.\" For information about the API to manage workflow jobs, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/workflow-jobs\">Workflow jobs</a>\" in the REST API documentation.</p>\n<p>For activity relating to a workflow run instead of a job in a workflow run, use the <code>workflow_run</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Actions\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "completed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "workflow_job",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "deployment",
+        "description": "<p>A request for a specific ref(branch,sha,tag) to be deployed</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "completed",
+    "category": "workflow_job"
+  },
+  "in_progress": {
+    "descriptionHtml": "<p>A job in a workflow run started processing on a runner.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a job in a GitHub Actions workflow. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/using-jobs/using-jobs-in-a-workflow\">Using jobs in a workflow</a>.\" For information about the API to manage workflow jobs, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/workflow-jobs\">Workflow jobs</a>\" in the REST API documentation.</p>\n<p>For activity relating to a workflow run instead of a job in a workflow run, use the <code>workflow_run</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Actions\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "in_progress"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "workflow_job",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "deployment",
+        "description": "<p>A request for a specific ref(branch,sha,tag) to be deployed</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "in_progress",
+    "category": "workflow_job"
+  },
+  "queued": {
+    "descriptionHtml": "<p>A job in a workflow run was created.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a job in a GitHub Actions workflow. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/using-jobs/using-jobs-in-a-workflow\">Using jobs in a workflow</a>.\" For information about the API to manage workflow jobs, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/workflow-jobs\">Workflow jobs</a>\" in the REST API documentation.</p>\n<p>For activity relating to a workflow run instead of a job in a workflow run, use the <code>workflow_run</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Actions\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "queued"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "workflow_job",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "deployment",
+        "description": "<p>A request for a specific ref(branch,sha,tag) to be deployed</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "queued",
+    "category": "workflow_job"
+  },
+  "waiting": {
+    "descriptionHtml": "<p>A job in a workflow run was created and is waiting for approvals.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a job in a GitHub Actions workflow. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/using-jobs/using-jobs-in-a-workflow\">Using jobs in a workflow</a>.\" For information about the API to manage workflow jobs, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/workflow-jobs\">Workflow jobs</a>\" in the REST API documentation.</p>\n<p>For activity relating to a workflow run instead of a job in a workflow run, use the <code>workflow_run</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Actions\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "waiting"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "workflow_job",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "deployment",
+        "description": "<p>A request for a specific ref(branch,sha,tag) to be deployed</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "waiting",
+    "category": "workflow_job"
+  }
+}

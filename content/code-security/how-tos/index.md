@@ -15,6 +15,7 @@ children:
   - manage-security-alerts
   - /maintain-quality-code
   - /report-and-fix-vulnerabilities
+  - /use-ghas-with-ai-coding-agents
   - /view-and-interpret-data
 ---
 

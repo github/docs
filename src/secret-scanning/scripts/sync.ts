@@ -8,7 +8,7 @@
  * directory to src/secret-scanning/data/pattern-docs
  */
 import { writeFile, mkdir } from 'fs/promises'
-import yaml from 'js-yaml'
+import { load, dump } from 'js-yaml'
 import path from 'path'
 
 import { getDirectoryContents } from '@/workflows/git-utils'
@@ -36,7 +36,7 @@ async function main() {
     // ensure yaml can be parsed
     let yamlData
     try {
-      yamlData = yaml.load(file.content)
+      yamlData = load(file.content)
     } catch (error) {
       console.error('The public-docs.yml file being synced is not valid yaml')
       throw error
@@ -54,7 +54,7 @@ async function main() {
     const localFilePath = `${SECRET_SCANNING_DIR}/${filePath}`
 
     await mkdir(path.dirname(localFilePath), { recursive: true })
-    await writeFile(localFilePath, yaml.dump(yamlData))
+    await writeFile(localFilePath, dump(yamlData))
   }
 }
 

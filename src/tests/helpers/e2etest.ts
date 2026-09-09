@@ -5,13 +5,13 @@ import { omitBy, isUndefined } from 'lodash-es'
 type ResponseTypes = 'buffer' | 'json' | 'text'
 type ResponseTypeMap = {
   buffer: ArrayBuffer
-  json: any
+  json: unknown
   text: string
 }
 
 interface GetOptions<ResponseType extends ResponseTypes = 'text'> {
   method?: string
-  body?: any
+  body?: RequestInit['body']
   followRedirects?: boolean
   followAllRedirects?: boolean
   headers?: Record<string, string>
@@ -191,7 +191,7 @@ export async function getDOM(route: string, options: GetDOMOptions = {}): Promis
  * @param opts - Options for the request.
  * @returns A promise that resolves to the parsed JSON object.
  */
-export async function getJSON<T = any>(
+export async function getJSON<T = unknown>(
   route: string,
   opts: Omit<GetOptions, 'method'> = {},
 ): Promise<T> {

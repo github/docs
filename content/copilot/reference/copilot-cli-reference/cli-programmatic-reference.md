@@ -39,7 +39,7 @@ There are a number of command-line options that are particularly useful when run
 | `--allow-tool=TOOL ...`       | Selectively grant permission for a specific tool. For multiple tools, use a quoted, comma-separated list. |
 | `--allow-url=URL ...`         | Allow the agent to fetch a specific URL or domain. Useful when a workflow needs web access to known endpoints. For multiple URLs, use a quoted, comma-separated list. |
 | `--deny-tool=TOOL ...`        | Deny a specific tool. Useful for restricting what the agent can do in a locked-down workflow. For multiple tools, use a quoted, comma-separated list. |
-| `--model=MODEL`               | Choose the AI model (for example, `gpt-5.2` or `claude-sonnet-4.6`). Useful for pinning a model in reproducible workflows. See [Choosing a model](#choosing-a-model) below. |
+| `--model=MODEL`               | Choose the AI model (for example, `gpt-5.4` or `claude-haiku-4.5`). Useful for pinning a model in reproducible workflows. See [Choosing a model](#choosing-a-model) below. |
 | `--no-ask-user`               | Prevent the agent from pausing to seek additional user input. |
 | `--secret-env-vars=VAR ...`   | An environment variable whose value you want redacted in output. For multiple variables, use a quoted, comma-separated list. Essential for preventing secrets being exposed in logs. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted by default. |
 | `--share=PATH`                | Export the session transcript to a markdown file after non-interactive completion (defaults to `./copilot-session-<ID>.md`). Useful for auditing or archiving what the agent did. Note that session transcripts may contain sensitive information. |
@@ -86,7 +86,7 @@ You can use environment variables to configure various aspects of the CLI's beha
 | Variable              | Description   |
 | --------------------- | ------------- |
 | `COPILOT_ALLOW_ALL`   | Set to `true` for full permissions |
-| `COPILOT_MODEL`       | Set the model (for example, `gpt-5.2`, `claude-sonnet-4.5`) |
+| `COPILOT_MODEL`       | Set the model (for example, `gpt-5.4`, `claude-haiku-4.5`) |
 | `COPILOT_HOME`        | Set the directory for the CLI configuration file (`~/.copilot` by default) |
 | `COPILOT_GITHUB_TOKEN`| Authentication token (highest precedence) |
 | `GH_TOKEN`            | Authentication token (second precedence) |
@@ -115,16 +115,16 @@ copilot -p "Fix the race condition in the worker pool" \
 ```
 
 > [!NOTE]
-> You can find the model strings for all available models in the description of the `--model` option when you enter `copilot help` in your terminal.
+> To see the model strings for all available models, run the `/model` command in an interactive {% data variables.copilot.copilot_cli_short %} session. For the full list of models and the clients that support them, see [AUTOTITLE](/copilot/reference/ai-models/supported-models).
 
 Alternatively, you can set the `COPILOT_MODEL` environment variable to specify a model for the duration of the shell session.
 
-To persist a model selection across shell sessions, you can set the `model` key in the CLI configuration file. This file is located at `~/.copilot/config.json` (or `$COPILOT_HOME/.copilot/config.json` if you have set the `COPILOT_HOME` environment variable). Some models also allow you to set a reasoning effort level, which controls how much time the model spends thinking before responding.
+To persist a model selection across shell sessions, you can set the `model` key in the CLI configuration file. This file is located at `~/.copilot/settings.json` (or `$COPILOT_HOME/settings.json` if you have set the `COPILOT_HOME` environment variable). Some models also allow you to set a reasoning effort level, which controls how much time the model spends thinking before responding.
 
 ```json copy
 {
   "model": "gpt-5.3-codex",
-  "reasoning_effort": "low"
+  "effortLevel": "low"
 }
 ```
 
@@ -138,7 +138,7 @@ When determining which model to use for a given prompt, the CLI checks for model
 * Where a custom agent is used: the model specified in the custom agent definition (if any).
 * The `--model` command line option.
 * The `COPILOT_MODEL` environment variable.
-* The `model` key in the configuration file (`~/.copilot/config.json` or `$COPILOT_HOME/.copilot/config.json`).
+* The `model` key in the configuration file (`~/.copilot/settings.json` or `$COPILOT_HOME/settings.json`).
 * The CLI's default model.
 
 ## Using custom agents

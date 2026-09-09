@@ -88,9 +88,9 @@ Review your rate limit data periodically, since usage patterns change as new int
 
 ## Additional considerations
 
-* **GraphQL API limits.** The GraphQL API has a separate rate limit (default: 5,000 points per hour) that cannot be bypassed through the exemption list. For more information, see [AUTOTITLE](/graphql/overview/rate-limits-and-node-limits-for-the-graphql-api).
+* **GraphQL API limits.** The GraphQL API has a separate rate limit (default: 5,000 points per hour) that cannot be bypassed through the exemption list. For more information, see [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api).
 * **Secondary rate limits.** You can also enable secondary rate limits to protect the overall level of service. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits#enabling-secondary-rate-limits).
 
 ## Further reading
 
-* [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)
+* [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api)

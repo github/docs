@@ -1,12 +1,11 @@
 declare module '@github/markdownlint-github' {
+  import type { RuleParams, RuleOnError } from 'markdownlint'
+
   interface MarkdownlintRule {
     names: string[]
     description: string
     tags: string[]
-    // Using any because @github/markdownlint-github doesn't provide TypeScript definitions
-    // params contains markdownlint parsing context with varying structures per rule
-    // onError is a callback function with dynamic signature
-    function: (params: any, onError: any) => void
+    function: (params: RuleParams, onError: RuleOnError) => void
   }
 
   const markdownlintGitHub: MarkdownlintRule[]

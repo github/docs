@@ -5,7 +5,7 @@ import getLinkData from '@/frame/lib/get-link-data'
 
 /**
  * This is the max. number of featured links, by any category, that we
- * display on the product landing pages.
+ * display on index landing pages (homepage and TOC landings).
  * The reason it's variable is that some featured links are conditional.
  * For example:
  *
@@ -20,12 +20,15 @@ import getLinkData from '@/frame/lib/get-link-data'
  * would end up being blank and thus omitted.
  *
  * The reason we don't want to display too many is because it might
- * make the product landing page columns that lists links far too
+ * make the landing page columns that lists links far too
  * long ("high").
  */
 const MAX_FEATURED_LINKS = 4
 
-// this middleware adds properties to the context object
+// This middleware resolves `featuredLinks` from the page's frontmatter into
+// a `req.context.featuredLinks` object consumed by the homepage and toc
+// landing renderers. It runs for any `index.md` page that defines
+// `featuredLinks` in frontmatter.
 export default async function featuredLinks(
   req: ExtendedRequest,
   res: Response,
@@ -34,13 +37,7 @@ export default async function featuredLinks(
   if (!req.context) throw new Error('request is not contextualized')
   if (!req.context.page) return next()
 
-  if (
-    !(
-      req.context.page.relativePath.endsWith('index.md') ||
-      req.context.page.layout === 'product-landing'
-    )
-  )
-    return next()
+  if (!req.context.page.relativePath.endsWith('index.md')) return next()
 
   if (!req.context.page.featuredLinks) return next()
 

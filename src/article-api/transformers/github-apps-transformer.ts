@@ -124,7 +124,9 @@ export class GithubAppsTransformer implements PageTransformer {
     }
 
     // Get the GitHub Apps data
-    const appsData = await getAppsData(pageType, currentVersion, effectiveApiVersion)
+    const appsData = (await getAppsData(pageType, currentVersion, effectiveApiVersion)) as
+      | GitHubAppsListData
+      | GitHubAppsPermissionsData
 
     // Prepare manual content
     let manualContent = ''

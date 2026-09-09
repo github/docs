@@ -7,8 +7,9 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /editing-a-custom-security-configuration
-  - /filtering-repositories-in-your-organization-using-the-repository-table
-  - /detaching-repositories-from-their-security-configurations
-  - /deleting-a-custom-security-configuration
+  - /edit-custom-configuration
+  - /filter-repositories
+  - /detach-security-configuration
+  - /delete-custom-configuration
 ---
+

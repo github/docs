@@ -2,7 +2,7 @@
 title: Managing GitHub Copilot policies as an individual subscriber
 shortTitle: Manage policies
 intro: 'Find out how to change your personal settings on {% data variables.product.github %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
-product: '{% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_free_short %}'
+product: '{% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, and {% data variables.copilot.copilot_free_short %}'
 versions:
   feature: copilot
 redirect_from:
@@ -30,7 +30,7 @@ Your personal settings for {% data variables.product.prodname_copilot %} include
 
 If you choose to block suggestions matching public code, in most {% data variables.product.prodname_copilot %} products, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match, or a near match, the suggestion is not shown to you.
 
-If you choose to allow suggestions matching public code or use a product that does not support "Block" mode, when {% data variables.product.prodname_copilot_short %} suggests matching code you can display details of the matches and click through to the relevant repositories on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
+If you choose to allow suggestions matching public code or use a product that does not support "Block" mode, when {% data variables.product.prodname_copilot_short %} suggests matching code you can display details of the matches and click through to the relevant repositories on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/copilot/how-tos/get-code-suggestions/find-matching-code).
 
 {% data reusables.user-settings.copilot-settings %}
 1. To the right of **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
@@ -56,12 +56,14 @@ If you choose to allow suggestions matching public code or use a product that do
 ## Enabling or disabling third-party coding agents in your repositories
 
 > [!NOTE]
-> {% data reusables.gated-features.third-party-agents %}
+> {% data reusables.copilot.plans.permission-paid-plans-no-purchase-link %}
 
 You can choose whether to allow the following coding agents to be enabled in your personal account:
 
 * {% data variables.product.prodname_anthropic_claude %}
 * {% data variables.product.prodname_openai_codex %}
+
+Installed {% data variables.copilot.agent_apps %} also appear under "Partner agents" and are enabled in the same way. For more information, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
 
 Coding agents have access to the same repositories that {% data variables.copilot.copilot_cloud_agent %} has been enabled in.
 

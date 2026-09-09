@@ -114,7 +114,7 @@ const copyMe = true
 
 Code sample annotations help explain longer code examples by rendering comments as annotations next to the sample code. This lets us write longer explanations of code without cluttering the code itself. Code samples with annotations are rendered in a two pane layout with the code sample on the left and the annotations on the right. The annotations are visually emphasized when someone hovers their cursor over the code example.
 
-Code annotations only work in articles with the `layout: inline` frontmatter property. For more information on how to write and style code annotations, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/annotating-code-examples).
+Code annotations only work in articles with the `layout: inline` frontmatter property. For more information on how to write and style code annotations, see [AUTOTITLE](/contributing/writing-for-github-docs/annotating-code-examples).
 
 ### Example of an annotated code sample
 
@@ -200,7 +200,7 @@ Improve the variable names in this function
 ```
 ````
 
-There are many examples of prompt blocks with context in the {% data variables.product.prodname_copilot_short %} Cookbook. For example, see [AUTOTITLE](/free-pro-team@latest/copilot/tutorials/copilot-chat-cookbook/refactor-code/improve-code-readability).
+There are many examples of prompt blocks with context in the {% data variables.product.prodname_copilot_short %} Cookbook. For example, see [AUTOTITLE](/free-pro-team@latest/copilot/tutorials/copilot-cookbook/refactor-code/improve-code-readability).
 
 ### Inline prompts
 
@@ -267,7 +267,7 @@ These instructions are pertinent to Windows users.
 {% endwindows %}{% endraw %}
 ```
 
-You can define a default platform in an article's YAML frontmatter. For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#defaultplatform).
+You can define a default platform in an article's YAML frontmatter. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/using-yaml-frontmatter#defaultplatform).
 
 ## Tool tags
 
@@ -275,9 +275,9 @@ We occasionally need to write documentation that has different instructions for 
 
 {% data variables.product.prodname_docs %} maintains tool tags for {% data variables.product.prodname_dotcom %} products and selected third-party extensions. See the [`all-tools.ts`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.ts) object in the `github/docs` repository for a list of all supported tools.
 
-On rare occasions, we will add new tools. Before adding a new tool, read [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/creating-tool-switchers-in-articles). To add a new tool, add an entry to the `allTools` object in [`lib/all-tools.ts`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.ts) as a key-value pair. The key is the tag you'll use to refer to the tool in the article, and the value is how the tool will be identified on the tool picker at the top of the article.
+On rare occasions, we will add new tools. Before adding a new tool, read [AUTOTITLE](/contributing/writing-for-github-docs/creating-tool-switchers-in-articles). To add a new tool, add an entry to the `allTools` object in [`lib/all-tools.ts`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.ts) as a key-value pair. The key is the tag you'll use to refer to the tool in the article, and the value is how the tool will be identified on the tool picker at the top of the article.
 
-You can define a default tool for an article in the YAML frontmatter. For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#defaulttool).
+You can define a default tool for an article in the YAML frontmatter. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/using-yaml-frontmatter#defaulttool).
 
 ### Example usage of tool tags
 
@@ -436,7 +436,7 @@ If this happens, add the following CSS style to the `<table>` HTML tag:
 <table style="table-layout: fixed;">
 ```
 
-For a current example of this usage, see [AUTOTITLE](/actions/examples).
+For a current example of this usage, see [AUTOTITLE](/actions/tutorials/manage-your-work).
 
 ## Links
 
@@ -468,7 +468,7 @@ For more information about links, see [AUTOTITLE](/contributing/style-guide-and-
 
 ### Permalinks
 
-Because the site is dynamic, it does not build HTML files for each different version of an article. Instead it generates a "permalink" for every version of the article. It does this based on the article's [`versions` frontmatter](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#versions).
+Because the site is dynamic, it does not build HTML files for each different version of an article. Instead it generates a "permalink" for every version of the article. It does this based on the article's [`versions` frontmatter](/contributing/writing-for-github-docs/using-yaml-frontmatter#versions).
 
 > [!NOTE]
 > As of early 2021, the `free-pro-team@latest` version is not included in URLs. A helper function called `lib/remove-fpt-from-path.ts` removes the version from URLs.

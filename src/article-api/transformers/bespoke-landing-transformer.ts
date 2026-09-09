@@ -95,10 +95,7 @@ export class BespokeLandingTransformer implements PageTransformer {
     // Note: For bespoke-landing pages, the site shows ALL articles regardless of includedCategories
     // (includedCategories only filters for discovery-landing pages)
     if (bespokePage.children && bespokePage.children.length > 0) {
-      const tocItems = await getAllTocItems(page, context, {
-        recurse: true,
-        renderIntros: true,
-      })
+      const tocItems = await getAllTocItems(page, context)
 
       // Flatten to get all leaf articles (excludeParents: true means only get articles, not category pages)
       const allArticles = flattenTocItems(tocItems, { excludeParents: true })

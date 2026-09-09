@@ -28,7 +28,7 @@ category:
 {% ifversion ghes %}
 
 > [!NOTE]
-> {% data reusables.package_registry.container-registry-ghes-migration-availability %} For more information about finding the version of {% data variables.product.prodname_ghe_server %} that you use, see [AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server).
+> {% data reusables.package_registry.container-registry-ghes-migration-availability %} For more information about finding the version of {% data variables.product.prodname_ghe_server %} that you use, see [AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs#github-enterprise-server).
 
 {% endif %}
 
@@ -45,12 +45,12 @@ After migration, you'll no longer be able to use the GraphQL API to query for pa
 
 ## About billing for {% data variables.product.prodname_container_registry %}
 
-For more information about billing for the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages).
+For more information about billing for the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/billing/concepts/product-billing/github-packages).
 
 {% else %}
 
 ## Further reading
 
-* [AUTOTITLE](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)
+* [AUTOTITLE](/admin/configuring-packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)
 
 {% endif %}

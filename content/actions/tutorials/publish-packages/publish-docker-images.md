@@ -28,12 +28,12 @@ This guide shows you how to create a workflow that performs a Docker build, and 
 
 ## Prerequisites
 
-We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see [AUTOTITLE](/actions/learn-github-actions).
+We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows).
 
 You might also find it helpful to have a basic understanding of the following:
 
-* [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)
-* [AUTOTITLE](/actions/security-guides/automatic-token-authentication){% ifversion fpt or ghec %}
+* [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets)
+* [AUTOTITLE](/actions/tutorials/authenticate-with-github_token){% ifversion fpt or ghec %}
 * [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry){% else %}
 * [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry){% endif %}
 
@@ -58,7 +58,7 @@ In the example workflow below, we use the Docker `login-action` and `build-push-
 To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see [Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/quickstart/#step-3-build-and-push-an-image-to-docker-hub) in the Docker documentation.
 
 The `login-action` options required for Docker Hub are:
-* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 The `metadata-action` option required for Docker Hub is:
 * `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
@@ -139,8 +139,8 @@ In the example workflow below, we use the Docker `login-action`{% ifversion fpt 
 
 The `login-action` options required for {% data variables.product.prodname_registry %} are:
 * `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes %}`{% data reusables.package_registry.container-registry-hostname %}`{% endif %}.
-* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#github-context).
-* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
+* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#github-context).
+* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token).
 
 {% ifversion fpt or ghec %}
 The `metadata-action` option required for {% data variables.product.prodname_registry %} is:

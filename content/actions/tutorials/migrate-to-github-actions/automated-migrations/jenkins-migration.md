@@ -36,7 +36,7 @@ There are some limitations when migrating from Jenkins to {% data variables.prod
 * Self-hosted runners
 * Unknown plugins
 
-For more information on manual migrations, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions).
+For more information on manual migrations, see [AUTOTITLE](/actions/tutorials/migrate-to-github-actions/manual-migrations/migrate-from-jenkins).
 
 ## Installing the {% data variables.product.prodname_actions_importer %} CLI extension
 
@@ -272,7 +272,7 @@ source_files:
 
 ### Supported syntax for Jenkins pipelines
 
-The following tables show the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Jenkins pipeline syntax aligns with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions).
+The following tables show the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Jenkins pipeline syntax aligns with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/tutorials/migrate-to-github-actions/manual-migrations/migrate-from-jenkins).
 
 For information about supported Jenkins plugins, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/jenkins/index.md).
 

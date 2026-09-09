@@ -1,4 +1,4 @@
-import type { TagToken, Context as LiquidContext } from 'liquidjs'
+import type { TagToken, Context as LiquidContext, Liquid, Emitter, TopLevelToken } from 'liquidjs'
 import { fastTextOnly } from '@/content-render/unified/text-only'
 import { renderContent } from '@/content-render/index'
 import type { Context } from '@/types'
@@ -16,15 +16,15 @@ export class RestParameter {
 
   constructor(
     token: TagToken,
-    remainTokens: TagToken[],
-    liquid: { options: any; parser: any },
+    remainTokens: TopLevelToken[],
+    liquid: Liquid,
     private liquidContext?: LiquidContext,
   ) {
     // The tag receives the parameter object from the template context
     this.paramName = token.args.trim()
   }
 
-  async render(ctx: LiquidContext, emitter: any): Promise<void> {
+  async render(ctx: LiquidContext, emitter: Emitter): Promise<void> {
     const param = ctx.get([this.paramName]) as Parameter
     const context = ctx.get(['context']) as Context
 
@@ -63,8 +63,8 @@ export class RestParameter {
 export class RestBodyParameter {
   constructor(
     token: TagToken,
-    remainTokens: TagToken[],
-    liquid: { options: any; parser: any },
+    remainTokens: TopLevelToken[],
+    liquid: Liquid,
     private liquidContext?: LiquidContext,
   ) {
     // Parse arguments - param name and optional indent level
@@ -76,7 +76,7 @@ export class RestBodyParameter {
   private param: string
   private indent: number
 
-  async render(ctx: LiquidContext, emitter: any): Promise<void> {
+  async render(ctx: LiquidContext, emitter: Emitter): Promise<void> {
     const param = ctx.get([this.param]) as BodyParameter
     const context = ctx.get(['context']) as Context
     const indent = this.indent
@@ -126,14 +126,14 @@ export class RestStatusCode {
 
   constructor(
     token: TagToken,
-    remainTokens: TagToken[],
-    liquid: { options: any; parser: any },
+    remainTokens: TopLevelToken[],
+    liquid: Liquid,
     private liquidContext?: LiquidContext,
   ) {
     this.statusCodeName = token.args.trim()
   }
 
-  async render(ctx: LiquidContext, emitter: any): Promise<void> {
+  async render(ctx: LiquidContext, emitter: Emitter): Promise<void> {
     const statusCode = ctx.get([this.statusCodeName]) as StatusCode
     const context = ctx.get(['context']) as Context
 

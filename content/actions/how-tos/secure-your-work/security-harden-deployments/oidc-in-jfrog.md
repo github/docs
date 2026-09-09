@@ -32,15 +32,15 @@ For an example {% data variables.product.prodname_actions %} workflow using the 
 
 {% data reusables.actions.oidc-on-ghecom %}
 
-* To be secure, you need to set a Claims JSON in JFrog when configuring identity mappings. For more information, see [AUTOTITLE](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-identity-mappings) and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims).
+* To be secure, you need to set a Claims JSON in JFrog when configuring identity mappings. For more information, see [AUTOTITLE](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-identity-mappings) and [AUTOTITLE](/actions/reference/security/oidc#customizing-the-token-claims).
 
-    For example, you can set `iss` to `https://token.actions.githubusercontent.com`, and the `repository` to something like "octo-org/octo-repo"`. This will ensure only Actions workflows from the specified repository will have access to your JFrog platform. The following is an example Claims JSON when configuring identity mappings.
+  For example, you can set `iss` to `https://token.actions.githubusercontent.com`, and the `repository` to something like `octo-org/octo-repo`.{% ifversion dependabot-oidc-support %} JFrog identity mappings match each claim against an exact value, so to ensure only {% data variables.product.prodname_actions %} workflows from the specified repository have access to your JFrog platform, also set `event_name` to the event that triggers your workflow, such as `push`. This prevents OIDC tokens requested for {% data variables.product.prodname_dependabot %} update jobs, which have an `event_name` of `dynamic`, from matching the identity mapping. If your workflows are triggered by more than one event, create a separate identity mapping for each event name.{% endif %} The following is an example Claims JSON when configuring identity mappings.
 
     {% data reusables.actions.jfrog-json-configuring-identity-mappings %}
 
 ## Adding the identity provider to JFrog
 
-To use OIDC with JFrog, establish a trust relationship between {% data variables.product.prodname_actions %} and the JFrog platform. For more information about this process, see [OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration) in the JFrog documentation.
+To use OIDC with JFrog, establish a trust relationship between {% data variables.product.prodname_actions %} and the JFrog platform. For more information about this process, see [OpenID Connect Integration](https://docs.jfrog.com/administration/docs/openid-connect-integration) in the JFrog documentation.
 
 1. Sign in to your JFrog Platform.
 1. Configure trust between JFrog and your {% data variables.product.prodname_actions %} workflows.
@@ -96,6 +96,6 @@ jobs:
 
 ## Further reading
 
-* [OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration) in the JFrog documentation
+* [OpenID Connect Integration](https://docs.jfrog.com/administration/docs/openid-connect-integration) in the JFrog documentation
 * [Identity Mappings](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings) in the JFrog documentation
-* [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
+* [AUTOTITLE](/actions/concepts/security/openid-connect)

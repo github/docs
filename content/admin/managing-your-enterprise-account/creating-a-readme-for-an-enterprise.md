@@ -33,4 +33,4 @@ You can also create READMEs for organizations in your enterprise, visible either
 ## Further reading
 
 * [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)
+* [AUTOTITLE](/account-and-profile/how-tos/profile-customization/managing-your-profile-readme)

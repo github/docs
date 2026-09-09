@@ -72,7 +72,7 @@ If your Bitbucket Server instance runs on Linux, you must use an SSH key that me
   * `aes128-ctr`
   * `aes192-ctr`
 
-If you receive an error like `cipher name aes256-ctr for openssh key file is not supported` when running a migration, your SSH private key uses an unsupported cipher. For more information about how to generate a compatible private key, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported).
+If you receive an error like `cipher name aes256-ctr for openssh key file is not supported` when running a migration, your SSH private key uses an unsupported cipher. For more information about how to generate a compatible private key, see [AUTOTITLE](/migrations/troubleshooting/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported-error).
 
 ## Granting the migrator role
 
@@ -103,6 +103,7 @@ To grant the migrator role using the CLI, you must have installed the {% data va
 
 ## Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_importer_proper_name %}
 
+1. Verify that you have a sufficient role for the task you want to complete. For more information, see [Required roles](#required-roles-for-github).
 {% data reusables.enterprise-migration-tool.creating-a-pat-steps %}
 
 ## Configuring IP allow lists for migrations
@@ -112,7 +113,7 @@ If the destination of your migration uses an IP allow list (either {% data varia
 * If you use {% data variables.product.company_short %}'s IP allow list feature, you must add the {% data variables.product.prodname_dotcom %} IP ranges below to the allow list for the destination organization.
 * If you use your IdP's IP allow list to restrict access to your enterprise on {% data variables.product.prodname_dotcom %}, you should disable these restrictions in your enterprise account settings until after your migration is complete.
 
-For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization) and [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
+For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization) and [AUTOTITLE](/enterprise-cloud@latest/admin/configuring-settings/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
 
 ### IP ranges for {% data variables.product.prodname_dotcom_the_website %}
 

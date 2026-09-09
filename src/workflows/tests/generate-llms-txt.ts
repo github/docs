@@ -1,4 +1,4 @@
-import { beforeAll, describe, expect, test } from 'vitest'
+import { describe, expect, test } from 'vitest'
 
 import {
   generate,
@@ -8,19 +8,11 @@ import {
   formatPageLine,
   renderLiquid,
   titleCase,
-  EXCLUDED_CATEGORIES,
-  EXCLUDED_SLUGS,
-  PINNED_PAGES,
-  TOP_N,
-  SMALL_CATEGORY_THRESHOLD,
+  loadConfig,
   type PageMap,
   type Rollup,
 } from '../generate-llms-txt'
 import type { Page } from '@/types'
-
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
 
 function makePage(overrides: Partial<Page> = {}): Page {
   return {
@@ -47,293 +39,205 @@ function makeRollup(paths: string[], startScore = 1000): Rollup {
   return rollup
 }
 
-// ---------------------------------------------------------------------------
-// titleCase
-// ---------------------------------------------------------------------------
+const baseConfig = {
+  title: 'GitHub',
+  description: 'Some description.',
+  how_to_use_heading: 'How to use',
+  how_to_use: 'Use the APIs below.',
+  pinned_section_heading: 'Pinned',
+  pinned_pages: [],
+  top_n_popular_pages: 100,
+  small_category_threshold: 3,
+  excluded_categories: [],
+  excluded_slugs: ['index'],
+  more_pages_heading: 'More pages',
+  auto_update_comment: '<!-- auto -->',
+}
 
 describe('titleCase', () => {
-  test('capitalizes each word separated by hyphens', () => {
+  test('capitalizes hyphenated words', () => {
     expect(titleCase('hello-world')).toBe('Hello World')
   })
-
   test('handles single word', () => {
     expect(titleCase('actions')).toBe('Actions')
   })
-
   test('handles empty string', () => {
     expect(titleCase('')).toBe('')
   })
 })
 
-// ---------------------------------------------------------------------------
-// pageExists
-// ---------------------------------------------------------------------------
-
 describe('pageExists', () => {
   const pages = makePages({ 'actions/overview': {} })
-
   test('returns true for existing page', () => {
     expect(pageExists('actions/overview', pages)).toBe(true)
   })
-
   test('returns false for missing page', () => {
     expect(pageExists('actions/missing', pages)).toBe(false)
   })
 })
 
-// ---------------------------------------------------------------------------
-// getPageTitle
-// ---------------------------------------------------------------------------
+describe('renderLiquid', () => {
+  test('returns input unchanged when no liquid tags', async () => {
+    expect(await renderLiquid('Plain title')).toBe('Plain title')
+  })
+  test('strips wrapping <p> tags from rendered output', async () => {
+    const result = await renderLiquid('Hello {{ "world" }}')
+    expect(result).not.toMatch(/^<p>/)
+    expect(result).not.toMatch(/<\/p>$/)
+  })
+})
 
 describe('getPageTitle', () => {
-  test('returns shortTitle when available', async () => {
-    const pages = makePages({
-      'actions/overview': { shortTitle: 'Overview', title: 'Actions Overview' },
-    })
-    expect(await getPageTitle('/en/actions/overview', pages)).toBe('Overview')
-  })
-
-  test('falls back to title when no shortTitle', async () => {
-    const pages = makePages({ 'actions/overview': { title: 'Actions Overview', shortTitle: '' } })
-    expect(await getPageTitle('/en/actions/overview', pages)).toBe('Actions Overview')
-  })
-
-  test('strips " documentation" suffix', async () => {
-    const pages = makePages({ actions: { title: 'Actions documentation' } })
+  test('returns shortTitle when present', async () => {
+    const pages = makePages({ actions: { title: 'GitHub Actions', shortTitle: 'Actions' } })
     expect(await getPageTitle('/en/actions', pages)).toBe('Actions')
   })
-
-  test('falls back to titleCase of slug for missing page', async () => {
-    expect(await getPageTitle('/en/actions/cool-feature', {})).toBe('Cool Feature')
+  test('falls back to title when no shortTitle', async () => {
+    const pages = makePages({ actions: { title: 'GitHub Actions' } })
+    expect(await getPageTitle('/en/actions', pages)).toBe('GitHub Actions')
+  })
+  test('strips trailing " documentation"', async () => {
+    const pages = makePages({ rest: { title: 'REST API documentation' } })
+    expect(await getPageTitle('/en/rest', pages)).toBe('REST API')
+  })
+  test('falls back to title-cased slug for missing page', async () => {
+    expect(await getPageTitle('/en/missing-page', {})).toBe('Missing Page')
   })
 })
-
-// ---------------------------------------------------------------------------
-// renderLiquid
-// ---------------------------------------------------------------------------
-
-describe('renderLiquid', () => {
-  test('renders {% data %} variables', async () => {
-    const result = await renderLiquid('{% data variables.product.prodname_copilot_short %}')
-    expect(result).toBe('Copilot')
-  })
-
-  test('returns plain text unchanged', async () => {
-    const result = await renderLiquid('No liquid here')
-    expect(result).toBe('No liquid here')
-  })
-})
-
-// ---------------------------------------------------------------------------
-// getPageIntro
-// ---------------------------------------------------------------------------
 
 describe('getPageIntro', () => {
-  test('returns intro text when present', async () => {
-    const pages = makePages({ 'actions/overview': { intro: 'An intro sentence.' } })
-    expect(await getPageIntro('/en/actions/overview', pages)).toBe('An intro sentence.')
+  test('returns intro when present', async () => {
+    const pages = makePages({ actions: { intro: 'Automate workflows.' } })
+    expect(await getPageIntro('/en/actions', pages)).toBe('Automate workflows.')
   })
-
   test('returns null when no intro', async () => {
-    const pages = makePages({ 'actions/overview': { intro: '' } })
-    expect(await getPageIntro('/en/actions/overview', pages)).toBeNull()
-  })
-
-  test('returns null for missing page', async () => {
-    expect(await getPageIntro('/en/actions/missing', {})).toBeNull()
+    const pages = makePages({ actions: {} })
+    expect(await getPageIntro('/en/actions', pages)).toBeNull()
   })
 })
-
-// ---------------------------------------------------------------------------
-// formatPageLine
-// ---------------------------------------------------------------------------
 
 describe('formatPageLine', () => {
-  test('formats with title and intro', async () => {
-    const pages = makePages({ 'actions/overview': { title: 'Overview', intro: 'Learn about it.' } })
-    const line = await formatPageLine('actions/overview', pages)
-    expect(line).toBe('- [Overview](https://docs.github.com/en/actions/overview): Learn about it.')
+  test('formats with intro when present', async () => {
+    const pages = makePages({ actions: { title: 'Actions', intro: 'About Actions.' } })
+    expect(await formatPageLine('actions', pages)).toBe(
+      '* [Actions](https://docs.github.com/en/actions): About Actions.',
+    )
   })
-
   test('formats without intro', async () => {
-    const pages = makePages({ 'actions/overview': { title: 'Overview' } })
-    const line = await formatPageLine('actions/overview', pages)
-    expect(line).toBe('- [Overview](https://docs.github.com/en/actions/overview)')
+    const pages = makePages({ actions: { title: 'Actions' } })
+    expect(await formatPageLine('actions', pages)).toBe(
+      '* [Actions](https://docs.github.com/en/actions)',
+    )
   })
 })
 
-// ---------------------------------------------------------------------------
-// Configuration sanity checks
-// ---------------------------------------------------------------------------
-
-describe('configuration', () => {
-  test('early-access is always excluded', () => {
-    expect(EXCLUDED_CATEGORIES.has('early-access')).toBe(true)
+describe('loadConfig', () => {
+  test('loads default config when no override path', () => {
+    const cfg = loadConfig()
+    expect(cfg.title).toBe('GitHub')
+    expect(typeof cfg.description).toBe('string')
+    expect(Array.isArray(cfg.pinned_pages)).toBe(true)
   })
 
-  test('index slug is excluded', () => {
-    expect(EXCLUDED_SLUGS.has('index')).toBe(true)
+  test('overrides default fields when override path is given', () => {
+    const cfg = loadConfig('data/llms-txt/config-docs.yml')
+    expect(cfg.title).toBe('GitHub Docs')
+    expect(typeof cfg.description).toBe('string')
   })
 
-  test('TOP_N is 100', () => {
-    expect(TOP_N).toBe(100)
-  })
-
-  test('SMALL_CATEGORY_THRESHOLD is 3', () => {
-    expect(SMALL_CATEGORY_THRESHOLD).toBe(3)
-  })
-
-  test('pinned pages include MCP and CLI', () => {
-    const joined = PINNED_PAGES.join(' ')
-    expect(joined).toContain('mcp')
-    expect(joined).toContain('github-cli')
+  test('config-monolith inherits defaults', () => {
+    const cfg = loadConfig('data/llms-txt/config-monolith.yml')
+    expect(cfg.title).toBe('GitHub')
   })
 })
-
-// ---------------------------------------------------------------------------
-// generate (end-to-end with mock data)
-// ---------------------------------------------------------------------------
 
 describe('generate', () => {
-  // Build a mock page map and rollup with enough variety to exercise the logic
-  const pagePaths = [
-    'actions/overview',
-    'actions/learn-github-actions',
-    'actions/using-workflows',
-    'actions/creating-actions',
-    'copilot/overview',
-    'copilot/quickstart',
-    'copilot/using-copilot',
-    'repositories/creating-a-repo',
-    'repositories/cloning-a-repo',
-    'repositories/managing-branches',
-    'issues/tracking-work',
-    // Small category (< threshold)
-    'billing/managing-billing',
-    'billing/viewing-usage',
-    // Excluded category
-    'early-access/secret-feature',
-    // index slug
-    'index',
-  ]
-
-  const pages = makePages(
-    Object.fromEntries(
-      pagePaths.map((p) => [
-        p,
-        { title: titleCase(p.split('/').pop() || p), intro: `Intro for ${p}.` },
-      ]),
-    ),
-  )
-  // Also add category-level pages for section headings
-  for (const cat of ['actions', 'copilot', 'repositories', 'issues', 'billing']) {
-    pages[`/en/${cat}`] = makePage({
-      title: `${titleCase(cat)} documentation`,
-      intro: `About ${cat}.`,
+  test('respects top_n_popular_pages limit', async () => {
+    const pages = makePages({
+      'actions/a': { title: 'A' },
+      'actions/b': { title: 'B' },
+      'actions/c': { title: 'C' },
+      'actions/d': { title: 'D' },
     })
-  }
+    const rollup = makeRollup(['actions/a', 'actions/b', 'actions/c', 'actions/d'])
+    const out = await generate(pages, rollup, { ...baseConfig, top_n_popular_pages: 2 })
+    expect(out).toMatch(/\[A\]/)
+    expect(out).toMatch(/\[B\]/)
+    expect(out).not.toMatch(/\[C\]/)
+    expect(out).not.toMatch(/\[D\]/)
+  })
 
-  // Add pinned pages so they appear
-  for (const pinned of PINNED_PAGES) {
-    pages[`/en/${pinned}`] = makePage({
-      title: titleCase(pinned.split('/').pop() || pinned),
-      intro: `Pinned intro for ${pinned}.`,
+  test('excludes categories from excluded_categories', async () => {
+    const pages = makePages({
+      'actions/overview': { title: 'Actions Overview' },
+      'early-access/secret': { title: 'Secret' },
     })
-  }
-
-  const rollup = makeRollup(
-    pagePaths.filter((p) => p !== 'early-access/secret-feature' && p !== 'index'),
-  )
-
-  let output: string
-
-  beforeAll(async () => {
-    output = await generate(pages, rollup)
-  })
-
-  test('generates without throwing', () => {
-    expect(output).toBeTruthy()
-  })
-
-  test('starts with the header', () => {
-    expect(output).toMatch(/^# GitHub\n/)
-  })
-
-  test('includes API section', () => {
-    expect(output).toContain('Programmatic access')
-    expect(output).toContain('/api/pagelist/')
-    expect(output).toContain('/api/article')
-    expect(output).toContain('/api/search')
-  })
-
-  test('includes pinned section', () => {
-    expect(output).toContain('Building with GitHub')
-  })
-
-  test('excludes early-access content', () => {
-    expect(output).not.toContain('secret-feature')
-    expect(output).not.toContain('early-access')
-  })
-
-  test('excludes index slug', () => {
-    // "index" as a standalone link should not appear
-    expect(output).not.toMatch(/\(https:\/\/docs\.github\.com\/en\/index\)/)
-  })
-
-  test('groups pages by category with headings', () => {
-    expect(output).toContain('## Actions')
-    expect(output).toContain('## Copilot')
-    expect(output).toContain('## Repositories')
-  })
-
-  test('small categories go under "More pages"', () => {
-    // Billing has 2 pages (< threshold of 3)
-    expect(output).toContain('## More pages')
-    expect(output).toContain('managing-billing')
-  })
-
-  test('categories are sorted by number of links (most first)', () => {
-    const actionsIdx = output.indexOf('## Actions')
-    const copilotIdx = output.indexOf('## Copilot')
-    // Actions has 4 pages, Copilot has 3 — Actions should come first
-    expect(actionsIdx).toBeLessThan(copilotIdx)
-  })
-
-  test('pages are sorted alphabetically within categories', () => {
-    // Extract all actions links in order
-    const actionLines = output
-      .split('\n')
-      .filter((line) => line.startsWith('- [') && line.includes('/en/actions/'))
-    const actionPaths = actionLines.map((l) => {
-      const match = l.match(/\/en\/actions\/([^)]+)/)
-      return match?.[1] || ''
+    const rollup = makeRollup(['early-access/secret', 'actions/overview'])
+    const out = await generate(pages, rollup, {
+      ...baseConfig,
+      excluded_categories: ['early-access'],
     })
-    const sorted = [...actionPaths].sort()
-    expect(actionPaths).toEqual(sorted)
+    expect(out).toMatch(/Actions Overview/)
+    expect(out).not.toMatch(/Secret/)
   })
 
-  test('category headings strip " documentation" suffix', () => {
-    expect(output).not.toContain('## Actions documentation')
-    expect(output).toContain('## Actions')
+  test('excludes slugs from excluded_slugs', async () => {
+    const pages = makePages({
+      'actions/overview': { title: 'Overview' },
+      'actions/index': { title: 'Index page' },
+    })
+    const rollup = makeRollup(['actions/index', 'actions/overview'])
+    const out = await generate(pages, rollup, baseConfig)
+    expect(out).toMatch(/Overview/)
+    expect(out).not.toMatch(/Index page/)
   })
 
-  test('category intros appear as blockquotes', () => {
-    expect(output).toContain('> About copilot.')
+  test('groups small categories under more_pages_heading', async () => {
+    const pages = makePages({
+      'big/a': { title: 'A' },
+      'big/b': { title: 'B' },
+      'big/c': { title: 'C' },
+      'big/d': { title: 'D' },
+      'small/x': { title: 'X' },
+    })
+    const rollup = makeRollup(['big/a', 'big/b', 'big/c', 'big/d', 'small/x'])
+    const out = await generate(pages, rollup, { ...baseConfig, small_category_threshold: 3 })
+    expect(out).toMatch(/## More pages/)
+    const morePagesIdx = out.indexOf('## More pages')
+    expect(out.slice(morePagesIdx)).toMatch(/\[X\]/)
   })
 
-  test('page lines include intros after colon', () => {
-    expect(output).toMatch(/\): Intro for actions\/overview\./)
+  test('emits pinned_section_heading and pinned pages when present', async () => {
+    const pages = makePages({
+      rest: { title: 'REST API' },
+      'actions/a': { title: 'A' },
+    })
+    const rollup = makeRollup(['actions/a'])
+    const out = await generate(pages, rollup, {
+      ...baseConfig,
+      pinned_section_heading: 'Featured',
+      pinned_pages: ['rest'],
+    })
+    expect(out).toMatch(/## Featured/)
+    expect(out).toMatch(/\[REST API\]/)
   })
 
-  test('ends with auto-update comment', () => {
-    expect(output.trim()).toMatch(/<!-- .* not edit manually\. -->$/)
-  })
-
-  test('links point to docs.github.com', () => {
-    const links = output.match(/https:\/\/docs\.github\.com\/en\/[^\s)]+/g) || []
-    expect(links.length).toBeGreaterThan(0)
-    for (const link of links) {
-      expect(link).toMatch(/^https:\/\/docs\.github\.com\/en\//)
-    }
+  test('includes title, description, how_to_use, and auto_update_comment', async () => {
+    const out = await generate(
+      {},
+      {},
+      {
+        ...baseConfig,
+        title: 'My Title',
+        description: 'My description.',
+        how_to_use: 'Do this.',
+        auto_update_comment: '<!-- generated -->',
+      },
+    )
+    expect(out).toMatch(/^# My Title/m)
+    expect(out).toMatch(/^> My description\./m)
+    expect(out).toMatch(/^## How to use/m)
+    expect(out).toMatch(/^Do this\./m)
+    expect(out.trimEnd().endsWith('<!-- generated -->')).toBe(true)
   })
 })

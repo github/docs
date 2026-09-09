@@ -159,6 +159,6 @@ You can also personalize {% data variables.product.prodname_github_codespaces %}
 ## Further reading
 
 * [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)
-* [AUTOTITLE](/codespaces/about-codespaces/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)
+* [AUTOTITLE](/codespaces/about-codespaces/deep-dive#personalizing-your-codespace-with-extensions)
 * [AUTOTITLE](/codespaces/customizing-your-codespace)
 * [AUTOTITLE](/codespaces/managing-your-codespaces)

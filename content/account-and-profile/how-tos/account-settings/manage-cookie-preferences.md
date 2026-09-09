@@ -18,7 +18,7 @@ category:
 
 ## Changing your cookie preferences
 
-You can customize how non-essential cookies behave on any {% data variables.product.company_short %} enterprise marketing page.  For more information about how {% data variables.product.company_short %} uses cookies, see [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement).
+You can customize how non-essential cookies behave on any {% data variables.product.company_short %} enterprise marketing page.  For more information about how {% data variables.product.company_short %} uses cookies, see [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement).
 
 1. Navigate to the {% data variables.product.company_short %} enterprise marketing page where you'd like to change your cookie preferences. For example, navigate to [{% data variables.product.company_short %} Resources](https://resources.github.com/).
 1. Scroll to the bottom of the page, then click **Manage Cookies**.

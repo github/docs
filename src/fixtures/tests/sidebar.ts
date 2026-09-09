@@ -10,9 +10,9 @@ describe('sidebar', () => {
     const sidebarProduct = $('[data-testid="sidebar-product-xl"]')
     expect(sidebarProduct.text()).toBe('Get started')
     expect(sidebarProduct.attr('href')).toBe('/en/get-started')
-    // Mobile
-    expect($('[data-testid="header-subnav"]').length).toBe(1)
-    expect($('[data-testid="header-subnav-hamburger"]').length).toBe(1)
+    // Docs 2026 secondary bar (breadcrumbs + nav toggle) replaces the old subnav
+    expect($('[data-testid="docs-secondary-bar"]').length).toBe(1)
+    expect($('[data-testid="sidebar-mobile-toggle"]').length).toBe(1)
   })
 
   test('REST pages get the REST sidebar', async () => {
@@ -73,9 +73,9 @@ describe('sidebar', () => {
     const $: CheerioAPI = await getDOM('/early-access/secrets/deeper/mariana-trench')
     // Deskop
     expect($('[data-testid="sidebar-product-xl"]').length).toBe(0)
-    // Mobile
-    expect($('[data-testid="header-subnav"]').length).toBe(1)
-    expect($('[data-testid="header-subnav-hamburger"]').length).toBe(0)
+    // The secondary bar renders, but early-access has no nav toggle
+    expect($('[data-testid="docs-secondary-bar"]').length).toBe(1)
+    expect($('[data-testid="sidebar-mobile-toggle"]').length).toBe(0)
   })
 
   test('category-landing pages show title entry in sidebar', async () => {

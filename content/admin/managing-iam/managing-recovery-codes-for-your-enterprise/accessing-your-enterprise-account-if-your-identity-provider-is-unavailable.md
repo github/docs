@@ -16,7 +16,7 @@ category:
 
 You can use a recovery code to access your enterprise account when an authentication configuration error or an issue with your identity provider (IdP) prevents you from using SSO.
 
-In order to access your enterprise account this way, you must have previously downloaded and stored the recovery codes for your enterprise. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes).
+In order to access your enterprise account this way, you must have previously downloaded and stored the recovery codes for your enterprise. For more information, see [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes).
 
 {% data reusables.saml.recovery-code-caveats %}
 

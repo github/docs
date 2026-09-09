@@ -17,7 +17,7 @@ contentType: concepts
 
 The SLSA framework is an industry standard used to evaluate supply chain security. It is organized into levels. Each level represents an increasing degree of security and trustworthiness for a software supply chain. Artifact attestations by itself provides SLSA v1.0 Build Level 2.
 
-This provides a link between your artifact and its build instructions, but you can take this a step further by requiring builds make use of known, vetted build instructions. A great way to do this is to have your build take place in a reusable workflow that many repositories across your organization share. Reusable workflows can provide isolation between the build process and the calling workflow, to meet SLSA v1.0 Build Level 3. For more information, see [AUTOTITLE](/actions/security-guides/using-artifact-attestations-and-reusable-workflows-to-achieve-slsa-v1-build-level-3).
+This provides a link between your artifact and its build instructions, but you can take this a step further by requiring builds make use of known, vetted build instructions. A great way to do this is to have your build take place in a reusable workflow that many repositories across your organization share. Reusable workflows can provide isolation between the build process and the calling workflow, to meet SLSA v1.0 Build Level 3. For more information, see [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/increase-security-rating).
 
 For more information on SLSA levels, see [SLSA Security Levels](https://slsa.dev/spec/v1.0/levels).
 
@@ -51,4 +51,4 @@ If you consume software that publishes artifact attestations, you can use the {%
 
 ## Next steps
 
-To start generating and verifying artifact attestations for your builds, see [AUTOTITLE](/actions/how-tos/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds).
+To start generating and verifying artifact attestations for your builds, see [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).
