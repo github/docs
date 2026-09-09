@@ -30,7 +30,7 @@ In a detailed usage report, you can identify usage from {% data variables.produc
 
 {% data reusables.code-quality.model-usage %}
 
-For more information about how {% data variables.product.prodname_ai_credits_short %} work, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+For more information about how {% data variables.product.prodname_ai_credits_short %} work, see [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 ### Active and unique committers
 
@@ -50,4 +50,4 @@ Users can contribute to multiple repositories or organizations. Usage is measure
 
 * [AUTOTITLE](/code-security/tutorials/improve-code-quality/catch-issues-before-merge)
 * [AUTOTITLE](/billing/concepts/product-billing/github-actions)
-* [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises)
+* [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing)

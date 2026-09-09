@@ -18,7 +18,7 @@ Before you begin, make sure you understand how the four budget controls work and
 <!-- expires 2026-09-01 -->
 
 > [!NOTE]
-> If your enterprise was using {% data variables.product.prodname_copilot_short %} before June 1, 2026, you are on a promotional period (June–August 2026) where your included {% data variables.product.prodname_ai_credits_short %} are higher than the standard amounts. When the promotional period ends on September 1, 2026, the shared pool will be smaller. Use this period to understand your team's baseline consumption and adjust your spending limits before the transition. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises#how-do-ai-credits-work) for the standard and promotional amounts.
+> If your enterprise was using {% data variables.product.prodname_copilot_short %} before June 1, 2026, you are on a promotional period (June–August 2026) where your included {% data variables.product.prodname_ai_credits_short %} are higher than the standard amounts. When the promotional period ends on September 1, 2026, the shared pool will be smaller. Use this period to understand your team's baseline consumption and adjust your spending limits before the transition. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing#how-do-ai-credits-work) for the standard and promotional amounts.
 
 <!-- end expires 2026-09-01 -->
 

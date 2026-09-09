@@ -37,7 +37,7 @@ To collect OTel data from users' {% data variables.product.prodname_copilot_shor
 
 Enterprises can enforce OTel configuration across supported clients with managed settings. These settings are enforced across users' clients and cannot be overridden. The `telemetry` property includes keys for enabling and configuring OpenTelemetry.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings) and [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).
+For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started) and [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings).
 
 ## Client documentation
 

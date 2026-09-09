@@ -65,7 +65,7 @@ You can use {% data variables.copilot.copilot_spaces %} in {% data variables.cop
 Questions you submit in a space count as {% data variables.copilot.copilot_chat_short %} requests and consume {% data variables.product.prodname_ai_credits_short %} based on the model used and the number of tokens processed.
 
 * If you're a {% data variables.copilot.copilot_free_short %} user, this usage counts toward your monthly chat limit.
-* For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, usage draws from your enterprise's shared {% data variables.product.prodname_ai_credits_short %} pool. For details on how consumption is calculated, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+* For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, usage draws from your enterprise's shared {% data variables.product.prodname_ai_credits_short %} pool. For details on how consumption is calculated, see [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 ## Next steps
 

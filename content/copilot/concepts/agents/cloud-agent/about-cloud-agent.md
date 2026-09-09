@@ -108,7 +108,7 @@ If you are a {% data variables.copilot.copilot_for_business %} or {% data variab
 
 Repository owners can choose to opt out some or all repositories from {% data variables.copilot.copilot_cloud_agent %}.
 
-See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+See [AUTOTITLE](/copilot/concepts/enterprise/cloud-agent-access).
 
 ## AI models for {% data variables.copilot.copilot_cloud_agent %}
 
@@ -132,7 +132,7 @@ The more {% data variables.copilot.copilot_cloud_agent %} knows about the code i
 
 {% data variables.copilot.copilot_cloud_agent %} uses {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}. The {% data variables.product.prodname_ai_credits_short %} consumed depend on the model used and the number of tokens processed during the session.
 
-Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use {% data variables.copilot.copilot_cloud_agent %} without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use {% data variables.copilot.copilot_cloud_agent %} without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 {% data variables.product.prodname_copilot_short %} code review also consumes {% data variables.product.prodname_actions %} minutes on private repositories. See [AUTOTITLE](/billing/concepts/product-billing/github-actions#copilot-code-review-and-github-actions-minutes).
 

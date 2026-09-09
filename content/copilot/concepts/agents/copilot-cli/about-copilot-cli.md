@@ -325,7 +325,7 @@ Alternatively, you can run {% data variables.copilot.copilot_cli_short %} in a v
 * **MCP servers in {% data variables.product.prodname_copilot_short %}**, which controls whether MCP servers can be used at all by {% data variables.product.prodname_copilot_short %}.
 * **MCP Registry URL**, which controls which MCP registry {% data variables.product.prodname_copilot_short %} will allow MCP servers to be used from.
 
-For more information about these policies, see [AUTOTITLE](/copilot/concepts/mcp-management#mcp-allowlists).
+For more information about these policies, see [AUTOTITLE](/copilot/concepts/enterprise/mcp-management#mcp-allowlists).
 
 ## Model usage
 

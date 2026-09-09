@@ -16,7 +16,7 @@ category:
 
 ## Prerequisites
 
-Before you create your Model Context Protocol (MCP) registry, you should understand the functionality and benefits of MCP management for your company. See [AUTOTITLE](/copilot/concepts/mcp-management).
+Before you create your Model Context Protocol (MCP) registry, you should understand the functionality and benefits of MCP management for your company. See [AUTOTITLE](/copilot/concepts/enterprise/mcp-management).
 
 ## Option 1: Self-hosting an MCP registry
 

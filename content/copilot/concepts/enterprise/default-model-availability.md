@@ -31,4 +31,4 @@ For instructions on managing model policies, see [AUTOTITLE](/copilot/how-tos/ad
 
 ## How do I prepare for new models?
 
-We recommend keeping up with new model releases so you can choose your enablement settings for each one. New models are announced on {% data variables.product.github %}'s changelog. For more information, see [AUTOTITLE](/copilot/concepts/learning-about-new-features-and-models#learning-about-new-copilot-models).
+We recommend keeping up with new model releases so you can choose your enablement settings for each one. New models are announced on {% data variables.product.github %}'s changelog. For more information, see [AUTOTITLE](/copilot/concepts/enterprise/learning-about-new-features-and-models#learning-about-new-copilot-models).

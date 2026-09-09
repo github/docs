@@ -42,4 +42,4 @@ If you prefer to maintain full control over your enterprise's tooling to ensure 
 
 ## Next steps
 
-To centrally control {% data variables.product.prodname_copilot_short %} client behavior across your enterprise, configure enterprise managed settings. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
+To centrally control {% data variables.product.prodname_copilot_short %} client behavior across your enterprise, configure enterprise managed settings. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started).

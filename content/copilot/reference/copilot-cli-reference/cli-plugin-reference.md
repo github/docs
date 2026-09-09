@@ -346,7 +346,7 @@ The following diagram illustrates the loading order and precedence rules.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards)
+* [AUTOTITLE](/copilot/concepts/enterprise/plugin-standards)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference)

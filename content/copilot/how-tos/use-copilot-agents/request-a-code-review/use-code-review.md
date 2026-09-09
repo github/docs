@@ -66,7 +66,7 @@ You can also request a review from {% data variables.product.prodname_copilot_sh
 
 ## Enabling automatic reviews
 
-By default, you manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request, in the same way you would request a review from a human. However, you can set up {% data variables.product.prodname_copilot_short %} to automatically review all pull requests. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
+By default, you manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request, in the same way you would request a review from a human. However, you can set up {% data variables.product.prodname_copilot_short %} to automatically review all pull requests. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
 
 ## Requesting a re-review from {% data variables.product.prodname_copilot_short %}
 
@@ -74,7 +74,7 @@ When you push changes to a pull request that {% data variables.product.prodname_
 
 To manually request a re-review from {% data variables.product.prodname_copilot_short %}, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/requesting-a-pull-request-review).
 
-To automatically request re-reviews from {% data variables.product.prodname_copilot_short %} on every push, enable automatic code review for the repository and select **Review new pushes** in the ruleset settings. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#configuring-automatic-code-review-for-repositories-in-an-organization).
+To automatically request re-reviews from {% data variables.product.prodname_copilot_short %} on every push, enable automatic code review for the repository and select **Review new pushes** in the ruleset settings. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#configuring-automatic-code-review-for-repositories-in-an-organization).
 
 > [!NOTE] When re-reviewing a pull request, {% data variables.product.prodname_copilot_short %} may repeat the same comments again, even if they have been dismissed with the "Resolve conversation" button or downvoted with the thumbs down (:-1:) button.
 
@@ -98,7 +98,7 @@ Every {% data variables.copilot.copilot_code-review_short %} includes an approva
 
 When approvals are enabled, {% data variables.product.prodname_copilot_short %} can submit an approving review that satisfies your repository's required-approval rule the same way a teammate's approval would. If new commits are pushed after {% data variables.product.prodname_copilot_short %} approves, the approval is dismissed, and you can re-request a review. For more details on required reviews, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/approving-a-pull-request-with-required-reviews).
 
-Approvals are off by default and can be configured at the enterprise, organization, and repository levels. Repository administrators can also use file paths to control which {% data variables.product.prodname_copilot_short %} approvals count toward merge requirements. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#customizing-copilot-code-review).
+Approvals are off by default and can be configured at the enterprise, organization, and repository levels. Repository administrators can also use file paths to control which {% data variables.product.prodname_copilot_short %} approvals count toward merge requirements. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#customizing-copilot-code-review).
 
 ## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with custom instructions
 

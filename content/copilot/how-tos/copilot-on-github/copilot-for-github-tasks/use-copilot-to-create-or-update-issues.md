@@ -81,7 +81,7 @@ Review the draft in the workbench, then click **Review and create** > **Create i
 
 ## Assign an issue to {% data variables.product.prodname_copilot_short %}
 
-With {% data variables.copilot.copilot_cloud_agent %} enabled, you can assign an issue to {% data variables.product.prodname_copilot_short %} during creation. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+With {% data variables.copilot.copilot_cloud_agent %} enabled, you can assign an issue to {% data variables.product.prodname_copilot_short %} during creation. See [AUTOTITLE](/copilot/concepts/enterprise/cloud-agent-access).
 
 * **Natural language:** Include `Assign this issue to {% data variables.product.prodname_copilot_short %}.` in your prompt.
 * **Manually:** Select "{% data variables.product.prodname_copilot_short %}" from the assignee list.

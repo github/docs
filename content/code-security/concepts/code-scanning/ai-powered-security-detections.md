@@ -19,7 +19,7 @@ While {% data variables.product.prodname_codeql %} provides high-precision stati
 
 During the {% data variables.release-phases.public_preview %}, AI-powered security detections require a {% data variables.product.prodname_GHAS %} license and a {% data variables.product.prodname_copilot %} license.
 
-Usage consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+Usage consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 ## How AI-powered security detections work
 
