@@ -134,7 +134,7 @@ support:
   ask_community: Ask the GitHub community
 
 survey:
-  able_to_find: Did you find what you needed?
+  able_to_find: Was this Doc helpful?
   yes: Yes
   no: No
   cancel: Cancel
@@ -150,8 +150,8 @@ survey:
   server_error: Unable to process comment at the moment. Please try again.
 
 contribution_cta:
-  title: Help us make these docs great!
-  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+  title: Help us make GitHub Docs great!
+  body: All Docs are open source. See something that's wrong or unclear? Submit a pull request.
   button: Make a contribution
   to_guidelines: Learn how to contribute
 
@@ -317,6 +317,7 @@ webhooks:
 footer:
   support_heading: Help and support
   legal_heading: Legal
+  back_to_top: Back to top
   imprint: Imprint
   terms: Terms
   privacy: Privacy

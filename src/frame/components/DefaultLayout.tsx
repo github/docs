@@ -10,9 +10,7 @@ import {
   SidebarCollapseProvider,
   useSidebarCollapsed,
 } from '@/frame/components/sidebar/SidebarCollapseContext'
-import { LegalFooter } from '@/frame/components/page-footer/LegalFooter'
-import { ScrollButton } from '@/frame/components/ui/ScrollButton'
-import { SupportSection } from '@/frame/components/page-footer/SupportSection'
+import { DocsFooter } from '@/frame/components/page-footer/DocsFooter'
 import { DeprecationBanner } from '@/versions/components/DeprecationBanner'
 import { RestBanner } from '@/rest/components/RestBanner'
 import { useMainContext } from '@/frame/components/context/MainContext'
@@ -41,7 +39,7 @@ export const DefaultLayout = (props: Props) => {
   } = mainContext
   const xHost = mainContext.xHost
   const page = mainContext.page!
-  const { t } = useTranslation(['meta', 'scroll_button'])
+  const { t } = useTranslation('meta')
   const router = useRouter()
   const { languages } = useLanguages()
 
@@ -234,20 +232,13 @@ export const DefaultLayout = (props: Props) => {
 
                 {props.children}
               </main>
-              <footer data-container="footer">
-                <SupportSection />
-                <LegalFooter />
-                <ScrollButton
-                  className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
-                  ariaLabel={t('scroll_to_top')}
-                />
-              </footer>
+              <DocsFooter />
             </div>
           </div>
         ) : (
           <>
             <DocsSecondaryBar />
-            <LayoutBody scrollToTopLabel={t('scroll_to_top')}>{props.children}</LayoutBody>
+            <LayoutBody>{props.children}</LayoutBody>
           </>
         )}
       </SidebarCollapseProvider>
@@ -260,8 +251,8 @@ export const DefaultLayout = (props: Props) => {
 // collapsed; on mobile it shows inline (in the page flow, like desktop) only
 // when the nav is opened from the secondary bar. The content column (flex-1)
 // fills the row when the rail is absent.
-type LayoutBodyProps = { children?: React.ReactNode; scrollToTopLabel: string }
-const LayoutBody = ({ children, scrollToTopLabel }: LayoutBodyProps) => {
+type LayoutBodyProps = { children?: React.ReactNode }
+const LayoutBody = ({ children }: LayoutBodyProps) => {
   const { collapsed, mobileNavOpen } = useSidebarCollapsed()
   const { currentProduct } = useMainContext()
   // Matches SidebarNav's own gate rather than testing router.route. There are two search
@@ -300,14 +291,7 @@ const LayoutBody = ({ children, scrollToTopLabel }: LayoutBodyProps) => {
 
           {children}
         </main>
-        <footer data-container="footer">
-          <SupportSection />
-          <LegalFooter />
-          <ScrollButton
-            className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
-            ariaLabel={scrollToTopLabel}
-          />
-        </footer>
+        <DocsFooter />
       </div>
     </div>
   )

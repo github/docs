@@ -1,25 +1,209 @@
+// The footer help region: feedback, contribution, and support links. This lives in
+// MinimalFooter's `centerComponent` slot, so it supplies its own column chrome —
+// 24px padding and rules — rather than the page container it used to sit in.
+//
+// The design reflows in three stages rather than simply narrowing three columns:
+//
+//   wide (>=1280)  feedback | contribution | support
+//   medium (>=768) feedback across the full width, with Yes/No pushed right;
+//                  contribution | support beneath it
+//   narrow (<768)  everything stacked, support collapsed into a disclosure
+//
+// MinimalFooter already draws a rule above this whole region, so the first row must
+// not add one — two rules a hair apart read as a mistake. Only rows after the first
+// carry a top rule.
+
+$footer-rule: 1px solid
+  var(--borderColor-muted, var(--color-border-muted, #d2d9d4));
+
 .supportGrid {
   display: grid;
-  gap: var(--base-size-4);
-
-  // Mobile is 1 column
   grid-template-columns: 1fr;
-  grid-column-gap: 1rem;
-
-  grid-row-gap: 2rem;
 }
 
-// Medium is 2 columns
-@media (min-width: 768px) {
-  .supportGrid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: 1rem;
+.column {
+  // Vertical padding is the design's 24px. The inline inset instead mirrors
+  // MinimalFooter's own container padding (20px, 32px from 48rem up), because that
+  // container's padding was dropped for this section so the row rules — which are
+  // column borders — span the footer edge to edge. Keeping the same values here
+  // leaves column content aligned with the top and bottom bars.
+  padding-block: var(--base-size-24);
+  padding-inline: var(--base-size-20);
+  // Brand's text colour rather than the page's Primer one. Links and buttons inside
+  // set their own, so this only reaches the headings and body copy.
+  color: var(--brand-color-text-default);
+
+  // Survey and Contribution each render their own <h3>. The design shows these as
+  // plain body text, not bold headings — restyled here rather than in those
+  // components so they stay free of footer-specific classes. Element selectors also
+  // out-specify the Primer utility classes they carry.
+  h3 {
+    margin: 0 0 var(--base-size-16);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  // Contribution's intro paragraph: same plain treatment, full column width.
+  :global(.contribution) p {
+    margin: 0 0 var(--base-size-16);
+    max-width: none;
+    color: var(--brand-color-text-default);
   }
 }
 
-// Large is 3 columns
+@media (min-width: 48rem) {
+  .column {
+    padding-inline: var(--base-size-32);
+  }
+}
+
+// Stacked: every column after the first starts a new row and needs a separator.
+// Scoped to the narrow range so it cannot out-specify the per-column rules that the
+// wider layouts set (`.column + .column` would otherwise beat `.contributionColumn`).
+@media (max-width: 767px) {
+  .column + .column {
+    border-top: $footer-rule;
+  }
+}
+
+// Below the 3-column layout the feedback question and its Yes/No buttons sit on one
+// full-width line, question left and buttons right. The survey form grows a comment
+// box, email field and actions once voted, so anything that isn't the question or
+// the vote buttons is pushed onto its own line.
+@media (max-width: 1279px) {
+  .surveyColumn form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--base-size-16);
+  }
+
+  .surveyColumn form > h3 {
+    flex: 1 1 auto;
+    margin: 0;
+  }
+
+  .surveyColumn form > [role="radiogroup"] {
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  .surveyColumn form > *:not(h3):not([role="radiogroup"]) {
+    flex: 1 0 100%;
+  }
+}
+
+// Medium: feedback spans the full width on its own row, contribution and support
+// share the row beneath it.
+@media (min-width: 768px) and (max-width: 1279px) {
+  .supportGrid {
+    grid-template-columns: minmax(0, 1fr) max-content;
+  }
+
+  .surveyColumn {
+    grid-column: 1 / -1;
+  }
+
+  // A second-row rule only makes sense when there is a first row above it. Any of
+  // these columns can be absent — site-policy and deprecated pages drop the survey,
+  // non-English drops the contribution CTA — and without this gate the surviving
+  // columns would draw a rule directly beneath MinimalFooter's own separator.
+  .supportGrid:has(.surveyColumn) .column:not(.surveyColumn) {
+    border-top: $footer-rule;
+  }
+
+  // Divider between the two columns that share a row — keyed to position rather than
+  // to which component it is, so it lands correctly whichever columns render.
+  .column:not(.surveyColumn) + .column {
+    border-left: $footer-rule;
+  }
+}
+
+// Wide: all three side by side. Feedback is capped, contribution takes the slack,
+// and the support links hug their content against the right edge. Nothing wraps, so
+// no column carries a top rule.
 @media (min-width: 1280px) {
   .supportGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr) max-content;
+  }
+
+  // The design draws a single vertical rule, after the first column. Keyed to
+  // position: `.contributionColumn` would put the rule against the region's left
+  // edge on pages that render no survey.
+  .column:nth-child(2) {
+    border-left: $footer-rule;
+  }
+}
+
+// Matches the eyebrow treatment in JourneyTrackNav.module.scss. Kept local because
+// CSS modules are scoped; worth extracting to a shared partial if a third use lands.
+// Scoped under .column so it out-specifies the plain-heading rule above.
+.column .eyebrow {
+  margin: 0;
+  font-family: var(--brand-fontStack-monospace, "Mona Sans Mono", monospace);
+  // Rendered as an <h3> to keep the column's heading semantics, so the browser's
+  // bold/large heading defaults have to be reset back to the eyebrow treatment.
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+  text-transform: uppercase;
+  color: var(--brand-color-text-muted);
+}
+
+.supportLinks {
+  display: flex;
+  flex-direction: column;
+  // The design sets a ~22px baseline rhythm for this list. Reached with a tight gap
+  // plus a modest line-height rather than the design's literal 1.0 leading, which
+  // would resist user text-spacing overrides.
+  gap: var(--base-size-6);
+  margin-top: var(--base-size-16);
+
+  a {
+    line-height: 1.15;
+    // Without this these inherit the page's Primer link colour (#0969da) rather
+    // than brand's (#0055d5), which is what the design specifies.
+    color: var(--brand-color-text-link-rest);
+  }
+}
+
+// Narrow-only disclosure. The summary keeps its heading, shown in sentence case
+// rather than the eyebrow treatment used when the list is always visible.
+.supportSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--base-size-8);
+  cursor: pointer;
+  // Suppress the default triangle in both the modern and WebKit spellings.
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.supportSummaryHeading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.supportChevron {
+  flex: none;
+  color: var(--brand-color-text-muted);
+  transition: transform 0.2s ease;
+}
+
+.supportDisclosure[open] .supportChevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .supportChevron {
+    transition: none;
   }
 }
