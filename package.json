@@ -244,7 +244,7 @@
     "mdast-util-to-markdown": "2.1.2",
     "mdast-util-to-string": "^4.0.0",
     "micromark-extension-gfm": "^3.0.0",
-    "next": "^16.2.6",
+    "next": "^16.3.3",
     "ora": "^9.3.0",
     "parse5": "8.0.1",
     "quick-lru": "7.0.1",
@@ -263,7 +263,7 @@
     "remark-remove-comments": "^1.1.1",
     "remark-stringify": "^11.0.0",
     "semver": "^7.7.4",
-    "sharp": "0.35.3",
+    "sharp": "0.35.4",
     "slash": "^5.1.0",
     "strip-ansi": "7.1.0",
     "swr": "^2.4.0",
@@ -369,7 +369,7 @@
       "brace-expansion": "^5.0.8"
     },
     "sharp": "$sharp",
-    "fast-uri": "^3.1.5"
+    "fast-uri": "^3.1.7"
   },
   "optionalDependencies": {
     "esm": "^3.2.25"
