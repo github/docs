@@ -41,8 +41,6 @@ jobs:
               const changedLines = (file.patch || '')
                 .split('\n')
                 .filter(line => /^[+-]/.test(line))
-                )
-
               return changedLines.length > 0 &&
                 changedLines.every(line => line.slice(1).trim() === '')
             })

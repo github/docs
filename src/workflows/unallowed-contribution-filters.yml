@@ -4,7 +4,6 @@ notAllowed:
   - '.github/**'
   - 'data/reusables/rai/**'
   - '.vscode/**'
-  - 'assets/**'
   - 'config/**'
   - 'contributing/**'
   - 'src/**'
