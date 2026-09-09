@@ -373,6 +373,6 @@ If multiple skills provide conflicting instructions:
 
 ## See also
 
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started#create-custom-agents) - Define specialized AI personas
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started#step-4-add-a-custom-tool) - Build your own tools
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart#create-custom-agents) - Define specialized AI personas
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart#step-4-add-a-custom-tool) - Build your own tools
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/mcp) - Connect external tool providers

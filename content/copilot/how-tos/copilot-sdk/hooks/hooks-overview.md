@@ -277,6 +277,6 @@ const session = await client.createSession({
 
 ## See also
 
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started#step-4-add-a-custom-tool)
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart)
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart#step-4-add-a-custom-tool)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/troubleshooting/debugging)
