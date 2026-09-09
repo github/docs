@@ -28,7 +28,7 @@ For more information, see [OIDC connections](https://docs.docker.com/enterprise/
 
 {% data reusables.actions.oidc-on-ghecom %}
 
-* You must have a Docker Business or Docker Team subscription.
+* Your Docker organization must use Docker Business, Docker Team, or Docker Hardened Images, or be enrolled in the Docker Sponsored Open Source Program.
 * You must be an organization owner or editor in your Docker organization.
 * You must plan which repositories, branches, and workflows need access to Docker, and configure rulesets accordingly.
 
@@ -120,7 +120,7 @@ repo:<owner>/<repo>:ref:refs/heads/<branch>
 ```
 
 > [!NOTE]
-> Repositories created or renamed after July 15, 2026 use immutable owner and repository identifiers in the subject claim, for example: `repo:octocat@123456/my-repo@456789:ref:refs/heads/main`. For more information, see [AUTOTITLE](/actions/concepts/security/openid-connect).
+> Repositories created after July 15, 2026, and repository renames or transfers after that date, use an immutable default OIDC `sub` claim that includes owner and repository IDs. Existing repositories keep the previous format unless they opt in. For more information, see [AUTOTITLE](/actions/reference/security/oidc#immutable-subject-claims).
 
 Different workflow triggers produce different subject claims. For example:
 
@@ -131,6 +131,6 @@ Different workflow triggers produce different subject claims. For example:
 | Tag | `repo:my-org/my-repo:ref:refs/tags/v1.0` |
 | Environment | `repo:my-org/my-repo:environment:production` |
 
-You can use wildcard patterns in your rulesets to match multiple repositories or branches. For example, `repo:my-org/*` matches all repositories in your organization.
+You can use wildcard patterns in your rulesets to match multiple repositories or branches. For legacy subject claims, `repo:my-org/*` matches all repositories in the organization. For immutable subject claims, use `repo:my-org@OWNER-ID/*`; if the organization contains repositories using both formats, configure both patterns.
 
 For more information, see [Rulesets and subject claims](https://docs.docker.com/enterprise/security/oidc-connections/rulesets-claims/) in the Docker documentation.
