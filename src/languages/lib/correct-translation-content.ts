@@ -628,6 +628,12 @@ export function correctTranslatedContentStrings(
       'これには、パブリック リポジトリ、プライベート リポジトリ、および内部{% elsif fpt %}both パブリック リポジトリとプライベート リポジトリ{% endif %}{% ifversion ghec %}が含まれます。',
       'これには、{% ifversion ghec %}パブリック リポジトリ、プライベート リポジトリ、および内部{% elsif fpt %}パブリック リポジトリとプライベート リポジトリの両方{% endif %}が含まれます。',
     )
+
+    // `{%- roleColumns = X | split: ... -%}` — the `assign` keyword was
+    // dropped entirely (repository-roles-for-an-organization.md), leaving
+    // `roleColumns` interpreted as an unknown tag name (`tag "roleColumns"
+    // not found`).
+    content = content.replace(/\{%(-?)\s*roleColumns\s*=\s*/g, '{%$1 assign roleColumns = ')
   }
 
   if (context.code === 'pt') {
@@ -695,6 +701,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- mais %}', '{%- else %}')
     content = content.replaceAll('{% se ', '{% if ')
     content = content.replaceAll('{% atribuir ', '{% assign ')
+    content = content.replaceAll('{%- atribuir ', '{%- assign ')
     content = content.replaceAll('{% %} bruto', '{% raw %}')
     content = content.replaceAll('{% %de dados reusables.', '{% data reusables.')
     content = content.replaceAll('{% %de dados variables.', '{% data variables.')
@@ -916,6 +923,9 @@ export function correctTranslatedContentStrings(
     // `{%数据变量.` — same but no space between `{%` and 数据变量 (e.g. `{%数据变量.enterprise.management_console%}`)
     content = content.replaceAll('{%数据变量.', '{% data variables.')
     content = content.replaceAll('{%-数据变量.', '{%- data variables.')
+    // `{% 分配 X = Y %}` — Chinese "assign" (repository-roles-for-an-organization.md)
+    content = content.replaceAll('{% 分配 ', '{% assign ')
+    content = content.replaceAll('{%- 分配 ', '{%- assign ')
     // `{% Windows 操作系统 %}` — "Windows OS" = windows platform tag
     content = content.replaceAll('{% Windows 操作系统 %}', '{% windows %}')
     content = content.replaceAll('{%- Windows 操作系统 %}', '{%- windows %}')
@@ -1522,6 +1532,17 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '{% data variables.product.prodname_GH_code_security %}и доступны для аккаунтов и {% data variables.product.prodname_team %}{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}аккаунтов на {% data variables.product.prodname_ghe_server %}{% endif %}.{% ifversion fpt or ghec %}{% data variables.product.prodname_GH_secret_protection %}',
       '{% data variables.product.prodname_GH_code_security %} и {% data variables.product.prodname_GH_secret_protection %} доступны для {% ifversion fpt or ghec %}аккаунтов на {% data variables.product.prodname_team %} и {% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}аккаунтов на {% data variables.product.prodname_ghe_server %}{% endif %}.',
+    )
+
+    // `{%. Назначение roleColumns = "read,triage,write,maintain", admin" | split: "," -%}`
+    // (repository-roles-for-an-organization.md): the translator mangled the
+    // tag opener (`{%.` instead of `{%-`), translated `assign` to
+    // "Назначение", and misplaced a closing quote before `admin` — splitting
+    // the string value early and leaving `admin"` as trailing garbage
+    // (`illegal tag syntax, tag name expected`). Reconstruct the original tag.
+    content = content.replaceAll(
+      '{%. Назначение roleColumns = "read,triage,write,maintain", admin" | split: "," -%}',
+      '{%- assign roleColumns = "read,triage,write,maintain,admin" | split: "," -%}',
     )
   }
 
