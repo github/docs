@@ -67,5 +67,5 @@ Find product-specific guidance on how usage is calculated and billed.
 * [AUTOTITLE](/billing/concepts/product-billing/github-packages)
 * [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses)
 * [AUTOTITLE](/billing/concepts/product-billing/cloud-and-local-sandboxes)
-* [AUTOTITLE](/billing/concepts/enterprise-billing/visual-studio-subs#about-licenses-for-visual-studio-subscriptions-with-github-enterprise-cloud)
+* [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/concepts/enterprise-billing/visual-studio-subs#about-licenses-for-visual-studio-subscriptions-with-github-enterprise-cloud)
 * [AUTOTITLE](/billing/concepts/product-billing/git-lfs)

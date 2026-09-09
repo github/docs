@@ -51,12 +51,10 @@ You can customize your {% data variables.product.prodname_codeql %} analysis by 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Scroll down to "{% data variables.product.UI_code_security_scanning %}", in the "{% data variables.product.prodname_codeql %} analysis" row select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Advanced**.
+1. In the "{% data variables.product.prodname_codeql %} analysis" row, select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Advanced**.
 
    > [!NOTE]
    > If you are switching from default setup to advanced setup, in the "{% data variables.product.prodname_codeql %} analysis" row, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "workflow" aria-hidden="true" aria-label="workflow" %} Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
-
-   ![Screenshot of the "{% data variables.product.UI_code_security_scanning %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Advanced setup" button is highlighted with an orange outline.](/assets/images/help/security/advanced-code-scanning-setup-ghas.png)
 
 1. To customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow.
 

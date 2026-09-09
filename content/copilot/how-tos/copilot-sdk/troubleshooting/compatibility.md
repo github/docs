@@ -90,17 +90,19 @@ The Copilot SDK communicates with the CLI via JSON-RPC protocol. Features must b
 | System message | `systemMessage` config | Append or replace |
 | Custom provider | `provider` config | BYOK support |
 | Infinite sessions | `infiniteSessions` config | Auto-compaction |
-| Permission handler | `onPermissionRequest` | Approve/deny requests |
+| Permission handler | `onPermissionRequest` | Approve/deny requests; optionally attach a `decisionContext` for auto-approval telemetry |
 | User input handler | `onUserInputRequest` | Handle ask_user |
 | Skills | `skillDirectories` config | Custom skills |
 | Disabled skills | `disabledSkills` config | Disable specific skills |
 | Config directory | `configDir` config | Override default config location |
 | Client name | `clientName` config | Identify app in User-Agent |
 | Working directory | `workingDirectory` config | Set session cwd |
+| Additional directories | `additionalDirectories` config | Grant session access beyond the working directory; re-supply on resume |
 | **Experimental** | | |
 | Agent management | `session.rpc.agent.*` | List, select, deselect, get current agent |
 | Fleet mode | `session.rpc.fleet.start()` | Parallel sub-agent execution; see [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/fleet-mode) |
 | Manual compaction | `session.rpc.history.compact()` | Trigger compaction on demand |
+| Context clearing | `session.rpc.history.clearContext()` | Replace conversation context from a terminal tool |
 | History truncation | `session.rpc.history.truncate()` | Remove events from a point onward |
 | Session forking | `server.rpc.sessions.fork()` | Fork a session at a point in history |
 

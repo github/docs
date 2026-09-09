@@ -20,7 +20,7 @@ Migrations are performed with the {% data variables.product.prodname_gl2gh_cli %
 1. **Uploads** the archive to blob storage that {% data variables.product.prodname_dotcom %} can read from (either {% data variables.product.prodname_ghos %} or a storage account you own in AWS S3 or Azure Blob Storage).
 1. **Imports** the archive into the destination organization, transforming GitLab entities into their {% data variables.product.prodname_dotcom %} equivalents.
 
-Before you create your enterprise account on {% data variables.product.prodname_dotcom %}, decide whether your enterprise will use {% data variables.product.prodname_emus %}. This affects how your members authenticate and how you manage identities and access. See [AUTOTITLE](/enterprise-cloud@latest/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type).
+Before you create your enterprise account on {% data variables.product.prodname_dotcom %}, decide whether your enterprise will use {% data variables.product.prodname_emus %}. This affects how your members authenticate and how you manage identities and access. See [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type).
 
 ## Supported GitLab versions
 

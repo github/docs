@@ -3,7 +3,7 @@ title: Adding GitHub Copilot cloud agent to your organization
 intro: 'Enable {% data variables.copilot.copilot_cloud_agent %} for your members and control the repositories where it is available.'
 allowTitleToDifferFromFilename: true
 permissions: Organization owners
-product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Contact Sales</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span>{% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 shortTitle: 'Add {% data variables.copilot.copilot_cloud_agent %}'
@@ -58,7 +58,7 @@ Once {% data variables.copilot.copilot_cloud_agent %} is enabled for a repositor
 
 ## Managing the agent firewall for your organization
 
-Organization owners can configure the {% data variables.copilot.copilot_cloud_agent %} firewall for their organization, including whether it is enabled for the organization and which external hosts and URLs the agent can access. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-firewall).
+Organization owners can configure the {% data variables.copilot.copilot_cloud_agent %} firewall for their organization, including whether it is enabled for the organization and which external hosts and URLs the agent can access. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
 
 ## Next steps
 

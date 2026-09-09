@@ -378,7 +378,7 @@
       "name": "createEnterpriseOrganization",
       "id": "createenterpriseorganization",
       "href": "/graphql/reference/enterprise-admin#mutation-createenterpriseorganization",
-      "description": "<p>Creates an organization as part of an enterprise account. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
+      "description": "<p>Creates an organization as part of an enterprise account. User-authenticated\nrequests make the viewer an owner. Users listed in <code>adminLogins</code> are invited\nas owners unless owner invitations are disabled, in which case they are added\ndirectly. Installation requests also add existing enterprise members directly.\nInvitation failures do not roll back organization creation. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -1957,6 +1957,15 @@
                 "id": "string",
                 "href": "/graphql/reference/other#scalar-string"
               }
+            },
+            {
+              "name": "userLogins",
+              "description": "<p>User logins to filter by. A maximum of 3 logins can be passed.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
             }
           ]
         },
@@ -1966,6 +1975,87 @@
           "type": "ID!",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "innersourceVulnerabilities",
+          "description": "<p>Innersource security vulnerabilities scoped to this enterprise.</p>",
+          "type": "SecurityVulnerabilityConnection!",
+          "id": "securityvulnerabilityconnection",
+          "href": "/graphql/reference/security-advisories#object-securityvulnerabilityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "ecosystem",
+              "description": "<p>An ecosystem to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "SecurityAdvisoryEcosystem",
+                "id": "securityadvisoryecosystem",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryecosystem"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the returned vulnerabilities.</p>",
+              "type": {
+                "name": "SecurityVulnerabilityOrder",
+                "id": "securityvulnerabilityorder",
+                "href": "/graphql/reference/security-advisories#input-object-securityvulnerabilityorder"
+              }
+            },
+            {
+              "name": "package",
+              "description": "<p>A package name to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "severities",
+              "description": "<p>A list of severities to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "[SecurityAdvisorySeverity!]",
+                "id": "securityadvisoryseverity",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity"
+              }
+            }
+          ]
         },
         {
           "name": "location",
@@ -11744,10 +11834,6 @@
         {
           "name": "REAUTH",
           "description": "<p>Members must complete a fresh re-authentication against the enterprise identity provider.</p>"
-        },
-        {
-          "name": "SECURITY_KEY",
-          "description": "<p>Members must satisfy a phishing-resistant security key re-authentication (Microsoft Entra only).</p>"
         }
       ],
       "category": "enterprise-admin"
@@ -12136,7 +12222,7 @@
       "inputFields": [
         {
           "name": "adminLogins",
-          "description": "<p>The logins for the administrators of the new organization.</p>",
+          "description": "<p>The logins of additional organization owners. Listed users are invited unless\nowner invitations are disabled, in which case they are added directly.\nInstallation requests also add existing enterprise members directly.</p>",
           "type": "[String!]!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -12188,7 +12274,7 @@
       "inputFields": [
         {
           "name": "allowListValue",
-          "description": "<p>An IP address or range of addresses in CIDR notation.</p>",
+          "description": "<p>An IP address or range of addresses in CIDR notation. Ranges that cover the\nentire address space, such as <code>0.0.0.0/0</code> or <code>::/0</code>, are not accepted for\norganizations or enterprises.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
@@ -13653,7 +13739,7 @@
       "inputFields": [
         {
           "name": "allowListValue",
-          "description": "<p>An IP address or range of addresses in CIDR notation.</p>",
+          "description": "<p>An IP address or range of addresses in CIDR notation. Ranges that cover the\nentire address space, such as <code>0.0.0.0/0</code> or <code>::/0</code>, are not accepted for\norganizations or enterprises.</p>",
           "type": "String!",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"

@@ -54,7 +54,7 @@ const liquid = new Liquid()
 // [start-readme]
 //
 // This script creates enterprise release and deprecation issues in the
-// github/docs-content and github/docs-engineering repositories.
+// github/docs-content and github/technical-content repositories.
 // The script checks if an issue already exists for the release or deprecation.
 //
 // [end-readme]
@@ -80,7 +80,7 @@ async function run() {
 }
 
 async function createDeprecationIssue() {
-  const repo = 'github/docs-engineering'
+  const repo = 'github/technical-content'
   console.log('Next deprecation number: ', oldestSupported)
   // If an issue already exists for this release, do nothing
   const issueExists = await isExistingIssue(repo, {

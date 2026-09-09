@@ -192,6 +192,7 @@ copilot_claude_opus_48: 'Claude Opus 4.8'
 copilot_claude_opus_48_fast: 'Claude Opus 4.8 (fast mode) (preview)'
 copilot_claude_opus_5: 'Claude Opus 5'
 copilot_claude_fable_5: 'Claude Fable 5'
+copilot_claude_fable_51: 'Claude Fable 5.1'
 copilot_claude_sonnet: 'Claude Sonnet'
 copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
 copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
@@ -208,6 +209,8 @@ copilot_gemini_3_pro: 'Gemini 3 Pro'
 copilot_gemini_31_pro: 'Gemini 3.1 Pro'
 copilot_gemini_35_flash: 'Gemini 3.5 Flash'
 copilot_gemini_36_flash: 'Gemini 3.6 Flash'
+copilot_gemini_37_flash: 'Gemini 3.7 Flash'
+copilot_gemini_38_flash: 'Gemini 3.8 Flash'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_4o_mini: 'GPT-4o mini'
@@ -229,16 +232,19 @@ copilot_gpt_55: 'GPT-5.5'
 copilot_gpt_56_luna: 'GPT-5.6 Luna'
 copilot_gpt_56_sol: 'GPT-5.6 Sol'
 copilot_gpt_56_terra: 'GPT-5.6 Terra'
+copilot_gpt_6_astra: 'GPT-6 Astra'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
 ## xAI:
 copilot_grok_code: 'Grok Code Fast 1'
 copilot_grok_45: 'Grok 4.5'
+copilot_grok_46: 'Grok 4.6'
 # Qwen:
 copilot_qwen_25: 'Qwen2.5'
 # Microsoft:
 copilot_mai_code_1_flash: 'MAI-Code-1-Flash'
+copilot_mai_code_1_1_flash: 'MAI-Code-1.1-Flash'
 # Microsoft fine-tuned:
 copilot_raptor_mini: 'Raptor mini'
 # Open-weight models:

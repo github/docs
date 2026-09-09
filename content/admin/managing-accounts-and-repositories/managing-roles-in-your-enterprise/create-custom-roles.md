@@ -42,11 +42,3 @@ Enterprise owners can create and edit custom organization roles, but cannot assi
 1. In the left sidebar, select **Organization roles**.
 1. Click **Create custom role**.
 1. Enter the details, then click **Create role**.
-
-{% ifversion enterprise-teams %}
-
-## Next steps
-
-You can manage role assignments at scale using teams. Learn about teams in your enterprise and organizations in [AUTOTITLE](/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise).
-
-{% endif %}

@@ -18,7 +18,7 @@ category:
 
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:
 
-* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 inline suggestion requests and limited chat and agent usage-no paid plan required. See [AUTOTITLE](/copilot/concepts/billing/individual-plans).
+* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 inline suggestion requests and limited chat and agent usage-no paid plan required. See [AUTOTITLE](/copilot/get-started/plans).
 
 * **Sign up for a paid plan**. You can subscribe to one of these plans:
 
@@ -64,6 +64,6 @@ If you have your own {% data variables.product.prodname_copilot_short %} plan (i
 
 Start using {% data variables.product.prodname_copilot_short %} to help you write code faster and more efficiently. For all the ways you can use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/how-tos). {% data variables.product.prodname_copilot_short %} code suggestions, {% data variables.copilot.copilot_chat_dotcom_short %}, and {% data variables.copilot.copilot_chat_short %} in your IDE are a great place to start.
 
-To get started with agent-driven development in the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
+To get started with agent-driven development in the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/get-started/quickstart-copilot-app).
 
 To learn how to best use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/get-started/best-practices) and [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).

@@ -12,11 +12,11 @@ Read on for more about how redirects work under the hood.
 
 Precompiled redirects account for the majority of the docs site's redirect handling.
 
-When [`lib/warm-server.ts`](lib/warm-server.ts) runs on server start, it creates all pages in the site by instantiating the [`Page` class](lib/page.ts) for each content file, then passes the pages to `lib/redirects/precompile.ts` to create redirects. The precompile script runs `lib/redirects/permalinks.ts`, which:
+When [`src/frame/lib/warm-server.ts`](../frame/lib/warm-server.ts) runs on server start, it creates all pages in the site by instantiating the [`Page` class](../frame/lib/page.ts) for each content file, then passes the pages to `lib/precompile.ts` to create redirects. The precompile script runs `lib/permalinks.ts`, which:
 
-1. Includes all legacy redirects from `static/developerjson`
+1. Includes all legacy redirects from `lib/static/developer.json`
 2. Loops over each page's [frontmatter `redirect_from` entries](content/README.md#redirect_from) and creates an array of legacy paths for each one (using the same handling as for permalinks).
-3. Any other exceptions from the `static/redirect-exceptions.txt` file
+3. Any other exceptions from the `lib/static/redirect-exceptions.txt` file
 
 The results comprise the `page.redirects` object, whose keys are always only the path without language.
 Sometimes it contains the specific plan/version (e.g. `/enterprise-server@3.0/v3/integrations` to `enterprise-server@3.0/developers/apps`) and sometimes it's just the plain path
@@ -44,11 +44,11 @@ Some background on archival: a snapshot of the HTML files for each deprecated En
 
 Starting with Enterprise Server 2.18, we updated the archival process to start preserving frontmatter and permalink redirects. But these redirects for 2.13 to 2.17 are not recoverable.
 
-As a workaround for these lost redirects, we have two files in `lib/redirects/static`:
+As a workaround for these lost redirects, we have two files in `lib/static`:
 
 * `archived-redirects-from-213-to-217.json`
 
-  This file contains keys equal to old routes and values equal to new routes (aka snapshots of permalinks at the time) for versions 2.13 to 2.17. (The old routes were generated via `lib/redirects/get-old-paths-from-permalink.ts`.)
+  This file contains keys equal to old routes and values equal to new routes (aka snapshots of permalinks at the time) for versions 2.13 to 2.17. (The old routes were generated via `lib/permalinks.ts`.)
 
 * `archived-frontmatter-valid-urls.json`
 
@@ -66,7 +66,7 @@ Here's how the `src/archives/middleware/archived-enterprise-versions.ts` fallbac
 
 ## Tests
 
-Redirect tests are mainly found in `tests/routing/*`, with some additional tests in `tests/rendering/server.ts`.
+Redirect tests are mainly found in `tests/routing/*`, with some additional tests in `src/frame/tests/server.ts`.
 
 The `src/fixtures/fixtures/*` directory includes `developer-redirects.json`, `graphql-redirects.json`, and `rest-redirects.json`.
 

@@ -112,7 +112,7 @@ jobs:
 
             This will be reviewed and merged by the Code scanning and GHAS focus team as part of the release of CodeQL CLI. (Synced from semmle-code@${{ steps.semmle-code.outputs.OPENAPI_COMMIT_SHA }})
 
-            If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
+            If CI does not pass or other problems arise, contact #technical-content on slack.' \
             --repo github/docs-internal \
             --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review,workflow-generated"
 

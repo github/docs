@@ -19,6 +19,11 @@ The following are example schemas for the user-level, enterprise-level, and repo
 
 ```json copy
 [{
+  "ai_adoption_phase": {
+    "phase": "Phase 2",
+    "phase_number": 2,
+    "version": "v1"
+  },
   "ai_credits_used": 12.5,
   "code_acceptance_activity_count": 3,
   "code_generation_activity_count": 3,
@@ -124,6 +129,10 @@ The following are example schemas for the user-level, enterprise-level, and repo
   "used_chat": false,
   "used_cli": true,
   "used_copilot_app": true,
+  "used_copilot_cloud_agent": false,
+  "used_copilot_code_review_active": null,
+  "used_copilot_code_review_passive": null,
+  "used_copilot_coding_agent": false,
   "user_id": 1,
   "user_login": "login1",
   "user_initiated_interaction_count": 1,
@@ -135,6 +144,8 @@ The following are example schemas for the user-level, enterprise-level, and repo
 
 Organization per-user reports use the same `totals_by_3rd_party_agent` entry fields and also include `organization_id`. Per-user entries do not include `session_count`.
 
+In this example, `used_copilot_code_review_active` and `used_copilot_code_review_passive` are `null` because there was no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. `used_copilot_cloud_agent` and `used_copilot_coding_agent` always carry the same value.
+
 ## Enterprise-level schema example
 
 ```json copy
@@ -144,7 +155,10 @@ Organization per-user reports use the same `totals_by_3rd_party_agent` entry fie
     "code_generation_activity_count" : 4,
     "daily_active_cli_users" : 2,
     "daily_active_copilot_app_users" : 1,
+    "daily_active_copilot_cloud_agent_users" : 1,
+    "daily_active_copilot_code_review_users" : 1,
     "daily_active_users" : 2,
+    "daily_passive_copilot_code_review_users" : 0,
     "day" : "2025-10-01",
     "enterprise_id" : "1",
     "loc_added_sum" : 54,
@@ -153,7 +167,10 @@ Organization per-user reports use the same `totals_by_3rd_party_agent` entry fie
     "loc_suggested_to_delete_sum" : 6,
     "monthly_active_agent_users" : 0,
     "monthly_active_chat_users" : 0,
+    "monthly_active_copilot_cloud_agent_users" : 1,
+    "monthly_active_copilot_code_review_users" : 1,
     "monthly_active_users" : 2,
+    "monthly_passive_copilot_code_review_users" : 0,
     "pull_requests" : {
       "median_minutes_to_merge" : 2.5,
       "median_minutes_to_merge_copilot_authored" : 2.5,
@@ -180,6 +197,39 @@ Organization per-user reports use the same `totals_by_3rd_party_agent` entry fie
       "agent_name" : "Codex (OpenAI)",
       "session_count" : 2,
       "user_initiated_interaction_count" : 2
+    } ],
+    "totals_by_ai_adoption_phase" : [ {
+      "avg_code_acceptance_activities" : 1.0,
+      "avg_code_generation_activities" : 1.0,
+      "avg_loc_added" : 22.0,
+      "avg_loc_deleted" : 0.0,
+      "avg_pull_requests_created" : 1.0,
+      "avg_pull_requests_median_minutes_to_merge" : 2.5,
+      "avg_pull_requests_merged" : 1.0,
+      "avg_pull_requests_minutes_to_review" : 1.5,
+      "avg_pull_requests_review_cycles" : 1.0,
+      "avg_pull_requests_reviewed" : 0.0,
+      "avg_user_initiated_interactions" : 0.0,
+      "phase" : "Phase 1",
+      "phase_number" : 1,
+      "total_engaged_users" : 1,
+      "total_pull_requests_merged" : 1
+    }, {
+      "avg_code_acceptance_activities" : 3.0,
+      "avg_code_generation_activities" : 3.0,
+      "avg_loc_added" : 32.0,
+      "avg_loc_deleted" : 6.0,
+      "avg_pull_requests_created" : 1.0,
+      "avg_pull_requests_median_minutes_to_merge" : 2.5,
+      "avg_pull_requests_merged" : 1.0,
+      "avg_pull_requests_minutes_to_review" : 2.0,
+      "avg_pull_requests_review_cycles" : 2.0,
+      "avg_pull_requests_reviewed" : 1.0,
+      "avg_user_initiated_interactions" : 1.0,
+      "phase" : "Phase 2",
+      "phase_number" : 2,
+      "total_engaged_users" : 1,
+      "total_pull_requests_merged" : 1
     } ],
     "totals_by_cli" : {
       "prompt_count" : 3,
@@ -252,7 +302,10 @@ Organization per-user reports use the same `totals_by_3rd_party_agent` entry fie
     "totals_by_language_model" : [ ],
     "totals_by_model_feature" : [ ],
     "user_initiated_interaction_count" : 1,
-    "weekly_active_users" : 2
+    "weekly_active_copilot_cloud_agent_users" : 1,
+    "weekly_active_copilot_code_review_users" : 1,
+    "weekly_active_users" : 2,
+    "weekly_passive_copilot_code_review_users" : 0
   } ],
   "enterprise_id" : "1",
   "report_end_day" : "2025-10-01",
@@ -264,7 +317,10 @@ Organization per-user reports use the same `totals_by_3rd_party_agent` entry fie
   "day_totals" : [ {
     "code_acceptance_activity_count" : 2,
     "code_generation_activity_count" : 3,
+    "daily_active_copilot_cloud_agent_users" : 0,
+    "daily_active_copilot_code_review_users" : 0,
     "daily_active_users" : 2,
+    "daily_passive_copilot_code_review_users" : 0,
     "day" : "2025-10-01",
     "enterprise_id" : "2",
     "loc_added_sum" : 50,
@@ -273,7 +329,10 @@ Organization per-user reports use the same `totals_by_3rd_party_agent` entry fie
     "loc_suggested_to_delete_sum" : 3,
     "monthly_active_agent_users" : 0,
     "monthly_active_chat_users" : 0,
+    "monthly_active_copilot_cloud_agent_users" : 0,
+    "monthly_active_copilot_code_review_users" : 0,
     "monthly_active_users" : 2,
+    "monthly_passive_copilot_code_review_users" : 0,
     "pull_requests" : {
       "total_applied_suggestions" : 0,
       "total_copilot_applied_suggestions" : 0,
@@ -287,6 +346,39 @@ Organization per-user reports use the same `totals_by_3rd_party_agent` entry fie
       "total_reviewed_by_copilot" : 0,
       "total_suggestions" : 1
     },
+    "totals_by_ai_adoption_phase" : [ {
+      "avg_code_acceptance_activities" : 0.0,
+      "avg_code_generation_activities" : 1.0,
+      "avg_loc_added" : 12.0,
+      "avg_loc_deleted" : 3.0,
+      "avg_pull_requests_created" : 0.0,
+      "avg_pull_requests_median_minutes_to_merge" : 0.0,
+      "avg_pull_requests_merged" : 0.0,
+      "avg_pull_requests_minutes_to_review" : 0.0,
+      "avg_pull_requests_review_cycles" : 0.0,
+      "avg_pull_requests_reviewed" : 0.0,
+      "avg_user_initiated_interactions" : 0.0,
+      "phase" : "No Cohort",
+      "phase_number" : 0,
+      "total_engaged_users" : 1,
+      "total_pull_requests_merged" : 0
+    }, {
+      "avg_code_acceptance_activities" : 2.0,
+      "avg_code_generation_activities" : 2.0,
+      "avg_loc_added" : 38.0,
+      "avg_loc_deleted" : 0.0,
+      "avg_pull_requests_created" : 1.0,
+      "avg_pull_requests_median_minutes_to_merge" : 0.0,
+      "avg_pull_requests_merged" : 0.0,
+      "avg_pull_requests_minutes_to_review" : 0.0,
+      "avg_pull_requests_review_cycles" : 0.0,
+      "avg_pull_requests_reviewed" : 1.0,
+      "avg_user_initiated_interactions" : 1.0,
+      "phase" : "Phase 1",
+      "phase_number" : 1,
+      "total_engaged_users" : 1,
+      "total_pull_requests_merged" : 0
+    } ],
     "totals_by_feature" : [ {
       "code_acceptance_activity_count" : 1,
       "code_generation_activity_count" : 2,
@@ -338,7 +430,10 @@ Organization per-user reports use the same `totals_by_3rd_party_agent` entry fie
     "totals_by_language_model" : [ ],
     "totals_by_model_feature" : [ ],
     "user_initiated_interaction_count" : 1,
-    "weekly_active_users" : 2
+    "weekly_active_copilot_cloud_agent_users" : 0,
+    "weekly_active_copilot_code_review_users" : 0,
+    "weekly_active_users" : 2,
+    "weekly_passive_copilot_code_review_users" : 0
   } ],
   "enterprise_id" : "2",
   "report_end_day" : "2025-10-01",

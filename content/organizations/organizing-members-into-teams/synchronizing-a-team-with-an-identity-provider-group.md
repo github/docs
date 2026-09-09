@@ -87,9 +87,7 @@ When you connect an IdP group to a {% data variables.product.github %} team, all
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{%- ifversion ghec %}
 1. Under "Identity Provider Groups", select the **Select Groups** dropdown menu, and click up to 5 identity provider groups.
-{%- endif %}
 1. Click **Save changes**.
 
 ## Disconnecting an IdP group from a team
@@ -98,7 +96,5 @@ When you connect an IdP group to a {% data variables.product.github %} team, all
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{%- ifversion ghec %}
 1. Under "Identity Provider Groups", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="Remove group" %}.
-{%- endif %}
 1. Click **Save changes**.

@@ -43,7 +43,7 @@ Organization owners can view all {% data variables.product.pat_v2 %}s that can a
 
 {% ifversion ghec %}
 
-If their organization uses SAML, organization owners can see each {% data variables.product.pat_generic %} that a member of their organization authorized. For more information, see [AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-authorized-credentials).
+If their organization uses SAML, organization owners can see each {% data variables.product.pat_generic %} that a member of their organization authorized. For more information, see [AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-authorized-credentials-for-a-single-member).
 
 {% endif %}
 

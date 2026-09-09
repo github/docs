@@ -118,7 +118,7 @@ In this step, you'll open a pull request in your own repository and then merge i
 
 When you start collaborating with others, this is the time you'd ask for their review. This allows your collaborators to comment on, or propose changes to, your pull request before you merge the changes into the `main` branch.
 
-We won't cover reviewing pull requests in this tutorial, but if you're interested in learning more, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews). Alternatively, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Reviewing pull requests" course.
+We won't cover reviewing pull requests in this tutorial, but if you're interested in learning more, see [AUTOTITLE](/pull-requests/reference/pull-request-reviews). Alternatively, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Reviewing pull requests" course.
 
 ## Step 5: Merge your pull request
 

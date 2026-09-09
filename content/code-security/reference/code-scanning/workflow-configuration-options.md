@@ -371,7 +371,9 @@ In the workflow file, use the `config-file` parameter of the `init` action to sp
 
 {% ifversion codeql-config-property %}
 
-If the configuration file is located in an external private repository and you want to use it for a {% data variables.product.prodname_code_scanning %} default setup analysis, you can set up a _Git Source_ private registry configuration for your organization with credentials that allow access to the private repository containing the configuration file. For information about how to set up a private registry configuration, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries).
+You can also use custom configuration files in default setup and share the same configuration across multiple repositories. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/edit-default-setup#customizing-default-setup-with-a-configuration-file).
+
+{% data reusables.code-scanning.remote-config-file-registry %}
 
 {% endif %}
 

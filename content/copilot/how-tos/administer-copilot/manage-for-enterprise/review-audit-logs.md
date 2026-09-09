@@ -44,7 +44,10 @@ Use the `action:copilot` search term to view all events related to your {% data 
 
 You can also filter by a specific event. For example, `action:copilot.cfb_seat_assignment_created` returns events related to a license being assigned to a new user. For a full list of {% data variables.product.prodname_copilot_short %} events, see [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization).
 
-To view a record of agent activity, use the `actor:Copilot` search term. See [AUTOTITLE](/copilot/reference/agentic-audit-log-events).
+To view a record of agent activity, use the `actor:Copilot` search term. See [AUTOTITLE](/copilot/reference/enterprise-administrators/agentic-audit-log-events).
+
+> [!NOTE]
+> For team-based seat assignments, the `copilot.cfb_seat_added` event's actor may not be the account that performed the membership change. See [AUTOTITLE](/copilot/reference/copilot-billing/seat-assignment#seat-assignment-management).
 
 ## Retaining audit log history
 

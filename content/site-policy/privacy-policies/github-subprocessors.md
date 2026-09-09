@@ -30,6 +30,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | Anthropic PBC                 | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Cerebras Systems Inc.         | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Cloudflare                    | Content delivery service                                                       | United States                                     | United States      |
+| DataDome Solutions, Inc.      | Security management                                                            | United States, France                             | United States      |
 | Elasticsearch, Inc.           | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Fastly                        | Content delivery service                                                       | United States                                     | United States      |
 | Fireworks AI                  | AI Inference and AI Services                                                   | United States, Germany, Iceland                   | United States      |

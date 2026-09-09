@@ -77,4 +77,4 @@ Before starting this section, ensure you have followed steps **1 to 4** in [AUTO
 1. Navigate back to the "Overview" page.
 1. To provision your EntraID users to your {% data variables.product.prodname_ghe_server %} appliance, Click **Start provisioning**.
 
-When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings).
+When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-update-settings).

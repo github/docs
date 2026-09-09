@@ -68,7 +68,7 @@ sections:
       On an instance with busy databases, online schema migrations using gh-ost failed because the cut-over lock timeout defaulted to 3 seconds, which was insufficient to acquire an exclusive table lock under continuous traffic.
   changes:
     - |
-      To improve SSH security, the instance no longer advertises the ssh-rsa signature algorithm (which uses SHA-1) for server host keys on ports 22 and 122. RSA keys continue to work using the more secure rsa-sha2-256 and rsa-sha2-512 signature algorithms. Administrators using very old SSH clients that only support SHA-1 signatures may need to upgrade their clients. For more information about SSH algorithms, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance).
+      To improve SSH security, the instance no longer advertises the ssh-rsa signature algorithm (which uses SHA-1) for server host keys on ports 22 and 122. RSA keys continue to work using the more secure rsa-sha2-256 and rsa-sha2-512 signature algorithms. Administrators using very old SSH clients that only support SHA-1 signatures may need to upgrade their clients. For more information about SSH algorithms, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-ssh-connections-to-your-instance).
     - |
       Administrators can now set `mysql.innodb-online-alter-log-max-size` with `ghe-config` so the value persists when a configuration is applied or upgraded.
     - |

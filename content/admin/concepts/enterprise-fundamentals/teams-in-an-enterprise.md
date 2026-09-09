@@ -83,9 +83,3 @@ However, unlike organization teams, enterprise teams currently do **not** suppor
 {% data reusables.enterprise.enterprise-teams-limits %}
 
 For more information about the capabilities of organization teams, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
-
-## Next steps
-
-If your needs are covered by enterprise teams, create a team. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
-
-If you need to create an organization team, an organization owner must do this from the organization settings. See [AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team).

@@ -85,7 +85,7 @@ You can change the name and email address used to author commits in a specific r
 
 ## Configuring your default branch for new repositories
 
-You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
+You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see [AUTOTITLE](/pull-requests/reference/branches#about-the-default-branch).
 
 {% mac %}
 
@@ -151,5 +151,5 @@ For more information about Git hooks in {% data variables.product.prodname_deskt
 
 * [AUTOTITLE](/account-and-profile/how-tos/email-preferences/adding-an-email-address-to-your-github-account)
 * [AUTOTITLE](/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address)
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
+* [AUTOTITLE](/pull-requests/reference/branches)
 * [AUTOTITLE](/get-started/git-basics)

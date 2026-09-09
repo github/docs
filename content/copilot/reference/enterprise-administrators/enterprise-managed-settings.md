@@ -12,18 +12,7 @@ category:
 
 Use this reference to understand the currently supported keys in `{% data variables.copilot.managed_setting_file %}`.
 
-For deployment methods and supported clients, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
-
-## Precedence rules
-
-When multiple settings sources are present, settings earlier in this list take precedence over settings later in the list:
-
-1. MDM-managed settings
-1. Server-managed settings
-1. File-based settings
-1. User-level settings
-
-In {% data variables.copilot.copilot_cli_short %}, the `sandbox` key is an exception to these precedence rules. Managed sandbox restrictions from MDM-managed, server-managed, and file-based settings combine with one another and with the user's sandbox settings in the most restrictive direction.
+For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started).
 
 ## Supported keys
 
@@ -32,7 +21,10 @@ In {% data variables.copilot.copilot_cli_short %}, the `sandbox` key is an excep
 | Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_cloud_agent %} | {% data variables.product.prodname_jetbrains_ides %} |
 | --- | --- | --- | --- | --- | --- | --- |
 | `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `permissions.model` | Sets auto model selection as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.deny` | Blocks specific operations | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.ask` | Requires a fresh human approval before specific operations can proceed | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.allow` | Permits specific operations to proceed without a prompt | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `model` | Sets your preferred model as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `enabledPlugins` | Enables or disables specific plugins by key | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `extraKnownMarketplaces` | Adds plugin marketplaces that users can access | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -44,13 +36,6 @@ In {% data variables.copilot.copilot_cli_short %}, the `sandbox` key is an excep
 
 {% endrowheaders %}
 
-## Applying different settings to enterprise teams
-
-For server-managed deployments, the enterprise can apply different governance to groups of users based on their enterprise team membership. The enterprise defines all settings—team membership only determines which users receive a given set of values.
-
-To make a key eligible for team-specific values, mark it as overridable in `{% data variables.copilot.managed_setting_file %}` using the `{ "overridable": <VALUE> }` syntax. An overridable key uses the team's value when set, or falls back to your enterprise default when the team leaves it unset. The `{ "overridable": <VALUE> }` syntax applies to the `permissions.model`, `permissions.disableBypassPermissionsMode`, `allowedMcpServers`, and `deniedMcpServers` keys. Keys not marked overridable remain an enterprise-level decision that teams can't modify.
-
-`enabledPlugins` and `extraKnownMarketplaces` work additively. The enterprise `{% data variables.copilot.managed_setting_file %}` sets a baseline, and an enterprise team file can add more plugins and marketplaces on top of it. For the full setup steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#overriding-settings-for-specific-teams).
 
 ## Example configuration
 
@@ -58,9 +43,25 @@ The following example shows these keys in one managed settings file.
 
 ```json
 {
+  "model": "auto",
   "permissions": {
     "disableBypassPermissionsMode": "disable",
-    "model": "auto"
+    "deny": [
+      "Shell(rm -rf *)",
+      "Read(~/.ssh/**)",
+      "Edit(//etc/**)",
+      "Domain(*.unapproved.example)"
+    ],
+    "ask": [
+      "Shell(git push *)",
+      "Edit(/src/**)",
+      "Domain(api.github.com)"
+    ],
+    "allow": [
+      "Shell(npm test *)",
+      "Read(/src/**)",
+      "Domain(registry.npmjs.org)"
+    ]
   },
   "enabledPlugins": {
     "my-plugin@agent-skills": true
@@ -70,7 +71,8 @@ The following example shows these keys in one managed settings file.
       "source": {
         "source": "github",
         "repo": "OWNER/REPO"
-      }
+      },
+      "autoUpdate": true
     }
   },
   "strictKnownMarketplaces": [
@@ -103,10 +105,18 @@ The following example shows these keys in one managed settings file.
     { "serverCommand": ["cmd", "/c", "uvx", "markitdown-mcp"] }
   ],
   "deniedMcpServers": [
-    { "serverUrl": "https://learn.microsoft.com/*" }
+    {
+      "serverCommand": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/"
+      ]
+    }
   ],
   "sandbox": {
     "enabled": true,
+    "failIfUnavailable": true,
     "allowBypass": false,
     "sandboxMcpServers": true,
     "sandboxLspServers": true
@@ -120,7 +130,13 @@ Defines plugins that are automatically installed or blocked for all enterprise u
 
 ## extraKnownMarketplaces
 
-Defines additional plugin marketplaces available to users. Each entry is a named marketplace object containing a `source` property. The following source types are supported:
+Defines additional plugin marketplaces available to users. Each entry is a named marketplace object containing a `source` property and an optional `autoUpdate` boolean.
+
+Set `autoUpdate` to `true` to require clients to periodically refresh that marketplace and update installed plugins sourced from it. Set it to `false` to require automatic updates to remain disabled for that marketplace. If you omit `autoUpdate`, clients use their existing default or user-configured behavior.
+
+Because managed settings take precedence, users cannot override a defined `autoUpdate` value. The setting applies only to that marketplace, and any restrictions in `strictKnownMarketplaces` still apply before refresh and update operations.
+
+The following source types are supported:
 
 * `"github"` — requires `repo` in `OWNER/REPO` format; optional `ref` (branch, tag, or SHA) and `path` (subdirectory)
 * `"git"` — requires `url`; optional `ref` and `path`
@@ -141,7 +157,37 @@ Restricts plugin installation to only the marketplaces explicitly defined by the
 * `"hostPattern"` — requires `hostPattern` (regex matching marketplace hosts)
 * `"pathPattern"` — requires `pathPattern` (regex matching marketplace paths)
 
+## model
+
+Sets your preferred model as the default for new conversations. This lets you choose the default model that best fits your enterprise's workflows. Users can still select a different model on a per-conversation basis.
+* Set `model` to `"auto"` to use {% data variables.copilot.copilot_auto_model_selection_short %} as the default, so new sessions choose a model automatically unless the user specifies a different model on a per-conversation basis. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+* Set `model` to a specific model and version to make that model the default for new conversations, for example `"kimi-k3"`.
+
+This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "auto" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"model": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
+
+> [!NOTE]
+> `model` was originally documented as `permissions.model`. Clients still read the nested `permissions.model` value when the top-level `model` key is absent, but you should use the top-level `model` key in new configurations.
+
 ## permissions
+
+### deny, ask, allow
+
+The `permissions.deny`, `permissions.ask`, and `permissions.allow` keys use **deny > ask > allow** precedence. If an MDM-managed, server-managed, or file-based source defines any permission rule—or if any applicable source declares an `allow` list—an unmatched supported operation defaults to requiring approval. Otherwise, it follows the ordinary permission flow.
+
+* `deny` blocks specific operations, regardless of whether they also match an `ask` or `allow` rule. A deny rule set by any managed settings source blocks the operation for all users regardless of rules in the other sources.
+* `ask` requires fresh, one-time approval before a specific operation can proceed, even if the operation would otherwise be allowed. A managed `ask` rule can't be satisfied by bypass mode (also known as allow-all or YOLO mode), an auto-approval setting, a hook or other approval shortcut, or a grant persisted from an earlier approval. The same operation prompts again the next time it's requested.
+* `allow` permits a specific operation to proceed without a prompt. The effective allowlist is the intersection of all sources that declare one, not the union. A source that doesn't declare an `allow` list places no restriction of its own on this key.
+
+Rules use the following selectors:
+
+| Selector | Matches |
+| --- | --- |
+| `Shell(...)` | Shell commands. Use `<command> *` (for example, `git push *`) to match a command prefix; otherwise the rule matches exact text. `Bash(...)` is a compatibility alias for `Shell(...)`. `PowerShell(...)` uses the same selector family with case-insensitive command matching. |
+| `Read(...)` | File read and view paths. Supports glob patterns and these roots: `//` for the filesystem root, `/` for the workspace root, `~/` for the home directory, and `./` for the current working directory.|
+| `Edit(...)` | File write and edit paths, matched the same way as `Read(...)`. `Write(...)` is an alias for `Edit(...)`. |
+| `Domain(...)` | Network origins. A bare host defaults to HTTPS, and host matching is case-insensitive. Use `*.` to include subdomains; for example, `*.example.com` matches both example.com and its subdomains. |
+
+Each subkey is overridable for enterprise teams. Set the enterprise value to `{ "overridable": <VALUE> }`, replacing `<VALUE>` with the rule array. Then use the regular syntax to define replacement rules in each team's file.
 
 ### disableBypassPermissionsMode
 
@@ -153,13 +199,6 @@ When you set `disableBypassPermissionsMode` to `"disable"`, users cannot turn on
 * In {% data variables.product.prodname_vscode_shortname %}, the global auto-approve setting (`chat.tools.global.autoApprove`) is turned off and cannot be re-enabled.
 * In the {% data variables.copilot.github_copilot_app %}, the "Allow all" setting for "Tool Permissions" is blocked in the sessions settings.
 * This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "disable" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"disableBypassPermissionsMode": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
-
-### model
-
-Sets auto model selection as the default for new conversations. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
-
-* When you set `permissions.model` to `"auto"`, new sessions use Auto model unless the user specifies a different model on a per-conversation basis.
-* This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "auto" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"model": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
 
 ## telemetry
 
@@ -234,8 +273,9 @@ Enforces minimum local sandbox restrictions for {% data variables.copilot.copilo
 
 The following sub-properties are supported:
 
-* `enabled`: `true` requires sandboxing and prevents users from disabling it.
-* `allowBypass`: `false` prevents the model from requesting that an individual command run outside the sandbox.
+* `enabled`: `true` requires sandboxing by default. Users cannot disable it through their configuration, the `--no-sandbox` command line option, or the `/sandbox disable` command. If the effective policy permits bypass, a user can still explicitly disable sandboxing for the rest of the current session from an active sandbox-bypass permission prompt.
+* `failIfUnavailable`: `true`, combined with `enabled: true`, makes the managed sandbox mandatory. If {% data variables.product.prodname_copilot_short %} cannot validate, compile, or enforce the sandbox policy with an available sandbox backend, it blocks model and tool execution instead of allowing commands to fail or run unsandboxed. This property does not enable sandboxing by itself.
+* `allowBypass`: `false` prevents both individual commands from running outside the sandbox and users from disabling sandboxing for the rest of the current session from an active sandbox-bypass permission prompt.
 * `addCurrentWorkingDirectory`: `false` prevents {% data variables.copilot.copilot_cli_short %} from automatically adding the current working directory to the sandbox's read/write paths.
 * `sandboxMcpServers`: `true` requires local MCP servers started by {% data variables.copilot.copilot_cli_short %} to run in the sandbox. Remote MCP servers do not run in the local sandbox.
 * `sandboxLspServers`: `true` requires language servers started by {% data variables.copilot.copilot_cli_short %} to run in the sandbox.

@@ -120,6 +120,14 @@ As the owner of an enterprise or organization account, or as a billing manager, 
      * Select a cost center to create a user-level budget that applies to every user in that cost center. This sets one per-user amount for all current and future members, and overrides the universal budget for them.
      * Select a specific user to create an individual budget that overrides both the universal budget and any cost center user-level budget for that user.
 
+1. If you selected a specific user, optionally set an expiration date for the individual budget under "Expiration".
+
+   * **No expiration**: The budget applies until you edit or delete it. This is the default.
+   * **End of current billing cycle**: {% data variables.product.github %} removes the budget when the current billing cycle ends.
+   * **Specific date**: {% data variables.product.github %} removes the budget on the date you choose.
+
+   When an individual budget expires, {% data variables.product.github %} removes it and the user falls back to the next budget that applies to them: their cost center user-level budget, if they have one, or otherwise the universal user-level budget. If neither budget is configured, no user-level budget applies. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#expiration-dates-for-individual-user-level-budgets).
+
 1. Under "Budget", set a budget amount or license count.
 
    To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached** or **Limit usage when budget limit is reached**, if available. **This option is available for metered products and for {% data variables.product.prodname_AS %} SKU-level budgets**. For {% data variables.product.prodname_AS %}, this option prevents new enablement on additional repositories. It doesn't disable {% data variables.product.prodname_AS %} on repositories where it is already active. See [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#hard-budgets-for-github-advanced-security-skus).
@@ -144,6 +152,8 @@ As the owner of an enterprise or organization account, or as a billing manager, 
 >[!IMPORTANT] Deleting a budget may remove any limits on spending, depending on your other existing budgets.
 
 You can edit or delete a budget at any time, but you cannot change the scope of a budget after creating it.
+
+For an individual user-level budget, you can also change or clear the expiration date at any time.
 
 1. Navigate to the "Budgets and alerts" view. See [Viewing budgets](#viewing-budgets).
 1. In the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.

@@ -122,7 +122,7 @@ async function processWebhookSchema(webhooks: Webhook[]): Promise<void> {
     }
   } catch {
     throw new Error(
-      "🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.",
+      "🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #technical-content slack channel for help.",
     )
   }
 }

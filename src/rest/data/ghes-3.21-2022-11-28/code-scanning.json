@@ -590,6 +590,7 @@
                       "false positive",
                       "won't fix",
                       "used in tests",
+                      "mitigated",
                       null
                     ]
                   },
@@ -2039,6 +2040,7 @@
                       "false positive",
                       "won't fix",
                       "used in tests",
+                      "mitigated",
                       null
                     ]
                   },
@@ -3388,6 +3390,7 @@
                       "false positive",
                       "won't fix",
                       "used in tests",
+                      "mitigated",
                       null
                     ]
                   },
@@ -4197,6 +4200,7 @@
                     "false positive",
                     "won't fix",
                     "used in tests",
+                    "mitigated",
                     null
                   ]
                 },
@@ -7766,6 +7770,7 @@
             "false positive",
             "won't fix",
             "used in tests",
+            "mitigated",
             null
           ]
         },
@@ -8077,6 +8082,7 @@
                     "false positive",
                     "won't fix",
                     "used in tests",
+                    "mitigated",
                     null
                   ]
                 },

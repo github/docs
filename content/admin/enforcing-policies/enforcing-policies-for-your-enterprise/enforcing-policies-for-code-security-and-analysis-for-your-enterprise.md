@@ -28,7 +28,11 @@ category:
 
 You can enforce policies to manage the use of security features within organizations owned by your enterprise. You can allow or disallow people with admin access to a repository to enable or disable the security and analysis features.
 
-Additionally, you can enforce policies for the use of {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %} in your enterprise's organizations and repositories.
+Additionally, you can enforce policies for the use of {% data variables.product.prodname_GHAS_cs_or_sp %} in your enterprise's organizations and repositories.
+
+{% ifversion code-quality %}
+Policies for {% data variables.product.prodname_AS %} do not control access to {% data variables.product.prodname_code_quality %}. To manage access, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise).
+{% endif %}
 
 ## Enforcing a policy for the availability of {% data variables.product.prodname_AS %} in your enterprise's organizations
 
@@ -36,7 +40,7 @@ You are billed for {% data variables.product.prodname_GHAS_cs_and_sp %} products
 
 You can enforce a policy that controls whether repository administrators are allowed to enable features for {% data variables.product.prodname_AS %} in an organization's repositories. You can configure a policy for all organizations owned by your enterprise account, or for individual organizations that you choose.
 
-Disallowing {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %} for an organization prevents repository administrators from enabling these features for additional repositories, but does not disable the features for repositories where the features are already enabled.
+Disallowing {% data variables.product.prodname_GHAS_cs_or_sp %} for an organization prevents repository administrators from enabling these features for additional repositories, but does not disable the features for repositories where the features are already enabled.
 
 {% data reusables.enterprise.role-permission-hierarchy %}
 
@@ -47,7 +51,7 @@ Disallowing {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %} for an o
 {% data reusables.enterprise-accounts.advanced-security-individual-organization-policy-drop-down %}
 
 > [!NOTE]
-> If {% data variables.product.prodname_actions %} is not available for an organization, {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_code_quality %} will be unable to run even if they are made available with this policy. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#policies).
+> If {% data variables.product.prodname_actions %} is not available for an organization, {% data variables.product.prodname_code_scanning %} will be unable to run even if it is made available with this policy.{% ifversion code-quality %} Similarly, {% data variables.product.prodname_code_quality %} will be unable to run even if it is made available with its own policy.{% endif %} See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#policies).
 
 {% ifversion ghec %}
 
@@ -88,7 +92,7 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. In the "Policies" section, under "Repository administrators can enable or disable `PRODUCT`", use the dropdown menu to define whether repository administrators can change the enablement of {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %}.
+1. In the "Policies" section, under "Repository administrators can enable or disable `PRODUCT`", use the dropdown menu to define whether repository administrators can change the enablement of {% data variables.product.prodname_GHAS_cs_or_sp %}.
 
 <!--This option is included automatically by the "Repository Admins can Enable or Disable Secret Protection" option, which is why this section is omitted for `ghas-products` versions.-->
 

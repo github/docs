@@ -53,7 +53,7 @@ The following features are either specific to {% data variables.enterprise.data_
 
 ### API access
 
-{% data reusables.data-residency.data-resident-enterprises-api-access %} For more information, see [AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency#api-access).
+{% data reusables.data-residency.data-resident-enterprises-api-access %} You must authenticate all API requests to {% data variables.enterprise.data_residency_site %} using a credential supported by the endpoint. For endpoints that do not require authentication on {% data variables.product.prodname_dotcom_the_website %}, authenticate with an access token. For more information, see [AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency#api-access).
 
 ### URL differences
 
@@ -95,9 +95,7 @@ To allow people to use namespaces that match actions you have used from {% data 
 
 You can use {% data variables.product.prodname_github_connect %} to connect to {% data variables.enterprise.data_residency_site %} from {% data variables.product.prodname_ghe_server %}.
 
-* {% data variables.product.prodname_server_statistics %} is not available.
-* {% data variables.product.prodname_dotcom_the_website %} actions are not available.
-* Automatic user license sync requires {% data variables.product.prodname_ghe_server %} version 3.15 or later.
+{% data reusables.github-connect.what-is-available-ghecom %}
 
 To enable {% data variables.product.prodname_github_connect %}, you must configure your {% data variables.product.prodname_ghe_server %} instance to connect to your {% data variables.enterprise.data_residency_site %} subdomain. See [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom).
 

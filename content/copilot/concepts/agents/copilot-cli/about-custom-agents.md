@@ -35,6 +35,8 @@ In addition to the main {% data variables.product.prodname_copilot_short %} agen
 
 * **rubber-duck** — A constructive critic that gives {% data variables.product.prodname_copilot_short %} a second opinion on its own plans, code, and tests. It runs on a different model from the one driving your session, so it brings a complementary perspective. It is designed to review proposed changes, not to make file changes itself. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/rubber-duck).
 
+* **security-review** — A read-only specialist that searches your codebase for exploitable security vulnerabilities and reports only high-confidence findings. You can invoke it explicitly using the `/security-review` slash command. The main agent can also delegate security-focused work to it, including when you explicitly ask it to find exploitable vulnerabilities.
+
 ## Running agents as subagents
 
 One of the benefits of using custom agents you have defined yourself—or the built-in agents—is that the main {% data variables.product.prodname_copilot_short %} agent can run them as subagents with a separate context window. This means that your custom agent, or built-in agent, can focus on a specific subtask without cluttering the context window of the main agent.

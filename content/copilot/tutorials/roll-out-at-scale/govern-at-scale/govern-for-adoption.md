@@ -54,4 +54,4 @@ This approach offers several advantages:
 * **Cost management**: Align with existing payment methods, contracts, credits, or negotiated rates.
 * **Visibility and control**: Monitor usage through your provider's existing dashboards and billing.
 
-For setup instructions, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+For setup instructions, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models).

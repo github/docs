@@ -50,6 +50,8 @@ If a repository in your organization has {% data variables.product.prodname_depe
 
 If you run into {% data variables.product.prodname_dependabot %} timeouts and out-of-memory errors, you may want to use {% data variables.actions.hosted_runners %}, as you can configure these runners to have more resources. You can only enable {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_dependabot %} **for an organization**.
 
+Using {% data variables.actions.hosted_runners %} can help update jobs finish within the 55-minute time limit, but does not increase the limit.
+
 1. Add a {% data variables.actions.hosted_runner %} to your organization and ensure the name specified is `dependabot`. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-organization).
 1. Opt in the organization to self-hosted runners. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-on-self-hosted-runners#for-your-organization). This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` name.
 

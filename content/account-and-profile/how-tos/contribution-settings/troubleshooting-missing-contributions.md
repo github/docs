@@ -58,7 +58,7 @@ Generic email addresses, such as `jane@computer.local`, cannot be added to {% da
 Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages#types-of-github-pages-sites).
 
 If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
-* [Open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
+* [Open a pull request](/pull-requests/how-tos/create-pull-requests/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
 * [Change the default branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch) of the repository.
 
 > [!WARNING]
@@ -66,7 +66,7 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 
 ## Commit was made in a fork
 
-Commits made in a fork will not count toward your contributions. To make them count, you must open a pull request to have your changes merged into the parent repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
+Commits made in a fork will not count toward your contributions. To make them count, you must open a pull request to have your changes merged into the parent repository. For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/creating-a-pull-request).
 
 ## Next steps
 

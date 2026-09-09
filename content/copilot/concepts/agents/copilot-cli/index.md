@@ -21,6 +21,7 @@ children:
   - /lsp-servers
   - /about-cli-extensions
   - /tool-search
+  - /understanding-local-sandboxing
 contentType: concepts
 docsTeamMetrics:
   - copilot-cli

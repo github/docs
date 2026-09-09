@@ -25,7 +25,7 @@ category:
 {% data reusables.code-quality.dashboard-navigation-repo %}
 {% data reusables.code-quality.dashboard-all-findings %}
 
-Alternatively, if you want to view AI-powered findings for the most recently changed files, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/fix-recent-merge-findings).
+Alternatively, if you want to view AI-powered findings for the most recently changed files, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/fix-findings-in-recent-merges).
 
 ## Exploring the backlog for your repository
 

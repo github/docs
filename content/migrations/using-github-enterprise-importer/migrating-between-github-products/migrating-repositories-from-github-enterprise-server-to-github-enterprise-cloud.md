@@ -430,7 +430,7 @@ When you use the CLI flag for {% data variables.product.prodname_ghos %}, the re
 
 {% data reusables.enterprise-migration-tool.set-up-aws-bucket %}
 
-### Setting up an Azure Blob Storage storage account
+### Setting up an Azure Blob Storage account
 
 {% data reusables.enterprise-migration-tool.set-up-azure-storage-account %}
 

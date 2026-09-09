@@ -43,7 +43,7 @@ sections:
     - |
       When applying a hotpatch or running a configuration with `ghe-config-apply`, the configuration run could fail with "ERROR: Restoring CodeQL Action release tags" if internal Git services were not yet fully available. The error message "SpokesAPI::TwirpServerError: unavailable" appeared in logs.
     - |
-      On instances connected to GitHub Enterprise Cloud with data residency, the "GitHub.com actions" setting appeared in the GitHub Connect configuration despite this feature not being available for data residency deployments.
+      On instances connected to GitHub Enterprise Cloud with data residency, the "GitHub.com actions" setting appeared in the GitHub Connect configuration despite this feature not being available for data residency deployments. **Note: This feature is available from 3.20.6.** [Updated: 2026-08-21]
     - |
       On instances with GitHub Actions enabled, errors appeared in logs related to missing Elasticsearch field mappings for workflow runs. The workflow run data included an `archived` field that was not defined in the Elasticsearch index mapping.
     - |

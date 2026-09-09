@@ -11,7 +11,7 @@ category:
   - Secure your workflows
 ---
 
-This guide helps you assess whether your workflow should use the `pull_request_target` event and understand the security risks involved. It also explains the protection {% data variables.product.github %} applies to [`actions/checkout`](https://github.com/actions/checkout) v7 and later to reduce these risks by default, and when to opt out of that protection if necessary.
+This guide helps you assess whether your workflow should use the `pull_request_target` event and understand the security risks involved. It also explains the protection {% data variables.product.github %} applies to [`actions/checkout`](https://github.com/actions/checkout) to reduce these risks by default, and when to opt out of that protection if necessary.
 
 Read [`pull_request_target`](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target) before you check out pull request code from one of these workflows, or before you set the `allow-unsafe-pr-checkout` input on `actions/checkout`.
 

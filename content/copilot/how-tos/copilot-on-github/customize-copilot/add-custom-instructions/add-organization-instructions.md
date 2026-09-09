@@ -35,10 +35,10 @@ You can add organization custom instructions via your organization settings.
 
 To see your instructions in action, go to [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text) and start a conversation.
 
-{% note %}
+<div class="border rounded-2 p-3">
 
 Did you successfully add custom instructions for your organization?
 
 <a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
 
-{% endnote %}
+</div>

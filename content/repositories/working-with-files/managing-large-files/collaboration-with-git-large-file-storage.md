@@ -31,7 +31,7 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 
 For more information about pointer files, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage#pointer-file-format).
 
-To view changes made to large files, check out the pull request locally to review the diff. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally).
+To view changes made to large files, check out the pull request locally to review the diff. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/checking-out-pull-requests-locally).
 
 {% ifversion fpt or ghec %}
 

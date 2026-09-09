@@ -1,0 +1,88 @@
+{
+  "name": "Integrations and remote control",
+  "sha": "7b8276b2bcaafc444a3dcf482a033352ebb3faa1",
+  "articles": [
+    "content/copilot/concepts/agents/copilot-cli/about-remote-control.md",
+    "content/copilot/concepts/agents/copilot-cli/chronicle.md",
+    "content/copilot/concepts/agents/copilot-cli/lsp-servers.md",
+    "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers.md",
+    "content/copilot/how-tos/copilot-cli/use-copilot-cli/browse-issues-prs-gists.md",
+    "content/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle.md",
+    "content/copilot/how-tos/copilot-cli/use-copilot-cli/connecting-vs-code.md",
+    "content/copilot/how-tos/copilot-cli/use-copilot-cli/delegate-tasks-to-cca.md",
+    "content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md",
+    "content/copilot/how-tos/copilot-cli/use-copilot-cli/steer-remotely.md",
+    "content/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input.md"
+  ],
+  "proposed": [
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/browse-issues-prs-gists.md",
+      "text": "* Press <kbd>/</kbd> (on the **Issues** and **Pull requests** tabs) to filter the list with your own search terms. Type your terms, press <kbd>Enter</kbd> to run the search, and <kbd>Esc</kbd> to cancel or clear it."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/browse-issues-prs-gists.md",
+      "text": "To run your own search, press <kbd>/</kbd>. An inline search box opens where you can type your search terms, then press <kbd>Enter</kbd> to run the search."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/browse-issues-prs-gists.md",
+      "text": "Your search terms are added to the qualifiers the tab already applies, so results are always limited to open items in the current repository—and, unless you have pressed <kbd>a</kbd>, to items that involve you. Enter plain search terms rath"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md",
+      "text": "<tr> <td><code>/pr automerge</code></td> <td>Do the same as <code>/pr auto</code>, then merge the pull request once it is green. <a href=\"#automatically-merging-the-pull-request\">Find out more</a></td> <td align=\"center\">No</td> <td align=\""
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md",
+      "text": "For each thread it addresses, {% data variables.product.prodname_copilot_short %} replies within the thread on {% data variables.product.prodname_dotcom_the_website %} to explain the change, then marks the thread as resolved. Threads that n"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md",
+      "text": "If no pull request exists for the current branch, {% data variables.product.prodname_copilot_short %} creates one first. It then loops through the fix phases—review feedback, conflicts, and CI—repeating until there are no more review commen"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md",
+      "text": "The loop runs as a self-paced schedule rather than as a single, continuous turn, doing one pass of work each time it runs and pausing between passes while CI settles. Use the `/every` slash command to check on the loop, or to stop it."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md",
+      "text": "### Automatically merging the pull request"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md",
+      "text": "`/pr auto` deliberately stops when the pull request is green. If you also want {% data variables.product.prodname_copilot_short %} to merge the pull request, enter:"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md",
+      "text": "This runs the same loop as `/pr auto`, then merges the pull request once it is no longer a draft, has no unresolved requests for changes, and all required checks are passing. {% data variables.product.prodname_copilot_short %} enables auto-"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md",
+      "text": "You can use `/pr agentmerge` as an alias for `/pr automerge`."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input.md",
+      "text": "{% data variables.copilot.copilot_cli_short %} offers a fixed set of speech-to-text models: a multilingual model, which is the default, plus a dedicated English model and a dedicated Spanish model. Only these models are listed in the voice "
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input.md",
+      "text": "1. When you're prompted to choose a voice model, press <kbd>Enter</kbd> with \"Download default model\" selected to download the default multilingual speech-to-text model."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input.md",
+      "text": "Alternatively, if you want to use the dedicated English or Spanish model:"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input.md",
+      "text": "1. In the voice models picker, use the arrow keys to select the model you want, then press <kbd>Enter</kbd> to download it."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input.md",
+      "text": "The default multilingual model handles more than one language, but you can switch to the dedicated English or Spanish model if you prefer. The model you want must be downloaded and activated before you can use it."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input.md",
+      "text": "1. In the voice models picker, use the arrow keys on your keyboard to select the model you want to use, then press <kbd>Enter</kbd>."
+    }
+  ],
+  "rejected": []
+}

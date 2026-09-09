@@ -22,11 +22,13 @@ Use of {% data variables.product.prodname_code_quality_short %} incurs three typ
 
 {% data variables.product.prodname_code_quality_short %} scans run as {% data variables.product.prodname_actions %} workflows and consume {% data variables.product.prodname_actions %} minutes, unless you use self-hosted runners. See [AUTOTITLE](/billing/concepts/product-billing/github-actions).
 
+In a detailed usage report, you can identify usage from {% data variables.product.prodname_code_quality_short %} scans by filtering the `workflow_path` field for `{% data variables.code-quality.workflow_name_billing %}`.
+
 ### {% data variables.product.prodname_ai_credits %}
 
 {% data variables.product.prodname_code_quality_short %} features that use AI models consume {% data variables.product.prodname_ai_credits_short %} from your shared {% data variables.product.prodname_ai_credits_short %} pool, rather than a separate {% data variables.product.prodname_code_quality_short %} allowance. Each interaction is priced based on the number of tokens consumed, where 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}. 
 
-{% data reusables.code-quality.model-usage %} 
+{% data reusables.code-quality.model-usage %}
 
 For more information about how {% data variables.product.prodname_ai_credits_short %} work, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 

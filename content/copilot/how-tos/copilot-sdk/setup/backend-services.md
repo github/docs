@@ -144,37 +144,6 @@ response = await session.send_and_wait(message)
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-	"time"
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	ctx := context.Background()
-	userID := "user1"
-	message := "Hello"
-
-    client := copilot.NewClient(&copilot.ClientOptions{
-        Connection: copilot.URIConnection{URL: "localhost:4321"},
-    })
-	client.Start(ctx)
-	defer client.Stop()
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		SessionID: fmt.Sprintf("user-%s-%d", userID, time.Now().Unix()),
-		Model:     "gpt-5.4",
-	})
-
-	response, _ := session.SendAndWait(ctx, copilot.MessageOptions{Prompt: message})
-	_ = response
-}
-```
-
-```golang
 client := copilot.NewClient(&copilot.ClientOptions{
     Connection: copilot.URIConnection{URL: "localhost:4321"},
 })
@@ -191,27 +160,6 @@ response, _ := session.SendAndWait(ctx, copilot.MessageOptions{Prompt: message})
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-var userId = "user1";
-var message = "Hello";
-
-var client = new CopilotClient(new CopilotClientOptions
-{
-    Connection = RuntimeConnection.ForUri("localhost:4321"),
-});
-
-await using var session = await client.CreateSessionAsync(new SessionConfig
-{
-    SessionId = $"user-{userId}-{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}",
-    Model = "gpt-5.4",
-});
-
-var response = await session.SendAndWaitAsync(
-    new MessageOptions { Prompt = message });
-```
 
 ```csharp
 var client = new CopilotClient(new CopilotClientOptions

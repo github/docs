@@ -136,10 +136,10 @@
   category: Powerful
   threshold: '≤ 272K'
   tier: Default
-  input: $5.00
-  cached_input: $0.50
-  output: $30.00
-  cache_write: $6.25
+  input: $4.00
+  cached_input: $0.40
+  output: $20.00
+  cache_write: $5.00
 
 - model: GPT-5.6 Sol
   provider: openai
@@ -147,10 +147,10 @@
   category: Powerful
   threshold: '> 272K'
   tier: 'Long context'
-  input: $10.00
-  cached_input: $1.00
-  output: $45.00
-  cache_write: $12.50
+  input: $8.00
+  cached_input: $0.80
+  output: $30.00
+  cache_write: $10.00
 
 - model: GPT-5.6 Terra
   provider: openai
@@ -174,6 +174,28 @@
   output: $18.00
   cache_write: $5.00
 
+- model: GPT-6 Astra
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '≤ 272K'
+  tier: Default
+  input: $10.00
+  cached_input: $1.00
+  output: $50.00
+  cache_write: $12.50
+
+- model: GPT-6 Astra
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '> 272K'
+  tier: 'Long context'
+  input: $20.00
+  cached_input: $2.00
+  output: $75.00
+  cache_write: $25.00
+
 # Anthropic
 - model: Claude Haiku 4.5
   provider: anthropic
@@ -193,15 +215,6 @@
   output: $15.00
   cache_write: $3.75
 
-- model: Claude Sonnet 4.5
-  provider: anthropic
-  release_status: GA
-  category: Versatile
-  input: $3.00
-  cached_input: $0.30
-  output: $15.00
-  cache_write: $3.75
-
 - model: Claude Sonnet 4.6
   provider: anthropic
   release_status: GA
@@ -210,24 +223,6 @@
   cached_input: $0.30
   output: $15.00
   cache_write: $3.75
-
-- model: Claude Opus 4.5
-  provider: anthropic
-  release_status: GA
-  category: Powerful
-  input: $5.00
-  cached_input: $0.50
-  output: $25.00
-  cache_write: $6.25
-
-- model: Claude Opus 4.6
-  provider: anthropic
-  release_status: GA
-  category: Powerful
-  input: $5.00
-  cached_input: $0.50
-  output: $25.00
-  cache_write: $6.25
 
 - model: Claude Opus 4.7
   provider: anthropic
@@ -256,7 +251,7 @@
   output: $25.00
   cache_write: $6.25
 
-- model: Claude Sonnet 5[^sonnet-5-promo]
+- model: Claude Sonnet 5
   provider: anthropic
   release_status: GA
   category: Versatile
@@ -283,27 +278,16 @@
   output: $50.00
   cache_write: $12.50
 
+- model: Claude Fable 5.1
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $10.00
+  cached_input: $0.25
+  output: $50.00
+  cache_write: $12.50
+
 # Google
-- model: 'Gemini 3.1 Pro'
-  provider: google
-  release_status: Public preview
-  category: Powerful
-  threshold: '≤ 200K'
-  tier: 'Default'
-  input: $2.00
-  cached_input: $0.20
-  output: $12.00
-
-- model: 'Gemini 3.1 Pro'
-  provider: google
-  release_status: Public preview
-  category: Powerful
-  threshold: '> 200K'
-  tier: 'Long context'
-  input: $4.00
-  cached_input: $0.40
-  output: $18.00
-
 - model: 'Gemini 3.5 Flash'
   provider: google
   release_status: GA
@@ -314,15 +298,35 @@
   cached_input: $0.15
   output: $9.00
 
-- model: 'Gemini 3.6 Flash'
+- model: 'Gemini 3.6 Flash[^gemini-flash-promo]'
   provider: google
   release_status: GA
   category: Versatile
   threshold: 'Not applicable'
   tier: 'Default'
-  input: $1.50
-  cached_input: $0.15
-  output: $7.50
+  input: $0.75
+  cached_input: $0.075
+  output: $3.75
+
+- model: 'Gemini 3.7 Flash[^gemini-flash-promo]'
+  provider: google
+  release_status: GA
+  category: Versatile
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $0.75
+  cached_input: $0.075
+  output: $3.75
+
+- model: 'Gemini 3.8 Flash[^gemini-flash-promo]'
+  provider: google
+  release_status: GA
+  category: Versatile
+  threshold: 'Not applicable'
+  tier: 'Default'
+  input: $0.75
+  cached_input: $0.075
+  output: $3.75
 
 # xAI
 - model: 'Grok 4.5'
@@ -345,6 +349,26 @@
   cached_input: $1.00
   output: $12.00
 
+- model: 'Grok 4.6'
+  provider: xai
+  release_status: GA
+  category: Versatile
+  threshold: '≤ 200K'
+  tier: 'Default'
+  input: $2.00
+  cached_input: $0.50
+  output: $6.00
+
+- model: 'Grok 4.6'
+  provider: xai
+  release_status: GA
+  category: Versatile
+  threshold: '> 200K'
+  tier: 'Long context'
+  input: $4.00
+  cached_input: $1.00
+  output: $12.00
+
 # Microsoft
 - model: 'MAI-Code-1-Flash'
   provider: microsoft
@@ -354,15 +378,13 @@
   cached_input: $0.075
   output: $4.50
 
-# Fine-tuned (GitHub)
-- model: 'Raptor mini'
-  provider: github
+- model: 'MAI-Code-1.1-Flash'
+  provider: microsoft
   release_status: GA
-  category: Versatile
-  input: $0.25
-  cached_input: $0.025
-  output: $2.00
-  notes: Uses GPT-5 mini pricing
+  category: Lightweight
+  input: $0.20
+  cached_input: $0.02
+  output: $1.20
 
 # Open-weight models
 - model: 'Kimi K2.7 Code'

@@ -1227,6 +1227,18 @@
       "requestPath": "/repos/{owner}/{repo}/stargazers"
     },
     {
+      "slug": "get-stargazer-count",
+      "subcategory": "starring",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/count"
+    },
+    {
+      "slug": "get-repository-star-history",
+      "subcategory": "starring",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stargazers/history"
+    },
+    {
       "slug": "list-watchers",
       "subcategory": "watching",
       "verb": "get",
@@ -1541,10 +1553,94 @@
   ],
   "billing": [
     {
+      "slug": "get-billing-ai-credit-usage-report-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/ai_credit/usage"
+    },
+    {
       "slug": "get-all-budgets",
       "subcategory": "budgets",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/budgets"
+    },
+    {
+      "slug": "create-a-budget",
+      "subcategory": "budgets",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets"
+    },
+    {
+      "slug": "get-a-budget-by-id",
+      "subcategory": "budgets",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "update-a-budget",
+      "subcategory": "budgets",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "delete-a-budget",
+      "subcategory": "budgets",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "get-user-states-for-a-multi-user-budget",
+      "subcategory": "budgets",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}/user-states"
+    },
+    {
+      "slug": "get-all-cost-centers-for-an-enterprise",
+      "subcategory": "cost-centers",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers"
+    },
+    {
+      "slug": "create-a-new-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers"
+    },
+    {
+      "slug": "get-a-cost-center-by-id",
+      "subcategory": "cost-centers",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}"
+    },
+    {
+      "slug": "update-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}"
+    },
+    {
+      "slug": "delete-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}"
+    },
+    {
+      "slug": "add-resources-to-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource"
+    },
+    {
+      "slug": "remove-resources-from-a-cost-center",
+      "subcategory": "cost-centers",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource"
+    },
+    {
+      "slug": "get-billing-premium-request-usage-report-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/premium_request/usage"
     },
     {
       "slug": "list-usage-report-exports",
@@ -1563,6 +1659,18 @@
       "subcategory": "usage-reports",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/reports/{report_id}"
+    },
+    {
+      "slug": "get-billing-usage-report-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/usage"
+    },
+    {
+      "slug": "get-billing-usage-summary-for-an-enterprise",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/usage/summary"
     },
     {
       "slug": "get-github-advanced-security-active-committers-for-an-organization",
@@ -1909,37 +2017,37 @@
   ],
   "classroom": [
     {
-      "slug": "closing-down---get-an-assignment",
+      "slug": "closed---get-an-assignment",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}"
     },
     {
-      "slug": "closing-down---list-accepted-assignments-for-an-assignment",
+      "slug": "closed---list-accepted-assignments-for-an-assignment",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}/accepted_assignments"
     },
     {
-      "slug": "closing-down---get-assignment-grades",
+      "slug": "closed---get-assignment-grades",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}/grades"
     },
     {
-      "slug": "closing-down---list-classrooms",
+      "slug": "closed---list-classrooms",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/classrooms"
     },
     {
-      "slug": "closing-down---get-a-classroom",
+      "slug": "closed---get-a-classroom",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/classrooms/{classroom_id}"
     },
     {
-      "slug": "closing-down---list-assignments-for-a-classroom",
+      "slug": "closed---list-assignments-for-a-classroom",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/classrooms/{classroom_id}/assignments"
@@ -3687,6 +3795,12 @@
   ],
   "enterprise-teams": [
     {
+      "slug": "list-enterprise-teams-for-a-user",
+      "subcategory": "enterprise-team-members",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/members/{username}/teams"
+    },
+    {
       "slug": "list-enterprise-teams",
       "subcategory": "enterprise-teams",
       "verb": "get",
@@ -4795,10 +4909,34 @@
       "requestPath": "/orgs/{org}/credential-authorizations"
     },
     {
+      "slug": "revoke-all-credential-authorizations-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/revoke-all"
+    },
+    {
+      "slug": "revoke-a-single-credential-type-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/revoke-credential-type"
+    },
+    {
       "slug": "remove-a-saml-sso-authorization-for-an-organization",
       "subcategory": "orgs",
       "verb": "delete",
       "requestPath": "/orgs/{org}/credential-authorizations/{credential_id}"
+    },
+    {
+      "slug": "revoke-credential-authorizations-for-a-user-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke"
+    },
+    {
+      "slug": "revoke-a-single-credential-type-for-a-user-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke-credential-type"
     },
     {
       "slug": "list-custom-repository-roles-in-an-organization",

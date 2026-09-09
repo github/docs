@@ -44,7 +44,7 @@ The following sections list some of the available keyboard shortcuts, organized 
 |-----------|------------ |
 |<kbd>G</kbd> <kbd>C</kbd> | Go to the **Code** tab
 |<kbd>G</kbd> <kbd>I</kbd> | Go to the **Issues** tab. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues).
-|<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+|<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see [AUTOTITLE](/pull-requests/reference/pull-requests).
 |<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows).
 |<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis). |
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
@@ -87,7 +87,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>l</kbd> | Jump to a line in your code |
 |<kbd>w</kbd> | Switch to a new branch or tag |
 |<kbd>y</kbd> | Expand a URL to its canonical form. For more information, see [AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files). |
-|<kbd>i</kbd> | Show or hide comments on diffs. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request). |
+|<kbd>i</kbd> | Show or hide comments on diffs. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/commenting-on-a-pull-request). |
 |<kbd>a</kbd> | Show or hide annotations on diffs |
 |<kbd>b</kbd> | Open blame view. For more information, see [AUTOTITLE](/repositories/working-with-files/using-files/viewing-and-understanding-files). |
 
@@ -121,7 +121,7 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>Ctrl</kbd>+<kbd>.</kbd> and then <kbd>Ctrl</kbd>+<kbd>[saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/about-saved-replies). |
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | Inserts Markdown formatting for a quote |
 |  {% ifversion fpt or ghec %} |
-|<kbd>Command</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | Insert a suggestion. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request). |
+|<kbd>Command</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | Insert a suggestion. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/reviewing-proposed-changes-in-a-pull-request). |
 |  {% endif %} |
 |<kbd>R</kbd> | Quote the selected text in your reply. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-text). |
 
@@ -142,7 +142,7 @@ If you view a code file in a repository using the **Code** view and click on any
 
 | Keyboard shortcut | Description |
 |-----------|------------ |
-|<kbd>Q</kbd> | Request a reviewer. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review). |
+|<kbd>Q</kbd> | Request a reviewer. For more information, see [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/requesting-a-pull-request-review). |
 |<kbd>M</kbd> | Set a milestone. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/associating-milestones-with-issues-and-pull-requests). |
 |<kbd>L</kbd> | Apply a label. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-a-label). |
 |<kbd>A</kbd> | Set an assignee. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/assigning-issues-and-pull-requests-to-other-github-users). |
@@ -167,7 +167,7 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>T</kbd> | Move your cursor to the "Filter changed files" field |
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Submit a review comment |
 |<kbd>Option</kbd> and click (Mac) or <kbd>Alt</kbd> and click (Windows/Linux) | Toggle between collapsing and expanding all outdated or resolved review comments in a pull request (for example, by holding down <kbd>Alt</kbd> and clicking **Show outdated** or **Hide outdated**) |
-|Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-comments-to-a-pull-request).|
+|Click, then <kbd>Shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>Shift</kbd>, then clicking another line number. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/commenting-on-a-pull-request#adding-comments-to-a-pull-request).|
 
 ## {% data variables.projects.projects_v2_caps %}
 

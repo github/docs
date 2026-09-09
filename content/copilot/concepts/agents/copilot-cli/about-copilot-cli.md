@@ -80,7 +80,7 @@ You can start a {% data variables.copilot.copilot_cli_short %} session inside an
 To start a cloud-backed session, run:
 
 ```bash copy
-copilot ‑‑cloud
+copilot --cloud
 ```
 
 ## Use cases for {% data variables.copilot.copilot_cli %}
@@ -204,6 +204,10 @@ When you use {% data variables.copilot.copilot_cli_short %}, {% data variables.p
 
 You should therefore always keep security considerations in mind when using {% data variables.copilot.copilot_cli_short %}, just as you would when working directly with files yourself, or running commands directly in your terminal. You should always review suggested commands carefully when {% data variables.copilot.copilot_cli_short %} requests your approval.
 
+### Content exclusion
+
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users, {% data variables.copilot.copilot_cli_short %} respects content exclusion policies configured at the enterprise, organization, and repository levels. Excluded files are not used as context. For more information, see [AUTOTITLE](/copilot/concepts/context/content-exclusion).
+
 ### Trusted directories
 
 Trusted directories control where {% data variables.copilot.copilot_cli_short %} can read, modify, and execute files.
@@ -321,7 +325,7 @@ Alternatively, you can run {% data variables.copilot.copilot_cli_short %} in a v
 * **MCP servers in {% data variables.product.prodname_copilot_short %}**, which controls whether MCP servers can be used at all by {% data variables.product.prodname_copilot_short %}.
 * **MCP Registry URL**, which controls which MCP registry {% data variables.product.prodname_copilot_short %} will allow MCP servers to be used from.
 
-For more information about these policies, see [AUTOTITLE](/copilot/concepts/mcp-management#mcp-policy-settings).
+For more information about these policies, see [AUTOTITLE](/copilot/concepts/mcp-management#mcp-allowlists).
 
 ## Model usage
 

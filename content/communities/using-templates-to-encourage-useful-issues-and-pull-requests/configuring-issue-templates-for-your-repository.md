@@ -36,7 +36,7 @@ category:
 
 1. When you're finished editing and previewing your template, click **Propose changes** in the upper right corner of the page.
 1. In the "Commit message" field, type a commit message describing your changes.
-1. Below the commit message fields, select whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+1. Below the commit message fields, select whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see [AUTOTITLE](/pull-requests/reference/pull-requests).
 1. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
 
 ## Creating issue forms

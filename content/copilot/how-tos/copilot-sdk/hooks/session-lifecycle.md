@@ -20,7 +20,9 @@ contentType: how-tos
 * Track session metrics and analytics
 * Configure session behavior dynamically
 
-## Session start hook {#session-start}
+<a id="session-start"></a>
+
+## Session start hook
 
 The `onSessionStart` hook is called when a session begins (new or resumed).
 
@@ -28,14 +30,6 @@ The `onSessionStart` hook is called when a session begins (new or resumed).
 
 {% codetabs %}
 {% codetab typescript %}
-
-```typescript
-import type { SessionStartHookInput, HookInvocation, SessionStartHookOutput } from "@github/copilot-sdk";
-type SessionStartHandler = (
-  input: SessionStartHookInput,
-  invocation: HookInvocation
-) => Promise<SessionStartHookOutput | null | undefined>;
-```
 
 ```typescript
 type SessionStartHandler = (
@@ -48,16 +42,6 @@ type SessionStartHandler = (
 {% codetab python %}
 
 ```python
-from copilot.session import SessionStartHookInput, SessionStartHookOutput
-from typing import Callable, Awaitable
-
-SessionStartHandler = Callable[
-    [SessionStartHookInput, dict[str, str]],
-    Awaitable[SessionStartHookOutput | None]
-]
-```
-
-```python
 SessionStartHandler = Callable[
     [SessionStartHookInput, dict[str, str]],
     Awaitable[SessionStartHookOutput | None]
@@ -66,19 +50,6 @@ SessionStartHandler = Callable[
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-type SessionStartHandler func(
-    input copilot.SessionStartHookInput,
-    invocation copilot.HookInvocation,
-) (*copilot.SessionStartHookOutput, error)
-
-func main() {}
-```
 
 ```golang
 type SessionStartHandler func(
@@ -91,14 +62,6 @@ type SessionStartHandler func(
 {% codetab dotnet %}
 
 ```csharp
-using GitHub.Copilot;
-
-public delegate Task<SessionStartHookOutput?> SessionStartHandler(
-    SessionStartHookInput input,
-    HookInvocation invocation);
-```
-
-```csharp
 public delegate Task<SessionStartHookOutput?> SessionStartHandler(
     SessionStartHookInput input,
     HookInvocation invocation);
@@ -106,17 +69,6 @@ public delegate Task<SessionStartHookOutput?> SessionStartHandler(
 
 {% endcodetab %}
 {% codetab java %}
-
-```java
-import com.github.copilot.rpc.*;
-import java.util.concurrent.CompletableFuture;
-
-public class SessionStartSignature {
-    SessionStartHandler handler = (SessionStartHookInput input, HookInvocation invocation) ->
-        CompletableFuture.completedFuture(null);
-    public static void main(String[] args) {}
-}
-```
 
 ```java
 @FunctionalInterface
@@ -250,7 +202,9 @@ const session = await client.createSession({
 });
 ```
 
-## Session end hook {#session-end}
+<a id="session-end"></a>
+
+## Session end hook
 
 The `onSessionEnd` hook is called when a session ends.
 
@@ -270,16 +224,6 @@ type SessionEndHandler = (
 {% codetab python %}
 
 ```python
-from copilot.session import SessionEndHookInput
-from typing import Callable, Awaitable
-
-SessionEndHandler = Callable[
-    [SessionEndHookInput, dict[str, str]],
-    Awaitable[None]
-]
-```
-
-```python
 SessionEndHandler = Callable[
     [SessionEndHookInput, dict[str, str]],
     Awaitable[SessionEndHookOutput | None]
@@ -288,19 +232,6 @@ SessionEndHandler = Callable[
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import copilot "github.com/github/copilot-sdk/go"
-
-type SessionEndHandler func(
-    input copilot.SessionEndHookInput,
-    invocation copilot.HookInvocation,
-) error
-
-func main() {}
-```
 
 ```golang
 type SessionEndHandler func(
@@ -320,17 +251,6 @@ public delegate Task<SessionEndHookOutput?> SessionEndHandler(
 
 {% endcodetab %}
 {% codetab java %}
-
-```java
-import com.github.copilot.rpc.*;
-import java.util.concurrent.CompletableFuture;
-
-public class SessionEndSignature {
-    SessionEndHandler handler = (SessionEndHookInput input, HookInvocation invocation) ->
-        CompletableFuture.completedFuture(null);
-    public static void main(String[] args) {}
-}
-```
 
 ```java
 @FunctionalInterface
@@ -529,7 +449,9 @@ Session Summary:
 });
 ```
 
-## Agent stop hook {#agent-stop}
+<a id="agent-stop"></a>
+
+## Agent stop hook
 
 The agent stop hook runs when the top-level agent naturally reaches the end of a turn. It is separate from `onSessionEnd`: the session remains active, and the hook can request another agent turn.
 

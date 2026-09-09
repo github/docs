@@ -677,10 +677,46 @@
       },
       {
         "category": "orgs",
+        "slug": "revoke-all-credential-authorizations-for-an-organization",
+        "subcategory": "orgs",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/credential-authorizations/revoke-all",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "revoke-a-single-credential-type-for-an-organization",
+        "subcategory": "orgs",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/credential-authorizations/revoke-credential-type",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
         "slug": "remove-a-saml-sso-authorization-for-an-organization",
         "subcategory": "orgs",
         "verb": "delete",
         "requestPath": "/orgs/{org}/credential-authorizations/{credential_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "revoke-credential-authorizations-for-a-user-in-an-organization",
+        "subcategory": "orgs",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "revoke-a-single-credential-type-for-a-user-in-an-organization",
+        "subcategory": "orgs",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/credential-authorizations/{username}/revoke-credential-type",
         "additional-permissions": false,
         "access": "write"
       },
@@ -8334,6 +8370,24 @@
         "subcategory": "rules",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "activity",
+        "slug": "get-stargazer-count",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stargazers/count",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "activity",
+        "slug": "get-repository-star-history",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stargazers/history",
         "additional-permissions": false,
         "access": "read"
       },

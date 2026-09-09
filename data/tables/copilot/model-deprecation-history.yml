@@ -11,6 +11,10 @@
 # - retirement_date: The official retirement date for the model (YYYY-MM-DD).
 # - suggested_alternative: The model recommended for migration.
 
+- name: 'MAI-Code-1-Flash'
+  retirement_date: '2026-09-10'
+  suggested_alternative: 'MAI-Code-1.1-Flash'
+
 - name: 'Claude Opus 4.5'
   retirement_date: '2026-09-01'
   suggested_alternative: 'Claude Opus 5'

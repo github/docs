@@ -26,12 +26,14 @@ There are two ways to qualify for free access to {% data variables.copilot.copil
 
 {% data variables.product.company_short %} reevaluates your eligibility every month.
 
+{% data reusables.copilot.free-access-cancellation-note %} For more information about managing your plan, see [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
+
 ## What if I don't qualify for free access to {% data variables.copilot.copilot_pro_short %}?
 
 If you do not meet the previous criteria, you can do one of the following:
 
 * Subscribe to [{% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro), [{% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro), or [{% data variables.copilot.copilot_max_short %}](https://github.com/settings/billing/licensing?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=max) for a paid plan with access to premium models.
-* Set up {% data variables.copilot.copilot_free_short %} to get a limited experience of {% data variables.product.prodname_copilot_short %} without a paid plan. See [AUTOTITLE](/copilot/concepts/billing/individual-plans).
+* Set up {% data variables.copilot.copilot_free_short %} to get a limited experience of {% data variables.product.prodname_copilot_short %} without a paid plan. See [AUTOTITLE](/copilot/get-started/plans).
 
 ## Accessing {% data variables.copilot.copilot_pro_short %} for free
 

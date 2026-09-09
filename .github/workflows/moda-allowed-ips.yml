@@ -21,6 +21,8 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - name: Update list of allowed IPs
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           echo "Getting a list of Fastly IP addresses...."
           ips=$( \
@@ -41,10 +43,13 @@ jobs:
           fi
 
           echo "Change found; making a pull request..."
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+
           branchname=update-allowed-ips-$(date +%s)
           git checkout -b $branchname
           git commit -am "Update list of allowed IPs"
-          git push
+          git push origin "$branchname"
           gh pr create \
             --title "Update list of allowed IPs" \
             --body "This PR updates the list of allowed IPs in Moda. It is automatically generated.

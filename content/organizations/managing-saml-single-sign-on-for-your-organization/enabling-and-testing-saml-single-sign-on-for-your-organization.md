@@ -27,7 +27,7 @@ If you enable but don't enforce SAML SSO, organization members who choose not to
 
 ## Enabling and testing SAML single sign-on for your organization
 
-Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/preparing-to-enforce-saml-single-sign-on-in-your-organization).
+Before you enforce SAML SSO in your organization, ensure that you've prepared the organization. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/preparing-to-enforce-saml-single-sign-on-in-your-organization).
 
 For more information about the identity providers (IdPs) that {% data variables.product.company_short %} supports for SAML SSO, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization).
 

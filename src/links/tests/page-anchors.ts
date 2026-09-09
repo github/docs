@@ -149,6 +149,26 @@ describe('resolveLinkKeyForVersion', () => {
     expect(resolveLinkKeyForVersion('/nope/nope', 'free-pro-team@latest', pageMap)).toBe(null)
   })
 
+  // A target that applies to both FPT and an enterprise version has a key for each.
+  // The enterprise key has to win during that version's run, otherwise the anchor is
+  // looked up under the FPT key while the heading cache holds the enterprise permalink.
+  const sharedPageMap = {
+    '/en/get-started/shared': {} as Page,
+    '/en/enterprise-server@3.17/get-started/shared': {} as Page,
+  }
+
+  test('prefers the source version over the versionless key', () => {
+    expect(
+      resolveLinkKeyForVersion('/get-started/shared', 'enterprise-server@3.17', sharedPageMap),
+    ).toBe('/en/enterprise-server@3.17/get-started/shared')
+  })
+
+  test('still resolves to the versionless key on FPT', () => {
+    expect(
+      resolveLinkKeyForVersion('/get-started/shared', 'free-pro-team@latest', sharedPageMap),
+    ).toBe('/en/get-started/shared')
+  })
+
   test('ignores a fragment and query string', () => {
     expect(
       resolveLinkKeyForVersion('/admin/bar?x=1#some-heading', 'enterprise-cloud@latest', pageMap),

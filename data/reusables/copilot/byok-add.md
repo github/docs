@@ -1,4 +1,3 @@
-1. Click the **Custom models** tab.
 1. Above the list of API keys, click **Add API key**.
 1. Under "Provider", select the LLM provider you want to use.
 1. Under "Name", type a name for this key. This will be shown in the model picker.

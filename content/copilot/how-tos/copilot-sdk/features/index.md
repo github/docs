@@ -12,7 +12,9 @@ redirect_from:
 contentType: how-tos
 children:
   - /agent-loop
+  - /citations
   - /cloud-sessions
+  - /context-management
   - /custom-agents
   - /fleet-mode
   - /hooks

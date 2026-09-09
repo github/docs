@@ -24,10 +24,10 @@ jobs:
         with:
           only-labels: needs SME
           days-before-stale: 28 # adds stale label if no activity for 7 days - temporarily changed to 28 days as we work through the backlog
-          stale-issue-message: 'This is a gentle reminder for the docs team that this issue is waiting for technical review by a subject matter expert (SME).'
+          stale-issue-message: 'This is a gentle reminder for the Technical Content team that this issue is waiting for technical review by a subject matter expert (SME).'
           stale-issue-label: 'Waiting on SME review'
           days-before-issue-close: -1 # never close
-          stale-pr-message: 'This is a gentle reminder for the docs team that this PR is waiting for technical review by a subject matter expert.'
+          stale-pr-message: 'This is a gentle reminder for the Technical Content team that this PR is waiting for technical review by a subject matter expert.'
           stale-pr-label: 'Waiting on SME review'
           days-before-pr-close: -1 # never close
 

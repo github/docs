@@ -638,6 +638,30 @@ test.describe('test nav at different viewports', () => {
     await expect(page.locator('#main-content')).toBeVisible()
   })
 
+  test('resizing from mobile to desktop closes the inline nav', async ({ page }) => {
+    // Start below the xxl (1400px) breakpoint where the inline mobile nav lives.
+    page.setViewportSize({
+      width: 1013,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+
+    // Open the inline doc-tree nav from the secondary bar.
+    await page.getByTestId('sidebar-mobile-toggle').click()
+    const nav = page.locator('[data-container="nav"]')
+    await expect(nav).toHaveAttribute('data-mobile-open', 'true')
+
+    // Resize up to the desktop breakpoint -- the inline nav should close and the
+    // fixed desktop rail (326px) should take over rather than the full-width
+    // mobile markup persisting over the page.
+    await page.setViewportSize({
+      width: 1400,
+      height: 700,
+    })
+    await expect(nav).toHaveAttribute('data-mobile-open', 'false')
+    await expect(nav).toHaveCSS('width', '326px')
+  })
+
   test('large -> x-large viewports - 1012+', async ({ page }) => {
     page.setViewportSize({
       width: 1013,
@@ -1481,6 +1505,30 @@ test.describe('Journey Tracks', () => {
     expect(trackContent).not.toContain('}}')
     expect(trackContent).not.toContain('{%')
     expect(trackContent).not.toContain('%}')
+  })
+
+  test('renders the single-track journey landing path', async ({ page }) => {
+    await page.goto('/get-started/test-journey-single')
+
+    // single-track pages use the simplified heading + guide list, not the numbered cards
+    const singleTrack = page.locator('[data-testid="journey-single-track"]')
+    await expect(singleTrack).toBeVisible()
+    await expect(page.locator('[data-testid="journey-tracks"]')).toHaveCount(0)
+
+    // heading is present
+    await expect(singleTrack.locator('h2')).toBeVisible()
+
+    // guide list renders its article links
+    const guides = singleTrack.locator('[data-testid="journey-articles"] li a')
+    await expect(guides.first()).toBeVisible()
+    expect(await guides.count()).toBeGreaterThan(0)
+
+    // without a surrounding card, the list must sit flush with the heading
+    // rather than picking up the card's inset
+    const listPaddingLeft = await singleTrack
+      .locator('[data-testid="journey-articles"]')
+      .evaluate((el) => getComputedStyle(el).paddingLeft)
+    expect(listPaddingLeft).toBe('0px')
   })
 
   test('journey navigation components show on article pages', async ({ page }) => {

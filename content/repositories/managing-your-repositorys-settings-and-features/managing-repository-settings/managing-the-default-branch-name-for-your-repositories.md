@@ -19,7 +19,7 @@ category:
 ---
 ## About management of the default branch name
 
-When you create a new repository on {% data variables.product.github %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.github %} uses for the default branch in new repositories you create. For more information about the default branch, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
+When you create a new repository on {% data variables.product.github %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.github %} uses for the default branch in new repositories you create. For more information about the default branch, see [AUTOTITLE](/pull-requests/reference/branches#about-the-default-branch).
 
 {% data reusables.branches.change-default-branch %}
 

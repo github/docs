@@ -60,25 +60,6 @@ Plugin directories are loaded by passing `--plugin-dir <path>` to the Copilot CL
 ```typescript
 import { CopilotClient, RuntimeConnection } from "@github/copilot-sdk";
 
-async function main() {
-  const client = new CopilotClient({
-    connection: RuntimeConnection.forStdio({
-      args: [
-        "--plugin-dir", "./plugins/code-reviewer",
-        "--plugin-dir", "./plugins/lint-fix",
-      ],
-    }),
-  });
-
-  await client.start();
-}
-
-main();
-```
-
-```typescript
-import { CopilotClient, RuntimeConnection } from "@github/copilot-sdk";
-
 const client = new CopilotClient({
   connection: RuntimeConnection.forStdio({
     args: [
@@ -112,31 +93,6 @@ await client.start()
 
 {% endcodetab %}
 {% codetab go %}
-
-```golang
-package main
-
-import (
-	"context"
-
-	copilot "github.com/github/copilot-sdk/go"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(&copilot.ClientOptions{
-		Connection: copilot.StdioConnection{
-			Args: []string{
-				"--plugin-dir", "./plugins/code-reviewer",
-				"--plugin-dir", "./plugins/lint-fix",
-			},
-		},
-	})
-	if err := client.Start(ctx); err != nil {
-		return
-	}
-}
-```
 
 ```golang
 client := copilot.NewClient(&copilot.ClientOptions{
@@ -174,24 +130,6 @@ await client.StartAsync();
 {% codetab java %}
 
 ```java
-import com.github.copilot.CopilotClient;
-import com.github.copilot.rpc.CopilotClientOptions;
-
-public class PluginDirectoriesExample {
-    public static void main(String[] args) throws Exception {
-        var options = new CopilotClientOptions()
-            .setCliArgs(new String[] {
-                "--plugin-dir", "./plugins/code-reviewer",
-                "--plugin-dir", "./plugins/lint-fix",
-            });
-
-        var client = new CopilotClient(options);
-        client.start().get();
-    }
-}
-```
-
-```java
 var options = new CopilotClientOptions()
     .setCliArgs(new String[] {
         "--plugin-dir", "./plugins/code-reviewer",
@@ -204,22 +142,6 @@ client.start().get();
 
 {% endcodetab %}
 {% codetab rust %}
-
-```rust
-use github_copilot_sdk::{Client, ClientOptions};
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let _client = Client::start(
-        ClientOptions::new().with_extra_args([
-            "--plugin-dir", "./plugins/code-reviewer",
-            "--plugin-dir", "./plugins/lint-fix",
-        ]),
-    )
-    .await?;
-    Ok(())
-}
-```
 
 ```rust
 use github_copilot_sdk::{Client, ClientOptions};
@@ -237,6 +159,23 @@ let client = Client::start(
 {% endcodetabs %}
 
 > The example above uses an stdio runtime connection — the default when the SDK bundles the CLI. If you connect to an external runtime via a URL (`forUri` / `ForUri`), pass `--plugin-dir` to the long-running CLI server when you start it; the SDK does not forward `--plugin-dir` to runtimes it didn't spawn.
+
+## Trusted host-bundled plugin directories
+
+Applications that ship their own trusted plugins can register them as a client startup option. The SDK sends the complete ordered set after connecting and verifying the protocol, before `start` returns or any session can be created. Paths must be absolute; leaving the option unset or empty makes no RPC call.
+
+The equivalent option in each SDK is:
+
+| SDK | Startup option |
+|---|---|
+| Node.js / TypeScript | `builtinPluginDirectories: string[]` |
+| Python | `builtin_plugin_directories=[...]` |
+| Go | `BuiltinPluginDirectories: []string{...}` |
+| .NET | `BuiltinPluginDirectories = [...]` |
+| Java | `.setBuiltinPluginDirectories(List.of(Path.of(...)))` |
+| Rust | `.with_builtin_plugin_directories([...])` |
+
+This is a trust boundary for plugins bundled and controlled by the host application. It is distinct from `--plugin-dir`, which is a CLI process launch argument for explicitly loading ordinary plugin directories. The startup option also works when connecting to an existing runtime because it is sent over JSON-RPC rather than forwarded as a process argument.
 
 ## What a plugin can contribute
 
@@ -268,26 +207,6 @@ When the host machine may have other plugins installed (marketplace or personal)
 <details open>
 <summary><strong>Node.js / TypeScript</strong></summary>
 
-<!-- docs-validate: hidden -->
-
-```typescript
-import { CopilotClient, RuntimeConnection } from "@github/copilot-sdk";
-
-async function main() {
-  process.env.COPILOT_PLUGIN_DIR_ONLY = "true";
-  const client = new CopilotClient({
-    connection: RuntimeConnection.forStdio({
-      args: ["--plugin-dir", "./plugins/code-reviewer"],
-    }),
-  });
-  await client.start();
-}
-
-main();
-```
-
-<!-- /docs-validate: hidden -->
-
 ```typescript
 process.env.COPILOT_PLUGIN_DIR_ONLY = "true";
 
@@ -309,29 +228,6 @@ Once a session is created, list the active plugins to confirm a directory was pi
 
 <details open>
 <summary><strong>Node.js / TypeScript</strong></summary>
-
-<!-- docs-validate: hidden -->
-
-```typescript
-import { CopilotClient } from "@github/copilot-sdk";
-
-async function main() {
-  const client = new CopilotClient();
-  await client.start();
-  const session = await client.createSession({
-    onPermissionRequest: async () => ({ kind: "approve-once" }),
-  });
-
-  const plugins = await session.rpc.plugins.list();
-  for (const plugin of plugins.plugins) {
-    console.log(`${plugin.name} (${plugin.enabled ? "enabled" : "disabled"})`);
-  }
-}
-
-main();
-```
-
-<!-- /docs-validate: hidden -->
 
 ```typescript
 const plugins = await session.rpc.plugins.list();

@@ -1,0 +1,45 @@
+name: Add new issues and PRs to central triage board
+
+# **What it does**: Adds newly opened or reopened issues and pull requests in github/docs to the right place for triage, and stamps the item with today's date.
+# **Why we have it**: To ensure incoming work in the public docs repo is triaged properly.
+# **Who does it impact**: Writers, FRs.
+
+on:
+  issues:
+    types: [opened, reopened]
+  pull_request_target:
+    types: [opened, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  add-to-central-triage:
+    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs'
+    steps:
+      - name: Triage to central triage board
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          ITEM_URL: ${{ github.event.issue.html_url || github.event.pull_request.html_url }}
+          # Add to the Central Triage Group project board and set date to now
+          PROJECT_NUMBER: '19598'
+          PROJECT_ID: 'PVT_kwDNJr_OAJ4AfQ'
+          DATE_FIELD_ID: 'PVTF_lADNJr_OAJ4Afc4IAbbv'
+        run: |
+          echo "Adding $ITEM_URL to project $PROJECT_NUMBER..."
+          ITEM_ID=$(gh project item-add "$PROJECT_NUMBER" --owner github --url "$ITEM_URL" --format json --jq '.id' || true)
+
+          sleep 10
+
+          if [ -n "$ITEM_ID" ] && [ "$ITEM_ID" != "null" ]; then
+            echo "Editing date on item $ITEM_ID..."
+            DATE=$(date '+%Y-%m-%d')
+            if gh project item-edit --project-id "$PROJECT_ID" --id "$ITEM_ID" --field-id "$DATE_FIELD_ID" --date "$DATE"; then
+              echo "done editing"
+            else
+              echo "::warning::gh project item-edit failed for $ITEM_URL (item $ITEM_ID); the item is on the board but the date field was not set"
+            fi
+          else
+            echo "::warning::gh project item-add did not return an item id for $ITEM_URL; skipping item-edit"
+          fi

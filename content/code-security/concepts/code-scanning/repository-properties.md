@@ -45,6 +45,10 @@ The following is an overview of repository properties you can set up which affec
 
 You can set the `github-codeql-config-file` property to the local or remote path of a configuration file. Accepted values for this property are the same as for the `config-file` parameter of the `codeql-action/init` action. For more information about accepted path formats and possible contents of configuration files, see [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
 
+{% data reusables.code-scanning.remote-config-file-registry %}
+
+Advanced setup does not use organization-level private registry configurations. To use a configuration file from an internal or private repository with advanced setup, pass a token that can access the repository to the `external-repository-token` input of the `codeql-action/init` action. See [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#custom-configuration-files).
+
 A value specified for the `github-codeql-config-file` property will apply to both {% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_code_scanning %} advanced setup. If an advanced setup workflow specifies an explicit input for the `config-file` parameter of the `codeql-action/init` action, then that input will take precedence over the value configured in the repository property. This allows advanced workflows to use different configurations than those applied to default setup workflows, if desired.
 
 {% data reusables.code-scanning.config-file-merged-with-default-setup %} See [AUTOTITLE](/code-security/concepts/code-scanning/setup-types#configuration-options) for more information about available configuration options in {% data variables.product.prodname_code_scanning %} default setup.

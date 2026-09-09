@@ -231,7 +231,7 @@ If a diagram is only relevant to some versions and apt to become quickly out of 
 
 Diagrams are stored in the relevant directory in the `assets/images/help/` directory in the `docs` repository. If you are creating a new diagram, add it to the proper folder. If you are updating an existing diagram, replace the existing diagram with the updated version.
 
-When you create a new diagram, add it to the Diagrams project in the Docs Figma team or provide a copy of the Figma file to a member of the Docs team. If you create a diagram in another program, it can be included in {% data variables.product.prodname_docs %} if it meets the requirements and recommendations in this guide, but it is much more likely to be removed rather than updated if it becomes out of date.
+When you create a new diagram, add it to the Diagrams project in the Docs Figma team or provide a copy of the Figma file to a member of the Technical Content team. If you create a diagram in another program, it can be included in {% data variables.product.prodname_docs %} if it meets the requirements and recommendations in this guide, but it is much more likely to be removed rather than updated if it becomes out of date.
 
 ## Examples
 

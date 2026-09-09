@@ -186,6 +186,10 @@
                         "type": "string",
                         "description": "The user login when the budget is scoped to a single user (`user` scope)."
                       },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
+                      },
                       "budget_product_sku": {
                         "type": "string",
                         "description": "A single product or sku to apply the budget to."
@@ -195,20 +199,25 @@
                         "properties": {
                           "will_alert": {
                             "type": "boolean",
-                            "description": "Whether alerts are enabled for this budget"
+                            "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is disabled for them."
                           },
                           "alert_recipients": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "description": "Array of user login names who will receive alerts"
+                            "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is disabled for them."
                           }
                         },
                         "required": [
                           "will_alert",
                           "alert_recipients"
                         ]
+                      },
+                      "expires_at": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.\nIf not provided, the budget will not expire.\n\nOnly supported for budgets with `budget_scope` of `user`"
                       }
                     },
                     "required": [
@@ -380,6 +389,10 @@
                         "type": "string",
                         "description": "The user login when the budget is scoped to a single user (`user` scope)."
                       },
+                      "consumed_amount": {
+                        "type": "number",
+                        "description": "The amount consumed for a user-scoped budget, or for a multi-user budget when filtering by user."
+                      },
                       "budget_product_sku": {
                         "type": "string",
                         "description": "A single product or sku to apply the budget to."
@@ -389,20 +402,25 @@
                         "properties": {
                           "will_alert": {
                             "type": "boolean",
-                            "description": "Whether alerts are enabled for this budget"
+                            "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is disabled for them."
                           },
                           "alert_recipients": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "description": "Array of user login names who will receive alerts"
+                            "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is disabled for them."
                           }
                         },
                         "required": [
                           "will_alert",
                           "alert_recipients"
                         ]
+                      },
+                      "expires_at": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.\nIf not provided, the budget will not expire.\n\nOnly supported for budgets with `budget_scope` of `user`"
                       }
                     },
                     "required": [
@@ -527,12 +545,12 @@
             {
               "type": "boolean",
               "name": "will_alert",
-              "description": "<p>Whether alerts are enabled for this budget</p>"
+              "description": "<p>Whether alerts are enabled for this budget. Rejected for user-scope as alerting is always disabled for them.</p>"
             },
             {
               "type": "array of strings",
               "name": "alert_recipients",
-              "description": "<p>Array of user login names who will receive alerts</p>"
+              "description": "<p>Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them.</p>"
             }
           ]
         },
@@ -567,6 +585,11 @@
           "type": "string",
           "name": "user",
           "description": "<p>The username of the user for <code>user</code> scope budgets. This field is required when <code>budget_scope</code> is <code>user</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "expires_at",
+          "description": "<p>The date the budget will expire in <code>YYYY-MM-DD</code> format. Only dates in the future are accepted.\nIf not provided, the budget will not expire.</p>\n<p>Only supported for budgets with <code>budget_scope</code> of <code>user</code></p>"
         }
       ],
       "descriptionHTML": "<p>Creates a new budget for an organization. The authenticated user must be an\norganization admin or billing manager.</p>",
@@ -678,16 +701,21 @@
                       "properties": {
                         "will_alert": {
                           "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
+                          "description": "Whether alerts are enabled for this budget. Rejected for user-scope as alerting is always disabled for them."
                         },
                         "alert_recipients": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           },
-                          "description": "Array of user login names who will receive alerts"
+                          "description": "Array of user login names who will receive alerts. Rejected for user-scope as alerting is always disabled for them."
                         }
                       }
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.\nIf not provided, the budget will not expire.\n\nOnly supported for budgets with `budget_scope` of `user`"
                     }
                   }
                 }
@@ -863,14 +891,14 @@
                   "properties": {
                     "will_alert": {
                       "type": "boolean",
-                      "description": "Whether alerts are enabled for this budget"
+                      "description": "Whether alerts are enabled for this budget. Present but not applicable for user-scope as alerting is always disabled for them."
                     },
                     "alert_recipients": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "description": "Array of user login names who will receive alerts"
+                      "description": "Array of user login names who will receive alerts. Present but not applicable for user-scope as alerting is always disabled for them."
                     }
                   }
                 }
@@ -973,12 +1001,12 @@
             {
               "type": "boolean",
               "name": "will_alert",
-              "description": "<p>Whether alerts are enabled for this budget</p>"
+              "description": "<p>Whether alerts are enabled for this budget. Ignored for user-scopes as alerting is always disabled for them.</p>"
             },
             {
               "type": "array of strings",
               "name": "alert_recipients",
-              "description": "<p>Array of user login names who will receive alerts</p>"
+              "description": "<p>Array of user login names who will receive alerts. Ignored for user-scopes as alerting is always disabled for them.</p>"
             }
           ]
         },
@@ -1014,6 +1042,11 @@
           "type": "string",
           "name": "user",
           "description": "<p>The username of the user for <code>user</code> scope budgets.</p>"
+        },
+        {
+          "type": "string or null or integer",
+          "name": "expires_at",
+          "description": "<p>The date the budget will expire in <code>YYYY-MM-DD</code> format. Only dates in the future are accepted.\nIf not set, the budget will not expire. Setting to <code>null</code> or <code>0</code> will remove the expiration date from a budget if set.</p>\n<p>Only supported for budgets with <code>budget_scope</code> of <code>user</code></p>"
         }
       ],
       "descriptionHTML": "<p>Updates an existing budget for an organization. The authenticated user must be an organization admin or billing manager.</p>",
@@ -1133,16 +1166,21 @@
                       "properties": {
                         "will_alert": {
                           "type": "boolean",
-                          "description": "Whether alerts are enabled for this budget"
+                          "description": "Whether alerts are enabled for this budget. Ignored for user-scope as alerting is always disabled for them."
                         },
                         "alert_recipients": {
                           "type": "array",
                           "items": {
                             "type": "string"
                           },
-                          "description": "Array of user login names who will receive alerts"
+                          "description": "Array of user login names who will receive alerts. Ignored for user-scope as alerting is always disabled for them."
                         }
                       }
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "The date the budget will expire in `YYYY-MM-DD` format. Only dates in the future are accepted.\nIf not provided, the budget will not expire.\n\nOnly supported for budgets with `budget_scope` of `user`"
                     }
                   }
                 }

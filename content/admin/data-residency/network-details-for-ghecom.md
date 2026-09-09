@@ -99,6 +99,10 @@ For more information about the `/meta` endpoint, see [AUTOTITLE](/rest/meta/meta
 | 40.81.180.112/28         | 40.81.176.224/28            |
 | 4.190.169.192/28         | 4.190.169.240/28            |
 
+## {% data variables.product.prodname_copilot %}
+
+Most {% data variables.product.prodname_copilot %} services require access to your enterprise's subdomain on {% data variables.enterprise.data_residency_site %} and its subdomains. For more information, see [AUTOTITLE](/copilot/reference/copilot-allowlist-reference#copilot-on-ghecom).
+
 ## Supported regions for Azure private networking
 
 {% data variables.product.company_short %} deploys your runners in the same Azure region as the subnet you connect them to. Because of this, your subnet must be in one of the supported regions. If you use Azure private networking for {% data variables.product.company_short %}-hosted runners, the supported Azure regions on {% data variables.enterprise.data_residency_site %} differ from those on {% data variables.product.prodname_dotcom_the_website %}.

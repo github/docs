@@ -39,15 +39,26 @@ The session mode controls how much autonomy the agent has. You can set the mode 
 
 You can select a model and reasoning effort from the dropdowns below the prompt field. Higher reasoning effort gives the agent more time to think through complex problems but may take longer. You can change both settings at any time during a session.
 
-If you choose **Auto** in the model picker, the app automatically selects the optimal model for your task based on task complexity. After the session starts, the picker next to **Auto** shows which model handled each response. For more information, see [AUTOTITLE](/copilot/concepts/auto-model-selection).
+If you choose **Auto** in the model picker, the app automatically selects the optimal model for your task based on task complexity. After the session starts, the picker next to **Auto** shows which model handled each response. For more information, see [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 If you configured your own model provider in the app, those models also appear in the picker. For setup steps, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/use-byok-models).
 
 Hover over the {% octicon "info" aria-label="the info icon" %} icon in the model picker to see model details.
 
-## Using quick chats
+## Using chats
 
-**Quick chats** in the sidebar opens a conversation mode without creating a dedicated branch or worktree. Use it for brainstorming, asking questions, or exploring ideas before starting a session. Your chat history is saved and listed by conversation name.
+The **Chats** section in the sidebar opens a conversation mode without creating a dedicated branch or worktree. Use it for brainstorming, asking questions, or exploring ideas before starting a session. Your chat history is saved and listed by conversation name.
+
+To archive a chat without losing its history, right-click the chat in the sidebar to open its menu, then click **Archive chat**.
+
+## Managing sessions and chats
+
+Use **Manage sessions** to view, search, and filter sessions and chats, including archived chats. You can select multiple items to archive or delete, and restore chats that you previously archived. The view also shows separate, sortable columns for the disk space used by working files and chat history.
+
+1. Open the app settings, then select **Sessions**.
+1. Click **Manage sessions**.
+1. Search or filter to find the sessions or chats you want to manage.
+1. Select one or more sessions or chats, then archive or delete them. To restore an archived chat, find the chat, then restore it.
 
 ## Using `/security-review` in app sessions
 
