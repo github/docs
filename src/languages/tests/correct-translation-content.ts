@@ -3037,6 +3037,41 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
+  describe('ja: repository-roles-for-an-organization.md missing assign keyword', () => {
+    test('restores the dropped `assign` keyword before roleColumns', () => {
+      const broken = '{%- roleColumns = "read,triage,write,maintain,admin" | split: "," -%}'
+      const fixed = '{%- assign roleColumns = "read,triage,write,maintain,admin" | split: "," -%}'
+      expect(fix(broken, 'ja')).toBe(fixed)
+      expect(fix(fixed, 'ja')).toBe(fixed)
+    })
+  })
+
+  describe('pt: repository-roles-for-an-organization.md translated assign keyword', () => {
+    test('translates `atribuir` (assign) back to `assign`, with and without a trim dash', () => {
+      expect(fix('{% atribuir roleColumns = X %}', 'pt')).toBe('{% assign roleColumns = X %}')
+      expect(fix('{%- atribuir roleColumns = X -%}', 'pt')).toBe('{%- assign roleColumns = X -%}')
+      expect(fix('{% assign roleColumns = X %}', 'pt')).toBe('{% assign roleColumns = X %}')
+    })
+  })
+
+  describe('zh: repository-roles-for-an-organization.md translated assign keyword', () => {
+    test('translates `分配` (assign) back to `assign`, with and without a trim dash', () => {
+      expect(fix('{% 分配 roleColumns = X %}', 'zh')).toBe('{% assign roleColumns = X %}')
+      expect(fix('{%- 分配 roleColumns = X -%}', 'zh')).toBe('{%- assign roleColumns = X -%}')
+      expect(fix('{% assign roleColumns = X %}', 'zh')).toBe('{% assign roleColumns = X %}')
+    })
+  })
+
+  describe('ru: repository-roles-for-an-organization.md per-file fix', () => {
+    test('reconstructs the mangled tag opener, translated `assign` keyword, and misplaced quote', () => {
+      const broken =
+        '{%. Назначение roleColumns = "read,triage,write,maintain", admin" | split: "," -%}'
+      const fixed = '{%- assign roleColumns = "read,triage,write,maintain,admin" | split: "," -%}'
+      expect(fix(broken, 'ru')).toBe(fixed)
+      expect(fix(fixed, 'ru')).toBe(fixed)
+    })
+  })
+
   describe('universal: strips legacy {% note/warning/tip/danger %} tags', () => {
     test('strips a simple flush-left {% note %} block', () => {
       const broken = '{% note %}\n\n**Note:** Some note text.\n\n{% endnote %}\n'

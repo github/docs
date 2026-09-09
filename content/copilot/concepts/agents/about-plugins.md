@@ -86,7 +86,7 @@ How you install a plugin depends on which client you're using:
 * In {% data variables.copilot.copilot_cloud_agent %}, you install plugins declaratively by adding them to the `enabledPlugins` field of the repository's `.github/copilot/settings.json` file. To install plugins from a marketplace that isn't registered by default, you can also add the marketplace to the `extraKnownMarketplaces` field in the same file.
 * In the {% data variables.copilot.github_copilot_app %}, click **Customize**, then click **Plugins** to browse marketplaces and install plugins.
 
-Enterprise administrators can define plugin standards that apply to users on the enterprise's {% data variables.product.prodname_copilot_short %} plan, including specifying additional marketplaces and plugins that are automatically installed. See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
+Enterprise administrators can define plugin standards that apply to users on the enterprise's {% data variables.product.prodname_copilot_short %} plan, including specifying additional marketplaces and plugins that are automatically installed. See [AUTOTITLE](/copilot/concepts/enterprise/plugin-standards).
 
 ## How plugin marketplaces work
 

@@ -101,7 +101,7 @@ The sandbox proxy operates differently on each operating system:
 
 ### Enterprise policy enforcement
 
-Enterprises can require local sandboxing and enforce its configuration through server-managed, MDM-managed, or file-based managed settings. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
+Enterprises can require local sandboxing and enforce its configuration through server-managed, MDM-managed, or file-based managed settings. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started).
 
 ## Cloud sandboxing
 

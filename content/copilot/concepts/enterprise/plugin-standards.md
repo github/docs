@@ -44,4 +44,4 @@ Enterprise-managed plugin standards help administrators address several common c
 
 ## Next step
 
-To configure enterprise plugin standards, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
+To configure enterprise plugin standards, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started).

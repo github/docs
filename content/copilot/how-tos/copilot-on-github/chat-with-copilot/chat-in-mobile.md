@@ -24,7 +24,7 @@ category:
 
 The following limitations apply to {% data variables.copilot.copilot_mobile_short %}:
 
-* If you're a member of an organization or enterprise, your access to {% data variables.copilot.copilot_mobile_short %} may depend on policies set by your administrator. See [AUTOTITLE](/copilot/concepts/policies).
+* If you're a member of an organization or enterprise, your access to {% data variables.copilot.copilot_mobile_short %} may depend on policies set by your administrator. See [AUTOTITLE](/copilot/concepts/enterprise/policies).
 * If you purchased {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} through an in-app purchase on iOS or Android, you cannot enable additional {% data variables.product.prodname_ai_credits %}. To do so, cancel your mobile subscription and re-subscribe on {% data variables.product.prodname_dotcom_the_website %} through a web browser.
 
 ## Asking a general question about software development

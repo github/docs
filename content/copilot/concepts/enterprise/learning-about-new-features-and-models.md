@@ -42,7 +42,7 @@ To learn about new {% data variables.product.prodname_copilot_short %} features,
 Each feature has its own enablement requirements and policy settings. When a new feature is released:
 
 1. Review the feature documentation to understand its capabilities.
-1. Check the policy settings available at the enterprise and organization level. See [AUTOTITLE](/copilot/concepts/policies).
+1. Check the policy settings available at the enterprise and organization level. See [AUTOTITLE](/copilot/concepts/enterprise/policies).
 1. Consider running a pilot with a subset of users before broader rollout.
 
 ### Learning about new {% data variables.product.prodname_copilot_short %} models

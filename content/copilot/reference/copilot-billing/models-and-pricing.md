@@ -19,7 +19,7 @@ The cost of an interaction depends on two things: the model and the number of to
 How {% data variables.product.prodname_copilot_short %} usage is tracked and billed depends on your plan type:
 
 * Individual plans ({% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %}) include {% data variables.product.prodname_ai_credits %} allowances that vary by plan. For details, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals).
-* {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} include per-user {% data variables.product.prodname_ai_credits %} allowances that are pooled at the billing entity level. For details, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+* {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} include per-user {% data variables.product.prodname_ai_credits %} allowances that are pooled at the billing entity level. For details, see [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 When usage exceeds the included allowances for any {% data variables.product.prodname_copilot_short %} plan, additional usage is billed in {% data variables.product.prodname_ai_credits %} at the per-token rates shown in the pricing tables below (1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}).
 

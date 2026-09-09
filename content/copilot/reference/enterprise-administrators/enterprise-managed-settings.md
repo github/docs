@@ -126,7 +126,7 @@ The following example shows these keys in one managed settings file.
 
 ## enabledPlugins
 
-Defines plugins that are automatically installed or blocked for all enterprise users. Each entry uses the format `PLUGIN-NAME@MARKETPLACE-NAME` as the key, with a boolean value: `true` to require the plugin to be enabled, or `false` to require it to be disabled. See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
+Defines plugins that are automatically installed or blocked for all enterprise users. Each entry uses the format `PLUGIN-NAME@MARKETPLACE-NAME` as the key, with a boolean value: `true` to require the plugin to be enabled, or `false` to require it to be disabled. See [AUTOTITLE](/copilot/concepts/enterprise/plugin-standards).
 
 ## extraKnownMarketplaces
 
@@ -142,7 +142,7 @@ The following source types are supported:
 * `"git"` — requires `url`; optional `ref` and `path`
 * `"directory"` — requires `path`
 
-See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
+See [AUTOTITLE](/copilot/concepts/enterprise/plugin-standards).
 
 ## strictKnownMarketplaces
 

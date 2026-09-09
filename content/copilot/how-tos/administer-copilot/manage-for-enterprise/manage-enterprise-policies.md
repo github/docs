@@ -23,7 +23,7 @@ If you're setting up {% data variables.product.prodname_copilot_short %} for the
 
 ## Defining policies for your enterprise
 
-Enterprise owners can define a policy for the whole enterprise, or delegate the decision to individual organization owners. See [AUTOTITLE](/copilot/concepts/policies).
+Enterprise owners can define a policy for the whole enterprise, or delegate the decision to individual organization owners. See [AUTOTITLE](/copilot/concepts/enterprise/policies).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}

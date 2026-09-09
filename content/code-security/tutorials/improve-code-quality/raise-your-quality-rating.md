@@ -64,10 +64,13 @@ Once you've picked a rule, decide how to handle each finding:
 
 | Assessment | Recommended action | Notes |
 | --- | --- | --- |
-| The finding is legitimate. | Click **Generate fix** and open a pull request | Clicking **Generate fix** consumes {% data variables.product.prodname_ai_credits_short %}. You can add multiple autofixes to the same branch to group remediation work in one pull request. |
-| The finding doesn't apply. For example, it's in legacy code, an intentional pattern, or a false positive | Click **Dismiss**. | The finding is considered resolved and removed from the list of open findings. |
+| One finding is legitimate. | Click **Assign to {% data variables.product.prodname_copilot_short %}**. | {% data variables.product.prodname_copilot_short %} opens a pull request containing fixes for the selected findings. Assigning to {% data variables.product.prodname_copilot_short %} consumes {% data variables.product.prodname_ai_credits_short %}. |
+| Multiple findings for the same rule are legitimate. | Select up to 25 findings on a page, then click **Assign to {% data variables.product.prodname_copilot_short %}**. | {% data variables.product.prodname_copilot_short %} opens a pull request containing fixes for the selected findings. Assigning to {% data variables.product.prodname_copilot_short %} consumes {% data variables.product.prodname_ai_credits_short %}|
+| A finding doesn't apply. For example, it's in legacy code, an intentional pattern, or a false positive. | Click **Dismiss**. | The finding is considered resolved and removed from the list of open findings. |
 
-In our example, we generate autofixes for the 40 "Overwritten property" findings and open a pull request. Because they share a single pattern, the fixes are nearly identical. We merge the pull request once CI checks pass.
+{% data reusables.code-quality.agentic-autofix-preview-note %}
+
+In our example, we assign the 40 "Overwritten property" findings to {% data variables.product.prodname_copilot_short %} in batches of up to 25. We review the resulting pull requests and merge them once the CI checks pass.
 
 ## Step 4: Communicate impact
 

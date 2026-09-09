@@ -15,7 +15,7 @@ category:
   - Understand product costs
 ---
 
-Usage of {% data variables.product.prodname_copilot %} is measured through a combination of licenses and {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+Usage of {% data variables.product.prodname_copilot %} is measured through a combination of licenses and {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 ## Licenses for {% data variables.product.prodname_copilot_short %}
 

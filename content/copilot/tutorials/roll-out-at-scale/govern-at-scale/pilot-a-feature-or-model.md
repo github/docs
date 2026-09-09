@@ -15,7 +15,7 @@ This tutorial walks you through running a pilot end to end: setting a budget, en
 
 ## Before you start your pilot
 
-Before you enable anything, make sure you've evaluated the feature or model and confirmed it meets your compliance requirements. See [AUTOTITLE](/copilot/concepts/learning-about-new-features-and-models).
+Before you enable anything, make sure you've evaluated the feature or model and confirmed it meets your compliance requirements. See [AUTOTITLE](/copilot/concepts/enterprise/learning-about-new-features-and-models).
 
 If you're not sure whether a feature or model is safe to enable, check with security and compliance teams at your company before you start the pilot.
 
@@ -42,7 +42,7 @@ Many of the features and models you'll want to pilot are billed through usage, s
 
 A handful of active developers using a frontier model or an agentic feature could consume more than you'd expect. Work out a rough estimate of what the pilot could cost, and decide on a ceiling you're willing to spend before you enable the feature.
 
-Start by understanding how the feature or model is billed. Usage-based features consume {% data variables.product.prodname_ai_credits %}, and the cost of each interaction depends on the model and the number of tokens consumed. To understand which features count toward usage, how included credits are pooled across your enterprise, and how overages are charged, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+Start by understanding how the feature or model is billed. Usage-based features consume {% data variables.product.prodname_ai_credits %}, and the cost of each interaction depends on the model and the number of tokens consumed. To understand which features count toward usage, how included credits are pooled across your enterprise, and how overages are charged, see [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 To produce an estimate, combine three numbers:
 
@@ -75,7 +75,7 @@ If any of your pilot users aren't yet members, or are members but receive their 
 
 {% data variables.product.prodname_copilot_short %} policies control which features and models your users can access and how their data is handled. Configure these policies for the pilot organization *before* you turn the feature on, so that pilot users get a correctly governed experience from their very first interaction rather than a brief window where the feature is available without the guardrails you intend.
 
-Decide which features and models the pilot should allow, and set the policies at the organization level so the change only affects your pilot organization; policies set at the enterprise level apply to every organization in your enterprise. If your enterprise policy doesn't allow organizations to set their own value, an enterprise owner must change this before you can continue. To understand how policies cascade from the enterprise to organizations and who can override settings at each level, see [AUTOTITLE](/copilot/concepts/policies).
+Decide which features and models the pilot should allow, and set the policies at the organization level so the change only affects your pilot organization; policies set at the enterprise level apply to every organization in your enterprise. If your enterprise policy doesn't allow organizations to set their own value, an enterprise owner must change this before you can continue. To understand how policies cascade from the enterprise to organizations and who can override settings at each level, see [AUTOTITLE](/copilot/concepts/enterprise/policies).
 
 ### Enable the feature for a single organization
 
