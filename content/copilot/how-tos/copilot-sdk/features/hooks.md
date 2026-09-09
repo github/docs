@@ -890,7 +890,7 @@ For full type definitions, input/output field tables, and additional examples fo
 
 ## See also
 
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/custom-agents)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/streaming-events)
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/troubleshooting/debugging)

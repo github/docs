@@ -594,4 +594,4 @@ foundry model run phi-4-mini
 ## Next steps
 
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth) - Learn about all authentication methods
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started) - Build your first Copilot-powered app
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart) - Build your first Copilot-powered app

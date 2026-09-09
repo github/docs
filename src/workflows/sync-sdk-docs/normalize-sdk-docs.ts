@@ -4,6 +4,8 @@
  * Normalizes Copilot SDK docs for publishing on docs.github.com.
  *
  * For every .md file in the SDK docs directory, this script:
+ *   - Removes pages that have been relocated out of the synced tree
+ *     (see RELOCATED_PAGES) and repoints inbound links at their new URLs
  *   - Renames README.md files to index.md (the SDK repo uses README.md as the
  *     landing page for each docs directory; docs-internal requires index.md)
  *   - Adds YAML frontmatter (title, intro, shortTitle, versions, contentType)
@@ -40,6 +42,35 @@ const { values: args } = parseArgs({
 
 const CONTENT_DIR = path.resolve(args['content-dir'] as string)
 const SDK_DOCS_DIR = path.resolve(args['sdk-docs-dir'] as string)
+
+/**
+ * Pages that have been relocated OUT of the synced SDK docs tree into
+ * hand-authored content elsewhere in docs-internal.
+ *
+ * Keys are paths relative to the SDK docs root, exactly as they appear upstream
+ * in github/copilot-sdk's `docs/` directory. Values are the docs.github.com URL
+ * the page now lives at.
+ *
+ * Each entry does two inseparable things on every sync:
+ *   1. Deletes the upstream copy after it is rsynced in (Step 0a), so the page
+ *      is not republished at its old URL — that URL is now a `redirect_from` on
+ *      the hand-authored page and must stay vacant.
+ *   2. Teaches the internal-link rewriter (Step 3) to point inbound relative
+ *      links at the new URL, instead of logging "target missing" and leaving a
+ *      raw `../getting-started.md` link in published content.
+ *
+ * Both halves must stay together, which is why this lives here rather than as an
+ * rsync `--exclude` in .github/workflows/sync-sdk-docs.yml: excluding the file
+ * at copy time without remapping its links would ship ~17 broken links.
+ *
+ * Destinations are validated on every run; see validateRelocatedDestinations().
+ */
+const RELOCATED_PAGES: Record<string, string> = {
+  'getting-started.md': '/copilot/get-started/sdk-quickstart',
+}
+
+/** Relocated pages whose upstream source file was not found during this sync. */
+const missingRelocatedSources: string[] = []
 
 if (!fs.existsSync(CONTENT_DIR)) {
   console.error(`Content directory not found: ${CONTENT_DIR}`)
@@ -140,6 +171,98 @@ function convertReadmesToIndex(): void {
       console.log(`  README-LINKS: ${path.relative(SDK_DOCS_DIR, file)}`)
     }
   }
+}
+
+/**
+ * Return the new URL for a relocated page, given an absolute path inside the
+ * SDK docs tree. Returns undefined for pages that have not been relocated.
+ */
+function relocatedUrlFor(absPath: string): string | undefined {
+  return RELOCATED_PAGES[path.relative(SDK_DOCS_DIR, absPath)]
+}
+
+/**
+ * Step 0a: Delete pages that have been relocated out of the synced tree.
+ *
+ * The sync `rm -rf`s and re-rsyncs this whole directory every run, so a page
+ * moved into hand-authored content elsewhere in docs-internal would otherwise
+ * reappear at its old URL on the next sync and collide with the `redirect_from`
+ * that now claims it. (Redirect compilation resolves that collision by dropping
+ * the redirect, so the deletion is a hard invariant, not a tidiness measure.)
+ *
+ * This runs before every other step, so keys stay expressed in upstream terms:
+ * before Step 0 renames `README.md` to `index.md`, and before Step 1 so that
+ * `getChildren()` never sees the file and the parent index.md's `children`
+ * array is free of dangling entries.
+ *
+ * A missing source is reported rather than ignored: it usually means upstream
+ * renamed the file, in which case the page silently republishes under a new URL
+ * and the vacated URL may be reclaimed. It does not fail the sync, because
+ * github/copilot-sdk is a separate repo that may legitimately delete the page
+ * once docs-internal is canonical.
+ */
+function removeRelocatedPages(): void {
+  for (const [relPath, newUrl] of Object.entries(RELOCATED_PAGES)) {
+    const absPath = path.join(SDK_DOCS_DIR, relPath)
+    if (!fs.existsSync(absPath)) {
+      missingRelocatedSources.push(relPath)
+      console.log(`  WARN (relocated source missing upstream): ${relPath}`)
+      continue
+    }
+    fs.rmSync(absPath)
+    console.log(`  RELOCATED: ${relPath} -> ${newUrl}`)
+  }
+}
+
+/**
+ * Validate that every relocated page's destination actually exists in the
+ * hand-authored content tree. A typo or an unrelated rename would otherwise
+ * silently repoint every inbound link at a 404.
+ *
+ * Unlike a missing upstream source, this is entirely within docs-internal's
+ * control, so it fails the sync. It runs before anything mutates the tree.
+ */
+function validateRelocatedDestinations(): void {
+  const broken: string[] = []
+
+  for (const [relPath, newUrl] of Object.entries(RELOCATED_PAGES)) {
+    const base = path.join(CONTENT_DIR, newUrl)
+    if (!fs.existsSync(`${base}.md`) && !fs.existsSync(path.join(base, 'index.md'))) {
+      broken.push(`${relPath} -> ${newUrl}`)
+    }
+  }
+
+  if (broken.length === 0) return
+
+  console.error('RELOCATED_PAGES points at destinations that do not exist in the content tree:')
+  for (const entry of broken) console.error(`  ${entry}`)
+  console.error('Update RELOCATED_PAGES in src/workflows/sync-sdk-docs/normalize-sdk-docs.ts.')
+  process.exit(1)
+}
+
+/**
+ * Report relocated pages whose upstream source vanished, to the Actions job
+ * summary linked from the generated PR. Mirrors reportUnbalancedMarkers(): the
+ * run log alone is not something a PR reviewer will see.
+ */
+function reportMissingRelocatedSources(): void {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY
+  if (missingRelocatedSources.length === 0 || !summaryPath) return
+
+  const lines = [
+    '### ⚠️ Relocated page missing from upstream',
+    '',
+    'These pages are listed in `RELOCATED_PAGES` but no longer exist in',
+    '[copilot-sdk docs](https://github.com/github/copilot-sdk/tree/main/docs).',
+    'If upstream **renamed** the file, it is now republishing under a new URL and may have',
+    'reclaimed the URL this move vacated — update `RELOCATED_PAGES`. If upstream',
+    '**deleted** it deliberately, remove the entry instead.',
+    '',
+    ...missingRelocatedSources.map((source) => `* \`${source}\``),
+    '',
+  ]
+
+  fs.appendFileSync(summaryPath, lines.join('\n'))
 }
 
 /** Convert a filename slug to a title-case short title. */
@@ -303,6 +426,16 @@ function rewriteInternalLinks(filePath: string): void {
     const resolved = path.resolve(dir, rawPath)
 
     if (!resolved.startsWith(CONTENT_DIR)) return _match
+
+    // Pages relocated out of the synced tree no longer exist on disk, so the
+    // existence check below would leave a raw relative link. Repoint them at
+    // their new home instead.
+    const relocatedUrl = relocatedUrlFor(resolved)
+    if (relocatedUrl) {
+      changed = true
+      return `[AUTOTITLE](${relocatedUrl}${anchor ? `#${anchor}` : ''})`
+    }
+
     if (!fs.existsSync(resolved)) {
       console.log(`  WARN (target missing): ${href} in ${path.relative(SDK_DOCS_DIR, filePath)}`)
       return _match
@@ -896,9 +1029,17 @@ function suppressSdkLintRules(filePath: string): void {
 console.log(`Normalizing SDK docs in: ${SDK_DOCS_DIR}`)
 console.log(`Content directory: ${CONTENT_DIR}\n`)
 
+// Step 0a: Remove pages relocated out of the synced tree (see RELOCATED_PAGES).
+// Runs first so keys stay expressed in upstream terms (before README->index
+// renaming) and so getChildren() never lists a relocated page.
+validateRelocatedDestinations()
+console.log('--- Removing relocated pages ---\n')
+removeRelocatedPages()
+reportMissingRelocatedSources()
+
 // Step 0: Rename README.md files to index.md (copilot-sdk uses README.md as
 // directory landing pages; docs-internal requires index.md).
-console.log('--- Renaming README.md files to index.md ---\n')
+console.log('\n--- Renaming README.md files to index.md ---\n')
 convertReadmesToIndex()
 
 // Step 1: Add frontmatter

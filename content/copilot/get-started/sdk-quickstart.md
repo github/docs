@@ -1,20 +1,21 @@
 ---
 title: Build your first Copilot-powered app
-shortTitle: Getting Started
+shortTitle: Copilot SDK quickstart
+allowTitleToDifferFromFilename: true
 intro: >-
   In this tutorial, you'll use the Copilot SDK to build a command-line
   assistant. You'll start with the basics, add streaming responses, then add
   custom tools - giving Copilot the ability to call your code.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: copilot
 redirect_from:
   - /copilot/how-tos/copilot-sdk/sdk-getting-started
-contentType: how-tos
+  - /copilot/how-tos/copilot-sdk/getting-started
+contentType: get-started
+category:
+  - Quickstarts
+  - Integrate Copilot with your tools
 ---
-
-<!-- markdownlint-disable GHD046 GHD005 -->
-<!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
 
 **What you'll build:**
 
