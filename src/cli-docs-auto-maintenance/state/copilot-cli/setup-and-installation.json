@@ -1,0 +1,106 @@
+{
+  "name": "Setup and installation",
+  "sha": "8f269b4e7f4cd58744a6edf8093e55820f6d765c",
+  "articles": [
+    "content/copilot/concepts/agents/copilot-cli/about-copilot-cli.md",
+    "content/copilot/concepts/agents/copilot-cli/index.md",
+    "content/copilot/how-tos/copilot-cli/cli-getting-started.md",
+    "content/copilot/how-tos/copilot-cli/index.md",
+    "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+    "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli.md",
+    "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/index.md",
+    "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli.md",
+    "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth.md"
+  ],
+  "proposed": [
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "When authentication is required, {% data variables.copilot.copilot_cli_short %} supports several methods. The method you use depends on whether you are working interactively or in an automated environment."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "* **OAuth**: The default and recommended method for interactive use. There are two OAuth flows. The browser (web) flow opens your browser to authorize the sign-in and completes it on a local loopback callback. The device code flow displays "
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "| OAuth token (browser or device flow) | `gho_` | Yes | Default method via `copilot login` |"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "> * An environment variable silently overrides a stored OAuth token. If you set `GH_TOKEN` for another tool, the CLI uses that token instead of the OAuth token from `copilot login`. To avoid unexpected behavior, unset environment variables "
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "OAuth is the default authentication method for interactive use. You can authenticate by running `/login` from {% data variables.copilot.copilot_cli_short %} or `copilot login` from your terminal. Both offer a browser (web) flow and a device"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "1. Choose how you want to sign in. The recommended option is listed first, and depends on your environment: the browser flow on a local terminal, or the device code flow in a known remote or headless environment."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "How do you want to sign in? 1. Sign in with your browser (recommended) 2. Sign in with a device code"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "* **Browser**: {% data variables.copilot.copilot_cli_short %} opens your browser so that you can authorize the sign-in. If your browser does not open automatically, the terminal displays a URL that you can visit instead."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "* **Device code**: The CLI displays a one-time user code, and can copy it to your clipboard and open your browser for you."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "```text Waiting for authorization... Enter one-time code: 1234-5678 at https://github.com/login/device Press any key to copy to clipboard and open browser... ```"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "Navigate to the verification URL at `https://github.com/login/device` if your browser did not open automatically, then paste the one-time code in the field on the page."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "On a local desktop, `copilot login` uses the browser flow by default. It opens your browser to authorize the sign-in and captures the result on a local loopback callback."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "```text Opening your browser to authenticate... If it doesn't open automatically, visit: URL Waiting for authorization... ```"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "Known remote or headless environments (including SSH, {% data variables.product.prodname_github_codespaces %}, dev containers, and CI) use the device code flow instead. The CLI displays a one-time code, and copies it to your clipboard and o"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "To authenticate, visit https://github.com/login/device and enter code 1234-5678 Waiting for authorization..."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "To force a particular flow, add the `--web-flow` or `--device-code` option."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md",
+      "text": "1. Navigate to the URL displayed in your terminal if your browser did not open automatically. For the device code flow, paste the one-time code in the field on the page."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth.md",
+      "text": "export COPILOT_GITHUB_TOKEN=PERSONAL_ACCESS_TOKEN"
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth.md",
+      "text": "A token starting with `ghp_` is rejected. If it is the only credential available, {% data variables.copilot.copilot_cli_short %} refuses to start and displays the following error, naming the environment variable that holds the token."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth.md",
+      "text": "<!-- markdownlint-disable GHD005 --> ```text Error: Classic Personal Access Tokens (ghp_) are not supported by Copilot."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth.md",
+      "text": "The GITHUB_TOKEN environment variable contains a classic PAT. Please use a Fine-Grained Personal Access Token or another authentication method."
+    },
+    {
+      "article": "content/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth.md",
+      "text": "To fix this, you can: • Replace the token in GITHUB_TOKEN with a fine-grained PAT • Unset GITHUB_TOKEN and run 'gh auth login' to authenticate • Unset GITHUB_TOKEN and start 'copilot', then use the '/login' command ``` <!-- markdownlint-ena"
+    }
+  ],
+  "rejected": []
+}

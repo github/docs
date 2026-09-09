@@ -1316,6 +1316,15 @@ describe('correctTranslatedContentStrings', () => {
       )
     })
 
+    test('fixes 데이터 재사용 가능항목 (missing internal space) → data reusables', () => {
+      // Variant with a space before "재사용" but missing between "가능" and
+      // "항목", distinct from the already-handled fully-spaced and
+      // fully-fused variants.
+      expect(fix('{% 데이터 재사용 가능항목.webhooks.commit_comment_short_desc %}', 'ko')).toBe(
+        '{% data reusables.webhooks.commit_comment_short_desc %}',
+      )
+    })
+
     test('fixes datavariable → data variables (via generic)', () => {
       expect(fix('{% datavariable.product.github %}', 'ko')).toBe(
         '{% data variables.product.github %}',
@@ -1681,6 +1690,23 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% Data ifversion ghec %}', 'es')).toBe('{% data ifversion ghec %}')
       expect(fix('{%- Data variables.product.github %}', 'es')).toBe(
         '{%- data variables.product.github %}',
+      )
+    })
+
+    test('fixes missing space between {% and data keyword', () => {
+      // Translators sometimes dropped the space between `{%` and `data`,
+      // producing `{%data variables.X %}` / `{%data reusables.X %}`, which
+      // breaks the Liquid parser. Confirmed across ja, pt, zh, ko, and de.
+      expect(fix('{%data variables.product.github %}', 'ja')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%data reusables.foo.bar %}', 'pt')).toBe('{% data reusables.foo.bar %}')
+      expect(fix('{%-data variables.product.github %}', 'de')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      // Already-correct input is left unchanged.
+      expect(fix('{% data variables.product.github %}', 'zh')).toBe(
+        '{% data variables.product.github %}',
       )
     })
 

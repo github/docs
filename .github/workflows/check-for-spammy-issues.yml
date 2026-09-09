@@ -30,6 +30,7 @@ jobs:
             const titleWordCountMin = 3
             const urlRegex = /https?:\/\/\S+/i
             const titleHasUrl = urlRegex.test(issue.title)
+            const titleHasDollarSign = issue.title.includes('$')
 
             try {
               await github.rest.teams.getMembershipForUserInOrg({
@@ -45,7 +46,7 @@ jobs:
               // An error will be thrown if the user is not a GitHub employee
               // If a user is not a GitHub employee, we should check to see if title has at least the minimum required number of words in it and if it does, we can exit the workflow
 
-              if (titleWordCount >= titleWordCountMin && !titleHasUrl) {
+              if (titleWordCount >= titleWordCountMin && !titleHasUrl && !titleHasDollarSign) {
                 return
               }
             }

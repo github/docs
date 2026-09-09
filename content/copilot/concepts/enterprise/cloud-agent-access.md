@@ -1,6 +1,6 @@
 ---
 title: Managing access to GitHub Copilot cloud agent
-shortTitle: Access management
+shortTitle: Cloud agent access
 allowTitleToDifferFromFilename: true
 intro: Find out about {% data variables.copilot.copilot_cloud_agent %} policies available for {% data variables.copilot.copilot_enterprise %} and {% data variables.copilot.copilot_for_business %}, and about disabling the agent for specific repositories.
 product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
@@ -18,6 +18,7 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/enabling-copilot-coding-agent
   - /copilot/concepts/agents/coding-agent/coding-agent-for-business-and-enterprise
   - /copilot/concepts/agents/coding-agent/managing-access
+  - /copilot/concepts/agents/cloud-agent/access-management
 contentType: concepts
 category:
   - Manage Copilot for a team

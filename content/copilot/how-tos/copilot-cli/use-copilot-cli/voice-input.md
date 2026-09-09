@@ -20,7 +20,7 @@ You need a working microphone connected to your machine. By default, voice input
 
 ## Limitation
 
-Voice input is currently only supported for English and Spanish dictation. English is the default language for speech recognition.
+{% data variables.copilot.copilot_cli_short %} offers a fixed set of speech-to-text models: a multilingual model, which is the default, plus a dedicated English model and a dedicated Spanish model. Only these models are listed in the voice models picker.
 
 ## Enabling voice input
 
@@ -31,12 +31,12 @@ Before you can dictate prompts, you need to download the voice runtime that powe
 
    The download runs in the background. You can keep using {% data variables.copilot.copilot_cli_short %} while it completes.
 
-1. When you're prompted to choose a voice model, press <kbd>Enter</kbd> with "Download default model" selected to download the English speech-to-text model.
+1. When you're prompted to choose a voice model, press <kbd>Enter</kbd> with "Download default model" selected to download the default multilingual speech-to-text model.
 
-   Alternatively, if you want to dictate in Spanish:
+   Alternatively, if you want to use the dedicated English or Spanish model:
 
    1. Use the arrow keys on your keyboard to select "Browse models", then press <kbd>Enter</kbd>.
-   1. In the voice models picker, use the arrow keys to select the Spanish speech-to-text model, then press <kbd>Enter</kbd> to download it.
+   1. In the voice models picker, use the arrow keys to select the model you want, then press <kbd>Enter</kbd> to download it.
    1. Press <kbd>Esc</kbd> to exit the picker.
 
 ## Using voice input
@@ -92,7 +92,7 @@ If you have more than one microphone available on your system, you can switch in
 
 ## Switching voice models
 
-You can dictate prompts in English or Spanish, but the appropriate voice model must be downloaded and activated for the language you want to use.
+The default multilingual model handles more than one language, but you can switch to the dedicated English or Spanish model if you prefer. The model you want must be downloaded and activated before you can use it.
 
 To change to a different voice model:
 
@@ -100,7 +100,7 @@ To change to a different voice model:
 
    The voice models picker is displayed. A check mark indicates the currently active model.
 
-1. In the voice models picker, use the arrow keys on your keyboard to select the English or Spanish speech-to-text, then press <kbd>Enter</kbd>.
+1. In the voice models picker, use the arrow keys on your keyboard to select the model you want to use, then press <kbd>Enter</kbd>.
 
    If the model is not already downloaded, it will be downloaded to your machine.
 

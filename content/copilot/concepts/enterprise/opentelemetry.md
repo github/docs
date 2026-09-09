@@ -7,6 +7,8 @@ versions:
 contentType: concepts
 category:
   - Manage Copilot for a team
+redirect_from:
+  - /copilot/concepts/agents/opentelemetry
 ---
 
 OpenTelemetry (OTel) is an open source observability framework. It provides a standard way to collect telemetry events and metrics and export them to compatible observability tools. For more information, see [What is OpenTelemetry?](https://opentelemetry.io/docs/what-is-opentelemetry/) on the OTel website.

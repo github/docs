@@ -12,21 +12,7 @@ category:
 
 Use this reference to understand the currently supported keys in `{% data variables.copilot.managed_setting_file %}`.
 
-For deployment methods and supported clients, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
-
-## Precedence rules
-
-When multiple settings sources are present, settings earlier in this list take precedence over settings later in the list:
-
-1. MDM-managed settings
-1. Server-managed settings
-1. File-based settings
-1. User-level settings
-
-As an exception, the following keys are composed in the most restrictive direction across different delivery methods:
-
-* `sandbox`
-* `permissions.deny`, `permissions.ask`, and `permissions.allow`
+For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started).
 
 ## Supported keys
 
@@ -50,13 +36,6 @@ As an exception, the following keys are composed in the most restrictive directi
 
 {% endrowheaders %}
 
-## Applying different settings to enterprise teams
-
-For server-managed deployments, the enterprise can apply different governance to groups of users based on their enterprise team membership. The enterprise defines all settings—team membership only determines which users receive a given set of values.
-
-To make a key eligible for team-specific values, mark it as overridable in `{% data variables.copilot.managed_setting_file %}` using the `{ "overridable": <VALUE> }` syntax. An overridable key uses the team's value when set, or falls back to your enterprise default when the team leaves it unset. The `{ "overridable": <VALUE> }` syntax applies to the `model`, `permissions.disableBypassPermissionsMode`, `permissions.deny`, `permissions.ask`, `permissions.allow`, `allowedMcpServers`, and `deniedMcpServers` keys. Keys not marked overridable remain an enterprise-level decision that teams can't modify.
-
-`enabledPlugins` and `extraKnownMarketplaces` work additively. The enterprise `{% data variables.copilot.managed_setting_file %}` sets a baseline, and an enterprise team file can add more plugins and marketplaces on top of it. For the full setup steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#overriding-settings-for-specific-teams).
 
 ## Example configuration
 
@@ -182,7 +161,7 @@ Restricts plugin installation to only the marketplaces explicitly defined by the
 
 Sets your preferred model as the default for new conversations. This lets you choose the default model that best fits your enterprise's workflows. Users can still select a different model on a per-conversation basis.
 * Set `model` to `"auto"` to use {% data variables.copilot.copilot_auto_model_selection_short %} as the default, so new sessions choose a model automatically unless the user specifies a different model on a per-conversation basis. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
-* Set `model` to a specific model and version to make that model the default for new conversations, for example `"kimi-k-3"`.
+* Set `model` to a specific model and version to make that model the default for new conversations, for example `"kimi-k3"`.
 
 This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "auto" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"model": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
 

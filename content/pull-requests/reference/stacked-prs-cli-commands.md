@@ -141,7 +141,7 @@ View the current stack.
 gh stack view [flags]
 ```
 
-Shows all branches in the stack, their ordering, pull request links, and the most recent commit with a relative timestamp. Output is piped through a pager, which respects `GIT_PAGER` or `PAGER`, and defaults to `less -R`.
+Shows all branches in the stack, their ordering, pull request links, and the most recent commit with a relative timestamp. By default, the command opens a full-screen view in an interactive terminal and prints static output in a non-interactive terminal. The `--short` and `--json` flags print directly to standard output in either environment.
 
 | Flag | Description |
 |------|-------------|
@@ -308,7 +308,7 @@ If every pull request in the stack has already been merged, that stack is comple
 In an interactive terminal, `submit` opens a full-screen editor on a single screen.
 
 * **Left panel.** Every branch without a pull request is included by default. Deselect any you do not want to submit with <kbd>Ctrl</kbd>+<kbd>X</kbd>. Because each pull request builds on the branch below it, deselecting a branch also deselects the ones stacked above it, and re-including a branch re-includes the ones below it that it depends on. Branches that already have a pull request, whether open, draft, queued, or merged, are shown for context but are locked. Edit those on the web.
-* **Right panel.** For the focused branch, draft the title and description, and choose whether the pull request opens ready for review or as a draft. The description is pre-filled from your repository's pull request template or commits, with a markdown preview and an `$EDITOR` escape. Focusing a locked branch shows a read-only card with a link to its pull request. Press <kbd>o</kbd> to open it in the browser.
+* **Right panel.** For the focused branch, draft the title and description, and choose whether the pull request opens ready for review or as a draft. The description is pre-filled from your repository's pull request template or commits, with a markdown preview. To edit the description in an external editor, press <kbd>Ctrl</kbd>+<kbd>E</kbd>. The extension uses the first nonempty value from the `GH_EDITOR`, `VISUAL`, and `EDITOR` environment variables, in that order. If none is set, it uses `vi` if available on your `PATH`. Focusing a locked branch shows a read-only card with a link to its pull request. Press <kbd>o</kbd> to open it in the browser.
 
 Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to submit all included pull requests at once. The editor supports both keyboard and mouse input. Pass `--auto`, or run the command in a non-interactive terminal such as CI, to skip the editor and use automatically generated titles.
 

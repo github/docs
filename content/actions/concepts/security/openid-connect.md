@@ -99,6 +99,12 @@ To use OIDC in your workflows, you must establish a trust relationship between {
 
 Before granting an access token, your cloud provider checks that the [`subject`](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and any other claims used to set conditions in its trust settings match those in the request's JSON Web Token (JWT). If the trust configuration matches, your cloud provider issues a temporary access token to the workflow.
 
+{% ifversion dependabot-oidc-support %}
+
+OIDC tokens requested for {% data variables.product.prodname_dependabot %} update jobs have an `event_name` claim of `dynamic`. If your trust policy is intended to authorize only {% data variables.product.prodname_actions %} workflows and your cloud provider supports conditions on `event_name`, allow only the event names expected by your workflows.
+
+{% endif %}
+
 For steps and syntax for configuring OIDC trust and setting conditions for cloud providers, see [AUTOTITLE](/actions/reference/security/oidc#oidc-claims-used-to-define-trust-conditions-on-cloud-roles).
 
 ## Configuring OIDC on {% data variables.enterprise.data_residency_site %}
