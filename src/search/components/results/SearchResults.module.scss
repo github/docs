@@ -1,3 +1,27 @@
+@import "@primer/react-brand/lib/design-tokens/scss/tokens/functional/size/breakpoints.scss";
+
+// The result row is a grid rather than nested flex wrappers so that the title, category
+// chip, snippet and debug line stay direct children of the row. See the comment in
+// SearchResults.tsx — the search rendering tests read elements by tag inside a result.
+.searchResult {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: 16px;
+  row-gap: 16px;
+  padding: 16px 24px;
+  border-bottom: var(--brand-borderWidth-thin) solid
+    var(--brand-color-border-subtle);
+
+  @media (min-width: $brand-breakpoint-medium) {
+    padding: 24px 32px;
+  }
+
+  @media (min-width: $brand-breakpoint-xxlarge) {
+    padding: 32px 48px;
+  }
+}
+
 .search_result {
   mark {
     background-color: transparent;
@@ -10,6 +34,78 @@
   word-wrap: break-word;
 }
 
+.resultTitle {
+  grid-column: 1;
+  margin: 0;
+  // Brand's subhead-medium is line-height 1.3; the design specifies 1.5.
+  line-height: 1.5;
+  letter-spacing: 0.16px;
+
+  // The design distinguishes the search match by COLOUR, not weight: the title is a
+  // single 550 run, its unmatched text is muted, and the matched text is default. So the
+  // link is muted here and the <mark> below restores the default colour.
+  //
+  // (An earlier attempt leaned on font-weight instead, which was the wrong lever — and
+  // it barely rendered, since the Mona Sans instance that resolves puts 550 and 700
+  // within half a pixel of each other.)
+  mark {
+    color: var(--brand-color-text-default);
+    // Override the shared `.search_result mark` bold: weight is uniform across the title.
+    font-weight: inherit;
+  }
+}
+
+.resultTitleLink {
+  color: var(--brand-color-text-muted);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.resultTopic {
+  grid-column: 2;
+  justify-self: end;
+  // Brand Token's own rules are hashed class names, so these need !important. Matching
+  // precedent: .cardToken in landings/components/shared/LandingArticleGridWithFilter.module.scss.
+  // `border-muted` is the token the design names, and it is the one that stays legible in
+  // both modes: it is #e4ebe6 in light (exactly the design value) and near-black in dark.
+  // `neutral-subtle` looks identical in light but resolves to a mid-grey in dark, which
+  // drops the label to a 1.6:1 contrast ratio against it.
+  background-color: var(--brand-color-border-muted) !important;
+  border-color: transparent !important;
+  border-radius: 4px !important;
+  color: var(--brand-color-text-muted) !important;
+  padding: 1px 7px !important;
+
+  :global([class*="Token__label"]) {
+    // Token's label span hardcodes the normal weight, so the size/weight go here, not on the root.
+    font-size: 12px !important;
+    font-weight: var(--base-text-weight-medium) !important;
+  }
+}
+
+.resultSnippet {
+  grid-column: 1 / -1;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--brand-color-text-muted);
+}
+
+.noResults {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px;
+  color: var(--brand-color-text-muted);
+}
+
+.noResultsText {
+  margin: 0;
+}
+
 .paginationFocus
   a[aria-current]:not([rel]):not(:disabled):not(:focus-visible):focus,
 .paginationFocus a[aria-current]:not([rel]):not(:disabled):focus-visible {
@@ -20,11 +116,16 @@
 
 .paginationWrapper {
   border-radius: 6px;
-  padding: 8px;
-}
+  // Match the result rows' horizontal inset at each breakpoint.
+  padding: 8px 24px;
 
-.breadcrumb {
-  word-spacing: 2px;
+  @media (min-width: $brand-breakpoint-medium) {
+    padding: 8px 32px;
+  }
+
+  @media (min-width: $brand-breakpoint-xxlarge) {
+    padding: 8px 48px;
+  }
 }
 
 .debugCode {
@@ -32,5 +133,7 @@
 }
 
 .debugText {
+  grid-column: 1 / -1;
+  margin: 0;
   font-weight: bold;
 }

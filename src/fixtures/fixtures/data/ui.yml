@@ -93,7 +93,10 @@ search_results:
   n_results: '{n} results'
   search_validation_error: Validation error with search query
   filter: Filter
-  clear_filter: Clear
+  clear_all_filters: Clear all
+  show_filters: Show filters
+  hide_filters: Hide filters
+  filter_search_results: Filter search results
 
 homepage:
   explore_by_product: Explore by product

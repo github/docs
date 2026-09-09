@@ -1,7 +1,17 @@
 @import "src/frame/stylesheets/breakpoint-xxl.scss";
+@import "@primer/react-brand/lib/design-tokens/scss/tokens/functional/size/breakpoints.scss";
 
 .mainContent {
   scroll-margin-top: 5rem;
+}
+
+// The search results page splits into rail + results at brand's `medium`
+// breakpoint rather than waiting for `d-lg-flex` at 1012px, so the facet rail is
+// available on tablets. Applied only on /search.
+.searchColumns {
+  @media (min-width: $brand-breakpoint-medium) {
+    display: flex;
+  }
 }
 
 // When the inline mobile/tablet nav is open, it takes over the viewport — hide
