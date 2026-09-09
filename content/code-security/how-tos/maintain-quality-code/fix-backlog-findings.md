@@ -22,13 +22,19 @@ category:
 
 1. **{% data variables.code-quality.all_findings %}**: {% data variables.product.prodname_code_quality_short %} uses {% data variables.product.prodname_codeql %} to perform a deterministic, rules-based scan of your default branch. Finding are grouped by rule and language, labeled by severity (**Error**, **Warning**, **Note**), and each includes a suggested autofix.
 
- 1. **{% data variables.code-quality.recent_suggestions %}**: {% data variables.product.prodname_code_quality_short %} uses AI-powered analysis to identify quality issues in the files most recently pushed to your default branch, including issues that rule-based analysis may not detect - such as best practices, naming conventions, or design considerations.
+1. **{% data variables.code-quality.recent_suggestions %}**: {% data variables.product.prodname_code_quality_short %} uses AI-powered analysis to identify quality issues in the files most recently pushed to your default branch, including issues that rule-based analysis may not detect - such as best practices, naming conventions, or design considerations.
 
- {% data reusables.code-quality.recent-suggestions-preview-note %}
+{% data reusables.code-quality.recent-suggestions-preview-note %}
 
- For information on resolving {% data variables.code-quality.recent_suggestions %}, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/fix-findings-in-recent-merges).
+For information on resolving {% data variables.code-quality.recent_suggestions %}, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/fix-findings-in-recent-merges).
 
-## Resolving a standard finding
+## Resolving standard findings
+
+You can resolve findings individually or assign multiple findings to {% data variables.product.prodname_copilot_short %}.
+
+{% data reusables.code-quality.agentic-autofix-preview-note %}
+
+### Resolving a single finding
 
 {% data reusables.code-quality.dashboard-navigation-repo %}
 {% data reusables.code-quality.dashboard-all-findings %}
@@ -47,6 +53,22 @@ category:
 1. Alternatively, if a finding isn't relevant or actionable, click **Dismiss**. For example, you might dismiss a finding that is in legacy code no longer maintained, is a known exception to your team's coding standards, or is a false positive that doesn't pose a real quality risk.
 
 To raise a maintainability or reliability score, you must resolve every finding at the highest severity level currently affecting that metric. See [AUTOTITLE](/code-security/reference/code-quality/metrics-and-ratings).
+
+### Assigning multiple findings to {% data variables.product.prodname_copilot_short %}
+
+If you have many findings for a rule and want to remediate them efficiently, you can select these findings in bulk and assign them to {% data variables.product.prodname_copilot_short %} for agentic remediation. {% data variables.product.prodname_copilot_short %} will open a pull request with fixes for the selected findings.
+
+You don't need a {% data variables.product.prodname_copilot_short %} license to use this feature, but your enterprise owner must allow {% data variables.product.prodname_code_quality_short %} for your organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise).
+
+For the best results, start with a single rule that has many high-severity findings. This lets you validate the quality of the autofixes on a cohesive set of changes before expanding to other rules.
+
+{% data reusables.code-quality.dashboard-navigation-repo %}
+{% data reusables.code-quality.dashboard-all-findings %}
+1. Select the findings you want to remediate. You can select up to 25 findings per page, one page at a time.
+1. Click **Assign to {% data variables.product.prodname_copilot_short %}**.
+
+   ![Screenshot of the "Standard findings" view. The "3 of 3 selected" checkbox and the "Dismiss" and "Assign to Copilot" buttons are outlined in orange.](/assets/images/help/code-quality/assign-findings-bulk.png)
+1. {% data variables.product.prodname_copilot_short %} will open a pull request with fixes for the selected findings. Review the pull request carefully before merging.
 
 ## Verifying that your code quality scores have updated
 
