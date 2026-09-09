@@ -415,7 +415,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/after [DELAY PROMPT]`, `/after`                 | Schedule a non-recurring prompt, skill, or schedulable slash command for the current session (for example, `/after 30m remind me the time` or `/after 1h /chronicle standup`). With no arguments the schedule manager is displayed. {% data reusables.copilot.experimental %} |
 | `/agent`                                            | Browse and select from available agents (if any). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents). |
 | `/app`                                              | Open the current session in the {% data variables.copilot.github_copilot_app %} (requires version 1.1.3 or later), or show the download URL if the app is not installed. |
-| `/ask QUESTION`                                     | Ask a quick side question without adding to the conversation history. |
+| `/ask QUESTION`, `/btw QUESTION`                    | Ask a quick side question without adding to the conversation history. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/ask-a-side-question). |
 | `/allow-all [off\|auto\|show]`, `/yolo [off\|auto\|show]` | Enable all permissions (tools, paths, and URLs). This is an alias for `/permissions allow-all`; see the `/permissions` row for the canonical command and its subcommands. |
 | `/autopilot [OBJECTIVE]`, `/goal [OBJECTIVE]` | Start or refocus autopilot mode, optionally with an explicit objective (for example, `/goal Refactor the auth module`). Without an objective, autopilot infers intent from context, and the status panel shows your last prompt as the inferred objective. You can cap AI-credit spend for the objective by using `--max-ai-credits N` (for example, `/goal Refactor the auth module --max-ai-credits 5`). When the cap is reached, autopilot pauses and opens a panel reporting credits used against the cap. Enter a new amount to resume with a fresh credit window, or dismiss the panel to stay paused. You can also resume a paused objective yourself, without the panel, by running the option on its own with no objective text—for example, `/goal --max-ai-credits 5`. This is the same action the panel performs: it opens a fresh window of the credits you specify (the full new cap, not an increment) and continues the objective. `/goal on` and `/goal off` toggle autopilot mode without setting an objective and don't accept `--max-ai-credits`. An active goal renders as a pinned panel above the composer, showing the objective, credits used, and todo progress. The panel auto-collapses to a single identity row on short terminals (below 30 rows) and expands above that threshold; press <kbd>Ctrl</kbd>+<kbd>X</kbd> then `g` to override the automatic sizing by hand. |
 | `/changelog [summarize] [VERSION\|last N\|since VERSION]`, `/release-notes [summarize] [VERSION\|last N\|since VERSION]` | Display the CLI changelog. Optionally specify a version, a count of recent releases, or a starting version. Add the keyword `summarize` for an AI-generated summary. |
@@ -1496,8 +1496,8 @@ Wraps the entire agent invocation: all LLM calls and tool executions for one use
 | `gen_ai.usage.cache_read.input_tokens` | Cached input tokens read | Both |
 | `gen_ai.usage.cache_creation.input_tokens` | Cached input tokens created | Both |
 | `github.copilot.turn_count` | Number of LLM round-trips | Both |
-| `github.copilot.cost` | Monetary cost | Both |
-| `github.copilot.aiu` | AI units consumed | Both |
+| `github.copilot.cost` | Per-request model multiplier used for billing. **Not a monetary value.** | Both |
+| `github.copilot.nano_aiu` | AI units consumed, in nano AI units (1 AIU = 1,000,000,000 nano AIU) | Both |
 | `server.address` | Server hostname | Top-level only |
 | `server.port` | Server port | Top-level only |
 | `error.type` | Error class name (on error) | Both |
@@ -1525,8 +1525,8 @@ One span per LLM request. Span kind: `CLIENT`.
 | `gen_ai.usage.cache_read.input_tokens` | Cached tokens read |
 | `gen_ai.usage.input_tokens` | Input tokens this turn |
 | `gen_ai.usage.output_tokens` | Output tokens this turn |
-| `github.copilot.cost` | Turn cost |
-| `github.copilot.aiu` | AI units consumed this turn |
+| `github.copilot.cost` | Per-request model multiplier used for billing. **Not a monetary value.** |
+| `github.copilot.nano_aiu` | AI units consumed this turn, in nano AI units (1 AIU = 1,000,000,000 nano AIU) |
 | `github.copilot.server_duration` | Server-side duration |
 | `github.copilot.initiator` | Request initiator |
 | `github.copilot.turn_id` | Turn identifier |
@@ -1554,6 +1554,9 @@ One span per tool call. Span kind: `INTERNAL`.
 | `gen_ai.tool.call.arguments` | Tool input arguments as JSON (content capture only) |
 | `gen_ai.tool.call.result` | Tool output as JSON (content capture only) |
 
+> [!NOTE]
+> To measure AI unit consumption, read `github.copilot.nano_aiu` from the root `invoke_agent` span only. The attribute is also stamped on the child `chat` spans, so summing it across every span double-counts. `github.copilot.cost` is a per-request model multiplier used for billing calculations—it is not a currency value and must not be interpreted as one.
+
 ### Metrics
 
 #### GenAI convention metrics
@@ -1564,6 +1567,7 @@ One span per tool call. Span kind: `INTERNAL`.
 | `gen_ai.client.token.usage` | Histogram | tokens | Token counts by type (`input`/`output`) |
 | `gen_ai.client.operation.time_to_first_chunk` | Histogram | s | Time to receive first streaming chunk |
 | `gen_ai.client.operation.time_per_output_chunk` | Histogram | s | Inter-chunk latency after first chunk |
+| `gen_ai.invoke_agent.duration` | Histogram | s | End-to-end duration of one agent invocation |
 | `gen_ai.invoke_agent.inference_calls` | Histogram | `{inference_call}` | Number of model calls made during one agent invocation, counted at provider dispatch (failed and partial calls included; requests blocked before dispatch excluded). Dimension: `gen_ai.agent.name`. |
 | `gen_ai.invoke_agent.tool_calls` | Histogram | `{tool_call}` | Number of client-side tool calls made during one agent invocation (failed and partial calls included; synthetic CLI tool lifecycles and provider-executed server-side tools excluded). Dimension: `gen_ai.agent.name`. |
 

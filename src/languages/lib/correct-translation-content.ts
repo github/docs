@@ -100,6 +100,13 @@ export function correctTranslatedContentStrings(
     content = content.replace(/^\n[ \t]*/, '')
   }
 
+  // Translators sometimes dropped the space between `{%` and `data` when the
+  // tag references `variables.X` or `reusables.X`, e.g. `{%data variables.X %}`
+  // or `{%data reusables.X %}`. This corruption shows up across multiple
+  // languages (ja, pt, zh, ko, de), so fix it universally rather than
+  // duplicating the same rule per language.
+  content = content.replace(/\{%(-?)data (variables|reusables)\./g, '{%$1 data $2.')
+
   // --- Per-language fixes (es, ja, pt, zh, ru, fr, ko, de) ---
 
   if (context.code === 'es') {
@@ -1799,6 +1806,8 @@ export function correctTranslatedContentStrings(
     // `{% 데이터 재사용 ` (no period) — variant of `{% data reusables`
     content = content.replaceAll('{% 데이터 재사용가능항목.', '{% data reusables.')
     content = content.replaceAll('{% 데이터 재사용 가능 항목.', '{% data reusables.')
+    // `{% 데이터 재사용 가능항목.` — missing space between "가능" and "항목" (mixed variant)
+    content = content.replaceAll('{% 데이터 재사용 가능항목.', '{% data reusables.')
     content = content.replaceAll('{% 데이터 재사용.', '{% data reusables.')
     content = content.replaceAll('{% 데이터 재사용 ', '{% data reusables.')
     // `{% indented_data_reference 재사용...` — translated `reusables` path prefix

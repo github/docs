@@ -8,6 +8,7 @@ redirect_from:
   - /admin/copilot-business-only
   - /admin/copilot-business-only/about-enterprise-accounts-for-copilot-business
   - /early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account
+  - /copilot/concepts/about-enterprise-accounts-for-copilot-business
 contentType: concepts
 category:
   - Learn about Copilot

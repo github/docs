@@ -48,6 +48,12 @@ Once a secret has been committed to a repository, you should consider the secret
 > [!NOTE]
 >{% data variables.product.prodname_secret_scanning_caps %} doesn't automatically close alerts when the corresponding token has been removed from the repository. You must manually close these alerts in the alert list on {% data variables.product.prodname_dotcom %}.
 
+{% ifversion secret-scanning-merge-protection %}
+
+If a branch ruleset requires {% data variables.product.prodname_secret_scanning %} alerts to be resolved, an open alert introduced by a pull request can block merging. After fixing the exposed secret, close the alert using the following steps. After all blocking alerts are closed, the alerts no longer prevent merging. The rule can continue to block merging until a {% data variables.product.prodname_secret_scanning %} scan completes for the pull request's head commit.
+
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.

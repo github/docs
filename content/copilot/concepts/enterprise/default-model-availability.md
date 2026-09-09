@@ -1,6 +1,6 @@
 ---
 title: About default availability of {% data variables.product.prodname_copilot_short %} models
-shortTitle: Default availability
+shortTitle: Default model availability
 intro: A policy controls whether unconfigured models default to enabled or disabled.
 product: '{% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}'
 versions:
@@ -11,6 +11,8 @@ category:
   - Manage Copilot for a team
 redirect_from:
   - /copilot/concepts/models/automatic-enablement
+  - /copilot/concepts/models/default-availability
+  - /copilot/concepts/enterprise/default-availability
 ---
 
 For enterprises with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plans, the **Default availability for released models** policy controls whether unconfigured generally available (GA) models default to enabled or disabled. If this policy is enabled, users benefit from the latest models without the need for administrator intervention.

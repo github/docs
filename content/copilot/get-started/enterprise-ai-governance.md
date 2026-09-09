@@ -22,7 +22,7 @@ journeyTracks:
     description: 'Use {% data variables.product.github %}''s governance features to stay in control of your codebase and compliance requirements.'
     guides:
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/govern-for-adoption'
-      - href: '/copilot/concepts/policies'
+      - href: '/copilot/concepts/enterprise/policies'
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/maintain-codebase-standards'
       - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs'
   - id: 'adopting_agents'
@@ -30,7 +30,7 @@ journeyTracks:
     description: 'Learn what agents can do for your enterprise, and prepare to roll them out.'
     guides:
       - href: '/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents'
-      - href: '/copilot/concepts/agents/enterprise-management'
+      - href: '/copilot/concepts/enterprise/agent-management'
       - href: '/copilot/tutorials/cloud-agent/build-guardrails'
       - href: '/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist'
   - id: 'enable_agents'
@@ -47,6 +47,6 @@ journeyTracks:
     title: 'Adopting new features'
     description: 'Expand your capabilities by assessing and rolling out any new feature or model.'
     guides:
-      - href: '/copilot/concepts/learning-about-new-features-and-models'
+      - href: '/copilot/concepts/enterprise/learning-about-new-features-and-models'
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/pilot-a-feature-or-model'
 ---
