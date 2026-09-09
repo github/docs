@@ -1,6 +1,6 @@
 ---
 title: About enterprise-managed plugin standards
-shortTitle: Enterprise plugin standards
+shortTitle: Plugin standards
 allowTitleToDifferFromFilename: true
 intro: Enterprise administrators can centrally define plugin policies for users, ensuring consistent plugin availability.
 versions:
@@ -13,6 +13,7 @@ docsTeamMetrics:
   - copilot-cli
 redirect_from:
   - /copilot/concepts/agents/copilot-cli/about-enterprise-plugin-standards
+  - /copilot/concepts/agents/about-enterprise-plugin-standards
 ---
 
 Enterprise-managed plugin standards allow administrators to **define and enforce policies for plugin availability**. By configuring a `{% data variables.copilot.managed_setting_file %}` file, administrators can specify which plugin marketplaces are available to users and which plugins are installed automatically.

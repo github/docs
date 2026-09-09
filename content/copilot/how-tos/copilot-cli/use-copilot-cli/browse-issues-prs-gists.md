@@ -48,7 +48,7 @@ The **Issues**, **Pull requests**, and **Gists** tabs all use the same controls.
 * Press <kbd>Enter</kbd> to display a detailed view of the highlighted item. Press <kbd>Esc</kbd> in the details view to return to the list.
 * Press <kbd>o</kbd> to open the highlighted item (or, in the detailed view, the current item) on {% data variables.product.prodname_dotcom_the_website %}.
 * Press <kbd>c</kbd> to insert a reference to the item into the prompt input area and jump back to the **Session** tab.
-* Press <kbd>/</kbd> (on the **Issues** and **Pull requests** tabs) to search {% data variables.product.prodname_dotcom %} with a custom query. Type a query, press <kbd>Enter</kbd> to run it, and <kbd>Esc</kbd> to cancel or clear it.
+* Press <kbd>/</kbd> (on the **Issues** and **Pull requests** tabs) to filter the list with your own search terms. Type your terms, press <kbd>Enter</kbd> to run the search, and <kbd>Esc</kbd> to cancel or clear it.
 
 For the full set of keypresses you can use, see [Keyboard reference](#keyboard-reference) at the end of this article.
 
@@ -80,11 +80,11 @@ Pressing <kbd>c</kbd> inserts a reference to the pull request into the prompt bo
 
 By default, the **Issues** and **Pull requests** tabs show items that involve you. Press <kbd>a</kbd> to toggle between this (`involves:@me`) and all open items.
 
-To run your own search, press <kbd>/</kbd>. An inline search box opens where you can type a {% data variables.product.prodname_dotcom %} search query, then press <kbd>Enter</kbd> to run it.
+To run your own search, press <kbd>/</kbd>. An inline search box opens where you can type your search terms, then press <kbd>Enter</kbd> to run the search.
 
 Press <kbd>Esc</kbd> to cancel while typing, or to clear an applied search and return to the default list.
 
-You can use the same set of search qualifiers that are available on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests).
+Your search terms are added to the qualifiers the tab already applies, so results are always limited to open items in the current repository—and, unless you have pressed <kbd>a</kbd>, to items that involve you. Enter plain search terms rather than search qualifiers: text containing a colon is searched for as a literal phrase, so a term such as `label:bug` is not interpreted as a qualifier.
 
 ## Browsing your gists
 

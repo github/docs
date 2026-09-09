@@ -106,10 +106,9 @@ Code reviews have two cost components: {% data variables.product.prodname_ai_cre
 
 If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the {% data variables.product.prodname_ai_credits_short %} consumption is attributed to the pull request author. If a review is manually requested by another user, the consumption is attributed to that user instead.
 
-If a pull request is created by {% data variables.product.prodname_actions %} or by a bot, the usage will apply to:
+For pull requests authored by {% data variables.copilot.copilot_cloud_agent %}, usage is attributed first to the human co-author associated with the change. If the co-author cannot be billed, usage is billed directly to the organization.
 
-* The user who triggered the workflow, if that user can be identified.
-* A designated billing owner.
+For pull requests authored by other bots, or when a bot requests the review, usage is billed directly to the organization. These pull requests are eligible for agentic review.
 
 ### What happens when a budget is reached
 

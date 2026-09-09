@@ -13,6 +13,7 @@ children:
   - /connecting-vs-code
   - /delegate-tasks-to-cca
   - /browse-issues-prs-gists
+  - /ask-a-side-question
   - /roll-back-changes
   - /work-with-multiple-sessions
   - /invoke-custom-agents

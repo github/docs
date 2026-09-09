@@ -96,9 +96,7 @@ With both methods, we use the `verified_signature?` to confirm if a commit has a
 
 {% endif %}
 
-You can always push local commits to the branch if the commits are signed and verified. {% ifversion fpt or ghec %}You can also merge signed and verified commits into the branch using a pull request. However, you cannot squash and merge a pull request into the branch on {% data variables.product.github %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.github %}.{% endif %} You can {% ifversion fpt or ghec %}squash and {% endif %}merge pull requests locally. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/checking-out-pull-requests-locally).
-
-{% ifversion fpt or ghec %} For more information about merge methods, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).{% endif %}
+{% data reusables.repositories.required-signed-commits %}
 
 ## Require a pull request before merging
 

@@ -3,7 +3,12 @@ notAllowed:
   - '.devcontainer/**'
   - '.github/**'
   - 'data/reusables/rai/**'
+  - '.vscode/**'
+  - 'assets/**'
+  - 'config/**'
+  - 'contributing/**'
   - 'src/**'
+  - 'patches/**'
   - 'content/actions/how-tos/secure-your-work/security-harden-deployments/**'
 contentTypes:
   - 'content/**'

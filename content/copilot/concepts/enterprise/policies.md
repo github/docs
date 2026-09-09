@@ -6,6 +6,8 @@ intro: 'Control the availability of {% data variables.product.prodname_copilot %
 versions:
   feature: copilot
 contentType: concepts
+redirect_from:
+  - /copilot/concepts/policies
 category:
   - Manage Copilot for a team
 ---
@@ -26,7 +28,7 @@ A small number of policies work differently and govern a setting for everyone. F
 
 ## What about users with multiple licenses?
 
-A user can receive access to {% data variables.product.prodname_copilot_short %} from multiple organizations in the same enterprise. If these organizations have configured the same policy differently, the **least restrictive** policy usually applies, but there are some exceptions. 
+A user can receive access to {% data variables.product.prodname_copilot_short %} from multiple organizations in the same enterprise. If these organizations have configured the same policy differently, the **least restrictive** policy usually applies, but there are some exceptions.
 
 More rarely, if a user receives a license from multiple different enterprises, the **most restrictive** policy across enterprises almost always applies. For example, if any enterprise disables {% data variables.copilot.copilot_chat_dotcom_short %}, that feature is disabled for the user.
 

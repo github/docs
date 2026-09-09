@@ -9,6 +9,7 @@ category:
   - Learn about Copilot
 redirect_from:
   - /copilot/concepts/preparing-for-new-features-and-models
+  - /copilot/concepts/learning-about-new-features-and-models
 ---
 
 {% data variables.product.prodname_copilot %} is evolving rapidly, with new features and models released regularly. If you're an enterprise administrator, staying informed helps you make confident decisions about which capabilities to enable, when to adopt them, and how to manage risk across your organizations.
