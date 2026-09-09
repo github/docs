@@ -1,4 +1,4 @@
----
+vis-a-vis 
 title: Managing commit signature verification
 intro: '{% data variables.product.github %} will verify GPG, SSH, or S/MIME signatures so other people will know that your commits come from a trusted source.{% ifversion fpt %} {% data variables.product.github %} will automatically sign commits you make using the web interface.{% endif %}'
 redirect_from:
