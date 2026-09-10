@@ -25,6 +25,7 @@ journeyTracks:
       - href: '/copilot/concepts/enterprise/policies'
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/maintain-codebase-standards'
       - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs'
+      - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started'
   - id: 'adopting_agents'
     title: 'Preparing for agents'
     description: 'Learn what agents can do for your enterprise, and prepare to roll them out.'
