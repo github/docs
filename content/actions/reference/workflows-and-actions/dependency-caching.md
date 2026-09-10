@@ -274,13 +274,68 @@ To reduce this risk, only these workflow triggers can create or overwrite caches
  * `page_build`
  * `schedule`
 
-Runs triggered by any other event that resolves to the default branch are given read-only access to caches in the default branch's scope. These runs can restore existing caches but cannot create or overwrite them. This includes triggers whose payload or initiating actor can be influenced by someone outside the repository, such as `pull_request_target`, `issue_comment`, and `workflow_run`.
+Runs triggered by any other event that resolves to the default branch are given read-only access to caches in the default branch's scope. These runs can restore existing caches but cannot create or overwrite them. This includes triggers whose payload or initiating actor can be influenced by someone outside the repository, such as `pull_request_target`, `issue_comment`, and `workflow_run`.{% ifversion actions-cache-mode %} A repository can opt out of this restriction for a specific workflow or job by explicitly declaring a write-capable `cache-mode`. See [Bypassing the default untrusted-trigger cache restriction](#bypassing-the-default-untrusted-trigger-cache-restriction).{% endif %}
 
 The `pull_request` event is not affected. Caches created by a `pull_request` run are already scoped to the merge ref (`refs/pull/.../merge`) and cannot be written to the default branch's scope. For more information, see [Restrictions for accessing a cache](#restrictions-for-accessing-a-cache).
 
 When a run with read-only cache access tries to save a cache, the save fails but the step and the job do not. The workflow continues, and the failure is reported as a warning in the workflow log. In that case, consider the following:
  * To retain the performance benefits of caching on the default branch scope, ensure there is a trusted workflow that keeps the cache updated, for example a CI build triggered by a `push` to the default branch. Those cache entries can then be restored by workflows triggered by low-trust events such as `pull_request_target`.
  * In low-trust workflows, switch to a restore-only cache operation such as `actions/cache/restore` to make the intended cache usage clear and avoid the warning in the workflow run logs.
+
+{% ifversion actions-cache-mode %}
+
+## Controlling cache access with `cache-mode`
+
+Use the `cache-mode` workflow key to grant jobs the least amount of cache access they need. You can set `cache-mode` at the workflow level, at the job level, or both. A job-level value overrides the workflow-level value for that job. For the syntax, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#cache-mode).
+
+`cache-mode` controls the cache access granted to the job's token, and it is enforced with scoped cache tokens. The key accepts the following values.
+
+| Value | Restore caches | Save caches |
+| ----- | -------------- | ----------- |
+| `read` | Yes | No |
+| `write` | Yes | Yes |
+| `write-only` | No | Yes |
+| `none` | No | No |
+
+If you omit `cache-mode`, a `read` or `write` default is used based on the trigger type. See [Defaults](#defaults) and [Bypassing the default untrusted-trigger cache restriction](#bypassing-the-default-untrusted-trigger-cache-restriction).
+
+### Defaults
+
+| Configuration | Trigger type | Effective access |
+| --- | --- | --- |
+| `cache-mode` omitted | Trusted | `write` |
+| `cache-mode` omitted | Low-trust | `read` |
+| `cache-mode: write` | Trusted or low-trust | `write` |
+| `cache-mode: write-only` | Trusted or low-trust | `write-only` |
+| `cache-mode: read` | Trusted or low-trust | `read` |
+| `cache-mode: none` | Trusted or low-trust | `none` |
+
+For the trusted-versus-low-trust trigger breakdown, see [Cache access for low-trust workflow triggers](#cache-access-for-low-trust-workflow-triggers).
+
+The runner exposes the effective mode in the `ACTIONS_CACHE_MODE` environment variable, and the `actions/cache` action and the `@actions/cache` toolkit honor it. Restore is skipped when the mode does not allow reads (`none` or `write-only`), and save is skipped when the mode does not allow writes (`none` or `read`). When a cache operation is skipped because of the mode, the action logs an informational message and the step and run continue without failing. A skipped restore is treated as a cache miss; a skipped save is simply not performed.
+
+### Cache access in reusable workflows
+
+`cache-mode` propagates from a caller workflow to the reusable workflows it calls. An explicit `cache-mode` on the calling job, or inherited from the caller workflow, limits the cache access the called workflow can request.
+
+If the calling job neither sets nor inherits an explicit `cache-mode`, the called workflow can explicitly request `write` even when the caller's low-trust trigger defaults to `read`. To cap a called workflow at read-only access, set `cache-mode: read` on the job that calls it.
+
+If a called workflow declares a `cache-mode` that requests access beyond this explicit limit, the run does not start and {% data variables.product.github %} reports a validation error. For example, a caller that allows at most `read` cannot call a workflow that declares `write`. Because `read` and `write-only` grant different, non-overlapping capabilities, a mismatch between them is also an over-request. For example, a `write-only` caller cannot call a workflow that declares `read`. For more information about calling reusable workflows, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows#controlling-cache-access-in-reusable-workflows).
+
+### Bypassing the default untrusted-trigger cache restriction
+
+A job or workflow that explicitly declares `cache-mode: write` or `cache-mode: write-only` overrides the secure read-only default that would otherwise apply to a run triggered by a low-trust event. See [Cache access for low-trust workflow triggers](#cache-access-for-low-trust-workflow-triggers).
+
+> [!WARNING]
+> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` reintroduces the risk of cache-poisoning that the default untrusted-trigger read-only permissions are designed to prevent. If a workflow that runs on an untrusted trigger, such as `pull_request_target`, `issue_comment`, or `workflow_run`, declares a write-capable `cache-mode`, vulnerabilities or untrusted code execution in the workflow could then be used to save a cache. A more privileged workflow that later restores that cache could then execute attacker-controlled content.
+
+Before declaring a write-capable `cache-mode` on a workflow with a low-trust trigger, consider whether a narrower mitigation meets your needs instead:
+ * Keep the secure cache access restriction in effect by explicitly declaring `cache-mode: read` on the job, and have a trusted, `push`-triggered workflow maintain the cache instead. See [Cache access for low-trust workflow triggers](#cache-access-for-low-trust-workflow-triggers).
+ * Only declare a write-capable `cache-mode` on low-trust triggers for jobs that don't process untrusted input before writing to the cache. This includes code checked out from untrusted sources such as forks and pull requests.
+ * If you do override the secure default, treat the resulting cache as untrusted in every workflow that restores it, and avoid restoring it into a run that has write access to secrets or elevated permissions.
+ * Follow the guidance on [best practices for using caches securely](#best-practices-for-using-caches-securely).
+
+{% endif %}
 
 ## Best practices for using caches securely
 
