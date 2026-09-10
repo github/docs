@@ -103,6 +103,8 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
 
 Navigate to your DNS provider and create a `CNAME` record for the `www` subdomain that points to your {% data variables.product.prodname_pages %} default domain. For example, if your site is located at `<user>.github.io`, you should create a `CNAME` record that points `www.example.com` to `<user>.github.io` Similarly, for an organization site located at `<organization>.github.io`, you should create a `CNAME` record that points `www.example.com` to `<organization>.github.io`. Ensure that the `CNAME` record points directly to `<user>.github.io` or `<organization>.github.io` without including the repository name.
 
+These `CNAME` record values are the same for both publicly and privately published {% data variables.product.prodname_pages %} sites. Privately published sites are available with {% data variables.product.prodname_ghe_cloud %}.
+
 {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 
 ## Configuring a subdomain
