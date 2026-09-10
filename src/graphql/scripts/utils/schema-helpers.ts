@@ -1,4 +1,5 @@
 import { renderContent } from '@/content-render/index'
+import type { Context } from '@/types/types'
 import fs from 'fs/promises'
 import {
   isScalarType,
@@ -53,6 +54,15 @@ const graphqlTypes: GraphQLTypeInfo[] = JSON.parse(
 
 const singleQuotesInsteadOfBackticks = / '(\S+?)' /
 
+// Upstream schema descriptions link with a `${externalDocsUrl}` placeholder,
+// but nothing in this pipeline expands it. It ships percent-encoded as
+// `href="$%7BexternalDocsUrl%7D/code-security/..."`, which the browser
+// resolves against the current page and 404s. Dropping the placeholder leaves
+// a root-relative link, which `getDescription` then versions using the
+// `context` handed to `createSchemaHelpers`, so a GHES reader stays on GHES.
+// The bare `helpers` export has no context and leaves links unversioned.
+const unexpandedExternalDocsUrl = /\$\{externalDocsUrl\}(?=\/)/g
+
 function addPeriod(string: string): string {
   return string.endsWith('.') ? string : `${string}.`
 }
@@ -60,6 +70,7 @@ function addPeriod(string: string): string {
 async function getArguments(
   args: readonly InputValueDefinitionNode[],
   schema: GraphQLSchema,
+  context?: Context,
 ): Promise<ArgumentInfo[] | undefined> {
   if (!args.length) return
 
@@ -71,7 +82,7 @@ async function getArguments(
     newArg.name = arg.name.value
     newArg.defaultValue =
       arg.defaultValue && 'value' in arg.defaultValue ? arg.defaultValue.value : undefined
-    newArg.description = arg.description ? await getDescription(arg.description.value) : ''
+    newArg.description = arg.description ? await getDescription(arg.description.value, context) : ''
     const typeName = getType(arg)
     if (!typeName) continue // Skip if type cannot be determined
     type.name = typeName
@@ -100,6 +111,7 @@ export function buildCategoryHref(category: string, urlKind: string, id: string)
 async function getDeprecationReason(
   directives: readonly ConstDirectiveNode[],
   schemaMember: SchemaMember,
+  context?: Context,
 ): Promise<string | undefined> {
   if (!schemaMember.isDeprecated) return
 
@@ -114,7 +126,7 @@ async function getDeprecationReason(
   if (!arg) return
   const value = arg.value
   if (!value || value.kind !== 'StringValue' || !value.value) return
-  return renderContent(value.value)
+  return renderContent(value.value, context)
 }
 
 function getDeprecationStatus(directives: readonly ConstDirectiveNode[]): boolean | undefined {
@@ -123,10 +135,11 @@ function getDeprecationStatus(directives: readonly ConstDirectiveNode[]): boolea
   return directives[0].name.value === 'deprecated'
 }
 
-async function getDescription(rawDescription: string): Promise<string> {
+async function getDescription(rawDescription: string, context?: Context): Promise<string> {
   rawDescription = rawDescription.replace(singleQuotesInsteadOfBackticks, '`$1`')
+  rawDescription = rawDescription.replace(unexpandedExternalDocsUrl, '')
 
-  return renderContent(addPeriod(rawDescription))
+  return renderContent(addPeriod(rawDescription), context)
 }
 
 function getFullLink(baseType: string, id: string): string {
@@ -269,7 +282,7 @@ function removeMarkers(str: string): string {
   return str.replace('[', '').replace(']', '').replace(/!/g, '')
 }
 
-export default {
+const helpers = {
   getArguments,
   getDeprecationReason,
   getDeprecationStatus,
@@ -282,3 +295,21 @@ export default {
   getType,
   getTypeKind,
 }
+
+// The three helpers that render Markdown need to know which docs version they
+// are rendering for, otherwise `rewrite-local-links` bails out and root-relative
+// links ship without a language or version segment. Binding the context once
+// here keeps the ~30 call sites in `process-schemas` unchanged, and keeps the
+// context per-call rather than in module state, so two versions can never
+// render against each other's context.
+export function createSchemaHelpers(context: Context): typeof helpers {
+  return {
+    ...helpers,
+    getArguments: (args, schema) => getArguments(args, schema, context),
+    getDeprecationReason: (directives, schemaMember) =>
+      getDeprecationReason(directives, schemaMember, context),
+    getDescription: (rawDescription) => getDescription(rawDescription, context),
+  }
+}
+
+export default helpers
