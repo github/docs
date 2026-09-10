@@ -1,4 +1,4 @@
-import { Pagination } from '@primer/react-brand'
+import { Heading, Pagination, Text, Token } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
@@ -12,7 +12,7 @@ import { EventType } from '@/events/types'
 import styles from './SearchResults.module.scss'
 
 import type { SearchQueryContentT } from '@/search/components/types'
-import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from '@/search/types'
+import type { GeneralSearchHit, GeneralSearchResponse } from '@/search/types'
 import type { estypes } from '@elastic/elasticsearch'
 import { GENERAL_SEARCH_RESULTS } from '@/events/components/event-groups'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
@@ -48,7 +48,7 @@ function SearchResultHits({
   searchParams,
   eventGroupId,
 }: {
-  hits: GeneralSearchHitWithoutIncludes[]
+  hits: GeneralSearchHit[]
   searchParams: SearchQueryContentT
   eventGroupId: React.MutableRefObject<string>
 }) {
@@ -73,11 +73,11 @@ function SearchResultHits({
 function NoSearchResults() {
   const { t } = useTranslation('search_results')
   return (
-    <div className="d-flex flex-items-center flex-column my-6 border rounded-2">
-      <div className="d-flex flex-items-center flex-column p-4">
-        <SearchIcon size={24} />
-        <p className="f2 mt-3">{t('n_results').replace('{n}', '0')}</p>
-      </div>
+    <div className={styles.noResults}>
+      <SearchIcon size={24} />
+      <Text as="p" size="400" className={styles.noResultsText}>
+        {t('n_results').replace('{n}', '0')}
+      </Text>
     </div>
   )
 }
@@ -90,7 +90,7 @@ function SearchResultHit({
   debug,
   eventGroupId,
 }: {
-  hit: GeneralSearchHitWithoutIncludes
+  hit: GeneralSearchHit
   query: string
   totalHits: number
   index: number
@@ -107,20 +107,16 @@ function SearchResultHit({
     content = hit.highlights.content[0]
   }
 
+  // The title, category chip, snippet and debug line are all *direct* children of the grid
+  // root on purpose. Wrapping the title and chip in a flex row would make that wrapper the
+  // first <div> in the result, and src/search/tests/rendering.ts reads a <div> inside the
+  // result to assert the highlighted snippet.
   return (
-    <div className={cx('my-6', styles.search_result)} data-testid="search-result">
-      <p className={`text-normal f5 color-fg-muted ${styles.breadcrumb}`}>
-        {hit.breadcrumbs.length > 1 && (
-          <>
-            <strong>{hit.breadcrumbs.split('/')[0]}</strong>
-            {hit.breadcrumbs.replace(hit.breadcrumbs.split('/')[0], '')} /
-          </>
-        )}
-      </p>
-      <h2 className="f3">
+    <div className={cx(styles.searchResult, styles.search_result)} data-testid="search-result">
+      <Heading as="h2" size="subhead-medium" className={styles.resultTitle}>
         <Link
           href={hit.url}
-          className="color-fg-accent search-result-link"
+          className={cx('search-result-link', styles.resultTitleLink)}
           data-group-key={GENERAL_SEARCH_RESULTS}
           onClick={() => {
             sendEvent({
@@ -137,8 +133,30 @@ function SearchResultHit({
         >
           {renderHTMLString(title, markdownComponents)}
         </Link>
-      </h2>
-      {content && <RenderedHTML as="div" html={content} />}
+      </Heading>
+      {/*
+        A hit carries exactly one `toplevel`, so this is deliberately a single chip; the "+N"
+        overflow chip in the design needs a real `topics` array indexed first. Rendered as a
+        span and never an anchor, because every <a> inside a result must carry the versioned
+        pathname (asserted in src/search/tests/rendering.ts).
+      */}
+      {hit.toplevel && (
+        <Token
+          className={styles.resultTopic}
+          data-testid="search-result-toplevel"
+          variant="default"
+        >
+          {hit.toplevel}
+        </Token>
+      )}
+      {content && (
+        <RenderedHTML
+          as="div"
+          className={styles.resultSnippet}
+          data-testid="search-result-content"
+          html={content}
+        />
+      )}
       {debug && (
         <p className={styles.debugText}>
           score: <code className={styles.debugCode}>{hit.score}</code> popularity:{' '}

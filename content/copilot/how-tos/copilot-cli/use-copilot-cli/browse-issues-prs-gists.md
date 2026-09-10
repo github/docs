@@ -44,7 +44,7 @@ Tab switching is paused while another part of the CLI—such as the slash comman
 The **Issues**, **Pull requests**, and **Gists** tabs all use the same controls. Regardless of which of these tabs you're on:
 
 * Use the up and down arrow keys to highlight an item in the list.
-* Use the left and right arrow keys to navigate between pages in a list.
+* Use <kbd>Shift</kbd>+<kbd>↑</kbd> and <kbd>Shift</kbd>+<kbd>↓</kbd> to move to the previous or next page in a multi-page list.
 * Press <kbd>Enter</kbd> to display a detailed view of the highlighted item. Press <kbd>Esc</kbd> in the details view to return to the list.
 * Press <kbd>o</kbd> to open the highlighted item (or, in the detailed view, the current item) on {% data variables.product.prodname_dotcom_the_website %}.
 * Press <kbd>c</kbd> to insert a reference to the item into the prompt input area and jump back to the **Session** tab.
@@ -141,7 +141,7 @@ The footer hint bar in the **Issues**, **Pull requests**, and **Gists** tabs sum
 | --- | --- | --- |
 | <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> | Any home tab | Switch to the next or previous home tab. |
 | <kbd>↓</kbd> / <kbd>↑</kbd><br><kbd>j</kbd> / <kbd>k</kbd> | List view | Highlight the next or previous item in a list. |
-| <kbd>→</kbd> / <kbd>←</kbd><br><kbd>l</kbd> / <kbd>h</kbd> | List view | Display the next or previous page in a multi-page list. |
+| <kbd>Shift</kbd>+<kbd>↓</kbd> / <kbd>Shift</kbd>+<kbd>↑</kbd> | List view | Display the next or previous page in a multi-page list. |
 | <kbd>Enter</kbd> | List view | Open the details view for the highlighted item. |
 | <kbd>o</kbd> | List view or details view | Open the highlighted item on {% data variables.product.prodname_dotcom_the_website %} in your browser. |
 | <kbd>c</kbd> | List view or details view | Insert a reference to the item into the prompt input area and jump back to the **Session** tab. |

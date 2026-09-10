@@ -1,0 +1,32 @@
+@import "@primer/react-brand/lib/design-tokens/scss/tokens/functional/size/breakpoints.scss";
+
+// Docs 2026 search results hero. The page previously sat inside `container-xl
+// px-3 px-md-6 my-4`; that wrapper is gone so the hero band and the result rows
+// run edge-to-edge in the content column, with the inset applied per-band.
+//
+// Deliberately no `border-top`: DocsSecondaryBar already draws a `border-bottom`
+// immediately above <main>, so adding one would render a doubled 2px line.
+//
+// And deliberately no `background-color`: the result rows below are transparent
+// over the page canvas, and brand's canvas-default is pure black in dark mode
+// while the page sits on Primer's #0d1117 — painting it here put a visible seam
+// between the band and the rows.
+//
+// The heading itself needs no breakpoints: brand's Heading size="3" resolves to
+// 28/34/40px across its own scale, which is exactly what the three frames show.
+.hero {
+  padding: 24px;
+
+  @media (min-width: $brand-breakpoint-medium) {
+    padding: 32px;
+  }
+
+  @media (min-width: $brand-breakpoint-xxlarge) {
+    padding: 32px 48px;
+  }
+}
+
+.heroTitle {
+  margin: 0;
+  line-height: 1.2;
+}

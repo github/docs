@@ -52,7 +52,7 @@ To reply to an existing line or file comment, navigate to the comment on either 
 
    * If you want to add **multiple comments**, click **Start a review**, then continue adding comments.
 
-     When you're finished, click {% ifversion fpt or ghec %}**Submit review** {% elsif ghes %}**Finish your review**{% endif %}, leave a summary of your review, and click **Submit review**.
+     When you're finished, click {% ifversion fpt or ghec %}**Submit review**{% elsif ghes %}**Finish your review**{% endif %}, leave a summary of your review, and click **Submit review**.
 
 Anyone watching the pull request or repository will receive a notification of your comments. Batching your comments avoids sending multiple notifications.
 

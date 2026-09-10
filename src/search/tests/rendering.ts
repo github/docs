@@ -39,11 +39,14 @@ describeIfElasticsearchURL('search rendering page', () => {
     expect(results.length).toBeGreaterThan(0)
     const result = results.first()
     expect($('h2', result).text()).toBe('Foo')
-    const paragraph = $('p', result)
-    expect(paragraph.text()).toMatch('fooing')
+    // The Docs 2026 result row replaced the breadcrumb line with a category chip fed by the
+    // hit's `toplevel`. Asserting on it also covers the `include=toplevel` plumbing in the
+    // search middleware.
+    const toplevel = $('[data-testid="search-result-toplevel"]', result)
+    expect(toplevel.text()).toBe('Fooing')
     const link = $('a', result)
     expect(link.html()).toMatch('<mark>Foo</mark>')
-    const content = $('div', result)
+    const content = $('[data-testid="search-result-content"]', result)
     expect(content.html()).toMatch('<mark>foo</mark>')
   })
 
@@ -147,8 +150,8 @@ describeIfElasticsearchURL('search rendering page', () => {
     expect(results.length).toBeGreaterThan(0)
     const result = results.first()
     expect($('h2', result).text()).toBe('Bar')
-    const paragraph = $('p', result)
-    expect(paragraph.text()).toMatch('baring')
+    const toplevel = $('[data-testid="search-result-toplevel"]', result)
+    expect(toplevel.text()).toBe('Baring')
     const link = $('a', result)
     expect(link.html()).toMatch('Bar')
   })

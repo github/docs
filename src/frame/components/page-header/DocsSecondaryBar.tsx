@@ -20,7 +20,11 @@ export const DocsSecondaryBar = () => {
   const { t } = useTranslation('header')
   const { collapsed, toggleCollapsed, mobileNavOpen, toggleMobileNav } = useSidebarCollapsed()
 
-  const isSearchResultsPage = router.route === '/search'
+  // Product id rather than router.route: there are two search pages
+  // (src/pages/search.tsx and src/pages/[versionId]/search.tsx), so a route test for
+  // '/search' left this bar rendering on versioned search URLs only. The search rail's
+  // sticky offset assumes this bar is absent, so the two have to agree.
+  const isSearchResultsPage = currentProduct?.id === 'search'
   const isEarlyAccessPage = currentProduct && currentProduct.id === 'early-access'
 
   // Mirror the visibility rule of the header subnav this replaces.

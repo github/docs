@@ -303,6 +303,22 @@ jobs:
 
 For more information on using job outputs, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idoutputs). If you want to share something other than a variable (e.g. a build artifact) between workflows, see [AUTOTITLE](/actions/tutorials/store-and-share-data).
 
+{% ifversion actions-cache-mode %}
+
+## Controlling cache access in reusable workflows
+
+You can use the `cache-mode` key to grant a reusable workflow the least amount of {% data variables.product.prodname_actions %} cache access it needs. The value can be `read`, `write`, `write-only`, or `none`. If you omit `cache-mode`, a `read` or `write` default is used based on the trigger type. For the full syntax and the meaning of each value, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#cache-mode). For trigger-dependent defaults, see [AUTOTITLE](/actions/reference/dependency-caching-reference#defaults).
+
+When a caller workflow calls a reusable workflow, `cache-mode` propagates to the called workflow. An explicit `cache-mode` on the calling job, or inherited from the caller workflow, limits the cache access the called workflow can request.
+
+If the calling job neither sets nor inherits an explicit `cache-mode`, the called workflow can explicitly request `write` even when the caller's low-trust trigger defaults to `read`. To cap a called workflow at read-only access, set `cache-mode: read` on the job that calls it.
+
+If a called workflow declares a `cache-mode` that requests access beyond this explicit limit, the run does not start and {% data variables.product.github %} reports a validation error. For example, a caller that allows at most `read` cannot call a workflow that declares `write`. Because `read` grants restore access and `write-only` grants save access, the two are non-overlapping capabilities, so a mismatch between them is also an over-request. For example, a `write-only` caller cannot call a workflow that declares `read`.
+
+For more information about cache access and the four modes, see [AUTOTITLE](/actions/reference/dependency-caching-reference#controlling-cache-access-with-cache-mode).
+
+{% endif %}
+
 ## Monitoring which workflows are being used
 
 {% ifversion fpt or ghes %}

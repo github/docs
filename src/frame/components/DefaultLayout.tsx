@@ -10,9 +10,7 @@ import {
   SidebarCollapseProvider,
   useSidebarCollapsed,
 } from '@/frame/components/sidebar/SidebarCollapseContext'
-import { LegalFooter } from '@/frame/components/page-footer/LegalFooter'
-import { ScrollButton } from '@/frame/components/ui/ScrollButton'
-import { SupportSection } from '@/frame/components/page-footer/SupportSection'
+import { DocsFooter } from '@/frame/components/page-footer/DocsFooter'
 import { DeprecationBanner } from '@/versions/components/DeprecationBanner'
 import { RestBanner } from '@/rest/components/RestBanner'
 import { useMainContext } from '@/frame/components/context/MainContext'
@@ -41,7 +39,7 @@ export const DefaultLayout = (props: Props) => {
   } = mainContext
   const xHost = mainContext.xHost
   const page = mainContext.page!
-  const { t } = useTranslation(['meta', 'scroll_button'])
+  const { t } = useTranslation('meta')
   const router = useRouter()
   const { languages } = useLanguages()
 
@@ -234,20 +232,13 @@ export const DefaultLayout = (props: Props) => {
 
                 {props.children}
               </main>
-              <footer data-container="footer">
-                <SupportSection />
-                <LegalFooter />
-                <ScrollButton
-                  className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
-                  ariaLabel={t('scroll_to_top')}
-                />
-              </footer>
+              <DocsFooter />
             </div>
           </div>
         ) : (
           <>
             <DocsSecondaryBar />
-            <LayoutBody scrollToTopLabel={t('scroll_to_top')}>{props.children}</LayoutBody>
+            <LayoutBody>{props.children}</LayoutBody>
           </>
         )}
       </SidebarCollapseProvider>
@@ -260,17 +251,32 @@ export const DefaultLayout = (props: Props) => {
 // collapsed; on mobile it shows inline (in the page flow, like desktop) only
 // when the nav is opened from the secondary bar. The content column (flex-1)
 // fills the row when the rail is absent.
-type LayoutBodyProps = { children?: React.ReactNode; scrollToTopLabel: string }
-const LayoutBody = ({ children, scrollToTopLabel }: LayoutBodyProps) => {
+type LayoutBodyProps = { children?: React.ReactNode }
+const LayoutBody = ({ children }: LayoutBodyProps) => {
   const { collapsed, mobileNavOpen } = useSidebarCollapsed()
+  const { currentProduct } = useMainContext()
+  // Matches SidebarNav's own gate rather than testing router.route. There are two search
+  // pages — src/pages/search.tsx and src/pages/[versionId]/search.tsx — so a route test
+  // for '/search' misses every versioned search URL, and this check would then disagree
+  // with SidebarNav about whether the rail is a facet rail.
+  const isSearchResultsPage = currentProduct?.id === 'search'
   return (
-    <div className="d-lg-flex">
+    // `d-lg-flex` only goes side-by-side at 1012px. The search page's facet rail
+    // is meant to sit beside the results from brand's `medium` breakpoint, so it
+    // gets an earlier split of its own. Route-gated, so no other page moves.
+    <div className={cx('d-lg-flex', isSearchResultsPage && styles.searchColumns)}>
       {/* `collapsed` is the desktop rail-collapse state (persisted). The inline
         mobile nav is independent, so still render the sidebar when it's open —
         otherwise opening the mobile nav while the desktop rail is collapsed
         hides the content column (contentHiddenForNav) with no drawer to show,
-        so the open nav displays a blank area instead of the doc tree. */}
-      {collapsed && !mobileNavOpen ? null : <SidebarNav mobileOpen={mobileNavOpen} />}
+        so the open nav displays a blank area instead of the doc tree.
+
+        Search is exempt: the cookie is shared with the doc-tree rail, but the
+        search page has no toggle to undo it (DocsSecondaryBar returns null
+        there), so honouring it would strand the filters with no way back. */}
+      {collapsed && !mobileNavOpen && !isSearchResultsPage ? null : (
+        <SidebarNav mobileOpen={mobileNavOpen} />
+      )}
       {/* Need to set an explicit height for sticky elements since we also
         set overflow to auto */}
       <div
@@ -285,14 +291,7 @@ const LayoutBody = ({ children, scrollToTopLabel }: LayoutBodyProps) => {
 
           {children}
         </main>
-        <footer data-container="footer">
-          <SupportSection />
-          <LegalFooter />
-          <ScrollButton
-            className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
-            ariaLabel={scrollToTopLabel}
-          />
-        </footer>
+        <DocsFooter />
       </div>
     </div>
   )

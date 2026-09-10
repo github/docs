@@ -1,4 +1,5 @@
 @import "src/frame/stylesheets/breakpoint-xxl.scss";
+@import "@primer/react-brand/lib/design-tokens/scss/tokens/functional/size/breakpoints.scss";
 
 .sidebarFull {
   @include breakpoint-xxl {
@@ -49,4 +50,65 @@
 .sidebarContentFullWithPaddingRest {
   // Extra padding for REST pages (includes API version picker)
   padding-bottom: 250px;
+}
+
+// Docs 2026 search facet rail. Unlike the doc-tree rail this renders at every
+// width: below brand's `medium` breakpoint it is a full-width block holding the
+// "Show filters" disclosure, and from `medium` up it becomes the sidebar column.
+//
+// From `medium` up its right divider is the SINGLE border around the filters —
+// the panel inside drops its own, so they don't read as a box within a box.
+//
+// It also deliberately does NOT reuse .sidebarFull's sticky offsets. Those assume
+// a 109px header stack (65px header + 44px secondary bar), but DocsSecondaryBar
+// returns null on /search, so the rail would otherwise sit 44px too low.
+.searchRail {
+  // Display is set here rather than with a `d-block` utility: those carry
+  // `!important`, which would beat the `display: flex` below and leave the rail
+  // a block box, so the filter panel could never bound itself to the viewport.
+  display: block;
+  width: 100%;
+
+  // A search with no hits has no facets to offer, so SidebarSearchAggregates renders
+  // nothing — but the column would still reserve its width and draw its divider, leaving
+  // an empty 300px gutter beside the "0 results" message. Collapse it when there is no
+  // filter group inside. Browsers without :has() simply keep the old empty column.
+  &:not(:has(fieldset)) {
+    display: none;
+  }
+
+  @media (min-width: $brand-breakpoint-medium) {
+    position: sticky;
+    top: 65px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: calc(100vh - 65px);
+    flex-shrink: 0;
+    overflow: hidden;
+    border-right: var(--brand-borderWidth-thin) solid
+      var(--brand-color-border-subtle);
+
+    // The nav has to join the same flex column, otherwise it sizes to its content
+    // and the filter card has no bounded height to scroll within.
+    > nav {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      min-height: 0;
+    }
+  }
+
+  @include breakpoint-xxl {
+    width: 326px;
+  }
+}
+
+.searchRailContent {
+  @media (min-width: $brand-breakpoint-medium) {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+  }
 }
