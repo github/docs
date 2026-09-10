@@ -54,11 +54,22 @@ jobs:
       # These are usually cross-platform `npm install` churn from contributors
       # editing content. We comment with reset instructions instead of pulling in
       # docs-engineering for review.
+      #
+      # Dependabot is exempt. Its security updates for transitive dependencies
+      # change only the lockfile, because the dependency is not in package.json.
+      # Those PRs are intentional, so the reset instructions are wrong and
+      # suppressing the review request leaves them with no reviewer at all.
       - name: Detect lockfile-only churn
         id: detect
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
+          if [ "$PR_AUTHOR" = "dependabot[bot]" ]; then
+            echo "Author is Dependabot; skipping lockfile churn detection."
+            echo "lockfile_only=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           changed=$(gh pr diff "$PR" --name-only)
           echo "Changed files:"
           echo "$changed"
