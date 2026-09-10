@@ -523,6 +523,24 @@
         "access": "write"
       },
       {
+        "category": "code-scanning",
+        "slug": "get-the-ai-scan-setting-for-an-organization",
+        "subcategory": "ai-scan",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-scanning/ai-scan",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "update-the-ai-scan-setting-for-an-organization",
+        "subcategory": "ai-scan",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/code-scanning/ai-scan",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "code-security",
         "slug": "get-code-security-configurations-for-an-organization",
         "subcategory": "configurations",
@@ -5150,6 +5168,15 @@
       },
       {
         "category": "code-scanning",
+        "slug": "update-ai-scan-enablement-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-scanning",
         "slug": "get-a-code-scanning-default-setup-configuration",
         "subcategory": "code-scanning",
         "verb": "get",
@@ -6009,6 +6036,15 @@
         "subcategory": "code-scanning",
         "verb": "get",
         "requestPath": "/orgs/{org}/code-scanning/alerts",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "get-ai-scan-enablement-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan",
         "additional-permissions": false,
         "access": "read"
       },

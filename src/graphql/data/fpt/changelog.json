@@ -4,6 +4,22 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>ProofOfPresenceRequirement</code> was removed</p>",
+          "<p>Type <code>UpdateEnterpriseProofOfPresenceRequiredSettingInput</code> was removed</p>",
+          "<p>Type <code>UpdateEnterpriseProofOfPresenceRequiredSettingPayload</code> was removed</p>",
+          "<p>Field <code>updateEnterpriseProofOfPresenceRequiredSetting</code> was removed from object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>enterpriseRoleDatabaseId</code> was added to object type <code>RepositoryRulesetBypassActor</code></p>",
           "<p>Input field <code>enterpriseRoleDatabaseId</code> of type <code>BigInt</code> was added to input object type <code>RepositoryRulesetBypassActorInput</code></p>"
         ]

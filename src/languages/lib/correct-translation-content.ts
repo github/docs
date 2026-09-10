@@ -77,7 +77,30 @@ export function correctTranslatedContentStrings(
   // affects every translated language, so it lives in the universal
   // pre-fixes block.
   content = content.replace(/^([ \t]*)([*-]) ?\n[ \t]+/gm, '$1$2 ')
-  content = content.replace(/^\|[ \t]*\n[ \t]+/gm, '| ')
+  // A stranded `|` can be followed by more than one continuation line. The
+  // Copilot model-comparison tables split a single row across two of them,
+  // separating `{{ model.name }}` from the `{% if %}` footnote markers that
+  // follow it, which leaves the `{% for %}`/`{% endfor %}` pair unbalanced
+  // and 500s the page. Consume every consecutive deeply-indented line so the
+  // whole row lands back on one line. The continuation text is concatenated
+  // without a separator because the pipeline splits mid-row rather than
+  // between words; across all eight languages none of the 3,038 occurrences
+  // join two word characters.
+  content = content.replace(/^\|[ \t]*\n((?:[ \t]+\S[^\n]*(?:\n|$))+)/gm, (_match, block) => {
+    const parts = block
+      .split('\n')
+      .filter((line: string) => line.length > 0)
+      .map((line: string) => line.replace(/^[ \t]+/, ''))
+    const joined = parts.reduce((acc: string, part: string) => {
+      // The pipeline splits mid-row, so the pieces normally butt up against
+      // punctuation and need no separator. Nothing in the current corpus joins
+      // two word characters, but insert a space if that ever happens rather
+      // than silently fusing two words together.
+      const needsSpace = /[\p{L}\p{N}]$/u.test(acc) && /^[\p{L}\p{N}]/u.test(part)
+      return acc + (needsSpace ? ' ' : '') + part
+    })
+    return `| ${joined}${block.endsWith('\n') ? '\n' : ''}`
+  })
 
   // The same translator wrapping habit also strands heading markers
   // (`#`/`##`/...), blockquote markers (`>`), and the opening `**` of a
@@ -1648,13 +1671,18 @@ export function correctTranslatedContentStrings(
       '{% data réutilisables propriétés-personnalisées valeurs-requises %}',
       '{% data reusables.organizations.custom-properties-required-values %}',
     )
-    // Remove orphaned {% endif %} tags when no ifversion/elsif opener exists in the content.
+    // Remove orphaned {% endif %} tags when no opener exists in the content.
     // Caused by translations where only the closing tag survived (e.g. user-api.md reusable).
+    // A bare `{% if %}` counts as an opener. Without that check this rule deleted
+    // the legitimate `{% endif %}` tags in the Copilot model-comparison tables,
+    // which use `{% if model.name == '...' %}` rather than `ifversion`.
     if (
       !content.includes('{% ifversion ') &&
       !content.includes('{%- ifversion ') &&
       !content.includes('{% elsif ') &&
-      !content.includes('{%- elsif ')
+      !content.includes('{%- elsif ') &&
+      !content.includes('{% if ') &&
+      !content.includes('{%- if ')
     ) {
       content = content.replaceAll('{% endif %}', '')
       content = content.replaceAll('{%- endif %}', '')

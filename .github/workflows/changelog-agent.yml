@@ -420,14 +420,15 @@ jobs:
         uses: actions/ai-inference@2c43c91ae16266ca159d311430343c67a5ffa222 # v3
         with:
           provider: copilot
-          # No model is pinned: actions/ai-inference forwards --model to the
-          # Copilot CLI only when it differs from its GitHub Models default, so
-          # omitting it lets the CLI pick its own current default (latest Sonnet)
-          # and avoids breaking when a pinned slug (e.g. gpt-4.1) is retired.
+          # Must be an explicit empty string, not omitted. This action defaults
+          # `model` to "gpt-4.1" and always forwards it as --model, and that slug
+          # is retired, so omitting the input fails with:
+          #   Error: Model "gpt-4.1" from --model flag is not available.
+          # An empty string makes the action skip --model entirely and lets the
+          # Copilot CLI pick its own current default. See actions/ai-inference#271.
+          model: ''
           prompt-file: prompt.txt
           system-prompt-file: system-prompt.txt
-          max-completion-tokens: 1000
-          temperature: 0.3
         env:
           COPILOT_GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_COPILOT }}
 
