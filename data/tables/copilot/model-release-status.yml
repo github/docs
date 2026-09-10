@@ -112,10 +112,6 @@
   release_status: 'GA'
 
 # Microsoft models
-- name: 'MAI-Code-1-Flash'
-  provider: 'Microsoft'
-  release_status: 'GA'
-
 - name: 'MAI-Code-1.1-Flash'
   provider: 'Microsoft'
   release_status: 'GA'

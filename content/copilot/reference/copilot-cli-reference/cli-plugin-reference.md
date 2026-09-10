@@ -97,19 +97,81 @@ In interactive mode, run `/plugin marketplace update [NAME]` (alias `/plugin mar
 
 ## `plugin.json`
 
-All plugins consist of a plugin directory containing, at minimum, a manifest file named `plugin.json` located at the root of the plugin directory. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating).
+All plugins consist of a plugin directory containing a manifest file named `plugin.json`. Agent Plugins 1.0 requires the manifest at the plugin root. Legacy plugins support the alternative locations listed in [File locations](#file-locations). See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating).
 
-### Required field
+{% data variables.copilot.copilot_cli_short %} supports both the legacy plugin manifest and the Agent Plugins 1.0 manifest. The exact `$schema` value `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json` opts a plugin into Agent Plugins 1.0 semantics. A manifest without this value uses the legacy format and loads as before.
+
+### Agent Plugins 1.0 manifest fields
+
+Agent Plugins 1.0 defines a closed manifest schema. For the complete format requirements, see the [Agent Plugins 1.0 specification](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.0.0.md).
+
+The following fields are allowed:
+
+| Field         | Type     | Required | Description |
+|---------------|----------|----------|-------------|
+| `$schema`     | string   | Yes | Must be `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`. |
+| `name`        | string   | Yes | Plugin name. See [Name constraints](#name-constraints). |
+| `version`     | string   | No | Version string. Semantic Versioning is recommended. |
+| `description` | string   | No | Brief description. |
+| `author`      | object   | No | Optional `name`, `email`, and `url` string fields. |
+| `homepage`    | string   | No | Plugin homepage or documentation. |
+| `repository`  | string   | No | Source repository. |
+| `license`     | string   | No | License identifier. An SPDX identifier is recommended. |
+| `keywords`    | string[] | No | Search and discovery keywords. |
+| `extensions`  | object   | No | Client-specific data keyed by reverse-domain namespace. |
+
+Unknown top-level fields are reported and ignored. Component path fields such as `agents`, `skills`, `hooks`, `mcpServers`, and `lspServers` are not Agent Plugins 1.0 manifest fields.
+
+#### Name constraints
+
+An Agent Plugins 1.0 name must:
+
+* Contain between 1 and 64 characters.
+* Contain only lowercase ASCII letters, digits, hyphens, and periods.
+* Start and end with an alphanumeric character.
+* Not contain `--` or `..`.
+
+#### Components
+
+Agent Plugins 1.0 defines two portable component types:
+
+* Skills in immediate subdirectories of `skills/` that contain a `SKILL.md` file.
+* MCP servers in `mcp.json` at the plugin root.
+
+These locations are fixed and cannot be configured in `plugin.json`. The root `mcp.json` must declare `https://agent-plugins.org/schemas/1.0.0/mcp.schema.json` in its `$schema` field. The CLI accepts `stdio`, `streamable-http`, and `sse` MCP transport names.
+
+For `stdio` servers, the CLI provides `PLUGIN_ROOT` and `PLUGIN_DATA` in the subprocess environment. It expands `${PLUGIN_ROOT}` and `${PLUGIN_DATA}` in the server's `args`, `env` values, and `cwd`. `PLUGIN_DATA` points to a persistent, writable directory for the installed plugin.
+
+Agent Plugins 1.0 does not define portable agents, hooks, commands, rules, or LSP servers. These remain client-specific. Client-specific manifest data belongs in `extensions`, keyed by reverse-domain namespace. Client-specific files belong in a top-level directory with the same namespace. Clients ignore namespaces they do not support.
+
+{% data variables.copilot.copilot_cli_short %} reads its client-specific components from the `com.github.copilot` directory:
+
+| Component | Location |
+|-----------|----------|
+| Custom agents | `com.github.copilot/agents/` |
+| Slash commands | `com.github.copilot/commands/` |
+| Rules | `com.github.copilot/rules/` |
+| Hooks | `com.github.copilot/hooks/hooks.json` |
+| LSP servers | `com.github.copilot/lsp.json` |
+
+These locations apply only to Agent Plugins 1.0 plugins. Legacy plugins continue to use their own component locations and manifest path fields.
+
+### Example Agent Plugins 1.0 `plugin.json` file
+
+{% data reusables.copilot.copilot-cli.cli-example-plugin-file %}
+
+### Legacy manifest fields
+
+#### Required field
 
 | Field   | Type   | Description |
 |---------|--------|-------------|
-| `name`  | string | Kebab-case plugin name (letters, numbers, hyphens only). Max 64 chars. Plugins that opt into [Open Plugin Spec support](#open-plugin-spec-support) may also use dots (for example, `acme.tools`). |
+| `name`  | string | Kebab-case plugin name (letters, numbers, and hyphens only). Maximum 64 characters. |
 
-### Optional metadata fields
+#### Optional metadata fields
 
 | Field        | Type      | Description |
 |--------------|-----------|-------------|
-| `$schema`    | string    | Set to the canonical Agent Plugins (Open Plugin Spec) v1.0.0 schema URL to opt into spec semantics. See [Open Plugin Spec support](#open-plugin-spec-support). |
 | `description`| string    | Brief description. Max 1024 chars. |
 | `version`    | string    | Semantic version (e.g., `1.0.0`). |
 | `author`     | object    | `name` (required), `email` (optional), `url` (optional). |
@@ -120,7 +182,7 @@ All plugins consist of a plugin directory containing, at minimum, a manifest fil
 | `category`   | string    | Plugin category. |
 | `tags`       | string[]  | Additional tags. |
 
-### Component path fields
+#### Component path fields
 
 These tell the CLI where to find your plugin's components. All are optional. The CLI uses default conventions if omitted.
 
@@ -130,18 +192,9 @@ These tell the CLI where to find your plugin's components. All are optional. The
 | `skills`    | string \| string[] | `skills/`  | Path(s) to skill directories (`SKILL.md` files). |
 | `commands`  | string \| string[] | —          | Path(s) to command directories. |
 | `hooks`     | string \| object   | —          | Path to a hooks configuration file, or an inline hooks object. |
-| `extensions`| string \| string[] \| object | —          | Path(s) to extension directories. Use `{ paths: [...], exclusive: true }` to suppress built-in extensions. In [Open Plugin Spec mode](#open-plugin-spec-support), this field has a different meaning. |
+| `extensions`| string \| string[] \| object | —          | Path(s) to extension directories. Use `{ paths: [...], exclusive: true }` to suppress built-in extensions. In [Agent Plugins 1.0 manifests](#agent-plugins-10-manifest-fields), this field has a different meaning. |
 | `mcpServers`| string \| object   | —          | Path to an MCP configuration file (e.g., `.mcp.json`), or inline server definitions. |
 | `lspServers`| string \| object   | —          | Path to an LSP configuration file, or inline server definitions. |
-
-### Example `plugin.json` file
-
-{% data reusables.copilot.copilot-cli.cli-example-plugin-file %}
-
-## Open Plugin Spec support
-
-Declaring the canonical `$schema` in `plugin.json` opts a plugin into the [Agent Plugins (Open Plugin Spec)](https://agent-plugins.org) v1.0.0 format, additively on top of standard plugin loading:
-
 
 ### LSP server configuration
 
@@ -216,7 +269,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 | Field      | Type     | Required | Description |
 |------------|----------|----------|-------------|
-| `name`     | string   | Yes      | Kebab-case marketplace name. Max 64 chars. Dots are also accepted (for example, `acme.tools`) for [Open Plugin Spec](#open-plugin-spec-support) plugins. |
+| `name`     | string   | Yes      | Kebab-case marketplace name. Max 64 chars. Dots are also accepted (for example, `acme.tools`) for [Agent Plugins 1.0](#agent-plugins-10-manifest-fields) plugins. |
 | `owner`    | object   | Yes      | `{ name, email? }` — marketplace owner info. |
 | `plugins`  | array    | Yes      | List of plugin entries (see the table below). |
 | `metadata` | object   | No       | `{ description?, version?, pluginRoot? }` |
@@ -225,7 +278,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 | Field         | Type               | Required | Description |
 |---------------|--------------------|----------|-------------|
-| `name`        | string             | Yes      | Kebab-case plugin name. Max 64 chars. Dots are also accepted for [Open Plugin Spec](#open-plugin-spec-support) plugins. |
+| `name`        | string             | Yes      | Kebab-case plugin name. Max 64 chars. Dots are also accepted for [Agent Plugins 1.0](#agent-plugins-10-manifest-fields) plugins. |
 | `source`      | string \| object   | Yes      | Where to fetch the plugin (relative path, {% data variables.product.github %}, or URL). |
 | `description` | string             | No       | Plugin description. Max 1024 chars. |
 | `version`     | string             | No       | Plugin version. |
@@ -280,14 +333,14 @@ Both the `github` and `url` source types accept an optional `sha` field to pin i
 |----------------------|------|
 | Installed plugins    | `~/.copilot/installed-plugins/MARKETPLACE/PLUGIN-NAME` (installed via a marketplace) and `~/.copilot/installed-plugins/_direct/SOURCE-ID/` (installed directly) |
 | Marketplace cache    | Platform cache directory: `~/.cache/copilot/marketplaces/` (Linux), `~/Library/Caches/copilot/marketplaces/` (macOS). Overridable with `COPILOT_CACHE_HOME`. |
-| Plugin manifest      | `.plugin/plugin.json`, `plugin.json`, `.github/plugin/plugin.json`, or `.claude-plugin/plugin.json` (checked in this order) |
+| Plugin manifest      | Agent Plugins 1.0: `plugin.json` at the plugin root. Legacy plugins: `.plugin/plugin.json`, `plugin.json`, `.github/plugin/plugin.json`, or `.claude-plugin/plugin.json` (checked in this order). |
 | Marketplace manifest | `marketplace.json`, `.plugin/marketplace.json`, `.github/plugin/marketplace.json`, or `.claude-plugin/marketplace.json` (checked in this order) |
-| Agents               | `agents/` (default, overridable in manifest) |
-| Skills               | `skills/` (default, overridable in manifest) |
-| Hooks configuration  | `hooks.json` or `hooks/hooks.json` |
-| MCP configuration    | `.mcp.json`, `.github/mcp.json` |
-| LSP configuration    | `lsp.json` or `.github/lsp.json` |
-| Plugin data          | `${COPILOT_PLUGIN_DATA}` (also available as `${CLAUDE_PLUGIN_DATA}`). Points to a persistent, writable directory unique to each installed plugin. Use this for plugin-specific runtime data instead of paths inside the installed-plugins cache directory. |
+| Agents               | Legacy plugins: `agents/` (default, overridable in manifest). |
+| Skills               | Agent Plugins 1.0: `skills/` (fixed). Legacy plugins: `skills/` (default, overridable in manifest). |
+| Hooks configuration  | Legacy plugins: `hooks.json` or `hooks/hooks.json`. |
+| MCP configuration    | Agent Plugins 1.0: `mcp.json`. Legacy plugins: `.mcp.json`, `.github/mcp.json`, or the `mcpServers` manifest field. |
+| LSP configuration    | Legacy plugins: `lsp.json` or `.github/lsp.json`. |
+| Plugin data          | For Agent Plugins 1.0 MCP servers, `${PLUGIN_DATA}` (also available as `${COPILOT_PLUGIN_DATA}` and `${CLAUDE_PLUGIN_DATA}`) points to a persistent, writable directory unique to each installed plugin. Use this for plugin-specific runtime data instead of paths inside the installed-plugins cache directory. |
 
 ## Loading order and precedence
 

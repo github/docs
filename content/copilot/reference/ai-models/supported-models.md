@@ -39,7 +39,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 | Model name                                             | Provider  | Release status             |
 |--------------------------------------------------------|-----------|----------------------------|
 | {% for model in tables.copilot.model-release-status %} |
-| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' or model.name == 'MAI-Code-1.1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' or model.name == 'Claude Fable 5.1' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
+| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1.1-Flash' %}[^mai-models]{% endif %}{% if model.name == 'Claude Fable 5' or model.name == 'Claude Fable 5.1' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
 | {% endfor %}                                           |
 
 {% endrowheaders %}
@@ -142,7 +142,6 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_claude_fable_51 %}    | TBD | TBD                    | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_kimi_k27_code %}     | `v1.127` | `17.14.6`            | `1.9.1-251` | TBD | TBD |
 | {% data variables.copilot.copilot_kimi_k3 %}     | `v1.131` | TBD            | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` | TBD                            | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_mai_code_1_1_flash %}  | `v1.121` | TBD                            | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_grok_45 %}             | TBD | `17.14.19` | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_grok_46 %}             | TBD | TBD | TBD | TBD | TBD |
@@ -186,7 +185,7 @@ Access to evaluation models in {% data variables.copilot.copilot_auto_model_sele
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. For the **Evaluation models in {% data variables.product.prodname_copilot_short %} {% data variables.copilot.copilot_auto_model_selection_short %}** setting, select **Disabled** from the dropdown.
 
-[^mai-code-1-flash]: MAI models are continuously improving models. Performance and behavior may evolve over time as new checkpoints are released.
+[^mai-models]: MAI models are continuously improving models. Performance and behavior may evolve over time as new checkpoints are released.
 
 ## Utility models
 

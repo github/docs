@@ -28,7 +28,7 @@ Use this table to find a suitable model quickly, see more detail in the sections
 | Model                                              | Task area             | Excels at (primary use case) | Further reading             |
 |----------------------------------------------------|-----------------------|------------------------------|-----------------------------|
 | {% for model in tables.copilot.model-comparison %} |
-| {{ model.name }}{% if model.name == 'MAI-Code-1-Flash' or model.name == 'MAI-Code-1.1-Flash' %}[^mai-code-1-flash]{% elsif model.name == 'Kimi K3' %}[^kimi-k3]{% endif %}                                   | {{ model.task_area }} | {{ model.excels_at }}        | {{ model.further_reading }} |
+| {{ model.name }}{% if model.name == 'MAI-Code-1.1-Flash' %}[^mai-models]{% elsif model.name == 'Kimi K3' %}[^kimi-k3]{% endif %}                                   | {{ model.task_area }} | {{ model.excels_at }}        | {{ model.further_reading }} |
 | {% endfor %}                                       |
 
 ## Task: General-purpose coding and writing
@@ -40,7 +40,6 @@ Use these models for common development tasks that require a balance of quality,
 | {% data variables.copilot.copilot_gpt_53_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
 | {% data variables.copilot.copilot_gpt_5_mini %}   | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
 | {% data variables.copilot.copilot_gpt_56_terra %} | Balanced all-round choice for everyday interactive and agentic coding.                                                                          |
-| {% data variables.copilot.copilot_mai_code_1_flash %} | Strong instruction-following and adaptive reasoning make it a reliable default for everyday coding tasks, writing, and multi-turn development workflows. |
 
 ### When to use these models
 
@@ -65,7 +64,6 @@ These models are optimized for speed and responsiveness. They’re ideal for qui
 |-------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
 | {% data variables.copilot.copilot_gpt_56_luna %}      | Lightweight, cost-efficient option for smaller, faster tasks. The lowest-cost model in the GPT-5.6 family. |
 | {% data variables.copilot.copilot_claude_haiku_45 %}  | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations.      |
-| {% data variables.copilot.copilot_mai_code_1_flash %} | Handles quick coding tasks with adaptive efficiency, stays concise for simple requests and delivers fast, accurate responses without unnecessary depth. |
 
 ### When to use these models
 
@@ -144,7 +142,7 @@ Some models have behaviors, limitations, or safeguards that are useful to unders
 
 ## Next steps
 
-[^mai-code-1-flash]: MAI models are continuously improving models. Performance and behavior may evolve over time as new checkpoints are released.
+[^mai-models]: MAI models are continuously improving models. Performance and behavior may evolve over time as new checkpoints are released.
 
 [^kimi-k3]: For important information about {% data variables.copilot.copilot_kimi_k3 %} behavior and safeguards, see [Model-specific considerations](#kimi-k3).
 
