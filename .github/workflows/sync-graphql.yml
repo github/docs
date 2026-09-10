@@ -95,7 +95,7 @@ jobs:
         with:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           message: |
-            ⚠️ GraphQL Sync found ${{ needs.update_graphql_files.outputs.ignored-count }} ignored change types: ${{ needs.update_graphql_files.outputs.ignored-types }}
+            :graphql: GraphQL Sync found ${{ needs.update_graphql_files.outputs.ignored-count }} ignored change types: ${{ needs.update_graphql_files.outputs.ignored-types }}
 
             These change types are not in CHANGES_TO_REPORT and were silently ignored. Consider reviewing if they should be added to the changelog.
 
