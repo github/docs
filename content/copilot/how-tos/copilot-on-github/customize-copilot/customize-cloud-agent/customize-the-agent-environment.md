@@ -49,7 +49,7 @@ A `copilot-setup-steps.yml` file looks like a normal {% data variables.product.p
 > [!NOTE]
 > The `copilot-setup-steps.yml` workflow won't trigger unless it's present on your default branch.
 
-Here is a simple example of a `copilot-setup-steps.yml` file for a TypeScript project that clones the project, installs Node.js and downloads and caches the project's dependencies. You should customize this to fit your own project's language(s) and dependencies:
+Here is a simple example of a `copilot-setup-steps.yml` file for a TypeScript project that clones the project, installs Node.js and downloads and caches the project's dependencies. You should customize this to fit your own project, including its language(s), its dependencies, and the workflow triggers you need. For example, you wouldn't typically run on both `push` and `pull_request`.
 
 ```yaml copy
 name: "Copilot Setup Steps"
@@ -58,11 +58,7 @@ name: "Copilot Setup Steps"
 # allow manual testing through the repository's "Actions" tab
 on:
   workflow_dispatch:
-  # Limit `push` to your default branch. Changes on any other branch are already validated
-  # by the `pull_request` trigger, so this avoids two runs for the same commit.
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/copilot-setup-steps.yml
   pull_request:
