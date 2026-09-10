@@ -14,9 +14,11 @@ docsTeamMetrics:
 
 Voice input lets you dictate prompts to {% data variables.copilot.copilot_cli_short %} by speaking into your microphone instead of typing on the keyboard. Transcription runs entirely on your local machine. Your audio is not sent over the network. The recognized text is inserted at the cursor position in the prompt input area, where you can edit it before submitting.
 
-## Prerequisite
+## Prerequisites
 
 You need a working microphone connected to your machine. By default, voice input uses your system's default microphone.
+
+Voice input is supported on Windows (x64 and ARM64), Linux (x64), and macOS on Apple Silicon (ARM64). It is not available on Intel-based Macs.
 
 ## Limitation
 
