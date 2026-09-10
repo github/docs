@@ -1767,10 +1767,34 @@
   ],
   "code-scanning": [
     {
+      "slug": "get-the-ai-scan-setting-for-an-organization",
+      "subcategory": "ai-scan",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-scanning/ai-scan"
+    },
+    {
+      "slug": "update-the-ai-scan-setting-for-an-organization",
+      "subcategory": "ai-scan",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/code-scanning/ai-scan"
+    },
+    {
       "slug": "list-code-scanning-alerts-for-an-organization",
       "subcategory": "code-scanning",
       "verb": "get",
       "requestPath": "/orgs/{org}/code-scanning/alerts"
+    },
+    {
+      "slug": "get-ai-scan-enablement-for-a-repository",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan"
+    },
+    {
+      "slug": "update-ai-scan-enablement-for-a-repository",
+      "subcategory": "code-scanning",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan"
     },
     {
       "slug": "list-code-scanning-alerts-for-a-repository",
