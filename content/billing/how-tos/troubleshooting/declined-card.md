@@ -53,6 +53,8 @@ If your card is still valid, you have no restrictions on it, or the restrictions
 
 ## 3a. If you have already checked the card and the bank says the card is valid If the failed payment continues after you confirm the card is valid and the issuer is not blocking GitHub transactions, try the following:
 
+* Verify the billing address, ZIP/postal code, and CVV exactly match the card issuer’s records. A mismatch can cause the payment to be declined even when the bank says the card is otherwise valid.
+If the saved payment method was previously declined, remove and re-add the card so GitHub can re-create a fresh payment token.
 * Remove the saved payment method and add it again
 * Retry the charge after re-saving the payment method
 * Make sure the payment method is not prepaid
