@@ -1,10 +1,28 @@
-import { describe, expect, test } from 'vitest'
+import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 import { convertContentToDocs } from '../scripts/convert-markdown-for-docs'
 import config from '@/codeql-cli/lib/config.json'
 
 const RELATIVE_LINK_PATH = config.targetDirectory.replace('content', '')
 
 describe('convertContentToDocs circular link handling', () => {
+  const fetchMock = vi.spyOn(globalThis, 'fetch')
+
+  beforeAll(() => {
+    fetchMock.mockResolvedValue(
+      new Response(null, {
+        status: 302,
+        headers: {
+          location:
+            'https://docs.github.com/enterprise-server@latest/code-security/reference/code-scanning/sarif-files/sarif-support',
+        },
+      }),
+    )
+  })
+
+  afterAll(() => {
+    vi.restoreAllMocks()
+  })
+
   const testContent = `
 # bqrs interpret
 
@@ -21,7 +39,8 @@ metadata and generates output in the specified format.
 
 This option has no effect when passed to \`codeql bqrs interpret<bqrs-interpret>\`{.interpreted-text role="doc"}.
 
-For more information, see \`codeql database analyze<database-analyze>\`{.interpreted-text role="doc"}.
+For more information, see \`codeql database analyze<database-analyze>\`{.interpreted-text role="doc"} and
+<https://aka.ms/code-scanning-docs/sarif-support> for details about uploading SARIF files.
 `
 
   test('converts circular links to plain text', async () => {
@@ -42,6 +61,37 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
     // Should preserve valid cross-reference link
     expect(result.content).toContain(
       `[codeql database analyze](${RELATIVE_LINK_PATH}/database-analyze)`,
+    )
+  })
+
+  test('converts aka.ms links', async () => {
+    const result = await convertContentToDocs(testContent, {}, 'bqrs-interpret.md')
+
+    // Should convert aka.ms link to redirect
+    expect(result.content).toContain(
+      '[AUTOTITLE](/enterprise-server@latest/code-security/reference/code-scanning/sarif-files/sarif-support)',
+    )
+
+    // Should not still contain aka.ms link
+    expect(result.content).not.toContain('https://aka.ms/')
+  })
+
+  test('strips language prefix from aka.ms redirect links', async () => {
+    fetchMock.mockResolvedValue(
+      new Response(null, {
+        status: 302,
+        headers: {
+          location:
+            'https://docs.github.com/en/enterprise-server@latest/code-security/reference/code-scanning/sarif-files/sarif-support',
+        },
+      }),
+    )
+
+    const result = await convertContentToDocs(testContent, {}, 'bqrs-interpret.md')
+
+    // Should strip language prefix from aka.ms redirect link
+    expect(result.content).toContain(
+      '[AUTOTITLE](/enterprise-server@latest/code-security/reference/code-scanning/sarif-files/sarif-support)',
     )
   })
 

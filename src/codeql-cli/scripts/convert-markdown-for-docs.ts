@@ -316,14 +316,11 @@ async function getRedirect(url: string): Promise<string> {
 
   // Some of the aka.ms links have the /en language prefix.
   // This removes all language prefixes from the redirect url.
-  const redirectNoLang = languageKeys.reduce((acc, lang) => {
-    return acc.replace(`/${lang}`, ``)
-  }, redirect)
-
-  if (!redirectNoLang) {
-    const errorMsg = `The aka.ms redirected to an unexpected url: ${url}`
-    throw new Error(errorMsg)
+  const parts = redirect.split('/')
+  if (parts.length > 1 && languageKeys.includes(parts[1])) {
+    // delete language prefix (e.g., /en, /ja, etc.)
+    parts.splice(1, 1)
   }
 
-  return redirectNoLang
+  return parts.join('/')
 }
