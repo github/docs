@@ -30,13 +30,6 @@ category:
 * **{% data variables.copilot.copilot_business_short %}** at {% data variables.copilot.cfb_price_per_month %} per user per month, includes {% data variables.copilot.ai_credits_per_user_business %} {% data variables.product.prodname_ai_credits_short %} per user, and access to a broad model catalog.
 * **{% data variables.copilot.copilot_enterprise_short %}** at {% data variables.copilot.ce_price_per_month %} per user per month, includes {% data variables.copilot.ai_credits_per_user_enterprise %} {% data variables.product.prodname_ai_credits_short %} per user ({% data variables.product.prodname_ghe_cloud %} only), and priority access to new models and features.
 
-<!-- expires 2026-09-01 -->
-
-> [!NOTE]
-> Existing customers receive higher included {% data variables.product.prodname_ai_credits_short %} during the promotional period (June–August 2026). See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing#promotional-amounts-for-existing-customers).
-
-<!-- end expires 2026-09-01 -->
-
 With {% data variables.product.prodname_ghe_cloud %}:
 
 * An enterprise owner chooses the plan for each organization in the enterprise. For guidance on choosing a plan, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/choose-enterprise-plan).

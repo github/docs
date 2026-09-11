@@ -111,8 +111,6 @@ Your billing date will depend on whether or not you are already being billed by 
 * **If you are not already being billed by {% data variables.product.prodname_dotcom %}**, in most cases your billing cycle will start on the day you sign up for {% data variables.product.prodname_copilot_short %}. For example, if you sign up on 3 September, with monthly billing, your initial billing cycle will run from 3 September until and including 2 October, and then on the same days of subsequent months.
 * **If you already have a billing cycle**, billing for {% data variables.product.prodname_copilot_short %} will be included in your next bill. You will be charged on a pro rata basis for that initial period.
 
-<!-- expires 2026-09-01 -->
-
 ## Update your IDE, client, and extension
 
 For the best experience with usage-based billing, update your IDE, client, and {% data variables.product.prodname_copilot_short %} extension to at least the versions listed below.
@@ -132,8 +130,6 @@ For the best experience with usage-based billing, update your IDE, client, and {
 | {% data variables.copilot.copilot_cli_short %} | 1.0.48 |
 
 We recommend keeping your IDE, client, and {% data variables.product.prodname_copilot_short %} extensions on the latest available stable version. For information on configuring automatic updates, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide). To update {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
-
-<!-- end expires 2026-09-01 -->
 
 ## Further reading
 

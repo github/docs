@@ -44,21 +44,6 @@ Adding licenses mid-cycle increases the pool immediately. Removing licenses mid-
 
 Included {% data variables.product.prodname_ai_credits_short %} do not carry over between months. Unused credits are forfeited, and the pool resets to the full monthly amount at 00:00:00 UTC on the first day of each calendar month. This reset date is fixed and does not change based on when licenses are added, removed, or billed. See [AUTOTITLE](/billing/concepts/billing-cycles#billing-cycles-for-metered-products).
 
-<!-- expires 2026-09-01 -->
-
-### Promotional amounts for existing customers
-
-Existing {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} customers receive a higher amount of included {% data variables.product.prodname_ai_credits_short %} for the first three months of usage-based billing (June 1 – September 1, 2026):
-
-| Plan | Total {% data variables.product.prodname_ai_credits_short %} per user per month |
-| --- | --- |
-| {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.ai_credits_per_user_business_promo %} |
-| {% data variables.copilot.copilot_enterprise_short %} | {% data variables.copilot.ai_credits_per_user_enterprise_promo %} |
-
-After the promotional period, included usage returns to the standard amounts above.
-
-<!-- end expires 2026-09-01 -->
-
 ## What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}?
 
 When your pooled {% data variables.product.prodname_ai_credits_short %} are exhausted, what happens next depends on how you have configured policies for additional usage.
@@ -84,8 +69,6 @@ Budget controls let you govern how individual users draw from the shared pool an
 
 For a full explanation of how these controls work together and when usage gets blocked, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
-<!-- expires 2026-09-01 -->
-
 ## Update your IDE, client, and extension
 
 For the best experience with usage-based billing, update your IDE, client, and {% data variables.product.prodname_copilot_short %} extension to at least the versions listed below.
@@ -105,8 +88,6 @@ For the best experience with usage-based billing, update your IDE, client, and {
 | {% data variables.copilot.copilot_cli_short %} | 1.0.48 |
 
 We recommend keeping your IDE, client, and {% data variables.product.prodname_copilot_short %} extensions on the latest available stable version. For information on configuring automatic updates, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide). To update {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
-
-<!-- end expires 2026-09-01 -->
 
 ## Next steps
 
