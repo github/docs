@@ -1768,13 +1768,13 @@
   "code-scanning": [
     {
       "slug": "get-the-ai-scan-setting-for-an-organization",
-      "subcategory": "ai-scan",
+      "subcategory": "code-scanning",
       "verb": "get",
       "requestPath": "/orgs/{org}/code-scanning/ai-scan"
     },
     {
       "slug": "update-the-ai-scan-setting-for-an-organization",
-      "subcategory": "ai-scan",
+      "subcategory": "code-scanning",
       "verb": "patch",
       "requestPath": "/orgs/{org}/code-scanning/ai-scan"
     },
