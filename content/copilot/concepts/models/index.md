@@ -6,9 +6,9 @@ versions:
   feature: copilot
 contentType: concepts
 children:
+  - /overview
+  - /auto-model-selection
   - /bring-your-own-key
   - /utility-models
-  - /auto-model-selection
   - /fallback-and-lts-models
 ---
-
