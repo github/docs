@@ -19,6 +19,10 @@ You must authorize your {% data variables.product.pat_v1 %} after creation befor
 
 {% data reusables.saml.authorized-creds-info %}
 
+Enterprise administrators can use a {% data variables.product.prodname_github_app %} to authorize credentials for multiple organizations. See [AUTOTITLE](/authentication/authenticating-with-single-sign-on/authorizing-credentials-for-single-sign-on-with-a-github-app).
+
+## Authorizing a {% data variables.product.pat_v1 %}
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.personal_access_tokens %}
