@@ -4,8 +4,6 @@ shortTitle: Administer Copilot
 intro: Manage {% data variables.product.prodname_copilot %} for your team by configuring settings, monitoring usage, and accessing activity reports to optimize adoption.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /manage-for-organization
   - /manage-for-enterprise
@@ -13,6 +11,7 @@ children:
   - /download-activity-report
   - /view-usage-and-adoption
   - /view-code-generation
+  - /view-impact-dashboard
 redirect_from:
   - /copilot/how-tos/administer
 contentType: how-tos

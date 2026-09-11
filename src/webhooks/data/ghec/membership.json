@@ -1,0 +1,161 @@
+{
+  "added": {
+    "descriptionHtml": "<p>An organization member was added to a team.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to team membership. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/organizing-members-into-teams/about-teams\">About teams</a>.\" For more information about the APIs to manage team memberships, see <a href=\"https://docs.github.com/enterprise-cloud@latest/graphql/reference/objects#team\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/teams/members\">Team members</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Members\" organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "added"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "member",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "scope",
+        "description": "<p>The scope of the membership. Currently, can only be <code>team</code>.</p>",
+        "isRequired": true,
+        "enum": [
+          "team"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "sender",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "team",
+        "description": "<p>Groups of organization members that gives permissions on specified repositories.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "organization",
+      "business",
+      "app"
+    ],
+    "action": "added",
+    "category": "membership"
+  },
+  "removed": {
+    "descriptionHtml": "<p>An organization member was removed from a team.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to team membership. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/organizing-members-into-teams/about-teams\">About teams</a>.\" For more information about the APIs to manage team memberships, see <a href=\"https://docs.github.com/enterprise-cloud@latest/graphql/reference/objects#team\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/teams/members\">Team members</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Members\" organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "removed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "member",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "scope",
+        "description": "<p>The scope of the membership. Currently, can only be <code>team</code>.</p>",
+        "isRequired": true,
+        "enum": [
+          "team",
+          "organization"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "sender",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "team",
+        "description": "<p>Groups of organization members that gives permissions on specified repositories.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "organization",
+      "business",
+      "app"
+    ],
+    "action": "removed",
+    "category": "membership"
+  }
+}

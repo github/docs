@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Configure and customize GitHub Desktop
 ---
 {% mac %}
 

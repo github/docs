@@ -17,11 +17,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Usernames
 shortTitle: Username changes
 contentType: concepts
+category:
+  - Set up your account
 ---
 
 ## About username changes
@@ -44,7 +43,7 @@ If the new owner of your old username creates a repository with the same name as
 
 ## Links to your previous profile page
 
-After changing your username, links to your previous profile page, such as `https://{% data variables.product.product_url %}/previoususername`, will return a 404 error. We recommend updating any links to your profile from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profile{% endif %}.
+After changing your username, links to your previous profile page, such as `https://{% data variables.product.product_url %}/previoususername`, will return a 404 error. We recommend updating any links to your profile from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or X (formerly Twitter) profile{% endif %}.
 
 ## Accounts logged in on {% data variables.product.prodname_mobile %}
 
@@ -64,4 +63,4 @@ After changing your username, CODEOWNERS files that include your old username wi
 
 ## Next steps
 
-To change your username, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/changing-your-username).
+To change your username, see [AUTOTITLE](/account-and-profile/how-tos/account-management/changing-your-username).

@@ -1,0 +1,364 @@
+{
+  "queries": [
+    {
+      "name": "codeOfConduct",
+      "type": "CodeOfConduct",
+      "id": "codeofconduct",
+      "href": "/graphql/reference/meta#object-codeofconduct",
+      "description": "<p>Look up a code of conduct by its key.</p>",
+      "args": [
+        {
+          "name": "key",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>The code of conduct's key.</p>"
+        }
+      ],
+      "category": "meta"
+    },
+    {
+      "name": "codesOfConduct",
+      "type": "[CodeOfConduct]",
+      "id": "codeofconduct",
+      "href": "/graphql/reference/meta#object-codeofconduct",
+      "description": "<p>Look up a code of conduct by its key.</p>",
+      "args": [],
+      "category": "meta"
+    },
+    {
+      "name": "meta",
+      "type": "GitHubMetadata!",
+      "id": "githubmetadata",
+      "href": "/graphql/reference/meta#object-githubmetadata",
+      "description": "<p>Return information about the GitHub instance.</p>",
+      "args": [],
+      "category": "meta"
+    },
+    {
+      "name": "node",
+      "type": "Node",
+      "id": "node",
+      "href": "/graphql/reference/meta#interface-node",
+      "description": "<p>Fetches an object given its ID.</p>",
+      "args": [
+        {
+          "name": "id",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "description": "<p>ID of the object.</p>"
+        }
+      ],
+      "category": "meta"
+    },
+    {
+      "name": "nodes",
+      "type": "[Node]!",
+      "id": "node",
+      "href": "/graphql/reference/meta#interface-node",
+      "description": "<p>Lookup nodes by a list of IDs.</p>",
+      "args": [
+        {
+          "name": "ids",
+          "type": "[ID!]!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "description": "<p>The list of node IDs.</p>"
+        }
+      ],
+      "category": "meta"
+    },
+    {
+      "name": "rateLimit",
+      "type": "RateLimit",
+      "id": "ratelimit",
+      "href": "/graphql/reference/meta#object-ratelimit",
+      "description": "<p>The client's rate limit information.</p>",
+      "args": [
+        {
+          "name": "dryRun",
+          "defaultValue": false,
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>If true, calculate the cost for the query without evaluating it.</p>"
+        }
+      ],
+      "category": "meta"
+    },
+    {
+      "name": "resource",
+      "type": "UniformResourceLocatable",
+      "id": "uniformresourcelocatable",
+      "href": "/graphql/reference/meta#interface-uniformresourcelocatable",
+      "description": "<p>Lookup resource by a URL.</p>",
+      "args": [
+        {
+          "name": "url",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "description": "<p>The URL.</p>"
+        }
+      ],
+      "category": "meta"
+    }
+  ],
+  "objects": [
+    {
+      "name": "CodeOfConduct",
+      "id": "codeofconduct",
+      "href": "/graphql/reference/meta#object-codeofconduct",
+      "description": "<p>The Code of Conduct for a repository.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the Code of Conduct.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the CodeOfConduct object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "key",
+          "description": "<p>The key for the Code of Conduct.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The formal name of the Code of Conduct.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this Code of Conduct.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this Code of Conduct.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "meta"
+    },
+    {
+      "name": "GitHubMetadata",
+      "id": "githubmetadata",
+      "href": "/graphql/reference/meta#object-githubmetadata",
+      "description": "<p>Represents information about the GitHub instance.</p>",
+      "fields": [
+        {
+          "name": "gitHubServicesSha",
+          "description": "<p>Returns a String that's a SHA of <code>github-services</code>.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "href": "/graphql/reference/other#scalar-gitobjectid"
+        },
+        {
+          "name": "isPasswordAuthenticationVerifiable",
+          "description": "<p>Whether or not users are verified.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "meta"
+    },
+    {
+      "name": "RateLimit",
+      "id": "ratelimit",
+      "href": "/graphql/reference/meta#object-ratelimit",
+      "description": "<p>Represents the client's rate limit.</p>",
+      "fields": [
+        {
+          "name": "cost",
+          "description": "<p>The point cost for the current query counting against the rate limit.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "limit",
+          "description": "<p>The maximum number of points the client is permitted to consume in a 60 minute window.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "nodeCount",
+          "description": "<p>The maximum number of nodes this query may return.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "remaining",
+          "description": "<p>The number of points remaining in the current rate limit window.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "resetAt",
+          "description": "<p>The time at which the current rate limit window resets in UTC epoch seconds.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "used",
+          "description": "<p>The number of points used in the current rate limit window.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "meta"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "Node",
+      "id": "node",
+      "href": "/graphql/reference/meta#interface-node",
+      "description": "<p>An object with an ID.</p>",
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>ID of the object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        }
+      ],
+      "category": "meta"
+    },
+    {
+      "name": "UniformResourceLocatable",
+      "id": "uniformresourcelocatable",
+      "href": "/graphql/reference/meta#interface-uniformresourcelocatable",
+      "description": "<p>Represents a type that can be retrieved by a URL.</p>",
+      "fields": [
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTML path to this resource.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "url",
+          "description": "<p>The URL to this resource.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "meta"
+    }
+  ],
+  "enums": [
+    {
+      "name": "OperationType",
+      "id": "operationtype",
+      "href": "/graphql/reference/meta#enum-operationtype",
+      "description": "<p>The corresponding operation type for the action.</p>",
+      "values": [
+        {
+          "name": "ACCESS",
+          "description": "<p>An existing resource was accessed.</p>"
+        },
+        {
+          "name": "AUTHENTICATION",
+          "description": "<p>A resource performed an authentication event.</p>"
+        },
+        {
+          "name": "CREATE",
+          "description": "<p>A new resource was created.</p>"
+        },
+        {
+          "name": "MODIFY",
+          "description": "<p>An existing resource was modified.</p>"
+        },
+        {
+          "name": "REMOVE",
+          "description": "<p>An existing resource was removed.</p>"
+        },
+        {
+          "name": "RESTORE",
+          "description": "<p>An existing resource was restored.</p>"
+        },
+        {
+          "name": "TRANSFER",
+          "description": "<p>An existing resource was transferred between multiple resources.</p>"
+        }
+      ],
+      "category": "meta"
+    },
+    {
+      "name": "OrderDirection",
+      "id": "orderdirection",
+      "href": "/graphql/reference/meta#enum-orderdirection",
+      "description": "<p>Possible directions in which to order a list of items when provided an <code>orderBy</code> argument.</p>",
+      "values": [
+        {
+          "name": "ASC",
+          "description": "<p>Specifies an ascending order for a given <code>orderBy</code> argument.</p>"
+        },
+        {
+          "name": "DESC",
+          "description": "<p>Specifies a descending order for a given <code>orderBy</code> argument.</p>"
+        }
+      ],
+      "category": "meta"
+    },
+    {
+      "name": "ReportedContentClassifiers",
+      "id": "reportedcontentclassifiers",
+      "href": "/graphql/reference/meta#enum-reportedcontentclassifiers",
+      "description": "<p>The reasons a piece of content can be reported or minimized.</p>",
+      "values": [
+        {
+          "name": "DUPLICATE",
+          "description": "<p>A duplicated piece of content.</p>"
+        },
+        {
+          "name": "OFF_TOPIC",
+          "description": "<p>An irrelevant piece of content.</p>"
+        },
+        {
+          "name": "OUTDATED",
+          "description": "<p>An outdated piece of content.</p>"
+        },
+        {
+          "name": "RESOLVED",
+          "description": "<p>The content has been resolved.</p>"
+        }
+      ],
+      "category": "meta"
+    }
+  ]
+}

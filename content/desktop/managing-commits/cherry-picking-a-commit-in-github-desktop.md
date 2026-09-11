@@ -10,6 +10,8 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/cherry-picking-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/cherry-picking-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/cherry-picking-a-commit-in-github-desktop
+category:
+  - Manage commits
 ---
 ## About Git cherry-pick
 

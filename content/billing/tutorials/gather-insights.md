@@ -3,20 +3,18 @@ title: Gathering insights on your spending
 intro: 'Get insights into the usage of your {% data variables.enterprise.enterprise_or_org %} members.'
 versions:
   feature: enhanced-billing-platform
+permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/gathering-insights-on-your-spending
   - /billing/using-the-new-billing-platform/gathering-insights-on-your-spending
   - /billing/managing-your-billing/gathering-insights-on-your-spending
-topics:
-  - Billing
-  - Enterprise
-  - Team
-product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Gather insights
 contentType: tutorials
+category:
+  - Track spending and control costs
 ---
 
-The new billing platform provides you with the tools to:
+The billing platform provides you with the tools to:
 
 * **Get insights** into usage trends to understand how your resources are being used.
 * **Search and filter usage** by repository, product, or SKU, and group data accordingly.
@@ -44,9 +42,6 @@ You can view the usage of your personal account and download the usage data for 
 
 1. To request a CSV usage report, select **Get usage report** in the upper-right corner of the page.
 
-   * For a breakdown of all metered usage, click **Metered billing usage report**.
-   * For a per user breakdown of premium requests, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
-
    You can choose a pre-selected option or use the "Custom range" option to specify a date range of up to 31 days.
 
 {% endif %}
@@ -68,7 +63,7 @@ You can view the usage of your personal account and download the usage data for 
 
 {% endif %}
 
-1. Click **Usage**.
+1. Click **Usage**, then click **Metered usage** or **AI usage**.
 1. To search or filter the graph, click the search bar. Then click the filter you want to use.
 1. To further filter the graph, use the dropdown menus.
 
@@ -80,12 +75,7 @@ You can view the usage of your personal account and download the usage data for 
 
    >[!NOTE] The usage graph is configured to represent the start of the month to the end of the month, not your specific billing period.
 
-1. To request a CSV usage report, select **Get usage report** in the upper-right corner of the page.
-
-   * For a breakdown of all metered usage, click **Metered billing usage report**.
-   * For a per user breakdown of premium requests for the last 45 days, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
-
-   >[!TIP] The premium request usage report includes all premium requests, both within and beyond the allowance.
+1. To request a CSV usage report, select **{% octicon "download" aria-hidden="true" aria-label="download" %} Get usage report** in the upper-right corner of the page.
 
 {% data reusables.billing.usage-reports-api-limitation %}
 
@@ -120,5 +110,5 @@ You can also view your active {% data variables.product.prodname_enterprise %} i
 ## Further reading
 
 {% ifversion ghec %}
-* [AUTOTITLE](/rest/enterprise-admin/billing){% endif %}
-* [AUTOTITLE](/billing/managing-your-billing/adding-licenses-to-an-organization)
+* [AUTOTITLE](/rest/billing/billing){% endif %}
+* [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/manage-user-licenses)

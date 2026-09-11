@@ -7,8 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Community
+category:
+  - Create issue and pull request templates
 ---
 
 > [!NOTE]
@@ -61,7 +61,7 @@ For each form element, you can set the following keys.
 
 | Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `type` | The type of element that you want to define. | {% octicon "check" aria-label="Required" %} | String | {% octicon "dash" aria-label="Not applicable" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
+| `type` | The type of element that you want to define. | {% octicon "check" aria-label="Required" %} | String | {% octicon "dash" aria-label="Not applicable" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li>{% ifversion issue-form-upload %}<li>`upload`</li>{% endif %}</ul> |
 | `id` | The identifier for the element, except when `type` is set to `markdown`. {% data reusables.form-schema.id-must-be-unique %} If provided, the `id` is the canonical identifier for the field in URL query parameter prefills. | {% octicon "x" aria-label="Optional" %}  | String | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
 | `attributes` | A set of key-value pairs that define the properties of the element.  | {% octicon "check" aria-label="Required" %} | Map | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
 | `validations` | A set of key-value pairs that set constraints on the element. | {% octicon "x" aria-label="Optional" %}  | Map | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
@@ -75,6 +75,9 @@ You can choose from the following types of form elements. Each type has unique a
 | [`input`](#input) | A single-line text field. |
 | [`dropdown`](#dropdown) | A dropdown menu. |
 | [`checkboxes`](#checkboxes) | A set of checkboxes. |
+| {% ifversion issue-form-upload %} |
+| [`upload`](#upload) | A file upload field. |
+| {% endif %} |
 
 ### `markdown`
 
@@ -267,6 +270,58 @@ body:
       - label: Windows
       - label: Linux
 ```
+
+{% ifversion issue-form-upload %}
+
+### `upload`
+
+You can use an `upload` element to add a file upload field to your form. Contributors can drag and drop files or click to browse and select files directly within the form.
+
+#### Supported file types and size limits
+
+The following file types are accepted, subject to the size limits below:
+
+| Category  | Extensions | Size limit |
+|-----------| ---------- | -------- |
+| Archives  | `.zip`, `.gz`, `.tar.gz` | 25 MB |
+| Documents | `.pdf`, `.docx`, `.xlsx`, `.pptx` | 25 MB |
+| Images    | `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`, `.webp` | 10 MB |
+| Videos    | `.mp4`, `.mov`, `.webm` | 100 MB |
+| Text      | `.json`, `.py`, `.js`, `.ts`, `.log`, `.txt`, `.csv` | 25 MB |
+
+#### Attributes for `upload`
+
+{% data reusables.form-schema.attributes-intro %}
+
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+| `label` | A brief description of the expected file upload, which is displayed in the form. | {% octicon "check" aria-label="Required" %} | String | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
+| `description` | A description of the file upload field to provide context or guidance, which is displayed in the form. | {% octicon "x" aria-label="Optional" %}  | String | Empty String | {% octicon "dash" aria-label="Not applicable" %} |
+
+#### Validations for `upload`
+
+{% data reusables.form-schema.validations-intro %}
+
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
+{% data reusables.form-schema.required-key %}
+| `accept` | A comma-separated list of file extensions that are accepted. If omitted, all supported file types are accepted. | {% octicon "x" aria-label="Optional" %} | String | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
+
+#### Example of `upload`
+
+```yaml copy
+body:
+- type: upload
+  id: screenshots
+  attributes:
+    label: Upload relevant files
+    description: "Drag and drop any relevant screenshots or log files."
+  validations:
+    required: false
+    accept: ".png,.jpg,.gif,.log,.txt,.zip"
+```
+
+{% endif %}
 
 ## Further reading
 

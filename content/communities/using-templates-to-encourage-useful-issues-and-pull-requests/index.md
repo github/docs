@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 children:
   - /about-issue-and-pull-request-templates
   - /configuring-issue-templates-for-your-repository

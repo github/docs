@@ -1,14 +1,13 @@
 ---
 title: Unlinking your Patreon account from your GitHub Sponsors profile
-intro: 'You can disconnect your Patreon account from your {% data variables.product.prodname_sponsors %} profile to stop receiving new sponsorships through Patreon.'
+intro: You can disconnect your Patreon account from your {% data variables.product.prodname_sponsors %} profile to stop receiving new sponsorships through Patreon.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Open Source
-  - Sponsors payments
 shortTitle: Unlink Patreon
+contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 > [!NOTE]

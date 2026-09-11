@@ -8,10 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Restrict team creation
+category:
+  - Assign roles and permissions
 ---
 
 Organization owners can set team creation permissions.

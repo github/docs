@@ -1,4 +1,5 @@
 import { renderContent } from '@/content-render/index'
+import type { Context } from '@/types/types'
 import fs from 'fs/promises'
 import {
   isScalarType,
@@ -9,8 +10,10 @@ import {
   isInputObjectType,
   GraphQLSchema,
 } from 'graphql'
-import type { ConstDirectiveNode } from 'graphql/language'
+import type { ConstDirectiveNode, TypeNode, InputValueDefinitionNode } from 'graphql/language'
 import path from 'path'
+
+import { slugPrefixForUrlKind } from '@/graphql/lib/categories'
 
 interface GraphQLTypeInfo {
   type: string
@@ -20,27 +23,20 @@ interface GraphQLTypeInfo {
 interface TypeInfo {
   name: string
   id: string
-  kind: string
   href: string
 }
 
 interface ArgumentInfo {
   name: string
-  defaultValue?: any // GraphQL default values can be of various types
+  // GraphQL scalar default values come through the AST as a string or boolean.
+  defaultValue?: string | boolean
   description: string
   type: TypeInfo
 }
 
 interface FieldNode {
   name: { value: string }
-  type: any // GraphQL AST type nodes have complex nested structure
-}
-
-interface ArgumentNode {
-  name: { value: string }
-  defaultValue?: { value: any } // GraphQL default values can be of various types
-  description: { value: string }
-  type: any // GraphQL AST type nodes have complex nested structure
+  type: TypeNode
 }
 
 interface SchemaMember {
@@ -58,13 +54,23 @@ const graphqlTypes: GraphQLTypeInfo[] = JSON.parse(
 
 const singleQuotesInsteadOfBackticks = / '(\S+?)' /
 
+// Upstream schema descriptions link with a `${externalDocsUrl}` placeholder,
+// but nothing in this pipeline expands it. It ships percent-encoded as
+// `href="$%7BexternalDocsUrl%7D/code-security/..."`, which the browser
+// resolves against the current page and 404s. Dropping the placeholder leaves
+// a root-relative link, which `getDescription` then versions using the
+// `context` handed to `createSchemaHelpers`, so a GHES reader stays on GHES.
+// The bare `helpers` export has no context and leaves links unversioned.
+const unexpandedExternalDocsUrl = /\$\{externalDocsUrl\}(?=\/)/g
+
 function addPeriod(string: string): string {
   return string.endsWith('.') ? string : `${string}.`
 }
 
 async function getArguments(
-  args: ArgumentNode[],
+  args: readonly InputValueDefinitionNode[],
   schema: GraphQLSchema,
+  context?: Context,
 ): Promise<ArgumentInfo[] | undefined> {
   if (!args.length) return
 
@@ -74,16 +80,20 @@ async function getArguments(
     const newArg: Partial<ArgumentInfo> = {}
     const type: Partial<TypeInfo> = {}
     newArg.name = arg.name.value
-    newArg.defaultValue = arg.defaultValue ? arg.defaultValue.value : undefined
-    newArg.description = await getDescription(arg.description.value)
+    newArg.defaultValue =
+      arg.defaultValue && 'value' in arg.defaultValue ? arg.defaultValue.value : undefined
+    newArg.description = arg.description ? await getDescription(arg.description.value, context) : ''
     const typeName = getType(arg)
     if (!typeName) continue // Skip if type cannot be determined
     type.name = typeName
     type.id = getId(typeName)
     const typeKind = getTypeKind(typeName, schema)
     if (!typeKind) continue // Skip if type kind cannot be determined
-    type.kind = typeKind
-    type.href = getFullLink(typeKind, type.id)
+    // process-schemas always emits legacy `/graphql/reference/<urlKind>#<id>`
+    // hrefs. bucket-by-category rewrites them into the category-aware form
+    // when splitting into per-category files, so monolithic schema.json stays
+    // byte-stable with what the existing runtime expects.
+    type.href = getFullLink(typeKind, type.id!)
     newArg.type = type as TypeInfo
     newArgs.push(newArg as ArgumentInfo)
   }
@@ -91,9 +101,17 @@ async function getArguments(
   return newArgs
 }
 
+// Build a category-aware anchor link for a type, e.g.
+// `/graphql/reference/repos#object-repository`. Exposed for the bucketer's
+// href-rewrite pass; process-schemas itself uses the legacy `getFullLink`.
+export function buildCategoryHref(category: string, urlKind: string, id: string): string {
+  return `/graphql/reference/${category}#${slugPrefixForUrlKind(urlKind)}-${id}`
+}
+
 async function getDeprecationReason(
   directives: readonly ConstDirectiveNode[],
   schemaMember: SchemaMember,
+  context?: Context,
 ): Promise<string | undefined> {
   if (!schemaMember.isDeprecated) return
 
@@ -106,10 +124,9 @@ async function getDeprecationReason(
 
   const arg = deprecationDirective[0]?.arguments?.[0]
   if (!arg) return
-  // ConstDirectiveNode arguments have deeply nested union types not fully exposed in GraphQL's type definitions
-  const value = (arg as any).value?.value
-  if (!value) return
-  return renderContent(value)
+  const value = arg.value
+  if (!value || value.kind !== 'StringValue' || !value.value) return
+  return renderContent(value.value, context)
 }
 
 function getDeprecationStatus(directives: readonly ConstDirectiveNode[]): boolean | undefined {
@@ -118,14 +135,27 @@ function getDeprecationStatus(directives: readonly ConstDirectiveNode[]): boolea
   return directives[0].name.value === 'deprecated'
 }
 
-async function getDescription(rawDescription: string): Promise<string> {
+async function getDescription(rawDescription: string, context?: Context): Promise<string> {
   rawDescription = rawDescription.replace(singleQuotesInsteadOfBackticks, '`$1`')
+  rawDescription = rawDescription.replace(unexpandedExternalDocsUrl, '')
 
-  return renderContent(addPeriod(rawDescription))
+  return renderContent(addPeriod(rawDescription), context)
 }
 
 function getFullLink(baseType: string, id: string): string {
   return `/graphql/reference/${baseType}#${id}`
+}
+
+// Extract the `@docsCategory(name: "...")` value from a directive list.
+// Returns undefined when the directive is absent.
+function getDocsCategory(directives: readonly ConstDirectiveNode[]): string | undefined {
+  const directive = directives.find((dir) => dir.name.value === 'docsCategory')
+  if (!directive) return
+  const nameArg = directive.arguments?.find((arg) => arg.name.value === 'name')
+  if (!nameArg) return
+  const value = nameArg.value
+  if (!value || value.kind !== 'StringValue') return
+  return value.value
 }
 
 function getId(typeName: string): string {
@@ -155,8 +185,7 @@ async function getPreview(
   // an input object's input field may have a ListValue directive that is not relevant to previews
   const firstArg = previewDirective[0]?.arguments?.[0]
   if (!firstArg) return
-  // ConstDirectiveNode arguments have deeply nested union types not fully exposed in GraphQL's type definitions
-  const argValue = (firstArg as any).value
+  const argValue = firstArg.value
   if (!argValue || argValue.kind !== 'StringValue') return
 
   const previewName = argValue.value
@@ -253,11 +282,12 @@ function removeMarkers(str: string): string {
   return str.replace('[', '').replace(']', '').replace(/!/g, '')
 }
 
-export default {
+const helpers = {
   getArguments,
   getDeprecationReason,
   getDeprecationStatus,
   getDescription,
+  getDocsCategory,
   getFullLink,
   getId,
   getKind,
@@ -265,3 +295,21 @@ export default {
   getType,
   getTypeKind,
 }
+
+// The three helpers that render Markdown need to know which docs version they
+// are rendering for, otherwise `rewrite-local-links` bails out and root-relative
+// links ship without a language or version segment. Binding the context once
+// here keeps the ~30 call sites in `process-schemas` unchanged, and keeps the
+// context per-call rather than in module state, so two versions can never
+// render against each other's context.
+export function createSchemaHelpers(context: Context): typeof helpers {
+  return {
+    ...helpers,
+    getArguments: (args, schema) => getArguments(args, schema, context),
+    getDeprecationReason: (directives, schemaMember) =>
+      getDeprecationReason(directives, schemaMember, context),
+    getDescription: (rawDescription) => getDescription(rawDescription, context),
+  }
+}
+
+export default helpers

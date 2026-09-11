@@ -9,6 +9,38 @@
     word-spacing: inherit !important;
     line-height: inherit !important;
   }
+
+  /* WCAG 1.4.13: Make tooltip content hoverable with the mouse pointer.
+     Primer's .tooltipped uses pointer-events:none on the ::after pseudo-
+     element and a 6px margin gap between the trigger and the tooltip.
+     This makes it impossible to hover the tooltip content itself.
+
+     Fix: re-enable pointer-events and replace the directional margin with
+     a transparent border so the hover hit-area is contiguous while the
+     visual appearance is unchanged. */
+  &::after {
+    pointer-events: auto !important;
+  }
+  &.tooltipped-nw::after,
+  &.tooltipped-n::after,
+  &.tooltipped-ne::after {
+    margin-bottom: 0 !important;
+    border-bottom: 6px solid transparent;
+  }
+  &.tooltipped-sw::after,
+  &.tooltipped-s::after,
+  &.tooltipped-se::after {
+    margin-top: 0 !important;
+    border-top: 6px solid transparent;
+  }
+  &.tooltipped-w::after {
+    margin-right: 0 !important;
+    border-right: 6px solid transparent;
+  }
+  &.tooltipped-e::after {
+    margin-left: 0 !important;
+    border-left: 6px solid transparent;
+  }
 }
 
 /* Enhanced focus indicators for high contrast mode */

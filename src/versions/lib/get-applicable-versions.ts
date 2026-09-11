@@ -43,7 +43,7 @@ function getApplicableVersions(
   }
 
   if (!featureData) {
-    featureData = getDeepDataByLanguage('features', 'en')
+    featureData = getDeepDataByLanguage('features', 'en') as FeatureData
   }
 
   // Check for frontmatter that includes a feature name, like:

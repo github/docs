@@ -6,10 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 children:
   - /managing-multiple-accounts
+  - /creating-an-account-on-github
   - /merging-multiple-personal-accounts
   - /changing-your-username
   - /moving-your-work-to-an-organization

@@ -7,8 +7,6 @@ redirect_from:
   - /admin/policies/enforcing-policy-with-pre-receive-hooks
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /about-pre-receive-hooks
   - /creating-a-pre-receive-hook-environment

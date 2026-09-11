@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 children:
   - /about-the-rest-api
   - /comparing-githubs-rest-api-and-graphql-api

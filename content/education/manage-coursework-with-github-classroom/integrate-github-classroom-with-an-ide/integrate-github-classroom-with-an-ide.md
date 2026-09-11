@@ -9,7 +9,11 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/online-ide-integrations
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-online-ide
+category:
+  - Integrate GitHub Classroom with an IDE
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## About integration with an IDE
 
 {% data reusables.classroom.about-online-ides %}

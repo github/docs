@@ -18,7 +18,7 @@ You can create an example workflow in your repository that automatically trigger
          - uses: {% data reusables.actions.action-checkout %}
          - uses: {% data reusables.actions.action-setup-node %}
            with:
-             node-version: '20'
+             node-version: '24'
          - run: npm install -g bats
          - run: bats -v
    ```
@@ -53,13 +53,13 @@ jobs:
 # Groups together all the steps that run in the `check-bats-version` job. Each item nested under this section is a separate action or shell script.
     steps:
 
-# The `uses` keyword specifies that this step will run `v4` of the `actions/checkout` action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will use the repository's code.
+# The `uses` keyword specifies that this step will run the `{% data reusables.actions.action-checkout %}` action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will use the repository's code.
       - uses: {% data reusables.actions.action-checkout %}
 
-# This step uses the `{% data reusables.actions.action-setup-node %}` action to install the specified version of the Node.js. (This example uses version 20.) This puts both the `node` and `npm` commands in your `PATH`.
+# This step uses the `{% data reusables.actions.action-setup-node %}` action to install the specified version of the Node.js. (This example uses version 24.) This puts both the `node` and `npm` commands in your `PATH`.
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '20'
+          node-version: '24'
 
 # The `run` keyword tells the job to execute a command on the runner. In this case, you are using `npm` to install the `bats` software testing package.
       - run: npm install -g bats
@@ -70,7 +70,7 @@ jobs:
 
 ### Visualizing the workflow file
 
-In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell script. Steps 1 and 2 run actions, while steps 3 and 4 run shell scripts. To find more prebuilt actions for your workflows, see [AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions).
+In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell script. Steps 1 and 2 run actions, while steps 3 and 4 run shell scripts. To find more prebuilt actions for your workflows, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/find-and-customize-actions).
 
 ![Diagram showing the trigger, runner, and job of a workflow. The job is broken into 4 steps.](/assets/images/help/actions/overview-actions-event.png)
 

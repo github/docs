@@ -9,6 +9,7 @@ import { loadPages } from '@/frame/lib/page-data'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
+  makePageSurrogateKey,
 } from '@/frame/middleware/set-fastly-surrogate-key'
 
 interface Category {
@@ -72,8 +73,40 @@ describe('server', () => {
     expect(res.headers['cache-control']).toMatch(/public, max-age=/)
 
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
+  })
+
+  test('caches responses with short edge freshness and a week-long stale window', async () => {
+    const week = 60 * 60 * 24 * 7
+    for (const path of ['/en/get-started', '/robots.txt']) {
+      const res = await get(path)
+      expect(res.statusCode).toBe(200)
+      const surrogate = res.headers['surrogate-control']
+      expect(surrogate).toContain(`stale-while-revalidate=${week}`)
+      expect(surrogate).toContain(`stale-if-error=${week}`)
+      // Edge freshness is short (well under the week-long stale window).
+      const maxAge = Number(surrogate.match(/(?:^|[ ,])max-age=(\d+)/)?.[1])
+      expect(maxAge).toBeGreaterThan(0)
+      expect(maxAge).toBeLessThan(week)
+    }
+    // Browser cache stays short: 60s, unpurgeable.
+    const res = await get('/en/get-started')
+    expect(res.headers['cache-control']).toMatch(/(^|[ ,])max-age=60([ ,]|$)/)
+  })
+
+  test('sets fine-grained product and version surrogate keys on content pages', async () => {
+    const res = await get('/en/get-started')
+    expect(res.statusCode).toBe(200)
+    const keys = res.headers['surrogate-key'].split(/\s/g)
+    expect(keys[0]).toBe(makeLanguageSurrogateKey('en'))
+    expect(keys).toContain('product:get-started')
+    expect(keys).toContain('product:get-started,language:en')
+    expect(keys.some((key: string) => /^version:.+/.test(key))).toBe(true)
+    // Exact key, not just a pattern, to lock the render side byte-for-byte to what
+    // the purge job rebuilds from a changed file path (content/get-started/index.md).
+    expect(keys).toContain('language:en,path:get-started/index.md')
+    expect(keys).toContain(makePageSurrogateKey('en', 'get-started/index.md'))
+    expect(keys.length).toBeLessThanOrEqual(6)
   })
 
   test('does not render duplicate <html> or <body> tags', async () => {
@@ -86,16 +119,7 @@ describe('server', () => {
     // Important to use the prefix /en/ on the failing URL or else
     // it will render a very basic plain text 404 response.
     const $ = await getDOM('/en/not-a-real-page', { allow404: true })
-    expect($('h1').first().text()).toBe('Ooops!')
-    // Using type assertion because cheerio v1 types don't include text() on root
-    expect(($ as any).text().includes("It looks like this page doesn't exist.")).toBe(true)
-    expect(
-      ($ as any)
-        .text()
-        .includes(
-          'We track these errors automatically, but if the problem persists please feel free to contact us.',
-        ),
-    ).toBe(true)
+    expect(($ as unknown as { text(): string }).text()).toContain('Page not found.')
     expect($.res.statusCode).toBe(404)
   })
 
@@ -117,9 +141,11 @@ describe('server', () => {
     const $ = await getDOM('/_500', { allow500s: true })
     expect($('h1').first().text()).toBe('Ooops!')
     // Using type assertion because cheerio v1 types don't include text() on root
-    expect(($ as any).text().includes('It looks like something went wrong.')).toBe(true)
     expect(
-      ($ as any)
+      ($ as unknown as { text(): string }).text().includes('It looks like something went wrong.'),
+    ).toBe(true)
+    expect(
+      ($ as unknown as { text(): string })
         .text()
         .includes(
           'We track these errors automatically, but if the problem persists please feel free to contact us.',
@@ -278,6 +304,80 @@ describe('server', () => {
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
   })
+
+  describe('Accept: text/markdown content negotiation', () => {
+    test('returns markdown when Accept header prefers text/markdown', async () => {
+      const res = await get('/en', {
+        headers: {
+          accept: 'text/markdown',
+        },
+      })
+      expect(res.statusCode).toBe(200)
+      expect(res.headers['content-type']).toContain('text/markdown')
+      expect(res.headers.vary).toContain('accept')
+    })
+
+    test('returns HTML when Accept header prefers text/html', async () => {
+      const res = await get('/en', {
+        headers: {
+          accept: 'text/html,application/xhtml+xml',
+        },
+      })
+      expect(res.statusCode).toBe(200)
+      expect(res.headers['content-type']).toContain('text/html')
+      expect(res.headers.vary).toContain('accept')
+    })
+
+    test('returns HTML when Accept header is */*', async () => {
+      const res = await get('/en', {
+        headers: {
+          accept: '*/*',
+        },
+      })
+      expect(res.statusCode).toBe(200)
+      expect(res.headers['content-type']).toContain('text/html')
+    })
+
+    test('landing page returns non-empty markdown with title via Accept header', async () => {
+      const res = await get('/en/get-started', {
+        headers: {
+          accept: 'text/markdown',
+        },
+      })
+      expect(res.statusCode).toBe(200)
+      expect(res.headers['content-type']).toContain('text/markdown')
+      expect(res.body).toMatch(/^# .+/)
+      // Verify the landing page has content beyond just the title
+      expect(res.body).toMatch(/\n\n/)
+      expect(res.body.split('\n').length).toBeGreaterThan(3)
+    })
+
+    test('.md URL extension returns markdown with correct content type', async () => {
+      const res = await get('/en/get-started.md')
+      expect(res.statusCode).toBe(200)
+      expect(res.headers['content-type']).toContain('text/markdown')
+      expect(res.body).toMatch(/^# .+/)
+    })
+
+    test('.md URL without language prefix redirects to /en/ equivalent', async () => {
+      const res = await get('/get-started.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en/get-started.md')
+    })
+
+    test('/index.md redirects to the page without /index.md', async () => {
+      const res = await get('/en/get-started/index.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en/get-started')
+    })
+
+    test('regular article .md URL includes title and intro', async () => {
+      const res = await get('/en/get-started/using-github/hello-world.md')
+      expect(res.statusCode).toBe(200)
+      expect(res.headers['content-type']).toContain('text/markdown')
+      expect(res.body).toMatch(/^# Hello World/)
+    })
+  })
 })
 
 describe('static routes', () => {
@@ -313,7 +413,6 @@ describe('static routes', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
 
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 

@@ -16,9 +16,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 contentType: how-tos
+category:
+  - Participate in organizations
 ---
 
 > [!TIP]

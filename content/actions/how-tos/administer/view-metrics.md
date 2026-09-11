@@ -1,7 +1,7 @@
 ---
 title: Viewing GitHub Actions metrics
 shortTitle: View metrics
-intro: 'You can view metrics to monitor where your organization or repositories use {% data variables.product.prodname_actions %} and how they are performing.'
+intro: You can view metrics to monitor where your organization or repositories use {% data variables.product.prodname_actions %} and how they are performing.
 permissions: Organization owners and users with the "View organization Actions metrics" permission can view organization-level metrics. <br><br> Users with the base repository role can view repository-level metrics.
 versions:
   feature: actions-metrics
@@ -11,6 +11,9 @@ redirect_from:
   - /actions/administering-github-actions/viewing-github-actions-metrics-for-your-organization
   - /actions/administering-github-actions/viewing-github-actions-metrics
   - /actions/how-tos/administering-github-actions/viewing-github-actions-metrics
+category:
+  - Administer GitHub Actions
+contentType: how-tos
 ---
 
 ## Viewing {% data variables.product.prodname_actions %} metrics for your organization

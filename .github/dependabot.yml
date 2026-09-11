@@ -13,11 +13,11 @@ updates:
     schedule:
       interval: weekly
       day: tuesday
+    cooldown:
+      default-days: 7
     ignore:
       # Because this is so dependent on the remote server we use
       - dependency-name: '@elastic/elasticsearch'
-      # Because whatever we have needs to match what @primer/react also uses
-      - dependency-name: 'styled-components'
       - dependency-name: '*'
         update-types:
           ['version-update:semver-patch', 'version-update:semver-minor']
@@ -27,6 +27,12 @@ updates:
     schedule:
       interval: weekly
       day: tuesday
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns:
+          - '*'
     ignore:
       - dependency-name: '*'
         update-types:
@@ -39,6 +45,8 @@ updates:
     directory: '/'
     schedule:
       interval: daily
+    cooldown:
+      default-days: 7
     groups:
       baseImages:
         patterns:

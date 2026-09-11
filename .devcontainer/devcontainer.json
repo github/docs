@@ -15,7 +15,8 @@
     "ghcr.io/devcontainers/features/copilot-cli:1": {
       "version": "prerelease"
     },
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
 
   "customizations": {

@@ -6,8 +6,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /reviewing-audit-logs-for-your-enterprise
   - /exploring-user-activity-in-your-enterprise

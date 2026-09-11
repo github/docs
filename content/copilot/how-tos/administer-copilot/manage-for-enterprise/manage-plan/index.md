@@ -4,8 +4,6 @@ shortTitle: Manage plan
 intro: 'Enterprise owners can manage the {% data variables.product.prodname_copilot_short %} plan for the enterprise.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /subscribe
   - /cancel-plan

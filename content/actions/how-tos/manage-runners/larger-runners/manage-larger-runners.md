@@ -1,9 +1,9 @@
 ---
 title: Managing larger runners
 shortTitle: Manage larger runners
-intro: 'You can configure {% data variables.actions.hosted_runner %}s for your organization or enterprise.'
+intro: You can configure {% data variables.actions.hosted_runner %}s for your organization or enterprise.
 product: '{% data variables.actions.github_hosted_larger_runners %} are only available for organizations and enterprises using the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plans. <br><a href="https://github.com/pricing?ref_product=ghec&ref_type=trial&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_actions %}</span> {% octicon "link-external" height:16 %}</a>'
-permissions: 'Enterprise or organization owners can manage larger runners.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" permission can manage larger runners at the organization level.{% endif %}'
+permissions: Enterprise or organization owners can manage larger runners.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" permission can manage larger runners at the organization level.{% endif %}
 versions:
   feature: actions-hosted-runners
 redirect_from:
@@ -12,10 +12,10 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-larger-runners/managing-larger-runners
   - /actions/how-tos/using-github-hosted-runners/using-larger-runners/managing-larger-runners
   - /actions/how-tos/using-larger-runners/managing-larger-runners
+category:
+  - Set up runners
+contentType: how-tos
 ---
-
-> [!NOTE]
-> * {% data reusables.actions.windows-linux-larger-runners-note %}
 
 {% ifversion ghec %}
 
@@ -50,12 +50,12 @@ Organization owners{% ifversion custom-org-roles %} and users with the "Manage o
 
 Repositories are granted access to {% data variables.actions.hosted_runner %}s through runner groups. Enterprise administrators can choose which organizations are granted access to enterprise-level runner groups, and organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} control repository-level access to all {% data variables.actions.hosted_runner %}s.
 
-Organization owners can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" can only manage organization-level runner groups. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).{% endif %}
+Organization owners can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" can only manage organization-level runner groups. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles).{% endif %}
 
 * **For enterprise-level runner groups:** {% data reusables.actions.about-enterprise-level-runner-groups %}
 * **For organization-level runner groups:** {% data reusables.actions.about-organization-level-runner-groups %}
 
-Once a repository has access to {% data variables.actions.hosted_runner %}s, the {% data variables.actions.hosted_runner %}s can be added to workflow files. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners).
+Once a repository has access to {% data variables.actions.hosted_runner %}s, the {% data variables.actions.hosted_runner %}s can be added to workflow files. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-larger-runners).
 
 {% data reusables.actions.runner-groups-org-navigation %}
 1. Select a runner group from either list on the page. Organization-level runner groups are listed at the top of the page, and enterprise-level runner groups are listed under "Shared by the Enterprise."
@@ -63,7 +63,9 @@ Once a repository has access to {% data variables.actions.hosted_runner %}s, the
 
 > [!WARNING]
 > {% data reusables.actions.hosted-runner-security %}
-> For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners).
+> For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/control-access).
+
+If you want to require workflows to target runners only through runner groups, you can disable standard {% data variables.product.github %}-hosted runners at the organization or enterprise level. See [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
 
 ## Changing the name of a {% data variables.actions.hosted_runner %}
 
@@ -190,11 +192,14 @@ You can control the maximum number of jobs allowed to run concurrently for speci
 ## Creating static IP addresses for {% data variables.actions.hosted_runner %}s
 
 > [!NOTE]
-> To use static IP addresses, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+> * To use static IP addresses, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+> * macOS {% data variables.actions.hosted_runner %}s do not support static IP addresses.
 
-You can enable static IP addresses for {% data variables.actions.hosted_runner %}s. When you do this, the {% data variables.actions.hosted_runner %}s are assigned static IP address ranges. All IP addresses in the range assigned are usable. By default, you can configure up to 10 different {% data variables.actions.hosted_runner %}s with IP ranges for your account. {% data reusables.actions.larger-runner-static-ip-contact-support %}
+You can enable static IP addresses for {% data variables.actions.hosted_runner %}s. When you do this, the {% data variables.actions.hosted_runner %}s are assigned static IP address ranges. All IP addresses in the range assigned are usable. By default, you can configure up to 10 {% data variables.actions.hosted_runner %} pools with static IP address ranges for your account. {% data reusables.actions.larger-runner-static-ip-contact-support %}
 
-The number of available IP addresses in the assigned ranges does not restrict number of concurrent jobs specified for autoscaling. Within a runner pool, there is a load balancer which allows for high reuse of the IP addresses in the assigned ranges. This ensures your workflows can run concurrently at scale while each machine is assigned a static IP address.
+Each {% data variables.actions.hosted_runner %} you create is not a single machine. It is a pool of runners that automatically scales out to handle concurrent jobs, up to the maximum concurrency you set when creating the runner. All jobs in the pool share the same static IP address range. This means a single {% data variables.actions.hosted_runner %} with one static IP range can handle many jobs running at the same time without requiring additional runners.
+
+The number of available IP addresses in the assigned ranges does not restrict the number of concurrent jobs. Within a runner pool, there is a load balancer which allows for high reuse of the IP addresses in the assigned ranges. This ensures your workflows can run concurrently at scale while each machine is assigned a static IP address.
 
 {% ifversion ghec %}
 
@@ -221,4 +226,39 @@ The number of available IP addresses in the assigned ranges does not restrict nu
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.actions.select-a-larger-runner %}
 {% data reusables.actions.networking-for-larger-runners %}
+{% endif %}
+
+## Azure Storage firewall considerations
+
+### Virtual machines and storage accounts in the same region
+
+If you use Azure Storage accounts protected by network rules, be aware that traffic from {% data variables.actions.hosted_runner %}s' VMs to storage accounts in the same Azure region uses private Azure IP addresses rather than the {% data variables.actions.hosted_runner %}s' public IP range.
+
+As a result, Azure Storage firewall rules that rely only on runner public IP allowlists might not work as expected. This can cause connectivity failures that appear as 403 (AuthorizationFailure) responses, with an error message similar to:
+
+```text
+The request may be blocked by network rules of storage account. Please check network rule set using 'az storage account show -n accountname --query networkRuleSet'.
+  If you want to change the default action to apply when no rule matches, please use 'az storage account update'.
+```
+
+For more information see the Microsoft documentation for [Guidelines and limitations for the Azure Storage firewall](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security-limitations) and [Configure network routing preference for Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/configure-network-routing-preference?tabs=azure-portal&source=docs).
+
+> [!NOTE]
+> We don't recommend configuring Azure Storage firewall network rules for {% data variables.actions.hosted_runner %}s unless you use either `static public IP ranges` or an `Azure VNet`.
+> Public IP ranges can be dynamic, so allowlist-based rules may break and cause intermittent connectivity failures.
+> See [AUTOTITLE](/actions/reference/runners/larger-runners#networking-for-larger-runners)
+
+### Use Static IP Ranges and Service Endpoints
+
+One option for safely enabling Storage Account network rules is to use runners with static IPs and request support for configuring Azure Storage service endpoints for the virtual network hosting those static IPs. See [Azure virtual network service endpoints](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) for more information.
+
+Contact GitHub Support to set up this configuration through the [GitHub Support portal](https://support.github.com/).
+
+### Configure Azure VNET
+
+Another option to safely connect to Azure Storage accounts is to enable Azure VNET with {% data variables.product.company_short %}-hosted runners.
+
+* [AUTOTITLE](/organizations/managing-organization-settings/about-azure-private-networking-for-github-hosted-runners-in-your-organization)
+{% ifversion ghec %}
+* [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)
 {% endif %}

@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest'
-import cheerio from 'cheerio'
+import type { CheerioAPI } from 'cheerio'
 
 import { getDOMCached as getDOM } from '@/tests/helpers/e2etest'
 
 describe('html-comments', () => {
   test('regular comments are removed', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/markdown/html-comments')
+    const $: CheerioAPI = await getDOM('/get-started/markdown/html-comments')
     const contents = $('#article-contents')
     const html = contents.html()
     expect(html).not.toContain('This comment should get deleted since it mentions gooblygook')

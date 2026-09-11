@@ -1,7 +1,7 @@
 ---
 title: Monitoring the health of your cluster
 shortTitle: Monitor cluster health
-intro: 'To ensure the performance and redundancy of a {% data variables.product.prodname_ghe_server %} cluster, you can monitor the cluster''s health.'
+intro: To ensure the performance and redundancy of a {% data variables.product.prodname_ghe_server %} cluster, you can monitor the cluster's health.
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
@@ -12,21 +12,14 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/monitoring-the-health-of-your-cluster
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About {% data variables.product.prodname_ghe_server %} cluster health
 
 A {% data variables.product.prodname_ghe_server %} cluster comprises multiple nodes, with redundant services distributed across two or more nodes. If an individual service or an entire node fails, users should not notice. Failures affect performance and redundancy, so it's important to monitor the health of your cluster. You can monitor the health of your cluster using a command-line utility or an external monitoring tool like Nagios.
-
-You can also monitor the health of individual nodes using {% data variables.product.prodname_nes %}. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service).
 
 ## Manually checking cluster status
 

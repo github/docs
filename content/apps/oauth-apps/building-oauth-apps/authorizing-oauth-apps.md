@@ -14,8 +14,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
+category:
+  - Build and manage OAuth apps
 ---
 
 > [!NOTE]
@@ -23,7 +23,7 @@ topics:
 >
 > Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
 >
-> {% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+> {% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 {% data variables.product.github %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
 
@@ -40,10 +40,30 @@ To authorize your {% data variables.product.prodname_oauth_app %}, consider whic
 
 {% endif %}
 
+{% ifversion oauth-token-expiration %}
+
+## Expiring access tokens
+
+To enforce regular token rotation and reduce the impact of a compromised token, you can configure your {% data variables.product.prodname_oauth_app %} to get access tokens that expire. When your app uses access tokens that expire, you will also receive a refresh token with your access token. Both the web application flow and the device flow support expiring tokens.
+
+The access token expires after eight hours, and the refresh token expires after six months without use. You can use the refresh token to generate a new access token and a new refresh token. For more information, see [Refreshing an access token with a refresh token](#refreshing-an-access-token-with-a-refresh-token).
+
+### Opting in to expiring tokens at runtime
+
+To test and gradually roll out support for expiring tokens, you can opt in to receive an expiring token and a refresh token for an individual sign-in by requesting the `offline_access` scope in addition to your other scopes. When you request the `offline_access` scope, you will receive an expiring access token and a refresh token even if your app is not configured to use expiring tokens.
+
+If your app supports both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}, you should be prepared for the `offline_access` scope to have no effect, because the {% data variables.product.prodname_ghe_server %} instance may not yet support expiring tokens. In this case, you will receive a non-expiring token and no refresh token, so your app should not assume that a refresh token is always returned.
+
+### Requiring expiring tokens for your app
+
+Once you have updated your app to use refresh tokens to handle token expiration, you can force token expiration for your app globally. This will cause all new tokens to be issued with an expiration and refresh token. Enabling this feature does not cause existing tokens to expire—they will continue to be long-lived. If you want to switch to expiring tokens, have the user sign in again. To configure this setting for your app, see [AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/activating-optional-features-for-oauth-apps).
+
+{% endif %}
+
 ## Web application flow
 
 > [!NOTE]
-> If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps) for more information.
+> If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user) for more information.
 
 The web application flow to authorize users for your app is:
 
@@ -62,7 +82,7 @@ This endpoint takes the following input parameters.
 | `client_id`|`string` | Required | The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}. |
 | `redirect_uri`|`string` |Strongly recommended| The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls). |
 | `login` | `string` | Optional| Suggests a specific account to use for signing in and authorizing the app. |
-| `scope`|`string` |Context dependent| A space-delimited list of [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope. |
+| `scope`|`string` |Context dependent| A space-delimited list of [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope. {% ifversion oauth-token-expiration %}Use of the `offline_access` scope to get an expiring token will not alter the scope behavior—it is not tracked as a typical scope like `repo` or `user`, and will not cause additional prompts to appear if used. {% endif %}|
 | `state` | `string` |Strongly recommended| {% data reusables.apps.state_description %} |
 |  {% ifversion pkce_support %} |
 | `code_challenge` | `string` | Strongly recommended | Used to secure the authentication flow with PKCE (Proof Key for Code Exchange). Required if `code_challenge_method` is included. Must be a 43 character SHA-256 hash of a random string generated by the client. See the [PKCE RFC](https://datatracker.ietf.org/doc/html/rfc7636) for more details about this security extension.
@@ -96,7 +116,9 @@ Parameter name | Type | Required?| Description
 By default, the response takes the following form:
 
 ```shell
-access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a
+&scope=repo%2Cgist
+&token_type=bearer
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -119,6 +141,23 @@ Accept: application/xml
 </OAuth>
 ```
 
+{% ifversion oauth-token-expiration %}
+
+If your {% data variables.product.prodname_oauth_app %} uses expiring access tokens, or if you requested the `offline_access` scope, the response also includes a `refresh_token`, along with the `expires_in` and `refresh_token_expires_in` values that indicate when each token expires (as seconds from the current time). For more information, see [Expiring access tokens](#expiring-access-tokens).
+
+By default, the response takes the following form:
+
+```shell
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a
+&expires_in=28800
+&refresh_token=ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498
+&refresh_token_expires_in=15897600
+&scope=repo%2Cgist
+&token_type=bearer
+```
+
+{% endif %}
+
 ### 3. Use the access token to access the API
 
 The access token allows you to make requests to the API on a behalf of a user.
@@ -138,7 +177,7 @@ Every time you receive an access token, you should use the token to revalidate t
 
 The device flow allows you to authorize users for a headless application, such as a CLI tool or the [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
 
-Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app) for {% data variables.product.prodname_github_apps %} and [AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app) for {% data variables.product.prodname_oauth_apps %}.
+Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration) for {% data variables.product.prodname_github_apps %} and [AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app) for {% data variables.product.prodname_oauth_apps %}.
 
 ### Overview of the device flow
 
@@ -162,7 +201,11 @@ Parameter name | Type | Description
 By default, the response takes the following form:
 
 ```shell
-device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%2F{% data variables.product.product_url %}%2Flogin%2Fdevice
+device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5
+&expires_in=900
+&interval=5
+&user_code=WDJB-MJHT
+&verification_uri=https%3A%2F%2F{% data variables.product.product_url %}%2Flogin%2Fdevice
 ```
 
 Parameter name | Type | Description
@@ -222,7 +265,9 @@ Parameter name | Type | Description
 By default, the response takes the following form:
 
 ```shell
-access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a
+&token_type=bearer
+&scope=repo%2Cgist
 ```
 
 {% data reusables.apps.oauth-auth-vary-response %}
@@ -245,6 +290,21 @@ Accept: application/xml
 </OAuth>
 ```
 
+{% ifversion oauth-token-expiration %}
+
+If your {% data variables.product.prodname_oauth_app %} uses expiring access tokens, or if you requested the `offline_access` scope, the response also includes a `refresh_token`, along with the `expires_in` and `refresh_token_expires_in` values that indicate when each token expires. For more information, see [Expiring access tokens](#expiring-access-tokens).
+
+```shell
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a
+&expires_in=28800
+&refresh_token=ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498
+&refresh_token_expires_in=15897600
+&token_type=bearer
+&scope=repo%2Cgist
+```
+
+{% endif %}
+
 ### Rate limits for the device flow
 
 When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
@@ -266,29 +326,75 @@ If you make more than one access token request (`POST {% data variables.product.
 
 For more information, see the [OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5).
 
+{% ifversion oauth-token-expiration %}
+
+## Refreshing an access token with a refresh token
+
+If your {% data variables.product.prodname_oauth_app %} uses expiring access tokens, you can use the refresh token to generate a new access token and a new refresh token. Once you use a refresh token, that refresh token and the old access token will no longer work. For more information about expiring tokens, see [Expiring access tokens](#expiring-access-tokens).
+
+If your refresh token expires before you use it, you must send the user through the web application flow or device flow again to get a new token pair.
+
+To refresh an access token, make a `POST` request to the following URL, along with the input parameters below.
+
+    POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
+
+Parameter name | Type | Required?| Description
+-----|------|---------|-----
+`client_id` | `string` | Required | The client ID you received from {% data variables.product.github %} for your {% data variables.product.prodname_oauth_app %}.
+`client_secret` | `string` | Required unless the token was generated using the device flow | The client secret you received from {% data variables.product.github %} for your {% data variables.product.prodname_oauth_app %}.
+`grant_type` | `string` | Required | The value must be `refresh_token`.
+`refresh_token` | `string` | Required | The refresh token you received when you generated an access token.
+
+By default, the response takes the following form:
+
+```shell
+access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a
+&expires_in=28800
+&refresh_token=ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498
+&refresh_token_expires_in=15897600
+&scope=repo%2Cgist
+&token_type=bearer
+```
+
+The scopes on the new access token will match the scopes of the previous token. You cannot provide a `scope` parameter during token refresh in order to change the access of the resulting token.
+
+If the refresh token that you specified is invalid or expired, you will receive a `bad_refresh_token` error. To resolve this error, send the user through the web application flow or device flow again to get a new access token and refresh token.
+
+{% endif %}
+
 ## Non-Web application flow
 
-Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/authenticating-to-the-rest-api#using-basic-authentication) to create a {% data variables.product.pat_generic %} using your [{% data variables.product.pat_generic %}s settings page](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). This technique enables the user to revoke access at any time.
+Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication) to create a {% data variables.product.pat_generic %} using your [{% data variables.product.pat_generic %}s settings page](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). This technique enables the user to revoke access at any time.
 
 ## Redirect URLs
 
-The `redirect_uri` parameter is optional. If left out, GitHub will
-redirect users to the callback URL configured in the {% data variables.product.prodname_oauth_app %}
-settings. If provided, the redirect URL's host (excluding sub-domains) and port must exactly
+The `redirect_uri` parameter is optional. If left out, {% data variables.product.github %} will
+redirect users to the {% ifversion fpt or ghec or ghes > 3.23 %}first {% endif %}callback URL configured in the {% data variables.product.prodname_oauth_app %}
+settings.
+
+{% ifversion fpt or ghec or ghes > 3.23 %}
+
+{% data reusables.apps.redirect-uri-wildcard-matching %}
+
+{% else %}
+
+If provided, the redirect URL's host (excluding sub-domains) and port must exactly
 match the callback URL. The redirect URL's path must reference a
 subdirectory of the callback URL.
 
-    CALLBACK: http://example.com/path
+    CALLBACK: https://example.com/path
 
-    GOOD: http://example.com/path
-    GOOD: http://example.com/path/subdir/other
-    GOOD: http://oauth.example.com/path
-    GOOD: http://oauth.example.com/path/subdir/other
-    BAD:  http://example.com/bar
-    BAD:  http://example.com/
-    BAD:  http://example.com:8080/path
-    BAD:  http://oauth.example.com:8080/path
-    BAD:  http://example.org
+    MATCH: https://example.com/path
+    MATCH: https://example.com/path/subdir/other
+    MATCH: https://oauth.example.com/path
+    MATCH: https://oauth.example.com/path/subdir/other
+    FAIL:  https://example.com/bar
+    FAIL:  https://example.com/
+    FAIL:  https://example.com:8080/path
+    FAIL:  https://oauth.example.com:8080/path
+    FAIL:  https://example.org
+
+{% endif %}
 
 ### Loopback redirect urls
 

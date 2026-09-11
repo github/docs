@@ -1,6 +1,6 @@
 ---
 title: Introduction to dev containers
-intro: 'When you work in a codespace, the environment you are working in is created using a development container, or dev container, hosted on a virtual machine.'
+intro: When you work in a codespace, the environment you are working in is created using a development container, or dev container, hosted on a virtual machine.
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
@@ -12,11 +12,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Set up
-  - Fundamentals
+contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## About dev containers
@@ -31,7 +29,7 @@ Alternatively, you can add your own custom configuration files. See [Creating a 
 
 You can define a single dev container configuration for a repository, different configurations for different branches, or multiple configurations. When multiple configurations are available, users can choose their preferred configuration when they create a codespace. This is particularly useful for large repositories that contain source code in different programming languages or for different projects. You can create a choice of configurations that allow different teams to work in a codespace that's set up appropriately for the work they are doing.
 
-When you create a codespace from a template, you might start with one or more dev container configuration files in your workspace. To configure your environment further, you can add or remove settings from these files and rebuild the container to apply the changes to the codespace you're working in. If you publish your codespace to a repository on {% data variables.product.github %}, then any codespaces created from that repository will share the configuration you've defined. See [Applying configuration changes to a codespace](#applying-configuration-changes-to-a-codespace) and [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template#publishing-to-a-remote-repository).
+When you create a codespace from a template, you might start with one or more dev container configuration files in your workspace. To configure your environment further, you can add or remove settings from these files and rebuild the container to apply the changes to the codespace you're working in. If you publish your codespace to a repository on {% data variables.product.github %}, then any codespaces created from that repository will share the configuration you've defined. See [Applying configuration changes to a codespace](#applying-configuration-changes-to-a-codespace) and [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template#publishing-to-a-repository-on-github).
 
 ### devcontainer.json
 

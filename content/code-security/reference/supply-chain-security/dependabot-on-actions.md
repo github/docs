@@ -6,12 +6,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Actions
-  - Version updates
-  - Dependencies
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 ## Restrictions when {% data variables.product.prodname_dependabot %} triggers events

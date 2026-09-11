@@ -5,12 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Organizations
-  - Dependencies
-  - Vulnerabilities
-  - Advanced Security
+contentType: how-tos
 shortTitle: Secure your organization
 ---
 

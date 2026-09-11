@@ -1,16 +1,16 @@
 ---
-title: 'Managing {% data variables.projects.project_v2 %} templates in your organization'
-shortTitle: 'Managing templates'
-intro: 'You can create templates or set projects as templates in your organization, allowing other people to select your template as the base for projects they create.'
+title: Managing {% data variables.projects.project_v2 %} templates in your organization
+shortTitle: Managing templates
+intro: You can create templates or set projects as templates in your organization, allowing other people to select your template as the base for projects they create.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-permissions: 'People with admin permissions for a project in an organization can set the project as a template. People with admin or write permissions for a project in an organization can copy the project and set the copied project as a template.'
-topics:
-  - Projects
+permissions: People with admin permissions for a project in an organization can set the project as a template. People with admin or write permissions for a project in an organization can copy the project and set the copied project as a template.
 allowTitleToDifferFromFilename: true
+contentType: tutorials
+category:
+  - Set up and manage projects
 ---
 
 
@@ -66,7 +66,7 @@ You can add up to six templates to your organization's recommended templates.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 1. Under "Recommended templates", click **Customize recommended templates**.
 1. In the list of templates owned by your organization, select up to six templates that you want to recommend to your members.
 

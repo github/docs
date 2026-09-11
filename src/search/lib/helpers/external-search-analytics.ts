@@ -125,20 +125,6 @@ function sanitizeUserAgent(userAgent: string | undefined): string {
 }
 
 /**
- * Determines if a host should bypass client_name requirement for analytics
- * Returns true if the host ends with github.net or githubapp.com
- * (for internal staging environments)
- * Note: docs.github.com is removed since normalizedHost will always be docs.github.com in production
- * Note: localhost is NOT included here as it should send analytics with auto-set client_name
- */
-export function shouldBypassClientNameRequirement(host: string | undefined): boolean {
-  if (!host) return false
-
-  const normalizedHost = stripPort(host)
-  return normalizedHost.endsWith('.github.net') || normalizedHost.endsWith('.githubapp.com')
-}
-
-/**
  * Strips port number from host string
  */
 function stripPort(host: string): string {

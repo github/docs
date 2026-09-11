@@ -14,9 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
 children:
   - /inviting-collaborators-to-a-personal-repository
   - /removing-a-collaborator-from-a-personal-repository

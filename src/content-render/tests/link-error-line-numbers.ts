@@ -1,12 +1,12 @@
 import { describe, expect, test, beforeEach, afterEach } from 'vitest'
 import { renderContent } from '@/content-render/index'
 import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-links'
-import type { Context } from '@/types'
+import type { Context, Page } from '@/types'
 
 describe('link error line numbers', () => {
-  let fs: any // Dynamic import of fs module for mocking in tests
-  let originalReadFileSync: any // Storing original fs.readFileSync for restoration after test
-  let originalExistsSync: any // Storing original fs.existsSync for restoration after test
+  let fs: { default: typeof import('fs') }
+  let originalReadFileSync: typeof import('fs').readFileSync
+  let originalExistsSync: typeof import('fs').existsSync
   let mockContext: Context
 
   beforeEach(async () => {
@@ -21,11 +21,11 @@ describe('link error line numbers', () => {
     mockContext = {
       currentLanguage: 'en',
       currentVersion: 'free-pro-team@latest',
-      pages: {} as any,
-      redirects: {} as any,
+      pages: {} as unknown as Record<string, Page>,
+      redirects: {} as Record<string, string>,
       page: {
         fullPath: '/fake/test-file.md',
-      } as any,
+      } as unknown as Context['page'],
     }
   })
 
@@ -50,7 +50,7 @@ Here is a broken link: [AUTOTITLE](/nonexistent/page).
 
 More content here.`
 
-    fs.default.readFileSync = () => template
+    fs.default.readFileSync = (() => template) as unknown as typeof fs.default.readFileSync
 
     try {
       await renderContent(template, mockContext)
@@ -70,7 +70,7 @@ More content here.`
   test('reports correct line numbers with different frontmatter sizes', async () => {
     mockContext.page = {
       fullPath: '/fake/test-file-2.md',
-    } as any
+    } as unknown as Context['page']
 
     // Test with more extensive frontmatter
     const template = `---
@@ -92,7 +92,7 @@ Some introductory text here.
 
 Content with a [AUTOTITLE](/another/nonexistent/page) link.`
 
-    fs.default.readFileSync = () => template
+    fs.default.readFileSync = (() => template) as unknown as typeof fs.default.readFileSync
 
     try {
       await renderContent(template, mockContext)
@@ -107,7 +107,7 @@ Content with a [AUTOTITLE](/another/nonexistent/page) link.`
   test('handles files without frontmatter correctly', async () => {
     mockContext.page = {
       fullPath: '/fake/no-frontmatter.md',
-    } as any
+    } as unknown as Context['page']
 
     // Test content without frontmatter
     const template = `# Simple Title
@@ -116,7 +116,7 @@ This is content without frontmatter.
 
 Here is a broken link: [AUTOTITLE](/missing/page).`
 
-    fs.default.readFileSync = () => template
+    fs.default.readFileSync = (() => template) as unknown as typeof fs.default.readFileSync
 
     try {
       await renderContent(template, mockContext)
@@ -131,7 +131,7 @@ Here is a broken link: [AUTOTITLE](/missing/page).`
   test('error message format is improved', async () => {
     mockContext.page = {
       fullPath: '/fake/message-test.md',
-    } as any
+    } as unknown as Context['page']
 
     const template = `---
 title: Message Test
@@ -140,7 +140,7 @@ title: Message Test
 [AUTOTITLE](/test/broken/link)
 `
 
-    fs.default.readFileSync = () => template
+    fs.default.readFileSync = (() => template) as unknown as typeof fs.default.readFileSync
 
     try {
       await renderContent(template, mockContext)

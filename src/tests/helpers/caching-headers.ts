@@ -28,7 +28,12 @@ export function checkCachingHeaders(
 
   // Because it doesn't have a unique URL
   const surrogateKeyHeader = res.headers['surrogate-key'] as string
-  expect(surrogateKeyHeader.split(/\s/g)[0]).toBe(
-    defaultSurrogateKey ? SURROGATE_ENUMS.DEFAULT : SURROGATE_ENUMS.MANUAL,
-  )
+  const firstToken = surrogateKeyHeader.split(/\s/g)[0]
+  if (defaultSurrogateKey) {
+    // Default cacheable responses are keyed by language for the staggered,
+    // per-language deploy purge: either `no-language` or `language:<code>`.
+    expect(firstToken === 'no-language' || /^language:[a-z-]+$/.test(firstToken)).toBe(true)
+  } else {
+    expect(firstToken).toBe(SURROGATE_ENUMS.MANUAL)
+  }
 }

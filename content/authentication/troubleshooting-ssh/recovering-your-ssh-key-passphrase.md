@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Recover SSH key passphrase
+category:
+  - Troubleshoot authentication issues
 ---
 {% mac %}
 

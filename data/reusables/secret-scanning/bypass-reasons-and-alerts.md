@@ -1,4 +1,4 @@
-This table shows the behavior of alerts for each way a user can bypass a push protection block.
+This table shows the behavior of alerts for each bypass reason a user can specify.
 
 | Bypass reason         | Alert behavior                                              |
 |-----------------------|------------------------------------------------------|

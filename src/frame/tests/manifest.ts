@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import sharp from 'sharp'
 
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
 import { get, getDOM } from '@/tests/helpers/e2etest'
 
 type Manifest = {
@@ -32,7 +32,7 @@ describe('manifest', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe(`${SURROGATE_ENUMS.DEFAULT} no-language`)
+    expect(res.headers['surrogate-key']).toBe(makeLanguageSurrogateKey())
 
     const manifest: Manifest = JSON.parse(res.body)
     expect(manifest.name).toBe('GitHub Docs')

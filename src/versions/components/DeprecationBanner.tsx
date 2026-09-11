@@ -5,6 +5,7 @@ import { Flash } from '@primer/react'
 import cx from 'classnames'
 
 import styles from './DeprecationBanner.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 export const DeprecationBanner = () => {
   const { data, enterpriseServerReleases } = useMainContext()
@@ -32,17 +33,13 @@ export const DeprecationBanner = () => {
       <Flash variant="warning">
         <p>
           <b className="text-bold">
-            <span dangerouslySetInnerHTML={{ __html: message }} />{' '}
+            <RenderedHTML as="span" html={message} />{' '}
             <span data-date={enterpriseServerReleases.nextDeprecationDate} data-format="%B %d, %Y">
               {enterpriseServerReleases.nextDeprecationDate}
             </span>
             .
           </b>{' '}
-          <span
-            dangerouslySetInnerHTML={{
-              __html: enterpriseDeprecation.deprecation_details,
-            }}
-          />
+          <RenderedHTML as="span" html={enterpriseDeprecation.deprecation_details} />
         </p>
       </Flash>
     </div>

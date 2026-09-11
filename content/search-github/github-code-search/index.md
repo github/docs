@@ -4,8 +4,6 @@ intro: 'Learn how to use code search to find, navigate, and understand code acro
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-upgrade
-topics:
-  - GitHub search
 children:
   - /about-github-code-search
   - /using-github-code-search

@@ -1,0 +1,1 @@
+For enterprises on a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, a policy controls whether unconfigured generally available (GA) models are enabled or disabled by default. See [AUTOTITLE](/copilot/concepts/models/default-availability).

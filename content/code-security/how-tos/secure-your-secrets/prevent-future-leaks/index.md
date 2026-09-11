@@ -1,17 +1,14 @@
 ---
 title: How-tos for leak prevention
-shortTitle: Leak prevention
-intro: Learn how to prevent future secret leaks with {% data variables.product.github %}'s tools.
+shortTitle: Prevent future leaks
+intro: Prevent exposed secrets from reaching your repositories and protected branches.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
 contentType: how-tos
 children:
-  - /enabling-push-protection-for-your-repository
-  - /push-protection-for-users
+  - /enable-push-protection
+  - /manage-user-push-protection
+  - /block-merges-with-secrets
 ---
-

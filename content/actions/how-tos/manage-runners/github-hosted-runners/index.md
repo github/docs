@@ -14,6 +14,7 @@ children:
 redirect_from:
   - /actions/using-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

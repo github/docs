@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Create release tracking issues for a new GHES version
+ */
 import { readFileSync } from 'fs'
 import { basename } from 'path'
 import { Liquid } from 'liquidjs'
@@ -50,7 +54,7 @@ const liquid = new Liquid()
 // [start-readme]
 //
 // This script creates enterprise release and deprecation issues in the
-// github/docs-content and github/docs-engineering repositories.
+// github/docs-content and github/technical-content repositories.
 // The script checks if an issue already exists for the release or deprecation.
 //
 // [end-readme]
@@ -76,7 +80,7 @@ async function run() {
 }
 
 async function createDeprecationIssue() {
-  const repo = 'github/docs-engineering'
+  const repo = 'github/technical-content'
   console.log('Next deprecation number: ', oldestSupported)
   // If an issue already exists for this release, do nothing
   const issueExists = await isExistingIssue(repo, {
@@ -99,12 +103,15 @@ async function createDeprecationIssue() {
   const issueTemplate = readFileSync('src/ghes-releases/lib/deprecation-steps.md', 'utf8')
   const { data, content } = matter(issueTemplate)
   const { title, labels } = data
-  const body = `GHES ${oldestSupported} deprecation occurs on ${deprecationDate}.
-  \n${content}
-  '/cc @github/docs-engineering'`
+  const renderedContent = content.replaceAll('{{ release-number }}', oldestSupported)
+  const body = `GHES ${oldestSupported} deprecation occurs on ${deprecationDate}. Don't start before that date. Late is fine.
+
+${renderedContent}`
   await createIssue(
     repo,
-    title.replace('{{ release-number }}', oldestSupported),
+    title
+      .replaceAll('{{ release-number }}', oldestSupported)
+      .replaceAll('{{ deprecation-date }}', deprecationDate),
     body,
     labels,
     oldestSupported,
@@ -373,13 +380,14 @@ async function isExistingIssue(
   const issues = await octokit.request(`GET /search/issues?q=${query}`)
 
   if (titleMatch) {
-    for (const issue of issues.data.items) {
-      if (issue.title.includes(titleMatch)) {
-        console.log(`Issue ${issue.html_url} already exists for this release.`)
-        return true
-      }
-      return false
+    const match = issues.data.items.find((issue: { title: string }) =>
+      issue.title.includes(titleMatch),
+    )
+    if (match) {
+      console.log(`Issue ${match.html_url} already exists for this release.`)
+      return true
     }
+    return false
   }
 
   const issueExists = !!issues.data.items.length

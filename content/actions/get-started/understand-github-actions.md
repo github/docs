@@ -1,7 +1,7 @@
 ---
 title: Understanding GitHub Actions
 shortTitle: Understand GitHub Actions
-intro: 'Learn the basics of core concepts and essential terminology in {% data variables.product.prodname_actions %}.'
+intro: Learn the basics of core concepts and essential terminology in {% data variables.product.prodname_actions %}.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -12,13 +12,15 @@ redirect_from:
   - /articles/getting-started-with-github-actions
   - /actions/about-github-actions/understanding-github-actions
   - /actions/get-started/understanding-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/actions-components
+  - /enterprise-onboarding/github-actions-for-your-enterprise/understanding-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
-topics:
-  - Fundamentals
+contentType: get-started
+category:
+  - Get started with GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -41,7 +43,7 @@ You must host your own Linux, Windows, or macOS virtual machines to run workflow
 
 {% ifversion ghec or ghes %}
 
-For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).
+For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).
 
 {% endif %}
 
@@ -55,19 +57,23 @@ You can configure a {% data variables.product.prodname_actions %} **workflow** t
 
 {% data reusables.actions.about-workflows-long %}
 
-You can reference a workflow within another workflow. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+You can reference a workflow within another workflow. For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).
 
-For more information, see [AUTOTITLE](/actions/using-workflows).
+For more information, see [AUTOTITLE](/actions/how-tos/write-workflows).
 
 ### Events
 
-An **event** is a specific activity in a repository that triggers a **workflow** run. For example, an activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository. You can also trigger a workflow to run on a [schedule](/actions/using-workflows/events-that-trigger-workflows#schedule), by [posting to a REST API](/rest/repos/repos#create-a-repository-dispatch-event), or manually.
+An **event** is a specific activity in a repository that triggers a **workflow** run. For example, an activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository. You can also trigger a workflow to run on a [schedule](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule), by [posting to a REST API](/rest/repos/repos#create-a-repository-dispatch-event), or manually.
 
-For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows).
+For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/workflows-and-actions/events-that-trigger-workflows).
 
 ### Jobs
 
 A **job** is a set of **steps** in a workflow that is executed on the same **runner**. Each step is either a shell script that will be executed, or an **action** that will be run. Steps are executed in order and are dependent on each other. Since each step is executed on the same runner, you can share data from one step to another. For example, you can have a step that builds your application followed by a step that tests the application that was built.
+
+{% ifversion actions-nga %}
+Steps run in order by default, but you can also run selected steps concurrently when your workflow benefits from parallel execution, such as starting a long-running service while later steps continue. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsbackground).
+{% endif %}
 
 You can configure a job's dependencies with other jobs; by default, jobs have no dependencies and run in parallel. When a job takes a dependency on another job, it waits for the dependent job to complete before running.
 
@@ -75,7 +81,7 @@ You can also use a **matrix** to run the same job multiple times, each with a di
 
 For example, you might configure multiple build jobs for different architectures without any job dependencies and a packaging job that depends on those builds. The build jobs run in parallel, and once they complete successfully, the packaging job runs.
 
-For more information, see [AUTOTITLE](/actions/using-jobs).
+For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do).
 
 ### Actions
 
@@ -89,7 +95,7 @@ You can write your own actions, or you can find actions to use in your workflows
 
 {% data reusables.actions.internal-actions-summary %}
 
-For more information on actions, see [AUTOTITLE](/actions/creating-actions).
+For more information on actions, see [AUTOTITLE](/actions/how-tos/reuse-automations).
 
 ### Runners
 
@@ -97,20 +103,27 @@ A **runner** is a server that runs your workflows when they're triggered. Each r
 {% ifversion ghes %} You must host your own runners for {% data variables.product.prodname_ghe_server %}.
 {% elsif fpt or ghec %}{% data variables.product.company_short %} provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your **workflows**. Each workflow run executes in a fresh, newly-provisioned virtual machine.
 
-{% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners).
+{% ifversion actions-hosted-runners %} {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners).
 {% endif %}
 If you need a different operating system or require a specific hardware configuration, you can host your own runners.
 {% endif %}
 
-For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see [AUTOTITLE](/actions/how-tos/managing-self-hosted-runners).
+For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners).
 
 ## Next steps
 
 {% data reusables.actions.onboarding-next-steps %}
 
+{% ifversion copilot %}
+
+> [!NOTE]
+> For automations that require contextual judgment about your repository's content, you can also author {% data variables.copilot.agentic_workflows_short %} in natural language instead of a traditional {% data variables.product.prodname_actions %} workflow. For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/quickstart) and [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
+
 {% ifversion ghec or ghes %}
 
 ## Further reading
 
-* [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)
+* [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)
 {% endif %}

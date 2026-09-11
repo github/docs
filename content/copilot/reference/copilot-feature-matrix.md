@@ -1,12 +1,11 @@
 ---
 title: Copilot feature matrix
-intro: 'Identify which IDEs support which {% data variables.product.prodname_copilot %} features.'
+intro: Identify which IDEs support which {% data variables.product.prodname_copilot %} features.
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
+contentType: reference
 ---
 
 > [!NOTE]
@@ -16,11 +15,23 @@ category:
 
 **Key:**
 
-* ✓ = supported
-* ✗ = not supported
-* P = under preview
+{% for level in tables.copilot.matrix-meta.supportLevels %}
+* {{ level.symbol }} = {{ level.label }}
+{%- endfor %}
+{%- assign anyNotApplicable = false %}
+{%- for ideKey in tables.copilot.matrix-meta.ideOrder %}
+  {%- assign naList = tables.copilot.matrix[ideKey].notApplicable %}
+  {%- if naList and naList.size > 0 %}{% assign anyNotApplicable = true %}{% endif %}
+{%- endfor %}
+{%- if anyNotApplicable %}
+* — = does not apply to this IDE
+{%- endif %}
 
-<!-- Source for the following tables lives in data/tables/copilot/copilot-matrix.yml -->
+{%- comment %}
+Source for the following tables lives in:
+  data/tables/copilot/matrix-meta.yml   shared config: ideOrder, featureOrder, supportLevels
+  data/tables/copilot/matrix/<ide>.yml  one file per IDE, owned by that IDE's product owner
+{%- endcomment %}
 
 {% ides %}
 
@@ -30,31 +41,34 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 {%- comment %}
 This loop generates the "Features by IDE" comparison table:
-- Outer loop: Iterates through each feature from VS Code's feature list (using VS Code as the canonical source)
-- Inner loop: For each feature, iterates through all IDEs to check support in their latest version
-  - Gets the latest version using ideEntry[1].versions | first
-  - Looks up the support level for that feature in that version
-  - Outputs ✓ (supported), P (preview), or ✗ (not supported)
+- Column order comes from matrix-meta.ideOrder
+- Row order comes from matrix-meta.featureOrder, so a feature that ships first in an
+  IDE other than VS Code still appears here
+- For each cell, looks up the feature in that IDE's latest version (versions | first)
+- A feature listed in an IDE's `notApplicable` renders as — (does not apply), which is
+  distinct from ✗ (not supported)
 Example row: | Agent mode | ✓ | ✓ | P | ✗ | ... |
 {%- endcomment %}
+{%- assign matrix = tables.copilot.matrix %}
+{%- assign meta = tables.copilot.matrix-meta %}
 
-| Feature{%- for entry in tables.copilot.copilot-matrix.ides %} | {{ entry[0] }}{%- endfor %} |
-|:----{%- for entry in tables.copilot.copilot-matrix.ides %}|:----:{%- endfor %}|
-{%- for featureEntry in tables.copilot.copilot-matrix.ides["VS Code"].features %}
-| {{ featureEntry[0] }}{%- for ideEntry in tables.copilot.copilot-matrix.ides %}{%- assign latestVersion = ideEntry[1].versions | first %}{%- assign supportLevel = ideEntry[1].features[featureEntry[0]][latestVersion] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| Feature{%- for ideKey in meta.ideOrder %} | {{ matrix[ideKey].name }}{%- endfor %} |
+|:----{%- for ideKey in meta.ideOrder %}|:----:{%- endfor %}|
+{%- for feature in meta.featureOrder %}
+| {{ feature }}{%- for ideKey in meta.ideOrder %}{%- assign ide = matrix[ideKey] %}{%- assign latestVersion = ide.versions | first %}{%- assign supportLevel = ide.features[feature][latestVersion] %} | {%- if ide.notApplicable contains feature -%}—{%- else -%}{%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endif -%}{%- endfor %} |
 {%- endfor %}
 
 {% endides %}
 
 {% vscode %}
 
-{% assign ideEntry = tables.copilot.copilot-matrix.ides["VS Code"] %}
+{% assign ideEntry = tables.copilot.matrix.vs-code %}
 
 ## Features by VS Code version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the {% if ideEntry.versionType == "extension" %}{% data variables.copilot.copilot_extension %} for the {% endif %}IDE.
 
-{%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
+{%- comment %} Use the predefined versionGroups from the IDE's data file {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
   {%- assign groupName = groupEntry[0] %}
   {%- assign groupVersions = groupEntry[1] %}
@@ -64,7 +78,11 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
+{%- endfor %}
+{%- comment %} Features that do not apply to this IDE at all, rendered as — not ✗ {%- endcomment %}
+{%- for naFeature in ideEntry.notApplicable %}
+| {{ naFeature }}{%- for version in groupVersions %} | —{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}
@@ -73,13 +91,13 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 {% visualstudio %}
 
-{% assign ideEntry = tables.copilot.copilot-matrix.ides["Visual Studio"] %}
+{% assign ideEntry = tables.copilot.matrix.visual-studio %}
 
 ## Features by Visual Studio version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the {% if ideEntry.versionType == "extension" %}{% data variables.copilot.copilot_extension %} for the {% endif %}IDE.
 
-{%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
+{%- comment %} Use the predefined versionGroups from the IDE's data file {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
   {%- assign groupName = groupEntry[0] %}
   {%- assign groupVersions = groupEntry[1] %}
@@ -89,7 +107,11 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
+{%- endfor %}
+{%- comment %} Features that do not apply to this IDE at all, rendered as — not ✗ {%- endcomment %}
+{%- for naFeature in ideEntry.notApplicable %}
+| {{ naFeature }}{%- for version in groupVersions %} | —{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}
@@ -98,13 +120,13 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 {% jetbrains %}
 
-{% assign ideEntry = tables.copilot.copilot-matrix.ides["JetBrains"] %}
+{% assign ideEntry = tables.copilot.matrix.jetbrains %}
 
 ## Features by JetBrains version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the {% data variables.copilot.copilot_extension %} for the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the {% if ideEntry.versionType == "extension" %}{% data variables.copilot.copilot_extension %} for the {% endif %}IDE.
 
-{%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
+{%- comment %} Use the predefined versionGroups from the IDE's data file {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
   {%- assign groupName = groupEntry[0] %}
   {%- assign groupVersions = groupEntry[1] %}
@@ -114,7 +136,11 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
+{%- endfor %}
+{%- comment %} Features that do not apply to this IDE at all, rendered as — not ✗ {%- endcomment %}
+{%- for naFeature in ideEntry.notApplicable %}
+| {{ naFeature }}{%- for version in groupVersions %} | —{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}
@@ -123,13 +149,13 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 {% eclipse %}
 
-{% assign ideEntry = tables.copilot.copilot-matrix.ides["Eclipse"] %}
+{% assign ideEntry = tables.copilot.matrix.eclipse %}
 
 ## Features by Eclipse version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the {% data variables.copilot.copilot_extension %} for the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the {% if ideEntry.versionType == "extension" %}{% data variables.copilot.copilot_extension %} for the {% endif %}IDE.
 
-{%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
+{%- comment %} Use the predefined versionGroups from the IDE's data file {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
   {%- assign groupName = groupEntry[0] %}
   {%- assign groupVersions = groupEntry[1] %}
@@ -139,7 +165,11 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
+{%- endfor %}
+{%- comment %} Features that do not apply to this IDE at all, rendered as — not ✗ {%- endcomment %}
+{%- for naFeature in ideEntry.notApplicable %}
+| {{ naFeature }}{%- for version in groupVersions %} | —{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}
@@ -148,13 +178,13 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 {% xcode %}
 
-{% assign ideEntry = tables.copilot.copilot-matrix.ides["Xcode"] %}
+{% assign ideEntry = tables.copilot.matrix.xcode %}
 
 ## Features by Xcode version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the {% data variables.copilot.copilot_extension %} for the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the {% if ideEntry.versionType == "extension" %}{% data variables.copilot.copilot_extension %} for the {% endif %}IDE.
 
-{%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
+{%- comment %} Use the predefined versionGroups from the IDE's data file {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
   {%- assign groupName = groupEntry[0] %}
   {%- assign groupVersions = groupEntry[1] %}
@@ -164,7 +194,11 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
+{%- endfor %}
+{%- comment %} Features that do not apply to this IDE at all, rendered as — not ✗ {%- endcomment %}
+{%- for naFeature in ideEntry.notApplicable %}
+| {{ naFeature }}{%- for version in groupVersions %} | —{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}
@@ -173,13 +207,13 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 {% vimneovim %}
 
-{% assign ideEntry = tables.copilot.copilot-matrix.ides["NeoVim"] %}
+{% assign ideEntry = tables.copilot.matrix.neovim %}
 
 ## Features by NeoVim version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the {% data variables.copilot.copilot_extension %} for the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the {% if ideEntry.versionType == "extension" %}{% data variables.copilot.copilot_extension %} for the {% endif %}IDE.
 
-{%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
+{%- comment %} Use the predefined versionGroups from the IDE's data file {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
   {%- assign groupName = groupEntry[0] %}
   {%- assign groupVersions = groupEntry[1] %}
@@ -189,7 +223,11 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
+{%- endfor %}
+{%- comment %} Features that do not apply to this IDE at all, rendered as — not ✗ {%- endcomment %}
+{%- for naFeature in ideEntry.notApplicable %}
+| {{ naFeature }}{%- for version in groupVersions %} | —{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}

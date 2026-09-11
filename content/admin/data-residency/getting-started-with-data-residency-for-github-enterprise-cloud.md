@@ -13,6 +13,8 @@ redirect_from:
   - /early-access/admin/preview-of-data-residency-for-github-enterprise/configuring-authentication-and-provisioning-for-your-enterprise
   - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/configuring-authentication-and-provisioning-for-your-enterprise
   - /early-access/admin/data-residency-for-github-enterprise-cloud/configuring-authentication-and-provisioning-for-your-enterprise
+category:
+  - Get started with GitHub Enterprise
 ---
 
 When you adopt {% data variables.enterprise.data_residency %}, you can choose where your company's code and data are stored.
@@ -29,7 +31,7 @@ After this initial setup, you'll be able to create organizations and repositorie
 
 ## Prerequisites
 
-* If you intend to pay with a Microsoft Azure subscription, you must have admin access to the Azure portal or work with someone to configure an admin consent workflow. For a full list of prerequisites, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#prerequisites).
+* If you intend to pay with a Microsoft Azure subscription, you must have admin access to the Azure portal or work with someone to configure an admin consent workflow. For a full list of prerequisites, see [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub#prerequisites).
 
 * {% data reusables.data-residency.data-resident-enterprises-network-access %}
 
@@ -47,14 +49,15 @@ To get started with {% data variables.enterprise.data_residency_short %}, you wi
 1. Select **Get started with managed users**.
 1. Under "Data hosting", use the dropdown menu to select your region for {% data variables.enterprise.data_residency_short %}.
 1. Complete the signup form. Pay close attention to the following fields:
-
    * **Subdomain**: This will appear in your enterprise's dedicated domain. For example: `{% data variables.enterprise.data_residency_example_domain %}`.
-   * **Identity Provider**: {% data variables.product.github %} partners with certain identity providers to provide a "paved-path" experience. Check whether your identity provider is a partner and ensure you understand the requirements for other systems. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
+      > [!NOTE]
+      > Please select the subdomain carefully. You cannot change it later.
+   * **Identity Provider**: {% data variables.product.github %} partners with certain identity providers to provide a "paved-path" experience. Check whether your identity provider is a partner and ensure you understand the requirements for other systems. See [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).
    * **Admin work email**: This is where you will receive the invitation to sign in and configure the enterprise for the first time.
 
 1. Click **Create enterprise**.
 
-Your enterprise can take a few hours to be provisioned. When it's ready, you'll receive a welcome email and an invitation to reset your password, delivered to the "Admin work email" address.
+Your enterprise can take a few hours to be provisioned. You'll receive a welcome email and an invitation to reset your password, delivered to the "Admin work email" address. If opening the password reset link displays a certificate error (such as `net::ERR_CERT_COMMON_NAME_INVALID`), wait for provisioning to finish, then try the link again.
 
 ## 2. Add users to your enterprise
 
@@ -103,8 +106,8 @@ You can purchase {% data variables.product.prodname_enterprise %} at any time du
 
 To pay for licenses and services, you can use a credit card, PayPal, or a Microsoft Azure subscription.
 
-* To add a credit card or PayPal details, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information#viewing-payment-information).
-* To link an Azure subscription, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account).
+* To add a credit card or PayPal details, see [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
+* To link an Azure subscription, see [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub#connecting-your-azure-subscription-to-an-organization-or-enterprise-account).
 
 ## 5. Migrate data
 
@@ -112,7 +115,8 @@ To migrate existing data to your new enterprise on {% data variables.enterprise.
 
 Optionally, you can migrate data to {% data variables.enterprise.data_residency_site %} during your trial. However, migrated organizations will count towards the limit of three new organizations during the trial.
 
-* If you're migrating from {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_ghe_server %}, Azure DevOps, or Bitbucket Server, you can migrate source code history and metadata with {% data variables.product.prodname_importer_proper_name %}. See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
+* If you're migrating from {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_ghe_server %}, Azure DevOps, Bitbucket Server, or GitLab, you can migrate source code history and metadata with {% data variables.product.prodname_importer_proper_name %}. See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
+* For migrations from {% data variables.product.prodname_ghe_server %} 3.17 and later, you can use {% data variables.product.prodname_elm %}. This offers less downtime and better support for complex monorepos. See [AUTOTITLE](/migrations/elm/about-live-migrations).
 * If you're migrating from a different platform, see [AUTOTITLE](/migrations/overview/migration-paths-to-github#migrations-to-ghecom).
 
 ### Example script for {% data variables.product.prodname_importer_proper_name %}

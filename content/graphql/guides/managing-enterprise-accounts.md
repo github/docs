@@ -6,9 +6,9 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 shortTitle: Manage enterprise accounts
+category:
+  - Get started and make API calls
 ---
 
 ## About managing enterprise accounts with GraphQL
@@ -26,7 +26,7 @@ With the Audit Log API, you can monitor when someone:
 * Promotes users to admin.
 * Changes permissions of a GitHub App.
 
-The Audit Log API enables you to keep copies of your audit log data. For queries made with the Audit Log API, the GraphQL response can include data for up to 90 to 120 days. For a list of the fields available with the Audit Log API, see the [AUTOTITLE](/graphql/reference/interfaces#auditentry/).
+The Audit Log API enables you to keep copies of your audit log data. For queries made with the Audit Log API, the GraphQL response can include data for up to 90 to 120 days. For a list of the fields available with the Audit Log API, see the [AUTOTITLE](/graphql/reference/enterprise-admin#interface-auditentry/).
 
 With the Enterprise Accounts API, you can:
 * List and review all of the organizations and repositories that belong to your enterprise account.
@@ -45,7 +45,7 @@ For some example queries, see [An example query using the Enterprise Accounts AP
 
 ### 1. Authenticate with your {% data variables.product.pat_generic %}
 
-1. To authenticate with GraphQL, you need to generate a {% data variables.product.pat_generic %} from developer settings. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+1. To authenticate with GraphQL, you need to generate a {% data variables.product.pat_generic %} from developer settings. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 1. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of your enterprise you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:
     * `repo`

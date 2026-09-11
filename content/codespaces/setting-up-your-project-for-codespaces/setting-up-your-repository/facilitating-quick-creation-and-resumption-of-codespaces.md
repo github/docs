@@ -1,18 +1,17 @@
 ---
 title: Facilitating quick creation and resumption of codespaces
 shortTitle: Facilitating codespace creation
-intro: 'You can add a link to take people straight to a page for creating a codespace, with your choice of options preconfigured. Alternatively you can link to the "Resume codespace" page.'
+intro: You can add a link to take people straight to a page for creating a codespace, with your choice of options preconfigured. Alternatively you can link to the "Resume codespace" page.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Set up
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge
+contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## Overview

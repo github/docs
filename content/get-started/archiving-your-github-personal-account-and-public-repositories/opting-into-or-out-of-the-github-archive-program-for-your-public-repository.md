@@ -8,10 +8,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Policy
-  - Legal
 shortTitle: GitHub Archive program
+category:
+  - Set up your account on GitHub
 ---
 
 {% data reusables.repositories.about-github-archive-program %} For more information, see [AUTOTITLE](/repositories/archiving-a-github-repository/about-archiving-content-and-data-on-github#about-the-github-archive-program).

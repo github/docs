@@ -38,8 +38,8 @@ Use this context to create specific, product-focused intros rather than generic 
 **Content Summarization vs. Title Restatement**:
 
 ❌ **Avoid title restatement, corporate language, and version-specific Liquid**:
-- Title: "Piloting GitHub Copilot coding agent in your organization"
-- Poor intro: "Follow best practices to enable {% data variables.copilot.copilot_coding_agent %} in your organization"
+- Title: "Piloting GitHub Copilot cloud agent in your organization"
+- Poor intro: "Follow best practices to enable {% data variables.copilot.copilot_cloud_agent %} in your organization"
 - Also poor: "Implement a comprehensive Copilot rollout strategy covering license management, environment setup, training programs, and adoption metrics to drive successful enterprise-wide GitHub Copilot deployment and maximize developer productivity"
 
 ❌ **Avoid starting with similar words/phrases as the title**:
@@ -48,12 +48,12 @@ Use this context to create specific, product-focused intros rather than generic 
 - Better: "Use {% data variables.product.prodname_copilot %} chat and code completion to research syntax, practice coding, and master new programming languages faster"
 
 ✅ **Use concise, developer-friendly language ({% data variables.* %} OK)**:
-- Better intro: "Evaluate use cases, configure security settings, and run pilot trials to deploy {% data variables.copilot.copilot_coding_agent %} in your org"
+- Better intro: "Evaluate use cases, configure security settings, and run pilot trials to deploy {% data variables.copilot.copilot_cloud_agent %} in your org"
 
 ❌ **Avoid overly long lists and colon constructions**:
 - Too long: "Scope issues, pick suitable tasks, iterate via PR comments, add repo instructions, enable MCP tools, and preinstall dependencies"
 - Colon problem: "Learn a new programming language with {% data variables.product.prodname_copilot %}: use {% data variables.copilot.copilot_chat_short %} to research syntax and tooling, build and explain small programs with {% data variables.product.prodname_copilot_short %} code completion, and translate familiar code to compare patterns"
-- Better: "Scope tasks, configure custom instructions, and iterate on pull requests to improve {% data variables.copilot.copilot_coding_agent %} performance"
+- Better: "Scope tasks, configure custom instructions, and iterate on pull requests to improve {% data variables.copilot.copilot_cloud_agent %} performance"
 - Better: "Use {% data variables.product.prodname_copilot %} features like chat and code completion to research syntax, build programs, and learn new programming languages faster"
 
 ## Quality Checklist

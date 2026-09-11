@@ -8,8 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 children:
   - /about-merge-methods-on-github
   - /configuring-commit-merging-for-pull-requests

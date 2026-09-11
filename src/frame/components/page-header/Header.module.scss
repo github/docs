@@ -48,16 +48,6 @@
   }
 }
 
-.dialog {
-  @include breakpoint-xxl {
-    display: none;
-  }
-
-  [class*="prc-Dialog-Body"] {
-    padding: 0 !important;
-  }
-}
-
 .headerContainer {
   row-gap: 1rem;
 }

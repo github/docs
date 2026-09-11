@@ -2,7 +2,7 @@
 
 Our automated pipelines directory contains code shared by our automated pipelines, including REST, GraphQL, Webhooks, CodeQL CLI, and GitHub Apps.
 
-## What is automated pipelines
+## What are automated pipelines
 
 An automated pipeline consumes data from an external source that is used to create content for docs.github.com. An automated pipeline does not automate documentation that is created by our content writing team. For example, if a writer creates a structured data file like YAML or JSON that lives in the `docs-internal` repo, using that data to create a page does not create an automated pipeline.
 
@@ -49,10 +49,10 @@ When creating a new pipeline, the source data that is being consumed may not hav
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about automation pipelines, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with one of the automation pipelines, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about automation pipelines, you can ask in the `#technical-content` Slack channel. If you notice a problem with one of the automation pipelines, you can open an issue in the `github/technical-content` repository.
 
 ## Sample Pipeline Template
 

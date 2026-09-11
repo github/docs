@@ -13,9 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
+category:
+  - Write and format content
 ---
 
 ## About tasklists

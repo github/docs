@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Suspend an installation
+category:
+  - Maintain and share your app
 ---
 
 > [!NOTE]

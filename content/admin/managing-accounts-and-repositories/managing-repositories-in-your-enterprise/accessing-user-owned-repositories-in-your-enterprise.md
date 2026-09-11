@@ -1,16 +1,15 @@
 ---
 title: Accessing user-owned repositories in your enterprise
-intro: "You can temporarily access a repository owned by a user within your enterprise."
+intro: You can temporarily access a repository owned by a user within your enterprise.
 permissions: Enterprise owners can temporarily access user-owned repositories.
 versions:
-  feature: 'emu-owned-repos'
-type: how_to
-topics:
-  - Enterprise
-  - Repositories
+  feature: emu-owned-repos
 shortTitle: Access user-owned repositories
 redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About temporary access to user-owned repositories

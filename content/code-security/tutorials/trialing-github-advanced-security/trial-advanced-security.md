@@ -6,29 +6,28 @@ product: '{% data reusables.gated-features.ghas-trial %}'
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.15'
+  ghes: '*'
 redirect_from:
   - /billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security
   - /billing/how-tos/products/trial-advanced-security
   - /code-security/trialing-github-advanced-security/trial-advanced-security
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: Trial Advanced Security
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 ## Prerequisites
 
 To set up a trial of {% data variables.product.prodname_GHAS %} using this method, you must meet the following criteria:
 
-1. You are an owner of an enterprise account. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts).
+1. You are an owner of an enterprise account. See [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
 1. You pay by credit card or PayPal.
 1. You have not previously purchased {% data variables.product.prodname_GHAS %} (that is, you do not currently or in the past have a paid license for {% data variables.product.prodname_GHAS %}).
 1. You are not already using metered billing for {% data variables.product.prodname_GHAS %}.
 1. If you have had a previous {% data variables.product.prodname_GHAS %} trial, you are eligible only if you have had no more than one previous trial and it ended at least 180 days ago.
+1. Your enterprise has 300 or fewer seats.
 
 > [!TIP]
 > * **No enterprise account?** Start a trial of {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GHAS %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
@@ -43,6 +42,18 @@ To set up a trial of {% data variables.product.prodname_GHAS %} using this metho
 
    During a trial of {% data variables.product.prodname_GHAS %}, you can add any number of committers and enable {% data variables.product.prodname_GH_cs_and_sp %} for any number of organizations.
 
+## Billing during your trial
+
+During the trial, you do not pay license fees for {% data variables.product.prodname_GHAS %}.
+
+{% ifversion fpt or ghec %}
+
+Usage-based billing continues for features that consume {% data variables.product.prodname_actions %} minutes or {% data variables.product.prodname_ai_credits_short %}.
+
+For private repositories, minutes used by {% data variables.product.prodname_GHAS %} workflows that run on standard {% data variables.product.prodname_dotcom %}-hosted runners, including code scanning workflows, count toward the 50,000 minutes included each month with your {% data variables.product.prodname_ghe_cloud %} plan. Workflows in public repositories or on self-hosted runners do not consume included minutes. {% data variables.actions.hosted_runners %} are billed separately. Usage beyond the included amount is billed at the standard rate. For more information, see [AUTOTITLE](/billing/reference/product-usage-included).
+
+{% endif %}
+
 ## Finishing your trial
 
 You can finish your trial at any time by purchasing licenses for {% data variables.product.prodname_GH_cs_or_sp %}. If you haven't made a purchase by the end of the 30 days, your trial will expire.
@@ -54,9 +65,3 @@ If you pay for {% data variables.product.prodname_ghe_cloud %} with metered bill
 {% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
 1. To the right of "{% data variables.product.prodname_GHAS %} trial", select the **Manage** dropdown menu and click **Purchase**.
 {% data reusables.advanced-security.purchase-ghas %}
-
-## Next steps
-
-1. [AUTOTITLE](/code-security/trialing-github-advanced-security/enable-security-features-trial)
-1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-secret-scanning)
-1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-code-scanning)

@@ -4,7 +4,10 @@ intro: You can view the deadline for an assignment at any time through the READM
 versions:
   fpt: '*'
 shortTitle: View deadline
+category:
+  - Track assignment progress
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About assignment deadlines
 

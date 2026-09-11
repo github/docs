@@ -4,12 +4,10 @@ intro: You can cancel your sponsorship.
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Cancellation
-  - Sponsors
 shortTitle: Cancel sponsorship
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 **When you cancel a sponsorship, the change will become effective on your next billing date**. {% data reusables.sponsors.no-refunds %}

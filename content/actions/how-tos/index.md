@@ -20,4 +20,6 @@ children:
   - /get-support
 redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows
+contentType: how-tos
 ---
+

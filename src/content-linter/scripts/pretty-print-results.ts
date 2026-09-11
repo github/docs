@@ -152,8 +152,8 @@ function chalkFunColors(text: string): string {
     .map((char) => {
       const color = shuffledColors[colorIndex]
       colorIndex = (colorIndex + 1) % shuffledColors.length
-      // Chalk's TypeScript types don't support dynamic property access, but these are valid color methods
-      return (chalk as any)[color](char)
+      const colorFn = chalk[color] as (text: string) => string
+      return colorFn(char)
     })
     .join('')
 }

@@ -10,8 +10,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /configuring-user-applications-for-your-enterprise
   - /hardening-security-for-your-enterprise
@@ -22,6 +20,6 @@ children:
 {% ifversion ghes %}
 
 > [!NOTE]
-> To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see [AUTOTITLE](/admin/github-actions) or [AUTOTITLE](/admin/packages).
+> To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise) or [AUTOTITLE](/admin/configuring-packages).
 
 {% endif %}

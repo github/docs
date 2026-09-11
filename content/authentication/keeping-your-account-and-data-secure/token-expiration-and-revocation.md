@@ -5,12 +5,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Token expiration
 redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation
+category:
+  - Manage access credentials
 ---
 
 When a token has expired or has been revoked, it can no longer be used to authenticate Git and API requests. It is not possible to restore an expired or revoked token, you or the application will need to create a new token.
@@ -18,11 +17,11 @@ When a token has expired or has been revoked, it can no longer be used to authen
 This article explains the possible reasons your {% data variables.product.github %} token might be revoked or expire.
 
 > [!NOTE]
-> When a {% data variables.product.pat_generic %} or OAuth token expires or is revoked, you may see an `oauth_authorization.destroy` action in your security log. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log).
+> When a {% data variables.product.pat_generic %}, {% data variables.product.prodname_oauth_app %} token, or {% data variables.product.prodname_github_app %} token expires or is revoked, you may see an `oauth_authorization.destroy` action in your security log. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log).
 
 ## Token revoked after reaching its expiration date
 
-When you create a {% data variables.product.pat_generic %}, we recommend that you set an expiration for your token. Upon reaching your token's expiration date, the token is automatically revoked. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+When you create a {% data variables.product.pat_generic %}, we recommend that you set an expiration for your token. Upon reaching your token's expiration date, the token is automatically revoked. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 {% ifversion fpt or ghec %}
 
@@ -41,17 +40,31 @@ If a valid OAuth token, {% data variables.product.prodname_github_app %} token, 
 
 ## Token revoked by the user
 
-You can revoke your authorization of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} from your account settings which will revoke any tokens associated with the app. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations) and [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-applications-oauth).
+You can revoke your authorization of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} from your account settings which will revoke any tokens associated with the app. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps) and [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-oauth-apps).
 
 Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To reauthorize an application, follow the instructions from the third-party application or website to connect your account on {% data variables.product.prodname_dotcom %} again.
+
+{% ifversion single_user_cred_revocation %}
+
+You can also revoke all your credentials at once from your account settings. This is useful if you believe your account may be compromised or your hardware was lost or stolen. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/revoking-your-credentials).
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
 ## Token revoked by a third party
 
-To prevent unauthorized access using exposed tokens, {% data variables.product.github %} recommends token revocation to ensure that a token can no longer be used to authenticate to {% data variables.product.github %}. If you find another user's {% data variables.product.pat_generic %} leaked on {% data variables.product.github %} or elsewhere, you can submit a revocation request through the REST API. See [AUTOTITLE](/rest/credentials/revoke#revoke-a-list-of-credentials).
+To prevent unauthorized access using exposed tokens, {% data variables.product.github %} recommends token revocation to ensure that a token can no longer be used to authenticate to {% data variables.product.github %}. The credential revocation API supports revoking the following token types:
 
-If a valid {% data variables.product.pat_generic %} is submitted to {% data variables.product.github %}'s credential revocation API, the token will be automatically revoked. This API allows a third party to revoke a token they do not own and helps protect the data associated with this token from unauthorized access, limiting the impact of exposed tokens.
+* {% data variables.product.pat_v1_caps_plural %} with the `ghp_` prefix
+* {% data variables.product.pat_v2_caps_plural %} with the `github_pat_` prefix
+* {% data variables.product.prodname_oauth_app %} tokens with the `gho_` prefix
+* {% data variables.product.prodname_github_app %} user-to-server tokens with the `ghu_` prefix
+* {% data variables.product.prodname_github_app %} refresh tokens with the `ghr_` prefix
+
+If you find any of these tokens leaked on {% data variables.product.github %} or elsewhere, you can submit a revocation request through the REST API. See [AUTOTITLE](/rest/credentials/revoke#revoke-a-list-of-credentials) for the complete and authoritative list of supported token types.
+
+When a valid token is submitted to {% data variables.product.github %}'s credential revocation API, the token will be automatically revoked. This API allows a third party to revoke a token they do not own and helps protect the data associated with this token from unauthorized access, limiting the impact of exposed tokens.
 
 To encourage reports and ensure that exposed tokens can be quickly and easily revoked, we do not require authentication for the revocation requests submitted through the API. As a result, {% data variables.product.github %} is unable to provide further information about the source of the reported token.
 
@@ -70,3 +83,13 @@ The owner of an {% data variables.product.prodname_oauth_app %} can revoke an ac
 ## User token expired due to {% data variables.product.prodname_github_app %} configuration
 
 User access tokens created by a {% data variables.product.prodname_github_app %} will expire after eight hours by default, and then must be regenerated using the included refresh token. Owners of {% data variables.product.prodname_github_apps %} can optionally configure these tokens to never expire instead, but this is not recommended due to the security implications. For more information about configuring your {% data variables.product.prodname_github_app %}'s user access tokens, see [AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps).
+
+{% ifversion fpt or ghec %}
+
+## Token revoked by enterprise owners
+
+Enterprise owners on {% data variables.product.prodname_ghe_cloud %} can revoke SSO authorizations or delete credentials{% ifversion single_user_cred_revocation %} for individual users, for a specific credential type, or{% endif %} in bulk when responding to security incidents. Revoking SSO authorizations removes access to SSO-protected organization resources, while deleting credentials (available for {% data variables.product.prodname_emus %} only) removes the credentials entirely.{% ifversion single_user_cred_revocation %} Organization owners can take the same actions at the organization level. These actions are recorded in the audit log, and you will receive an email notification.{% endif %}
+
+For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens).
+
+{% endif %}

@@ -16,6 +16,7 @@ data_residency_site: 'GHE.com'
 data_residency_domain: 'SUBDOMAIN.ghe.com'
 data_residency_api: 'api.SUBDOMAIN.ghe.com'
 data_residency_example_domain: 'octocorp.ghe.com'
+data_residency_example_git_ssh: 'octocorp@octocorp.ghe.com'
 
 # GitHub Connect (enterprise accounts, other unified features)
 ## Phrase content so that the uncapitalized unified contributions or unified search variables are not used at the start of a sentence.

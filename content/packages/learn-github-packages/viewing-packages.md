@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Get started with packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

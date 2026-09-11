@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
 children:
   - /installing-an-oauth-app-in-your-personal-account
   - /installing-an-oauth-app-in-your-organization

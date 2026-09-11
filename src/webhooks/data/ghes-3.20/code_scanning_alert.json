@@ -1,0 +1,520 @@
+{
+  "appeared_in_branch": {
+    "descriptionHtml": "<p>A previously created code scanning alert appeared in another branch. This can happen when a branch is merged into or created from a branch with a pre-existing code scanning alert.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to code scanning alerts in a repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning\">About code scanning</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts\">About code scanning alerts</a>.\" For information about the API to manage code scanning, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/code-scanning\">Code scanning</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Code scanning alerts\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "appeared_in_branch"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "alert",
+        "description": "<p>The code scanning alert involved in the event.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "commit_oid",
+        "description": "<p>The commit SHA of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "ref",
+        "description": "<p>The Git reference of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "appeared_in_branch",
+    "category": "code_scanning_alert"
+  },
+  "closed_by_user": {
+    "descriptionHtml": "<p>Someone closed a code scanning alert.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to code scanning alerts in a repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning\">About code scanning</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts\">About code scanning alerts</a>.\" For information about the API to manage code scanning, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/code-scanning\">Code scanning</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Code scanning alerts\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "closed_by_user"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "alert",
+        "description": "<p>The code scanning alert involved in the event.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "commit_oid",
+        "description": "<p>The commit SHA of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "ref",
+        "description": "<p>The Git reference of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "closed_by_user",
+    "category": "code_scanning_alert"
+  },
+  "created": {
+    "descriptionHtml": "<p>A code scanning alert was created in a repository.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to code scanning alerts in a repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning\">About code scanning</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts\">About code scanning alerts</a>.\" For information about the API to manage code scanning, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/code-scanning\">Code scanning</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Code scanning alerts\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "created"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "alert",
+        "description": "<p>The code scanning alert involved in the event.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "commit_oid",
+        "description": "<p>The commit SHA of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "ref",
+        "description": "<p>The Git reference of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "created",
+    "category": "code_scanning_alert"
+  },
+  "fixed": {
+    "descriptionHtml": "<p>A code scanning alert was fixed in a branch by a commit.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to code scanning alerts in a repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning\">About code scanning</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts\">About code scanning alerts</a>.\" For information about the API to manage code scanning, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/code-scanning\">Code scanning</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Code scanning alerts\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "fixed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "alert",
+        "description": "<p>The code scanning alert involved in the event.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "commit_oid",
+        "description": "<p>The commit SHA of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "ref",
+        "description": "<p>The Git reference of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "fixed",
+    "category": "code_scanning_alert"
+  },
+  "reopened": {
+    "descriptionHtml": "<p>A previously fixed code scanning alert reappeared in a branch.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to code scanning alerts in a repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning\">About code scanning</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts\">About code scanning alerts</a>.\" For information about the API to manage code scanning, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/code-scanning\">Code scanning</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Code scanning alerts\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "reopened"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "alert",
+        "description": "<p>The code scanning alert involved in the event.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string or null",
+        "name": "commit_oid",
+        "description": "<p>The commit SHA of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string or null",
+        "name": "ref",
+        "description": "<p>The Git reference of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "reopened",
+    "category": "code_scanning_alert"
+  },
+  "reopened_by_user": {
+    "descriptionHtml": "<p>Someone reopened a code scanning alert.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to code scanning alerts in a repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning\">About code scanning</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts\">About code scanning alerts</a>.\" For information about the API to manage code scanning, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/code-scanning\">Code scanning</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Code scanning alerts\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "reopened_by_user"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "alert",
+        "description": "<p>The code scanning alert involved in the event.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "commit_oid",
+        "description": "<p>The commit SHA of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "ref",
+        "description": "<p>The Git reference of the code scanning alert. When the action is <code>reopened_by_user</code> or <code>closed_by_user</code>, the event was triggered by the <code>sender</code> and this value will be empty.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "reopened_by_user",
+    "category": "code_scanning_alert"
+  },
+  "updated_assignment": {
+    "descriptionHtml": "<p>The assignees list of a code scanning alert has been updated.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to code scanning alerts in a repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning\">About code scanning</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.20/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts\">About code scanning alerts</a>.\" For information about the API to manage code scanning, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/code-scanning\">Code scanning</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Code scanning alerts\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "updated_assignment"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "alert",
+        "description": "<p>The code scanning alert involved in the event.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.20/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "updated_assignment",
+    "category": "code_scanning_alert"
+  }
+}

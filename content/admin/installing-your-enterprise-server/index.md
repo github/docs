@@ -1,8 +1,8 @@
 ---
-title: 'Installing {% data variables.product.prodname_enterprise %}'
+title: Installing {% data variables.product.prodname_enterprise %}
 allowTitleToDifferFromFilename: true
 shortTitle: Installation
-intro: 'System administrators and operations and security specialists can install {% data variables.product.prodname_ghe_server %}.'
+intro: System administrators and operations and security specialists can install {% data variables.product.prodname_ghe_server %}.
 redirect_from:
   - /enterprise/admin-guide
   - /enterprise/admin/guides/installation
@@ -13,13 +13,9 @@ redirect_from:
   - /admin/installation
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Set up
 children:
   - /setting-up-a-github-enterprise-server-instance
+contentType: how-tos
 ---
 For more information, or to purchase {% data variables.product.prodname_enterprise %}, see [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
 

@@ -5,14 +5,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Usernames
 shortTitle: Change username
 permissions: '{% ifversion ghec %}Users with personal accounts can change their username. Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot change their username.{% elsif ghes %}If your instance uses built-in authentication or LDAP, you can change your username. If you sign in to {% data variables.location.product_location %} with single sign-on (SSO), only your local administrator can change your username.{% else %}Users with personal accounts can change their username.{% endif %}'
 contentType: how-tos
 redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/changing-your-username
+category:
+  - Change or close your account
 ---
 
 ## Prerequisites

@@ -8,6 +8,10 @@
 @import "@primer/css/alerts/index.scss";
 @import "@primer/css/popover/index.scss";
 
+// Primer Brand design system (Docs 2026 migration — github/docs-engineering#5879).
+// Loaded alongside @primer/css during the incremental component-by-component swap.
+@import "@primer/react-brand/lib/css/main.css";
+
 @import "headings.scss";
 @import "scroll-top.scss";
 @import "utilities.scss";

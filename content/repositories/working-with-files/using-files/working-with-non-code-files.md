@@ -29,9 +29,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Working with non-code files
+category:
+  - Work with files
 ---
 
 ## Rendering and diffing images
@@ -184,7 +184,7 @@ We provide a tooltip describing changes to attributes that, unlike words, would 
 
 ### Commenting on changes
 
-[Commit comments](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) can only
+[Commit comments](/pull-requests/how-tos/review-pull-requests/commenting-on-a-pull-request) can only
 be added to files within the _source_ view, on a line-by-line basis.
 
 ### Linking to headers

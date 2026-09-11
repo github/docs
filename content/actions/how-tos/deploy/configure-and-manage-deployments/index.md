@@ -18,4 +18,6 @@ children:
   - /review-deployments
   - /create-custom-protection-rules
   - /configure-custom-protection-rules
+contentType: how-tos
 ---
+

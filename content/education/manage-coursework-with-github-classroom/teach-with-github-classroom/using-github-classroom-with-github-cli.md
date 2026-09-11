@@ -1,12 +1,18 @@
 ---
-title: 'Using {% data variables.product.prodname_classroom %} with {% data variables.product.prodname_cli %}'
+title: Using {% data variables.product.prodname_classroom %} with {% data variables.product.prodname_cli %}
 shortTitle: '{% data variables.product.prodname_classroom %} CLI'
 allowTitleToDifferFromFilename: true
-intro: 'You can use `gh`, the {% data variables.product.github %} command line interface, to work with {% data variables.product.prodname_classroom %} directly from your command line.'
+intro: You can use `gh`, the {% data variables.product.github %} command line interface, to work with {% data variables.product.prodname_classroom %} directly from your command line.
 versions:
   fpt: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Set up GitHub Classroom
 ---
+
+> [!WARNING]
+> **Closing down:** This `gh` extension is closing down. The {% data variables.product.prodname_classroom %} application will be retired on August 28, 2026.
+> For more information, see the [{% data variables.product.prodname_classroom %} closing down notice](https://gh.io/classroom-sunset).
 
 ## About {% data variables.product.prodname_classroom %} CLI <!-- omit in toc -->
 

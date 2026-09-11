@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Cookies from '@/frame/components/lib/cookies'
 import { UnderlineNav } from '@primer/react'
 import { sendEvent } from '@/events/components/events'
@@ -6,6 +6,8 @@ import { EventType } from '@/events/types'
 import { useRouter } from 'next/router'
 
 import styles from './InArticlePicker.module.scss'
+
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 type Option = {
   value: string
@@ -37,6 +39,11 @@ export const InArticlePicker = ({
   const { query, locale } = router
   const [currentValue, setCurrentValue] = useState('')
 
+  // Tracks whether the last currentValue change was triggered by a user click
+  // (as opposed to initial mount or external navigation). When true, we move
+  // focus to the newly-selected tab so keyboard users don't lose their place.
+  const focusAfterNavRef = useRef(false)
+
   // Run on mount for client-side only features
   useEffect(() => {
     const raw = query[queryStringKey]
@@ -63,7 +70,11 @@ export const InArticlePicker = ({
 
   const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
 
-  useEffect(() => {
+  // Use a layout effect so the DOM mutation (hiding non-matching .ghd-tool
+  // content) happens before the browser paints. With React 19's stricter
+  // effect timing, a regular useEffect could leave non-matching content
+  // visible on initial page load until after first paint.
+  useIsomorphicLayoutEffect(() => {
     // This will make the hook run this callback on mount and on change.
     // That's important because even though the user hasn't interacted
     // and made an overriding choice, we still want to run this callback
@@ -122,6 +133,7 @@ export const InArticlePicker = ({
   }, [currentValue])
 
   function onClickChoice(value: string) {
+    focusAfterNavRef.current = true
     const params = new URLSearchParams(asPathQuery)
     params.set(queryStringKey, value)
     const newPath = `/${locale}${asPathRoot}?${params}`
@@ -135,6 +147,21 @@ export const InArticlePicker = ({
 
     Cookies.set(cookieKey, value)
   }
+
+  // After a user clicks a tab, the shallow route change updates `currentValue`.
+  // Once the DOM reflects the new selection (aria-current="page" is on the new
+  // tab), move keyboard focus there so the user's context is preserved.
+  // WCAG 2.4.3 Focus Order — focus must land on the triggered control.
+  useEffect(() => {
+    if (!focusAfterNavRef.current || !currentValue) return
+    focusAfterNavRef.current = false
+
+    const container = document.querySelector<HTMLElement>(
+      `[data-testid="${queryStringKey}-picker"]`,
+    )
+    const selectedTab = container?.querySelector<HTMLElement>('[aria-current="page"]')
+    selectedTab?.focus()
+  }, [currentValue, queryStringKey])
 
   const sharedContainerProps = {
     'aria-label': ariaLabel,

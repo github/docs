@@ -1,17 +1,10 @@
 ---
 title: Configuring authentication and provisioning with Entra ID
 shortTitle: Set up Entra ID
-intro: 'You can use a tenant in Microsoft Entra ID (previously known as Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.location.product_location %}.'
+intro: You can use a tenant in Microsoft Entra ID (previously known as Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.location.product_location %}.
 permissions: Site administrators with admin access to the IdP
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
@@ -19,9 +12,10 @@ redirect_from:
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-entra-id
   - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-entra-id
+contentType: how-tos
+category:
+  - Provision and manage enterprise users
 ---
-
-{% data reusables.scim.ghes-beta-note %}
 
 ## About authentication and user provisioning with Entra ID
 
@@ -83,4 +77,4 @@ Before starting this section, ensure you have followed steps **1 to 4** in [AUTO
 1. Navigate back to the "Overview" page.
 1. To provision your EntraID users to your {% data variables.product.prodname_ghe_server %} appliance, Click **Start provisioning**.
 
-When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings).
+When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-update-settings).

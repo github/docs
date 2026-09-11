@@ -1,5 +1,5 @@
 import { Link } from '@/frame/components/Link'
-import { FeaturedLink } from '@/landings/components/ProductLandingContext'
+import type { FeaturedLink } from '@/landings/types'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'

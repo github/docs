@@ -76,8 +76,30 @@ describe('Audit Logs transformer', () => {
     // #### `action.name`
     expect(res.body).toMatch(/#### `[\w.]+`/)
 
-    // Check for fields section
-    expect(res.body).toContain('**Fields:**')
+    // Check for fields section - either common fields summary or additional fields per event
+    const body = res.body
+    const hasCommonFields = body.includes('### Common fields')
+    const hasAdditionalFields = body.includes('**Additional fields:**')
+    expect(hasCommonFields || hasAdditionalFields).toBe(true)
+
+    // Validate that a known common field is in the common section and not duplicated
+    if (hasCommonFields) {
+      const commonFieldsIndex = body.indexOf('### Common fields')
+      const commonFieldsSection = body.slice(
+        commonFieldsIndex,
+        body.indexOf('\n###', commonFieldsIndex + 1),
+      )
+      expect(commonFieldsSection).toContain('`action`')
+    }
+
+    // Ensure common fields do not appear in any "Additional fields" section
+    if (hasAdditionalFields) {
+      const additionalSections = body.split('**Additional fields:**').slice(1)
+      for (const section of additionalSections) {
+        const fieldsLine = section.split('\n')[0]
+        expect(fieldsLine).not.toContain('`action`')
+      }
+    }
 
     // Check for reference section
     expect(res.body).toContain('**Reference:**')

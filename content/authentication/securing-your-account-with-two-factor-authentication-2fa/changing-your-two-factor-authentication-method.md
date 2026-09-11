@@ -12,9 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: Change 2FA method
+category:
+  - Set up two-factor authentication
 ---
 
 You can reconfigure your two-factor authentication (2FA) settings or add new 2FA methods without disabling 2FA entirely, allowing you to keep both your recovery codes and your membership in organizations that require 2FA.

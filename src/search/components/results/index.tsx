@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Heading } from '@primer/react'
+import { Heading } from '@primer/react-brand'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
@@ -10,6 +10,8 @@ import { useMainContext } from '@/frame/components/context/MainContext'
 import { ValidationErrors } from '@/search/components/results/ValidationErrors'
 import { useSearchContext } from '@/search/components/context/SearchContext'
 import type { estypes } from '@elastic/elasticsearch'
+
+import styles from './SearchPage.module.scss'
 
 export function Search() {
   const { search } = useSearchContext()
@@ -43,14 +45,16 @@ export function Search() {
   }
 
   return (
-    <div className="container-xl px-3 px-md-6 my-4" data-testid="search-results">
+    <div data-testid="search-results">
       <Head>
         <title>{pageTitle}</title>
       </Head>
       {hasQuery && (
-        <Heading as="h1" className="mb-2">
-          {pageTitle}
-        </Heading>
+        <div className={styles.hero}>
+          <Heading as="h1" size="3" className={styles.heroTitle}>
+            {pageTitle}
+          </Heading>
+        </div>
       )}
 
       {/* Not having a query is actually a validation error.

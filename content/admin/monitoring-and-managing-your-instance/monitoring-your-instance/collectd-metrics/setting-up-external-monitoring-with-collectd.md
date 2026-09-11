@@ -1,6 +1,6 @@
 ---
 title: Setting up external monitoring with collectd
-intro: 'Configure external monitoring systems to collect and analyze collectd metrics from your {% data variables.product.prodname_ghe_server %} instance.'
+intro: Configure external monitoring systems to collect and analyze collectd metrics from your {% data variables.product.prodname_ghe_server %} instance.
 redirect_from:
   - /enterprise/admin/installation/setting-up-external-monitoring
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
@@ -19,13 +19,10 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Infrastructure
-  - Monitoring
-  - Performance
 shortTitle: External monitoring with collectd
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.collectd-metrics-future %}

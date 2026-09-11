@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Configure default editor
+category:
+  - Configure and customize GitHub Desktop
 ---
 
 ## Introduction

@@ -6,8 +6,6 @@ intro: 'Use the REST API to manage {% data variables.product.prodname_github_cod
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - API
 children:
   - /codespaces
   - /organizations

@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 children:
   - /actions-runner-pricing
   - /azure-billing
@@ -15,7 +13,6 @@ children:
   - /billing-reports
   - /billing-roles
   - /cost-center-allocation
-  - /costs-for-github-models
   - /enterprise-license-troubleshooting
   - /github-license-users
   - /license-reports
@@ -23,6 +20,5 @@ children:
   - /product-usage-included
   - /roles-for-visual-studio
   - /supported-payment-methods
-  - /previous-billing-platform-endpoints
 contentType: reference
 ---

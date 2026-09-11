@@ -3,6 +3,7 @@ import { PersonIcon, BriefcaseIcon } from '@primer/octicons-react'
 import { useTranslation } from '@/languages/components/useTranslation'
 
 import styles from './PermissionsStatement.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML'
 
 type Props = {
   product?: string
@@ -21,13 +22,13 @@ export function PermissionsStatement({ product, permissions }: Props) {
         {permissions && (
           <div className="d-flex permissions-statement" data-testid="permissions-statement">
             <PersonIcon className="mt-1" />
-            <div className="pl-2" dangerouslySetInnerHTML={{ __html: permissions }} />
+            <RenderedHTML as="div" className="pl-2" html={permissions} />
           </div>
         )}
         {product && (
           <div className="d-flex product-statement" data-testid="product-statement">
             <BriefcaseIcon className="mt-1" />
-            <div className="pl-2" dangerouslySetInnerHTML={{ __html: product }} />
+            <RenderedHTML as="div" className="pl-2" html={product} />
           </div>
         )}
       </div>

@@ -30,7 +30,7 @@ export default function assetPreprocessing(
       // By forcing this to be a redirect, it means we only serve
       // 1 single file. All other requests will be redirects.
       // Otherwise someone might trigger too much bypassing of the CDN.
-      return res.redirect(req.url.toLowerCase())
+      return res.safeRedirect(req.url.toLowerCase())
     }
 
     // We're only confident enough to set the *manual* surrogate key if the

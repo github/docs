@@ -11,11 +11,20 @@ redirect_from:
   - /actions/sharing-automations/avoiding-duplication
   - /actions/concepts/workflows-and-actions/avoiding-duplication
   - /actions/concepts/workflows-and-actions/reusable-workflows
+category:
+  - Reuse and share automations
+contentType: concepts
 ---
 
 ## Reusable workflows
 
 Rather than copying and pasting from one workflow to another, you can make workflows reusable. You and anyone with access to the reusable workflow can then call the reusable workflow from another workflow.
+
+{% ifversion copilot %}
+
+Reusable workflows also complement {% data variables.copilot.agentic_workflows_short %}: an agentic workflow can call approved, deterministic reusable workflows rather than duplicating logic. For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
 
 Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions. Workflow reuse also promotes best practice by helping you to use workflows that are well designed, have already been tested, and have been proven to be effective. Your organization can build up a library of reusable workflows that can be centrally maintained.
 
@@ -33,7 +42,7 @@ A workflow that uses another workflow is referred to as a "caller" workflow. The
 
 If you reuse a workflow from a different repository, any actions in the called workflow run as if they were part of the caller workflow. For example, if the called workflow uses `actions/checkout`, the action checks out the contents of the repository that hosts the caller workflow, not the called workflow.
 
-You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/concepts/supply-chain-security/dependency-graph).”
 
 ### Reusable workflows versus composite actions
 
@@ -44,7 +53,7 @@ Let's compare some aspects of each solution:
 * **Workflow jobs** - Composite actions contain a series of steps that are run as a single step within the caller workflow. Unlike reusable workflows, they cannot contain jobs.
 * **Logging** - When a composite action runs, the log will show just the step in the caller workflow that ran the composite action, not the individual steps within the composite action. With reusable workflows, every job and step is logged separately.
 * **Specifying runners** - Reusable workflows contain one or more jobs. As with all workflow jobs, the jobs in a reusable workflow specify the type of machine on which the job will run. Therefore, if the steps must be run on a type of machine that might be different from the machine chosen for the calling workflow job, then you should use a reusable workflow, not a composite action.
-* **Passing output to steps** - A composite action is run as a step within a workflow job, and you can have multiple steps before or after the step that runs the composite action. Reusable workflows are called directly within a job, and not from within a job step. You can't add steps to a job after calling a reusable workflow, so you can't use `GITHUB_ENV` to pass values to subsequent job steps in the caller workflow.
+* **Passing output to steps** - A composite action is run as a step within a workflow job, and you can have multiple steps before or after the step that runs the composite action. Reusable workflows are called directly within a job, and not from within a job step. You can't add steps to a job after calling a reusable workflow, but reusable workflows now support outputs that can be referenced in subsequent jobs in the caller workflow.
 
 ### Key differences between reusable workflows and composite actions
 
@@ -64,7 +73,7 @@ Let's compare some aspects of each solution:
 
 Workflow templates allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a workflow template and some or all of the work of writing the workflow will be done for them. Within a workflow template, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code.
 
-If you use a commit SHA when referencing the reusable workflow, you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows).
+If you use a commit SHA when referencing the reusable workflow, you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see [AUTOTITLE](/actions/reference/security/secure-use#reusing-third-party-workflows).
 
 {% data variables.product.github %} offers workflow templates for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.github %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. For example, if you use Node.js, {% data variables.product.github %} will suggest a workflow template file that installs your Node.js packages and runs your tests. You can search and filter to find relevant workflow templates.
 
@@ -72,7 +81,13 @@ If you use a commit SHA when referencing the reusable workflow, you can ensure t
 
 {% data reusables.actions.workflow-templates-repo-link %}
 
-For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
+For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations/create-workflow-templates).
+
+{% ifversion copilot %}
+
+Organizations can also share and govern approved {% data variables.copilot.agentic_workflows_short %} templates alongside shared actions and reusable workflows. To create templates with {% data variables.copilot.github_agentic_workflows %}, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -86,6 +101,6 @@ For reference information and examples, see [AUTOTITLE](/actions/reference/workf
 
 ## Next steps
 
-To start reusing your workflows, see [AUTOTITLE](/actions/how-tos/sharing-automations/reuse-workflows).
+To start reusing your workflows, see [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows).
 
-To find information on the intricacies of reusing workflows, see [AUTOTITLE](/actions/reference/reusable-workflows-reference).
+To find information on the intricacies of reusing workflows, see [AUTOTITLE](/actions/reference/workflows-and-actions/reusing-workflow-configurations).

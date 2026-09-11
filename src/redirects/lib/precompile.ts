@@ -11,19 +11,29 @@ type Redirects = Record<string, string>
 // This function runs at server warmup and precompiles possible redirect routes.
 // It outputs them in key-value pairs within a neat JavaScript object: { oldPath: newPath }
 export async function precompileRedirects(pageList: Page[]): Promise<Redirects> {
-  const allRedirects: Redirects = readCompressedJsonFileFallback(
+  const allRedirects = readCompressedJsonFileFallback(
     './src/redirects/lib/static/developer.json',
-  )
+  ) as Redirects
 
-  const externalRedirects: Redirects = readCompressedJsonFileFallback(
+  const externalRedirects = readCompressedJsonFileFallback(
     './src/redirects/lib/external-sites.json',
-  )
+  ) as Redirects
   Object.assign(allRedirects, externalRedirects)
 
   // CURRENT PAGES PERMALINKS AND FRONTMATTER
   // create backwards-compatible old paths for page permalinks and frontmatter redirects
   for (const page of pageList.filter((xpage) => xpage.languageCode === 'en')) {
     Object.assign(allRedirects, page.buildRedirects())
+  }
+
+  // Remove any redirect whose source URL is also a real page permalink.
+  // This prevents redirect_from entries from clobbering live pages when a
+  // new page (versioned broadly) declares a redirect_from that overlaps
+  // with an older page that still exists in some versions.
+  for (const page of pageList.filter((xpage) => xpage.languageCode === 'en')) {
+    for (const permalink of page.permalinks) {
+      delete allRedirects[permalink.hrefWithoutLanguage]
+    }
   }
 
   // NOTE: Exception redirects **MUST COME AFTER** pageList redirects above in order

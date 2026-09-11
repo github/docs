@@ -17,18 +17,14 @@ export function addFixErrorDetail(
   addError(onError, lineNumber, `Expected: ${expected}`, ` Actual: ${actual}`, range, fixInfo)
 }
 
-export function forEachInlineChild(
+export function forEachInlineChild<T = MarkdownToken>(
   params: RuleParams,
   type: string,
-  // Handler uses `any` for function parameter variance reasons. TypeScript's contravariance rules for function
-  // parameters mean that a function accepting a specific type cannot be assigned to a parameter of type `unknown`.
-  // Therefore, `unknown` cannot be used here, as different linting rules pass tokens with varying structures
-  // beyond the base MarkdownToken interface, and some handlers are async.
-  handler: (child: any, token?: any) => void | Promise<void>,
+  handler: (child: T, token?: MarkdownToken) => void | Promise<void>,
 ): void {
   filterTokens(params, 'inline', (token: MarkdownToken) => {
     for (const child of token.children!.filter((c) => c.type === type)) {
-      handler(child, token)
+      handler(child as unknown as T, token)
     }
   })
 }
@@ -73,75 +69,6 @@ export function quotePrecedesLinkOpen(text: string | undefined): boolean {
   if (!text) return false
   return text.endsWith('"') || text.endsWith("'")
 }
-
-// Filters a list of tokens by token type only when they match
-// a specific token type order.
-// For example, if a list of tokens contains:
-//
-//   [
-//      { type: 'inline'},
-//      { type: 'list_item_close'},
-//      { type: 'list_item_open'},
-//      { type: 'paragraph_open'},
-//      { type: 'inline'},
-//      { type: 'paragraph_close'},
-//   ]
-//
-// And if the `tokenOrder` being looked for is:
-//
-//   [
-//      'list_item_open',
-//      'paragraph_open',
-//      'inline'
-//    ]
-//
-// Then the return value would be the items that match that sequence:
-// Index 2-4:
-//   [
-//      { type: 'inline'},            <-- Index 0 - NOT INCLUDED
-//      { type: 'list_item_close'},   <-- Index 1 - NOT INCLUDED
-//      { type: 'list_item_open'},    <-- Index 2 - INCLUDED
-//      { type: 'paragraph_open'},    <-- Index 3 - INCLUDED
-//      { type: 'inline'},            <-- Index 4 - INCLUDED
-//      { type: 'paragraph_close'},   <-- Index 5 - NOT INCLUDED
-//   ]
-//
-export function filterTokensByOrder(
-  tokens: MarkdownToken[],
-  tokenOrder: string[],
-): MarkdownToken[] {
-  const matches: MarkdownToken[] = []
-
-  // Get a list of token indexes that match the
-  // first token (root) in the tokenOrder array
-  const tokenRootIndexes: number[] = []
-  const firstTokenOrderType = tokenOrder[0]
-  for (let index = 0; index < tokens.length; index++) {
-    const token = tokens[index]
-    if (token.type === firstTokenOrderType) {
-      tokenRootIndexes.push(index)
-    }
-  }
-
-  // Loop through each root token index and check if
-  // the order matches the tokenOrder array
-  for (const tokenRootIndex of tokenRootIndexes) {
-    for (let i = 1; i < tokenOrder.length; i++) {
-      if (tokens[tokenRootIndex + i].type !== tokenOrder[i]) {
-        // This tokenRootIndex was a possible start,
-        // but doesn't match the tokenOrder perfectly, so break out
-        // of the inner loop before it reaches the end.
-        break
-      }
-      if (i === tokenOrder.length - 1) {
-        matches.push(...tokens.slice(tokenRootIndex, tokenRootIndex + i + 1))
-      }
-    }
-  }
-  return matches
-}
-
-export const docsDomains = ['docs.github.com', 'help.github.com', 'developer.github.com']
 
 // Lines is an array of strings read from a
 // Markdown file a split around new lines.

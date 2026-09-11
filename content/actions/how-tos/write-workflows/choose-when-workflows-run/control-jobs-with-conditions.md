@@ -10,6 +10,9 @@ redirect_from:
   - /actions/using-jobs/using-conditions-to-control-job-execution
   - /actions/writing-workflows/choosing-when-your-workflow-runs/using-conditions-to-control-job-execution
   - /actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/using-conditions-to-control-job-execution
+category:
+  - Write workflows
+contentType: how-tos
 ---
 
 You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}

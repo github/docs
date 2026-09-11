@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/configuring-redirects
+category:
+  - Write and format content
 ---
 
 ## About redirects

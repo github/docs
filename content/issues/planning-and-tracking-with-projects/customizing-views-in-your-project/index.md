@@ -4,9 +4,6 @@ shortTitle: Customizing views
 intro: 'You can create multiple views to look at your project from different angles, deciding which items to show and how to present them.'
 versions:
   feature: projects-v2
-topics:
-  - Issues
-  - Projects
 children:
   - /changing-the-layout-of-a-view
   - /customizing-the-table-layout

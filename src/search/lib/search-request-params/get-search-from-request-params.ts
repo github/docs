@@ -33,11 +33,11 @@ export function getSearchFromRequestParams<Type extends SearchTypes>(
 
   for (const { key, default_, cast, validate, multiple } of searchParamsObject) {
     if (key in forceParams) {
-      ;(searchParams[key] as any) = forceParams[key] as any
+      ;(searchParams[key] as unknown) = forceParams[key]
       continue
     }
 
-    let value = req.query[key]
+    let value: unknown = req.query[key]
     if (!value || (typeof value === 'string' && !value.trim())) {
       if (default_ === undefined) {
         validationErrors.push({ error: `No truthy value for key '${key}'`, key })
@@ -69,7 +69,7 @@ export function getSearchFromRequestParams<Type extends SearchTypes>(
       })
     }
 
-    ;(searchParams[key] as any) = value
+    ;(searchParams[key] as unknown) = value
   }
 
   let indexName = ''

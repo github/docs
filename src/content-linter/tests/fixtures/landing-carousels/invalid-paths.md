@@ -1,12 +1,10 @@
 ---
 title: Landing with Invalid Paths
-layout: product-landing
+layout: discovery-landing
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Testing
 carousels:
   recommended:
     - /article-one

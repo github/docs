@@ -1,21 +1,20 @@
 ---
 title: Controlling access to larger runners
 shortTitle: Control access
-intro: 'You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.'
+intro: You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
 versions:
   feature: actions-hosted-runners
-type: tutorial
 redirect_from:
   - /actions/using-github-hosted-runners/controlling-access-to-larger-runners
   - /actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners
   - /actions/using-github-hosted-runners/using-larger-runners/controlling-access-to-larger-runners
   - /actions/how-tos/using-github-hosted-runners/using-larger-runners/controlling-access-to-larger-runners
   - /actions/how-tos/using-larger-runners/controlling-access-to-larger-runners
+contentType: how-tos
+category:
+  - Use and manage runners
 ---
-
-> [!NOTE]
-> {% data reusables.actions.windows-linux-larger-runners-note %}
 
 ## Managing access to larger runners
 
@@ -98,7 +97,9 @@ For runner groups in an organization, you can change what repositories in the or
 
 {% data reusables.actions.azure-vnet-network-configuration-intro %}
 
-If you have configured your {% ifversion ghec %}enterprise or {% endif %}organization to connect to an Azure VNET, you can give runner groups access to the virtual network. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners#using-an-azure-virtual-network-vnet).
+If you have configured your {% ifversion ghec %}enterprise or {% endif %}organization to connect to an Azure VNET, you can give runner groups access to the virtual network. For more information, see [AUTOTITLE](/actions/concepts/runners/private-networking#using-an-azure-virtual-network-vnet).
+
+{% data reusables.actions.macos-networking-limitation %}
 
 {% endif %}
 

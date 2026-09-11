@@ -15,5 +15,6 @@ children:
   - /runner-scale-sets
   - /actions-runner-controller
   - /support-for-arc
+contentType: concepts
 ---
 

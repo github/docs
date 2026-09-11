@@ -4,8 +4,6 @@ shortTitle: Review excluded files
 intro: 'Understand the types of files that are excluded from a review by {% data variables.product.prodname_copilot_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Author and optimize with Copilot
 contentType: reference
@@ -81,6 +79,12 @@ Files matching these patterns are also excluded:
 * `**/*.map`
 * `**/out/**/*`
 * `**/vendor/**/*`
-* `**/bin/**/*`
 * `**/generated/**/*`
 * `**/generated-sources/**/*`
+* `**/bin/**/*`
+
+  > [!NOTE]
+  > Some files matching `**/bin/**/*` _are_ included for review:
+  >
+  > * Rust files matching `**/bin/**/*.rs`
+  > * SAP Commerce Cloud (Hybris) files under `**/hybris/bin/custom/**`

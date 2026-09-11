@@ -12,25 +12,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Write and format content
 ---
-
-{% ifversion ghes %}
-
-> [!WARNING]
-> When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.landing_page_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository, or if private mode is enabled. To keep sensitive media files private, serve them from a private network or server that requires authentication.
-
-{% endif %}
-
-{% ifversion fpt or ghec %}
 
 > [!NOTE]
 > For public repositories, uploaded files can be accessed without authentication. In the case of private and internal repositories, only people with access to the repository can view the uploaded files.
 
-{% endif %}
+You can attach files to issues, pull requests, and comments in your browser.{% ifversion fpt or ghec %} You can also attach local images and videos from the command line with {% data variables.product.prodname_cli %}. For more information, see [AUTOTITLE](/github-cli/github-cli/attaching-files-with-github-cli).{% endif %}
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box.
+To attach a file in your browser, drag and drop it into the comment box.
 Alternatively, you can click {% octicon "paperclip" aria-label="Attach files" %} below the issue comment box to browse, select, and add a file from your computer.
 
 ![Screenshot of the issue comment box. The "Attach files" icon is outlined in orange.](/assets/images/help/issues/attach-file.png)
@@ -79,7 +70,7 @@ The following file types are supported for uploads in issue comments, pull reque
 ### Documents
 
 * PDFs (`.pdf`)
-* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`{% ifversion fpt or ghec or ghes > 3.18 %}` ,.xlsm`{% endif %})
+* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`{% ifversion fpt or ghec or ghes > 3.18 %}, `.xlsm`{% endif %})
 {%- ifversion fpt or ghec or ghes > 3.18 %}
 * OpenDocument formats (`.odt`, `.fodt`, `.ods`, `.fods`, `.odp`, `.fodp`, `.odg`, `.fodg`, `.odf`)
 * Rich text and word processing files (`.rtf`, `.doc`)

@@ -8,6 +8,19 @@
 {{ manualContent }}
 {% endif %}
 
+{% if commonParams.size > 0 %}
+## Common payload parameters
+
+Most webhook events include these standard parameters:
+
+| Name | Type | Description |
+|------|------|-------------|
+{% for param in commonParams %}| `{{ param.name }}` | `{{ param.type }}` | {% if param.isRequired %}**Required.** {% endif %}{{ param.description }} |
+{% endfor %}
+
+Events below list only their additional parameters beyond these common ones.
+
+{% endif %}
 {% for webhook in webhooks %}
 ## {{ webhook.name }}
 
@@ -39,14 +52,6 @@
 |------|------|-------------|
 {% for param in webhook.bodyParameters %}| `{{ param.name }}` | `{{ param.type }}` | {% if param.isRequired %}**Required.** {% endif %}{{ param.description }} |
 {% endfor %}
-
-{% endif %}
-{% if webhook.payloadExample %}
-### Webhook payload example
-
-```json
-{{ webhook.payloadExample }}
-```
 
 {% endif %}
 {% endfor %}

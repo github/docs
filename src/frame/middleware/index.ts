@@ -3,9 +3,7 @@ import path from 'path'
 
 import express from 'express'
 import type { NextFunction, Request, Response, Express } from 'express'
-import timeout from 'connect-timeout'
 
-import { haltOnDroppedConnection } from './halt-on-dropped-connection'
 import abort from './abort'
 import helmet from './helmet'
 import cookieParser from './cookie-parser'
@@ -14,6 +12,7 @@ import {
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key'
 import handleErrors from '@/observability/middleware/handle-errors'
+import expressMetrics from '@/observability/middleware/express-metrics'
 import handleNextDataPath from './handle-next-data-path'
 import detectLanguage from '@/languages/middleware/detect-language'
 import detectVersion from '@/versions/middleware/detect-version'
@@ -39,7 +38,6 @@ import triggerError from '@/observability/middleware/trigger-error'
 import dataTables from '@/data-directory/middleware/data-tables'
 import secretScanning from '@/secret-scanning/middleware/secret-scanning'
 import ghesReleaseNotes from '@/release-notes/middleware/ghes-release-notes'
-import whatsNewChangelog from './context/whats-new-changelog'
 import layout from './context/layout'
 import currentProductTree from './context/current-product-tree'
 import genericToc from './context/generic-toc'
@@ -48,10 +46,8 @@ import glossaries from './context/glossaries'
 import resolveCarousels from './resolve-carousels'
 import renderProductName from './context/render-product-name'
 import features from '@/versions/middleware/features'
-import productExamples from './context/product-examples'
 import productGroups from './context/product-groups'
 import featuredLinks from '@/landings/middleware/featured-links'
-import learningTrack from '@/learning-track/middleware/learning-track'
 import journeyTrack from '@/journeys/middleware/journey-track'
 import next from './next'
 import renderPage from './render-page'
@@ -66,14 +62,10 @@ import mockVaPortal from './mock-va-portal'
 import dynamicAssets from '@/assets/middleware/dynamic-assets'
 import generalSearchMiddleware from '@/search/middleware/general-search-middleware'
 import shielding from '@/shielding/middleware'
-import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants'
+import safeRedirect from './safe-redirect'
 import { initLoggerContext } from '@/observability/logger/lib/logger-context'
 import { getAutomaticRequestLogger } from '@/observability/logger/middleware/get-automatic-request-logger'
-import appRouterGateway from './app-router-gateway'
 import urlDecode from './url-decode'
-
-const { NODE_ENV } = process.env
-const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
 const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
 
@@ -92,8 +84,6 @@ const asyncMiddleware =
   }
 
 export default function index(app: Express) {
-  // *** Request connection management ***
-  if (!isTest) app.use(timeout(MAX_REQUEST_TIMEOUT))
   app.use(abort)
 
   // Don't use the proxy's IP, use the requester's for rate limiting or
@@ -115,6 +105,7 @@ export default function index(app: Express) {
   // *** Logging ***
   app.use(initLoggerContext) // Context for both inline logs (e.g. logger.info) and automatic logs
   app.use(getAutomaticRequestLogger()) // Automatic logging for all requests e.g. "GET /path 200"
+  app.use(expressMetrics) // StatsD metrics for response time and status codes
 
   // Put this early to make it as fast as possible because it's used
   // to check the health of each cluster.
@@ -124,6 +115,10 @@ export default function index(app: Express) {
   // otherwise we won't be able to benefit from that functionality
   // for static assets as well.
   app.use(setDefaultFastlySurrogateKey)
+
+  // Attaches res.safeRedirect() to every response. Must appear before
+  // any middleware that redirects.
+  app.use(safeRedirect)
 
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(asyncMiddleware(archivedEnterpriseVersionsAssets))
@@ -234,12 +229,6 @@ export default function index(app: Express) {
   app.use(asyncMiddleware(findPage)) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
   app.use(blockRobots)
 
-  // Check for a dropped connection before proceeding
-  app.use(haltOnDroppedConnection)
-
-  // *** Add App Router Gateway here - before heavy contextualizers ***
-  app.use(asyncMiddleware(appRouterGateway))
-
   // *** Rendering, 2xx responses ***
   app.use('/api', api)
   app.use('/llms.txt', llmsTxt)
@@ -251,16 +240,10 @@ export default function index(app: Express) {
   // Now that the `req.language` is known, set it for the remaining endpoints
   app.use(setLanguageFastlySurrogateKey)
 
-  // Check for a dropped connection before proceeding (again)
-  app.use(haltOnDroppedConnection)
-
   app.use(robots)
   app.use(earlyAccessLinks)
   app.use('/categories.json', asyncMiddleware(categoriesForSupport))
   app.get('/_500', asyncMiddleware(triggerError))
-
-  // Check for a dropped connection before proceeding (again)
-  app.use(haltOnDroppedConnection)
 
   // Specifically deal with HEAD requests before doing the slower
   // full page rendering.
@@ -270,19 +253,16 @@ export default function index(app: Express) {
   app.use(asyncMiddleware(dataTables))
   app.use(asyncMiddleware(secretScanning))
   app.use(asyncMiddleware(ghesReleaseNotes))
-  app.use(asyncMiddleware(whatsNewChangelog))
   app.use(layout)
   app.use(features) // needs to come before product tree
   app.use(asyncMiddleware(currentProductTree))
   app.use(asyncMiddleware(genericToc))
   app.use(breadcrumbs)
-  app.use(asyncMiddleware(productExamples))
   app.use(asyncMiddleware(productGroups))
   app.use(asyncMiddleware(glossaries))
   app.use(asyncMiddleware(generalSearchMiddleware))
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(resolveCarousels))
-  app.use(asyncMiddleware(learningTrack))
   app.use(asyncMiddleware(journeyTrack))
 
   if (ENABLE_FASTLY_TESTING) {
@@ -294,9 +274,6 @@ export default function index(app: Express) {
 
   // handle serving NextJS bundled code (/_next/*)
   app.use(next)
-
-  // Check for a dropped connection before proceeding (again)
-  app.use(haltOnDroppedConnection)
 
   // *** Rendering, must go almost last ***
   app.get('/*path', asyncMiddleware(renderPage))

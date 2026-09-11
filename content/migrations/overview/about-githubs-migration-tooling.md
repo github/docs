@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Plan your migration
 ---
 
 {% data reusables.migrations.about-migrations %}

@@ -12,11 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 children:
   - /artifacts
   - /cache
+  - /concurrency-groups
   - /hosted-runners
   - /oidc
   - /permissions

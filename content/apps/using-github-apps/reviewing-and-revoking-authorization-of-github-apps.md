@@ -11,10 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Review your authorizations
+category:
+  - Install and authorize apps
 ---
 
 ## About authorized {% data variables.product.prodname_github_apps %}
@@ -37,5 +36,5 @@ The authorization can only be revoked by the person who authorized the {% data v
 ## Further reading
 
 * [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)
-* [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-applications-oauth)
+* [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-oauth-apps)
 * [AUTOTITLE](/apps/using-github-apps/privileged-github-apps)

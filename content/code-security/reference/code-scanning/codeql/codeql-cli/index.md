@@ -7,13 +7,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 children:
   - /sarif-output
   - /csv-output
+  - /codeql-query-packs
   - /extractor-options
   - /exit-codes
 redirect_from:

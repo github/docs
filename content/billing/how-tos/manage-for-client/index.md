@@ -14,8 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
 children:
   - create-client-org
   - create-client-enterprise

@@ -6,14 +6,12 @@ versions:
   ghes: '*'
   ghec: '*'
 permissions: Organization owners can limit who can make app access requests to the organization{% ifversion fpt or ghec or ghes > 3.19 %} and who can install apps{% endif %}.
-topics:
-  - Organizations
-  - GitHub Apps
-  - OAuth apps
 shortTitle: Limit app requests and installations
 redirect_from:
   - /organizations/managing-organization-settings/limiting-oauth-app-and-github-app-access-requests
   - /organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests
+category:
+  - Manage app and API access
 ---
 
 ## About app access requests

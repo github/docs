@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Non-fast-forward error
+category:
+  - Work with Git
 ---
 If another person has pushed to the same branch as you, Git won't be able to push your changes:
 

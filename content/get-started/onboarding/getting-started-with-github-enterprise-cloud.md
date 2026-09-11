@@ -4,6 +4,8 @@ intro: 'Get started with setting up and managing your enterprise account with {%
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Set up your account on GitHub
 ---
 
 ## About {% data variables.product.prodname_enterprise %}
@@ -19,4 +21,4 @@ The main difference between the products is that {% data variables.product.prodn
 
 ## Get started
 
-To get started, see our [AUTOTITLE](/enterprise-cloud@latest/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
+To get started, see our [AUTOTITLE](/enterprise-cloud@latest/admin/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.

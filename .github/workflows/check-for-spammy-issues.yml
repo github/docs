@@ -1,6 +1,6 @@
 name: Check for Spammy Issues
 
-# **What it does**: This action closes low value pull requests in the open-source repository.
+# **What it does**: This action closes low value issues in the open-source repository.
 # **Why we have it**: We get lots of spam in the open-source repository.
 # **Who does it impact**: Open-source contributors.
 
@@ -17,7 +17,7 @@ jobs:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
@@ -28,6 +28,9 @@ jobs:
 
             const titleWordCount = issue.title.trim().split(' ').length
             const titleWordCountMin = 3
+            const urlRegex = /https?:\/\/\S+/i
+            const titleHasUrl = urlRegex.test(issue.title)
+            const titleHasDollarSign = issue.title.includes('$')
 
             try {
               await github.rest.teams.getMembershipForUserInOrg({
@@ -43,7 +46,7 @@ jobs:
               // An error will be thrown if the user is not a GitHub employee
               // If a user is not a GitHub employee, we should check to see if title has at least the minimum required number of words in it and if it does, we can exit the workflow
 
-              if (titleWordCount >= titleWordCountMin) {
+              if (titleWordCount >= titleWordCountMin && !titleHasUrl && !titleHasDollarSign) {
                 return
               }
             }
