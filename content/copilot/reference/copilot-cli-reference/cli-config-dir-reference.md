@@ -38,6 +38,7 @@ The `~/.copilot` directory contains the following top-level items.
 | `mcp-secrets/` | Directory | Local fallback storage and index for MCP secret placeholders |
 | `permissions-config.json` | File | Saved tool and directory permissions per project |
 | `plugin-data/` | Directory | Persistent data for installed plugins |
+| `providers.json` | File | User-level bring-your-own-key (BYOK) provider and model registry |
 | `session-state/` | Directory | Session history and workspace data |
 | `command-history-state/` | Directory | Command history data |
 | `session-store.db` | File | SQLite database for cross-session data |
@@ -92,6 +93,12 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 Defines Language Server Protocol (LSP) servers available at the user level. These servers provide language intelligence (diagnostics, completions, etc.) to the agent. Manage this file using the `/lsp` slash command, or edit it directly.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers).
+
+### `providers.json`
+
+Defines a registry of bring-your-own-key (BYOK) providers and models, as a JSON object with `providers` and `models` keys. When this file declares any provider or model, it takes precedence over the legacy `COPILOT_PROVIDER_*` environment variables.
+
+By default, this file is located at `~/.copilot/providers.json`. Override its location with the `COPILOT_PROVIDERS_CONFIG` environment variable.
 
 ### `agents/`
 
@@ -401,6 +408,7 @@ To override the default `~/.copilot` location, set the `COPILOT_HOME` environmen
 | `mcp-secrets/` | With caution | Clears local MCP secret fallback state and mappings. Secret-backed MCP servers may need reconfiguration. |
 | `permissions-config.json` | With caution | Resets all saved permissions. The CLI will prompt you again for tool and directory approvals. |
 | `plugin-data/` | Yes | Plugin persistent data is re-created as needed. |
+| `providers.json` | Not recommended | You will lose your BYOK provider and model configuration. Back up first. |
 | `session-state/` | With caution | Deleting removes session history. You will no longer be able to resume past sessions. |
 | `command-history-state/` | With caution | Deleting removes command history. You will no longer be able to search previous commands with <kbd>Ctrl</kbd>+<kbd>R</kbd>. |
 | `session-store.db` | With caution | Deleting removes cross-session data. The file is re-created automatically. |
@@ -458,6 +466,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `disabledMcpServers` | `string[]` | `[]` | MCP server names to disable. Listed servers are configured but not started. |
 | `disabledSkills` | `string[]` | `[]` | Skill names to disable. Listed skills are discovered but not loaded. |
 | `dynamicRetrieval` | `{ skills?: boolean }` | unset | Per-category control of embeddings-based dynamic instruction retrieval. Set `skills` to `false` to disable retrieval for skills. |
+| `editorMode` | `"normal"` \| `"vim"` | `"normal"` | Input composer editing mode. Set by toggling the `/vim` slash command. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#slash-commands-in-the-interactive-interface). |
 | `effortLevel` | `string` | `"medium"` | Reasoning effort level for extended thinking: `"low"`, `"medium"`, `"high"`, or `"xhigh"`. Higher levels use more compute. |
 | `enabledMcpServers` | `string[]` | `[]` | Enable built-in MCP servers that are disabled by default. |
 | `enabledPlugins` | `Record<string, boolean>` | `{}` | Declarative plugin auto-install. Keys are plugin specs; values are `true` (enabled) or `false` (disabled). |
@@ -496,19 +505,21 @@ These settings apply across all your sessions and repositories. You can use the 
 | `shellShortcut` | `boolean` | `true` | Let a lone `$` at the prompt, followed by <kbd>Enter</kbd>, open an interactive shell rooted at the session's working directory (activates only for a local, trusted, idle session on a real TTY). User- or managed-scoped only—not repo-overridable. |
 | `showTimestamps` | `boolean` | `true` | Show dim `HH:mm` timestamps next to user messages in the timeline. |
 | `showTipsOnStartup` | `boolean` | `true` | Show a random command tip when the CLI starts. |
+| `sidebar` | `boolean` | `true` | Enable the current-session sidebar. Set to `false` to disable it entirely, hiding the composer hint and the <kbd>←</kbd> open gesture. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#sidebar-and-sessions-tab-shortcuts). |
 | `skillDirectories` | `string[]` | `[]` | Additional directories to search for custom skill definitions (in addition to `~/.copilot/skills/`). |
 | `statusLine` | `object` | — | Custom status line display. `type`: must be `"command"`. `command`: path to an executable script that receives session JSON on stdin and prints status content to stdout. `padding`: optional number of left-padding spaces. `refreshInterval`: optional integer number of seconds (`1`–`2147483`) to re-run the command on a timer instead of only on events; omit it to refresh only when the session state changes. If the command fails to spawn, exits non-zero, or fails to receive the status JSON on stdin, the CLI logs a warning once per continuous failure episode and leaves the status line blank instead of failing silently. Run with `--log-level all` to see the underlying error detail. |
 | `stayInAutopilot` | `boolean` | `true` | Remain in autopilot mode after each task completes. When enabled, the next prompt you enter after a task completes is also handled in autopilot mode. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot#staying-in-autopilot-mode-between-tasks). |
 | `storeTokenPlaintext` | `boolean` | `false` | Allow authentication tokens to be stored in plain text in `config.json` when no system keychain is available. |
 | `stream` | `boolean` | `true` | Enable streaming responses. |
 | `streamerMode` | `boolean` | `false` | Hide preview model names, quota details, prompt timestamps, and the update-available notice. Useful when demonstrating {% data variables.copilot.copilot_cli_short %} or screen sharing. |
-| `subagents.agents` | `object` | `{}` | Per-agent model configuration, keyed by agent name. Each value is an object with optional `model` (string), `effortLevel` (string), and `contextTier` (`"default"`, `"long_context"`, or `"inherit"`) fields. Set any field to `"inherit"` to use the parent session's value at dispatch time. Use the `/subagents` slash command to configure these settings interactively. |
+| `subagents.agents` | `object` | `{}` | Per-agent model configuration, keyed by agent name. Each value is an object with optional `model` (string), `modelPolicy` (`"preferred"` or `"required"`), `effortLevel` (string), and `contextTier` (`"default"`, `"long_context"`, or `"inherit"`) fields. Set `model`, `effortLevel`, or `contextTier` to `"inherit"` to use the parent session's value at dispatch time. `modelPolicy` has no effect when the agent definition itself sets `modelPolicy: "required"`—that lock can't be overridden here. Use the `/subagents` slash command to configure these settings interactively. |
 | `subagents.disabledSubagents` | `string[]` | `[]` | Agent names to prevent from being dispatched. Only the `rubber-duck` agent cannot be disabled via this setting. All other built-in agents—including `explore`, `task`, `code-review`, `general-purpose`, `research`, and `security-review`—can be disabled. |
 | `subagents.maxConcurrency` | `number` | plan-based | Maximum concurrent subagents for this session. Only honored for usage-based billing users; ignored for all other plans. Capped at `32`. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#subagent-limits). |
 | `subagents.maxDepth` | `number` | `6` | Maximum subagent nesting depth. Only honored for usage-based billing users; ignored for all other plans. Capped at `256`. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#subagent-limits). |
 | `tabs.enabled` | `boolean` | `true` | Show the home tab bar. Set to `false` to hide it entirely. |
 | `tabs.hide` | `string[]` | `[]` | Tab identifiers to hide. Accepted values: `"copilot"`, `"agents"`, `"issues"`, `"pull-requests"`, `"gists"` (matched case-insensitively). |
 | `tabs.sort` | `string[]` | `[]` | Order in which tabs are displayed. Tabs not listed keep their default relative order after the listed ones. Unknown identifiers are ignored. |
+| `taskbarPresence` | `boolean` | `true` | Show a live {% data variables.product.prodname_copilot_short %} session on the Windows taskbar (agent icon and hover card). Set to `false` to opt out. Startup-only; takes effect on the next launch. Windows only. |
 | `terminalProgress` | `boolean` | `true` | Emit OSC 9;4 terminal progress indicators while the agent is working. Supported terminals include Windows Terminal, iTerm2, Ghostty, and ConEmu. |
 | `theme` | `"default"` \| `"github"` \| `"dim"` \| `"high-contrast"` \| `"colorblind"` | `"github"` | Color palette for terminal output. Managed by the `/settings` and `/theme` slash commands. `colorMode` is a deprecated alias for this setting. | <!-- markdownlint-disable-line GHD046 -->
 | `toolSearch` | `boolean` | model- and feature-dependent | Controls tool search (deferred tool loading). Set `toolSearch: false` to opt out of tool search. |
@@ -633,6 +644,7 @@ Only the following keys are supported in MDM managed settings.
 | `deniedMcpServers` | Denylist of MCP servers that must never load, matched the same way as `allowedMcpServers`. A matching non-default server is blocked regardless of the allowlist—deny always wins. See [Managed MCP server allow/deny list](#managed-mcp-server-allowdeny-list). |
 | `enabledPlugins` | Enable or disable specific plugins |
 | `extraKnownMarketplaces` | Add trusted plugin marketplaces |
+| `forceLoginOrgs` | Pin sign-in to an approved set of {% data variables.product.github %} organizations (an array of organization logins, matched case-insensitively). {% data variables.product.prodname_copilot_short %} only runs for an account belonging to at least one listed organization; a personal account, an account that belongs only to some other enterprise, or BYOK/API-key authentication is refused with an actionable error. Set an empty array to turn the pin off without deleting the key. Deploy this key through the device channel (MDM plist/registry, or `managed-settings.json`) since it must be able to redirect a developer's first sign-in—the server-managed channel only reaches accounts that have already authenticated into the organization. This key fails closed: an unusable value, or a managed policy that can't be read on a known-managed device, blocks all sign-in until fixed. |
 | `forceRemoteSettingsRefresh` | Require a fresh server-managed settings fetch on startup, even when a fresh cached policy exists. The cached entry is still kept as a fallback if the fetch fails. The device (MDM) value takes precedence over a cached server value. |
 | `model` | Set a default model for all users (overridden by the `--model` flag or a resumed-session model) |
 | `permissions` | Set managed permissions, including `disableBypassPermissionsMode` and `deny` / `ask` / `allow` rule arrays. See [Managed permission rules](#managed-permission-rules). |
