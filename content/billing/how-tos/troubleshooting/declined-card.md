@@ -56,7 +56,6 @@ If your card is still valid, you have no restrictions on it, or the restrictions
 * Verify the billing address, ZIP/postal code, and CVV exactly match the card issuer’s records. A mismatch can cause the payment to be declined even when the bank says the card is otherwise valid.
 If the saved payment method was previously declined, remove and re-add the card so GitHub can re-create a fresh payment token.
 * Remove the saved payment method and add it again
-* Retry the charge after re-saving the payment method
 * Make sure the payment method is not prepaid
 * If your card is issued in India, confirm whether your issuer requires an RBI-compliant recurring payment mandate or one-time payment flow
 * If multiple cards have been declined, the issue may be an account-level payment restriction or processor-side rule rather than a card problem
