@@ -1,5 +1,8 @@
 import { describe, expect, test } from 'vitest'
 import { convertContentToDocs } from '../scripts/convert-markdown-for-docs'
+import config from '@/codeql-cli/lib/config.json'
+
+const RELATIVE_LINK_PATH = config.targetDirectory.replace('content', '')
 
 describe('convertContentToDocs circular link handling', () => {
   const testContent = `
@@ -26,7 +29,7 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
 
     // Should not contain circular link
     expect(result.content).not.toContain(
-      '[codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret)',
+      `[codeql bqrs interpret](${RELATIVE_LINK_PATH}/bqrs-interpret)`,
     )
 
     // Should contain plain text instead
@@ -38,7 +41,7 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
 
     // Should preserve valid cross-reference link
     expect(result.content).toContain(
-      '[codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze)',
+      `[codeql database analyze](${RELATIVE_LINK_PATH}/database-analyze)`,
     )
   })
 
@@ -47,7 +50,7 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
 
     // Should preserve link when no filename is provided
     expect(result.content).toContain(
-      '[codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret)',
+      `[codeql bqrs interpret](${RELATIVE_LINK_PATH}/bqrs-interpret)`,
     )
   })
 
@@ -56,7 +59,7 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
 
     // Should preserve link when filename is different
     expect(result.content).toContain(
-      '[codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret)',
+      `[codeql bqrs interpret](${RELATIVE_LINK_PATH}/bqrs-interpret)`,
     )
   })
 
@@ -65,12 +68,12 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
 
     // Circular link should be plain text
     expect(result.content).not.toContain(
-      '[codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret)',
+      `[codeql bqrs interpret](${RELATIVE_LINK_PATH}/bqrs-interpret)`,
     )
 
     // Non-circular link should be preserved
     expect(result.content).toContain(
-      '[codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze)',
+      `[codeql database analyze](${RELATIVE_LINK_PATH}/database-analyze)`,
     )
 
     // Both should have their text content present
