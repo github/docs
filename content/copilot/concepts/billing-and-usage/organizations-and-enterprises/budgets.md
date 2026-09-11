@@ -7,6 +7,8 @@ versions:
 permissions: 'Enterprise owners and billing managers can set all budget controls. Organization owners can set organization-level budgets.'
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 contentType: concepts
+redirect_from:
+  - /copilot/concepts/billing/budgets-for-usage-based-billing
 category:
   - Manage Copilot for a team
 ---

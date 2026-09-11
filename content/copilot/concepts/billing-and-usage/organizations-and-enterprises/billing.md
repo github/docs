@@ -1,6 +1,6 @@
 ---
 title: Usage-based billing for organizations and enterprises
-shortTitle: Usage-based billing
+shortTitle: Billing
 intro: 'Under usage-based billing, {% data variables.product.prodname_copilot_short %} usage in organizations and enterprises is measured in {% data variables.product.prodname_ai_credits_short %}.'
 permissions: Enterprise and organization owners and billing managers
 versions:
@@ -9,6 +9,7 @@ product: '{% data variables.copilot.copilot_enterprise_short %} or {% data varia
 redirect_from:
   - /copilot/how-tos/manage-and-track-spending/prepare-for-usage-based-billing
   - /copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises
+  - /copilot/concepts/billing/organizations-and-enterprises/usage-based-billing
 contentType: concepts
 category:
   - Manage Copilot for a team
@@ -68,7 +69,7 @@ When your pooled {% data variables.product.prodname_ai_credits_short %} are exha
 > [!NOTE]
 > Additional usage is **enabled by default** for organizations and enterprises. If you want to prevent any spending beyond your included {% data variables.product.prodname_ai_credits_short %}, an administrator must explicitly disable the **{% data variables.product.prodname_ai_credits_short %} paid usage** policy in your enterprise's or organization's AI Controls settings.
 
-If you have set a user-level budget and a user exhausts it, that user's access to {% data variables.product.prodname_copilot_short %} is halted, regardless of whether the organization's pool still has capacity. A user can also be blocked by an enterprise spending limit before they reach their individual user-level budget, if the spending limit runs out first. There is no automatic fallback to lower-cost models when a budget is exhausted. For more information about how these controls interact, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+If you have set a user-level budget and a user exhausts it, that user's access to {% data variables.product.prodname_copilot_short %} is halted, regardless of whether the organization's pool still has capacity. A user can also be blocked by an enterprise spending limit before they reach their individual user-level budget, if the spending limit runs out first. There is no automatic fallback to lower-cost models when a budget is exhausted. For more information about how these controls interact, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 Additional usage budgets are set in US dollars, and usage is shown in {% data variables.product.prodname_ai_credits_short %}. {% data variables.product.prodname_ai_credits_short %} draw down the budget at a fixed rate: 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}, so a $10 USD budget covers 1,000 AI credits.
 
@@ -81,7 +82,7 @@ Budget controls let you govern how individual users draw from the shared pool an
 * **Enterprise spending limits** cap total metered charges across your entire enterprise after the pool is exhausted.
 * **Organization-level budgets** cap metered charges for users whose {% data variables.product.prodname_copilot_short %} seats are billed to the organization, after the pool is exhausted.
 
-For a full explanation of how these controls work together and when usage gets blocked, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+For a full explanation of how these controls work together and when usage gets blocked, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 <!-- expires 2026-09-01 -->
 

@@ -9,8 +9,9 @@ redirect_from:
   - /copilot/troubleshooting-github-copilot/rate-limits-for-github-copilot
   - /copilot/how-tos/troubleshoot/rate-limits-for-github-copilot
   - /copilot/concepts/rate-limits
+  - /copilot/concepts/usage-limits
 contentType: concepts
-category: 
+category:
   - Learn about Copilot
 ---
 
@@ -29,7 +30,7 @@ Rate limiting is a mechanism used to control the number of requests a user or ap
 
 Your {% data variables.product.prodname_copilot_short %} plan includes an allowance of {% data variables.product.prodname_ai_credits_short %}. If you exhaust these included credits, you can continue working by either upgrading your plan or setting a budget for **Additional usage** to access more {% data variables.product.prodname_ai_credits_short %}. If you exceed the allowed additional usage, you can pay for the additional usage you've already consumed to unlock more and continue.
 
-For more information, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals#what-happens-if-i-exceed-my-included-ai-credits).
+For more information, see [AUTOTITLE](/copilot/concepts/billing-and-usage/individuals/billing#what-happens-if-i-exceed-my-included-ai-credits).
 
 ## What to do if you hit a limit
 

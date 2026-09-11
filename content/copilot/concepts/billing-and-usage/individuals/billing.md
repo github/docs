@@ -1,6 +1,6 @@
 ---
 title: Usage-based billing for individuals
-shortTitle: Billing for individuals
+shortTitle: Billing
 intro: 'Your {% data variables.product.prodname_copilot_short %} plan includes a monthly allowance of {% data variables.product.prodname_ai_credits %}. If you exhaust your {% data variables.product.prodname_ai_credits_short %}, you can pay extra to keep working.'
 versions:
   feature: copilot
@@ -16,6 +16,7 @@ redirect_from:
   - /copilot/concepts/copilot-billing/billing-for-individuals
   - /copilot/concepts/billing/billing-for-individuals
   - /copilot/how-tos/manage-and-track-spending/prepare-for-your-move-to-usage-based-billing
+  - /copilot/concepts/billing/usage-based-billing-for-individuals
 ---
 
 {% data variables.product.prodname_copilot_short %} usage is measured in {% data variables.product.prodname_ai_credits_short %}. All {% data variables.product.prodname_copilot_short %} plans include a monthly allowance of {% data variables.product.prodname_ai_credits_short %}. If you use up all of the credits included in your plan, you can purchase more and keep working.

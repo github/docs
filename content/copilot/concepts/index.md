@@ -9,13 +9,11 @@ children:
   - /chat
   - /agents
   - /about-cloud-and-local-sandboxes
-  - /copilot-usage-metrics
   - /prompting
   - /context
   - /tools
   - /models
-  - /usage-limits
-  - /billing
+  - /billing-and-usage
   - /network-settings
   - /enterprise
 contentType: concepts

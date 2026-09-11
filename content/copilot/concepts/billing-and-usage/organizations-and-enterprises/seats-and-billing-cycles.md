@@ -1,8 +1,8 @@
 ---
-title: About billing for GitHub Copilot in organizations and enterprises
-shortTitle: Fundamentals
-intro: Learn about pricing and billing cycles for {% data variables.product.prodname_copilot_short %}.
-product: Organizations on a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan, or organizations and enterprises on {% data variables.product.prodname_ghe_cloud %}
+title: GitHub Copilot seats and billing cycles for organizations and enterprises
+shortTitle: Seats and billing cycles
+intro: 'Learn about seats and billing cycles for {% data variables.product.prodname_copilot_short %}.'
+product: 'Organizations on a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan, or organizations and enterprises on {% data variables.product.prodname_ghe_cloud %}'
 versions:
   feature: copilot
 redirect_from:
@@ -17,6 +17,7 @@ redirect_from:
   - /copilot/concepts/billing/billing-for-enterprises
   - /copilot/concepts/billing/billing-for-organizations
   - /copilot/concepts/billing/organizations-and-enterprises
+  - /copilot/concepts/billing/organizations-and-enterprises/fundamentals
 contentType: concepts
 category:
   - Manage Copilot for a team
@@ -32,7 +33,7 @@ category:
 <!-- expires 2026-09-01 -->
 
 > [!NOTE]
-> Existing customers receive higher included {% data variables.product.prodname_ai_credits_short %} during the promotional period (June–August 2026). See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing#promotional-amounts-for-existing-customers).
+> Existing customers receive higher included {% data variables.product.prodname_ai_credits_short %} during the promotional period (June–August 2026). See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing#promotional-amounts-for-existing-customers).
 
 <!-- end expires 2026-09-01 -->
 
@@ -46,7 +47,7 @@ With {% data variables.product.prodname_ghe_cloud %}:
 
 {% data variables.product.prodname_copilot_short %} usage is measured in {% data variables.product.prodname_ai_credits_short %} under usage-based billing. Each license contributes {% data variables.product.prodname_ai_credits_short %} to a shared enterprise pool, and usage beyond the pool is charged at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}. Code completions and {% data variables.copilot.next_edit_suggestions %} are not billed in {% data variables.product.prodname_ai_credits_short %} and remain unlimited for all paid plans.
 
-For a full explanation of how {% data variables.product.prodname_ai_credits_short %} work, including pooling, additional usage, and what happens when credits run out, see [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
+For a full explanation of how {% data variables.product.prodname_ai_credits_short %} work, including pooling, additional usage, and what happens when credits run out, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 ## Seat assignment
 
@@ -68,7 +69,7 @@ For more information, see [AUTOTITLE](/copilot/reference/copilot-billing/license
 
 ## Managing costs
 
-You can control {% data variables.product.prodname_ai_credits_short %} spend using budget controls at the user, cost center, and enterprise level. For an overview of how budget controls work, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing). For guidance on choosing a configuration, see [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
+You can control {% data variables.product.prodname_ai_credits_short %} spend using budget controls at the user, cost center, and enterprise level. For an overview of how budget controls work, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets). For guidance on choosing a configuration, see [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
 
 ## Reference
 
