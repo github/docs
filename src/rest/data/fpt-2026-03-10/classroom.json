@@ -29,12 +29,10 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": true,
+        "userToServerRest": false,
         "serverToServer": false,
-        "fineGrainedPat": true,
-        "permissions": [],
-        "allowPermissionlessAccess": true,
-        "allowsPublicRead": true
+        "fineGrainedPat": false,
+        "permissions": []
       }
     },
     {
@@ -66,12 +64,10 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": true,
+        "userToServerRest": false,
         "serverToServer": false,
-        "fineGrainedPat": true,
-        "permissions": [],
-        "allowPermissionlessAccess": true,
-        "allowsPublicRead": true
+        "fineGrainedPat": false,
+        "permissions": []
       }
     },
     {
@@ -103,12 +99,10 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": true,
+        "userToServerRest": false,
         "serverToServer": false,
-        "fineGrainedPat": true,
-        "permissions": [],
-        "allowPermissionlessAccess": true,
-        "allowsPublicRead": true
+        "fineGrainedPat": false,
+        "permissions": []
       }
     },
     {
@@ -130,12 +124,10 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": true,
+        "userToServerRest": false,
         "serverToServer": false,
-        "fineGrainedPat": true,
-        "permissions": [],
-        "allowPermissionlessAccess": true,
-        "allowsPublicRead": true
+        "fineGrainedPat": false,
+        "permissions": []
       }
     },
     {
@@ -167,12 +159,10 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": true,
+        "userToServerRest": false,
         "serverToServer": false,
-        "fineGrainedPat": true,
-        "permissions": [],
-        "allowPermissionlessAccess": true,
-        "allowsPublicRead": true
+        "fineGrainedPat": false,
+        "permissions": []
       }
     },
     {
@@ -204,12 +194,10 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": true,
+        "userToServerRest": false,
         "serverToServer": false,
-        "fineGrainedPat": true,
-        "permissions": [],
-        "allowPermissionlessAccess": true,
-        "allowsPublicRead": true
+        "fineGrainedPat": false,
+        "permissions": []
       }
     }
   ]

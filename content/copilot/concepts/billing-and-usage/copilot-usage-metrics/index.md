@@ -8,7 +8,7 @@ heroImage: /assets/images/banner-images/hero-4
 layout: bespoke-landing
 sidebarLink:
   text: All articles
-  href: /copilot/concepts/copilot-usage-metrics
+  href: /copilot/concepts/billing-and-usage/copilot-usage-metrics
 children:
   - /copilot-metrics
   - /content/copilot/how-tos/administer-copilot/view-usage-and-adoption
@@ -29,5 +29,6 @@ includedCategories:
   - View metrics
   - Understand available data
 contentType: concepts
+redirect_from:
+  - /copilot/concepts/copilot-usage-metrics
 ---
-

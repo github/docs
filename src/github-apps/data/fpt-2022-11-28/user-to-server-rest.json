@@ -1935,44 +1935,6 @@
       "requestPath": "/repos/{owner}/{repo}/commits/{ref}/check-suites"
     }
   ],
-  "classroom": [
-    {
-      "slug": "closed---get-an-assignment",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/assignments/{assignment_id}"
-    },
-    {
-      "slug": "closed---list-accepted-assignments-for-an-assignment",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/assignments/{assignment_id}/accepted_assignments"
-    },
-    {
-      "slug": "closed---get-assignment-grades",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/assignments/{assignment_id}/grades"
-    },
-    {
-      "slug": "closed---list-classrooms",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/classrooms"
-    },
-    {
-      "slug": "closed---get-a-classroom",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/classrooms/{classroom_id}"
-    },
-    {
-      "slug": "closed---list-assignments-for-a-classroom",
-      "subcategory": "classroom",
-      "verb": "get",
-      "requestPath": "/classrooms/{classroom_id}/assignments"
-    }
-  ],
   "code-quality": [
     {
       "slug": "list-code-quality-findings-for-a-repository",
@@ -2002,13 +1964,13 @@
   "code-scanning": [
     {
       "slug": "get-the-ai-scan-setting-for-an-organization",
-      "subcategory": "ai-scan",
+      "subcategory": "code-scanning",
       "verb": "get",
       "requestPath": "/orgs/{org}/code-scanning/ai-scan"
     },
     {
       "slug": "update-the-ai-scan-setting-for-an-organization",
-      "subcategory": "ai-scan",
+      "subcategory": "code-scanning",
       "verb": "patch",
       "requestPath": "/orgs/{org}/code-scanning/ai-scan"
     },

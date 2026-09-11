@@ -14,6 +14,7 @@ redirect_from:
   - /early-access/copilot-metrics/dashboards/about-the-copilot-metrics-dashboard
   - /early-access/copilot-metrics/apis/rest-api-endpoints-for-copilot-enterprise-and-user-usage-metrics
   - /copilot/concepts/copilot-metrics
+  - /copilot/concepts/copilot-usage-metrics/copilot-metrics
 category:
   - Copilot usage metrics
   - Track Copilot usage

@@ -1,6 +1,6 @@
 ---
 title: Usage-based billing for organizations and enterprises
-shortTitle: Usage-based billing
+shortTitle: Billing
 intro: 'Under usage-based billing, {% data variables.product.prodname_copilot_short %} usage in organizations and enterprises is measured in {% data variables.product.prodname_ai_credits_short %}.'
 permissions: Enterprise and organization owners and billing managers
 versions:
@@ -9,6 +9,7 @@ product: '{% data variables.copilot.copilot_enterprise_short %} or {% data varia
 redirect_from:
   - /copilot/how-tos/manage-and-track-spending/prepare-for-usage-based-billing
   - /copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises
+  - /copilot/concepts/billing/organizations-and-enterprises/usage-based-billing
 contentType: concepts
 category:
   - Manage Copilot for a team
@@ -43,21 +44,6 @@ Adding licenses mid-cycle increases the pool immediately. Removing licenses mid-
 
 Included {% data variables.product.prodname_ai_credits_short %} do not carry over between months. Unused credits are forfeited, and the pool resets to the full monthly amount at 00:00:00 UTC on the first day of each calendar month. This reset date is fixed and does not change based on when licenses are added, removed, or billed. See [AUTOTITLE](/billing/concepts/billing-cycles#billing-cycles-for-metered-products).
 
-<!-- expires 2026-09-01 -->
-
-### Promotional amounts for existing customers
-
-Existing {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} customers receive a higher amount of included {% data variables.product.prodname_ai_credits_short %} for the first three months of usage-based billing (June 1 – September 1, 2026):
-
-| Plan | Total {% data variables.product.prodname_ai_credits_short %} per user per month |
-| --- | --- |
-| {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.ai_credits_per_user_business_promo %} |
-| {% data variables.copilot.copilot_enterprise_short %} | {% data variables.copilot.ai_credits_per_user_enterprise_promo %} |
-
-After the promotional period, included usage returns to the standard amounts above.
-
-<!-- end expires 2026-09-01 -->
-
 ## What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}?
 
 When your pooled {% data variables.product.prodname_ai_credits_short %} are exhausted, what happens next depends on how you have configured policies for additional usage.
@@ -68,7 +54,7 @@ When your pooled {% data variables.product.prodname_ai_credits_short %} are exha
 > [!NOTE]
 > Additional usage is **enabled by default** for organizations and enterprises. If you want to prevent any spending beyond your included {% data variables.product.prodname_ai_credits_short %}, an administrator must explicitly disable the **{% data variables.product.prodname_ai_credits_short %} paid usage** policy in your enterprise's or organization's AI Controls settings.
 
-If you have set a user-level budget and a user exhausts it, that user's access to {% data variables.product.prodname_copilot_short %} is halted, regardless of whether the organization's pool still has capacity. A user can also be blocked by an enterprise spending limit before they reach their individual user-level budget, if the spending limit runs out first. There is no automatic fallback to lower-cost models when a budget is exhausted. For more information about how these controls interact, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+If you have set a user-level budget and a user exhausts it, that user's access to {% data variables.product.prodname_copilot_short %} is halted, regardless of whether the organization's pool still has capacity. A user can also be blocked by an enterprise spending limit before they reach their individual user-level budget, if the spending limit runs out first. There is no automatic fallback to lower-cost models when a budget is exhausted. For more information about how these controls interact, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 Additional usage budgets are set in US dollars, and usage is shown in {% data variables.product.prodname_ai_credits_short %}. {% data variables.product.prodname_ai_credits_short %} draw down the budget at a fixed rate: 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}, so a $10 USD budget covers 1,000 AI credits.
 
@@ -81,9 +67,7 @@ Budget controls let you govern how individual users draw from the shared pool an
 * **Enterprise spending limits** cap total metered charges across your entire enterprise after the pool is exhausted.
 * **Organization-level budgets** cap metered charges for users whose {% data variables.product.prodname_copilot_short %} seats are billed to the organization, after the pool is exhausted.
 
-For a full explanation of how these controls work together and when usage gets blocked, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
-
-<!-- expires 2026-09-01 -->
+For a full explanation of how these controls work together and when usage gets blocked, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 ## Update your IDE, client, and extension
 
@@ -104,8 +88,6 @@ For the best experience with usage-based billing, update your IDE, client, and {
 | {% data variables.copilot.copilot_cli_short %} | 1.0.48 |
 
 We recommend keeping your IDE, client, and {% data variables.product.prodname_copilot_short %} extensions on the latest available stable version. For information on configuring automatic updates, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide). To update {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
-
-<!-- end expires 2026-09-01 -->
 
 ## Next steps
 
