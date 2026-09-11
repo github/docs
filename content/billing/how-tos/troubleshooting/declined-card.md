@@ -49,3 +49,19 @@ If your card is still valid, you have no restrictions on it, or the restrictions
 * **The transaction ID number.** Your account's transaction ID appears on your receipts.
 * **The merchant name.** The merchant name is {% data variables.product.prodname_dotcom %}.
 * **The error message your bank sent with the declined charge.** You can find your bank's error message on the email we send you when a charge is declined.
+
+
+## 3a. If you have already checked the card and the bank says the card is valid If the failed payment continues after you confirm the card is valid and the issuer is not blocking GitHub transactions, try the following:
+
+* Remove the saved payment method and add it again
+* Retry the charge after re-saving the payment method
+* Make sure the payment method is not prepaid
+* If your card is issued in India, confirm whether your issuer requires an RBI-compliant recurring payment mandate or one-time payment flow
+* If multiple cards have been declined, the issue may be an account-level payment restriction or processor-side rule rather than a card problem
+* Then add: If you still cannot complete the payment after re-adding the payment method and confirming with your bank, contact GitHub Support and include:
+
+the date and time of the failed attempt
+the amount
+the last four digits of the card
+the error message from GitHub or the card issuer
+whether the payment method was re-added or replaced
