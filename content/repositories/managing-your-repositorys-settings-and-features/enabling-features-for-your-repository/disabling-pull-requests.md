@@ -26,6 +26,6 @@ If you decide to enable pull requests again in the future, any pull requests tha
 {% ifversion fpt or ghec %}
 
 > [!TIP]
-> Please contact us through the {% data variables.contact.contact_support_portal %} if you want to turn off pull requests because of abuse from strangers. {% data reusables.policies.abuse %}
+> Contact us through the {% data variables.contact.contact_support_portal %} if you want to turn off pull requests because of abuse from strangers. {% data reusables.policies.abuse %}
 
 {% endif %}
