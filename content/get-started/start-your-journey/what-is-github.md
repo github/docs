@@ -33,7 +33,7 @@ You do not need to use every stage at once. Many people start with a repository 
 
 ## {% data variables.product.github %} and Git
 
-{% data variables.product.github %} is based on the open-source software, Git.
+{% data variables.product.github %} is based on the open-source version control software Git.
 
 Git is a version control system that tracks changes to files. It lets you work on your own copy of a project, record a history of your changes, and merge your work with other people's changes safely.
 
@@ -59,7 +59,7 @@ Some of the most common reasons people use {% data variables.product.github %} a
 * Participate in software development communities and discussions.
 * Use AI-powered tools and agents to help write, understand, review, and automate code development faster.
 
-## Where do I start?
+## Where do you start?
 
 If you're new to {% data variables.product.github %} and unfamiliar with Git, we recommend working through the articles in the [AUTOTITLE](/get-started/start-your-journey) category. The articles show you how to perform common tasks software developers do using {% data variables.product.github %}, such as:
 
