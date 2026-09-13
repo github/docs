@@ -59,6 +59,10 @@ jobs:
             language_dir: translations/ko-kr
             language_repo: github/docs-internal.ko-kr
 
+          - language: vi
+            language_dir: translations/vi-vn
+            language_repo: github/docs-internal.vi-vn
+
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - name: Checkout the language-specific repo

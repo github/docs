@@ -52,3 +52,9 @@ git diff --exit-code
 git checkout main
 git pull origin main
 popd
+
+pushd vi-vn
+git diff --exit-code
+git checkout main
+git pull origin main
+popd
