@@ -7,7 +7,7 @@ redirect_from:
   - /copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request
 introLinks:
   overview: /copilot/get-started/what-is-github-copilot
-  quickstart: /copilot/get-started/quickstart
+  quickstart: /copilot/get-started/quickstart-for-using-github-copilot-on-github-com
 layout: discovery-landing
 heroImage: /assets/images/banner-images/hero-6
 versions:
