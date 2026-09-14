@@ -62,13 +62,15 @@ Used for:
 >
 > Customers who enable a Fable model with ZDR agree to use this model only for internal operations, including to develop and evaluate products for their own customers. They may not make the model endpoints or outputs available externally.
 
-These models are hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
+These models are hosted by Amazon Web Services, Anthropic PBC, Google Cloud Platform, and Microsoft Foundry. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
 
 * Amazon Bedrock: Amazon makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
 <!-- markdownlint-disable GHD046 -->
 * Anthropic PBC: {% data variables.product.github %} maintains a [zero data retention agreement](https://privacy.anthropic.com/en/articles/8956058-i-have-a-zero-retention-agreement-with-anthropic-what-products-does-it-apply-to) with Anthropic for generally available Anthropic features in {% data variables.product.prodname_copilot %}. {% data variables.copilot.copilot_claude_fable_5 %} and {% data variables.copilot.copilot_claude_fable_51 %} are not covered by this agreement by default. Enterprises that meet eligibility requirements can use {% data variables.copilot.copilot_claude_fable_5 %} and {% data variables.copilot.copilot_claude_fable_51 %} with zero data retention through the end of 2026 under a separate time-bound exemption; contact your account manager to learn more. Some Anthropic features in beta or {% data variables.release-phases.public_preview %}—including tool search via the Messages API—are also not covered by this agreement. For these features, data may be retained by Anthropic in accordance with [Anthropic's ZDR documentation](https://platform.claude.com/docs/en/build-with-claude/zero-data-retention). {% data variables.product.github %} will update this page as ZDR coverage changes.
 <!-- markdownlint-enable GHD046 -->
 * Google Cloud: [Google commits to not training on {% data variables.product.github %} data as part of their service terms](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance). {% data variables.product.github %} is additionally not subject to prompt logging for abuse monitoring.
+
+* Microsoft Foundry: Microsoft hosts Claude models in Microsoft Foundry on Azure infrastructure.
 
 To provide better service quality and reduce latency, {% data variables.product.github %} uses [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching). You can read more about prompt caching on [Anthropic PBC](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching), [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html), and [Google Cloud](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude-prompt-caching).
 
