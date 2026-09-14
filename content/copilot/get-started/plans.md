@@ -38,14 +38,11 @@ category:
 
 * Ideal for sustained, high-volume AI power users who want access to the most AI credits available to them. This paid plan includes everything in {% data variables.copilot.copilot_pro_plus_short %}, plus our highest individual monthly allowance of {% data variables.product.prodname_ai_credits_short %}. 
 
-> [!IMPORTANT] 
-> {% data reusables.copilot.plans.organization-plans-paused %}
-
-**{% data variables.copilot.copilot_for_business %}**: To get started, [contact sales](https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase&ref_style=text).
+**{% data variables.copilot.copilot_for_business %}**: [Subscribe to {% data variables.copilot.copilot_business_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=business).
 
 * Made for organizations an enterprises, this plan offers centralized management and {% data variables.product.prodname_copilot_short %} policy control for organization members.
 
-**{% data variables.copilot.copilot_enterprise %}**: [Contact sales](https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase&ref_style=text) to get started.
+**{% data variables.copilot.copilot_enterprise %}**: [Subscribe to {% data variables.copilot.copilot_enterprise_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=enterprise).
 
 * Designed for enterprises using {% data variables.product.prodname_ghe_cloud %}. This plan includes all the features of {% data variables.copilot.copilot_business_short %}, offers a larger monthly pool of {% data variables.product.prodname_ai_credits_short %}, plus additional enterprise-grade capabilities. 
 
@@ -70,7 +67,7 @@ The table below provides an overview of differences between plans. All plans inc
 
 {% endrowheaders %}
 
-Each plan comes with an allowance of {% data variables.product.prodname_ai_credits %}. For more information, including how {% data variables.product.prodname_ai_credits %} work, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+Each plan comes with an allowance of {% data variables.product.prodname_ai_credits %}. For more information, including how {% data variables.product.prodname_ai_credits %} work, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 For more detail on what's uniquely available in each plan, see the following sections: 
 * [Individual plans](#individual-plans)
@@ -190,7 +187,7 @@ With these plans you'll receive access to the following features and capabilitie
 
 {% data variables.product.prodname_copilot_short %} usage is measured in {% data variables.product.prodname_ai_credits_short %} under usage-based billing. Each license contributes {% data variables.product.prodname_ai_credits_short %} to a shared enterprise pool, and usage beyond the pool is charged at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}. Code completions and {% data variables.copilot.next_edit_suggestions %} are not billed in {% data variables.product.prodname_ai_credits_short %} and remain unlimited for all paid plans.
 
-For a full explanation of how {% data variables.product.prodname_ai_credits_short %} work, including pooling, additional usage, and what happens when credits run out, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+For a full explanation of how {% data variables.product.prodname_ai_credits_short %} work, including pooling, additional usage, and what happens when credits run out, see [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 ### Inline suggestions and {% data variables.copilot.copilot_chat_short %}
 

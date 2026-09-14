@@ -193,7 +193,7 @@
     "@primer/octicons-react": "^19.22.0",
     "@primer/primitives": "^11.3.1",
     "@primer/react": "38.19.0",
-    "@primer/react-brand": "^0.70.0",
+    "@primer/react-brand": "^0.74.0",
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.18.0",
     "ajv-errors": "^3.0.0",
@@ -244,7 +244,7 @@
     "mdast-util-to-markdown": "2.1.2",
     "mdast-util-to-string": "^4.0.0",
     "micromark-extension-gfm": "^3.0.0",
-    "next": "^16.2.6",
+    "next": "^16.3.3",
     "ora": "^9.3.0",
     "parse5": "8.0.1",
     "quick-lru": "7.0.1",
@@ -263,7 +263,7 @@
     "remark-remove-comments": "^1.1.1",
     "remark-stringify": "^11.0.0",
     "semver": "^7.7.4",
-    "sharp": "0.35.3",
+    "sharp": "0.35.4",
     "slash": "^5.1.0",
     "strip-ansi": "7.1.0",
     "swr": "^2.4.0",
@@ -282,7 +282,7 @@
     "@axe-core/playwright": "^4.11.1",
     "@eslint/js": "^9.39.3",
     "@github/markdownlint-github": "^0.6.3",
-    "@graphql-inspector/core": "^7.1.2",
+    "@graphql-inspector/core": "^8.0.0",
     "@graphql-tools/load": "^8.1.8",
     "@octokit/rest": "22.0.0",
     "@playwright/test": "^1.60.0",
@@ -324,7 +324,7 @@
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-primer-react": "^9.0.0",
     "globals": "^17.3.0",
-    "gpt-tokenizer": "^3.4.0",
+    "gpt-tokenizer": "^4.0.0",
     "graphql": "^16.12.0",
     "http-status-code": "^2.1.0",
     "husky": "^9.1.7",
@@ -369,7 +369,7 @@
       "brace-expansion": "^5.0.8"
     },
     "sharp": "$sharp",
-    "fast-uri": "^3.1.5"
+    "fast-uri": "^3.1.7"
   },
   "optionalDependencies": {
     "esm": "^3.2.25"

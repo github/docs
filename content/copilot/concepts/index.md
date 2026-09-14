@@ -9,17 +9,13 @@ children:
   - /chat
   - /agents
   - /about-cloud-and-local-sandboxes
-  - /copilot-usage-metrics
   - /prompting
   - /context
   - /tools
   - /models
-  - /usage-limits
-  - /billing
-  - /about-enterprise-accounts-for-copilot-business
-  - /policies
-  - /mcp-management
+  - /billing-and-usage
   - /network-settings
-  - /learning-about-new-features-and-models
+  - /enterprise
 contentType: concepts
 ---
+

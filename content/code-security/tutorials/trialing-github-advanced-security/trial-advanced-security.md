@@ -27,6 +27,7 @@ To set up a trial of {% data variables.product.prodname_GHAS %} using this metho
 1. You have not previously purchased {% data variables.product.prodname_GHAS %} (that is, you do not currently or in the past have a paid license for {% data variables.product.prodname_GHAS %}).
 1. You are not already using metered billing for {% data variables.product.prodname_GHAS %}.
 1. If you have had a previous {% data variables.product.prodname_GHAS %} trial, you are eligible only if you have had no more than one previous trial and it ended at least 180 days ago.
+1. Your enterprise has 300 or fewer seats.
 
 > [!TIP]
 > * **No enterprise account?** Start a trial of {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GHAS %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).

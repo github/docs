@@ -29,9 +29,11 @@ This sets a baseline that you can add to with more granular controls. For models
 {% data reusables.enterprise-accounts.configure-allowed-models %}
 1. Select a status for each model in the list:
 
-   * **Enabled** for everyone.
-   * **Disabled** for everyone.
+   * **Enabled** for every user and {% data variables.copilot.agent_app %}.
+   * **Disabled** for every user and {% data variables.copilot.agent_app %}.
    * **Delegate** the decision to organizations or enterprise teams and apps.
+
+{% data reusables.copilot.model-access-agent-apps %}
 
 ### Checking for unconfigured models
 
@@ -95,6 +97,17 @@ To grant access to an enterprise team:
 1. Access the settings for the team. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
 1. Click the **Default models** tab.
 1. For each model that the team should receive access to beyond the enterprise baseline, set the dropdown to **Enabled**.
+
+### Granting access to {% data variables.copilot.agent_apps %}
+
+{% data reusables.copilot.agent-apps-intro %} See [AUTOTITLE](/copilot/concepts/agents/agent-apps).
+
+Ensure models you want to enable specifically for apps are set to **Delegate to Enterprise Teams/Apps** in your enterprise's model policies.
+
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+{% data reusables.enterprise-accounts.copilot-sidebar %}
+1. Under **Models**, click **Configure app models**.
+1. For each available model you want to enable, change the dropdown from **Optional** to **Enabled**.
 
 ## Further reading
 

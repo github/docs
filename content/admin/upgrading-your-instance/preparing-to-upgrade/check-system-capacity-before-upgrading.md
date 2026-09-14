@@ -213,7 +213,7 @@ Check current numbers:
 * Resque workers
 
   ```shell
-  ps -ef | grep aqueduct-1.1.0 | grep -v "grep aqueduct-1.1.0" | wc -l
+  ps -ef | grep -E 'aqueduct-[0-9]' | grep -v grep | wc -l
   ```
 
 #### 3. Adjust configuration

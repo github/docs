@@ -24,6 +24,7 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - '.github/workflows/sync-sdk-docs.yml'
+      - 'content/copilot/get-started/sdk-quickstart.md'
       - 'src/workflows/sync-sdk-docs/**'
 
 concurrency:
@@ -77,6 +78,10 @@ jobs:
       - name: Copy SDK docs
         run: |
           mkdir -p "$SDK_DOCS_TARGET"
+          # Pages relocated out of this tree into hand-authored content are not
+          # excluded here — they are removed by the RELOCATED_PAGES map in
+          # src/workflows/sync-sdk-docs/normalize-sdk-docs.ts, which also
+          # repoints inbound links at their new URLs.
           rsync -av --exclude='.validation/' --exclude='developer-docs/' "$SDK_TMP/docs/" "$SDK_DOCS_TARGET/"
           echo "Copied $(find "$SDK_DOCS_TARGET" -name '*.md' | wc -l | tr -d ' ') markdown files"
 

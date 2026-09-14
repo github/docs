@@ -101,7 +101,7 @@ All guides assume you have:
   * Go: `go get github.com/github/copilot-sdk/go` (requires separate CLI installation)
   * .NET: `dotnet add package GitHub.Copilot.SDK`
 
-If you're brand new, start with the **[AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)** first, then come back here for production configuration.
+If you're brand new, start with the **[AUTOTITLE](/copilot/get-started/sdk-quickstart)** first, then come back here for production configuration.
 
 ## Next steps
 

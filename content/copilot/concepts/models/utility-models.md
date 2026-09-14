@@ -6,7 +6,7 @@ versions:
 contentType: concepts
 ---
 
-Utility models are a small set of models that are automatically enabled for all {% data variables.product.prodname_copilot %} users across every plan. They power background features such as the generation of commit messages or chat session titles, and they apply across {% data variables.product.prodname_copilot_short %} surfaces: in IDEs, on {% data variables.product.github %}, and in {% data variables.copilot.copilot_cli_short %}.
+Utility models are a small set of models that are automatically enabled for all {% data variables.product.prodname_copilot %} users across every plan. They power background features such as the generation of commit messages or chat session titles, and they apply across {% data variables.product.prodname_copilot_short %} surfaces: in IDEs, on {% data variables.product.github %}, in {% data variables.copilot.copilot_cli_short %}, and in {% data variables.copilot.github_copilot_app %}.
 
 ## How do utility models work?
 

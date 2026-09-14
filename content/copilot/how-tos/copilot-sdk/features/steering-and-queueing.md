@@ -546,7 +546,7 @@ class InteractiveChat {
 
 ## See also
 
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started): Set up a session and send messages
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart): Set up a session and send messages
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/custom-agents): Define specialized agents with scoped tools
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/hooks/hooks-overview): React to session lifecycle events
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/session-persistence): Resume sessions across restarts

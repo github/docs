@@ -9,16 +9,17 @@ category:
 ---
 ## Appeal and Reinstatement
 
-While the majority of interactions between individuals in GitHub’s community fall within our Acceptable Use Policies and Community Guidelines, violations of those policies do occur at times. When they do, GitHub staff may need to take enforcement action to address the violations. However, we understand that sometimes we might make mistakes. In some cases there may be a basis to reverse a moderation action taken (or not taken) by GitHub Staff. To ensure our policies and outcomes are applied evenly, GitHub provides an internal complaint-handling process where users can submit requests for reinstatement or provide additional information to appeal a moderation decision.
+While the majority of interactions between individuals in the GitHub and npm communities fall within our Acceptable Use Policies, Community Guidelines, and Open-Source Terms, violations of those policies do occur at times. When they do, GitHub staff may need to take enforcement action to address the violations. However, we understand that sometimes we might make mistakes. In some cases there may be a basis to reverse a moderation action taken (or not taken) by GitHub Staff. To ensure our policies and outcomes are applied evenly, GitHub provides an internal complaint-handling process where users can submit requests for reinstatement or provide additional information to appeal a moderation decision.
 
 ## What are Appeals and Reinstatements?
 
-Both Appeals and Reinstatements may arise in relation to decisions to disable or limit access to content or an account, including decisions whether or not to:
+Both Appeals and Reinstatements may arise in relation to decisions to block content from being published or to disable or limit access to content or an account, including decisions whether or not to:
 
 * Remove, disable access to, or restrict visibility of content
 * Suspend or terminate access to an account
 * Suspend or terminate access to the service, in whole or in part
 * Suspend, terminate or otherwise restrict the ability to monetize content
+* Block publishing of content on npm
 
 A “Reinstatement” is where a user wishes to regain access to their account or content and is willing to make any necessary changes to address the violation and agrees not to violate our terms going forward.
 
@@ -26,7 +27,11 @@ An “Appeal” is where a user disputes that a violation has occurred and can p
 
 ## How this works
 
-If you seek Reinstatement or wish to Appeal an enforcement action, please fill out our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement). You may Appeal a moderation decision for up to six months following the decision. GitHub may, in its discretion, refuse to consider any Appeals submitted more than six months after the decision.
+If you'd like to seek Reinstatement or wish to Appeal an enforcement action on GitHub or npm, please fill out the applicable form: 
+* [GitHub Appeal and Reinstatement form](https://support.github.com/contact/reinstatement)
+* [npm Appeal and Reinstatement form](https://support.github.com/support/contact/product-selection/reinstatement-requests/npm-reinstatement-request)
+
+On GitHub, you may seek Reinstatement or Appeal a moderation decision for up to six months following the decision. GitHub may, in its discretion, refuse to consider any requests submitted more than six months after the decision.
 
 GitHub staff will review the information provided in the form to determine whether there is sufficient information to warrant Reinstatement or granting of an Appeal.
 

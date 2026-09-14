@@ -12,7 +12,8 @@ import type {
   DefinitionNode,
   TypeNode,
 } from 'graphql/language'
-import helpers from './schema-helpers'
+import baseHelpers, { createSchemaHelpers } from '@/graphql/scripts/utils/schema-helpers'
+import type { Context } from '@/types/types'
 import { OTHER_CATEGORY, isValidCategory } from '@/graphql/lib/categories'
 import fs from 'fs/promises'
 import path from 'path'
@@ -216,12 +217,14 @@ const externalScalarsJSON: Array<{ name: string; description: string }> = JSON.p
 )
 const externalScalars: ScalarInfo[] = await Promise.all(
   externalScalarsJSON.map(async (scalar): Promise<ScalarInfo> => {
-    const description = await helpers.getDescription(scalar.description)
-    const id = helpers.getId(scalar.name)
+    // These live in a local JSON file rather than the versioned schema, and
+    // their only link is external, so they need no version context.
+    const description = await baseHelpers.getDescription(scalar.description)
+    const id = baseHelpers.getId(scalar.name)
     // External scalars (e.g. Date, URI) are not annotated upstream and live
     // in the "other" bucket. Emit the legacy href; bucket-by-category will
     // rewrite it to the category-aware form for per-category files.
-    const href = helpers.getFullLink('scalars', id)
+    const href = baseHelpers.getFullLink('scalars', id)
     return {
       name: scalar.name,
       description,
@@ -247,7 +250,11 @@ export default async function processSchemas(
   // Lookups for type-level categories use the type id; mutations look up
   // by mutation field name under the `mutations` key.
   fallbackCategoryMap?: CategoryMapFallback,
+  // The docs version being generated, e.g. `enterprise-server@3.22`. Without
+  // it, links inside schema descriptions render without a version segment.
+  context: Context = {},
 ): Promise<ProcessedSchemaData> {
+  const helpers = createSchemaHelpers(context)
   const schemaAST: DocumentNode = parse(idl.toString())
   const schema: GraphQLSchema = buildASTSchema(schemaAST)
 

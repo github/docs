@@ -307,6 +307,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "alert_enabled",
       "budget_limit_type",
@@ -1069,6 +1070,7 @@
       "actor_is_bot",
       "created_at",
       "name",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
@@ -1138,6 +1140,7 @@
       "actor_is_bot",
       "created_at",
       "name",
+      "oauth_application_id",
       "operation_type",
       "policy"
     ],
@@ -1210,6 +1213,7 @@
       "created_at",
       "limit",
       "name",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
@@ -1243,6 +1247,7 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "default_workflow_permissions_value",
       "name",
       "oauth_application_id",
       "operation_type"
@@ -1316,7 +1321,8 @@
       "created_at",
       "name",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "workflow_permission_can_approve_pr_value"
     ],
     "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
   },
@@ -1758,6 +1764,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -1904,6 +1911,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "operation_type",
@@ -2471,6 +2479,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "alert_number",
       "created_at",
@@ -2509,10 +2518,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "alert_number",
       "created_at",
       "number",
+      "oauth_application_id",
       "operation_type",
       "public_repo"
     ],
@@ -2550,6 +2561,7 @@
       "alert_number",
       "created_at",
       "number",
+      "oauth_application_id",
       "operation_type",
       "public_repo"
     ],
@@ -3516,6 +3528,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "name",
@@ -3552,6 +3565,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -3586,6 +3600,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "name",
@@ -3658,6 +3673,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "key",
@@ -4263,6 +4279,9 @@
       "actor_is_bot",
       "application_client_id",
       "created_at",
+      "events_added",
+      "events_removed",
+      "events_unchanged",
       "integration",
       "name",
       "operation_type",
@@ -4484,7 +4503,8 @@
       "integration",
       "name",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
   },
@@ -6217,8 +6237,10 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "integration",
       "oauth_application_name",
-      "operation_type"
+      "operation_type",
+      "topic"
     ],
     "docs_reference_titles": "/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps"
   },
@@ -6639,6 +6661,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -6674,10 +6697,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization"
   },
@@ -6745,6 +6770,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -6821,6 +6847,7 @@
       "actor_is_agent",
       "actor_is_bot",
       "created_at",
+      "default_workflow_permissions_value",
       "oauth_application_id",
       "operation_type",
       "user_programmatic_access_name"
@@ -6896,7 +6923,8 @@
       "created_at",
       "oauth_application_id",
       "operation_type",
-      "user_programmatic_access_name"
+      "user_programmatic_access_name",
+      "workflow_permission_can_approve_pr_value"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
@@ -7491,6 +7519,7 @@
       "actor_is_bot",
       "created_at",
       "explanation",
+      "oauth_application_id",
       "operation_type",
       "user_programmatic_access_name"
     ]
@@ -8525,10 +8554,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views"
   },
@@ -8566,7 +8597,8 @@
       "project_id",
       "project_kind",
       "project_name",
-      "public_project"
+      "public_project",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -8760,6 +8792,7 @@
       "fingerprint",
       "key",
       "operation_type",
+      "public_repo",
       "read_only",
       "title"
     ],
@@ -10502,6 +10535,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -10545,6 +10579,7 @@
       "oauth_application_id",
       "operation_type",
       "public_repo",
+      "user_programmatic_access_name",
       "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository"
@@ -10696,6 +10731,7 @@
       "actor_is_agent",
       "actor_is_bot",
       "created_at",
+      "default_workflow_permissions_value",
       "oauth_application_id",
       "operation_type",
       "public_repo",
@@ -10777,7 +10813,8 @@
       "operation_type",
       "public_repo",
       "user_programmatic_access_name",
-      "visibility"
+      "visibility",
+      "workflow_permission_can_approve_pr_value"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
@@ -12848,6 +12885,7 @@
       "user_id",
       "user_agent",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
@@ -13648,6 +13686,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "oauth_application_id",
       "operation_type",
@@ -13821,6 +13860,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -13986,7 +14026,40 @@
   },
   {
     "action": "user.disable_collaborators_only",
-    "description": "N/A",
+    "description": "The interaction limit for collaborators only was disabled for a personal account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
+    ]
+  },
+  {
+    "action": "user.disable_contributors_only",
+    "description": "The interaction limit for prior contributors only was disabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -14017,39 +14090,8 @@
     ]
   },
   {
-    "action": "user.disable_contributors_only",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
-    "fields": [
-      "@timestamp",
-      "_document_id",
-      "action",
-      "actor",
-      "actor_id",
-      "business",
-      "business_id",
-      "hashed_token",
-      "org",
-      "org_id",
-      "programmatic_access_type",
-      "repo",
-      "repo_id",
-      "repository",
-      "repository_id",
-      "request_access_security_header",
-      "request_id",
-      "token_id",
-      "token_scopes",
-      "user",
-      "user_id",
-      "user_agent",
-      "created_at",
-      "operation_type"
-    ]
-  },
-  {
     "action": "user.disable_sockpuppet_disallowed",
-    "description": "N/A",
+    "description": "The interaction limit for existing users only was disabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -14075,6 +14117,7 @@
       "user_id",
       "user_agent",
       "created_at",
+      "oauth_application_id",
       "operation_type",
       "user_programmatic_access_name"
     ]
@@ -14146,7 +14189,7 @@
   },
   {
     "action": "user.enable_collaborators_only",
-    "description": "N/A",
+    "description": "The interaction limit for collaborators only was enabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -14173,12 +14216,13 @@
       "user_agent",
       "created_at",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
     "action": "user.enable_contributors_only",
-    "description": "N/A",
+    "description": "The interaction limit for prior contributors only was enabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -14204,13 +14248,14 @@
       "user_id",
       "user_agent",
       "created_at",
+      "oauth_application_id",
       "operation_type",
       "user_programmatic_access_name"
     ]
   },
   {
     "action": "user.enable_sockpuppet_disallowed",
-    "description": "N/A",
+    "description": "The interaction limit for existing users only was enabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -14236,6 +14281,7 @@
       "user_id",
       "user_agent",
       "created_at",
+      "oauth_application_id",
       "operation_type",
       "user_programmatic_access_name"
     ]
@@ -15188,6 +15234,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "blocked_user",
       "created_at",
       "oauth_application_id",

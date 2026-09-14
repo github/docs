@@ -425,6 +425,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "alert_enabled",
       "budget_limit_type",
@@ -595,6 +596,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "name",
@@ -629,6 +631,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "name",
@@ -733,6 +736,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "name",
@@ -1860,6 +1864,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -2146,6 +2151,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "operation_type",
@@ -2297,6 +2303,38 @@
     ]
   },
   {
+    "action": "copilot.code_review_organization_settings_updated",
+    "description": "Copilot code review settings were updated for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
     "action": "copilot.code_review_repository_settings_updated",
     "description": "Copilot code review settings were updated for a repository.",
     "docs_reference_links": "N/A",
@@ -2361,6 +2399,7 @@
       "actor_is_bot",
       "created_at",
       "excluded_paths",
+      "oauth_application_id",
       "operation_type",
       "owner_type",
       "public_repo",
@@ -3275,6 +3314,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "alert_number",
       "created_at",
@@ -3313,10 +3353,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "alert_number",
       "created_at",
       "number",
+      "oauth_application_id",
       "operation_type",
       "public_repo"
     ],
@@ -3354,6 +3396,7 @@
       "alert_number",
       "created_at",
       "number",
+      "oauth_application_id",
       "operation_type",
       "public_repo"
     ],
@@ -3387,6 +3430,7 @@
       "user_id",
       "user_agent",
       "access_level",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -3889,6 +3933,7 @@
       "actor_is_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
       "owner",
       "owner_type",
@@ -4565,6 +4610,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "name",
@@ -4601,6 +4647,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -4635,6 +4682,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "name",
@@ -5315,6 +5363,9 @@
       "actor_is_bot",
       "application_client_id",
       "created_at",
+      "events_added",
+      "events_removed",
+      "events_unchanged",
       "integration",
       "name",
       "operation_type",
@@ -5536,7 +5587,8 @@
       "integration",
       "name",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
   },
@@ -5619,6 +5671,43 @@
       "operation_type"
     ],
     "docs_reference_titles": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
+  },
+  {
+    "action": "integration.update",
+    "description": "A GitHub App was updated.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
+      "created_at",
+      "integration",
+      "name",
+      "oauth_application_id",
+      "operation_type"
+    ]
   },
   {
     "action": "ip_allow_list.disable",
@@ -6992,7 +7081,8 @@
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization"
   },
@@ -7165,6 +7255,7 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "Enforcing repository management policies in your enterprise"
@@ -8014,6 +8105,41 @@
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
   },
   {
+    "action": "oauth_application.update_token_expiration",
+    "description": "The token expiration setting for an OAuth application was updated.",
+    "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application",
+      "oauth_application_id",
+      "operation_type"
+    ],
+    "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+  },
+  {
     "action": "org.accept_business_invitation",
     "description": "An invitation sent to an organization to join an enterprise was accepted.",
     "docs_reference_links": "/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account",
@@ -8075,6 +8201,7 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization"
@@ -8218,7 +8345,8 @@
       "created_at",
       "oauth_application_id",
       "operation_type",
-      "team"
+      "team",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -8888,6 +9016,7 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ]
   },
@@ -8920,6 +9049,7 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ]
   },
@@ -9484,6 +9614,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -9517,8 +9648,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ]
   },
@@ -9549,6 +9682,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -9616,9 +9750,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization"
   },
@@ -9649,6 +9785,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -9717,6 +9854,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -10177,6 +10315,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -10353,6 +10492,7 @@
       "actor_is_bot",
       "created_at",
       "issuer",
+      "oauth_application_id",
       "operation_type",
       "sso_url"
     ]
@@ -10386,6 +10526,7 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization"
@@ -10513,10 +10654,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization"
   },
@@ -12269,7 +12412,8 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "topic"
     ]
   },
   {
@@ -12333,6 +12477,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -12368,10 +12513,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Defining custom patterns for secret scanning"
   },
@@ -12402,8 +12549,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "Defining custom patterns for secret scanning"
@@ -12532,8 +12681,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "Defining custom patterns for secret scanning"
@@ -12870,7 +13021,8 @@
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Push protection"
   },
@@ -12905,7 +13057,8 @@
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Push protection"
   },
@@ -13393,6 +13546,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -13428,10 +13582,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization"
   },
@@ -13499,6 +13655,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -13607,6 +13764,7 @@
       "actor_is_agent",
       "actor_is_bot",
       "created_at",
+      "default_workflow_permissions_value",
       "oauth_application_id",
       "operation_type",
       "user_programmatic_access_name"
@@ -13682,7 +13840,8 @@
       "created_at",
       "oauth_application_id",
       "operation_type",
-      "user_programmatic_access_name"
+      "user_programmatic_access_name",
+      "workflow_permission_can_approve_pr_value"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
@@ -13749,6 +13908,7 @@
       "actor_is_bot",
       "created_at",
       "from_business",
+      "oauth_application_id",
       "operation_type",
       "to_business"
     ],
@@ -13784,6 +13944,7 @@
       "actor_is_bot",
       "created_at",
       "from_business",
+      "oauth_application_id",
       "operation_type",
       "to_business"
     ],
@@ -14697,7 +14858,7 @@
   },
   {
     "action": "organization_moderators.add_team",
-    "description": "N/A",
+    "description": "A team was added as an organization moderator.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -14730,7 +14891,7 @@
   },
   {
     "action": "organization_moderators.add_user",
-    "description": "N/A",
+    "description": "A user was added as an organization moderator.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -14762,7 +14923,7 @@
   },
   {
     "action": "organization_moderators.remove_team",
-    "description": "N/A",
+    "description": "A team was removed as an organization moderator.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -14795,7 +14956,7 @@
   },
   {
     "action": "organization_moderators.remove_user",
-    "description": "N/A",
+    "description": "A user was removed as an organization moderator.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -15054,7 +15215,8 @@
       "owner",
       "owner_id",
       "owner_type",
-      "role_permissions"
+      "role_permissions",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Permissions of custom organization roles"
   },
@@ -16182,6 +16344,7 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ]
   },
@@ -17082,10 +17245,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views"
   },
@@ -17123,7 +17288,8 @@
       "project_id",
       "project_kind",
       "project_name",
-      "public_project"
+      "public_project",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -18251,6 +18417,7 @@
       "fingerprint",
       "key",
       "operation_type",
+      "public_repo",
       "read_only",
       "title"
     ],
@@ -18930,6 +19097,7 @@
       "oauth_application_id",
       "operation_type",
       "public_repo",
+      "topic",
       "user_programmatic_access_name"
     ]
   },
@@ -19405,6 +19573,114 @@
     ]
   },
   {
+    "action": "repo.code_quality_disabled",
+    "description": "Code Quality was disabled for a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name"
+    ]
+  },
+  {
+    "action": "repo.code_quality_enabled",
+    "description": "Code Quality was enabled for a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
+    ]
+  },
+  {
+    "action": "repo.code_quality_updated",
+    "description": "Code Quality was updated for a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
+    ]
+  },
+  {
     "action": "repo.code_scanning_ai_findings_disabled",
     "description": "AI-powered findings for code scanning were disabled for a repository.",
     "docs_reference_links": "N/A",
@@ -19433,6 +19709,7 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
       "public_repo"
     ]
@@ -19466,6 +19743,7 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
       "public_repo"
     ]
@@ -21376,6 +21654,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
       "actor_is_bot",
       "created_at",
       "oauth_application_id",
@@ -21419,6 +21698,7 @@
       "oauth_application_id",
       "operation_type",
       "public_repo",
+      "user_programmatic_access_name",
       "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository"
@@ -21570,6 +21850,7 @@
       "actor_is_agent",
       "actor_is_bot",
       "created_at",
+      "default_workflow_permissions_value",
       "oauth_application_id",
       "operation_type",
       "public_repo",
@@ -21651,7 +21932,8 @@
       "operation_type",
       "public_repo",
       "user_programmatic_access_name",
-      "visibility"
+      "visibility",
+      "workflow_permission_can_approve_pr_value"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
@@ -22150,6 +22432,42 @@
     "docs_reference_titles": "Repository security advisories"
   },
   {
+    "action": "repository_advisory.create_confidential_comment",
+    "description": "Someone created a confidential comment on a repository security advisory.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "operation_type",
+      "public_repo",
+      "repository_advisory",
+      "repository_advisory_comment_id",
+      "repository_advisory_id"
+    ]
+  },
+  {
     "action": "repository_advisory.cve_request",
     "description": "Someone requested a CVE (Common Vulnerabilities and Exposures) number from GitHub for a draft security advisory.",
     "docs_reference_links": "N/A",
@@ -22322,6 +22640,43 @@
     ]
   },
   {
+    "action": "repository_advisory.read_confidential_comments",
+    "description": "Confidential comments on a repository security advisory were read by someone.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "actor_is_bot",
+      "confidential_comment_count",
+      "created_at",
+      "operation_type",
+      "public_repo",
+      "repository_advisory",
+      "repository_advisory_id",
+      "surface"
+    ]
+  },
+  {
     "action": "repository_advisory.reopen",
     "description": "Someone reopened as draft security advisory.",
     "docs_reference_links": "N/A",
@@ -22353,7 +22708,8 @@
       "created_at",
       "oauth_application_id",
       "operation_type",
-      "public_repo"
+      "public_repo",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -23214,6 +23570,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ],
@@ -23541,7 +23898,8 @@
       "created_at",
       "oauth_application_id",
       "operation_type",
-      "public_repo"
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Defining custom patterns for secret scanning"
   },
@@ -23574,8 +23932,10 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "public_repo"
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Defining custom patterns for secret scanning"
   },
@@ -23712,7 +24072,8 @@
       "created_at",
       "oauth_application_id",
       "operation_type",
-      "public_repo"
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Defining custom patterns for secret scanning"
   },
@@ -24123,7 +24484,8 @@
       "oauth_application_id",
       "operation_type",
       "public_repo",
-      "topic"
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Push protection"
   },
@@ -24945,6 +25307,7 @@
       "user_id",
       "user_agent",
       "active",
+      "actor_is_agent",
       "actor_is_bot",
       "alert_id",
       "alert_number",
@@ -25132,6 +25495,7 @@
       "oauth_application_id",
       "operation_type",
       "public_repo",
+      "reason",
       "topic",
       "user_programmatic_access_name"
     ]
@@ -25169,6 +25533,7 @@
       "oauth_application_id",
       "operation_type",
       "public_repo",
+      "reason",
       "topic",
       "user_programmatic_access_name"
     ]
@@ -25278,6 +25643,7 @@
       "user_agent",
       "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
       "owner"
     ],
@@ -25395,7 +25761,8 @@
       "oauth_application_id",
       "operation_type",
       "owner",
-      "role_permissions"
+      "role_permissions",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Managing custom repository roles for an organization"
   },
@@ -25440,6 +25807,230 @@
       "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Managing custom repository roles for an organization"
+  },
+  {
+    "action": "sandbox.add_port",
+    "description": "A forwarded port was added to a sandbox.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "sandbox_id"
+    ]
+  },
+  {
+    "action": "sandbox.create",
+    "description": "A sandbox was created.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "sandbox_id"
+    ]
+  },
+  {
+    "action": "sandbox.delete",
+    "description": "A sandbox was deleted.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "sandbox_id"
+    ]
+  },
+  {
+    "action": "sandbox.generate_token",
+    "description": "A token was generated for a sandbox.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "sandbox_id"
+    ]
+  },
+  {
+    "action": "sandbox.remove_port",
+    "description": "A forwarded port was removed from a sandbox.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "sandbox_id"
+    ]
+  },
+  {
+    "action": "sandbox.resume",
+    "description": "A sandbox was resumed.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "sandbox_id"
+    ]
+  },
+  {
+    "action": "sandbox.stop",
+    "description": "A sandbox was stopped.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "sandbox_id"
+    ]
   },
   {
     "action": "secret_scanning_alert.assign",
@@ -25545,6 +26136,78 @@
       "number",
       "publicly_leaked",
       "reason",
+      "secret_type",
+      "secret_type_display_name"
+    ],
+    "docs_reference_titles": "Manage secret scanning alerts"
+  },
+  {
+    "action": "secret_scanning_alert.metadata_create",
+    "description": "Metadata was added to a secret scanning alert.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "multi_repo",
+      "number",
+      "publicly_leaked",
+      "secret_type",
+      "secret_type_display_name"
+    ],
+    "docs_reference_titles": "Manage secret scanning alerts"
+  },
+  {
+    "action": "secret_scanning_alert.metadata_remove",
+    "description": "Metadata was removed from a secret scanning alert.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "multi_repo",
+      "number",
+      "publicly_leaked",
       "secret_type",
       "secret_type_display_name"
     ],
@@ -26369,6 +27032,7 @@
       "source",
       "source_slug",
       "started_at",
+      "topic",
       "type",
       "type_slug"
     ],
@@ -29199,6 +29863,7 @@
       "head_branch",
       "head_sha",
       "name",
+      "oauth_application_id",
       "operation_type",
       "public_repo",
       "run_attempt",
@@ -29206,6 +29871,7 @@
       "started_at",
       "topic",
       "trigger_id",
+      "user_programmatic_access_name",
       "workflow_id",
       "workflow_run_id"
     ],
@@ -29254,6 +29920,71 @@
       "workflow_run_id"
     ],
     "docs_reference_titles": "Understanding GitHub Actions"
+  },
+  {
+    "action": "workflows.debugger_session_completed",
+    "description": "An Actions job with the debugger enabled completed its debug session. Includes the repository, ref, workflow file, actor, and session duration.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "completed_at",
+      "created_at",
+      "operation_type",
+      "started_at"
+    ]
+  },
+  {
+    "action": "workflows.debugger_session_started",
+    "description": "An Actions job with the debugger enabled started a debug session. Includes the repository, ref, workflow file, and actor.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "started_at"
+    ]
   },
   {
     "action": "workflows.delete_workflow_run",

@@ -61,7 +61,10 @@ Beyond the default detection of partner and provider secrets, you can expand and
 * **Custom patterns.** Define your own regular expressions to detect organization-specific secrets that aren't covered by default patterns.
 * **Validity checks.** Prioritize remediation by checking whether detected secrets are still active.
 {% ifversion secret-scanning-ai-generic-secret-detection %}
-* **{% data variables.secret-scanning.ai-detected-secrets-caps %}.** Use AI to detect unstructured secrets like passwords, or to generate regular expressions for custom patterns.
+* **{% data variables.secret-scanning.ai-detected-secrets-caps %}.** Use AI to detect unstructured secrets like passwords.
+{% endif %}
+{% ifversion secret-scanning-custom-pattern-ai-generated %}
+* **AI-generated regular expressions.** Use AI to generate regular expressions for custom patterns.
 {% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}

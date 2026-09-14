@@ -60,7 +60,7 @@ The OIDC token includes the following claims.
 | `enterprise_id`| The ID of the enterprise that contains the repository from where the workflow is running.                  |
 | {% endif %} |
 | `environment`| The name of the environment used by the job. If the `environment` claim is included (also via `include_claim_keys`), an environment is required and must be provided.                   |
-| `event_name`| The name of the event that triggered the workflow run.                    |
+| `event_name`| The name of the event that triggered the workflow run.{% ifversion dependabot-oidc-support %} OIDC tokens requested for {% data variables.product.prodname_dependabot %} update jobs use `dynamic` as the value.{% endif %}                    |
 | `head_ref`| The source branch of the pull request in a workflow run.                   |
 | `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see [AUTOTITLE](/actions/how-tos/secure-your-work/security-harden-deployments/oidc-with-reusable-workflows).                  |
 | `job_workflow_sha`| For jobs using a reusable workflow, the commit SHA for the reusable workflow file.                   |
@@ -106,6 +106,12 @@ Audience and subject claims are typically used in combination while setting cond
 If you need more granular trust conditions, you can customize the {% ifversion ghec %}issuer (`iss`) and {% endif %}subject (`sub`) claim{% ifversion ghec %}s that are{% else %} that's{% endif %} included with the JWT. For more information, see [Customizing the token claims](#customizing-the-token-claims).
 
 There are also many additional claims supported in the OIDC token that can be used for setting these conditions. In addition, your cloud provider could allow you to assign a role to the access tokens, letting you specify even more granular permissions.
+
+{% ifversion dependabot-oidc-support %}
+
+OIDC tokens requested for {% data variables.product.prodname_dependabot %} update jobs have an `event_name` claim of `dynamic`. If your trust policy is intended to authorize only {% data variables.product.prodname_actions %} workflows and your cloud provider supports conditions on `event_name`, allow only the event names expected by your workflows.
+
+{% endif %}
 
 > [!NOTE]
 > To control how your cloud provider issues access tokens, you **must** define at least one condition, so that untrusted repositories can’t request access tokens for your cloud resources.

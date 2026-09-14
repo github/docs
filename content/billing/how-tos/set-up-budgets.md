@@ -79,7 +79,7 @@ To edit or delete a budget, on the "Budget and alerts" page, click **Edit** or *
 ## Managing budgets for your organization or enterprise
 
 > [!IMPORTANT]
-> {% data variables.product.prodname_copilot_short %} usage is now measured in {% data variables.product.prodname_ai_credits_short %} under usage-based billing. Existing premium request budgets have been automatically converted to {% data variables.product.prodname_ai_credit_singular %} budgets. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+> {% data variables.product.prodname_copilot_short %} usage is now measured in {% data variables.product.prodname_ai_credits_short %} under usage-based billing. Existing premium request budgets have been automatically converted to {% data variables.product.prodname_ai_credit_singular %} budgets. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 You can set budgets and receive alerts when your usage of a product or license type reaches 75%, 90%, or 100% of a defined budget. For budgets that control metered use of a product, you can also block further use when the budget is exhausted. Each budget has a scope.
 

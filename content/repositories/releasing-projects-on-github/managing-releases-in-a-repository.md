@@ -81,7 +81,7 @@ If you @mention any {% data variables.product.github %} users in the notes, the 
 {% ifversion immutable-releases %}
 
 > [!NOTE]
-> If you have enabled immutable releases for your repository, you can only edit the title and release notes after a release is published. See [AUTOTITLE](/code-security/concepts/supply-chain-security/immutable-releases).
+> If you have enabled immutable releases for your repository, you cannot add, replace, or delete assets after a release is published, and you cannot move or delete its tag while the release exists. You can still edit the title and release notes, and change whether the release is a pre-release or the latest release. See [AUTOTITLE](/code-security/concepts/supply-chain-security/immutable-releases).
 
 {% endif %}
 

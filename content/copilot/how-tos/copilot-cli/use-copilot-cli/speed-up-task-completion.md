@@ -42,7 +42,7 @@ Use the `/tasks` slash command to see a list of background tasks relating to the
 Use up and down keyboard keys to navigate through the list of background tasks. For each subagent task, you can:
 
 * Press <kbd>Enter</kbd> to view details. When the subtask is complete, you will see a summary of what was done.
-* Press <kbd>k</kbd> to kill the process.
+* Press <kbd>x</kbd> to kill the process.
 * Press <kbd>r</kbd> to remove completed or killed subtasks from the list.
 
 Press <kbd>Esc</kbd> to exit the task list and return to the main CLI prompt.

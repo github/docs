@@ -59,7 +59,7 @@ The second policy has these characteristics:
 
 When both policies are enabled, users without a {% data variables.product.prodname_copilot_short %} license can request a review from {% data variables.copilot.copilot_code-review_short %} on their pull requests in the organization's repositories.
 
-In repositories where automatic code review is enabled, {% data variables.product.prodname_copilot_short %} automatically reviews all pull requests. This happens regardless of whether the author has a {% data variables.product.prodname_copilot_short %} license. For more information about how to configure automatic code review, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
+In repositories where automatic code review is enabled, {% data variables.product.prodname_copilot_short %} automatically reviews all pull requests. This happens regardless of whether the author has a {% data variables.product.prodname_copilot_short %} license. For more information about how to configure automatic code review, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
 
 
 {% data variables.copilot.copilot_code-review_short %} for users without a license is not available in IDEs.
@@ -96,7 +96,7 @@ A review typically consumes an estimated $0.05 USD to $1 USD worth of {% data va
 
 Consumption generally increases with pull request size and repository custom instructions, and the ranges may change as models evolve. These estimates do not include {% data variables.product.prodname_actions %} minutes.
 
-Repository and organization administrators can set the default review effort level for automatic code reviews. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#customizing-copilot-code-review-1).
+Repository and organization administrators can set the default review effort level for automatic code reviews. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#customizing-copilot-code-review-1).
 
 ## Code review usage
 
@@ -106,10 +106,9 @@ Code reviews have two cost components: {% data variables.product.prodname_ai_cre
 
 If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the {% data variables.product.prodname_ai_credits_short %} consumption is attributed to the pull request author. If a review is manually requested by another user, the consumption is attributed to that user instead.
 
-If a pull request is created by {% data variables.product.prodname_actions %} or by a bot, the usage will apply to:
+For pull requests authored by {% data variables.copilot.copilot_cloud_agent %}, usage is attributed first to the human co-author associated with the change. If the co-author cannot be billed, usage is billed directly to the organization.
 
-* The user who triggered the workflow, if that user can be identified.
-* A designated billing owner.
+For pull requests authored by other bots, or when a bot requests the review, usage is billed directly to the organization. These pull requests are eligible for agentic review.
 
 ### What happens when a budget is reached
 
@@ -152,7 +151,7 @@ The triggers for automatic code review depend on the configuration settings.
 * Review draft pull requests:
   * Pull requests are automatically reviewed while they are still drafts, before you switch them to "Open".
 
-For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
+For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
 
 > [!NOTE]
 > Unless {% data variables.product.prodname_copilot_short %} has been configured to review each push to a pull request, it will only review a pull request once. If you make changes to the pull request after it has been automatically reviewed and you want {% data variables.product.prodname_copilot_short %} to re-review it, you can request this manually. Click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu.
@@ -264,4 +263,4 @@ For more information, see [AUTOTITLE](/copilot/responsible-use/agents).
 ## Next steps
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
-* [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review)

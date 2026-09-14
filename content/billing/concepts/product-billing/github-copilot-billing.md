@@ -20,6 +20,6 @@ To understand how {% data variables.product.prodname_ai_credits_short %} work fo
 
 For organizations and enterprises, each assigned {% data variables.product.prodname_copilot_short %} license comes with a monthly amount of included {% data variables.product.prodname_ai_credits_short %}, which can be pooled at the billing entity level.
 
-* To understand how {% data variables.product.prodname_ai_credits_short %} work and what happens when your pool is exhausted, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+* To understand how {% data variables.product.prodname_ai_credits_short %} work and what happens when your pool is exhausted, see [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 * To understand budget controls and how to prevent unexpected charges, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 * To compare per-token costs across models and how they translate to {% data variables.product.prodname_ai_credits_short %}, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).

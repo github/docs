@@ -577,6 +577,24 @@
         "access": "write"
       },
       {
+        "category": "code-scanning",
+        "slug": "get-the-ai-scan-setting-for-an-organization",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-scanning/ai-scan",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "update-the-ai-scan-setting-for-an-organization",
+        "subcategory": "code-scanning",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/code-scanning/ai-scan",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "code-security",
         "slug": "get-code-security-configurations-for-an-organization",
         "subcategory": "configurations",
@@ -3158,6 +3176,15 @@
       },
       {
         "category": "actions",
+        "slug": "get-runner-version-end-of-life-schedule-for-an-organization",
+        "subcategory": "self-hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runners/deprecations/{version}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
         "slug": "list-runner-applications-for-an-organization",
         "subcategory": "self-hosted-runners",
         "verb": "get",
@@ -4100,6 +4127,15 @@
       },
       {
         "category": "actions",
+        "slug": "get-runner-version-end-of-life-schedule-for-a-repository",
+        "subcategory": "self-hosted-runners",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/deprecations/{version}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
         "slug": "list-runner-applications-for-a-repository",
         "subcategory": "self-hosted-runners",
         "verb": "get",
@@ -4577,6 +4613,15 @@
       },
       {
         "category": "code-scanning",
+        "slug": "update-ai-scan-enablement-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-scanning",
         "slug": "get-a-code-scanning-default-setup-configuration",
         "subcategory": "code-scanning",
         "verb": "get",
@@ -4977,6 +5022,42 @@
         "subcategory": "rules",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "list-repository-custom-patterns",
+        "subcategory": "custom-patterns",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "bulk-create-repository-custom-patterns",
+        "subcategory": "custom-patterns",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "bulk-delete-repository-custom-patterns",
+        "subcategory": "custom-patterns",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "update-a-repository-custom-pattern",
+        "subcategory": "custom-patterns",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns/{pattern_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -5436,6 +5517,15 @@
         "subcategory": "code-scanning",
         "verb": "get",
         "requestPath": "/orgs/{org}/code-scanning/alerts",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "get-ai-scan-enablement-for-a-repository",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/ai-scan",
         "additional-permissions": false,
         "access": "read"
       },
@@ -7675,6 +7765,15 @@
         "access": "read"
       },
       {
+        "category": "activity",
+        "slug": "get-repository-star-history",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/stargazers/history",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
         "category": "metrics",
         "slug": "get-the-weekly-commit-activity",
         "subcategory": "statistics",
@@ -8687,42 +8786,6 @@
         "requestPath": "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations",
         "additional-permissions": false,
         "access": "read"
-      },
-      {
-        "category": "secret-scanning",
-        "slug": "list-repository-custom-patterns",
-        "subcategory": "custom-patterns",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "secret-scanning",
-        "slug": "bulk-create-repository-custom-patterns",
-        "subcategory": "custom-patterns",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "secret-scanning",
-        "slug": "bulk-delete-repository-custom-patterns",
-        "subcategory": "custom-patterns",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "secret-scanning",
-        "slug": "update-a-repository-custom-pattern",
-        "subcategory": "custom-patterns",
-        "verb": "patch",
-        "requestPath": "/repos/{owner}/{repo}/secret-scanning/custom-patterns/{pattern_id}",
-        "additional-permissions": false,
-        "access": "write"
       },
       {
         "category": "secret-scanning",

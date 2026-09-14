@@ -266,6 +266,7 @@ You can list and manage your LSP servers in an interactive CLI session using the
 | `/lsp` or `/lsp show`     | Show the status of all configured LSP servers. |
 | `/lsp test SERVER-NAME`   | Test whether a server starts correctly. |
 | `/lsp reload`             | Reload LSP configurations from disk. |
+| `/lsp logs`               | Open the live LSP services panel to view server logs. |
 | `/lsp help`               | Show `/lsp` command information. |
 
 ### Listing available LSP servers

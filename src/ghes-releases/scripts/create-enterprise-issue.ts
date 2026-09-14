@@ -104,12 +104,14 @@ async function createDeprecationIssue() {
   const { data, content } = matter(issueTemplate)
   const { title, labels } = data
   const renderedContent = content.replaceAll('{{ release-number }}', oldestSupported)
-  const body = `GHES ${oldestSupported} deprecation occurs on ${deprecationDate}.
+  const body = `GHES ${oldestSupported} deprecation occurs on ${deprecationDate}. Don't start before that date. Late is fine.
 
 ${renderedContent}`
   await createIssue(
     repo,
-    title.replaceAll('{{ release-number }}', oldestSupported),
+    title
+      .replaceAll('{{ release-number }}', oldestSupported)
+      .replaceAll('{{ deprecation-date }}', deprecationDate),
     body,
     labels,
     oldestSupported,
@@ -378,13 +380,14 @@ async function isExistingIssue(
   const issues = await octokit.request(`GET /search/issues?q=${query}`)
 
   if (titleMatch) {
-    for (const issue of issues.data.items) {
-      if (issue.title.includes(titleMatch)) {
-        console.log(`Issue ${issue.html_url} already exists for this release.`)
-        return true
-      }
-      return false
+    const match = issues.data.items.find((issue: { title: string }) =>
+      issue.title.includes(titleMatch),
+    )
+    if (match) {
+      console.log(`Issue ${match.html_url} already exists for this release.`)
+      return true
     }
+    return false
   }
 
   const issueExists = !!issues.data.items.length

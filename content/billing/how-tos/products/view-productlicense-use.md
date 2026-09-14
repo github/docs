@@ -101,7 +101,7 @@ If you use {% data variables.product.prodname_copilot_short %}, an additional **
 * Which models are driving the most spend?
 * How widespread is adoption in the organizations where we rolled out {% data variables.product.prodname_copilot_short %}?
 
-To understand how {% data variables.product.prodname_ai_credits_short %} are pooled across your enterprise and what the usage data represents, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+To understand how {% data variables.product.prodname_ai_credits_short %} are pooled across your enterprise and what the usage data represents, see [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 {% endif %}
 

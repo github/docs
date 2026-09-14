@@ -15,7 +15,7 @@ contentType: reference
 
 ## About delegating policy decisions to organizations
 
-Policies can be defined for a whole enterprise, or set at the organization level. See [AUTOTITLE](/copilot/concepts/policies).
+Policies can be defined for a whole enterprise, or set at the organization level. See [AUTOTITLE](/copilot/concepts/enterprise/policies).
 
 When an enterprise owner delegates control of a policy to organization owners by setting "No policy," some organizations may enable a feature while others disable it. Users may be granted a {% data variables.product.prodname_copilot_short %} license by organizations with different policies for the same feature.
 

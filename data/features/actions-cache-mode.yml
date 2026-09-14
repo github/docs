@@ -1,0 +1,6 @@
+# Documentation for the `cache-mode` workflow key, which controls least-privilege
+# cache access for GitHub Actions jobs and reusable workflows.
+# This feature is dotcom-only and is not available on GitHub Enterprise Server.
+versions:
+  fpt: '*'
+  ghec: '*'

@@ -7,6 +7,7 @@ redirect_from:
   - /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
   - /authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
+  - /authentication/authenticating-with-single-sign-on/authorizing-credentials-for-single-sign-on-with-a-github-app
 versions:
   ghec: '*'
 shortTitle: '{% data variables.product.pat_generic_caps %} with SSO'

@@ -338,6 +338,46 @@ env:
 
 {% data reusables.actions.jobs.section-using-concurrency %}
 
+{% ifversion actions-cache-mode %}
+
+## `cache-mode`
+
+Use `cache-mode` to control the level of {% data variables.product.prodname_actions %} cache access that jobs in the workflow are granted. Setting `cache-mode` at the top level applies to every job in the workflow, unless a job overrides it with [`jobs.<job_id>.cache-mode`](#jobsjob_idcache-mode).
+
+Access is enforced with scoped cache tokens, so a job cannot restore or save caches beyond the mode it is granted. `cache-mode` accepts the following values.
+
+| Value | Restore caches | Save caches |
+| ----- | -------------- | ----------- |
+| `read` | Yes | No |
+| `write` | Yes | Yes |
+| `write-only` | No | Yes |
+| `none` | No | No |
+
+If you omit `cache-mode`, a `read` or `write` default is used based on the trigger type. For trigger-dependent effective defaults, see [AUTOTITLE](/actions/reference/dependency-caching-reference#defaults).
+
+> [!WARNING]
+> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/dependency-caching-reference#bypassing-the-default-untrusted-trigger-cache-restriction).
+
+When a cache operation is not permitted by the effective mode, the cache step logs an informational message and continues. The job and workflow do not fail. A skipped restore is treated as a cache miss; a skipped save is simply not performed. For more information, see [AUTOTITLE](/actions/reference/dependency-caching-reference#controlling-cache-access-with-cache-mode).
+
+### Example of `cache-mode`
+
+```yaml
+cache-mode: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-cache %}
+        with:
+          path: ~/.npm
+          key: {% raw %}npm-${{ hashFiles('**/package-lock.json') }}{% endraw %}
+```
+
+{% endif %}
+
 ## `jobs`
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow %}
@@ -407,6 +447,33 @@ env:
 ## `jobs.<job_id>.concurrency`
 
 {% data reusables.actions.jobs.section-using-concurrency-jobs %}
+
+{% ifversion actions-cache-mode %}
+
+## `jobs.<job_id>.cache-mode`
+
+Use `jobs.<job_id>.cache-mode` to set the level of {% data variables.product.prodname_actions %} cache access for a single job. A value set here overrides any workflow-level [`cache-mode`](#cache-mode) for this job only.
+
+The accepted values are `read`, `write`, `write-only`, and `none`, with the same meanings as the top-level key. If neither the job nor the workflow sets `cache-mode`, a trigger-based default applies. For more information about each value, see [`cache-mode`](#cache-mode) and [AUTOTITLE](/actions/reference/dependency-caching-reference#defaults).
+
+> [!WARNING]
+> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/dependency-caching-reference#bypassing-the-default-untrusted-trigger-cache-restriction).
+
+You can also set `cache-mode` on a job that calls a reusable workflow to limit the cache access granted to the called workflow. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/reusing-workflow-configurations#supported-keywords-for-jobs-that-call-a-reusable-workflow) and [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows#controlling-cache-access-in-reusable-workflows).
+
+### Example of `jobs.<job_id>.cache-mode`
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    cache-mode: write
+  test:
+    runs-on: ubuntu-latest
+    cache-mode: read
+```
+
+{% endif %}
 
 ## `jobs.<job_id>.outputs`
 
@@ -1572,5 +1639,3 @@ Path patterns must match the whole path, and start from the repository's root.
 | `'**/migrate-*.sql'`                                | A file with the prefix `migrate-` and suffix `.sql` anywhere in the repository.                                                                                                               | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql`    |
 | `'*.md'`<br/><br/>`'!README.md'`                    | Using an exclamation mark (`!`) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included. | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md`      |
 | `'*.md'`<br/><br/>`'!README.md'`<br/><br/>`README*` | Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths.                                                                                      | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`                                   |
-
-

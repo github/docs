@@ -140,7 +140,7 @@ For information about managing your {% data variables.product.prodname_GHAS %} l
 
 ## Leveraging {% data variables.copilot.copilot_chat %} to understand security alerts
 
-Additionally, with a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat %} for help to better understand security alerts in repositories in your organization ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). See [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github#asking-questions-about-alerts-from-github-advanced-security-features).
+Additionally, with a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat %} for help to better understand security alerts in repositories in your organization ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/get-started-with-chat-in-your-ide#ask-questions-about-alerts-from-github-advanced-security-features).
 {% endif %}
 
 {% ifversion github-certification %}

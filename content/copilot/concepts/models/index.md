@@ -6,11 +6,9 @@ versions:
   feature: copilot
 contentType: concepts
 children:
-  - /default-availability
+  - /overview
+  - /auto-model-selection
   - /bring-your-own-key
   - /utility-models
-  - /auto-model-selection
-  - /fedramp-models
   - /fallback-and-lts-models
 ---
-

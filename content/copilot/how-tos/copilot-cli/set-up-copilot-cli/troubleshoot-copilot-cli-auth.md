@@ -62,7 +62,7 @@ If you are using an environment variable, check whether the `COPILOT_GITHUB_TOKE
 If the command prints nothing, the variable is not set. Set the variable to a valid token. To generate a token, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli#authenticating-with-environment-variables).
   
 ```bash copy
- export $COPILOT_GITHUB_TOKEN=PERSONAL_ACCESS_TOKEN
+ export COPILOT_GITHUB_TOKEN=PERSONAL_ACCESS_TOKEN
  ```
 
 #### macOS keychain
@@ -106,7 +106,31 @@ Review the token's status and permissions on {% data variables.product.prodname_
 
 ## {% data variables.product.pat_classic_caps %} rejected
 
-A token starting with `ghp_` is silently ignored and the CLI behaves as if no token is set.
+A token starting with `ghp_` is rejected. What happens next depends on how you are running {% data variables.copilot.copilot_cli_short %}.
+
+In an interactive session, the classic {% data variables.product.pat_generic %} is ignored and the CLI keeps running, so you can authenticate another way, such as with `/login`. {% data variables.copilot.copilot_cli_short %} displays a warning like the following, naming the environment variable that holds the token:
+
+<!-- markdownlint-disable GHD005 -->
+```text
+Classic Personal Access Tokens (ghp_) are not supported. GITHUB_TOKEN contains a classic PAT and will be ignored. Use /login to authenticate, or replace it with a fine-grained PAT.
+```
+<!-- markdownlint-enable GHD005 -->
+
+In non-interactive use, such as `copilot -p` or other automation, if the classic {% data variables.product.pat_generic %} is the only credential available, the CLI refuses to start and displays the following error, naming the environment variable that holds the token:
+
+<!-- markdownlint-disable GHD005 -->
+```text
+Error: Classic Personal Access Tokens (ghp_) are not supported by Copilot.
+
+The GITHUB_TOKEN environment variable contains a classic PAT.
+Please use a Fine-Grained Personal Access Token or another authentication method.
+
+To fix this, you can:
+  • Replace the token in GITHUB_TOKEN with a fine-grained PAT
+  • Unset GITHUB_TOKEN and run 'gh auth login' to authenticate
+  • Unset GITHUB_TOKEN and start 'copilot', then use the '/login' command
+```
+<!-- markdownlint-enable GHD005 -->
 
 ### Cause
 

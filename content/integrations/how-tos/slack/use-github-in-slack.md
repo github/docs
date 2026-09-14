@@ -69,7 +69,7 @@ Use {% data variables.product.prodname_copilot_short %} in direct messages, thre
 * Review the resulting work in the open.
 * Resume work on the agent-generated artifacts outside of Slack, in {% data variables.product.github %}, the terminal, or your preferred code editor.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-slack).
 
 ## Working with issues and pull requests
 

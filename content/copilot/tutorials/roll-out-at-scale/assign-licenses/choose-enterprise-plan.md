@@ -40,7 +40,7 @@ For a full comparison, see our [plans page](https://github.com/features/copilot/
 
 {% data variables.product.prodname_ai_credits_short %} are consumed by advanced {% data variables.product.prodname_copilot_short %} features and models, including AI agents. Each plan's included {% data variables.product.prodname_ai_credits_short %} are pooled across your enterprise, so heavier users can draw from lighter users' unused portions. By giving members access to more {% data variables.product.prodname_ai_credits_short %}, you can scale your company with AI agents and drive real business outcomes.
 
-By default, usage can continue beyond the included pool, with additional usage charged at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}. You can control this with budget controls. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+By default, usage can continue beyond the included pool, with additional usage charged at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}. You can control this with budget controls. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 ## How does {% data variables.copilot.copilot_enterprise_short %} support business goals?
 
