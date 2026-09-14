@@ -27,8 +27,8 @@ These session limits are **soft limits**. If a response is in progress when the 
 
 How the limit is set and applied depends on whether you are in an interactive session or running the CLI programmatically.
 
-> [!TIP]
-> {% data variables.product.prodname_ai_credit_singular %} session limits work best when set to > 30 {% data variables.product.prodname_ai_credits_short %} as most model calls will cost more than 20 {% data variables.product.prodname_ai_credits_short %}.
+> [!NOTE]
+> {% data variables.product.prodname_ai_credit_singular %} session limits must be set to at least 30 {% data variables.product.prodname_ai_credits_short %}.
 
 ### Setting a limit within an interactive session
 
