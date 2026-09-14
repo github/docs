@@ -24,7 +24,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 |-----------|---------------|
 | `boolean` | `true` or `false` |
 | `null`    | `null` |
-| `number`  | Any number format supported by JSON. |
+| `number`  | Decimal integer and floating-point literals, including exponent notation, and hexadecimal literals such as `0xff`. |
 | `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
 Note that in conditionals, falsy values (`false`, `0`, `-0`, `""`, `''`, `null`) are coerced to `false` and truthy (`true` and other non-falsy values) are coerced to `true`.
