@@ -23,9 +23,6 @@ export function parseIssueState(value?: string): IssueState {
   )
 }
 
-/**
- * Build gh CLI args for listing release issues.
- */
 export function buildReleaseIssueListArgs(version: string, issueState: IssueState): string[] {
   const label = `GHES ${version}`
   return [

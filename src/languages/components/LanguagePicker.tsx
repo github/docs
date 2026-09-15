@@ -25,7 +25,7 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
   // that are available.
   // Also, if the current context has a page and that page has own ideas
   // about which languages it's available in (e.g. early-access)
-  // it would already have been paired down.
+  // it would already have been pared down.
   const langs = Object.values(languages)
 
   if (langs.length < 2) {

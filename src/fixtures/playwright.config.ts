@@ -1,11 +1,5 @@
 import { defineConfig } from '@playwright/test'
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
-
 const CI = Boolean(JSON.parse(process.env.CI || 'false'))
 
 const PLAYWRIGHT_START_SERVER_COMMAND =
@@ -36,7 +30,6 @@ const EXPECT_TIMEOUT = process.env.PLAYWRIGHT_EXPECT_TIMEOUT
  */
 export default defineConfig({
   testDir: './tests',
-  /* Maximum time one test can run for. */
   timeout: TIMEOUT,
   expect: {
     /**
@@ -45,13 +38,9 @@ export default defineConfig({
      */
     timeout: EXPECT_TIMEOUT,
   },
-  /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
   retries: RETRIES,
-  /* Opt out of parallel tests on CI. */
   workers: process.env.PLAYWRIGHT_WORKERS
     ? JSON.parse(process.env.PLAYWRIGHT_WORKERS)
     : CI
@@ -63,14 +52,12 @@ export default defineConfig({
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
-    /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'http://localhost:4000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
 
-  /* Configure projects for major browsers */
   projects: [
     // {
     //   name: 'chromium',
@@ -125,7 +112,6 @@ export default defineConfig({
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
 
-  /* Run your local dev server before starting the tests */
   webServer: {
     command: PLAYWRIGHT_START_SERVER_COMMAND,
     port: 4000,

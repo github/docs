@@ -35,17 +35,14 @@ import github from '@/workflows/github'
 import excludedLinks from '@/links/lib/excluded-links'
 import * as coreLib from '@actions/core'
 
-// Cache configuration
 const CACHE_FILE = process.env.EXTERNAL_LINK_CACHE_FILE || 'external-link-cache.json'
 const CACHE_MAX_AGE_DAYS = parseInt(process.env.CACHE_MAX_AGE_DAYS || '7', 10)
 const CACHE_MAX_AGE_MS = CACHE_MAX_AGE_DAYS * 24 * 60 * 60 * 1000
 
-// Request configuration
-const REQUEST_TIMEOUT_MS = 30000 // 30 seconds
-const REQUEST_DELAY_MS = 100 // 100ms between requests to avoid rate limiting
-const DEFAULT_DOMAIN_CONCURRENCY = 10 // Process this many domains in parallel
+const REQUEST_TIMEOUT_MS = 30000
+const REQUEST_DELAY_MS = 100 // Avoids rate limiting a single domain.
+const DEFAULT_DOMAIN_CONCURRENCY = 10
 
-// Create a set for fast lookups of excluded links
 const excludedLinksSet = new Set(excludedLinks.map(({ is }) => is).filter(Boolean))
 const excludedLinksPrefixes = excludedLinks.map(({ startsWith }) => startsWith).filter(Boolean)
 
@@ -54,7 +51,6 @@ function isExcludedLink(href: string): boolean {
   return excludedLinksPrefixes.some((prefix) => prefix && href.startsWith(prefix))
 }
 
-// Cache type
 interface CacheEntry {
   timestamp: number
   ok: boolean
@@ -81,9 +77,7 @@ interface LinkOccurrence {
  * are treated as the same URL.
  */
 function normalizeUrl(href: string): string {
-  // Remove fragment
   const withoutFragment = href.split('#')[0]
-  // Remove trailing slash only for origin/root URLs
   try {
     const parsed = new URL(withoutFragment)
     if (parsed.pathname === '/' && !parsed.search) {
@@ -103,22 +97,14 @@ function isDocsGithubUrl(url: string): boolean {
   }
 }
 
-/**
- * Sleep for a given number of milliseconds
- */
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-/**
- * Check a single external URL
- * Uses HEAD first, falls back to GET if HEAD returns 4xx/5xx
- */
 async function checkUrl(
   url: string,
   cache: CacheData,
 ): Promise<{ ok: boolean; statusCode?: number; error?: string; cached: boolean }> {
-  // Check cache first
   const cached = cache.urls[url]
   if (cached) {
     const age = Date.now() - cached.timestamp
@@ -138,7 +124,6 @@ async function checkUrl(
   }
 
   if (!response) {
-    // Timeout or network error
     return { ok: false, error: 'Request timed out or failed', cached: false }
   }
 
@@ -149,7 +134,6 @@ async function checkUrl(
     cached: false,
   }
 
-  // Update cache
   cache.urls[url] = {
     timestamp: Date.now(),
     ok: result.ok,
@@ -160,9 +144,6 @@ async function checkUrl(
   return result
 }
 
-/**
- * Fetch with timeout, returns null on error
- */
 async function fetchWithTimeout(
   url: string,
   method: 'HEAD' | 'GET',
@@ -218,7 +199,6 @@ async function checkGithubRepoUrl(
   cached: boolean
   fallbackAllowed?: boolean
 }> {
-  // Check cache first
   const cached = cache.urls[url]
   if (cached) {
     const age = Date.now() - cached.timestamp
@@ -314,13 +294,9 @@ async function checkGithubRepoUrl(
   }
 }
 
-/**
- * Extract all external links from content files
- */
 async function extractAllExternalLinks(): Promise<Map<string, LinkOccurrence[]>> {
   const links = new Map<string, LinkOccurrence[]>()
 
-  // Find all Markdown files
   const files = await glob('content/**/*.md', { ignore: '**/README.md' })
   console.log(`Found ${files.length} Markdown files to scan`)
 
@@ -332,17 +308,15 @@ async function extractAllExternalLinks(): Promise<Map<string, LinkOccurrence[]>>
     const result = extractLinksFromMarkdown(content)
     const fileMs = Date.now() - fileStart
 
-    // Warn if a single file takes longer than 1 second (possible regex issue)
+    // A slow file may mean a pathological regex in the extractor.
     if (fileMs > 1000) {
       console.warn(`  ⚠️  Slow extraction: ${file} took ${(fileMs / 1000).toFixed(1)}s`)
     }
 
     for (const link of result.externalLinks) {
-      // Only check HTTPS links
       if (!link.href.startsWith('https://')) continue
       if (isExcludedLink(link.href)) continue
 
-      // Normalize URL (remove anchors and trailing slashes for checking)
       const url = normalizeUrl(link.href)
 
       if (!links.has(url)) {
@@ -363,9 +337,6 @@ async function extractAllExternalLinks(): Promise<Map<string, LinkOccurrence[]>>
   return links
 }
 
-/**
- * Main entry point
- */
 async function main() {
   program
     .name('check-links-external')
@@ -386,12 +357,10 @@ async function main() {
   console.log(chalk.blue('🌐 External Link Checker'))
   console.log('')
 
-  // Load cache
   const defaultData: CacheData = { urls: {} }
   const db = await JSONFilePreset<CacheData>(CACHE_FILE, defaultData)
   await db.read()
 
-  // Report cache stats
   const now = Date.now()
   let freshCount = 0
   let staleCount = 0
@@ -405,12 +374,11 @@ async function main() {
   console.log(`Cache: ${freshCount} fresh, ${staleCount} stale entries`)
   console.log('')
 
-  // Extract all external links
   console.log('Extracting external links from content files...')
   const allLinks = await extractAllExternalLinks()
 
-  // Separate docs.github.com links — they're self-referential (this repo IS the docs site)
-  // and will be reported separately as candidates for conversion to internal links.
+  // Separate docs.github.com links. They're self-referential, since this repo is the docs
+  // site, and get reported separately as candidates for conversion to internal links.
   const selfReferentialLinks = new Map<string, LinkOccurrence[]>()
   for (const [url, occurrences] of allLinks) {
     if (isDocsGithubUrl(url)) {
@@ -425,7 +393,6 @@ async function main() {
 
   if (options.dryRun) {
     console.log('Dry run mode - not checking URLs')
-    // Show sample of URLs
     const sample = Array.from(allLinks.keys()).slice(0, 20)
     for (const url of sample) {
       console.log(`  ${url}`)
@@ -436,7 +403,6 @@ async function main() {
     process.exit(0)
   }
 
-  // Check URLs
   const brokenLinks: BrokenLink[] = []
   let checkedCount = 0
   let cachedCount = 0
@@ -459,7 +425,6 @@ async function main() {
       if (!urlsByDomain.has(hostname)) urlsByDomain.set(hostname, [])
       urlsByDomain.get(hostname)!.push(url)
     } catch {
-      // Record malformed URLs as broken links
       malformedCount++
       checkedCount++
       const occurrences = allLinks.get(url)!
@@ -529,7 +494,6 @@ async function main() {
         console.log(`  ✅ ${url}`)
       }
 
-      // Progress update every 100 URLs
       if (checkedCount % 100 === 0) {
         const elapsed = ((Date.now() - startTime) / 1000).toFixed(0)
         const rate = (checkedCount / (Date.now() - startTime)) * 1000 * 60
@@ -540,7 +504,6 @@ async function main() {
         )
       }
 
-      // Small delay between requests to the same domain to avoid rate limiting
       if (!result.cached) {
         await sleep(REQUEST_DELAY_MS)
       }
@@ -564,17 +527,14 @@ async function main() {
 
   await Promise.all(workers.map(runWorker))
 
-  // Save cache
   await db.write()
 
-  // Report results
   const duration = ((Date.now() - startTime) / 1000).toFixed(1)
   console.log('')
   console.log(
     chalk.blue(`Checked ${checkedCount} URLs in ${duration}s (${cachedCount} from cache)`),
   )
 
-  // Build self-referential BrokenLink list for the report
   const selfReferentialBrokenLinks: BrokenLink[] = []
   for (const occurrences of selfReferentialLinks.values()) {
     for (const occ of occurrences) {
@@ -587,7 +547,6 @@ async function main() {
     process.exit(0)
   }
 
-  // Generate report
   const report = generateExternalLinkReport(brokenLinks, {
     actionUrl: process.env.ACTION_RUN_URL,
     selfReferentialLinks: selfReferentialBrokenLinks,
@@ -605,7 +564,6 @@ async function main() {
     console.log(chalk.red(`❌ ${report.uniqueTargets} domain(s) with broken links`))
     console.log(chalk.red(`   ${report.totalOccurrences} total occurrence(s)`))
 
-    // Show summary by domain
     console.log('')
     console.log('Broken links by domain:')
     for (const group of report.groups.slice(0, 10)) {
@@ -616,12 +574,10 @@ async function main() {
     }
   }
 
-  // Write artifact
   const markdown = reportToMarkdown(report, true)
   await uploadArtifact('external-link-report.md', markdown)
   await uploadArtifact('external-link-report.json', JSON.stringify(report, null, 2))
 
-  // Create issue report if configured
   const createReport = process.env.CREATE_REPORT === 'true'
   const reportRepository = process.env.REPORT_REPOSITORY || 'github/docs-content'
 
@@ -642,7 +598,6 @@ async function main() {
       reportLabel,
     })
 
-    // Link to previous reports
     await linkReports({
       core: coreLib,
       octokit,
@@ -656,7 +611,6 @@ async function main() {
   }
 }
 
-// Run if invoked directly
 ;(async () => {
   try {
     await main()

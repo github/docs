@@ -14,8 +14,8 @@ import { SIDEBAR_COLLAPSED_COOKIE_NAME } from '@/frame/lib/constants'
 //
 // SSR-safety: the cookie is read server-side in getMainContext and passed to the
 // provider as `initialCollapsed`, so the first render (server + client hydration)
-// already reflects the persisted state and markup matches — no flash of the open
-// rail before it collapses. When no initial is supplied, it falls back to reading
+// already reflects the persisted state and markup matches, with no flash of the
+// open rail before it collapses. When no initial is supplied, it falls back to reading
 // the cookie client-side via the SSR-safe cookie lib.
 
 function readCollapsed(): boolean {
@@ -30,7 +30,7 @@ function persistCollapsed(collapsed: boolean) {
   try {
     Cookies.set(SIDEBAR_COLLAPSED_COOKIE_NAME, String(collapsed))
   } catch {
-    // Cookie writes may fail (disabled cookies, etc.) — degrade to non-persisted
+    // Cookie writes may fail (disabled cookies, etc.), so degrade to non-persisted
     // state rather than throwing.
   }
 }
@@ -41,7 +41,7 @@ type SidebarCollapseContextValue = {
   toggleCollapsed: () => void
   setCollapsed: (collapsed: boolean) => void
   // Mobile: whether the doc-tree nav is expanded inline (not persisted). The
-  // nav renders in the page flow, same as desktop — not in a dialog overlay.
+  // nav renders in the page flow, same as desktop, not in a dialog overlay.
   mobileNavOpen: boolean
   toggleMobileNav: () => void
   closeMobileNav: () => void
@@ -86,7 +86,7 @@ export function SidebarCollapseProvider({
 
   // Growing the viewport to the desktop (xxl) layout takes over from the inline
   // mobile nav and hides its toggle, so close the mobile nav when we cross the
-  // breakpoint — otherwise its open state stays stuck and keeps the content
+  // breakpoint. Otherwise its open state stays stuck and keeps the content
   // column hidden. 1400px mirrors breakpoint-xxl.scss.
   useEffect(() => {
     if (typeof window === 'undefined' || !window.matchMedia) return

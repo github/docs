@@ -1,10 +1,8 @@
-/*
-This file adds the following properties to languages in ./languages.ts:
-- dir: string
-
-This file will also remove languages for local development and tests
-that have not be specified by ENABLED_LANGUAGES
-*/
+// Adds a `dir` property to each language in ./languages.ts.
+//
+// Also narrows the set of languages, in this order: to whatever has a
+// directory under TRANSLATIONS_FIXTURE_ROOT, else to ENABLED_LANGUAGES, else
+// to English alone when NODE_ENV is 'test'.
 
 import path from 'path'
 import fs from 'fs'
@@ -15,7 +13,6 @@ import { languages as baseLanguages, type Language as BaseLanguage } from './lan
 
 dotenv.config({ quiet: true })
 
-// Server-side language extends base language with required dir property
 export interface Language extends BaseLanguage {
   dir: string
 }
@@ -45,7 +42,6 @@ function getRoot(languageCode: string): string {
   return path.join(TRANSLATIONS_ROOT, languageCode)
 }
 
-// Build server languages with directory paths
 const allLanguagesWithDirs: Languages = {}
 for (const [code, lang] of Object.entries(baseLanguages)) {
   allLanguagesWithDirs[code] = {
@@ -86,9 +82,10 @@ export const languageKeys: string[] = Object.keys(languages)
 
 export const languagePrefixPathRegex: RegExp = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
 
-/** Return true if the URL is something like /en/foo or /ja but return false
- * if it's something like /foo or /foo/bar or /fr (because French (fr)
- * is currently not an active language)
+/** Return true if the URL starts with a currently active language code, e.g.
+ * /en/foo or /ja. Returns false for /foo or /foo/bar. Which codes count as
+ * active depends on TRANSLATIONS_FIXTURE_ROOT, ENABLED_LANGUAGES, and
+ * NODE_ENV, so this varies between production, local dev, and tests.
  */
 export function pathLanguagePrefixed(urlPath: string): boolean {
   return languagePrefixPathRegex.test(urlPath)

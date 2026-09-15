@@ -17,7 +17,7 @@ describe('subcategories', () => {
     expect(
       hrefs.every((href: string) => href.startsWith('/en/get-started/start-your-journey/')),
     ).toBeTruthy()
-    // The all resolve to a 200 OK without redirects
+    // They all resolve to a 200 OK without redirects
     const responses = await Promise.all(hrefs.map((href: string) => head(href)))
     expect(responses.every((r: { statusCode: number }) => r.statusCode === 200)).toBeTruthy()
   })
@@ -53,7 +53,7 @@ describe('categories', () => {
     // They all have the same prefix
     const hrefs = links.map((i: number, el: Element) => $(el).attr('href')).get()
     expect(hrefs.every((href: string) => href.startsWith('/en/actions/category/'))).toBeTruthy()
-    // The all resolve to a 200 OK without redirects
+    // They all resolve to a 200 OK without redirects
     const responses = await Promise.all(hrefs.map((href: string) => head(href)))
     expect(responses.every((r: { statusCode: number }) => r.statusCode === 200)).toBeTruthy()
   })

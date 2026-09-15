@@ -19,7 +19,6 @@ dotenv.config({ quiet: true })
 
 const promptDir = getPromptsDir()
 
-// Ensure GitHub token is available
 ensureGitHubToken()
 
 const editorTypes = getAvailableEditorTypes(promptDir)
@@ -68,7 +67,7 @@ program
   .option('-f, --files <files...>', 'One or more content file paths in the content directory')
   .action((options: CliOptions) => {
     ;(async () => {
-      // Handle export-space workflow (standalone, doesn't process files)
+      // The export-space workflow is standalone and processes no files.
       if (options.exportSpace) {
         if (!options.output) {
           console.error('Error: --export-space requires --output option')
@@ -95,13 +94,11 @@ program
         }
       }
 
-      // Validate mutually exclusive options
       if (options.space && options.prompt) {
         console.error('Error: Cannot use both --space and --prompt options')
         process.exit(1)
       }
 
-      // Files are required for processing workflows
       if (!options.files || options.files.length === 0) {
         console.error('Error: --files option is required (unless using --export-space)')
         process.exit(1)
@@ -113,7 +110,7 @@ program
       let prompts: string[] = []
       let promptContent: string | undefined
 
-      // Handle Space workflow (in-memory)
+      // Build the prompt in memory instead of reading a prompt file.
       if (options.space) {
         try {
           spinner.text = 'Fetching Copilot Space...'
@@ -130,7 +127,6 @@ program
           process.exit(1)
         }
       } else {
-        // Handle local prompt workflow
         prompts = options.prompt || options.refine || []
 
         if (prompts.length === 0) {
@@ -140,7 +136,7 @@ program
         }
       }
 
-      // Validate local prompt types exist (skip for Space workflow)
+      // A Space prompt is not a local file, so there is nothing to validate.
       if (!options.space) {
         const availableEditors = editorTypes
         for (const editor of prompts) {
@@ -168,16 +164,13 @@ program
           continue
         }
 
-        // Check if it's a directory
         const isDirectory = fs.statSync(filePath).isDirectory()
 
         for (const editorType of prompts) {
           try {
-            // For other editor types, process individual files
             const filesToProcess: string[] = []
 
             if (isDirectory) {
-              // Find all markdown files in the directory recursively
               // Use process.cwd() as the root directory for safety
               const rootDir = fs.realpathSync(process.cwd())
               filesToProcess.push(...findMarkdownFiles(filePath, rootDir))
@@ -197,7 +190,7 @@ program
               const relativePath = path.relative(process.cwd(), fileToProcess)
               spinner.text = `Processing: ${relativePath}`
               try {
-                // Expand Liquid references before processing
+                // Capture the intro before Liquid expansion rewrites it.
                 let originalIntro = ''
                 if (editorType === 'intro') {
                   const originalContent = fs.readFileSync(fileToProcess, 'utf8')
@@ -212,7 +205,6 @@ program
 
                 let content = fs.readFileSync(fileToProcess, 'utf8')
 
-                // For intro prompt, add original intro and enrich context
                 if (editorType === 'intro') {
                   if (originalIntro) {
                     content = `\n\n---\nOriginal intro (unresolved): ${originalIntro}\n---\n\n${content}`
@@ -220,7 +212,6 @@ program
                   content = enrichIndexContext(fileToProcess, content)
                 }
 
-                // For content-type prompt, skip files that already have contentType
                 if (editorType === 'content-type' && content.includes('contentType:')) {
                   spinner.stop()
                   console.log(`⏭️  Skipping ${relativePath} (already has contentType)`)
@@ -240,24 +231,22 @@ program
 
                 if (options.write) {
                   if (editorType === 'intro' || editorType === 'content-type') {
-                    // For frontmatter addition/modification, merge properties instead of overwriting entire file
+                    // Merge frontmatter instead of overwriting the whole file.
                     const updatedContent = mergeFrontmatterProperties(fileToProcess, answer)
                     fs.writeFileSync(fileToProcess, updatedContent, 'utf8')
                     console.log(`✅ Added frontmatter properties to: ${relativePath}`)
                   } else {
-                    // For other editor types, write the full result back to the original file
                     fs.writeFileSync(fileToProcess, answer, 'utf8')
                     console.log(`✅ Updated: ${relativePath}`)
                   }
                 } else {
-                  // Just output to console (current behavior)
                   if (filesToProcess.length > 1) {
                     console.log(`\n=== ${relativePath} ===`)
                   }
                   console.log(answer)
                 }
 
-                // Always restore Liquid references after processing (even in non-write mode)
+                // Restore Liquid references even when not writing.
                 if (options.verbose) {
                   console.log(`Restoring Liquid references in: ${relativePath}`)
                 }
@@ -271,7 +260,6 @@ program
                 try {
                   runLiquidTagsScript('restore', [fileToProcess], false)
                 } catch (restoreError) {
-                  // Log restore failures in verbose mode for debugging
                   if (options.verbose) {
                     console.error(`Warning: Failed to restore Liquid references: ${restoreError}`)
                   }
@@ -291,7 +279,6 @@ program
 
       spinner.stop()
 
-      // Exit with appropriate code based on whether any errors occurred
       if (process.exitCode) {
         process.exit(process.exitCode)
       }
@@ -300,9 +287,6 @@ program
 
 program.parse(process.argv)
 
-/**
- * Run liquid-tags command on specified file paths
- */
 function runLiquidTagsScript(
   command: 'expand' | 'restore',
   filePaths: string[],
@@ -314,7 +298,6 @@ function runLiquidTagsScript(
   }
 
   try {
-    // Run liquid-tags script via tsx
     const liquidTagsScriptPath = path.join(
       process.cwd(),
       'src/content-render/scripts/liquid-tags.ts',
@@ -330,7 +313,6 @@ function runLiquidTagsScript(
   }
 }
 
-// Handle graceful shutdown
 process.on('SIGINT', () => {
   console.log('\n\n🛑 Process interrupted by user')
   process.exit(0)

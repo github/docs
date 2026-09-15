@@ -17,7 +17,7 @@
 // Scroll reveal. `.armed` is only applied by the component once it knows scripting is
 // running and the band is still below the fold, so the resting state above stays
 // visible for everyone else. Opacity and transform are compositor-only, so the rise
-// does not reflow the footer beneath it — and MinimalFooter is positioned, so the
+// does not reflow the footer beneath it. MinimalFooter is positioned, so the
 // band slides under it rather than over it.
 .armed {
   opacity: 0;

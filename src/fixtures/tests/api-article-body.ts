@@ -55,9 +55,7 @@ describe('article body api', () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/api-article-body-test-page'))
 
     expect(res.statusCode).toBe(200)
-    // Should not contain frontmatter
     expect(res.body).not.toMatch(/^---/)
-    // Should have at least one heading
     expect(res.body).toMatch(/^#{1,6}\s+\w+/m)
   })
 
@@ -80,21 +78,17 @@ describe('article body api', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')
 
-    // Should contain all tool-specific content variants
     expect(res.body).toContain('<div class="ghd-tool webui">')
     expect(res.body).toContain('<div class="ghd-tool cli">')
     expect(res.body).toContain('<div class="ghd-tool desktop">')
 
-    // Should contain the actual content from each tool
     expect(res.body).toContain('This is webui content')
     expect(res.body).toContain('This is cli content')
     expect(res.body).toContain('This is desktop content')
 
-    // Should contain tool-specific sections
     expect(res.body).toContain('Webui section specific content')
     expect(res.body).toContain('Desktop section specific content')
 
-    // Verify multiple instances of the same tool are preserved
     const webuiMatches = res.body.match(/<div class="ghd-tool webui">/g)
     const desktopMatches = res.body.match(/<div class="ghd-tool desktop">/g)
     expect(webuiMatches).toBeDefined()
@@ -108,11 +102,9 @@ describe('article body api', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')
 
-    // Should contain both webui and codespaces tool content
     expect(res.body).toContain('<div class="ghd-tool webui">')
     expect(res.body).toContain('<div class="ghd-tool codespaces">')
 
-    // Should contain the actual content from both tools
     expect(res.body).toContain('Under your repository name, click **Pull requests**')
     expect(res.body).toContain('Open the pull request in your codespace')
     expect(res.body).toContain(
@@ -122,7 +114,6 @@ describe('article body api', () => {
       'After reviewing the files, you can submit your review directly from Codespaces',
     )
 
-    // Verify both tools appear in multiple sections
     const webuiMatches = res.body.match(/<div class="ghd-tool webui">/g)
     const codespacesMatches = res.body.match(/<div class="ghd-tool codespaces">/g)
     expect(webuiMatches).toBeDefined()
@@ -139,7 +130,6 @@ describe('article body api', () => {
       ),
     )
 
-    // Skip test if page doesn't exist in fixture environment
     if (res.statusCode === 404) {
       console.log('Production page not available in fixture environment, skipping test')
       return
@@ -147,11 +137,9 @@ describe('article body api', () => {
 
     expect(res.statusCode).toBe(200)
 
-    // Verify the fix is working - codespaces content should now be present
     const hasCodespacesContent = res.body.includes('<div class="ghd-tool codespaces">')
     expect(hasCodespacesContent).toBe(true)
 
-    // Also verify that webui content is still present
     expect(res.body).toContain('<div class="ghd-tool webui">')
   })
 
@@ -164,7 +152,6 @@ describe('article body api', () => {
       ),
     )
 
-    // Skip test if page doesn't exist in fixture environment
     if (res.statusCode === 404) {
       console.log(
         'Production page not available in fixture environment, skipping issue verification test',
@@ -179,11 +166,9 @@ describe('article body api', () => {
     expect(res.body).toContain('<div class="ghd-tool webui">')
     expect(res.body).toContain('<div class="ghd-tool codespaces">')
 
-    // Verify specific codespaces content that was missing before the fix
     expect(res.body).toContain('GitHub Codespaces')
     expect(res.body).toContain('Open the pull request in a codespace')
 
-    // Ensure both tools are rendered with their respective content
     const webuiMatches = res.body.match(/<div class="ghd-tool webui">/g)
     const codespacesMatches = res.body.match(/<div class="ghd-tool codespaces">/g)
 

@@ -47,7 +47,6 @@ function buildPromptData(
   tree: Root,
   code: string,
 ): { promptContent: string; ariaLabel: string } {
-  // Find a ref meta in the format 'ref=<id>'
   const ref = getPreMeta(node).ref
 
   if (!ref) {

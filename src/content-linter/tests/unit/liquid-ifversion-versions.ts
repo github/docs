@@ -114,8 +114,7 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
   })
 
   test.skip('ifversion using feature based version extended with shortname all versions', async () => {
-    // That `features/volvo.yml` contains `fpt:'*', ghec:'*'`
-    // so combined with the
+    // That `features/volvo.yml` contains `fpt:'*', ghec:'*'`.
     const markdown = `
       {% ifversion volvo or ghes %}{% endif %}
     `

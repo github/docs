@@ -12,10 +12,8 @@ describe('bespoke landing transformer', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')
 
-    // Check for title
     expect(res.body).toContain('# Article Grid Bespoke Landing')
 
-    // Should have intro
     expect(res.body).toContain('A test page for testing')
   })
 
@@ -23,7 +21,6 @@ describe('bespoke landing transformer', () => {
     const res = await get(makeURL('/en/get-started/article-grid-bespoke'))
     expect(res.statusCode).toBe(200)
 
-    // Should have Articles section with all descendant articles (recursive)
     expect(res.body).toContain('## Articles')
     expect(res.body).toContain('[Grid Article One]')
     expect(res.body).toContain('[Grid Article Two]')

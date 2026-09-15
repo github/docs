@@ -26,7 +26,6 @@ export function checkCachingHeaders(
   // that it's a reasonably large number of seconds.
   expect(maxAgeSeconds).toBeGreaterThanOrEqual(minMaxAge)
 
-  // Because it doesn't have a unique URL
   const surrogateKeyHeader = res.headers['surrogate-key'] as string
   const firstToken = surrogateKeyHeader.split(/\s/g)[0]
   if (defaultSurrogateKey) {

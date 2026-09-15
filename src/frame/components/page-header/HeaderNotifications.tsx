@@ -59,11 +59,9 @@ export const HeaderNotifications = () => {
           try {
             setUserLanguageCookie('en')
           } catch (err) {
-            // You can never be too careful because setting a cookie
-            // can fail. For example, some browser
-            // extensions disallow all setting of cookies and attempts
-            // at the `document.cookie` setter could throw. Just swallow
-            // and move on.
+            // Setting a cookie can fail: some browser extensions disallow it
+            // entirely, and the `document.cookie` setter can throw. Swallow and
+            // move on.
             console.warn('Unable to set cookie', err)
           }
         },

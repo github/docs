@@ -7,7 +7,7 @@ import { useMainContext } from '@/frame/components/context/MainContext'
 import styles from './SupportSection.module.scss'
 
 // The footer's help column. Expert services and Blog moved here out of the legal
-// strip in the Docs 2026 design — the design groups these with the other help
+// strip in the Docs 2026 design, which groups these with the other help
 // destinations.
 //
 // Below the 2-column breakpoint the design collapses this into a disclosure. Rather

@@ -13,7 +13,7 @@ import styles from './SidebarNav.module.scss'
 type Props = {
   variant?: 'full' | 'overlay'
   // When true (full variant only), the rail is also shown on mobile, inline in
-  // the page flow — the Docs 2026 mobile nav expands like the desktop view
+  // the page flow. The Docs 2026 mobile nav expands like the desktop view
   // rather than opening a dialog overlay.
   mobileOpen?: boolean
 }
@@ -30,8 +30,9 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
 
   const isSearch = currentProduct?.id === 'search'
   // `search_results` only ships in the page props on /search, and
-  // createTranslationFunctions warns about a missing namespace at construction — not at
-  // t() call — so asking for it unconditionally would log on every render of every page.
+  // createTranslationFunctions warns about a missing namespace at construction, not
+  // at the t() call, so asking for it unconditionally would log on every render of
+  // every page.
   const { t } = useTranslation(isSearch ? 'search_results' : 'header')
 
   return (
@@ -60,7 +61,7 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
     >
       <nav
         // On search the rail holds the facet filters rather than a doc tree, and the
-        // product-title heading that normally names this nav isn't rendered — so name it
+        // product-title heading that normally names this nav isn't rendered, so name it
         // directly rather than pointing aria-labelledby at an element that isn't there.
         aria-labelledby={isSearch ? undefined : 'allproducts-menu'}
         role="navigation"

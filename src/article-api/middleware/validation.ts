@@ -16,23 +16,19 @@ export const pagelistValidationMiddleware = (
   res: Response,
   next: NextFunction,
 ) => {
-  // get version from path, fallback to default version if it can't be resolved
   const versionFromPath = getVersionStringFromPath(req.path) || nonEnterpriseDefaultVersion
 
-  // in the rare case that this failed, probably won't be reached
+  // Defensive: getVersionStringFromPath falls back above, so this is unreachable.
   if (!versionFromPath)
     return res.status(400).json({ error: `Couldn't get version from the given path.` })
 
-  // get the language from path, fallback to english if it can't be resolved
   const langFromPath = getLangFromPath(req.path) || 'en'
 
-  // in the rare case that the language fallback failed
   if (!langFromPath)
     return res.status(400).json({
       error: `Couldn't get language from the from the given path.`,
     })
 
-  // set the version and language in the context, we'll use it later
   req.context!.currentVersion = versionFromPath
   req.context!.currentLanguage = langFromPath
   return next()
@@ -96,7 +92,7 @@ export const pageValidationMiddleware = (
     pathname = `/${req.context.currentLanguage}`
   }
 
-  // Initialize archived property to avoid it being undefined
+  // Initialized so downstream readers never see undefined.
   req.pageinfo.archived = { isArchived: false }
 
   if (!(pathname in req.context.pages)) {
@@ -133,24 +129,20 @@ export const apiVersionValidationMiddleware = (
 ) => {
   const apiVersion = req.query.apiVersion as string | string[] | undefined
 
-  // If no apiVersion is provided, continue (it will default to latest)
   if (!apiVersion) {
     return next()
   }
 
-  // Validate apiVersion is a single string, not an array
   if (Array.isArray(apiVersion)) {
     return res.status(400).json({ error: "Multiple 'apiVersion' keys" })
   }
 
-  // Get the version from the pathname query parameter
   const pathname = req.pageinfo?.pathname || (req.query.pathname as string)
   if (!pathname) {
     // This should not happen as pathValidationMiddleware runs first
     throw new Error('pathname not available for apiVersion validation')
   }
 
-  // Extract version from the pathname
   const currentVersion = getVersionStringFromPath(pathname) || nonEnterpriseDefaultVersion
   const versionInfo = allVersions[currentVersion]
 
@@ -160,7 +152,6 @@ export const apiVersionValidationMiddleware = (
 
   const validApiVersions = versionInfo.apiVersions || []
 
-  // If this version has API versioning, validate the provided version
   if (validApiVersions.length > 0 && !validApiVersions.includes(apiVersion)) {
     return res.status(400).json({
       error: `Invalid apiVersion '${apiVersion}' for ${currentVersion}. Valid API versions are: ${validApiVersions.join(', ')}`,

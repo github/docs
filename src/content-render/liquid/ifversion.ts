@@ -95,21 +95,19 @@ export default class Ifversion extends Tag {
     for (const branch of this.branches) {
       let resolvedBranchCond = branch.cond
 
-      // Resolve "not" keywords in the conditional, if any.
       resolvedBranchCond = this.handleNots(resolvedBranchCond)
 
       // Resolve special operators in the conditional, if any.
       // This will replace syntax like `fpt or ghes < 3.0` with `fpt or true` or `fpt or false`.
       resolvedBranchCond = this.handleOperators(resolvedBranchCond)
 
-      // Resolve version names to boolean values for Markdown API context.
-      // This will replace syntax like `fpt or ghec` with `true or false` based on current version.
-      // Only apply this transformation in Markdown API context to avoid breaking existing functionality.
+      // Replace syntax like `fpt or ghec` with `true or false` based on the current
+      // version. Only done for the Markdown API, where the version names would
+      // otherwise be undefined.
       if ((ctx.environments as IfversionEnvironments).markdownRequested) {
         resolvedBranchCond = this.handleVersionNames(resolvedBranchCond)
       }
 
-      // Use Liquid's native function for the final evaluation.
       const cond = yield new Value(resolvedBranchCond, this.liquid).value(ctx, ctx.opts.lenientIf)
 
       if (isTruthy(cond, ctx)) {
@@ -125,7 +123,6 @@ export default class Ifversion extends Tag {
 
     const condArray = resolvedBranchCond.split(' ')
 
-    // Find the first index in the array that contains "not".
     const notIndex = condArray.findIndex((el: string) => el === 'not')
 
     // E.g., ['not', 'fpt']
@@ -156,7 +153,6 @@ export default class Ifversion extends Tag {
     // If this conditional contains multiple parts using `or` or `and`, get only the conditional with operators.
     const condArray = resolvedBranchCond.split(' ')
 
-    // Find the first index in the array that contains an operator.
     const operatorIndex = condArray.findIndex((el: string) =>
       supportedOperators.find((op: string) => el === op),
     )
@@ -164,7 +160,6 @@ export default class Ifversion extends Tag {
     // E.g., ['ghes', '<', '3.1']
     const condParts = condArray.slice(operatorIndex - 1, operatorIndex + 2)
 
-    // Assign to vars.
     const [versionShortName, operator, releaseToEvaluate] = condParts
 
     // Make sure the operator is supported and the release number matches `\d\d?\.\d\d?`
@@ -219,17 +214,12 @@ export default class Ifversion extends Tag {
       return resolvedBranchCond
     }
 
-    // Split the condition into tokens for processing
     const tokens = resolvedBranchCond.split(/\s+/)
     const processedTokens = tokens.map((token: string) => {
-      // Check if the token is a version short name (fpt, ghec, ghes, ghae)
       const versionShortNames = ['fpt', 'ghec', 'ghes', 'ghae']
       if (versionShortNames.includes(token)) {
-        // Transform version names to boolean values for Markdown API
-        // This fixes the original issue where version names were undefined in API context
         return token === this.currentVersionObj!.shortName ? 'true' : 'false'
       }
-      // Return the token unchanged if it's not a version name
       return token
     })
 

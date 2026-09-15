@@ -19,11 +19,6 @@ interface TocItem extends LinkData {
  * Recursively gathers all TOC items from a page and its descendants.
  * This mirrors the behavior of getTocItems() in the generic-toc middleware
  * but works with the page.children frontmatter property.
- *
- * @param page - The page to gather TOC items from
- * @param context - The rendering context
- * @param options - Configuration options
- * @returns Array of TocItems with nested childTocItems
  */
 export async function getAllTocItems(
   page: Page,
@@ -41,7 +36,6 @@ export async function getAllTocItems(
     return []
   }
 
-  // Get the page's pathname for resolving children
   const pagePermalink = page.permalinks.find(
     (p) => p.languageCode === languageCode && p.pageVersion === context.currentVersion,
   )
@@ -92,10 +86,6 @@ export async function getAllTocItems(
 /**
  * Flattens nested TOC items into a single array.
  * Only includes leaf nodes (items without children) or all items based on options.
- *
- * @param tocItems - The nested TOC items to flatten
- * @param options - Configuration options
- * @returns Flat array of LinkData items
  */
 export function flattenTocItems(
   tocItems: TocItem[],
@@ -125,7 +115,6 @@ export function flattenTocItems(
         }
       }
 
-      // Recurse into children
       if (hasChildren) {
         recurse(item.childTocItems!)
       }

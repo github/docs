@@ -54,8 +54,8 @@ for (const pageName of Object.keys(pages)) {
 // otherwise never be scanned.
 test.describe('search filters (narrow viewport)', () => {
   // Without a local Elasticsearch the middleware proxies to production, so there are no
-  // aggregations, the disclosure never renders, and this would time out rather than skip
-  // — matching the guard every search test in playwright-rendering.spec.ts uses.
+  // aggregations, the disclosure never renders, and this would time out rather than
+  // skip. Matches the guard every search test in playwright-rendering.spec.ts uses.
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   test('expanded filter disclosure passes axe', async ({ page }) => {

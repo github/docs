@@ -33,7 +33,6 @@ import escapeStringRegexp from 'escape-string-regexp'
 import fm from '@/frame/lib/frontmatter'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 
-// Type definitions
 interface MoveOptions {
   verbose: boolean
   undo: boolean
@@ -156,8 +155,7 @@ async function main(opts: MoveOptions, nameTuple: string[]) {
     if (!fs.existsSync(indexFilePath)) {
       throw new Error(`${oldPath} does not have an index.md file`)
     }
-    // Gather individual files by walking `oldPath` recursively
-    // The second argument is
+    // Gather individual files by walking `oldPath` recursively.
     const files = findFilesInFolder(oldPath, newPath, opts)
 
     // First take care of the `git mv` (or regular rename) part.

@@ -26,7 +26,6 @@ const contentTypeToDir = (contentType: string): string => {
 
 const validContentTypeDirs = new Set(CONTENT_TYPES.map(contentTypeToDir))
 
-// Helper: Should we skip this index.md file from processing?
 function shouldSkipIndexFile(filePath: string): boolean {
   const relativePath = path.relative(process.cwd(), filePath)
   const parts = relativePath.split(path.sep)
@@ -44,17 +43,14 @@ function shouldSkipIndexFile(filePath: string): boolean {
   return false
 }
 
-// Helper: Calculate target directory for a file
 function calculateTarget(filePath: string, contentType: string, productDir: string) {
   const relativePath = path.relative(process.cwd(), filePath)
   const parts = relativePath.split(path.sep)
   const contentIndex = parts.indexOf('content')
   const fileName = path.basename(filePath)
 
-  // Determine target content-type directory
   const targetContentType = contentTypeToDir(contentType)
 
-  // Calculate target path
   if (targetContentType === 'how-tos') {
     // Preserve subdirectory structure for how-tos
     const pathAfterProduct = parts.slice(contentIndex + 2, -1)
@@ -85,9 +81,7 @@ program
   .description('Reorganize content files into subdirectories based on their contentType property')
   .argument('[paths...]', 'Content paths to process')
   .action(async (paths: string[]) => {
-    // ====================
-    // 1. GATHER FILES
-    // ====================
+    // Gather files.
     const filesToProcess: string[] = []
     if (paths?.length > 0) {
       for (const p of paths) {
@@ -104,9 +98,6 @@ program
 
     console.log(chalk.white(`Processing ${filesToProcess.length} files...\n`))
 
-    // ====================
-    // 2. ANALYZE & PLAN MOVES
-    // ====================
     console.log(chalk.white('Analyzing files...\n'))
 
     const filesToMove: FileMove[] = []
@@ -125,7 +116,6 @@ program
           continue
         }
 
-        // Read and validate contentType
         const fileContent = await fs.readFile(filePath, 'utf-8')
         const { data } = readFrontmatter(fileContent)
 
@@ -145,7 +135,6 @@ program
           continue
         }
 
-        // Validate contentType
         if (!CONTENT_TYPES.includes(contentType)) {
           skipped.push({ file: relativePath, reason: `Invalid contentType: ${contentType}` })
           console.log(
@@ -154,7 +143,6 @@ program
           continue
         }
 
-        // Get product directory
         if (contentIndex === -1 || contentIndex + 1 >= parts.length) {
           console.log(
             chalk.yellow(`⚠ Skipping ${relativePath}: Cannot determine product directory`),
@@ -168,13 +156,10 @@ program
 
         if (contentType === 'rai') productsWithRai.add(productName)
 
-        // Calculate target
         const { targetDir, targetPath } = calculateTarget(filePath, contentType, productDir)
 
-        // Skip if already in correct location
         if (path.dirname(filePath) === targetDir) continue
 
-        // Skip if target exists
         try {
           await fs.access(targetPath)
           skipped.push({ file: relativePath, reason: 'Target already exists' })
@@ -184,7 +169,6 @@ program
           // Good, doesn't exist
         }
 
-        // Track this move
         filesToMove.push({ filePath, targetDir, targetPath, contentType })
 
         const relativeTargetDir = path.relative(process.cwd(), targetDir)
@@ -209,9 +193,6 @@ program
       }
     }
 
-    // ====================
-    // 3. ENSURE STANDARD DIRECTORIES
-    // ====================
     console.log(chalk.white('Ensuring standard content-type directories exist...\n'))
 
     // Add standard content-type directories for each affected product
@@ -236,9 +217,6 @@ program
       }
     }
 
-    // ====================
-    // 4. CREATE PLACEHOLDERS
-    // ====================
     console.log(chalk.white('Creating placeholder index.md files...\n'))
 
     const newPlaceholders: string[] = []
@@ -295,9 +273,6 @@ contentType: ${placeholderContentType}
       }
     }
 
-    // ====================
-    // 5. GENERATE INTROS
-    // ====================
     if (newPlaceholders.length > 0) {
       console.log(chalk.white('\nGenerating intros for placeholder files...\n'))
 
@@ -337,9 +312,6 @@ contentType: ${placeholderContentType}
       }
     }
 
-    // ====================
-    // 6. MOVE FILES
-    // ====================
     console.log(chalk.white('\nMoving files...\n'))
 
     const moved: Array<{ file: string; from: string; to: string }> = []
@@ -397,7 +369,6 @@ contentType: ${placeholderContentType}
       }
     }
 
-    // Move regular files
     for (const file of regularFiles) {
       try {
         await fs.mkdir(file.targetDir, { recursive: true })
@@ -427,7 +398,6 @@ contentType: ${placeholderContentType}
       }
     }
 
-    // Delete source subdirectory index files
     for (const sourcePath of indexFilesToDeleteLater) {
       try {
         await fs.unlink(sourcePath)
@@ -437,7 +407,6 @@ contentType: ${placeholderContentType}
       }
     }
 
-    // Move top-level index files
     for (const file of topLevelIndexFiles) {
       try {
         await fs.mkdir(file.targetDir, { recursive: true })
@@ -462,9 +431,6 @@ contentType: ${placeholderContentType}
       }
     }
 
-    // ====================
-    // 7. CLEANUP & UPDATE
-    // ====================
     console.log(
       chalk.white('\nCleaning up old directories and updating parent index.md files...\n'),
     )
@@ -498,7 +464,6 @@ contentType: ${placeholderContentType}
         console.log(chalk.yellow(`⚠ Could not read product directory ${productDir}: ${error}`))
       }
 
-      // Update product index.md
       const productIndexPath = path.join(productDir, 'index.md')
       try {
         const content = await fs.readFile(productIndexPath, 'utf-8')
@@ -507,7 +472,6 @@ contentType: ${placeholderContentType}
         if (data) {
           let updated = false
 
-          // Build children array
           const productRelativePath = path.relative(process.cwd(), productDir)
           const newChildren: string[] = []
           for (const ct of CONTENT_TYPES.map(contentTypeToDir)) {
@@ -520,7 +484,6 @@ contentType: ${placeholderContentType}
             updated = true
           }
 
-          // Add redirects for deleted directories
           const deletedPaths = deletedByProduct.get(productName) || []
           if (deletedPaths.length > 0) {
             if (!data.redirect_from) data.redirect_from = []
@@ -551,9 +514,6 @@ contentType: ${placeholderContentType}
       }
     }
 
-    // ====================
-    // 8. SORT CHILDREN ARRAYS
-    // ====================
     console.log(chalk.white('\nSorting children arrays...\n'))
 
     for (const dirPath of targetDirs) {
@@ -612,9 +572,6 @@ contentType: ${placeholderContentType}
       }
     }
 
-    // ====================
-    // 9. SUMMARY
-    // ====================
     console.log(chalk.white(`\n${'='.repeat(60)}`))
     console.log(chalk.white('Summary:'))
     console.log(chalk.white(`  Moved: ${moved.length} files`))

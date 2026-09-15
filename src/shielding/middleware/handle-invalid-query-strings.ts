@@ -65,9 +65,7 @@ export default function handleInvalidQuerystrings(
   if (method === 'GET' || method === 'HEAD') {
     const originalKeys = Object.keys(query)
 
-    // Check for invalid query string patterns (square brackets, etc.)
     const invalidKeys = originalKeys.filter((key) => {
-      // Check for square brackets which are invalid
       return key.includes('[') || key.includes(']')
     })
 
