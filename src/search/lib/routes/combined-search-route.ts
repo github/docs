@@ -36,7 +36,6 @@ export async function combinedSearchRoute(req: Request, res: Response) {
     return res.status(400).json(combinedValidationErrors[0])
   }
 
-  // Handle search analytics and client_name validation
   const analyticsError = await handleExternalSearchAnalytics(req, 'combined-search')
   if (analyticsError) {
     return res.status(analyticsError.status).json({
@@ -87,7 +86,6 @@ export async function combinedSearchRoute(req: Request, res: Response) {
       })
     }
 
-    // Async fetch both results from Elasticsearch
     const [aiSearchResults, generalSearchResults] = await Promise.all([
       autocompletePromise,
       generalSearchPromise,

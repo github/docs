@@ -1,8 +1,7 @@
-/*
-  When a request is made to a /search endpoint with query parameters, e.g. ?query=foo&version=free-pro-team,
-  we need to validate and parse the parameters. This file contains the configuration for which parameters
-  to expect based on the type of search request "e.g. general search vs autocomplete search" and how to validate them.
- */
+// A request to a /search endpoint carries query parameters, e.g.
+// ?query=foo&version=free-pro-team, which have to be validated and parsed. This
+// file configures which parameters to expect for each type of search request
+// (general search vs autocomplete search) and how to validate them.
 import languages from '@/languages/lib/languages-server'
 import { allIndexVersionKeys, versionToIndexVersionMap } from '@/search/lib/elasticsearch-versions'
 import { SearchTypes } from '@/search/types'
@@ -17,9 +16,6 @@ export function getSearchRequestParamsObject(type: SearchTypes): SearchRequestQu
   return GENERAL_SEARCH_PARAMS_OBJ
 }
 
-// - - - Everything below this line is for building the search query param objects - - - //
-
-// Constants
 const DEFAULT_AUTOCOMPLETE_SIZE = 5
 const MAX_AUTOCOMPLETE_SIZE = 10
 const DEFAULT_SIZE = 10
