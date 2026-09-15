@@ -10,7 +10,7 @@ redirect_from:
   - /copilot/get-started/plans-for-github-copilot
   - /copilot/concepts/billing/individual-plans
 contentType: get-started
-category: 
+category:
   - Learn about Copilot
 ---
 

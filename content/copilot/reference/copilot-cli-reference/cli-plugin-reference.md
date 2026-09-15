@@ -210,6 +210,26 @@ These tell the CLI where to find your plugin's components. All are optional. The
 | `mcpServers`| string \| object   | —          | Path to an MCP configuration file (e.g., `.mcp.json`), or inline server definitions. |
 | `lspServers`| string \| object   | —          | Path to an LSP configuration file, or inline server definitions. |
 
+#### Plugin-shipped agent MCP servers
+
+An agent bundled inside a plugin can declare its own `mcp-servers` in its frontmatter, scoping an MCP server to just that agent instead of exposing it through the plugin's shared `mcpServers` configuration. Within that `mcp-servers` block, `${PLUGIN_ROOT}` (or its `${CLAUDE_PLUGIN_ROOT}`/`${COPILOT_PLUGIN_ROOT}` aliases) expands to the plugin's root directory, so the server's `command` or `args` can point at a script bundled with the plugin:
+
+```markdown
+---
+name: Plugin Linter
+description: Runs the plugin's bundled linter via its own MCP server
+mcp-servers:
+    plugin-linter:
+        command: node
+        args: ["${PLUGIN_ROOT}/tools/serve.js"]
+        tools: ["*"]
+---
+
+You are a linting specialist for this plugin's bundled rules.
+```
+
+This substitution only applies to `mcp-servers` in a plugin-shipped agent's own frontmatter—it doesn't extend to `${PLUGIN_DATA}` or to the server's environment variables. Workspace and user agents have no plugin root, so their frontmatter is left unchanged.
+
 ### LSP server configuration
 
 To include LSP (Language Server Protocol) servers in a plugin, create a `lsp-config/servers.json` file in the plugin directory, or specify a path or inline object using the `lspServers` field in `plugin.json`.

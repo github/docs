@@ -17,7 +17,11 @@ docsTeamMetrics:
 
 The `/fleet` slash command in {% data variables.copilot.copilot_cli_short %} is designed to take an implementation plan and break it down into smaller, independent tasks that can be executed in parallel by subagents. This allows for faster completion of complex requests that involve multiple steps.
 
-This article gives an overview of the `/fleet` slash command. For details of how to use it, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion).
+This article gives a conceptual overview of the `/fleet` slash command.
+
+You can also start fleet mode directly from the command line by using the `--fleet` option. This is the command-line equivalent of the `/fleet` slash command.
+
+For information on using the `/fleet` slash command, and the `--fleet` command line option, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion).
 
 ## How `/fleet` works
 

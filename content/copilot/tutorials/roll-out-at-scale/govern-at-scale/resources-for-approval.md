@@ -41,7 +41,7 @@ Compliance teams may also want to know about the administrative features availab
 * Audit logs for monitoring changes to access and settings
 * The ability to exclude sensitive content from {% data variables.product.prodname_copilot_short %}'s view
 
-For an overview of these features, see [AUTOTITLE](/copilot/get-started/features#features-for-administrators).
+For guidance on managing {% data variables.product.prodname_copilot_short %} for your team, including configuring settings and monitoring usage, see [AUTOTITLE](/copilot/how-tos/administer-copilot).
 
 ### For new {% data variables.product.prodname_enterprise %} customers
 
