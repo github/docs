@@ -101,13 +101,11 @@ function loadQueriesWithPriority(options: LoadOptions): TermsWithFrequency {
 
   let popularity = topQueries.length + allQueries.length
 
-  // Assign higher popularity to topQueries
   for (const term of topQueries) {
     terms[term] = popularity
     popularity -= 1
   }
 
-  // Assign remaining popularity to allQueries using the order they have in the JSON
   for (const term of allQueries) {
     // Don't read in the topQueries again (duplicates)
     if (!(term in terms)) {

@@ -1,14 +1,10 @@
 #!/usr/bin/env tsx
-/**
- * Aggregates search index failures from multiple language runs into a single
- * consolidated report. Groups failures by page path to show which versions
- * and languages failed for each page.
- *
- * Usage: tsx aggregate-search-index-failures.ts <artifacts-dir> [--workflow-url <url>]
- *
- * Reads failures-summary.json files from subdirectories and outputs a formatted
- * message suitable for Slack notifications.
- */
+// Reads the failures-summary.json files written by the language index jobs
+// that had failures, and prints a JSON AggregationResult whose `message` is a
+// single report grouped by page path. index-general-search.yml posts that
+// message to both a GitHub issue and Slack.
+//
+// Usage: tsx aggregate-search-index-failures.ts <artifacts-dir> [--workflow-url <url>]
 
 import fs from 'fs'
 import path from 'path'
@@ -49,10 +45,8 @@ const MAX_ERRORS_PER_PAGE = 3
 const MAX_ERROR_LENGTH = 200
 const MAX_MESSAGE_LENGTH = 30000
 
-/**
- * Renders a failure as a single line of `errorType: error`, collapsing any
- * whitespace so one failure can never span multiple lines of the report.
- */
+// Renders a failure as a single line of `errorType: error`, collapsing any
+// whitespace so one failure can never span multiple lines of the report.
 function formatError(failure: Failure): string {
   const normalize = (value: unknown) =>
     typeof value === 'string' ? value.replace(/\s+/g, ' ').trim() : ''
@@ -63,23 +57,19 @@ function formatError(failure: Failure): string {
   return errorType && detail ? `${errorType}: ${detail}` : errorType || detail
 }
 
-/**
- * Escapes the characters Slack treats as control syntax, so error text lifted
- * from an API response cannot inject a mention such as `<!channel>` into the
- * notification. The slack-alert action escapes its own interpolated fields for
- * this reason, but passes a caller-supplied message through verbatim.
- *
- * The same string is also posted as a GitHub issue body, where these entities
- * render back to the original characters.
- */
+// Escapes the characters Slack treats as control syntax, so error text lifted
+// from an API response cannot inject a mention such as `<!channel>` into the
+// notification. The slack-alert action escapes its own interpolated fields for
+// this reason, but passes a caller-supplied message through verbatim.
+//
+// The same string is also posted as a GitHub issue body, where these entities
+// render back to the original characters.
 function escapeSlackControlCharacters(text: string): string {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 }
 
-/**
- * Truncates on code points so a multi-byte character is never split in half.
- * Docs content is translated, so error text routinely carries non-ASCII.
- */
+// Truncates on code points so a multi-byte character is never split in half.
+// Docs content is translated, so error text routinely carries non-ASCII.
 function truncate(text: string, maxLength: number): string {
   const characters = Array.from(text)
   if (characters.length <= maxLength) return text
@@ -92,10 +82,6 @@ export interface AggregationResult {
   totalCount?: number
 }
 
-/**
- * Aggregates failures from multiple summaries into a single report.
- * Groups failures by page path to show which versions and languages failed for each.
- */
 export function aggregateFailures(
   allFailures: FailuresSummary[],
   workflowUrl?: string,
@@ -104,7 +90,6 @@ export function aggregateFailures(
     return { hasFailures: false, message: '' }
   }
 
-  // Group failures by page path
   const pageFailures = new Map<string, PageFailure>()
 
   for (const summary of allFailures) {
@@ -130,10 +115,10 @@ export function aggregateFailures(
     }
   }
 
-  // Use unique page count, not total failure instances
+  // Count pages, not failure instances: one page fails once per version and
+  // language it appears in.
   const uniquePageCount = pageFailures.size
 
-  // Format the message
   const lines: string[] = [
     `:warning: ${uniquePageCount} page(s) failed to scrape for general search indexing`,
     '',
@@ -141,7 +126,6 @@ export function aggregateFailures(
     '',
   ]
 
-  // Sort pages alphabetically and format each
   const sortedPages = Array.from(pageFailures.entries()).sort((a, b) => a[0].localeCompare(b[0]))
 
   const renderedPages = sortedPages.map(([pagePath, data]) => {
@@ -181,7 +165,8 @@ export function aggregateFailures(
 
   // Reserve room for the footer up front, using the longest the truncation
   // notice could get, so MAX_MESSAGE_LENGTH bounds the whole message rather
-  // than just the part written inside the loop.
+  // than just the part written inside the loop. The one exception is the forced
+  // first page below, which can push the message past the limit on its own.
   const footerReserve =
     truncatedPagesLine(sortedPages.length).length +
     1 +
@@ -226,9 +211,6 @@ export function aggregateFailures(
   return { hasFailures: true, message, totalCount: uniquePageCount }
 }
 
-/**
- * Reads failure summaries from artifact directories.
- */
 export function readFailureSummaries(artifactsDir: string): FailuresSummary[] {
   const allFailures: FailuresSummary[] = []
   const subdirs = fs.readdirSync(artifactsDir, { withFileTypes: true })
@@ -269,7 +251,6 @@ function main() {
   console.log(JSON.stringify(result))
 }
 
-// Only run main when executed directly (not imported)
 if (import.meta.url === `file://${process.argv[1]}`) {
   main()
 }
