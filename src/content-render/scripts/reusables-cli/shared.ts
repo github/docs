@@ -48,7 +48,6 @@ export function getAllContentFilePaths() {
   return [...allContentFiles, ...allDataFiles]
 }
 
-// Get the string that represents the reusable in the content files
 export function getReusableLiquidString(reusablePath: string): string {
   const relativePath = path.relative(reusablesDirectory, reusablePath)
   return `reusables.${relativePath.slice(0, -3).split('/').join('.')}`
@@ -73,7 +72,6 @@ export function getIndicesOfLiquidVariable(liquidVariable: string, fileContents:
   return indices
 }
 
-// Find the path to a reusable file.
 export function resolveReusablePath(reusablePath: string): string {
   // Try .md if extension is not provided
   if (!reusablePath.endsWith('.md') && !reusablePath.endsWith('.yml')) {
@@ -150,7 +148,6 @@ export function findSimilarSubStringInString(substr: string, str: string) {
     }
   }
 
-  // Normalize the similarity score
   return Math.round((similarityScore / substrSentences.length) * corpus.length)
 }
 
