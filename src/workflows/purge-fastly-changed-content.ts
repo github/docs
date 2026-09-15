@@ -111,7 +111,7 @@ type ChangedFile = {
 // The most recent production deployment that was actually live before `headSha`.
 // We diff against this to find what changed in the current deploy. The merge
 // queue can batch several PRs into one deploy, so this range can span multiple
-// merge commits — that's intentional, we want every changed file in the batch.
+// merge commits. That's intentional: we want every changed file in the batch.
 export async function resolvePreviousProductionSha(
   octokit: Octokit,
   owner: string,
