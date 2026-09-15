@@ -27,3 +27,9 @@ When you create a new organization from scratch, it doesn't have any repositorie
 * [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info){% endif %}
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)
 {% ifversion ghes < 3.21 %}* [AUTOTITLE](/account-and-profile/how-tos/account-management/converting-a-user-into-an-organization){% endif %}
+
+scaffold/initial-setup. Here's a quick summary of what's ready:
+Source (src/) — index.ts entry point, commands/init.ts, commands/run.ts, utils/logger.ts, utils/config.ts, types.ts
+Config — package.json, tsconfig.json, .eslintrc.json, .prettierrc, .gitignore, .npmignore
+CI/CD — ci.yml (lint + build on Node 18 & 20), release.yml (npm publish on v* tags)
+Docs — README.md, .github/pull_request_template.md
