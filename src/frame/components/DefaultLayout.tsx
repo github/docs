@@ -117,9 +117,7 @@ export const DefaultLayout = (props: Props) => {
     return getCategoryImageUrl('default')
   }
 
-  // Helper function to build API article URLs with proper query parameter handling
   function buildApiArticleUrl(apiPath: string): string {
-    // Parse router.asPath to separate pathname and query parameters
     const [pathname, queryString] = router.asPath.split('?')
     const fullPathname = `/${router.locale}${pathname}`
     const queryParams = queryString ? `&${queryString}` : ''
@@ -256,7 +254,7 @@ const LayoutBody = ({ children }: LayoutBodyProps) => {
   const { collapsed, mobileNavOpen } = useSidebarCollapsed()
   const { currentProduct } = useMainContext()
   // Matches SidebarNav's own gate rather than testing router.route. There are two search
-  // pages — src/pages/search.tsx and src/pages/[versionId]/search.tsx — so a route test
+  // pages, src/pages/search.tsx and src/pages/[versionId]/search.tsx, so a route test
   // for '/search' misses every versioned search URL, and this check would then disagree
   // with SidebarNav about whether the rail is a facet rail.
   const isSearchResultsPage = currentProduct?.id === 'search'
@@ -266,8 +264,8 @@ const LayoutBody = ({ children }: LayoutBodyProps) => {
     // gets an earlier split of its own. Route-gated, so no other page moves.
     <div className={cx('d-lg-flex', isSearchResultsPage && styles.searchColumns)}>
       {/* `collapsed` is the desktop rail-collapse state (persisted). The inline
-        mobile nav is independent, so still render the sidebar when it's open —
-        otherwise opening the mobile nav while the desktop rail is collapsed
+        mobile nav is independent, so still render the sidebar when it's open.
+        Otherwise opening the mobile nav while the desktop rail is collapsed
         hides the content column (contentHiddenForNav) with no drawer to show,
         so the open nav displays a blank area instead of the doc tree.
 

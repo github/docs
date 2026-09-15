@@ -14,7 +14,7 @@
 // When the mobile nav is expanded inline, the rail spans the full width and
 // flows in the page (no fixed height / sticky) below the xxl breakpoint. At xxl
 // the desktop rail takes over, so revert to the fixed rail width even if the
-// mobile-open state is momentarily still set (e.g. mid-resize) — otherwise the
+// mobile-open state is momentarily still set (e.g. mid-resize). Otherwise the
 // full-width rail covers the article content.
 .sidebarFullMobileOpen {
   width: 100%;
@@ -56,7 +56,7 @@
 // width: below brand's `medium` breakpoint it is a full-width block holding the
 // "Show filters" disclosure, and from `medium` up it becomes the sidebar column.
 //
-// From `medium` up its right divider is the SINGLE border around the filters —
+// From `medium` up its right divider is the SINGLE border around the filters:
 // the panel inside drops its own, so they don't read as a box within a box.
 //
 // It also deliberately does NOT reuse .sidebarFull's sticky offsets. Those assume
@@ -70,7 +70,7 @@
   width: 100%;
 
   // A search with no hits has no facets to offer, so SidebarSearchAggregates renders
-  // nothing — but the column would still reserve its width and draw its divider, leaving
+  // nothing, but the column would still reserve its width and draw its divider, leaving
   // an empty 300px gutter beside the "0 results" message. Collapse it when there is no
   // filter group inside. Browsers without :has() simply keep the old empty column.
   &:not(:has(fieldset)) {

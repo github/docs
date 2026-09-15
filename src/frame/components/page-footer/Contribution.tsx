@@ -10,7 +10,7 @@ export const Contribution = () => {
     : 'https://github.com/github/docs'
 
   // Heading and body styling comes from the footer column rules in
-  // SupportSection.module.scss — the Docs 2026 design renders these as plain body
+  // SupportSection.module.scss. The Docs 2026 design renders these as plain body
   // text rather than a bold heading plus muted copy.
   return (
     <div className="f5 contribution">

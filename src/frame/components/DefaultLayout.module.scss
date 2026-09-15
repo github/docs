@@ -14,7 +14,7 @@
   }
 }
 
-// When the inline mobile/tablet nav is open, it takes over the viewport — hide
+// When the inline mobile/tablet nav is open, it takes over the viewport, so hide
 // the content column so the full-width rail isn't squeezed beside it. Above the
 // xxl breakpoint the rail is a fixed-width sibling, so content always shows.
 .contentHiddenForNav {

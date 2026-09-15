@@ -27,11 +27,11 @@ import { useTranslation } from '@/languages/components/useTranslation'
 // React-native replacement for the imperative CodeTabs enhancer (#6619). The old
 // component scanned `#article-contents` for `.ghd-codetabs`, inserted a foreign
 // `.ghd-codetabs-nav` mountPoint as the container's first child, portaled a nav
-// into it, and toggled panel attributes — destructive surgery on React-owned
-// nodes that breaks on client-side navigation teardown. Instead, the article body
-// hast maps each `.ghd-codetabs` container to <CodeTabsGroup>, which reads its
-// `.ghd-codetab` panel children straight from props and renders the nav + panels
-// itself. No DOM scanning, no portal, no foreign nodes.
+// into it, and toggled panel attributes. Those mutations are destructive surgery
+// on React-owned nodes and break on client-side navigation teardown. Instead, the
+// article body hast maps each `.ghd-codetabs` container to <CodeTabsGroup>, which
+// reads its `.ghd-codetab` panel children straight from props and renders the nav
+// and panels itself. No DOM scanning, no portal, no foreign nodes.
 //
 // The selected language lives in CodeLanguageContext so multiple code-tab groups
 // on one page stay in sync and share the language cookie, matching the previous
