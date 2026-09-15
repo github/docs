@@ -70,11 +70,11 @@ Parameter name | Type | Description
 
 You can use query parameters to select the permissions for the {% data variables.product.prodname_github_app %} registration. For the URL query parameter, use the permission name as the query parameter name, and set the query value to one of the possible values for that permission set.
 
-For example, to select "Read & write" permissions in the user interface for `contents`, your query string would include `contents=write`. To select "Read-only" permissions in the user interface for `blocking`, your query string would include `blocking=read`. To select "No access" in the user interface for `checks`, your query string would not include the `checks` permission.{% ifversion enterprise-installed-apps %}
+For example, to select "Read & write" permissions in the user interface for `contents`, your query string would include `contents=write`. To select "Read-only" permissions in the user interface for `blocking`, your query string would include `blocking=read`. To select "No access" in the user interface for `checks`, your query string would not include the `checks` permission.{% ifversion ghes < 3.23 %}
 
 If the owning account is not an enterprise or an enterprise-owned organization, it cannot request enterprise permissions.{% endif %}
 
-For more information about permissions and {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app). To see the list of permissions available for use and their parameterized names, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#account-permissions).
+For more information about permissions and {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app). To see the list of permissions available for use and their parameterized names, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps).
 
 ## {% data variables.product.prodname_github_app %} webhook events
 

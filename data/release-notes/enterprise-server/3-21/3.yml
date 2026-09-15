@@ -2,6 +2,9 @@ date: '2026-07-16'
 intro: |
   > [!NOTE] As part of a security enhancement to {% data variables.product.prodname_ghe_server %} support bundle uploads, {% data variables.product.company_short %} will begin rejecting uploads from older unpatched appliances on August 18, 2026. Please update to this patch release to avoid interruptions when submitting support bundles with `ghe-support-bundle`, `ghe-cluster-support-bundle`, or `ghe-support-upload`. The minimum required patch versions to submit support bundles are 3.21.3, 3.20.5, 3.19.9, 3.18.12, and 3.17.18. If you cannot update to the required patch version before August 18, 2026, and need to upload a support bundle, contact [GitHub Support](https://support.github.com/enterprise-and-teams#enterprise-administrators-server) for guidance.
 sections:
+  features:
+    - |
+      The Enterprise Live Migrations (ELM) service is generally available, allowing enterprises to migrate repositories from GitHub Enterprise Server to GHE.com with minimal downtime. A new GitHub CLI extension allows administrators to operate the service from their local machine. See [AUTOTITLE](/migrations/elm/about-live-migrations). [Updated: 2026-08-25]
   security_fixes:
     - |
       **HIGH**: An attacker who had code execution inside the Dependabot updater container could write attacker-controlled files to arbitrary paths in a repository that Dependabot updates, including GitHub Actions workflow files. This was possible because dependency-file path validation checked only the declared file name and not the effective path derived from the file's directory and symlink target. If the repository used a pull_request_target workflow or had auto-merge enabled, the injected workflow could execute with access to the repository's GitHub Actions secrets. GitHub has requested CVE ID [CVE-2026-15343](https://www.cve.org/cverecord?id=CVE-2026-15343) for this vulnerability.

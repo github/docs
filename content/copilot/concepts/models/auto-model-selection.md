@@ -32,6 +32,23 @@ Benefits of using {% data variables.copilot.copilot_auto_model_selection_short %
 * Language invariance: Routing decisions depend on what you are trying to do, not what language you're asking in.
 * Improved cost efficiency due to intelligent task routing.
 
+#### Auto tier options
+
+When using auto with task optimization, there are three tiers available. Use these tiers to adjust how {% data variables.copilot.copilot_auto_model_selection_short %} preferentially routes models for each prompt. 
+
+| Tier | Priority | Typical use |
+| --- | --- | --- |
+| **Efficiency** | Cost | Well suited to fast, straightforward tasks. |
+| **Balance** | Balances cost, quality and latency | A good fit for everyday work. |
+| **Intelligence** | Quality | Built for complex tasks. |
+
+With tiers, {% data variables.copilot.copilot_auto_model_selection_short %} still considers the prompt for each task. The same models remain available in each tier, but tiered routing changes how preferred models are selected for each task.  Examples for each tier:
+* **Efficiency**: All prompts are routed to the most cost-efficient and appropriately capable model for the task. 
+* **Balance**: For each prompt, the model is selected by considering cost, quality, and latency, to provide cost effective and efficient performance appropriate to the complexity of each prompt.
+* **Intelligence**: Prompts are evaluated for which model would provide the highest quality response. A simple prompt could still be routed to a smaller model, while a complex prompt is routed to the most capable model for that task.
+
+Usage is still charged based on the model auto selects, regardless of tier, alongside the 10% discount for users on paid plans. See [Discount for auto model selection](#discount-for-using-auto-model-selection). 
+
 ### Auto optimized for model reliability and availability
 
 Experience less rate limiting by letting {% data variables.copilot.copilot_auto_model_selection_short %} choose the best available model on your behalf.
@@ -63,8 +80,10 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, with task optimization, is generally available in these {% data variables.product.prodname_copilot_short %} products:
 * {% data variables.copilot.copilot_chat_short %}, on the {% data variables.product.github %} website and supported IDEs
 * {% data variables.copilot.copilot_cli_short %}
-* {% data variables.copilot.copilot_cloud_agent %}
 * {% data variables.copilot.github_copilot_app %}
+* {% data variables.copilot.copilot_cloud_agent %}
+
+> [!NOTE] Auto tiers are only available on {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.copilot.github_copilot_app %} .
 
 > [!TIP]
 > You can see which model was used for each {% data variables.product.prodname_copilot_short %} response.
@@ -82,13 +101,7 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
   * JetBrains IDEs
   * Eclipse
   * Xcode
-
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is in public preview in the following IDEs:
   * {% data variables.product.prodname_vs %}
-
-#### Enabling access during {% data variables.release-phases.public_preview %}
-
-During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the organization or enterprise that provides your plan must have the **Editor preview features** policy enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies#enabling-copilot-features-and-models-in-your-organization) or [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise).
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in third-party agents
 

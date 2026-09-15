@@ -63,7 +63,7 @@ If your enterprise does not use {% data variables.product.prodname_emus %} or us
 
 * Suspended {% data variables.enterprise.prodname_managed_users_caps %}
 * Enterprise owners who are not a member or owner of at least one organization in the enterprise
-* The user who set up the enterprise
+* The setup user for an enterprise that uses {% data variables.product.prodname_emus %} (see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/identity-and-access-management/setup-user))
 * Enterprise billing managers
 * Billing managers for individual organizations
 * Anyone with a pending invitation to become a billing manager

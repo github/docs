@@ -26,7 +26,7 @@ In autopilot mode, {% data variables.product.prodname_copilot_short %} keeps on 
 * The agent determines that the task is complete.
 * A problem occurs that prevents further progress.
 * You press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the agent from continuing.
-* The maximum continuation limit is reached (if set).
+* The maximum continuation limit is reached. By default, autopilot mode pauses after 5 automatic continuation messages. You can adjust this limit with the `--max-autopilot-continues` option.
 
 To switch into autopilot mode during an interactive session, press <kbd>Shift</kbd>+<kbd>Tab</kbd> and cycle through the available modes until you reach autopilot mode, then enter your prompt. Use the same keypress to switch from autopilot mode back to the standard interactive mode.
 
@@ -35,7 +35,7 @@ To switch into autopilot mode during an interactive session, press <kbd>Shift</k
 * **Hands-off automation:** {% data variables.product.prodname_copilot_short %} completes tasks without needing your input after the initial instruction.
 * **Efficiency:** Ideal for well-defined tasks like writing tests, refactoring files, or fixing CI failures. Autopilot is particularly suited for large tasks that require long-running, multi-step sessions.
 * **Batch operations:** Useful for scripting and CI workflows where you want {% data variables.product.prodname_copilot_short %} to run to completion.
-* **Safety:** Autopilot mode allows {% data variables.product.prodname_copilot_short %} to take multiple self-directed steps to finish your task. `--max-autopilot-continues` limits how many steps it can take before stopping, to avoid infinite loops. Also, in autopilot mode, {% data variables.product.prodname_copilot_short %} cannot carry out any actions that require permission unless you explicitly grant it full permissions.
+* **Safety:** Autopilot mode allows {% data variables.product.prodname_copilot_short %} to take multiple self-directed steps to finish your task. By default, it pauses after 5 continuation messages; use `--max-autopilot-continues` to change this limit and avoid infinite loops. Also, in autopilot mode, {% data variables.product.prodname_copilot_short %} cannot carry out any actions that require permission unless you explicitly grant it full permissions.
 
 ## Things to consider
 

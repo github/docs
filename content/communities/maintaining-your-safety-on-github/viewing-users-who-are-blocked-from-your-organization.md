@@ -1,6 +1,6 @@
 ---
 title: Viewing users who are blocked from your organization
-intro: 'You can view a list of all users whom you or other owners have blocked from your organization. If a user was blocked for a specific amount of time, you can see the amount of time they were blocked for.'
+intro: 'You can find and review users who are blocked from your organization, including details about why, when, and by whom.'
 redirect_from:
   - /articles/viewing-users-who-are-blocked-from-your-organization
   - /github/building-a-strong-community/viewing-users-who-are-blocked-from-your-organization
@@ -16,8 +16,10 @@ category:
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
-1. Under "Blocked users", review the list of users who are blocked from your organization.
-1. Optionally, to close all open issues, pull requests, and discussions a blocked user has opened in repositories owned by the organization, next to the user, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Close all content**. If you are an organization moderator, only content in repositories where you have write access will be closed.
+1. To find a blocked user, search by username, full name, or email address. You can also sort the list or filter it by block reason.
+1. Review the details for a blocked user, including any private note, who applied the block, and the expiration date, if applicable.
+1. Optionally, edit the block settings or private note.
+1. Optionally, to close all open issues, pull requests, and discussions a blocked user has opened in repositories across your organization, next to the user, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Close all content**.
 
 ## Further reading
 

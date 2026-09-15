@@ -99,7 +99,7 @@ When you type `/chronicle` without arguments, a picker is displayed that lets yo
 | ---------- | ----------- |
 | `standup`    | Generate a standup report from your recent work. |
 | `tips`       | Get personalized tips based on your usage patterns. |
-| `cost tips`  | Get feedback on your token spend and suggestions for reducing costs. |
+| `cost-tips`  | Get feedback on your token spend and suggestions for reducing costs. |
 | `search`     | Search your session history for specific topics or keywords. |
 | `improve`    | Suggest improvements to your {% data variables.product.prodname_copilot_short %} custom instructions file. |
 | `reindex`    | Rebuild the local session store from your session history, and sync session data to your account. |
@@ -160,12 +160,12 @@ You can focus the tips on a specific area by appending context after `/chronicle
 /chronicle tips for better prompting
 ```
 
-### `/chronicle cost tips`
+### `/chronicle cost-tips`
 
 This analyzes your token usage across recent sessions to show where tokens are being spent and suggests ways to reduce costs. {% data variables.product.prodname_copilot_short %} looks at patterns like prompt length, tool call frequency, and continuation steps to identify opportunities for more efficient usage.
 
 ```copilot copy
-/chronicle cost tips
+/chronicle cost-tips
 ```
 
 ### `/chronicle search`

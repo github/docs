@@ -33,7 +33,7 @@ You can kick off tasks with coding agents in the following locations:
 
 Before you can assign tasks to coding agents on {% data variables.product.github %}, they must be enabled in your account policies.
 
-* For **{% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, and {% data variables.copilot.copilot_max %} subscribers**, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-coding-agents-in-your-repositories).
+* For **{% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, and {% data variables.copilot.copilot_max %} subscribers**, see [AUTOTITLE](/free-pro-team@latest/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-coding-agents-in-your-repositories).
 * For **{% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} subscribers**, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) or [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 These policies do not apply to **local** agents in {% data variables.product.prodname_vscode %}. To configure agent settings in {% data variables.product.prodname_vscode %}, see [Types of agents](https://code.visualstudio.com/docs/copilot/agents/overview#_types-of-agents) in the {% data variables.product.prodname_vscode %} documentation. To adjust enterprise agent settings in {% data variables.product.prodname_vscode %}, see [Enable or disable the use of agents](https://code.visualstudio.com/docs/enterprise/ai-settings#_enable-or-disable-the-use-of-agents) in the {% data variables.product.prodname_vscode %} documentation.
@@ -79,7 +79,7 @@ Security validation does not require a {% data variables.product.prodname_GHAS %
 
 Coding agents consume **{% data variables.product.prodname_actions %} minutes** and **{% data variables.product.prodname_ai_credits_short %}**. Each agent session consumes {% data variables.product.prodname_ai_credits_short %} based on the model used and the number of tokens processed.
 
-Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use agents without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use agents without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
 
 ## Partner agents
 

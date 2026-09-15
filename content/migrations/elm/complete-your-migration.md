@@ -10,9 +10,7 @@ contentType: how-tos
 permissions: 'Organization owners on {% data variables.enterprise.data_residency_site %}'
 ---
 
-{% data reusables.elm.preview-note %}
-
-After you have run a migration with the `elm` CLI tool, there are some follow-up tasks to complete.
+After you have run a migration with the {% data variables.product.prodname_elm_cli %} tool, there are some follow-up tasks to complete.
 
 ## Restore users' access
 
@@ -25,15 +23,44 @@ Because {% data variables.product.prodname_ghe_server %} and {% data variables.e
 
 {% data reusables.enterprise-migration-tool.about-mannequins %} For more information, see [AUTOTITLE](/migrations/overview/mannequins-and-user-activity).
 
-Once user accounts have been added to the organization on {% data variables.enterprise.data_residency_site %}, you can invite users to reclaim a mannequin's activity. You can do this in the browser or, with the {% data variables.product.prodname_gei_cli %} tool, reclaim mannequins in bulk without the invite process.
+Once user accounts have been added to the organization on {% data variables.enterprise.data_residency_site %}, you can invite users to reclaim a mannequin's activity. You can do this in the browser or, with the {% data variables.product.prodname_elm_cli %} tool, reclaim mannequins in bulk without the invite process.
+
+### Reclaiming mannequins in bulk using the {% data variables.product.prodname_elm_cli %}
+
+You can use the {% data variables.product.prodname_elm_cli %} to reclaim mannequins in bulk. 
+
+1. Generate the list of mannequins in the migration. The following command produces a CSV file that maps mannequins to organization members. Optionally, to include mannequins that have already been reclaimed, add the `--include-reclaimed` flag.
+   
+   ```shell copy
+   gh target mannequin list ORGANIZATION_NAME
+   ```
+
+   This will produce a CSV file of all mannequins in the target organization, in the form `mannequin-user,mannequin-id,target-user`:
+
+   ```text
+   ghe-admin,M_kgDOAAw-zw,
+   unit-test,M_kgDOAA5FYg,
+   admin-octoshift,M_kgDOAA5FZw,
+   ```
+
+1. Output the command to a file that you can edit.
+
+   ```shell copy
+   gh elm target mannequin list ORGANIZATION_NAME > MANNEQUINS.csv
+   ```
+   
+1. Edit the CSV file, adding the username of the organization member that corresponds to each mannequin. Ensure you save the file after you edit it.
+1. Reclaim mannequins using the `mannequin reclaim` command. Use the ORGANIZATION_NAME and filename from the previous step.
+   
+   ```shell copy
+   gh target mannequin reclaim ORGANIZATION_NAME --csv MANNEQUINS.csv
+   ```
+   
+For a full reference of the reclaim command, including options to control invitations and prompting, see [AUTOTITLE](/migrations/elm/elm-cli-reference).
 
 ### Reclaiming mannequins in the browser
 
 {% data reusables.elm.reclaim-mannequins-in-browser %}
-
-### Reclaiming mannequins in bulk
-
-You can install the {% data variables.product.prodname_gei_cli %} to reclaim mannequins in bulk. See [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer#reclaiming-mannequins-with-the-gei-extension).
 
 ## Reattribute Git activity
 

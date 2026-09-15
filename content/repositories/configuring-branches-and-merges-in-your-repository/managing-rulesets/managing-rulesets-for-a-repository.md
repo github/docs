@@ -31,7 +31,7 @@ For push rulesets for forked repositories, the "Rulesets" page will indicate tha
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. To the left of the branch name, click {% octicon "shield-lock" aria-label="view rules" %}.
+1. To the right of the branch name, click {% octicon "shield-lock" aria-label="view rules" %}.
 
    > [!TIP] Only branches that have a ruleset have a {% octicon "shield" aria-label="The shield icon" %} icon adjacent to their name.
 

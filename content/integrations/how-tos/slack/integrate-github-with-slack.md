@@ -94,6 +94,6 @@ The {% data variables.product.github %} app in the Slack Marketplace cannot be u
 
 {% ifversion copilot %}
 
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack) - Learn about {% data variables.copilot.copilot_cloud_agent %} with Slack.
+* [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-slack) - Learn about {% data variables.copilot.copilot_cloud_agent %} with Slack.
 
 {% endif %}

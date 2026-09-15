@@ -110,7 +110,7 @@ To manage access to repositories for outside collaborators{% ifversion repositor
 To control who can add outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %} to repositories, see:
 
 * [AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)
-* [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)
+* [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
 {% endif %}
 
 ## Next steps

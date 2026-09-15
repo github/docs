@@ -21,9 +21,7 @@ category:
 
 ## Enable {% data variables.product.prodname_copilot %}
 
-To purchase {% data variables.product.prodname_copilot %} for your enterprise, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
-
-A member of the Sales team will work with you to set up {% data variables.product.prodname_copilot_short %} for your enterprise.
+{% data reusables.copilot.plans.subscribe-for-enterprise %}
 
 ## Set policies
 

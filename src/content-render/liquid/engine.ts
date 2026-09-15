@@ -4,7 +4,6 @@ import Data from './data'
 import Octicon from './octicon'
 import Ifversion from './ifversion'
 import { Tool, tags as toolTags } from './tool'
-import { Spotlight, tags as spotlightTags } from './spotlight'
 import { Prompt } from './prompt'
 import { CodeTab, CodeTabs, tags as codeTabTags } from './codetabs'
 import IndentedDataReference from './indented-data-reference'
@@ -14,7 +13,6 @@ type LiquidTagDef = Parameters<Liquid['registerTag']>[1]
 const dataTag = Data as unknown as LiquidTagDef
 const ifversionTag = Ifversion as unknown as LiquidTagDef
 const toolTag = Tool as unknown as LiquidTagDef
-const spotlightTag = Spotlight as unknown as LiquidTagDef
 const promptTag = Prompt as unknown as LiquidTagDef
 const codeTabsTag = CodeTabs as unknown as LiquidTagDef
 const codeTabTag = CodeTab as unknown as LiquidTagDef
@@ -32,10 +30,6 @@ engine.registerTag('ifversion', ifversionTag)
 
 for (const tag of toolTags) {
   engine.registerTag(tag, toolTag)
-}
-
-for (const tag in spotlightTags) {
-  engine.registerTag(tag, spotlightTag)
 }
 
 for (const tag of codeTabTags) {
@@ -59,6 +53,28 @@ engine.registerFilter('obj_size', (input: Record<string, unknown> | null | undef
  */
 engine.registerFilter('version_num', (input: string): string => {
   return input.split('@')[1]
+})
+
+/**
+ * Render a string that itself contains Liquid.
+ *
+ * Values interpolated with `{{ }}` are not given a second Liquid pass, so
+ * `{% data %}` or `{% ifversion %}` stored in a data file would otherwise be
+ * printed literally. This filter lets data files keep using Liquid instead of
+ * hardcoding product names or version logic.
+ *
+ * Usage: {{ row.action | render_liquid }}
+ */
+interface FilterScope {
+  context: {
+    environments: Record<string, unknown>
+  }
+}
+
+engine.registerFilter('render_liquid', function (this: FilterScope, input: unknown): unknown {
+  if (typeof input !== 'string') return input
+  if (!input.includes('{%') && !input.includes('{{')) return input
+  return engine.parseAndRender(input, this.context.environments)
 })
 
 /**

@@ -1,11 +1,7 @@
 ---
 title: Remote sessions
 shortTitle: Remote Sessions
-intro: >-
-  Remote sessions let users access their Copilot session from GitHub web and
-  mobile via [Mission Control](https://github.com). When enabled, the SDK
-  connects each session to Mission Control, producing a URL that can be shared
-  as a link or QR code.
+intro: 'Remote sessions sync to {% data variables.product.github %} so users can access locally running {% data variables.product.prodname_copilot_short %} sessions from the agents panel or on mobile. When enabled, the SDK produces a URL to the session log that can be shared as a link or QR code.'
 versions:
   fpt: '*'
   ghec: '*'

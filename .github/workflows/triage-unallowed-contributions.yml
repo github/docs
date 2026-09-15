@@ -54,4 +54,4 @@ jobs:
           FILE_PATHS_NOT_ALLOWED: ${{ steps.filter.outputs.notAllowed_files }}
           CHANGED_FILE_PATHS: ${{ steps.filter.outputs.contentTypes_files }}
           ADDED_CONTENT_FILES: ${{ steps.filter.outputs.added_files }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}

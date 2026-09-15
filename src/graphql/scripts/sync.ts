@@ -145,6 +145,7 @@ async function main() {
       latestSchema,
       previewsForSchema,
       fallbackCategoryMap,
+      { currentLanguage: 'en', currentVersion: version },
     ) // This is slow!
 
     // Split the schema by category so the runtime can lazily load only the

@@ -177,5 +177,5 @@ Session state is stored locally at `~/.copilot/session-state/{sessionId}/`.
 ## Next steps
 
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/bundled-cli)**: Use the SDK's built-in CLI (recommended for most use cases)
-* **[AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started)**: Build a complete interactive app
+* **[AUTOTITLE](/copilot/get-started/sdk-quickstart)**: Build a complete interactive app
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/authenticate)**: All auth methods in detail

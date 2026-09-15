@@ -1,3 +1,116 @@
-.aggregations label {
-  font-weight: var(--base-text-weight-semibold, 600);
+@import "@primer/react-brand/lib/design-tokens/scss/tokens/functional/size/breakpoints.scss";
+
+// Docs 2026 search facet rail.
+//
+// Below brand's `medium` breakpoint this is the body of the "Show filters" disclosure:
+// it carries side and bottom borders with no top border, so it reads as one box with
+// the disclosure bar above it.
+//
+// From `medium` up it drops its border entirely and sits flush in the rail column — the
+// rail's own divider is the single border there, so the filters don't read as a box
+// inside a box. It still bounds itself to the rail's height and scrolls its option list
+// internally, so the heading and "Clear all" stay put and the page behind doesn't move.
+.aggregations {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background-color: var(--brand-color-canvas-default);
+  border: var(--brand-borderWidth-thin) solid var(--brand-color-border-subtle);
+  border-top: 0;
+
+  @media (min-width: $brand-breakpoint-medium) {
+    border: 0;
+    // min-height:0 lets this shrink inside the rail's column so the list can scroll.
+    min-height: 0;
+    overflow: hidden;
+  }
+}
+
+.heading {
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: var(--base-text-weight-medium);
+  line-height: 1.4;
+  color: var(--brand-color-text-default);
+}
+
+.group {
+  // Brand's ControlGroup stacks its children with an 8px gap; the design uses 12px.
+  // This class lands on the same element as ControlGroup__container (the <fieldset>),
+  // so the override goes here directly — a descendant selector never matches.
+  gap: 12px !important;
+
+  // From `medium` up the option list is the scrolling region, so the card's heading and
+  // "Clear all" stay put while the facets scroll independently of the page.
+  //
+  // Setting overflow-y also makes overflow-x compute to `auto`, so this box clips
+  // horizontally too. The checkbox sits flush against its left content edge, which left
+  // the focus ring and the checked state's outer edge shaved off. The negative inline
+  // margin pulls the clip edge outward while the padding keeps the content where it was,
+  // so the ring has room without the list shifting.
+  padding-inline: 4px;
+  margin-inline: -4px;
+
+  @media (min-width: $brand-breakpoint-medium) {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
+
+.option {
+  // FormControl lays a checkbox out as `auto 1fr` with an 8px gap; the design uses 12px.
+  gap: 12px !important;
+
+  // Centre the box against its label. The label's line box is taller than the text
+  // itself, so without this the checkbox settles low and the row reads as misaligned.
+  align-items: center !important;
+
+  // The design draws each option as a single button, so the whole row — the box included
+  // — should read as one target. Brand leaves the input and its wrapper on the default
+  // cursor, which makes the box itself look inert even though clicking it works.
+  cursor: pointer;
+
+  input,
+  :global([class*="Checkbox-wrapper"]) {
+    cursor: pointer;
+  }
+}
+
+.optionLabel {
+  // Figma "Action/Large": 16px Medium, line-height 16px, letter-spacing 0.16px. Brand's
+  // checkbox label is --brand-text-size-100 (14px) at line-height 24px / 0.21px tracking,
+  // so size, leading and tracking all need pinning to the design.
+  font-size: 1rem !important;
+  line-height: 16px !important;
+  letter-spacing: 0.16px !important;
+  color: var(--brand-color-text-muted) !important;
+}
+
+// A selected facet steps up to the default text colour, so the active filters are legible
+// at a glance against the muted ones — the same muted/default emphasis the result titles
+// use for their search match.
+.optionLabelSelected {
+  color: var(--brand-color-text-default) !important;
+}
+
+.count {
+  // Figma: 10px Medium, line-height 1.5. In the design the count is a sibling of the
+  // checkbox+label group in an `items-start` row, so it rides at the top of the line
+  // rather than on the label's baseline. Ours is inline inside the label — for
+  // accessibility, so the name still reads "Account and profile (2)" — so it is raised
+  // here instead. `super` on a 10px run lifts it without growing the 16px line box.
+  margin-left: 2px;
+  font-size: 10px;
+  font-weight: var(--base-text-weight-medium);
+  line-height: 1;
+  letter-spacing: normal;
+  vertical-align: super;
+  color: var(--brand-color-text-muted);
+}
+
+.clear {
+  align-self: flex-start;
 }

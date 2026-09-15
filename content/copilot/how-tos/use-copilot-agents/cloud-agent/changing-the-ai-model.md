@@ -30,7 +30,6 @@ You may find that different models perform better, or provide more useful respon
 The following options are currently available:
 
 * Auto 
-{% data reusables.copilot.copilot-cloud-agent-auto-models %}
 {% data reusables.copilot.copilot-cloud-agent-non-auto-models %}
 
 {% data reusables.copilot.auto-model-option %}

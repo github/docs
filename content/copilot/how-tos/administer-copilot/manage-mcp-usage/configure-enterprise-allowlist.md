@@ -16,7 +16,7 @@ category:
 
 You can define an allowlist and denylist to control which MCP servers users in your enterprise can run in {% data variables.product.prodname_copilot_short %} clients. These lists are defined in your enterprise's `{% data variables.copilot.managed_setting_file %}`, which you can store on {% data variables.product.github %}.
 
-For more information, see [AUTOTITLE](/copilot/concepts/mcp-management).
+For more information, see [AUTOTITLE](/copilot/concepts/enterprise/mcp-management).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ You can find these settings in the {% octicon "mcp" aria-hidden="true" aria-labe
 
 ## Defining an allowlist or denylist
 
-1. Create a `{% data variables.copilot.managed_setting_file %}` file for your enterprise. Most enterprises store this file in a `.github-private` repository. You can also install it directly on users' machines using mobile device management. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#deploying-server-managed-settings).
+1. Create a `{% data variables.copilot.managed_setting_file %}` file for your enterprise. Most enterprises store this file in a `.github-private` repository. You can also install it directly on users' machines using mobile device management. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/deploy-managed-settings#deploying-server-managed-settings).
 1. Edit the file to define an allowlist and denylist for MCP servers. You can match by name, server URL, or specific commands. For syntax details, see [allowedMcpServers](/copilot/reference/enterprise-administrators/enterprise-managed-settings#allowedmcpservers), and [deniedMcpServers](/copilot/reference/enterprise-administrators/enterprise-managed-settings#deniedmcpservers) in "Enterprise managed settings."
 
     The following example allows servers that match any of the three allowlist entries. The filesystem server configured to access the root filesystem is always blocked, even if it also matches an allowlist entry.

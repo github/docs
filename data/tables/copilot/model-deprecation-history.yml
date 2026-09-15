@@ -37,7 +37,7 @@
 
 - name: 'Raptor mini'
   retirement_date: '2026-09-01'
-  suggested_alternative: 'MAI-Code-1-Flash'
+  suggested_alternative: 'MAI-Code-1.1-Flash'
 
 - name: 'Gemini 2.5 Pro'
   retirement_date: '2026-07-31'

@@ -1,0 +1,88 @@
+@import "@primer/react-brand/lib/design-tokens/scss/tokens/functional/size/breakpoints.scss";
+
+.rail {
+  display: flex;
+  flex-direction: column;
+
+  // Below `medium` the rail sits above the results in the page flow, so
+  // expanding the panel grows content that the browser's scroll anchoring then
+  // compensates for — scrolling the disclosure bar off the top of the viewport
+  // the moment you open it. Opt this subtree out so opening stays put.
+  overflow-anchor: none;
+
+  // From `medium` up, join the rail's flex column so the card below can bound
+  // itself to the viewport and scroll its own list.
+  @media (min-width: $brand-breakpoint-medium) {
+    flex: 1;
+    min-height: 0;
+  }
+}
+
+// "Show filters" / "Hide filter" disclosure. Matches the design's
+// Nav List/2/Mobile/Collapsed: 44px tall, full width, a 12px-padded 32x32 icon
+// cell, then a 14px medium label. Only exists below brand's `medium`; from there
+// up the rail shows the panel outright and the disclosure is redundant.
+.toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 44px;
+  padding: 0;
+  background-color: var(--brand-color-canvas-default);
+  border: var(--brand-borderWidth-thin) solid var(--brand-color-border-subtle);
+  cursor: pointer;
+
+  @media (min-width: $brand-breakpoint-medium) {
+    display: none;
+  }
+}
+
+.toggleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 12px;
+  border-radius: 6px;
+  color: var(--brand-color-text-default);
+  flex-shrink: 0;
+}
+
+.toggleLabel {
+  padding: 12px 12px 12px 0;
+  font-size: 14px;
+  font-weight: var(--base-text-weight-medium);
+  line-height: 14px;
+  letter-spacing: 0.14px;
+  color: var(--brand-color-text-default);
+  white-space: nowrap;
+}
+
+.panel {
+  display: none;
+
+  // The panel is the rail itself from `medium` up, so it is always shown there
+  // regardless of the disclosure's state, and joins the flex column.
+  @media (min-width: $brand-breakpoint-medium) {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.panelOpen {
+  display: block;
+
+  // Guard against the open state leaking upward: if someone opens the drawer and
+  // then widens the window, `display: block` would otherwise beat the flex column
+  // above and break the card's bounded height.
+  @media (min-width: $brand-breakpoint-medium) {
+    display: flex;
+  }
+}

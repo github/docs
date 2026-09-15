@@ -68,6 +68,18 @@ export default async function contextualizeGeneralSearch(
 
   searchParams.aggregate = ['toplevel']
 
+  // Each result row renders a category chip (Docs 2026). `toplevel` is already in the
+  // Elasticsearch `_source_includes`, so this only asks getHits() to copy it onto the
+  // returned hit — no mapping change and no reindex.
+  //
+  // Assign a new array rather than pushing: when `include` is absent from the query
+  // string, getSearchFromRequestParams hands back the module-level `default_: []` *by
+  // reference*, so mutating it here would leak `toplevel` into every later request that
+  // omits the parameter — including the public /api/search/v1.
+  if (!searchParams.include.includes('toplevel')) {
+    searchParams.include = [...searchParams.include, 'toplevel']
+  }
+
   req.context.search = {
     searchParams,
     validationErrors,
@@ -79,7 +91,7 @@ export default async function contextualizeGeneralSearch(
       if (searchParams.aggregate && searchParams.toplevel && searchParams.toplevel.length > 0) {
         // Do 2 searches. One without filtering to get the aggregations
         const searchWithoutFilter = Object.fromEntries(
-          Object.entries(searchParams).filter(([key]) => key !== 'topLevel'),
+          Object.entries(searchParams).filter(([key]) => key !== 'toplevel'),
         )
         searchWithoutFilter.size = 0
         const { aggregations } = await getProxySearch(
@@ -110,7 +122,7 @@ export default async function contextualizeGeneralSearch(
         if (searchParams.aggregate && searchParams.toplevel && searchParams.toplevel.length > 0) {
           // Do 2 searches. One without filtering to get the aggregations
           const searchWithoutFilter = Object.fromEntries(
-            Object.entries(searchParams).filter(([key]) => key !== 'topLevel'),
+            Object.entries(searchParams).filter(([key]) => key !== 'toplevel'),
           )
           searchWithoutFilter.size = 0
           const { aggregations } = await timed({
@@ -150,6 +162,9 @@ const SEARCH_KEYS_TO_QUERY_STRING: (keyof ComputedSearchQueryParamsMap['generalS
   'aggregate',
   'toplevel',
   'size',
+  // Without this, the proxied search (used whenever ELASTICSEARCH_URL is unset) silently
+  // drops `include`, so hits come back without `toplevel` and the category chips vanish.
+  'include',
 ]
 
 // Proxy the API endpoint with the relevant search params

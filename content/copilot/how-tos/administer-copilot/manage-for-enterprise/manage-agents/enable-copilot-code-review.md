@@ -24,6 +24,7 @@ The policy for {% data variables.copilot.copilot_code-review_short %} allows you
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. Scroll down to "Available Agents", then click **{% data variables.copilot.copilot_code-review_short %}**.
 1. Next to "{% data variables.copilot.copilot_code-review_short %}", select a policy.
+1. Then choose which {% data variables.copilot.copilot_code-review_short %} features to enable for your enterprise.
 
 {% data reusables.enterprise-accounts.policy-enablement-next-steps %}
 

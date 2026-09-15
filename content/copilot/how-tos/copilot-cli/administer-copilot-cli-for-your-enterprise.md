@@ -49,6 +49,10 @@ Separately, users can also provide their own LLM keys locally. This is not contr
 
 Enterprise-configured custom agents are available to use with {% data variables.copilot.copilot_cli_short %}.
 
+### Content exclusion
+
+Content exclusion policies configured at the enterprise, organization, and repository levels apply to {% data variables.copilot.copilot_cli_short %}. Excluded files are not used as context. For more information, see [AUTOTITLE](/copilot/concepts/context/content-exclusion).
+
 ### MCP server policies
 
 Enterprise and organization MCP policies apply to {% data variables.copilot.copilot_cli_short %}. You can configure an MCP registry URL so developers can discover approved servers, and set an allowlist policy to restrict which MCP servers can run. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/restrict-based-on-registry).
@@ -70,7 +74,6 @@ Users must have an assigned {% data variables.product.prodname_copilot %} seat t
 All other controls do **not** affect {% data variables.copilot.copilot_cli_short %}, notably:
 
 * **IDE-specific policies**: Policies configured for specific IDEs or editor extensions
-* **Content exclusions**: File path-based content exclusions
 
 ## Why can't my developers access {% data variables.copilot.copilot_cli_short %}?
 

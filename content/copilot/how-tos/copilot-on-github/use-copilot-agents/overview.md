@@ -11,7 +11,7 @@ contentType: how-tos
 
 ## Prerequisite
 
-You need a repository where {% data variables.copilot.copilot_cloud_agent %} is enabled. For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} subscribers, an administrator must enable the agent before you can use it. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+You need a repository where {% data variables.copilot.copilot_cloud_agent %} is enabled. For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} subscribers, an administrator must enable the agent before you can use it. See [AUTOTITLE](/copilot/concepts/enterprise/cloud-agent-access).
 
 ## Step 1: Assign an issue to {% data variables.product.prodname_copilot_short %}
 

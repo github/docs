@@ -12,21 +12,7 @@ category:
 
 Use this reference to understand the currently supported keys in `{% data variables.copilot.managed_setting_file %}`.
 
-For deployment methods and supported clients, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
-
-## Precedence rules
-
-When multiple settings sources are present, settings earlier in this list take precedence over settings later in the list:
-
-1. MDM-managed settings
-1. Server-managed settings
-1. File-based settings
-1. User-level settings
-
-As an exception, the following keys are composed in the most restrictive direction across different delivery methods:
-
-* `sandbox`
-* `permissions.deny`, `permissions.ask`, and `permissions.allow`
+For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started).
 
 ## Supported keys
 
@@ -35,10 +21,10 @@ As an exception, the following keys are composed in the most restrictive directi
 | Key | Purpose | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode_shortname %} | {% data variables.copilot.github_copilot_app %} | {% data variables.copilot.copilot_cloud_agent %} | {% data variables.product.prodname_jetbrains_ides %} |
 | --- | --- | --- | --- | --- | --- | --- |
 | `permissions.disableBypassPermissionsMode` | Disables bypass or YOLO-style allow-all behavior | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
-| `permissions.deny` | Blocks specific operations | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `permissions.ask` | Requires a fresh human approval before specific operations can proceed | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `permissions.allow` | Permits specific operations to proceed without a prompt | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| `model` | Sets auto model selection as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.deny` | Blocks specific operations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.ask` | Requires a fresh human approval before specific operations can proceed | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `permissions.allow` | Permits specific operations to proceed without a prompt | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `model` | Sets your preferred model as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `enabledPlugins` | Enables or disables specific plugins by key | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `extraKnownMarketplaces` | Adds plugin marketplaces that users can access | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -50,13 +36,6 @@ As an exception, the following keys are composed in the most restrictive directi
 
 {% endrowheaders %}
 
-## Applying different settings to enterprise teams
-
-For server-managed deployments, the enterprise can apply different governance to groups of users based on their enterprise team membership. The enterprise defines all settings—team membership only determines which users receive a given set of values.
-
-To make a key eligible for team-specific values, mark it as overridable in `{% data variables.copilot.managed_setting_file %}` using the `{ "overridable": <VALUE> }` syntax. An overridable key uses the team's value when set, or falls back to your enterprise default when the team leaves it unset. The `{ "overridable": <VALUE> }` syntax applies to the `model`, `permissions.disableBypassPermissionsMode`, `permissions.deny`, `permissions.ask`, `permissions.allow`, `allowedMcpServers`, and `deniedMcpServers` keys. Keys not marked overridable remain an enterprise-level decision that teams can't modify.
-
-`enabledPlugins` and `extraKnownMarketplaces` work additively. The enterprise `{% data variables.copilot.managed_setting_file %}` sets a baseline, and an enterprise team file can add more plugins and marketplaces on top of it. For the full setup steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings#overriding-settings-for-specific-teams).
 
 ## Example configuration
 
@@ -137,6 +116,7 @@ The following example shows these keys in one managed settings file.
   ],
   "sandbox": {
     "enabled": true,
+    "failIfUnavailable": true,
     "allowBypass": false,
     "sandboxMcpServers": true,
     "sandboxLspServers": true
@@ -146,7 +126,7 @@ The following example shows these keys in one managed settings file.
 
 ## enabledPlugins
 
-Defines plugins that are automatically installed or blocked for all enterprise users. Each entry uses the format `PLUGIN-NAME@MARKETPLACE-NAME` as the key, with a boolean value: `true` to require the plugin to be enabled, or `false` to require it to be disabled. See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
+Defines plugins that are automatically installed or blocked for all enterprise users. Each entry uses the format `PLUGIN-NAME@MARKETPLACE-NAME` as the key, with a boolean value: `true` to require the plugin to be enabled, or `false` to require it to be disabled. See [AUTOTITLE](/copilot/concepts/enterprise/plugin-standards).
 
 ## extraKnownMarketplaces
 
@@ -162,7 +142,7 @@ The following source types are supported:
 * `"git"` — requires `url`; optional `ref` and `path`
 * `"directory"` — requires `path`
 
-See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
+See [AUTOTITLE](/copilot/concepts/enterprise/plugin-standards).
 
 ## strictKnownMarketplaces
 
@@ -179,10 +159,11 @@ Restricts plugin installation to only the marketplaces explicitly defined by the
 
 ## model
 
-Sets auto model selection as the default for new conversations. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+Sets your preferred model as the default for new conversations. This lets you choose the default model that best fits your enterprise's workflows. Users can still select a different model on a per-conversation basis.
+* Set `model` to `"auto"` to use {% data variables.copilot.copilot_auto_model_selection_short %} as the default, so new sessions choose a model automatically unless the user specifies a different model on a per-conversation basis. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+* Set `model` to a specific model and version to make that model the default for new conversations, for example `"kimi-k3"`.
 
-* When you set `model` to `"auto"`, new sessions use Auto model unless the user specifies a different model on a per-conversation basis.
-* This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "auto" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"model": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
+This key is overridable by enterprise team mapping. In your `{% data variables.copilot.managed_setting_file %}`, use the `{ "overridable": "auto" }` syntax to specialize the key's configuration on a per-team basis. You can then set `"model": "unmanaged"` in a team settings file, providing a specialization that takes precedence over `{% data variables.copilot.managed_setting_file %}` for members of the subject team.
 
 > [!NOTE]
 > `model` was originally documented as `permissions.model`. Clients still read the nested `permissions.model` value when the top-level `model` key is absent, but you should use the top-level `model` key in new configurations.
@@ -190,6 +171,8 @@ Sets auto model selection as the default for new conversations. See [AUTOTITLE](
 ## permissions
 
 ### deny, ask, allow
+
+In {% data variables.product.prodname_vscode_shortname %}, these granular permission rules apply to {% data variables.product.prodname_copilot_short %} sessions that use Agent Host. The `permissions.disableBypassPermissionsMode` setting has broader {% data variables.product.prodname_vscode_shortname %} support and isn't limited to Agent Host.
 
 The `permissions.deny`, `permissions.ask`, and `permissions.allow` keys use **deny > ask > allow** precedence. If an MDM-managed, server-managed, or file-based source defines any permission rule—or if any applicable source declares an `allow` list—an unmatched supported operation defaults to requiring approval. Otherwise, it follows the ordinary permission flow.
 
@@ -292,8 +275,9 @@ Enforces minimum local sandbox restrictions for {% data variables.copilot.copilo
 
 The following sub-properties are supported:
 
-* `enabled`: `true` requires sandboxing and prevents users from disabling it.
-* `allowBypass`: `false` prevents the model from requesting that an individual command run outside the sandbox.
+* `enabled`: `true` requires sandboxing by default. Users cannot disable it through their configuration, the `--no-sandbox` command line option, or the `/sandbox disable` command. If the effective policy permits bypass, a user can still explicitly disable sandboxing for the rest of the current session from an active sandbox-bypass permission prompt.
+* `failIfUnavailable`: `true`, combined with `enabled: true`, makes the managed sandbox mandatory. If {% data variables.product.prodname_copilot_short %} cannot validate, compile, or enforce the sandbox policy with an available sandbox backend, it blocks model and tool execution instead of allowing commands to fail or run unsandboxed. This property does not enable sandboxing by itself.
+* `allowBypass`: `false` prevents both individual commands from running outside the sandbox and users from disabling sandboxing for the rest of the current session from an active sandbox-bypass permission prompt.
 * `addCurrentWorkingDirectory`: `false` prevents {% data variables.copilot.copilot_cli_short %} from automatically adding the current working directory to the sandbox's read/write paths.
 * `sandboxMcpServers`: `true` requires local MCP servers started by {% data variables.copilot.copilot_cli_short %} to run in the sandbox. Remote MCP servers do not run in the local sandbox.
 * `sandboxLspServers`: `true` requires language servers started by {% data variables.copilot.copilot_cli_short %} to run in the sandbox.

@@ -25,7 +25,7 @@ category:
 ---
 
 > [!NOTE]
-> Your profile name for your is {% data variables.product.github %} account is **required**. All other profile information described in this article is **optional**.
+> Your profile name for your {% data variables.product.github %} account is **required**. All other profile information described in this article is **optional**.
 
 ## Changing your profile picture
 

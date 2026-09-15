@@ -44,8 +44,9 @@ async function main() {
 
   // Format into Markdown bulleted list to use in the PR comment
   const listUnallowedChangedFiles = unallowedChangedFiles.map((file) => `\n - ${file}`).join('')
-  const listUnallowedFiles = filters.notAllowed.map((file: string) => `\n - ${file}`).join('')
-
+  const listUnallowedFiles = filters.notAllowed
+    .map((file: string) => `\n - ${file === '*' ? 'Anything in the root directory' : file}`)
+    .join('')
   const reviewMessage = `👋 Hi there! It looks like you've modified some files that we can't accept as contributions:${listUnallowedChangedFiles}\n\nYou'll need to raise a new PR that doesn't include those files, before we can review.\n\nThe complete list of files we can't accept are:${listUnallowedFiles}\n\nWe also can't accept contributions to files in the content directory with frontmatter \`contentType: rai\`. You can always check out our full [contribution guidelines](https://docs.github.com/en/contributing).`
 
   let workflowFailMessage =

@@ -83,7 +83,7 @@ Optimize your experience with {% data variables.copilot.copilot_cli_short %} wit
 
 ### Stop a currently running operation
 
-If you enter a prompt and then decide you want to stop {% data variables.product.prodname_copilot_short %} from completing the task while it is still "Thinking," press <kbd>Esc</kbd>.
+If you enter a prompt and then decide you want to stop {% data variables.product.prodname_copilot_short %} from completing the task while it is still "Thinking," press <kbd>Esc</kbd> twice within half a second.
 
 ### Use plan mode
 
@@ -305,7 +305,7 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 * `/context`: Provides a visual overview of your current token usage
 * `/compact`: Manually compresses your conversation history to free up context space
 
-{% data variables.copilot.copilot_cli %} automatically compresses your history in the background when your conversation approaches 95% of the token limit, without interrupting your workflow.
+{% data variables.copilot.copilot_cli %} automatically starts compressing your history in the background when your conversation approaches 80% of the token limit. This starting point is dynamic: when static context—your system messages and tool definitions—already uses a large share of the limit (roughly 75% or more), {% data variables.product.prodname_copilot_short %} waits until usage is closer to 90% before compacting, because compressing the conversation reclaims less space in that situation. If usage reaches approximately 95% before background compaction has finished, the CLI waits for it to complete before continuing.
 
 ### Enable all permissions
 

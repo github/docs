@@ -1,9 +1,9 @@
 ---
-title: Enterprise Server {{ release-number }} deprecation steps
+title: "[{{ deprecation-date }}] Enterprise Server {{ release-number }} deprecation steps"
 labels:
   - enterprise deprecation
-  - priority-1
-  - time sensitive
+  - engineering
+  - priority-2
   - workflow-generated
 ---
 

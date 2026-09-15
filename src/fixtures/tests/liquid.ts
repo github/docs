@@ -5,36 +5,6 @@ import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import { getDOM } from '@/tests/helpers/e2etest'
 import { supported } from '@/versions/lib/enterprise-server-releases'
 
-describe('spotlight', () => {
-  test('renders styled warnings', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/warnings')
-    const nodes = $('.ghd-spotlight-attention')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('This is inside the warning.')).toBe(true)
-  })
-
-  test('renders styled danger', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/danger')
-    const nodes = $('.ghd-spotlight-danger')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('Danger, Will Robinson.')).toBe(true)
-  })
-
-  test('renders styled tips', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/tips')
-    const nodes = $('.ghd-spotlight-success')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('This is inside the tip.')).toBe(true)
-  })
-
-  test('renders styled notes', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/notes')
-    const nodes = $('.ghd-spotlight-accent')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('This is inside the note.')).toBe(true)
-  })
-})
-
 describe('raw', () => {
   test('renders raw', async () => {
     const $: CheerioAPI = await getDOM('/get-started/liquid/raw')
