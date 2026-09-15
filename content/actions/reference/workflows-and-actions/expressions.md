@@ -412,18 +412,18 @@ You may also use the `*` syntax on an object. For example, suppose you have an o
   "scallions":
   {
     "colors": ["green", "white", "red"],
-    "ediblePortions": ["roots", "stalks"],
+    "ediblePortions": ["roots", "stalks"]
   },
   "beets":
   {
     "colors": ["purple", "red", "gold", "white", "pink"],
-    "ediblePortions": ["roots", "stems", "leaves"],
+    "ediblePortions": ["roots", "stems", "leaves"]
   },
   "artichokes":
   {
     "colors": ["green", "purple", "red", "black"],
-    "ediblePortions": ["hearts", "stems", "leaves"],
-  },
+    "ediblePortions": ["hearts", "stems", "leaves"]
+  }
 }
 ```
 
@@ -434,7 +434,7 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 [
   ["roots", "stalks"],
   ["hearts", "stems", "leaves"],
-  ["roots", "stems", "leaves"],
+  ["roots", "stems", "leaves"]
 ]
 ```
 
