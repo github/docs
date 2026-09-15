@@ -50,4 +50,6 @@ journeyTracks:
     guides:
       - href: '/copilot/concepts/enterprise/learning-about-new-features-and-models'
       - href: '/copilot/tutorials/roll-out-at-scale/govern-at-scale/pilot-a-feature-or-model'
+docsTeamMetrics:
+  - ai-governance
 ---

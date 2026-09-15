@@ -17,6 +17,8 @@ redirect_from:
 contentType: how-tos
 category:
   - Configure Copilot
+docsTeamMetrics:
+  - ai-governance
 ---
 
 ## Enable {% data variables.product.prodname_copilot %}

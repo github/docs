@@ -9,6 +9,8 @@ category:
   - Roll Copilot out at scale
 contentType: tutorials
 allowTitleToDifferFromFilename: true
+docsTeamMetrics:
+  - ai-governance
 ---
 
 This tutorial walks you through running a pilot end to end: setting a budget, enabling the feature for a contained group, monitoring results, and using the evidence to make and report a go or no-go decision.

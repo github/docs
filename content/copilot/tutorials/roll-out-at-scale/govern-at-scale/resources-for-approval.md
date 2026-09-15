@@ -9,6 +9,8 @@ category:
   - Manage Copilot for a team
 redirect_from:
   - /copilot/get-started/resources-for-approval
+docsTeamMetrics:
+  - ai-governance
 ---
 
 Before you can roll out a tool like {% data variables.product.prodname_copilot %} in your company, you will likely need signoff from legal, compliance, and cybersecurity teams.
