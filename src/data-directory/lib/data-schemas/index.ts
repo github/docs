@@ -8,9 +8,7 @@ interface DataSchemas {
   [key: string]: string
 }
 
-// Helper function to resolve schema paths based on runtime context
 function resolveSchemaPath(filename: string): string {
-  // Check if we're in a test context
   const isTest = process.env.NODE_ENV === 'test'
 
   if (isTest) {
@@ -37,7 +35,6 @@ function loadTableSchemas(): DataSchemas {
       const schemaPath = path.join(schemasDir, `${name}.ts`)
 
       if (fs.existsSync(schemaPath)) {
-        // Use the resolver for consistent path handling
         tableSchemas[`data/tables/${yamlFile}`] = resolveSchemaPath(`tables/${name}.ts`)
       }
     }
@@ -61,7 +58,6 @@ const manualSchemas: DataSchemas = {
   'data/tables/copilot/matrix-meta.yml': resolveSchemaPath('tables/copilot/matrix-meta.ts'),
 }
 
-// Combine manual registrations with auto-discovered table schemas
 const dataSchemas: DataSchemas = {
   ...manualSchemas,
   ...loadTableSchemas(),
