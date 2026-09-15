@@ -159,6 +159,10 @@ For an individual user-level budget, you can also change or clear the expiration
 1. In the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
 1. Follow the prompts.
 
+### Managing requests for additional budget
+
+When a member exhausts a {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %} budget, they can ask you to increase it. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-budget-requests).
+
 ### Controlling included usage for a cost center
 
 Budgets cap metered charges after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted. To cap how much of the pool a cost center can use **before** the metered phase, use an included usage control. {% data variables.product.github %} sets the cap automatically based on the licenses assigned to the cost center, and you choose whether members are blocked or roll into paid overage when the cap is reached. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#included-usage-controls-for-cost-centers) and [AUTOTITLE](/billing/concepts/cost-centers).
