@@ -15,6 +15,7 @@ contentType: concepts
 
 <!-- Update this list when we backport a change that meaningfully affects the instructions in the docs -->
 
+* `3.22.0`
 * `3.21.3`
 * `3.20.5`
 * `3.19.9`

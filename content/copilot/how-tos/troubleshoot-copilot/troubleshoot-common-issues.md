@@ -24,7 +24,7 @@ If {% data variables.product.prodname_copilot %} stops working, check {% data va
 
 ## Unable to use the {% data variables.product.prodname_copilot %} extension in the IDE
 
-We recommend you follow the quickstart guide for {% data variables.product.prodname_copilot %} while setting up {% data variables.product.prodname_copilot %} on your machine. For more information, see [AUTOTITLE](/copilot/get-started/quickstart).
+We recommend you follow the quickstart guide for {% data variables.product.prodname_copilot %} while setting up {% data variables.product.prodname_copilot %} on your machine. For more information, see [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide).
 
 The {% data variables.product.prodname_copilot %} extension is frequently updated to fix bugs and add new features. It's important to keep your extension up to date because older clients cannot communicate with the {% data variables.product.prodname_copilot %} servers. Update your {% data variables.product.prodname_copilot %} extension on all the machines you have it installed.
 

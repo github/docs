@@ -11,13 +11,13 @@ redirect_from:
   - /copilot/how-tos/personal-settings/installing-the-github-copilot-extension-in-your-environment
   - /copilot/how-tos/set-up/installing-the-github-copilot-extension-in-your-environment
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
 ## Prerequisite
 
-To use {% data variables.product.prodname_copilot_short %} in your IDE, you need either limited access through {% data variables.copilot.copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. For more information about how to get access and choose the right plan, see [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
+To use {% data variables.product.prodname_copilot_short %} in your IDE, you need either limited access through {% data variables.copilot.copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. For more information about how to get access and choose the right plan, see [AUTOTITLE](/copilot/get-started/about-github-copilot#get-access).
 
 {% azure_data_studio %}
 
@@ -29,7 +29,7 @@ To see instructions for other popular coding environments, use the tool switcher
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in Azure Data Studio
 
-1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
+1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/get-started/about-github-copilot#get-access).
 
 1. Make sure you have a compatible version of Azure Data Studio. To use {% data variables.product.prodname_copilot %} in Azure Data Studio, you must have Azure Data Studio version 1.44.0 or later installed. See the [Azure Data Studio download page](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) in the Azure Data Studio documentation.
 
@@ -64,7 +64,7 @@ For information about version compatibility of the {% data variables.product.pro
 
 The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
 
-1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
+1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/get-started/about-github-copilot#get-access).
 
 1. Make sure you have a JetBrains IDE that is compatible with {% data variables.product.prodname_copilot %}. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
 
@@ -110,7 +110,7 @@ To see instructions for other popular coding environments, use the tool switcher
 
 {% data variables.product.prodname_dotcom %} recommends that you install the {% data variables.product.prodname_copilot %} plugin with Vim/Neovim's built-in plugin manager. Alternatively, you can use a plugin manager of your choice to install `github/copilot.vim`. For more information, see the [copilot.vim repository](https://github.com/github/copilot.vim).
 
-1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
+1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/get-started/about-github-copilot#get-access).
 
 1. Make sure you have a compatible version of Vim/Neovim installed. To use {% data variables.product.prodname_copilot %} in Vim/Neovim you must have Vim version 9.0.0185 / Neovim version 0.6 or above and Node.js version 18 or above. See the [Vim](https://vimhelp.org/) / [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
 
@@ -164,7 +164,7 @@ The following instructions are for versions 2022 17.8 and 2022 17.9 of {% data v
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}
 
-1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
+1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/get-started/about-github-copilot#get-access).
 
 1. Make sure you have a compatible version of {% data variables.product.prodname_vs %} installed. {% data reusables.copilot.visual-studio-version %}
 
@@ -208,7 +208,7 @@ To use {% data variables.product.prodname_copilot %} for Xcode you must have Xco
 
 ## Installing the {% data variables.product.prodname_copilot %} extension for Xcode
 
-1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
+1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/get-started/about-github-copilot#get-access).
 1. Make sure you have a compatible version of Xcode installed. To use {% data variables.product.prodname_copilot %} for Xcode you must have Xcode version 8.0 or above and macOS Monterey (12.0) or above. See [Xcode](https://developer.apple.com/xcode/) on the Apple Developer site.
 1. Download the latest version of the {% data variables.product.prodname_copilot %} for Xcode extension from the [`github/CopilotForXcode` repository](https://github.com/github/CopilotForXcode/releases/latest/download/GitHubCopilotForXcode.dmg?ref_product=copilot&ref_type=engagement&ref_style=text) and install it. A background item will be added for the application to be able to start itself when Xcode starts.
 1. Open the **{% data variables.product.prodname_copilot %} for Xcode** application from the Applications folder and step through the on-screen instructions for setting up the extension.
