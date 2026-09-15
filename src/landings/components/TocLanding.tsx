@@ -66,7 +66,7 @@ export const TocLanding = () => {
             )}
 
             {(renderedPage || renderedPageHast) && (
-              <div id="article-contents" className="mb-5">
+              <div id="article-contents" data-article-body className="mb-5">
                 <MarkdownContent hast={renderedPageHast ?? undefined}>
                   {renderedPage}
                 </MarkdownContent>

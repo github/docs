@@ -1,4 +1,6 @@
 @import "@primer/css/support/variables/typography.scss";
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
 @import "src/frame/stylesheets/breakpoint-xxl.scss";
 
 .markdownBody {
@@ -32,15 +34,21 @@
       background-color: transparent;
     }
 
-    // Make the header sticky
+    // Make the header sticky below whatever is sticky above it. The stack is
+    // published as `--docs-sticky-stack` by the content column (see
+    // DefaultLayout.module.scss): 110px for the main header + secondary bar,
+    // 150px when the "In this article" sub-bar is also showing. The column owns
+    // that value because whether the sub-bar shows depends on runtime state
+    // (hasDrawer, rail collapsed) that this stylesheet cannot see.
+    //
+    // The 110px fallback matters: it is the floor, since the secondary bar is
+    // sticky at EVERY width. The previous 65px assumed the bar was static below
+    // lg, which it no longer is, so table headers pinned underneath it.
+    // The bars carry a higher z-index, so they stay above this header.
     thead {
       position: sticky;
-      top: 105px; // 88 + 8 + 8 + 1, space for the site header
-      z-index: 1; // Ensure header stays above content including superscripts
-
-      @include breakpoint-xxl {
-        top: 65px !important; // 48 + 8 + 8 + 1, space for the site header
-      }
+      top: var(--docs-sticky-stack, 110px);
+      z-index: 1; // above content (incl. superscripts), below the sticky bars
     }
 
     // Redraw borders as inset box-shadow to keep the border with sticky header
@@ -52,12 +60,14 @@
 
     thead th,
     thead td {
-      box-shadow: inset 0 -2px var(--color-border-muted);
+      box-shadow: inset 0 -2px
+        var(--brand-color-border-muted, var(--color-border-muted));
     }
 
     tbody th,
     tbody td {
-      box-shadow: inset 0 -1px var(--color-border-muted);
+      box-shadow: inset 0 -1px
+        var(--brand-color-border-muted, var(--color-border-muted));
     }
 
     tbody tr:last-child th,

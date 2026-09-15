@@ -40,8 +40,9 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
       data-container="nav"
       data-mobile-open={variant === 'full' ? mobileOpen : undefined}
       className={cx(
-        // Desktop rail: sticky, hidden below xxl. When mobileOpen, it also
-        // renders on mobile (block at all widths), full-width in the page flow.
+        // Desktop rail: sticky, hidden below lg (1012px). When mobileOpen, it
+        // also renders on mobile (block at all widths), full-width in the page
+        // flow.
         //
         // Search is the exception. Its rail holds the facet filters rather than
         // a doc tree, and filters have to stay reachable on narrow viewports, so
@@ -52,11 +53,11 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
             ? styles.searchRail
             : mobileOpen
               ? cx(
-                  'd-block d-xxl-block border-right',
+                  'd-block d-lg-block border-right',
                   styles.sidebarFull,
                   styles.sidebarFullMobileOpen,
                 )
-              : cx('position-sticky d-none border-right d-xxl-block', styles.sidebarFull)),
+              : cx('position-sticky d-none border-right d-lg-block', styles.sidebarFull)),
       )}
     >
       <nav
@@ -66,9 +67,18 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
         aria-labelledby={isSearch ? undefined : 'allproducts-menu'}
         role="navigation"
         aria-label={isSearch ? t('filter_search_results') : 'Documentation navigation'}
+        // The flex column is the doc-tree rail's layout. The search rail sets its
+        // own (`.searchRail > nav`), so the two must not both apply.
+        className={cx(variant === 'full' && !isSearch && styles.sidebarNavColumn)}
       >
         {variant === 'full' && currentProduct && !isSearch && (
-          <div className={cx('px-4 pb-3', mobileOpen ? 'd-block' : 'd-none d-xxl-block')}>
+          <div
+            className={cx(
+              'px-4 pb-3',
+              styles.sidebarHeaderFixed,
+              mobileOpen ? 'd-block' : 'd-none d-lg-block',
+            )}
+          >
             {showCurrentProductLink && (
               <h2 className="mt-3" id="allproducts-menu">
                 <Link
@@ -89,13 +99,13 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
         <div
           className={cx(
             variant === 'overlay'
-              ? 'width-full d-xxl-none'
+              ? 'width-full d-lg-none'
               : // On search this region holds the filters, which manage their own
                 // per-breakpoint visibility and their own scrolling, so it must not be
-                // display:none below xxl, nor the scroll container itself.
+                // display:none below lg, nor the scroll container itself.
                 isSearch
                 ? styles.searchRailContent
-                : cx('border-right overflow-y-auto', mobileOpen ? 'd-block' : 'd-none d-xxl-block'),
+                : cx('border-right overflow-y-auto', mobileOpen ? 'd-block' : 'd-none d-lg-block'),
             // `flex-shrink-0` would stop the search rail's column from shrinking to the
             // viewport, which is what lets the filter card scroll its own list.
             isSearch ? 'bg-primary' : 'bg-primary flex-shrink-0',

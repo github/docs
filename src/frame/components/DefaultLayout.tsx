@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import { SidebarNav } from '@/frame/components/sidebar/SidebarNav'
 import { Header } from '@/frame/components/page-header/Header'
-import { DocsSecondaryBar } from '@/frame/components/page-header/DocsSecondaryBar'
+import { DocsSecondaryBar, OverviewSubBar } from '@/frame/components/page-header/DocsSecondaryBar'
 import {
   SidebarCollapseProvider,
   useSidebarCollapsed,
@@ -19,12 +19,20 @@ import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { useLanguages } from '@/languages/components/LanguagesContext'
 import { ClientSideLanguageRedirect } from './ClientSideLanguageRedirect'
 import { SearchOverlayContextProvider } from '@/search/components/context/SearchOverlayContext'
+import { SelectionProvider } from '@/tools/components/SelectionContext'
+import { ActiveSectionProvider, useMiniTocItems } from '@/frame/components/ui/MiniTocs'
 
 import styles from './DefaultLayout.module.scss'
 
 const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false'))
 
-type Props = { children?: React.ReactNode }
+type Props = {
+  children?: React.ReactNode
+  // Whether this page renders the right-rail "In this article" drawer (article +
+  // automated pages do; REST reference pages do not). Controls whether the
+  // secondary bar's collapsed Overview menu yields to the drawer at xxl.
+  hasDrawer?: boolean
+}
 export const DefaultLayout = (props: Props) => {
   const mainContext = useMainContext()
   const {
@@ -234,10 +242,16 @@ export const DefaultLayout = (props: Props) => {
             </div>
           </div>
         ) : (
-          <>
-            <DocsSecondaryBar />
-            <LayoutBody>{props.children}</LayoutBody>
-          </>
+          // SelectionProvider wraps both the secondary bar and the content so the
+          // bar's collapsed "In this article" menu (OverviewMenu) sees the same
+          // platform/tool selection as the article body and filters its headings
+          // accordingly.
+          <SelectionProvider>
+            <ActiveSectionProvider>
+              <DocsSecondaryBar />
+              <LayoutBody hasDrawer={props.hasDrawer}>{props.children}</LayoutBody>
+            </ActiveSectionProvider>
+          </SelectionProvider>
         )}
       </SidebarCollapseProvider>
     </SearchOverlayContextProvider>
@@ -249,8 +263,11 @@ export const DefaultLayout = (props: Props) => {
 // collapsed; on mobile it shows inline (in the page flow, like desktop) only
 // when the nav is opened from the secondary bar. The content column (flex-1)
 // fills the row when the rail is absent.
-type LayoutBodyProps = { children?: React.ReactNode }
-const LayoutBody = ({ children }: LayoutBodyProps) => {
+type LayoutBodyProps = {
+  children?: React.ReactNode
+  hasDrawer?: boolean
+}
+const LayoutBody = ({ children, hasDrawer }: LayoutBodyProps) => {
   const { collapsed, mobileNavOpen } = useSidebarCollapsed()
   const { currentProduct } = useMainContext()
   // Matches SidebarNav's own gate rather than testing router.route. There are two search
@@ -258,6 +275,10 @@ const LayoutBody = ({ children }: LayoutBodyProps) => {
   // for '/search' misses every versioned search URL, and this check would then disagree
   // with SidebarNav about whether the rail is a facet rail.
   const isSearchResultsPage = currentProduct?.id === 'search'
+  // Mirrors OverviewSubBar's own render gate (it returns null at <= 1 item), so
+  // the sticky-stack classes below describe the bar that actually renders.
+  const miniTocItems = useMiniTocItems()
+  const hasSubBar = miniTocItems.length > 1
   return (
     // `d-lg-flex` only goes side-by-side at 1012px. The search page's facet rail
     // is meant to sit beside the results from brand's `medium` breakpoint, so it
@@ -280,10 +301,27 @@ const LayoutBody = ({ children }: LayoutBodyProps) => {
       <div
         className={cx(
           'flex-column flex-1 min-width-0',
+          // Publish the sticky-stack height to everything in the column (article
+          // table headers read it). Driven by the same values as OverviewSubBar's
+          // visibility modifier just below, so the offset and the bar agree.
+          styles.stickyStack,
+          hasSubBar && styles.stickyStackWithSubBar,
+          hasSubBar &&
+            hasDrawer &&
+            (collapsed ? styles.stickyStackYieldsWhenCollapsed : styles.stickyStackYieldsAtXxl),
           mobileNavOpen && styles.contentHiddenForNav,
         )}
       >
         <main id="main-content" className={styles.mainContent}>
+          {/* Inside <main>, not before it: as a preceding sibling the "Skip to
+              main content" link jumped the reader straight past the page's only
+              in-article navigation. Still within the content column, so on
+              desktop it starts at the doc-tree drawer's right edge and runs to
+              the screen edge, sharing that band with the drawer rather than
+              cutting across above it. (.mainContent uses `overflow-x: clip`,
+              which creates no scroll container, so sticky still resolves against
+              the viewport.) */}
+          <OverviewSubBar hasDrawer={hasDrawer} />
           <DeprecationBanner />
           <RestBanner />
 

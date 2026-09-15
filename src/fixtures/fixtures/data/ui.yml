@@ -118,7 +118,7 @@ pages:
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
   permissions_callout_title: Who can use this feature?
-  copy_as_markdown: Copy as Markdown
+  copy_as_markdown: Copy markdown
   copy_as_markdown_desc: Use with any LLM
   view_as_markdown: View as Markdown
   view_as_markdown_desc: Open page in another tab
@@ -373,9 +373,6 @@ product_landing:
   all_content: 'View all {{ title }} content'
 
 journey_track_nav:
-  next_article: Next
-  more_articles: More articles →
-  current_progress: 'Article {i} of {n}'
   up_next: Up next
   up_next_progress: 'Step {i} of {n} in {track}'
 

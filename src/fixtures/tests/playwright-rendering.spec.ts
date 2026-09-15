@@ -41,6 +41,15 @@ test('view the for-playwright article', async ({ page }) => {
   await expect(page).toHaveURL(/for-playwright#second-heading/)
 })
 
+test('article heading levels share the same top padding', async ({ page }) => {
+  await page.goto('/get-started/foo/for-playwright')
+
+  const article = page.locator('#article-contents')
+  for (const level of [2, 3, 4, 5, 6]) {
+    await expect(article.getByRole('heading', { level }).first()).toHaveCSS('padding-top', '16px')
+  }
+})
+
 test('use sidebar to go to Hello World page', async ({ page }) => {
   await page.goto('/get-started')
 
@@ -299,6 +308,8 @@ test.describe('platform picker', () => {
   })
 
   test('minitoc matches picker', async ({ page }) => {
+    // Stay inside the drawer's 1400px reveal breakpoint.
+    await page.setViewportSize({ width: 1440, height: 900 })
     // The fixture frontmatter defaults the platform to Windows.
     await page.goto('/get-started/liquid/platform-specific')
     await turnOffExperimentsInPage(page)
@@ -368,6 +379,9 @@ test.describe('tool picker', () => {
   })
 
   test('minitoc matches picker', async ({ page }) => {
+    // See the note on the platform-specific version of this test: don't sit on
+    // the drawer's exact reveal breakpoint.
+    await page.setViewportSize({ width: 1440, height: 900 })
     // default tool set to webui in fixture frontmatter
     await page.goto('/get-started/liquid/tool-specific')
     await turnOffExperimentsInPage(page)
@@ -579,8 +593,12 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
 
     // The Docs 2026 secondary bar leads with a Home crumb, then the full trail
-    // 'Get started / Foo / Bar' (no hidden last crumb).
-    expect(await page.getByTestId('breadcrumbs-bar').getByRole('link').all()).toHaveLength(4)
+    // 'Get started / Foo / Bar' (no hidden last crumb). The current page is
+    // static text rather than a link, so only the three ancestors are links.
+    expect(await page.getByTestId('breadcrumbs-bar').getByRole('link').all()).toHaveLength(3)
+    await expect(page.getByTestId('breadcrumbs-bar').locator('[aria-current="page"]')).toHaveText(
+      'Bar',
+    )
     await expect(page.getByTestId('breadcrumbs-bar').getByText('Foo')).toBeVisible()
     await expect(page.getByTestId('breadcrumbs-bar').getByText('Bar')).toBeVisible()
 
@@ -596,8 +614,8 @@ test.describe('test nav at different viewports', () => {
   })
 
   test('mobile nav opens even when the desktop rail was collapsed', async ({ page }) => {
-    // Collapse the desktop rail at the xxl breakpoint so the persisted
-    // `collapsed` state is set (the collapse toggle only exists at 1400px+).
+    // Collapse the desktop rail with both drawers out (xxl) so the persisted
+    // `collapsed` state is set via the secondary-bar collapse toggle.
     page.setViewportSize({
       width: 1400,
       height: 700,
@@ -607,9 +625,11 @@ test.describe('test nav at different viewports', () => {
     // With the rail collapsed the sidebar is not rendered on desktop.
     await expect(page.getByTestId('sidebar')).toHaveCount(0)
 
-    // Drop below xxl where the inline mobile nav lives. `collapsed` persists.
+    // Drop below lg (1012) where the inline mobile nav toggle lives (Docs 2026:
+    // the lg–xxl range keeps the desktop collapse toggle instead). `collapsed`
+    // persists across the resize.
     page.setViewportSize({
-      width: 1013,
+      width: 1000,
       height: 700,
     })
 
@@ -625,9 +645,9 @@ test.describe('test nav at different viewports', () => {
   })
 
   test('resizing from mobile to desktop closes the inline nav', async ({ page }) => {
-    // Start below the xxl (1400px) breakpoint where the inline mobile nav lives.
-    page.setViewportSize({
-      width: 1013,
+    // Start below the lg (1012px) breakpoint where the inline mobile nav lives.
+    await page.setViewportSize({
+      width: 1000,
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
@@ -673,14 +693,19 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
 
     // breadcrumbs show up in the secondary bar; for this page we should have
-    // a Home crumb plus 'Get started / Foo / Bar'
+    // a Home crumb plus 'Get started / Foo / Bar' — the last of which is the
+    // current page, rendered as static text rather than a link.
     await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
-    expect(await page.getByTestId('breadcrumbs-bar').getByRole('link').all()).toHaveLength(4)
+    expect(await page.getByTestId('breadcrumbs-bar').getByRole('link').all()).toHaveLength(3)
 
-    // the mobile nav toggle is visible and expands the doc-tree nav inline
-    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
-    await page.getByTestId('sidebar-mobile-toggle').click()
+    // At lg+ (Docs 2026) the doc-tree rail is shown by default with the desktop
+    // collapse toggle; the mobile inline-nav toggle is hidden. Clicking the
+    // collapse toggle hides the rail.
     await expect(page.getByTestId('sidebar')).toBeVisible()
+    await expect(page.getByTestId('sidebar-collapse-toggle')).toBeVisible()
+    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeHidden()
+    await page.getByTestId('sidebar-collapse-toggle').click()
+    await expect(page.getByTestId('sidebar')).toBeHidden()
   })
 
   test('medium viewports - 768-1011', async ({ page }) => {
@@ -1495,13 +1520,59 @@ test.describe('Journey Tracks', () => {
     // go to an article that's part of a journey track
     await page.goto('/get-started/start-your-journey/hello-world')
 
-    // journey card should be visible in sidebar
-    const journeyCard = page.locator('[data-testid="journey-track-card"]')
-    await expect(journeyCard).toBeVisible()
-
-    // journey footer nav should be visible
+    // The journey footer "Up next" nav should be visible. (The Docs 2026 redesign
+    // removed the sidebar journey card; next-step info now lives in the bottom
+    // pager + the in-panel "Up next" section.)
     const journeyNav = page.locator('[data-testid="journey-track-nav"]')
     await expect(journeyNav).toBeVisible()
+  })
+
+  // Restores the coverage the Docs 2026 migration dropped along with the sidebar
+  // journey card: `alternativeNextStep` and its AUTOTITLE resolution now render
+  // in the right-rail "Up next" section instead. That section rides the drawer's
+  // reveal breakpoint, so it needs a viewport inside the drawer range and a
+  // fixture long enough to keep the bottom pager outside the viewport.
+  test('up next displays branching text when present', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 })
+    await page.goto('/get-started/foo/journey-test-article')
+    await turnOffExperimentsInPage(page)
+    await expect(page.getByTestId('journey-track-nav')).not.toBeInViewport()
+
+    const upNext = page.getByTestId('up-next')
+    await expect(upNext).toBeVisible()
+
+    // Branching text should be rendered with its markdown link resolved
+    await expect(upNext).toContainText('Want to skip ahead?')
+    await expect(upNext).not.toContainText('AUTOTITLE')
+
+    const branchingLink = upNext.locator('a').filter({ hasText: 'Hello World' })
+    await expect(branchingLink).toBeVisible()
+
+    const href = await branchingLink.getAttribute('href')
+    expect(href).toContain('/get-started/start-your-journey/hello-world')
+  })
+
+  test('up next yields to the bottom pager and reappears when scrolling back up', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 })
+    await page.goto('/get-started/foo/journey-test-article')
+    await turnOffExperimentsInPage(page)
+
+    const upNext = page.getByTestId('up-next')
+    const journeyNav = page.getByTestId('journey-track-nav')
+    await expect(journeyNav).not.toBeInViewport()
+    await expect(upNext).toBeVisible()
+
+    await journeyNav.evaluate((pager) =>
+      pager.scrollIntoView({ block: 'center', behavior: 'instant' }),
+    )
+    await expect(journeyNav).toBeInViewport()
+    await expect(upNext).toBeHidden()
+
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
+    await expect(journeyNav).not.toBeInViewport()
+    await expect(upNext).toBeVisible()
   })
 
   test('journey footer nav component links to first article in next track from last article in previous track', async ({
@@ -1519,23 +1590,52 @@ test.describe('Journey Tracks', () => {
     const href = await nextTrackLink.getAttribute('href')
     expect(href).toContain('/get-started/foo/autotitling')
   })
+})
 
-  test('journey card displays branching text when present', async ({ page }) => {
-    await page.goto('/get-started/foo/journey-test-article')
+test.describe('Docs 2026 in-article navigation', () => {
+  // Below the drawer's reveal breakpoint the right-rail "In this article" panel
+  // is hidden and the collapsed control in the secondary bar is the ONLY
+  // mini-TOC — the common case for most readers — so it needs its own coverage.
+  test('the collapsed "In this article" menu navigates below the drawer breakpoint', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1100, height: 900 })
+    await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
 
-    const journeyCard = page.locator('[data-testid="journey-track-card"]')
-    await expect(journeyCard).toBeVisible()
+    const subBar = page.getByTestId('overview-subbar')
+    await expect(subBar).toBeVisible()
+    // The full drawer must not also be showing at this width.
+    await expect(page.getByTestId('minitoc')).toBeHidden()
 
-    // Branching text should be rendered with markdown links
-    await expect(journeyCard).toContainText('Want to skip ahead?')
+    await subBar.getByRole('button').click()
+    const menu = page.getByTestId('overview-menu')
+    await expect(menu).toBeVisible()
 
-    // AUTOTITLE should be resolved to actual article title
-    const branchingLink = journeyCard.locator('a').filter({ hasText: 'Hello World' })
-    await expect(branchingLink).toBeVisible()
-    await expect(journeyCard).not.toContainText('AUTOTITLE')
+    const firstLink = menu.getByRole('link').first()
+    const href = await firstLink.getAttribute('href')
+    expect(href).toBeTruthy()
+    await firstLink.click()
+    expect(page.url()).toContain(href)
+  })
 
-    const href = await branchingLink.getAttribute('href')
-    expect(href).toContain('/get-started/start-your-journey/hello-world')
+  // Regression guard. Platform/tool-gated headings stay in the DOM with the
+  // `hidden` attribute, so they measure as an all-zero rect. Before
+  // useActiveSection filtered by the selection, such a heading always satisfied
+  // the "scrolled past" threshold, so the collapsed control could end up
+  // labelled with a section belonging to a platform the reader had not chosen.
+  test('the collapsed menu is never labelled with a hidden platform section', async ({ page }) => {
+    await page.setViewportSize({ width: 1100, height: 900 })
+    await page.goto('/get-started/liquid/platform-specific?platform=windows')
+    await turnOffExperimentsInPage(page)
+
+    const trigger = page.getByTestId('overview-subbar').getByRole('button')
+    await expect(trigger).toBeVisible()
+    await expect(trigger).not.toContainText('Macintosh')
+
+    // Scroll past the first heading so an active section is actually resolved.
+    await page.mouse.wheel(0, 2000)
+    await expect(trigger).not.toContainText('Macintosh')
   })
 })
 
@@ -1832,32 +1932,34 @@ test.describe('copy as markdown button', () => {
   // (see src/fixtures/tests/api-article-body.ts), so the copy path succeeds.
   const articlePath = '/en/get-started/start-your-journey/api-article-body-test-page'
 
-  test('swaps the copy icon for a checkmark after a successful copy', async ({ page, context }) => {
+  test('shows a checkmark after a successful copy', async ({ page, context }) => {
     // The click handler writes the article markdown to the clipboard.
     await context.grantPermissions(['clipboard-read', 'clipboard-write'])
 
     await page.goto(articlePath)
     await turnOffExperimentsInPage(page)
 
-    const copyButton = page.getByRole('button', { name: 'Copy as Markdown' })
+    // `exact` matters: accessible-name matching is substring-based, so a bare
+    // 'Copy markdown' also matches the code-block copy buttons that articles
+    // with a ```markdown fence render ('Copy Markdown code to clipboard').
+    const copyButton = page.getByRole('button', { name: 'Copy markdown', exact: true })
+    await expect(copyButton).toHaveCount(1)
     await expect(copyButton).toBeVisible()
 
-    // Before clicking, the leading icon is the copy icon, not the checkmark.
-    await expect(copyButton.locator('.octicon-copy')).toBeVisible()
-    await expect(copyButton.locator('.octicon-check')).toHaveCount(0)
+    // At rest the button is text-only — no icon at all. The checkmark below is
+    // purely the success state.
+    await expect(copyButton.locator('svg')).toHaveCount(0)
 
     await copyButton.click()
 
-    // After a successful copy, the icon swaps to a checkmark...
+    // After a successful copy, a checkmark appears...
     await expect(copyButton.locator('.octicon-check')).toBeVisible()
-    await expect(copyButton.locator('.octicon-copy')).toHaveCount(0)
 
     // ...and the article markdown lands on the clipboard.
     const clipboardText = await page.evaluate(() => navigator.clipboard.readText())
     expect(clipboardText).toContain('About GitHub')
 
-    // The checkmark is temporary and reverts to the copy icon (2s timeout).
-    await expect(copyButton.locator('.octicon-copy')).toBeVisible({ timeout: 5000 })
-    await expect(copyButton.locator('.octicon-check')).toHaveCount(0)
+    // The checkmark is temporary and clears again (2s timeout).
+    await expect(copyButton.locator('.octicon-check')).toHaveCount(0, { timeout: 5000 })
   })
 })
