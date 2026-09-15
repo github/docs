@@ -48,13 +48,7 @@ export async function updateRestFiles() {
   })
 }
 
-// Reads data files from the directory provided and returns a
-// JSON object that lists the versions for each category/subcategory
-/**
- * Extract GHES version from a file path if it's a GHES directory
- * @param {string} filePath - File path to parse
- * @returns {string|null} - GHES version or null if not a GHES file
- */
+// The GHES version in a file path, or null if the path isn't a GHES one.
 export function getGHESVersionFromFilepath(filePath: string): string | null {
   // Normalize path separators to handle both Unix and Windows paths
   const normalizedPath = filePath.replace(/\\/g, '/')
@@ -65,7 +59,6 @@ export function getGHESVersionFromFilepath(filePath: string): string | null {
     return null
   }
 
-  // Extract version from ghes-X.Y or ghes-X.Y-YYYY-MM-DD format
   const versionMatch = ghesDir.match(/^ghes-(\d+\.\d+)/)
   return versionMatch ? versionMatch[1] : null
 }
@@ -78,10 +71,9 @@ async function getDataFrontmatter(dataDirectory: string): Promise<RestVersions> 
     // Exclude non-category JSON files that live alongside per-category data.
     // If new non-category files are added to version directories, update this filter.
     .filter((file) => !file.endsWith('client-side-rest-api-redirects.json'))
-    // Exclude the legacy monolithic schema files. These are retained on disk as a
-    // safety net until the cleanup PR removes them, but they must not be read here —
-    // their top-level keys are category names, not subcategories, so they would be
-    // misread as a bogus "schema" category.
+    // Exclude any legacy monolithic schema files. Their top-level keys are
+    // category names, not subcategories, so they would be misread here as a
+    // bogus "schema" category.
     .filter((file) => !file.endsWith('schema.json'))
     // Ignore any deprecated versions. This allows us to stop supporting
     // the most recent deprecated version but still allow data to exist.
@@ -117,26 +109,16 @@ async function getDataFrontmatter(dataDirectory: string): Promise<RestVersions> 
   return restVersions
 }
 
-/*
-  Take an object that includes the version frontmatter
-  that should be applied to the Markdown page that corresponds
-  to the category and subcategory. The format looks like this:
-  {
-    "actions": {
-      "artifacts": {
-        "versions": {
-          "free-pro-team@latest",
-          "enterprise-cloud@latest",
-          "enterprise-server@3.4",
-          "enterprise-server@3.5",
-          "enterprise-server@3.6",
-          "enterprise-server@3.7",
-          "enterprise-server@3.8"
-        }
-      }
-    }
-  }
-*/
+// Takes the version frontmatter to apply to the Markdown page for each category
+// and subcategory, in the shape:
+//
+//   {
+//     "actions": {
+//       "artifacts": {
+//         "versions": ["free-pro-team@latest", "enterprise-server@3.8", ...]
+//       }
+//     }
+//   }
 async function getMarkdownContent(versions: RestVersions): Promise<MarkdownUpdates> {
   const markdownUpdates: MarkdownUpdates = {}
 
