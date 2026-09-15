@@ -51,7 +51,7 @@ In this quickstart, you will:
 
 To work on code, you need at least one project connected to the app. A project can be a folder already on your machine, including a repository you've already cloned locally, or a repository you clone from {% data variables.product.github %} or another remote Git host such as Azure DevOps. Connecting a project unlocks the core app workflow: reading code, making edits, and opening pull requests from agent sessions. If you skipped project setup during onboarding, or want to add more projects later:
 
-1. Click the **+** button in the sidebar next to "Sessions".
+1. In the sidebar, next to **Projects**, click {% octicon "plus" aria-label="Add project" %}.
 1. Under **Add project from**, choose one of the following:
   * **Local folder or repository** — Select a folder already on your machine, including one that contains a repository you've already cloned locally.
   * **{% data variables.product.github %} repository** — Browse and clone a repository from {% data variables.product.github %}.
@@ -59,7 +59,7 @@ To work on code, you need at least one project connected to the app. A project c
 
 ## Making your first code changes
 
-1. Click **+** next to **Sessions**, then choose a connected folder or repository under **Start session in**.
+1. Under **Projects** in the sidebar, find the connected folder or repository you want to use, then click {% octicon "plus" aria-label="Start a new session" %} next to it.
 1. Select a session mode from the dropdown below the prompt field—for example, **Interactive** to work collaboratively with the agent.
 1. In the prompt box, paste this prompt:
 
@@ -79,11 +79,12 @@ To work on code, you need at least one project connected to the app. A project c
 
 The sidebar gives you access to the main areas of the app:
 
+* **New** — Start a new agent session.
 * **[My work](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fmywork)** — Browse and filter issues and pull requests from your repositories, check CI status, and leave reviews.
 * **[Automations](https://github.com/copilot/app/launch?open=ghapp%3A%2F%2Fautomations)** — Saved agent tasks that run on a schedule or on demand.
 * **Customize** — Discover and manage plugins, skills, MCP servers, and canvases.
 * **Search** — Search across your repositories directly from the app.
-* **Sessions** — Active agent sessions, grouped by project.
+* **Projects** — View connected projects and their active agent sessions, or start a new session for a project.
 * **Chats** — General conversations that do not require a dedicated branch or workspace.
 
 ## Next steps
