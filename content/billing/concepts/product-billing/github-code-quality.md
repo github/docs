@@ -42,7 +42,7 @@ For more information about how {% data variables.product.prodname_ai_credits_sho
 
 To understand your license usage, and which licenses you can free up, it helps to distinguish between active and unique committers. You can see the number of licenses you're using on the **Licensing** page for your organization or enterprise, shown as **"Consumed licenses"**:
 * **Active committers** are committers who contributed to at least one repository and have a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} license with your organization or enterprise. This includes members, enterprise-managed users, external collaborators, and people with a pending invitation to join your organization or enterprise.
-* **Unique committers** is the number of active committers who contributed only to one repository, or only to repositories in one organization. You can free up this number of licenses by disabling {% data variables.product.prodname_code_quality_short %} for that repository or organization.
+* **Unique committers** is the number of active committers who contributed only to one repository, or only to repositories in one organization. You can free these licenses for the next billing period by disabling {% data variables.product.prodname_code_quality_short %} for that repository or organization. This doesn't reduce your license charge for the current period.
 
 Users can contribute to multiple repositories or organizations. Usage is measured across the whole organization or enterprise to ensure that each member uses one license regardless of how many repositories or organizations the user contributes to.
 
