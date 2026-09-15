@@ -31,6 +31,16 @@ export function correctTranslatedContentStrings(
   // patterns, so this is safe globally.
   content = content.replace(/\{\s*%(-?)(\s*\S[^%]*?\s*)(-?)%\s*\}/g, '{%$1$2$3%}')
 
+  // Translators sometimes left a stray `%` right before the closing `}}`
+  // of a Liquid output tag (e.g. `{{ allVersions[currentVersion].currentRelease %}}`
+  // instead of `{{ allVersions[currentVersion].currentRelease }}`), likely from
+  // copy-pasting a neighboring `{% ... %}` tag's closer. Liquid then tries to
+  // parse `%` as a filter pipe and fails with `expected "|" before filter`.
+  // Strip the stray `%` — the English source never has one before `}}`.
+  // Excludes `{{%` openers (a different corruption handled elsewhere, where
+  // the whole tag is double-braced).
+  content = content.replace(/\{\{(?!%)([^{}]*[^{}%])%(\}\})/g, '{{$1$2')
+
   // Translators sometimes dropped the `data` keyword in front of a
   // `variables.X.Y` / `reusables.X.Y` / `product.X` path. The English
   // source never starts a Liquid tag with these prefixes; they always
@@ -657,6 +667,22 @@ export function correctTranslatedContentStrings(
     // `roleColumns` interpreted as an unknown tag name (`tag "roleColumns"
     // not found`).
     content = content.replace(/\{%(-?)\s*roleColumns\s*=\s*/g, '{%$1 assign roleColumns = ')
+
+    // [SCRAPE] data/reusables/actions/github-token-scope-descriptions.md
+    // (also included by data/reusables/actions/jobs/section-assigning-permissions-to-jobs.md):
+    // the `{% ifversion vulnerability-alerts-permission %}...{% else %}...{% endif %}`
+    // block describing the `security-events` row's Dependabot/secret-scanning
+    // caveat is missing its closing `{% endif %}`, leaving the tag never
+    // closed (`tag {% ifversion vulnerability-alerts-permission %} not closed`).
+    if (
+      context.dottedPath === 'reusables.actions.github-token-scope-descriptions' ||
+      context.relativePath?.endsWith('data/reusables/actions/github-token-scope-descriptions.md')
+    ) {
+      content = content.replace(
+        '「シークレット スキャン アラート」のリポジトリのアクセス許可を参照してください。 |',
+        '「シークレット スキャン アラート」のリポジトリのアクセス許可を参照してください。{% endif %} |',
+      )
+    }
   }
 
   if (context.code === 'pt') {
