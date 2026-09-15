@@ -1,15 +1,8 @@
-/**
- * To be able to run these tests you need to index the fixtures!
- * And you need to have an Elasticsearch URL to connect to for the server.
- *
- * To index the fixtures, run:
- *
- *   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
- *
- * This will replace any "real" Elasticsearch indexes you might have so
- * once you're done working on vitest tests you need to index real
- * content again.
- */
+// These tests need indexed fixtures and an Elasticsearch URL for the server:
+//
+//   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
+//
+// That writes `tests_`-prefixed indexes and leaves your regular ones alone.
 
 import { expect, test, vi } from 'vitest'
 import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs'
@@ -23,15 +16,13 @@ if (!process.env.ELASTICSEARCH_URL) {
   )
 }
 
-// This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search v1 middleware', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('basic search', async () => {
     const sp = new URLSearchParams()
-    // To see why this will work,
-    // see src/search/tests/fixtures/search-indexes/github-docs-dotcom-en-records.json
-    // which clearly has a record with the title "Foo"
+    // src/search/tests/fixtures/search-indexes/tests_github-docs_general-search_fpt_en-records.json
+    // has a record with the title "Foo".
     sp.set('query', 'foo')
     const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
@@ -74,7 +65,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
   test('debug search', async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
-    sp.set('debug', '1') // Note!
+    sp.set('debug', '1')
     const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)

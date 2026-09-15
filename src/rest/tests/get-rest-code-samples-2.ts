@@ -4,7 +4,6 @@ import { getShellExample, getGHExample, getJSExample } from '../components/get-r
 import type { CodeSample, Operation } from '../components/types'
 import type { VersionItem } from '@/frame/components/context/MainContext'
 
-// Mock version data similar to what's used in the actual app
 const mockVersions: Record<string, VersionItem> = {
   'free-pro-team@latest': {
     version: 'free-pro-team@latest',
@@ -38,7 +37,6 @@ const mockVersions: Record<string, VersionItem> = {
   },
 }
 
-// Mock operation with standard authentication requirements
 const standardOperation: Operation = {
   verb: 'post',
   title: 'Create an issue',
@@ -61,7 +59,7 @@ const standardOperation: Operation = {
   },
 }
 
-// Mock operation with allowPermissionlessAccess (like revoke credentials)
+// Sets allowPermissionlessAccess, like the revoke-credentials endpoint.
 const unauthenticatedOperation: Operation = {
   verb: 'post',
   title: 'Revoke a list of credentials',
@@ -84,7 +82,6 @@ const unauthenticatedOperation: Operation = {
   },
 }
 
-// Mock operation with basic auth (like OAuth apps)
 const basicAuthOperation: Operation = {
   verb: 'post',
   title: 'Create an OAuth app',
@@ -107,7 +104,6 @@ const basicAuthOperation: Operation = {
   },
 }
 
-// Mock operation for GHES manage API
 const ghesManageOperation: Operation = {
   verb: 'post',
   title: 'Set maintenance mode',
@@ -129,7 +125,6 @@ const ghesManageOperation: Operation = {
   },
 }
 
-// Mock code sample
 const mockCodeSample = {
   key: 'default',
   request: {
@@ -494,7 +489,6 @@ describe('REST code samples authentication header handling', () => {
         mockVersions,
       )
 
-      // Should default to including authentication when progAccess is undefined
       expect(shellResult).toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
     })
 
@@ -518,7 +512,6 @@ describe('REST code samples authentication header handling', () => {
         mockVersions,
       )
 
-      // Should default to including authentication when property is missing
       expect(shellResult).toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
     })
 
@@ -555,13 +548,13 @@ describe('REST code samples authentication header handling', () => {
         mockVersions,
       )
 
-      // Should still use management console auth even for allowPermissionlessAccess operations
+      // Management console auth wins even for allowPermissionlessAccess.
       expect(result).toContain('-u "api_key:your-password"')
       expect(result).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
     })
 
     test('respects authentication precedence order: enterprise > basic auth > unauthenticated > standard', () => {
-      // Test enterprise management auth takes precedence over unauthenticated
+      // Enterprise management auth beats unauthenticated.
       const enterpriseUnauthOp = {
         ...unauthenticatedOperation,
         subcategory: 'manage-ghes',
@@ -577,7 +570,7 @@ describe('REST code samples authentication header handling', () => {
       expect(enterpriseResult).toContain('-u "api_key:your-password"')
       expect(enterpriseResult).not.toContain('-H "Authorization: Bearer <YOUR-TOKEN>"')
 
-      // Test basic auth takes precedence over unauthenticated
+      // Basic auth beats unauthenticated.
       const basicAuthUnauthOp = {
         ...unauthenticatedOperation,
         progAccess: {

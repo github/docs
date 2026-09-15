@@ -55,7 +55,6 @@ describe('rest example requests and responses', () => {
 
   test('check example number and status code appear', async () => {
     const mergedExamples = await getCodeSamples(operation)
-    // example has specific structure from getCodeSamples
     for (let index = 0; index < mergedExamples.length; index++) {
       const example = mergedExamples[index] as {
         request: { description: string }

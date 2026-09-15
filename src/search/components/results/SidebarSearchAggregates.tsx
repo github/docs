@@ -13,7 +13,7 @@ import styles from './SidebarSearchAggregates.module.scss'
 // "Show filters" disclosure, because the filters are otherwise unreachable on a
 // narrow viewport.
 //
-// The facet markup is rendered exactly once and restyled per breakpoint — never
+// The facet markup is rendered exactly once and restyled per breakpoint, never
 // a rail copy plus a drawer copy. Two copies would duplicate every checkbox id
 // and make the strict-mode `getByText('Fooing (1)')` click in
 // src/fixtures/tests/playwright-rendering.spec.ts ambiguous.
@@ -48,7 +48,7 @@ export function SidebarSearchAggregates() {
 
   const { results } = search
   // `aggregations` is truthy but empty (`{ toplevel: [] }`) for a zero-hit search, and
-  // SearchResultsAggregations renders nothing in that case — so checking only for the
+  // SearchResultsAggregations renders nothing in that case, so checking only for the
   // object left an empty bordered rail on desktop and a disclosure that opened onto an
   // empty box on mobile. Check for facets to actually show.
   if (!results?.aggregations?.toplevel?.length) {

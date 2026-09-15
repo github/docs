@@ -66,12 +66,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // content/rest/*
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
-  // When operations exist, update the miniTocItems in the article context
-  // with the list of operations in the OpenAPI.
-
-  // The context passed will have the Markdown content for the language
-  // of the page being requested and the Markdown will be rendered
-  // using the `currentVersion`
+  // Build mini-TOC items from the operation titles, using the request context
+  // for the language and version, and append them to the article's mini-TOC.
   if (restOperations) {
     const { restOperationsMiniTocItems } = (await getRestMiniTocItems(
       category,

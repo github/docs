@@ -6,7 +6,6 @@ import matter from '@gr2m/gray-matter'
 
 const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
 
-// GitHub Apps data types
 interface GitHubAppsOperation {
   slug: string
   subcategory?: string
@@ -105,17 +104,14 @@ export class GithubAppsTransformer implements PageTransformer {
     // Import getAppsData dynamically to avoid circular dependencies
     const { getAppsData } = await import('@/github-apps/lib/index')
 
-    // Extract version from context
     const currentVersion = context.currentVersion!
 
-    // Use the provided apiVersion, or fall back to the latest from context
     const effectiveApiVersion =
       apiVersion ||
       (context.currentVersionObj?.apiVersions?.length
         ? context.currentVersionObj.latestApiVersion
         : undefined)
 
-    // Determine page type from the page's relative path
     const filename = page.relativePath.split('/').pop()
     const pageType = filename ? PAGE_TYPE_MAP[filename] : undefined
 
@@ -123,12 +119,10 @@ export class GithubAppsTransformer implements PageTransformer {
       throw new Error(`Unknown GitHub Apps page type for path: ${page.relativePath}`)
     }
 
-    // Get the GitHub Apps data
     const appsData = (await getAppsData(pageType, currentVersion, effectiveApiVersion)) as
       | GitHubAppsListData
       | GitHubAppsPermissionsData
 
-    // Prepare manual content
     let manualContent = ''
     if (page.markdown) {
       const { content } = matter(page.markdown)
@@ -139,7 +133,6 @@ export class GithubAppsTransformer implements PageTransformer {
           markdownRequested: true,
         })
 
-        // Strip HTML comments and normalize whitespace
         manualContent = manualContent
           .replace(/<!--.*?-->/gs, '')
           .replace(/\n{3,}/g, '\n\n')
@@ -147,7 +140,6 @@ export class GithubAppsTransformer implements PageTransformer {
       }
     }
 
-    // Prepare data for template based on page type
     const isListPage = LIST_PAGE_TYPES.has(pageType)
     const isPermissionsPage = PERMISSIONS_PAGE_TYPES.has(pageType)
 
@@ -160,13 +152,11 @@ export class GithubAppsTransformer implements PageTransformer {
       isPermissionsPage,
     )
 
-    // Load template
     const templateContent = loadTemplate(this.templateName)
 
     // For permissions pages, we need to construct the tables manually to avoid Liquid escaping
     let finalContent: string
     if (isPermissionsPage) {
-      // Build the intro manually
       let introMarkdown = `# ${templateData.page.title}\n\n`
       if (templateData.page.intro) {
         introMarkdown += `${templateData.page.intro}\n\n`
@@ -180,7 +170,6 @@ export class GithubAppsTransformer implements PageTransformer {
         introMarkdown += `**Token types:** UAT = user access token, IAT = installation access token\n\n`
       }
 
-      // Build the tables manually
       let tablesMarkdown = ''
       for (const item of templateData.items as PreparedPermissionItem[]) {
         tablesMarkdown += `## ${item.displayTitle}\n\n`
@@ -229,9 +218,6 @@ export class GithubAppsTransformer implements PageTransformer {
     return finalContent
   }
 
-  /**
-   * Prepare data for the Liquid template
-   */
   private async prepareTemplateData(
     page: Page,
     appsData: GitHubAppsListData | GitHubAppsPermissionsData,
@@ -246,13 +232,10 @@ export class GithubAppsTransformer implements PageTransformer {
     isPermissionsPage: boolean
     items: PreparedListItem[] | PreparedPermissionItem[]
   }> {
-    // Prepare page intro
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
 
-    // Get categories without subcategories from rest lib
     const { categoriesWithoutSubcategories } = await import('@/rest/lib/index')
 
-    // Prepare items based on page type
     let preparedItems: PreparedListItem[] | PreparedPermissionItem[] = []
 
     if (isListPage) {
@@ -270,7 +253,6 @@ export class GithubAppsTransformer implements PageTransformer {
       preparedItems = Object.entries(appsData as GitHubAppsPermissionsData).map(
         ([permissionName, permissionObject]) => {
           const { displayTitle, permissions } = permissionObject
-          // Sort by access level (admin, write, read)
           const adminPermissions = permissions.filter((p) => p.access === 'admin')
           const writePermissions = permissions.filter((p) => p.access === 'write')
           const readPermissions = permissions.filter((p) => p.access === 'read')
@@ -299,9 +281,6 @@ export class GithubAppsTransformer implements PageTransformer {
     }
   }
 
-  /**
-   * Prepare a single operation for list-based rendering (endpoints)
-   */
   private prepareOperation(
     operation: GitHubAppsOperation,
     category: string,
@@ -321,9 +300,6 @@ export class GithubAppsTransformer implements PageTransformer {
     }
   }
 
-  /**
-   * Prepare a single operation for permissions-based rendering (tables)
-   */
   private preparePermissionOperation(
     operation: GitHubAppsPermissionOperation,
     categoriesWithoutSubcategories: string[],

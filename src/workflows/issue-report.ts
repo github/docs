@@ -18,7 +18,6 @@ export async function createReportIssue({
   reportLabel,
 }: CRIArgs) {
   const [owner, repo] = reportRepository.split('/')
-  // Create issue
   let newReport
   try {
     const { data } = await octokit.request('POST /repos/{owner}/{repo}/issues', {
@@ -60,7 +59,6 @@ export async function linkReports({
   const [owner, repo] = reportRepository.split('/')
 
   core.info('Attempting to link reports...')
-  // Find previous report issue
   let previousReports
   try {
     previousReports = await octokit.rest.issues.listForRepo({
@@ -88,7 +86,6 @@ export async function linkReports({
   // 2nd report should be most recent previous report
   const previousReport = previousReports[1]
 
-  // Comment the old report link on the new report
   try {
     await octokit.rest.issues.createComment({
       owner,
@@ -102,7 +99,6 @@ export async function linkReports({
     throw error
   }
 
-  // Comment on all previous reports that are still open
   for (const oldReport of previousReports) {
     if (oldReport.state === 'closed' || oldReport.html_url === newReport.html_url) {
       continue

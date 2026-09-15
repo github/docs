@@ -70,7 +70,7 @@ When creating a security configuration, keep in mind that:
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
    * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
-   * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
+   * **Enforce configuration**. {% ifversion security-configuration-enterprise-organization-enforcement %}{% data reusables.permissions.security-configuration-enterprise-enable %} can block repository owners only, or both repository and organization owners, from changing features that are enabled or disabled by the configuration. Features that are not set aren't enforced. Select **Don't enforce**, **Enforce for repository owners**, or **Enforce for repository and organization owners** from the dropdown menu.{% else %}Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.{% endif %}
 
     {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
@@ -111,8 +111,7 @@ When creating a security configuration, keep in mind that:
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
    * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
-   * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
-
+   * **Enforce configuration**. {% ifversion security-configuration-enterprise-organization-enforcement %}{% data reusables.permissions.security-configuration-enterprise-enable %} can block repository owners only, or both repository and organization owners, from changing features that are enabled or disabled by the configuration. Features that are not set aren't enforced. Select **Don't enforce**, **Enforce for repository owners**, or **Enforce for repository and organization owners** from the dropdown menu.{% else %}Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.{% endif %}
     {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
 {% data reusables.code-scanning.save-custom-configuration %}

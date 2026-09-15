@@ -132,9 +132,7 @@ export async function getGeneralSearchResults(
                 {
                   field_value_factor: {
                     field: 'popularity',
-                    // modifier: 'log1p',
                     factor: 1.0,
-                    // missing: 0.0001,
                     missing: 1.0,
                   },
                 },
