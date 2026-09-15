@@ -26,7 +26,7 @@ describe('REST references docs', () => {
     }
   })
 
-  // These tests exists because of issue #1960
+  // These tests exist because of issue #1960.
   test('rest subcategory with fpt in URL', async () => {
     const categories = [
       'migrations',
@@ -122,40 +122,34 @@ describe('REST references docs', () => {
   })
 
   test('markdown/raw endpoint shows request content types in example selector', async () => {
-    // Test the specific endpoint that has multiple examples with different request content types
+    // This endpoint has several examples with differing request content types.
     const $ = await getDOM('/en/rest/markdown/markdown?apiVersion=2022-11-28')
 
-    // Find the render raw mode operation section by its specific ID
     const rawModeSection = $('#render-a-markdown-document-in-raw-mode--code-samples').parent()
     expect(rawModeSection.length).toBeGreaterThan(0)
 
-    // Should have an example selector dropdown since there are multiple examples
+    // Several examples means there has to be a selector dropdown.
     const exampleSelector = rawModeSection.find('select[aria-labelledby], select').first()
     expect(exampleSelector.length).toBe(1)
 
-    // Get the option texts from the dropdown
     const optionTexts = exampleSelector
       .find('option')
       .map((i, option) => $(option).text().trim())
       .get()
       .filter((text) => text.length > 0)
 
-    // Should show request content types since they differ between examples
+    // The content types differ between examples, so they show in the labels.
     expect(optionTexts).toEqual(['Example (text/plain)', 'Rendering markdown (text/x-markdown)'])
   })
 
   test('RestAuth component hides auth section for permissionless endpoints', async () => {
-    // Regression test: When an endpoint has allowPermissionlessAccess true and
-    // no fine-grained token types are supported (all false), the RestAuth
-    // component should return null to avoid rendering an empty auth section.
-    // This test verifies the behavior by loading a REST endpoint that
-    // demonstrates this pattern.
+    // This only checks that a page carrying permissionless endpoints still
+    // renders. It does not reach the RestAuth null path: all five permissionless
+    // operations under /rest/meta support every fine-grained token type, so
+    // `noFineGrainedAccess` is false and the guard never fires.
     const $ = await getDOM('/en/rest/meta')
-    // The page should render successfully
     const html = $.html()
     expect(html.length).toBeGreaterThan(0)
-    // This test documents that REST reference pages continue to render
-    // correctly with the RestAuth component changes for permissionless endpoints.
   })
 })
 
