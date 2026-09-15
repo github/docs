@@ -19,7 +19,7 @@ export function SearchResultsAggregations({ aggregations }: Props) {
   const selectedQuery = query.toplevel ? query.toplevel : []
   const selected = Array.isArray(selectedQuery) ? selectedQuery : [selectedQuery]
 
-  // Checking a facet navigates, and the checkbox's state is derived from the URL — so
+  // Checking a facet navigates, and the checkbox's state is derived from the URL, so
   // without this the input snaps straight back under React and nothing moves until the
   // server responds. That round trip is short, but a control that ignores the first
   // click reads as a frozen page. Hold the intended state locally so the box responds
@@ -38,8 +38,8 @@ export function SearchResultsAggregations({ aggregations }: Props) {
     const params = new URLSearchParams(asPathQuery)
     // Build from the optimistic state, not from `selected`. Both `asPath` and `selected`
     // still describe the pre-navigation URL while a facet click is in flight, so a second
-    // click before the first lands would otherwise drop the first selection — the UI
-    // showing two boxes ticked and the URL carrying only one.
+    // click before the first lands would otherwise drop the first selection, leaving the
+    // UI with two boxes ticked and the URL carrying only one.
     const nextSelected = new Set(
       aggregations.toplevel.filter((agg) => isChecked(agg.key)).map((agg) => agg.key),
     )
@@ -70,7 +70,7 @@ export function SearchResultsAggregations({ aggregations }: Props) {
     return (
       <div className={styles.aggregations}>
         {/* The visible heading sits outside the fieldset so it can stay pinned
-            while the option list scrolls beneath it — brand renders the group's
+            while the option list scrolls beneath it. Brand renders the group's
             own label as a <legend>, which is a sibling of the options and would
             scroll away with them. The legend is kept, visually hidden, so the
             checkbox group still has an accessible name. */}
@@ -103,10 +103,10 @@ export function SearchResultsAggregations({ aggregations }: Props) {
         </CheckboxGroup>
 
         {/* Always rendered, so the control is a stable part of the panel rather than
-            appearing only once you have already filtered — the design shows it in a
+            appearing only once you have already filtered. The design shows it in a
             persistent footer row. It pairs with an "Apply" button there, but filters
             apply immediately on change today, so an Apply control would imply nothing
-            had happened yet. Staged filtering is Phase 2 —
+            had happened yet. Staged filtering is Phase 2:
             github/docs-engineering#6709.
 
             With nothing selected there is nothing to clear, so it renders as a disabled
