@@ -80,7 +80,6 @@ export class DiscoveryLandingTransformer implements PageTransformer {
 
         const validLinks = links.filter((l) => l.href && l.title)
         if (validLinks.length > 0) {
-          // Use carousel key as title (capitalize first letter)
           const sectionTitle = carouselKey.charAt(0).toUpperCase() + carouselKey.slice(1)
           sections.push({
             title: sectionTitle,
@@ -90,7 +89,6 @@ export class DiscoveryLandingTransformer implements PageTransformer {
       }
     }
 
-    // Intro links (getting started)
     const rawIntroLinks = discoveryPage.introLinks ?? discoveryPage.rawIntroLinks
     if (rawIntroLinks) {
       const { default: getPageLinkData } = await import('@/frame/lib/get-link-data')
@@ -134,10 +132,9 @@ export class DiscoveryLandingTransformer implements PageTransformer {
     if (discoveryPage.children && discoveryPage.children.length > 0) {
       const tocItems = await getAllTocItems(page, context)
 
-      // Flatten to get all leaf articles (excludeParents: true means only get articles, not category pages)
+      // excludeParents keeps only leaf TOC items, dropping anything with children.
       let allArticles = flattenTocItems(tocItems, { excludeParents: true })
 
-      // Apply includedCategories filter if specified
       if (discoveryPage.includedCategories && discoveryPage.includedCategories.length > 0) {
         const includedCategories = discoveryPage.includedCategories.map((c) => c.toLowerCase())
 
