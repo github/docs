@@ -13,7 +13,7 @@ const platforms = [
   { value: 'linux', label: 'Linux' },
 ]
 
-// Nota bene: platform === os
+// Note: platform === os
 
 export const PlatformPicker = () => {
   const { defaultPlatform, detectedPlatforms } = useArticleContext()

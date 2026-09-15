@@ -34,19 +34,10 @@ interface ResponseWithHeaders<T> {
   ok: boolean
 }
 
-// Type alias for cached DOM results to improve maintainability
 type CachedDOMResult = CheerioAPI & { res: ResponseWithHeaders<string>; $: CheerioAPI }
 
-// Cache to store DOM objects
 const getDOMCache = new Map<string, CachedDOMResult>()
 
-/**
- * Makes an HTTP request using the specified method and options.
- *
- * @param route - The route to request.
- * @param options - Configuration options for the request.
- * @returns A promise that resolves to the HTTP response.
- */
 export async function get<T extends ResponseTypes = 'text'>(
   route: string,
   options: GetOptions<T> = {},
@@ -61,7 +52,6 @@ export async function get<T extends ResponseTypes = 'text'>(
     retries = 0,
   } = options
 
-  // Construct the options for the fetch request
   const fetchOptions: RequestInit = omitBy(
     {
       method: method.toUpperCase(),
@@ -72,13 +62,11 @@ export async function get<T extends ResponseTypes = 'text'>(
     isUndefined,
   )
 
-  // Perform the HTTP request
   const response = await fetchWithRetry(`http://localhost:4000${route}`, fetchOptions, {
     retries,
     throwHttpErrors: false,
   })
 
-  // Get response body based on responseType
   let responseBody: ResponseTypeMap[T]
   if (responseType === 'json') {
     responseBody = (await response.json()) as ResponseTypeMap[T]
@@ -89,7 +77,6 @@ export async function get<T extends ResponseTypes = 'text'>(
     responseBody = (await response.text()) as ResponseTypeMap[T]
   }
 
-  // Convert headers to record format
   const headersRecord: Record<string, string> = {}
   for (const [key, value] of response.headers) {
     headersRecord[key] = value
@@ -105,13 +92,6 @@ export async function get<T extends ResponseTypes = 'text'>(
   } as ResponseWithHeaders<ResponseTypeMap[T]>
 }
 
-/**
- * Makes a HEAD HTTP request to the specified route.
- *
- * @param route - The route to request.
- * @param opts - Options for following redirects.
- * @returns A promise that resolves to the HTTP response.
- */
 export async function head(
   route: string,
   opts: { followRedirects?: boolean } = { followRedirects: false },
@@ -120,13 +100,6 @@ export async function head(
   return res
 }
 
-/**
- * Makes a POST HTTP request to the specified route.
- *
- * @param route - The route to request.
- * @param opts - Options for the request.
- * @returns A promise that resolves to the HTTP response.
- */
 export function post(
   route: string,
   opts: Omit<GetOptions, 'method'> = {},
@@ -134,14 +107,6 @@ export function post(
   return get(route, { ...opts, method: 'post' })
 }
 
-/**
- * Retrieves a cached DOM object for the specified route and options.
- * If the DOM is not cached, it fetches and caches it.
- *
- * @param route - The route to request.
- * @param options - Options for fetching the DOM.
- * @returns A promise that resolves to the cached DOM object.
- */
 export async function getDOMCached(
   route: string,
   options: GetDOMOptions = {},
@@ -155,13 +120,6 @@ export async function getDOMCached(
   return getDOMCache.get(key)!
 }
 
-/**
- * Fetches the DOM for the specified route and options.
- *
- * @param route - The route to request.
- * @param options - Options for fetching the DOM.
- * @returns A promise that resolves to the loaded DOM object with res attached and destructurable.
- */
 export async function getDOM(route: string, options: GetDOMOptions = {}): Promise<CachedDOMResult> {
   const { headers, allow500s = false, allow404 = false, retries = 0 } = options
   const res = await get(route, { followRedirects: true, headers, retries })
@@ -184,13 +142,6 @@ export async function getDOM(route: string, options: GetDOMOptions = {}): Promis
   return result
 }
 
-/**
- * Fetches and parses JSON from the specified route.
- *
- * @param route - The route to request.
- * @param opts - Options for the request.
- * @returns A promise that resolves to the parsed JSON object.
- */
 export async function getJSON<T = unknown>(
   route: string,
   opts: Omit<GetOptions, 'method'> = {},
