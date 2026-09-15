@@ -38,9 +38,7 @@ describe('GHD065 - frontmatter-content-type', () => {
     resetCache()
   })
 
-  // -------------------------------------------------------------------
   // Passing cases
-  // -------------------------------------------------------------------
 
   test('file with correct contentType matching directory passes', async () => {
     const strings = {
@@ -101,7 +99,7 @@ describe('GHD065 - frontmatter-content-type', () => {
 
   test('file outside qualifying product is not checked', async () => {
     // actions in fixtures has non-EDI subdirs (category/, using-workflows/),
-    // so it does NOT qualify — the rule should skip it entirely.
+    // so it does NOT qualify and the rule should skip it entirely.
     const strings = {
       'content/actions/category/test-file.md': md(['title: Test', 'versions:', "  fpt: '*'"]),
     }
@@ -119,9 +117,7 @@ describe('GHD065 - frontmatter-content-type', () => {
     expect(errors).toEqual([])
   })
 
-  // -------------------------------------------------------------------
   // Failing cases
-  // -------------------------------------------------------------------
 
   test('missing contentType in qualifying product triggers error', async () => {
     const strings = {

@@ -29,7 +29,7 @@ describe(internalLinksNoLang.names.join(' - '), () => {
       // a // means the link is external
       'These are the [Docs](//ja/actions) we need.',
       'This is the [actions Docs](/actions)',
-      // A link that starts with a language code
+      // Starts with a path segment that is not a language code
       '[Enterprise](/enterprise/overview)',
     ].join('\n')
     const result = await runRule(internalLinksNoLang as Rule, { strings: { markdown } })

@@ -18,7 +18,6 @@ interface InvalidTestCase {
   expectedMessage?: string
 }
 
-// Valid cases - should pass
 const validCases: ValidTestCase[] = [
   {
     name: 'valid-simple-versions',
@@ -63,7 +62,6 @@ This is a test.
   },
 ]
 
-// Invalid cases - should fail
 const invalidCases: InvalidTestCase[] = [
   {
     name: 'trailing-whitespace',

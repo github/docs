@@ -166,7 +166,6 @@ const yamlWalkOptions = {
   includeBasePath: true,
 }
 
-// different lint rules apply to different content types
 let ymlToLint
 
 // compile lists of all the files we want to lint
@@ -199,7 +198,6 @@ function formatLinkError(message: string, links: string[]) {
 
 // Returns `content` if its a string, or `content.description` if it can.
 // Used for getting the nested `description` key in glossary files.
-// Using any because content can be string | { description: string } | other YAML structures
 function getContent(content: unknown) {
   if (typeof content === 'string') return content
   if (
@@ -214,7 +212,7 @@ function getContent(content: unknown) {
 
 const diffFiles = getDiffFiles()
 
-// If present, and not empty, leverage it because in most cases it's empty.
+// If it is present and not empty, use it. In most cases it is empty.
 if (diffFiles.length > 0) {
   // It's faster to do this once and then re-use over and over in the
   // .filter() later on.
