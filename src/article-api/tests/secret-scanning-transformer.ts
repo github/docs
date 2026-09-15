@@ -13,20 +13,16 @@ describe('secret scanning article body api', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')
 
-    // Check for expected content
     expect(res.body).toContain('# Supported secret scanning patterns')
     expect(res.body).toContain('## Supported secrets')
 
-    // Verify HTML comments are stripped
     expect(res.body).not.toMatch(/<!--.*?-->/)
 
-    // Verify HTML icon spans are not present (would be replaced with ✓/✗)
+    // The icon spans are replaced with plain ✓/✗ characters.
     expect(res.body).not.toMatch(/<span[^>]*aria-label="Supported"/)
     expect(res.body).not.toMatch(/<span[^>]*aria-label="Unsupported"/)
-    // Verify no raw HTML span tags remain
     expect(res.body).not.toMatch(/<span[^>]*>/)
 
-    // Verify table content is present with providers
     expect(res.body).toMatch(/|\s*Provider\s*|/)
     expect(res.body).toMatch(/\| (Adafruit|AWS|Alibaba|Amazon)/)
 

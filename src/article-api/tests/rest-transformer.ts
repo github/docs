@@ -24,13 +24,10 @@ describe('REST transformer', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')
 
-    // Check for the main heading
     expect(res.body).toContain('# GitHub Actions Artifacts')
 
-    // Check for intro (using fixture's prodname_actions which is 'HubGit Actions')
     expect(res.body).toContain('Use the REST API to interact with artifacts in HubGit Actions.')
 
-    // Check for manual content section heading
     expect(res.body).toContain('## About artifacts in HubGit Actions')
   })
 
@@ -38,13 +35,10 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check for operation heading
     expect(res.body).toContain('## List artifacts for a repository')
 
-    // Check for HTTP method and endpoint
     expect(res.body).toContain('GET /repos/{owner}/{repo}/actions/artifacts')
 
-    // Check for operation description
     expect(res.body).toContain('Lists all artifacts for a repository.')
   })
 
@@ -52,13 +46,10 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check for parameters heading
     expect(res.body).toContain('### Parameters')
 
-    // Check for headers section
     expect(res.body).toContain('#### Headers')
 
-    // Check for accept header
     expect(res.body).toContain('**`accept`** (string)')
     expect(res.body).toContain('Setting to `application/vnd.github+json` is recommended.')
   })
@@ -67,10 +58,8 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check for path and query parameters section
     expect(res.body).toContain('#### Path and query parameters')
 
-    // Check for specific parameters
     expect(res.body).toContain('**`owner`** (string) (required)')
     expect(res.body).toContain('The account owner of the repository.')
 
@@ -90,10 +79,8 @@ describe('REST transformer', () => {
       console.log(`[DEBUG] Test response: ${res.statusCode} in ${Date.now() - startTime}ms`)
     expect(res.statusCode).toBe(200)
 
-    // Check for status codes section
     expect(res.body).toContain('### HTTP response status codes')
 
-    // Check for specific status code
     expect(res.body).toContain('**200**')
     expect(res.body).toContain('OK')
   })
@@ -102,14 +89,11 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check for code examples section
     expect(res.body).toContain('### Code examples')
 
-    // Check for request/response labels
     expect(res.body).toContain('**Request:**')
     expect(res.body).toContain('**Response schema (Status: 200):**')
 
-    // Check for curl code block
     expect(res.body).toContain('```curl')
     expect(res.body).toContain('curl -L \\')
     expect(res.body).toContain('-X GET \\')
@@ -120,7 +104,6 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check that auth note is at the top using [!NOTE] syntax
     expect(res.body).toContain('[!NOTE]')
     expect(res.body).toContain('Authorization: Bearer <YOUR-TOKEN>')
     expect(res.body).toContain('application/vnd.github+json')
@@ -130,7 +113,6 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check for API version in the auth note (any valid date format)
     expect(res.body).toMatch(/X-GitHub-Api-Version: \d{4}-\d{2}-\d{2}/)
   })
 
@@ -138,7 +120,6 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts', '2022-11-28'))
     expect(res.statusCode).toBe(200)
 
-    // Check for the specified API version in auth note
     expect(res.body).toContain('X-GitHub-Api-Version: 2022-11-28')
   })
 
@@ -150,7 +131,6 @@ describe('REST transformer', () => {
     expect(res.body).toContain('HubGit Actions')
     expect(res.body).not.toContain('{% data variables.product.prodname_actions %}')
 
-    // Check in both the intro and the manual content section
     expect(res.body).toMatch(/Use the REST API to interact with artifacts in HubGit Actions/)
     expect(res.body).toMatch(/About artifacts in HubGit Actions/)
   })
@@ -159,15 +139,12 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check that AUTOTITLE has been resolved to actual link text
     // The link should have the actual page title, not "AUTOTITLE"
     expect(res.body).toContain('[Storing workflow data as artifacts]')
     expect(res.body).toContain('(/en/actions/using-workflows/storing-workflow-data-as-artifacts)')
 
-    // Make sure the raw AUTOTITLE tag is not present
     expect(res.body).not.toContain('[AUTOTITLE]')
 
-    // Verify the link appears in the manual content section
     expect(res.body).toMatch(
       /About artifacts in HubGit Actions[\s\S]*Storing workflow data as artifacts/,
     )
@@ -177,7 +154,6 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check that markdown links are preserved
     expect(res.body).toMatch(/\[.*?\]\(\/en\/.*?\)/)
   })
 
@@ -185,14 +161,12 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check for markdown-formatted schema
     expect(res.body).toContain('**Response schema (Status: 200):**')
 
     // Schema should be rendered as a markdown bullet list, not JSON
     expect(res.body).toContain('* `total_count`:')
     expect(res.body).toContain('* `artifacts`:')
 
-    // Should not contain raw JSON Schema keywords
     expect(res.body).not.toContain('"properties":')
   })
 
@@ -240,7 +214,6 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
 
     expect(res.statusCode).toBe(200)
-    // Should include the default API version in auth note (any valid date format)
     expect(res.body).toMatch(/X-GitHub-Api-Version: \d{4}-\d{2}-\d{2}/)
   })
 
@@ -248,7 +221,6 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check for multiple operation headings
     expect(res.body).toContain('## List artifacts for a repository')
     expect(res.body).toContain('## Get an artifact')
     expect(res.body).toContain('## Delete an artifact')
@@ -281,7 +253,7 @@ describe('REST transformer', () => {
     // because it looks for 'rest' in the path and gets the category/subcategory after it
     // e.g. /ja/rest/actions/artifacts should work the same as /en/rest/actions/artifacts
 
-    // Verify the operation content is present (in English, since REST data is not translated)
+    // REST data is not translated, so the operation content is English either way.
     expect(res.body).toContain('## List artifacts for a repository')
     expect(res.body).toContain('GET /repos/{owner}/{repo}/actions/artifacts')
 
@@ -294,7 +266,6 @@ describe('REST transformer', () => {
     // One of them must be present
     expect(hasJapaneseTitle || hasEnglishTitle).toBe(true)
 
-    // Verify the appropriate content based on which language was served
     if (hasJapaneseTitle) {
       // If Japanese is loaded, expect Japanese intro text
       expect(res.body).toContain('アーティファクト')
