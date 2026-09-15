@@ -201,8 +201,6 @@ export default function index(app: Express) {
     app.use(mockVaPortal) // FOR TESTING.
   }
 
-  // ** Possible early exits after cookies **
-
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
 
@@ -216,7 +214,7 @@ export default function index(app: Express) {
   app.use(asyncMiddleware(renderProductName)) // Must come after shortVersions
 
   // Must come before handleRedirects.
-  // This middleware might either redirect to serve something.
+  // This middleware might either redirect or serve something.
   app.use(asyncMiddleware(archivedEnterpriseVersions))
 
   // *** Redirects, 3xx responses ***
