@@ -205,15 +205,17 @@ For more information about cache eviction, see [AUTOTITLE](/actions/reference/wo
 
 {% endif %}
 
-## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
+<!-- Anchor to maintain the existing "#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository" link from other articles. -->
+<a name="configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository"></a>
+## Configuring the retention period for checks, workflow runs, commit statuses, artifacts, and logs in your repository
 
-You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.
+You can configure the retention period for checks, workflow runs, commit statuses, artifacts, and logs in your repository.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
 You can also define a custom retention period for a specific artifact created by a workflow. For more information, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/remove-workflow-artifacts#setting-the-retention-period-for-an-artifact).
 
-## Setting the Artifact and Log retention period for a repository
+## Setting the check, workflow run, status, artifact and log retention period for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
