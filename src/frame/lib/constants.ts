@@ -9,7 +9,7 @@ export const MAX_REQUEST_TIMEOUT = process.env.REQUEST_TIMEOUT
   ? parseInt(process.env.REQUEST_TIMEOUT, 10)
   : DEFAULT_MAX_REQUEST_TIMEOUT
 
-// Docs cookies — we own these and use snake_case naming.
+// Docs cookies. We own these, so they use our snake_case naming.
 export const USER_LANGUAGE_COOKIE_NAME = 'user_language' // Also referenced in Fastly VCL
 export const USER_VERSION_COOKIE_NAME = 'user_version' // Also referenced in Fastly VCL
 export const API_VERSION_COOKIE_NAME = 'api_version_preferred'
@@ -22,14 +22,13 @@ export const MACHINE_TRANSLATION_BANNER_COOKIE_NAME = 'machine_translation_banne
 export const SIDEBAR_EXPANDED_COOKIE_NAME = 'sidebar_expanded'
 export const SIDEBAR_COLLAPSED_COOKIE_NAME = 'sidebar_collapsed'
 
-// Monolith cookies — set by github.com, read-only for us. Names are not
-// ours to change so they don't follow our snake_case convention.
+// Monolith cookies, set by github.com and read-only for us.
+// The names are not ours to change, so they skip our snake_case convention.
 export const COLOR_MODE_COOKIE_NAME = 'color_mode'
 export const PREFERRED_COLOR_MODE_COOKIE_NAME = 'preferred_color_mode'
 export const DOTCOM_USER_COOKIE_NAME = 'dotcom_user'
 export const STAFFONLY_COOKIE_NAME = 'staffonly'
 
-// Feature flags
 export const ANALYTICS_ENABLED = true
 export const HOVERCARDS_ENABLED = true
 

@@ -9,7 +9,6 @@ import {
   syncChangelogs,
 } from '../scripts/utils/sync-changelogs'
 
-// Suppress console.log output during tests
 beforeEach(() => {
   vi.spyOn(console, 'log').mockImplementation(() => {})
 })
@@ -17,9 +16,6 @@ afterEach(() => {
   vi.restoreAllMocks()
 })
 
-// ---------------------------------------------------------------------------
-// parseVersionSections
-// ---------------------------------------------------------------------------
 describe('parseVersionSections', () => {
   test('parses a changelog with multiple version sections', () => {
     const markdown = `# REST API Breaking Changes for GitHub Free, Pro & Team
@@ -126,9 +122,6 @@ Just some intro text with no version headings.`
   })
 })
 
-// ---------------------------------------------------------------------------
-// getChangelogPath
-// ---------------------------------------------------------------------------
 describe('getChangelogPath', () => {
   test('returns descriptions-next path for rest-api-description source', () => {
     const result = getChangelogPath('rest-api-description', 'api.github.com')
@@ -168,9 +161,6 @@ describe('getChangelogPath', () => {
   })
 })
 
-// ---------------------------------------------------------------------------
-// syncChangelogs (integration tests using temp directories)
-// ---------------------------------------------------------------------------
 describe('syncChangelogs', () => {
   let tmpDir: string
   let outputPath: string
@@ -218,21 +208,17 @@ No breaking changes.`,
 
     const output = await readFile(outputPath, 'utf-8')
 
-    // Should have ifversion fpt wrapping
     expect(output).toContain('{% ifversion fpt %}')
     expect(output).toContain('{% endif %}')
 
-    // Should have apiVersion filtering for each version section
     expect(output).toContain('{% if query.apiVersion == nil or "2026-03-10" <= query.apiVersion %}')
     expect(output).toContain('{% if query.apiVersion == nil or "2022-11-28" <= query.apiVersion %}')
 
-    // Should include the actual content
     expect(output).toContain('Breaking change A')
     expect(output).toContain('No breaking changes')
   })
 
   test('generates GHES sections with ghes = X.Y ifversion syntax', async () => {
-    // Find a real GHES version from allVersions to use
     const { allVersions } = await import('@/versions/lib/all-versions')
     const ghesVersion = Object.values(allVersions).find((v) => v.shortName === 'ghes')
     if (!ghesVersion) return
@@ -295,7 +281,8 @@ No breaking changes.`,
 Content.`,
     )
 
-    // ghec has a changelog but no version sections — still gets the hardcoded initial version
+    // ghec has a changelog but no version sections, so it still gets the
+    // hardcoded initial version.
     await createChangelog(
       githubDir,
       'ghec',
@@ -390,7 +377,6 @@ No breaking changes.`,
 
     const output = await readFile(outputPath, 'utf-8')
 
-    // Both product versions should be present
     expect(output).toContain('{% ifversion fpt %}')
     expect(output).toContain('{% ifversion ghec %}')
 

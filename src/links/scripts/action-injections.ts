@@ -1,7 +1,5 @@
-/*
- * Dependency injection for scripts that call .github/actions/ code
- * Replaces action platform specific functionality with local machine functionality
- */
+// Dependency injection for scripts that call .github/actions/ code.
+// Swaps the Actions-platform pieces for local-machine equivalents.
 
 import fs from 'fs'
 import path from 'path'

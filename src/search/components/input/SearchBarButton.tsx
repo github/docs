@@ -27,13 +27,11 @@ export function SearchBarButton({
 
   const urlSearchInputQuery = params['search-overlay-input']
 
-  // Handle click events
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     setIsSearchOpen(true)
   }
 
-  // Handle key down events
   const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === 'Enter' || event.key === 'Space') {
       event.preventDefault()

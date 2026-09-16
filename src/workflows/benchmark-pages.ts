@@ -116,7 +116,6 @@ function percentile(sorted: number[], p: number): number {
 }
 
 async function main() {
-  // Check server
   try {
     const res = await fetch(`${BASE}/api/pagelist/versions`)
     if (!res.ok) throw new Error()
@@ -125,7 +124,6 @@ async function main() {
     process.exit(1)
   }
 
-  // Resolve versions and languages
   let versions: string[]
   if (args.versions === 'all') {
     const res = await fetch(`${BASE}/api/pagelist/versions`)
@@ -183,7 +181,6 @@ async function main() {
     }
   }
 
-  // Report problems
   const errors = all.filter((r) => r.status >= 400)
   const slow = all.filter((r) => r.timeMs >= SLOW_MS).sort((a, b) => b.timeMs - a.timeMs)
 
@@ -214,7 +211,6 @@ async function main() {
     console.log(`\n✅ All clear!`)
   }
 
-  // Write JSON for CI consumption
   if (args.json) {
     const fs = await import('fs')
     const allTimes = all.map((r) => r.timeMs).sort((a, b) => a - b)

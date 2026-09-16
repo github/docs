@@ -4,7 +4,6 @@ import { stringify } from 'javascript-stringify'
 import type { CodeSample, Operation } from '@/rest/components/types'
 import { type VersionItem } from '@/frame/components/context/MainContext'
 
-// Helper function to determine if authentication should be omitted
 function shouldOmitAuthentication(operation: Operation, currentVersion: string): boolean {
   // Only omit auth for operations that explicitly allow permissionless access
   if (!operation?.progAccess?.allowPermissionlessAccess) {
@@ -19,10 +18,9 @@ function shouldOmitAuthentication(operation: Operation, currentVersion: string):
   return isDotcomVersion
 }
 
-// Helper function to escape shell values containing single quotes (contractions)
-// This prevents malformed shell commands when contractions like "there's" are used
+// Escapes single quotes so a contraction like "there's" can't break out of the
+// surrounding shell quoting.
 function escapeShellValue(value: string): string {
-  // Replace single quotes with '\'' to properly escape them in shell commands
   return value.replace(/'/g, "'\\''")
 }
 
@@ -37,16 +35,7 @@ const CURL_CONTENT_TYPE_MAPPING: { [key: string]: string } = {
   'multipart/form-data': '--form',
   'application/octet-stream': '--data-binary',
 }
-/*
-  Generates a curl example
-
-  For example:
-  curl \
-  -X POST \
-  -H "Accept: application/vnd.github+json" \
-  https://{hostname}/api/v3/repos/OWNER/REPO/deployments \
-  -d '{"ref":"topic-branch","payload":"{ \"deploy\": \"migrate\" }","description":"Deploy request from hubot"}'
-*/
+// Generates a curl example for one code sample.
 export function getShellExample(
   operation: Operation,
   codeSample: CodeSample,
@@ -61,7 +50,6 @@ export function getShellExample(
     contentTypeHeader = '-H "Content-Type: multipart/form-data"'
   }
 
-  // Check if we should omit authentication for this operation
   const omitAuth = shouldOmitAuthentication(operation, currentVersion)
 
   // GHES Manage API requests differ from the dotcom API requests and make use of multipart/form-data and json content types
@@ -127,14 +115,14 @@ export function getShellExample(
     urlArg = `"${urlArg}"`
   }
 
-  // Overwrite curl examples since the github enterprise related apis are seperate from the dotcom api standards
+  // The management-console and manage-ghes APIs don't follow the dotcom
+  // conventions, so replace the auth, API version and Accept headers.
   if (operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes') {
     authHeader = '-u "api_key:your-password"'
     apiVersionHeader = ''
     acceptHeader = acceptHeader === `-H "Accept: application/vnd.github+json"` ? '' : acceptHeader
   }
 
-  // For unauthenticated endpoints, remove the auth header completely
   if (
     omitAuth &&
     operation.subcategory !== 'management-console' &&
@@ -159,16 +147,8 @@ export function getShellExample(
   return `curl -L \\\n  ${args.join(' \\\n  ')}`
 }
 
-/*
-  Generates a GitHub CLI example
-
-  For example:
-   gh api \
-    -X POST \
-    -H "Accept: application/vnd.github+json" \
-    /repos/OWNER/REPO/deployments \
-    -f ref,topic-branch=0,payload,{ "deploy": "migrate" }=1,description,Deploy request from hubot=2
-*/
+// Generates a GitHub CLI example for one code sample. Returns undefined when
+// the operation only supports basic auth, which gh doesn't do.
 export function getGHExample(
   operation: Operation,
   codeSample: CodeSample,
@@ -215,11 +195,9 @@ export function getGHExample(
         const jsonBody = JSON.stringify(
           bodyParameters,
           (key: string, value: unknown) => {
-            // Convert numeric strings back to numbers for API compatibility
             if (typeof value === 'string' && /^\d+$/.test(value)) {
               return parseInt(value, 10)
             }
-            // Convert boolean strings to actual booleans
             if (value === 'true') return true
             if (value === 'false') return false
             return value
@@ -256,7 +234,6 @@ type NestedObjectParameter =
   | { [key: string]: NestedObjectParameter }
   | NestedObjectParameter[]
 
-// Helper function to detect if an object has nested arrays
 function hasNestedArrays(obj: NestedObjectParameter): boolean {
   if (Array.isArray(obj)) {
     return true
@@ -284,13 +261,11 @@ function handleSingleParameter(
     separator = ''
   }
   if (typeof value === 'string') {
-    // Escape single quotes in string values to prevent shell command issues with contractions
     const escapedValue = escapeShellValue(value)
     cliLine += ` -f '${keyString}${separator}${escapedValue}'`
   } else if (typeof value === 'number' || typeof value === 'boolean' || value === null) {
     cliLine += ` -F "${keyString}${separator}${value}"`
   } else if (Array.isArray(value)) {
-    // For simple arrays, use individual parameters with indices
     for (let i = 0; i < value.length; i++) {
       const param = value[i]
       if (Array.isArray(param)) {
@@ -303,7 +278,7 @@ function handleSingleParameter(
           (nextKey: string): string => `${keyString}[${i}]${nextKey}`,
         )
       } else {
-        // Transform key in this case needs to account for the `key` being passed in and use array index
+        // The transform has to fold the array index into the passed-in key.
         const arrayTransform = () => `${transformKey(key)}[${i}]`
         cliLine += handleSingleParameter(key, param, arrayTransform)
       }
@@ -360,26 +335,13 @@ function handleObjectParameter(
   return cliLine
 }
 
-/*
-  Generates an octokit.js example
-
-  For example:
-  await octokit.request('POST /repos/{owner}/{repo}/deployments'{
-    "owner": "OWNER",
-    "repo": "REPO",
-    "ref": "topic-branch",
-    "payload": "{ \"deploy\": \"migrate\" }",
-    "description": "Deploy request from hubot"
-  })
-
-*/
+// Generates an octokit.js example for one code sample.
 export function getJSExample(
   operation: Operation,
   codeSample: CodeSample,
   currentVersion: string,
   allVersions: Record<string, VersionItem>,
 ) {
-  // Check if we should omit authentication for this operation
   const omitAuth = shouldOmitAuthentication(operation, currentVersion)
   const parameters: { [key: string]: string | object } = {}
 

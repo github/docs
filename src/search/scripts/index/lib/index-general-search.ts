@@ -73,7 +73,6 @@ export async function indexGeneralSearch(sourceDirectory: string, opts: Options)
     }
   }
 
-  // Validate
   if (versions !== 'all') {
     for (const version of versions) {
       if (!allIndexVersionOptions.includes(version || '')) {

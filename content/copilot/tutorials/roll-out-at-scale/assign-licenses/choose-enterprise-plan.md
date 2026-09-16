@@ -13,6 +13,8 @@ redirect_from:
 contentType: tutorials
 category:
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 ## Introduction

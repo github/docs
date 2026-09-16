@@ -7,8 +7,7 @@ import { fastTextOnly } from '@/content-render/unified/text-only'
 import { extractManualContent } from '@/article-api/lib/graphql-helpers'
 
 /**
- * Transformer for GraphQL changelog page
- * Renders the changelog with schema changes, preview changes, and upcoming changes
+ * Renders the GraphQL changelog: schema changes, preview changes, and upcoming changes.
  */
 export class GraphQLChangelogTransformer implements PageTransformer {
   templateName = 'graphql-changelog.template.md'
@@ -25,7 +24,6 @@ export class GraphQLChangelogTransformer implements PageTransformer {
     const { getGraphqlChangelogByYear, getGraphqlChangelogYears } =
       await import('@/graphql/lib/index')
 
-    // Determine if this is a year-specific page
     const yearMatch = page.relativePath.match(/changelog\/(\d{4})\.md$/)
     const year = yearMatch ? Number(yearMatch[1]) : null
     const years = getGraphqlChangelogYears(currentVersion)
@@ -42,13 +40,11 @@ export class GraphQLChangelogTransformer implements PageTransformer {
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
     const manualContent = await extractManualContent(page, context)
 
-    // Process changelog items
     const changelogItems = schema.map((item) => {
       const processChanges = (changes: Array<{ title: string; changes: string[] }>) =>
         changes.map((change) => ({
           title: change.title,
           changes: change.changes.map((html: string) => {
-            // Remove wrapping <p> tags if present
             if (html.startsWith('<p>') && html.endsWith('</p>')) {
               return fastTextOnly(html.slice(3, -4))
             }
@@ -64,7 +60,6 @@ export class GraphQLChangelogTransformer implements PageTransformer {
       }
     })
 
-    // Build year navigation links
     const displayYear = year || years[0]
     const yearNavItems = years.map((y) => ({
       year: y,

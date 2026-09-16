@@ -10,12 +10,11 @@ interface CacheIndexEntry {
   timestamp: number
 }
 
-/**
- * We cache AI Search response as individual entries in localStorage, with a separate index to track the keys.
- * This allows the cache to be updated without having to read a single large entry into memory and parse it each time a key is accessed
- *
- * Cached items are cached under a prefix, for a fixed number of days
- */
+// AI Search responses are cached as individual localStorage entries, with a
+// separate index tracking the keys. Updating the cache therefore doesn't mean
+// reading and parsing one large entry every time a key is accessed.
+//
+// Entries live under a prefix and expire after a fixed number of days.
 export function useAISearchLocalStorageCache<T = unknown>(
   cacheKeyPrefix: string = 'ai-query-cache',
   maxEntries: number = 1000,
@@ -23,7 +22,6 @@ export function useAISearchLocalStorageCache<T = unknown>(
 ) {
   const cacheIndexKey = `${cacheKeyPrefix}-index`
 
-  // Generates a unique key based on the query string, version, and language
   const generateCacheKey = (query: string, version: string, language: string): string => {
     query = query.trim().toLowerCase()
     // Simple hash function to generate a unique key from the query
@@ -56,7 +54,6 @@ export function useAISearchLocalStorageCache<T = unknown>(
       if (now < expirationTime) {
         return cachedItem.data
       } else {
-        // Item expired, remove it
         localStorage.removeItem(key)
         updateCacheIndex((index) => index.filter((entry) => entry.key !== key))
         return null
@@ -83,13 +80,11 @@ export function useAISearchLocalStorageCache<T = unknown>(
         }
       }
 
-      // Remove existing entry for this key if any
       index = index.filter((entry) => entry.key !== key)
       index.push({ key, timestamp: now })
 
       // If cache exceeds max entries, remove oldest entries
       if (index.length > maxEntries) {
-        // Sort entries by timestamp
         index.sort((a, b) => a.timestamp - b.timestamp)
         const excess = index.length - maxEntries
         const entriesToRemove = index.slice(0, excess)
@@ -99,7 +94,6 @@ export function useAISearchLocalStorageCache<T = unknown>(
         index = index.slice(excess)
       }
 
-      // Store updated index
       localStorage.setItem(cacheIndexKey, JSON.stringify(index))
     },
     [cacheKeyPrefix, maxEntries],

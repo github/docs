@@ -42,9 +42,7 @@ async function check(files: string[]): Promise<void> {
 
   for (const [filename, schema] of documents as [string, unknown][]) {
     try {
-      // munge OpenAPI definitions object in an array of operations objects
       const operations = await createOperations(schema as SchemaInput)
-      // process each operation, asynchronously rendering markdown and stuff
       await processOperations(operations, {})
 
       console.log(`Successfully could decorate OpenAPI operations for document ${filename}`)

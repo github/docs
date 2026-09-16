@@ -14,7 +14,6 @@ function main() {
   markdown.push('| Rule ID | Rule Name(s) | Description | Severity | Tags |')
   markdown.push('| ------- | ------------ | ----------- | -------- | ---- |')
 
-  // Collect all rules and their generated rows
   const mdRules: Array<{ ruleId: string; row: string }> = []
   const ghRules: Array<{ ruleId: string; row: string }> = []
   const ghdRules: Array<{ ruleId: string; row: string }> = []
@@ -35,7 +34,6 @@ function main() {
     row.push(allConfig[ruleName].severity)
     row.push(rule.tags.join(', '))
 
-    // Categorize rules by their ID prefix
     const ruleData = { ruleId: rule.names[0], row: `| ${row.join(' | ')} |` }
     if (rule.names[0].startsWith('GHD')) {
       ghdRules.push(ruleData)
@@ -46,7 +44,6 @@ function main() {
     }
   }
 
-  // Sort each category alphabetically by rule ID
   mdRules.sort((a, b) => a.ruleId.localeCompare(b.ruleId))
   ghRules.sort((a, b) => a.ruleId.localeCompare(b.ruleId))
   ghdRules.sort((a, b) => a.ruleId.localeCompare(b.ruleId))
@@ -66,13 +63,12 @@ function main() {
   writeFileSync('data/reusables/contributing/content-linter-rules.md', markdown.join('\n'))
 }
 
-// The search-replace rule configures multiple psuedo-rules
+// The search-replace rule configures multiple pseudo-rules
 // under the rules key.
 function getSearchReplaceRules(srRule: Rule, ruleConfig: Config) {
   const name = srRule.information ? `[search-replace](${srRule.information})` : 'search-replace'
   const markdown = []
 
-  // Sort rules alphabetically by name
   const sortedRules = [...(ruleConfig.rules || [])].sort((a, b) => a.name.localeCompare(b.name))
 
   for (const rule of sortedRules) {

@@ -1,15 +1,8 @@
-/**
- * To be able to run these tests you need to index the fixtures!
- * And you need to have an Elasticsearch URL to connect to for the server.
- *
- * To index the fixtures, run:
- *
- *   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
- *
- * This will replace any "real" Elasticsearch indexes you might have so
- * once you're done working on vitest tests you need to index real
- * content again.
- */
+// These tests need indexed fixtures and an Elasticsearch URL for the server:
+//
+//   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
+//
+// That writes `tests_`-prefixed indexes and leaves your regular ones alone.
 
 import { expect, test, vi } from 'vitest'
 
@@ -23,14 +16,12 @@ if (!process.env.ELASTICSEARCH_URL) {
   )
 }
 
-// This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search rendering page', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('happy path', async () => {
-    // To see why this will work,
-    // see src/search/tests/fixtures/search-indexes/github-docs-dotcom-en-records.json
-    // which clearly has a record with the title "Foo"
+    // src/search/tests/fixtures/search-indexes/tests_github-docs_general-search_fpt_en-records.json
+    // has a record with the title "Foo".
     const { $ } = await getDOM('/en/search?query=foo')
     expect($('h1').text()).toMatch(/\d+ Search results for "foo"/)
 
@@ -53,7 +44,6 @@ describeIfElasticsearchURL('search rendering page', () => {
   test('response headers', async () => {
     const res = await get('/en/search?query=foo')
 
-    // Assuming `res` has a type with a `headers` property
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
@@ -66,7 +56,6 @@ describeIfElasticsearchURL('search rendering page', () => {
     const { $ } = await getDOM('/en/search?query=foo&debug=1')
     expect($('h1').text()).toMatch(/\d+ Search results for "foo"/)
 
-    // Note it testid being 'search-result', not 'search-results'
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBeGreaterThan(0)
     const result = results.first()
@@ -103,10 +92,8 @@ describeIfElasticsearchURL('search rendering page', () => {
   test('links per version in pathname', async () => {
     const { $ } = await getDOM('/en/enterprise-cloud@latest/search?query=foo')
     expect($('[data-testid="search-results"]').text()).toMatch('Exclusively for GHEC')
-    // Note it testid being 'search-result', not 'search-results'
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBeGreaterThan(0)
-    // Each link should have enterprise-cloud@latest in the pathname
     const links = $('[data-testid="search-result"] a')
     const hrefs: string[] = links.map((_, el) => $(el).attr('href') ?? '').get()
     for (const href of hrefs) {
@@ -145,7 +132,6 @@ describeIfElasticsearchURL('search rendering page', () => {
     const { $ } = await getDOM('/en/search?query=foo&toplevel=Baring')
     expect($('h1').text()).toMatch(/\d+ Search results for "foo"/)
 
-    // Note it testid being 'search-result', not 'search-results'
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBeGreaterThan(0)
     const result = results.first()

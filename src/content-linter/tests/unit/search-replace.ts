@@ -79,7 +79,6 @@ describe(searchReplace.names.join(' - '), () => {
       markdownlintOptions: { frontMatter: null }, // Include frontmatter in linting
     })
     const errors = result.markdown
-    // Should find 3 TODOCS occurrences in frontmatter
     expect(errors.length).toBe(3)
     expect(errors[0].lineNumber).toBe(2) // title: TODOCS
     expect(errors[1].lineNumber).toBe(3) // shortTitle: TODOCS
@@ -102,7 +101,6 @@ describe(searchReplace.names.join(' - '), () => {
       markdownlintOptions: { frontMatter: null }, // Include frontmatter in linting
     })
     const errors = result.markdown
-    // Should find 4 TODOCS occurrences total (2 in frontmatter + 2 in content)
     expect(errors.length).toBe(4)
     expect(errors[0].lineNumber).toBe(2) // title: TODOCS
     expect(errors[1].lineNumber).toBe(3) // intro: TODOCS

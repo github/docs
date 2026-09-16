@@ -145,12 +145,9 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await page.goto('/')
   await turnOffExperimentsInPage(page)
 
-  // Use the search overlay
   await page.locator('[data-testid="search"]:visible').click()
   await page.getByTestId('overlay-search-input').fill('serve playwright')
-  // Wait for search results to load
   await page.waitForTimeout(1000)
-  // Click "View more results" to get to the search page
   await page.getByText('View more results').click()
 
   await expect(page).toHaveURL(
@@ -202,9 +199,7 @@ test('open search, and select a general search article', async ({ page }) => {
   // Let new suggestions load
   const searchOverlay = page.getByTestId('general-autocomplete-suggestions')
   await expect(searchOverlay.getByText('For Playwright')).toBeVisible()
-  // Navigate to general search item, "For Playwright"
   await page.keyboard.press('ArrowDown')
-  // Select the general search item, "For Playwright"
   await page.keyboard.press('Enter')
 
   // We should now be on the page for "For Playwright"
@@ -241,9 +236,7 @@ test('open search, and get auto-complete results', async ({ page }) => {
   await expect(searchInput).toBeVisible()
   await expect(searchInput).toBeEnabled()
 
-  // Type the text "rest" into the search input
   await searchInput.fill('rest')
-  // For for 1 second for the suggestions to load
   await page.waitForTimeout(1000)
 
   // Ask AI suggestions
@@ -267,12 +260,9 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   await page.goto('/enterprise-cloud@latest')
   await turnOffExperimentsInPage(page)
 
-  // Use the search overlay
   await page.locator('[data-testid="search"]:visible').click()
   await page.getByTestId('overlay-search-input').fill('fixture')
-  // Wait for search results to load
   await page.waitForTimeout(1000)
-  // Click "View more results" to get to the search page
   await page.getByText('View more results').click()
 
   // Now we're on the search results page, apply the filter
@@ -309,7 +299,7 @@ test.describe('platform picker', () => {
   })
 
   test('minitoc matches picker', async ({ page }) => {
-    // default platform set to windows in fixture fronmatter
+    // The fixture frontmatter defaults the platform to Windows.
     await page.goto('/get-started/liquid/platform-specific')
     await turnOffExperimentsInPage(page)
     await expect(
@@ -450,12 +440,10 @@ test('navigate with side bar into article inside a subcategory inside a category
 })
 
 test('sidebar custom link functionality works', async ({ page }) => {
-  // Test that sidebar functionality is not broken by custom links feature
   await page.goto('/get-started')
 
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
-  // Verify that regular sidebar navigation still works by clicking on known sections
   await page.getByTestId('product-sidebar').getByText('Start your journey').click()
   await page.getByTestId('product-sidebar').getByText('Hello World').click()
   await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
@@ -550,7 +538,6 @@ test.describe('hover cards', () => {
       ),
     ).toBeVisible()
 
-    // Press Escape to close it
     await page.keyboard.press('Escape')
     await expect(
       page.getByText(
@@ -574,7 +561,6 @@ test.describe('hover cards', () => {
       ),
     ).toBeVisible()
 
-    // click the Esc key to close the hovercard
     await page.keyboard.press('Escape')
     await expect(
       page.getByText(
@@ -603,7 +589,7 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
 
     // breadcrumbs show up in one of the pages that use the AutomatedPage
-    // component (e.g. graphql, audit log, etc.) -- we test the webhooks
+    // component (e.g. graphql, audit log). This one uses the webhooks
     // reference page here
     await page.goto('/webhooks/webhook-events-and-payloads')
     await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
@@ -627,7 +613,7 @@ test.describe('test nav at different viewports', () => {
       height: 700,
     })
 
-    // Opening the mobile nav must still render the doc-tree drawer -- before the
+    // Opening the mobile nav must still render the doc-tree drawer. Before the
     // fix, `collapsed` short-circuited the sidebar to null while the open state
     // hid the content column, leaving a blank area with no drawer.
     await page.getByTestId('sidebar-mobile-toggle').click()
@@ -651,7 +637,7 @@ test.describe('test nav at different viewports', () => {
     const nav = page.locator('[data-container="nav"]')
     await expect(nav).toHaveAttribute('data-mobile-open', 'true')
 
-    // Resize up to the desktop breakpoint -- the inline nav should close and the
+    // Resize up to the desktop breakpoint. The inline nav should close and the
     // fixed desktop rail (326px) should take over rather than the full-width
     // mobile markup persisting over the page.
     await page.setViewportSize({
@@ -669,16 +655,13 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
 
-    // version picker should be visible
     await page.getByTestId('version-picker').getByRole('button').click()
     expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
     await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
 
-    // language picker is visible
     await page.getByRole('button', { name: 'Select language: current language is English' }).click()
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
-    // header sign up button is visible
     await expect(page.getByTestId('header-signup')).toBeVisible()
   })
 
@@ -707,19 +690,15 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
 
-    // version picker is visible
     await page.getByTestId('version-picker').getByRole('button').click()
     expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
     await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
 
-    // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
-    // sign up button is in mobile menu
     await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
-    // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
     await page.getByTestId('sidebar-mobile-toggle').click()
     await expect(page.getByTestId('sidebar')).toBeVisible()
@@ -732,23 +711,17 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
 
-    // header sign-up button is not visible
     await expect(page.getByTestId('header-signup')).not.toBeVisible()
 
-    // language picker is not visible
     await expect(page.getByTestId('language-picker')).not.toBeVisible()
 
-    // version picker is visible
     await expect(page.getByTestId('version-picker').getByRole('button')).toBeVisible()
 
-    // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
-    // sign up button is in mobile menu
     await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
-    // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
     await page.getByTestId('sidebar-mobile-toggle').click()
     await expect(page.getByTestId('sidebar')).toBeVisible()
@@ -762,27 +735,20 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
 
-    // header sign-up button is not visible
     await expect(page.getByTestId('header-signup')).not.toBeVisible()
 
-    // language picker is not visible
     await expect(page.getByTestId('language-picker')).not.toBeVisible()
 
-    // version picker is not visible
     await expect(page.getByTestId('version-picker').getByRole('button')).not.toBeVisible()
 
-    // version picker is in mobile menu
     await expect(page.getByTestId('version-picker')).not.toBeVisible()
     await page.getByTestId('mobile-menu').click()
     await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
 
-    // language picker is in mobile menu
     await expect(page.getByTestId('open-mobile-menu').getByTestId('language-picker')).toBeVisible()
 
-    // sign up button is in mobile menu
     await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
-    // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
     await page.getByTestId('sidebar-mobile-toggle').click()
     await expect(page.getByTestId('sidebar')).toBeVisible()
@@ -798,12 +764,9 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
 
-    // Use the search overlay
     await page.locator('[data-testid="mobile-search-button"]:visible').click()
     await page.getByTestId('overlay-search-input').fill('serve playwright')
-    // Wait for search results to load
     await page.waitForTimeout(1000)
-    // Click "View more results" to get to the search page
     await page.getByText('View more results').click()
 
     await expect(page).toHaveURL(
@@ -822,12 +785,9 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
 
-    // Use the search overlay
     await page.locator('[data-testid="mobile-search-button"]:visible').click()
     await page.getByTestId('overlay-search-input').fill('serve playwright')
-    // Wait for search results to load
     await page.waitForTimeout(1000)
-    // Click "View more results" to get to the search page
     await page.getByText('View more results').click()
 
     await expect(page).toHaveURL(
@@ -841,7 +801,7 @@ test.describe('secondary-bar breadcrumb scroller', () => {
   // The secondary bar (and its breadcrumb scroller) only renders at wide
   // viewports, and the fixture trail is short enough to fit there, so we cap the
   // scroller width to force a deterministic overflow independent of title
-  // lengths — then exercise the chevrons.
+  // lengths, then exercise the chevrons.
   test('chevrons scroll one crumb at a time instead of jumping to the ends', async ({ page }) => {
     // Smooth-scroll settle waits across several chevron clicks add up past the
     // default 5s cap.

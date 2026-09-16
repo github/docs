@@ -16,8 +16,8 @@ import styles from './DocsFooter.module.scss'
 // The design puts the legal links in the *bottom* row beside the copyright.
 // MinimalFooter.Link children render in the top row instead, and the two rows live
 // in separate DOM subtrees so no amount of CSS moves one into the other. Passing the
-// links through `copyrightStatement` — which accepts a ReactElement and renders in
-// the bottom row — gets the designed layout without overriding brand internals.
+// links through `copyrightStatement`, which accepts a ReactElement and renders in
+// the bottom row, gets the designed layout without overriding brand internals.
 // It also sidesteps the component's hard cap of five links.
 //
 // Note `copyrightStatement` is rendered inside a <Text as="p">, so everything here

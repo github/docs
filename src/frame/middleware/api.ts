@@ -63,7 +63,6 @@ router.get('/cookies', (req, res) => {
   res.json(cookies)
 })
 
-// Handle root /api requests
 router.get('/', (req, res) => {
   res.status(404).json({ error: `${req.path} not found` })
 })

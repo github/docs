@@ -4,7 +4,7 @@ import type { useRouter } from 'next/router'
 type Router = ReturnType<typeof useRouter>
 
 // Session-lived de-dupe set. Module scope (not a per-component useRef) so it
-// survives the sidebar's per-navigation remount — otherwise the cache would
+// survives the sidebar's per-navigation remount. Otherwise the cache would
 // reset every nav and "de-duped per href" would only hold within a single page.
 // Bounded by the number of distinct internal hrefs the user hovers/focuses.
 const prefetchedHrefs = new Set<string>()

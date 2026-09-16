@@ -7,8 +7,7 @@ import { loadTemplate } from '@/article-api/lib/load-template'
 import matter from '@gr2m/gray-matter'
 
 /**
- * Transformer for Audit Logs pages
- * Converts audit log events and their data into markdown format using a Liquid template
+ * Converts audit log events and their data into markdown using a Liquid template.
  */
 export class AuditLogsTransformer implements PageTransformer {
   templateName = 'audit-logs-page.template.md'
@@ -22,7 +21,6 @@ export class AuditLogsTransformer implements PageTransformer {
     const { getCategorizedAuditLogEvents, getCategoryNotes, resolveReferenceLinksToMarkdown } =
       await import('@/audit-logs/lib/index')
 
-    // Extract version from context
     const currentVersion = context.currentVersion!
 
     let pageType = ''
@@ -36,11 +34,9 @@ export class AuditLogsTransformer implements PageTransformer {
       throw new Error(`Unknown audit log page type for path: ${pathname}`)
     }
 
-    // Get the audit log events data
     const categorizedEvents = getCategorizedAuditLogEvents(pageType, currentVersion)
     const categoryNotes = getCategoryNotes()
 
-    // Prepare manual content
     let manualContent = ''
     if (page.markdown) {
       const markerIndex = page.markdown.indexOf(
@@ -63,7 +59,6 @@ export class AuditLogsTransformer implements PageTransformer {
       }
     }
 
-    // Prepare data for template
     const templateData = await this.prepareTemplateData(
       page,
       categorizedEvents,
@@ -73,10 +68,8 @@ export class AuditLogsTransformer implements PageTransformer {
       resolveReferenceLinksToMarkdown,
     )
 
-    // Load and render template
     const templateContent = loadTemplate(this.templateName)
 
-    // Render the template with Liquid
     const rendered = await renderContent(templateContent, {
       ...context,
       ...templateData,
@@ -86,9 +79,6 @@ export class AuditLogsTransformer implements PageTransformer {
     return rendered
   }
 
-  /**
-   * Prepare data for the Liquid template
-   */
   private async prepareTemplateData(
     page: Page,
     categorizedEvents: CategorizedEvents,
@@ -100,7 +90,6 @@ export class AuditLogsTransformer implements PageTransformer {
       context: TitleResolutionContext,
     ) => Promise<string>,
   ): Promise<Record<string, unknown>> {
-    // Prepare page intro
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
 
     // Sort categories and events, and compute fields shared by most (≥80%) events

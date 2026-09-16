@@ -8,6 +8,8 @@ contentType: tutorials
 category:
   - Roll Copilot out at scale
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 Before you enable {% data variables.copilot.copilot_cloud_agent %}, it is good practice to set up your enterprise so you can be confident {% data variables.product.prodname_copilot_short %} will operate within secure, predictable guardrails.

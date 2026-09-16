@@ -74,7 +74,6 @@ function validate(currentPage: Tree): void {
 
     expect(isValid, errors).toBe(true)
 
-    // Run recursively until we run out of child pages
     validate(pageRef)
   }
 }

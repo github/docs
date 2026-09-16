@@ -15,9 +15,9 @@
 //   }
 //   const ok = await retry(errorTest, mainFunction, config)
 //
-// Note that, by default, the sleep time is "exponential" by a factor of
-// 1.5. So the first sleep will, in the above example,
-// be 800ms. Then 1,200ms, Then 1,800ms. etc.
+// When `exponential` is truthy the sleep time doubles on each retry, so in the
+// example above it goes 800ms, 1,600ms, 3,200ms. Note that the value of
+// `exponential` is only ever read as a boolean, never used as the factor.
 
 import { sleep } from '@/search/lib/helpers/time'
 
@@ -53,11 +53,6 @@ export async function retryOnErrorTest<T>(
         // the next attempt these independent processes/threads will now
         // start at slightly different times.
 
-        // According to the Oxford English dictionary, they define "jitter" as:
-        //
-        //    slight irregular movement, variation, or unsteadiness,
-        //    especially in an electrical signal or electronic device.
-        //
         await sleep(addJitter(sleepTime, jitterPercent))
         if (exponential) {
           sleepTime *= 2

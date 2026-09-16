@@ -1,6 +1,6 @@
 // The footer help region: feedback, contribution, and support links. This lives in
-// MinimalFooter's `centerComponent` slot, so it supplies its own column chrome —
-// 24px padding and rules — rather than the page container it used to sit in.
+// MinimalFooter's `centerComponent` slot, so it supplies its own column chrome
+// (24px padding and rules) rather than the page container it used to sit in.
 //
 // The design reflows in three stages rather than simply narrowing three columns:
 //
@@ -10,7 +10,7 @@
 //   narrow (<768)  everything stacked, support collapsed into a disclosure
 //
 // MinimalFooter already draws a rule above this whole region, so the first row must
-// not add one — two rules a hair apart read as a mistake. Only rows after the first
+// not add one: two rules a hair apart read as a mistake. Only rows after the first
 // carry a top rule.
 
 $footer-rule: 1px solid
@@ -24,8 +24,8 @@ $footer-rule: 1px solid
 .column {
   // Vertical padding is the design's 24px. The inline inset instead mirrors
   // MinimalFooter's own container padding (20px, 32px from 48rem up), because that
-  // container's padding was dropped for this section so the row rules — which are
-  // column borders — span the footer edge to edge. Keeping the same values here
+  // container's padding was dropped for this section so the row rules, which are
+  // column borders, span the footer edge to edge. Keeping the same values here
   // leaves column content aligned with the top and bottom bars.
   padding-block: var(--base-size-24);
   padding-inline: var(--base-size-20);
@@ -34,7 +34,7 @@ $footer-rule: 1px solid
   color: var(--brand-color-text-default);
 
   // Survey and Contribution each render their own <h3>. The design shows these as
-  // plain body text, not bold headings — restyled here rather than in those
+  // plain body text, not bold headings. Restyled here rather than in those
   // components so they stay free of footer-specific classes. Element selectors also
   // out-specify the Primer utility classes they carry.
   h3 {
@@ -106,14 +106,14 @@ $footer-rule: 1px solid
   }
 
   // A second-row rule only makes sense when there is a first row above it. Any of
-  // these columns can be absent — site-policy and deprecated pages drop the survey,
-  // non-English drops the contribution CTA — and without this gate the surviving
+  // these columns can be absent: site-policy and deprecated pages drop the survey,
+  // non-English drops the contribution CTA. Without this gate the surviving
   // columns would draw a rule directly beneath MinimalFooter's own separator.
   .supportGrid:has(.surveyColumn) .column:not(.surveyColumn) {
     border-top: $footer-rule;
   }
 
-  // Divider between the two columns that share a row — keyed to position rather than
+  // Divider between the two columns that share a row, keyed to position rather than
   // to which component it is, so it lands correctly whichever columns render.
   .column:not(.surveyColumn) + .column {
     border-left: $footer-rule;
