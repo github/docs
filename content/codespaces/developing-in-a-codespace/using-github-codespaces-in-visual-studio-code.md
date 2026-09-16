@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Codespaces in Visual Studio Code
 shortTitle: Visual Studio Code
-intro: 'You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your {% data variables.product.github %} account.'
+intro: You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your {% data variables.product.github %} account.
 redirect_from:
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
@@ -11,11 +11,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Visual Studio Code
-  - Developer
+contentType: how-tos
+category:
+  - Write code in a codespace
 ---
 
 ## About {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}
@@ -41,6 +39,39 @@ Use the {% data variables.product.prodname_vscode_marketplace %} to install the 
 1. If you are not currently signed in to {% data variables.product.prodname_dotcom %} you'll be prompted to do so. Go ahead and sign in.
 1. When you're prompted to specify what you want to authorize, click the **Authorize** button for "{% data variables.product.prodname_dotcom %}."
 1. If the authorization page is displayed, click **Authorize Visual-Studio-Code**.
+
+{% ifversion ghec %}
+
+## Connecting to an enterprise on {% data variables.enterprise.data_residency_site %}
+
+If you access {% data variables.product.github %} through a subdomain of {% data variables.enterprise.data_residency_site %}, you must configure the  `Github-enterprise: Uri` and `Github > Codespaces: Auth Provider` settings in {% data variables.product.prodname_vscode_shortname %} before you can connect to your codespaces.
+
+1. To open your {% data variables.product.prodname_vscode_shortname %} settings, press <kbd>Command</kbd>+<kbd>,</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>,</kbd> (Windows).
+1. In the search bar, search for `enterprise`.
+1. For the `Github-enterprise: Uri` setting, enter the URL where you access {% data variables.product.github %}. For example: `https://{% data variables.enterprise.data_residency_example_domain %}`.
+
+   Alternatively, you can add the following to your `settings.json` file:
+
+   ```json copy
+   "github-enterprise.uri": "https://{% data variables.enterprise.data_residency_domain %}"
+   ```
+
+1. In the {% data variables.product.prodname_vscode_shortname %} settings, search for `Codespaces Auth Provider`.
+1. For the `Github > Codespaces: Auth Provider` setting, select `github-enterprise` from the dropdown.
+
+   Alternatively, you can add the following to your `settings.json` file:
+
+   ```json copy
+   "github.codespaces.authProvider": "github-enterprise"
+   ```
+
+1. You will be shown a prompt asking you to sign in. Click **Sign in to {% data variables.product.github %}**, then follow the prompts to authorize your account.
+
+   If you **don't see the prompt**, try restarting {% data variables.product.prodname_vscode_shortname %}.
+
+If you ever need to switch back to an account on {% data variables.product.prodname_dotcom_the_website %}, set the `Github > Codespaces: Auth Provider` setting back to its default value and remove the `Github-enterprise: Uri` setting.
+
+{% endif %}
 
 ## Creating a codespace in {% data variables.product.prodname_vscode_shortname %}
 

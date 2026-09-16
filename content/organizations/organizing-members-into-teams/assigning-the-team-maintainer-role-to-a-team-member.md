@@ -10,11 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Team maintainers
 permissions: Organization owners can promote team members to team maintainers.
+category:
+  - Organize teams
 ---
 
 ## About team maintainers
@@ -29,14 +28,15 @@ People with the team maintainer role can manage team membership and settings.
 
 * [Add organization members to the team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)
 * [Remove organization members from the team](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)
+* Assign the team maintainer role to other team members
 * Remove the team's access to repositories
 * [Manage code review assignment for the team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team){% ifversion fpt or ghec %}
 * [Manage scheduled reminders for pull requests](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}
 
-{% ifversion ghec %}
+{% ifversion ghec or ghes %}
 
 > [!NOTE]
-> If your enterprise uses {% data variables.enterprise.prodname_managed_users %} and manages a team's membership with an identity provider (IdP) group, you cannot assign the team maintainer role manually for that team. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
+> If you are managing a team's membership with an identity provider (IdP) group, you cannot assign the team maintainer role to a member of that team.
 
 {% endif %}
 

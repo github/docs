@@ -4,9 +4,8 @@ redirect_from:
   - /articles/github-bug-bounty-program-legal-safe-harbor
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Review privacy and security policies
 ---
 
 ## Summary

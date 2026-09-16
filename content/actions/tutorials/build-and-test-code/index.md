@@ -1,7 +1,7 @@
 ---
 title: Building and testing your code
 shortTitle: Build and test code
-intro: 'You can automatically build and test your projects with {% data variables.product.prodname_actions %}.'
+intro: You can automatically build and test your projects with {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghes: '*'
@@ -33,5 +33,6 @@ children:
   - /rust
   - /swift
   - /xamarin-apps
+contentType: tutorials
 ---
 

@@ -6,8 +6,6 @@ intro: 'Learn how to build and deploy an intelligent web app with natural langua
 versions:
   feature: spark
 product: '{% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_enterprise_short %}'
-topics:
-  - Copilot
 redirect_from:
   - /copilot/tutorials/building-ai-app-prototypes
   - /copilot/tutorials/build-apps-with-spark
@@ -18,8 +16,7 @@ category:
 ---
 
 > [!NOTE]
-> * {% data reusables.spark.preview-note-spark %}
-> * The {% data variables.product.prodname_copilot %} setting that blocks suggestions matching public code may not work as intended when using {% data variables.product.prodname_spark_short %}. See [AUTOTITLE](/copilot/how-tos/manage-your-account/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
+> {% data reusables.copilot.spark-deprecation %}
 
 ## Introduction
 
@@ -27,9 +24,13 @@ category:
 
 This tutorial will guide you through the full lifecycle of building and deploying an app with {% data variables.product.prodname_spark_short %} and exploring its features.
 
+> [!NOTE]
+> * {% data reusables.spark.preview-note-spark %}
+> * The {% data variables.product.prodname_copilot %} setting that blocks suggestions matching public code may not work as intended when using {% data variables.product.prodname_spark_short %}. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-suggestions-matching-public-code).
+
 ### Prerequisites
 
-* A {% data variables.product.github %} account with {% data variables.copilot.copilot_pro_plus_short %} or {% data variables.copilot.copilot_enterprise_short %} license.
+* A {% data variables.product.github %} account with {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, or {% data variables.copilot.copilot_enterprise_short %} license.
 
 ## Step 1: Create your web app
 
@@ -177,7 +178,7 @@ Any changes made to your spark prior to repository creation will be added to you
 
 There's a two-way sync between your spark and the repository, so changes made in either {% data variables.product.prodname_spark_short %} or the main branch of your repository are automatically reflected in both places.
 
-You can also create issues in your repository and assign them to {% data variables.copilot.copilot_coding_agent %} so it can draft pull requests for fixes and improvements.
+You can also create issues in your repository and assign them to {% data variables.copilot.copilot_cloud_agent %} so it can draft pull requests for fixes and improvements.
 
 ## Next steps
 
@@ -187,6 +188,6 @@ Explore more ideas you can build with {% data variables.product.prodname_spark_s
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-spark)
-* [AUTOTITLE](/copilot/concepts/copilot-billing/about-billing-for-github-spark)
+* [AUTOTITLE](/copilot/responsible-use/agents)
+* [AUTOTITLE](/billing/concepts/product-billing/github-spark)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms)

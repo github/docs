@@ -5,6 +5,8 @@ intro: 'You can disable {% data variables.product.prodname_github_connect %} to 
 versions:
   ghes: '*'
 permissions: 'Enterprise owners'
+category:
+  - Install and configure your instance
 ---
 
 When you disconnect from {% data variables.product.prodname_ghe_cloud %}, the {% data variables.product.prodname_github_connect %} {% data variables.product.prodname_github_app %} is deleted from your enterprise account and credentials stored on {% data variables.location.product_location %} are deleted.

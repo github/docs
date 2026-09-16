@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Add a new SSH key
+category:
+  - Connect with SSH
 ---
 
 ## About addition of SSH keys to your account
@@ -84,5 +84,5 @@ gh ssh-key add ~/.ssh/id_ed25519.pub --type signing
 
 ## Further reading
 
-* [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)
+* [AUTOTITLE](/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on)
 {% endif %}

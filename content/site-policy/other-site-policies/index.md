@@ -2,9 +2,6 @@
 title: Other Site Policies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 children:
   - /github-and-trade-controls
   - /github-deceased-user-policy

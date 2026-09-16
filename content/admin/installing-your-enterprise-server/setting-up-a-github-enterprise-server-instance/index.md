@@ -10,8 +10,6 @@ redirect_from:
   - /admin/installation/setting-up-a-github-enterprise-server-instance
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /installing-github-enterprise-server-on-aws
   - /installing-github-enterprise-server-on-azure

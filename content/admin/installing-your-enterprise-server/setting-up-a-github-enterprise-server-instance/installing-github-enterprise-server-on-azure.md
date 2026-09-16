@@ -1,6 +1,6 @@
 ---
 title: Installing GitHub Enterprise Server on Azure
-intro: 'To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a memory-optimized instance that supports premium storage.'
+intro: To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a memory-optimized instance that supports premium storage.
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
@@ -8,15 +8,21 @@ redirect_from:
   - /admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure
 versions:
   ghes: '*'
-type: tutorial
-topics:
-  - Administrator
-  - Enterprise
-  - Infrastructure
-  - Set up
 shortTitle: Install on Azure
+contentType: tutorials
+category:
+  - Install and configure your instance
 ---
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
+
+{% ifversion ghes = 3.20 %}
+## Azure Local
+
+> [!NOTE] {% data variables.product.prodname_ghe_server %} on Azure Local is now in public preview. During this public preview, you can only use GHES version 3.20.
+
+If your organization requires sovereign deployments or operates in regulated environments, Azure Local is Microsoft's distributed infrastructure solution that enables this. Supporting regulated deployments, you can now host {% data variables.product.prodname_ghe_server %} on Azure Local. For more information, see [GitHub Enterprise Local](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/github-local/github-local-overview). 
+
+{% endif %}
 
 ## Prerequisites
 
@@ -54,7 +60,7 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
    az vm create -n VM_NAME -g RESOURCE_GROUP --size VM_SIZE -l REGION --image APPLIANCE_IMAGE_NAME --storage-sku Premium_LRS
    ```
 
-1. Configure the security settings on your VM to open up required ports. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports), and [az vm open-port](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port) in the Microsoft documentation. See the table below for a description of each port to determine what ports you need to open.
+1. Configure the security settings on your VM to open up required ports. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/network-ports#administrative-ports), and [az vm open-port](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port) in the Microsoft documentation. See the table below for a description of each port to determine what ports you need to open.
 
    ```shell
    az vm open-port -n VM_NAME -g RESOURCE_GROUP --port PORT_NUMBER
@@ -99,7 +105,7 @@ To configure the instance, you must confirm the instance's status, upload a lice
 
    {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
    {% data reusables.enterprise_installation.upload-a-license-file %}
-   {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
+   {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see [AUTOTITLE](/admin/configuring-settings).
    {% data reusables.enterprise_installation.instance-will-restart-automatically %}
    {% data reusables.enterprise_installation.visit-your-instance %}
 

@@ -12,8 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Customize and configure a repository
 ---
 ## About READMEs
 
@@ -38,7 +38,7 @@ When your README is viewed on GitHub, any content beyond 500 KiB will be truncat
 
 ## Auto-generated table of contents for markdown files
 
-For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.github %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="Table of Contents" %} menu icon in the top corner of the rendered page.
+For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.github %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the "Outline" menu icon {% octicon "list-unordered" aria-label="Table of Contents" %} in the top corner of the rendered page.
 
 ## Section links in markdown files and blob pages
 
@@ -59,5 +59,5 @@ A README should only contain information necessary for developers to get started
 * [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
 * [5 tips for making your {% data variables.product.company_short %} profile page accessible](https://github.blog/2023-10-26-5-tips-for-making-your-github-profile-page-accessible/) in the {% data variables.product.company_short %} blog
 {%- ifversion fpt or ghec %}
-* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)
+* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)
 {%- endif %}

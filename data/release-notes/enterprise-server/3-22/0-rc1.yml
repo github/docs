@@ -1,0 +1,264 @@
+date: '2026-07-08'
+release_candidate: true
+deprecated: false
+intro: |
+  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
+  >
+  > Do not upgrade to an RC from a supported, earlier version.
+  >
+  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+
+  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
+sections:
+
+  features:
+    - heading: Instance administration
+      notes:
+        # https://github.com/github/releases/issues/10237
+        - |
+          Phased upgrade execution gives you better control over downtime-inducing actions by isolating those actions to their own phase. You can now run the pre-upgrade stage of an upgrade outside the maintenance window using `ghe-upgrade --phase pre-upgrade -y UPGRADE-PACKAGE-FILENAME`. Running the pre-upgrade stage in advance can reduce in-maintenance upgrade time by up to 20 minutes. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package#upgrading-an-instance-using-phased-upgrade-execution).
+        # https://github.com/github/releases/issues/10384
+        - |
+          Replication operations such as starting and stopping replication and Config Apply are less dependent on each other, reducing runtime and the risk of unrelated component failures. A new replication controller service is introduced, and it manages data replication by monitoring the desired state of the system and reconciling replication configuration for Git, Pages, storage, MySQL, Elasticsearch, GitHooks, and Redis.
+    
+    - heading: Copilot
+      notes:
+        # https://github.com/github/releases/issues/10164
+        - |
+          {% data variables.copilot.copilot_cli_short %} can be configured to work with {% data variables.product.prodname_ghe_server %} for enterprises that operate in disconnected or air-gapped environments without connectivity to {% data variables.product.prodname_ghe_cloud %}. An administrator can configure a model provider once in {% data variables.product.prodname_ghe_server %}, and end users across the enterprise can use {% data variables.copilot.copilot_cli_short %} with their {% data variables.product.prodname_ghe_server %} credentials. This capability is in {% data variables.release-phases.technical_preview %} and subject to change. We recommend waiting until {% data variables.product.prodname_ghe_server %} 3.22 reaches general availability (GA) before validating and using this capability. We are publishing the note early to provide visibility into what is coming.
+    
+    - heading: Identity and access management
+      notes:
+        # https://github.com/github/releases/issues/6636
+        - |
+          Enterprise Teams, previously in public preview, is now generally available. Enterprise owners can use Enterprise Teams to manage users and their access across the entire enterprise, including organizations and repositories, from a single, centralized team structure. This reduces the operational overhead of managing user access across multiple organizations within an enterprise.
+
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/9195
+        - |
+          Security analysts can now sort {% data variables.product.prodname_secret_scanning %} push protection bypass requests and {% data variables.product.prodname_secret_scanning %} alert dismissal requests by date, in ascending or descending order, using the filter bar at the repository, organization, and enterprise levels. Previously, sort order for these requests could not be adjusted, which made it difficult for teams managing high volumes of requests to prioritize their review. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning).
+        # https://github.com/github/releases/issues/9186
+        - |
+          Organization owners can now enable periodic {% data variables.product.prodname_code_scanning %} of repositories that have been inactive (no commits) for 180 days or more. Previously, {% data variables.product.prodname_code_scanning %} with its default setup stopped scanning repositories after 180 days of inactivity. This option helps organizations that need to scan all repositories periodically for compliance reasons. For details, see the [changelog](https://github.blog/changelog/2026-06-09-periodic-code-scanning-of-inactive-repositories/).
+        # https://github.com/github/releases/issues/9170
+        - |
+          This release comes installed with {% data variables.product.prodname_codeql %} 2.25.6. Significant updates since the previous version include:
+
+          * {% data variables.product.prodname_codeql %} can analyze projects using Swift up to 6.3.2.
+          * Users working with Kotlin can analyze projects using Kotlin up to 2.3.20.
+          * {% data variables.product.prodname_codeql %} now has full support for C# 14 and .NET 10, including partial constructors, user-defined compound assignment operators, and generated data flow models for the .NET 10 runtime. Expanded ASP.NET remote source modeling improves detection of taint flows in ASP.NET applications.
+          * The Python extractor supports the new lazy import syntax defined in PEP-810 (Python 3.15).
+          * The Java control flow graph has been completely rewritten for improved analysis precision, and false positives have been reduced across multiple queries including path injection, sensitive logging, and trust boundary violation.
+          * Five C/C++ queries have been promoted to the default {% data variables.product.prodname_code_scanning %} query suite, and taint flow models have been added for the Windows SDK (`Strsafe.h` and `scanf_s`).
+          * Security queries for JavaScript/TypeScript now detect vulnerabilities in Vercel serverless functions, and new browser-specific source kinds are available for data extensions.
+          * {% data variables.product.prodname_actions %} analysis has been expanded to cover composite action metadata files, with improved detection for artifact poisoning and untrusted checkout scenarios.
+          * Users can now add custom data flow barriers and sanitizer models using data extensions across all supported languages, making it easier to suppress false positives without modifying queries directly.
+          * Security severity scores have been realigned across multiple languages, increasing XSS query scores and reducing log injection scores to better reflect actual impact.
+          * Read more in the changelogs for the {% data variables.product.prodname_codeql %} versions included in this release:
+
+            * [{% data variables.product.prodname_codeql %} 2.25.0](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.25.0/)
+            * [{% data variables.product.prodname_codeql %} 2.25.2](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.25.2/)
+            * [{% data variables.product.prodname_codeql %} 2.25.3](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.25.3/)
+            * [{% data variables.product.prodname_codeql %} 2.25.4](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.25.4/)
+            * [{% data variables.product.prodname_codeql %} 2.25.5](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.25.5/)
+            * [{% data variables.product.prodname_codeql %} 2.25.6](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.25.6/)
+        # https://github.com/github/releases/issues/8388
+        # https://github.com/github/releases/issues/7049
+        # https://github.com/github/releases/issues/6749
+        - |
+          {% data variables.product.prodname_code_scanning_caps %} with {% data variables.product.prodname_codeql %} now performs incremental analysis for pull requests in C/C++, Go, Python, JavaScript, TypeScript, Ruby, and Java repositories. By performing incremental extraction and evaluation, {% data variables.product.prodname_codeql %} analyzes only the code that changed instead of re-scanning the entire codebase, significantly reducing scan duration—with early results showing improvements between 2x and 10x. This gives developers faster feedback on pull requests, helping teams identify and remediate vulnerabilities more quickly without slowing down development. For details, see the changelogs for [C/C++ and Go](https://github.blog/changelog/2026-06-10-incremental-analysis-for-go-c-c-and-codeql-cli/) and [Ruby and Java](https://github.blog/changelog/2026-03-24-faster-incremental-analysis-with-codeql-in-pull-requests/).
+        # https://github.com/github/releases/issues/8427
+        - |
+          Security managers can now use a standardized filter bar to search and filter delegated bypass requests in Security Overview, providing a consistent filtering experience across bypass views. For details, see the [changelog](https://github.blog/changelog/2026-04-16-rule-insights-dashboard-and-unified-filter-bar/).
+        # https://github.com/github/releases/issues/8235
+        - |
+          Repository administrators can now exempt trusted automation, such as migration bots and service accounts, from {% data variables.product.prodname_secret_scanning %} push protection at the repository level. This allows high-volume automated pushes to proceed without push protection friction, while enforcement remains in place for all other contributors. Exemptions can also be configured at the organization and enterprise level, and exemption status is evaluated at the time of each push. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/grant-exemptions).
+        # https://github.com/github/releases/issues/7786
+        - |
+          Enterprise owners can now disable {% data variables.product.prodname_GH_advanced_security %} for all private and internal repositories directly from the Enterprise licensing page. Disabling {% data variables.product.prodname_GH_advanced_security %} this way also sets a policy that prevents future paid adoption of {% data variables.product.prodname_GH_advanced_security %}, helping to avoid unexpected billing or accidental re-enablement.
+        # https://github.com/github/releases/issues/7616
+        - |
+          Developers and security teams can now set a custom, user-defined validity state for {% data variables.secret-scanning.alerts %} created from custom patterns using the REST API. Sending a `PATCH` request to update an alert now accepts a `validity` value of `active`, `inactive`, or `unknown`, and sending `null` clears any existing user-defined override. When a user manually sets validity, the alert's `GET` response includes a new `validity_set_by` field identifying who set it.
+          
+          This provides teams with more flexibility to prioritize and track {% data variables.secret-scanning.alerts %} programmatically, including custom pattern and partner alerts where {% data variables.product.github %} cannot automatically determine validity. For more information, see [AUTOTITLE](/rest/secret-scanning/secret-scanning). For details, see the [changelog](https://github.blog/changelog/2026-04-14-secret-scanning-pattern-updates-and-product-improvements/).
+        # https://github.com/github/releases/issues/7023
+        - |
+          Organization owners and security managers can enable {% data variables.product.prodname_GH_advanced_security %} features more easily with a new wizard-style setup dialog on the security configurations page. The guided experience lets users choose which security products to enable and where to apply them, and first-time users see a setup splash page that opens the wizard. This makes it simpler for users who are less familiar with {% data variables.product.prodname_GH_advanced_security %} to complete setup. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security). For details, see the [changelog](https://github.blog/changelog/2026-03-17-github-advanced-security-setup-made-simple/).
+        # https://github.com/github/releases/issues/7022
+        - |
+          Developers and security teams can now link {% data variables.product.prodname_code_scanning %} alerts to {% data variables.product.prodname_github_issues %}, making it easier to collaborate on and track remediation work directly within {% data variables.product.github %}. This closes the traceability gap that occurs when switching between {% data variables.product.github %} and external work tracking tools. This feature is in public preview and subject to change. For details, see the [changelog](https://github.blog/changelog/2026-04-14-link-code-scanning-alerts-to-github-issues/).
+        # https://github.com/github/releases/issues/5239
+        - |
+          Security Overview now displays {% data variables.product.prodname_code_scanning %} {% data variables.product.prodname_codeql %} alerts from pull request analysis for branches other than the default branch. Previously, Security Overview only reported alerts and autofix statistics for the default branch, which meant alert counts did not reflect the full scope of protected branches. Site administrators and security teams can now see a more complete picture of {% data variables.product.prodname_code_scanning %} coverage across all protected branches.
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/8654
+        - |
+          Organization owners can now configure OpenID Connect (OIDC) for private registries used by {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} directly from the organization settings UI, rather than needing to configure OIDC in each repository's `dependabot.yml` file. This simplifies enabling secure, tokenless authentication to private package registries across all repositories in an organization. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#configuring-access-to-a-private-registry-in-your-organization).
+        # https://github.com/github/releases/issues/8602
+        - |
+          Organizations can now configure multiple private registries per ecosystem for {% data variables.product.prodname_dependabot %}, removing the previous limitation of one registry per ecosystem type. This allows organizations with multiple private package sources for the same ecosystem, such as two separate NuGet feeds, to register all of their private feeds and have {% data variables.product.prodname_dependabot %} authenticate against each one correctly, including when multiple registries share the same host.
+        # https://github.com/github/releases/issues/8600
+        - |
+          Developers using Deno can now receive {% data variables.product.prodname_dependabot_version_updates %} for their Deno projects. {% data variables.product.prodname_dependabot %} detects Deno dependency manifests and opens pull requests to keep dependencies up to date. For more information, see [AUTOTITLE](/code-security/reference/supply-chain-security/supported-ecosystems-and-repositories).
+        # https://github.com/github/releases/issues/8598
+        - |
+          Developers can now receive {% data variables.product.prodname_dependabot_version_updates %} for projects that use sbt as their build tool. This expands {% data variables.product.prodname_dependabot %}'s version update support to teams working with Scala projects managed by sbt. For details, see the [changelog](https://github.blog/changelog/2026-05-26-dependabot-version-updates-now-support-the-sbt-ecosystem/).
+        # https://github.com/github/releases/issues/8596
+        - |
+          {% data variables.product.prodname_dependabot %} now supports Poetry v2 for version and security updates, allowing users of Poetry v2 to receive {% data variables.product.prodname_dependabot_alerts %} and pull requests to keep their dependencies up to date and secure.
+        # https://github.com/github/releases/issues/8588
+        - |
+          Enterprise owners can allow {% data variables.product.prodname_dependabot %} to access internal and private repositories across organizations within the same enterprise. This enterprise-level setting lets {% data variables.product.prodname_dependabot %} update jobs in one organization resolve dependencies hosted in internal or private repositories of another organization, extending innersource dependency management beyond single-organization boundaries. Cross-organization access events are fully covered in the audit log. For details, see the [changelog](https://github.blog/changelog/2026-04-28-cross-org-dependabot-access-for-internal-repositories/).
+        # https://github.com/github/releases/issues/8489
+        - |
+          {% data variables.product.prodname_dependabot %} now supports the Nix ecosystem, enabling automated dependency updates for projects that use Nix Flakes for dependency management. Previously, Nix dependencies appeared as an "unknown" ecosystem with a generic icon on the {% data variables.product.prodname_dependabot %} settings page. Now, Nix is correctly recognized and visually identifiable, bringing it to parity with other supported ecosystems. For details, see the [changelog](https://github.blog/changelog/2026-04-07-dependabot-version-updates-now-support-the-nix-ecosystem/).
+        # https://github.com/github/releases/issues/8116
+        - |
+          Developers using Swift packages in Xcode projects can now get automated dependency updates from {% data variables.product.prodname_dependabot %}, even when their project doesn't include a standalone `Package.swift` file. {% data variables.product.prodname_dependabot %} now discovers and updates Swift package dependencies in Xcode projects that use `.xcodeproj` manifests with `Package.resolved` files. For more information, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories).
+        # https://github.com/github/releases/issues/7255
+        - |
+          {% data variables.product.prodname_dependabot %} now detects and alerts on known malicious package versions, starting with npm packages and expanding to additional ecosystems over time. Previously, customers had little to no signal from {% data variables.product.github %} when a dependency was compromised by a supply chain attack, making it difficult to identify and remediate malware quickly. With this release, repositories that depend on packages identified as malware receive proactive {% data variables.product.prodname_dependabot_alerts %}, helping administrators and developers respond faster to targeted attacks. For details, see the [changelog](https://github.blog/changelog/2026-03-17-dependabot-now-detects-malware-in-npm-dependencies/).
+
+    - heading: GitHub Actions
+      notes:
+        # https://github.com/github/releases/issues/7396
+        - |
+          Maintainers can now suppress "Run cancelled" notifications while still receiving "Run failed" notifications for their {% data variables.product.prodname_actions %} workflows. This gives users more control over the notifications they receive when manually cancelling a workflow run.
+        # https://github.com/github/releases/issues/7096
+        - |
+          {% data variables.product.prodname_actions_runner_controller %} (ARC) now supports multiple labels for a single scale set. Previously, ARC supported only one label per scale set, which forced enterprises to create multiple scale sets to cover overlapping configurations, leading to operational complexity and inefficient resource utilization. With multi-label support, administrators can target runners based on combined attributes, such as operating system, hardware tier, compliance zone, and network configuration, within a single scale set. This reduces the number of redundant scale sets, improves utilization, and preserves backward compatibility with existing single-label configurations.
+        # https://github.com/github/releases/issues/7068
+        - |
+          {% data variables.product.prodname_actions_runner_controller %} (ARC) 0.14.0 delivers quality-of-life improvements that reduce operational complexity for customers running self-hosted runners on Kubernetes. This release includes refined Helm charts for easier Docker configuration, improved logging for better troubleshooting, updated metrics aligned with recent platform availability initiatives, and formalized versioning requirements for ARC. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
+        # https://github.com/github/releases/issues/7066
+        - |
+          Developers can now specify a timezone when scheduling workflows with the `cron` syntax, allowing scheduled workflow runs to be localized to a specific timezone instead of only UTC. This feature is in public preview and subject to change.
+
+    - heading: Community experience
+      notes:
+        # https://github.com/github/releases/issues/7270
+        - |
+          Users can sort their notifications from oldest to newest, in addition to the default newest to oldest order, using a new sort dropdown on the notifications page. This helps users who manage large volumes of notifications process their backlog chronologically, making it easier to catch up after vacations, events, or periods of high activity. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+
+    - heading: Organizations
+      notes:
+        # https://github.com/github/releases/issues/8680
+        - |
+          Organization owners can disable commit comments for all repositories in an organization at once, instead of disabling commit comments repository by repository. This makes it easier for organizations with many repositories to control commenting on commits at scale. For details, see the [changelog](https://github.blog/changelog/2026-04-23-disable-commit-comments-across-your-organization/).
+
+    - heading: Repositories
+      notes:
+        # https://github.com/github/releases/issues/8431
+        - |
+          Repository administrators can now rename default branches that are protected by an organization ruleset. Previously, only organization owners could rename these branches. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch).
+        # https://github.com/github/releases/issues/8429
+        - |
+          Repository and organization rulesets now support bypassing by individual users, in addition to roles, teams, and apps. This gives administrators more granular control over rule bypass permissions, such as adding a service account to a bypass list without needing to create a dedicated role or team.
+        # https://github.com/github/releases/issues/7902
+        - |
+          Repository administrators and maintainers can now delete commit comments. Previously, commit comments could not be removed, which allowed spam and abusive comments to persist in repositories. This gives maintainers another tool to reduce spam and unwanted content. For details, see the [changelog](https://github.blog/changelog/2026-03-19-disable-comments-on-individual-commits/).
+        # https://github.com/github/releases/issues/7340
+        - |
+          Organization owners and repository administrators can require specific reviewers for pull requests targeting a given branch by adding a required reviewers rule to a repository ruleset. This provides more granular control over code ownership than a single `CODEOWNERS` file, which is difficult to scale for large organizations or monorepos. For example, administrators can require QA reviewers on a release branch, security team members on the default branch, or product and design reviewers on feature branches, including setting the minimum number of required reviews per team.
+        # https://github.com/github/releases/issues/6784
+        - |
+          Developers can find and organize their repositories more efficiently using the new repositories dashboard at `/repos`. The dashboard displays a developer's most active repositories and allows them to create saved views for quick access to the repositories they use most. This gives developers a centralized page for tracking their work and streamlining their workflows. For details, see the [changelog](https://github.blog/changelog/2026-02-24-repository-dashboard-is-now-generally-available/).
+
+    - heading: Issues
+      notes:
+        # https://github.com/github/releases/issues/8570
+        - |
+          Developers can now see release status directly in the issue sidebar. When a linked pull request has been included in a release, the sidebar displays a "Latest release" or "Pre-release" badge, making it easy to tell whether a fix has shipped without leaving the issue. For details, see the [changelog](https://github.blog/changelog/2026-04-09-release-info-in-issue-sidebar-and-project-defaults/).
+
+    - heading: Projects
+      notes:
+        # https://github.com/github/releases/issues/8570
+        - |
+          Project maintainers can set default values for text, number, and single select fields. When an item is added to a project, these fields are automatically populated with the configured default, reducing repetitive manual data entry. For details, see the [changelog](https://github.blog/changelog/2026-04-09-release-info-in-issue-sidebar-and-project-defaults/).
+
+    - heading: Commits
+      notes:
+        # https://github.com/github/releases/issues/8943
+        - |
+          Users can now disable commit comments at the user level, in addition to the existing repository and organization level controls. This is especially useful for the small percentage of users who own more than 100 public repositories, allowing them to manage commit comment settings across all of their repositories from a single location.
+
+    - heading: Pull requests
+      notes:
+        # https://github.com/github/releases/issues/8566
+        - |
+          Maintainers can now see contributor role labels, such as "First-time contributor," "Contributor," and "Member," directly in the pull request list view for public repositories. This gives maintainers at-a-glance context about each author's relationship to the repository without needing to open individual pull requests to check the comment box for this information. For details, see the [changelog](https://github.blog/changelog/2026-04-09-repository-member-role-labels-now-in-pull-request-list-view/).
+  
+  changes:
+    # https://github.com/github/ghes/issues/18667
+    - |
+      Starting in version 3.20, we have reserved the `/repos` path for a forthcoming product feature. If you currently use `/repos` for a route (for example, a username, organization name, a {% data variables.product.prodname_github_app %}, {% data variables.product.prodname_oauth_app %}, reverse proxy, or internal integration), you may need to update your configuration to avoid routing conflicts. Starting in 3.22, the `/repos` path will show new functionality.
+
+  known_issues:
+    # Known issues from "GHES Release Note Tracking" project
+    - |
+      During an upgrade of {% data variables.product.prodname_ghe_server %}, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the {% data variables.enterprise.management_console %} after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [Troubleshooting access to the {% data variables.enterprise.management_console %}](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a nightly scheduled job. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      In a cluster, the host running restore requires access the storage nodes via their private IPs.
+    - |
+      On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      When publishing npm packages in a workflow after restoring from a backup to {% data variables.product.prodname_ghe_server %} 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the {% data variables.product.prodname_registry %} service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to {% data variables.product.prodname_registry %}.
+    - |
+      When applying an enterprise security configuration to all repositories (for example, enabling {% data variables.product.prodname_secret_scanning_caps %} or {% data variables.product.prodname_code_scanning_caps %} across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.
+    - |
+      On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
+    - |
+      When booting a cluster in Terraform-based environments, node names may appear unidentifiable in cluster status output.
+    - |
+      In cluster HA environments, `ghe-cluster-repl-status` may report inconsistent Spokes or Storage status after running `ghe-cluster-repl-bootstrap` or `ghe-cluster-repl-teardown`.
+
+  closing_down:
+    # https://github.com/github/releases/issues/9775
+    - |
+      {% data variables.product.prodname_nes %}, introduced for cluster topologies and gated by the app.nes.enabled feature flag, is closing down in {% data variables.product.prodname_ghe_server %} 3.22 and will be removed in {% data variables.product.prodname_ghe_server %} 3.23. There is no replacement; cluster administrators do not need to take any action. If you previously enabled the `app.nes.enabled` flag, you can disable it now with `ghe-config app.nes.enabled false && ghe-config-apply`. In 3.22, a closing down warning will appear during `ghe-config-apply` if the flag is set to true. {% data variables.product.prodname_nes %} will continue to function in 3.22, but we recommend planning to stop using it before upgrading to 3.23.
+    # https://github.com/github/releases/issues/7068
+    - |
+      With the release of {% data variables.product.prodname_actions_runner_controller %} (ARC) 0.14.0, {% data variables.product.github %} has officially announced the closing down of legacy ARC. Customers still running legacy ARC versions should migrate to the latest ARC release to continue receiving critical improvements and observability features. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
+    # https://github.com/github/releases/issues/8875
+    - |
+      Collectd metrics will be retired starting in version 3.23. There won't be a Collectd metrics stack in 3.23. We will continue to support the Collectd stack in 3.22 and earlier versions during their respective support windows. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
+    # https://github.com/github/ghes/issues/18667
+    - |
+      With the release of `2026-03-10`, the `2022-11-28` version has entered its closing down period and will be retired in the next enterprise server release after `2028-03-10`. We recommend planning your migration ahead of this date to avoid any disruption. For more information, see [AUTOTITLE](/rest/about-the-rest-api/api-versions).
+
+  retired:
+    # https://github.com/github/releases/issues/8843
+    - |
+      The `code_scanning_upload` field is no longer included in the response from the `rate_limit` REST API endpoint. This field displayed a separate rate limit value that was actually joined with the `core` rate limit, which caused confusion for customers. Removing the field simplifies the `rate_limit` endpoint response and provides a clearer picture of the rate limits that apply.
+    # https://github.com/github/releases/issues/7795
+    - |
+      The `*_enabled_for_new_repositories` fields are removed from the REST API for organizations, including `advanced_security_enabled_for_new_repositories`, `dependabot_alerts_enabled_for_new_repositories`, `dependabot_security_updates_enabled_for_new_repositories`, `dependency_graph_enabled_for_new_repositories`, `secret_scanning_enabled_for_new_repositories`, `secret_scanning_push_protection_enabled_for_new_repositories`, and `secret_scanning_validity_checks_enabled`. Use the {% data variables.product.prodname_code_scanning %} configurations API to manage security feature enablement for new repositories instead. For more information, see [AUTOTITLE](/rest/orgs/security-managers).
+    # https://github.com/github/releases/issues/7806
+    - |
+      Starting in 3.22, high availability replication for cluster topologies has been retired. You will no longer be able to configure or use the feature, and the supporting code will be removed from the product.
+    # https://github.com/github/releases/issues/6651
+    - |
+      Starting in 3.22, networking-related syscalls will be disabled by default in the pre-receive hook environment. For enhanced security, hook environments will be placed in dedicated network namespaces. You will be able to override the default setting by setting pre-receive-hook-networking to enabled. In many cases, push rulesets are an alternative for many pre-receive hooks. For more information, see [AUTOTITLE](/enterprise-server@3.22/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets).

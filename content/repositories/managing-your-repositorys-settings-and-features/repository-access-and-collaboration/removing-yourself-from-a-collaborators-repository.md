@@ -16,17 +16,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
 shortTitle: Remove yourself
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repositories**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repositories**.
 1. Next to the repository you want to leave, click **Leave**.
 1. Read the warning carefully, then click **I understand, leave this repository.**
 
 ## Next steps
 
-For reference information, see [AUTOTITLE](/account-and-profile/reference/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account).
+For reference information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account).

@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Create release tracking issues for a new GHES version
+ */
 import { readFileSync } from 'fs'
 import { basename } from 'path'
 import { Liquid } from 'liquidjs'
@@ -99,12 +103,13 @@ async function createDeprecationIssue() {
   const issueTemplate = readFileSync('src/ghes-releases/lib/deprecation-steps.md', 'utf8')
   const { data, content } = matter(issueTemplate)
   const { title, labels } = data
+  const renderedContent = content.replaceAll('{{ release-number }}', oldestSupported)
   const body = `GHES ${oldestSupported} deprecation occurs on ${deprecationDate}.
-  \n${content}
-  '/cc @github/docs-engineering'`
+
+${renderedContent}`
   await createIssue(
     repo,
-    title.replace('{{ release-number }}', oldestSupported),
+    title.replaceAll('{{ release-number }}', oldestSupported),
     body,
     labels,
     oldestSupported,
@@ -190,7 +195,7 @@ async function createIssue(
       body,
       labels,
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.log(`#ERROR# ${error}\n🛑 There was an error creating the issue.`)
     throw error
   }
@@ -223,7 +228,7 @@ async function updateIssue(
       body,
       labels,
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.log(
       `#ERROR# ${error}\n🛑 There was an error updating issue ${issueNumber} in ${fullRepo}.`,
     )
@@ -244,8 +249,13 @@ async function addRepoLabels(fullRepo: string, labels: string[]) {
         repo,
         name,
       })
-    } catch (error: any) {
-      if (error.status === 404) {
+    } catch (error: unknown) {
+      if (
+        typeof error === 'object' &&
+        error !== null &&
+        'status' in error &&
+        (error as { status: number }).status === 404
+      ) {
         labelsToAdd.push(name)
       } else {
         console.log(`#ERROR# ${error}\n🛑 There was an error getting the label ${name}.`)
@@ -260,7 +270,7 @@ async function addRepoLabels(fullRepo: string, labels: string[]) {
         repo,
         name,
       })
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.log(`#ERROR# ${error}\n🛑 There was an error adding the label ${name}.`)
       throw error
     }

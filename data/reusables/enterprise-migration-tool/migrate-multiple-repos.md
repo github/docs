@@ -1,4 +1,4 @@
-To migrate multiple repositories, run the script you generated above. Replace FILENAME in the commands below with the filename you provided when generating the script.
+To migrate multiple repositories, run the script you generated. Replace FILENAME in the commands below with the filename you provided when generating the script.
 
 * If you're using Terminal, use `./`.
 

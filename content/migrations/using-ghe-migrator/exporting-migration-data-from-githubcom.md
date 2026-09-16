@@ -1,6 +1,6 @@
 ---
 title: Exporting migration data from GitHub.com
-intro: 'You can export migration data from an organization on {% data variables.product.prodname_dotcom_the_website %} by using the API to select repositories to migrate, then generating a migration archive that you can import into a {% data variables.product.prodname_ghe_server %} instance.'
+intro: You can export migration data from an organization on {% data variables.product.prodname_dotcom_the_website %} by using the API to select repositories to migrate, then generating a migration archive that you can import into a {% data variables.product.prodname_ghe_server %} instance.
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-com
   - /enterprise/admin/migrations/exporting-migration-data-from-githubcom
@@ -15,12 +15,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - API
-  - Enterprise
-  - Migration
 shortTitle: Export from GitHub.com
+contentType: how-tos
+category:
+  - Run an enterprise migration
 ---
 ## Preparing the source organization on {% data variables.product.prodname_dotcom %}
 

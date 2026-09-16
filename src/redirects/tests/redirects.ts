@@ -9,7 +9,6 @@ import enterpriseServerReleases, {
 } from '@/versions/lib/enterprise-server-releases'
 import Page from '@/frame/lib/page'
 import { get, head } from '@/tests/helpers/e2etest'
-import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -18,8 +17,7 @@ describe('redirects', () => {
 
   test('page.buildRedirects() returns an array', async () => {
     const page = await Page.init({
-      relativePath:
-        'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
+      relativePath: 'pull-requests/reference/branches.md',
       basePath: path.join(__dirname, '../../../content'),
       languageCode: 'en',
     })
@@ -262,11 +260,9 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(200)
     })
 
-    test('no version plus admin/guides redirects to the right place on latest version', async () => {
-      const shouldRedirect = versionSatisfiesRange(latest, `<${firstRestoredAdminGuides}`)
-      const expectedStatusCode = shouldRedirect ? 301 : 200
-      const res = await get(`/en/enterprise-server@${latest}/admin/guides`)
-      expect(res.statusCode).toBe(expectedStatusCode)
+    test('admin/overview returns 200 on latest version', async () => {
+      const res = await get(`/en/enterprise-server@${latest}/admin/overview`)
+      expect(res.statusCode).toBe(200)
     })
 
     test('admin/guides redirects to admin in deep links on <2.21', async () => {
@@ -315,7 +311,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/pull-requests/how-tos/work-with-forks/fork-a-repo`
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(
@@ -347,7 +343,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/pull-requests/how-tos/work-with-forks/fork-a-repo`
     const redirectFromPath = '/articles/fork-a-repo'
 
     test('redirects to expected article', async () => {

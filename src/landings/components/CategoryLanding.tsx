@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
 import { CookBookArticleCard } from './CookBookArticleCard'
 import { CookBookFilter } from './CookBookFilter'
 import { useTranslation } from '@/languages/components/useTranslation'
@@ -10,14 +9,18 @@ import { Lead } from '@/frame/components/ui/Lead'
 import { useCategoryLandingContext } from '@/frame/components/context/CategoryLandingContext'
 import { ClientSideRedirects } from '@/rest/components/ClientSideRedirects'
 import { RestRedirect } from '@/rest/components/RestRedirect'
-import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { ArticleCardItems } from '@/landings/types'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 export const CategoryLanding = () => {
   const { t } = useTranslation('cookbook_landing')
   const router = useRouter()
-  const { title, intro, tocItems, spotlight } = useCategoryLandingContext()
+  const { title, intro, tocItems, spotlight, filters } = useCategoryLandingContext()
+
+  // The category filter is always shown. Surface and complexity are opt-in via
+  // the `filters` frontmatter array on the landing page.
+  const showSurface = filters ? filters.includes('surface') : true
+  const showComplexity = filters ? filters.includes('complexity') : false
 
   // tocItems contains directories and its children, we only want the child articles
   const onlyFlatItems: ArticleCardItems = tocItems.flatMap((item) => item.childTocItems || [])
@@ -25,6 +28,7 @@ export const CategoryLanding = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedComplexity, setSelectedComplexity] = useState('All')
+  const [selectedSurface, setSelectedSurface] = useState('All')
 
   const applyFilters = () => {
     let results = onlyFlatItems
@@ -53,6 +57,10 @@ export const CategoryLanding = () => {
       results = results.filter((item) => item.complexity?.includes(selectedComplexity))
     }
 
+    if (selectedSurface !== 'All') {
+      results = results.filter((item) => item.surface?.includes(selectedSurface))
+    }
+
     return results
   }
 
@@ -62,9 +70,11 @@ export const CategoryLanding = () => {
     setSearchQuery(query)
   }
 
-  const handleFilter = (option: string, type: 'category' | 'complexity') => {
+  const handleFilter = (option: string, type: 'category' | 'complexity' | 'surface') => {
     if (type === 'category') {
       setSelectedCategory(option)
+    } else if (type === 'surface') {
+      setSelectedSurface(option)
     } else if (type === 'complexity') {
       setSelectedComplexity(option)
     }
@@ -73,6 +83,7 @@ export const CategoryLanding = () => {
   const handleResetFilter = () => {
     setSearchQuery('')
     setSelectedCategory('All')
+    setSelectedSurface('All')
     setSelectedComplexity('All')
   }
 
@@ -108,9 +119,6 @@ export const CategoryLanding = () => {
       <ClientSideRedirects />
 
       <div className="container-xl px-3 px-md-6 my-4" data-search="article-body">
-        <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
-          <Breadcrumbs />
-        </div>
         <ArticleTitle>{title}</ArticleTitle>
         {intro && <Lead data-search="lead">{intro}</Lead>}
 
@@ -156,12 +164,14 @@ export const CategoryLanding = () => {
                 onSearch={handleSearch}
                 handleFilter={handleFilter}
                 handleResetFilter={handleResetFilter}
+                showSurface={showSurface}
+                showComplexity={showComplexity}
               />
             </div>
           </div>
           <ul className="clearfix d-flex flex-wrap gutter-md-spacious" aria-live="polite">
             {searchResults.map((item, index) => (
-              <li key={index} className="col-md-6 col-lg-4 col-sm-12 list-style-none p-4">
+              <li key={index} className="col-12 col-md-6 col-lg-4 list-style-none p-4">
                 <CookBookArticleCard
                   title={item.title}
                   description={item.intro!}
@@ -170,6 +180,7 @@ export const CategoryLanding = () => {
                     ...(item.industry || []),
                     ...(item.category || []),
                     ...(item.complexity || []),
+                    ...(item.surface || []),
                   ]}
                   url={item.fullPath}
                 />

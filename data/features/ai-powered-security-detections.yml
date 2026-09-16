@@ -1,0 +1,4 @@
+# Reference: #20824
+versions:
+  ghec: '*'
+  fpt: '*'

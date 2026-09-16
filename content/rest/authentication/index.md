@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 children:
   - /authenticating-to-the-rest-api
   - /keeping-your-api-credentials-secure

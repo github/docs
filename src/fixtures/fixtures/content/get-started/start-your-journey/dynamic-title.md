@@ -4,7 +4,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: quick_start
+contentType: get-started
 ---
 
 ## Introduction

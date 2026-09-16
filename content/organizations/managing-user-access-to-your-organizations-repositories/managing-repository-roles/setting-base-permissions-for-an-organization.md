@@ -10,10 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Set base permissions
+category:
+  - Control repository access
 ---
 
 ## About base permissions for an organization

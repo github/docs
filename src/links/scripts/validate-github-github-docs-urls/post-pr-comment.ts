@@ -1,9 +1,8 @@
 import fs from 'fs'
 
 import boxen from 'boxen'
-import { Octokit } from '@octokit/rest'
-import { retry } from '@octokit/plugin-retry'
 
+import { retryingGithub } from '@/workflows/github'
 import { type Check } from '../../lib/validate-docs-urls'
 
 type PostPRCommentOptions = {
@@ -238,7 +237,7 @@ async function updateIssueComment(
   if (!process.env.GITHUB_TOKEN) {
     throw new Error('When not in dry-run mode, you must set the GITHUB_TOKEN environment variable.')
   }
-  const octokit = retryingOctokit(process.env.GITHUB_TOKEN)
+  const octokit = retryingGithub(process.env.GITHUB_TOKEN)
 
   const [owner, repo] = repository.split('/')
   const { data: existingComments } = await octokit.issues.listComments({
@@ -275,12 +274,5 @@ async function updateIssueComment(
     repo,
     issue_number: issueNumber,
     body,
-  })
-}
-
-function retryingOctokit(token: string) {
-  const RetryingOctokit = Octokit.plugin(retry)
-  return new RetryingOctokit({
-    auth: `token ${token}`,
   })
 }

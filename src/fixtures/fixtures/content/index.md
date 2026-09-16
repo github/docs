@@ -29,20 +29,21 @@ children:
   - early-access
   - pages
   - code-security
+  - codespaces
   - actions
   - rest
   - webhooks
-  - video-transcripts
+  - graphql
   # - account-and-profile
-  # - authentication
+  - authentication
   # - repositories
-  # - admin
+  - admin
   # - billing
   # - site-policy
-  # - organizations
+  - organizations
   # - pull-requests
   # - issues
-  # - copilot
+  - copilot
   # - codespaces
   # - packages
   # - search-github

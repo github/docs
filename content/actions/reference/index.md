@@ -12,4 +12,6 @@ children:
   - /security
   - /limits
   - /github-actions-importer
+contentType: reference
 ---
+

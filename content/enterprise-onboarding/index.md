@@ -1,83 +1,53 @@
 ---
 title: Enterprise onboarding
 intro: 'Onboard your company to {% data variables.product.prodname_ghe_cloud %} by following our recommended plan. You will set up teams with the access they need, create a policy framework to ensure compliance, and automate processes securely throughout your enterprise.'
-featuredLinks:
-  startHere:
-  - '/enterprise-onboarding/getting-started-with-your-enterprise'
-  - '/enterprise-onboarding/adding-users-to-your-enterprise'
-  - '/enterprise-onboarding/setting-up-organizations-and-teams'
-  - '/enterprise-onboarding/support-for-your-enterprise'
-  popular:
-  - '/enterprise-onboarding/govern-people-and-repositories'
-  - '/enterprise-onboarding/github-actions-for-your-enterprise'
 layout: journey-landing
 journeyTracks:
   - id: 'getting_started'
     title: 'Getting started with your enterprise'
     description: 'Master the fundamentals of {% data variables.product.prodname_ghe_cloud %} and get started with a trial.'
     guides:
-      - '/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type'
-      - '/enterprise-onboarding/getting-started-with-your-enterprise/setting-up-a-trial-of-github-enterprise'
-      - '/enterprise-onboarding/getting-started-with-your-enterprise/adding-users-to-your-enterprise'
-      - '/enterprise-onboarding/getting-started-with-your-enterprise/about-enterprise-billing'
-      - '/enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud'
+      - href: '/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type'
+      - href: '/admin/overview/setting-up-a-trial-of-github-enterprise-cloud'
+      - href: '/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/add-users'
+      - href: '/billing/concepts/enterprise-billing/billing-for-enterprises'
+      - href: '/migrations/overview/planning-your-migration-to-github'
   - id: 'setting_up_organizations_and_teams'
     title: 'Setting up organizations and teams in your enterprise'
     description: 'Organize work effectively and ensure people have the access they need to resources and administrative settings.'
     guides:
-      - '/enterprise-onboarding/setting-up-organizations-and-teams/best-practices'
-      - '/enterprise-onboarding/setting-up-organizations-and-teams/setting-up-an-organization'
-      - '/enterprise-onboarding/setting-up-organizations-and-teams/about-roles-in-an-enterprise'
-      - '/enterprise-onboarding/setting-up-organizations-and-teams/identify-role-requirements'
-      - '/enterprise-onboarding/setting-up-organizations-and-teams/creating-custom-roles'
-      - '/enterprise-onboarding/setting-up-organizations-and-teams/about-teams-in-an-enterprise'
-      - '/enterprise-onboarding/setting-up-organizations-and-teams/creating-teams'
-      - '/enterprise-onboarding/setting-up-organizations-and-teams/assigning-roles-to-teams-and-users'
-  - id: 'support_for_your_enterprise'
-    title: 'Creating a support model for your enterprise'
-    description: 'Find out how to get help and choose who will be able to contact Support.'
-    guides:
-      - '/enterprise-onboarding/support-for-your-enterprise/understanding-support'
-      - '/enterprise-onboarding/support-for-your-enterprise/using-the-support-portal'
-      - '/enterprise-onboarding/support-for-your-enterprise/managing-support-entitlements'
+      - href: '/admin/concepts/enterprise-best-practices/organize-work'
+      - href: '/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise'
+      - href: '/admin/concepts/enterprise-fundamentals/roles-in-an-enterprise'
+      - href: '/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements'
+      - href: '/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles'
+      - href: '/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise'
+      - href: '/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams'
+      - href: '/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/assign-roles'
+      - href: '/admin/concepts/enterprise-best-practices/use-innersource'
   - id: 'govern_people_and_repositories'
     title: 'Governing people and repositories'
     description: 'Implement policies, custom properties, and rulesets to govern users and repositories across your enterprise.'
     guides:
-      - '/enterprise-onboarding/govern-people-and-repositories/about-enterprise-policies'
-      - '/enterprise-onboarding/govern-people-and-repositories/create-custom-properties'
-      - '/enterprise-onboarding/govern-people-and-repositories/create-repository-policies'
-      - '/enterprise-onboarding/govern-people-and-repositories/protect-branches'
-      - '/enterprise-onboarding/govern-people-and-repositories/using-the-audit-log-for-your-enterprise'
-      - '/enterprise-onboarding/govern-people-and-repositories/about-enterprise-security'
+      - href: '/admin/concepts/security-and-compliance/enterprise-policies'
+      - href: '/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise'
+      - href: '/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise'
+      - href: '/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-governance'
+      - href: '/admin/concepts/security-and-compliance/audit-log-for-an-enterprise'
   - id: 'github_apps'
     title: 'Automating processes with GitHub Apps'
     description: 'Create and install apps to automate processes securely in your enterprise and organizations.'
     guides:
-      - '/enterprise-onboarding/github-apps/create-enterprise-apps'
-      - '/enterprise-onboarding/github-apps/install-enterprise-apps'
-  - id: 'github_actions_for_your_enterprise'
-    title: 'Setting up CI/CD with GitHub Actions'
-    description: 'Explore {% data variables.product.prodname_actions %}, plan your rollout, and get started.'
-    guides:
-      - '/enterprise-onboarding/github-actions-for-your-enterprise/about-github-actions-for-enterprises'
-      - '/enterprise-onboarding/github-actions-for-your-enterprise/actions-components'
-      - '/enterprise-onboarding/github-actions-for-your-enterprise/planning-a-rollout-of-github-actions'
-      - '/enterprise-onboarding/github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions'
-      - '/enterprise-onboarding/github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud'
+      - href: '/admin/concepts/enterprise-fundamentals/automations-in-your-enterprise'
+      - href: '/admin/managing-github-apps-for-your-enterprise/creating-github-apps-for-your-enterprise'
+      - href: '/apps/using-github-apps/installing-a-github-app-on-your-enterprise'
 versions:
   ghec: '*'
-topics:
-  - Administrator
-  - Enterprise
-  - Set up
-children:
-  - /getting-started-with-your-enterprise
-  - /setting-up-organizations-and-teams
-  - /support-for-your-enterprise
-  - /govern-people-and-repositories
-  - /github-apps
-  - /github-actions-for-your-enterprise
+children: []
 redirect_from:
   - /enterprise-onboarding/feature-enhancements
+  - /enterprise-onboarding/getting-started-with-your-enterprise
+  - /enterprise-onboarding/govern-people-and-repositories
+docsTeamMetrics:
+  - enterprise-onboarding
 ---

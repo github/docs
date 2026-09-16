@@ -6,7 +6,7 @@
  * bother checking that they actually work.
  */
 
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import fs from 'fs'
 
 type ExcludedLink = {
@@ -14,7 +14,7 @@ type ExcludedLink = {
   is: string | undefined
 }
 
-const excludedLinks = yaml.load(
+const excludedLinks = load(
   fs.readFileSync('./src/links/lib/excluded-links.yml', 'utf8'),
 ) as ExcludedLink[]
 

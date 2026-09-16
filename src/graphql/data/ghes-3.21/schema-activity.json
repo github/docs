@@ -1,0 +1,528 @@
+{
+  "mutations": [
+    {
+      "name": "addStar",
+      "id": "addstar",
+      "href": "/graphql/reference/activity#mutation-addstar",
+      "description": "<p>Adds a star to a Starrable.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddStarInput!",
+          "id": "addstarinput",
+          "href": "/graphql/reference/activity#input-object-addstarinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "starrable",
+          "type": "Starrable",
+          "id": "starrable",
+          "href": "/graphql/reference/activity#interface-starrable",
+          "description": "<p>The starrable.</p>"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "removeStar",
+      "id": "removestar",
+      "href": "/graphql/reference/activity#mutation-removestar",
+      "description": "<p>Removes a star from a Starrable.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RemoveStarInput!",
+          "id": "removestarinput",
+          "href": "/graphql/reference/activity#input-object-removestarinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "starrable",
+          "type": "Starrable",
+          "id": "starrable",
+          "href": "/graphql/reference/activity#interface-starrable",
+          "description": "<p>The starrable.</p>"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "updateNotificationRestrictionSetting",
+      "id": "updatenotificationrestrictionsetting",
+      "href": "/graphql/reference/activity#mutation-updatenotificationrestrictionsetting",
+      "description": "<p>Update the setting to restrict notifications to only verified or approved domains available to an owner.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateNotificationRestrictionSettingInput!",
+          "id": "updatenotificationrestrictionsettinginput",
+          "href": "/graphql/reference/activity#input-object-updatenotificationrestrictionsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "VerifiableDomainOwner",
+          "id": "verifiabledomainowner",
+          "href": "/graphql/reference/orgs#union-verifiabledomainowner",
+          "description": "<p>The owner on which the setting was updated.</p>"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "updateSubscription",
+      "id": "updatesubscription",
+      "href": "/graphql/reference/activity#mutation-updatesubscription",
+      "description": "<p>Updates the state for subscribable subjects.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateSubscriptionInput!",
+          "id": "updatesubscriptioninput",
+          "href": "/graphql/reference/activity#input-object-updatesubscriptioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "subscribable",
+          "type": "Subscribable",
+          "id": "subscribable",
+          "href": "/graphql/reference/activity#interface-subscribable",
+          "description": "<p>The input subscribable entity.</p>"
+        }
+      ],
+      "category": "activity"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "Starrable",
+      "id": "starrable",
+      "href": "/graphql/reference/activity#interface-starrable",
+      "description": "<p>Things that can be starred.</p>",
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Starrable object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "stargazerCount",
+          "description": "<p>Returns a count of how many stargazers there are on this object.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "stargazers",
+          "description": "<p>A list of users who have starred this starrable.</p>",
+          "type": "StargazerConnection!",
+          "id": "stargazerconnection",
+          "href": "/graphql/reference/users#object-stargazerconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for connection.</p>",
+              "type": {
+                "name": "StarOrder",
+                "id": "starorder",
+                "href": "/graphql/reference/activity#input-object-starorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "viewerHasStarred",
+          "description": "<p>Returns a boolean indicating whether the viewing user has starred this starrable.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "Subscribable",
+      "id": "subscribable",
+      "href": "/graphql/reference/activity#interface-subscribable",
+      "description": "<p>Entities that can be subscribed to for web and email notifications.</p>",
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Subscribable object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "viewerCanSubscribe",
+          "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerSubscription",
+          "description": "<p>Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.</p>",
+          "type": "SubscriptionState",
+          "id": "subscriptionstate",
+          "href": "/graphql/reference/activity#enum-subscriptionstate"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "SubscribableThread",
+      "id": "subscribablethread",
+      "href": "/graphql/reference/activity#interface-subscribablethread",
+      "description": "<p>Entities that can be subscribed to for web and email notifications.</p>",
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the SubscribableThread object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "viewerThreadSubscriptionFormAction",
+          "description": "<p>Identifies the viewer's thread subscription form action.</p>",
+          "type": "ThreadSubscriptionFormAction",
+          "id": "threadsubscriptionformaction",
+          "href": "/graphql/reference/activity#enum-threadsubscriptionformaction"
+        },
+        {
+          "name": "viewerThreadSubscriptionStatus",
+          "description": "<p>Identifies the viewer's thread subscription status.</p>",
+          "type": "ThreadSubscriptionState",
+          "id": "threadsubscriptionstate",
+          "href": "/graphql/reference/activity#enum-threadsubscriptionstate"
+        }
+      ],
+      "category": "activity"
+    }
+  ],
+  "enums": [
+    {
+      "name": "NotificationRestrictionSettingValue",
+      "id": "notificationrestrictionsettingvalue",
+      "href": "/graphql/reference/activity#enum-notificationrestrictionsettingvalue",
+      "description": "<p>The possible values for the notification restriction setting.</p>",
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>The setting is disabled for the owner.</p>"
+        },
+        {
+          "name": "ENABLED",
+          "description": "<p>The setting is enabled for the owner.</p>"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "StarOrderField",
+      "id": "starorderfield",
+      "href": "/graphql/reference/activity#enum-starorderfield",
+      "description": "<p>Properties by which star connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "STARRED_AT",
+          "description": "<p>Allows ordering a list of stars by when they were created.</p>"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "SubscriptionState",
+      "id": "subscriptionstate",
+      "href": "/graphql/reference/activity#enum-subscriptionstate",
+      "description": "<p>The possible states of a subscription.</p>",
+      "values": [
+        {
+          "name": "IGNORED",
+          "description": "<p>The User is never notified.</p>"
+        },
+        {
+          "name": "SUBSCRIBED",
+          "description": "<p>The User is notified of all conversations.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBED",
+          "description": "<p>The User is only notified when participating or @mentioned.</p>"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "ThreadSubscriptionFormAction",
+      "id": "threadsubscriptionformaction",
+      "href": "/graphql/reference/activity#enum-threadsubscriptionformaction",
+      "description": "<p>The possible states of a thread subscription form action.</p>",
+      "values": [
+        {
+          "name": "NONE",
+          "description": "<p>The User cannot subscribe or unsubscribe to the thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBE",
+          "description": "<p>The User can subscribe to the thread.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBE",
+          "description": "<p>The User can unsubscribe to the thread.</p>"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "ThreadSubscriptionState",
+      "id": "threadsubscriptionstate",
+      "href": "/graphql/reference/activity#enum-threadsubscriptionstate",
+      "description": "<p>The possible states of a subscription.</p>",
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>The subscription status is currently disabled.</p>"
+        },
+        {
+          "name": "IGNORING_LIST",
+          "description": "<p>The User is never notified because they are ignoring the list.</p>"
+        },
+        {
+          "name": "IGNORING_THREAD",
+          "description": "<p>The User is never notified because they are ignoring the thread.</p>"
+        },
+        {
+          "name": "NONE",
+          "description": "<p>The User is not recieving notifications from this thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_LIST",
+          "description": "<p>The User is notified becuase they are watching the list.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD",
+          "description": "<p>The User is notified because they are subscribed to the thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD_EVENTS",
+          "description": "<p>The User is notified because they chose custom settings for this thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD_TYPE",
+          "description": "<p>The User is notified because they chose custom settings for this thread.</p>"
+        },
+        {
+          "name": "UNAVAILABLE",
+          "description": "<p>The subscription status is currently unavailable.</p>"
+        }
+      ],
+      "category": "activity"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "AddStarInput",
+      "id": "addstarinput",
+      "href": "/graphql/reference/activity#input-object-addstarinput",
+      "description": "<p>Autogenerated input type of AddStar.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "starrableId",
+          "description": "<p>The Starrable ID to star.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "RemoveStarInput",
+      "id": "removestarinput",
+      "href": "/graphql/reference/activity#input-object-removestarinput",
+      "description": "<p>Autogenerated input type of RemoveStar.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "starrableId",
+          "description": "<p>The Starrable ID to unstar.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "StarOrder",
+      "id": "starorder",
+      "href": "/graphql/reference/activity#input-object-starorder",
+      "description": "<p>Ways in which star connections can be ordered.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order nodes.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order nodes by.</p>",
+          "type": "StarOrderField!",
+          "id": "starorderfield",
+          "href": "/graphql/reference/activity#enum-starorderfield"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "UpdateNotificationRestrictionSettingInput",
+      "id": "updatenotificationrestrictionsettinginput",
+      "href": "/graphql/reference/activity#input-object-updatenotificationrestrictionsettinginput",
+      "description": "<p>Autogenerated input type of UpdateNotificationRestrictionSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the owner on which to set the restrict notifications setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "settingValue",
+          "description": "<p>The value for the restrict notifications setting.</p>",
+          "type": "NotificationRestrictionSettingValue!",
+          "id": "notificationrestrictionsettingvalue",
+          "href": "/graphql/reference/activity#enum-notificationrestrictionsettingvalue"
+        }
+      ],
+      "category": "activity"
+    },
+    {
+      "name": "UpdateSubscriptionInput",
+      "id": "updatesubscriptioninput",
+      "href": "/graphql/reference/activity#input-object-updatesubscriptioninput",
+      "description": "<p>Autogenerated input type of UpdateSubscription.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "state",
+          "description": "<p>The new state of the subscription.</p>",
+          "type": "SubscriptionState!",
+          "id": "subscriptionstate",
+          "href": "/graphql/reference/activity#enum-subscriptionstate"
+        },
+        {
+          "name": "subscribableId",
+          "description": "<p>The Node ID of the subscribable object to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "activity"
+    }
+  ]
+}

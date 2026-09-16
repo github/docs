@@ -1,24 +1,3 @@
-import { useRouter } from 'next/router'
-
-type QueryInfo = {
-  query: string
-  debug: boolean
-}
-export const useQuery = (): QueryInfo => {
-  const router = useRouter()
-  const query =
-    router.query.query && Array.isArray(router.query.query)
-      ? router.query.query[0]
-      : router.query.query || ''
-
-  const debug = parseDebug(router.query.debug)
-
-  return {
-    query,
-    debug,
-  }
-}
-
 export function parseDebug(debug: string | Array<string> | undefined) {
   if (debug === '') {
     // E.g. `?query=foo&debug` should be treated as truthy

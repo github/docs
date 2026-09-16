@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting TLS errors
-intro: 'If you run into TLS issues with your appliance, you can take actions to resolve them.'
+intro: If you run into TLS issues with your appliance, you can take actions to resolve them.
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
@@ -12,15 +12,10 @@ redirect_from:
   - /admin/configuration/hardening-security-for-your-enterprise/troubleshooting-tls-errors
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Errors
-  - Infrastructure
-  - Networking
-  - Security
-  - Troubleshooting
 shortTitle: Troubleshoot TLS errors
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 ## Removing the passphrase from your key file
 
@@ -95,7 +90,7 @@ If your {% data variables.product.prodname_ghe_server %} appliance interacts wit
 
 ## Updating a TLS certificate
 
-You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.location.product_location %} with the `ghe-ssl-certificate-setup` command line utility. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup).
+You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.location.product_location %} with the `ghe-ssl-certificate-setup` command line utility. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-ssl-certificate-setup).
 
 ### Troubleshooting problems with server communications after updating a TLS certificate
 

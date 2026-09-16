@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Docker registry
+category:
+  - Work with a package registry
 ---
 
 <!-- Main versioning block. Short page for dotcom -->

@@ -4,11 +4,8 @@ shortTitle: Manage your account
 intro: 'Learn how to manage your {% data variables.product.prodname_copilot_short %} account.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /get-started-with-a-copilot-plan
-  - /get-free-access-to-copilot-pro
   - /view-and-change-your-copilot-plan
   - /disable-copilot-free
   - /manage-policies

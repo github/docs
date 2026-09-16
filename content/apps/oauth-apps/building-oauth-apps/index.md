@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
 children:
   - /differences-between-github-apps-and-oauth-apps
   - /rate-limits-for-oauth-apps

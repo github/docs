@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Manage commits
 ---
 ## About tags in {% data variables.product.prodname_desktop %}
 

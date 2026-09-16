@@ -12,15 +12,6 @@ function isNewLandingPage(currentLayoutName: string): boolean {
   )
 }
 
-// TODO: TEMP: This is a temporary solution to turn off/on new landing pages while we develop them.
-function isNewLandingPageFeature(req: ExtendedRequest): boolean {
-  return (
-    req.query?.feature === 'bespoke-landing' ||
-    req.query?.feature === 'journey-landing' ||
-    req.query?.feature === 'discovery-landing'
-  )
-}
-
 // This module adds either flatTocItems or nestedTocItems to the context object for
 // product, category, and subcategory TOCs that don't have other layouts specified.
 // They are rendered by includes/generic-toc-flat.html or includes/generic-toc-nested.html.
@@ -28,7 +19,6 @@ export default async function genericToc(req: ExtendedRequest, res: Response, ne
   if (!req.context) throw new Error('request not contextualized')
   if (!req.context.page) return next()
   if (
-    !isNewLandingPageFeature(req) &&
     req.context.currentLayoutName !== 'default' &&
     !isNewLandingPage(req.context.currentLayoutName || '')
   )
@@ -106,8 +96,7 @@ export default async function genericToc(req: ExtendedRequest, res: Response, ne
       recurse: isRecursive,
       renderIntros,
       includeHidden,
-      textOnly:
-        isNewLandingPageFeature(req) || isNewLandingPage(req.context.currentLayoutName || ''),
+      textOnly: isNewLandingPage(req.context.currentLayoutName || ''),
     })
   }
 
@@ -117,13 +106,9 @@ export default async function genericToc(req: ExtendedRequest, res: Response, ne
     renderIntros = false
     req.context.genericTocNested = await getTocItems(treePage, req.context, {
       recurse: isRecursive,
-      renderIntros:
-        isNewLandingPageFeature(req) || isNewLandingPage(req.context.currentLayoutName || '')
-          ? true
-          : false,
+      renderIntros: isNewLandingPage(req.context.currentLayoutName || '') ? true : false,
       includeHidden,
-      textOnly:
-        isNewLandingPageFeature(req) || isNewLandingPage(req.context.currentLayoutName || ''),
+      textOnly: isNewLandingPage(req.context.currentLayoutName || ''),
     })
   }
 
@@ -146,12 +131,13 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
   }
 
   return await Promise.all(
-    node.childPages.filter(filterHidden).map(async (child) => {
+    (node.childPages || []).filter(filterHidden).map(async (child) => {
       const { page } = child
       const title = await page.renderProp('rawTitle', context, { textOnly: true })
       const octicon = page.octicon ?? null
       const category = page.category ? page.category : null
       const complexity = page.complexity ? page.complexity : null
+      const surface = page.surface ? page.surface : null
       const industry = page.industry ? page.industry : null
       let intro = null
       if (opts.renderIntros) {
@@ -183,6 +169,7 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
         octicon,
         category,
         complexity,
+        surface,
         industry,
         childTocItems,
       } as ToC

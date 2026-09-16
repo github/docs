@@ -18,11 +18,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
 shortTitle: Remove a collaborator
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 
 ## Removing collaborator permissions from a person contributing to a repository
@@ -34,4 +33,4 @@ contentType: other
 
 ## Next steps
 
-* For reference information, see [AUTOTITLE](/account-and-profile/reference/permission-levels-for-a-personal-account-repository#removing-a-collaborator).
+* For reference information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository#access-after-removing-a-collaborator).

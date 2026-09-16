@@ -5,8 +5,6 @@ intro: You can prevent {% data variables.product.prodname_copilot_short %} from 
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/concepts/content-exclusion-for-github-copilot
   - /copilot/concepts/content-exclusion
@@ -64,5 +62,5 @@ After you configure content exclusion, the client (for example, the {% data vari
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/content-exclusion/excluding-content-from-github-copilot)
-* [AUTOTITLE](/copilot/how-tos/content-exclusion/reviewing-changes-to-content-exclusions-for-github-copilot)
+* [AUTOTITLE](/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
+* [AUTOTITLE](/copilot/how-tos/configure-content-exclusion/review-changes)

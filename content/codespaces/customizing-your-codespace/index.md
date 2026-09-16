@@ -6,8 +6,6 @@ versions:
   ghec: '*'
 redirect_from:
   - /codespaces/setting-up-your-codespace
-topics:
-  - Codespaces
 children:
   - /renaming-a-codespace
   - /changing-the-shell-in-a-codespace

@@ -5,8 +5,8 @@ intro: "You can download reports with information about the users, organizations
 permissions: Enterprise owners can download reports for a {% data variables.product.prodname_ghe_server %} instance.
 versions:
   ghes: '*'
-topics:
-  - Enterprise
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About reports for {% data variables.product.prodname_ghe_server %}
@@ -25,14 +25,14 @@ You can download CSV files that report the following information:
 
 * All users
 * All active users
-* All [dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)
+* All [dormant users](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-dormant-users)
 * All users who have been suspended
 * All organizations
 * All repositories
 
 ## Downloading reports programmatically
 
-You can also access reports programmatically via standard HTTP authentication and a {% data variables.product.pat_v1 %}. You must use a {% data variables.product.pat_v1 %} with the `site_admin` scope. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+You can also access reports programmatically via standard HTTP authentication and a {% data variables.product.pat_v1 %}. You must use a {% data variables.product.pat_v1 %} with the `site_admin` scope. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 For example, you can download the "all users" report using curl:
 

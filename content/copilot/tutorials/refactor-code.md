@@ -1,8 +1,6 @@
 ---
 title: Refactoring code with GitHub Copilot
 intro: 'Leverage {% data variables.product.prodname_copilot_short %} artificial intelligence to help you refactor your code quickly and effectively.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:

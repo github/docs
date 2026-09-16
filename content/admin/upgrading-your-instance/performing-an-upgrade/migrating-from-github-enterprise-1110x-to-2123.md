@@ -13,15 +13,13 @@ redirect_from:
   - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/migrating-from-github-enterprise-1110x-to-2123
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/migrating-from-github-enterprise-1110x-to-2123
   - /admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/migrating-from-github-enterprise-1110x-to-2123
-intro: 'To migrate from {% data variables.product.prodname_enterprise %} 11.10.x to 2.1.23, you''ll need to set up a new appliance instance and migrate data from the previous instance.'
+intro: To migrate from {% data variables.product.prodname_enterprise %} 11.10.x to 2.1.23, you'll need to set up a new appliance instance and migrate data from the previous instance.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Migration
-  - Upgrades
 shortTitle: Migrate from 11.10.x to 2.1.23
+contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 > [!NOTE]
@@ -57,7 +55,7 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
 1. In the "Add new SSH key" text field, paste your backup host access SSH key.
 1. Click **Add key** and then click **Continue**.
 1. Copy the `ghe-restore` command that you'll run on the backup host to migrate data to the new instance.
-1. Enable maintenance mode on the old instance and wait for all active processes to complete. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
+1. Enable maintenance mode on the old instance and wait for all active processes to complete. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 
    > [!NOTE]
    > The instance will be unavailable for normal use from this point forward.

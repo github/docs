@@ -10,10 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Remove collaborator
+category:
+  - Control repository access
 ---
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}
@@ -21,7 +20,7 @@ shortTitle: Remove collaborator
 {% ifversion fpt or ghec %}
 
 > [!WARNING]
-> * When removing an outside collaborator from a private repository, the paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan).
+> * When removing an outside collaborator from a private repository, the paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/downgrade-plan).
 > * You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
 
 {% endif %}

@@ -12,15 +12,12 @@ redirect_from:
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
   - /admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap
-intro: 'If you use Lightweight Directory Access Protocol (LDAP) to centralize access across applications, you can integrate {% data variables.product.prodname_ghe_server %} by configuring LDAP authentication for your instance.'
+intro: If you use Lightweight Directory Access Protocol (LDAP) to centralize access across applications, you can integrate {% data variables.product.prodname_ghe_server %} by configuring LDAP authentication for your instance.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
+contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About LDAP authentication for {% data variables.product.prodname_ghe_server %}
@@ -46,7 +43,7 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 ## Username considerations with LDAP
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication).
 
 ## Configuring LDAP with {% data variables.location.product_location %}
 
@@ -60,6 +57,7 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
+
 1. Under "Authentication", select **LDAP**.
 1. {% data reusables.enterprise_user_management.built-in-authentication-option %}
 1. Add your configuration settings.
@@ -104,6 +102,7 @@ You can validate the LDAP server certificate you use with TLS by enabling LDAP c
 To enable LDAP certificate verification, select **Enable LDAP certificate verification** in your LDAP settings.
 
 When this option is selected, the certificate is validated to make sure:
+
 * If the certificate contains at least one Subject Alternative Name (SAN), one of the SANs matches the LDAP hostname. Otherwise, the Common Name (CN) matches the LDAP hostname.
 * The certificate is not expired.
 * The certificate is signed by a trusted certificate authority (CA).
@@ -185,6 +184,7 @@ You can view the full list of LDAP users who have access to your instance and pr
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
+
 1. In the left sidebar, click **LDAP users**.
 1. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
 
@@ -193,8 +193,8 @@ You can view the full list of LDAP users who have access to your instance and pr
 Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are not automatically synchronized with {% data variables.product.prodname_ghe_server %}.
 
 * To use a new LDAP admin group, users must be manually promoted and demoted on {% data variables.product.prodname_ghe_server %} to reflect changes in LDAP.
-* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
-* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
+* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
+* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 ## Manually syncing LDAP accounts
 
@@ -203,6 +203,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+
 1. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
 
 You can also [use the API to trigger a manual sync](/rest/enterprise-admin/ldap).
@@ -211,7 +212,7 @@ You can also [use the API to trigger a manual sync](/rest/enterprise-admin/ldap)
 
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 
-If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
+If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 ## About logging for LDAP
 
@@ -221,4 +222,10 @@ Log events for LDAP appear in systemd journal logs on {% data variables.location
 
 The {% data variables.product.prodname_ghe_server %} LDAP authentication timeout setting is 10 seconds. This means that all LDAP queries required for user authentication and group membership queries (when Administrators and Restricted User Groups are configured in the management console) must successfully complete within 10 seconds for an LDAP user who is logging into {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_ghe_server %} does not currently support extending this 10 second LDAP authentication timeout as this can have a negative impact on other services on the appliance and lead to poor performance or unexpected outages. We recommend limiting the network latency between {% data variables.product.prodname_ghe_server %} and LDAP server(s) to help prevent authentication timeouts.
 
-{% data variables.product.prodname_ghe_server %} does not support user LDAP DNs with special characters. If there is an LDAP user with a special character in their LDAP DN, {% data variables.product.prodname_ghe_server %} may not be able to accurately determine the group membership of a user who is authenticating or being synced by LDAP Sync.  
+{% data variables.product.prodname_ghe_server %} does not support user LDAP DNs with special characters. If there is an LDAP user with a special character in their LDAP DN, {% data variables.product.prodname_ghe_server %} may not be able to accurately determine the group membership of a user who is authenticating or being synced by LDAP Sync.
+
+## Migrating from LDAP to SAML and SCIM
+
+If your organization needs automated user provisioning and lifecycle management capabilities beyond what LDAP provides, you can migrate from LDAP authentication to SAML single sign-on with SCIM provisioning. This migration enables centralized user provisioning, deprovisioning, and attribute synchronization from your identity provider.
+
+For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/migrating-from-ldap-to-saml-with-scim).

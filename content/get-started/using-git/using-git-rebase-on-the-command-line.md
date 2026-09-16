@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Git rebase
+category:
+  - Work with Git
 ---
 ## Using Git rebase
 

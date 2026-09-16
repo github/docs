@@ -1,5 +1,15 @@
 import { writeFileSync, readFileSync, existsSync } from 'fs'
 
+type ApiDoc = {
+  method: string
+  path: string
+  description: string
+  params: string[]
+  returns: string
+  examples: string
+  throws: string[]
+}
+
 function main({ sources, outputPath }: { sources: string[]; outputPath: string }): void {
   // Extract API documentation comments from all source files
   const allDocs = sources.flatMap((sourcePath) => extractApiDocs(sourcePath))
@@ -14,8 +24,8 @@ function main({ sources, outputPath }: { sources: string[]; outputPath: string }
 }
 
 // Extract API docs from comments in the file
-function extractApiDocs(file: string): string[] {
-  const apiDocs: any[] = []
+function extractApiDocs(file: string): ApiDoc[] {
+  const apiDocs: ApiDoc[] = []
 
   // get the content from the api routes
   const content = readFileSync(file, 'utf8')
@@ -114,7 +124,7 @@ function extractExample(commentBlock: string): string {
 }
 
 // Generate markdown from parsed documentation
-function generateMarkdown(apiDocs: any[]): string {
+function generateMarkdown(apiDocs: ApiDoc[]): string {
   let markdown = '## Reference: API endpoints\n\n'
 
   for (const doc of apiDocs) {

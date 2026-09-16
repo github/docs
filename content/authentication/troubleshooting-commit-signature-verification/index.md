@@ -9,9 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 children:
   - /checking-your-commit-and-tag-signature-verification-status
   - /using-a-verified-email-address-in-your-gpg-key

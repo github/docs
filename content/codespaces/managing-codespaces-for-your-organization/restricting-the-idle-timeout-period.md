@@ -2,14 +2,14 @@
 title: Restricting the idle timeout period
 shortTitle: Restrict timeout periods
 intro: You can set a maximum timeout period for any codespaces owned by your organization.
-permissions: 'To manage timeout constraints for an organization''s codespaces, you must be an owner of the organization.'
+permissions: To manage timeout constraints for an organization's codespaces, you must be an owner of the organization.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
 product: '{% data reusables.gated-features.codespaces-org %}'
+contentType: how-tos
+category:
+  - Manage codespaces for your organization
 ---
 
 ## Overview
@@ -23,7 +23,7 @@ As an organization owner, you may want to configure constraints on the maximum i
 > [!NOTE]
 > Maximum idle timeout constraints only apply to codespaces that are owned by your organization.
 
-For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing).
+For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see [AUTOTITLE](/billing/concepts/product-billing/github-codespaces#pricing).
 
 ### Inactivity defined
 

@@ -1,10 +1,6 @@
 import { SNOWBALL_LANGUAGES } from '@/search/scripts/index/utils/constants'
 
 import type { estypes } from '@elastic/elasticsearch'
-import type {
-  AnalysisSnowballLanguage,
-  AnalysisCustomAnalyzer,
-} from '@elastic/elasticsearch/lib/api/types'
 
 export function getGeneralSearchSettings(
   language: string,
@@ -24,12 +20,12 @@ export function getGeneralSearchSettings(
           filter: ['lowercase', 'stop', 'asciifolding'],
           tokenizer: 'standard',
           type: 'custom',
-        } as AnalysisCustomAnalyzer,
+        } as estypes.AnalysisCustomAnalyzer,
         text_analyzer: {
           filter: ['lowercase', 'stop', 'asciifolding'],
           tokenizer: 'standard',
           type: 'custom',
-        } as AnalysisCustomAnalyzer,
+        } as estypes.AnalysisCustomAnalyzer,
       },
       filter: {},
     },
@@ -37,12 +33,13 @@ export function getGeneralSearchSettings(
 
   const snowballLanguage = SNOWBALL_LANGUAGES[language]
   if (snowballLanguage) {
-    const textAnalyzer = settings.analysis!.analyzer!.text_analyzer as AnalysisCustomAnalyzer
-    textAnalyzer.filter!.push('languaged_snowball')
+    const textAnalyzer = settings.analysis!.analyzer!
+      .text_analyzer as estypes.AnalysisCustomAnalyzer
+    ;(textAnalyzer.filter as string[]).push('languaged_snowball')
 
     settings.analysis!.filter!['languaged_snowball'] = {
       type: 'snowball',
-      language: snowballLanguage as AnalysisSnowballLanguage,
+      language: snowballLanguage as estypes.AnalysisSnowballLanguage,
     }
   } else if (verbose) {
     console.warn(`No snowball language for '${language}'`)
@@ -62,7 +59,7 @@ export function getAISearchAutocompleteSettings(
           filter: ['lowercase'],
           tokenizer: 'standard',
           type: 'custom',
-        } as AnalysisCustomAnalyzer,
+        } as estypes.AnalysisCustomAnalyzer,
       },
       filter: {},
     },
@@ -70,12 +67,13 @@ export function getAISearchAutocompleteSettings(
 
   const snowballLanguage = SNOWBALL_LANGUAGES[language]
   if (snowballLanguage) {
-    const textAnalyzer = settings.analysis!.analyzer!.text_analyzer as AnalysisCustomAnalyzer
-    textAnalyzer.filter!.push('languaged_snowball')
+    const textAnalyzer = settings.analysis!.analyzer!
+      .text_analyzer as estypes.AnalysisCustomAnalyzer
+    ;(textAnalyzer.filter as string[]).push('languaged_snowball')
 
     settings.analysis!.filter!['languaged_snowball'] = {
       type: 'snowball',
-      language: snowballLanguage as AnalysisSnowballLanguage,
+      language: snowballLanguage as estypes.AnalysisSnowballLanguage,
     }
   } else if (verbose) {
     console.warn(`No snowball language for '${language}'`)

@@ -1,7 +1,7 @@
 ---
 title: Using self-hosted runners in a workflow
 shortTitle: Use in a workflow
-intro: 'To use self-hosted runners in a workflow, you can use labels or groups to specify the runner for a job.'
+intro: To use self-hosted runners in a workflow, you can use labels or groups to specify the runner for a job.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
@@ -13,6 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Use and manage runners
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -27,7 +30,7 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.repository-runners %}
 1. Click the **Self hosted** tab at the top of the list of runners.
-1. Review the list of available self-hosted runners for the repository. This list includes both self-hosted runners and runner scale sets created with {% data variables.product.prodname_actions_runner_controller %}. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
+1. Review the list of available self-hosted runners for the repository. This list includes both self-hosted runners and runner scale sets created with {% data variables.product.prodname_actions_runner_controller %}. For more information, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller).
 {% data reusables.actions.copy-runner-label %}
 
 {% data reusables.actions.actions-tab-new-runners-note %}
@@ -52,7 +55,7 @@ runs-on: [self-hosted, linux, ARM64]
 * `linux` - Only use a Linux-based runner.
 * `ARM64` - Only use a runner based on ARM64 hardware.
 
-To create individual self-hosted runners without the default labels, pass the `--no-default-labels` flag when you create the runner. Actions Runner Controller does not support multiple labels.
+To create individual self-hosted runners without the default labels, pass the `--no-default-labels` flag when you create the runner.
 
 ## Using custom labels to route jobs
 

@@ -12,9 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Delete & restore branches
+category:
+  - Manage branches and protect code
 ---
 ## Deleting a branch used for a pull request
 

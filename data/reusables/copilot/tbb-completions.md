@@ -1,0 +1,1 @@
+Code completions and {% data variables.copilot.next_edit_suggestions %} are not billed in {% data variables.product.prodname_ai_credits_short %}. They remain unlimited for all paid {% data variables.product.prodname_copilot_short %} plans and continue to use their existing counting mechanism.

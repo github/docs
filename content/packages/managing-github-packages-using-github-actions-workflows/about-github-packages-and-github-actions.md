@@ -8,6 +8,8 @@ versions:
 shortTitle: Packages & Actions
 redirect_from:
   - /actions/publishing-packages/about-packaging-with-github-actions
+category:
+  - Get started with packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

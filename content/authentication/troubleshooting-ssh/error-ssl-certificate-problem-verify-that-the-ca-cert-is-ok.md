@@ -8,9 +8,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: SSL certificate problem
+category:
+  - Troubleshoot authentication issues
 ---
 The error you receive may look like the following:
 

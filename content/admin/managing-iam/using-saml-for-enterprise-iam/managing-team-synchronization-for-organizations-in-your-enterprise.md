@@ -1,15 +1,9 @@
 ---
 title: Managing team synchronization for organizations in your enterprise
-intro: 'You can enable team synchronization between Microsoft Entra ID (previously known as Azure AD) and {% data variables.product.github %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.'
+intro: You can enable team synchronization between Microsoft Entra ID (previously known as Azure AD) and {% data variables.product.github %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - SSO
-  - Teams
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/managing-team-synchronization-for-organizations-in-your-enterprise-account
@@ -17,6 +11,9 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
 shortTitle: Manage team synchronization
+contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}
@@ -43,7 +40,7 @@ You can also configure and manage team synchronization for an individual organiz
 
 * You must use an Entra ID commercial tenant, not Gov Cloud.
 * You or your Entra ID administrator must be a Global administrator or a Privileged Role administrator in Entra ID.
-* You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
+* You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
 * You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see [AUTOTITLE](/authentication/authenticating-with-single-sign-on).
 
 ## Managing team synchronization for Entra ID

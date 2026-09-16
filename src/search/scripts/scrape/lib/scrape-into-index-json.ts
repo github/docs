@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 
 import languages from '@/languages/lib/languages-server'
-import buildRecords from '@/search/scripts/scrape/lib/build-records'
+import buildRecords from '@/search/scripts/scrape/lib/build-records-from-api'
 import findIndexablePages from '@/search/scripts/scrape/lib/find-indexable-pages'
 import { writeIndexRecords } from '@/search/scripts/scrape/lib/search-index-records'
 import { getElasticSearchIndex } from '@/search/lib/elasticsearch-indexes'
@@ -79,8 +79,42 @@ export default async function scrapeIntoIndexJson({
         })
       }
 
-      const fileWritten = await writeIndexRecords(indexName, records, outDirectory)
-      console.log(`wrote records to ${fileWritten}`)
+      const { filePath: fileWritten, skippedRecords } = await writeIndexRecords(
+        indexName,
+        records,
+        outDirectory,
+      )
+      if (fileWritten) {
+        console.log(`wrote records to ${fileWritten}`)
+      } else {
+        totalFailedPages += 1
+        allFailures.push({
+          indexName,
+          languageCode,
+          indexVersion,
+          failures: [
+            {
+              error: `No valid records to write for ${indexName}`,
+              errorType: 'no-valid-records',
+            },
+          ],
+        })
+      }
+
+      if (skippedRecords.length > 0) {
+        const skippedFailures = skippedRecords.map(({ objectID, reason }) => ({
+          url: objectID,
+          error: `Record skipped: ${reason}`,
+          errorType: 'invalid-record',
+        }))
+        totalFailedPages += skippedRecords.length
+        allFailures.push({
+          indexName,
+          languageCode,
+          indexVersion,
+          failures: skippedFailures,
+        })
+      }
     }
   }
   const t1 = new Date()

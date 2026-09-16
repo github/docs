@@ -3,9 +3,9 @@ title: Sharing feedback with GitHub
 intro: "You can share your ideas, thoughts, and feedback with {% data variables.product.company_short %}'s Product team and upvote feedback left by others."
 versions:
   fpt: '*'
-topics:
-  - Support
 shortTitle: Sharing feedback
+category:
+  - Contact GitHub
 ---
 
 > [!IMPORTANT]

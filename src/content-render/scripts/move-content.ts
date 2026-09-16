@@ -28,7 +28,6 @@ import { execFileSync } from 'child_process'
 import { program } from 'commander'
 import chalk from 'chalk'
 import walk from 'walk-sync'
-import yaml from 'js-yaml'
 import escapeStringRegexp from 'escape-string-regexp'
 
 import fm from '@/frame/lib/frontmatter'
@@ -51,11 +50,14 @@ interface PositionInfo {
 // This is so you can optionally run it again the test fixtures root.
 const ROOT = process.env.ROOT || '.'
 const CONTENT_ROOT = path.resolve(path.join(ROOT, 'content'))
-const DATA_ROOT = path.resolve(path.join(ROOT, 'data'))
 
 const REDIRECT_FROM_KEY = 'redirect_from'
 const CHILDREN_KEY = 'children'
 const CHILDGROUPS_KEY = 'childGroups'
+
+const STRINGIFY_OPTIONS = { lineWidth: 10000 } as unknown as Parameters<
+  typeof readFrontmatter.stringify
+>[2]
 
 program
   .description('Helps you move (rename) files or folders')
@@ -356,7 +358,7 @@ function removeFromChildren(oldPath: string, opts: MoveOptions): PositionInfo {
 
   let childrenPosition = -1
   if (data && CHILDREN_KEY in data) {
-    data[CHILDREN_KEY] = data[CHILDREN_KEY].filter((entry: any, i: number) => {
+    data[CHILDREN_KEY] = data[CHILDREN_KEY].filter((entry: string, i: number) => {
       if (entry === oldName || entry === `/${oldName}`) {
         childrenPosition = i
         return false
@@ -374,7 +376,7 @@ function removeFromChildren(oldPath: string, opts: MoveOptions): PositionInfo {
   for (let i = 0; i < childGroups.length; i++) {
     const group = childGroups[i]
     if (group.children) {
-      group.children = group.children.filter((entry: any, j: number) => {
+      group.children = group.children.filter((entry: string, j: number) => {
         if (entry === oldName || entry === `/${oldName}`) {
           childGroupPositions.push([i, j])
           return false
@@ -387,7 +389,7 @@ function removeFromChildren(oldPath: string, opts: MoveOptions): PositionInfo {
   if (data) {
     fs.writeFileSync(
       parentFilePath,
-      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
+      readFrontmatter.stringify(content, data, STRINGIFY_OPTIONS),
       'utf-8',
     )
   }
@@ -409,7 +411,7 @@ function addToChildren(newPath: string, positions: PositionInfo, opts: MoveOptio
   if (childrenPosition > -1 && data) {
     const children = data[CHILDREN_KEY] || []
     let prefix = ''
-    if (children.every((entry: any) => entry.startsWith('/'))) {
+    if (children.every((entry: string) => entry.startsWith('/'))) {
       prefix += '/'
     }
     if (childrenPosition > -1 && childrenPosition < children.length) {
@@ -436,7 +438,7 @@ function addToChildren(newPath: string, positions: PositionInfo, opts: MoveOptio
   if (data) {
     fs.writeFileSync(
       parentFilePath,
-      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
+      readFrontmatter.stringify(content, data, STRINGIFY_OPTIONS),
       'utf-8',
     )
   }
@@ -501,7 +503,7 @@ function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
   // frontmatter key.
   // See comment in the first loop above for why we're looping over the files
   // two times.
-  for (const [oldPath, newPath, oldHref, newHref] of files) {
+  for (const [oldPath, newPath, oldHref] of files) {
     const fileContent = fs.readFileSync(newPath, 'utf-8')
     const { content, data } = readFrontmatter(fileContent)
     if (!data) continue
@@ -509,25 +511,13 @@ function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
       data[REDIRECT_FROM_KEY] = []
     }
     data[REDIRECT_FROM_KEY].push(oldHref)
-    fs.writeFileSync(
-      newPath,
-      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
-      'utf-8',
-    )
+    fs.writeFileSync(newPath, readFrontmatter.stringify(content, data, STRINGIFY_OPTIONS), 'utf-8')
     if (verbose) {
       console.log(`Added ${oldHref} to 'redirects_from' in ${newPath}`)
     }
 
     if (updateParent) {
       addToChildren(newPath, removeFromChildren(oldPath, opts), opts)
-    }
-
-    // Perhaps this was mentioned in a 'guide' in a learning track
-    for (const filePath of findInLearningTracks(oldHref)) {
-      changeLearningTracks(filePath, oldHref, newHref)
-      if (verbose) {
-        console.log(`Updated learning tracks in ${filePath}`)
-      }
     }
   }
 
@@ -536,12 +526,16 @@ function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
     const filePaths = files.map(([, newPath]) => newPath)
     try {
       const cmd = ['run', 'add-content-type', '--', '--paths', ...filePaths]
-      const result = execFileSync('npm', cmd, { cwd: process.cwd(), encoding: 'utf8' }) as any
+      const result = execFileSync('npm', cmd, {
+        cwd: process.cwd(),
+        encoding: 'utf8',
+      })
       if (result.trim()) {
         console.log(result.trim())
       }
-    } catch (error: any) {
-      console.warn(`Warning: Failed to add contentType frontmatter: ${error.message}`)
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error)
+      console.warn(`Warning: Failed to add contentType frontmatter: ${message}`)
     }
   }
 
@@ -563,33 +557,21 @@ function undoFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
   const { verbose, git: useGit } = opts
 
   // First undo any edits to the file
-  for (const [oldPath, newPath, oldHref, newHref] of files) {
+  for (const [oldPath, newPath, oldHref] of files) {
     const fileContent = fs.readFileSync(newPath, 'utf-8')
     const { content, data } = readFrontmatter(fileContent)
     if (!data) continue
 
     data[REDIRECT_FROM_KEY] = (data[REDIRECT_FROM_KEY] || []).filter(
-      (entry: any) => entry !== oldHref,
+      (entry: string) => entry !== oldHref,
     )
     if (data[REDIRECT_FROM_KEY].length === 0) {
       delete data[REDIRECT_FROM_KEY]
     }
 
-    fs.writeFileSync(
-      newPath,
-      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
-      'utf-8',
-    )
+    fs.writeFileSync(newPath, readFrontmatter.stringify(content, data, STRINGIFY_OPTIONS), 'utf-8')
     if (updateParent) {
       addToChildren(newPath, removeFromChildren(oldPath, opts), opts)
-    }
-
-    // Perhaps this was mentioned in a 'guide' in a learning track
-    for (const filePath of findInLearningTracks(newHref)) {
-      changeLearningTracks(filePath, newHref, oldHref)
-      if (verbose) {
-        console.log(`Updated learning tracks in ${filePath}`)
-      }
     }
   }
   if (useGit) {
@@ -599,40 +581,6 @@ function undoFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
       console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
   }
-}
-
-function findInLearningTracks(href: string) {
-  const allFiles: string[] = walk(path.join(DATA_ROOT, 'learning-tracks'), {
-    globs: ['*.yml'],
-    includeBasePath: true,
-    directories: false,
-  })
-  const found: string[] = []
-  for (const filePath of allFiles) {
-    const tracks = yaml.load(fs.readFileSync(filePath, 'utf-8')) as Record<
-      string,
-      { guides?: string[] }
-    >
-
-    if (
-      Object.values(tracks).find((track) => {
-        const guides = track.guides || []
-        return guides.includes(href)
-      })
-    ) {
-      found.push(filePath)
-    }
-  }
-  return found
-}
-
-function changeLearningTracks(filePath: string, oldHref: string, newHref: string) {
-  // Can't deserialize and serialize the Yaml because it would lose
-  // formatting and comments. So regex replace it.
-  const regex = new RegExp(`- ${oldHref}$`, 'gm')
-  const oldContent = fs.readFileSync(filePath, 'utf-8')
-  const newContent = oldContent.replace(regex, `- ${newHref}`)
-  fs.writeFileSync(filePath, newContent, 'utf-8')
 }
 
 function changeHomepageLinks(oldHref: string, newHref: string, verbose: boolean) {
@@ -681,11 +629,7 @@ function changeFeaturedLinks(oldHref: string, newHref: string): void {
     }
 
     if (changed) {
-      fs.writeFileSync(
-        file,
-        readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
-        'utf-8',
-      )
+      fs.writeFileSync(file, readFrontmatter.stringify(content, data, STRINGIFY_OPTIONS), 'utf-8')
     }
   }
 }

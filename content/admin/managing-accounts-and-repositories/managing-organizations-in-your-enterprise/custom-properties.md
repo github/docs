@@ -4,14 +4,11 @@ intro: 'Custom properties allow you to add structured metadata to repositories a
 permissions: 'Repository custom properties can be managed by organization owners and users with admin permissions to the repository. Organization custom properties can be managed by enterprise owners and users with the "Manage the Enterprise''s custom properties definitions" permission.'
 versions:
   ghec: '*'
-  ghes: '*'
-topics:
-  - Enterprise
-  - Organizations
-  - Repositories
-  - Policies
+  ghes: '>= 3.21'
 shortTitle: Custom properties
 contentType: concepts
+category:
+  - Manage accounts and repositories
 ---
 
 ## What are custom properties?

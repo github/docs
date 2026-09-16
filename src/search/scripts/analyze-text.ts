@@ -13,7 +13,7 @@ import dotenv from 'dotenv'
 import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersions } from '@/versions/lib/all-versions'
 
-import type { IndicesAnalyzeAnalyzeToken } from '@elastic/elasticsearch/lib/api/types'
+import type { estypes } from '@elastic/elasticsearch'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
 dotenv.config()
@@ -157,7 +157,7 @@ async function analyzeVersion(client: Client, texts: string[], indexName: string
         body: { analyzer, text },
       })
 
-      const tokens: IndicesAnalyzeAnalyzeToken[] | undefined = response.tokens
+      const tokens: estypes.IndicesAnalyzeAnalyzeToken[] | undefined = response.tokens
       const tokenWords: string[] = tokens?.map((token) => token.token) || []
       console.log(tokenWords)
     }

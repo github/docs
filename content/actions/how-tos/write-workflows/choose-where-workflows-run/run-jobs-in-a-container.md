@@ -10,6 +10,9 @@ redirect_from:
   - /actions/using-jobs/running-jobs-in-a-container
   - /actions/writing-workflows/choosing-where-your-workflow-runs/running-jobs-in-a-container
   - /actions/how-tos/writing-workflows/choosing-where-your-workflow-runs/running-jobs-in-a-container
+category:
+  - Write workflows
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -24,7 +27,7 @@ A Dockerfile contains instructions and arguments that define the contents and st
 
 Some Docker instructions interact with {% data variables.product.prodname_actions %}, and an action's metadata file can override some Docker instructions. Ensure that you are familiar with how your Dockerfile interacts with {% data variables.product.prodname_actions %} to prevent any unexpected behavior.
 
-For reference information, see [AUTOTITLE](/actions/reference/dockerfile-support-for-github-actions).
+For reference information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dockerfile-support).
 
 ## Defining the container image
 

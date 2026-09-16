@@ -1,12 +1,18 @@
-import type { NextFunction } from 'express'
+import type { NextFunction, Request, Response, RequestHandler } from 'express'
 
-// Use type assertion to maintain compatibility with existing middleware patterns
-// This matches the original JavaScript behavior while providing some type safety
-// The assertion is necessary because Express middleware can have various request/response types
-export default function catchMiddlewareError(fn: any) {
-  return async (req: any, res: any, next: NextFunction) => {
+// Middleware function type that accepts various Express handler signatures.
+// Generic over request/response types so callers with narrower types stay type-safe.
+export interface MiddlewareFn<Req extends Request = Request, Res extends Response = Response> {
+  (req: Req, res: Res, next: NextFunction): unknown
+}
+
+export default function catchMiddlewareError<
+  Req extends Request = Request,
+  Res extends Response = Response,
+>(fn: MiddlewareFn<Req, Res>): RequestHandler {
+  return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await fn(req, res, next)
+      await fn(req as Req, res as Res, next)
     } catch (error) {
       next(error)
     }

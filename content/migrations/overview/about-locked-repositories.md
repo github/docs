@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Plan your migration
 ---
 
 ## About locked repositories
@@ -31,7 +33,13 @@ While a migration is in progress, access to the destination repository is locked
 > [!NOTE]
 > We do not recommend locking source repositories unless you are certain you will not want to unlock them later. Consider archiving the repositories instead. For more information, see [AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories).
 
-For information about how to unlock repositories that were locked by {% data variables.product.prodname_importer_proper_name %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#locked-repositories).
+For information about how to unlock repositories that were locked by {% data variables.product.prodname_importer_proper_name %}, see [AUTOTITLE](/migrations/troubleshooting/troubleshooting-your-migration-with-github-enterprise-importer#locked-repositories).
+
+## Repositories archived by {% data variables.product.prodname_elm %}
+
+In the latest {% data variables.product.prodname_ghe_server %} releases, {% data variables.product.prodname_elm %} archives, rather than locks, the source repository. This keeps the repository available for read operations.
+
+{% data reusables.elm.locked-repo %}
 
 ## Repositories locked by the "Organization migrations" REST API
 
@@ -39,7 +47,7 @@ When you call the [Start an organization migration](/rest/migrations/orgs#start-
 
 If you lock a repository via this endpoint, you can unlock the repository using the [Unlock an organization repository](/rest/migrations/orgs#unlock-an-organization-repository) endpoint.
 
-If the repository is stored on {% data variables.product.prodname_ghe_server %}, a site administrator can also unlock the repository using the site admin dashboard. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+If the repository is stored on {% data variables.product.prodname_ghe_server %}, a site administrator can also unlock the repository using the site admin dashboard. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 
 ## Repositories locked by `ghe-migrator`
 
@@ -49,7 +57,7 @@ If the import succeeded, you can unlock the repository with the `ghe-migrator un
 
 If the import failed, not all of your data has been migrated, and we recommend deleting the repository and retrying the migration, to prevent data loss.
 
-If you're sure you want to use the repository, a site administrator can unlock the repository using the site admin dashboard. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+If you're sure you want to use the repository, a site administrator can unlock the repository using the site admin dashboard. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 
 The source repository is not locked by default, only if the `--lock` argument is specified when preparing the repository for export with the `ghe-migrator add` command. To unlock the repository, use the `ghe-migrator unlock` command. For more information, see [AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server#unlocking-repositories-on-the-source).
 

@@ -19,7 +19,7 @@ declare module 'rehype-highlight' {
   import type { Options } from 'lowlight'
 
   interface HighlightOptions extends Options {
-    languages?: Record<string, any>
+    languages?: Record<string, unknown>
     subset?: boolean
     aliases?: Record<string, string>
   }

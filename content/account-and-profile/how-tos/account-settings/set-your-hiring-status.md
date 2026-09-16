@@ -14,10 +14,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Set your hiring status
 contentType: how-tos
+category:
+  - Customize your profile
 ---
 
 {% data reusables.user-settings.access_settings %}

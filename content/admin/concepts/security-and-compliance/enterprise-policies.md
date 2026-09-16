@@ -6,17 +6,21 @@ versions:
   ghes: '*'
 shortTitle: Policies
 contentType: concepts
-topics:
-  - Enterprise
-  - Policies
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
+  - /enterprise-onboarding/govern-people-and-repositories/about-enterprise-policies
+category:
+  - Secure and govern your enterprise
 ---
 
 ## What are enterprise policies and why are they important?
 
-{% data reusables.enterprise-onboarding.about-policies %}
+To help you enforce business rules and regulatory compliance, policies provide a single point of management for all the organizations owned by an enterprise account.
+
+{% data reusables.enterprise.about-policies %}
+
+For example, with the "Base permissions" policy, you can allow organization owners to configure the "Base permissions" policy for their organization, or you can enforce a specific base permissions level, such as "Read", for all organizations within the enterprise.
 
 ## What are the steps to enforce enterprise policies?
 
@@ -26,12 +30,12 @@ While you're configuring enterprise policies, to help you understand the impact 
 
 {% data reusables.enterprise.repo-policy-rules-alternative %}
 
-For a full list of repository management policies, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
+For a full list of repository management policies, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
 
 {% ifversion ghes %}
-Another way to enforce standards within your enterprise is to use pre-receive hooks, which are scripts that run on {% data variables.location.product_location %} to implement quality checks. For more information, see [AUTOTITLE](/admin/policies/enforcing-policy-with-pre-receive-hooks).
+Another way to enforce standards within your enterprise is to use pre-receive hooks, which are scripts that run on {% data variables.location.product_location %} to implement quality checks. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks).
 {% endif %}
 
 ## Further reading
 
-* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
+* [AUTOTITLE](/admin/concepts/enterprise-fundamentals/enterprise-accounts)

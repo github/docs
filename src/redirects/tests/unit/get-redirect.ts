@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
 import getRedirect from '../../lib/get-redirect'
+import type { Context } from '@/types'
 import {
   latest,
   latestStable,
@@ -10,7 +11,8 @@ import {
 
 // Test helper type for mocking contexts
 type TestContext = {
-  pages: Record<string, any>
+  [key: string]: unknown
+  pages: Record<string, unknown>
   redirects: Record<string, string>
 }
 
@@ -31,7 +33,7 @@ describe('getRedirect basics', () => {
         '/enterprise/3.0/foo/bar': '/something/else',
       },
     }
-    expect(getRedirect(uri, ctx)).toBe('/en/something/else')
+    expect(getRedirect(uri, ctx as unknown as Context)).toBe('/en/something/else')
   })
 
   test('should return undefined if nothing could be found', () => {
@@ -39,7 +41,7 @@ describe('getRedirect basics', () => {
       pages: {},
       redirects: {},
     }
-    expect(getRedirect('/foo/pizza', ctx)).toBeUndefined()
+    expect(getRedirect('/foo/pizza', ctx as unknown as Context)).toBeUndefined()
   })
 
   test('should just inject language on version "home pages"', () => {
@@ -47,16 +49,20 @@ describe('getRedirect basics', () => {
       pages: {},
       redirects: {},
     }
-    expect(getRedirect('/enterprise-cloud@latest', ctx)).toBe('/en/enterprise-cloud@latest')
+    expect(getRedirect('/enterprise-cloud@latest', ctx as unknown as Context)).toBe(
+      '/en/enterprise-cloud@latest',
+    )
 
-    expect(getRedirect(`/enterprise-server@${oldestSupported}`, ctx)).toBe(
+    expect(getRedirect(`/enterprise-server@${oldestSupported}`, ctx as unknown as Context)).toBe(
       `/en/enterprise-server@${oldestSupported}`,
     )
 
-    expect(getRedirect('/enterprise-server@latest', ctx)).toBe(
+    expect(getRedirect('/enterprise-server@latest', ctx as unknown as Context)).toBe(
       `/en/enterprise-server@${latestStable}`,
     )
-    expect(getRedirect('/enterprise-server', ctx)).toBe(`/en/enterprise-server@${latestStable}`)
+    expect(getRedirect('/enterprise-server', ctx as unknown as Context)).toBe(
+      `/en/enterprise-server@${latestStable}`,
+    )
   })
 
   test('should always "remove" the free-pro-team prefix', () => {
@@ -66,12 +72,14 @@ describe('getRedirect basics', () => {
         '/foo': '/bar',
       },
     }
-    expect(getRedirect('/free-pro-team@latest', ctx)).toBe('/en')
+    expect(getRedirect('/free-pro-team@latest', ctx as unknown as Context)).toBe('/en')
     // Language is fine, but the version needs to be "removed"
-    expect(getRedirect('/en/free-pro-team@latest', ctx)).toBe('/en')
-    expect(getRedirect('/free-pro-team@latest/pizza', ctx)).toBe('/en/pizza')
-    expect(getRedirect('/free-pro-team@latest/foo', ctx)).toBe('/en/bar')
-    expect(getRedirect('/free-pro-team@latest/github', ctx)).toBe('/en/github')
+    expect(getRedirect('/en/free-pro-team@latest', ctx as unknown as Context)).toBe('/en')
+    expect(getRedirect('/free-pro-team@latest/pizza', ctx as unknown as Context)).toBe('/en/pizza')
+    expect(getRedirect('/free-pro-team@latest/foo', ctx as unknown as Context)).toBe('/en/bar')
+    expect(getRedirect('/free-pro-team@latest/github', ctx as unknown as Context)).toBe(
+      '/en/github',
+    )
   })
 
   test('should handle some odd exceptions', () => {
@@ -79,14 +87,16 @@ describe('getRedirect basics', () => {
       pages: {},
       redirects: {},
     }
-    expect(getRedirect('/desktop/guides/foo/bar', ctx)).toBe('/en/desktop/foo/bar')
-    expect(getRedirect('/admin/guides/foo/bar', ctx)).toBe(
+    expect(getRedirect('/desktop/guides/foo/bar', ctx as unknown as Context)).toBe(
+      '/en/desktop/foo/bar',
+    )
+    expect(getRedirect('/admin/guides/foo/bar', ctx as unknown as Context)).toBe(
       `/en/enterprise-server@${latest}/admin/foo/bar`,
     )
-    expect(getRedirect('/admin/something/else', ctx)).toBe(
+    expect(getRedirect('/admin/something/else', ctx as unknown as Context)).toBe(
       `/en/enterprise-server@${latest}/admin/something/else`,
     )
-    expect(getRedirect('/insights/stuff', ctx)).toBe(
+    expect(getRedirect('/insights/stuff', ctx as unknown as Context)).toBe(
       `/en/enterprise-server@${latest}/insights/stuff`,
     )
   })
@@ -101,12 +111,15 @@ describe('getRedirect basics', () => {
     }
     // Replacing `/user` with `` worked because there exits a page of such name.
     expect(
-      getRedirect(`/enterprise-server@${previousEnterpriserServerVersion}/user/foo/bar`, ctx),
+      getRedirect(
+        `/enterprise-server@${previousEnterpriserServerVersion}/user/foo/bar`,
+        ctx as unknown as Context,
+      ),
     ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/foo/bar`)
     expect(
       getRedirect(
         `/enterprise-server@${previousEnterpriserServerVersion}/admin/guides/user-management`,
-        ctx,
+        ctx as unknown as Context,
       ),
     ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/admin/github-management`)
   })
@@ -118,20 +131,25 @@ describe('getRedirect basics', () => {
         [`/enterprise-server@${previousEnterpriserServerVersion}/foo`]: `/enterprise-server@${previousEnterpriserServerVersion}/bar`,
       },
     }
-    expect(getRedirect('/enterprise', ctx)).toBe(`/en/enterprise-server@${latest}`)
-    expect(getRedirect(`/enterprise/${previousEnterpriserServerVersion}`, ctx)).toBe(
-      `/en/enterprise-server@${previousEnterpriserServerVersion}`,
+    expect(getRedirect('/enterprise', ctx as unknown as Context)).toBe(
+      `/en/enterprise-server@${latest}`,
     )
-    expect(getRedirect(`/enterprise/${previousEnterpriserServerVersion}/something`, ctx)).toBe(
-      `/en/enterprise-server@${previousEnterpriserServerVersion}/something`,
-    )
+    expect(
+      getRedirect(`/enterprise/${previousEnterpriserServerVersion}`, ctx as unknown as Context),
+    ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}`)
+    expect(
+      getRedirect(
+        `/enterprise/${previousEnterpriserServerVersion}/something`,
+        ctx as unknown as Context,
+      ),
+    ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/something`)
     // but also respect redirects if there are some
-    expect(getRedirect(`/enterprise/${previousEnterpriserServerVersion}/foo`, ctx)).toBe(
-      `/en/enterprise-server@${previousEnterpriserServerVersion}/bar`,
-    )
+    expect(
+      getRedirect(`/enterprise/${previousEnterpriserServerVersion}/foo`, ctx as unknown as Context),
+    ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/bar`)
 
     // Unique snowflake pattern
-    expect(getRedirect('/enterprise/github/admin/foo', ctx)).toBe(
+    expect(getRedirect('/enterprise/github/admin/foo', ctx as unknown as Context)).toBe(
       `/en/enterprise-server@${latest}/github/admin/foo`,
     )
   })
@@ -143,8 +161,15 @@ describe('getRedirect basics', () => {
     }
     // Nothing's needed here because it's not /admin/guides and
     // it already has the enterprise-server prefix.
-    expect(getRedirect(`/en/enterprise-server@${latest}/admin/something/else`, ctx)).toBeUndefined()
-    expect(getRedirect(`/en/enterprise-cloud@latest/user/foo`, ctx)).toBeUndefined()
+    expect(
+      getRedirect(
+        `/en/enterprise-server@${latest}/admin/something/else`,
+        ctx as unknown as Context,
+      ),
+    ).toBeUndefined()
+    expect(
+      getRedirect(`/en/enterprise-cloud@latest/user/foo`, ctx as unknown as Context),
+    ).toBeUndefined()
   })
 
   test('should redirect both the prefix and the path needs to change', () => {
@@ -157,7 +182,7 @@ describe('getRedirect basics', () => {
     }
     // Nothing's needed here because it's not /admin/guides and
     // it already has the enterprise-server prefix.
-    expect(getRedirect('/enterprise-server/foo', ctx)).toBe(
+    expect(getRedirect('/enterprise-server/foo', ctx as unknown as Context)).toBe(
       `/en/enterprise-server@${latestStable}/bar`,
     )
   })
@@ -169,8 +194,12 @@ describe('getRedirect basics', () => {
       pages: {},
       redirects: {},
     }
-    expect(getRedirect('/enterprise/3.0', ctx)).toBe('/en/enterprise-server@3.0')
-    expect(getRedirect('/enterprise/3.0/foo', ctx)).toBe('/en/enterprise-server@3.0/foo')
+    expect(getRedirect('/enterprise/3.0', ctx as unknown as Context)).toBe(
+      '/en/enterprise-server@3.0',
+    )
+    expect(getRedirect('/enterprise/3.0/foo', ctx as unknown as Context)).toBe(
+      '/en/enterprise-server@3.0/foo',
+    )
   })
 })
 
@@ -180,16 +209,24 @@ describe('github-ae@latest', () => {
       pages: {},
       redirects: {},
     }
-    expect(getRedirect('/github-ae@latest', ctx)).toBe('/en/enterprise-cloud@latest')
-    expect(getRedirect('/en/github-ae@latest', ctx)).toBe('/en/enterprise-cloud@latest')
+    expect(getRedirect('/github-ae@latest', ctx as unknown as Context)).toBe(
+      '/en/enterprise-cloud@latest',
+    )
+    expect(getRedirect('/en/github-ae@latest', ctx as unknown as Context)).toBe(
+      '/en/enterprise-cloud@latest',
+    )
   })
   test('should redirect to home page for admin/release-notes', () => {
     const ctx: TestContext = {
       pages: {},
       redirects: {},
     }
-    expect(getRedirect('/github-ae@latest/admin/release-notes', ctx)).toBe('/en')
-    expect(getRedirect('/en/github-ae@latest/admin/release-notes', ctx)).toBe('/en')
+    expect(getRedirect('/github-ae@latest/admin/release-notes', ctx as unknown as Context)).toBe(
+      '/en',
+    )
+    expect(getRedirect('/en/github-ae@latest/admin/release-notes', ctx as unknown as Context)).toBe(
+      '/en',
+    )
   })
   test('a page that does exits, without correction, in enterprise-cloud', () => {
     const ctx: TestContext = {
@@ -198,8 +235,12 @@ describe('github-ae@latest', () => {
       },
       redirects: {},
     }
-    expect(getRedirect('/github-ae@latest/foo', ctx)).toBe('/en/enterprise-cloud@latest/foo')
-    expect(getRedirect('/en/github-ae@latest/foo', ctx)).toBe('/en/enterprise-cloud@latest/foo')
+    expect(getRedirect('/github-ae@latest/foo', ctx as unknown as Context)).toBe(
+      '/en/enterprise-cloud@latest/foo',
+    )
+    expect(getRedirect('/en/github-ae@latest/foo', ctx as unknown as Context)).toBe(
+      '/en/enterprise-cloud@latest/foo',
+    )
   })
   test("a page that doesn't exist in enterprise-cloud but in FPT", () => {
     const ctx: TestContext = {
@@ -208,8 +249,8 @@ describe('github-ae@latest', () => {
       },
       redirects: {},
     }
-    expect(getRedirect('/github-ae@latest/foo', ctx)).toBe('/en/foo')
-    expect(getRedirect('/en/github-ae@latest/foo', ctx)).toBe('/en/foo')
+    expect(getRedirect('/github-ae@latest/foo', ctx as unknown as Context)).toBe('/en/foo')
+    expect(getRedirect('/en/github-ae@latest/foo', ctx as unknown as Context)).toBe('/en/foo')
   })
   test("a page that doesn't exist in enterprise-cloud or in FPT", () => {
     const ctx: TestContext = {
@@ -218,8 +259,8 @@ describe('github-ae@latest', () => {
       },
       redirects: {},
     }
-    expect(getRedirect('/github-ae@latest/bar', ctx)).toBe('/en')
-    expect(getRedirect('/en/github-ae@latest/bar', ctx)).toBe('/en')
+    expect(getRedirect('/github-ae@latest/bar', ctx as unknown as Context)).toBe('/en')
+    expect(getRedirect('/en/github-ae@latest/bar', ctx as unknown as Context)).toBe('/en')
   })
   test('a URL with legacy redirects, that redirects to enterprise-cloud', () => {
     const ctx: TestContext = {
@@ -231,8 +272,12 @@ describe('github-ae@latest', () => {
         '/food': '/foo',
       },
     }
-    expect(getRedirect('/github-ae@latest/food', ctx)).toBe('/en/enterprise-cloud@latest/foo')
-    expect(getRedirect('/en/github-ae@latest/food', ctx)).toBe('/en/enterprise-cloud@latest/foo')
+    expect(getRedirect('/github-ae@latest/food', ctx as unknown as Context)).toBe(
+      '/en/enterprise-cloud@latest/foo',
+    )
+    expect(getRedirect('/en/github-ae@latest/food', ctx as unknown as Context)).toBe(
+      '/en/enterprise-cloud@latest/foo',
+    )
   })
   test("a URL with legacy redirects, that can't redirect to enterprise-cloud", () => {
     const ctx: TestContext = {
@@ -244,15 +289,17 @@ describe('github-ae@latest', () => {
         '/food': '/foo',
       },
     }
-    expect(getRedirect('/github-ae@latest/food', ctx)).toBe('/en/foo')
-    expect(getRedirect('/en/github-ae@latest/food', ctx)).toBe('/en/foo')
+    expect(getRedirect('/github-ae@latest/food', ctx as unknown as Context)).toBe('/en/foo')
+    expect(getRedirect('/en/github-ae@latest/food', ctx as unknown as Context)).toBe('/en/foo')
   })
   test('should 404 if nothing matches at all', () => {
     const ctx = {
       pages: {},
       redirects: {},
     }
-    expect(getRedirect('/github-ae@latest/never/heard/of', ctx)).toBe('/en')
-    expect(getRedirect('/en/github-ae@latest/never/heard/of', ctx)).toBe('/en')
+    expect(getRedirect('/github-ae@latest/never/heard/of', ctx as unknown as Context)).toBe('/en')
+    expect(getRedirect('/en/github-ae@latest/never/heard/of', ctx as unknown as Context)).toBe(
+      '/en',
+    )
   })
 })

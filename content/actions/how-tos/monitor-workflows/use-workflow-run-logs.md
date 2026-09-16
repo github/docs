@@ -1,7 +1,7 @@
 ---
 title: Using workflow run logs
 shortTitle: Use workflow run logs
-intro: 'You can view, search, and download the logs for each job in a workflow run.'
+intro: You can view, search, and download the logs for each job in a workflow run.
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
   - /actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs
@@ -12,6 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -53,7 +56,7 @@ You can search the build logs for a particular step. When you search logs, only 
 
 ## Downloading logs
 
-You can download the log files from your workflow run. You can also download a workflow's artifacts. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts). {% data reusables.repositories.permissions-statement-read %}
+You can download the log files from your workflow run. You can also download a workflow's artifacts. For more information, see [AUTOTITLE](/actions/tutorials/store-and-share-data). {% data reusables.repositories.permissions-statement-read %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

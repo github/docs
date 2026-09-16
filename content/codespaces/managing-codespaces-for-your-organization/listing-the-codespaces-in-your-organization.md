@@ -2,24 +2,23 @@
 title: Listing the codespaces in your organization
 shortTitle: List organization codespaces
 intro: You can list all of the currently active or stopped codespaces for your organization.
-permissions: 'To list all of the current codespaces for your organization, you must be an organization owner.'
+permissions: To list all of the current codespaces for your organization, you must be an organization owner.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Administrator
 product: '{% data reusables.gated-features.codespaces-org %}'
+contentType: how-tos
+category:
+  - Manage codespaces for your organization
 ---
 
 ## Overview
 
-As an organization owner, you can list all of the currently active and stopped codespaces for your organization. You might want to do this to check how many codespaces users are creating, to make sure they aren't incurring unnecessary costs. For information about pricing, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+As an organization owner, you can list all of the currently active and stopped codespaces for your organization. You might want to do this to check how many codespaces users are creating, to make sure they aren't incurring unnecessary costs. For information about pricing, see [AUTOTITLE](/billing/concepts/product-billing/github-codespaces).
 
 The easiest way to list the codespaces for an organization is by using {% data variables.product.prodname_cli %}. You can also use the REST API, which provides more information about each codespace.
 
-For information on how to see the current total {% data variables.product.prodname_codespaces %} usage for your organization or enterprise, and generate a detailed report, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
+For information on how to see the current total {% data variables.product.prodname_codespaces %} usage for your organization or enterprise, and generate a detailed report, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ### Using {% data variables.product.prodname_cli %} to list codespaces
 

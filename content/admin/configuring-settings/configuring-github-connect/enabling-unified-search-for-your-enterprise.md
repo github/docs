@@ -1,7 +1,7 @@
 ---
 title: Enabling unified search for your enterprise
 shortTitle: Unified search
-intro: 'You can allow users to include repositories on {% data variables.product.prodname_ghe_cloud %} in their search results when searching from {% data variables.location.product_location %}.'
+intro: You can allow users to include repositories on {% data variables.product.prodname_ghe_cloud %} in their search results when searching from {% data variables.location.product_location %}.
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-and-github-com
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com
@@ -12,14 +12,12 @@ redirect_from:
   - /admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-unified-search-between-github-enterprise-server-and-githubcom
   - /admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom
   - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
-permissions: 'Enterprise owners'
+permissions: Enterprise owners
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - GitHub Connect
-  - GitHub search
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About {% data variables.enterprise.prodname_unified_search %}
@@ -30,7 +28,7 @@ You can choose to allow search results for public repositories on {% data variab
 
 Users will never be able to search {% data variables.location.product_location %} from {% data variables.product.prodname_ghe_cloud %}, even if they have access to both environments.
 
-After you enable unified search for {% data variables.location.product_location %}, before individual users can see search results from private repositories on {% data variables.product.prodname_ghe_cloud %} in {% data variables.location.product_location %}, each user must also connect their user account on {% data variables.product.prodname_ghe_server %} with a user account on {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment).
+After you enable unified search for {% data variables.location.product_location %}, before individual users can see search results from private repositories on {% data variables.product.prodname_ghe_cloud %} in {% data variables.location.product_location %}, each user must also connect their user account on {% data variables.product.prodname_ghe_server %} with a user account on {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/enabling-repository-search-across-environments).
 
 Searching via the REST and GraphQL APIs does not include {% data variables.product.prodname_ghe_cloud %} search results. Advanced search and searching for wikis in {% data variables.product.prodname_ghe_cloud %} are not supported.
 

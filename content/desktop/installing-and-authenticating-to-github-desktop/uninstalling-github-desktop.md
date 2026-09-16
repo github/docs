@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Uninstalling
+category:
+  - Set up GitHub Desktop
 ---
 {% mac %}
 

@@ -1,0 +1,4335 @@
+{
+  "queries": [
+    {
+      "name": "sponsorables",
+      "type": "SponsorableItemConnection!",
+      "id": "sponsorableitemconnection",
+      "href": "/graphql/reference/sponsors#object-sponsorableitemconnection",
+      "description": "<p>Users and organizations who can be sponsored via GitHub Sponsors.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "dependencyEcosystem",
+          "type": "SecurityAdvisoryEcosystem",
+          "id": "securityadvisoryecosystem",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryecosystem",
+          "description": "<p>Optional filter for which dependencies should be checked for sponsorable\nowners. Only sponsorable owners of dependencies in this ecosystem will be\nincluded. Used when onlyDependencies = true.</p>\n<p><strong>Upcoming Change on 2022-07-01 UTC</strong>\n<strong>Description:</strong> <code>dependencyEcosystem</code> will be removed. Use the ecosystem argument instead.\n<strong>Reason:</strong> The type is switching from SecurityAdvisoryEcosystem to DependencyGraphEcosystem.</p>"
+        },
+        {
+          "name": "ecosystem",
+          "type": "DependencyGraphEcosystem",
+          "id": "dependencygraphecosystem",
+          "href": "/graphql/reference/dependency-graph#enum-dependencygraphecosystem",
+          "description": "<p>Optional filter for which dependencies should be checked for sponsorable\nowners. Only sponsorable owners of dependencies in this ecosystem will be\nincluded. Used when onlyDependencies = true.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "onlyDependencies",
+          "defaultValue": false,
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Whether only sponsorables who own the viewer's dependencies will be\nreturned. Must be authenticated to use. Can check an organization instead\nfor their dependencies owned by sponsorables by passing\norgLoginForDependencies.</p>"
+        },
+        {
+          "name": "orderBy",
+          "type": "SponsorableOrder",
+          "id": "sponsorableorder",
+          "href": "/graphql/reference/sponsors#input-object-sponsorableorder",
+          "description": "<p>Ordering options for users and organizations returned from the connection.</p>"
+        },
+        {
+          "name": "orgLoginForDependencies",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Optional organization username for whose dependencies should be checked.\nUsed when onlyDependencies = true. Omit to check your own dependencies. If\nyou are not an administrator of the organization, only dependencies from its\npublic repositories will be considered.</p>"
+        }
+      ],
+      "category": "sponsors"
+    }
+  ],
+  "mutations": [
+    {
+      "name": "cancelSponsorship",
+      "id": "cancelsponsorship",
+      "href": "/graphql/reference/sponsors#mutation-cancelsponsorship",
+      "description": "<p>Cancel an active sponsorship.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CancelSponsorshipInput!",
+          "id": "cancelsponsorshipinput",
+          "href": "/graphql/reference/sponsors#input-object-cancelsponsorshipinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsTier",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "href": "/graphql/reference/sponsors#object-sponsorstier",
+          "description": "<p>The tier that was being used at the time of cancellation.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "createSponsorsListing",
+      "id": "createsponsorslisting",
+      "href": "/graphql/reference/sponsors#mutation-createsponsorslisting",
+      "description": "<p>Create a GitHub Sponsors profile to allow others to sponsor you or your organization.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateSponsorsListingInput!",
+          "id": "createsponsorslistinginput",
+          "href": "/graphql/reference/sponsors#input-object-createsponsorslistinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsListing",
+          "type": "SponsorsListing",
+          "id": "sponsorslisting",
+          "href": "/graphql/reference/sponsors#object-sponsorslisting",
+          "description": "<p>The new GitHub Sponsors profile.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "createSponsorsTier",
+      "id": "createsponsorstier",
+      "href": "/graphql/reference/sponsors#mutation-createsponsorstier",
+      "description": "<p>Create a new payment tier for your GitHub Sponsors profile.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateSponsorsTierInput!",
+          "id": "createsponsorstierinput",
+          "href": "/graphql/reference/sponsors#input-object-createsponsorstierinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsTier",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "href": "/graphql/reference/sponsors#object-sponsorstier",
+          "description": "<p>The new tier.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "createSponsorship",
+      "id": "createsponsorship",
+      "href": "/graphql/reference/sponsors#mutation-createsponsorship",
+      "description": "<p>Start a new sponsorship of a maintainer in GitHub Sponsors, or reactivate a past sponsorship.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateSponsorshipInput!",
+          "id": "createsponsorshipinput",
+          "href": "/graphql/reference/sponsors#input-object-createsponsorshipinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorship",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "href": "/graphql/reference/sponsors#object-sponsorship",
+          "description": "<p>The sponsorship that was started.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "createSponsorships",
+      "id": "createsponsorships",
+      "href": "/graphql/reference/sponsors#mutation-createsponsorships",
+      "description": "<p>Make many sponsorships for different sponsorable users or organizations at\nonce. Can only sponsor those who have a public GitHub Sponsors profile.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateSponsorshipsInput!",
+          "id": "createsponsorshipsinput",
+          "href": "/graphql/reference/sponsors#input-object-createsponsorshipsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorables",
+          "type": "[Sponsorable!]",
+          "id": "sponsorable",
+          "href": "/graphql/reference/sponsors#interface-sponsorable",
+          "description": "<p>The users and organizations who received a sponsorship.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "publishSponsorsTier",
+      "id": "publishsponsorstier",
+      "href": "/graphql/reference/sponsors#mutation-publishsponsorstier",
+      "description": "<p>Publish an existing sponsorship tier that is currently still a draft to a GitHub Sponsors profile.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "PublishSponsorsTierInput!",
+          "id": "publishsponsorstierinput",
+          "href": "/graphql/reference/sponsors#input-object-publishsponsorstierinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsTier",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "href": "/graphql/reference/sponsors#object-sponsorstier",
+          "description": "<p>The tier that was published.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "retireSponsorsTier",
+      "id": "retiresponsorstier",
+      "href": "/graphql/reference/sponsors#mutation-retiresponsorstier",
+      "description": "<p>Retire a published payment tier from your GitHub Sponsors profile so it cannot be used to start new sponsorships.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RetireSponsorsTierInput!",
+          "id": "retiresponsorstierinput",
+          "href": "/graphql/reference/sponsors#input-object-retiresponsorstierinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsTier",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "href": "/graphql/reference/sponsors#object-sponsorstier",
+          "description": "<p>The tier that was retired.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "updatePatreonSponsorability",
+      "id": "updatepatreonsponsorability",
+      "href": "/graphql/reference/sponsors#mutation-updatepatreonsponsorability",
+      "description": "<p>Toggle the setting for your GitHub Sponsors profile that allows other GitHub\naccounts to sponsor you on GitHub while paying for the sponsorship on Patreon.\nOnly applicable when you have a GitHub Sponsors profile and have connected\nyour GitHub account with Patreon.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdatePatreonSponsorabilityInput!",
+          "id": "updatepatreonsponsorabilityinput",
+          "href": "/graphql/reference/sponsors#input-object-updatepatreonsponsorabilityinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsListing",
+          "type": "SponsorsListing",
+          "id": "sponsorslisting",
+          "href": "/graphql/reference/sponsors#object-sponsorslisting",
+          "description": "<p>The GitHub Sponsors profile.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "updateSponsorshipPreferences",
+      "id": "updatesponsorshippreferences",
+      "href": "/graphql/reference/sponsors#mutation-updatesponsorshippreferences",
+      "description": "<p>Change visibility of your sponsorship and opt in or out of email updates from the maintainer.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateSponsorshipPreferencesInput!",
+          "id": "updatesponsorshippreferencesinput",
+          "href": "/graphql/reference/sponsors#input-object-updatesponsorshippreferencesinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorship",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "href": "/graphql/reference/sponsors#object-sponsorship",
+          "description": "<p>The sponsorship that was updated.</p>"
+        }
+      ],
+      "category": "sponsors"
+    }
+  ],
+  "objects": [
+    {
+      "name": "SponsorAndLifetimeValue",
+      "id": "sponsorandlifetimevalue",
+      "href": "/graphql/reference/sponsors#object-sponsorandlifetimevalue",
+      "description": "<p>A GitHub account and the total amount in USD they've paid for sponsorships to a\nparticular maintainer. Does not include payments made via Patreon.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "amountInCents",
+          "description": "<p>The amount in cents.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "formattedAmount",
+          "description": "<p>The amount in USD, formatted as a string.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sponsor",
+          "description": "<p>The sponsor's GitHub account.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "href": "/graphql/reference/sponsors#interface-sponsorable"
+        },
+        {
+          "name": "sponsorable",
+          "description": "<p>The maintainer's GitHub account.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "href": "/graphql/reference/sponsors#interface-sponsorable"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorAndLifetimeValueConnection",
+      "id": "sponsorandlifetimevalueconnection",
+      "href": "/graphql/reference/sponsors#object-sponsorandlifetimevalueconnection",
+      "description": "<p>The connection type for SponsorAndLifetimeValue.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorAndLifetimeValueEdge]",
+          "id": "sponsorandlifetimevalueedge",
+          "href": "/graphql/reference/sponsors#object-sponsorandlifetimevalueedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SponsorAndLifetimeValue]",
+          "id": "sponsorandlifetimevalue",
+          "href": "/graphql/reference/sponsors#object-sponsorandlifetimevalue"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorAndLifetimeValueEdge",
+      "id": "sponsorandlifetimevalueedge",
+      "href": "/graphql/reference/sponsors#object-sponsorandlifetimevalueedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SponsorAndLifetimeValue",
+          "id": "sponsorandlifetimevalue",
+          "href": "/graphql/reference/sponsors#object-sponsorandlifetimevalue"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorConnection",
+      "id": "sponsorconnection",
+      "href": "/graphql/reference/sponsors#object-sponsorconnection",
+      "description": "<p>A list of users and organizations sponsoring someone via GitHub Sponsors.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorEdge]",
+          "id": "sponsoredge",
+          "href": "/graphql/reference/sponsors#object-sponsoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Sponsor]",
+          "id": "sponsor",
+          "href": "/graphql/reference/sponsors#union-sponsor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorEdge",
+      "id": "sponsoredge",
+      "href": "/graphql/reference/sponsors#object-sponsoredge",
+      "description": "<p>Represents a user or organization who is sponsoring someone in GitHub Sponsors.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Sponsor",
+          "id": "sponsor",
+          "href": "/graphql/reference/sponsors#union-sponsor"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorableItemConnection",
+      "id": "sponsorableitemconnection",
+      "href": "/graphql/reference/sponsors#object-sponsorableitemconnection",
+      "description": "<p>The connection type for SponsorableItem.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorableItemEdge]",
+          "id": "sponsorableitemedge",
+          "href": "/graphql/reference/sponsors#object-sponsorableitemedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SponsorableItem]",
+          "id": "sponsorableitem",
+          "href": "/graphql/reference/sponsors#union-sponsorableitem"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorableItemEdge",
+      "id": "sponsorableitemedge",
+      "href": "/graphql/reference/sponsors#object-sponsorableitemedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SponsorableItem",
+          "id": "sponsorableitem",
+          "href": "/graphql/reference/sponsors#union-sponsorableitem"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsActivity",
+      "id": "sponsorsactivity",
+      "href": "/graphql/reference/sponsors#object-sponsorsactivity",
+      "description": "<p>An event related to sponsorship activity.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "action",
+          "description": "<p>What action this activity indicates took place.</p>",
+          "type": "SponsorsActivityAction!",
+          "id": "sponsorsactivityaction",
+          "href": "/graphql/reference/sponsors#enum-sponsorsactivityaction"
+        },
+        {
+          "name": "currentPrivacyLevel",
+          "description": "<p>The sponsor's current privacy level.</p>",
+          "type": "SponsorshipPrivacy",
+          "id": "sponsorshipprivacy",
+          "href": "/graphql/reference/sponsors#enum-sponsorshipprivacy"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the SponsorsActivity object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "paymentSource",
+          "description": "<p>The platform that was used to pay for the sponsorship.</p>",
+          "type": "SponsorshipPaymentSource",
+          "id": "sponsorshippaymentsource",
+          "href": "/graphql/reference/sponsors#enum-sponsorshippaymentsource"
+        },
+        {
+          "name": "previousSponsorsTier",
+          "description": "<p>The tier that the sponsorship used to use, for tier change events.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "href": "/graphql/reference/sponsors#object-sponsorstier"
+        },
+        {
+          "name": "sponsor",
+          "description": "<p>The user or organization who triggered this activity and was/is sponsoring the sponsorable.</p>",
+          "type": "Sponsor",
+          "id": "sponsor",
+          "href": "/graphql/reference/sponsors#union-sponsor"
+        },
+        {
+          "name": "sponsorable",
+          "description": "<p>The user or organization that is being sponsored, the maintainer.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "href": "/graphql/reference/sponsors#interface-sponsorable"
+        },
+        {
+          "name": "sponsorsTier",
+          "description": "<p>The associated sponsorship tier.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "href": "/graphql/reference/sponsors#object-sponsorstier"
+        },
+        {
+          "name": "timestamp",
+          "description": "<p>The timestamp of this event.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "viaBulkSponsorship",
+          "description": "<p>Was this sponsorship made alongside other sponsorships at the same time from the same sponsor?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsActivityConnection",
+      "id": "sponsorsactivityconnection",
+      "href": "/graphql/reference/sponsors#object-sponsorsactivityconnection",
+      "description": "<p>The connection type for SponsorsActivity.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorsActivityEdge]",
+          "id": "sponsorsactivityedge",
+          "href": "/graphql/reference/sponsors#object-sponsorsactivityedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SponsorsActivity]",
+          "id": "sponsorsactivity",
+          "href": "/graphql/reference/sponsors#object-sponsorsactivity"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsActivityEdge",
+      "id": "sponsorsactivityedge",
+      "href": "/graphql/reference/sponsors#object-sponsorsactivityedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SponsorsActivity",
+          "id": "sponsorsactivity",
+          "href": "/graphql/reference/sponsors#object-sponsorsactivity"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsGoal",
+      "id": "sponsorsgoal",
+      "href": "/graphql/reference/sponsors#object-sponsorsgoal",
+      "description": "<p>A goal associated with a GitHub Sponsors listing, representing a target the sponsored maintainer would like to attain.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "description",
+          "description": "<p>A description of the goal from the maintainer.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "kind",
+          "description": "<p>What the objective of this goal is.</p>",
+          "type": "SponsorsGoalKind!",
+          "id": "sponsorsgoalkind",
+          "href": "/graphql/reference/sponsors#enum-sponsorsgoalkind"
+        },
+        {
+          "name": "percentComplete",
+          "description": "<p>The percentage representing how complete this goal is, between 0-100.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "targetValue",
+          "description": "<p>What the goal amount is. Represents an amount in USD for monthly sponsorship\namount goals. Represents a count of unique sponsors for total sponsors count goals.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "title",
+          "description": "<p>A brief summary of the kind and target value of this goal.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsListing",
+      "id": "sponsorslisting",
+      "href": "/graphql/reference/sponsors#object-sponsorslisting",
+      "description": "<p>A GitHub Sponsors listing.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "activeGoal",
+          "description": "<p>The current goal the maintainer is trying to reach with GitHub Sponsors, if any.</p>",
+          "type": "SponsorsGoal",
+          "id": "sponsorsgoal",
+          "href": "/graphql/reference/sponsors#object-sponsorsgoal"
+        },
+        {
+          "name": "activeStripeConnectAccount",
+          "description": "<p>The Stripe Connect account currently in use for payouts for this Sponsors\nlisting, if any. Will only return a value when queried by the maintainer\nthemselves, or by an admin of the sponsorable organization.</p>",
+          "type": "StripeConnectAccount",
+          "id": "stripeconnectaccount",
+          "href": "/graphql/reference/sponsors#object-stripeconnectaccount"
+        },
+        {
+          "name": "billingCountryOrRegion",
+          "description": "<p>The name of the country or region with the maintainer's bank account or fiscal\nhost. Will only return a value when queried by the maintainer themselves, or\nby an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "contactEmailAddress",
+          "description": "<p>The email address used by GitHub to contact the sponsorable about their GitHub\nSponsors profile. Will only return a value when queried by the maintainer\nthemselves, or by an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "dashboardResourcePath",
+          "description": "<p>The HTTP path for the Sponsors dashboard for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "dashboardUrl",
+          "description": "<p>The HTTP URL for the Sponsors dashboard for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "featuredItems",
+          "description": "<p>The records featured on the GitHub Sponsors profile.</p>",
+          "type": "[SponsorsListingFeaturedItem!]!",
+          "id": "sponsorslistingfeatureditem",
+          "href": "/graphql/reference/sponsors#object-sponsorslistingfeatureditem",
+          "arguments": [
+            {
+              "name": "featureableTypes",
+              "description": "<p>The types of featured items to return.</p>",
+              "type": {
+                "name": "[SponsorsListingFeaturedItemFeatureableType!]",
+                "id": "sponsorslistingfeatureditemfeatureabletype",
+                "href": "/graphql/reference/sponsors#enum-sponsorslistingfeatureditemfeatureabletype"
+              }
+            }
+          ]
+        },
+        {
+          "name": "fiscalHost",
+          "description": "<p>The fiscal host used for payments, if any. Will only return a value when\nqueried by the maintainer themselves, or by an admin of the sponsorable organization.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "fullDescription",
+          "description": "<p>The full description of the listing.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "fullDescriptionHTML",
+          "description": "<p>The full description of the listing rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the SponsorsListing object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isPublic",
+          "description": "<p>Whether this listing is publicly visible.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>The listing's full name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "nextPayoutDate",
+          "description": "<p>A future date on which this listing is eligible to receive a payout.</p>",
+          "type": "Date",
+          "id": "date",
+          "href": "/graphql/reference/other#scalar-date"
+        },
+        {
+          "name": "residenceCountryOrRegion",
+          "description": "<p>The name of the country or region where the maintainer resides. Will only\nreturn a value when queried by the maintainer themselves, or by an admin of\nthe sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "shortDescription",
+          "description": "<p>The short description of the listing.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "slug",
+          "description": "<p>The short name of the listing.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sponsorable",
+          "description": "<p>The entity this listing represents who can be sponsored on GitHub Sponsors.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "href": "/graphql/reference/sponsors#interface-sponsorable"
+        },
+        {
+          "name": "tiers",
+          "description": "<p>The tiers for this GitHub Sponsors profile.</p>",
+          "type": "SponsorsTierConnection",
+          "id": "sponsorstierconnection",
+          "href": "/graphql/reference/sponsors#object-sponsorstierconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "includeUnpublished",
+              "defaultValue": false,
+              "description": "<p>Whether to include tiers that aren't published. Only admins of the Sponsors\nlisting can see draft tiers. Only admins of the Sponsors listing and viewers\nwho are currently sponsoring on a retired tier can see those retired tiers.\nDefaults to including only published tiers, which are visible to anyone who\ncan see the GitHub Sponsors profile.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for Sponsors tiers returned from the connection.</p>",
+              "type": {
+                "name": "SponsorsTierOrder",
+                "id": "sponsorstierorder",
+                "href": "/graphql/reference/sponsors#input-object-sponsorstierorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this Sponsors listing.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsListingFeaturedItem",
+      "id": "sponsorslistingfeatureditem",
+      "href": "/graphql/reference/sponsors#object-sponsorslistingfeatureditem",
+      "description": "<p>A record that is promoted on a GitHub Sponsors profile.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>Will either be a description from the sponsorable maintainer about why they\nfeatured this item, or the item's description itself, such as a user's bio\nfrom their GitHub profile page.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "featureable",
+          "description": "<p>The record that is featured on the GitHub Sponsors profile.</p>",
+          "type": "SponsorsListingFeatureableItem!",
+          "id": "sponsorslistingfeatureableitem",
+          "href": "/graphql/reference/sponsors#union-sponsorslistingfeatureableitem"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the SponsorsListingFeaturedItem object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "position",
+          "description": "<p>The position of this featured item on the GitHub Sponsors profile with a lower\nposition indicating higher precedence. Starts at 1.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "sponsorsListing",
+          "description": "<p>The GitHub Sponsors profile that features this record.</p>",
+          "type": "SponsorsListing!",
+          "id": "sponsorslisting",
+          "href": "/graphql/reference/sponsors#object-sponsorslisting"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsTier",
+      "id": "sponsorstier",
+      "href": "/graphql/reference/sponsors#object-sponsorstier",
+      "description": "<p>A GitHub Sponsors tier associated with a GitHub Sponsors listing.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "adminInfo",
+          "description": "<p>SponsorsTier information only visible to users that can administer the associated Sponsors listing.</p>",
+          "type": "SponsorsTierAdminInfo",
+          "id": "sponsorstieradmininfo",
+          "href": "/graphql/reference/sponsors#object-sponsorstieradmininfo"
+        },
+        {
+          "name": "closestLesserValueTier",
+          "description": "<p>Get a different tier for this tier's maintainer that is at the same frequency\nas this tier but with an equal or lesser cost. Returns the published tier with\nthe monthly price closest to this tier's without going over.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "href": "/graphql/reference/sponsors#object-sponsorstier"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description of the tier.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "descriptionHTML",
+          "description": "<p>The tier description rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the SponsorsTier object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isCustomAmount",
+          "description": "<p>Whether this tier was chosen at checkout time by the sponsor rather than\ndefined ahead of time by the maintainer who manages the Sponsors listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isOneTime",
+          "description": "<p>Whether this tier is only for use with one-time sponsorships.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "monthlyPriceInCents",
+          "description": "<p>How much this tier costs per month in cents.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "monthlyPriceInDollars",
+          "description": "<p>How much this tier costs per month in USD.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the tier.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sponsorsListing",
+          "description": "<p>The sponsors listing that this tier belongs to.</p>",
+          "type": "SponsorsListing!",
+          "id": "sponsorslisting",
+          "href": "/graphql/reference/sponsors#object-sponsorslisting"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsTierAdminInfo",
+      "id": "sponsorstieradmininfo",
+      "href": "/graphql/reference/sponsors#object-sponsorstieradmininfo",
+      "description": "<p>SponsorsTier information only visible to users that can administer the associated Sponsors listing.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "isDraft",
+          "description": "<p>Indicates whether this tier is still a work in progress by the sponsorable and\nnot yet published to the associated GitHub Sponsors profile. Draft tiers\ncannot be used for new sponsorships and will not be in use on existing\nsponsorships. Draft tiers cannot be seen by anyone but the admins of the\nGitHub Sponsors profile.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isPublished",
+          "description": "<p>Indicates whether this tier is published to the associated GitHub Sponsors\nprofile. Published tiers are visible to anyone who can see the GitHub Sponsors\nprofile, and are available for use in sponsorships if the GitHub Sponsors\nprofile is publicly visible.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isRetired",
+          "description": "<p>Indicates whether this tier has been retired from the associated GitHub\nSponsors profile. Retired tiers are no longer shown on the GitHub Sponsors\nprofile and cannot be chosen for new sponsorships. Existing sponsorships may\nstill use retired tiers if the sponsor selected the tier before it was retired.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "sponsorships",
+          "description": "<p>The sponsorships using this tier.</p>",
+          "type": "SponsorshipConnection!",
+          "id": "sponsorshipconnection",
+          "href": "/graphql/reference/sponsors#object-sponsorshipconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "includePrivate",
+              "defaultValue": false,
+              "description": "<p>Whether or not to return private sponsorships using this tier. Defaults to\nonly returning public sponsorships on this tier.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsorships returned from this connection. If left\nblank, the sponsorships will be ordered based on relevancy to the viewer.</p>",
+              "type": {
+                "name": "SponsorshipOrder",
+                "id": "sponsorshiporder",
+                "href": "/graphql/reference/sponsors#input-object-sponsorshiporder"
+              }
+            }
+          ]
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsTierConnection",
+      "id": "sponsorstierconnection",
+      "href": "/graphql/reference/sponsors#object-sponsorstierconnection",
+      "description": "<p>The connection type for SponsorsTier.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorsTierEdge]",
+          "id": "sponsorstieredge",
+          "href": "/graphql/reference/sponsors#object-sponsorstieredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SponsorsTier]",
+          "id": "sponsorstier",
+          "href": "/graphql/reference/sponsors#object-sponsorstier"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsTierEdge",
+      "id": "sponsorstieredge",
+      "href": "/graphql/reference/sponsors#object-sponsorstieredge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "href": "/graphql/reference/sponsors#object-sponsorstier"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "Sponsorship",
+      "id": "sponsorship",
+      "href": "/graphql/reference/sponsors#object-sponsorship",
+      "description": "<p>A sponsorship relationship between a sponsor and a maintainer.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Sponsorship object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isActive",
+          "description": "<p>Whether the sponsorship is active. False implies the sponsor is a past sponsor\nof the maintainer, while true implies they are a current sponsor.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isOneTimePayment",
+          "description": "<p>Whether this sponsorship represents a one-time payment versus a recurring sponsorship.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isSponsorOptedIntoEmail",
+          "description": "<p>Whether the sponsor has chosen to receive sponsorship update emails sent from\nthe sponsorable. Only returns a non-null value when the viewer has permission to know this.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "maintainer",
+          "description": "<p>The entity that is being sponsored.</p>",
+          "type": "User!",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>Sponsorship.maintainer</code> will be removed. Use <code>Sponsorship.sponsorable</code> instead. Removal on 2020-04-01 UTC.</p>"
+        },
+        {
+          "name": "paymentSource",
+          "description": "<p>The platform that was most recently used to pay for the sponsorship.</p>",
+          "type": "SponsorshipPaymentSource",
+          "id": "sponsorshippaymentsource",
+          "href": "/graphql/reference/sponsors#enum-sponsorshippaymentsource"
+        },
+        {
+          "name": "privacyLevel",
+          "description": "<p>The privacy level for this sponsorship.</p>",
+          "type": "SponsorshipPrivacy!",
+          "id": "sponsorshipprivacy",
+          "href": "/graphql/reference/sponsors#enum-sponsorshipprivacy"
+        },
+        {
+          "name": "sponsor",
+          "description": "<p>The user that is sponsoring. Returns null if the sponsorship is private or if sponsor is not a user.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>Sponsorship.sponsor</code> will be removed. Use <code>Sponsorship.sponsorEntity</code> instead. Removal on 2020-10-01 UTC.</p>"
+        },
+        {
+          "name": "sponsorEntity",
+          "description": "<p>The user or organization that is sponsoring, if you have permission to view them.</p>",
+          "type": "Sponsor",
+          "id": "sponsor",
+          "href": "/graphql/reference/sponsors#union-sponsor"
+        },
+        {
+          "name": "sponsorable",
+          "description": "<p>The entity that is being sponsored.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "href": "/graphql/reference/sponsors#interface-sponsorable"
+        },
+        {
+          "name": "tier",
+          "description": "<p>The associated sponsorship tier.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "href": "/graphql/reference/sponsors#object-sponsorstier"
+        },
+        {
+          "name": "tierSelectedAt",
+          "description": "<p>Identifies the date and time when the current tier was chosen for this sponsorship.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipConnection",
+      "id": "sponsorshipconnection",
+      "href": "/graphql/reference/sponsors#object-sponsorshipconnection",
+      "description": "<p>A list of sponsorships either from the subject or received by the subject.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorshipEdge]",
+          "id": "sponsorshipedge",
+          "href": "/graphql/reference/sponsors#object-sponsorshipedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Sponsorship]",
+          "id": "sponsorship",
+          "href": "/graphql/reference/sponsors#object-sponsorship"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "totalRecurringMonthlyPriceInCents",
+          "description": "<p>The total amount in cents of all recurring sponsorships in the connection\nwhose amount you can view. Does not include one-time sponsorships.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "totalRecurringMonthlyPriceInDollars",
+          "description": "<p>The total amount in USD of all recurring sponsorships in the connection whose\namount you can view. Does not include one-time sponsorships.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipEdge",
+      "id": "sponsorshipedge",
+      "href": "/graphql/reference/sponsors#object-sponsorshipedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "href": "/graphql/reference/sponsors#object-sponsorship"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipNewsletter",
+      "id": "sponsorshipnewsletter",
+      "href": "/graphql/reference/sponsors#object-sponsorshipnewsletter",
+      "description": "<p>An update sent to sponsors of a user or organization on GitHub Sponsors.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "author",
+          "description": "<p>The author of the newsletter.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "body",
+          "description": "<p>The contents of the newsletter, the message the sponsorable wanted to give.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the SponsorshipNewsletter object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isPublished",
+          "description": "<p>Indicates if the newsletter has been made available to sponsors.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "sponsorable",
+          "description": "<p>The user or organization this newsletter is from.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "href": "/graphql/reference/sponsors#interface-sponsorable"
+        },
+        {
+          "name": "subject",
+          "description": "<p>The subject of the newsletter, what it's about.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipNewsletterConnection",
+      "id": "sponsorshipnewsletterconnection",
+      "href": "/graphql/reference/sponsors#object-sponsorshipnewsletterconnection",
+      "description": "<p>The connection type for SponsorshipNewsletter.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorshipNewsletterEdge]",
+          "id": "sponsorshipnewsletteredge",
+          "href": "/graphql/reference/sponsors#object-sponsorshipnewsletteredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SponsorshipNewsletter]",
+          "id": "sponsorshipnewsletter",
+          "href": "/graphql/reference/sponsors#object-sponsorshipnewsletter"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipNewsletterEdge",
+      "id": "sponsorshipnewsletteredge",
+      "href": "/graphql/reference/sponsors#object-sponsorshipnewsletteredge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SponsorshipNewsletter",
+          "id": "sponsorshipnewsletter",
+          "href": "/graphql/reference/sponsors#object-sponsorshipnewsletter"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "StripeConnectAccount",
+      "id": "stripeconnectaccount",
+      "href": "/graphql/reference/sponsors#object-stripeconnectaccount",
+      "description": "<p>A Stripe Connect account for receiving sponsorship funds from GitHub Sponsors.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "accountId",
+          "description": "<p>The account number used to identify this Stripe Connect account.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "billingCountryOrRegion",
+          "description": "<p>The name of the country or region of an external account, such as a bank\naccount, tied to the Stripe Connect account. Will only return a value when\nqueried by the maintainer of the associated GitHub Sponsors profile\nthemselves, or by an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "countryOrRegion",
+          "description": "<p>The name of the country or region of the Stripe Connect account. Will only\nreturn a value when queried by the maintainer of the associated GitHub\nSponsors profile themselves, or by an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isActive",
+          "description": "<p>Whether this Stripe Connect account is currently in use for the associated GitHub Sponsors profile.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "sponsorsListing",
+          "description": "<p>The GitHub Sponsors profile associated with this Stripe Connect account.</p>",
+          "type": "SponsorsListing!",
+          "id": "sponsorslisting",
+          "href": "/graphql/reference/sponsors#object-sponsorslisting"
+        },
+        {
+          "name": "stripeDashboardUrl",
+          "description": "<p>The URL to access this Stripe Connect account on Stripe's website.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "sponsors"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "Sponsorable",
+      "id": "sponsorable",
+      "href": "/graphql/reference/sponsors#interface-sponsorable",
+      "description": "<p>Entities that can sponsor or be sponsored through GitHub Sponsors.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "estimatedNextSponsorsPayoutInCents",
+          "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "hasSponsorsListing",
+          "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isSponsoredBy",
+          "description": "<p>Whether the given account is sponsoring this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "arguments": [
+            {
+              "name": "accountLogin",
+              "description": "<p>The target account's login.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "isSponsoringViewer",
+          "description": "<p>True if the viewer is sponsored by this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lifetimeReceivedSponsorshipValues",
+          "description": "<p>Calculate how much each sponsor has ever paid total to this maintainer via\nGitHub Sponsors. Does not include sponsorships paid via Patreon.</p>",
+          "type": "SponsorAndLifetimeValueConnection!",
+          "id": "sponsorandlifetimevalueconnection",
+          "href": "/graphql/reference/sponsors#object-sponsorandlifetimevalueconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for results returned from the connection.</p>",
+              "type": {
+                "name": "SponsorAndLifetimeValueOrder",
+                "id": "sponsorandlifetimevalueorder",
+                "href": "/graphql/reference/sponsors#input-object-sponsorandlifetimevalueorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "monthlyEstimatedSponsorsIncomeInCents",
+          "description": "<p>The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "sponsoring",
+          "description": "<p>List of users and organizations this entity is sponsoring.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "href": "/graphql/reference/sponsors#object-sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the users and organizations returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "href": "/graphql/reference/sponsors#input-object-sponsororder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsors",
+          "description": "<p>List of sponsors for this user or organization.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "href": "/graphql/reference/sponsors#object-sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsors returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "href": "/graphql/reference/sponsors#input-object-sponsororder"
+              }
+            },
+            {
+              "name": "tierId",
+              "description": "<p>If given, will filter for sponsors at the given tier. Will only return\nsponsors whose tier the viewer is permitted to see.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "href": "/graphql/reference/other#scalar-id"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsorsActivities",
+          "description": "<p>Events involving this sponsorable, such as new sponsorships.</p>",
+          "type": "SponsorsActivityConnection!",
+          "id": "sponsorsactivityconnection",
+          "href": "/graphql/reference/sponsors#object-sponsorsactivityconnection",
+          "arguments": [
+            {
+              "name": "actions",
+              "description": "<p>Filter activities to only the specified actions.</p>",
+              "type": {
+                "name": "[SponsorsActivityAction!]",
+                "id": "sponsorsactivityaction",
+                "href": "/graphql/reference/sponsors#enum-sponsorsactivityaction"
+              }
+            },
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "includeAsSponsor",
+              "defaultValue": false,
+              "description": "<p>Whether to include those events where this sponsorable acted as the sponsor.\nDefaults to only including events where this sponsorable was the recipient\nof a sponsorship.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "includePrivate",
+              "defaultValue": true,
+              "description": "<p>Whether or not to include private activities in the result set. Defaults to including public and private activities.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for activity returned from the connection.</p>",
+              "type": {
+                "name": "SponsorsActivityOrder",
+                "id": "sponsorsactivityorder",
+                "href": "/graphql/reference/sponsors#input-object-sponsorsactivityorder"
+              }
+            },
+            {
+              "name": "period",
+              "defaultValue": "MONTH",
+              "description": "<p>Filter activities returned to only those that occurred in the most recent\nspecified time period. Set to ALL to avoid filtering by when the activity\noccurred. Will be ignored if <code>since</code> or <code>until</code> is given.</p>",
+              "type": {
+                "name": "SponsorsActivityPeriod",
+                "id": "sponsorsactivityperiod",
+                "href": "/graphql/reference/sponsors#enum-sponsorsactivityperiod"
+              }
+            },
+            {
+              "name": "since",
+              "description": "<p>Filter activities to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "href": "/graphql/reference/other#scalar-datetime"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter activities to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "href": "/graphql/reference/other#scalar-datetime"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsorsListing",
+          "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
+          "type": "SponsorsListing",
+          "id": "sponsorslisting",
+          "href": "/graphql/reference/sponsors#object-sponsorslisting"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsor",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the sponsorship where you're the sponsor.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "href": "/graphql/reference/sponsors#object-sponsorship",
+          "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to return the sponsorship only if it's still active. Pass false to\nget the viewer's sponsorship back even if it has been cancelled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsorable",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the sponsorship you're receiving.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "href": "/graphql/reference/sponsors#object-sponsorship",
+          "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to return the sponsorship only if it's still active. Pass false to\nget the sponsorship back even if it has been cancelled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsorshipNewsletters",
+          "description": "<p>List of sponsorship updates sent from this sponsorable to sponsors.</p>",
+          "type": "SponsorshipNewsletterConnection!",
+          "id": "sponsorshipnewsletterconnection",
+          "href": "/graphql/reference/sponsors#object-sponsorshipnewsletterconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsorship updates returned from the connection.</p>",
+              "type": {
+                "name": "SponsorshipNewsletterOrder",
+                "id": "sponsorshipnewsletterorder",
+                "href": "/graphql/reference/sponsors#input-object-sponsorshipnewsletterorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsorshipsAsMaintainer",
+          "description": "<p>The sponsorships where this user or organization is the maintainer receiving the funds.</p>",
+          "type": "SponsorshipConnection!",
+          "id": "sponsorshipconnection",
+          "href": "/graphql/reference/sponsors#object-sponsorshipconnection",
+          "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to include only sponsorships that are active right now, versus all\nsponsorships this maintainer has ever received.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "includePrivate",
+              "defaultValue": false,
+              "description": "<p>Whether or not to include private sponsorships in the result set.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsorships returned from this connection. If left\nblank, the sponsorships will be ordered based on relevancy to the viewer.</p>",
+              "type": {
+                "name": "SponsorshipOrder",
+                "id": "sponsorshiporder",
+                "href": "/graphql/reference/sponsors#input-object-sponsorshiporder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsorshipsAsSponsor",
+          "description": "<p>The sponsorships where this user or organization is the funder.</p>",
+          "type": "SponsorshipConnection!",
+          "id": "sponsorshipconnection",
+          "href": "/graphql/reference/sponsors#object-sponsorshipconnection",
+          "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to include only sponsorships that are active right now, versus all sponsorships this sponsor has ever made.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "maintainerLogins",
+              "description": "<p>Filter sponsorships returned to those for the specified maintainers. That\nis, the recipient of the sponsorship is a user or organization with one of\nthe given logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsorships returned from this connection. If left\nblank, the sponsorships will be ordered based on relevancy to the viewer.</p>",
+              "type": {
+                "name": "SponsorshipOrder",
+                "id": "sponsorshiporder",
+                "href": "/graphql/reference/sponsors#input-object-sponsorshiporder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "totalSponsorshipAmountAsSponsorInCents",
+          "description": "<p>The amount in United States cents (e.g., 500 = $5.00 USD) that this entity has\nspent on GitHub to fund sponsorships. Only returns a value when viewed by the\nuser themselves or by a user who can manage sponsorships for the requested organization.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "arguments": [
+            {
+              "name": "since",
+              "description": "<p>Filter payments to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "href": "/graphql/reference/other#scalar-datetime"
+              }
+            },
+            {
+              "name": "sponsorableLogins",
+              "description": "<p>Filter payments to those made to the users or organizations with the specified usernames.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter payments to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "href": "/graphql/reference/other#scalar-datetime"
+              }
+            }
+          ]
+        },
+        {
+          "name": "viewerCanSponsor",
+          "description": "<p>Whether or not the viewer is able to sponsor this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerIsSponsoring",
+          "description": "<p>True if the viewer is sponsoring this user/organization.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "sponsors"
+    }
+  ],
+  "enums": [
+    {
+      "name": "SponsorAndLifetimeValueOrderField",
+      "id": "sponsorandlifetimevalueorderfield",
+      "href": "/graphql/reference/sponsors#enum-sponsorandlifetimevalueorderfield",
+      "description": "<p>Properties by which sponsor and lifetime value connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "LIFETIME_VALUE",
+          "description": "<p>Order results by how much money the sponsor has paid in total.</p>"
+        },
+        {
+          "name": "SPONSOR_LOGIN",
+          "description": "<p>Order results by the sponsor's login (username).</p>"
+        },
+        {
+          "name": "SPONSOR_RELEVANCE",
+          "description": "<p>Order results by the sponsor's relevance to the viewer.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorOrderField",
+      "id": "sponsororderfield",
+      "href": "/graphql/reference/sponsors#enum-sponsororderfield",
+      "description": "<p>Properties by which sponsor connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "LOGIN",
+          "description": "<p>Order sponsorable entities by login (username).</p>"
+        },
+        {
+          "name": "RELEVANCE",
+          "description": "<p>Order sponsors by their relevance to the viewer.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorableOrderField",
+      "id": "sponsorableorderfield",
+      "href": "/graphql/reference/sponsors#enum-sponsorableorderfield",
+      "description": "<p>Properties by which sponsorable connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "LOGIN",
+          "description": "<p>Order sponsorable entities by login (username).</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsActivityAction",
+      "id": "sponsorsactivityaction",
+      "href": "/graphql/reference/sponsors#enum-sponsorsactivityaction",
+      "description": "<p>The possible actions that GitHub Sponsors activities can represent.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CANCELLED_SPONSORSHIP",
+          "description": "<p>The activity was cancelling a sponsorship.</p>"
+        },
+        {
+          "name": "NEW_SPONSORSHIP",
+          "description": "<p>The activity was starting a sponsorship.</p>"
+        },
+        {
+          "name": "PENDING_CHANGE",
+          "description": "<p>The activity was scheduling a downgrade or cancellation.</p>"
+        },
+        {
+          "name": "REFUND",
+          "description": "<p>The activity was funds being refunded to the sponsor or GitHub.</p>"
+        },
+        {
+          "name": "SPONSOR_MATCH_DISABLED",
+          "description": "<p>The activity was disabling matching for a previously matched sponsorship.</p>"
+        },
+        {
+          "name": "TIER_CHANGE",
+          "description": "<p>The activity was changing the sponsorship tier, either directly by the sponsor or by a scheduled/pending change.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsActivityOrderField",
+      "id": "sponsorsactivityorderfield",
+      "href": "/graphql/reference/sponsors#enum-sponsorsactivityorderfield",
+      "description": "<p>Properties by which GitHub Sponsors activity connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "TIMESTAMP",
+          "description": "<p>Order activities by when they happened.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsActivityPeriod",
+      "id": "sponsorsactivityperiod",
+      "href": "/graphql/reference/sponsors#enum-sponsorsactivityperiod",
+      "description": "<p>The possible time periods for which Sponsors activities can be requested.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>Don't restrict the activity to any date range, include all activity.</p>"
+        },
+        {
+          "name": "DAY",
+          "description": "<p>The previous calendar day.</p>"
+        },
+        {
+          "name": "MONTH",
+          "description": "<p>The previous thirty days.</p>"
+        },
+        {
+          "name": "WEEK",
+          "description": "<p>The previous seven days.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsCountryOrRegionCode",
+      "id": "sponsorscountryorregioncode",
+      "href": "/graphql/reference/sponsors#enum-sponsorscountryorregioncode",
+      "description": "<p>Represents countries or regions for billing and residence for a GitHub Sponsors profile.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "AD",
+          "description": "<p>Andorra.</p>"
+        },
+        {
+          "name": "AE",
+          "description": "<p>United Arab Emirates.</p>"
+        },
+        {
+          "name": "AF",
+          "description": "<p>Afghanistan.</p>"
+        },
+        {
+          "name": "AG",
+          "description": "<p>Antigua and Barbuda.</p>"
+        },
+        {
+          "name": "AI",
+          "description": "<p>Anguilla.</p>"
+        },
+        {
+          "name": "AL",
+          "description": "<p>Albania.</p>"
+        },
+        {
+          "name": "AM",
+          "description": "<p>Armenia.</p>"
+        },
+        {
+          "name": "AO",
+          "description": "<p>Angola.</p>"
+        },
+        {
+          "name": "AQ",
+          "description": "<p>Antarctica.</p>"
+        },
+        {
+          "name": "AR",
+          "description": "<p>Argentina.</p>"
+        },
+        {
+          "name": "AS",
+          "description": "<p>American Samoa.</p>"
+        },
+        {
+          "name": "AT",
+          "description": "<p>Austria.</p>"
+        },
+        {
+          "name": "AU",
+          "description": "<p>Australia.</p>"
+        },
+        {
+          "name": "AW",
+          "description": "<p>Aruba.</p>"
+        },
+        {
+          "name": "AX",
+          "description": "<p>Åland.</p>"
+        },
+        {
+          "name": "AZ",
+          "description": "<p>Azerbaijan.</p>"
+        },
+        {
+          "name": "BA",
+          "description": "<p>Bosnia and Herzegovina.</p>"
+        },
+        {
+          "name": "BB",
+          "description": "<p>Barbados.</p>"
+        },
+        {
+          "name": "BD",
+          "description": "<p>Bangladesh.</p>"
+        },
+        {
+          "name": "BE",
+          "description": "<p>Belgium.</p>"
+        },
+        {
+          "name": "BF",
+          "description": "<p>Burkina Faso.</p>"
+        },
+        {
+          "name": "BG",
+          "description": "<p>Bulgaria.</p>"
+        },
+        {
+          "name": "BH",
+          "description": "<p>Bahrain.</p>"
+        },
+        {
+          "name": "BI",
+          "description": "<p>Burundi.</p>"
+        },
+        {
+          "name": "BJ",
+          "description": "<p>Benin.</p>"
+        },
+        {
+          "name": "BL",
+          "description": "<p>Saint Barthélemy.</p>"
+        },
+        {
+          "name": "BM",
+          "description": "<p>Bermuda.</p>"
+        },
+        {
+          "name": "BN",
+          "description": "<p>Brunei Darussalam.</p>"
+        },
+        {
+          "name": "BO",
+          "description": "<p>Bolivia.</p>"
+        },
+        {
+          "name": "BQ",
+          "description": "<p>Bonaire, Sint Eustatius and Saba.</p>"
+        },
+        {
+          "name": "BR",
+          "description": "<p>Brazil.</p>"
+        },
+        {
+          "name": "BS",
+          "description": "<p>Bahamas.</p>"
+        },
+        {
+          "name": "BT",
+          "description": "<p>Bhutan.</p>"
+        },
+        {
+          "name": "BV",
+          "description": "<p>Bouvet Island.</p>"
+        },
+        {
+          "name": "BW",
+          "description": "<p>Botswana.</p>"
+        },
+        {
+          "name": "BY",
+          "description": "<p>Belarus.</p>"
+        },
+        {
+          "name": "BZ",
+          "description": "<p>Belize.</p>"
+        },
+        {
+          "name": "CA",
+          "description": "<p>Canada.</p>"
+        },
+        {
+          "name": "CC",
+          "description": "<p>Cocos (Keeling) Islands.</p>"
+        },
+        {
+          "name": "CD",
+          "description": "<p>Congo (Kinshasa).</p>"
+        },
+        {
+          "name": "CF",
+          "description": "<p>Central African Republic.</p>"
+        },
+        {
+          "name": "CG",
+          "description": "<p>Congo (Brazzaville).</p>"
+        },
+        {
+          "name": "CH",
+          "description": "<p>Switzerland.</p>"
+        },
+        {
+          "name": "CI",
+          "description": "<p>Côte d'Ivoire.</p>"
+        },
+        {
+          "name": "CK",
+          "description": "<p>Cook Islands.</p>"
+        },
+        {
+          "name": "CL",
+          "description": "<p>Chile.</p>"
+        },
+        {
+          "name": "CM",
+          "description": "<p>Cameroon.</p>"
+        },
+        {
+          "name": "CN",
+          "description": "<p>China.</p>"
+        },
+        {
+          "name": "CO",
+          "description": "<p>Colombia.</p>"
+        },
+        {
+          "name": "CR",
+          "description": "<p>Costa Rica.</p>"
+        },
+        {
+          "name": "CV",
+          "description": "<p>Cape Verde.</p>"
+        },
+        {
+          "name": "CW",
+          "description": "<p>Curaçao.</p>"
+        },
+        {
+          "name": "CX",
+          "description": "<p>Christmas Island.</p>"
+        },
+        {
+          "name": "CY",
+          "description": "<p>Cyprus.</p>"
+        },
+        {
+          "name": "CZ",
+          "description": "<p>Czech Republic.</p>"
+        },
+        {
+          "name": "DE",
+          "description": "<p>Germany.</p>"
+        },
+        {
+          "name": "DJ",
+          "description": "<p>Djibouti.</p>"
+        },
+        {
+          "name": "DK",
+          "description": "<p>Denmark.</p>"
+        },
+        {
+          "name": "DM",
+          "description": "<p>Dominica.</p>"
+        },
+        {
+          "name": "DO",
+          "description": "<p>Dominican Republic.</p>"
+        },
+        {
+          "name": "DZ",
+          "description": "<p>Algeria.</p>"
+        },
+        {
+          "name": "EC",
+          "description": "<p>Ecuador.</p>"
+        },
+        {
+          "name": "EE",
+          "description": "<p>Estonia.</p>"
+        },
+        {
+          "name": "EG",
+          "description": "<p>Egypt.</p>"
+        },
+        {
+          "name": "EH",
+          "description": "<p>Western Sahara.</p>"
+        },
+        {
+          "name": "ER",
+          "description": "<p>Eritrea.</p>"
+        },
+        {
+          "name": "ES",
+          "description": "<p>Spain.</p>"
+        },
+        {
+          "name": "ET",
+          "description": "<p>Ethiopia.</p>"
+        },
+        {
+          "name": "FI",
+          "description": "<p>Finland.</p>"
+        },
+        {
+          "name": "FJ",
+          "description": "<p>Fiji.</p>"
+        },
+        {
+          "name": "FK",
+          "description": "<p>Falkland Islands.</p>"
+        },
+        {
+          "name": "FM",
+          "description": "<p>Micronesia.</p>"
+        },
+        {
+          "name": "FO",
+          "description": "<p>Faroe Islands.</p>"
+        },
+        {
+          "name": "FR",
+          "description": "<p>France.</p>"
+        },
+        {
+          "name": "GA",
+          "description": "<p>Gabon.</p>"
+        },
+        {
+          "name": "GB",
+          "description": "<p>United Kingdom.</p>"
+        },
+        {
+          "name": "GD",
+          "description": "<p>Grenada.</p>"
+        },
+        {
+          "name": "GE",
+          "description": "<p>Georgia.</p>"
+        },
+        {
+          "name": "GF",
+          "description": "<p>French Guiana.</p>"
+        },
+        {
+          "name": "GG",
+          "description": "<p>Guernsey.</p>"
+        },
+        {
+          "name": "GH",
+          "description": "<p>Ghana.</p>"
+        },
+        {
+          "name": "GI",
+          "description": "<p>Gibraltar.</p>"
+        },
+        {
+          "name": "GL",
+          "description": "<p>Greenland.</p>"
+        },
+        {
+          "name": "GM",
+          "description": "<p>Gambia.</p>"
+        },
+        {
+          "name": "GN",
+          "description": "<p>Guinea.</p>"
+        },
+        {
+          "name": "GP",
+          "description": "<p>Guadeloupe.</p>"
+        },
+        {
+          "name": "GQ",
+          "description": "<p>Equatorial Guinea.</p>"
+        },
+        {
+          "name": "GR",
+          "description": "<p>Greece.</p>"
+        },
+        {
+          "name": "GS",
+          "description": "<p>South Georgia and South Sandwich Islands.</p>"
+        },
+        {
+          "name": "GT",
+          "description": "<p>Guatemala.</p>"
+        },
+        {
+          "name": "GU",
+          "description": "<p>Guam.</p>"
+        },
+        {
+          "name": "GW",
+          "description": "<p>Guinea-Bissau.</p>"
+        },
+        {
+          "name": "GY",
+          "description": "<p>Guyana.</p>"
+        },
+        {
+          "name": "HK",
+          "description": "<p>Hong Kong.</p>"
+        },
+        {
+          "name": "HM",
+          "description": "<p>Heard and McDonald Islands.</p>"
+        },
+        {
+          "name": "HN",
+          "description": "<p>Honduras.</p>"
+        },
+        {
+          "name": "HR",
+          "description": "<p>Croatia.</p>"
+        },
+        {
+          "name": "HT",
+          "description": "<p>Haiti.</p>"
+        },
+        {
+          "name": "HU",
+          "description": "<p>Hungary.</p>"
+        },
+        {
+          "name": "ID",
+          "description": "<p>Indonesia.</p>"
+        },
+        {
+          "name": "IE",
+          "description": "<p>Ireland.</p>"
+        },
+        {
+          "name": "IL",
+          "description": "<p>Israel.</p>"
+        },
+        {
+          "name": "IM",
+          "description": "<p>Isle of Man.</p>"
+        },
+        {
+          "name": "IN",
+          "description": "<p>India.</p>"
+        },
+        {
+          "name": "IO",
+          "description": "<p>British Indian Ocean Territory.</p>"
+        },
+        {
+          "name": "IQ",
+          "description": "<p>Iraq.</p>"
+        },
+        {
+          "name": "IR",
+          "description": "<p>Iran.</p>"
+        },
+        {
+          "name": "IS",
+          "description": "<p>Iceland.</p>"
+        },
+        {
+          "name": "IT",
+          "description": "<p>Italy.</p>"
+        },
+        {
+          "name": "JE",
+          "description": "<p>Jersey.</p>"
+        },
+        {
+          "name": "JM",
+          "description": "<p>Jamaica.</p>"
+        },
+        {
+          "name": "JO",
+          "description": "<p>Jordan.</p>"
+        },
+        {
+          "name": "JP",
+          "description": "<p>Japan.</p>"
+        },
+        {
+          "name": "KE",
+          "description": "<p>Kenya.</p>"
+        },
+        {
+          "name": "KG",
+          "description": "<p>Kyrgyzstan.</p>"
+        },
+        {
+          "name": "KH",
+          "description": "<p>Cambodia.</p>"
+        },
+        {
+          "name": "KI",
+          "description": "<p>Kiribati.</p>"
+        },
+        {
+          "name": "KM",
+          "description": "<p>Comoros.</p>"
+        },
+        {
+          "name": "KN",
+          "description": "<p>Saint Kitts and Nevis.</p>"
+        },
+        {
+          "name": "KR",
+          "description": "<p>Korea, South.</p>"
+        },
+        {
+          "name": "KW",
+          "description": "<p>Kuwait.</p>"
+        },
+        {
+          "name": "KY",
+          "description": "<p>Cayman Islands.</p>"
+        },
+        {
+          "name": "KZ",
+          "description": "<p>Kazakhstan.</p>"
+        },
+        {
+          "name": "LA",
+          "description": "<p>Laos.</p>"
+        },
+        {
+          "name": "LB",
+          "description": "<p>Lebanon.</p>"
+        },
+        {
+          "name": "LC",
+          "description": "<p>Saint Lucia.</p>"
+        },
+        {
+          "name": "LI",
+          "description": "<p>Liechtenstein.</p>"
+        },
+        {
+          "name": "LK",
+          "description": "<p>Sri Lanka.</p>"
+        },
+        {
+          "name": "LR",
+          "description": "<p>Liberia.</p>"
+        },
+        {
+          "name": "LS",
+          "description": "<p>Lesotho.</p>"
+        },
+        {
+          "name": "LT",
+          "description": "<p>Lithuania.</p>"
+        },
+        {
+          "name": "LU",
+          "description": "<p>Luxembourg.</p>"
+        },
+        {
+          "name": "LV",
+          "description": "<p>Latvia.</p>"
+        },
+        {
+          "name": "LY",
+          "description": "<p>Libya.</p>"
+        },
+        {
+          "name": "MA",
+          "description": "<p>Morocco.</p>"
+        },
+        {
+          "name": "MC",
+          "description": "<p>Monaco.</p>"
+        },
+        {
+          "name": "MD",
+          "description": "<p>Moldova.</p>"
+        },
+        {
+          "name": "ME",
+          "description": "<p>Montenegro.</p>"
+        },
+        {
+          "name": "MF",
+          "description": "<p>Saint Martin (French part).</p>"
+        },
+        {
+          "name": "MG",
+          "description": "<p>Madagascar.</p>"
+        },
+        {
+          "name": "MH",
+          "description": "<p>Marshall Islands.</p>"
+        },
+        {
+          "name": "MK",
+          "description": "<p>Macedonia.</p>"
+        },
+        {
+          "name": "ML",
+          "description": "<p>Mali.</p>"
+        },
+        {
+          "name": "MM",
+          "description": "<p>Myanmar.</p>"
+        },
+        {
+          "name": "MN",
+          "description": "<p>Mongolia.</p>"
+        },
+        {
+          "name": "MO",
+          "description": "<p>Macau.</p>"
+        },
+        {
+          "name": "MP",
+          "description": "<p>Northern Mariana Islands.</p>"
+        },
+        {
+          "name": "MQ",
+          "description": "<p>Martinique.</p>"
+        },
+        {
+          "name": "MR",
+          "description": "<p>Mauritania.</p>"
+        },
+        {
+          "name": "MS",
+          "description": "<p>Montserrat.</p>"
+        },
+        {
+          "name": "MT",
+          "description": "<p>Malta.</p>"
+        },
+        {
+          "name": "MU",
+          "description": "<p>Mauritius.</p>"
+        },
+        {
+          "name": "MV",
+          "description": "<p>Maldives.</p>"
+        },
+        {
+          "name": "MW",
+          "description": "<p>Malawi.</p>"
+        },
+        {
+          "name": "MX",
+          "description": "<p>Mexico.</p>"
+        },
+        {
+          "name": "MY",
+          "description": "<p>Malaysia.</p>"
+        },
+        {
+          "name": "MZ",
+          "description": "<p>Mozambique.</p>"
+        },
+        {
+          "name": "NA",
+          "description": "<p>Namibia.</p>"
+        },
+        {
+          "name": "NC",
+          "description": "<p>New Caledonia.</p>"
+        },
+        {
+          "name": "NE",
+          "description": "<p>Niger.</p>"
+        },
+        {
+          "name": "NF",
+          "description": "<p>Norfolk Island.</p>"
+        },
+        {
+          "name": "NG",
+          "description": "<p>Nigeria.</p>"
+        },
+        {
+          "name": "NI",
+          "description": "<p>Nicaragua.</p>"
+        },
+        {
+          "name": "NL",
+          "description": "<p>Netherlands.</p>"
+        },
+        {
+          "name": "NO",
+          "description": "<p>Norway.</p>"
+        },
+        {
+          "name": "NP",
+          "description": "<p>Nepal.</p>"
+        },
+        {
+          "name": "NR",
+          "description": "<p>Nauru.</p>"
+        },
+        {
+          "name": "NU",
+          "description": "<p>Niue.</p>"
+        },
+        {
+          "name": "NZ",
+          "description": "<p>New Zealand.</p>"
+        },
+        {
+          "name": "OM",
+          "description": "<p>Oman.</p>"
+        },
+        {
+          "name": "PA",
+          "description": "<p>Panama.</p>"
+        },
+        {
+          "name": "PE",
+          "description": "<p>Peru.</p>"
+        },
+        {
+          "name": "PF",
+          "description": "<p>French Polynesia.</p>"
+        },
+        {
+          "name": "PG",
+          "description": "<p>Papua New Guinea.</p>"
+        },
+        {
+          "name": "PH",
+          "description": "<p>Philippines.</p>"
+        },
+        {
+          "name": "PK",
+          "description": "<p>Pakistan.</p>"
+        },
+        {
+          "name": "PL",
+          "description": "<p>Poland.</p>"
+        },
+        {
+          "name": "PM",
+          "description": "<p>Saint Pierre and Miquelon.</p>"
+        },
+        {
+          "name": "PN",
+          "description": "<p>Pitcairn.</p>"
+        },
+        {
+          "name": "PR",
+          "description": "<p>Puerto Rico.</p>"
+        },
+        {
+          "name": "PS",
+          "description": "<p>Palestine.</p>"
+        },
+        {
+          "name": "PT",
+          "description": "<p>Portugal.</p>"
+        },
+        {
+          "name": "PW",
+          "description": "<p>Palau.</p>"
+        },
+        {
+          "name": "PY",
+          "description": "<p>Paraguay.</p>"
+        },
+        {
+          "name": "QA",
+          "description": "<p>Qatar.</p>"
+        },
+        {
+          "name": "RE",
+          "description": "<p>Reunion.</p>"
+        },
+        {
+          "name": "RO",
+          "description": "<p>Romania.</p>"
+        },
+        {
+          "name": "RS",
+          "description": "<p>Serbia.</p>"
+        },
+        {
+          "name": "RU",
+          "description": "<p>Russian Federation.</p>"
+        },
+        {
+          "name": "RW",
+          "description": "<p>Rwanda.</p>"
+        },
+        {
+          "name": "SA",
+          "description": "<p>Saudi Arabia.</p>"
+        },
+        {
+          "name": "SB",
+          "description": "<p>Solomon Islands.</p>"
+        },
+        {
+          "name": "SC",
+          "description": "<p>Seychelles.</p>"
+        },
+        {
+          "name": "SD",
+          "description": "<p>Sudan.</p>"
+        },
+        {
+          "name": "SE",
+          "description": "<p>Sweden.</p>"
+        },
+        {
+          "name": "SG",
+          "description": "<p>Singapore.</p>"
+        },
+        {
+          "name": "SH",
+          "description": "<p>Saint Helena.</p>"
+        },
+        {
+          "name": "SI",
+          "description": "<p>Slovenia.</p>"
+        },
+        {
+          "name": "SJ",
+          "description": "<p>Svalbard and Jan Mayen Islands.</p>"
+        },
+        {
+          "name": "SK",
+          "description": "<p>Slovakia.</p>"
+        },
+        {
+          "name": "SL",
+          "description": "<p>Sierra Leone.</p>"
+        },
+        {
+          "name": "SM",
+          "description": "<p>San Marino.</p>"
+        },
+        {
+          "name": "SN",
+          "description": "<p>Senegal.</p>"
+        },
+        {
+          "name": "SO",
+          "description": "<p>Somalia.</p>"
+        },
+        {
+          "name": "SR",
+          "description": "<p>Suriname.</p>"
+        },
+        {
+          "name": "SS",
+          "description": "<p>South Sudan.</p>"
+        },
+        {
+          "name": "ST",
+          "description": "<p>Sao Tome and Principe.</p>"
+        },
+        {
+          "name": "SV",
+          "description": "<p>El Salvador.</p>"
+        },
+        {
+          "name": "SX",
+          "description": "<p>Sint Maarten (Dutch part).</p>"
+        },
+        {
+          "name": "SY",
+          "description": "<p>Syria.</p>"
+        },
+        {
+          "name": "SZ",
+          "description": "<p>Swaziland.</p>"
+        },
+        {
+          "name": "TC",
+          "description": "<p>Turks and Caicos Islands.</p>"
+        },
+        {
+          "name": "TD",
+          "description": "<p>Chad.</p>"
+        },
+        {
+          "name": "TF",
+          "description": "<p>French Southern Lands.</p>"
+        },
+        {
+          "name": "TG",
+          "description": "<p>Togo.</p>"
+        },
+        {
+          "name": "TH",
+          "description": "<p>Thailand.</p>"
+        },
+        {
+          "name": "TJ",
+          "description": "<p>Tajikistan.</p>"
+        },
+        {
+          "name": "TK",
+          "description": "<p>Tokelau.</p>"
+        },
+        {
+          "name": "TL",
+          "description": "<p>Timor-Leste.</p>"
+        },
+        {
+          "name": "TM",
+          "description": "<p>Turkmenistan.</p>"
+        },
+        {
+          "name": "TN",
+          "description": "<p>Tunisia.</p>"
+        },
+        {
+          "name": "TO",
+          "description": "<p>Tonga.</p>"
+        },
+        {
+          "name": "TR",
+          "description": "<p>Türkiye.</p>"
+        },
+        {
+          "name": "TT",
+          "description": "<p>Trinidad and Tobago.</p>"
+        },
+        {
+          "name": "TV",
+          "description": "<p>Tuvalu.</p>"
+        },
+        {
+          "name": "TW",
+          "description": "<p>Taiwan.</p>"
+        },
+        {
+          "name": "TZ",
+          "description": "<p>Tanzania.</p>"
+        },
+        {
+          "name": "UA",
+          "description": "<p>Ukraine.</p>"
+        },
+        {
+          "name": "UG",
+          "description": "<p>Uganda.</p>"
+        },
+        {
+          "name": "UM",
+          "description": "<p>United States Minor Outlying Islands.</p>"
+        },
+        {
+          "name": "US",
+          "description": "<p>United States of America.</p>"
+        },
+        {
+          "name": "UY",
+          "description": "<p>Uruguay.</p>"
+        },
+        {
+          "name": "UZ",
+          "description": "<p>Uzbekistan.</p>"
+        },
+        {
+          "name": "VA",
+          "description": "<p>Vatican City.</p>"
+        },
+        {
+          "name": "VC",
+          "description": "<p>Saint Vincent and the Grenadines.</p>"
+        },
+        {
+          "name": "VE",
+          "description": "<p>Venezuela.</p>"
+        },
+        {
+          "name": "VG",
+          "description": "<p>Virgin Islands, British.</p>"
+        },
+        {
+          "name": "VI",
+          "description": "<p>Virgin Islands, U.S.</p>"
+        },
+        {
+          "name": "VN",
+          "description": "<p>Vietnam.</p>"
+        },
+        {
+          "name": "VU",
+          "description": "<p>Vanuatu.</p>"
+        },
+        {
+          "name": "WF",
+          "description": "<p>Wallis and Futuna Islands.</p>"
+        },
+        {
+          "name": "WS",
+          "description": "<p>Samoa.</p>"
+        },
+        {
+          "name": "YE",
+          "description": "<p>Yemen.</p>"
+        },
+        {
+          "name": "YT",
+          "description": "<p>Mayotte.</p>"
+        },
+        {
+          "name": "ZA",
+          "description": "<p>South Africa.</p>"
+        },
+        {
+          "name": "ZM",
+          "description": "<p>Zambia.</p>"
+        },
+        {
+          "name": "ZW",
+          "description": "<p>Zimbabwe.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsGoalKind",
+      "id": "sponsorsgoalkind",
+      "href": "/graphql/reference/sponsors#enum-sponsorsgoalkind",
+      "description": "<p>The different kinds of goals a GitHub Sponsors member can have.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "MONTHLY_SPONSORSHIP_AMOUNT",
+          "description": "<p>The goal is about getting a certain amount in USD from sponsorships each month.</p>"
+        },
+        {
+          "name": "TOTAL_SPONSORS_COUNT",
+          "description": "<p>The goal is about reaching a certain number of sponsors.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsListingFeaturedItemFeatureableType",
+      "id": "sponsorslistingfeatureditemfeatureabletype",
+      "href": "/graphql/reference/sponsors#enum-sponsorslistingfeatureditemfeatureabletype",
+      "description": "<p>The different kinds of records that can be featured on a GitHub Sponsors profile page.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "REPOSITORY",
+          "description": "<p>A repository owned by the user or organization with the GitHub Sponsors profile.</p>"
+        },
+        {
+          "name": "USER",
+          "description": "<p>A user who belongs to the organization with the GitHub Sponsors profile.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsTierOrderField",
+      "id": "sponsorstierorderfield",
+      "href": "/graphql/reference/sponsors#enum-sponsorstierorderfield",
+      "description": "<p>Properties by which Sponsors tiers connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order tiers by creation time.</p>"
+        },
+        {
+          "name": "MONTHLY_PRICE_IN_CENTS",
+          "description": "<p>Order tiers by their monthly price in cents.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipNewsletterOrderField",
+      "id": "sponsorshipnewsletterorderfield",
+      "href": "/graphql/reference/sponsors#enum-sponsorshipnewsletterorderfield",
+      "description": "<p>Properties by which sponsorship update connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order sponsorship newsletters by when they were created.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipOrderField",
+      "id": "sponsorshiporderfield",
+      "href": "/graphql/reference/sponsors#enum-sponsorshiporderfield",
+      "description": "<p>Properties by which sponsorship connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order sponsorship by creation time.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipPaymentSource",
+      "id": "sponsorshippaymentsource",
+      "href": "/graphql/reference/sponsors#enum-sponsorshippaymentsource",
+      "description": "<p>How payment was made for funding a GitHub Sponsors sponsorship.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "GITHUB",
+          "description": "<p>Payment was made through GitHub.</p>"
+        },
+        {
+          "name": "PATREON",
+          "description": "<p>Payment was made through Patreon.</p>"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipPrivacy",
+      "id": "sponsorshipprivacy",
+      "href": "/graphql/reference/sponsors#enum-sponsorshipprivacy",
+      "description": "<p>The privacy of a sponsorship.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "PRIVATE",
+          "description": "<p>Private.</p>"
+        },
+        {
+          "name": "PUBLIC",
+          "description": "<p>Public.</p>"
+        }
+      ],
+      "category": "sponsors"
+    }
+  ],
+  "unions": [
+    {
+      "name": "Sponsor",
+      "id": "sponsor",
+      "href": "/graphql/reference/sponsors#union-sponsor",
+      "description": "<p>Entities that can sponsor others via GitHub Sponsors.</p>",
+      "isDeprecated": false,
+      "possibleTypes": [
+        {
+          "name": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorableItem",
+      "id": "sponsorableitem",
+      "href": "/graphql/reference/sponsors#union-sponsorableitem",
+      "description": "<p>Entities that can be sponsored via GitHub Sponsors.</p>",
+      "isDeprecated": false,
+      "possibleTypes": [
+        {
+          "name": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsListingFeatureableItem",
+      "id": "sponsorslistingfeatureableitem",
+      "href": "/graphql/reference/sponsors#union-sponsorslistingfeatureableitem",
+      "description": "<p>A record that can be featured on a GitHub Sponsors profile.</p>",
+      "isDeprecated": false,
+      "possibleTypes": [
+        {
+          "name": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "sponsors"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "BulkSponsorship",
+      "id": "bulksponsorship",
+      "href": "/graphql/reference/sponsors#input-object-bulksponsorship",
+      "description": "<p>Information about a sponsorship to make for a user or organization with a GitHub\nSponsors profile, as part of sponsoring many users or organizations at once.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "amount",
+          "description": "<p>The amount to pay to the sponsorable in US dollars. Valid values: 1-12000.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "sponsorableId",
+          "description": "<p>The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "CancelSponsorshipInput",
+      "id": "cancelsponsorshipinput",
+      "href": "/graphql/reference/sponsors#input-object-cancelsponsorshipinput",
+      "description": "<p>Autogenerated input type of CancelSponsorship.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sponsorId",
+          "description": "<p>The ID of the user or organization who is acting as the sponsor, paying for\nthe sponsorship. Required if sponsorLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorLogin",
+          "description": "<p>The username of the user or organization who is acting as the sponsor, paying\nfor the sponsorship. Required if sponsorId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sponsorableId",
+          "description": "<p>The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "CreateSponsorsListingInput",
+      "id": "createsponsorslistinginput",
+      "href": "/graphql/reference/sponsors#input-object-createsponsorslistinginput",
+      "description": "<p>Autogenerated input type of CreateSponsorsListing.</p>",
+      "inputFields": [
+        {
+          "name": "billingCountryOrRegionCode",
+          "description": "<p>The country or region where the sponsorable's bank account is located.\nRequired if fiscalHostLogin is not specified, ignored when fiscalHostLogin is specified.</p>",
+          "type": "SponsorsCountryOrRegionCode",
+          "id": "sponsorscountryorregioncode",
+          "href": "/graphql/reference/sponsors#enum-sponsorscountryorregioncode"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "contactEmail",
+          "description": "<p>The email address we should use to contact you about the GitHub Sponsors\nprofile being created. This will not be shared publicly. Must be a verified\nemail address already on your GitHub account. Only relevant when the\nsponsorable is yourself. Defaults to your primary email address on file if omitted.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "fiscalHostLogin",
+          "description": "<p>The username of the supported fiscal host's GitHub organization, if you want\nto receive sponsorship payouts through a fiscal host rather than directly to a\nbank account. For example,<code>Open-Source-Collective</code>for Open Source Collective\nor 'numfocus' for numFOCUS. Case insensitive. See <a href=\"https://docs.github.com/sponsors/receiving-sponsorships-through-github-sponsors/using-a-fiscal-host-to-receive-github-sponsors-payouts\">https://docs.github.com/sponsors/receiving-sponsorships-through-github-sponsors/using-a-fiscal-host-to-receive-github-sponsors-payouts</a>\nfor more information.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "fiscallyHostedProjectProfileUrl",
+          "description": "<p>The URL for your profile page on the fiscal host's website, e.g.,\n<a href=\"https://opencollective.com/babel\">https://opencollective.com/babel</a> or <a href=\"https://numfocus.org/project/bokeh\">https://numfocus.org/project/bokeh</a>.\nRequired if fiscalHostLogin is specified.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "fullDescription",
+          "description": "<p>Provide an introduction to serve as the main focus that appears on your GitHub\nSponsors profile. It's a great opportunity to help potential sponsors learn\nmore about you, your work, and why their sponsorship is important to you.\nGitHub-flavored Markdown is supported.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "residenceCountryOrRegionCode",
+          "description": "<p>The country or region where the sponsorable resides. This is for tax purposes.\nRequired if the sponsorable is yourself, ignored when sponsorableLogin\nspecifies an organization.</p>",
+          "type": "SponsorsCountryOrRegionCode",
+          "id": "sponsorscountryorregioncode",
+          "href": "/graphql/reference/sponsors#enum-sponsorscountryorregioncode"
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the organization to create a GitHub Sponsors profile for, if\ndesired. Defaults to creating a GitHub Sponsors profile for the authenticated\nuser if omitted.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "CreateSponsorsTierInput",
+      "id": "createsponsorstierinput",
+      "href": "/graphql/reference/sponsors#input-object-createsponsorstierinput",
+      "description": "<p>Autogenerated input type of CreateSponsorsTier.</p>",
+      "inputFields": [
+        {
+          "name": "amount",
+          "description": "<p>The value of the new tier in US dollars. Valid values: 1-12000.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "description",
+          "description": "<p>A description of what this tier is, what perks sponsors might receive, what a sponsorship at this tier means for you, etc.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isRecurring",
+          "description": "<p>Whether sponsorships using this tier should happen monthly/yearly or just once.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "publish",
+          "description": "<p>Whether to make the tier available immediately for sponsors to choose.\nDefaults to creating a draft tier that will not be publicly visible.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>Optional ID of the private repository that sponsors at this tier should gain\nread-only access to. Must be owned by an organization.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>Optional name of the private repository that sponsors at this tier should gain\nread-only access to. Must be owned by an organization. Necessary if\nrepositoryOwnerLogin is given. Will be ignored if repositoryId is given.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryOwnerLogin",
+          "description": "<p>Optional login of the organization owner of the private repository that\nsponsors at this tier should gain read-only access to. Necessary if\nrepositoryName is given. Will be ignored if repositoryId is given.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sponsorableId",
+          "description": "<p>The ID of the user or organization who owns the GitHub Sponsors profile.\nDefaults to the current user if omitted and sponsorableLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the user or organization who owns the GitHub Sponsors profile.\nDefaults to the current user if omitted and sponsorableId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "welcomeMessage",
+          "description": "<p>Optional message new sponsors at this tier will receive.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "CreateSponsorshipInput",
+      "id": "createsponsorshipinput",
+      "href": "/graphql/reference/sponsors#input-object-createsponsorshipinput",
+      "description": "<p>Autogenerated input type of CreateSponsorship.</p>",
+      "inputFields": [
+        {
+          "name": "amount",
+          "description": "<p>The amount to pay to the sponsorable in US dollars. Required if a tierId is not specified. Valid values: 1-12000.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "isRecurring",
+          "description": "<p>Whether the sponsorship should happen monthly/yearly or just this one time. Required if a tierId is not specified.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "privacyLevel",
+          "description": "<p>Specify whether others should be able to see that the sponsor is sponsoring\nthe sponsorable. Public visibility still does not reveal which tier is used.</p>",
+          "type": "SponsorshipPrivacy",
+          "id": "sponsorshipprivacy",
+          "href": "/graphql/reference/sponsors#enum-sponsorshipprivacy"
+        },
+        {
+          "name": "receiveEmails",
+          "description": "<p>Whether the sponsor should receive email updates from the sponsorable.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "sponsorId",
+          "description": "<p>The ID of the user or organization who is acting as the sponsor, paying for\nthe sponsorship. Required if sponsorLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorLogin",
+          "description": "<p>The username of the user or organization who is acting as the sponsor, paying\nfor the sponsorship. Required if sponsorId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sponsorableId",
+          "description": "<p>The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "tierId",
+          "description": "<p>The ID of one of sponsorable's existing tiers to sponsor at. Required if amount is not specified.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "CreateSponsorshipsInput",
+      "id": "createsponsorshipsinput",
+      "href": "/graphql/reference/sponsors#input-object-createsponsorshipsinput",
+      "description": "<p>Autogenerated input type of CreateSponsorships.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "privacyLevel",
+          "description": "<p>Specify whether others should be able to see that the sponsor is sponsoring\nthe sponsorables. Public visibility still does not reveal the dollar value of\nthe sponsorship.</p>",
+          "type": "SponsorshipPrivacy",
+          "id": "sponsorshipprivacy",
+          "href": "/graphql/reference/sponsors#enum-sponsorshipprivacy"
+        },
+        {
+          "name": "receiveEmails",
+          "description": "<p>Whether the sponsor should receive email updates from the sponsorables.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "recurring",
+          "description": "<p>Whether the sponsorships created should continue each billing cycle for the\nsponsor (monthly or annually), versus lasting only a single month. Defaults to\none-time sponsorships.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "sponsorLogin",
+          "description": "<p>The username of the user or organization who is acting as the sponsor, paying for the sponsorships.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sponsorships",
+          "description": "<p>The list of maintainers to sponsor and for how much apiece.</p>",
+          "type": "[BulkSponsorship!]!",
+          "id": "bulksponsorship",
+          "href": "/graphql/reference/sponsors#input-object-bulksponsorship"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "PublishSponsorsTierInput",
+      "id": "publishsponsorstierinput",
+      "href": "/graphql/reference/sponsors#input-object-publishsponsorstierinput",
+      "description": "<p>Autogenerated input type of PublishSponsorsTier.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "tierId",
+          "description": "<p>The ID of the draft tier to publish.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "RetireSponsorsTierInput",
+      "id": "retiresponsorstierinput",
+      "href": "/graphql/reference/sponsors#input-object-retiresponsorstierinput",
+      "description": "<p>Autogenerated input type of RetireSponsorsTier.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "tierId",
+          "description": "<p>The ID of the published tier to retire.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorAndLifetimeValueOrder",
+      "id": "sponsorandlifetimevalueorder",
+      "href": "/graphql/reference/sponsors#input-object-sponsorandlifetimevalueorder",
+      "description": "<p>Ordering options for connections to get sponsor entities and associated USD amounts for GitHub Sponsors.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order results by.</p>",
+          "type": "SponsorAndLifetimeValueOrderField!",
+          "id": "sponsorandlifetimevalueorderfield",
+          "href": "/graphql/reference/sponsors#enum-sponsorandlifetimevalueorderfield"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorOrder",
+      "id": "sponsororder",
+      "href": "/graphql/reference/sponsors#input-object-sponsororder",
+      "description": "<p>Ordering options for connections to get sponsor entities for GitHub Sponsors.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order sponsor entities by.</p>",
+          "type": "SponsorOrderField!",
+          "id": "sponsororderfield",
+          "href": "/graphql/reference/sponsors#enum-sponsororderfield"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorableOrder",
+      "id": "sponsorableorder",
+      "href": "/graphql/reference/sponsors#input-object-sponsorableorder",
+      "description": "<p>Ordering options for connections to get sponsorable entities for GitHub Sponsors.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order sponsorable entities by.</p>",
+          "type": "SponsorableOrderField!",
+          "id": "sponsorableorderfield",
+          "href": "/graphql/reference/sponsors#enum-sponsorableorderfield"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsActivityOrder",
+      "id": "sponsorsactivityorder",
+      "href": "/graphql/reference/sponsors#input-object-sponsorsactivityorder",
+      "description": "<p>Ordering options for GitHub Sponsors activity connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order activity by.</p>",
+          "type": "SponsorsActivityOrderField!",
+          "id": "sponsorsactivityorderfield",
+          "href": "/graphql/reference/sponsors#enum-sponsorsactivityorderfield"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorsTierOrder",
+      "id": "sponsorstierorder",
+      "href": "/graphql/reference/sponsors#input-object-sponsorstierorder",
+      "description": "<p>Ordering options for Sponsors tiers connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order tiers by.</p>",
+          "type": "SponsorsTierOrderField!",
+          "id": "sponsorstierorderfield",
+          "href": "/graphql/reference/sponsors#enum-sponsorstierorderfield"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipNewsletterOrder",
+      "id": "sponsorshipnewsletterorder",
+      "href": "/graphql/reference/sponsors#input-object-sponsorshipnewsletterorder",
+      "description": "<p>Ordering options for sponsorship newsletter connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order sponsorship newsletters by.</p>",
+          "type": "SponsorshipNewsletterOrderField!",
+          "id": "sponsorshipnewsletterorderfield",
+          "href": "/graphql/reference/sponsors#enum-sponsorshipnewsletterorderfield"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "SponsorshipOrder",
+      "id": "sponsorshiporder",
+      "href": "/graphql/reference/sponsors#input-object-sponsorshiporder",
+      "description": "<p>Ordering options for sponsorship connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order sponsorship by.</p>",
+          "type": "SponsorshipOrderField!",
+          "id": "sponsorshiporderfield",
+          "href": "/graphql/reference/sponsors#enum-sponsorshiporderfield"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "UpdatePatreonSponsorabilityInput",
+      "id": "updatepatreonsponsorabilityinput",
+      "href": "/graphql/reference/sponsors#input-object-updatepatreonsponsorabilityinput",
+      "description": "<p>Autogenerated input type of UpdatePatreonSponsorability.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "enablePatreonSponsorships",
+          "description": "<p>Whether Patreon tiers should be shown on the GitHub Sponsors profile page,\nallowing potential sponsors to make their payment through Patreon instead of GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the organization with the GitHub Sponsors profile, if any.\nDefaults to the GitHub Sponsors profile for the authenticated user if omitted.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "sponsors"
+    },
+    {
+      "name": "UpdateSponsorshipPreferencesInput",
+      "id": "updatesponsorshippreferencesinput",
+      "href": "/graphql/reference/sponsors#input-object-updatesponsorshippreferencesinput",
+      "description": "<p>Autogenerated input type of UpdateSponsorshipPreferences.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "privacyLevel",
+          "description": "<p>Specify whether others should be able to see that the sponsor is sponsoring\nthe sponsorable. Public visibility still does not reveal which tier is used.</p>",
+          "type": "SponsorshipPrivacy",
+          "id": "sponsorshipprivacy",
+          "href": "/graphql/reference/sponsors#enum-sponsorshipprivacy"
+        },
+        {
+          "name": "receiveEmails",
+          "description": "<p>Whether the sponsor should receive email updates from the sponsorable.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "sponsorId",
+          "description": "<p>The ID of the user or organization who is acting as the sponsor, paying for\nthe sponsorship. Required if sponsorLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorLogin",
+          "description": "<p>The username of the user or organization who is acting as the sponsor, paying\nfor the sponsorship. Required if sponsorId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sponsorableId",
+          "description": "<p>The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "sponsors"
+    }
+  ]
+}

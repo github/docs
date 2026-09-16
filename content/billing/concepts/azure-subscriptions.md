@@ -6,13 +6,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Team
-  - Azure subscription
 contentType: concepts
 product: 'Organization and enterprise accounts can pay for any metered use of {% data variables.product.github %} using an Azure subscription. This option is not available for personal accounts.'
+category:
+  - Set up payment
 ---
 
 ## Payment using an Azure subscription

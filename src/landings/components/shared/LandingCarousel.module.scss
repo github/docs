@@ -1,6 +1,15 @@
 .carousel {
-  margin-top: 3rem;
+  padding-top: 3rem;
   --carousel-transition-duration: 0.1s;
+}
+
+// Remove top margin for carousels without headings that come after another carousel
+.carousel.noHeading {
+  margin-top: 0;
+
+  & + .carousel {
+    margin-top: 0;
+  }
 }
 
 .header {
@@ -12,9 +21,16 @@
   align-items: center;
 }
 
+// When header only contains navigation (no heading), add top margin to separate from previous carousel
+.header:has(.navigation):not(:has(.heading)) {
+  margin-top: 1rem;
+  justify-content: flex-end;
+}
+
 .heading {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
+  line-height: 2rem;
   margin: 0;
   color: var(--fgColor-default);
 }
@@ -29,30 +45,88 @@
   }
 }
 
+// Prev/next controls: plain 16x16 arrow icon buttons (Docs 2026). No longer the
+// old `btn btn-sm` bordered buttons — just the muted arrow glyph in a square
+// hit target that tints toward default on hover.
 .navButton {
-  min-width: 32px !important;
-  padding: 6px !important;
-  border-radius: 6px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--brand-color-text-muted);
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    color: var(--brand-color-text-default);
+    background-color: var(--brand-color-canvas-subtle);
+  }
 
   &:disabled {
-    cursor: not-allowed !important;
-    opacity: 0.5 !important;
+    cursor: not-allowed;
+    opacity: 0.4;
   }
 }
 
 .itemsGrid {
   display: grid;
-  gap: 1.5rem;
   grid-template-columns: 1fr;
   transition: opacity var(--carousel-transition-duration) ease-in-out;
   opacity: 1;
+  // Bleed out to the frame's vertical border rules (cancel the frame's content
+  // padding) so the card dividers reach the border with no gap. Each card's own
+  // 32px padding then re-insets the text to align with the section header.
+  margin-inline: -16px;
+
+  @media (min-width: 768px) {
+    margin-inline: -32px;
+  }
+
+  // Shared 1px dividers via each grid item's top + left border (matches the
+  // Articles grid). First row's top and first column's left are removed per
+  // breakpoint so only internal dividers show.
+  > * {
+    border-top: 1px solid var(--brand-color-border-default);
+  }
+
+  > *:first-child {
+    border-top: none;
+  }
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+
+    > * {
+      border-left: 1px solid var(--brand-color-border-default);
+    }
+
+    > *:nth-child(2n + 1) {
+      border-left: none;
+    }
+
+    > *:nth-child(-n + 2) {
+      border-top: none;
+    }
   }
 
   @media (min-width: 1012px) {
     grid-template-columns: repeat(3, 1fr);
+
+    > *:nth-child(2n + 1) {
+      border-left: 1px solid var(--brand-color-border-default);
+    }
+
+    > *:nth-child(3n + 1) {
+      border-left: none;
+    }
+
+    > *:nth-child(-n + 3) {
+      border-top: none;
+    }
   }
 
   &.animating {
@@ -60,45 +134,46 @@
   }
 }
 
-.articleCard {
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  min-height: 120px; /* Ensures consistent card heights */
-  box-shadow:
-    0px 1px 3px 0px rgba(31, 35, 40, 0.08),
-    0px 1px 0px 0px rgba(31, 35, 40, 0.06);
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  text-decoration: none !important;
-  color: inherit;
+// Docs 2026 landing cards: seamless collapsed-border grid (dividers drawn by
+// .itemsGrid above), NOT separate rounded cards. Flatten brand Card's radius/
+// shadow, reduce padding to 24px, and replace the stretched `1fr` description
+// row with `auto` so cards hug their content instead of ballooning to ~365px.
+.card {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 32px !important;
+  --Card-grid-template-rows: auto auto auto auto auto auto auto auto !important;
+  // Top-align the card content so the tag/title sit at a consistent baseline
+  // across cards regardless of description length (brand Card otherwise
+  // distributes rows down the full cell height).
+  align-content: start !important;
+  // Green top border on hover, matching the brand NavList active indicator
+  // (--brand-color-accent-primary). Uses box-shadow (not border) so it overlays
+  // the seamless grid divider without shifting the 1px collapsed layout.
+  transition: box-shadow 0.1s ease-in-out;
 
   &:hover {
-    box-shadow:
-      0 0.25rem 0.5rem 0 rgba(31, 35, 40, 0.12),
-      0 0.125rem 0.25rem 0 rgba(31, 35, 40, 0.08);
-    transform: translateY(-2px);
-    background-color: var(--bgColor-muted, var(--color-canvas-subtle));
-    text-decoration: none !important;
+    box-shadow: inset 0 2px 0 0 var(--brand-color-accent-primary) !important;
   }
-}
 
-.articleTitle {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
-}
+  // Compress brand Card's generous inter-row margins so cards hug their content
+  // (~150px in Figma) instead of ballooning. Targets the sub-element classes
+  // that merge onto Card.Heading / Description.
+  :global([class*="Card__heading"]) {
+    margin-block-end: 8px !important;
+    // Figma card title ("Subheading Medium"): 16px / 550, not brand Card's
+    // default 22px heading.
+    font-size: 1rem !important;
+    font-weight: 550 !important;
+    line-height: 1.5 !important;
+  }
 
-.articleLink {
-  color: var(--fgColor-accent);
-  text-decoration: none;
-}
-
-.articleDescription {
-  margin: 0;
-  color: var(--fgColor-muted);
-  font-size: 0.9rem;
-  line-height: 1.4;
-  text-decoration: none !important;
+  :global([class*="Card__description"]) {
+    margin-block-end: 0 !important;
+    // Figma card intro ("Body/Small"): 14px, not brand Card's default 16px.
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+  }
 }
 
 .pagination {

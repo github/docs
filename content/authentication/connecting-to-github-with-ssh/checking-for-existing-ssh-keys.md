@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Check for existing SSH key
+category:
+  - Connect with SSH
 ---
 
 ## About SSH keys

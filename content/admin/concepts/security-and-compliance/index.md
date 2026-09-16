@@ -5,8 +5,6 @@ intro: 'Learn the key concepts around enterprise governance and compliance, incl
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Enterprise
 children:
   - /enterprise-policies
   - /audit-log-for-an-enterprise

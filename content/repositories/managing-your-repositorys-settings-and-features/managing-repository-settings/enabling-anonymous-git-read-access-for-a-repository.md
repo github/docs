@@ -8,6 +8,8 @@ redirect_from:
 versions:
   ghes: '*'
 shortTitle: Anonymous Git read access
+category:
+  - Manage access and repository policies
 ---
 Repository administrators can change the anonymous Git read access setting for a specific repository if:
 * A site administrator has enabled private mode and anonymous Git read access.

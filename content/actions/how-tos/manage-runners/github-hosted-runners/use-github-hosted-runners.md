@@ -1,7 +1,7 @@
 ---
 title: Using GitHub-hosted runners
 shortTitle: Use GitHub-hosted runners
-intro: 'You can assign a job to run on a virtual machine hosted by {% data variables.product.github %}.'
+intro: You can assign a job to run on a virtual machine hosted by {% data variables.product.github %}.
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,6 +9,9 @@ versions:
 redirect_from:
   - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners
   - /actions/using-github-hosted-runners/using-github-hosted-runners
+category:
+  - Use and manage runners
+contentType: how-tos
 ---
 
 {% ifversion ghes %}
@@ -19,7 +22,7 @@ redirect_from:
 
 ## Using a {% data variables.product.prodname_dotcom %}-hosted runner
 
-To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see [AUTOTITLE](/actions/reference/github-hosted-runners-reference#supported-runners-and-hardware-resources).{% ifversion repository-actions-runners %} If you have `repo: write` access to a repository, you can view a list of the runners available to use in workflows in the repository. For more information, see [Viewing available runners for a repository](#viewing-available-runners-for-a-repository).{% endif %}
+To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see [AUTOTITLE](/actions/reference/runners/github-hosted-runners#supported-runners-and-hardware-resources).{% ifversion repository-actions-runners %} If you have `repo: write` access to a repository, you can view a list of the runners available to use in workflows in the repository. For more information, see [Viewing available runners for a repository](#viewing-available-runners-for-a-repository).{% endif %}
 
 When the job begins, {% data variables.product.prodname_dotcom %} automatically provisions a new VM for that job. All steps in the job execute on the VM, allowing the steps in that job to share information using the runner's filesystem. You can run workflows directly on the VM or in a Docker container. When the job has finished, the VM is automatically decommissioned.
 

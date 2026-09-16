@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Understand the GitHub approach to docs
 ---
 
 ## About writing content that is translation-friendly

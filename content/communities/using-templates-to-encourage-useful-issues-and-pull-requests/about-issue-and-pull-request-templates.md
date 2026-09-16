@@ -4,13 +4,17 @@ intro: 'With issue and pull request templates, you can customize and standardize
 redirect_from:
   - /articles/about-issue-and-pull-request-templates
   - /github/building-a-strong-community/about-issue-and-pull-request-templates
+  - /articles/creating-an-issue-template-for-your-repository
+  - /articles/manually-creating-a-single-issue-template-for-your-repository
+  - /github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository
+  - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: About templates
+category:
+  - Create issue and pull request templates
 ---
 
 After you create issue and pull request templates in your repository, contributors can use the templates to open issues or describe the proposed changes in their pull requests according to the repository's contributing guidelines. For more information about adding contributing guidelines to a repository, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
@@ -32,8 +36,6 @@ With issue forms, you can create templates that have web form fields using the {
 {% data reusables.repositories.issue-template-config %} For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser).
 
 Issue templates are stored on the repository's default branch, in a hidden `.github/ISSUE_TEMPLATE` directory. If you create a template in another branch, it will not be available for collaborators to use. Issue template filenames are not case sensitive, and need a _.md_ extension. Issue templates created with issue forms need a _.yml_ extension. {% data reusables.repositories.valid-community-issues %}
-
-It is possible to manually create a single issue template in Markdown using the legacy issue template workflow, and project contributors will automatically see the template's contents in the issue body. However, we recommend using the upgraded multiple issue template builder or issue forms to create issue templates. For more information about the legacy workflow, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository).
 
 {% data reusables.repositories.security-guidelines %}
 

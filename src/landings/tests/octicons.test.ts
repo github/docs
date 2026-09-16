@@ -53,7 +53,7 @@ describe('octicons reference', () => {
 
     test('returns false for null or undefined', () => {
       expect(isValidOcticon(null)).toBe(false)
-      expect(isValidOcticon(undefined as any)).toBe(false)
+      expect(isValidOcticon(undefined as unknown as string)).toBe(false)
     })
 
     test('provides correct type narrowing', () => {

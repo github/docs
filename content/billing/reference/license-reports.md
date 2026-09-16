@@ -6,12 +6,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Team
 permissions: '{% data reusables.permissions.enhanced-billing-enterprise %}'
 contentType: reference
+category:
+  - Track spending and control costs
 ---
 
 Each license report shows information about license users in your enterprise account, for {% data variables.product.prodname_copilot_short %}, or for {% data variables.product.prodname_AS %}.
@@ -20,7 +18,7 @@ Each license report shows information about license users in your enterprise acc
 
 {% ifversion fpt or ghec %}
 
-* Enterprise and {% data variables.product.prodname_AS %} license users, see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use)
+* Enterprise and {% data variables.product.prodname_AS %} license users, see [AUTOTITLE](/billing/how-tos/products/download-license-use)
 * {% data variables.product.prodname_copilot %} license users, see [AUTOTITLE](/copilot/how-tos/administer-copilot/download-activity-report)
 * Report using the REST API, see [AUTOTITLE](/billing/tutorials/automate-usage-reporting)
 
@@ -28,7 +26,7 @@ If you want to generate a more detailed usage report, see [AUTOTITLE](/billing/t
 
 {% endif %}
 
-**{% data variables.product.prodname_ghe_server %} users** can download license reports for {% data variables.product.prodname_AS %} from the **License** page under enterprise settings, see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
+**{% data variables.product.prodname_ghe_server %} users** can download license reports for {% data variables.product.prodname_AS %} from the **License** page under enterprise settings, see [AUTOTITLE](/billing/how-tos/products/download-license-use).
 
 ## {% data variables.product.prodname_AS %} license report
 
@@ -70,7 +68,7 @@ Reports generated on instances of {% data variables.enterprise.data_residency %}
 | Visual studio subscription user | Whether or not the user is a {% data variables.visual_studio.prodname_vs_subscriber %} |
 | License type | Can be one of: `Visual Studio subscription` or `Enterprise` |
 | GitHub com profile | The URL for the user's profile page on GHEC |
-| GitHub com member roles | For each of the organizations the user belongs to on GHEC, the organization name and the user's role in that organization (`Owner` or `Member`) separated by a colon<br><br>Organizations delimited by commas |
+| GitHub com member roles | For each of the organizations the user belongs to on GHEC, the organization name and the user's role in that organization (`Owner` or `Member`) separated by a colon. Organizations are delimited by commas.<br><br> For outside collaborators on private repositories, the value will appear as `ORG/REPO:Collaborator`, specifying which organization and repository the collaborator has access to.|
 | GitHub com enterprise roles | Can be one of: `Owner`, `Member`, `Outside collaborator` (for an enterprise with personal accounts on {% data variables.product.prodname_dotcom_the_website %}), or `Repository collaborator` (for an enterprise that uses {% data variables.enterprise.prodname_managed_users %}) |
 | GitHub com verified domain emails | All email addresses associated with the user's GHEC account that match your enterprise's verified domains |
 | GitHub com saml name | The SAML username |

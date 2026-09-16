@@ -38,7 +38,7 @@ IN NO EVENT WILL GITHUB BE LIABLE TO CUSTOMER OR TO ANY THIRD PARTY FOR ANY INDI
 
 5.1 As part of the development and evaluation of our evaluation programs, GitHub needs to collect information about how Customer uses services and programs and how GitHub can improve them. GitHub may collect certain additional personal information from Customer. For example, GitHub may invite Customer to provide Feedback (as explained in Section 6 below). GitHub might ask questions about Customer's experiences, familiarity with the product, or demographic information. GitHub uses this information to improve its products and services and does not sell Feedback to third parties or advertisers. Customer may decline to provide Feedback, decline to answer specific questions, or contact GitHub to delete or alter the information it has collected about Customer.
 
-5.2 GitHub's servers are located in the United States. GitHub processes Customer's data in the United States. However, Customer is responsible for determining what personal data it submits to GitHub. Please see the [Privacy Statement](/site-policy/privacy-policies/github-privacy-statement) for more information.
+5.2 GitHub's servers are located in the United States. GitHub processes Customer's data in the United States. However, Customer is responsible for determining what personal data it submits to GitHub. Please see the [Privacy Statement](/site-policy/privacy-policies/github-general-privacy-statement) for more information.
 
 ## 6. Feedback
 

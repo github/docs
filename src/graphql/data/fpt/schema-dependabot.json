@@ -1,0 +1,457 @@
+{
+  "mutations": [
+    {
+      "name": "dismissRepositoryVulnerabilityAlert",
+      "id": "dismissrepositoryvulnerabilityalert",
+      "href": "/graphql/reference/dependabot#mutation-dismissrepositoryvulnerabilityalert",
+      "description": "<p>Dismisses the Dependabot alert.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DismissRepositoryVulnerabilityAlertInput!",
+          "id": "dismissrepositoryvulnerabilityalertinput",
+          "href": "/graphql/reference/dependabot#input-object-dismissrepositoryvulnerabilityalertinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repositoryVulnerabilityAlert",
+          "type": "RepositoryVulnerabilityAlert",
+          "id": "repositoryvulnerabilityalert",
+          "href": "/graphql/reference/dependabot#object-repositoryvulnerabilityalert",
+          "description": "<p>The Dependabot alert that was dismissed.</p>"
+        }
+      ],
+      "category": "dependabot"
+    }
+  ],
+  "objects": [
+    {
+      "name": "DependabotUpdate",
+      "id": "dependabotupdate",
+      "href": "/graphql/reference/dependabot#object-dependabotupdate",
+      "description": "<p>A Dependabot Update for a dependency in a repository.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "RepositoryNode",
+          "id": "repositorynode",
+          "href": "/graphql/reference/repos#interface-repositorynode"
+        }
+      ],
+      "fields": [
+        {
+          "name": "error",
+          "description": "<p>The error from a dependency update.</p>",
+          "type": "DependabotUpdateError",
+          "id": "dependabotupdateerror",
+          "href": "/graphql/reference/dependabot#object-dependabotupdateerror"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>The associated pull request.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "href": "/graphql/reference/pulls#object-pullrequest"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with this node.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        }
+      ],
+      "category": "dependabot"
+    },
+    {
+      "name": "DependabotUpdateError",
+      "id": "dependabotupdateerror",
+      "href": "/graphql/reference/dependabot#object-dependabotupdateerror",
+      "description": "<p>An error produced from a Dependabot Update.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the error.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "errorType",
+          "description": "<p>The error code.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "title",
+          "description": "<p>The title of the error.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "dependabot"
+    },
+    {
+      "name": "RepositoryVulnerabilityAlert",
+      "id": "repositoryvulnerabilityalert",
+      "href": "/graphql/reference/dependabot#object-repositoryvulnerabilityalert",
+      "description": "<p>A Dependabot alert for a repository with a dependency affected by a security vulnerability.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "RepositoryNode",
+          "id": "repositorynode",
+          "href": "/graphql/reference/repos#interface-repositorynode"
+        }
+      ],
+      "fields": [
+        {
+          "name": "autoDismissedAt",
+          "description": "<p>When was the alert auto-dismissed?.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>When was the alert created?.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "dependabotUpdate",
+          "description": "<p>The associated Dependabot update.</p>",
+          "type": "DependabotUpdate",
+          "id": "dependabotupdate",
+          "href": "/graphql/reference/dependabot#object-dependabotupdate"
+        },
+        {
+          "name": "dependencyRelationship",
+          "description": "<p>The relationship of an alert's dependency.</p>",
+          "type": "RepositoryVulnerabilityAlertDependencyRelationship",
+          "id": "repositoryvulnerabilityalertdependencyrelationship",
+          "href": "/graphql/reference/dependabot#enum-repositoryvulnerabilityalertdependencyrelationship"
+        },
+        {
+          "name": "dependencyScope",
+          "description": "<p>The scope of an alert's dependency.</p>",
+          "type": "RepositoryVulnerabilityAlertDependencyScope",
+          "id": "repositoryvulnerabilityalertdependencyscope",
+          "href": "/graphql/reference/dependabot#enum-repositoryvulnerabilityalertdependencyscope"
+        },
+        {
+          "name": "dismissComment",
+          "description": "<p>Comment explaining the reason the alert was dismissed.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "dismissReason",
+          "description": "<p>The reason the alert was dismissed.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "dismissedAt",
+          "description": "<p>When was the alert dismissed?.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "dismisser",
+          "description": "<p>The user who dismissed the alert.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "fixedAt",
+          "description": "<p>When was the alert fixed?.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the RepositoryVulnerabilityAlert object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "number",
+          "description": "<p>Identifies the alert number.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The associated repository.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "securityAdvisory",
+          "description": "<p>The associated security advisory.</p>",
+          "type": "SecurityAdvisory",
+          "id": "securityadvisory",
+          "href": "/graphql/reference/security-advisories#object-securityadvisory"
+        },
+        {
+          "name": "securityVulnerability",
+          "description": "<p>The associated security vulnerability.</p>",
+          "type": "SecurityVulnerability",
+          "id": "securityvulnerability",
+          "href": "/graphql/reference/security-advisories#object-securityvulnerability"
+        },
+        {
+          "name": "state",
+          "description": "<p>Identifies the state of the alert.</p>",
+          "type": "RepositoryVulnerabilityAlertState!",
+          "id": "repositoryvulnerabilityalertstate",
+          "href": "/graphql/reference/dependabot#enum-repositoryvulnerabilityalertstate"
+        },
+        {
+          "name": "vulnerableManifestFilename",
+          "description": "<p>The vulnerable manifest filename.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "vulnerableManifestPath",
+          "description": "<p>The vulnerable manifest path.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "vulnerableRequirements",
+          "description": "<p>The vulnerable requirements.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "dependabot"
+    },
+    {
+      "name": "RepositoryVulnerabilityAlertConnection",
+      "id": "repositoryvulnerabilityalertconnection",
+      "href": "/graphql/reference/dependabot#object-repositoryvulnerabilityalertconnection",
+      "description": "<p>The connection type for RepositoryVulnerabilityAlert.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[RepositoryVulnerabilityAlertEdge]",
+          "id": "repositoryvulnerabilityalertedge",
+          "href": "/graphql/reference/dependabot#object-repositoryvulnerabilityalertedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[RepositoryVulnerabilityAlert]",
+          "id": "repositoryvulnerabilityalert",
+          "href": "/graphql/reference/dependabot#object-repositoryvulnerabilityalert"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "dependabot"
+    },
+    {
+      "name": "RepositoryVulnerabilityAlertEdge",
+      "id": "repositoryvulnerabilityalertedge",
+      "href": "/graphql/reference/dependabot#object-repositoryvulnerabilityalertedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "RepositoryVulnerabilityAlert",
+          "id": "repositoryvulnerabilityalert",
+          "href": "/graphql/reference/dependabot#object-repositoryvulnerabilityalert"
+        }
+      ],
+      "category": "dependabot"
+    }
+  ],
+  "enums": [
+    {
+      "name": "DismissReason",
+      "id": "dismissreason",
+      "href": "/graphql/reference/dependabot#enum-dismissreason",
+      "description": "<p>The possible reasons that a Dependabot alert was dismissed.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "FIX_STARTED",
+          "description": "<p>A fix has already been started.</p>"
+        },
+        {
+          "name": "INACCURATE",
+          "description": "<p>This alert is inaccurate or incorrect.</p>"
+        },
+        {
+          "name": "NOT_USED",
+          "description": "<p>Vulnerable code is not actually used.</p>"
+        },
+        {
+          "name": "NO_BANDWIDTH",
+          "description": "<p>No bandwidth to fix this.</p>"
+        },
+        {
+          "name": "TOLERABLE_RISK",
+          "description": "<p>Risk is tolerable to this project.</p>"
+        }
+      ],
+      "category": "dependabot"
+    },
+    {
+      "name": "RepositoryVulnerabilityAlertDependencyRelationship",
+      "id": "repositoryvulnerabilityalertdependencyrelationship",
+      "href": "/graphql/reference/dependabot#enum-repositoryvulnerabilityalertdependencyrelationship",
+      "description": "<p>The possible relationships of an alert's dependency.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "DIRECT",
+          "description": "<p>A direct dependency of your project.</p>"
+        },
+        {
+          "name": "INCONCLUSIVE",
+          "description": "<p>The relationship could not be determined.</p>"
+        },
+        {
+          "name": "TRANSITIVE",
+          "description": "<p>A transitive dependency of your project.</p>"
+        },
+        {
+          "name": "UNKNOWN",
+          "description": "<p>The relationship is unknown.</p>"
+        }
+      ],
+      "category": "dependabot"
+    },
+    {
+      "name": "RepositoryVulnerabilityAlertDependencyScope",
+      "id": "repositoryvulnerabilityalertdependencyscope",
+      "href": "/graphql/reference/dependabot#enum-repositoryvulnerabilityalertdependencyscope",
+      "description": "<p>The possible scopes of an alert's dependency.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "DEVELOPMENT",
+          "description": "<p>A dependency that is only used in development.</p>"
+        },
+        {
+          "name": "RUNTIME",
+          "description": "<p>A dependency that is leveraged during application runtime.</p>"
+        }
+      ],
+      "category": "dependabot"
+    },
+    {
+      "name": "RepositoryVulnerabilityAlertState",
+      "id": "repositoryvulnerabilityalertstate",
+      "href": "/graphql/reference/dependabot#enum-repositoryvulnerabilityalertstate",
+      "description": "<p>The possible states of an alert.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "AUTO_DISMISSED",
+          "description": "<p>An alert that has been automatically closed by Dependabot.</p>"
+        },
+        {
+          "name": "DISMISSED",
+          "description": "<p>An alert that has been manually closed by a user.</p>"
+        },
+        {
+          "name": "FIXED",
+          "description": "<p>An alert that has been resolved by a code change.</p>"
+        },
+        {
+          "name": "OPEN",
+          "description": "<p>An alert that is still open.</p>"
+        }
+      ],
+      "category": "dependabot"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "DismissRepositoryVulnerabilityAlertInput",
+      "id": "dismissrepositoryvulnerabilityalertinput",
+      "href": "/graphql/reference/dependabot#input-object-dismissrepositoryvulnerabilityalertinput",
+      "description": "<p>Autogenerated input type of DismissRepositoryVulnerabilityAlert.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "dismissReason",
+          "description": "<p>The reason the Dependabot alert is being dismissed.</p>",
+          "type": "DismissReason!",
+          "id": "dismissreason",
+          "href": "/graphql/reference/dependabot#enum-dismissreason"
+        },
+        {
+          "name": "repositoryVulnerabilityAlertId",
+          "description": "<p>The Dependabot alert ID to dismiss.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "dependabot"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+If you are accessing {% data variables.product.github %} at a different domain such as `{% data variables.enterprise.data_residency_example_domain %}`, then you need to replace `git@{% data variables.product.product_url %}` with `{% data variables.enterprise.data_residency_example_git_ssh %}`.

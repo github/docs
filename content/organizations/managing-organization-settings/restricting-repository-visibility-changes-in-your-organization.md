@@ -8,16 +8,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Set visibility changes policy
 permissions: Organization owners can restrict repository visibility changes for an organization.
+category:
+  - Set repository policies
 ---
 
 You can restrict who has the ability to change the visibility of repositories in your organization, such as changing a repository from private to public. For more information about repository visibility, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).
 
-Restricting who has the ability to change the visibility of repositories in your organization helps prevent sensitive information from being exposed. For more information, see [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization).
+Restricting who has the ability to change the visibility of repositories in your organization helps prevent sensitive information from being exposed. For more information, see [AUTOTITLE](/code-security/tutorials/secure-your-organization/prevent-data-leaks).
 
 {% ifversion repo-policy-rules %}
 

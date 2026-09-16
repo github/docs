@@ -1,0 +1,8 @@
+# Reference: https://github.com/github/docs-content/issues/23816
+# Newly created OAuth tokens are protected from revocation for one minute.
+# Shipped behind the `prevent_new_token_deletion` feature flag, which is
+# disabled by default on GHES. Add a `ghes` version once it ships there.
+
+versions:
+  fpt: '*'
+  ghec: '*'

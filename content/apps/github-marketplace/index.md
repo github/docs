@@ -10,8 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 children:
   - /github-marketplace-overview
   - /creating-apps-for-github-marketplace

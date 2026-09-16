@@ -12,10 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Swift
 shortTitle: Swift
+category:
+  - Build and test code
+contentType: tutorials
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -24,11 +24,11 @@ shortTitle: Swift
 
 This guide shows you how to build and test a Swift package.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, and the Ubuntu and macOS runners include the dependencies for building Swift packages. For a full list of up-to-date software and the preinstalled versions of Swift and Xcode, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, and the Ubuntu and macOS runners include the dependencies for building Swift packages. For a full list of up-to-date software and the preinstalled versions of Swift and Xcode, see [AUTOTITLE](/actions/concepts/runners/github-hosted-runners#preinstalled-software-for-github-owned-images).
 
 ## Prerequisites
 
-You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
+You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax).
 
 We recommend that you have a basic understanding of Swift packages. For more information, see [Swift Packages](https://developer.apple.com/documentation/xcode/swift-packages) in the Apple developer documentation.
 
@@ -124,8 +124,6 @@ jobs:
 
 You can configure your job to use a single specific version of Swift, such as `5.3.3`.
 
-{% raw %}
-
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
@@ -135,8 +133,6 @@ steps:
   - name: Get swift version
     run: swift --version # Swift 5.3.3
 ```
-
-{% endraw %}
 
 ## Building and testing your code
 

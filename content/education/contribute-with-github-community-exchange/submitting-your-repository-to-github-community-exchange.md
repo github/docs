@@ -4,6 +4,8 @@ shortTitle: Submit your repository
 intro: 'You can submit your repository to {% data variables.product.prodname_community_exchange %} for others to view or contribute to.'
 versions:
   fpt: '*'
+category:
+  - Participate in campus and community programs
 ---
 
 ## About repository submissions

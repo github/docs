@@ -1,7 +1,7 @@
 ---
 title: Installing an Apple certificate on macOS runners for Xcode development
 shortTitle: Sign Xcode applications
-intro: 'Learn how to sign Xcode apps within a continuous integration (CI) workflow by installing an Apple code signing certificate on {% data variables.product.prodname_actions %} runners.'
+intro: Learn how to sign Xcode apps within a continuous integration (CI) workflow by installing an Apple code signing certificate on {% data variables.product.prodname_actions %} runners.
 redirect_from:
   - /actions/guides/installing-an-apple-certificate-on-macos-runners-for-xcode-development
   - /actions/deployment/installing-an-apple-certificate-on-macos-runners-for-xcode-development
@@ -14,9 +14,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Xcode
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -25,8 +25,8 @@ topics:
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
 
-* [AUTOTITLE](/actions/learn-github-actions)
-* [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)
+* [AUTOTITLE](/actions/how-tos/write-workflows)
+* [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax)
 
 You should have an understanding of Xcode app building and signing. For more information, see the [Apple developer documentation](https://developer.apple.com/documentation/).
 
@@ -34,7 +34,7 @@ You should have an understanding of Xcode app building and signing. For more inf
 
 The signing process involves storing certificates and provisioning profiles, transferring them to the runner, importing them to the runner's keychain, and using them in your build.
 
-To use your certificate and provisioning profile on a runner, we strongly recommend that you use {% data variables.product.prodname_dotcom %} secrets. For more information on creating secrets and using them in a workflow, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+To use your certificate and provisioning profile on a runner, we strongly recommend that you use {% data variables.product.prodname_dotcom %} secrets. For more information on creating secrets and using them in a workflow, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 Create secrets in your repository or organization for the following items:
 

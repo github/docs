@@ -4,16 +4,20 @@ shortTitle: How-tos
 intro: Learn how to use {% data variables.product.prodname_copilot %}.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
+  - /copilot-on-github
   - /set-up
   - /get-code-suggestions
   - /chat-with-copilot
+  - /copilot-cli
+  - /cloud-and-local-sandboxes
+  - /github-copilot-app
+  - /copilot-sdk
+  - /github-agentic-workflows
   - /use-copilot-agents
   - /use-ai-models
   - /provide-context
-  - /configure-custom-instructions
+  - /configure-custom-instructions-in-your-ide
   - /configure-content-exclusion
   - /use-copilot-for-common-tasks
   - /configure-personal-settings

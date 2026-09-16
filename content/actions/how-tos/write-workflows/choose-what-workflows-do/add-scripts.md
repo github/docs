@@ -1,7 +1,7 @@
 ---
 title: Adding scripts to your workflow
 shortTitle: Add scripts
-intro: 'You can use {% data variables.product.prodname_actions %} workflows to run scripts.'
+intro: You can use {% data variables.product.prodname_actions %} workflows to run scripts.
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,6 +9,9 @@ versions:
 redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/adding-scripts-to-your-workflow
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/adding-scripts-to-your-workflow
+category:
+  - Write workflows
+contentType: how-tos
 ---
 
 You can use a {% data variables.product.prodname_actions %} workflow to run scripts and shell commands, which are then executed on the assigned runner. This example demonstrates how to use the `run` keyword to execute the command `npm install -g bats` on the runner.
@@ -21,7 +24,7 @@ jobs:
       - run: npm install -g bats
 ```
 
-To use a workflow to run a script stored in your repository you must first check out the repository to the runner. Having done this, you can use the `run` keyword to run the script on the runner. The following example runs two scripts, each in a separate job step. The location of the scripts on the runner is specified by setting a default working directory for run commands. For more information, see [AUTOTITLE](/actions/using-jobs/setting-default-values-for-jobs).
+To use a workflow to run a script stored in your repository you must first check out the repository to the runner. Having done this, you can use the `run` keyword to run the script on the runner. The following example runs two scripts, each in a separate job step. The location of the scripts on the runner is specified by setting a default working directory for run commands. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/set-default-values-for-jobs).
 
 ```yaml
 jobs:
@@ -59,4 +62,4 @@ jobs:
           ./my-other-script.sh
 ```
 
-For more information about the `run` keyword, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun).
+For more information about the `run` keyword, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsrun).

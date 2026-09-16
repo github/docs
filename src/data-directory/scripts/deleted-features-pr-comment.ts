@@ -8,8 +8,8 @@
  *
  */
 
-import github from '@actions/github'
-import core from '@actions/core'
+import { context as github_context, getOctokit } from '@actions/github'
+import { setOutput } from '@actions/core'
 import { program } from 'commander'
 
 const { GITHUB_TOKEN, GITHUB_REPOSITORY } = process.env
@@ -19,7 +19,7 @@ if (!GITHUB_TOKEN) {
 }
 
 if (GITHUB_REPOSITORY) {
-  const context = github.context
+  const context = github_context
 
   const owner = context.repo.owner
   const repo = context.payload.repository!.name
@@ -27,7 +27,7 @@ if (GITHUB_REPOSITORY) {
   const headSHA = process.env.HEAD_SHA || context.payload.pull_request!.head.sha
 
   const markdown = await main(owner, repo, baseSHA, headSHA)
-  core.setOutput('markdown', markdown)
+  setOutput('markdown', markdown)
 } else {
   program
     .description('Print a nice Markdown comment if there were features deleted in a PR.')
@@ -43,7 +43,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
   if (!GITHUB_TOKEN) {
     throw new Error(`GITHUB_TOKEN environment variable not set`)
   }
-  const octokit = github.getOctokit(GITHUB_TOKEN)
+  const octokit = getOctokit(GITHUB_TOKEN)
   // get the list of file changes from the PR
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,

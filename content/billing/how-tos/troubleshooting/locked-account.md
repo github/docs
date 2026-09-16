@@ -18,19 +18,15 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Accounts
-  - Downgrades
-  - Organizations
-  - User account
 shortTitle: Locked account
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 You can unlock and access your account by updating your account's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.
 
-You can downgrade your user account or organization to {% data variables.product.prodname_free_team %} to continue with the same advanced features in public repositories. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan).
+You can downgrade your user account or organization to {% data variables.product.prodname_free_team %} to continue with the same advanced features in public repositories. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/downgrade-plan).
 
 ## Unlocking an account's features due to a declined payment
 

@@ -1,0 +1,21 @@
+---
+title: How-tos for security and code quality
+shortTitle: How-tos
+intro: Learn how to use {% data variables.product.github %}'s security and code quality features.
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+contentType: how-tos
+children:
+  - /secure-at-scale
+  - /secure-your-secrets
+  - find-and-fix-code-vulnerabilities
+  - secure-your-supply-chain
+  - manage-security-alerts
+  - /maintain-quality-code
+  - /report-and-fix-vulnerabilities
+  - /use-ghas-with-ai-coding-agents
+  - /view-and-interpret-data
+---
+

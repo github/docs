@@ -1,0 +1,1 @@
+$(ghe-config secrets.elm-exporter.elm-exporter-hmac-keys)

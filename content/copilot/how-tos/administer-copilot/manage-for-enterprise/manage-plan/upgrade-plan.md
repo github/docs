@@ -6,8 +6,6 @@ permissions: Enterprise owners
 product: 'Enterprises with a {% data variables.copilot.copilot_business_short %} plan'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/upgrading-copilot-for-your-enterprise
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/upgrading-copilot-for-your-enterprise
@@ -31,7 +29,7 @@ category:
 
 ## Next steps
 
-After upgrading to {% data variables.copilot.copilot_enterprise_short %}, you can assign {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} to individual organizations in the enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise).
+After upgrading to {% data variables.copilot.copilot_enterprise_short %}, you can assign {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} to individual organizations in the enterprise. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access).
 
 ## Troubleshooting plan migrations
 
@@ -46,8 +44,8 @@ If you see a trial expiration notice but have an active paid subscription, this 
 Some migrations cannot be completed through self-service options.
 
 * **Changing between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}**: If you need to migrate between these plans within your enterprise and the option isn't available in your "Billing & Licensing" settings, contact {% data variables.contact.contact_support_page %} or your account manager for assistance.
-* **Non-enterprise to enterprise environment migrations**: When moving from standalone {% data variables.product.prodname_copilot_short %} plans to a {% data variables.product.prodname_enterprise %} environment, contact {% data variables.contact.contact_support_page %} or your account manager for assistance to avoid service interruption.
+* **Non-enterprise to enterprise environment migrations**: When moving from standalone {% data variables.product.prodname_copilot_short %} plans to a {% data variables.product.prodname_enterprise %} environment, contact {% data variables.contact.contact_support_page %} or your account manager to coordinate a migration. Attempting to complete this transition without explicit and careful coordination with your account team and support representatives may result in duplicate billing of {% data variables.product.prodname_copilot_short %} seats for the remainder of the billing cycle. See [AUTOTITLE](/copilot/reference/copilot-billing/license-changes#removing-seats-1).
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)
+* [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses)

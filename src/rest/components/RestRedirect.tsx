@@ -4,8 +4,7 @@ import Cookies from '@/frame/components/lib/cookies'
 
 import { useVersion } from '@/versions/components/useVersion'
 import { useMainContext } from '@/frame/components/context/MainContext'
-
-export const API_VERSION_COOKIE_NAME = 'apiVersionPreferred'
+import { API_VERSION_COOKIE_NAME } from '@/frame/lib/constants'
 
 // This component allows us to set the URL Param for the REST API Calendar Date version
 // We set a cookie as well to remember what calendar date version the user is on

@@ -10,10 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Tell Git about your signing key
+category:
+  - Sign your commits
 ---
 
 ## Telling Git about your GPG key

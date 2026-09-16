@@ -10,4 +10,6 @@ children:
   - /github-hosted-runners
   - /larger-runners
   - /self-hosted-runners
+contentType: reference
 ---
+

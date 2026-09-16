@@ -1,21 +1,19 @@
 ---
 title: Migrating from CircleCI with GitHub Actions Importer
-intro: 'Learn how to use {% data variables.product.prodname_actions_importer %} to automate the migration of your CircleCI pipelines to {% data variables.product.prodname_actions %}.'
+intro: Learn how to use {% data variables.product.prodname_actions_importer %} to automate the migration of your CircleCI pipelines to {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Migration
-  - CI
-  - CD
 shortTitle: CircleCI migration
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/migrating-from-circleci-with-github-actions-importer
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-circleci-with-github-actions-importer
   - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-circleci-with-github-actions-importer
   - /actions/tutorials/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-circleci-with-github-actions-importer
+contentType: tutorials
+category:
+  - Migrate to GitHub Actions
 ---
 
 ## About migrating from CircleCI with GitHub Actions Importer
@@ -54,7 +52,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
 1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
-   Your token must have the `workflow` scope.
+   Your token must have the `repo` and `workflow` scopes.
 
    After creating the token, copy it and save it in a safe location for later use.
 1. Create a CircleCI personal API token. For more information, see [Managing API Tokens](https://circleci.com/docs/managing-api-tokens/#creating-a-personal-api-token) in the CircleCI documentation.

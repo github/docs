@@ -13,9 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Create a GitHub Pages site
+category:
+  - Set up a GitHub Pages site
 ---
 
 

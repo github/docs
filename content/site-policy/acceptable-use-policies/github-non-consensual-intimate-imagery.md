@@ -3,12 +3,11 @@ title: GitHub Non-Consensual Intimate Imagery
 shortTitle: NCII
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /ncii
   - /github/site-policy/github-ncii
+category:
+  - Follow acceptable use policies
 ---
 
 GitHub does not tolerate the distribution of non-consensual intimate imagery (NCII). This includes, but is not limited to:

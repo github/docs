@@ -5,17 +5,15 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Migration
-  - CI
-  - CD
 shortTitle: Custom transformers
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/extending-github-actions-importer-with-custom-transformers
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/extending-github-actions-importer-with-custom-transformers
   - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/extending-github-actions-importer-with-custom-transformers
   - /actions/reference/extending-github-actions-importer-with-custom-transformers
+contentType: reference
+category:
+  - Migrate to GitHub Actions
 ---
 
 ## About custom transformers
@@ -58,7 +56,7 @@ You can create custom transformers that {% data variables.product.prodname_actio
 {% data variables.product.prodname_actions_importer %} uses custom transformers that are defined using a DSL built on top of Ruby. In order to create custom transformers for build steps and triggers:
 
 * Each custom transformer file must contain at least one `transform` method.
-* Each `transform` method must return a `Hash`, an array of `Hash`'s, or `nil`. This returned value will correspond to an action defined in YAML. For more information about actions, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions).
+* Each `transform` method must return a `Hash`, an array of `Hash`'s, or `nil`. This returned value will correspond to an action defined in YAML. For more information about actions, see [AUTOTITLE](/actions/get-started/understand-github-actions).
 
 ### Example custom transformer for a build step
 
@@ -99,7 +97,7 @@ You can customize the mapping between runners in your source CI/CD instance and 
 {% data variables.product.prodname_actions_importer %} uses custom transformers that are defined using a DSL built on top of Ruby. To create custom transformers for runners:
 
 * The custom transformer file must have at least one `runner` method.
-* The `runner` method accepts two parameters. The first parameter is the source CI/CD instance's runner label, and the second parameter is the corresponding {% data variables.product.prodname_actions %} runner label. For more information on {% data variables.product.prodname_actions %} runners, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
+* The `runner` method accepts two parameters. The first parameter is the source CI/CD instance's runner label, and the second parameter is the corresponding {% data variables.product.prodname_actions %} runner label. For more information on {% data variables.product.prodname_actions %} runners, see [AUTOTITLE](/actions/reference/runners/github-hosted-runners{% ifversion fpt or ghec %}#supported-runners-and-hardware-resources{% endif %}).
 
 ### Example custom transformers for runners
 
@@ -128,7 +126,7 @@ You can customize the mapping between environment variables in your source CI/CD
 {% data variables.product.prodname_actions_importer %} uses custom transformers that are defined using a DSL built on top of Ruby. To create custom transformers for environment variables:
 
 * The custom transformer file must have at least one `env` method.
-* The `env` method accepts two parameters. The first parameter is the name of the environment variable in the original pipeline, and the second parameter is the updated value for the environment variable for {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %} environment variables, see [AUTOTITLE](/actions/learn-github-actions/variables).
+* The `env` method accepts two parameters. The first parameter is the name of the environment variable in the original pipeline, and the second parameter is the updated value for the environment variable for {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %} environment variables, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables).
 
 ### Example custom transformers for environment variables
 
@@ -152,7 +150,7 @@ There are several ways you can set up custom transformers to map your environmen
   env "MONALISA", secret("OCTOCAT")
   ```
 
-  This will set up a reference to a secret named `OCTOCAT` in the transformed workflow. For the secret to work, you will need to create the secret in your GitHub repository. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
+  This will set up a reference to a secret named `OCTOCAT` in the transformed workflow. For the secret to work, you will need to create the secret in your GitHub repository. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#creating-secrets-for-a-repository).
 
 * You can also use regular expressions to update the values of multiple environment variables at once. For example, the following custom transformer removes all environment variables from the converted workflow:
 

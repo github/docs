@@ -26,8 +26,8 @@ type FeatureVersions = {
 
 let allFeatures: Record<string, FeatureVersions>
 
-const cache = new Map()
-function getFeaturesByVersion(currentVersion: string): Record<string, boolean> {
+const cache = new Map<string, Record<string, boolean>>()
+export function getFeaturesByVersion(currentVersion: string): Record<string, boolean> {
   if (!cache.has(currentVersion)) {
     if (!allFeatures) {
       // As of Oct 2022, the `data/features/**` reading is *not* JIT.
@@ -55,5 +55,5 @@ function getFeaturesByVersion(currentVersion: string): Record<string, boolean> {
     cache.set(currentVersion, featureFlags)
   }
 
-  return cache.get(currentVersion)
+  return cache.get(currentVersion) as Record<string, boolean>
 }

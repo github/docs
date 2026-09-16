@@ -170,15 +170,15 @@ describe('get-data', () => {
     {
       const result = getUIDataMerged('en')
       expect(result.key).toBe('Value')
-      expect(result.deep.er).toBe('Depth')
+      expect((result.deep as Record<string, string>).er).toBe('Depth')
     }
     // In a specific language
     {
       const result = getUIDataMerged('ja')
       expect(result.key).toBe('価値')
-      expect(result.deep.er).toBe('深さ')
+      expect((result.deep as Record<string, string>).er).toBe('深さ')
       // Note how it falls back to English on that key
-      expect(result.deep.est).toBe('Deepest')
+      expect((result.deep as Record<string, string>).est).toBe('Deepest')
     }
   })
 
@@ -186,8 +186,8 @@ describe('get-data', () => {
     // The most basic test
     {
       const result = getDeepDataByLanguage('variables', 'en')
-      expect(result.stuff.foo).toBe('Foo')
-      expect(result.stuff.bar).toBe('Bar')
+      expect((result.stuff as Record<string, string>).foo).toBe('Foo')
+      expect((result.stuff as Record<string, string>).bar).toBe('Bar')
     }
     // All reusables
     {
@@ -293,6 +293,77 @@ describe('get-data on corrupt translations', () => {
     {
       const result = getDataByLanguage('reusables.cool', 'ja')
       expect(result).toBe('*English* /Markdown/')
+    }
+  })
+})
+
+describe('get-data applies corrections to translated variables', () => {
+  let dd: DataDirectory
+  const enDirBefore = languages.en.dir
+  languages.ja = Object.assign({}, languages.en, {})
+
+  beforeAll(() => {
+    dd = new DataDirectory({
+      data: {
+        variables: {
+          myproduct: {
+            name: 'GitHub',
+          },
+          phases: {
+            preview: '{% ifversion ghes < 3.16 %}beta{% else %}public preview{% endif %}',
+          },
+        },
+      },
+    })
+    languages.en.dir = dd.root
+
+    const jaTranslationsRoot = path.join(dd.root, 'translations', 'ja-JP')
+    fs.mkdirSync(jaTranslationsRoot, { recursive: true })
+    languages.ja.dir = jaTranslationsRoot
+    new DataDirectory(
+      {
+        data: {
+          variables: {
+            myproduct: {
+              // Corrupted: `data` translated to Japanese `データ`
+              name: '{% データ variables.myproduct.name %}',
+            },
+            phases: {
+              // Not corrupted — should pass through unchanged
+              preview: '{% ifversion ghes < 3.16 %}ベータ{% else %}パブリックプレビュー{% endif %}',
+            },
+          },
+        },
+      },
+      jaTranslationsRoot,
+    )
+  })
+
+  afterAll(() => {
+    dd.destroy()
+    languages.en.dir = enDirBefore
+  })
+
+  test('corrects corrupted Liquid keywords in translated variables', () => {
+    // English variable is returned as-is
+    {
+      const result = getDataByLanguage('variables.myproduct.name', 'en')
+      expect(result).toBe('GitHub')
+    }
+    // Japanese translation with corrupted `データ` → `data` gets corrected
+    {
+      const result = getDataByLanguage('variables.myproduct.name', 'ja')
+      expect(result).toBe('{% data variables.myproduct.name %}')
+    }
+  })
+
+  test('leaves valid translated variables unchanged', () => {
+    // Valid ifversion in translated variable should pass through
+    {
+      const result = getDataByLanguage('variables.phases.preview', 'ja')
+      expect(result).toBe(
+        '{% ifversion ghes < 3.16 %}ベータ{% else %}パブリックプレビュー{% endif %}',
+      )
     }
   })
 })

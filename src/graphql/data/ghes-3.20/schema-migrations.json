@@ -1,0 +1,1476 @@
+{
+  "mutations": [
+    {
+      "name": "abortQueuedMigrations",
+      "id": "abortqueuedmigrations",
+      "href": "/graphql/reference/migrations#mutation-abortqueuedmigrations",
+      "description": "<p>Clear all of a customer's queued migrations.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AbortQueuedMigrationsInput!",
+          "id": "abortqueuedmigrationsinput",
+          "href": "/graphql/reference/migrations#input-object-abortqueuedmigrationsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Did the operation succeed?.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "abortRepositoryMigration",
+      "id": "abortrepositorymigration",
+      "href": "/graphql/reference/migrations#mutation-abortrepositorymigration",
+      "description": "<p>Abort a repository migration queued or in progress.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AbortRepositoryMigrationInput!",
+          "id": "abortrepositorymigrationinput",
+          "href": "/graphql/reference/migrations#input-object-abortrepositorymigrationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Did the operation succeed?.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "createAttributionInvitation",
+      "id": "createattributioninvitation",
+      "href": "/graphql/reference/migrations#mutation-createattributioninvitation",
+      "description": "<p>Invites a user to claim reattributable data.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateAttributionInvitationInput!",
+          "id": "createattributioninvitationinput",
+          "href": "/graphql/reference/migrations#input-object-createattributioninvitationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization",
+          "description": "<p>The owner scoping the reattributable data.</p>"
+        },
+        {
+          "name": "source",
+          "type": "Claimable",
+          "id": "claimable",
+          "href": "/graphql/reference/users#union-claimable",
+          "description": "<p>The account owning the data to reattribute.</p>"
+        },
+        {
+          "name": "target",
+          "type": "Claimable",
+          "id": "claimable",
+          "href": "/graphql/reference/users#union-claimable",
+          "description": "<p>The account which may claim the data.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "createMigrationSource",
+      "id": "createmigrationsource",
+      "href": "/graphql/reference/migrations#mutation-createmigrationsource",
+      "description": "<p>Creates a GitHub Enterprise Importer (GEI) migration source.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateMigrationSourceInput!",
+          "id": "createmigrationsourceinput",
+          "href": "/graphql/reference/migrations#input-object-createmigrationsourceinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "migrationSource",
+          "type": "MigrationSource",
+          "id": "migrationsource",
+          "href": "/graphql/reference/migrations#object-migrationsource",
+          "description": "<p>The created migration source.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "grantMigratorRole",
+      "id": "grantmigratorrole",
+      "href": "/graphql/reference/migrations#mutation-grantmigratorrole",
+      "description": "<p>Grant the migrator role to a user or a team.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "GrantMigratorRoleInput!",
+          "id": "grantmigratorroleinput",
+          "href": "/graphql/reference/migrations#input-object-grantmigratorroleinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Did the operation succeed?.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "importProject",
+      "id": "importproject",
+      "href": "/graphql/reference/migrations#mutation-importproject",
+      "description": "<p>Creates a new project by importing columns and a list of issues/PRs.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ImportProjectInput!",
+          "id": "importprojectinput",
+          "href": "/graphql/reference/migrations#input-object-importprojectinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "project",
+          "type": "Project",
+          "id": "project",
+          "href": "/graphql/reference/projects-classic#object-project",
+          "description": "<p>The new Project!.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "revokeMigratorRole",
+      "id": "revokemigratorrole",
+      "href": "/graphql/reference/migrations#mutation-revokemigratorrole",
+      "description": "<p>Revoke the migrator role from a user or a team.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RevokeMigratorRoleInput!",
+          "id": "revokemigratorroleinput",
+          "href": "/graphql/reference/migrations#input-object-revokemigratorroleinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Did the operation succeed?.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "startOrganizationMigration",
+      "id": "startorganizationmigration",
+      "href": "/graphql/reference/migrations#mutation-startorganizationmigration",
+      "description": "<p>Starts a GitHub Enterprise Importer organization migration.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "StartOrganizationMigrationInput!",
+          "id": "startorganizationmigrationinput",
+          "href": "/graphql/reference/migrations#input-object-startorganizationmigrationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "orgMigration",
+          "type": "OrganizationMigration",
+          "id": "organizationmigration",
+          "href": "/graphql/reference/migrations#object-organizationmigration",
+          "description": "<p>The new organization migration.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "startRepositoryMigration",
+      "id": "startrepositorymigration",
+      "href": "/graphql/reference/migrations#mutation-startrepositorymigration",
+      "description": "<p>Starts a GitHub Enterprise Importer (GEI) repository migration.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "StartRepositoryMigrationInput!",
+          "id": "startrepositorymigrationinput",
+          "href": "/graphql/reference/migrations#input-object-startrepositorymigrationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repositoryMigration",
+          "type": "RepositoryMigration",
+          "id": "repositorymigration",
+          "href": "/graphql/reference/migrations#object-repositorymigration",
+          "description": "<p>The new repository migration.</p>"
+        }
+      ],
+      "category": "migrations"
+    }
+  ],
+  "objects": [
+    {
+      "name": "Mannequin",
+      "id": "mannequin",
+      "href": "/graphql/reference/migrations#object-mannequin",
+      "description": "<p>A placeholder user for attribution of imported data on GitHub.</p>",
+      "implements": [
+        {
+          "name": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "avatarUrl",
+          "description": "<p>A URL pointing to the GitHub App's public avatar.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "arguments": [
+            {
+              "name": "size",
+              "description": "<p>The size of the resulting square image.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "claimant",
+          "description": "<p>The user that has claimed the data attributed to this mannequin.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "email",
+          "description": "<p>The mannequin's email on the source instance.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Mannequin object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "login",
+          "description": "<p>The username of the actor.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The display name of the imported mannequin.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTML path to this resource.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The URL to this resource.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "MannequinConnection",
+      "id": "mannequinconnection",
+      "href": "/graphql/reference/migrations#object-mannequinconnection",
+      "description": "<p>A list of mannequins.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[MannequinEdge]",
+          "id": "mannequinedge",
+          "href": "/graphql/reference/migrations#object-mannequinedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Mannequin]",
+          "id": "mannequin",
+          "href": "/graphql/reference/migrations#object-mannequin"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "MannequinEdge",
+      "id": "mannequinedge",
+      "href": "/graphql/reference/migrations#object-mannequinedge",
+      "description": "<p>Represents a mannequin.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Mannequin",
+          "id": "mannequin",
+          "href": "/graphql/reference/migrations#object-mannequin"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "MigrationSource",
+      "id": "migrationsource",
+      "href": "/graphql/reference/migrations#object-migrationsource",
+      "description": "<p>A GitHub Enterprise Importer (GEI) migration source.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MigrationSource object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The migration source name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "type",
+          "description": "<p>The migration source type.</p>",
+          "type": "MigrationSourceType!",
+          "id": "migrationsourcetype",
+          "href": "/graphql/reference/migrations#enum-migrationsourcetype"
+        },
+        {
+          "name": "url",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "OrganizationMigration",
+      "id": "organizationmigration",
+      "href": "/graphql/reference/migrations#object-organizationmigration",
+      "description": "<p>A GitHub Enterprise Importer (GEI) organization migration.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "failureReason",
+          "description": "<p>The reason the organization migration failed.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the OrganizationMigration object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "remainingRepositoriesCount",
+          "description": "<p>The remaining amount of repos to be migrated.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "sourceOrgName",
+          "description": "<p>The name of the source organization to be migrated.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sourceOrgUrl",
+          "description": "<p>The URL of the source organization to migrate.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "state",
+          "description": "<p>The migration state.</p>",
+          "type": "OrganizationMigrationState!",
+          "id": "organizationmigrationstate",
+          "href": "/graphql/reference/migrations#enum-organizationmigrationstate"
+        },
+        {
+          "name": "targetOrgName",
+          "description": "<p>The name of the target organization.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "totalRepositoriesCount",
+          "description": "<p>The total amount of repositories to be migrated.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "RepositoryMigration",
+      "id": "repositorymigration",
+      "href": "/graphql/reference/migrations#object-repositorymigration",
+      "description": "<p>A GitHub Enterprise Importer (GEI) repository migration.</p>",
+      "implements": [
+        {
+          "name": "Migration",
+          "id": "migration",
+          "href": "/graphql/reference/migrations#interface-migration"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "continueOnError",
+          "description": "<p>The migration flag to continue on error.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "failureReason",
+          "description": "<p>The reason the migration failed.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the RepositoryMigration object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "migrationLogUrl",
+          "description": "<p>The URL for the migration log (expires 1 day after migration completes).</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "migrationSource",
+          "description": "<p>The migration source.</p>",
+          "type": "MigrationSource!",
+          "id": "migrationsource",
+          "href": "/graphql/reference/migrations#object-migrationsource"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The target repository name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sourceUrl",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "state",
+          "description": "<p>The migration state.</p>",
+          "type": "MigrationState!",
+          "id": "migrationstate",
+          "href": "/graphql/reference/migrations#enum-migrationstate"
+        },
+        {
+          "name": "warningsCount",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "RepositoryMigrationConnection",
+      "id": "repositorymigrationconnection",
+      "href": "/graphql/reference/migrations#object-repositorymigrationconnection",
+      "description": "<p>A list of migrations.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[RepositoryMigrationEdge]",
+          "id": "repositorymigrationedge",
+          "href": "/graphql/reference/migrations#object-repositorymigrationedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[RepositoryMigration]",
+          "id": "repositorymigration",
+          "href": "/graphql/reference/migrations#object-repositorymigration"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "RepositoryMigrationEdge",
+      "id": "repositorymigrationedge",
+      "href": "/graphql/reference/migrations#object-repositorymigrationedge",
+      "description": "<p>Represents a repository migration.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "RepositoryMigration",
+          "id": "repositorymigration",
+          "href": "/graphql/reference/migrations#object-repositorymigration"
+        }
+      ],
+      "category": "migrations"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "Migration",
+      "id": "migration",
+      "href": "/graphql/reference/migrations#interface-migration",
+      "description": "<p>Represents a GitHub Enterprise Importer (GEI) migration.</p>",
+      "fields": [
+        {
+          "name": "continueOnError",
+          "description": "<p>The migration flag to continue on error.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "failureReason",
+          "description": "<p>The reason the migration failed.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Migration object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "migrationLogUrl",
+          "description": "<p>The URL for the migration log (expires 1 day after migration completes).</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "migrationSource",
+          "description": "<p>The migration source.</p>",
+          "type": "MigrationSource!",
+          "id": "migrationsource",
+          "href": "/graphql/reference/migrations#object-migrationsource"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The target repository name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sourceUrl",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "state",
+          "description": "<p>The migration state.</p>",
+          "type": "MigrationState!",
+          "id": "migrationstate",
+          "href": "/graphql/reference/migrations#enum-migrationstate"
+        },
+        {
+          "name": "warningsCount",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "migrations"
+    }
+  ],
+  "enums": [
+    {
+      "name": "MannequinOrderField",
+      "id": "mannequinorderfield",
+      "href": "/graphql/reference/migrations#enum-mannequinorderfield",
+      "description": "<p>Properties by which mannequins can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order mannequins why when they were created.</p>"
+        },
+        {
+          "name": "LOGIN",
+          "description": "<p>Order mannequins alphabetically by their source login.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "MigrationSourceType",
+      "id": "migrationsourcetype",
+      "href": "/graphql/reference/migrations#enum-migrationsourcetype",
+      "description": "<p>Represents the different GitHub Enterprise Importer (GEI) migration sources.</p>",
+      "values": [
+        {
+          "name": "AZURE_DEVOPS",
+          "description": "<p>An Azure DevOps migration source.</p>"
+        },
+        {
+          "name": "BITBUCKET_SERVER",
+          "description": "<p>A Bitbucket Server migration source.</p>"
+        },
+        {
+          "name": "GITHUB_ARCHIVE",
+          "description": "<p>A GitHub Migration API source.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "MigrationState",
+      "id": "migrationstate",
+      "href": "/graphql/reference/migrations#enum-migrationstate",
+      "description": "<p>The GitHub Enterprise Importer (GEI) migration state.</p>",
+      "values": [
+        {
+          "name": "FAILED",
+          "description": "<p>The migration has failed.</p>"
+        },
+        {
+          "name": "FAILED_VALIDATION",
+          "description": "<p>The migration has invalid credentials.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The migration is in progress.</p>"
+        },
+        {
+          "name": "NOT_STARTED",
+          "description": "<p>The migration has not started.</p>"
+        },
+        {
+          "name": "PENDING_VALIDATION",
+          "description": "<p>The migration needs to have its credentials validated.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The migration has been queued.</p>"
+        },
+        {
+          "name": "SUCCEEDED",
+          "description": "<p>The migration has succeeded.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "OrganizationMigrationState",
+      "id": "organizationmigrationstate",
+      "href": "/graphql/reference/migrations#enum-organizationmigrationstate",
+      "description": "<p>The Octoshift Organization migration state.</p>",
+      "values": [
+        {
+          "name": "FAILED",
+          "description": "<p>The Octoshift migration has failed.</p>"
+        },
+        {
+          "name": "FAILED_VALIDATION",
+          "description": "<p>The Octoshift migration has invalid credentials.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The Octoshift migration is in progress.</p>"
+        },
+        {
+          "name": "NOT_STARTED",
+          "description": "<p>The Octoshift migration has not started.</p>"
+        },
+        {
+          "name": "PENDING_VALIDATION",
+          "description": "<p>The Octoshift migration needs to have its credentials validated.</p>"
+        },
+        {
+          "name": "POST_REPO_MIGRATION",
+          "description": "<p>The Octoshift migration is performing post repository migrations.</p>"
+        },
+        {
+          "name": "PRE_REPO_MIGRATION",
+          "description": "<p>The Octoshift migration is performing pre repository migrations.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The Octoshift migration has been queued.</p>"
+        },
+        {
+          "name": "REPO_MIGRATION",
+          "description": "<p>The Octoshift org migration is performing repository migrations.</p>"
+        },
+        {
+          "name": "SUCCEEDED",
+          "description": "<p>The Octoshift migration has succeeded.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "RepositoryMigrationOrderDirection",
+      "id": "repositorymigrationorderdirection",
+      "href": "/graphql/reference/migrations#enum-repositorymigrationorderdirection",
+      "description": "<p>Possible directions in which to order a list of repository migrations when provided an <code>orderBy</code> argument.</p>",
+      "values": [
+        {
+          "name": "ASC",
+          "description": "<p>Specifies an ascending order for a given <code>orderBy</code> argument.</p>"
+        },
+        {
+          "name": "DESC",
+          "description": "<p>Specifies a descending order for a given <code>orderBy</code> argument.</p>"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "RepositoryMigrationOrderField",
+      "id": "repositorymigrationorderfield",
+      "href": "/graphql/reference/migrations#enum-repositorymigrationorderfield",
+      "description": "<p>Properties by which repository migrations can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order mannequins why when they were created.</p>"
+        }
+      ],
+      "category": "migrations"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "AbortQueuedMigrationsInput",
+      "id": "abortqueuedmigrationsinput",
+      "href": "/graphql/reference/migrations#input-object-abortqueuedmigrationsinput",
+      "description": "<p>Autogenerated input type of AbortQueuedMigrations.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the organization that is running the migrations.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "AbortRepositoryMigrationInput",
+      "id": "abortrepositorymigrationinput",
+      "href": "/graphql/reference/migrations#input-object-abortrepositorymigrationinput",
+      "description": "<p>Autogenerated input type of AbortRepositoryMigration.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "migrationId",
+          "description": "<p>The ID of the migration to be aborted.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "CreateAttributionInvitationInput",
+      "id": "createattributioninvitationinput",
+      "href": "/graphql/reference/migrations#input-object-createattributioninvitationinput",
+      "description": "<p>Autogenerated input type of CreateAttributionInvitation.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The Node ID of the owner scoping the reattributable data.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sourceId",
+          "description": "<p>The Node ID of the account owning the data to reattribute.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "targetId",
+          "description": "<p>The Node ID of the account which may claim the data.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "CreateMigrationSourceInput",
+      "id": "createmigrationsourceinput",
+      "href": "/graphql/reference/migrations#input-object-createmigrationsourceinput",
+      "description": "<p>Autogenerated input type of CreateMigrationSource.</p>",
+      "inputFields": [
+        {
+          "name": "accessToken",
+          "description": "<p>The migration source access token.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "githubPat",
+          "description": "<p>The GitHub personal access token of the user importing to the target repository.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The migration source name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the organization that will own the migration source.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "type",
+          "description": "<p>The migration source type.</p>",
+          "type": "MigrationSourceType!",
+          "id": "migrationsourcetype",
+          "href": "/graphql/reference/migrations#enum-migrationsourcetype"
+        },
+        {
+          "name": "url",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "GrantMigratorRoleInput",
+      "id": "grantmigratorroleinput",
+      "href": "/graphql/reference/migrations#input-object-grantmigratorroleinput",
+      "description": "<p>Autogenerated input type of GrantMigratorRole.</p>",
+      "inputFields": [
+        {
+          "name": "actor",
+          "description": "<p>The user login or Team slug to grant the migrator role.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorType",
+          "description": "<p>Specifies the type of the actor, can be either USER or TEAM.</p>",
+          "type": "ActorType!",
+          "id": "actortype",
+          "href": "/graphql/reference/users#enum-actortype"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization that the user/team belongs to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "ImportProjectInput",
+      "id": "importprojectinput",
+      "href": "/graphql/reference/migrations#input-object-importprojectinput",
+      "description": "<p>Autogenerated input type of ImportProject.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The description of Project.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "columnImports",
+          "description": "<p>A list of columns containing issues and pull requests.</p>",
+          "type": "[ProjectColumnImport!]!",
+          "id": "projectcolumnimport",
+          "href": "/graphql/reference/projects-classic#input-object-projectcolumnimport"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of Project.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "ownerName",
+          "description": "<p>The name of the Organization or User to create the Project under.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "public",
+          "description": "<p>Whether the Project is public or not.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "MannequinOrder",
+      "id": "mannequinorder",
+      "href": "/graphql/reference/migrations#input-object-mannequinorder",
+      "description": "<p>Ordering options for mannequins.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order mannequins by.</p>",
+          "type": "MannequinOrderField!",
+          "id": "mannequinorderfield",
+          "href": "/graphql/reference/migrations#enum-mannequinorderfield"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "RepositoryMigrationOrder",
+      "id": "repositorymigrationorder",
+      "href": "/graphql/reference/migrations#input-object-repositorymigrationorder",
+      "description": "<p>Ordering options for repository migrations.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "RepositoryMigrationOrderDirection!",
+          "id": "repositorymigrationorderdirection",
+          "href": "/graphql/reference/migrations#enum-repositorymigrationorderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order repository migrations by.</p>",
+          "type": "RepositoryMigrationOrderField!",
+          "id": "repositorymigrationorderfield",
+          "href": "/graphql/reference/migrations#enum-repositorymigrationorderfield"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "RevokeMigratorRoleInput",
+      "id": "revokemigratorroleinput",
+      "href": "/graphql/reference/migrations#input-object-revokemigratorroleinput",
+      "description": "<p>Autogenerated input type of RevokeMigratorRole.</p>",
+      "inputFields": [
+        {
+          "name": "actor",
+          "description": "<p>The user login or Team slug to revoke the migrator role from.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorType",
+          "description": "<p>Specifies the type of the actor, can be either USER or TEAM.</p>",
+          "type": "ActorType!",
+          "id": "actortype",
+          "href": "/graphql/reference/users#enum-actortype"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization that the user/team belongs to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "StartOrganizationMigrationInput",
+      "id": "startorganizationmigrationinput",
+      "href": "/graphql/reference/migrations#input-object-startorganizationmigrationinput",
+      "description": "<p>Autogenerated input type of StartOrganizationMigration.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sourceAccessToken",
+          "description": "<p>The migration source access token.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "sourceOrgUrl",
+          "description": "<p>The URL of the organization to migrate.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "targetEnterpriseId",
+          "description": "<p>The ID of the enterprise the target organization belongs to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "targetOrgName",
+          "description": "<p>The name of the target organization.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "migrations"
+    },
+    {
+      "name": "StartRepositoryMigrationInput",
+      "id": "startrepositorymigrationinput",
+      "href": "/graphql/reference/migrations#input-object-startrepositorymigrationinput",
+      "description": "<p>Autogenerated input type of StartRepositoryMigration.</p>",
+      "inputFields": [
+        {
+          "name": "accessToken",
+          "description": "<p>The migration source access token.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "continueOnError",
+          "description": "<p>Whether to continue the migration on error. Defaults to <code>true</code>.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "gitArchiveUrl",
+          "description": "<p>The signed URL to access the user-uploaded git archive.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "githubPat",
+          "description": "<p>The GitHub personal access token of the user importing to the target repository.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "lockSource",
+          "description": "<p>Whether to lock the source repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "metadataArchiveUrl",
+          "description": "<p>The signed URL to access the user-uploaded metadata archive.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the organization that will own the imported repository.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The name of the imported repository.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "skipReleases",
+          "description": "<p>Whether to skip migrating releases for the repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "sourceId",
+          "description": "<p>The ID of the migration source.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sourceRepositoryUrl",
+          "description": "<p>The URL of the source repository.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "targetRepoVisibility",
+          "description": "<p>The visibility of the imported repository.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "migrations"
+    }
+  ]
+}

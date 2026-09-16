@@ -1,20 +1,29 @@
 import { describe, expect, test } from 'vitest'
 import sharp from 'sharp'
-import cheerio from 'cheerio'
+import type { Cheerio, CheerioAPI } from 'cheerio'
+import type { Element } from 'domhandler'
 
 import { get, head, getDOM } from '@/tests/helpers/e2etest'
 import { MAX_WIDTH } from '@/content-render/unified/rewrite-asset-img-tags'
 
+// `getDOM` parses with `xmlMode: true`, which is case-sensitive on attribute
+// names. The legacy string render path emits a lowercase `srcset`, but the
+// React render path (hast -> JSX) emits React 19's camelCase `srcSet`. Both are
+// valid HTML (attribute names are case-insensitive in browsers), so read either.
+function srcsetOf(el: Cheerio<Element>): string | undefined {
+  return el.attr('srcset') ?? el.attr('srcSet')
+}
+
 describe('render Markdown image tags', () => {
   test('page with a single image', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/images/single-image')
+    const $: CheerioAPI = await getDOM('/get-started/images/single-image')
 
     const pictures = $('#article-contents picture')
     expect(pictures.length).toBe(1)
 
     const sources = $('source', pictures)
     expect(sources.length).toBe(1)
-    const srcset = sources.attr('srcset')
+    const srcset = srcsetOf(sources)
     expect(srcset).toMatch(
       new RegExp(`^/assets/cb-\\w+/mw-${MAX_WIDTH}/images/_fixtures/screenshot\\.webp 2x$`),
     )
@@ -46,7 +55,7 @@ describe('render Markdown image tags', () => {
   })
 
   test('images have density specified', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/images/retina-image')
+    const $: CheerioAPI = await getDOM('/get-started/images/retina-image')
 
     const pictures = $('#article-contents picture')
     expect(pictures.length).toBe(3)
@@ -54,20 +63,20 @@ describe('render Markdown image tags', () => {
     const sources = $('source', pictures)
     expect(sources.length).toBe(3)
 
-    expect(sources.eq(0).attr('srcset')).toContain('1x') // 0
-    expect(sources.eq(1).attr('srcset')).toContain('2x') // 1
-    expect(sources.eq(2).attr('srcset')).toContain('2x') // 2
+    expect(srcsetOf(sources.eq(0))).toContain('1x') // 0
+    expect(srcsetOf(sources.eq(1))).toContain('2x') // 1
+    expect(srcsetOf(sources.eq(2))).toContain('2x') // 2
   })
 
   test('image inside a list keeps its span', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/images/images-in-lists')
+    const $: CheerioAPI = await getDOM('/get-started/images/images-in-lists')
 
     const imageSpan = $('#article-contents > div > ol > li > div.procedural-image-wrapper')
     expect(imageSpan.length).toBe(1)
   })
 
   test("links directly to images aren't rewritten", async () => {
-    const $: cheerio.Root = await getDOM('/get-started/images/link-to-image')
+    const $: CheerioAPI = await getDOM('/get-started/images/link-to-image')
     // There is only 1 link inside that page
     const links = $('#article-contents a[href^="/"]') // exclude header link
     expect(links.length).toBe(1)

@@ -2,6 +2,7 @@ import { expect, test, describe, beforeAll, afterAll } from 'vitest'
 
 import { post } from '@/tests/helpers/e2etest'
 import { startMockServer, stopMockServer } from '@/tests/mocks/start-mock-server'
+import { MAX_QUERY_LENGTH } from '@/search/lib/ai-search-constants'
 
 describe('AI Search Routes', () => {
   beforeAll(() => {
@@ -181,6 +182,23 @@ describe('AI Search Routes', () => {
     expect(response.statusCode).toBe(400)
     expect(responseBody.errors).toBeDefined()
     expect(responseBody.errors[0].message).toBe("Invalid 'query' in request body. Must be a string")
+  })
+
+  test('should reject queries longer than the maximum allowed length', async () => {
+    const longQuery = 'a'.repeat(MAX_QUERY_LENGTH + 1)
+    const response = await post('/api/ai-search/v1', {
+      body: JSON.stringify({ query: longQuery, version: 'dotcom' }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    const responseBody = JSON.parse(response.body)
+
+    expect(response.statusCode).toBe(413)
+    expect(responseBody.upstreamStatus).toBe(413)
+    expect(responseBody.errors).toBeDefined()
+    expect(responseBody.errors[0].message).toBe(
+      `Query exceeds maximum length of ${MAX_QUERY_LENGTH} characters`,
+    )
   })
 
   test('should handle malformed JSON in request body', async () => {

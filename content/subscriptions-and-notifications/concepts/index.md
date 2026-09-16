@@ -6,10 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Notifications
 children:
   - /about-notifications
   - /scheduled-reminders
+contentType: concepts
 ---
 

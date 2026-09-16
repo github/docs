@@ -1,0 +1,6 @@
+# Reference: #19643
+# Enterprise teams GA and associated capabilities
+
+versions:
+  ghec: '*'
+  ghes: '>=3.22'

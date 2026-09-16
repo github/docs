@@ -11,12 +11,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '*'
-topics:
-  - Billing
 children:
   - /how-billing-works
   - /introduction-to-billing
+  - /billing-manager-onboard
 contentType: get-started
 ---
-

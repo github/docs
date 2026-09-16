@@ -14,7 +14,7 @@ export type CoreInject = {
   debug: (message: string) => void
   warning: (message: string) => void
   error: (message: string) => void
-  setOutput: (name: string, value: any) => void
+  setOutput: (name: string, value: unknown) => void
   setFailed: (message: string) => void
 }
 // Directs core logging to console
@@ -24,7 +24,7 @@ export function getCoreInject(debug: boolean): CoreInject {
     debug: (message: string) => (debug ? console.warn(chalk.blue(message)) : {}),
     warning: (message: string) => console.warn(chalk.yellow(message)),
     error: console.error,
-    setOutput: (name: string, value: any) => {
+    setOutput: (name: string, value: unknown) => {
       if (debug) {
         console.log(`Output "${name}" set to: "${value}"`)
       }

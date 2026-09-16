@@ -1,7 +1,7 @@
 ---
 title: Creating and publishing actions
 shortTitle: Create and publish actions
-intro: 'You can create your own actions, use and customize actions shared by the {% data variables.product.prodname_dotcom %} community, or write and share the actions you build.'
+intro: You can create your own actions, use and customize actions shared by the {% data variables.product.prodname_dotcom %} community, or write and share the actions you build.
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,4 +17,6 @@ children:
   - /publish-in-github-marketplace
   - /release-and-maintain-actions
   - /using-immutable-releases-and-tags-to-manage-your-actions-releases
+contentType: how-tos
 ---
+

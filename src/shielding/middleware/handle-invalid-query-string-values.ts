@@ -1,10 +1,13 @@
 import type { Response, NextFunction } from 'express'
 
+import { createLogger } from '@/observability/logger'
 import { ExtendedRequest } from '@/types'
 import statsd from '@/observability/lib/statsd'
 import { allTools } from '@/tools/lib/all-tools'
 import { allPlatforms } from '@/tools/lib/all-platforms'
 import { defaultCacheControl } from '@/frame/middleware/cache-control'
+
+const logger = createLogger(import.meta.url)
 
 const STATSD_KEY = 'middleware.handle_invalid_querystring_values'
 
@@ -46,21 +49,21 @@ export default function handleInvalidQuerystringValues(
         const values = Array.isArray(queryValue) ? queryValue : [queryValue]
         if (values.some((val) => typeof val === 'string' && !validValues.includes(val))) {
           if (process.env.NODE_ENV === 'development') {
-            console.warn(
-              'Warning! Invalid query string *value* detected. %O is not one of %O',
-              query[key],
+            logger.warn('Invalid query string value detected', {
+              key,
+              value: query[key],
               validValues,
-            )
+            })
           }
           // Some value is not recognized. Redirect to the current URL
           // but with that query string key removed.
-          const sp = new URLSearchParams(query as any)
+          const sp = new URLSearchParams(query as Record<string, string>)
           sp.delete(key)
 
           defaultCacheControl(res)
           let newURL = req.path
           if (sp.toString()) newURL += `?${sp}`
-          res.redirect(302, newURL)
+          res.safeRedirect(302, newURL)
 
           const tags = ['response:302', `url:${req.url}`, `path:${req.path}`, `key:${key}`]
           statsd.increment(STATSD_KEY, 1, tags)
@@ -71,9 +74,9 @@ export default function handleInvalidQuerystringValues(
 
       // For example ?foo[bar]=baz (but not ?foo=bar&foo=baz)
       if (value instanceof Object && !Array.isArray(value)) {
-        const message = `Invalid query string key (${key})`
+        const message = 'Invalid query string'
         defaultCacheControl(res)
-        res.status(400).send(message)
+        res.status(400).type('text').send(message)
 
         const tags = ['response:400', `path:${req.path}`, `key:${key}`]
         statsd.increment(STATSD_KEY, 1, tags)

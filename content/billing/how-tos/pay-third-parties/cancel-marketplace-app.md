@@ -12,20 +12,15 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Cancellation
-  - Marketplace
-  - Organizations
-  - Trials
-  - User account
 shortTitle: Cancel Marketplace app
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 {% ifversion fpt %}{% data reusables.marketplace.marketplace-app-page %}{% endif %}
 
-**When you cancel a paid app, your access and subscription will end on your next billing date. If you cancel during a free trial, you will lose access immediately**. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace).
+**When you cancel a paid app, your access and subscription will end on your next billing date. If you cancel during a free trial, you will lose access immediately**. For more information, see [AUTOTITLE](/billing/concepts/third-party-payments/github-marketplace-apps).
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 

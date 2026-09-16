@@ -8,7 +8,7 @@ bicep:
   name: Bicep
   comment: slash
 copilot:
-  name: Copilot Chat prompt
+  name: Copilot prompt
   comment: none
 csharp:
   name: C#

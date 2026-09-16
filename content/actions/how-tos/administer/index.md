@@ -1,7 +1,7 @@
 ---
 title: Administering GitHub Actions
 shortTitle: Administer
-intro: 'Manage {% data variables.product.prodname_actions %} settings for your organization or enterprise.'
+intro: Manage {% data variables.product.prodname_actions %} settings for your organization or enterprise.
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,4 +12,6 @@ children:
 redirect_from:
   - /actions/administering-github-actions
   - /actions/how-tos/administering-github-actions
+contentType: how-tos
 ---
+

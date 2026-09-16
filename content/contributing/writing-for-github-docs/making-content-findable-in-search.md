@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Write and format content
 ---
 
 ## About search engine optimization (SEO)

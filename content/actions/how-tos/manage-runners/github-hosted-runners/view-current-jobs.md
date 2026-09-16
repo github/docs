@@ -1,7 +1,7 @@
 ---
 title: Viewing your current jobs
 shortTitle: View current jobs
-intro: 'Monitor how {% data variables.product.prodname_dotcom %}-hosted runners are processing jobs in your organization or enterprise, and identify any related constraints.'
+intro: Monitor how {% data variables.product.prodname_dotcom %}-hosted runners are processing jobs in your organization or enterprise, and identify any related constraints.
 versions:
   feature: github-runner-dashboard
 redirect_from:
@@ -12,6 +12,9 @@ redirect_from:
   - /actions/how-tos/using-github-hosted-runners/monitoring-your-current-jobs#viewing-active-jobs-in-your-organization-or-enterprise
   - /actions/how-tos/using-github-hosted-runners/monitoring-your-current-jobs
   - /actions/how-tos/using-github-hosted-runners/viewing-your-current-jobs
+category:
+  - Use and manage runners
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -26,7 +29,7 @@ You can get a list of all jobs currently running on {% data variables.product.pr
 
 ## Viewing queued jobs in your organization or enterprise
 
-{% data variables.product.prodname_dotcom %}-hosted runners allow you to run jobs concurrently, and the maximum number of concurrent jobs will vary depending on your plan. If you reach the maximum number of concurrent jobs, any new jobs will start to enter a queue. To find out more about the number of concurrent jobs available to your plan, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration).
+{% data variables.product.prodname_dotcom %}-hosted runners allow you to run jobs concurrently, and the maximum number of concurrent jobs will vary depending on your plan. If you reach the maximum number of concurrent jobs, any new jobs will start to enter a queue. To find out more about the number of concurrent jobs available to your plan, see [AUTOTITLE](/actions/concepts/billing-and-usage).
 
 The following procedure demonstrates how to check the maximum number of concurrent jobs you can run.
 

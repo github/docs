@@ -3,10 +3,7 @@ import fs from 'fs'
 import { describe, expect, test } from 'vitest'
 
 import { get } from '@/tests/helpers/e2etest'
-import {
-  SURROGATE_ENUMS,
-  makeLanguageSurrogateKey,
-} from '@/frame/middleware/set-fastly-surrogate-key'
+import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
 
 describe('anchor-redirect api', () => {
   const clientSideRedirects = JSON.parse(
@@ -61,7 +58,6 @@ describe('anchor-redirect api', () => {
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 })

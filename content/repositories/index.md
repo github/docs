@@ -5,32 +5,24 @@ intro: Learn to use and manage the repositories that allow you to store and coll
 introLinks:
   quickstart: /repositories/creating-and-managing-repositories/quickstart-for-repositories
   overview: /repositories/creating-and-managing-repositories/about-repositories
-featuredLinks:
-  startHere:
+layout: discovery-landing
+carousels:
+  recommended:
+    - /repositories/creating-and-managing-repositories/quickstart-for-repositories
+    - /repositories/creating-and-managing-repositories/about-repositories
+    - /repositories/creating-and-managing-repositories/best-practices-for-repositories
+    - /repositories/creating-and-managing-repositories/creating-a-new-repository
     - /repositories/creating-and-managing-repositories/cloning-a-repository
-    - /repositories/creating-and-managing-repositories/restoring-a-deleted-repository
-    - /repositories/working-with-files/managing-files/adding-a-file-to-a-repository
-    - /repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository
-  popular:
-    - /repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches
-    - /repositories/releasing-projects-on-github/about-releases
     - /repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes
-    - /repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
-  guideCards:
-    - /repositories/creating-and-managing-repositories/deleting-a-repository
-    - /repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule
-    - /repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility
-changelog:
-  label: repos
-layout: product-landing
+    - /repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets
+    - /repositories/releasing-projects-on-github/managing-releases-in-a-repository
+    - /repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository
 redirect_from:
   - /github/creating-cloning-and-archiving-repositories
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 children:
   - /creating-and-managing-repositories
   - /managing-your-repositorys-settings-and-features
@@ -39,5 +31,15 @@ children:
   - /releasing-projects-on-github
   - /viewing-activity-and-data-for-your-repository
   - /archiving-a-github-repository
+includedCategories:
+  - Create and set up a repository
+  - Manage, move, and archive a repository
+  - Work with files
+  - Store large files with Git LFS
+  - Manage branches and protect code
+  - Configure merges and pull requests
+  - Manage access and repository policies
+  - Customize and configure a repository
+  - Release software
+  - Track repository activity
 ---
-

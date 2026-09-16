@@ -1,65 +1,54 @@
 import fs from 'fs'
-import path from 'path'
 
 import { beforeAll, describe, expect, test } from 'vitest'
 import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
 import { isApiVersioned, allVersions } from '@/versions/lib/all-versions'
-import getRest from '../lib/index'
+import getRest, { getRestCategories, type RestOperationCategory } from '../lib/index'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 import frontmatter from '@/frame/lib/frontmatter'
 import getApplicableVersions from '../../versions/lib/get-applicable-versions'
 import { getAutomatedMarkdownFiles } from '../scripts/test-open-api-schema'
 import { nonAutomatedRestPaths } from '../lib/config'
+import type { Operation } from '@/rest/components/types'
 
 const schemasPath = 'src/rest/data'
 
-// Operations have dynamic structure from OpenAPI schema - using any to avoid complex type definitions
-async function getFlatListOfOperations(version: string): Promise<any[]> {
-  const flatList = []
+async function getFlatListOfOperations(version: string): Promise<Operation[]> {
+  const flatList: Operation[] = []
 
   if (isApiVersioned(version)) {
-    const apiVersions = allVersions[version].apiVersions
-
-    for (const apiVersion of apiVersions) {
-      const operations = await getRest(version, apiVersion)
-      flatList.push(...createCategoryList(operations))
+    for (const apiVersion of allVersions[version].apiVersions) {
+      for (const category of getRestCategories(version, apiVersion)) {
+        const ops = await getRest(version, apiVersion, category)
+        flatList.push(...Object.values(ops).flat())
+      }
     }
   } else {
-    const operations = await getRest(version)
-    flatList.push(...createCategoryList(operations))
+    for (const category of getRestCategories(version)) {
+      const ops = await getRest(version, undefined, category)
+      flatList.push(...Object.values(ops).flat())
+    }
   }
 
   return flatList
 }
 
-// OpenAPI operations object has dynamic structure based on categories and subcategories
-function createCategoryList(operations: any): any[] {
-  const catSubCatList = []
-  for (const category of Object.keys(operations)) {
-    const subcategories = Object.keys(operations[category])
-    for (const subcategory of subcategories) {
-      catSubCatList.push(...operations[category][subcategory])
-    }
-  }
-
-  return catSubCatList
-}
-
 describe('markdown for each rest version', () => {
   // Unique set of all categories across all versions of the OpenAPI schema
   const allCategories = new Set<string>()
-  // Entire schema including categories and subcategories - using any due to dynamic OpenAPI structure
-  const openApiSchema: Record<string, any> = {}
+  // Entire schema including categories and subcategories, keyed by version then category
+  const openApiSchema: Record<string, Record<string, RestOperationCategory>> = {}
   // All applicable version of categories based on frontmatter in the categories index.md file
-  const categoryApplicableVersions: Record<string, any> = {}
+  const categoryApplicableVersions: Record<string, string[]> = {}
 
   function getApplicableVersionFromFile(file: string) {
     const currentFile = fs.readFileSync(file, 'utf8')
-    // Frontmatter data structure is dynamic based on file content
-    const { data } = frontmatter(currentFile) as { data: any }
-    return getApplicableVersions(data.versions, file)
+    const fm = frontmatter(currentFile) as unknown as {
+      data?: { versions?: string | Record<string, string | string[]> }
+    }
+    return getApplicableVersions(fm.data?.versions, file)
   }
 
   function getCategorySubcategory(file: string) {
@@ -71,20 +60,19 @@ describe('markdown for each rest version', () => {
 
   beforeAll(async () => {
     for (const version in allVersions) {
+      openApiSchema[version] = {}
       if (isApiVersioned(version)) {
         for (const apiVersion of allVersions[version].apiVersions) {
-          const apiOperations = await getRest(version, apiVersion)
-          for (const category of Object.keys(apiOperations)) {
+          for (const category of getRestCategories(version, apiVersion)) {
             allCategories.add(category)
+            openApiSchema[version][category] = await getRest(version, apiVersion, category)
           }
-          openApiSchema[version] = apiOperations
         }
       } else {
-        const apiOperations = await getRest(version)
-        for (const category of Object.keys(apiOperations)) {
+        for (const category of getRestCategories(version)) {
           allCategories.add(category)
+          openApiSchema[version][category] = await getRest(version, undefined, category)
         }
-        openApiSchema[version] = apiOperations
       }
     }
 
@@ -140,12 +128,15 @@ describe('markdown for each rest version', () => {
 describe('rest file structure', () => {
   test('children of content/rest/index.md are in alphabetical order', async () => {
     const indexContent = fs.readFileSync('content/rest/index.md', 'utf8')
-    // Frontmatter data structure is dynamic based on file content
-    const { data } = readFrontmatter(indexContent) as { data: any }
+    const fm = readFrontmatter(indexContent) as unknown as {
+      data?: { children?: string[] }
+    }
+    const children = fm.data?.children
+    expect(Array.isArray(children)).toBe(true)
     const nonAutomatedChildren = nonAutomatedRestPaths.map((child: string) =>
       child.replace('/rest', ''),
     )
-    const sortableChildren = data.children.filter(
+    const sortableChildren = (children as string[]).filter(
       (child: string) => !nonAutomatedChildren.includes(child),
     )
     expect(sortableChildren).toStrictEqual([...sortableChildren].sort())
@@ -158,14 +149,13 @@ describe('OpenAPI schema validation', () => {
   // is not yet defined in allVersions (e.g., a GHEC static file can exist
   // even though the version is not yet supported in the docs)
   test('every OpenAPI version must have a schema file in the docs', async () => {
-    const decoratedFilenames = walk(schemasPath).map((filename) => path.basename(filename, '.json'))
-    const openApiBaseNames = Object.values(allVersions).map((version) => version.openApiVersionName)
+    const versionDirs = fs
+      .readdirSync(schemasPath, { withFileTypes: true })
+      .filter((d) => d.isDirectory())
+      .map((d) => d.name)
+    const openApiBaseNames = Object.values(allVersions).map((v) => v.openApiVersionName)
     for (const openApiBaseName of openApiBaseNames) {
-      // Because the rest calendar dates now have latest, next, or calendar date attached to the name, we're
-      // now checking if the decorated file names now start with an openApiBaseName
-      expect(
-        decoratedFilenames.some((versionFile) => versionFile.startsWith(openApiBaseName)),
-      ).toBe(true)
+      expect(versionDirs.some((dir) => dir.startsWith(openApiBaseName))).toBe(true)
     }
   })
 
@@ -177,16 +167,20 @@ describe('OpenAPI schema validation', () => {
   })
 
   test('no wrongly detected AppleScript syntax highlighting in schema data', async () => {
-    const countAssertions = Object.keys(allVersions)
-      .map((version) => allVersions[version].apiVersions.length)
-      .reduce((prevLength, currLength) => prevLength + currLength)
-
-    expect.assertions(countAssertions)
     await Promise.all(
       Object.keys(allVersions).map(async (version) => {
-        for (const apiVersion of allVersions[version].apiVersions) {
-          const operations = await getRest(version, apiVersion)
-          expect(JSON.stringify(operations).includes('hljs language-applescript')).toBe(false)
+        if (isApiVersioned(version)) {
+          for (const apiVersion of allVersions[version].apiVersions) {
+            for (const category of getRestCategories(version, apiVersion)) {
+              const ops = await getRest(version, apiVersion, category)
+              expect(JSON.stringify(ops).includes('hljs language-applescript')).toBe(false)
+            }
+          }
+        } else {
+          for (const category of getRestCategories(version)) {
+            const ops = await getRest(version, undefined, category)
+            expect(JSON.stringify(ops).includes('hljs language-applescript')).toBe(false)
+          }
         }
       }),
     )
@@ -213,11 +207,12 @@ describe('code examples are defined', () => {
       }
 
       const operation = await findOperation(version, 'GET', '/repos/{owner}/{repo}')
+      expect(operation).toBeDefined()
+      if (!operation) continue
       expect(operation.serverUrl).toBe(domain)
       expect(isPlainObject(operation)).toBe(true)
       expect(operation.codeExamples).toBeDefined()
-      // Code examples have dynamic structure from OpenAPI schema
-      for (const example of operation.codeExamples as any[]) {
+      for (const example of operation.codeExamples) {
         expect(isPlainObject(example.request)).toBe(true)
         expect(isPlainObject(example.response)).toBe(true)
       }

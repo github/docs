@@ -1,0 +1,297 @@
+{
+  "queries": [
+    {
+      "name": "search",
+      "type": "SearchResultItemConnection!",
+      "id": "searchresultitemconnection",
+      "href": "/graphql/reference/search#object-searchresultitemconnection",
+      "description": "<p>Perform a search across resources, returning a maximum of 1,000 results.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "query",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>The search string to look for. GitHub search syntax is supported. For more\ninformation, see \"<a href=\"https://docs.github.com/search-github/searching-on-github\">Searching on\nGitHub</a>,\"\n\"<a href=\"https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax\">Understanding the search syntax</a>,\"\nand \"<a href=\"https://docs.github.com/search-github/getting-started-with-searching-on-github/sorting-search-results\">Sorting search results</a>.\".</p>"
+        },
+        {
+          "name": "type",
+          "type": "SearchType!",
+          "id": "searchtype",
+          "href": "/graphql/reference/search#enum-searchtype",
+          "description": "<p>The types of search items to search within.</p>"
+        }
+      ],
+      "category": "search"
+    }
+  ],
+  "objects": [
+    {
+      "name": "SearchResultItemConnection",
+      "id": "searchresultitemconnection",
+      "href": "/graphql/reference/search#object-searchresultitemconnection",
+      "description": "<p>A list of results that matched against a search query. Regardless of the number\nof matches, a maximum of 1,000 results will be available across all types,\npotentially split across many pages.</p>",
+      "fields": [
+        {
+          "name": "codeCount",
+          "description": "<p>The total number of pieces of code that matched the search query. Regardless\nof the total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "discussionCount",
+          "description": "<p>The total number of discussions that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SearchResultItemEdge]",
+          "id": "searchresultitemedge",
+          "href": "/graphql/reference/search#object-searchresultitemedge"
+        },
+        {
+          "name": "issueCount",
+          "description": "<p>The total number of issues that matched the search query. Regardless of the\ntotal number of matches, a maximum of 1,000 results will be available across all types.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SearchResultItem]",
+          "id": "searchresultitem",
+          "href": "/graphql/reference/search#union-searchresultitem"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "repositoryCount",
+          "description": "<p>The total number of repositories that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "userCount",
+          "description": "<p>The total number of users that matched the search query. Regardless of the\ntotal number of matches, a maximum of 1,000 results will be available across all types.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "wikiCount",
+          "description": "<p>The total number of wiki pages that matched the search query. Regardless of\nthe total number of matches, a maximum of 1,000 results will be available\nacross all types.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "search"
+    },
+    {
+      "name": "SearchResultItemEdge",
+      "id": "searchresultitemedge",
+      "href": "/graphql/reference/search#object-searchresultitemedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SearchResultItem",
+          "id": "searchresultitem",
+          "href": "/graphql/reference/search#union-searchresultitem"
+        },
+        {
+          "name": "textMatches",
+          "description": "<p>Text matches on the result found.</p>",
+          "type": "[TextMatch]",
+          "id": "textmatch",
+          "href": "/graphql/reference/search#object-textmatch"
+        }
+      ],
+      "category": "search"
+    },
+    {
+      "name": "TextMatch",
+      "id": "textmatch",
+      "href": "/graphql/reference/search#object-textmatch",
+      "description": "<p>A text match within a search result.</p>",
+      "fields": [
+        {
+          "name": "fragment",
+          "description": "<p>The specific text fragment within the property matched on.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "highlights",
+          "description": "<p>Highlights within the matched fragment.</p>",
+          "type": "[TextMatchHighlight!]!",
+          "id": "textmatchhighlight",
+          "href": "/graphql/reference/search#object-textmatchhighlight"
+        },
+        {
+          "name": "property",
+          "description": "<p>The property matched on.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "search"
+    },
+    {
+      "name": "TextMatchHighlight",
+      "id": "textmatchhighlight",
+      "href": "/graphql/reference/search#object-textmatchhighlight",
+      "description": "<p>Represents a single highlight in a search result match.</p>",
+      "fields": [
+        {
+          "name": "beginIndice",
+          "description": "<p>The indice in the fragment where the matched text begins.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "endIndice",
+          "description": "<p>The indice in the fragment where the matched text ends.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "text",
+          "description": "<p>The text matched.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "search"
+    }
+  ],
+  "enums": [
+    {
+      "name": "SearchType",
+      "id": "searchtype",
+      "href": "/graphql/reference/search#enum-searchtype",
+      "description": "<p>Represents the individual results of a search.</p>",
+      "values": [
+        {
+          "name": "DISCUSSION",
+          "description": "<p>Returns matching discussions in repositories.</p>"
+        },
+        {
+          "name": "ISSUE",
+          "description": "<p>Returns results matching issues in repositories.</p>"
+        },
+        {
+          "name": "ISSUE_ADVANCED",
+          "description": "<p>Returns results matching issues in repositories.</p>"
+        },
+        {
+          "name": "REPOSITORY",
+          "description": "<p>Returns results matching repositories.</p>"
+        },
+        {
+          "name": "USER",
+          "description": "<p>Returns results matching users and organizations on GitHub.</p>"
+        }
+      ],
+      "category": "search"
+    }
+  ],
+  "unions": [
+    {
+      "name": "SearchResultItem",
+      "id": "searchresultitem",
+      "href": "/graphql/reference/search#union-searchresultitem",
+      "description": "<p>The results of a search.</p>",
+      "possibleTypes": [
+        {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/apps#object-app"
+        },
+        {
+          "name": "Discussion",
+          "id": "discussion",
+          "href": "/graphql/reference/discussions#object-discussion"
+        },
+        {
+          "name": "Issue",
+          "id": "issue",
+          "href": "/graphql/reference/issues#object-issue"
+        },
+        {
+          "name": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "PullRequest",
+          "id": "pullrequest",
+          "href": "/graphql/reference/pulls#object-pullrequest"
+        },
+        {
+          "name": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "search"
+    }
+  ]
+}

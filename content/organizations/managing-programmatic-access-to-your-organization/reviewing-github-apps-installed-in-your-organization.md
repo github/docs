@@ -12,10 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Review installed GitHub Apps
+category:
+  - Manage app and API access
 ---
 
 Organization owners can review the {% data variables.product.prodname_github_apps %} that are installed on their organization. They can view the permissions granted to the app and change the repositories that the {% data variables.product.prodname_github_app %} can access. They can also suspend or delete the {% data variables.product.prodname_github_app %} to prevent the app from accessing resources owned by the organization. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).

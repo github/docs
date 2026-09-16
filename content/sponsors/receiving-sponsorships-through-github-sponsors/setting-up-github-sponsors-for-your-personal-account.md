@@ -1,6 +1,6 @@
 ---
 title: Setting up GitHub Sponsors for your personal account
-intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication for your account on {% data variables.product.prodname_dotcom %}.'
+intro: You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication for your account on {% data variables.product.prodname_dotcom %}.
 redirect_from:
   - /articles/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
@@ -9,11 +9,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - User account
-  - Sponsors profile
 shortTitle: Set up for personal account
+contentType: how-tos
+category:
+  - Set up to receive sponsorships
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}

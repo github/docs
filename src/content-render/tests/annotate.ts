@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 
 import { renderContent } from '@/content-render/index'
 import type { Context } from '@/types'
@@ -20,7 +20,7 @@ on:
 describe('annotate', () => {
   test('renders annotations', async () => {
     const res = await renderContent(example)
-    const $ = cheerio.load(res)
+    const $ = load(res)
 
     // Check that the annotation structure is rendered correctly
     const annotation = $('.annotate')
@@ -76,7 +76,7 @@ echo "Hello, world!"
 \`\`\`
 `.trim()
     const res = await renderContent(bashExample)
-    const $ = cheerio.load(res)
+    const $ = load(res)
 
     const headerCode = $('header pre').text()
     expect(headerCode).toMatch(bashExample.split('\n').slice(1, -1).join('\n'))
@@ -104,7 +104,7 @@ on:
 `.trim()
 
     const res = await renderContent(emptyCommentExample)
-    const $ = cheerio.load(res)
+    const $ = load(res)
 
     const headerCode = $('header pre').text()
     expect(headerCode).toMatch(emptyCommentExample.split('\n').slice(1, -1).join('\n'))
@@ -152,7 +152,7 @@ on: [push]
     } as unknown as Context
 
     const res = await renderContent(autotitleExample, mockContext)
-    const $ = cheerio.load(res)
+    const $ = load(res)
 
     const rows = $('.annotate-row')
     const notes = $('.annotate-note', rows)

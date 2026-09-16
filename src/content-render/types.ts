@@ -11,13 +11,13 @@ export interface Context {
   currentVersion?: string
   currentProduct?: string
   markdownRequested?: boolean
-  pages?: any
-  redirects?: any
+  pages?: Record<string, unknown>
+  redirects?: Record<string, string>
   page?: {
     fullPath: string
-    [key: string]: any
+    [key: string]: unknown
   }
-  [key: string]: any
+  [key: string]: unknown
 }
 
 /**
@@ -27,20 +27,20 @@ export interface RenderOptions {
   cache?: boolean | ((template: string, context: Context) => string | null)
   filename?: string
   textOnly?: boolean
-  [key: string]: any
+  [key: string]: unknown
 }
 
 /**
  * Unified processor plugin function type
  */
-export type UnifiedPlugin = (context?: Context) => any
+export type UnifiedPlugin = (context?: Context) => unknown
 
 /**
  * VFile interface for unified processing
  */
 export interface VFile {
   toString(): string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 /**
@@ -48,5 +48,5 @@ export interface VFile {
  */
 export interface UnifiedProcessor {
   process(content: string): Promise<VFile>
-  use(plugin: any, ...args: any[]): UnifiedProcessor
+  use(plugin: unknown, ...args: unknown[]): UnifiedProcessor
 }

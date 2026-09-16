@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Apache Maven registry
+category:
+  - Work with a package registry
 ---
 
 {% ifversion ghec %}

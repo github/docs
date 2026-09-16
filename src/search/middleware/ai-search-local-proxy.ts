@@ -3,6 +3,9 @@
 import { Router, Request, Response, NextFunction } from 'express'
 import { fetchStream } from '@/frame/lib/fetch-utils'
 import { pipeline, Readable } from 'node:stream'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 const router = Router()
 
@@ -84,7 +87,7 @@ router.post('/ai-search/v1', async (req: Request, res: Response, next: NextFunct
 
     pipeline(nodeStream, res, (err) => {
       if (err) {
-        console.error('[ai-search proxy] pipeline error:', err)
+        logger.error('[ai-search proxy] pipeline error', { error: err })
         if (!res.headersSent) res.status(502).end('Bad Gateway')
       }
       if (reader) {
@@ -93,7 +96,7 @@ router.post('/ai-search/v1', async (req: Request, res: Response, next: NextFunct
       }
     })
   } catch (err) {
-    console.error('[ai-search proxy] request failed:', err)
+    logger.error('[ai-search proxy] request failed', { error: err })
     next(err)
   } finally {
     // Ensure reader lock is always released

@@ -4,8 +4,6 @@ intro: Roles grant access to settings and resources.
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /identify-role-requirements
   - /create-custom-roles

@@ -1,16 +1,15 @@
 ---
 title: Setting up a template repository for GitHub Codespaces
 shortTitle: Set up a template repo
-intro: 'You can help people get started with a project by setting up a template repository for use with {% data variables.product.prodname_github_codespaces %}.'
+intro: You can help people get started with a project by setting up a template repository for use with {% data variables.product.prodname_github_codespaces %}.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Set up
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces
+contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## Introduction

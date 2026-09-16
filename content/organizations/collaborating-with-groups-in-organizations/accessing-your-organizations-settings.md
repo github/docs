@@ -14,10 +14,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Access organization settings
+category:
+  - Set up your organization
 ---
 {% ifversion fpt or ghec %}
 

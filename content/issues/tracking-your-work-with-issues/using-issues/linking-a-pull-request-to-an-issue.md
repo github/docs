@@ -14,9 +14,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Link PR to issue
+category:
+  - Create and work with issues
 ---
 
 ## About linked issues and pull requests

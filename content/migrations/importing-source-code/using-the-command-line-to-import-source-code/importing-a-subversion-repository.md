@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Subversion
+category:
+  - Import source code
 ---
 
 ## Prerequisites

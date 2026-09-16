@@ -1,20 +1,14 @@
 ---
 title: Troubleshooting creation and deletion of codespaces
-intro: 'This article provides troubleshooting steps for common issues you may experience when creating or deleting a codespace, including storage and configuration issues.'
+intro: This article provides troubleshooting steps for common issues you may experience when creating or deleting a codespace, including storage and configuration issues.
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
-topics:
-  - Codespaces
 shortTitle: Creation and deletion
+contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
-
-{% ifversion ghec %}
-
-{% data reusables.codespaces.data-residency-availability %}
-
-{% endif %}
 
 ## Creating codespaces
 
@@ -31,9 +25,9 @@ If you can't create a codespace for a repository, this may be due to one of the 
 * Organization and enterprise owners can disable forking for some or all of an organization's private {% ifversion ghec %}and internal {% endif %}repositories. If you only have read access to a repository, and you cannot fork it, then you cannot create a codespace for that repository. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization).{% ifversion ghec %}
 * {% data reusables.codespaces.emus-create-codespaces %}{% endif %}
 
-For information about other organization and enterprise settings that can affect whether you can create a codespace, see [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#prerequisites-for-enabling-github-codespaces).
+For information about other organization and enterprise settings that can affect whether you can create a codespace, see [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization).
 
-For more information about included usage for personal accounts, and setting a spending limit, see [AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) and [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces).
+For more information about included usage for personal accounts, and setting a spending limit, see [AUTOTITLE](/free-pro-team@latest/billing/concepts/product-billing/github-codespaces) and [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 ### Codespace does not open when created
 

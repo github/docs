@@ -25,13 +25,12 @@ export interface ProgAccessT {
 }
 
 export interface Parameter {
-  exampleName?: string
   in: string
   name: string
   description: string
   required: boolean
   schema: {
-    type: string
+    type: string | string[]
     default?: string
     enum?: Array<string>
   }
@@ -40,11 +39,9 @@ export interface Parameter {
 export interface StatusCode {
   description: string
   httpStatusCode: string
-  httpStatusMessage: string
 }
 
 export interface CodeSample {
-  key: string
   response: {
     contentType: string
     description: string
@@ -54,14 +51,18 @@ export interface CodeSample {
   request: {
     contentType: string
     acceptHeader: string
-    bodyParameters: Record<string, string | Array<string | { [key: string]: string }>>
+    // Most request bodies are an object of named parameters, but some REST
+    // operations take a single scalar value or a top-level JSON array.
+    bodyParameters:
+      | Record<string, string | Array<string | { [key: string]: string }>>
+      | Array<unknown>
+      | string
     parameters: Record<string, string>
     description: string
   }
 }
 
 export interface BodyParameter {
-  in: string
   name: string
   description: string
   type: string

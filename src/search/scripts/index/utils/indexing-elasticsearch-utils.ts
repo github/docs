@@ -36,7 +36,7 @@ export async function populateIndex(
   client: Client,
   indexAlias: string,
   indexName: string,
-  records: any[],
+  records: Record<string, unknown>[],
   options: Options,
 ) {
   console.log(chalk.yellow(`\nIndexing ${chalk.bold(indexName)}`))

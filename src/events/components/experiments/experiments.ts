@@ -15,7 +15,7 @@ type Experiment = {
 }
 
 // Update this with the name of the experiment, e.g. | 'example_experiment'
-export type ExperimentNames = 'placeholder_experiment'
+export type ExperimentNames = 'placeholder_experiment' | 'readability_copilot'
 
 export const EXPERIMENTS = {
   // Placeholder experiment to maintain type compatibility
@@ -28,6 +28,16 @@ export const EXPERIMENTS = {
     limitToVersions: [],
     alwaysShowForStaff: false,
     turnOnWithURLParam: 'placeholder', // Placeholder URL param
+  },
+  readability_copilot: {
+    key: 'readability_copilot',
+    isActive: true,
+    percentOfUsersToGetExperiment: 50,
+    includeVariationInContext: true,
+    limitToLanguages: ['en'],
+    limitToVersions: [],
+    alwaysShowForStaff: true,
+    turnOnWithURLParam: 'readability',
   },
   /*  Add new experiments here, example:
   'example_experiment': {

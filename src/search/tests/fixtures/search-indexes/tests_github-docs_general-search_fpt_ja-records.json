@@ -5,7 +5,10 @@
         "title": "フー",
         "headings": "",
         "content": "これは、ばかげた foo ワードのフィクスチャです。",
-        "topics": ["Test", "Fixture"],
+        "topics": [
+            "Test",
+            "Fixture"
+        ],
         "popularity": 0.5,
         "intro": "イントロあり",
         "toplevel": "Fooing"
@@ -16,7 +19,11 @@
         "title": "バー",
         "headings": "",
         "content": "bar も持っていない場合、foo を持つことはできません。",
-        "topics": ["Test", "Fixture", "Get started"],
+        "topics": [
+            "Test",
+            "Fixture",
+            "Get started"
+        ],
         "popularity": 0.6,
         "intro": "イントロがない",
         "toplevel": "Baring"

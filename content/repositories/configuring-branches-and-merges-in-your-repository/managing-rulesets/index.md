@@ -4,12 +4,11 @@ intro: 'Rulesets help you to control how people can interact with branches and t
 product: '{% data reusables.gated-features.repo-rules %}'
 versions:
   feature: repo-rules
-topics:
-  - Repositories
 children:
   - /about-rulesets
   - /creating-rulesets-for-a-repository
   - /managing-rulesets-for-a-repository
+  - /converting-branch-protections-to-rulesets
   - /available-rules-for-rulesets
   - /troubleshooting-rules
 shortTitle: Manage rulesets

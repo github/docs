@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: View deployment activity
+category:
+  - Track repository activity
 ---
 
 > [!NOTE]

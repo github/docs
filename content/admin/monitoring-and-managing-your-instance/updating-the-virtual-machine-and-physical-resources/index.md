@@ -10,8 +10,6 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /increasing-storage-capacity
   - /increasing-cpu-or-memory-resources

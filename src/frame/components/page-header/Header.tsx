@@ -1,25 +1,20 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { JSX } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { Dialog, IconButton } from '@primer/react'
-import { MarkGithubIcon, ThreeBarsIcon } from '@primer/octicons-react'
+import { MarkGithubIcon } from '@primer/octicons-react'
 
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { Link } from '@/frame/components/Link'
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { HeaderNotifications } from '@/frame/components/page-header/HeaderNotifications'
-import { ApiVersionPicker } from '@/rest/components/ApiVersionPicker'
 import { useTranslation } from '@/languages/components/useTranslation'
-import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { VersionPicker } from '@/versions/components/VersionPicker'
-import { SidebarNav } from '@/frame/components/sidebar/SidebarNav'
 import { SearchBarButton } from '@/search/components/input/SearchBarButton'
 import { HeaderSearchAndWidgets } from './HeaderSearchAndWidgets'
 import { useInnerWindowWidth } from './hooks/useInnerWindowWidth'
 import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 import { SearchOverlayContainer } from '@/search/components/input/SearchOverlayContainer'
-import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
 
 import styles from './Header.module.scss'
@@ -27,32 +22,27 @@ import styles from './Header.module.scss'
 export const Header = () => {
   const router = useRouter()
   const { error } = useMainContext()
-  const { isHomepageVersion, currentProduct, currentProductName } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
-  const isRestPage = currentProduct && currentProduct.id === 'rest'
   const { params, updateParams } = useMultiQueryParams()
   const [scroll, setScroll] = useState(false)
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const openSidebar = useCallback(() => setIsSidebarOpen(true), [])
-  const closeSidebar = useCallback(() => setIsSidebarOpen(false), [])
-  const isMounted = useRef(false)
-  const menuButtonRef = useRef<HTMLButtonElement>(null)
-  const { asPath } = useRouter()
-  const isSearchResultsPage = router.route === '/search'
-  const isEarlyAccessPage = currentProduct && currentProduct.id === 'early-access'
   const { width } = useInnerWindowWidth()
-  const returnFocusRef = useRef(null)
-  const searchButtonRef = useRef<HTMLButtonElement>(null)
-  const { initializeCTA } = useCTAPopoverContext()
+  const searchButtonRefLarge = useRef<HTMLButtonElement>(null)
+  const searchButtonRefSmall = useRef<HTMLButtonElement>(null)
   const { isSearchOpen, setIsSearchOpen } = useSearchOverlayContext()
+
+  // The lg breakpoint (1012px) determines which search button is visible.
+  // Pass the correct ref to SearchOverlayContainer so Primer's Overlay
+  // restores focus to the visible trigger element on close.
+  const isLargeViewport = width !== null && width >= 1012
+  const searchButtonRef = isLargeViewport ? searchButtonRefLarge : searchButtonRefSmall
 
   const SearchButtonLarge: JSX.Element = (
     <SearchBarButton
       isSearchOpen={isSearchOpen}
       setIsSearchOpen={setIsSearchOpen}
       params={params}
-      searchButtonRef={searchButtonRef}
+      searchButtonRef={searchButtonRefLarge}
       instanceId="large"
     />
   )
@@ -62,13 +52,10 @@ export const Header = () => {
       isSearchOpen={isSearchOpen}
       setIsSearchOpen={setIsSearchOpen}
       params={params}
-      searchButtonRef={searchButtonRef}
+      searchButtonRef={searchButtonRefSmall}
       instanceId="small"
     />
   )
-
-  // Initialize the CTA(s)
-  initializeCTA()
 
   useEffect(() => {
     function onScroll() {
@@ -90,48 +77,30 @@ export const Header = () => {
     return () => window.removeEventListener('keydown', close)
   }, [])
 
-  // For the UI in smaller browser widths, and focus the picker menu button when the search
-  // input is closed.
+  // Pressing "/" anywhere on the page opens the search overlay, matching the
+  // shortcut on github.com. Ignore the key when the user is typing in a form
+  // field or editable element so we never swallow a literal "/", and when a
+  // modifier is held so we don't clash with browser or OS shortcuts.
   useEffect(() => {
-    if (!isSearchOpen && isMounted.current && menuButtonRef.current) {
-      menuButtonRef.current.focus()
+    const openOnSlash = (e: KeyboardEvent) => {
+      if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) {
+        return
+      }
+      const target = e.target as HTMLElement | null
+      const tagName = target?.tagName
+      if (
+        tagName === 'INPUT' ||
+        tagName === 'TEXTAREA' ||
+        tagName === 'SELECT' ||
+        target?.isContentEditable
+      ) {
+        return
+      }
+      e.preventDefault()
+      setIsSearchOpen(true)
     }
-
-    if (!isMounted.current) {
-      isMounted.current = true
-    }
-  }, [isSearchOpen])
-
-  // When the sidebar overlay is opened, prevent the main content from being
-  // scrollable.
-  useEffect(() => {
-    const bodyDiv = document.querySelector('body div') as HTMLElement
-    const body = document.querySelector('body')
-    if (bodyDiv && body) {
-      // The full sidebar automatically shows at the xl window size so unlock
-      // scrolling if the overlay was opened and the window size is increased to xl.
-      body.style.overflow = isSidebarOpen && width && width < 1280 ? 'hidden' : 'auto'
-    }
-  }, [isSidebarOpen])
-
-  // with client side navigation clicking sidebar overlay links doesn't dismiss
-  // the overlay so we close it ourselves when the path changes
-  useEffect(() => {
-    setIsSidebarOpen(false)
-  }, [asPath])
-
-  // on REST pages there are sidebar links that are hash anchor links to different
-  // sections on the same page so the sidebar overlay doesn't dismiss.  we listen
-  // for hash changes and close the overlay when the hash changes.
-  useEffect(() => {
-    const hashChangeHandler = () => {
-      setIsSidebarOpen(false)
-    }
-    window.addEventListener('hashchange', hashChangeHandler)
-
-    return () => {
-      window.removeEventListener('hashchange', hashChangeHandler)
-    }
+    window.addEventListener('keydown', openOnSlash)
+    return () => window.removeEventListener('keydown', openOnSlash)
   }, [])
 
   let homeURL = `/${router.locale}`
@@ -187,46 +156,6 @@ export const Header = () => {
             width={width}
           />
         </div>
-        {!isHomepageVersion && !isSearchResultsPage && (
-          <div className="d-flex flex-items-center d-xxl-none mt-2" data-testid="header-subnav">
-            {!isEarlyAccessPage && (
-              <div
-                className={cx(styles.sidebarOverlayCloseButtonContainer, 'mr-2')}
-                data-testid="header-subnav-hamburger"
-              >
-                <IconButton
-                  data-testid="sidebar-hamburger"
-                  className="color-fg-muted"
-                  variant="invisible"
-                  icon={ThreeBarsIcon}
-                  aria-label="Open Sidebar"
-                  onClick={openSidebar}
-                  ref={returnFocusRef}
-                />
-                {isSidebarOpen && (
-                  <Dialog
-                    returnFocusRef={returnFocusRef}
-                    onClose={closeSidebar}
-                    className={cx(styles.dialog, 'd-xxl-none')}
-                    position="left"
-                    title={
-                      error === '404' || !currentProduct || isSearchResultsPage
-                        ? null
-                        : currentProductName || currentProduct.name
-                    }
-                    subtitle={isRestPage && <ApiVersionPicker />}
-                    width="medium"
-                  >
-                    <SidebarNav variant="overlay" />
-                  </Dialog>
-                )}
-              </div>
-            )}
-            <div className="mr-auto width-full" data-search="breadcrumbs">
-              <Breadcrumbs inHeader={true} />
-            </div>
-          </div>
-        )}
         <SearchOverlayContainer
           isSearchOpen={isSearchOpen}
           setIsSearchOpen={setIsSearchOpen}

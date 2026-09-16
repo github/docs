@@ -6,11 +6,11 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Projects
 redirect_from:
   - /issues/planning-and-tracking-with-projects/understanding-field-types/about-text-and-number-fields
+contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 You can use text fields to include notes or any other freeform text in your project.
@@ -30,3 +30,14 @@ Number fields can also be used in filters. You can use `>`, `>=`, `<`, `<=`, and
 {% data reusables.projects.new-field %}
 1. Select **Number**.
 1. Click **Save**.
+
+## Setting a default value
+
+Set a default value for text or number fields. New items added to the project are automatically pre-populated with that value.
+
+{% data reusables.projects.project-settings %}
+1. Click the name of the text or number field to configure.
+1. In the **Default value** field, type the value to use as the default.
+1. Click **Save**.
+
+To remove a default value, clear the **Default value** field, then click **Save**. Removing a default value does not affect existing items in the project.

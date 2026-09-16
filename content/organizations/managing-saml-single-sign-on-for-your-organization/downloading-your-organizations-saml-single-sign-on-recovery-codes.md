@@ -7,10 +7,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/downloading-your-organizations-saml-single-sign-on-recovery-codes
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Download SAML recovery codes
+category:
+  - Configure SAML single sign-on
 ---
 
 Recovery codes should not be shared or distributed. We recommend saving them with a password manager.

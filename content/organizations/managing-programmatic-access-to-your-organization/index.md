@@ -10,9 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /about-programmatic-access-in-your-organization
   - /adding-and-removing-github-app-managers-in-your-organization
@@ -20,7 +17,8 @@ children:
   - /setting-a-personal-access-token-policy-for-your-organization
   - /managing-requests-for-personal-access-tokens-in-your-organization
   - /reviewing-and-revoking-personal-access-tokens-in-your-organization
-  - /limiting-oauth-app-and-github-app-access-requests
+  - /limiting-oauth-app-and-github-app-access-requests-and-installations
   - /viewing-api-insights-in-your-organization
+  - /github-credential-types
 shortTitle: Manage programmatic access
 ---

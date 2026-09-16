@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 shortTitle: Using the activity view
+category:
+  - Track repository activity
 ---
 
 ## About the activity view

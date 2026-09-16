@@ -1,6 +1,8 @@
 import getRedirect from '@/redirects/lib/get-redirect'
 import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-utils'
 
+import type { Context } from '@/types'
+
 const liquidStartRex = /^{%-?\s*ifversion .+?\s*%}/
 const liquidEndRex = /{%-?\s*endif\s*-?%}$/
 
@@ -26,11 +28,9 @@ function stripLiquid(text: string): string {
 // return undefined if it can found as a known page.
 // Otherwise, return an object with information that is used to
 // print a useful test error message in the assertion.
-// Using 'any' type for redirectsContext parameter as it's a complex context object
-// with dynamic structure that would require extensive type definitions
-export function checkURL(uri: string, index: number, redirectsContext: any) {
+export function checkURL(uri: string, index: number, redirectsContext: Context) {
   const url = `/en${stripLiquid(uri).split('#')[0]}`
-  if (!(url in redirectsContext.pages)) {
+  if (!redirectsContext.pages || !(url in redirectsContext.pages)) {
     // Some are written without a version, but don't work with the
     // default version.
     let redirects = getRedirect(url, redirectsContext)

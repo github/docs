@@ -5,9 +5,6 @@ intro: 'Learn how to set up an instance of {% data variables.product.prodname_gh
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
 children:
   - /download-your-license
   - /upload-new-license

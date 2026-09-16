@@ -13,9 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: View and understand files
+category:
+  - Work with files
 ---
 
 {% data variables.product.github %} provides tools to view raw content, trace changes to specific lines, and explore how a file’s content has evolved over time. These insights reveal how code was developed, its current purpose, and its structure, helping you contribute effectively.

@@ -8,8 +8,8 @@ versions:
 redirect_from:
   - /articles/github-marketplace-support
   - /github/working-with-github-support/github-marketplace-support
-topics:
-  - Support
+category:
+  - Understand your support options
 ---
 
 ## Contacting your app's provider for support
@@ -24,4 +24,4 @@ Every app in {% data variables.product.prodname_marketplace %} includes a link t
 ## Further reading
 
 * [AUTOTITLE](/apps/using-github-apps)
-* [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps)
+* [AUTOTITLE](/billing/how-tos/pay-third-parties)

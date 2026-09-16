@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migrating-from-bitbucket-server-with-github-enterprise-importer
   - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-from-bitbucket-server-with-github-enterprise-importer
+category:
+  - Understand enterprise migration tools
 ---
 
 ## Overview

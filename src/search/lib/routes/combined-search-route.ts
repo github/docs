@@ -75,7 +75,14 @@ export async function combinedSearchRoute(req: Request, res: Response) {
       })
     } else {
       generalSearchPromise = Promise.resolve({
-        meta: {} as any,
+        meta: {
+          found: { value: 0, relation: 'eq' },
+          took: { query_msec: 0, total_msec: 0 },
+          // Mirror the requested page size so downstream page-count math
+          // (which divides by meta.size) stays finite for the empty branch.
+          size: GENERAL_RESULTS_SIZE,
+          page: 1,
+        },
         hits: [],
       })
     }

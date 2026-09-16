@@ -1,4 +1,4 @@
-1. To add the newly provisioned replacement node, on any node, modify the `cluster.conf` file to remove the failed node and add the replacement node. For example, this modified `cluster.conf` file replaces `ghe-data-node-3` with the newly provisioned node, `ghe-replacement-data-node-3`:
+1. To add the newly provisioned replacement node, on any node, modify the `cluster.conf` file to add the replacement node. Keep the node you're replacing in `cluster.conf` until you run `ghe-remove-node` later in this procedure. For example, this modified `cluster.conf` file adds the newly provisioned node, `ghe-replacement-data-node-3`:
 
    <pre>
    [cluster "<em>ghe-replacement-data-node-3</em>"]

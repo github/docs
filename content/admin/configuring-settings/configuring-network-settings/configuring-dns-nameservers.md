@@ -9,13 +9,10 @@ redirect_from:
   - /admin/configuration/configuring-network-settings/configuring-dns-nameservers
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
 shortTitle: Configure DNS servers
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 The nameservers you specify must resolve {% data variables.location.product_location %}'s hostname.
 
@@ -31,7 +28,7 @@ The nameservers you specify must resolve {% data variables.location.product_loca
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-1. To edit your nameservers, use the `ghe-setup-network` command in visual mode. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network).
+1. To edit your nameservers, use the `ghe-setup-network` command in visual mode. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-setup-network).
 
    ```shell
    ghe-setup-network -v

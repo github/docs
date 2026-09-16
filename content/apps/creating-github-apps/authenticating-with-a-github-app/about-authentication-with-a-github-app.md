@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: About authentication
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps
@@ -15,6 +13,8 @@ redirect_from:
   - /developers/apps/authenticating-with-github-apps
   - /developers/apps/building-github-apps/authenticating-with-github-apps
   - /apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps
+category:
+  - Authenticate with a GitHub App
 ---
 
 ## Authentication as a {% data variables.product.prodname_github_app %}
@@ -27,4 +27,4 @@ To authenticate as an installation, your app will use an installation access tok
 
 ## Authentication on behalf of a user
 
-To authenticate on behalf of a user, your app will use a user access token. Your app should authenticate on behalf of a user when you want to attribute app activity to a user. Similar to authenticating as an app installation, your app can access resources that are owned by the user or organization that installed the app. Authenticating on behalf of a user is ideal when you want to ensure that your app only takes actions that could be performed by a specific user. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps) and [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app).
+To authenticate on behalf of a user, your app will use a user access token. Your app should authenticate on behalf of a user when you want to attribute app activity to a user. Similar to authenticating as an app installation, your app can access resources that are owned by the user or organization that installed the app. Authenticating on behalf of a user is ideal when you want to ensure that your app only takes actions that could be performed by a specific user. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user) and [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app).

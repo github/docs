@@ -7,11 +7,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
 redirect_from:
   - /github/searching-for-information-on-github/searching-for-packages
   - /github/searching-for-information-on-github/searching-on-github/searching-for-packages
+category:
+  - Find repositories and resources
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
 

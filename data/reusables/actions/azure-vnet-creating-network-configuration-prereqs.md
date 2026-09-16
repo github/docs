@@ -2,7 +2,7 @@ After configuring your Azure resources, you can use an Azure Virtual Network (VN
 
 {% ifversion ghec %}
 
-Please note that initial setup must be at the enterprise level when creating the network settings configured with Azure. This is why, when obtaining the `databaseId`, the steps require you to configure the enterprise slug. Organizations are only allowed to create their own network configurations once the enterprise has been established and enabled through enterprise policy for hosted compute networking. For more information about runner groups, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners).
+Please note that initial setup must be at the enterprise level when creating the network settings configured with Azure. This is why, when obtaining the `databaseId`, the steps require you to configure the enterprise slug. Organizations are only allowed to create their own network configurations once the enterprise has been established and enabled through enterprise policy for hosted compute networking. For more information about runner groups, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/control-access).
 
 {% endif %}
 
@@ -10,4 +10,4 @@ Once the network configuration is associated with a runner group, all runners in
 
 ### Prerequisites
 
-Ensure your Azure resources have been configured _before_ adding a network configuration in {% data variables.product.company_short %}. For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners#configuring-your-azure-resources).{% else %}[AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization#configuring-your-azure-resources).{% endif %}
+Ensure your Azure resources have been configured _before_ adding a network configuration in {% data variables.product.company_short %}. For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#configuring-your-azure-resources).{% else %}[AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization#configuring-your-azure-resources).{% endif %}

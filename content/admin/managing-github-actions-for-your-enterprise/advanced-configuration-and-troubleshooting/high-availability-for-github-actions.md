@@ -1,19 +1,15 @@
 ---
 title: High availability for GitHub Actions
-intro: 'There are some special considerations for administering {% data variables.product.prodname_actions %} in a high availability configuration.'
+intro: There are some special considerations for administering {% data variables.product.prodname_actions %} in a high availability configuration.
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Actions
-  - Enterprise
-  - High availability
-  - Infrastructure
-  - Storage
 redirect_from:
   - /admin/github-actions/high-availability-for-github-actions
   - /admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
 shortTitle: HA for GitHub Actions
+contentType: reference
+category:
+  - Enable GitHub features for your enterprise
 ---
 ## Replication or redundancy of your {% data variables.product.prodname_actions %} data
 
@@ -30,7 +26,7 @@ We strongly recommend that you configure your {% data variables.product.prodname
 
 When enabling a high availability configuration, any replicas are automatically configured to use the {% data variables.product.prodname_actions %} external storage configuration. If you need to initiate a failover to promote a replica, no extra configuration changes are required for {% data variables.product.prodname_actions %}.
 
-For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
+For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
 
 ### Removing a high availability replica
 

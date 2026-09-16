@@ -59,7 +59,7 @@ describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => 
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe('every-deployment')
+    expect(res.headers['surrogate-key']).toBe('language:en')
   })
 
   test('invalid version', async () => {

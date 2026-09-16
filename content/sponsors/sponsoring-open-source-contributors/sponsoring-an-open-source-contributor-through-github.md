@@ -1,6 +1,6 @@
 ---
 title: Sponsoring an open source contributor through GitHub
-intro: 'You can make payments through {% data variables.product.prodname_dotcom %} to a developer or organization who designs, creates, or maintains open source projects you depend on.'
+intro: You can make payments through {% data variables.product.prodname_dotcom %} to a developer or organization who designs, creates, or maintains open source projects you depend on.
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
@@ -11,11 +11,10 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: '{% data reusables.sponsors.sponsorship-permissions %}'
-type: how_to
-topics:
-  - Open Source
-  - Sponsors payments
 shortTitle: Sponsor through {% data variables.product.prodname_dotcom %}
+contentType: how-tos
+category:
+  - Fund open source work
 ---
 
 ## About sponsorships with payments through {% data variables.product.prodname_dotcom %}
@@ -24,7 +23,7 @@ shortTitle: Sponsor through {% data variables.product.prodname_dotcom %}
 
 ## Sponsoring an account
 
-Before you can sponsor an account, you must have a verified email address. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
+Before you can sponsor an account, you must have a verified email address. For more information, see [AUTOTITLE](/account-and-profile/how-tos/email-preferences/verifying-your-email-address).
 
 {% data reusables.sponsors.navigate-to-maintainer-profile %}
 {% data reusables.sponsors.navigate-to-sponsorship-dashboard %}

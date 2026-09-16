@@ -4,15 +4,13 @@ shortTitle: Prompt engineering
 intro: Follow these strategies to improve your {% data variables.product.prodname_copilot_short %} results.
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/prompt-engineering-for-github-copilot
   - /copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
   - /copilot/concepts/prompt-engineering-for-copilot-chat
   - /copilot/concepts/prompt-engineering
 contentType: concepts
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -88,7 +86,7 @@ Ambiguity can also apply to libraries:
 
 If you are using {% data variables.product.prodname_copilot_short %} in your IDE to get suggestions as you code, open any relevant files and close irrelevant files. {% data variables.product.prodname_copilot_short %} will use the open files to understand your request.
 
-If you are using {% data variables.copilot.copilot_chat_short %} in your IDE, open the file or highlight the code that you want {% data variables.product.prodname_copilot_short %} to reference. You can also use keywords to manually supply context to {% data variables.copilot.copilot_chat_short %}. For example, you can add the `@workspace` chat participant in VS Code, or `@project` in JetBrains IDEs. See [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet).
+If you are using {% data variables.copilot.copilot_chat_short %} in your IDE, open the file or highlight the code that you want {% data variables.product.prodname_copilot_short %} to reference. You can also use keywords to manually supply context to {% data variables.copilot.copilot_chat_short %}. For example, you can add the `@workspace` chat participant in VS Code, or `@project` in JetBrains IDEs. See [AUTOTITLE](/copilot/reference/chat-cheat-sheet).
 
 ## Experiment and iterate
 
@@ -117,17 +115,6 @@ If you aren't getting the responses you want when you ask {% data variables.prod
 
 >[!Tip]
 > Use {% data variables.product.prodname_copilot_short %} to help your code follow best practices. For example, ask {% data variables.product.prodname_copilot_short %} to add comments or to break a large function into smaller functions.
-
-{% ifversion ghec %}
-
-Similarly, if you aren't getting the responses you want when you use {% data variables.product.prodname_copilot_short %} with knowledge bases, apply these best practices to your knowledge base files:
-
-* Organize the files into a logical hierarchy
-* Use clear and concise language
-* Include examples and use cases, if relevant
-* Cross reference between related files
-
-{% endif %}
 
 ## Further reading
 

@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
 shortTitle: Customize organization profile
+category:
+  - Set up your organization
 ---
 
 
@@ -45,6 +45,8 @@ If you manage multiple organizations with an enterprise account, you can help me
 {% endif %}
 
 ## Adding a public organization profile README
+
+>[!NOTE] Public organization profiles are not available with {% data variables.product.prodname_emus %}.
 
 The content of public `README.md` will appear on your organization's public profile.
 
@@ -103,4 +105,4 @@ You can replace the identicon with an image that represents your organization. T
 ## Further reading
 
 * [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)
+* [AUTOTITLE](/account-and-profile/how-tos/profile-customization/managing-your-profile-readme)

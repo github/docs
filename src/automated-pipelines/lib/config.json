@@ -1,9 +1,11 @@
 {
   "automation-pipelines": [
+    "audit-logs",
     "codeql-cli",
     "github-apps",
     "graphql",
     "rest",
+    "secret-scanning",
     "webhooks"
   ]
 }

@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 children:
   - /what-is-github-pages
   - /creating-a-github-pages-site

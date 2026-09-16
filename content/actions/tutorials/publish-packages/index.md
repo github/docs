@@ -1,7 +1,7 @@
 ---
 title: Publishing packages
 shortTitle: Publish packages
-intro: 'You can automatically publish packages using {% data variables.product.prodname_actions %}.'
+intro: You can automatically publish packages using {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,5 +17,6 @@ children:
   - /publish-java-packages-with-gradle
   - /publish-java-packages-with-maven
   - /publish-nodejs-packages
+contentType: tutorials
 ---
 

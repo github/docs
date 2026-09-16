@@ -5,7 +5,6 @@ import { SupportPortalVaIframe, SupportPortalVaIframeProps } from './SupportPort
 import styles from './ArticleInlineLayout.module.scss'
 
 type Props = {
-  breadcrumbs?: React.ReactNode
   intro?: React.ReactNode
   introCallOuts?: React.ReactNode
   topper?: React.ReactNode
@@ -15,7 +14,6 @@ type Props = {
   supportPortalVaIframeProps?: SupportPortalVaIframeProps
 }
 export const ArticleInlineLayout = ({
-  breadcrumbs,
   intro,
   introCallOuts,
   topper,
@@ -26,14 +24,6 @@ export const ArticleInlineLayout = ({
 }: Props) => {
   return (
     <div className={cx(styles.containerBox, className)}>
-      {breadcrumbs && (
-        <div
-          style={{ gridArea: 'breadcrumbs' }}
-          className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}
-        >
-          {breadcrumbs}
-        </div>
-      )}
       <div className={cx(styles.contentBox)}>
         {topper && <div style={{ gridArea: 'topper' }}>{topper}</div>}
 

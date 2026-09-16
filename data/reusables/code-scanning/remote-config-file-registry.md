@@ -1,0 +1,1 @@
+If the configuration file is stored in a private repository other than the one being analyzed, you also need to set up a _Git Source_ private registry configuration so that default setup can access it from other repositories. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries).

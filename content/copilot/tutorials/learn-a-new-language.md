@@ -2,8 +2,6 @@
 title: Learning a new programming language with GitHub Copilot
 shortTitle: Learn a new language
 intro: '{% data variables.copilot.copilot_chat %} can help you extend your programming skills by learning how to code in a new programming language.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:
@@ -20,7 +18,7 @@ category:
 
 ### Prerequisites
 
-This guide assumes that you know how to use {% data variables.copilot.copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} inline suggestions in your IDE. See [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide) and [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
+This guide assumes that you know how to use {% data variables.copilot.copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} inline suggestions in your IDE. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide) and [AUTOTITLE](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions).
 
 ## Start with the basics
 
@@ -175,7 +173,7 @@ If you think {% data variables.product.prodname_copilot_short %} has not suggest
 
 If you run the code and it generates an error, give {% data variables.product.prodname_copilot_short %} the details of the error and ask it to fix the code.
 
-You should also check that {% data variables.product.prodname_copilot_short %} is following your coding style guidelines. If it is not, you can alter the repository's custom instructions to prompt {% data variables.product.prodname_copilot_short %} to adhere to your guidelines in future. See [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot).
+You should also check that {% data variables.product.prodname_copilot_short %} is following your coding style guidelines. If it is not, you can alter the repository's custom instructions to prompt {% data variables.product.prodname_copilot_short %} to adhere to your guidelines in future. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
 ### Example prompts: checking your work
 

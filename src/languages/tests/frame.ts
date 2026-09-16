@@ -2,6 +2,8 @@ import { describe, expect, test, vi } from 'vitest'
 
 import { languageKeys } from '@/languages/lib/languages-server'
 import { blockIndex } from '@/frame/middleware/block-robots'
+import type { Element } from 'domhandler'
+
 import { get, getDOMCached as getDOM } from '@/tests/helpers/e2etest'
 import Page from '@/frame/lib/page'
 
@@ -16,14 +18,15 @@ describe('frame', () => {
 
   test.each(langs)('breadcrumbs link to %s pages', async (lang) => {
     const $ = await getDOM(`/${lang}/get-started/learning-about-github`)
-    const $breadcrumbs = $('[data-testid=breadcrumbs-in-article] a')
-    expect(($breadcrumbs[0] as cheerio.TagElement).attribs.href).toBe(`/${lang}/get-started`)
+    const $breadcrumbs = $('[data-testid=breadcrumbs-bar] a')
+    // [0] is the Home crumb; [1] is the first page crumb (the product).
+    expect(($breadcrumbs[1] as Element).attribs.href).toBe(`/${lang}/get-started`)
   })
 
   test.each(langs)('homepage links go to %s pages', async (lang) => {
     const $ = await getDOM(`/${lang}`)
     const $links = $('[data-testid=bump-link]')
-    $links.each((i: number, el: cheerio.Element) => {
+    $links.each((i: number, el: Element) => {
       const linkUrl = $(el).attr('href')
       expect((linkUrl || '').startsWith(`/${lang}/`)).toBe(true)
     })

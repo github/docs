@@ -1,17 +1,16 @@
 ---
 title: Setting a minimum specification for codespace machines
 shortTitle: Set a minimum machine spec
-intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_github_codespaces %} for your repository.'
+intro: You can avoid under-resourced machine types being used for {% data variables.product.prodname_github_codespaces %} for your repository.
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Set up
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines
+contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## Overview

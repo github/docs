@@ -18,13 +18,17 @@ runs:
   steps:
     - name: Retry command
       shell: bash
+      env:
+        INPUT_MAX_ATTEMPTS: ${{ inputs.max_attempts }}
+        INPUT_DELAY: ${{ inputs.delay }}
+        INPUT_COMMAND: ${{ inputs.command }}
       run: |
         # Generic retry function: configurable attempts and delay
         retry_command() {
-          local max_attempts=${{ inputs.max_attempts }}
-          local delay=${{ inputs.delay }}
+          local max_attempts=${INPUT_MAX_ATTEMPTS}
+          local delay=${INPUT_DELAY}
           local attempt=1
-          local command="${{ inputs.command }}"
+          local command="${INPUT_COMMAND}"
 
           while [ $attempt -le $max_attempts ]; do
             echo "Attempt $attempt/$max_attempts: Running command..."

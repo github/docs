@@ -6,16 +6,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Containers
-  - Docker
-  - Azure App Service
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-docker-to-azure-app-service
   - /actions/use-cases-and-examples/deploying/deploying-docker-to-azure-app-service
   - /actions/how-tos/use-cases-and-examples/deploying/deploying-docker-to-azure-app-service
   - /actions/how-tos/managing-workflow-runs-and-deployments/deploying-to-third-party-platforms/deploying-docker-to-azure-app-service
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites
@@ -42,7 +40,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 1. Set registry credentials for your web app.
 
-   Create a {% data variables.product.pat_v1 %} with the `repo` and `read:packages` scopes. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+   Create a {% data variables.product.pat_v1 %} with the `repo` and `read:packages` scopes. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
    Set `DOCKER_REGISTRY_SERVER_URL` to `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` to the GitHub username or organization that owns the repository, and `DOCKER_REGISTRY_SERVER_PASSWORD` to your {% data variables.product.pat_generic %} from above. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
 
