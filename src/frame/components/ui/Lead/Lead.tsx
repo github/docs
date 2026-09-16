@@ -24,7 +24,11 @@ export function Lead({
   ...restProps
 }: LeadPropsT) {
   const sharedProps = {
-    className: cx('mb-3', variant === 'hero' ? styles.container : 'f2 color-fg-muted', className),
+    className: cx(
+      'mb-3',
+      variant === 'hero' ? styles.container : cx('f2', styles.muted),
+      className,
+    ),
     'data-container': 'lead',
     ...restProps,
   }

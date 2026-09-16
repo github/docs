@@ -223,7 +223,7 @@ export const DefaultLayout = (props: Props) => {
       {/* a11y */}
       <a
         href="#main-content"
-        className="visually-hidden skip-button color-bg-accent-emphasis color-fg-on-emphasis"
+        className={cx('visually-hidden skip-button', styles.skipButton)}
         inert={isNarrowMenuOpen}
         aria-hidden={isNarrowMenuOpen || undefined}
       >

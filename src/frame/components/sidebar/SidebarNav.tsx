@@ -53,11 +53,12 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
             ? styles.searchRail
             : mobileOpen
               ? cx(
-                  'd-block d-lg-block border-right',
+                  'd-block d-lg-block',
+                  styles.railDivider,
                   styles.sidebarFull,
                   styles.sidebarFullMobileOpen,
                 )
-              : cx('position-sticky d-none border-right d-lg-block', styles.sidebarFull)),
+              : cx('position-sticky d-none d-lg-block', styles.railDivider, styles.sidebarFull)),
       )}
     >
       <nav
@@ -86,7 +87,10 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
                   href={`/${router.locale}${currentProduct.href}`}
                   // Note the `_product-title` is used by the popover preview cards
                   // when it needs this text for in-page links.
-                  className="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title"
+                  className={cx(
+                    'd-block pl-1 mb-2 h3 no-underline _product-title',
+                    styles.productTitle,
+                  )}
                   aria-describedby="allproducts-menu"
                 >
                   {currentProductName || currentProduct.name}
@@ -105,7 +109,11 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
                 // display:none below lg, nor the scroll container itself.
                 isSearch
                 ? styles.searchRailContent
-                : cx('border-right overflow-y-auto', mobileOpen ? 'd-block' : 'd-none d-lg-block'),
+                : cx(
+                    'overflow-y-auto',
+                    styles.railDivider,
+                    mobileOpen ? 'd-block' : 'd-none d-lg-block',
+                  ),
             // `flex-shrink-0` would stop the search rail's column from shrinking to the
             // viewport, which is what lets the filter card scroll its own list.
             isSearch ? 'bg-primary' : 'bg-primary flex-shrink-0',

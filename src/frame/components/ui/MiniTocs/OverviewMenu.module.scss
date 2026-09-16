@@ -53,9 +53,9 @@
   max-height: min(60vh, 480px);
   overflow-y: auto;
   padding: 8px 0;
-  // Same canvas as the expanded drawer panel (ArticleGridLayout), which is held
-  // back on Primer's token — see the holdback note there.
-  background: var(--color-canvas-default);
+  // Same canvas as the expanded drawer panel (ArticleGridLayout) and the sub-bar
+  // this opens out of, all now on brand's.
+  background: var(--brand-color-canvas-default);
   // border-*subtle*, not *default*: brand's default (#b6bfb8) is far heavier than
   // the #d1d9e0 this used to paint, which would make the floating panel's outline
   // the strongest line on screen. Subtle (#d2d9d4 / #262c28) matches today.

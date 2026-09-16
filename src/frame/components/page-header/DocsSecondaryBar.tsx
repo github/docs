@@ -46,7 +46,7 @@ export const DocsSecondaryBar = () => {
               {/* Desktop: collapse/expand the whole rail. */}
               <IconButton
                 data-testid="sidebar-collapse-toggle"
-                className={cx(styles.desktopOnly, 'color-fg-muted')}
+                className={cx(styles.desktopOnly, styles.toggleIcon)}
                 variant="invisible"
                 size="small"
                 icon={collapsed ? SidebarCollapseIcon : SidebarExpandIcon}
@@ -57,7 +57,7 @@ export const DocsSecondaryBar = () => {
               {/* Mobile: expand/collapse the inline nav, using the same icon. */}
               <IconButton
                 data-testid="sidebar-mobile-toggle"
-                className={cx(styles.mobileOnly, 'color-fg-muted')}
+                className={cx(styles.mobileOnly, styles.toggleIcon)}
                 variant="invisible"
                 size="small"
                 icon={mobileNavOpen ? SidebarExpandIcon : SidebarCollapseIcon}

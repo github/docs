@@ -20,7 +20,7 @@
 }
 
 .noArticlesText {
-  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+  color: var(--brand-color-text-muted);
 }
 
 // Docs 2026 Articles grid (Figma): a seamless collapsed-border grid, NOT
@@ -104,7 +104,7 @@
   align-items: center;
   column-gap: 0.75rem;
   row-gap: 1.25rem;
-  border-bottom: 1px solid var(--borderColor-default);
+  border-bottom: 1px solid var(--brand-color-border-default);
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 
@@ -339,6 +339,6 @@
 }
 
 .showingResults {
-  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+  color: var(--brand-color-text-muted);
   font-size: 0.875rem;
 }
