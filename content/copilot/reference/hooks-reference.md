@@ -292,6 +292,9 @@ Each hook event delivers a JSON payload to the hook handler. Two payload formats
 
 ### `sessionEnd` / `SessionEnd`
 
+> [!NOTE]
+> **{% data variables.copilot.copilot_cli_short %} only — `/clear` in interactive mode.** `/clear` closes the old session and fires its `sessionEnd` hooks with `reason: "user_exit"` while the CLI keeps running. The replacement session has its own independent lifecycle. Because the CLI itself isn't exiting, these hooks dispatch detached—they run in the background with their full `timeoutSec` while `/clear` returns immediately, so a hook doing real work is neither cut short nor able to stall the prompt. A detached hook still running when you later quit the CLI is terminated along with the process.
+
 **camelCase input:**
 
 ```typescript
