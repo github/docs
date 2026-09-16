@@ -831,6 +831,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -1475,6 +1617,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -2042,6 +2326,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -2609,6 +3035,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -3176,6 +3744,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -3771,6 +4481,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -4338,6 +5190,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -4360,6 +5354,148 @@
         "name": "description",
         "description": "",
         "isRequired": true
+      },
+      {
+        "type": "string or null",
+        "name": "archived_at",
+        "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "null or object",
+        "name": "archived_by",
+        "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "gravatar_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "starred_at",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "integer",
@@ -4949,6 +6085,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -5516,6 +6794,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -6083,6 +7503,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -6656,6 +8218,148 @@
                 "name": "default",
                 "description": "<p>Whether this label comes by default in a new repository.</p>",
                 "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "archived_at",
+                "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "null or object",
+                "name": "archived_by",
+                "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "name",
+                    "description": ""
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "email",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "login",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "node_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "avatar_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "gravatar_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "html_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "followers_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "following_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "gists_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "subscriptions_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "organizations_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "repos_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "events_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "received_events_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "site_admin",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_at",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "user_view_type",
+                    "description": ""
+                  }
+                ]
               }
             ]
           }
@@ -8755,6 +10459,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -9322,6 +11168,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -10159,6 +12147,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -10181,6 +12311,148 @@
         "name": "description",
         "description": "",
         "isRequired": true
+      },
+      {
+        "type": "string or null",
+        "name": "archived_at",
+        "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "null or object",
+        "name": "archived_by",
+        "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "gravatar_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "starred_at",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
       },
       {
         "type": "integer",
@@ -10770,6 +13042,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }
@@ -11337,6 +13751,148 @@
             "name": "default",
             "description": "<p>Whether this label comes by default in a new repository.</p>",
             "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": "<p>Timestamp indicating when the label was archived, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "null or object",
+            "name": "archived_by",
+            "description": "<p>The user who archived the label, or <code>null</code> if it has not been archived.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
           }
         ]
       }

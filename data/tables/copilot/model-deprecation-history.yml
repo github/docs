@@ -11,6 +11,22 @@
 # - retirement_date: The official retirement date for the model (YYYY-MM-DD).
 # - suggested_alternative: The model recommended for migration.
 
+- name: 'Claude Opus 4.7'
+  retirement_date: '2026-10-02'
+  suggested_alternative: 'Claude Opus 5'
+
+- name: 'Gemini 3.5 Flash'
+  retirement_date: '2026-10-02'
+  suggested_alternative: 'Gemini 3.8 Flash'
+
+- name: 'Gemini 3.6 Flash'
+  retirement_date: '2026-10-02'
+  suggested_alternative: 'Gemini 3.8 Flash'
+
+- name: 'Kimi K2.7 Code'
+  retirement_date: '2026-10-02'
+  suggested_alternative: 'Kimi K3'
+
 - name: 'MAI-Code-1-Flash'
   retirement_date: '2026-09-10'
   suggested_alternative: 'MAI-Code-1.1-Flash'

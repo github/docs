@@ -179,3 +179,13 @@ Once the service is configured, you can define a backup schedule.
 {% endif %}
 
 The first run will be a full backup. Future runs will be incremental. If a new backup attempt starts while a previous one is still running, it may be skipped or fail. In that case, adjust the schedule to avoid overlap.
+
+{% ifversion ghes > 3.19 %}
+
+<!-- The linked article is versioned `ghes: '>=3.20'`, so this whole section must stay gated to matching versions. Without the gate, the link is unresolvable in 3.19 and earlier and rendering fails. -->
+
+## Using Elasticsearch snapshots for search index data
+
+By default, search index data is backed up by copying files directly from disk. You can optionally configure {% data variables.location.product_location %} to use Elasticsearch's native, incremental snapshot functionality with a customer-managed cloud storage provider instead. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-elasticsearch-snapshots).
+
+{% endif %}
