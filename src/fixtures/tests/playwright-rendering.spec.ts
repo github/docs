@@ -1,7 +1,11 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
 import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
-import { HOVERCARDS_ENABLED, ANALYTICS_ENABLED } from '../../frame/lib/constants'
+import {
+  HOVERCARDS_ENABLED,
+  ANALYTICS_ENABLED,
+  COLOR_MODE_COOKIE_NAME,
+} from '../../frame/lib/constants'
 
 // This exists for the benefit of local testing.
 // In GitHub Actions, we rely on setting the environment variable directly
@@ -17,6 +21,52 @@ const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 test('view home page', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveTitle(/GitHub Docs/)
+})
+
+test.describe('Brand document canvas', () => {
+  test('follows system color scheme changes in auto mode without a cookie', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' })
+    await page.goto('/get-started/foo/bar')
+    await expect(page.locator('html')).toHaveAttribute('data-color-mode', 'auto')
+
+    // Check both the initial dark paint and live preference changes without reloading.
+    for (const colorScheme of ['dark', 'light', 'dark'] as const) {
+      await page.emulateMedia({ colorScheme })
+      const backgroundColor = colorScheme === 'dark' ? 'rgb(0, 0, 0)' : 'rgb(255, 255, 255)'
+      const textColor = colorScheme === 'dark' ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)'
+
+      for (const selector of ['html', 'body']) {
+        await expect(page.locator(selector)).toHaveCSS('background-color', backgroundColor)
+        await expect(page.locator(selector)).toHaveCSS('color', textColor)
+      }
+    }
+  })
+
+  for (const colorMode of ['light', 'dark'] as const) {
+    test(`preserves explicit ${colorMode} mode against the opposite system preference`, async ({
+      page,
+      context,
+      baseURL,
+    }) => {
+      await page.emulateMedia({ colorScheme: colorMode === 'light' ? 'dark' : 'light' })
+      await context.addCookies([
+        {
+          name: COLOR_MODE_COOKIE_NAME,
+          value: encodeURIComponent(JSON.stringify({ color_mode: colorMode })),
+          url: new URL('/', baseURL).href,
+        },
+      ])
+      await page.goto('/get-started/foo/bar')
+      await expect(page.locator('html')).toHaveAttribute('data-color-mode', colorMode)
+
+      const backgroundColor = colorMode === 'dark' ? 'rgb(0, 0, 0)' : 'rgb(255, 255, 255)'
+      const textColor = colorMode === 'dark' ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)'
+      for (const selector of ['html', 'body']) {
+        await expect(page.locator(selector)).toHaveCSS('background-color', backgroundColor)
+        await expect(page.locator(selector)).toHaveCSS('color', textColor)
+      }
+    })
+  }
 })
 
 test('logo link keeps current version', async ({ page }) => {

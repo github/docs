@@ -214,13 +214,11 @@
     // rules' right overshoot; those now stop at the body column's edge.)
     position: relative;
     z-index: 1;
-    // HOLDBACK: stays on Primer's canvas token deliberately. Brand's
-    // --brand-color-canvas-default is pure #000 in dark mode, but the page behind
-    // it is still painted #0d1117 by @primer/css's `body` rule — so adopting the
-    // brand canvas here makes this surface a visibly darker panel floating on a
-    // lighter page. The canvas can only move once the page canvas does; those
-    // should change together in one commit.
-    background-color: var(--color-canvas-default);
+    // Brand's canvas, matching the page. This was held back on Primer's token
+    // while `body` was still painted #0d1117 by @primer/css; that moved to
+    // --brand-color-canvas-default in src/frame/stylesheets/index.scss, so the
+    // holdback's own release condition ("change together in one commit") is met.
+    background-color: var(--brand-color-canvas-default);
     // Extend the border up to the bottom of the secondary bar (like the left
     // rail's divider). The grid's 24px padding-top + the article wrapper's 24px
     // top margin (`my-4`) otherwise leave the border starting ~48px below the

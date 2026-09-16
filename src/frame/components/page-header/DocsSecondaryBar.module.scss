@@ -14,13 +14,12 @@
   // canvas token is shared with BreadcrumbsScroller, whose chevrons repaint it
   // to mask crumbs scrolling underneath — keep the two in step.
   border-bottom: 1px solid var(--brand-color-border-muted, #e4ebe6);
-  // HOLDBACK: stays on Primer's canvas token deliberately. Brand's
-  // --brand-color-canvas-default is pure #000 in dark mode, but the page behind
-  // it is still painted #0d1117 by @primer/css's `body` rule — so adopting the
-  // brand canvas here makes this surface a visibly darker panel floating on a
-  // lighter page. The canvas can only move once the page canvas does; those
-  // should change together in one commit.
-  background-color: var(--color-canvas-default);
+  // Brand's canvas, matching the page. Held back on Primer's token while `body`
+  // was still painted #0d1117 by @primer/css; that moved to
+  // --brand-color-canvas-default in src/frame/stylesheets/index.scss, so the
+  // holdback's own release condition ("change together in one commit") is met.
+  // BreadcrumbsScroller's chevron masks repaint this exact value — keep in step.
+  background-color: var(--brand-color-canvas-default);
 
   // Stick just below the sticky main header (sticky at every width) so the
   // breadcrumbs + collapse toggle — and, below lg, the "In this article" sub-bar
@@ -75,6 +74,15 @@
   }
 }
 
+// The two sidebar-toggle icons. Replaces primer/css's `color-fg-muted`, which
+// paints Primer's grey (#9198a1 in dark, now that index.scss imports the Primer
+// Primitives functional themes) beside brand-painted breadcrumbs. `!important`
+// is carried over deliberately: the utility it replaces had it, and it is what
+// beats PRC's own `.prc-Button-*` colour on the invisible IconButton variant.
+.toggleIcon {
+  color: var(--brand-color-text-muted) !important;
+}
+
 // The "In this article" control's row, directly beneath the breadcrumb bar.
 // Rendered inside the content column (see DefaultLayout), so on desktop it
 // begins at the doc-tree drawer's right edge and runs to the screen edge —
@@ -91,8 +99,9 @@
   // means changing the matching 40px in .stickyStackWithSubBar too.
   min-height: 40px;
   border-bottom: 1px solid var(--brand-color-border-muted, #e4ebe6);
-  // Canvas holdback — see the note on `.bar` above.
-  background-color: var(--color-canvas-default);
+  // Canvas — see the note on `.bar` above. These two sticky rows stack, so they
+  // must always paint the same token.
+  background-color: var(--brand-color-canvas-default);
 
   // Stick directly beneath the breadcrumb bar (header + 45px bar) so the "In
   // this article" control stays pinned to the top while the article scrolls.

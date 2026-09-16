@@ -29,6 +29,17 @@
 
     // **The follow selectors must be with `table` to override Primer CSS**
 
+    // @primer/css paints every row `var(--bgColor-default, --color-canvas-default)`
+    // — Primer's own canvas, which is #0d1117 in dark while the page is brand's
+    // #000000, so the table reads as a charcoal slab on black. Match the page.
+    //
+    // Deliberately opaque rather than transparent: `thead` below is sticky and
+    // carries no background of its own, so it relies on the row fill to mask
+    // content scrolling underneath it.
+    tr {
+      background-color: var(--brand-color-canvas-default);
+    }
+
     // Remove zebra striping
     tr:nth-child(2n) {
       background-color: transparent;

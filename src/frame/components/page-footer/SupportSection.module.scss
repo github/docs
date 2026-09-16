@@ -13,8 +13,7 @@
 // not add one: two rules a hair apart read as a mistake. Only rows after the first
 // carry a top rule.
 
-$footer-rule: 1px solid
-  var(--borderColor-muted, var(--color-border-muted, #d2d9d4));
+$footer-rule: 1px solid var(--brand-color-border-subtle);
 
 .supportGrid {
   display: grid;

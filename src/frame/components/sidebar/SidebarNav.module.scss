@@ -141,3 +141,17 @@
     min-height: 0;
   }
 }
+
+// The doc-tree rail's right divider. Replaces primer/css's `border-right` utility,
+// which paints Primer's border palette (#30363d in dark) beside brand-painted nav
+// items; it carries `!important`, so the class has to go rather than be overridden.
+.railDivider {
+  border-right: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-default);
+}
+
+// The sidebar's product-title link. Replaces primer/css's `color-fg-default`
+// utility, which paints Primer's #e6edf3 next to the brand NavList items beneath it.
+.productTitle {
+  color: var(--brand-color-text-default);
+}

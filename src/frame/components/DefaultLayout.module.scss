@@ -61,3 +61,13 @@
     display: flex;
   }
 }
+
+// The a11y skip link is a filled accent chip. Was primer/css
+// `color-bg-accent-emphasis color-fg-on-emphasis`, which paints the chip from
+// the PRC palette on a Brand surface. The Brand accent fill inverts between
+// modes (dark green in light, light green in dark), so onEmphasis text is
+// correct here.
+.skipButton {
+  background-color: var(--brand-color-accent-primary);
+  color: var(--brand-color-text-onEmphasis);
+}
