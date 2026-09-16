@@ -2,7 +2,7 @@
 title: About GitHub Copilot
 shortTitle: About Copilot
 intro: 'Understand how {% data variables.product.prodname_copilot %} helps you ship software faster, how it works, and how to get access.'
-versions:
+versions: 
   feature: copilot
 redirect_from:
   - /copilot/copilot-individual
@@ -46,7 +46,7 @@ A change can start as an issue, be picked up by an agent, return as a pull reque
 
 You and {% data variables.product.prodname_copilot_short %} work on it in the same place, with the same context, instead of moving code into separate tools and back again.
 
-## How {% data variables.product.prodname_copilot_short %} works
+## How {% data variables.product.prodname_copilot_short %} works 
 
 {% data variables.product.prodname_copilot_short %}'s capabilities and supporting features fall into four categories:
 
