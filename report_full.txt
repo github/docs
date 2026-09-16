@@ -1,0 +1,29 @@
+Title: Potential CI Supply-Chain Hardening Weakness in GitHub Actions Node.js Documentation Examples
+
+Summary:
+The GitHub Actions Node.js documentation includes workflow examples that use mutable action version tags such as `actions/checkout@v6` and `actions/setup-node@v7`, and also demonstrates use of third-party actions in certain scenarios. While this is not a direct vulnerability in GitHub Actions itself, these examples may lead maintainers to adopt CI configurations that are not pinned to immutable commits and are therefore more exposed to supply-chain compromise.
+
+Details:
+The documented Node.js CI examples recommend workflow patterns that prioritize ease of setup and broad compatibility. However, from a supply-chain security perspective, some examples may encourage less hardened defaults if copied directly into production repositories.
+
+Observed concerns include:
+1. Use of mutable action tags
+2. Use of third-party actions
+3. Execution of dependency lifecycle scripts
+4. Registry token exposure considerations
+
+Proof of Concept:
+1. Create a repository with a Node.js CI workflow based directly on the documented examples.
+2. Reference actions using mutable tags such as `actions/checkout@v6` and `actions/setup-node@v7`.
+3. Add a malicious dependency lifecycle script or introduce a compromised third-party action.
+4. Trigger the workflow.
+5. Observe that CI executes the referenced action code and dependency lifecycle scripts automatically.
+
+Expected result:
+Security-sensitive examples should strongly encourage immutable pinning, least-privilege permissions, third-party action caution, and secret scoping.
+
+Actual result:
+The examples are easy to adopt as-is, but may be interpreted as secure production defaults even when additional hardening would be appropriate.
+
+Impact:
+This appears to be a documentation-driven security hardening concern rather than a direct exploitable GitHub platform vulnerability.
