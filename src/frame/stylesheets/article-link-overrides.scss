@@ -23,13 +23,21 @@
   // semantic pair keeps this independent of any ancestor that re-maps the
   // component token — breadcrumbs-overrides.scss does exactly that.
   //
-  // Two exclusions, both because this selector outweighs the rules that
+  // Three exclusions, all because this selector outweighs the rules that
   // currently keep those anchors uncoloured:
   //   - `[href]` — @primer/css holds `.markdown-body a:not([href])` at
   //     `color: inherit`, for the bare named anchors markdown emits.
   //   - `:not(.heading-link)` — heading anchors wrap the entire heading text,
   //     and headings.scss holds them at `color: unset`.
-  a[href]:not(.heading-link) {
+  //   - `:not(.btn)` — CTA buttons in content are plain anchors carrying
+  //     @primer/css's button classes (`<a class="btn btn-primary">`), so they
+  //     match this rule too. `.btn-primary`'s own `color` is only (0,1,0)
+  //     against this selector's (1,4,1), so without the exclusion the label
+  //     painted brand link-blue on the green button — #005dd5 on #1f883d is
+  //     1.31:1, well under the 4.5:1 WCAG AA floor
+  //     (github/technical-content#7679). Excluding `.btn`
+  //     hands every button variant back to its own Primer colour tokens.
+  a[href]:not(.heading-link):not(.btn) {
     // Fallback literals are brand's LIGHT values, not Primer's.
     color: var(--brand-color-text-link-rest, #005dd5);
 
