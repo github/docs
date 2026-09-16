@@ -79,7 +79,7 @@ Security validation does not require a {% data variables.product.prodname_GHAS %
 
 Coding agents consume **{% data variables.product.prodname_actions %} minutes** and **{% data variables.product.prodname_ai_credits_short %}**. Each agent session consumes {% data variables.product.prodname_ai_credits_short %} based on the model used and the number of tokens processed.
 
-Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use agents without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
+Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use agents without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 ## Partner agents
 

@@ -1,4 +1,15 @@
 .markdownBody {
+  // Docs 2026: code adopts the brand monospace font (Mona Sans Mono, via
+  // --brand-fontStack-monospace from @primer/react-brand). Sizing/spacing stay
+  // on the existing @primer/css markdown scale.
+  code,
+  kbd,
+  pre,
+  samp,
+  tt {
+    font-family: var(--brand-fontStack-monospace);
+  }
+
   [class~="highlight"] pre,
   pre {
     margin-top: 0.5rem;

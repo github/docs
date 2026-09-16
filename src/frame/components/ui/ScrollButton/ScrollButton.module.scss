@@ -14,7 +14,10 @@
 
 .customFocus:focus:not(:focus-visible), // override primer css specificity
 .customFocus:focus-visible {
-  outline: 2px solid var(--fgColor-accent, var(--color-accent-fg));
+  // Brand's focus colour, matching ViewMarkdownButton.module.scss — the old
+  // --fgColor-accent is undefined here and fell through to Primer's blue
+  // (#0969da -> #0377ff).
+  outline: 2px solid var(--brand-color-focus, #0377ff);
   outline-offset: -2px;
   box-shadow: 0 0 0 4px inset; // A little wider for the border radius :shrug:
 }

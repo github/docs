@@ -97,19 +97,30 @@ export const Breadcrumbs = ({ inHeader, variant }: Props) => {
               </li>
             )
           }
+          // The last crumb is the page being viewed, so it isn't a link to
+          // itself: brand's `selected` renders it as static text carrying
+          // aria-current="page" (and pointer-events: none) instead of an <a>.
+          const isCurrent = i === arr.length - 1
           return (
             <BrandBreadcrumbs.Item
-              data-testid="breadcrumb-link"
+              data-testid={isCurrent ? 'breadcrumb-current' : 'breadcrumb-link'}
               key={title}
               href={breadcrumb.href}
               title={title}
-              onClick={(event) => handleClick(event, breadcrumb.href!)}
-              onMouseEnter={() => prefetch(breadcrumb.href!)}
-              onFocus={() => prefetch(breadcrumb.href!)}
+              selected={isCurrent}
+              // No navigation or prefetch for the page you're already on.
+              {...(isCurrent
+                ? {}
+                : {
+                    onClick: (event: MouseEvent<HTMLAnchorElement>) =>
+                      handleClick(event, breadcrumb.href!),
+                    onMouseEnter: () => prefetch(breadcrumb.href!),
+                    onFocus: () => prefetch(breadcrumb.href!),
+                  })}
               className={cx(
                 // Show the last breadcrumb if it's in the header/bar, but not if it's in the article.
                 // If there's only 1 breadcrumb, show it.
-                hideLastCrumb && i === arr.length - 1 && arr.length !== 1 && 'd-none',
+                hideLastCrumb && isCurrent && arr.length !== 1 && 'd-none',
               )}
             >
               {breadcrumb.title}

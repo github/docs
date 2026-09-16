@@ -24,8 +24,11 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  color: var(--fgColor-muted, var(--color-fg-muted));
-  background-color: var(--bgColor-default, var(--color-canvas-default));
+  color: var(--brand-color-text-muted, #58635b);
+  // Must stay whatever opaque token DocsSecondaryBar paints on `.bar`, or a crumb
+  // scrolling underneath shows through. That is currently Primer's canvas — see
+  // the holdback note in DocsSecondaryBar.module.scss.
+  background-color: var(--color-canvas-default);
 }
 
 .rightChevron {
@@ -34,8 +37,9 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  color: var(--fgColor-muted, var(--color-fg-muted));
-  background-color: var(--bgColor-default, var(--color-canvas-default));
+  color: var(--brand-color-text-muted, #58635b);
+  // Must match `.bar` — see .leftChevron.
+  background-color: var(--color-canvas-default);
 }
 
 // On hover, keep the solid canvas background (Primer's invisible IconButton
@@ -44,11 +48,8 @@
 // currentColor stroke thickens the fill-based octicon glyph.
 .leftChevron:hover,
 .rightChevron:hover {
-  background-color: var(
-    --bgColor-default,
-    var(--color-canvas-default)
-  ) !important;
-  color: var(--fgColor-default, var(--color-fg-default));
+  background-color: var(--color-canvas-default) !important;
+  color: var(--brand-color-text-default, #000000);
 
   svg {
     stroke: currentColor;

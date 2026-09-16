@@ -4,18 +4,23 @@
 // Primer components
 @import "@primer/css/markdown/index.scss";
 @import "@primer/css/labels/index.scss";
-@import "@primer/css/avatars/avatar.scss";
 @import "@primer/css/alerts/index.scss";
 @import "@primer/css/popover/index.scss";
 
 // Primer Brand design system (Docs 2026 migration — github/docs-engineering#5879).
 // Loaded alongside @primer/css during the incremental component-by-component swap.
 @import "@primer/react-brand/lib/css/main.css";
+// Registers the Mona Sans / Hubot Sans @font-face rules (+ metric-adjusted
+// fallbacks) that back the brand `--brand-*-fontFamily` tokens. Without this,
+// those tokens silently fall back to the system font stack.
+@import "@primer/react-brand/fonts/fonts.css";
 
 @import "headings.scss";
 @import "scroll-top.scss";
 @import "utilities.scss";
 @import "dialog-overrides.scss";
+@import "breadcrumbs-overrides.scss";
+@import "article-link-overrides.scss";
 
 @import "src/content-render/stylesheets/index.scss";
 @import "src/links/stylesheets/hover-card.scss";
