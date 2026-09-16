@@ -32,7 +32,13 @@ export const ArticleInlineLayout = ({
         )}
 
         {introCallOuts && (
-          <div style={{ gridArea: 'intro' }} className="f4 mb-4">
+          // `mt-4` (24px) matches the gap the grid layout gets from
+          // .belowIntroPlacement's own bottom margin. It is needed here because
+          // this layout puts the callouts in a separate wrapper from the intro,
+          // so the copy-markdown control is the last child of ITS wrapper and
+          // that rule cannot reach across. Without it the control sat flush on
+          // the callout box's top border.
+          <div style={{ gridArea: 'intro' }} className="f4 mt-4 mb-4">
             {introCallOuts}
           </div>
         )}

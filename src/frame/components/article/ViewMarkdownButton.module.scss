@@ -108,6 +108,37 @@
 // The control's placement below the article lede. The margin sets the gap from
 // the lede — the Lead's own `mb-3` collapses into it, so this value wins — while
 // the header's bottom padding provides the space down to the rule beneath.
+//
+// Both gaps are spelled as Primer's step-4 spacer rather than a bare `1.5rem`.
+// The bottom one has to be: the inline layout sets the same gap from TSX with
+// `mt-4`, which compiles to exactly this `var(--base-size-24, 24px)`, and
+// `1.5rem` and `mt-4` grep as nothing in common. The top one follows so that
+// "match the gap above" below stays literally true. This is the one token here
+// that is not `--brand-*`, and it still resolves: brand's main.css defines the
+// whole `--base-size-*` scale at `:root` (@primer/primitives' size.css, its
+// other home, is one of the files this app never imports).
 .belowIntroPlacement {
-  margin-top: 1.5rem;
+  margin-top: var(--base-size-24, 24px);
+
+  // ...but the header's bottom padding only reaches the control when the
+  // control is the last thing in the header. On pages that also render intro
+  // callouts — the "Who can use this feature?" box, or the platform/tool
+  // pickers — those are siblings that follow it, and the control sat flush
+  // against the box's top border with no gap at all. Match the gap above, so
+  // the control is evenly spaced between the lede and whatever follows.
+  //
+  // `:not(:last-child)` keeps this off the pages where nothing follows, which
+  // already get their spacing from the header padding and would otherwise gain
+  // a second 24px.
+  //
+  // This rule only ever fires in the GRID layout, where ArticlePage hands the
+  // control and the callouts to `intro` as siblings. The inline layout puts
+  // them in two separate wrappers, so the control is the last child of its own
+  // and this selector cannot reach across — ArticleInlineLayout.tsx sets the
+  // identical gap by hand with `mt-4` there instead. The two are one visual gap
+  // and have to stay equal; nothing enforces that but this note and the shared
+  // token spelling, so change both or neither.
+  &:not(:last-child) {
+    margin-bottom: var(--base-size-24, 24px);
+  }
 }
