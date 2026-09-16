@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import cx from 'classnames'
@@ -50,6 +50,7 @@ export const DefaultLayout = (props: Props) => {
   const { t } = useTranslation('meta')
   const router = useRouter()
   const { languages } = useLanguages()
+  const [isNarrowMenuOpen, setIsNarrowMenuOpen] = useState(false)
 
   // This is only true when we do search indexing which renders every page
   // just to be able to `cheerio` load the main body (and the meta
@@ -223,36 +224,40 @@ export const DefaultLayout = (props: Props) => {
       <a
         href="#main-content"
         className="visually-hidden skip-button color-bg-accent-emphasis color-fg-on-emphasis"
+        inert={isNarrowMenuOpen}
+        aria-hidden={isNarrowMenuOpen || undefined}
       >
         Skip to main content
       </a>
       <SidebarCollapseProvider initialCollapsed={mainContext.sidebarCollapsed}>
-        <Header />
-        <ClientSideLanguageRedirect />
-        {isHomepageVersion ? (
-          <div className="d-lg-flex">
-            <div className="flex-column flex-1 min-width-0">
-              <main id="main-content" className={styles.mainContent}>
-                <DeprecationBanner />
-                <RestBanner />
+        <Header isNarrowMenuOpen={isNarrowMenuOpen} onNarrowMenuToggle={setIsNarrowMenuOpen} />
+        <div inert={isNarrowMenuOpen} aria-hidden={isNarrowMenuOpen || undefined}>
+          <ClientSideLanguageRedirect />
+          {isHomepageVersion ? (
+            <div className="d-lg-flex">
+              <div className="flex-column flex-1 min-width-0">
+                <main id="main-content" className={styles.mainContent}>
+                  <DeprecationBanner />
+                  <RestBanner />
 
-                {props.children}
-              </main>
-              <DocsFooter />
+                  {props.children}
+                </main>
+                <DocsFooter />
+              </div>
             </div>
-          </div>
-        ) : (
-          // SelectionProvider wraps both the secondary bar and the content so the
-          // bar's collapsed "In this article" menu (OverviewMenu) sees the same
-          // platform/tool selection as the article body and filters its headings
-          // accordingly.
-          <SelectionProvider>
-            <ActiveSectionProvider>
-              <DocsSecondaryBar />
-              <LayoutBody hasDrawer={props.hasDrawer}>{props.children}</LayoutBody>
-            </ActiveSectionProvider>
-          </SelectionProvider>
-        )}
+          ) : (
+            // SelectionProvider wraps both the secondary bar and the content so the
+            // bar's collapsed "In this article" menu (OverviewMenu) sees the same
+            // platform/tool selection as the article body and filters its headings
+            // accordingly.
+            <SelectionProvider>
+              <ActiveSectionProvider>
+                <DocsSecondaryBar />
+                <LayoutBody hasDrawer={props.hasDrawer}>{props.children}</LayoutBody>
+              </ActiveSectionProvider>
+            </SelectionProvider>
+          )}
+        </div>
       </SidebarCollapseProvider>
     </SearchOverlayContextProvider>
   )

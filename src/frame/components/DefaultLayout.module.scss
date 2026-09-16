@@ -25,24 +25,30 @@
 
 // Sticky descendants share the header/bar offset; the sub-bar adds 40px.
 // These modifiers follow the same visibility state as OverviewSubBar.
+//
+// The header half of the stack comes from --docs-header-height, not a literal
+// 65px: the Brand header is 3.5rem below 48rem and 4rem above, so a fixed px
+// stack would be wrong at one of the two sizes. The 45px is the secondary bar,
+// which is a fixed height; keep it in step with DocsSecondaryBar.module.scss
+// and SidebarNav.module.scss, which compose the same two parts.
 .stickyStack {
-  --docs-sticky-stack: 110px;
+  --docs-sticky-stack: calc(var(--docs-header-height) + 45px);
 }
 
 .stickyStackWithSubBar {
-  --docs-sticky-stack: 150px;
+  --docs-sticky-stack: calc(var(--docs-header-height) + 45px + 40px);
 }
 
 // Match the drawer reveal breakpoints in DocsSecondaryBar.module.scss.
 .stickyStackYieldsAtXxl {
   @include breakpoint-xxl {
-    --docs-sticky-stack: 110px;
+    --docs-sticky-stack: calc(var(--docs-header-height) + 45px);
   }
 }
 
 .stickyStackYieldsWhenCollapsed {
   @media (min-width: 1074px) {
-    --docs-sticky-stack: 110px;
+    --docs-sticky-stack: calc(var(--docs-header-height) + 45px);
   }
 }
 

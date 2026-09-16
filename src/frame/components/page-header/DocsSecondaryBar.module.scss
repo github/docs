@@ -22,12 +22,16 @@
   // should change together in one commit.
   background-color: var(--color-canvas-default);
 
-  // Stick just below the sticky main header (65px, sticky at every width) so the
+  // Stick just below the sticky main header (sticky at every width) so the
   // breadcrumbs + collapse toggle — and, below lg, the "In this article" sub-bar
   // row that follows — stay in view while the content scrolls. z-index 2 keeps
   // the bar (and its dropdown) above sticky table headers (z-index 1).
+  //
+  // `top` tracks the Brand header through --docs-header-height rather than a
+  // literal 65px: the header is 3.5rem below 48rem and 4rem above, so a fixed
+  // px offset would leave a gap or overlap at one of the two sizes.
   position: sticky;
-  top: 65px;
+  top: var(--docs-header-height);
   z-index: 2;
 }
 
@@ -82,19 +86,20 @@
   align-items: center;
   width: 100%;
   // Explicit so the sticky stack is a known constant: DefaultLayout.module.scss
-  // publishes 110px + this height as `--docs-sticky-stack`, which table.scss
-  // reads to offset sticky table headers. Changing this height means changing
-  // the 150px there too.
+  // publishes the header + bar stack plus this height as `--docs-sticky-stack`,
+  // which table.scss reads to offset sticky table headers. Changing this height
+  // means changing the matching 40px in .stickyStackWithSubBar too.
   min-height: 40px;
   border-bottom: 1px solid var(--brand-color-border-muted, #e4ebe6);
   // Canvas holdback — see the note on `.bar` above.
   background-color: var(--color-canvas-default);
 
-  // Stick directly beneath the breadcrumb bar (header 65px + bar 45px = 110px) so
-  // the "In this article" control stays pinned to the top while the article
-  // scrolls. z-index matches the bar to stay above sticky table headers.
+  // Stick directly beneath the breadcrumb bar (header + 45px bar) so the "In
+  // this article" control stays pinned to the top while the article scrolls.
+  // z-index matches the bar to stay above sticky table headers. Composed from
+  // --docs-header-height for the same reason `.bar` above is.
   position: sticky;
-  top: 110px;
+  top: calc(var(--docs-header-height) + 45px);
   z-index: 2;
 }
 

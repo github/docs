@@ -36,18 +36,19 @@
 
     // Make the header sticky below whatever is sticky above it. The stack is
     // published as `--docs-sticky-stack` by the content column (see
-    // DefaultLayout.module.scss): 110px for the main header + secondary bar,
-    // 150px when the "In this article" sub-bar is also showing. The column owns
-    // that value because whether the sub-bar shows depends on runtime state
-    // (hasDrawer, rail collapsed) that this stylesheet cannot see.
+    // DefaultLayout.module.scss): header + secondary bar, plus the "In this
+    // article" sub-bar when that is showing. The column owns that value because
+    // whether the sub-bar shows depends on runtime state (hasDrawer, rail
+    // collapsed) that this stylesheet cannot see.
     //
-    // The 110px fallback matters: it is the floor, since the secondary bar is
-    // sticky at EVERY width. The previous 65px assumed the bar was static below
-    // lg, which it no longer is, so table headers pinned underneath it.
+    // The fallback matters: it is the floor, since the secondary bar is sticky
+    // at EVERY width. It composes from --docs-header-height for the same reason
+    // the bar's own `top` does -- the Brand header is 3.5rem below 48rem and
+    // 4rem above, so a literal px floor is wrong at one of the two sizes.
     // The bars carry a higher z-index, so they stay above this header.
     thead {
       position: sticky;
-      top: var(--docs-sticky-stack, 110px);
+      top: var(--docs-sticky-stack, calc(var(--docs-header-height) + 45px));
       z-index: 1; // above content (incl. superscripts), below the sticky bars
     }
 

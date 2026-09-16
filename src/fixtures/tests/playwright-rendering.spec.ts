@@ -25,7 +25,10 @@ test('logo link keeps current version', async ({ page }) => {
   // Basically clicking into any page that isn't the home page for this version.
   await page.getByTestId('product').getByRole('link', { name: 'Get started' }).click()
   await expect(page).toHaveURL(/\/en\/enterprise-cloud@latest\/get-started/)
-  await page.getByRole('link', { name: 'GitHub Docs' }).click()
+  await page
+    .getByTestId('desktop-header')
+    .getByRole('link', { name: 'Github Home', exact: true })
+    .click()
   await expect(page).toHaveURL(/\/en\/enterprise-cloud@latest/)
 })
 
@@ -118,7 +121,7 @@ test('press "/" to open the search overlay', async ({ page }) => {
   await turnOffExperimentsInPage(page)
 
   // Wait for the header search button to render, so the keydown listener is attached.
-  await page.locator('[data-testid="search"]:visible').waitFor()
+  await page.getByTestId('toggle-search').waitFor()
 
   const searchInput = page.getByTestId('overlay-search-input')
   // The overlay (and its input) is not in the DOM until it's opened.
@@ -128,16 +131,17 @@ test('press "/" to open the search overlay', async ({ page }) => {
   await page.keyboard.press('/')
   await expect(searchInput).toBeFocused()
 
-  // Escape closes it again.
+  // Escape closes it again and returns focus to the same responsive trigger.
   await page.keyboard.press('Escape')
   await expect(searchInput).toHaveCount(0)
+  await expect(page.getByTestId('toggle-search')).toBeFocused()
 })
 
 test('"/" typed inside the search input is a literal slash', async ({ page }) => {
   await page.goto('/')
   await turnOffExperimentsInPage(page)
 
-  await page.locator('[data-testid="search"]:visible').waitFor()
+  await page.getByTestId('toggle-search').waitFor()
 
   await page.keyboard.press('/')
   const searchInput = page.getByTestId('overlay-search-input')
@@ -154,7 +158,7 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await page.goto('/')
   await turnOffExperimentsInPage(page)
 
-  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   await page.waitForTimeout(1000)
   await page.getByText('View more results').click()
@@ -176,7 +180,7 @@ test('open search, and perform a general search', async ({ page }) => {
   await page.goto('/')
   await turnOffExperimentsInPage(page)
 
-  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Wait for the results to load
   // NOTE: In the UI we wait for results to load before allowing "enter", because we don't want
@@ -202,7 +206,7 @@ test('open search, and select a general search article', async ({ page }) => {
 
   await page.goto('/')
 
-  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('toggle-search').click()
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Let new suggestions load
@@ -221,7 +225,7 @@ test('open search, and get auto-complete results', async ({ page }) => {
 
   await page.goto('/')
 
-  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('toggle-search').click()
 
   let listGroup = page.getByTestId('ai-autocomplete-suggestions')
 
@@ -269,7 +273,7 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   await page.goto('/enterprise-cloud@latest')
   await turnOffExperimentsInPage(page)
 
-  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('fixture')
   await page.waitForTimeout(1000)
   await page.getByText('View more results').click()
@@ -669,20 +673,41 @@ test.describe('test nav at different viewports', () => {
   })
 
   test('large -> x-large viewports - 1012+', async ({ page }) => {
-    page.setViewportSize({
-      width: 1013,
+    await page.setViewportSize({
+      width: 1012,
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
 
-    await page.getByTestId('version-picker').getByRole('button').click()
-    expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
+    // Both complete pickers are visible directly in the wide header.
+    await expect(
+      page.getByTestId('version-picker').getByText('Select your plan:', { exact: true }),
+    ).toBeVisible()
+    const planButton = page.getByTestId('version-picker').getByRole('button')
+    await expect(planButton).toHaveAccessibleName('Select your plan: Free, Pro, & Team')
+    await expect(planButton).toHaveText('Free, Pro, & Team')
+    await planButton.click()
+    const planMenu = page.getByTestId('version-picker').getByRole('menu')
+    await expect(planMenu).toBeVisible()
     await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
+    await page.keyboard.press('Escape')
+    await expect(planMenu).not.toBeVisible()
 
-    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
-    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+    // The language picker is the same kind of nested dropdown as the plan one.
+    const languageButton = page.getByRole('button', {
+      name: 'Select language: current language is English',
+    })
+    await expect(languageButton).toHaveText('English')
+    await languageButton.click()
+    const languageMenu = page.getByTestId('language-picker').getByRole('menu')
+    await expect(languageMenu).toBeVisible()
+    await expect(page.getByRole('menuitemradio', { name: 'English', exact: true })).toBeVisible()
+    await expect(page.getByRole('menuitemradio', { name: '日本語', exact: true })).toBeVisible()
+    await page.keyboard.press('Escape')
+    await expect(languageMenu).not.toBeVisible()
 
     await expect(page.getByTestId('header-signup')).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Menu', exact: true })).not.toBeVisible()
   })
 
   test('large viewports - 1012-1279', async ({ page }) => {
@@ -708,76 +733,56 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('sidebar')).toBeHidden()
   })
 
-  test('medium viewports - 768-1011', async ({ page }) => {
-    page.setViewportSize({
-      width: 1000,
-      height: 700,
+  for (const { name, width } of [
+    { name: 'medium viewports - 768-1011', width: 1000 },
+    { name: 'small viewports - 544-767', width: 555 },
+    { name: 'x-small viewports - 0-544', width: 345 },
+  ]) {
+    test(name, async ({ page }) => {
+      await page.setViewportSize({ width, height: 700 })
+      await page.goto('/get-started/foo/bar')
+      await turnOffExperimentsInPage(page)
+
+      // Both selectors and the signup action move into the utility menu below 1012px.
+      await expect(page.getByTestId('header-signup')).not.toBeVisible()
+      await expect(page.getByTestId('language-picker')).not.toBeVisible()
+      await expect(page.getByTestId('version-picker')).not.toBeVisible()
+      await expect(page.getByTestId('toggle-search')).toBeVisible()
+
+      await page.getByRole('button', { name: 'Menu', exact: true }).click()
+      await expect(
+        page.getByTestId('version-picker').getByText('Select your plan:', { exact: true }),
+      ).toBeVisible()
+      const planButton = page.getByTestId('version-picker').getByRole('button')
+      await expect(planButton).toHaveAccessibleName('Select your plan: Free, Pro, & Team')
+      await expect(planButton).toHaveText('Free, Pro, & Team')
+      await planButton.click()
+      const planMenu = page.getByTestId('version-picker').getByRole('menu')
+      await expect(planMenu).toBeVisible()
+      await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
+      await page.keyboard.press('Escape')
+      await expect(planMenu).not.toBeVisible()
+
+      // Language selection remains a complete nested dropdown, not a bare list.
+      await page
+        .getByRole('button', { name: 'Select language: current language is English' })
+        .click()
+      const languageMenu = page.getByTestId('language-picker').getByRole('menu')
+      await expect(languageMenu).toBeVisible()
+      await expect(page.getByRole('menuitemradio', { name: 'English', exact: true })).toBeVisible()
+      await expect(page.getByRole('menuitemradio', { name: '日本語', exact: true })).toBeVisible()
+      await page.keyboard.press('Escape')
+      await expect(languageMenu).not.toBeVisible()
+      await expect(page.getByTestId('header-signup')).toBeVisible()
+
+      // The independent secondary-bar navigation is intentionally inert until the
+      // modal header menu closes, then still expands the doc tree inline.
+      await page.getByRole('button', { name: 'Close menu', exact: true }).click()
+      await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
+      await page.getByTestId('sidebar-mobile-toggle').click()
+      await expect(page.getByTestId('sidebar')).toBeVisible()
     })
-    await page.goto('/get-started/foo/bar')
-
-    await page.getByTestId('version-picker').getByRole('button').click()
-    expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
-    await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
-
-    await page.getByTestId('mobile-menu').click()
-    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
-
-    await expect(page.getByTestId('mobile-signup')).toBeVisible()
-
-    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
-    await page.getByTestId('sidebar-mobile-toggle').click()
-    await expect(page.getByTestId('sidebar')).toBeVisible()
-  })
-
-  test('small viewports - 544-767', async ({ page }) => {
-    page.setViewportSize({
-      width: 555,
-      height: 700,
-    })
-    await page.goto('/get-started/foo/bar')
-
-    await expect(page.getByTestId('header-signup')).not.toBeVisible()
-
-    await expect(page.getByTestId('language-picker')).not.toBeVisible()
-
-    await expect(page.getByTestId('version-picker').getByRole('button')).toBeVisible()
-
-    await page.getByTestId('mobile-menu').click()
-    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
-
-    await expect(page.getByTestId('mobile-signup')).toBeVisible()
-
-    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
-    await page.getByTestId('sidebar-mobile-toggle').click()
-    await expect(page.getByTestId('sidebar')).toBeVisible()
-  })
-
-  test('x-small viewports - 0-544', async ({ page }) => {
-    page.setViewportSize({
-      width: 345,
-      height: 700,
-    })
-    await page.goto('/get-started/foo/bar')
-    await turnOffExperimentsInPage(page)
-
-    await expect(page.getByTestId('header-signup')).not.toBeVisible()
-
-    await expect(page.getByTestId('language-picker')).not.toBeVisible()
-
-    await expect(page.getByTestId('version-picker').getByRole('button')).not.toBeVisible()
-
-    await expect(page.getByTestId('version-picker')).not.toBeVisible()
-    await page.getByTestId('mobile-menu').click()
-    await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
-
-    await expect(page.getByTestId('open-mobile-menu').getByTestId('language-picker')).toBeVisible()
-
-    await expect(page.getByTestId('mobile-signup')).toBeVisible()
-
-    await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
-    await page.getByTestId('sidebar-mobile-toggle').click()
-    await expect(page.getByTestId('sidebar')).toBeVisible()
-  })
+  }
 
   test('do a search when the viewport is x-small', async ({ page }) => {
     test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
@@ -789,7 +794,7 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
 
-    await page.locator('[data-testid="mobile-search-button"]:visible').click()
+    await page.getByTestId('toggle-search').click()
     await page.getByTestId('overlay-search-input').fill('serve playwright')
     await page.waitForTimeout(1000)
     await page.getByText('View more results').click()
@@ -810,7 +815,7 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
 
-    await page.locator('[data-testid="mobile-search-button"]:visible').click()
+    await page.getByTestId('toggle-search').click()
     await page.getByTestId('overlay-search-input').fill('serve playwright')
     await page.waitForTimeout(1000)
     await page.getByText('View more results').click()
@@ -1203,7 +1208,7 @@ test('open search, and ask Copilot (Ask AI) a question', async ({ page }) => {
   await page.goto('/')
   await turnOffExperimentsInPage(page)
 
-  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('How do I create a Repository?')
   // Pressing enter should ask AI the question
   await page.keyboard.press('Enter')
@@ -1245,7 +1250,7 @@ test('open search, Ask AI returns 400 error and shows general search results', a
   await page.goto('/')
   await turnOffExperimentsInPage(page)
 
-  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('foo')
   // Pressing enter should trigger Ask AI, get 400 error, and show general search results
   await page.keyboard.press('Enter')

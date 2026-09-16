@@ -225,9 +225,9 @@
     // rail's divider). The grid's 24px padding-top + the article wrapper's 24px
     // top margin (`my-4`) otherwise leave the border starting ~48px below the
     // bar, so pull the cell up by that 48px. We deliberately do NOT re-add it as
-    // padding: the sticky panel pins flush under the bar (top: 110px), so keeping
-    // the resting position flush too means clicking a section (which engages the
-    // sticky) doesn't jump the list up by 48px.
+    // padding: the sticky panel pins flush under the bar (see `.sidebarBox`), so
+    // keeping the resting position flush too means clicking a section (which
+    // engages the sticky) doesn't jump the list up by 48px.
     margin-top: -48px;
   }
 }
@@ -271,10 +271,12 @@
 .sidebarBox {
   @media (min-width: 1012px) {
     position: sticky;
-    // Stick below the sticky main header (65px) + Docs 2026 secondary bar (45px)
-    // so the "In this article" heading isn't slid under the bar on scroll, with a
-    // little breathing room above the heading.
-    top: 110px;
+    // Stick below the sticky main header + Docs 2026 secondary bar (45px) so the
+    // "In this article" heading isn't slid under the bar on scroll, with a little
+    // breathing room above the heading. The header half comes from
+    // --docs-header-height rather than a literal 65px, since the Brand header is
+    // 3.5rem below 48rem and 4rem above.
+    top: calc(var(--docs-header-height) + 45px);
     padding-top: 16px;
     // 24px inset from the rail to the panel content (moved here from
     // .sidebarColumn so the box spans flush to the rail — see there).
@@ -282,7 +284,7 @@
     // Right padding so panel content (TOC items, Up next title) doesn't run up
     // against the page's right edge.
     padding-right: 24px;
-    max-height: calc(100vh - 110px);
+    max-height: calc(100vh - var(--docs-header-height) - 45px);
     overflow-y: auto;
     padding-bottom: 40px;
   }

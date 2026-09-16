@@ -7,11 +7,13 @@
   @include breakpoint(lg) {
     // Fixed width for consistent sidebar layout
     width: 326px;
-    // Sticky stack = header (65px) + Docs 2026 secondary bar (45px) = 110px.
-    // Match `top` to the stack exactly so the rail doesn't jump 1px when the
-    // sticky positioning engages on scroll.
-    height: calc(100vh - 110px);
-    top: 110px;
+    // Sticky stack = header + Docs 2026 secondary bar (45px). Match `top` to the
+    // stack exactly so the rail doesn't jump 1px when the sticky positioning
+    // engages on scroll. The header contributes --docs-header-height rather than
+    // a literal 65px: the Brand header is 3.5rem below 48rem and 4rem above, so
+    // a fixed px stack would be wrong at one of the two sizes.
+    height: calc(100vh - var(--docs-header-height) - 45px);
+    top: calc(var(--docs-header-height) + 45px);
   }
 }
 
@@ -87,8 +89,8 @@
 // the panel inside drops its own, so they don't read as a box within a box.
 //
 // It also deliberately does NOT reuse .sidebarFull's sticky offsets. Those assume
-// a 110px header stack (65px header + 45px secondary bar), but DocsSecondaryBar
-// returns null on /search, so the rail would otherwise sit 45px too low.
+// a stack of the header plus a 45px secondary bar, but DocsSecondaryBar returns
+// null on /search, so the rail would otherwise sit 45px too low.
 .searchRail {
   // Display is set here rather than with a `d-block` utility: those carry
   // `!important`, which would beat the `display: flex` below and leave the rail
@@ -106,11 +108,11 @@
 
   @media (min-width: $brand-breakpoint-medium) {
     position: sticky;
-    top: 65px;
+    top: var(--docs-header-height);
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: calc(100vh - 65px);
+    height: calc(100vh - var(--docs-header-height));
     flex-shrink: 0;
     overflow: hidden;
     border-right: var(--brand-borderWidth-thin) solid
