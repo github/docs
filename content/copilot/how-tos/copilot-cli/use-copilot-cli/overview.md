@@ -135,7 +135,7 @@ You can prepend your input with `!` to directly run shell commands, without maki
 
 ### Schedule prompts to run later
 
-You can schedule prompts to run in the future using the `/every` and `/after` slash commands. The `/every` command schedules a prompt to run repeatedly at a specified interval, while the `/after` command schedules a one-shot prompt to run once after a specified delay. For example:
+You can schedule prompts to run in the future using the `/every` and `/after` slash commands. The `/every` command schedules a prompt to run repeatedly, while the `/after` command schedules a one-shot prompt to run once after a specified delay. For example:
 
 ```shell
 /every 1h Run frontend tests and report any failures
