@@ -38,7 +38,6 @@ describe('article body api', () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
 
-    // Check that octicons without aria-label get auto-generated ones
     expect(res.body).toContain('aria-label="check icon"')
     expect(res.body).toContain('aria-label="git branch icon"')
   })
@@ -47,7 +46,6 @@ describe('article body api', () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
 
-    // Check that custom aria-labels are preserved
     expect(res.body).toContain('aria-label="Supported"')
     expect(res.body).toContain('aria-label="Not supported"')
   })
@@ -56,7 +54,6 @@ describe('article body api', () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
 
-    // Check that octicons with width attribute still get aria-labels
     expect(res.body).toContain('aria-label="rocket icon"')
     expect(res.body).toContain('width="32"')
   })

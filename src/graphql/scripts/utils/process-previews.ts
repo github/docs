@@ -37,7 +37,6 @@ export default function processPreviews(previews: RawPreview[]): ProcessedPrevie
     // remove unnecessary leading colon
     const toggled_by = raw.toggled_by.replace(':', '')
 
-    // add convenience properties
     const accept_header = `application/vnd.github.${toggled_by}+json`
 
     slugger.reset()

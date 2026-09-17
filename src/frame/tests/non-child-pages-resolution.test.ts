@@ -2,15 +2,15 @@ import { describe, expect, test } from 'vitest'
 import path from 'path'
 import fs from 'fs'
 
-// ROOT is the project root directory
-// From src/frame/tests/ -> ../../.. gets to project root
 const ROOT = path.resolve(__dirname, '../../..')
 
-/**
- * Tests for non-child page resolution:
- * `/content/` prefix in children frontmatter resolves to absolute content paths,
- * allowing cross-product directory and article inclusion.
- */
+// Tests for non-child page resolution: a `/content/` prefix in children
+// frontmatter resolves to an absolute content path, which is what lets a page
+// pull in a directory or article from another product.
+//
+// Note this file imports no production code. The behaviour tests reimplement
+// logic from create-tree.ts and current-product-tree.ts, and the rest only check
+// that fixture files exist, so none of it exercises the real resolution path.
 
 describe('Non-child page resolution', () => {
   describe('/content/ prefix in children frontmatter', () => {
@@ -147,7 +147,6 @@ describe('Non-child page resolution', () => {
       // The actual translation is handled by the page loading system
       const child = '/content/actions/using-workflows/storing-workflow-data-as-artifacts'
 
-      // Path should not include language prefix
       expect(child.startsWith('/content/')).toBe(true)
       expect(child).not.toMatch(/\/content\/(en|ja|es|pt|zh|ru|ko|fr|de)\//)
     })

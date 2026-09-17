@@ -859,6 +859,125 @@
                         },
                         "default": {
                           "type": "boolean"
+                        },
+                        "archived_by": {
+                          "description": "The user who archived the label, or `null` if it has not been archived.",
+                          "allOf": [
+                            {
+                              "title": "Simple User",
+                              "description": "A GitHub user.",
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "email": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "login": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "integer",
+                                  "format": "int64"
+                                },
+                                "node_id": {
+                                  "type": "string"
+                                },
+                                "avatar_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "gravatar_id": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "html_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "followers_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "following_url": {
+                                  "type": "string"
+                                },
+                                "gists_url": {
+                                  "type": "string"
+                                },
+                                "starred_url": {
+                                  "type": "string"
+                                },
+                                "subscriptions_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "organizations_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "repos_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "events_url": {
+                                  "type": "string"
+                                },
+                                "received_events_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "site_admin": {
+                                  "type": "boolean"
+                                },
+                                "starred_at": {
+                                  "type": "string"
+                                },
+                                "user_view_type": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "avatar_url",
+                                "events_url",
+                                "followers_url",
+                                "following_url",
+                                "gists_url",
+                                "gravatar_id",
+                                "html_url",
+                                "id",
+                                "node_id",
+                                "login",
+                                "organizations_url",
+                                "received_events_url",
+                                "repos_url",
+                                "site_admin",
+                                "starred_url",
+                                "subscriptions_url",
+                                "type",
+                                "url"
+                              ]
+                            }
+                          ],
+                          "type": [
+                            "null"
+                          ]
                         }
                       },
                       "required": [
@@ -868,7 +987,9 @@
                         "name",
                         "description",
                         "color",
-                        "default"
+                        "default",
+                        "archived_at",
+                        "archived_by"
                       ]
                     }
                   },
@@ -4368,6 +4489,125 @@
                       },
                       "default": {
                         "type": "boolean"
+                      },
+                      "archived_by": {
+                        "description": "The user who archived the label, or `null` if it has not been archived.",
+                        "allOf": [
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          }
+                        ],
+                        "type": [
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -4377,7 +4617,9 @@
                       "name",
                       "description",
                       "color",
-                      "default"
+                      "default",
+                      "archived_at",
+                      "archived_by"
                     ]
                   }
                 },
@@ -7877,6 +8119,125 @@
                       },
                       "default": {
                         "type": "boolean"
+                      },
+                      "archived_by": {
+                        "description": "The user who archived the label, or `null` if it has not been archived.",
+                        "allOf": [
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          }
+                        ],
+                        "type": [
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -7886,7 +8247,9 @@
                       "name",
                       "description",
                       "color",
-                      "default"
+                      "default",
+                      "archived_at",
+                      "archived_by"
                     ]
                   }
                 },
@@ -11439,6 +11802,125 @@
                       },
                       "default": {
                         "type": "boolean"
+                      },
+                      "archived_by": {
+                        "description": "The user who archived the label, or `null` if it has not been archived.",
+                        "allOf": [
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          }
+                        ],
+                        "type": [
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -11448,7 +11930,9 @@
                       "name",
                       "description",
                       "color",
-                      "default"
+                      "default",
+                      "archived_at",
+                      "archived_by"
                     ]
                   }
                 },
@@ -20065,6 +20549,125 @@
                       },
                       "default": {
                         "type": "boolean"
+                      },
+                      "archived_by": {
+                        "description": "The user who archived the label, or `null` if it has not been archived.",
+                        "allOf": [
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          }
+                        ],
+                        "type": [
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -20074,7 +20677,9 @@
                       "name",
                       "description",
                       "color",
-                      "default"
+                      "default",
+                      "archived_at",
+                      "archived_by"
                     ]
                   }
                 },
@@ -23535,6 +24140,125 @@
                       },
                       "default": {
                         "type": "boolean"
+                      },
+                      "archived_by": {
+                        "description": "The user who archived the label, or `null` if it has not been archived.",
+                        "allOf": [
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          }
+                        ],
+                        "type": [
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -23544,7 +24268,9 @@
                       "name",
                       "description",
                       "color",
-                      "default"
+                      "default",
+                      "archived_at",
+                      "archived_by"
                     ]
                   }
                 },

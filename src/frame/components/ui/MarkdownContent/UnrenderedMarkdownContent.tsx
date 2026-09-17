@@ -38,18 +38,14 @@ export const UnrenderedMarkdownContent = ({
 }: MarkdownContentPropsT) => {
   const { t } = useTranslation('search')
 
-  // Overrides for ReactMarkdown components
   const components = {} as Components
   if (codeBlocksCopyable) {
     // Override the default code block to make multiline code blocks copyable
     components.code = ({ ...props }) => {
-      // get the literal text of the code block
       let text = String(props.children)
-      // If the codeblock is not multiline, return inline code block without copy functionality
       if (!text.includes('\n')) {
         return <code {...props}>{props.children}</code>
       } else {
-        // Otherwise it's multiline and we want to make it copyable
         text = text.replace(/\n$/, '')
       }
 
@@ -62,7 +58,6 @@ export const UnrenderedMarkdownContent = ({
         successDuration: 2000,
       })
 
-      // Create more descriptive aria-label
       const getAriaLabel = () => {
         if (isCopied) {
           return t('search.ai.response.copied_code')
@@ -101,19 +96,16 @@ export const UnrenderedMarkdownContent = ({
   components.a = ({ ...props }) => {
     let href = props.href || ''
     let existingAnchorParams = ''
-    // When we want to include specific query parameters in the URL
     if (includeQueryParams) {
       if (href.includes('?')) {
         href = href.split('?')[0]
         existingAnchorParams = href.split('?')[1]
       }
-      // Include feature, search-overlay-ask-ai, and search-overlay-input query parameters if they exist in the current URL
       const existingURLParams = new URLSearchParams(window.location.search)
       const newParams = new URLSearchParams()
       if (existingURLParams.get('feature')) {
         newParams.set('feature', existingURLParams.get('feature') || '')
       }
-      // Combine new and existing query parameters
       if (newParams.toString()) {
         href = `${href}?${existingAnchorParams}&${newParams.toString()}`
       }

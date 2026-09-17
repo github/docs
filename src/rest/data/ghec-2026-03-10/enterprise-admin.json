@@ -25657,5 +25657,1222 @@
         ]
       }
     }
+  ],
+  "token-inventory": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials",
+      "title": "List enterprise token inventory",
+      "category": "enterprise-admin",
+      "subcategory": "token-inventory",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "after",
+          "description": "<p>A cursor, as given in the <code>Link</code> header, for the next page of results.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "token_types",
+          "description": "<p>A comma-separated list of credential types to filter by.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "authorization_state",
+          "description": "<p>Filter by enterprise-access status.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "currently_authorized",
+              "member_owned_only"
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "description": "<p>Filter to credentials owned by this user, given as a login.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "organization",
+          "description": "<p>Filter to credentials authorized to this organization in the enterprise, given as a login.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "application",
+          "description": "<p>Filter to credentials for this application, given as a GitHub App slug or an OAuth App client id.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists an enterprise's credential inventory: both credentials currently authorized to access the enterprise and credentials owned by enterprise members that have no current enterprise authorization. Covers personal access tokens (classic and fine-grained), OAuth App and GitHub App user tokens, SSH keys, GitHub App installations, and federated credentials, assembled on demand from the canonical sources. Results are paginated with an opaque cursor via the <code>Link</code> header; there is no total count.</p>\n<p>You must be an enterprise owner (or hold a role with the \"View enterprise credentials\" permission) to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) require the <code>read:enterprise</code> scope to access this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "inventory_id": "MDEyMzQ1Njc4OWFiY2RlZg",
+                "credential_id": 987654,
+                "hashed_token": "K7gNU3sdo+OL0wNhqoVWhr3g6s1xYv72ol/pe/Unols=",
+                "fingerprint": null,
+                "item_type": "credential",
+                "credential_type": "classic_pat",
+                "display_name": "ci-automation",
+                "owner": {
+                  "id": 1,
+                  "login": "octocat"
+                },
+                "owner_type": "user",
+                "application": null,
+                "credential_state": "active",
+                "authorization_state": "currently_authorized",
+                "effective_access_state": "effective",
+                "state_reason": null,
+                "created_at": "2024-01-15T09:00:00Z",
+                "last_used_at": "2024-06-01T12:30:00Z",
+                "expires_at": "2025-01-15T09:00:00Z",
+                "next_expires_at": "2025-01-15T09:00:00Z",
+                "credential_instance_count": 1,
+                "enterprise_authorized": false,
+                "authorization_count": 1,
+                "authorized_organizations": [
+                  {
+                    "id": 10,
+                    "login": "acme-eng"
+                  }
+                ],
+                "age_days": 138,
+                "never_expires": false,
+                "past_expiration_policy": false,
+                "past_expiration_policy_basis": "enforced_limit",
+                "expiry_unknown": false,
+                "scopes": [
+                  "repo",
+                  "read:org"
+                ],
+                "permissions": null,
+                "repository_selection": null
+              },
+              {
+                "inventory_id": "ZmVkY2JhOTg3NjU0MzIxMA",
+                "credential_id": 246810,
+                "hashed_token": "B4iMbnUY6xW/eOlR2nDqA9pKz3sVt1cX8mZ0jL5wQpE=",
+                "fingerprint": null,
+                "item_type": "credential",
+                "credential_type": "oauth_app_user_token",
+                "display_name": "Acme Deploy",
+                "owner": {
+                  "id": 2,
+                  "login": "hubot"
+                },
+                "owner_type": "user",
+                "application": {
+                  "id": 42,
+                  "name": "Acme Deploy"
+                },
+                "credential_state": "active",
+                "authorization_state": "currently_authorized",
+                "effective_access_state": "effective",
+                "state_reason": null,
+                "created_at": "2024-03-10T14:00:00Z",
+                "last_used_at": "2024-06-02T08:15:00Z",
+                "expires_at": null,
+                "next_expires_at": null,
+                "credential_instance_count": 1,
+                "enterprise_authorized": false,
+                "authorization_count": 2,
+                "authorized_organizations": [
+                  {
+                    "id": 10,
+                    "login": "acme-eng"
+                  },
+                  {
+                    "id": 11,
+                    "login": "acme-ops"
+                  }
+                ],
+                "age_days": 83,
+                "never_expires": true,
+                "past_expiration_policy": false,
+                "past_expiration_policy_basis": "proposed_baseline",
+                "expiry_unknown": false,
+                "scopes": [
+                  "read:user",
+                  "repo"
+                ],
+                "permissions": null,
+                "repository_selection": null
+              },
+              {
+                "inventory_id": "c3NoLWtleS1leGFtcGxlLTAwMQ",
+                "credential_id": null,
+                "hashed_token": null,
+                "fingerprint": "SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8",
+                "item_type": "credential",
+                "credential_type": "ssh_key",
+                "display_name": "laptop-2024",
+                "owner": {
+                  "id": 3,
+                  "login": "monalisa"
+                },
+                "owner_type": "user",
+                "application": null,
+                "credential_state": "active",
+                "authorization_state": "currently_authorized",
+                "effective_access_state": "effective",
+                "state_reason": null,
+                "created_at": "2023-11-01T10:00:00Z",
+                "last_used_at": "2024-05-20T16:45:00Z",
+                "expires_at": null,
+                "next_expires_at": null,
+                "credential_instance_count": 1,
+                "enterprise_authorized": false,
+                "authorization_count": 1,
+                "authorized_organizations": [
+                  {
+                    "id": 10,
+                    "login": "acme-eng"
+                  }
+                ],
+                "age_days": 213,
+                "never_expires": true,
+                "past_expiration_policy": true,
+                "past_expiration_policy_basis": "proposed_baseline",
+                "expiry_unknown": false,
+                "scopes": null,
+                "permissions": null,
+                "repository_selection": null
+              },
+              {
+                "inventory_id": "YWJjZGVmMDEyMzQ1Njc4OQ",
+                "credential_id": 135790,
+                "hashed_token": null,
+                "fingerprint": null,
+                "item_type": "credential",
+                "credential_type": "fine_grained_pat",
+                "display_name": "release-bot",
+                "owner": {
+                  "id": 3,
+                  "login": "monalisa"
+                },
+                "owner_type": "user",
+                "application": null,
+                "credential_state": "active",
+                "authorization_state": "currently_authorized",
+                "effective_access_state": "effective",
+                "state_reason": null,
+                "created_at": "2024-05-01T10:00:00Z",
+                "last_used_at": "2024-06-03T16:45:00Z",
+                "expires_at": "2024-11-01T10:00:00Z",
+                "next_expires_at": "2024-11-01T10:00:00Z",
+                "credential_instance_count": 1,
+                "enterprise_authorized": false,
+                "authorization_count": 1,
+                "authorized_organizations": [
+                  {
+                    "id": 10,
+                    "login": "acme-eng"
+                  }
+                ],
+                "age_days": 45,
+                "never_expires": false,
+                "past_expiration_policy": false,
+                "past_expiration_policy_basis": "enforced_limit",
+                "expiry_unknown": false,
+                "scopes": null,
+                "permissions": {
+                  "contents": "read",
+                  "pull_requests": "write"
+                },
+                "repository_selection": "subset"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Enterprise Token Inventory Item",
+                "description": "A credential or GitHub App installation in an enterprise's token inventory.",
+                "type": "object",
+                "required": [
+                  "inventory_id",
+                  "item_type",
+                  "credential_type",
+                  "credential_state",
+                  "authorization_state",
+                  "effective_access_state",
+                  "enterprise_authorized",
+                  "authorization_count",
+                  "authorized_organizations"
+                ],
+                "properties": {
+                  "inventory_id": {
+                    "type": "string",
+                    "description": "Opaque identifier for retrieving this item within the enterprise. Its value can differ between responses for the same credential."
+                  },
+                  "credential_id": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "description": "The credential's ID for audit-log correlation, unique only within its `credential_type`. Null for SSH keys, GitHub App installations, and federated credentials."
+                  },
+                  "hashed_token": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Base64-encoded SHA-256 hash of the token, matching `hashed_token` in audit events. Null when not reported."
+                  },
+                  "fingerprint": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The SSH key's SHA-256 fingerprint, matching audit events. Null for other credential types."
+                  },
+                  "item_type": {
+                    "type": "string",
+                    "enum": [
+                      "credential",
+                      "token_issuer_principal"
+                    ]
+                  },
+                  "credential_type": {
+                    "type": "string",
+                    "enum": [
+                      "classic_pat",
+                      "oauth_app_user_token",
+                      "github_app_user_token",
+                      "fine_grained_pat",
+                      "ssh_key",
+                      "github_app_installation",
+                      "federated_jti"
+                    ]
+                  },
+                  "display_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "owner": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "login": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    }
+                  },
+                  "owner_type": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "enum": [
+                      "user",
+                      "oauth_application",
+                      "github_app",
+                      null
+                    ],
+                    "description": "The type of credential owner."
+                  },
+                  "application": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    }
+                  },
+                  "credential_state": {
+                    "type": "string",
+                    "enum": [
+                      "active",
+                      "expired",
+                      "revoked",
+                      "deleted"
+                    ]
+                  },
+                  "authorization_state": {
+                    "type": "string",
+                    "enum": [
+                      "currently_authorized",
+                      "member_owned_only"
+                    ]
+                  },
+                  "effective_access_state": {
+                    "type": "string",
+                    "enum": [
+                      "effective",
+                      "not_effective",
+                      "unknown"
+                    ]
+                  },
+                  "state_reason": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "created_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  },
+                  "last_used_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  },
+                  "expires_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  },
+                  "next_expires_at": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  },
+                  "credential_instance_count": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "enterprise_authorized": {
+                    "type": "boolean",
+                    "description": "Whether the item is authorized directly at the enterprise level."
+                  },
+                  "authorization_count": {
+                    "type": "integer",
+                    "description": "Number of authorizing organizations, plus one when `enterprise_authorized` is true."
+                  },
+                  "authorized_organizations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "login": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "age_days": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "description": "Age of the credential in whole days at assembly time."
+                  },
+                  "never_expires": {
+                    "type": "boolean",
+                    "description": "Whether this is an active credential with no expiration. False for GitHub App installations and credentials with unknown expiration."
+                  },
+                  "past_expiration_policy": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "description": "Whether the credential exceeds a configured lifetime limit or an advisory age baseline. Null when not evaluated."
+                  },
+                  "past_expiration_policy_basis": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "enum": [
+                      "enforced_limit",
+                      "proposed_baseline",
+                      null
+                    ],
+                    "description": "The basis for `past_expiration_policy`: an enforced PAT lifetime limit or an advisory age baseline."
+                  },
+                  "expiry_unknown": {
+                    "type": "boolean",
+                    "description": "Whether the credential's expiration could not be determined."
+                  },
+                  "scopes": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "OAuth scopes recorded for the token. Null when not reported for the credential type."
+                  },
+                  "permissions": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Permissions by resource for fine-grained PATs and GitHub App installations. Null when not reported; an empty object means no recorded permissions."
+                  },
+                  "repository_selection": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "enum": [
+                      "all",
+                      "subset",
+                      "none",
+                      null
+                    ],
+                    "description": "Repository selection for the credential. Null when not reported; `none` means no repositories are selected."
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise credentials\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credentials/exports",
+      "title": "Create an enterprise token inventory export",
+      "category": "enterprise-admin",
+      "subcategory": "token-inventory",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "token_types",
+          "description": "<p>The credential types to include.</p>"
+        },
+        {
+          "type": "string",
+          "name": "authorization_state",
+          "description": "<p>Filter by enterprise-access status.</p>",
+          "enum": [
+            "currently_authorized",
+            "member_owned_only"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "owner",
+          "description": "<p>Filter to credentials owned by this user, given as a login.</p>"
+        },
+        {
+          "type": "string",
+          "name": "organization",
+          "description": "<p>Filter to credentials authorized to this organization in the enterprise, given as a login.</p>"
+        },
+        {
+          "type": "string",
+          "name": "application",
+          "description": "<p>Filter to credentials for this application, given as a GitHub App slug or an OAuth App client id.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Starts an asynchronous CSV export of the enterprise token inventory and returns an opaque export id to poll. Limited to a small number of exports per enterprise per day.</p>\n<p>The generated file is UTF-8 CSV with a header row, using RFC 4180 field quoting and escaping and LF (<code>\\n</code>) line endings. Timestamps are ISO-8601 in UTC (for example, <code>2026-09-15T12:00:00Z</code>). An empty cell means the value is null or unknown, never <code>false</code>. Multi-value cells join their entries with <code>; </code> — this includes <code>scopes</code> and <code>permissions</code>, where each permission is encoded as a <code>resource:action</code> pair (for example, <code>contents:write; issues:read</code>). The file has one row per (credential, authorizing organization); the credential columns repeat while <code>organization_id</code> and <code>organization</code> vary, and a credential with no organization grant appears once with empty organization columns. <code>authorization_count</code> is the credential's total number of organization authorizations across the enterprise, plus one when <code>enterprise_authorized</code> is true, independent of any filters applied to the export. <code>credential_id</code> is a raw source-table id that can collide across credential types, so it is unique only together with <code>credential_type</code>, and only for the types that populate it (classic and fine-grained PATs, OAuth and GitHub App user tokens); SSH keys are keyed by <code>fingerprint</code>, while GitHub App installations and federated JTIs have no unique per-row column. <code>owner_type</code> (<code>user</code>, <code>oauth_application</code>, or <code>github_app</code>) disambiguates the id space of <code>owner_id</code>. <code>expiry_status</code> is <code>expires</code>, <code>never</code>, or <code>unknown</code> — <code>unknown</code> marks a credential whose expiration could not be determined, so a blank <code>expires_at</code> is never mistaken for one that never expires.</p>\n<p>You must be an enterprise owner (or hold a role with the \"View enterprise credentials\" permission) to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) require the <code>read:enterprise</code> scope to access this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "owner": "octocat"
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted</p>",
+            "example": {
+              "export_id": "7b99499081e815c76d819dabdab70202df7fa01adf9a84803ca43963edb6a507",
+              "status": "queued",
+              "as_of": "2026-07-30 21:00:00 UTC"
+            },
+            "schema": {
+              "title": "Enterprise Token Inventory Export",
+              "description": "The status of an asynchronous enterprise token inventory CSV export.",
+              "type": "object",
+              "required": [
+                "export_id",
+                "status"
+              ],
+              "properties": {
+                "export_id": {
+                  "type": "string",
+                  "description": "Opaque id for the export, used to poll its status."
+                },
+                "status": {
+                  "type": "string",
+                  "description": "The state of the export job.",
+                  "enum": [
+                    "pending",
+                    "queued",
+                    "started",
+                    "success",
+                    "error"
+                  ]
+                },
+                "as_of": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "When the export was requested."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed</p>"
+        },
+        {
+          "httpStatusCode": "429",
+          "description": "<p>Too many requests</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal error, for example the export job could not be enqueued.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise credentials\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials/exports/{export_id}",
+      "title": "Get an enterprise token inventory export",
+      "category": "enterprise-admin",
+      "subcategory": "token-inventory",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "export_id",
+          "description": "<p>The opaque id of the export, as returned when it was created.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns the status of an enterprise token inventory export. Once the export is ready this redirects to a short-lived URL to download the CSV.</p>\n<p>You must be an enterprise owner (or hold a role with the \"View enterprise credentials\" permission) to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) require the <code>read:enterprise</code> scope to access this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "export_id": "EXPORT_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "export_id": "7b99499081e815c76d819dabdab70202df7fa01adf9a84803ca43963edb6a507",
+              "status": "queued",
+              "as_of": "2026-07-30 21:00:00 UTC"
+            },
+            "schema": {
+              "title": "Enterprise Token Inventory Export",
+              "description": "The status of an asynchronous enterprise token inventory CSV export.",
+              "type": "object",
+              "required": [
+                "export_id",
+                "status"
+              ],
+              "properties": {
+                "export_id": {
+                  "type": "string",
+                  "description": "Opaque id for the export, used to poll its status."
+                },
+                "status": {
+                  "type": "string",
+                  "description": "The state of the export job.",
+                  "enum": [
+                    "pending",
+                    "queued",
+                    "started",
+                    "success",
+                    "error"
+                  ]
+                },
+                "as_of": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "When the export was requested."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "302",
+          "description": "<p>The export is ready; redirects to a short-lived download URL.</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise credentials\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials/{inventory_id}",
+      "title": "Get an enterprise token inventory item",
+      "category": "enterprise-admin",
+      "subcategory": "token-inventory",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "inventory_id",
+          "description": "<p>The opaque inventory_id returned by the list endpoint for this enterprise. Pass it unchanged. Its value can differ for the same credential between responses.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns a single credential from the enterprise token inventory. Use the opaque <code>inventory_id</code> returned by the list endpoint for the same enterprise.</p>\n<p>You must be an enterprise owner (or hold a role with the \"View enterprise credentials\" permission) to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) require the <code>read:enterprise</code> scope to access this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "inventory_id": "INVENTORY_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "inventory_id": "MDEyMzQ1Njc4OWFiY2RlZg",
+              "credential_id": 987654,
+              "hashed_token": "K7gNU3sdo+OL0wNhqoVWhr3g6s1xYv72ol/pe/Unols=",
+              "fingerprint": null,
+              "item_type": "credential",
+              "credential_type": "classic_pat",
+              "display_name": "ci-automation",
+              "owner": {
+                "id": 1,
+                "login": "octocat"
+              },
+              "owner_type": "user",
+              "application": null,
+              "credential_state": "active",
+              "authorization_state": "currently_authorized",
+              "effective_access_state": "effective",
+              "state_reason": null,
+              "created_at": "2024-01-15T09:00:00Z",
+              "last_used_at": "2024-06-01T12:30:00Z",
+              "expires_at": "2025-01-15T09:00:00Z",
+              "next_expires_at": "2025-01-15T09:00:00Z",
+              "credential_instance_count": 1,
+              "enterprise_authorized": false,
+              "authorization_count": 1,
+              "authorized_organizations": [
+                {
+                  "id": 10,
+                  "login": "acme-eng"
+                }
+              ],
+              "age_days": 138,
+              "never_expires": false,
+              "past_expiration_policy": false,
+              "past_expiration_policy_basis": "enforced_limit",
+              "expiry_unknown": false,
+              "scopes": [
+                "repo",
+                "read:org"
+              ],
+              "permissions": null,
+              "repository_selection": null
+            },
+            "schema": {
+              "title": "Enterprise Token Inventory Item",
+              "description": "A credential or GitHub App installation in an enterprise's token inventory.",
+              "type": "object",
+              "required": [
+                "inventory_id",
+                "item_type",
+                "credential_type",
+                "credential_state",
+                "authorization_state",
+                "effective_access_state",
+                "enterprise_authorized",
+                "authorization_count",
+                "authorized_organizations"
+              ],
+              "properties": {
+                "inventory_id": {
+                  "type": "string",
+                  "description": "Opaque identifier for retrieving this item within the enterprise. Its value can differ between responses for the same credential."
+                },
+                "credential_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The credential's ID for audit-log correlation, unique only within its `credential_type`. Null for SSH keys, GitHub App installations, and federated credentials."
+                },
+                "hashed_token": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Base64-encoded SHA-256 hash of the token, matching `hashed_token` in audit events. Null when not reported."
+                },
+                "fingerprint": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The SSH key's SHA-256 fingerprint, matching audit events. Null for other credential types."
+                },
+                "item_type": {
+                  "type": "string",
+                  "enum": [
+                    "credential",
+                    "token_issuer_principal"
+                  ]
+                },
+                "credential_type": {
+                  "type": "string",
+                  "enum": [
+                    "classic_pat",
+                    "oauth_app_user_token",
+                    "github_app_user_token",
+                    "fine_grained_pat",
+                    "ssh_key",
+                    "github_app_installation",
+                    "federated_jti"
+                  ]
+                },
+                "display_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "owner": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "login": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                },
+                "owner_type": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "enum": [
+                    "user",
+                    "oauth_application",
+                    "github_app",
+                    null
+                  ],
+                  "description": "The type of credential owner."
+                },
+                "application": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                },
+                "credential_state": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "expired",
+                    "revoked",
+                    "deleted"
+                  ]
+                },
+                "authorization_state": {
+                  "type": "string",
+                  "enum": [
+                    "currently_authorized",
+                    "member_owned_only"
+                  ]
+                },
+                "effective_access_state": {
+                  "type": "string",
+                  "enum": [
+                    "effective",
+                    "not_effective",
+                    "unknown"
+                  ]
+                },
+                "state_reason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "created_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                },
+                "last_used_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                },
+                "expires_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                },
+                "next_expires_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                },
+                "credential_instance_count": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "enterprise_authorized": {
+                  "type": "boolean",
+                  "description": "Whether the item is authorized directly at the enterprise level."
+                },
+                "authorization_count": {
+                  "type": "integer",
+                  "description": "Number of authorizing organizations, plus one when `enterprise_authorized` is true."
+                },
+                "authorized_organizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "login": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "age_days": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Age of the credential in whole days at assembly time."
+                },
+                "never_expires": {
+                  "type": "boolean",
+                  "description": "Whether this is an active credential with no expiration. False for GitHub App installations and credentials with unknown expiration."
+                },
+                "past_expiration_policy": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ],
+                  "description": "Whether the credential exceeds a configured lifetime limit or an advisory age baseline. Null when not evaluated."
+                },
+                "past_expiration_policy_basis": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "enum": [
+                    "enforced_limit",
+                    "proposed_baseline",
+                    null
+                  ],
+                  "description": "The basis for `past_expiration_policy`: an enforced PAT lifetime limit or an advisory age baseline."
+                },
+                "expiry_unknown": {
+                  "type": "boolean",
+                  "description": "Whether the credential's expiration could not be determined."
+                },
+                "scopes": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "OAuth scopes recorded for the token. Null when not reported for the credential type."
+                },
+                "permissions": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Permissions by resource for fine-grained PATs and GitHub App installations. Null when not reported; an empty object means no recorded permissions."
+                },
+                "repository_selection": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "enum": [
+                    "all",
+                    "subset",
+                    "none",
+                    null
+                  ],
+                  "description": "Repository selection for the credential. Null when not reported; `none` means no repositories are selected."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise credentials\" enterprise permissions": "read"
+          }
+        ]
+      }
+    }
   ]
 }

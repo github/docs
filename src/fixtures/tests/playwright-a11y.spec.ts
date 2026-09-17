@@ -7,6 +7,13 @@ const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 const pages: { [key: string]: string } = {
   category: '/actions/category',
   codeAnnotations: '/get-started/markdown/code-annotations',
+  // The only fixture page that renders a CTA button. A `.btn-primary` anchor is the
+  // one shape the brand article-link override can drive under 4.5:1 — its label sits
+  // on a coloured fill rather than the page background — which is exactly what it did
+  // before `:not(.btn)` was added to
+  // src/frame/stylesheets/article-link-overrides.scss. Without this entry that
+  // exclusion has no test at all.
+  ctaButton: '/get-started/foo/page-with-permissions-and-product-callout',
   homepage: '/',
   learningPath:
     '/code-security/getting-started/quickstart?learn=foo_bar&learnProduct=code-security',
@@ -54,8 +61,8 @@ for (const pageName of Object.keys(pages)) {
 // otherwise never be scanned.
 test.describe('search filters (narrow viewport)', () => {
   // Without a local Elasticsearch the middleware proxies to production, so there are no
-  // aggregations, the disclosure never renders, and this would time out rather than skip
-  // — matching the guard every search test in playwright-rendering.spec.ts uses.
+  // aggregations, the disclosure never renders, and this would time out rather than
+  // skip. Matches the guard every search test in playwright-rendering.spec.ts uses.
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   test('expanded filter disclosure passes axe', async ({ page }) => {

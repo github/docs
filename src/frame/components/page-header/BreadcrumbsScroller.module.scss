@@ -14,7 +14,7 @@
 
 // The chevrons overlay the ends of the scroll area (absolutely positioned)
 // rather than sitting in the flex flow. This keeps the scroll area full-width
-// and constant — so its scrollable range never shifts when a chevron toggles —
+// and constant, so its scrollable range never shifts when a chevron toggles,
 // while a hidden chevron leaves NO reserved gap at that edge. Each chevron
 // carries the secondary bar's own background so a crumb scrolling underneath is
 // masked rather than showing through the icon.
@@ -24,8 +24,10 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  color: var(--fgColor-muted, var(--color-fg-muted));
-  background-color: var(--bgColor-default, var(--color-canvas-default));
+  color: var(--brand-color-text-muted, #58635b);
+  // Must stay whatever opaque token DocsSecondaryBar paints on `.bar`, or a crumb
+  // scrolling underneath shows through.
+  background-color: var(--brand-color-canvas-default);
 }
 
 .rightChevron {
@@ -34,8 +36,9 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  color: var(--fgColor-muted, var(--color-fg-muted));
-  background-color: var(--bgColor-default, var(--color-canvas-default));
+  color: var(--brand-color-text-muted, #58635b);
+  // Must match `.bar` — see .leftChevron.
+  background-color: var(--brand-color-canvas-default);
 }
 
 // On hover, keep the solid canvas background (Primer's invisible IconButton
@@ -44,11 +47,8 @@
 // currentColor stroke thickens the fill-based octicon glyph.
 .leftChevron:hover,
 .rightChevron:hover {
-  background-color: var(
-    --bgColor-default,
-    var(--color-canvas-default)
-  ) !important;
-  color: var(--fgColor-default, var(--color-fg-default));
+  background-color: var(--brand-color-canvas-default) !important;
+  color: var(--brand-color-text-default, #000000);
 
   svg {
     stroke: currentColor;
@@ -72,11 +72,11 @@
   // Constant 16px on both ends: keeps a crumb off the border at the scroll
   // extremes, and mid-scroll the chevron overlays the end of the trail (its
   // solid background masks whatever passes underneath). Keeping this padding
-  // fixed — never toggled with the chevrons — means the scroll content's width
+  // fixed, never toggled with the chevrons, means the scroll content's width
   // never changes, so toggling a chevron can't reflow the trail or nudge the
   // scroll position (no hop, no mount bounce, no click-lands-short).
   padding: 0 16px;
-  scrollbar-width: none; // Firefox — hide the horizontal scrollbar
+  scrollbar-width: none; // Firefox: hide the horizontal scrollbar
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
@@ -85,7 +85,7 @@
 
   // Make the brand Breadcrumbs <nav> the single, full-content-width scroll
   // child. Without this the brand nav fills only the visible width while its
-  // <ol> overflows it — a nested overflow context that freezes scrollLeft at
+  // <ol> overflows it: a nested overflow context that freezes scrollLeft at
   // its max so ancestor crumbs can never be revealed. Growing the nav to
   // max-content removes the nesting so the scroll range spans the whole trail;
   // min-width: 100% keeps short trails left-aligned and filling the container.

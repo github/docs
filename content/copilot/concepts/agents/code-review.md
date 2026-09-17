@@ -112,7 +112,7 @@ For pull requests authored by other bots, or when a bot requests the review, usa
 
 ### What happens when a budget is reached
 
-For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, code review access is governed by budget controls. If a user reaches their user-level budget, or if the enterprise or cost center spending limit is exhausted, code reviews are blocked along with other {% data variables.product.prodname_ai_credits_short %}-consuming features. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#what-happens-when-a-user-is-blocked).
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, code review access is governed by budget controls. If a user reaches their user-level budget, or if the enterprise or cost center spending limit is exhausted, code reviews are blocked along with other {% data variables.product.prodname_ai_credits_short %}-consuming features. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#what-happens-when-a-user-is-blocked).
 
 ### Users without a {% data variables.product.prodname_copilot_short %} license or plan that includes {% data variables.copilot.copilot_code-review_short %}
 

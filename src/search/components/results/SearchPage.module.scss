@@ -9,7 +9,7 @@
 //
 // And deliberately no `background-color`: the result rows below are transparent
 // over the page canvas, and brand's canvas-default is pure black in dark mode
-// while the page sits on Primer's #0d1117 — painting it here put a visible seam
+// while the page sits on Primer's #0d1117. Painting it here put a visible seam
 // between the band and the rows.
 //
 // The heading itself needs no breakpoints: brand's Heading size="3" resolves to

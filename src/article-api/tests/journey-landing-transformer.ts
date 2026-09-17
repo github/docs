@@ -12,7 +12,6 @@ describe('journey landing transformer', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')
 
-    // Check for journey tracks (now under Links section with track title as h3)
     expect(res.body).toContain('## Links')
     expect(res.body).toContain('### First Track')
     expect(res.body).toContain('* [Hello World](/en/get-started/start-your-journey/hello-world)')

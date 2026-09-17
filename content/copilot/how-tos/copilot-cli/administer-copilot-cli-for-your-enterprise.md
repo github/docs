@@ -12,6 +12,7 @@ category:
   - Administer Copilot CLI # Copilot CLI bespoke landing page
 docsTeamMetrics:
   - copilot-cli
+  - ai-governance
 ---
 
 {% data variables.copilot.copilot_cli_short %} brings agentic capabilities to developers' command line. When {% data variables.copilot.copilot_cli_short %} is enabled, developers can use it to ask {% data variables.product.prodname_copilot_short %} to work on tasks locally or delegate work to {% data variables.copilot.copilot_cloud_agent %}.

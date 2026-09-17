@@ -1,18 +1,7 @@
-/**
- * Unit tests for src/rest/lib/index.ts (PR #60342 changes)
- *
- * Covers:
- *   1. Two-tier cache: fpt/ghec → pinnedCache, other versions → lruCache
- *   2. In-flight deduplication: concurrent cold-cache requests share one readFile call
- *   3. Brotli fallback: any error reading/decompressing .br falls back to .json
- */
-
 import { describe, test, expect, vi, beforeEach } from 'vitest'
 
-// ---------------------------------------------------------------------------
-// Module-level mocks – declared before any dynamic imports so that vi.mock
-// hoisting places them before the module under test is first evaluated.
-// ---------------------------------------------------------------------------
+// These mocks are declared before any dynamic import so that vi.mock hoisting
+// places them ahead of the first evaluation of the module under test.
 
 vi.mock('fs', async (importOriginal) => {
   const real = await importOriginal<typeof import('fs')>()
@@ -65,10 +54,6 @@ vi.mock('@/versions/lib/all-versions', async (importOriginal) => {
   }
 })
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
 function enoent(path = 'fake'): NodeJS.ErrnoException {
   const err = new Error(
     `ENOENT: no such file or directory, open '${path}'`,
@@ -80,10 +65,8 @@ function enoent(path = 'fake'): NodeJS.ErrnoException {
 const FAKE_DATA: Record<string, string[]> = { ops: ['GET /repos'] }
 const FAKE_JSON = JSON.stringify(FAKE_DATA)
 
-// ---------------------------------------------------------------------------
-// Re-import a fresh module instance before each test so module-level state
-// (pinnedCache, lruCache, inflight) is empty.
-// ---------------------------------------------------------------------------
+// Each test re-imports a fresh module instance so that the module-level state
+// (pinnedCache, lruCache, inflight) starts out empty.
 
 type GetRest = (
   version: string,
@@ -104,15 +87,12 @@ let fsMock: FsMock
 beforeEach(async () => {
   vi.resetModules()
 
-  // Import fs mock to configure per-test readFile behaviour.
   const fsModule = await import('fs')
   fsMock = fsModule.default as unknown as FsMock
 
-  // Reset all call counts.
   vi.mocked(fsMock.promises.readFile).mockReset()
   vi.mocked(fsMock.readdirSync).mockReset()
 
-  // Re-import the module under test with a clean slate.
   const mod = await import('@/rest/lib/index')
   getRest = mod.default as unknown as GetRest
   pinnedCache = mod.pinnedCache as unknown as Map<string, unknown>
@@ -122,10 +102,6 @@ beforeEach(async () => {
     size: number
   }
 })
-
-// ---------------------------------------------------------------------------
-// 1. Two-tier cache routing
-// ---------------------------------------------------------------------------
 
 describe('two-tier cache routing', () => {
   test('fpt version lands in pinnedCache, not lruCache', async () => {
@@ -176,10 +152,6 @@ describe('two-tier cache routing', () => {
   })
 })
 
-// ---------------------------------------------------------------------------
-// 1b. Pinned cache compression
-// ---------------------------------------------------------------------------
-
 describe('pinned cache compression', () => {
   test('pinnedCache stores a Buffer (compressed), not a parsed object', async () => {
     vi.mocked(fsMock.promises.readFile)
@@ -197,9 +169,7 @@ describe('pinned cache compression', () => {
       .mockRejectedValueOnce(enoent())
       .mockResolvedValueOnce(FAKE_JSON as unknown as Buffer)
 
-    // First call populates the cache
     const first = await getRest('free-pro-team@latest', undefined, 'actions')
-    // Second call reads from compressed cache
     const second = await getRest('free-pro-team@latest', undefined, 'actions')
 
     expect(first).toEqual(FAKE_DATA)
@@ -219,10 +189,6 @@ describe('pinned cache compression', () => {
   })
 })
 
-// ---------------------------------------------------------------------------
-// 2. In-flight deduplication
-// ---------------------------------------------------------------------------
-
 describe('in-flight deduplication', () => {
   test('N concurrent cold-cache requests for same key share one readFile call', async () => {
     // Use a deferred to keep all three getRest() calls in flight simultaneously.
@@ -236,8 +202,8 @@ describe('in-flight deduplication', () => {
       return deferred as unknown as Promise<Buffer>
     })
 
-    // Launch 3 concurrent calls before the deferred resolves — all should be
-    // in flight at the same time and share the single inflight promise.
+    // Launch 3 concurrent calls before the deferred resolves, so all three are
+    // in flight at once and share the single inflight promise.
     const allPromise = Promise.all([
       getRest('free-pro-team@latest', undefined, 'actions'),
       getRest('free-pro-team@latest', undefined, 'actions'),
@@ -247,21 +213,15 @@ describe('in-flight deduplication', () => {
     resolveJson(FAKE_JSON)
     const results = await allPromise
 
-    // All three callers should receive the same data.
     expect(results[0]).toEqual(FAKE_DATA)
     expect(results[1]).toEqual(FAKE_DATA)
     expect(results[2]).toEqual(FAKE_DATA)
 
-    // Dedup: all 3 callers share a single loadCategoryFile() invocation.
-    // That results in exactly 2 readFile calls: one for .br (rejected) and
-    // one for .json — NOT 3×2=6 calls.
+    // All 3 callers share one loadCategoryFile() call, so there are exactly 2
+    // readFile calls: one for .br (rejected) and one for .json, not 6.
     expect(vi.mocked(fsMock.promises.readFile)).toHaveBeenCalledTimes(2)
   })
 })
-
-// ---------------------------------------------------------------------------
-// 3. loadCategoryFile brotli fallback
-// ---------------------------------------------------------------------------
 
 describe('loadCategoryFile brotli fallback', () => {
   test('.br missing (ENOENT) → falls back to .json and returns parsed data', async () => {

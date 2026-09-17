@@ -82,11 +82,11 @@ try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/n
     expect(errors.length).toBe(1) // Should detect and try to convert the old CTA format
     expect(errors[0].fixInfo).toBeDefined()
 
-    // The extracted URL should not include the curly brace - verify by checking the fix
+    // The extracted URL should not include the curly brace from the Liquid tag.
     const fixedUrl = errors[0].fixInfo?.insertText
     expect(fixedUrl).toBeDefined()
-    expect(fixedUrl).not.toContain('{') // Should not include curly brace from Liquid syntax
-    expect(fixedUrl).not.toContain('}') // Should not include curly brace from Liquid syntax
+    expect(fixedUrl).not.toContain('{')
+    expect(fixedUrl).not.toContain('}')
     expect(fixedUrl).toContain('ref_product=ghec') // Should have converted old format correctly
   })
 

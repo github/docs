@@ -235,13 +235,12 @@ const externalScalars: ScalarInfo[] = await Promise.all(
   }),
 )
 
-// select and format all the data from the schema that we need for the docs
-// used in the build step
 // Shape of the per-version `category-map.json` used both at runtime by the
 // redirect middleware and (here) at build time as a fallback source of
 // categories when a schema lacks `@docsCategory` directives.
 type CategoryMapFallback = Partial<Record<string, Record<string, string>>>
 
+// Selects and formats the schema data the docs need. Runs in the build step.
 export default async function processSchemas(
   idl: Buffer | string,
   previewsPerVersion: PreviewInfo[],
@@ -521,17 +520,18 @@ export default async function processSchemas(
     }
   }
 
-  // Normalize unknown categories (e.g. `:checks`, `:search`, `:packages`,
-  // `:security_advisories`) to `other`. The upstream gh/gh allowlist permits
-  // many categories that docs-internal hasn't yet built per-category landing
-  // pages for; without this fallback those types would be silently dropped
-  // by `writeCategoryFiles` (which only emits files for slugs in CATEGORIES)
-  // and their redirects would 404. Once a page exists for a category, add it
-  // to CATEGORIES in src/graphql/lib/categories.ts and types will move out
-  // of `other` on the next sync.
-  // Resolver used to populate the top-level `.category` field on every
-  // processed item. The bucketer reads `.category` to split the schema into
-  // per-category files and to rewrite cross-reference hrefs.
+  // Populates the top-level `.category` field on every processed item. The
+  // bucketer reads `.category` to split the schema into per-category files and
+  // to rewrite cross-reference hrefs.
+  //
+  // Unknown categories (e.g. `:checks`, `:search`, `:packages`,
+  // `:security_advisories`) normalize to `other`. The upstream gh/gh allowlist
+  // permits many categories that docs-internal has not built per-category
+  // landing pages for; without this fallback those types would be silently
+  // dropped by `writeCategoryFiles` (which only emits files for slugs in
+  // CATEGORIES) and their redirects would 404. Once a page exists for a
+  // category, add it to CATEGORIES in src/graphql/lib/categories.ts and types
+  // will move out of `other` on the next sync.
   const resolveCategory = (typeId: string): string => {
     const cat = typeCategoryMap.get(typeId) ?? fallbackTypeMap[typeId] ?? OTHER_CATEGORY
     return isValidCategory(cat) ? cat : OTHER_CATEGORY
@@ -556,7 +556,6 @@ export default async function processSchemas(
 
   await Promise.all(
     schemaAST.definitions.map(async (def: DefinitionNode) => {
-      // QUERIES
       if (def.kind === 'ObjectTypeDefinition' && def.name.value === 'Query') {
         await Promise.all(
           (def.fields || []).map(async (field: FieldDefinitionNode) => {
@@ -627,7 +626,6 @@ export default async function processSchemas(
         return
       }
 
-      // MUTATIONS
       if (def.kind === 'ObjectTypeDefinition' && def.name.value === 'Mutation') {
         await Promise.all(
           (def.fields || []).map(async (field: FieldDefinitionNode) => {
@@ -732,7 +730,6 @@ export default async function processSchemas(
         return
       }
 
-      // OBJECTS
       if (def.kind === 'ObjectTypeDefinition') {
         // objects ending with 'Payload' are only used to derive mutation values
         // they are not included in the objects docs
@@ -817,7 +814,6 @@ export default async function processSchemas(
         return
       }
 
-      // INTERFACES
       if (def.kind === 'InterfaceTypeDefinition') {
         const graphqlInterface: Partial<GraphQLInterfaceInfo> = {}
         const interfaceFields: FieldInfo[] = []
@@ -882,7 +878,6 @@ export default async function processSchemas(
         return
       }
 
-      // ENUMS
       if (def.kind === 'EnumTypeDefinition') {
         const graphqlEnum: Partial<EnumInfo> = {}
         const enumValues: EnumValueInfo[] = []
@@ -922,7 +917,6 @@ export default async function processSchemas(
         return
       }
 
-      // UNIONS
       if (def.kind === 'UnionTypeDefinition') {
         const union: Partial<UnionInfo> = {}
         const possibleTypes: PossibleTypeInfo[] = []
@@ -1027,7 +1021,6 @@ export default async function processSchemas(
         return
       }
 
-      // SCALARS
       if (def.kind === 'ScalarTypeDefinition') {
         const scalar: ScalarInfo = {
           name: def.name.value,
@@ -1058,7 +1051,6 @@ export default async function processSchemas(
   // add non-schema scalars and sort all scalars alphabetically
   data.scalars = sortBy(data.scalars.concat(externalScalars), 'name')
 
-  // sort all the types alphabetically
   data.queries = sortBy(data.queries, 'name')
   data.mutations = sortBy(data.mutations, 'name')
   data.objects = sortBy(data.objects, 'name')

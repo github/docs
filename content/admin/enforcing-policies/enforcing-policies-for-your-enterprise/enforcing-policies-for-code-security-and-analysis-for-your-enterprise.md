@@ -127,17 +127,15 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 
 {% ifversion ai-powered-security-detections %}
 
-## Enforcing a policy to manage the use of AI-powered security detections in your enterprise's repositories
+## Enforcing a policy to manage AI Scan in your enterprise's repositories
 
-As an enterprise owner, you can control whether organization and repository administrators can enable AI-powered security detections for their organizations and repositories. This policy is set to "Not allowed" by default.
+As an enterprise owner, you can control whether organizations in your enterprise can enable AI Scan. This policy is set to "Not allowed" by default.
 
-Allowing AI-powered security detections at the enterprise level does not enable the feature. Organization administrators must still explicitly enable AI-powered security detections. Repository administrators can opt-out of the feature.
-
-This policy only takes effect if {% data variables.product.prodname_codeql %} default setup is enabled.
+Allowing AI Scan at the enterprise level does not enable it for any organization. Organization administrators must enable AI Scan for their organization. Eligible repositories where {% data variables.product.prodname_code_scanning %} is enabled inherit the organization setting, and repository administrators can opt out for individual repositories.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "AI Findings", select the dropdown menu and click a policy.
+1. Under "AI Scan", select the dropdown menu and click a policy.
 
 {% endif %}

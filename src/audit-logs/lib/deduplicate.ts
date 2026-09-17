@@ -77,7 +77,6 @@ export async function writeDeduplicatedAuditLogData(
     }
   }
 
-  // Write shared files
   const sharedDir = path.join(AUDIT_LOG_DATA_DIR, 'shared')
   if (!existsSync(sharedDir)) {
     await mkdirp(sharedDir)

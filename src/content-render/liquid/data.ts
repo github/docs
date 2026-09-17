@@ -91,7 +91,6 @@ function handleIndent(tagToken: TagToken, text: string): string {
 // keep the blockquote character on every successive line.
 const blockquoteRegexp = /^\n?([ \t]*>[ \t]?)/
 function handleBlockquote(tagToken: TagToken, text: string): string {
-  // If the text isn't multiline, skip
   if (text.split('\n').length <= 1) return text
 
   // If the line with the liquid tag starts with a blockquote...
@@ -100,7 +99,6 @@ function handleBlockquote(tagToken: TagToken, text: string): string {
   const inputLine = input.split('\n').find((line) => line.includes(content))
   if (!inputLine || !blockquoteRegexp.test(inputLine)) return text
 
-  // Keep the character on successive lines
   const match = inputLine.match(blockquoteRegexp)
   if (!match) return text
   const start = match[0]

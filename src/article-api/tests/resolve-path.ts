@@ -2,7 +2,6 @@ import { describe, expect, test } from 'vitest'
 import { resolvePath } from '@/article-api/lib/resolve-path'
 import type { Context, Page } from '@/types'
 
-// Helper to create a minimal mock page
 function createMockPage(relativePath: string): Page {
   return {
     relativePath,
@@ -10,7 +9,6 @@ function createMockPage(relativePath: string): Page {
   } as unknown as Page
 }
 
-// Helper to create a minimal context with pages
 function createContext(pages: Record<string, Page>): Context {
   return { pages } as unknown as Context
 }

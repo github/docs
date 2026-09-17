@@ -55,7 +55,6 @@ describe('generatePromptId', () => {
     expect(typeof id).toBe('string')
     expect(id.length).toBeGreaterThan(0)
 
-    // Should be different from just the prompt text alone
     expect(id).not.toBe(generatePromptId(promptText))
   })
 

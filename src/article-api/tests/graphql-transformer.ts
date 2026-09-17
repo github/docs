@@ -8,7 +8,7 @@ const makeURL = (pathname: string): string => {
 }
 
 describe('GraphQL transformer', { timeout: 10000 }, () => {
-  // Cache expensive responses to avoid duplicate requests
+  // Several tests hit the same URL, so cache slow responses to avoid repeated requests.
   const responseCache = new Map<string, Awaited<ReturnType<typeof get>>>()
 
   const getCached = async (url: string) => {
@@ -32,7 +32,6 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       expect(res.statusCode).toBe(200)
       expect(res.headers['content-type']).toContain('text/markdown')
 
-      // Check for the main heading
       expect(res.body).toContain('# Repositories')
 
       // Items render as flat alphabetical level 2 headings with a kind suffix
@@ -47,10 +46,8 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       // Item headings are now at level 3
       expect(res.body).toContain('## repository - query')
 
-      // Check for query description
       expect(res.body).toContain('Lookup a given repository by the owner and repository name.')
 
-      // Check for type (without link)
       expect(res.body).toContain('**Type:** Repository')
     })
 
@@ -61,7 +58,6 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       // codeOfConduct query is in the meta category
       expect(res.body).toContain('### Arguments for `codeOfConduct`')
 
-      // Check for specific arguments in bullet format
       expect(res.body).toContain('`key` (String!)')
       expect(res.body).toContain("The code of conduct's key.")
     })
@@ -101,7 +97,6 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       expect(res.body).toContain('## User - object')
       expect(res.body).toContain('`repositories`')
 
-      // Check for nested argument bullets
       expect(res.body).toContain('`first`')
       expect(res.body).toContain('Returns the first n elements from the list.')
       expect(res.body).toContain('`orderBy`')
@@ -172,10 +167,8 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       const res = await getCached('/en/graphql/reference')
       expect(res.statusCode).toBe(200)
 
-      // Check for main heading
       expect(res.body).toContain('# Reference')
 
-      // Check for intro with liquid variable rendered
       expect(res.body).toMatch(/(GitHub|HubGit) GraphQL API schema/)
     })
   })
@@ -185,15 +178,12 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       const res = await getCached('/en/graphql/overview/changelog')
       expect(res.statusCode).toBe(200)
 
-      // Check for main heading
       expect(res.body).toContain('# Changelog')
 
-      // Check for intro
       expect(res.body).toContain(
         'The GraphQL schema changelog is a list of recent and upcoming changes',
       )
 
-      // Check for manual content
       expect(res.body).toContain(
         'Breaking changes include changes that will break existing queries',
       )
@@ -201,13 +191,10 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       // Index page shows latest year (2026) entries only
       expect(res.body).toContain('## Schema changes for 2026-')
 
-      // Check for change items
       expect(res.body).toContain('### The GraphQL schema includes these changes:')
 
-      // Should NOT contain entries from other years
       expect(res.body).not.toContain('## Schema changes for 2025-')
 
-      // Check for year navigation
       expect(res.body).toContain('2026')
       expect(res.body).toContain('2025')
     })
@@ -216,23 +203,19 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       const res = await getCached('/en/graphql/overview/changelog/2025')
       expect(res.statusCode).toBe(200)
 
-      // Check for year-specific heading
       expect(res.body).toContain('# GraphQL changelog for 2025')
 
-      // Check for date-based changelog sections from 2025
       expect(res.body).toContain('## Schema changes for 2025-')
 
-      // Should NOT contain entries from other years
       expect(res.body).not.toContain('## Schema changes for 2026-')
       expect(res.body).not.toContain('## Schema changes for 2024-')
     })
 
     test('changelog removes HTML tags from changes', async () => {
-      // Use a year page that has the specific test data
+      // The 2025 fixture is the one whose change descriptions contain HTML.
       const res = await getCached('/en/graphql/overview/changelog/2025')
       expect(res.statusCode).toBe(200)
 
-      // Check that HTML tags are removed
       expect(res.body).toContain('Field suggestedReviewerActors was added')
       expect(res.body).not.toContain('<code>')
       expect(res.body).not.toContain('</code>')
@@ -244,17 +227,13 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       const res = await getCached('/en/graphql/overview/breaking-changes')
       expect(res.statusCode).toBe(200)
 
-      // Check for main heading
       expect(res.body).toContain('# Breaking changes')
 
-      // Check for intro
       expect(res.body).toContain('Learn about recent and upcoming breaking changes')
 
-      // Check for manual content
       expect(res.body).toContain('## About breaking changes')
       expect(res.body).toContain('Breaking:** Changes that will break existing queries')
 
-      // Check for date-based sections
       expect(res.body).toContain('## Changes scheduled for 2025-04-01')
       expect(res.body).toContain('## Changes scheduled for 2026-04-01')
     })
@@ -263,7 +242,6 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       const res = await getCached('/en/graphql/overview/breaking-changes')
       expect(res.statusCode).toBe(200)
 
-      // Check for breaking criticality
       expect(res.body).toMatch(/\*\*Breaking\*\*\s+A change will be made to `\w+\.\w+`\./)
       expect(res.body).toMatch(/\*\*Description:\*\*.*will be removed/)
       expect(res.body).toMatch(/\*\*Reason:\*\*/)
@@ -274,7 +252,6 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       expect(res.statusCode).toBe(200)
       expect(res.body).toContain('scheduled for')
 
-      // Check that HTML tags are removed from descriptions
       expect(res.body).not.toContain('<p>')
       expect(res.body).not.toContain('</p>')
       expect(res.body).not.toContain('<code>')
@@ -291,7 +268,6 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       const res = await getCached('/en/graphql/reference/repos')
       expect(res.statusCode).toBe(200)
 
-      // Make sure the raw AUTOTITLE tag is not present
       expect(res.body).not.toContain('[AUTOTITLE]')
     })
 
@@ -308,7 +284,6 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       const res = await getCached('/en/graphql/overview/breaking-changes')
       expect(res.statusCode).toBe(200)
 
-      // Check that liquid variables in intro are rendered
       expect(res.body).toMatch(/(GitHub|HubGit) GraphQL API/)
       expect(res.body).not.toContain('{% data variables.product.prodname_dotcom %}')
     })

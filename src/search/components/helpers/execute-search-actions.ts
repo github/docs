@@ -64,9 +64,8 @@ export async function executeAISearch(version: string, query: string, debug = fa
   return response
 }
 
-/**
- * The AJAX request logic that fetches combined search results AI autocomplete suggestions + general search suggestions
- */
+// Fetches combined search results: AI autocomplete suggestions plus general
+// search suggestions.
 export async function executeCombinedSearch(
   router: NextRouter,
   version: string,
@@ -91,7 +90,6 @@ export async function executeCombinedSearch(
     headers: {
       'Content-Type': 'application/json',
     },
-    // Allow the caller to pass in an AbortSignal to cancel the request
     signal: abortSignal || undefined,
   })
   if (!response?.ok) {

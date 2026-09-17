@@ -8,15 +8,9 @@ enum annotationMode {
   Inline = 'inline',
 }
 
-/**
- * Validates if a given mode is one of expected annotation modes. If no acceptable mode is found, a default mode is returned.. Optionally, returns a default mode.
- * @param mode The mode to validate, ideally "#annotation-beside" or "#annotation-inline"
- * @param leaveNull Alters the return value of this function. If false, the function will return the mode that was passed in or, in the case of null, the default mode. If true, the function will return null instead of using the default mode.
- * @returns The validated mode, or null if leaveNull is true and no valid mode is found.
- */
+// Returns the mode if it is 'beside' or 'inline', otherwise falls back to Beside.
 function validateMode(mode?: string) {
   if (mode === annotationMode.Beside || mode === annotationMode.Inline) return mode
-  // default to Beside
   else return annotationMode.Beside
 }
 
@@ -24,15 +18,13 @@ export default function toggleAnnotation() {
   const annotationButtons = Array.from(document.querySelectorAll('.annotate-toggle button'))
   if (!annotationButtons.length) return
 
-  const cookie = validateMode(Cookies.get(ANNOTATE_MODE_COOKIE_NAME)) // will default to beside
+  const cookie = validateMode(Cookies.get(ANNOTATE_MODE_COOKIE_NAME))
   displayAnnotationMode(annotationButtons, cookie)
 
-  // this loop adds event listeners for both the annotation buttons
   for (const annotationBtn of annotationButtons) {
     annotationBtn.addEventListener('click', (evt) => {
       evt.preventDefault()
 
-      // validate the annotation mode and set the cookie with the valid mode
       const validMode = validateMode(annotationBtn.getAttribute('value')!)
       Cookies.set(ANNOTATE_MODE_COOKIE_NAME, validMode!)
       sendEvent({
@@ -41,14 +33,15 @@ export default function toggleAnnotation() {
         preference_value: validMode,
       })
 
-      // set and display the annotation mode
       setActive(annotationButtons, validMode)
       displayAnnotationMode(annotationButtons, validMode)
     })
   }
 }
 
-// sets the active element's aria-current, if no targetMode is set we default to "Beside", errors if it can't set either Beside or the passed in targetMode
+// Sets aria-current on every button whose value matches the validated mode, and
+// clears it from the rest. Missing or invalid modes validate to Beside. Throws if
+// no button matches.
 function setActive(annotationButtons: Array<Element>, targetMode?: string) {
   const activeElements: Array<Element> = []
   targetMode = validateMode(targetMode)
@@ -69,7 +62,6 @@ function setActive(annotationButtons: Array<Element>, targetMode?: string) {
   return activeElements
 }
 
-// displays the chosen annotation mode
 function displayAnnotationMode(annotationBtnItems: Array<Element>, targetMode?: string) {
   if (!targetMode || targetMode === annotationMode.Beside) {
     for (const el of annotationBtnItems) {

@@ -1,7 +1,6 @@
 import { expect, test, describe } from 'vitest'
 import { fixIncompleteMarkdown } from '@/search/components/helpers/fix-incomplete-markdown'
 
-// Unit tests for the `fixIncompleteMarkdown` function
 describe('fixIncompleteMarkdown', () => {
   test('should close unclosed bold syntax with double asterisks', () => {
     const input = 'This is **bold text'

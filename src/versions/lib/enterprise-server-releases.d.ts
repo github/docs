@@ -1,7 +1,3 @@
-// ============================================================================
-// TYPE DEFINITIONS
-// ============================================================================
-
 type Dates = {
   [key: string]: {
     releaseDate: string // For backward compatibility - will be RC date initially, then GA date once available
@@ -12,10 +8,6 @@ type Dates = {
     displayReleaseDate?: string | null // Computed: GA date if in past, null if future
   }
 }
-
-// ============================================================================
-// STATICALLY DEFINED VALUES
-// ============================================================================
 
 export const next: string
 export const nextNext: string
@@ -31,10 +23,6 @@ export const lastReleaseWithLegacyFormat: string
 export const firstReleaseNote: string
 export const firstRestoredAdminGuides: string
 
-// ============================================================================
-// COMPUTED VALUES
-// ============================================================================
-
 export const all: string[]
 export const latest: string
 export const latestStable: string
@@ -48,17 +36,9 @@ export const deprecatedReleasesWithLegacyFormat: string[]
 export const deprecatedReleasesWithNewFormat: string[]
 export const deprecatedReleasesOnDeveloperSite: string[]
 
-// ============================================================================
-// HELPER FUNCTIONS
-// ============================================================================
-
 export declare function findReleaseNumberIndex(releaseNum: string): number
 export declare function getNextReleaseNumber(releaseNum: string): string
 export declare function getPreviousReleaseNumber(releaseNum: string): string
-
-// ============================================================================
-// DEFAULT EXPORT
-// ============================================================================
 
 const allExports = {
   next,

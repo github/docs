@@ -25,7 +25,6 @@ const Octicon = {
       throw new TokenizationError(SyntaxHelp, tagToken)
     }
 
-    // Memoize the icon
     this.icon = match.groups.icon
     // Breaking change in octicons 12
     // https://github.com/primer/octicons/releases/tag/v12.0.0
@@ -36,29 +35,24 @@ const Octicon = {
 
     this.options = {}
 
-    // Memoize any options passed
     if (match.groups.options) {
       let optionsMatch: RegExpExecArray | null
 
-      // Loop through each option matching the OptionsSyntax regex
       while ((optionsMatch = OptionsSyntax.exec(match.groups.options))) {
         // Pull out the key/value ([0] is the whole input)
         const [, key, value] = optionsMatch
         this.options[key] = value
 
-        // Alias label to aria-label
         if (key === 'label') this.options['aria-label'] = value
       }
     }
   },
 
   async render(): Promise<string> {
-    // Throw an error if the requested octicon does not exist.
     if (!Object.prototype.hasOwnProperty.call(octicons, this.icon)) {
       throw new Error(`Octicon ${this.icon} does not exist`)
     }
 
-    // Auto-generate aria-label if not provided
     // Replace non-alphanumeric characters with spaces and append " icon"
     if (!this.options['aria-label']) {
       const defaultLabel = `${this.icon.toLowerCase().replace(/[^a-z0-9]+/gi, ' ')} icon`

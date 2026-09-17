@@ -48,7 +48,13 @@
   .tooltipped {
     &:focus-visible::before,
     &:focus-visible::after {
-      outline: 2px solid var(--color-focus-outset);
+      // --color-focus-outset is defined nowhere in this app, which made the whole
+      // `outline` shorthand invalid at computed-value time — so the longhands reset
+      // and `outline-style: none` won, leaving high-contrast users with NO focus
+      // ring at all, in either colour mode. Brand's focus token, matching the same
+      // repair already made in annotate.scss.
+      outline: var(--brand-borderWidth-thick, 2px) solid
+        var(--brand-color-focus, #0377ff);
       outline-offset: 2px;
     }
   }

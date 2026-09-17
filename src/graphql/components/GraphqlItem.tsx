@@ -18,7 +18,7 @@ type Props = {
   kind?: SchemaKindKey
 }
 
-// Clamp a numeric heading level to the valid HTML range (2–6). Used to
+// Clamp a numeric heading level to the valid HTML range (2-6). Used to
 // build heading tag names like `h2`/`h3` from a numeric `headingLevel`
 // prop without producing invalid tags if a caller passes something odd.
 function headingTag(level: number): keyof JSX.IntrinsicElements {

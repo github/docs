@@ -181,7 +181,6 @@ describe('server', () => {
     const res = await get('/categories.json')
     expect(res.statusCode).toBe(200)
 
-    // check for CORS header
     expect(res.headers['access-control-allow-origin']).toBe('*')
 
     // Check that it can be cached at the CDN

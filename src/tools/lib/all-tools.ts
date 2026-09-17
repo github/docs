@@ -1,6 +1,4 @@
-/**
- * Interface defining the mapping between tool identifiers and their display names
- */
+// Maps each tool identifier to its display name.
 export interface ToolsMapping {
   [key: string]: string
 }

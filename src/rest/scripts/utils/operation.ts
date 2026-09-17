@@ -187,7 +187,6 @@ export default class Operation {
     // Operation Id: markdown/render-raw
     const contentType = Object.keys(this.#operation.requestBody.content)[0]
     const schema = get(this.#operation, `requestBody.content.${contentType}.schema`, {})
-    // Merges any instances of allOf in the schema using a deep merge
     const mergedAllofSchema = mergeAllOf(schema as Parameters<typeof mergeAllOf>[0])
     try {
       this.bodyParameters = isPlainObject(schema)

@@ -16,9 +16,8 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   const [isTallEnough, setIsTallEnough] = useState(false)
 
   useEffect(() => {
-    // We cannot determine document.documentElement.scrollTop height because we set the height: 100vh and set overflow to auto to keep the header sticky
-    // That means window.scrollTop height is always 0
-    // Using IntersectionObserver we can determine if the h1 header is in view or not. If not, we show the scroll to top button, if so, we hide it
+    // Show the button once the article h1 has scrolled out of view, and hide it
+    // again when the h1 comes back.
     const h1Element = document.getElementsByTagName('h1')[0]
     if (!h1Element) {
       if (process.env.NODE_ENV !== 'production') {

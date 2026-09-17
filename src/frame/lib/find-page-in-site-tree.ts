@@ -1,8 +1,6 @@
 import type { Tree } from '@/types'
 import { getLanguageCode } from './patterns'
 
-// This module recursively searches a given part of the site tree by iterating through child
-// pages and finding a path that matches the original path provided.
 export default function findPageInSiteTree(
   treePage: Tree,
   englishTree: Tree,
@@ -11,32 +9,25 @@ export default function findPageInSiteTree(
 ): Tree {
   if (Array.isArray(treePage)) throw new Error('received array instead of object')
 
-  // If the tree page already matches the path, or if it has no child pages, return the page itself.
   if (treePage.href === originalPath || !treePage.childPages) {
     return treePage
   }
 
-  // If no modified path is provided, set it to the original path.
   if (!modifiedPath) {
     modifiedPath = originalPath
   }
 
-  // Find the index of the modified path in the array of child pages.
   const foundIndex = treePage.childPages.findIndex(({ href }) => href === modifiedPath)
 
-  // Use that index to find the child page that matches the path.
   const foundPage = treePage.childPages[foundIndex]
 
-  // If we found a page...
   if (foundPage) {
     return modifiedPath === originalPath
-      ? // Check if it matches the _original_ path, and return it if so.
-        foundPage
-      : // If we found a page with the modified path, keep going down the tree until we find the original path.
-        findPageInSiteTree(foundPage, englishTree, originalPath)
+      ? foundPage
+      : findPageInSiteTree(foundPage, englishTree, originalPath)
   }
 
-  // If no page was found at the path we tried, try again by removing the last segment of the path.
+  // Try again with the last path segment removed.
   modifiedPath = modifiedPath.replace(/\/[^/]+?$/, '')
 
   // Error out or we'll just recurse forever until the stack size is exceeded.
