@@ -505,6 +505,51 @@
         "access": "write"
       },
       {
+        "category": "actions",
+        "slug": "list-organization-actions-policies",
+        "subcategory": "policies",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "create-an-organization-actions-policy",
+        "subcategory": "policies",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "get-an-organization-actions-policy",
+        "subcategory": "policies",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/policies/{policy_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "update-an-organization-actions-policy",
+        "subcategory": "policies",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/policies/{policy_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "delete-an-organization-actions-policy",
+        "subcategory": "policies",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/policies/{policy_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "orgs",
         "slug": "get-the-audit-log-for-an-organization",
         "subcategory": "orgs",
@@ -4668,6 +4713,51 @@
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "list-repository-actions-policies",
+        "subcategory": "policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "create-a-repository-actions-policy",
+        "subcategory": "policies",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/policies",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "get-a-repository-actions-policy",
+        "subcategory": "policies",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "update-a-repository-actions-policy",
+        "subcategory": "policies",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "delete-a-repository-actions-policy",
+        "subcategory": "policies",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}",
         "additional-permissions": false,
         "access": "write"
       },

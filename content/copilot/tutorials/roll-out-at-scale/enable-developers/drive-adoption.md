@@ -75,6 +75,7 @@ You may choose to create internal onboarding materials to help teams get started
 
 * [AUTOTITLE](/copilot/get-started/best-practices)
 * [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering)
+* [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/copilot-app-for-teams)
 * [AUTOTITLE](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
 * [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide)
 
