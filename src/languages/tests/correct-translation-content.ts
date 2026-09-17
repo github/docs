@@ -3206,4 +3206,116 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(fix(other, 'ja')).toBe(other)
     })
   })
+
+  describe('ko: troubleshooting-jekyll-build-errors-for-github-pages-sites.md per-file fix', () => {
+    const broken =
+      '예를 들어 `{{ page.title }`{% endraw %} 대신 {% raw %}`{{ page.title }}`인 경우입니다.'
+    const fixed =
+      '예를 들어 {% raw %}`{{ page.title }`{% endraw %} 대신 {% raw %}`{{ page.title }}`{% endraw %}인 경우입니다.'
+
+    test('restores the swapped raw/endraw pair around the example code span', () => {
+      expect(fix(broken, 'ko')).toBe(fixed)
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+
+    test('does not touch already-correct input', () => {
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+  })
+
+  describe('enforcing-repository-management-policies-in-your-enterprise.md per-file fixes', () => {
+    test('es: closes the second scoped ifversion/elsif conditional', () => {
+      const broken =
+        '1. En "Repositorio {% ifversion ghec %}invitaciones a colaboradores externos{% elsif ghes %}", seleccione el menú desplegable y haga clic en una opción.'
+      const fixed =
+        '1. En "Repositorio {% ifversion ghec %}invitaciones a colaboradores externos{% elsif ghes %}invitaciones{% endif %}", seleccione el menú desplegable y haga clic en una opción.'
+      expect(fix(broken, 'es')).toBe(fixed)
+      expect(fix(fixed, 'es')).toBe(fixed)
+    })
+
+    test('es: closes the first scoped ifversion/elsif conditional', () => {
+      const broken =
+        '1. En "Repositorio {% ifversion ghec %}invitaciones de colaboradores externos{% elsif ghes %}", revise la información sobre cómo cambiar la configuración. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}'
+      const fixed =
+        '1. En "Repositorio {% ifversion ghec %}invitaciones de colaboradores externos{% elsif ghes %}invitaciones{% endif %}", revise la información sobre cómo cambiar la configuración. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}'
+      expect(fix(broken, 'es')).toBe(fixed)
+      expect(fix(fixed, 'es')).toBe(fixed)
+    })
+
+    test('ko: reconstructs the scrambled first bullet to match the second', () => {
+      const broken =
+        '1. "리포지토리 외부 협력자 초대{% ifversion ghec %}에서 설정 변경에 대한 정보를 검토합니다{% elsif ghes %}." {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}'
+      const fixed =
+        '1. "리포지토리{% ifversion ghec %} 외부 협력자{% elsif ghes %} 초대{% endif %}"에서 설정 변경에 대한 정보를 검토합니다. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}'
+      expect(fix(broken, 'ko')).toBe(fixed)
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+
+    test('de: closes the second scoped ifversion/elsif conditional', () => {
+      const broken =
+        '1. Wählen Sie unter "Repository {% ifversion ghec %}Einladungen für externe Mitarbeiter{% elsif ghes %}" das Dropdown-Menü aus und wählen Sie eine Richtlinie.'
+      const fixed =
+        '1. Wählen Sie unter "Repository {% ifversion ghec %}Einladungen für externe Mitarbeiter{% elsif ghes %}Einladungen{% endif %}" das Dropdown-Menü aus und wählen Sie eine Richtlinie.'
+      expect(fix(broken, 'de')).toBe(fixed)
+      expect(fix(fixed, 'de')).toBe(fixed)
+    })
+
+    test('de: closes the dropped ifversion/else conditional in the intro paragraph', () => {
+      const broken =
+        '{% ifversion ghec %}Wenn Ihr Unternehmen {% data variables.product.prodname_emus %} verwendet, können Sie ebenfalls verhindern, dass Benutzer Repositorys erstellen, die ihren Benutzerkonten gehören. '
+      const fixed =
+        '{% ifversion ghec %}Wenn Ihr Unternehmen {% data variables.product.prodname_emus %} verwendet, können Sie{% endif %} ebenfalls verhindern, dass Benutzer Repositorys erstellen, die ihren Benutzerkonten gehören. '
+      expect(fix(broken, 'de')).toBe(fixed)
+      expect(fix(fixed, 'de')).toBe(fixed)
+    })
+
+    test('pt: closes the dropped ifversion/else conditional in the intro paragraph', () => {
+      const broken =
+        '{% ifversion ghec %}Se sua empresa usar {% data variables.product.prodname_emus %}, você{% else %} também poderá impedir os usuários de criarem repositórios de propriedade de suas contas de usuário.'
+      const fixed =
+        '{% ifversion ghec %}Se sua empresa usar {% data variables.product.prodname_emus %}, você{% else %}Você{% endif %} também poderá impedir os usuários de criarem repositórios de propriedade de suas contas de usuário.'
+      expect(fix(broken, 'pt')).toBe(fixed)
+      expect(fix(fixed, 'pt')).toBe(fixed)
+    })
+  })
+
+  describe('transferring-ownership-of-a-github-app.md per-file fixes', () => {
+    test('es: restores the dropped ifversion opener before the quoted UI label', () => {
+      const broken =
+        'En "Nombre de usuario, empresa u organización del nuevo propietario de {% data variables.product.prodname_dotcom %} {% else %}nombre de usuario u organización",{% endif %}, escriba'
+      const fixed =
+        'En "{% ifversion fpt or enterprise-apps-public-beta %}Nombre de usuario, empresa u organización del nuevo propietario de {% data variables.product.prodname_dotcom %}",{% else %}nombre de usuario u organización",{% endif %}, escriba'
+      expect(fix(broken, 'es')).toBe(fixed)
+      expect(fix(fixed, 'es')).toBe(fixed)
+    })
+
+    test('pt: moves the misplaced ifversion opener back before the quoted UI label', () => {
+      const broken =
+        '1. Em "Nome de usuário, organização ou nome da empresa {% else %}nome de usuário ou nome da organização do {% data variables.product.prodname_dotcom %} {% ifversion fpt or enterprise-apps-public-beta %} do novo proprietário",{% endif %} digite o nome da conta para a qual você deseja transferir o {% data variables.product.prodname_github_app %}.'
+      const fixed =
+        '1. Em "{% ifversion fpt or enterprise-apps-public-beta %}Nome de usuário, organização ou nome da empresa{% else %}nome de usuário ou nome da organização{% endif %} do {% data variables.product.prodname_dotcom %} do novo proprietário", digite o nome da conta para a qual você deseja transferir o {% data variables.product.prodname_github_app %}.'
+      expect(fix(broken, 'pt')).toBe(fixed)
+      expect(fix(fixed, 'pt')).toBe(fixed)
+    })
+  })
+
+  describe('change-retention-period-for-artifacts-logs.md per-file fixes', () => {
+    test('zh: closes the dropped ifversion/else conditional', () => {
+      const broken =
+        '{% ifversion ghes %}在“检查、工作流运行、状态、工件、日志和缓存设置”部分的 **检查、工作流运行、状态、工件和日志保留** 下，输入一个新值。'
+      const fixed =
+        '{% ifversion ghes %}在“检查、工作流运行、状态、工件、日志和缓存设置”部分的{% else %}在{% endif %} **检查、工作流运行、状态、工件和日志保留** 下，输入一个新值。'
+      expect(fix(broken, 'zh')).toBe(fixed)
+      expect(fix(fixed, 'zh')).toBe(fixed)
+    })
+
+    test('ko: closes the dropped ifversion/else conditional (second corruption variant)', () => {
+      const broken =
+        '1. {% ifversion ghes %}"검사, 워크플로 실행, 상태, 아티팩트, 로그 및 캐시 설정" 섹션에서 **검사, 워크플로 실행, 상태, 아티팩트 및 로그 보존** 아래에 새 값을 입력합니다.'
+      const fixed =
+        '1. {% ifversion ghes %}"검사, 워크플로 실행, 상태, 아티팩트, 로그 및 캐시 설정" 섹션에서{% else %}{% endif %} **검사, 워크플로 실행, 상태, 아티팩트 및 로그 보존** 아래에 새 값을 입력합니다.'
+      expect(fix(broken, 'ko')).toBe(fixed)
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+  })
 })
