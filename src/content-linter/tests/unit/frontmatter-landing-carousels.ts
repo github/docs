@@ -92,14 +92,9 @@ describe(ruleName, () => {
   })
 
   test('absolute paths are prioritized over relative paths', async () => {
-    // This test verifies that when both absolute and relative paths exist with the same name,
-    // the absolute path is chosen over the relative path.
-    //
-    // Setup:
-    // - /article-one should resolve to src/fixtures/fixtures/content/article-one.md (absolute)
-    // - article-one (relative) would resolve to src/content-linter/tests/fixtures/landing-carousels/article-one.md
-    //
-    // The test passes because our logic prioritizes the absolute path resolution first
+    // /article-one exists both as src/fixtures/fixtures/content/article-one.md
+    // and as src/content-linter/tests/fixtures/landing-carousels/article-one.md.
+    // The absolute resolution wins.
     const result = await runRule(frontmatterLandingCarousels, {
       files: [ABSOLUTE_PRIORITY],
       ...fmOptions,
@@ -108,16 +103,7 @@ describe(ruleName, () => {
   })
 
   test('path priority resolution works correctly', async () => {
-    // This test verifies that absolute paths are prioritized over relative paths
-    // when both files exist with the same name.
-    //
-    // Setup:
-    // - /article-one could resolve to EITHER:
-    //   1. src/fixtures/fixtures/content/article-one.md (absolute - should be chosen)
-    //   2. src/content-linter/tests/fixtures/landing-carousels/article-one.md (relative - should be ignored)
-    //
-    // Our prioritization logic should choose #1 (absolute) over #2 (relative)
-    // This test passes because the absolute path exists and is found first
+    // Same collision as the test above, reached through a different fixture.
     const result = await runRule(frontmatterLandingCarousels, {
       files: [PATH_PRIORITY],
       ...fmOptions,
@@ -126,10 +112,7 @@ describe(ruleName, () => {
   })
 
   test('absolute-only paths work when no relative path exists', async () => {
-    // This test verifies that absolute path resolution works when no relative path exists
-    // /article-two exists in src/fixtures/fixtures/content/article-two.md
-    // but NOT in src/content-linter/tests/fixtures/landing-carousels/article-two.md
-    // This test would fail if we didn't prioritize absolute paths properly
+    // /article-two resolves from src/fixtures/fixtures/content/article-two.md.
     const result = await runRule(frontmatterLandingCarousels, {
       files: [ABSOLUTE_ONLY],
       ...fmOptions,

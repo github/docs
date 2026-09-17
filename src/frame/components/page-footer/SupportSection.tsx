@@ -11,7 +11,7 @@ import { useTranslation } from '@/languages/components/useTranslation'
 import styles from './SupportSection.module.scss'
 
 // Renders inside MinimalFooter's `centerComponent` slot, so it no longer owns a page
-// container or a section heading — the footer supplies that chrome.
+// container or a section heading. The footer supplies that chrome.
 //
 // Columns carry their own class rather than relying on nth-child, because any of the
 // three can be hidden (site-policy pages drop the survey, non-English drops the

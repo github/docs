@@ -7,7 +7,7 @@ import styles from './FooterDivider.module.scss'
 // Purely ornamental, so it carries no accessible name and is hidden from AT.
 //
 // It fades and rises into place the first time it scrolls into view. The band is
-// only *armed* — that is, hidden — once we know scripting is running and it is still
+// only *armed* (hidden) once we know scripting is running and it is still
 // below the fold, so it can never be left permanently invisible: without JavaScript,
 // with reduced motion, or on a page short enough that the footer is already on
 // screen, it just renders in place with no animation.

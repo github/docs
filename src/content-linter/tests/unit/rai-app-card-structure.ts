@@ -3,11 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { runRule } from '../../lib/init-test'
 import { raiAppCardStructure } from '../../lib/linting-rules/rai-app-card-structure'
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-/** A minimal valid RAI card with all required H2s, H3s, and reusables. */
+// A minimal valid RAI card with all required H2s, H3s, and reusables.
 function validCard(): string {
   return [
     '---',
@@ -102,9 +98,7 @@ function validCard(): string {
 }
 
 describe(raiAppCardStructure.names.join(' - '), () => {
-  // -----------------------------------------------------------------------
-  // Happy path & filtering
-  // -----------------------------------------------------------------------
+  // Happy path and filtering
 
   test('valid RAI card produces zero errors', async () => {
     const markdown = validCard()
@@ -128,9 +122,7 @@ describe(raiAppCardStructure.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
-  // -----------------------------------------------------------------------
-  // One negative test per validator — proves each code path fires
-  // -----------------------------------------------------------------------
+  // One negative test per validator, to prove each code path fires
 
   test('missing a required H2 section reports an error', async () => {
     const markdown = validCard()

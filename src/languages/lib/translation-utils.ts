@@ -50,7 +50,7 @@ export function createTranslationFunctions(uiData: UIStrings, namespaces: string
       // Try each namespace in order
       for (const namespace of namespacesArray) {
         if (!(namespace in uiData)) {
-          continue // Skip missing namespaces
+          continue
         }
         const deeper = uiData[namespace]
         if (typeof deeper === 'string') {
@@ -105,7 +105,6 @@ export function createTranslationFunctions(uiData: UIStrings, namespaces: string
  * Enhanced with better error handling for missing keys and defensive fallbacks
  */
 export function translate(uiData: UIStrings, key: string, fallback?: string): string {
-  // Defensive check for completely missing data
   if (!uiData || typeof uiData !== 'object') {
     console.warn(`UI data is missing or corrupted for key "${key}", using fallback`)
     return getCommonFallback(key, fallback)
@@ -116,7 +115,6 @@ export function translate(uiData: UIStrings, key: string, fallback?: string): st
   } catch (error) {
     const finalFallback = getCommonFallback(key, fallback)
 
-    // Only warn in development
     if (process.env.NODE_ENV === 'development') {
       console.warn(
         `Server translation failed for "${key}":`,
@@ -129,9 +127,6 @@ export function translate(uiData: UIStrings, key: string, fallback?: string): st
   }
 }
 
-/**
- * Get common fallback values for essential UI keys
- */
 function getCommonFallback(key: string, providedFallback?: string): string {
   const commonFallbacks: Record<string, string> = {
     'meta.oops': 'Ooops!',

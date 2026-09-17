@@ -53,7 +53,7 @@ function cacheControlFactory(
   }
 }
 
-// ### These are roughly in order from shortest to longest. ###
+// The rest of this file is roughly in order from shortest max age to longest.
 
 // If you do not want caching.
 export const noCacheControl = cacheControlFactory(0)

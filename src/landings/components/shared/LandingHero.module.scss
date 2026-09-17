@@ -90,9 +90,13 @@
   .heroIntroScrim {
     display: inline-block;
     backdrop-filter: blur(1rem);
+    // A 70% wash of the page canvas, so the intro stays readable over the
+    // isometric art without reading as a panel of its own. Brand's canvas is
+    // what `body` now paints (src/frame/stylesheets/index.scss), so
+    // mixing Brand's token keeps this invisible except where it overlays art.
     background-color: color-mix(
       in srgb,
-      var(--color-canvas-default) 70%,
+      var(--brand-color-canvas-default) 70%,
       transparent
     );
     border-radius: var(--brand-borderRadius-medium, 0.75rem);

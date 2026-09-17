@@ -10,14 +10,12 @@ describe('link error line numbers', () => {
   let mockContext: Context
 
   beforeEach(async () => {
-    // Set up file system mocking
     fs = await import('fs')
     originalReadFileSync = fs.default.readFileSync
     originalExistsSync = fs.default.existsSync
 
     fs.default.existsSync = () => true
 
-    // Set up basic mock context
     mockContext = {
       currentLanguage: 'en',
       currentVersion: 'free-pro-team@latest',
@@ -30,13 +28,11 @@ describe('link error line numbers', () => {
   })
 
   afterEach(() => {
-    // Restore original functions
     fs.default.readFileSync = originalReadFileSync
     fs.default.existsSync = originalExistsSync
   })
 
   test('reports correct line numbers for broken AUTOTITLE links', async () => {
-    // Test content with frontmatter followed by content with a broken link
     const template = `---
 title: Test Page
 version: 1.0
@@ -72,7 +68,6 @@ More content here.`
       fullPath: '/fake/test-file-2.md',
     } as unknown as Context['page']
 
-    // Test with more extensive frontmatter
     const template = `---
 title: Another Test Page
 description: This is a test
@@ -109,7 +104,6 @@ Content with a [AUTOTITLE](/another/nonexistent/page) link.`
       fullPath: '/fake/no-frontmatter.md',
     } as unknown as Context['page']
 
-    // Test content without frontmatter
     const template = `# Simple Title
 
 This is content without frontmatter.
@@ -148,7 +142,6 @@ title: Message Test
     } catch (error) {
       expect(error).toBeInstanceOf(TitleFromAutotitleError)
 
-      // Check that the new error message format is used
       expect((error as TitleFromAutotitleError).message).toContain(
         'could not be resolved in one or more versions',
       )
@@ -157,7 +150,6 @@ title: Message Test
       )
       expect((error as TitleFromAutotitleError).message).toContain('/test/broken/link')
 
-      // Check that the old error message format is NOT used
       expect((error as TitleFromAutotitleError).message).not.toContain('Unable to find Page by')
       expect((error as TitleFromAutotitleError).message).not.toContain('To fix it, look at')
     }

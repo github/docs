@@ -19,11 +19,10 @@ import config from './config.json'
 
 export const AUDIT_LOG_DATA_DIR = 'src/audit-logs/data'
 
-// cache of audit log data
 const auditLogEventsCache = new Map<string, Map<string, AuditLogEventT[]>>()
 const categorizedAuditLogEventsCache = new Map<string, Map<string, CategorizedEvents>>()
 
-// Shared dedup data — loaded once, shared across all versions
+// Shared dedup data, loaded once and shared across all versions.
 let sharedEntries: DeduplicatedAuditLogEntry[] | null = null
 let sharedFieldsPool: string[][] | null = null
 let sharedVersionIndex: AuditLogVersionIndex | null = null
@@ -58,10 +57,10 @@ function loadSharedFormat(): boolean {
     sharedFormatAvailable = true
   } catch (err) {
     if (isFileNotFoundError(err)) {
-      // Shared files don't exist — fall back to per-version files silently.
+      // Shared files don't exist, so fall back to per-version files silently.
       sharedFormatAvailable = false
     } else {
-      // Corrupt JSON, schema mismatch, etc. — surface this instead of hiding it.
+      // Corrupt JSON, schema mismatch, and so on. Surface it instead of hiding it.
       console.error('Failed to load shared audit log dedup format (corrupt data?):', err)
       throw err
     }
@@ -108,7 +107,6 @@ type PipelineConfig = {
   appendedDescriptions: Record<string, string>
 }
 
-// get category notes from config
 export function getCategoryNotes(): CategoryNotes {
   const auditLogConfig = config as AuditLogConfig
   return auditLogConfig.categoryNotes || {}
@@ -126,7 +124,6 @@ export type TitleResolutionContext = Context & {
 // request (~90–150ms of repeated work). See docs-engineering#6650.
 const referenceLinksMarkdownCache = new Map<string, Promise<string>>()
 
-// Resolves docs_reference_links URLs to markdown links
 export function resolveReferenceLinksToMarkdown(
   docsReferenceLinks: string,
   context: TitleResolutionContext,
@@ -147,7 +144,6 @@ async function computeReferenceLinksToMarkdown(
   docsReferenceLinks: string,
   context: TitleResolutionContext,
 ): Promise<string> {
-  // Handle multiple comma-separated or space-separated links
   const links = docsReferenceLinks
     .split(/[,\s]+/)
     .map((link) => link.trim())
@@ -188,7 +184,6 @@ async function computeReferenceLinksToMarkdown(
   return markdownLinks.join(', ')
 }
 
-// Resolves docs_reference_links URLs to page titles
 async function resolveReferenceLinksToTitles(
   docsReferenceLinks: string,
   context: TitleResolutionContext,
@@ -197,7 +192,6 @@ async function resolveReferenceLinksToTitles(
     return ''
   }
 
-  // Handle multiple comma-separated or space-separated links
   const links = docsReferenceLinks
     .split(/[,\s]+/)
     .map((link) => link.trim())
@@ -258,7 +252,6 @@ export function getAuditLogEvents(page: string, version: string): AuditLogEventT
     auditLogEventsCache.set(openApiVersion, new Map())
   }
   if (!auditLogEventsCache.get(openApiVersion)?.has(page)) {
-    // Try shared deduplicated format first
     const events = reconstructEventsFromSharedFormat(openApiVersion, page)
     if (events) {
       auditLogEventsCache.get(openApiVersion)?.set(page, events)
@@ -307,7 +300,6 @@ export function getCategorizedAuditLogEvents(page: string, version: string): Cat
   return categorizedAuditLogEventsCache.get(openApiVersion)?.get(page) || {}
 }
 
-// Filters audit log events based on allowlist values.
 export async function filterByAllowlistValues({
   eventsToCheck,
   allowListValues,
@@ -337,7 +329,6 @@ export async function filterByAllowlistValues({
       if (seen.has(event.action)) continue
       seen.add(event.action)
 
-      // Merge global fields with event-specific fields
       const mergedFields = event.fields
         ? [...new Set([...globalFields, ...event.fields])]
         : globalFields.length > 0
@@ -351,7 +342,6 @@ export async function filterByAllowlistValues({
         fields: mergedFields,
       }
 
-      // Resolve reference link titles if context is provided
       if (titleContext && event.docs_reference_links && event.docs_reference_links !== 'N/A') {
         try {
           minimal.docs_reference_titles = await resolveReferenceLinksToTitles(
@@ -374,13 +364,6 @@ export async function filterByAllowlistValues({
 
 // Filters audit log events based on allowlist values and processes an
 // event's supported GHES versions.
-//
-// * eventsToCheck: events to consider
-// * allowListvalue: allowlist value to filter by
-// * currentEvents: events already collected
-// * pipelineConfig: audit log pipeline config data
-// * auditLogPage: the audit log page the event belongs to
-// * titleContext: optional context for resolving reference link titles
 //
 // Mutates `currentGhesEvents` and updates it with any new filtered for audit
 // log events, the object maps GHES versions to page events for that version e.g.:
@@ -442,10 +425,8 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
       if (seenByGhesVersion.get(fullGhesVersion)?.has(event.action)) continue
 
       if (ghesVersionAllowlists.includes(allowListValue)) {
-        // Get event-specific fields (prefer GHES version fields, fall back to base fields)
         const eventFields = event.ghes[ghesVersion].fields || event.fields
 
-        // Merge global fields with event-specific fields
         const mergedFields = eventFields
           ? [...new Set([...globalFields, ...eventFields])]
           : globalFields.length > 0
@@ -459,7 +440,6 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
           fields: mergedFields,
         }
 
-        // Resolve reference link titles if context is provided
         if (titleContext && event.docs_reference_links && event.docs_reference_links !== 'N/A') {
           try {
             minimal.docs_reference_titles = await resolveReferenceLinksToTitles(
@@ -501,7 +481,6 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
   }
 }
 
-// Categorizes the given array of audit log events by event category
 function categorizeEvents(events: AuditLogEventT[]) {
   const categorizedEvents: CategorizedEvents = {}
   for (const event of events) {

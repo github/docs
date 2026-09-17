@@ -151,7 +151,7 @@ export const InArticlePicker = ({
   // After a user clicks a tab, the shallow route change updates `currentValue`.
   // Once the DOM reflects the new selection (aria-current="page" is on the new
   // tab), move keyboard focus there so the user's context is preserved.
-  // WCAG 2.4.3 Focus Order — focus must land on the triggered control.
+  // WCAG 2.4.3 Focus Order: focus must land on the triggered control.
   useEffect(() => {
     if (!focusAfterNavRef.current || !currentValue) return
     focusAfterNavRef.current = false

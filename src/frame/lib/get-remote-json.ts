@@ -33,23 +33,25 @@ function decompressFromCache(cacheKey: string): unknown {
   return JSON.parse(zlib.inflateSync(compressed).toString())
 }
 
-// Wrapper on `got()` that is able to both cache in memory and on disk.
-// The on-disk caching is in `.remotejson/`.
-// We use this for downloading `redirects.json` files from one of the
-// docs-ghes-<release number> repos as a proxy. A lot of those
-// .json files are large and they're also static which makes them
-// ideal for caching.
-// Note that there's 2 layers of caching here:
-//  1. Is it in memory cache?
+// Fetches JSON through an in-memory cache and an on-disk cache in
+// `.remotejson-cache/`. The disk cache is read everywhere but only written
+// outside production, so production runs on a prewarmed directory.
+//
+// We use this to download `redirects.json` files from the
+// docs-ghes-<release number> repos. Those files are large and static, which
+// makes them ideal for caching.
+//
+// The lookup order is:
+//  1. Is it in the memory cache?
 //  2. No, is it on disk?
-//  3. No, download from the internet then store responses in memory and disk
+//  3. No, download it, store it in memory, and store it on disk if not in production.
 export default async function getRemoteJSON(
   url: string,
   config?: GetRemoteJSONConfig,
 ): Promise<unknown> {
   // We could get fancy and make the cache key depend on the `config` too
   // given that this is A) only used for archived enterprise stuff,
-  // and B) the config is only applicable on cache miss when doing the `got()`.
+  // and B) the config only applies on a cache miss, when we actually fetch.
   const cacheKey = url
 
   // Assume it's in the in-memory cache first.
@@ -128,7 +130,6 @@ export default async function getRemoteJSON(
       }
 
       const body = await res.text()
-      // Validate JSON, then compress raw string directly
       JSON.parse(body)
       compressStringToCache(cacheKey, body)
 

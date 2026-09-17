@@ -145,8 +145,8 @@ export async function updateAutomatedPipelines() {
         // Derive the previous release's corresponding directory by replacing
         // the current release number with the previous one. This correctly
         // maps each calendar-date variant to its predecessor, e.g.:
-        //   ghes-3.20-2022-11-28 → ghes-3.19-2022-11-28
-        //   ghes-3.20-2026-03-10 → ghes-3.19-2026-03-10
+        //   ghes-3.20-2022-11-28 -> ghes-3.19-2022-11-28
+        //   ghes-3.20-2026-03-10 -> ghes-3.19-2026-03-10
         const previousDirName = dirToAdd.replace(currentReleaseNumber, previousReleaseNumber)
         if (!existingDataDir.includes(previousDirName)) {
           throw new Error(

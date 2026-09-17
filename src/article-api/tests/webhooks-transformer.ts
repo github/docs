@@ -22,10 +22,8 @@ describe('Webhooks transformer', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')
 
-    // Should have title
     expect(res.body).toContain('# Webhook events and payloads')
 
-    // Should have intro
     expect(res.body).toContain('Learn about when each webhook event occurs')
   })
 
@@ -33,7 +31,6 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Check for webhook event headers (## webhook_name)
     expect(res.body).toMatch(/^## \w+/m)
   })
 
@@ -41,7 +38,6 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Should list action types for webhooks with multiple actions
     expect(res.body).toContain('**Action type:**')
   })
 
@@ -49,7 +45,6 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Should show availability as a heading
     expect(res.body).toContain('### Availability')
   })
 
@@ -57,7 +52,6 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Check for some known manual content from the markdown file
     expect(res.body).toContain('About webhook events and payloads')
   })
 
@@ -73,7 +67,6 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Check that data variables are rendered (not left as Liquid syntax)
     expect(res.body).not.toContain('{% data')
     expect(res.body).not.toContain('{{')
   })
@@ -90,10 +83,8 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Should show payload object parameters section
     expect(res.body).toContain('### Webhook payload object')
     expect(res.body).toContain('#### Webhook payload object parameters')
-    // Should have a markdown table with parameter columns (may have extra spacing from formatting)
     expect(res.body).toMatch(/\|\s*Name\s*\|\s*Type\s*\|\s*Description\s*\|/)
   })
 
@@ -101,7 +92,6 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Should include webhook descriptions (converted from HTML to plain text)
     // Using actual descriptions from real webhook data
     expect(res.body).toContain('A check run was completed')
   })
@@ -110,11 +100,9 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Should show parameter names and types in tables
     expect(res.body).toContain('`action`')
     expect(res.body).toContain('`string`')
     expect(res.body).toContain('`object`')
-    // Should mark required parameters
     expect(res.body).toContain('**Required.**')
   })
 
@@ -132,7 +120,6 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // Should have a common parameters section at the top
     expect(res.body).toContain('## Common payload parameters')
     expect(res.body).toContain('Most webhook events include these standard parameters')
 

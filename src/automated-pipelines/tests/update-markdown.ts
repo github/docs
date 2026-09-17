@@ -10,7 +10,6 @@ import type { FrontmatterVersions } from '@/types'
 
 import { updateContentDirectory } from '../lib/update-markdown'
 
-// Type definitions
 type ContentItem = {
   data: {
     title: string
@@ -92,8 +91,6 @@ describe('automated content directory updates', () => {
       contentDataFullPath[path.join(targetDirectory, key)] = newContentData[key]
     }
 
-    // Rewrites the content directory in the operating system's
-    // temp directory.
     await updateContentDirectory({
       targetDirectory,
       sourceContent: contentDataFullPath,

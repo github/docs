@@ -5,7 +5,6 @@ export const UtmPreserver = () => {
   const router = useRouter()
 
   useEffect(() => {
-    // Extract UTM parameters from current URL
     const getUtmParams = (): URLSearchParams => {
       const urlParams = new URLSearchParams(window.location.search)
       const utmParams = new URLSearchParams()
@@ -22,7 +21,6 @@ export const UtmPreserver = () => {
     const utmParams = getUtmParams()
     if (utmParams.toString() === '') return
 
-    // Check if a link should have UTM parameters preserved
     const shouldPreserveUtm = (url: string): boolean => {
       const lowercaseUrl = url.toLowerCase()
 
@@ -35,7 +33,6 @@ export const UtmPreserver = () => {
       return hasProtocol && isGithubCom && !isDocsGithubCom
     }
 
-    // Add UTM parameters to a URL
     const addUtmParamsToUrl = (url: string, params: URLSearchParams): string => {
       try {
         const urlObj = new URL(url)
@@ -46,12 +43,10 @@ export const UtmPreserver = () => {
 
         return urlObj.toString()
       } catch {
-        // If URL parsing fails, return original URL
         return url
       }
     }
 
-    // Apply UTM parameters to relevant links
     const applyUtmToLinks = (): void => {
       const links = document.querySelectorAll<HTMLAnchorElement>('a[href]')
 
@@ -62,7 +57,6 @@ export const UtmPreserver = () => {
       }
     }
 
-    // Handle click events for dynamic link modification
     const handleLinkClick = (event: Event): void => {
       const link = (event.target as Element)?.closest('a') as HTMLAnchorElement
       if (!link || !link.href) return
@@ -72,7 +66,6 @@ export const UtmPreserver = () => {
       }
     }
 
-    // Apply UTM parameters immediately to existing links
     applyUtmToLinks()
 
     // Also handle clicks for any dynamically added links
@@ -86,13 +79,11 @@ export const UtmPreserver = () => {
 
     router.events.on('routeChangeComplete', handleRouteChange)
 
-    // Cleanup
     return () => {
       document.removeEventListener('click', handleLinkClick, true)
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.asPath, router.events])
 
-  // This component doesn't render anything
   return null
 }

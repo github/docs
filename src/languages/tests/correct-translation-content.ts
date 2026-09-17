@@ -1676,6 +1676,27 @@ describe('correctTranslatedContentStrings', () => {
       )
     })
 
+    test('fixes stray % before closing }} in an output tag', () => {
+      // Translators sometimes left a stray `%` right before the closing `}}`
+      // of a Liquid output tag, likely from copy-pasting a neighboring
+      // `{% ... %}` tag's closer. This breaks Liquid parsing with
+      // `expected "|" before filter`. Confirmed in a ko translation
+      // (SCRAPE: configuring-interactive-maps.md).
+      expect(fix('{{ allVersions[currentVersion].currentRelease %}}', 'ko')).toBe(
+        '{{ allVersions[currentVersion].currentRelease }}',
+      )
+      expect(fix('{{ foo.bar %}}', 'de')).toBe('{{ foo.bar }}')
+      // Already-correct input is left unchanged.
+      expect(fix('{{ allVersions[currentVersion].currentRelease }}', 'ko')).toBe(
+        '{{ allVersions[currentVersion].currentRelease }}',
+      )
+      // Doesn't touch normal `{% ... %}` tags or `{{ ... }}` output tags
+      // that legitimately contain a `%` character in their content.
+      expect(fix('{% ifversion ghes %}A{% endif %}', 'ko')).toBe('{% ifversion ghes %}A{% endif %}')
+      expect(fix('{{ "100%" }}', 'ko')).toBe('{{ "100%" }}')
+      expect(fix('{{ rate | append: "%" }}', 'ko')).toBe('{{ rate | append: "%" }}')
+    })
+
     test('strips LLM sentinel markers and preserves word boundaries', () => {
       expect(fix('Hello<|endoftext|>World', 'es')).toBe('Hello World')
       expect(fix('Hello <|endoftext|> World', 'es')).toBe('Hello World')
@@ -3144,6 +3165,45 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const example = '```\n{% note %}\nExample.\n{% endnote %}\n```\n'
       expect(fix(example, 'es')).toBe(example)
       expect(fix('Use `{% note %}` here.', 'es')).toBe('Use `{% note %}` here.')
+    })
+  })
+
+  describe('ja: github-token-scope-descriptions.md per-file fix', () => {
+    test('restores the missing endif in the security-events row', () => {
+      const broken =
+        '「シークレット スキャン アラート」のリポジトリのアクセス許可を参照してください。 |'
+      const fixed =
+        '「シークレット スキャン アラート」のリポジトリのアクセス許可を参照してください。{% endif %} |'
+      const ctx = {
+        code: 'ja',
+        relativePath: 'data/reusables/actions/github-token-scope-descriptions.md',
+        skipOrphanStripping: true,
+      }
+      expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
+      // already correct input is unchanged
+      expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
+    })
+
+    test('restores the missing endif when scoped by dottedPath', () => {
+      // Production reusable rendering passes `dottedPath`, not `relativePath`
+      // (src/data-directory/lib/get-data.ts).
+      const broken =
+        '「シークレット スキャン アラート」のリポジトリのアクセス許可を参照してください。 |'
+      const fixed =
+        '「シークレット スキャン アラート」のリポジトリのアクセス許可を参照してください。{% endif %} |'
+      const ctx = {
+        code: 'ja',
+        dottedPath: 'reusables.actions.github-token-scope-descriptions',
+        skipOrphanStripping: true,
+      }
+      expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
+      expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
+    })
+
+    test('does not affect the same text in other files', () => {
+      const other =
+        '「シークレット スキャン アラート」のリポジトリのアクセス許可を参照してください。 |'
+      expect(fix(other, 'ja')).toBe(other)
     })
   })
 })

@@ -66,13 +66,12 @@ describe.skip('category pages', () => {
       // Only include category directories, not standalone category files like content/actions/quickstart.md
       .filter((link) => fs.existsSync(getPath(productDir, link, 'index')))
 
-    // Map those to the Markdown file paths that represent that category page index
     const categoryPaths = categoryLinks.map((link) => getPath(productDir, link, 'index'))
 
     // Make them relative for nicer display in test names
     const categoryRelativePaths = categoryPaths.map((p) => path.relative(contentDir, p))
 
-    // Combine those to fit vitests's `.each` usage
+    // Combine those to fit vitest's `.each` usage
     const categoryTuples = zip(categoryRelativePaths, categoryPaths, categoryLinks) as [
       string,
       string,
@@ -121,7 +120,6 @@ describe.skip('category pages', () => {
           await contextualize(req as ExtendedRequest, res as Response, next)
           await shortVersions(req as ExtendedRequest, res as Response, next)
 
-          // Read the product index data for rendering
           const productIndexContents = await fs.promises.readFile(productIndex, 'utf8')
           const productIndexData = getFrontmatterData(productIndexContents)
 
@@ -145,7 +143,7 @@ describe.skip('category pages', () => {
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const articleData = getFrontmatterData(articleContents)
 
-                // Do not include subcategories in list of published articles
+                // Do not include subcategories nor hidden pages in list of published articles
                 if (articleData.subcategory || articleData.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
@@ -154,7 +152,6 @@ describe.skip('category pages', () => {
             )
           ).filter(Boolean) as string[]
 
-          // Get all of the child articles that exist in the subdir
           const childEntries = await fs.promises.readdir(categoryDir, { withFileTypes: true })
           const childFileEntries = childEntries.filter(
             (ent) => ent.isFile() && ent.name !== 'index.md',
@@ -212,7 +209,6 @@ describe.skip('category pages', () => {
         test('slugified title matches parent directory name', () => {
           if (allowTitleToDifferFromFilename) return
 
-          // Get the parent directory name
           const categoryDirPath = path.dirname(indexAbsPath)
           const categoryDirName = path.basename(categoryDirPath)
 
@@ -230,7 +226,6 @@ describe.skip('category pages', () => {
           const expectedSlug = expectedSlugs.at(-1) as string
           const newCategoryDirPath = path.join(path.dirname(categoryDirPath), expectedSlug)
           customMessage += `\nTo resolve this consider running:\n  ./src/content-render/scripts/move-content.ts ${categoryDirPath} ${newCategoryDirPath}\n`
-          // Check if the directory name matches the expected slug
           expect(expectedSlugs.includes(categoryDirName), customMessage).toBeTruthy()
         })
       },

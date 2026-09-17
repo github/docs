@@ -22,6 +22,7 @@ copilot-cli:
   target-articles:
     - content/copilot/reference/copilot-cli-reference/cli-command-reference.md
     - content/copilot/reference/copilot-cli-reference/cli-plugin-reference.md
+    - content/copilot/reference/copilot-cli-reference/cli-programmatic-reference.md
     - content/copilot/reference/copilot-cli-reference/acp-server.md
     - content/copilot/reference/copilot-cli-reference/cli-config-dir-reference.md
     - content/copilot/reference/hooks-reference.md
@@ -33,6 +34,7 @@ copilot-cli:
     content/copilot/reference/copilot-cli-reference/cli-plugin-reference.md covers only plugin-specific content.
     All information relating to files in the ~/.copilot configuration directory, and settings in those files, should go in content/copilot/reference/copilot-cli-reference/cli-config-dir-reference.md.
     All reference details relating to hooks should go in content/copilot/reference/hooks-reference.md.
+    All reference details relating to using Copilot CLI programmatically (e.g. command line options and environment variables) should go in content/copilot/reference/copilot-cli-referencecli-programmatic-reference.md. Tabular information (but not discursive explanatory text) about using the CLI programmatically should also go in the main content/copilot/reference/copilot-cli-reference/cli-command-reference.md article.
     All other CLI topics (MCP, skills, agents, permissions, etc.) belong in content/copilot/reference/copilot-cli-reference/cli-command-reference.md even when they mention plugins.
     Do not overwrite the paragraph starting "OTel configuration can also be set in..." in cli-command-reference.md
 

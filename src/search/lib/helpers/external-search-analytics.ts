@@ -5,10 +5,9 @@ import { createLogger } from '@/observability/logger'
 
 const logger = createLogger(import.meta.url)
 
-/**
- * Handles search analytics and client_name validation for external requests
- * Returns null if the request should continue, or an error response object if validation failed
- */
+// Validates client_name and sends analytics for external requests. Returns null
+// when the request should continue, or an error response object when validation
+// failed.
 export async function handleExternalSearchAnalytics(
   req: ExtendedRequest,
   searchContext: string,
@@ -16,10 +15,8 @@ export async function handleExternalSearchAnalytics(
   const host = req.headers['x-host'] || req.headers.host
   const normalizedHost = stripPort(host as string)
 
-  // Check if this is likely an external API call rather than a browser request
   const isLikelyExternalAPI = isExternalAPIRequest(req)
 
-  // Get client_name from query or body
   let client_name = req.query.client_name || req.body?.client_name
 
   // Rule 1: Skip analytics for browser requests from our own frontend
@@ -51,7 +48,6 @@ export async function handleExternalSearchAnalytics(
     client_name = 'localhost'
   }
 
-  // Log when we detect an external request that we will send analytics for
   if (client_name && client_name !== 'docs.github.com-client') {
     logger.info('External search analytics: Sending analytics for external client', {
       client_name,
@@ -62,7 +58,6 @@ export async function handleExternalSearchAnalytics(
     })
   }
 
-  // Send search event with client identifier
   try {
     const analyticsPayload = {
       schema: hydroNames.search,
@@ -96,10 +91,7 @@ export async function handleExternalSearchAnalytics(
   return null
 }
 
-/**
- * Sanitizes user agent by extracting only the main client type
- * Returns a safe string with just the primary client identifier
- */
+// Reduces a user agent down to its primary client identifier.
 function sanitizeUserAgent(userAgent: string | undefined): string {
   if (!userAgent) return 'unknown'
 
@@ -124,18 +116,12 @@ function sanitizeUserAgent(userAgent: string | undefined): string {
   return 'other'
 }
 
-/**
- * Strips port number from host string
- */
 function stripPort(host: string): string {
   const [hostname] = host.split(':')
   return hostname
 }
 
-/**
- * Determines if a request is likely from an external API client rather than a browser
- * Uses multiple heuristics to detect programmatic vs browser requests
- */
+// Heuristics for telling a programmatic request from a browser one.
 const userAgentRegex = /^(curl|wget|python-requests|axios|node-fetch|Go-http-client|okhttp)/i
 function isExternalAPIRequest(req: ExtendedRequest): boolean {
   const headers = req.headers

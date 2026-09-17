@@ -1,11 +1,6 @@
-/**
- * Hi there! 👋
- * To test this code locally, outside of Actions, you need to run
- * the script src/workflows/content-changes-table-comment-cli.ts
- *
- * See the instructions in the doc string comment at the
- * top of src/workflows/content-changes-table-comment-cli.ts
- */
+// To test this locally, outside of Actions, run
+// src/workflows/content-changes-table-comment-cli.ts. Its file header has the
+// instructions.
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -26,11 +21,10 @@ import { inLiquid } from './lib/in-liquid'
 const { GITHUB_TOKEN, APP_URL, BASE_SHA, HEAD_SHA } = process.env
 const context = github.context
 
-// the max size of the comment (in bytes)
-// the action we use to post the comment caps out at about 144kb
-// see docs-engineering#1849 and peter-evans/create-or-update-comment#271 for more info.
-// The max size the action allows is 2^16, but our table calculates near the end
-// of its rendering before we add a key, so playing it safe with 2^15.
+// Max table size in characters. peter-evans/create-or-update-comment allows a
+// 2^16 character comment, but the table measures itself near the end of
+// rendering, before the key is added, so this stays at 2^15 for headroom. See
+// github/docs-engineering#1849 and peter-evans/create-or-update-comment#271.
 const MAX_COMMENT_SIZE = 32768
 
 const PROD_URL = 'https://docs.github.com'
@@ -57,8 +51,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
 
   const octokit = retryingGithub(GITHUB_TOKEN)
 
-  // get the list of file changes from the PR
-  // this works even if the head commit is from a fork
+  // The list of file changes, which works even for a head commit from a fork.
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,
     repo,
@@ -109,15 +102,12 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
       const fileName = file.filename.slice(pathPrefix.length)
       const fileUrl = fileName.replace('/index.md', '').replace(/\.md$/, '')
 
-      // get the file contents and decode them
       // this script is called from the main branch, so we need the API call to get the contents from the branch, instead
       const fileContents = await getContents(
         owner,
         repo,
-        // Can't get its content if it no longer exists.
-        // Meaning, you'd get a 404 on the `getContents()` utility function.
-        // So, to be able to get necessary meta data about what it *was*,
-        // if it was removed, fall back to the 'base'.
+        // `getContents()` 404s on a file that no longer exists, so for a
+        // removed file read the base sha to get metadata about what it was.
         file.status === 'removed' ? baseSHA : headSHA,
         file.filename,
       )
@@ -209,23 +199,20 @@ function makeRow({
   contentCell += `[\`${fileName}\`](${sourceUrl})`
 
   try {
-    // the try/catch is needed because getApplicableVersions() returns either [] or throws an error when it can't parse the versions frontmatter
-    // try/catch can be removed if docs-engineering#1821 is resolved
-    // i.e. for feature based versioning, like ghec: 'issue-6337'
+    // getApplicableVersions() throws on missing, invalid or unsupported
+    // versions frontmatter. Remove the try/catch once
+    // github/docs-engineering#1821 is fixed.
     const fileVersions: string[] = getApplicableVersions(data?.versions)
 
     for (const plan in allVersionShortnames) {
-      // plan is the shortName (i.e., fpt)
-      // allVersionShortNames[plan] is the planName (i.e., free-pro-team)
-
-      // walk by the plan names since we generate links differently for most plans
+      // `plan` is the short name, e.g. fpt, used as the link label.
+      // allVersionShortnames[plan] is the plan name, e.g. free-pro-team, used
+      // to pick the file's matching versions. Most plans link differently.
       const versions = fileVersions.filter((fileVersion) =>
         fileVersion.includes(allVersionShortnames[plan]),
       )
 
       if (versions.length === 1) {
-        // for fpt and ghec
-
         if (versions.toString() === nonEnterpriseDefaultVersion) {
           // omit version from fpt url
 

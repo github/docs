@@ -10,8 +10,8 @@ import cx from 'classnames'
 
 // React-native replacement for the imperative ClientSideHighlightJS enhancer
 // (#6619). The old enhancer scanned the document for `[data-highlight] code` and
-// called `hljs.highlightElement`, which REPLACES the `<code>`'s innerHTML —
-// destructive on a React-owned node. Instead, components that render code
+// called `hljs.highlightElement`, which REPLACES the `<code>`'s innerHTML.
+// That is destructive on a React-owned node. Instead, components that render code
 // (RestCodeSamples, Webhook) use <HighlightedCode>, which highlights with
 // `lowlight` (the hast-based highlighter behind rehype-highlight) and renders the
 // tokens as real React elements via `toJsxRuntime`. No innerHTML, no DOM scan.

@@ -1,7 +1,7 @@
 ---
 title: Validity checks
 shortTitle: Validity checks
-intro: Validity checks and extended metadata checks help you prioritize remediation of exposed credentials that pose immediate security risks.
+intro: Validity checks{% ifversion secret-scanning-extended-metadata-checks %} and extended metadata checks{% endif %} help you prioritize remediation of exposed credentials that pose immediate security risks.
 product: |
   {% data reusables.gated-features.secret-scanning %}{% ifversion secret-risk-assessment %}
 
@@ -33,6 +33,8 @@ Some secrets require more than the token itself to confirm whether they are acti
 
 {% data variables.product.github %} displays the validation status of the secret in the alert view, so you can see if the secret is `active`, `inactive`, or if the validation status is `unknown`. For most secrets, you can optionally perform an "on-demand" validity check for the secret in the alert view.
 
+{% ifversion secret-scanning-extended-metadata-checks %}
+
 ## About extended metadata checks
 
 {% data reusables.security-configurations.extended-metadata-checks %}
@@ -49,14 +51,16 @@ You can enable extended metadata checks if validity checks are enabled. Then, yo
 
 The specific metadata available depends on what the service provider shares with {% data variables.product.github %}. Not all secret types support extended metadata checks. For more information, see [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts).
 
-## Getting started with validity and extended metadata checks
+{% endif %}
 
-You can enable validity and extended metadata checks at the repository, organization, or enterprise level to help prioritize which exposed credentials pose the most immediate security risks.
+## Getting started with validity{% ifversion secret-scanning-extended-metadata-checks %} and extended metadata{% endif %} checks
+
+You can enable validity{% ifversion secret-scanning-extended-metadata-checks %} and extended metadata{% endif %} checks at the repository, organization, or enterprise level to help prioritize which exposed credentials pose the most immediate security risks.
 
 For large organizations, we recommend using **security configurations** to enable these features at the organization or enterprise level. Security configurations allow you to centrally manage  {% data variables.product.prodname_secret_scanning %} settings and apply them consistently across many repositories.
 
 To get started:
 
-* For repositories, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/enable-validity-checks)
+* For repositories, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/enable-validity-checks){% ifversion secret-scanning-extended-metadata-checks %} and [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/enable-metadata-checks){% endif %}
 * For an organization, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration)
 * For an enterprise, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/create-custom-configuration)

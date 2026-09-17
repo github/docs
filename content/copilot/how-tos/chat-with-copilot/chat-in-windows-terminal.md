@@ -11,15 +11,15 @@ redirect_from:
   - /copilot/how-tos/use-chat/use-chat-in-windows-terminal
   - /copilot/how-tos/chat-with-copilot/use-chat-in-windows-terminal
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
+* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/get-started/about-github-copilot#get-access).
 * **{% data variables.product.prodname_windows_terminal %} Canary installed**. For installation instructions, see [Installing {% data variables.product.prodname_windows_terminal %} Canary](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-windows-terminal-canary).
-* **{% data variables.product.prodname_copilot %} connected to Terminal Chat**. See [AUTOTITLE](/copilot/get-started/quickstart?tool=windowsterminal).
+* **{% data variables.product.prodname_copilot %} connected to Terminal Chat**. See [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide).
 
 If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} if your organization owner or enterprise administrator has disabled {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
 

@@ -1,0 +1,10 @@
+// The section title inside the expanded table of contents. It is the sole child
+// of an <a>, so this paints link text.
+.linkAccent {
+  color: var(--brand-color-text-link-rest);
+}
+
+// The intro copy rendered beneath each expanded section title.
+.textMuted {
+  color: var(--brand-color-text-muted);
+}

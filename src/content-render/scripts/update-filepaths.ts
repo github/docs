@@ -101,13 +101,11 @@ async function processFile(
 
   const isDirectory = isDirectoryCheck(file)
 
-  // Assess the frontmatter and other conditions to determine if we want to process the path.
   const processPage: boolean = determineProcessStatus(data, isDirectory, scriptOptions)
   if (!processPage) return null
 
   let stringToSlugify: string = data.shortTitle || data.title
 
-  // Check if we need to process Liquid
   if (stringToSlugify.includes('{%')) {
     stringToSlugify = await renderContent(stringToSlugify, context, { textOnly: true })
   }
@@ -118,7 +116,6 @@ async function processFile(
   // Fall back to title if shortTitle doesn't exist.
   const slug: string = slugger.slug(decode(stringToSlugify))
 
-  // Get the basename, depending on whether it's a file or dir.
   let basename: string
   if (isDirectory) {
     // Where: content location = content/foobar/index.md
@@ -133,12 +130,10 @@ async function processFile(
   // If slug and basename already match, all set here. Return early.
   if (slug === basename) return null
 
-  // Build the new path based on file type.
   const newPath = isDirectory
     ? path.join(path.dirname(path.dirname(file)), slug, 'index.md')
     : path.join(path.dirname(file), `${slug}.md`)
 
-  // Get relative paths and adjust for directories.
   const getContentPath = (filePath: string): string => {
     const relativePath = path.relative(process.cwd(), filePath)
     return isDirectory ? path.dirname(relativePath) : relativePath
@@ -187,26 +182,21 @@ function sortFiles(filesArray: string[]): string[] {
   // 2. Deepest subdirectory path
   // 3. Shallowest subdirectory path (up to category level, e.g., content/product/category)
   return filesArray.toSorted((a, b) => {
-    // If A is a file and B is a directory, A comes first (negative)
     if (!isDirectoryCheck(a) && isDirectoryCheck(b)) {
       return -1
     }
-    // If A is a directory and B is a file, B comes first (positive)
     if (isDirectoryCheck(a) && !isDirectoryCheck(b)) {
       return 1
     }
-    // If A and B are both files, neutral
     if (!isDirectoryCheck(a) && !isDirectoryCheck(b)) {
       return 0
     }
-    // If both are directories, sort by depth (deepest first)
     if (isDirectoryCheck(a) && isDirectoryCheck(b)) {
       const aDepth = a.split(path.sep).length
       const bDepth = b.split(path.sep).length
       return bDepth - aDepth // Deeper paths first
     }
 
-    // This should never be reached, but return 0 for safety
     return 0
   })
 }
@@ -246,20 +236,16 @@ function determineProcessStatus(
   isDirectory: boolean,
   scriptOptions: ScriptOptions,
 ): boolean {
-  // Assess the conditions in this order:
-  // If it's a directory AND we're excluding dirs, do not process it no matter what.
+  // A directory is never processed when dirs are excluded, whatever else is set.
   if (isDirectory && scriptOptions.excludeDirs) {
     return false
   }
-  // If the force option is passed, process it no matter what.
   if (scriptOptions.force) {
     return true
   }
-  // If the page has the override set, do not process it.
   if (data.allowTitleToDifferFromFilename) {
     return false
   }
-  // In all other cases, process it.
   return true
 }
 

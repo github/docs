@@ -1,24 +1,140 @@
 @import "@primer/css/color-modes/index.scss"; // Must come first
 @import "@primer/css/core/index.scss"; // Must come second
 
+// Primer Primitives functional themes.
+//
+// @primer/css@21 only defines the legacy `--color-*` names (it pins its own
+// nested @primer/primitives@7). @primer/react@38's component CSS, and a lot of
+// our own SCSS, reference the newer `--fgColor-*` / `--bgColor-*` /
+// `--borderColor-*` / `--button-*` names instead — and nothing in this app
+// defined them. An undefined custom property makes the whole declaration
+// invalid at computed-value time, so those rules either dropped out entirely
+// (`border: 1px solid var(--borderColor-default)` painted no border at all) or
+// fell through to a hardcoded light-mode hex that then won in BOTH modes.
+// That is why PRC components rendered light-grey icons in dark mode.
+//
+// Scoped by [data-color-mode]/[data-*-theme] exactly like the @primer/css
+// themes above, so only the active theme's block applies. Limited to the four
+// themes `SupportedTheme` actually allows (see src/color-schemes).
+@import "@primer/primitives/dist/css/functional/themes/light.css";
+@import "@primer/primitives/dist/css/functional/themes/dark.css";
+@import "@primer/primitives/dist/css/functional/themes/dark-dimmed.css";
+@import "@primer/primitives/dist/css/functional/themes/dark-high-contrast.css";
+
 // Primer components
 @import "@primer/css/markdown/index.scss";
 @import "@primer/css/labels/index.scss";
-@import "@primer/css/avatars/avatar.scss";
 @import "@primer/css/alerts/index.scss";
 @import "@primer/css/popover/index.scss";
 
 // Primer Brand design system (Docs 2026 migration — github/docs-engineering#5879).
 // Loaded alongside @primer/css during the incremental component-by-component swap.
 @import "@primer/react-brand/lib/css/main.css";
+// Registers the Mona Sans / Hubot Sans @font-face rules (+ metric-adjusted
+// fallbacks) that back the brand `--brand-*-fontFamily` tokens. Without this,
+// those tokens silently fall back to the system font stack.
+@import "@primer/react-brand/fonts/fonts.css";
 
 @import "headings.scss";
 @import "scroll-top.scss";
 @import "utilities.scss";
 @import "dialog-overrides.scss";
+@import "breadcrumbs-overrides.scss";
+@import "article-link-overrides.scss";
 
 @import "src/content-render/stylesheets/index.scss";
 @import "src/links/stylesheets/hover-card.scss";
 
 // For primer Spinners and other animated components
 @import "@primer/primitives/dist/css/base/motion/motion.css";
+
+// Docs 2026: Primer Brand owns the page canvas.
+//
+// `@primer/css/base/native-colors.scss` paints both `body` and *every*
+// `[data-color-mode]` element from the Primer Component palette:
+//
+//   [data-color-mode] {
+//     color: var(--fgColor-default, var(--color-fg-default));
+//     background-color: var(--bgColor-default, var(--color-canvas-default));
+//   }
+//
+// The Brand `ThemeProvider` renders a real wrapping `<div data-color-mode>`
+// (see src/color-schemes/components/BrandThemeProvider.tsx), so it matched that
+// selector and painted itself Primer's canvas. In dark mode that is #0d1117 — a
+// blue-tinted charcoal — while every surface migrated to Brand tokens sits on
+// Brand's true black (#000000) or its green-tinted near-black (#0f1511). The
+// result was up to three different "blacks" stacked on one page, and fills
+// meant to read as a lift above the page instead read as an invisible dip below
+// it (#0f1511 on #0d1117 is 1.02:1).
+//
+// Repointing the canvas at Brand is what makes the migrated surfaces cohere.
+// Primer-palette components layered on top still read correctly, because their
+// subtle fills (#161b22) and borders (#30363d) become lifts above true black
+// rather than clashing steps beside it.
+//
+// The canvas is decided at the ROOT, and only at the root. `<html>` is the one
+// element whose `data-color-mode` is correct before first paint: colorModeScript
+// (src/color-schemes/lib/color-mode-script.ts) stamps it from the cookie
+// synchronously in <head>. The SSR markup cannot carry the user's real mode,
+// because that HTML is shared-cacheable in the CDN and must be identical for
+// every request.
+html[data-color-mode],
+html[data-color-mode] body {
+  background-color: var(--brand-color-canvas-default);
+  color: var(--brand-color-text-default);
+}
+
+// ...and every NESTED [data-color-mode] wrapper stays transparent so the root
+// canvas shows through. There are two of them: @primer/react's ThemeProvider and
+// brand's, which the app nests inside it (src/frame/pages/app.tsx).
+//
+// This rule must NOT resolve a `--brand-*` token, and that is the whole point of
+// it. Brand declares its palette on the bare `[data-color-mode="light"]` /
+// `[data-color-mode="dark"]` attribute, so a nested wrapper RE-DECLARES the
+// entire brand palette for its own subtree. BrandThemeProvider resolves its mode
+// through PRC's `resolvedColorScheme`, which is only correct after the
+// cookie-reading effect runs — so it server-renders `data-color-mode="light"`.
+// Painting that wrapper with `var(--brand-color-canvas-default)` therefore
+// resolves brand's LIGHT canvas (#ffffff) on a dark load, and the whole page
+// flashes white until React hydrates. Verified: with `<html>` dark and the
+// wrapper at `light`, the wrapper computes rgb(255,255,255) on black text.
+//
+// `:not(html)` is also what wins the cascade here: @primer/css uses
+// `[data-color-mode]` (0,1,0), and `:not(html)` adds `html`'s (0,0,1) to make
+// this (0,1,1).
+[data-color-mode]:not(html) {
+  background-color: transparent;
+  color: inherit;
+}
+
+// Brand only defines explicit light/dark modes, but the document defaults to
+// auto. Match Brand's dark canvas/text tokens when the OS prefers dark; nested
+// ThemeProviders still resolve their own explicit modes.
+@media (prefers-color-scheme: dark) {
+  html[data-color-mode="auto"][data-dark-theme*="dark"] {
+    --brand-color-canvas-default: var(--base-color-scale-black-0);
+    --brand-color-text-default: var(--base-color-scale-white-0);
+  }
+}
+
+// Docs 2026: links use Brand's link colour.
+//
+// `@primer/css/base/base.scss` sets `a { color: var(--fgColor-accent, …) }` —
+// Primer's blue (#0969da light / #4493f8 dark). Brand's link blue is a
+// different value (#0055d5 light / #a2daff dark) and is what the migrated
+// surfaces are designed around. `.markdown-body` does not set its own anchor
+// colour, so prose links inherit this too.
+//
+// Specificity is deliberately left at (0,0,1) to exactly match the rule this
+// replaces. Anything more specific — `a[href]`, say — would start winning
+// against component classes like `.prc-Button-*` (0,1,0) and repaint PRC
+// buttons that happen to render as anchors. This is a value swap, not a
+// cascade change; primer's own `a:not([href])` carve-outs still apply.
+//
+// article-link-overrides.scss layers a much more specific rule over the article
+// body for the same token. That is not redundant: it adds the `:active` pressed
+// state and deliberately exempts `.heading-link` and bare named anchors. This
+// rule is the site-wide base; that one is the article body's specialisation.
+a {
+  color: var(--brand-color-text-link-rest);
+}

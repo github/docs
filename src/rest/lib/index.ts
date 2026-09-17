@@ -13,7 +13,6 @@ import type { Operation } from '@/rest/components/types'
 export const REST_DATA_DIR = 'src/rest/data'
 const REST_CONTENT_DIR = 'content/rest'
 
-// Type definitions for REST operations
 export interface RestOperationCategory {
   [subcategory: string]: Operation[]
 }
@@ -22,33 +21,9 @@ interface RestMiniTocData {
   restOperationsMiniTocItems: MiniTocItem[]
 }
 
-/*
-  Loads the schemas from the static/decorated folder into a single
-  object organized by version. Not all products are calendar date
-  versioned.
-  Example:
-  {
-    free-pro-team@latest: {
-      2022-08-09: {
-        category: {
-          subcategory: [operations],
-        }
-      },
-      2022-11-14: {
-        category: {
-          subcategory: [operations],
-        }
-      }
-    }
-    enterprise-server@3.2: {
-      'not_api_versioned': {
-        category: {
-          subcategory: [operations],
-        }
-      }
-    }
-  }
-*/
+// Caches generated mini-TOC data, keyed by language, then docs version, then
+// API date, then category, then subcategory. A version with no calendar dates
+// uses `not_api_versioned` in place of a date.
 const NOT_API_VERSIONED = 'not_api_versioned'
 const brotliDecompressAsync = promisify(brotliDecompress)
 const restOperationData = new Map<
@@ -60,7 +35,7 @@ const restOperationData = new Map<
 // they account for >90% of traffic and each version needs ~100 slots alone.
 // All other versions (ghes) go into a bounded LRU cache.
 const PINNED_OPEN_API_VERSIONS = new Set(['fpt', 'ghec'])
-export const pinnedCache = new Map<string, Buffer>() // @internal — stores deflate-compressed JSON
+export const pinnedCache = new Map<string, Buffer>() // @internal, stores deflate-compressed JSON
 const LRU_MAX_SIZE = Math.max(1, parseInt(process.env.REST_SCHEMA_LRU_SIZE ?? '', 10) || 96)
 export const lruCache = new QuickLRU<string, RestOperationCategory>({ maxSize: LRU_MAX_SIZE }) // @internal
 
@@ -70,15 +45,13 @@ const inflight = new Map<string, Promise<RestOperationCategory>>()
 for (const language of Object.keys(languages)) {
   restOperationData.set(language, new Map())
   for (const version of Object.keys(allVersions)) {
-    // setting to undefined will allow us to perform checks
-    // more easily later on
     restOperationData.get(language)!.set(version, new Map())
     if (allVersions[version].apiVersions && allVersions[version].apiVersions.length > 0) {
       for (const date of allVersions[version].apiVersions) {
         restOperationData.get(language)!.get(version)!.set(date, new Map())
       }
     } else {
-      // Products that are not been calendar date versioned
+      // Products that are not calendar-date versioned.
       restOperationData.get(language)!.get(version)!.set(NOT_API_VERSIONED, new Map())
     }
   }
@@ -91,10 +64,10 @@ export const categoriesWithoutSubcategories: string[] = fs
   })
   .map((filteredFile: string) => filteredFile.replace('.md', ''))
 
-// version: plan + release e.g. For ghes-3.5, ghes is the plan and 3.5 is the release
-// apiVersion (not all versions have apiVersions): REST API Calendar Dates
-// openApiVersion (below, every version has an openApiVersion mapping): There's a mapping between our Docs versions
-// and the OpenApi Version bc it's not the same
+// version: a docs version, e.g. `enterprise-server@3.5`.
+// apiVersion: a REST API calendar date. Not every version has these.
+// openApiVersion: the matching OpenAPI name, e.g. `ghes-3.5`. Every docs
+//   version maps to one, because the two naming schemes differ.
 
 export default async function getRest(
   version: string,
@@ -151,7 +124,7 @@ async function loadCategoryFile(basePath: string): Promise<RestOperationCategory
     const decompressed = await brotliDecompressAsync(compressed)
     return JSON.parse(decompressed.toString()) as RestOperationCategory
   } catch {
-    // .br missing, corrupt, or unreadable — fall back to plain JSON
+    // .br missing, corrupt, or unreadable, so fall back to plain JSON.
     const raw = await fsPromises.readFile(basePath, 'utf-8')
     return JSON.parse(raw) as RestOperationCategory
   }

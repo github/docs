@@ -3,16 +3,16 @@
 }
 
 .categoryLabel {
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  color: var(--brand-color-text-default);
   display: inline-block;
 }
 
 .complexityLabel {
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  color: var(--brand-color-text-default);
   display: inline-block;
 }
 
 .surfaceLabel {
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  color: var(--brand-color-text-default);
   display: inline-block;
 }

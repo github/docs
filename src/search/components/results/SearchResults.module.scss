@@ -2,7 +2,7 @@
 
 // The result row is a grid rather than nested flex wrappers so that the title, category
 // chip, snippet and debug line stay direct children of the row. See the comment in
-// SearchResults.tsx — the search rendering tests read elements by tag inside a result.
+// SearchResults.tsx: the search rendering tests read elements by tag inside a result.
 .searchResult {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -45,7 +45,7 @@
   // single 550 run, its unmatched text is muted, and the matched text is default. So the
   // link is muted here and the <mark> below restores the default colour.
   //
-  // (An earlier attempt leaned on font-weight instead, which was the wrong lever — and
+  // (An earlier attempt leaned on font-weight instead, which was the wrong lever, and
   // it barely rendered, since the Mona Sans instance that resolves puts 550 and 700
   // within half a pixel of each other.)
   mark {
@@ -109,7 +109,7 @@
 .paginationFocus
   a[aria-current]:not([rel]):not(:disabled):not(:focus-visible):focus,
 .paginationFocus a[aria-current]:not([rel]):not(:disabled):focus-visible {
-  outline: 2px solid var(--fgColor-accent, var(--color-accent-fg));
+  outline: 2px solid var(--brand-color-focus);
   outline-offset: -2px;
   box-shadow: 0 0 0 4px inset;
 }

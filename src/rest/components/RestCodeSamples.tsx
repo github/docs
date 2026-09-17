@@ -48,7 +48,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
 
-  // Get format examples for each language
   const languageExamples = operation.codeExamples.map((sample) => ({
     description: sample.request.description,
     curl: getShellExample(operation, sample, currentVersion, allVersions),
@@ -58,7 +57,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     request: sample.request,
   }))
 
-  // Menu options for the language selector
   const languageSelectOptions: CodeSampleKeys[] = [CodeSampleKeys.curl]
 
   // Management Console and GHES Manage API operations are not supported
@@ -73,7 +71,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     }
   }
 
-  // Menu options for the example selector
   const exampleSelectOptions = generateExampleOptions(languageExamples)
 
   const [selectedLanguage, setSelectedLanguage] = useState(languageSelectOptions[0])
@@ -96,7 +93,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     Cookies.set(CODE_SAMPLE_LANGUAGE_COOKIE_NAME, languageKey)
   }
 
-  // Change the language based on cookies
   useEffect(() => {
     // If the user previously selected a language preference and the language
     // is available in this component set it as the selected language
@@ -145,7 +141,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       <h4 className="mt-3 mb-3 h5">
         {isSingleExample ? t('request_example') : t('request_examples')}
       </h4>
-      {/* Display an example selector if more than one example */}
       {!isSingleExample && (
         <div className="pb-5 pt-2">
           <FormControl id="example-type-picker">
@@ -204,7 +199,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           </div>
         </div>
 
-        {/* Example requests */}
         <div
           className={cx(
             styles.codeBlock,
@@ -253,13 +247,11 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           </SegmentedControl>
         ) : null}
         <div className="">
-          {/* Status code */}
           {displayedExample.response.statusCode && (
             <div className={cx(styles.codeBlock, 'rounded-1 p-3 my-0 color-bg-default')}>
               <code>{`Status: ${displayedExample.response.statusCode}`}</code>
             </div>
           )}
-          {/* Example response */}
           {displayedExample.response.example && (
             <div
               ref={scrollRef}

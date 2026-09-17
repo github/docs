@@ -35,15 +35,12 @@ router.get(
     defaultCacheControl(res)
 
     const response = {
-      // Simple list of all version strings
       versions: allVersionKeys,
-      // GHES-specific information
       ghesVersions: enterpriseServerReleases.supported,
       ghesLatest: enterpriseServerReleases.latest,
       ghesLatestStable: enterpriseServerReleases.latestStable,
       ghesReleaseCandidate: enterpriseServerReleases.releaseCandidate,
       ghesDeprecated: enterpriseServerReleases.deprecated,
-      // Full version details
       allVersions,
     }
 
@@ -77,9 +74,7 @@ router.get(
     )
 
     const response = {
-      // Simple list of language codes
       languages: languageKeys,
-      // Full language details (without redirectPatterns)
       allLanguages: sanitizedLanguages,
     }
 
@@ -142,10 +137,8 @@ router.get(
 
     const pages = req.context.pages
 
-    // the keys of `context.pages` are permalinks
     const keys = Object.keys(pages)
 
-    // we filter the permalinks to get only our target version and language
     const filteredPermalinks = keys.filter((key) =>
       versionMatcher(key, req.context!.currentVersion!, req.context!.currentLanguage!),
     )

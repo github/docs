@@ -65,13 +65,22 @@ export const ArticleList = ({
                   </span>
                 )}
                 {link.intro && (
-                  <p className="color-fg-muted mb-0 mt-1" data-testid="link-with-intro-intro">
+                  <p
+                    className={clsx(styles.textMuted, 'mb-0', 'mt-1')}
+                    data-testid="link-with-intro-intro"
+                  >
                     {link.intro}
                   </p>
                 )}
                 {link.date && (
                   <time
-                    className="tooltipped tooltipped-n color-fg-muted text-mono mt-1"
+                    className={clsx(
+                      'tooltipped',
+                      'tooltipped-n',
+                      styles.textMuted,
+                      'text-mono',
+                      'mt-1',
+                    )}
                     aria-label={dayjs(link.date).format('MMMM DD')}
                   >
                     {dayjs(link.date).format('MMMM DD')}

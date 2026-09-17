@@ -48,7 +48,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 ## Supported AI models in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}
 
-This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies. For example, as the long term support model, GPT-5.3-Codex will be used in the event no other models are available. See[AUTOTITLE](/copilot/concepts/models/fallback-and-lts-models) and [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies. For example, as the long term support model, {% data variables.copilot.copilot_gpt_53_codex %} will be used in the event no other models are available. See [AUTOTITLE](/copilot/concepts/models/fallback-and-lts-models) and [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 {% rowheaders %}
 
@@ -221,6 +221,6 @@ The following table lists AI models that are retired or scheduled for retirement
 
 ## Next steps
 
-* To get up and running with {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/get-started/quickstart).
+* To get up and running with {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-on-github-com) and [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide) .
 * To configure which models are available to you, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 * To learn more about Responsible Use and Responsible AI, see [{% data variables.product.prodname_copilot_short %} Trust Center](https://copilot.github.trust.page/) and [AUTOTITLE](/copilot/responsible-use).

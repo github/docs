@@ -10,6 +10,8 @@ redirect_from:
   - /copilot/concepts/policies
 category:
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 ## How do policies work?

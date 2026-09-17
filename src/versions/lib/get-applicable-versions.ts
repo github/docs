@@ -77,11 +77,9 @@ function getApplicableVersions(
           {},
         )
 
-  // Get available versions for feature and standard versions.
   const foundFeatureVersions = evaluateVersions(featureVersionsObj)
   const foundStandardVersions = typeof versionsObj === 'string' ? [] : evaluateVersions(versionsObj)
 
-  // Combine them!
   const applicableVersions: string[] = Array.from(
     new Set(foundStandardVersions.concat(foundFeatureVersions)),
   )
@@ -97,7 +95,6 @@ function getApplicableVersions(
     return allVersionKeys.indexOf(v)
   })
 
-  // Strip out not-yet-supported versions if the option to include them is not provided.
   if (!opts.includeNextVersion) {
     sortedVersions = sortedVersions.filter(
       (v: string) => !(v.endsWith(`@${next}`) || v.endsWith(`@${nextNext}`)),
@@ -117,7 +114,6 @@ function evaluateVersions(versionsObj: VersionsObject): string[] {
   //   ghec: '*'
   // ^ where each key corresponds to a plan's short name (defined in lib/all-versions.ts)
   for (const [plan, planValue] of Object.entries(versionsObj)) {
-    // Skip non-string plan values for semantic comparison
     if (typeof planValue !== 'string') continue
 
     // For each available plan (e.g., `ghes`), get the matching versions from allVersions.

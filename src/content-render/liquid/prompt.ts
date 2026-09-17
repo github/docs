@@ -1,4 +1,3 @@
-// src/content-render/liquid/prompt.ts
 // Defines {% prompt %}…{% endprompt %} to wrap its content in <code> and append the Copilot icon.
 
 import octicons from '@primer/octicons'
@@ -15,7 +14,6 @@ interface LiquidTag {
 export const Prompt: LiquidTag = {
   type: 'block',
 
-  // Collect everything until {% endprompt %}
   parse(tagToken: TagToken, remainTokens: TopLevelToken[]): void {
     this.templates = []
     const stream = this.liquid.parser.parseStream(remainTokens)
@@ -28,12 +26,10 @@ export const Prompt: LiquidTag = {
     stream.start()
   },
 
-  // Render the inner Markdown, wrap in <code>, then append the SVG
   *render(scope: unknown): Generator<unknown, string, unknown> {
     const content = yield this.liquid.renderer.renderTemplates(this.templates, scope)
     const contentString = String(content)
 
-    // build a URL with the prompt text encoded as query parameter
     const promptParam: string = encodeURIComponent(contentString)
     const href: string = `https://github.com/copilot?prompt=${promptParam}`
     // Use murmur hash for deterministic ID (avoids hydration mismatch)

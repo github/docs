@@ -33,7 +33,7 @@ describe('data references', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('every data reference found in English variable files is defined and has a value', async () => {
-    // value can be any type returned by getDataByLanguage - we check if it's a string
+    // getDataByLanguage can return any YAML type, so the string check happens below.
     let errors: Array<{ key: string; value: unknown; variableFile: string }> = []
     const allVariables = getDeepDataByLanguage('variables', 'en')
     const variables = Object.values(allVariables)
@@ -54,7 +54,7 @@ describe('data references', () => {
       }),
     )
 
-    errors = uniqWith(errors, isEqual) // remove duplicates
+    errors = uniqWith(errors, isEqual)
     expect(errors.length, JSON.stringify(errors, null, 2)).toBe(0)
   })
 })

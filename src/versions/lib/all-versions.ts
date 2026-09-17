@@ -9,7 +9,6 @@ const versionDelimiter = '@'
 const latestNonNumberedRelease = 'latest'
 const REST_DATA_META_FILE = 'src/rest/lib/config.json'
 
-// Type for the plan configuration
 interface PlanConfig {
   plan: string
   planTitle: string
@@ -22,7 +21,6 @@ interface PlanConfig {
   miscBaseName: string
 }
 
-// Type for the REST API config file
 interface RestApiConfig {
   'api-versions': {
     [key: string]: string[]
@@ -134,7 +132,7 @@ export function isApiVersioned(version: string): boolean {
 
 // Currently the versions from the OpenAPI do not match the versions on Docs.
 // There is a mapping between the version names. This gets the Docs version from
-// the OpenAPI version name (the filename )
+// the OpenAPI version name.
 export function getDocsVersion(openApiVersion: string): string {
   const matchingVersion = Object.values(allVersions).find((version) =>
     openApiVersion.startsWith(version.openApiVersionName),

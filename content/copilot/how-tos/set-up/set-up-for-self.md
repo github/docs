@@ -42,7 +42,7 @@ If you want to use {% data variables.product.prodname_copilot_short %} in the co
 
 ## 4. Use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}
 
-If you want to chat with {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}, connect {% data variables.product.prodname_copilot_short %} with Terminal Chat in {% data variables.product.prodname_windows_terminal %} Canary. See [AUTOTITLE](/copilot/get-started/quickstart?tool=windowsterminal).
+If you want to chat with {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}, connect {% data variables.product.prodname_copilot_short %} with Terminal Chat in {% data variables.product.prodname_windows_terminal %} Canary. See [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide).
 
 ## 5. Set up networking (if necessary)
 

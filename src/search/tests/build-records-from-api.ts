@@ -72,11 +72,9 @@ Setup steps.
 ## **Bold** heading
 `
     const headings = extractHeadingsFromMarkdown(markdown)
-    // Verify complete heading text with formatting stripped
     expect(headings).toContain('Using code in headings')
     expect(headings).toContain('A link heading')
     expect(headings).toContain('Bold heading')
-    // Should not contain markdown syntax
     expect(headings).not.toContain('`')
     expect(headings).not.toContain('**')
     expect(headings).not.toContain('](')
@@ -161,7 +159,6 @@ This is **bold** and *italic* text.
     expect(text).toContain('italic')
     expect(text).toContain('List item 1')
     expect(text).toContain('A link')
-    // Should not contain markdown syntax
     expect(text).not.toContain('**')
     expect(text).not.toContain('](')
   })
@@ -256,7 +253,6 @@ More text.
     expect(text).toContain('Column A')
     expect(text).toContain('Cell 1')
     expect(text).toContain('More text')
-    // Should not contain raw GFM table syntax artifacts
     expect(text).not.toContain('| ---')
     expect(text).not.toContain('---')
   })
@@ -655,11 +651,9 @@ describe('fetchArticleAsRecord', () => {
 
     const result = await fetchArticleAsRecord('/en/test', 'http://localhost:4002')
 
-    // Verify the shape of FetchResult
     expect(result).toHaveProperty('record')
     expect(result).toHaveProperty('failure')
 
-    // When successful, record should have all expected fields
     expect(result.record).toHaveProperty('objectID')
     expect(result.record).toHaveProperty('title')
     expect(result.record).toHaveProperty('intro')

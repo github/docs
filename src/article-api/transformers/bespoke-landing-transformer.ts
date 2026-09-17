@@ -13,10 +13,9 @@ interface BespokeLandingPage extends Omit<Page, 'featuredLinks'> {
 }
 
 /**
- * Transforms bespoke-landing pages into markdown format.
- * Handles carousels and full article listings.
- * Note: Unlike discovery-landing, bespoke-landing shows ALL articles
- * regardless of includedCategories.
+ * Transforms bespoke-landing pages into markdown.
+ * Unlike discovery-landing, this shows every article regardless of
+ * includedCategories, which only filters discovery-landing pages.
  */
 export class BespokeLandingTransformer implements PageTransformer {
   templateName = 'landing-page.template.md'
@@ -80,7 +79,6 @@ export class BespokeLandingTransformer implements PageTransformer {
 
         const validLinks = links.filter((l) => l.href && l.title)
         if (validLinks.length > 0) {
-          // Use carousel key as title (capitalize first letter)
           const sectionTitle = carouselKey.charAt(0).toUpperCase() + carouselKey.slice(1)
           sections.push({
             title: sectionTitle,
@@ -90,14 +88,12 @@ export class BespokeLandingTransformer implements PageTransformer {
       }
     }
 
-    // Articles section: recursively gather ALL descendant articles
-    // This matches the behavior of the site which uses genericTocFlat/genericTocNested
-    // Note: For bespoke-landing pages, the site shows ALL articles regardless of includedCategories
-    // (includedCategories only filters for discovery-landing pages)
+    // Recursively gather every descendant article, matching the site's
+    // genericTocFlat/genericTocNested behaviour.
     if (bespokePage.children && bespokePage.children.length > 0) {
       const tocItems = await getAllTocItems(page, context)
 
-      // Flatten to get all leaf articles (excludeParents: true means only get articles, not category pages)
+      // excludeParents keeps only leaf TOC items, dropping anything with children.
       const allArticles = flattenTocItems(tocItems, { excludeParents: true })
 
       if (allArticles.length > 0) {

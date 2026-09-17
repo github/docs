@@ -11,6 +11,8 @@ contentType: tutorials
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /copilot/tutorials/roll-out-at-scale/govern-for-adoption
+docsTeamMetrics:
+  - ai-governance
 ---
 
 Getting the most from {% data variables.product.prodname_copilot %} means finding the right balance between governance and developer access. Too restrictive, and developers can't use the features that make them productive. Too permissive, and you may not meet your compliance requirements.
