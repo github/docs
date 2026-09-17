@@ -1,6 +1,30 @@
+// Docs 2026: article lede matches the Figma hero spec (node 795:41412) —
+// Mona Sans 16px, weight 400, line-height 1.6, muted color. Applied only to
+// `<Lead variant="hero">` (the article page); the other Lead consumers keep the
+// legacy `f2` scale, since the hero spec was drawn for the article and 16px is
+// ~a third smaller than f2's 24px.
+.container {
+  font-family: var(--brand-body-fontFamily);
+  font-size: 1rem; // 16px
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--brand-color-text-muted, #58635b);
+}
+
+// The muted lede colour on its own, for the non-hero variants. Those keep the
+// legacy `f2` type scale but still need the Brand palette: they render on the
+// landings and the error page, which sit on Brand's canvas, and the primer/css
+// `color-fg-muted` utility they used to carry paints from the PRC palette.
+.muted {
+  color: var(--brand-color-text-muted, #58635b);
+}
+
 .container code {
   font-size: 85%; // Same as markdown-body code
-  background-color: var(--color-canvas-subtle); // Same as markdown-body code
+  // Brand's equivalent of the old --color-canvas-subtle wash (#f6f8fa -> #f2f5f3).
+  // canvas-subtle rather than canvas-inset: it is a lift above the Brand page
+  // canvas (#0f1511 on #000000 in dark), where inset would be pure black.
+  background-color: var(--brand-color-canvas-subtle, #f2f5f3);
   border-radius: 6px; // Same as markdown-body code
   padding: 0.1em 0.2em; // Same as markdown-body code
 }

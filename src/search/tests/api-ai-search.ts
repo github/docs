@@ -37,18 +37,13 @@ describe('AI Search Routes', () => {
       done = readerDone
 
       if (value) {
-        // Decode the Uint8Array chunk into a string
         const chunkStr = decoder.decode(value, { stream: true })
         chunks.push(chunkStr)
       }
     }
 
-    // Combine all chunks into a single string
     const fullResponse = chunks.join('')
-    // Split the response into individual chunk lines
     const chunkLines = fullResponse.split('\n').filter((line) => line.trim() !== '')
-
-    // Assertions:
 
     // 1. First chunk should be the SOURCES chunk
     expect(chunkLines.length).toBeGreaterThan(0)
@@ -126,7 +121,6 @@ describe('AI Search Routes', () => {
   })
 
   test('should handle streaming response correctly', async () => {
-    // This test verifies the streaming response processing works
     const body = { query: 'test streaming query', version: 'dotcom' }
     const response = await fetch('http://localhost:4000/api/ai-search/v1', {
       method: 'POST',
@@ -137,7 +131,6 @@ describe('AI Search Routes', () => {
     expect(response.ok).toBe(true)
     expect(response.headers.get('content-type')).toBe('application/x-ndjson')
 
-    // Verify we can read the stream without errors
     if (response.body) {
       const reader = response.body.getReader()
       const decoder = new TextDecoder()

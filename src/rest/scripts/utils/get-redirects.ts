@@ -18,8 +18,7 @@ interface RedirectMap {
   [oldUrl: string]: string
 }
 
-// This is way to add redirects from one fragment to another from the
-// client's browser.
+// Adds redirects from one URL fragment to another, applied in the browser.
 export async function syncRestRedirects(): Promise<void> {
   const clientSideRedirects = await getClientSideRedirects()
 

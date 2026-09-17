@@ -105,7 +105,6 @@ export default async function archivedEnterpriseVersions(
   const { isArchived, requestedVersion } = isArchivedVersion(req)
   if (!isArchived || !requestedVersion) return next()
 
-  // Skip asset paths
   if (patterns.assetPaths.test(req.path)) return next()
 
   const redirectCode = pathLanguagePrefixed(req.path) ? 301 : 302
@@ -176,8 +175,6 @@ export default async function archivedEnterpriseVersions(
     // URLs like this only need to redirect the original `req.path`
     // didn't already have a language
     if (newPath !== undefined && (newPath || !language)) {
-      // Construct the new URL by combining the new language and the
-      // new destination.
       const redirect = `/${language || 'en'}${newPath || withoutLanguagePath}`
       cacheAggressively(res)
       return res.safeRedirect(redirectCode, redirect)
@@ -258,8 +255,6 @@ export default async function archivedEnterpriseVersions(
   ])()
   const responseTime = Date.now() - startTime
 
-  // Log warnings for slow responses to help identify degraded performance
-  // A response time over half the timeout indicates potential issues
   if (responseTime > WARN_RESPONSE_THRESHOLD) {
     logger.warn('Slow response from archived enterprise content', {
       version: requestedVersion,
@@ -270,14 +265,14 @@ export default async function archivedEnterpriseVersions(
     })
   }
 
-  // Log non-200 responses — use warn for 404s (expected for missing archived
-  // pages) and error for genuine upstream failures (5xx, timeouts).
+  // Warn on 404s, which are expected for missing archived pages.
+  // Everything else is a genuine upstream failure.
   if (r.status !== 200) {
     let upstreamBody: string | undefined
     try {
       upstreamBody = await readBodyWithTimeout(r, () => r.text(), timeoutConfiguration.response)
     } catch {
-      // ignore — body reading failure shouldn't affect error handling
+      // A body we cannot read should not change how we handle the error.
     }
     const level = r.status === 404 ? 'warn' : 'error'
     logger[level]('Failed to fetch archived enterprise content', {
@@ -369,7 +364,6 @@ export default async function archivedEnterpriseVersions(
         )
       }
 
-      // Continue with remaining replacements
       modifiedBody = modifiedBody.replaceAll(
         /="(\.\.\/)*assets/g,
         `="${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets`,
@@ -465,7 +459,7 @@ function getProxyPath(reqPath: string, requestedVersion: string) {
 }
 
 // Module-level global cache object.
-// Get's populated lazily inside getFallbackRedirect().
+// Gets populated lazily inside getFallbackRedirect().
 const fallbackRedirectLookups = new Map()
 
 function getFallbackRedirect(req: ExtendedRequest) {
@@ -543,8 +537,8 @@ function getEarlyNotFoundReason(reqPath: string, version: string): string | null
     return 'double-slash'
   }
 
-  // Duplicated "/developer/developer/" segment — these are broken
-  // crawler URLs from the old developer.github.com site.
+  // A duplicated "/developer/developer/" segment means a broken crawler URL
+  // from the old developer.github.com site.
   if (reqPath.includes('/developer/developer/')) {
     return 'developer-developer'
   }

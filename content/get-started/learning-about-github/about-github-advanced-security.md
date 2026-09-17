@@ -36,7 +36,7 @@ You get the following features with {% data variables.product.prodname_GH_code_s
 
 * **{% data variables.copilot.copilot_autofix_short %}**: Get automatically generated fixes for {% data variables.product.prodname_code_scanning %} alerts.{% ifversion ai-powered-security-detections %}
 
-* **AI-powered security detections**: Find vulnerabilities in languages and frameworks not covered by {% data variables.product.prodname_codeql %} with an AI-based scanning engine that runs during pull request review.{% endif %}{% endif %}{% ifversion security-campaigns %}
+* **AI Scan**: Find vulnerabilities in languages and frameworks not covered by {% data variables.product.prodname_codeql %} with an AI-based scanning engine that runs during pull request review.{% endif %}{% endif %}{% ifversion security-campaigns %}
 
 * **Security campaigns**: Reduce security debt at scale.{% endif %}
 

@@ -1,46 +1,48 @@
-// Docs 2026 secondary bar — sits below the main header. On desktop the left
+// Docs 2026 secondary bar: sits below the main header. On desktop the left
 // segment matches the 326px rail width (toggle cell + breadcrumbs) and carries
 // the rail's right divider; a bottom border separates the bar from the content
 // and nav below. On mobile the left segment spans the full width.
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
 @import "../../stylesheets/breakpoint-xxl.scss";
 
 .bar {
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));
-  background-color: var(--bgColor-default, var(--color-canvas-default));
+  // Brand tokens: the bar's rule matches the article's section rules
+  // (--brand-color-border-muted) and its surface is the brand canvas. The
+  // canvas token is shared with BreadcrumbsScroller, whose chevrons repaint it
+  // to mask crumbs scrolling underneath — keep the two in step.
+  border-bottom: 1px solid var(--brand-color-border-muted, #e4ebe6);
+  // Brand's canvas, matching the page. Held back on Primer's token while `body`
+  // was still painted #0d1117 by @primer/css; that moved to
+  // --brand-color-canvas-default in src/frame/stylesheets/index.scss, so the
+  // holdback's own release condition ("change together in one commit") is met.
+  // BreadcrumbsScroller's chevron masks repaint this exact value — keep in step.
+  background-color: var(--brand-color-canvas-default);
 
-  // Stick just below the sticky main header (65px) on desktop so breadcrumbs +
-  // collapse toggle stay in view while the content scrolls.
-  @include breakpoint-xxl {
-    position: sticky;
-    top: 65px;
-    z-index: 1;
-  }
+  // Stick just below the sticky main header (sticky at every width) so the
+  // breadcrumbs + collapse toggle — and, below lg, the "In this article" sub-bar
+  // row that follows — stay in view while the content scrolls. z-index 2 keeps
+  // the bar (and its dropdown) above sticky table headers (z-index 1).
+  //
+  // `top` tracks the Brand header through --docs-header-height rather than a
+  // literal 65px: the header is 3.5rem below 48rem and 4rem above, so a fixed
+  // px offset would leave a gap or overlap at one of the two sizes.
+  position: sticky;
+  top: var(--docs-header-height);
+  z-index: 2;
 }
 
+// The breadcrumb segment spans the whole bar at every width. It deliberately
+// does NOT match the 326px rail width / carry the rail's divider: the trail is
+// the bar's content, so cramming it into the rail's column truncated it early
+// while the rest of the bar sat empty.
 .leftSegment {
   display: flex;
   align-items: stretch;
   flex: 1 1 auto;
   min-width: 0;
-
-  // Match the fixed rail width and continue its right divider up through the bar.
-  @include breakpoint-xxl {
-    flex: 0 0 326px;
-    width: 326px;
-    border-right: 1px solid var(--borderColor-muted, var(--color-border-muted));
-  }
-}
-
-// When the rail is collapsed there is no rail to align to, so the breadcrumbs
-// span the full width and the rail divider is dropped.
-.leftSegmentExpanded {
-  @include breakpoint-xxl {
-    flex: 1 1 auto;
-    width: auto;
-    border-right: 0;
-  }
 }
 
 // The nav toggle sits in its own cell with a divider between it and the
@@ -50,16 +52,16 @@
   align-items: center;
   flex: 0 0 auto;
   padding: 0 12px;
-  border-right: 1px solid var(--borderColor-muted, var(--color-border-muted));
+  border-right: 1px solid var(--brand-color-border-muted, #e4ebe6);
 }
 
-// The desktop rail-collapse toggle shows only at the xxl breakpoint; the mobile
-// nav trigger shows only below it. The repo's d-xxl-* utilities cover block/none
-// but not inline-flex, so gate these here.
+// The desktop rail-collapse toggle shows only at lg+ (where the rail exists);
+// the mobile nav trigger shows only below it. The repo's d-lg-* utilities cover
+// block/none but not inline-flex, so gate these here.
 .desktopOnly {
   display: none !important;
 
-  @include breakpoint-xxl {
+  @include breakpoint(lg) {
     display: inline-flex !important;
   }
 }
@@ -67,7 +69,60 @@
 .mobileOnly {
   display: inline-flex !important;
 
-  @include breakpoint-xxl {
+  @include breakpoint(lg) {
     display: none !important;
+  }
+}
+
+// The two sidebar-toggle icons. Replaces primer/css's `color-fg-muted`, which
+// paints Primer's grey (#9198a1 in dark, now that index.scss imports the Primer
+// Primitives functional themes) beside brand-painted breadcrumbs. `!important`
+// is carried over deliberately: the utility it replaces had it, and it is what
+// beats PRC's own `.prc-Button-*` colour on the invisible IconButton variant.
+.toggleIcon {
+  color: var(--brand-color-text-muted) !important;
+}
+
+// The "In this article" control's row, directly beneath the breadcrumb bar.
+// Rendered inside the content column (see DefaultLayout), so on desktop it
+// begins at the doc-tree drawer's right edge and runs to the screen edge —
+// sharing that band with the drawer rather than cutting across above it. With
+// the drawer collapsed or hidden the column is full width, so the row is too.
+// The modifiers below hide it once the right-rail drawer takes over the mini-TOC.
+.overviewSubBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  // Explicit so the sticky stack is a known constant: DefaultLayout.module.scss
+  // publishes the header + bar stack plus this height as `--docs-sticky-stack`,
+  // which table.scss reads to offset sticky table headers. Changing this height
+  // means changing the matching 40px in .stickyStackWithSubBar too.
+  min-height: 40px;
+  border-bottom: 1px solid var(--brand-color-border-muted, #e4ebe6);
+  // Canvas — see the note on `.bar` above. These two sticky rows stack, so they
+  // must always paint the same token.
+  background-color: var(--brand-color-canvas-default);
+
+  // Stick directly beneath the breadcrumb bar (header + 45px bar) so the "In
+  // this article" control stays pinned to the top while the article scrolls.
+  // z-index matches the bar to stay above sticky table headers. Composed from
+  // --docs-header-height for the same reason `.bar` above is.
+  position: sticky;
+  top: calc(var(--docs-header-height) + 45px);
+  z-index: 2;
+}
+
+// Pages with a right-rail drawer, rail expanded: the drawer takes over at xxl.
+.overviewSubBarUntilDrawer {
+  @include breakpoint-xxl {
+    display: none;
+  }
+}
+
+// Pages with a right-rail drawer, rail collapsed: the freed rail width lets the
+// drawer appear earlier (~1074px), so the row yields from there.
+.overviewSubBarUntilDrawerCollapsed {
+  @media (min-width: 1074px) {
+    display: none;
   }
 }

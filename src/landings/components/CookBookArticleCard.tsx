@@ -1,5 +1,6 @@
 import { Label } from '@primer/react-brand'
 import { Link } from '@primer/react'
+import { clsx } from 'clsx'
 import { ValidOcticon, getOcticonComponent } from '../lib/octicons'
 
 import styles from './CookBookArticleCard.module.scss'
@@ -43,14 +44,23 @@ export const CookBookArticleCard = ({
           : IconComponent && (
               <IconComponent
                 size={48}
-                className="mr-4 bgColor-accent-muted p-3 circle fgColor-accent flex-shrink-0"
+                className={clsx(
+                  'mr-4',
+                  styles.iconBackdrop,
+                  'p-3',
+                  'circle',
+                  styles.linkAccent,
+                  'flex-shrink-0',
+                )}
               />
             )}
         <div className="min-width-0 flex-1">
-          <h3 className="h4 fgColor-accent">
-            <Link href={url}>{title}</Link>
+          <h3 className="h4">
+            <Link href={url} className={styles.linkAccent}>
+              {title}
+            </Link>
           </h3>
-          <div className="fgColor-muted mb-3 mt-2">{description}</div>
+          <div className={clsx(styles.textMuted, 'mb-3', 'mt-2')}>{description}</div>
           <div className={styles.labelGroup}>
             {tags.map((tag, index) => (
               <Label key={index} color="blue" className={styles.label} size="small">

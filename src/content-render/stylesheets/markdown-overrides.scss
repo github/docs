@@ -55,3 +55,81 @@
     margin-inline-start: 0.5rem; // Additional spacing to prevent bullet collision (direct children only)
   }
 }
+
+// A CTA button written on its own line in markdown — `<a class="btn btn-primary
+// mt-3 …">` — becomes its own <p>, and that paragraph already carries the 16px
+// rhythm margin. The `mt-3` utility then stacks a second 16px inside it, so the
+// button ends up 32px below the preceding line but only 16px above the next one.
+// Drop the utility when the button is alone in its paragraph and let the
+// paragraph margin do the spacing, which puts the CTA on the same rhythm as
+// every other block. `!important` is required because Primer's spacing
+// utilities are themselves !important.
+//
+// `:only-child` is doing real work here — it is what keeps the two cases apart:
+//   - CTA callouts (`product:`/`permissions:` frontmatter) put the button after
+//     a <br> INSIDE the prose paragraph, so there is no paragraph margin above
+//     it and `mt-3` is the only thing separating it from the text.
+//   - The side-by-side Yes/No `.btn-outline` pairs are two buttons in one
+//     paragraph.
+// Neither is an only child, so both keep their margin.
+.markdown-body p > a.btn:only-child {
+  margin-top: 0 !important;
+}
+
+// @primer/css holds `.btn` at `white-space: nowrap`, which a button cannot
+// honour and still stay inside a narrow column. The longest CTA label — "Set up
+// a trial of GitHub Enterprise Cloud", 322px — is wider than the article column
+// below a ~420px viewport and wider than the callout's text column below ~390px,
+// so the button ran past the content edge and was clipped.
+//
+// Letting the label wrap fixes it with no breakpoint to guess at. An
+// inline-block is shrink-to-fit — min(max-content, available) — so
+// `white-space: normal` changes nothing until max-content exceeds the space
+// available: at every width where the button already fits it still renders on
+// one line, byte-identical. That also makes it self-correcting for longer
+// translated labels and for the narrower column a callout gives the same button.
+.markdown-body a.btn,
+.permissions-statement a.btn,
+.product-statement a.btn {
+  white-space: normal;
+
+  // Wrapping alone orphaned the trailing octicon on a line of its own: the
+  // space between the label <span> and the icon is a valid break point, and the
+  // label filled the first line exactly. Laying the button out as a flex row
+  // instead lets the label wrap within itself and keeps the icon beside it,
+  // vertically centred. At widths where nothing wraps the result is within a
+  // pixel of the inline-block it replaces: same 17px left inset, same 21px
+  // right inset, same 32px height, still one line. The `gap` below covers the
+  // one thing that does change.
+  display: inline-flex;
+  align-items: center;
+
+  // Flex layout eats the one thing that was separating the label from the icon.
+  // The markup is `<span>Label</span> {% octicon "link-external" %}`, and that
+  // literal space does survive Liquid and the markdown pipeline as a real text
+  // node — but a whitespace-only text node between two flex items is not itself
+  // a flex item, so no box is generated for it and the label ends up touching
+  // the icon. `gap` puts the space back.
+  //
+  // 4px rather than the measured width of that space glyph, because a space is
+  // font- and locale-dependent — it measures differently on two machines here —
+  // while 4px is the value Primer itself already uses between a button's icon
+  // and its label. The button ends up a fraction of a pixel wider than it was
+  // rather than most of a space narrower, on a number the design system owns.
+  //
+  // Only the label/icon gap is restored. Primer's `.btn .octicon` also carries
+  // `margin-right: 4px`, which assumes a LEADING icon and so lands outside the
+  // trailing icon on these CTAs, giving them 21px of inset on the right against
+  // 17px on the left. That asymmetry is what ships today, so it stays — zeroing
+  // it would restyle every CTA on the site, which is a different change from
+  // keeping a long label inside its column.
+  gap: 4px;
+
+  // The octicon is a flex item now, and flex items shrink before their container
+  // overflows. Once the label wraps, the icon is the only thing left to give, so
+  // the 16px glyph was rendering at 11px in a 240px callout column. It is a
+  // fixed-size icon; the label is what should absorb a narrow column.
+  .octicon {
+    flex-shrink: 0;
+  }
+}

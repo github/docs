@@ -6,8 +6,7 @@ import { loadTemplate } from '@/article-api/lib/load-template'
 import matter from '@gr2m/gray-matter'
 
 /**
- * Transformer for Webhooks pages.
- * Converts webhook events and payloads into markdown format using a Liquid template.
+ * Converts webhook events and payloads into markdown using a Liquid template.
  */
 export class WebhooksTransformer implements PageTransformer {
   templateName = 'webhooks-page.template.md'
@@ -20,16 +19,12 @@ export class WebhooksTransformer implements PageTransformer {
     // Import getInitialPageWebhooks dynamically to avoid circular dependencies
     const { getInitialPageWebhooks } = await import('@/webhooks/lib/index')
 
-    // Extract version from context
     const currentVersion = context.currentVersion!
 
-    // Get the webhook data
     const webhooksData = await getInitialPageWebhooks(currentVersion)
 
-    // Prepare page intro
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
 
-    // Prepare manual content
     let manualContent = ''
     if (page.markdown) {
       const { content } = matter(page.markdown)
@@ -88,7 +83,6 @@ export class WebhooksTransformer implements PageTransformer {
       )
     }
 
-    // Prepare template data
     const templateData: Record<string, unknown> = {
       page: {
         title: page.title,
@@ -99,7 +93,6 @@ export class WebhooksTransformer implements PageTransformer {
       commonParams,
     }
 
-    // Load and render template
     const templateContent = loadTemplate(this.templateName)
 
     return await renderContent(templateContent, {

@@ -23,13 +23,12 @@ type ErrorMessages = Record<string, Record<string, { contentDir: string[]; openA
 
 export async function getDiffOpenAPIContentRest(): Promise<ErrorMessages> {
   const contentFiles = getAutomatedMarkdownFiles('content/rest')
-  // Creating the categories/subcategories based on the current content directory
   const checkContentDir = await createCheckContentDirectory(contentFiles)
 
-  // Create categories/subcategories from OpenAPI Schemas
   const openAPISchemaCheck = await createOpenAPISchemasCheck()
 
-  // Get Differences between categories/subcategories from dereferenced schemas and the content/rest directory frontmatter versions
+  // Compare the categories and subcategories in the dereferenced schemas
+  // against the versions in the content/rest frontmatter.
   const differences = getDifferences(openAPISchemaCheck, checkContentDir)
   const errorMessages: ErrorMessages = {}
 

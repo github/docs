@@ -1,15 +1,8 @@
-/**
- * To be able to run these tests you need to index the fixtures!
- * And you need to have an Elasticsearch URL to connect to for the server.
- *
- * To index the fixtures, run:
- *
- *   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
- *
- * This will replace any "real" Elasticsearch indexes you might have so
- * once you're done working on vitest tests you need to index real
- * content again.
- */
+// These tests need indexed fixtures and an Elasticsearch URL for the server:
+//
+//   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
+//
+// That writes `tests_`-prefixed indexes and leaves your regular ones alone.
 
 import { expect, test, vi } from 'vitest'
 
@@ -29,7 +22,6 @@ const combinedSearchEndpoint = '/api/search/combined-search/v1'
 const getSearchEndpointWithParams = (searchParams: URLSearchParams) =>
   `${combinedSearchEndpoint}?${searchParams}`
 
-// This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search/combined-autocomplete v1 middleware', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 

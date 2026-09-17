@@ -51,7 +51,6 @@ describe('content linter configuration', () => {
     function shouldIncludeInReport(flaw: LintFlaw): boolean {
       const allRuleNames = getAllRuleNames(flaw)
 
-      // Check if severity should be included
       if (reportingConfig.includeSeverities.includes(flaw.severity)) {
         return true
       }

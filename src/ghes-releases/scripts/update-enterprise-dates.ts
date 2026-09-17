@@ -44,7 +44,6 @@ if (!process.env.GITHUB_TOKEN) {
 main()
 
 async function main(): Promise<void> {
-  // send owner, repo, ref, path
   let rawDates: RawReleaseData = {}
   try {
     rawDates = JSON.parse(

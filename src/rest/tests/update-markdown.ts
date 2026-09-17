@@ -41,21 +41,16 @@ describe('GHES version extraction for update-markdown', () => {
   })
 
   test('demonstrates the original bug scenario', () => {
-    // This test demonstrates the bug described in the issue
-    // where ghes-3.10 would incorrectly match deprecated version 3.1
+    // The old substring match found '3.1' inside 'ghes-3.10' and wrongly
+    // treated 3.10 as deprecated.
     const filePath = 'src/rest/data/ghes-3.10-2022-11-28/schema.json'
     const extractedVersion = getGHESVersionFromFilepath(filePath)
 
-    // Mock deprecated versions array like in the actual code
     const deprecated = ['3.0', '3.1', '3.2', '2.22', '2.21']
 
     expect(extractedVersion).toBe('3.10')
-    // This should be false - 3.10 is NOT in the deprecated list
     if (extractedVersion) {
       expect(deprecated.includes(extractedVersion)).toBe(false)
     }
-
-    // The old buggy logic would have incorrectly flagged this as deprecated
-    // because it would find '3.1' as a substring in the path
   })
 })

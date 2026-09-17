@@ -1,16 +1,14 @@
-/**
- * Rebuilds the deduplicated "shared" audit log format
- * (src/audit-logs/data/shared/entries.json, fields-pool.json, and
- * version-index.json) from the per-version page files already on disk.
- *
- * Unlike `sync-audit-log`, this does NOT fetch from github/audit-log-allowlists
- * and needs no GITHUB_TOKEN. Use it to regenerate the shared files when the
- * per-version JSON files have changed but the shared files are stale (for
- * example, an older audit-log-pipeline PR that predates the dedup format), which
- * makes the `deduplication` test fail.
- *
- *   npm run rebuild-audit-log-dedup
- */
+// Rebuilds the deduplicated "shared" audit log format from the per-version page
+// files already on disk: src/audit-logs/data/shared/entries.json and
+// fields-pool.json, plus src/audit-logs/data/version-index.json.
+//
+// Unlike `sync-audit-log`, this does NOT fetch from github/audit-log-allowlists
+// and needs no GITHUB_TOKEN. Use it to regenerate the shared files when the
+// per-version JSON files have changed but the shared files are stale, for
+// example on an older audit-log-pipeline PR that predates the dedup format.
+// That is what makes the `deduplication` test fail.
+//
+//   npm run rebuild-audit-log-dedup
 import { existsSync, readdirSync, readFileSync, statSync } from 'fs'
 import path from 'path'
 

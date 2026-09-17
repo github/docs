@@ -5,11 +5,8 @@ import { cookieSettings } from '@/frame/lib/cookie-settings'
 
 export default cookieParser(
   process.env.COOKIE_SECRET,
-  // This is because of a but in @types/cookie-parser
-  // The options are actually passed straight into `cookie.parse`
-  // from the cookie page. When creating a cookie setting object in
-  // our `cookie-settings.ts` we want to use the right type,
-  // which is `CookieSerializeOptions` (from the `cookie` package)
-  // but we have circumnavigate the option here.
+  // `cookie-settings.ts` declares these as `CookieSerializeOptions` because
+  // that is the right type for the places that set cookies. cookie-parser
+  // wants `CookieParseOptions`, so bridge the two here.
   cookieSettings as CookieParseOptions,
 )

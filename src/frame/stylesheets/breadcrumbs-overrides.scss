@@ -1,0 +1,32 @@
+// Docs 2026 breadcrumb treatment, overriding @primer/react-brand's Breadcrumbs.
+//
+// Brand's `default` variant renders the ancestor crumbs at full strength and
+// MUTES the current page. The design wants the inverse: the pages you are not
+// viewing — and the "/" separators between them — recede, while the page you're
+// on reads at full strength.
+//
+// Keyed off the `data-container` attribute rather than a class because brand's
+// Breadcrumbs <nav> discards any className passed to it, so there is no class
+// hook on that element. The element selectors (`nav`, `li`) are here to out-
+// weigh brand's own rules, which are applied through the component's CSS module
+// and can load after this stylesheet — specificity, rather than source order,
+// is what keeps these overrides winning.
+nav[data-container="breadcrumbs"] {
+  // Match the type of the SELECTED doc-tree nav item exactly. Brand already
+  // sizes crumbs at 14px/400 (text-size-100) but leaves letter-spacing unset,
+  // where the NavList item carries the 100-scale value.
+  letter-spacing: var(--brand-text-letterSpacing-100);
+
+  // Ancestor crumbs (still links) and the separator rules recede. The separator
+  // is drawn as a rotated border on `li::after`, so it reads this token rather
+  // than `color`.
+  --brand-InlineLink-color-rest: var(--brand-color-text-muted);
+  --brand-InlineLink-color-pressed: var(--brand-color-text-muted);
+  --brand-breadcrumbs-separator-borderColor: var(--brand-color-text-muted);
+
+  // The current page reads at full strength. Brand's default variant explicitly
+  // mutes this one, so this needs to outweigh a two-class selector.
+  li [aria-current="page"] {
+    color: var(--brand-color-text-default);
+  }
+}

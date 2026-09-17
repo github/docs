@@ -79,7 +79,7 @@ const scheduledWorkflows = workflows.filter(({ data }) => data.on.schedule)
 // running in docs-internal itself. When a job is scoped to the public
 // github/docs fork via `if: github.repository == 'github/docs'`, those
 // triggers fire from external reporters/commenters, and the issue or
-// comment itself is the natural failure surface — piling on automated
+// comment itself is the natural failure surface. Piling on automated
 // alert-issues there is duplicative and noisy.
 const ALWAYS_UNATTENDED_TRIGGERS = ['schedule', 'workflow_run', 'repository_dispatch', 'push']
 const DOCS_INTERNAL_ONLY_UNATTENDED_TRIGGERS = ['issues', 'issue_comment']
@@ -102,7 +102,7 @@ function jobRequiresFailureAlerts(workflow: WorkflowMeta, job: WorkflowJob): boo
   return false
 }
 
-// Workflows where at least one job requires failure alerts — used to drive
+// Workflows where at least one job requires failure alerts. Used to drive
 // the parameterised tests below. Per-job filtering happens inside each test.
 const alertWorkflows = workflows.filter(({ data }) =>
   Object.values(data.jobs).some((job) => job.steps),
@@ -231,8 +231,8 @@ describe('GitHub Actions workflows', () => {
   // GitHub App token instead.
   //
   // NOTE: this intentionally does NOT cover plain `pull_request`. That trigger
-  // does not expose secrets to fork PRs — only to same-repo branch PRs from
-  // contributors who already have write access — and passing the PAT to local
+  // does not expose secrets to fork PRs, only to same-repo branch PRs from
+  // contributors who already have write access, and passing the PAT to local
   // actions there (e.g. get-docs-early-access) is a longstanding, accepted
   // pattern across many workflows. See #62343.
   const pullRequestTargetWorkflows = workflows.filter(({ data }) => {

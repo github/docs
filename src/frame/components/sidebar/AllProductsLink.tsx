@@ -1,8 +1,11 @@
 import { useRouter } from 'next/router'
 import { ArrowLeftIcon } from '@primer/octicons-react'
+import cx from 'classnames'
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'
+
+import styles from './AllProductsLink.module.scss'
 
 export const AllProductsLink = () => {
   const router = useRouter()
@@ -14,7 +17,7 @@ export const AllProductsLink = () => {
     <div className="mt-3">
       <Link
         href={`/${router.locale}${currentVersionPathSegment}`}
-        className="f6 pl-2 pr-5 ml-n1 pb-1 Link--primary color-fg-default"
+        className={cx('f6 pl-2 pr-5 ml-n1 pb-1', styles.allProductsLink)}
       >
         <ArrowLeftIcon size="small" className="mr-1" />
         {t('go_home')}

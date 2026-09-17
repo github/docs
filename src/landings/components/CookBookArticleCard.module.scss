@@ -25,3 +25,27 @@
   flex-wrap: wrap;
   gap: 0.25rem;
 }
+
+// Accent colour shared by the card's leading octicon and its title link, so the
+// icon matches the title. Sits directly on the Primer React `Link` rather than
+// the wrapping `<h3>`: `Link` paints its own `color`, so it does not inherit.
+.linkAccent {
+  color: var(--brand-color-text-link-rest);
+}
+
+// The leading octicon's tinted circle. Replaces primer/css's
+// `bgColor-accent-muted`, which resolves to Primer's blue wash (#388bfd1a in
+// dark) behind a brand-blue icon. Brand ships no accent-muted surface token, so
+// tint brand's own link blue — the same token the icon itself is painted with.
+.iconBackdrop {
+  background-color: color-mix(
+    in srgb,
+    var(--brand-color-text-link-rest) 12%,
+    transparent
+  );
+}
+
+// The card's description copy.
+.textMuted {
+  color: var(--brand-color-text-muted);
+}

@@ -809,6 +809,50 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "list-enterprise-token-inventory",
+        "subcategory": "token-inventory",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/credentials",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "create-an-enterprise-token-inventory-export",
+        "subcategory": "token-inventory",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/credentials/exports",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-an-enterprise-token-inventory-export",
+        "subcategory": "token-inventory",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/credentials/exports/{export_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-an-enterprise-token-inventory-item",
+        "subcategory": "token-inventory",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/credentials/{inventory_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       }
     ]
   },

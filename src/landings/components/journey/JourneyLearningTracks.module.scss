@@ -23,11 +23,8 @@
   height: 24px;
   padding: 0 0.5rem;
   border-radius: 999px;
-  background-color: var(
-    --bgColor-neutral-muted,
-    var(--color-neutral-muted, #d2d9d4)
-  );
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  background-color: var(--brand-color-neutral-muted);
+  color: var(--brand-color-text-default);
   font-family: var(--brand-fontStack-monospace, "Mona Sans Mono", monospace);
   font-size: 14px;
   line-height: 1.5;
@@ -38,10 +35,7 @@
 .connectorBelow {
   width: 1px;
   margin-left: 11px;
-  background-color: var(
-    --borderColor-default,
-    var(--color-border-default, #d2d9d4)
-  );
+  background-color: var(--brand-color-border-default);
 }
 
 .connectorAbove {
@@ -55,10 +49,9 @@
 .trackCard {
   width: 100%;
   min-width: 0;
-  border: 1px solid
-    var(--borderColor-default, var(--color-border-default, #d2d9d4));
+  border: 1px solid var(--brand-color-border-default);
   border-radius: 8px;
-  background-color: var(--bgColor-muted, var(--color-canvas-subtle, #fafafa));
+  background-color: var(--brand-color-canvas-subtle);
   overflow: hidden;
   transition:
     box-shadow 0.2s ease-in-out,
@@ -108,7 +101,7 @@
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.16px;
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  color: var(--brand-color-text-default);
 }
 
 .articlesPill {
@@ -117,11 +110,8 @@
   flex-shrink: 0;
   padding: 1px 7px;
   border-radius: 100px;
-  background-color: var(
-    --bgColor-neutral-muted,
-    var(--color-neutral-muted, #f2f5f3)
-  );
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  background-color: var(--brand-color-neutral-muted);
+  color: var(--brand-color-text-default);
   font-size: 12px;
   font-weight: 500;
   line-height: 1.5;
@@ -130,7 +120,7 @@
 
 .chevron {
   flex-shrink: 0;
-  color: var(--fgColor-muted, var(--color-fg-muted, #58635b));
+  color: var(--brand-color-text-muted);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -139,7 +129,7 @@
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: 0.14px;
-  color: var(--fgColor-muted, var(--color-fg-muted, #58635b));
+  color: var(--brand-color-text-muted);
 }
 
 .trackGuides {
@@ -172,11 +162,8 @@
   height: 24px;
   padding: 0 0.5rem;
   border-radius: 4px;
-  background-color: var(
-    --bgColor-neutral-muted,
-    var(--color-neutral-muted, #e4ebe6)
-  );
-  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  background-color: var(--brand-color-neutral-muted);
+  color: var(--brand-color-text-default);
   font-family: var(--brand-fontStack-monospace, "Mona Sans Mono", monospace);
   font-size: 14px;
   line-height: 1.5;
@@ -186,7 +173,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-  color: var(--fgColor-accent, var(--color-accent-fg, #005dd5));
+  color: var(--brand-color-text-link-rest);
 }
 
 .singleTrackHeading {

@@ -121,7 +121,7 @@ In {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.
 * You want to cap {% data variables.product.prodname_ai_credits_short %} usage on a single session to avoid unexpected costs.
 * You're tuning agent efficiency and want to find the minimum {% data variables.product.prodname_ai_credits_short %} that still produces a good result.
 
-Session limits are soft limits that help you control how many {% data variables.product.prodname_ai_credits_short %} any single task consumes, but they don't replace user-level budgets or spending limits, which govern your overall monthly consumption. For those controls, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+Session limits are soft limits that help you control how many {% data variables.product.prodname_ai_credits_short %} any single task consumes, but they don't replace user-level budgets or spending limits, which govern your overall monthly consumption. For those controls, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 For information on how to set a session limit in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/set-session-limit).
 

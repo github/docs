@@ -77,9 +77,6 @@ engine.registerFilter('render_liquid', function (this: FilterScope, input: unkno
   return engine.parseAndRender(input, this.context.environments)
 })
 
-/**
- * Convert the input to a slug
- */
 engine.registerFilter('slugify', (input: string): string => {
   const slugger = new GithubSlugger()
   return slugger.slug(input)

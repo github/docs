@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { runRule } from '../../lib/init-test'
 import { frontmatterLiquidSyntax, liquidSyntax } from '../../lib/linting-rules/liquid-syntax'
 
-// Configure the test figure to not split frontmatter and content
+// Configure the test fixture to not split frontmatter and content
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 
 describe(frontmatterLiquidSyntax.names.join(' - '), () => {

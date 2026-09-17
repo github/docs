@@ -31,21 +31,17 @@ export default function dataDirectory(
 
   const mergedOpts = Object.assign({}, defaultOpts, opts)
 
-  // validate input
   assert(Array.isArray(mergedOpts.ignorePatterns))
   assert(mergedOpts.ignorePatterns.every(isRegExp))
   assert(Array.isArray(mergedOpts.extensions))
   assert(mergedOpts.extensions.length)
 
-  // start with an empty data object
   const data: DataDirectoryResult = {}
 
   // find YAML and Markdown files in the given directory, recursively
   const filenames = walk(dir, { includeBasePath: true }).filter((filename: string) => {
-    // ignore files that match any of ignorePatterns regexes
     if (mergedOpts.ignorePatterns.some((pattern) => pattern.test(filename))) return false
 
-    // ignore files that don't have a whitelisted file extension
     return mergedOpts.extensions.includes(path.extname(filename).toLowerCase())
   })
 

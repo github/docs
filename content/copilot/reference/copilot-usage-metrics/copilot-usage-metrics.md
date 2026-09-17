@@ -21,7 +21,7 @@ The {% data variables.product.prodname_copilot_short %} usage metrics dashboard 
 * Team-level metrics are not pre-aggregated; you construct them by joining the user-teams report with the per-user usage metrics report. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
 * Repository-level reports contain one record per repository with pull request activity on the requested day. See [Repository-level fields (API only)](#repository-level-fields-api-only) later in this article.
 
-For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
+For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics).
 
 ## {% data variables.product.prodname_copilot_short %} usage dashboard metrics
 
@@ -47,7 +47,7 @@ These metrics appear directly in the {% data variables.product.prodname_copilot_
 
 ## Impact dashboard metrics
 
-These metrics appear in the impact dashboard, which groups users into adoption cohorts and connects that adoption to pull request output. For guidance on interpreting adoption cohorts, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics#understanding-adoption-cohorts).
+These metrics appear in the impact dashboard, which groups users into adoption cohorts and connects that adoption to pull request output. For guidance on interpreting adoption cohorts, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics#understanding-adoption-cohorts).
 
 | Metric | Description |
 |:--|:--|
@@ -298,7 +298,7 @@ These metrics come from server-side job activity. The nested `user_initiated_int
 ### Pull request activity fields
 
 > [!IMPORTANT]
-> Organization- and enterprise-level reports may show different totals due to differences in user deduplication and attribution timing. For guidance on interpreting pull request metrics across scopes, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics#interpreting-pull-request-lifecycle-metrics-across-scopes).
+> Organization- and enterprise-level reports may show different totals due to differences in user deduplication and attribution timing. For guidance on interpreting pull request metrics across scopes, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics#interpreting-pull-request-lifecycle-metrics-across-scopes).
 
 The `pull_requests` object appears in aggregated enterprise and organization reports, and in repository-level reports. It captures daily pull request creation, review, merge, and suggestion activity, including activity performed by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}.
 

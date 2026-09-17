@@ -3,7 +3,21 @@
   h2,
   h3,
   h4,
-  h5 {
+  h5,
+  h6 {
     padding-top: 1rem;
+  }
+
+  // Docs 2026: article body headings adopt the brand heading font
+  // (Mona Sans, via --brand-heading-fontFamily from @primer/react-brand).
+  // Sizes stay on the existing @primer/css em scale to preserve the visual
+  // hierarchy; only the typeface + heading line-height change here.
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--brand-heading-fontFamily);
+    line-height: var(--brand-heading-lineHeight-500, 1.3);
   }
 }

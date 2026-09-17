@@ -88,6 +88,9 @@ For guidance on how to optimize your usage and reduce spend, including how to se
 
 ## What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}?
 
+> [!NOTE]
+> This section applies to users who are on a {% data variables.copilot.copilot_individuals_short %} plan. {% data reusables.copilot.request-ai-credit-allocation-increase %}
+
 When your {% data variables.product.prodname_ai_credits_short %} are exhausted, you can:
 
 * **Upgrade your plan.** As you approach your usage limits, {% data variables.product.prodname_copilot_short %} prompts you to upgrade to the next tier. The upgrade cost is only the price difference between your current plan and the new plan, _not_ the full price of the new plan. Your usage from earlier in the billing cycle is counted within the new plan's larger allowance, so the additional credits are available to you immediately. You won't be charged for both plans for the same period.

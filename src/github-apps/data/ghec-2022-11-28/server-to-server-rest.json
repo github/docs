@@ -3311,6 +3311,30 @@
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke-credential-type"
     },
     {
+      "slug": "list-enterprise-token-inventory",
+      "subcategory": "token-inventory",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials"
+    },
+    {
+      "slug": "create-an-enterprise-token-inventory-export",
+      "subcategory": "token-inventory",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credentials/exports"
+    },
+    {
+      "slug": "get-an-enterprise-token-inventory-export",
+      "subcategory": "token-inventory",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials/exports/{export_id}"
+    },
+    {
+      "slug": "get-an-enterprise-token-inventory-item",
+      "subcategory": "token-inventory",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials/{inventory_id}"
+    },
+    {
       "slug": "get-all-enterprise-roles-for-an-enterprise",
       "subcategory": "enterprise-roles",
       "verb": "get",

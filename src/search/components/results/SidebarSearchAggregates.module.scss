@@ -6,7 +6,7 @@
 
   // Below `medium` the rail sits above the results in the page flow, so
   // expanding the panel grows content that the browser's scroll anchoring then
-  // compensates for — scrolling the disclosure bar off the top of the viewport
+  // compensates for by scrolling the disclosure bar off the top of the viewport
   // the moment you open it. Opt this subtree out so opening stays put.
   overflow-anchor: none;
 

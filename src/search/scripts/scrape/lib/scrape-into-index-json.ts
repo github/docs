@@ -8,8 +8,8 @@ import { getElasticSearchIndex } from '@/search/lib/elasticsearch-indexes'
 
 import type { Options, Config, Page, Redirects } from '@/search/scripts/scrape/types'
 
-// Build a search data file for every combination of product version and language
-// e.g. `github-docs-dotcom-en.json` and `github-docs-2.14-ja.json`
+// Build a search data file for every combination of product version and
+// language, e.g. `github-docs_general-search_fpt_en-records.json`.
 export default async function scrapeIntoIndexJson({
   language,
   notLanguage,
@@ -19,7 +19,6 @@ export default async function scrapeIntoIndexJson({
 }: Options): Promise<void> {
   const t0 = new Date()
 
-  // build indices for a specific language if provided; otherwise build indices for all languages
   const languagesToBuild = Object.keys(languages).filter((lang) =>
     notLanguage ? notLanguage !== lang : language ? language === lang : true,
   )
@@ -30,7 +29,7 @@ export default async function scrapeIntoIndexJson({
     )}.\n`,
   )
 
-  // Exclude WIP pages, hidden pages, index pages, etc
+  // Excludes hidden pages, the absolute homepage, and visible WIP products.
   const indexablePages: Page[] = await findIndexablePages(config.filter)
   const redirects: Redirects = {}
   for (const page of indexablePages) {
@@ -53,7 +52,6 @@ export default async function scrapeIntoIndexJson({
     failures: Array<{ url?: string; relativePath?: string; error: string; errorType: string }>
   }> = []
 
-  // Build and validate all indices
   for (const languageCode of languagesToBuild) {
     for (const indexVersion of versionsToBuild) {
       const { indexName } = getElasticSearchIndex('generalSearch', indexVersion, languageCode)
@@ -125,7 +123,6 @@ export default async function scrapeIntoIndexJson({
   const rate = (countRecordsTotal / tookSec).toFixed(1)
   console.log(`Rate ~${chalk.bold(rate)} pages per second.`)
 
-  // Write failures summary to a file for GitHub Actions to read
   if (totalFailedPages > 0) {
     const fs = await import('fs')
     const path = await import('path')

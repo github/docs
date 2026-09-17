@@ -19,21 +19,24 @@ docsTeamMetrics:
 
 ## Introduction
 
-{% data variables.product.prodname_copilot_short %} cloud and local sandboxes are the execution platform powering secure sandboxed experiences for {% data variables.copilot.copilot_cli %}, both locally and in the cloud. As {% data variables.product.prodname_copilot_short %} takes more actions on your behalf—running tools, executing commands, and modifying files—sandboxing provides the isolation, portability, and policy controls needed to adopt agentic workflows safely.
+{% data variables.product.prodname_copilot_short %} cloud and local sandboxes are the execution platform powering secure sandboxed experiences for {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}. As {% data variables.product.prodname_copilot_short %} takes more actions on your behalf—running tools, executing commands, and modifying files—sandboxing provides the isolation, portability, and policy controls needed to adopt agentic workflows safely.
 
-Sandboxing currently applies to {% data variables.copilot.copilot_cli_short %} sessions. You can also choose to use cloud sandboxing when you start a new session in the {% data variables.copilot.github_copilot_app %}. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#starting-a-session).
+Sandboxing is available in both {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}, but the two surfaces expose it differently:
+
+* In {% data variables.copilot.copilot_cli_short %}, you control both local and cloud sandboxing with the commands and settings described in this article.
+* In the {% data variables.copilot.github_copilot_app %}, you choose cloud sandboxing when you start a new session, without running any commands. This feature is currently in {% data variables.release-phases.public_preview %} and subject to change. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#starting-a-session).
 
 With sandboxing, you can choose where {% data variables.product.prodname_copilot_short %} runs:
 
 * **Local sandboxing**: Run {% data variables.product.prodname_copilot_short %} securely on your own machine. The commands that {% data variables.product.prodname_copilot_short %} runs have restricted access to your filesystem, network, and system capabilities. You can use local sandboxing at no extra charge.
-* **Cloud sandboxing**: Run the entire {% data variables.copilot.copilot_cli_short %} session remotely, inside a fully isolated, ephemeral Linux environment hosted by {% data variables.product.github %}. Cloud sandboxing is billed based on usage.
+* **Cloud sandboxing**: Run an entire {% data variables.product.prodname_copilot_short %} session remotely, inside a fully isolated, ephemeral Linux environment hosted by {% data variables.product.github %}. Cloud sandboxing is billed based on usage.
 
 ## Local sandboxing
 
 > [!NOTE]
 > Local sandboxing is currently an experimental feature. To use it, start {% data variables.copilot.copilot_cli_short %} with the `‑‑experimental` command line option, or enter `/experimental on` during a session.
 
-Local sandboxing lets {% data variables.product.prodname_copilot_short %} run in a sandboxed environment directly on your machine, with restricted access to your filesystem, network connectivity, and system capabilities.
+Local sandboxing lets {% data variables.product.prodname_copilot_short %} run in a sandboxed environment directly on your machine, with restricted access to your filesystem, network connectivity, and system capabilities. You configure local sandboxing in {% data variables.copilot.copilot_cli_short %}, using the commands and settings described in the following sections.
 
 Local sandboxing is turned off by default. Until you enable it, the shell commands that {% data variables.product.prodname_copilot_short %} runs execute directly on your machine with the same access as your user account: they can read, write, and delete wherever you can, reach any network your machine can reach, and use your credentials without restriction. Enabling local sandboxing constrains this access to a policy that you control.
 
@@ -105,7 +108,7 @@ Enterprises can require local sandboxing and enforce its configuration through s
 
 ## Cloud sandboxing
 
-Cloud sandboxing lets you run {% data variables.copilot.copilot_cli_short %} sessions inside fully isolated, ephemeral Linux environments hosted by {% data variables.product.github %}. Each cloud sandbox session is isolated from your local environment and from other sessions.
+Cloud sandboxing lets you run sessions inside fully isolated, ephemeral Linux environments hosted by {% data variables.product.github %}. You can use cloud sandboxing from both {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app %}. Each cloud sandbox session is isolated from your local environment and from other sessions.
 
 Cloud sandboxing is built on Azure Container Apps Sandboxes, with {% data variables.product.github %} providing the identity, policy, and billing layer.
 
@@ -130,6 +133,8 @@ Running `copilot ‑‑cloud` starts a single {% data variables.copilot.copilot_
 > [!NOTE]
 > Cloud sandboxing is only available for interactive {% data variables.copilot.copilot_cli_short %} sessions. You can't run the CLI programmatically in a cloud sandbox—that is, you can't combine the `‑‑cloud` option with the `-p` or `-i` options.
 
+In the {% data variables.copilot.github_copilot_app %}, you don't use a command to start a cloud sandbox session. Instead, choose the cloud sandbox option when you create a new session. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#starting-a-session).
+
 ### Continue sessions across devices
 
 Because cloud sandbox sessions run in {% data variables.product.github %}-hosted infrastructure, you can pick up a {% data variables.product.prodname_copilot_short %} session on any device, regardless of where the session was originally started. This enables more flexible workflows without needing to copy files or reinstall dependencies.
@@ -146,7 +151,7 @@ Cloud sandbox policies share the same configuration as {% data variables.copilot
 
 A cloud sandbox session has three main states:
 
-* **Active**: The session is running, and you are interacting with it from {% data variables.copilot.copilot_cli_short %}.
+* **Active**: The session is running, and you are interacting with it from {% data variables.copilot.copilot_cli_short %} or the {% data variables.copilot.github_copilot_app %}.
 * **Stopped**: The session is not currently running, but its state is saved. When you resume it, your files, environment variables, and in-progress work are restored.
 * **Deleted**: The session and its saved state are removed and cannot be recovered.
 
@@ -154,7 +159,7 @@ When you stop a session, the cloud sandbox creates a snapshot of its state so yo
 
 ## Authentication and access
 
-Sandboxing uses your existing {% data variables.copilot.copilot_cli_short %} authentication. If you can sign in to {% data variables.copilot.copilot_cli_short %} and have access to {% data variables.product.prodname_copilot_short %}, you can use sandboxing. You don't need to configure a separate cloud provider, manage API keys, or set up infrastructure.
+Sandboxing uses your existing {% data variables.product.prodname_copilot_short %} authentication. If you can sign in to {% data variables.copilot.copilot_cli_short %} or the {% data variables.copilot.github_copilot_app %} and have access to {% data variables.product.prodname_copilot_short %}, you don't need to configure separate authentication for the sandboxing options available in that surface. You don't need to configure a separate cloud provider, manage API keys, or set up infrastructure.
 
 An organization or enterprise owner must enable the **Cloud Sandbox access** policy in the organization or enterprise settings before members can use cloud sandboxes.
 

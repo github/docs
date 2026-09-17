@@ -51,9 +51,8 @@ main(program.opts(), program.args)
 const retryConfiguration = {
   limit: 3,
 }
-// According to our Datadog metrics, the *average* time for the
-// the 'archive_enterprise_proxy' metric is ~70ms (excluding spikes)
-// which much less than 500ms.
+// Datadog puts the average time for the `archive_enterprise_proxy` metric at
+// around 70ms, excluding spikes, well under the 3s request timeout below.
 const timeoutConfiguration = {
   request: 3000,
 }
@@ -87,7 +86,7 @@ async function main(opts: MainOptions, args: string[]) {
     )
     await fs.writeFile('/tmp/foundFiles.json', JSON.stringify(foundFiles, undefined, 2), 'utf-8')
   }
-  const searchFiles = [...new Set(foundFiles)] // filters out dupes
+  const searchFiles = [...new Set(foundFiles)]
     .filter((file) => endsWithAny(['.rb', '.yml', '.yaml', '.txt', '.pdf', '.erb', '.js'], file))
     .filter(
       (file) =>

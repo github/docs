@@ -1,40 +1,73 @@
-@import "@primer/css/support/variables/typography.scss";
-
-$ol-circled-reduce-diameter: 2px;
-// line-height is 24 pixels (16 * 1.5), and we want a 22px diameter but respect the line-height.
-
 .markdownBody {
+  // Docs 2026: article body lists adopt the @primer/react-brand list styling
+  // from the Figma prose spec (node 795:41593), applied via CSS on the existing
+  // markup. We can't use the brand OrderedList/UnorderedList components — their
+  // ListItem span-wraps children, which breaks nested <ul>/<p>/code inside an
+  // <li> (see github/docs-engineering#6694).
+
+  // Ordered lists: each number sits in a filled rounded "label" chip (muted
+  // background, monospace medium, 4px radius) with a 16px gap to the item text.
   > :global(.ghd-tool) > ol:not(:global(.no-styling)),
   > ol:not(:global(.no-styling)) {
-    // We will remove the default list style and use contrasting circled counter instead
     list-style: none;
     counter-reset: markdown-ordered-list;
+    padding-left: 0;
 
-    // So that list items have the same margin regardless of `li > p` or `li > [text]`
     > li {
+      position: relative;
+      counter-increment: markdown-ordered-list;
+      // Reserve the chip column: 25px chip + 16px gap to the text (Figma).
+      padding-left: 41px;
+      // Consistent spacing regardless of `li > p` or `li > [text]`.
       margin-bottom: 16px;
     }
 
-    // This is the contrasting circled counter for the list item
     > li::before {
-      counter-increment: markdown-ordered-list;
       content: counter(markdown-ordered-list);
-      float: left;
-      width: calc(1.5rem - $ol-circled-reduce-diameter);
-      margin-left: -2rem;
-      margin-top: calc($ol-circled-reduce-diameter / 2);
-      font-size: $h5-size;
-      line-height: calc(1.5rem - $ol-circled-reduce-diameter);
-      font-weight: 500;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      // 25x24 chip (Figma). The design gets that height by trimming the label's
+      // line box to the cap height (text-box-trim), which isn't broadly
+      // supported yet — so pin the height and centre the digit instead, which
+      // renders the same. Padding stays horizontal-only; adding the design's
+      // 7px vertical padding on an untrimmed 1.5 line box made the chip 35px
+      // tall, dropping its centre ~5px below the first line of text.
+      min-width: 25px;
+      height: 24px;
+      padding: 0 0.5rem; // 8px, per the Figma label
+      // Brand label chip: monospace medium number on a subtle fill.
+      font-family: var(--brand-fontStack-monospace);
+      font-size: 0.875rem; // 14px
+      font-weight: var(--brand-text-weight-medium, 500);
+      line-height: 1;
+      letter-spacing: 0.15px;
       text-align: center;
-      background-color: var(--color-fg-default);
-      color: var(--color-canvas-default);
-      border-radius: 50%;
+      color: var(--brand-color-text-default, var(--color-fg-default));
+      background-color: var(
+        --brand-color-canvas-subtle,
+        var(--color-canvas-subtle)
+      );
+      border-radius: var(--brand-borderRadius-small, 4px);
     }
 
     // Any list below top level uses plain letters
     ol {
       list-style-type: lower-alpha;
+    }
+  }
+
+  // Unordered lists: keep the native bullet but adopt brand item spacing
+  // (--base-size-8 = 0.5rem gap between items) + brand body color.
+  > :global(.ghd-tool) > ul:not(:global(.no-styling)),
+  > ul:not(:global(.no-styling)) {
+    color: var(--brand-color-text-default, var(--color-fg-default));
+
+    > li {
+      margin-bottom: 0.5rem;
     }
   }
 }
