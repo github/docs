@@ -40,14 +40,14 @@ category:
 * You will no longer have access to the list of users you were following from your user account.
 * Any followers of your user account will not automatically follow the new organization.
 * Any existing collaborators on your projects will still have access to those projects in the new organization.
-* {% data variables.product.prodname_actions %} is not automatically enabled on the account after converting it to an organization, and will have to be re-enabled. To re-enable {% data variables.product.prodname_actions %}, create a new workflow file in the `.github/workflows` directory of your repository.
+* {% data variables.product.prodname_actions %} is not automatically enabled on the account after converting it to an organization, and must be re-enabled. To re-enable {% data variables.product.prodname_actions %}, create a new workflow file in the `.github/workflows` directory of your repository.
 
 ## Side effects of merging accounts
 
 * Organization and repository access permissions aren't transferable between accounts. If the account you want to delete has an existing access permission, an organization owner or repository administrator will need to invite the account that you want to keep.
 * Any commits authored with a {% data variables.product.company_short %}-provided `noreply` email address cannot be transferred from one account to another. If the account you want to delete used the **Keep my email address private** option, it won't be possible to transfer the commits authored by the account you are deleting to the account you want to keep.
 * Issues, pull requests, and discussions will not be attributed to the new account.
-* Achievements are not able to be transferred between accounts.
+* Achievements cannot be transferred between accounts.
 
 ## Security and analysis features settings
 
