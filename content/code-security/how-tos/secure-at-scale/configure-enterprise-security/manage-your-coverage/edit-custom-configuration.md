@@ -25,7 +25,7 @@ After creating and applying a {% data variables.product.prodname_custom_security
 1. In the "Configurations" section, click the name of the {% data variables.product.prodname_custom_security_configuration %} you want to edit.
 1. Edit the name and description of your {% data variables.product.prodname_custom_security_configuration %} as desired.
 1. Edit the enablement settings of your {% data variables.product.prodname_custom_security_configuration %} as desired.
-1. In the "Policy" section, you can modify the configuration's enforcement status. Enforcing a configuration will block repository owners from changing features that are enabled or disabled by the configuration, but features that are not set aren't enforced. Next to "Enforce configuration", select **Enforce** or **Don't enforce** from the dropdown menu.
+1. In the "Policy" section, you can modify the configuration's enforcement status. {% ifversion security-configuration-enterprise-organization-enforcement %}{% data reusables.permissions.security-configuration-enterprise-enable %} can block repository owners only, or both repository and organization owners, from changing features that are enabled or disabled by the configuration. Features that are not set aren't enforced. Select **Don't enforce**, **Enforce for repository owners**, or **Enforce for repository and organization owners** from the dropdown menu.{% else %}Enforcing a configuration will block repository owners from changing features that are enabled or disabled by the configuration, but features that are not set aren't enforced. Next to "Enforce configuration", select **Enforce** or **Don't enforce** from the dropdown menu.{% endif %}
 
     {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 

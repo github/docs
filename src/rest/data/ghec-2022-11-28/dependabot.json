@@ -7982,6 +7982,10 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "410",
+          "description": "<p>Gone</p>"
         }
       ],
       "previews": [],
@@ -9151,6 +9155,10 @@
         {
           "httpStatusCode": "409",
           "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "410",
+          "description": "<p>Gone</p>"
         },
         {
           "httpStatusCode": "422",

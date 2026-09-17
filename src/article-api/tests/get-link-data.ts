@@ -2,7 +2,6 @@ import { describe, expect, test, vi } from 'vitest'
 import { getLinkData } from '@/article-api/lib/get-link-data'
 import type { Context, Page, Permalink } from '@/types'
 
-// Helper to create a minimal mock page
 function createMockPage(options: {
   title?: string
   intro?: string
@@ -18,7 +17,6 @@ function createMockPage(options: {
   return page as unknown as Page
 }
 
-// Helper to create a minimal context
 function createContext(currentVersion = 'free-pro-team@latest'): Context {
   return { currentVersion } as unknown as Context
 }

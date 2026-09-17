@@ -8,8 +8,6 @@ import {
   buildReleaseNotesYaml,
 } from '@/ghes-releases/lib/parse-release-notes'
 
-// ─── extractYaml ─────────────────────────────────────────────────────────────
-
 describe('extractYaml', () => {
   test('extracts YAML from a fenced code block', () => {
     const input = `Here is the release note:
@@ -46,8 +44,6 @@ Some trailing text that is not YAML`
   })
 })
 
-// ─── extractSkipReason ───────────────────────────────────────────────────────
-
 describe('extractSkipReason', () => {
   test('extracts reason from "# SKIP: <reason>"', () => {
     expect(extractSkipReason('# SKIP: Not applicable to GHES')).toBe('Not applicable to GHES')
@@ -57,8 +53,6 @@ describe('extractSkipReason', () => {
     expect(extractSkipReason('- heading: Foo\n  notes:\n    - bar')).toBeNull()
   })
 })
-
-// ─── parseNoteEntries ────────────────────────────────────────────────────────
 
 describe('parseNoteEntries', () => {
   const sourceUrl = 'https://github.com/github/releases/issues/1234'
@@ -107,8 +101,6 @@ describe('parseNoteEntries', () => {
     expect(entries[0].notes).toEqual(['Valid note.'])
   })
 })
-
-// ─── loadExistingEntriesFromString ───────────────────────────────────────────
 
 describe('loadExistingEntriesFromString', () => {
   test('parses feature entries with source URL comments', () => {
@@ -263,8 +255,6 @@ sections:
     expect(result.entries[0].notes).toEqual(['First note.', 'Second note from same issue.'])
   })
 })
-
-// ─── buildReleaseNotesYaml ───────────────────────────────────────────────────
 
 describe('buildReleaseNotesYaml', () => {
   const featureHeadings = ['GitHub Actions', 'Repositories', 'APIs']

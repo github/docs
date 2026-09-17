@@ -1,5 +1,9 @@
 .permissionsBox {
   border-radius: 6px;
-  border: 1px solid var(--borderColor-default, var(--color-border-default));
+  // --borderColor-default is not defined in this app, so this resolved through
+  // the Primer fallback. Brand's border-default is the semantic counterpart
+  // (#d0d7de -> #b6bfb8) and flips under [data-color-mode="dark"] on its own.
+  border: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-default, #b6bfb8);
   padding: 1rem;
 }

@@ -6,7 +6,6 @@ const endifIfVersionRegex = /\|({%-?\s*endif\s*%})({%-?\sifversion\s+([\w- ]+)\s
 const endifRegex = /\|({%-?\s*endif\s*%})\n/
 const endifAloneRegex = /^({%-?\s*endif\s*%})\n/
 
-// Split a string by newlines while keeping the newlines
 function splitAndKeepNewlines(str: string) {
   const lines = str.split(/(\r\n|\r|\n)/)
   const result: string[] = []

@@ -5,11 +5,7 @@ import { getLogLevelNumber, useProductionLogging } from '@/observability/logger/
 import { toLogfmt } from '@/observability/logger/lib/to-logfmt'
 import { POD_IDENTITY } from '@/observability/logger/lib/pod-identity'
 
-/**
- * Check if automatic development logging is enabled.
- * We don't turn on automatic logging for tests & GitHub Actions by default,
- * but you can override this using the ENABLE_DEV_LOGGING environment variable.
- */
+// Off by default for tests and GitHub Actions. Override with ENABLE_DEV_LOGGING.
 function shouldEnableAutomaticDevLogging(): boolean {
   const isTest = process.env.NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
   return Boolean(
@@ -17,23 +13,14 @@ function shouldEnableAutomaticDevLogging(): boolean {
   )
 }
 
-/**
- * Returns a custom middleware that automatically logs request details.
- *
- * e.g. `GET /path/to/resource 200 5.000 ms - 1234`
- *
- * In production, we include the logger context and print in logfmt format
- * In development, we print colored strings for better readability
- * In test, the request details are not logged.
- */
+// Emits one line per response, like: GET /path/to/resource 200 5.000 ms - 1234
+// Tests and Actions stay silent unless ENABLE_DEV_LOGGING overrides.
 export function getAutomaticRequestLogger() {
   return (req: Request, res: Response, next: NextFunction) => {
     const startTime = Date.now()
 
-    // Store original end method to capture response completion
     const originalEnd = res.end
 
-    // Override res.end to log when response completes
     res.end = function (...args: unknown[]) {
       const responseTime = Date.now() - startTime
       const status = res.statusCode || 200
@@ -42,7 +29,6 @@ export function getAutomaticRequestLogger() {
       const url = req.originalUrl || req.url
 
       if (useProductionLogging()) {
-        // Production: log in logfmt format with full context
         const loggerContext = getLoggerContext()
         console.log(
           toLogfmt({
@@ -56,7 +42,6 @@ export function getAutomaticRequestLogger() {
           }),
         )
       } else if (shouldEnableAutomaticDevLogging()) {
-        // Development: log colored strings for readability
         const logLevelNum = getLogLevelNumber()
 
         // Don't log `/_next/` requests unless LOG_LEVEL is `debug` or higher
@@ -64,7 +49,6 @@ export function getAutomaticRequestLogger() {
           return originalEnd.apply(this, args as Parameters<typeof originalEnd>)
         }
 
-        // Choose color based on status code
         const color =
           status >= 500 ? 'red' : status >= 400 ? 'yellow' : status >= 300 ? 'cyan' : 'green'
 
@@ -81,7 +65,6 @@ export function getAutomaticRequestLogger() {
         console.log(logLine)
       }
 
-      // Call the original end method to complete the response
       return originalEnd.apply(this, args as Parameters<typeof originalEnd>)
     }
 

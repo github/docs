@@ -21,7 +21,6 @@ type PostPRCommentOptions = {
 
 // This function is designed to be able to run and potentially do nothing.
 export async function postPRComment(filePath: string, options: PostPRCommentOptions) {
-  // Check the options before we even begin
   if (!options.dryRun) {
     if (!options.issueNumber) {
       throw new Error(
@@ -258,11 +257,10 @@ async function updateIssueComment(
     }
   }
 
-  // It found no comment to *edit*, so it create *create* a new comment.
-  // But `onlyIfAlreadyPosted` is true, so it does nothing.
-  // This is convenient when might have, during the lifetime of a PR,
-  // posted a comment, then committed more changes, and then realize
-  // that what was posted previously is no long the case.
+  // There is no comment to edit, so this would create one, but `onlyIfAlreadyPosted`
+  // is true so it does nothing. That matters when a PR previously had failing checks,
+  // got more commits, and no longer does: the old comment should be updated, but a
+  // PR that never failed should not gain one.
   if (onlyIfAlreadyPosted) {
     console.warn(`Deliberately not creating a new comment`)
     return

@@ -105,7 +105,7 @@ export default async function getCodeSamples(
     })
   }
 
-  // Strip the key field — it's only needed during merging, not at runtime
+  // The key is only needed while merging, not at runtime.
   for (const example of mergedExamples) delete (example as { key?: string }).key
   return mergedExamples
 }
@@ -163,13 +163,10 @@ export function mergeExamples(
   const target = requestsExamplesLarger ? requestExamples : responseExamples
   const source = requestsExamplesLarger ? responseExamples : requestExamples
 
-  // Iterates over the larger array or "target" (or if equal requests) to see
-  // if there are any matches in the smaller array or "source"
-  // (or if equal responses) that can be added to target array. If a request
-  // If a request
-  // example and response example have matching keys they will be merged into
-  // an example. If there is more than one key match, the first match will
-  // be used.
+  // Walk the longer array ("target", or the requests when the two are equal
+  // length) looking for a matching key in the other one ("source"). A request
+  // and a response with the same key are merged into one example. If several
+  // keys match, the first one wins.
   return target
     .filter((targetEx) => {
       const match = source.find((srcEx) => srcEx.key === targetEx.key)
@@ -179,23 +176,10 @@ export function mergeExamples(
     .map((ex) => ex as MergedExample)
 }
 
-/*
-  Create an example object for each example in the requestBody property
-  of the schema. Each requestBody can have more than one content type.
-  Each content type can have more than one example. We create an object
-  for each permutation of content type and example.
-  Returns an array of objects in the format:
-  {
-    key,
-    request: {
-      contentType,
-      description,
-      acceptHeader,
-      bodyParameters,
-      parameters,
-    }
-  }
-*/
+// Builds request examples from the media types in the operation's requestBody,
+// falling back to a path-parameter or generic example when there is no body
+// example. Every result has a key plus a request with description and
+// acceptHeader; contentType, bodyParameters and parameters are optional.
 export function getRequestExamples(operation: CodeSampleOperation): RequestExample[] {
   const requestExamples: RequestExample[] = []
   const parameterExamples = getParameterExamples(operation)
@@ -288,12 +272,9 @@ export function getRequestExamples(operation: CodeSampleOperation): RequestExamp
   return requestExamples
 }
 
-/*
-  Recursively removes `example` and `examples` annotation fields from a JSON
-  Schema object. These fields are OpenAPI annotation-only and are never read
-  by the runtime rendering code, but they account for ~131 MB of the total
-  schema.json size across all versions.
-*/
+// Recursively removes the `example` and `examples` annotation fields from a
+// JSON Schema object. Nothing at runtime reads them, and they account for
+// ~131 MB of the total schema.json size across all versions.
 function stripSchemaExamples(schema: unknown): unknown {
   if (!schema || typeof schema !== 'object') return schema
   if (Array.isArray(schema)) return schema.map(stripSchemaExamples)
@@ -306,23 +287,9 @@ function stripSchemaExamples(schema: unknown): unknown {
   return result
 }
 
-/*
-  Create an example object for each example in the response property
-  of the schema. Each response can have more than one status code,
-  each with more than one content type. And each content type can
-  have more than one example. We create an object
-  for each permutation of status, content type, and example.
-  Returns an array of objects in the format:
-  {
-    key,
-    response: {
-      statusCode,
-      contentType,
-      description,
-      example,
-    }
-  }
-*/
+// Builds examples for the operation's responses below status 400. Every result
+// has a key plus a response with statusCode and description; contentType,
+// example and schema are only present when the media type had an example.
 export function getResponseExamples(operation: CodeSampleOperation): ResponseExample[] {
   const responseExamples: ResponseExample[] = []
   const responses = operation.responses as Record<string, CodeSampleResponse>
@@ -415,17 +382,12 @@ export function getResponseExamples(operation: CodeSampleOperation): ResponseExa
   return responseExamples
 }
 
-/*
-  Path parameters can have more than one example key. We need to create
-  an example for each and then choose the most appropriate example when
-  we merge requests with responses.
-  Parameter examples are in the format:
-  {
-    [parameter key]: {
-      [parameter name]: value
-    }
-  }
-*/
+// Groups the operation's path parameter values by example key, in the shape:
+//
+//   { [example key]: { [parameter name]: value } }
+//
+// A parameter with no examples contributes its uppercased name under the
+// `default` key.
 export function getParameterExamples(
   operation: CodeSampleOperation,
 ): Record<string, Record<string, unknown>> {

@@ -99,7 +99,6 @@ async function createDeprecationIssue() {
     return
   }
 
-  // Create the deprecation issue
   const issueTemplate = readFileSync('src/ghes-releases/lib/deprecation-steps.md', 'utf8')
   const { data, content } = matter(issueTemplate)
   const { title, labels } = data
@@ -348,7 +347,6 @@ function getNumberDaysUntilMilestone(milestoneDate: string): number {
   const nextMilestoneDateTime = new Date(milestoneDate).getTime()
   const todayTime = new Date(today).getTime()
   const differenceInMilliseconds = nextMilestoneDateTime - todayTime
-  // Return the difference in days
   return Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24))
 }
 

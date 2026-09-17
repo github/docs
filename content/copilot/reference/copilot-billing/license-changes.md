@@ -36,7 +36,7 @@ Paying for, renewing, upgrading, downgrading, converting from a trial, or resumi
 
 For example, if you exhaust your {% data variables.product.prodname_ai_credits_short %} on May 28 and renew or upgrade your plan on May 30, your allowance does not reset until June 1.
 
-Any additional usage beyond the included allowance is charged separately and is unaffected by this monthly reset. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-budgets-for-your-personal-account).
+Any additional usage beyond the included allowance is charged separately and is unaffected by this monthly reset. See [AUTOTITLE](/copilot/concepts/billing-and-usage/individuals/billing) and [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-budgets-for-your-personal-account).
 
 ## Organizations
 

@@ -24,7 +24,6 @@ const filters = load(readFileSync('src/workflows/unallowed-contribution-filters.
 main()
 
 async function main() {
-  // Files in the diff that match specific paths we don't allow
   const unallowedChangedFiles = [...JSON.parse(FILE_PATHS_NOT_ALLOWED || '')]
 
   // Content files that are added in a forked repo won't be in the
@@ -42,7 +41,6 @@ async function main() {
 
   if (unallowedChangedFiles.length === 0) return
 
-  // Format into Markdown bulleted list to use in the PR comment
   const listUnallowedChangedFiles = unallowedChangedFiles.map((file) => `\n - ${file}`).join('')
   const listUnallowedFiles = filters.notAllowed
     .map((file: string) => `\n - ${file === '*' ? 'Anything in the root directory' : file}`)

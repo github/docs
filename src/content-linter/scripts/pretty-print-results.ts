@@ -37,9 +37,9 @@ export function prettyPrintResults(
 
   for (const [file, flaws] of Object.entries(results)) {
     console.log(chalk.bold(file))
-    console.log('') // blank line
+    console.log('')
 
-    // It's very possible that a the same file has multiple flaws of the
+    // It's very possible that the same file has multiple flaws of the
     // same rule but on different line numbers.
     const sorted = [...flaws]
       .sort((a, b) => a.lineNumber - b.lineNumber)

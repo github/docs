@@ -58,7 +58,7 @@ describe(liquidIfVersionTags.names.join(' - '), () => {
       '{% ifversion ghes < 2.9 %}',
       // Incorrect syntax
       '{% ifversion ghec or ifversion fpt %}',
-      // Typo - should be not ghec
+      // Typo: should be `not ghec`
       '{% ifversion no ghec %}',
     ]
     const result = await runRule(liquidIfVersionTags, {

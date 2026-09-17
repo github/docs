@@ -1,11 +1,26 @@
 @import "src/frame/stylesheets/breakpoint-xxl.scss";
 
+// Mirrors Brand's SubdomainNavBar height so every sticky offset tracks the real
+// header. Brand defines that height in rem -- `--base-size-64` (4rem), reduced by
+// `--base-size-8` (0.5rem) below its `medium` breakpoint of 47.99rem -- so these
+// must be rem too. A px value with a px breakpoint silently drifts from the
+// actual header for any reader whose browser default font size is not 16px.
+:root {
+  --docs-header-height: 3.5rem;
+
+  @media (min-width: 48rem) {
+    --docs-header-height: 4rem;
+  }
+}
+
 // https://tetralogical.com/blog/2023/06/08/focus-in-view/
 
 :target {
-  scroll-margin-top: 105px !important; // 88 + 8 + 8 + 1
+  scroll-margin-top: calc(var(--docs-header-height) + 40px) !important;
 
   @include breakpoint-xxl {
-    scroll-margin-top: 109px !important; // 48 + 8 + 8 + 1 header + 44 secondary bar
+    scroll-margin-top: calc(
+      var(--docs-header-height) + 44px
+    ) !important; // Header + secondary bar
   }
 }

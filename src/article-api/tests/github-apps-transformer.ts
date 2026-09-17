@@ -29,13 +29,10 @@ describe('GitHub Apps transformer', () => {
       expect(res.statusCode).toBe(200)
       expect(res.headers['content-type']).toContain('text/markdown')
 
-      // Check for the main heading
       expect(res.body).toContain('# Endpoints available for GitHub App installation access tokens')
 
-      // Should have category headings as h2
       expect(res.body).toMatch(/^## /m)
 
-      // Should not contain HTML comments
       expect(res.body).not.toMatch(/<!--.*?-->/)
     })
 
@@ -46,10 +43,8 @@ describe('GitHub Apps transformer', () => {
       expect(res.statusCode).toBe(200)
       expect(res.headers['content-type']).toContain('text/markdown')
 
-      // Check for the main heading
       expect(res.body).toContain('# Endpoints available for GitHub App user access tokens')
 
-      // Should have category headings as h2
       expect(res.body).toMatch(/^## /m)
     })
 
@@ -62,10 +57,8 @@ describe('GitHub Apps transformer', () => {
       expect(res.statusCode).toBe(200)
       expect(res.headers['content-type']).toContain('text/markdown')
 
-      // Check for the main heading
       expect(res.body).toContain('# Endpoints available for fine-grained personal access tokens')
 
-      // Should have category headings as h2
       expect(res.body).toMatch(/^## /m)
     })
 
@@ -81,7 +74,7 @@ describe('GitHub Apps transformer', () => {
         console.log(`[DEBUG] Test response: ${res.statusCode} in ${Date.now() - startTime}ms`)
       expect(res.statusCode).toBe(200)
 
-      // Check for bullet list items with asterisks (per content guidelines)
+      // Content guidelines require asterisk bullets, not hyphens.
       expect(res.body).toContain('*')
       expect(res.body).toMatch(/\* \[`[A-Z]+ \//)
     })
@@ -94,7 +87,6 @@ describe('GitHub Apps transformer', () => {
       )
       expect(res.statusCode).toBe(200)
 
-      // Check for common HTTP verbs
       expect(res.body).toMatch(/`GET \//)
       // May also have POST, PUT, PATCH, DELETE depending on data
     })
@@ -118,10 +110,8 @@ describe('GitHub Apps transformer', () => {
       expect(res.statusCode).toBe(200)
       expect(res.headers['content-type']).toContain('text/markdown')
 
-      // Check for the main heading
       expect(res.body).toContain('# Permissions required for GitHub Apps')
 
-      // Should have permission group headings as h2
       expect(res.body).toMatch(/^## /m)
     })
 
@@ -134,10 +124,8 @@ describe('GitHub Apps transformer', () => {
       expect(res.statusCode).toBe(200)
       expect(res.headers['content-type']).toContain('text/markdown')
 
-      // Check for the main heading
       expect(res.body).toContain('# Permissions required for fine-grained personal access tokens')
 
-      // Should have permission group headings as h2
       expect(res.body).toMatch(/^## /m)
     })
 
@@ -145,7 +133,6 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
 
-      // Check for table structure
       expect(res.body).toContain('| Endpoint | Access | Tokens | Additional Permissions |')
       expect(res.body).toContain('|----------|--------|--------|------------------------|')
     })
@@ -154,7 +141,6 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
 
-      // Check for access levels in table cells
       expect(res.body).toMatch(/\| read \|/)
       expect(res.body).toMatch(/\| write \|/)
       // May also have admin depending on data
@@ -164,11 +150,9 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
 
-      // Check for legend
       expect(res.body).toContain('UAT = user access token')
       expect(res.body).toContain('IAT = installation access token')
 
-      // Check that token types appear in actual table rows (not just the legend)
       expect(res.body).toMatch(/\|\s*(?:UAT|IAT|UAT, IAT|None)\s*\|/)
     })
 
@@ -176,7 +160,6 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
 
-      // Check for checkmark (✓) or cross (✗) symbols in Additional Permissions column
       expect(res.body).toMatch(/\| [✓✗] \|/)
     })
 
@@ -184,7 +167,6 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
 
-      // Should have multiple permission group headings
       const headings = res.body.match(/^## .* permissions for .*/gm)
       expect(headings).toBeTruthy()
       if (headings) {
@@ -198,7 +180,6 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
 
-      // Check for manual content that should be in the markdown
       expect(res.body).toContain('GitHub Apps are created with a set of permissions')
     })
 
@@ -222,7 +203,6 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
 
-      // Check that AUTOTITLE has been resolved
       expect(res.body).not.toContain('[AUTOTITLE]')
     })
 
@@ -247,7 +227,6 @@ describe('GitHub Apps transformer', () => {
     test('Missing apiVersion defaults to latest', async () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
-      // Should work without explicit apiVersion
     })
 
     test('Non-GitHub Apps pages are not transformed', async () => {

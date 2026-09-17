@@ -47,9 +47,7 @@ describe('pageinfo api', () => {
       'Get started using HubGit to manage Git repositories and collaborate with others.',
     )
     expect(meta.documentType).toBe('category')
-    // Canonical URLs should not have redirectedFrom
     expect(meta.redirectedFrom).toBeUndefined()
-    // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)

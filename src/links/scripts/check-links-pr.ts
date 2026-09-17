@@ -57,9 +57,6 @@ interface CheckResult {
   totalLinksChecked: number
 }
 
-/**
- * Check all internal links in a single file
- */
 async function checkFile(
   filePath: string,
   pageMap: Record<string, Page>,
@@ -71,7 +68,6 @@ async function checkFile(
   const redirectLinks: BrokenLink[] = []
   let totalLinksChecked = 0
 
-  // Read file content
   let content: string
   try {
     content = fs.readFileSync(filePath, 'utf-8')
@@ -80,17 +76,14 @@ async function checkFile(
     return { file: filePath, brokenLinks, redirectLinks, totalLinksChecked }
   }
 
-  // Create context for Liquid rendering
   const context = createLiquidContext(version, language)
 
-  // Extract links after Liquid rendering
   const { internalLinks } = await extractLinksWithLiquid(content, context)
 
-  // Check each internal link (exclude imageLinks - they're static assets, not docs pages)
+  // imageLinks are excluded: they're static assets, not docs pages.
   totalLinksChecked = internalLinks.length
 
   for (const link of internalLinks) {
-    // Check if this is an asset link (images, etc.) - verify file exists on disk
     if (isAssetLink(link.href)) {
       if (!checkAssetLink(link.href)) {
         brokenLinks.push({
@@ -181,7 +174,7 @@ async function checkFileAnchors(
       if (link.fragment === 'top') continue
 
       // resolveLinkKeyForVersion only returns direct (non-redirect) page hits, so
-      // redirects, archived versions, and broken paths fall out here — they're not
+      // redirects, archived versions, and broken paths fall out here. They're not
       // anchor-scope flaws. Unversioned hrefs are retried against the version the source
       // page is currently rendered in, so GHEC/GHES-only targets resolve too.
       const targetKey = resolveLinkKeyForVersion(link.href, version, pageMap)
@@ -235,7 +228,6 @@ function getChangedFiles(cliFiles?: string[]): string[] {
     return cliFiles
   }
 
-  // Check environment variable (from GitHub Actions)
   const filesChanged = process.env.FILES_CHANGED
   if (filesChanged) {
     // Try parsing as JSON first
@@ -253,12 +245,8 @@ function getChangedFiles(cliFiles?: string[]): string[] {
   return []
 }
 
-/**
- * Filter to only content/data files that might contain links
- */
 function filterContentFiles(files: string[]): string[] {
   return files.filter((file) => {
-    // Only check Markdown files in content/ or data/
     if (!file.endsWith('.md')) return false
     // Skip README.md files. They're developer docs, not published pages, and use
     // repo-relative paths (e.g. /src/...) that aren't valid site links.
@@ -268,9 +256,6 @@ function filterContentFiles(files: string[]): string[] {
   })
 }
 
-/**
- * Post a comment on the PR with broken link results
- */
 async function commentOnPR(
   brokenLinks: BrokenLink[],
   brokenAnchors: CrossPageAnchorFlaw[],
@@ -346,9 +331,6 @@ async function commentOnPR(
   }
 }
 
-/**
- * Main entry point
- */
 async function main() {
   program
     .name('check-links-pr')
@@ -364,7 +346,6 @@ async function main() {
   console.log(chalk.blue('🔗 PR Link Checker'))
   console.log('')
 
-  // Get files to check
   let files = getChangedFiles(options.files)
 
   if (options.all) {
@@ -377,7 +358,6 @@ async function main() {
     process.exit(0)
   }
 
-  // Filter to content files only
   const contentFiles = filterContentFiles(files)
   if (contentFiles.length === 0) {
     console.log('No content files in changed files. Exiting.')
@@ -386,7 +366,6 @@ async function main() {
 
   console.log(`Checking ${contentFiles.length} file(s)...`)
 
-  // Load page data
   console.log('Loading page data...')
   const { pages: pageMap, pageList, redirects } = await warmServer(['en'])
   console.log(
@@ -405,7 +384,6 @@ async function main() {
   const checkAnchors = process.env.CHECK_ANCHORS !== 'false'
   const headingCache = new Map<string, Set<string>>()
 
-  // Check each file
   const allBrokenLinks: BrokenLink[] = []
   const allRedirectLinks: BrokenLink[] = []
   const allBrokenAnchors: CrossPageAnchorFlaw[] = []
@@ -437,7 +415,6 @@ async function main() {
     }
   }
 
-  // Report results
   const duration = ((Date.now() - startTime) / 1000).toFixed(1)
   console.log('')
   console.log(chalk.blue(`Checked ${totalLinksChecked} links in ${duration}s`))
@@ -459,7 +436,6 @@ async function main() {
     process.exit(0)
   }
 
-  // Group and display results
   if (allBrokenLinks.length > 0) {
     console.log('')
     console.log(chalk.red(`❌ ${allBrokenLinks.length} broken link(s):`))
@@ -537,7 +513,6 @@ async function main() {
   }
 }
 
-// Run if invoked directly
 ;(async () => {
   try {
     await main()

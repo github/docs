@@ -26,7 +26,6 @@ export function findPotentialUses({
   const filesThatCouldUseReusable: FilesWithLineNumbers = []
   const filesThatCouldUseReusableSimilar: FilesWithSimilarity = []
 
-  // Read all content & data files into memory
   const allFileContents = allFilePaths.map((filePath) => {
     return {
       filePath,
@@ -69,7 +68,6 @@ export function findPotentialUses({
 
       const indices = findIndicesOfSubstringInString(reusableContents.trim(), fileContents)
       if (indices.length > 0) {
-        // Find line numbers of each index in fileContents
         const lineNumbers = indices.map((index) => fileContents.slice(0, index).split('\n').length)
 
         filesThatCouldUseReusable.push({

@@ -194,14 +194,12 @@ export function summarizeSchema(schema: JsonSchema): string {
   // compact and fast to render (shared types can recur dozens of times).
   const seen = new Set<string>()
 
-  // Handle top-level composition
   for (const keyword of ['oneOf', 'anyOf', 'allOf'] as const) {
     if (schema[keyword]) {
       return renderCompositionVariants(keyword, schema[keyword]!, 0, 0, seen)
     }
   }
 
-  // Handle top-level array
   const schemaTypes = Array.isArray(schema.type) ? schema.type : schema.type ? [schema.type] : []
   const isNullable = schemaTypes.includes('null')
   const primaryType = schemaTypes.find((t) => t !== 'null')
@@ -215,7 +213,6 @@ export function summarizeSchema(schema: JsonSchema): string {
     const constraintStr = constraints.length ? ` (${constraints.join(', ')})` : ''
     const itemTitle = items.title
 
-    // Composition inside items
     const compositionKey = (['oneOf', 'anyOf', 'allOf'] as const).find((k) => items[k])
     if (compositionKey) {
       const label = compositionKey.replace('Of', ' of')
@@ -248,7 +245,6 @@ export function summarizeSchema(schema: JsonSchema): string {
     return `Array${constraintStr} of ${renderTypeConstraints(items)}${isNullable ? ' or null' : ''}`
   }
 
-  // Handle top-level object
   if (schema.properties) {
     // Note: we deliberately do NOT pre-mark schema.title here. Unlike the
     // array-items case above, a top-level object emits no visible titled

@@ -32,7 +32,6 @@ function shouldLogException(error: ErrorWithCode) {
     return false
   }
 
-  // We should log this exception
   return true
 }
 
@@ -55,17 +54,14 @@ async function handleError(
 
   if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {
     if (!responseDone) {
-      // By default, Fastly will cache 404 responses unless otherwise
-      // told not to.
-      // See https://docs.fastly.com/en/guides/how-caching-and-cdns-work#http-status-codes-cached-by-default
-      // Let's cache our 404'ing assets conservatively.
-      // The Cache-Control is short, and let's use the default surrogate
-      // key just in case it was a mistake.
+      // Fastly caches 404s by default, so cache 404'ing assets conservatively:
+      // a short Cache-Control, plus the default surrogate key
+      // in case the 404 was a mistake.
+      // https://docs.fastly.com/en/guides/how-caching-and-cdns-work#http-status-codes-cached-by-default
       errorCacheControl(res)
-      // Makes sure the surrogate key is NOT the manual one if it failed.
-      // This basically unsets what was assumed in the beginning of
-      // loading all the middlewares. Falls back to `no-language` when
-      // `req.language` isn't set yet (e.g. errors before language detection).
+      // Unsets the manual surrogate key assumed earlier in the middleware chain.
+      // Falls back to `no-language` when `req.language` isn't set yet,
+      // e.g. errors before language detection.
       setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
     }
   } else if (DEBUG_MIDDLEWARE_TESTS) {
@@ -73,9 +69,7 @@ async function handleError(
   }
 
   try {
-    // If the headers have already been sent or the request was aborted...
     if (responseDone) {
-      // Report to Failbot
       if (typeof error !== 'number') {
         await logException(error, req)
       }
@@ -105,21 +99,17 @@ async function handleError(
       req.context.error = error
     }
 
-    // If the error contains a status code, just send that back. This is usually
-    // from a middleware like `express.json()`.
+    // Errors with a status code usually come from a middleware like `express.json()`.
     if (error.statusCode) {
       res.sendStatus(error.statusCode)
       return
     }
 
     res.statusCode = 500
-    // When in local development mode, we don't need the pretty HTML
-    // renderig of 500.tsx.
-    // Incidentally, as Jan 2024, if you try to execute nextApp.renderError
-    // when `NODE_ENV` is 'development' it will hang forever. A problem
-    // we can't fully explain but it's also moot because in local dev
-    // it's easier to just see the full stack trace in the console
-    // and in the client.
+    // Local dev doesn't need the pretty HTML rendering of 500.tsx.
+    // Also, as of Jan 2024, calling nextApp.renderError hangs forever
+    // when `NODE_ENV` is 'development'. We can't fully explain it,
+    // and it's moot because in local dev the full stack trace is more useful.
     if (process.env.NODE_ENV === 'development') {
       next(error)
       return

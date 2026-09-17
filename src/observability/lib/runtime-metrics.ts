@@ -2,9 +2,9 @@
  * Periodically emits Node.js runtime metrics to Datadog via StatsD.
  *
  * Covers three categories that are otherwise invisible:
- *  1. V8 heap — used vs limit, so we can spot memory pressure before OOMs.
- *  2. GC — pause duration, so we can correlate latency spikes with GC.
- *  3. Event-loop delay — p50/p99, so we can see when the loop is blocked.
+ *  1. V8 heap: used vs limit, so we can spot memory pressure before OOMs.
+ *  2. GC: pause duration, so we can correlate latency spikes with GC.
+ *  3. Event-loop delay: p50/p99, so we can see when the loop is blocked.
  *
  * Only activates when StatsD is sending real metrics (MODA_PROD_SERVICE_ENV).
  */
@@ -23,7 +23,6 @@ function isMetricsEnabled(): boolean {
 
 /**
  * Call once at server start. Safe to call multiple times (no-op after first).
- * Only starts collection when StatsD is sending real metrics.
  */
 export function startRuntimeMetrics(): void {
   if (started) return
@@ -31,19 +30,16 @@ export function startRuntimeMetrics(): void {
 
   if (!isMetricsEnabled()) return
 
-  // --- V8 heap stats (sampled on an interval) ---
   setInterval(() => {
     const heap = v8.getHeapStatistics()
     statsd.gauge('node.heap.used', heap.used_heap_size)
     statsd.gauge('node.heap.total', heap.total_heap_size)
     statsd.gauge('node.heap.limit', heap.heap_size_limit)
     statsd.gauge('node.heap.external', heap.external_memory)
-    // Percentage of heap limit currently in use
     const pct = heap.heap_size_limit > 0 ? (heap.used_heap_size / heap.heap_size_limit) * 100 : 0
     statsd.gauge('node.heap.used_pct', pct)
   }, INTERVAL_MS).unref()
 
-  // --- GC pause durations ---
   const gcObserver = new PerformanceObserver((list) => {
     for (const entry of list.getEntries()) {
       const kind = (entry as unknown as { detail?: { kind?: number } }).detail?.kind
@@ -55,7 +51,6 @@ export function startRuntimeMetrics(): void {
   })
   gcObserver.observe({ entryTypes: ['gc'] })
 
-  // --- Event-loop delay (histogram sampled every 20 ms) ---
   const eld = monitorEventLoopDelay({ resolution: 20 })
   eld.enable()
 
@@ -68,9 +63,6 @@ export function startRuntimeMetrics(): void {
   }, INTERVAL_MS).unref()
 }
 
-/**
- * Reset the started flag. Only for use in tests.
- */
 export function _resetForTesting(): void {
   started = false
 }

@@ -60,7 +60,7 @@ The "Language usage" and "Language usage per day" charts show which programming 
 
 ## Reviewing adoption cohorts
 
-The impact dashboard's adoption cohort distribution shows the share of users in each phase, and how that distribution shifts over time. For what each phase means and how classification works, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics#understanding-adoption-cohorts).
+The impact dashboard's adoption cohort distribution shows the share of users in each phase, and how that distribution shifts over time. For what each phase means and how classification works, see [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics#understanding-adoption-cohorts).
 
 | Signal | What it suggests | Suggested action |
 |:--|:--|:--|

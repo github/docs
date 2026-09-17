@@ -3,13 +3,12 @@ import { InArticlePicker } from './InArticlePicker'
 import { useSelection } from './SelectionContext'
 import { TOOL_PREFERRED_COOKIE_NAME } from '@/frame/lib/constants'
 
-// example: http://localhost:4000/en/codespaces/developing-in-codespaces/creating-a-codespace
+// Example page with a tool picker:
+// http://localhost:4000/en/codespaces/developing-in-codespaces/creating-a-codespace
 
-// Nota bene: tool === application
-// Nota bene: picker === switcher
+// Note: tool === application, and picker === switcher
 
 function getDefaultTool(defaultTool: string | undefined, detectedTools: Array<string>): string {
-  // If there is a default tool and the tool is present on this page
   if (defaultTool && detectedTools.includes(defaultTool)) return defaultTool
 
   // Default to webui if present (this is generally the case where we show UI/CLI/Desktop info)
@@ -18,13 +17,11 @@ function getDefaultTool(defaultTool: string | undefined, detectedTools: Array<st
   // Default to cli if present (this is generally the case where we show curl/CLI info)
   if (detectedTools.includes('cli')) return 'cli'
 
-  // Otherwise, just choose the first detected tool
   return detectedTools[0]
 }
 
 const toolQueryKey = 'tool'
 export const ToolPicker = () => {
-  // allTools comes from the ArticleContext which contains the list of tools available
   const { defaultTool, detectedTools, allTools } = useArticleContext()
   const { setTool } = useSelection()
 

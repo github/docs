@@ -11,10 +11,7 @@ import { normalizeRenderedMarkdown } from '@/article-api/lib/normalize-markdown'
 import { allVersions } from '@/versions/lib/all-versions'
 import type { Page } from '@/types'
 
-/**
- * Creates a mocked rendering request and contextualizes it.
- * This is used to prepare a request for rendering pages in markdown format.
- */
+// Creates a mocked rendering request, contextualized for rendering a page as markdown.
 async function createContextualizedRenderingRequest(pathname: string, page: Page) {
   const mockedContext: Context = {}
   const renderingReq = {
@@ -52,7 +49,6 @@ export async function getArticleBody(req: ExtendedRequestWithPageInfo) {
   if (archived?.isArchived)
     throw new Error(`Page ${pathname} is archived and can't be rendered in markdown.`)
 
-  // Extract apiVersion from query params if provided
   const apiVersion = req.query.apiVersion as string | undefined
 
   // With the catch-all ArticleTransformer registered last,
@@ -60,7 +56,6 @@ export async function getArticleBody(req: ExtendedRequestWithPageInfo) {
   const transformer = transformerRegistry.findTransformer(page)
   if (!transformer) throw new Error(`No transformer found for page: ${pathname}`)
 
-  // Use the transformer
   const renderingReq = await createContextualizedRenderingRequest(pathname, page)
 
   // Determine the API version to use (provided or latest)
@@ -68,7 +63,6 @@ export async function getArticleBody(req: ExtendedRequestWithPageInfo) {
   const currentVersion = renderingReq.context.currentVersion
   let effectiveApiVersion = apiVersion
 
-  // Use latest version if not provided
   if (!effectiveApiVersion && currentVersion && allVersions[currentVersion]) {
     effectiveApiVersion = allVersions[currentVersion].latestApiVersion || undefined
   }

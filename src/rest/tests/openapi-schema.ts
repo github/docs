@@ -36,11 +36,10 @@ async function getFlatListOfOperations(version: string): Promise<Operation[]> {
 }
 
 describe('markdown for each rest version', () => {
-  // Unique set of all categories across all versions of the OpenAPI schema
   const allCategories = new Set<string>()
-  // Entire schema including categories and subcategories, keyed by version then category
+  // Keyed by version, then category.
   const openApiSchema: Record<string, Record<string, RestOperationCategory>> = {}
-  // All applicable version of categories based on frontmatter in the categories index.md file
+  // Read from the frontmatter of each category's index.md.
   const categoryApplicableVersions: Record<string, string[]> = {}
 
   function getApplicableVersionFromFile(file: string) {
@@ -76,8 +75,7 @@ describe('markdown for each rest version', () => {
       }
     }
 
-    // Read the versions from each index.md file to build a list of
-    // applicable versions for each category
+    // Each category's applicable versions come from its index.md frontmatter.
     for (const file of walk('content/rest', { includeBasePath: true, directories: false }).filter(
       (filename) => filename.includes('index.md'),
     )) {

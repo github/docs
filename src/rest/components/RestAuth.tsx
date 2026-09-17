@@ -29,8 +29,7 @@ export function RestAuth({ progAccess, slug, operationTitle }: Props) {
   if (currentVersion === 'enterprise-server@3.9' || currentVersion === 'enterprise-server@3.8')
     return null
 
-  // There are some operations that have no progAccess access defined
-  // For those operations, we shouldn't display this component
+  // Some operations define no progAccess at all.
   if (!progAccess) return null
   const {
     userToServerRest,
@@ -112,8 +111,6 @@ function FineGrainedAccess({ progAccess }: FineGrainedProps) {
     basePath += `/${currentVersion}`
   }
 
-  // Pluralize the message if needed or customize it
-  // when no permissions are defined
   const numPermissionSets = progAccess.permissions.length
   const permissionMsg =
     numPermissionSets === 0

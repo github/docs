@@ -30,7 +30,8 @@ export function useMultiQueryParams(options?: {
   const router = useRouter()
   const pushTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const useHistory = options?.useHistory ?? false
-  // When using browser history, exclude these params from being updated on back/forward navigation (like search input which causes race conditions)
+  // These keys keep their current state across a back/forward navigation
+  // instead of being re-read from the URL, which would race.
   const excludeFromHistory = options?.excludeFromHistory ?? []
 
   const getInitialParams = (): QueryParams => {
@@ -65,7 +66,6 @@ export function useMultiQueryParams(options?: {
       // But preserve excluded params from current state to avoid race conditions
       setParams((currentParams) => {
         const newParams = getInitialParams()
-        // Keep excluded params from current state instead of reading from URL
         for (const key of excludeFromHistory) {
           newParams[key] = currentParams[key]
         }
@@ -127,8 +127,7 @@ export function useMultiQueryParams(options?: {
             scroll: false,
           })
 
-          // Restore scroll position after router update
-          // This prevents unintended scrolling; intentional scrolling is handled by components
+          // Restore scroll position after the router update.
           window.scrollTo(scrollX, scrollY)
         }, 100)
 

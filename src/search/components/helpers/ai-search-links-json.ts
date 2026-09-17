@@ -36,14 +36,8 @@ export function generateAISearchLinksJson(
   return JSON.stringify(linksJson)
 }
 
-// Get all links in a markdown text
 function extractMarkdownLinks(markdownResponse: string) {
-  // This regex matches markdown links of the form [text](url)
-  // Explanation:
-  // \[([^\]]+)\]   : Matches the link text inside square brackets (one or more non-']' characters).
-  // \(             : Matches the opening parenthesis.
-  // ([^)]+)        : Captures the URL (one or more characters that are not a closing parenthesis).
-  // \)             : Matches the closing parenthesis.
+  // Matches markdown links of the form [text](url).
   const regex = /\[([^\]]+)\]\(([^)]+)\)/g
 
   const urls = []
@@ -53,7 +47,6 @@ function extractMarkdownLinks(markdownResponse: string) {
     urls.push(match[2])
   }
 
-  // Filter out any invalid URLs
   return urls.filter((url) => {
     try {
       new URL(url)
@@ -65,7 +58,6 @@ function extractMarkdownLinks(markdownResponse: string) {
   })
 }
 
-// Given a Docs URL, extract the product name
 function extractProductFromDocsUrl(url: string): string {
   const urlObject = new URL(url)
   if (urlObject.hostname !== 'docs.github.com') {

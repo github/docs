@@ -28,7 +28,7 @@ export default async function productGroups(
   if (!req.context) throw new Error('request is not contextualized')
   if (!req.pagePath) throw new Error('pagePath is not set on request')
   if (!req.language) throw new Error('language is not set on request')
-  // It's important to use `req.pathPage` instead of `req.path` because
+  // It's important to use `req.pagePath` instead of `req.path` because
   // the request could be the client-side routing from Next where the URL
   // might be something like `/_next/data/foo/bar.json` which is translated,
   // in another middleware, to what it would equate to if it wasn't

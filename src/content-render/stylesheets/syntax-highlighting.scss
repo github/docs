@@ -8,7 +8,11 @@ from https://unpkg.com/highlight.js@9.15.8/styles/github.css
 .hljs {
   display: block;
   padding: 0.5em;
-  color: var(--color-fg-default);
+  // The block's BASE text colour — the tokens below are prettylights, which has
+  // no Brand equivalent and stays on Primer deliberately, but this one is just
+  // "default text" and was painting Primer's #e6edf3 inside a Brand-framed code
+  // block. The `background` is inert here (markdown-overrides paints the `pre`).
+  color: var(--brand-color-text-default);
   background: var(--color-canvas-subtle);
 }
 

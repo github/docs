@@ -65,16 +65,12 @@ let lastIgnoredChanges: Change[] = []
  * structure written to `targetPath`. (`changelogEntry` and that file are modified in place.)
  */
 export function prependDatedEntry(changelogEntry: ChangelogEntry, targetPath: string): void {
-  // Build a `yyyy-mm-dd`-formatted date string
-  // and tag the changelog entry with it
   const todayString = new Date().toISOString().slice(0, 10)
   changelogEntry.date = todayString
 
   const previousChangelogString = fs.readFileSync(targetPath, 'utf8')
   const previousChangelog = JSON.parse(previousChangelogString) as ChangelogEntry[]
-  // add a new entry to the changelog data
   previousChangelog.unshift(changelogEntry)
-  // rewrite the updated changelog
   fs.writeFileSync(targetPath, JSON.stringify(previousChangelog, null, 2))
 
   // Ensure a content page exists for this entry's year
@@ -108,7 +104,6 @@ export function ensureYearPage(
   ].join('\n')
   fs.writeFileSync(yearPagePath, yearPage)
 
-  // Prepend the new year to children in index.md
   const indexPath = nodePath.join(contentDir, 'index.md')
   const indexContent = fs.readFileSync(indexPath, 'utf8')
   const updated = indexContent.replace(/^(children:\n)/m, `$1  - /${year}\n`)
@@ -128,11 +123,9 @@ export async function createChangelogEntry(
   oldUpcomingChanges: UpcomingChange[],
   newUpcomingChanges: UpcomingChange[],
 ): Promise<ChangelogEntry | null> {
-  // Create schema objects out of the strings
   const oldSchema = await loadSchema(oldSchemaString, { loaders: [] })
   const newSchema = await loadSchema(newSchemaString, { loaders: [] })
 
-  // Generate changes between the two schemas
   const changes = await diff(oldSchema, newSchema)
   const changesToReport: Change[] = []
   const ignoredChanges: Change[] = []
@@ -140,12 +133,10 @@ export async function createChangelogEntry(
     if (CHANGES_TO_REPORT.includes(change.type)) {
       changesToReport.push(change)
     } else {
-      // Track ignored changes for visibility
       ignoredChanges.push(change)
     }
   }
 
-  // Log warnings for ignored change types to provide visibility
   if (ignoredChanges.length > 0) {
     const ignoredTypes = [...new Set(ignoredChanges.map((change) => change.type))]
     console.warn(
@@ -160,7 +151,6 @@ export async function createChangelogEntry(
     )
   }
 
-  // Store ignored changes for potential workflow outputs
   lastIgnoredChanges = ignoredChanges
 
   const { schemaChangesToReport, previewChangesToReport } = segmentPreviewChanges(
@@ -180,7 +170,6 @@ export async function createChangelogEntry(
     })
   })
 
-  // If there were any changes, create a changelog entry
   if (
     schemaChangesToReport.length > 0 ||
     Object.keys(previewChangesToReport).length > 0 ||
@@ -365,19 +354,13 @@ const CHANGES_TO_REPORT = [
   ChangeType.DirectiveUsageFieldDefinitionRemoved,
 ]
 
-// CHANGES_TO_IGNORE list removed - now we only process changes explicitly listed
-// in CHANGES_TO_REPORT and silently ignore all others for future compatibility
+// Anything not in CHANGES_TO_REPORT is logged as ignored rather than reported,
+// so a new change type added upstream cannot break this script.
 
-/**
- * Get the ignored change types from the last changelog entry creation
- */
 export function getLastIgnoredChanges(): Change[] {
   return lastIgnoredChanges
 }
 
-/**
- * Get summary of ignored change types for workflow outputs
- */
 export function getIgnoredChangesSummary(): IgnoredChangesSummary | null {
   const ignored = getLastIgnoredChanges()
   if (ignored.length === 0) return null

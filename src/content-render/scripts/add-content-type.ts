@@ -107,7 +107,6 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
     return { processed: true, updated: false }
   }
 
-  // Check if we're actually changing an existing contentType
   const isChangingContentType = data.contentType && data.contentType !== newContentType
   const isAddingContentType = !data.contentType
 
@@ -119,7 +118,6 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
     console.log(`Adding contentType '${newContentType}' on ${relativePath}`)
   }
 
-  // Only update if there's actually a change needed
   if (isChangingContentType || isAddingContentType) {
     data.contentType = newContentType
   } else {
@@ -127,7 +125,6 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
     return { processed: true, updated: false }
   }
 
-  // Write the file back
   fs.writeFileSync(
     filePath,
     frontmatter.stringify(
@@ -183,7 +180,6 @@ function determineContentType(relativePath: string): string {
     return LANDING_TYPE
   }
 
-  // Classify anything else as 'other'.
   return OTHER_TYPE
 }
 

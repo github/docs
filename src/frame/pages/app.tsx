@@ -46,12 +46,10 @@ const stagingNames = new Set([
 ])
 
 function getFaviconHref(stagingName?: string) {
-  /* The value in these "/cb-xxxxx" prefixes aren't important. They
-      just need to be present. They help the CDN cache the asset
-      for infinity.
-      Just remember, if you edit these images on disk, remember to
-      change these numbers
-   */
+  // The number in these "/cb-xxxxx" prefixes does not matter, it just has to be
+  // present. It marks the URL as checksummed, which gets it a manual Fastly
+  // surrogate key so a production deploy does not purge it.
+  // If you edit these images on disk, change the numbers.
   if (stagingName) {
     return `/assets/cb-345/images/site/evergreens/${stagingName}.png`
   }

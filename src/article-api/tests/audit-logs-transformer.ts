@@ -23,21 +23,16 @@ describe('Audit Logs transformer', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')
 
-    // Check for the main heading
     expect(res.body).toContain('# Security log events')
 
-    // Check for intro
     expect(res.body).toContain(
       'Learn about security log events recorded for your personal account.',
     )
 
-    // Check for manual content section heading
     expect(res.body).toContain('## About security log events')
 
-    // Check for new main heading
     expect(res.body).toContain('## Audit log events')
 
-    // Check for category heading
     // The template renders "### Category"
     expect(res.body).toMatch(/### \w+/)
   })
@@ -72,17 +67,14 @@ describe('Audit Logs transformer', () => {
     )
     expect(res.statusCode).toBe(200)
 
-    // Check for event action header
     // #### `action.name`
     expect(res.body).toMatch(/#### `[\w.]+`/)
 
-    // Check for fields section - either common fields summary or additional fields per event
     const body = res.body
     const hasCommonFields = body.includes('### Common fields')
     const hasAdditionalFields = body.includes('**Additional fields:**')
     expect(hasCommonFields || hasAdditionalFields).toBe(true)
 
-    // Validate that a known common field is in the common section and not duplicated
     if (hasCommonFields) {
       const commonFieldsIndex = body.indexOf('### Common fields')
       const commonFieldsSection = body.slice(
@@ -92,7 +84,7 @@ describe('Audit Logs transformer', () => {
       expect(commonFieldsSection).toContain('`action`')
     }
 
-    // Ensure common fields do not appear in any "Additional fields" section
+    // Common fields are listed once in their own section, never repeated per event.
     if (hasAdditionalFields) {
       const additionalSections = body.split('**Additional fields:**').slice(1)
       for (const section of additionalSections) {
@@ -101,7 +93,6 @@ describe('Audit Logs transformer', () => {
       }
     }
 
-    // Check for reference section
     expect(res.body).toContain('**Reference:**')
   })
 

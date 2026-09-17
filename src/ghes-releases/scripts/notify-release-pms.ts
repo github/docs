@@ -22,14 +22,10 @@ import fs from 'fs'
 import path from 'path'
 import ora from 'ora'
 
-// ─── Types ───────────────────────────────────────────────────────────────────
-
 export interface SourceNote {
   issueUrl: string
   issueNumber: number
 }
-
-// ─── Helpers ─────────────────────────────────────────────────────────────────
 
 /**
  * Run read-only `gh` CLI commands.
@@ -90,8 +86,8 @@ export function parseSourceNotes(content: string): SourceNote[] {
     const match = lines[i].match(/^\s*#\s*(https:\/\/github\.com\/github\/releases\/issues\/(\d+))/)
     if (match) {
       const issueNumber = parseInt(match[2], 10)
-      // Deduplicate — some issues appear multiple times (e.g., in features + changes)
-      // We use the first occurrence so the link points to the primary note
+      // Some issues appear multiple times (e.g. in features and changes). Keep the
+      // first occurrence so the link points to the primary note.
       if (!seen.has(issueNumber)) {
         seen.add(issueNumber)
         notes.push({
@@ -105,17 +101,11 @@ export function parseSourceNotes(content: string): SourceNote[] {
   return notes
 }
 
-/**
- * Read a release notes YAML file and extract source issue URLs.
- */
 function extractSourceNotes(yamlPath: string): SourceNote[] {
   const content = fs.readFileSync(yamlPath, 'utf8')
   return parseSourceNotes(content)
 }
 
-/**
- * Build the comment body for a release issue notification.
- */
 export function buildCommentBody(
   version: string,
   rc: boolean,
@@ -142,14 +132,9 @@ You're welcome to edit it in the PR. If you do nothing, the note will be publish
 Any questions, ask in [#docs-ghes-releases](https://github-grid.enterprise.slack.com/archives/C0AQ37XBK7D).`
 }
 
-/**
- * Build the marker string used to identify notification comments.
- */
 export function buildMarker(version: string, releaseType: 'rc' | 'ga'): string {
   return `<!-- ghes-release-note-review: ${version}-${releaseType} -->`
 }
-
-// ─── CLI ─────────────────────────────────────────────────────────────────────
 
 const program = new Command()
 
@@ -186,7 +171,6 @@ program
       const { release, pr: prNumber, dryRun, reviewDate } = options
       const spinner = ora()
 
-      // Validate --review-date format if provided
       if (reviewDate && !/^\d{4}-\d{2}-\d{2}$/.test(reviewDate)) {
         console.error(
           `Error: Invalid date format "${reviewDate}". Expected: YYYY-MM-DD (e.g., 2026-04-20)`,
@@ -194,7 +178,6 @@ program
         process.exit(1)
       }
 
-      // Validate release version format
       if (!/^\d+\.\d+$/.test(release)) {
         console.error(
           `Error: Invalid release version format "${release}". Expected: X.Y (e.g., 3.20)`,
@@ -202,7 +185,6 @@ program
         process.exit(1)
       }
 
-      // Determine RC vs GA
       const dirName = release.replace('.', '-')
       const rcPath = path.join(
         process.cwd(),
@@ -257,7 +239,7 @@ program
 
       const relativeFilePath = path.relative(process.cwd(), yamlPath)
 
-      // ── Step 1: Extract source issue URLs ──
+      // Step 1: Extract source issue URLs.
       spinner.start('Parsing release notes file...')
       const sourceNotes = extractSourceNotes(yamlPath)
       spinner.succeed(`Found ${sourceNotes.length} unique release issue(s) in ${relativeFilePath}`)
@@ -267,7 +249,7 @@ program
         process.exit(0)
       }
 
-      // ── Step 2: Check for existing comments (avoid duplicates) ──
+      // Step 2: Check for existing comments (avoid duplicates).
       const releaseType = rc ? 'rc' : 'ga'
       const marker = buildMarker(release, releaseType)
       const alreadyCommented = new Set<number>()
@@ -300,7 +282,7 @@ program
         spinner.succeed('No existing notifications found')
       }
 
-      // ── Step 3: Post comments ──
+      // Step 3: Post comments.
       const toNotify = sourceNotes.filter((n) => !alreadyCommented.has(n.issueNumber))
 
       if (toNotify.length === 0) {
@@ -360,7 +342,7 @@ program
         }
       }
 
-      // ── Summary ──
+      // Summary.
       console.log(`\n${'─'.repeat(40)}`)
       console.log(`${dryRun ? '🔍 Dry run' : '✅ Done'}`)
       console.log(

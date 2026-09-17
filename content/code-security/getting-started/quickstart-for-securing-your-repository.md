@@ -123,9 +123,15 @@ You can configure {% data variables.product.prodname_code_scanning %} to automat
 1. If "{% data variables.product.prodname_code_security %}" or "{% data variables.product.prodname_GHAS %}" is not already enabled, click **Enable**.
 1. To the right of "CodeQL analysis", select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Default**.
 1. In the pop-up window that appears, review the default configuration settings for your repository, then click **Enable {% data variables.product.prodname_codeql %}**.{% ifversion code-scanning-autofix %}
-1. Choose whether you want to enable addition features, such as {% data variables.copilot.copilot_autofix_short %} or AI-powered security detections.{% endif %}
+1. Choose whether you want to enable additional features, such as {% data variables.copilot.copilot_autofix_short %}.{% endif %}
 
 As an alternative to default setup, you can use advanced setup, which generates a workflow file you can edit to customize your {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
+
+{% ifversion ai-powered-security-detections %}
+
+You can separately enable AI Scan to extend {% data variables.product.prodname_code_scanning %} coverage to supported languages and frameworks that {% data variables.product.prodname_codeql %} does not cover. AI Scan requires {% data variables.product.prodname_code_scanning %}, but does not require {% data variables.product.prodname_codeql %} default setup. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+
+{% endif %}
 
 ## Configuring {% data variables.product.prodname_secret_protection %}
 

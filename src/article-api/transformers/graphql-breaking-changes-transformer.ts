@@ -8,8 +8,7 @@ import { extractManualContent } from '@/article-api/lib/graphql-helpers'
 import GithubSlugger from 'github-slugger'
 
 /**
- * Transformer for GraphQL breaking changes page
- * Renders breaking changes organized by date
+ * Renders the GraphQL breaking changes page, organized by date.
  */
 export class GraphQLBreakingChangesTransformer implements PageTransformer {
   templateName = 'graphql-breaking-changes.template.md'
@@ -32,7 +31,6 @@ export class GraphQLBreakingChangesTransformer implements PageTransformer {
 
     const slugger = new GithubSlugger()
 
-    // Process breaking changes by date
     const breakingChangesByDate = Object.keys(schema).map((date) => {
       const items = schema[date]
       const heading = `Changes scheduled for ${date}`

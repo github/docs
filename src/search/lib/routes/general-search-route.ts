@@ -17,7 +17,6 @@ export async function generalSearchRoute(req: Request, res: Response) {
     return res.status(400).json(validationErrors[0])
   }
 
-  // Handle search analytics and client_name validation
   const analyticsError = await handleExternalSearchAnalytics(req, 'general-search')
   if (analyticsError) {
     return res.status(analyticsError.status).json({

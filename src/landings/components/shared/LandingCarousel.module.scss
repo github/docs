@@ -32,7 +32,7 @@
   font-weight: 600;
   line-height: 2rem;
   margin: 0;
-  color: var(--fgColor-default);
+  color: var(--brand-color-text-default);
 }
 
 .navigation {
@@ -181,5 +181,5 @@
   justify-content: center;
   margin-top: 1rem;
   font-size: 0.8rem;
-  color: var(--fgColor-muted);
+  color: var(--brand-color-text-muted);
 }

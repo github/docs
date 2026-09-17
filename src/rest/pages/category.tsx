@@ -88,12 +88,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const categoryData = await getRest(currentVersion, apiVersion, category)
   const restOperations = (categoryData && categoryData[subcategory]) || []
 
-  // Build table of contents for all category operations for TocLanding:
-  //
-  // * get all operations for a category (will be broken up by subcategory)
-  // * loop over subcategories and get the operations per subcategory
-  //   * get the minitoc items per set of subcategory operations
-  //   * with this data, build a collection of toc items that can be used by TocLanding
+  // Build the TocLanding table of contents for every operation in the category.
+  // The operations come back grouped by subcategory, so walk the subcategories,
+  // take the minitoc items for each one's operations, and collect them.
   const restCategoryOperations = categoryData || {}
   const restCategoryTocItems = []
 
@@ -182,12 +179,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // content/rest/*
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
-  // When operations exist, update the miniTocItems in the article context
-  // with the list of operations in the OpenAPI.
-
-  // The context passed will have the Markdown content for the language
-  // of the page being requested and the Markdown will be rendered
-  // using the `currentVersion`
+  // Build mini-TOC items from the operation titles, using the request context
+  // for the language and version, and append them to the article's mini-TOC.
   if (restOperations) {
     const { restOperationsMiniTocItems } = (await getRestMiniTocItems(
       category,
@@ -204,8 +197,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     }
   }
 
-  // Replace the toc items in the context with the REST toc items we just
-  // created.
   tocLandingContext.tocItems = restCategoryTocItems
 
   const mainContext = await getMainContext(req, res as unknown as Response)

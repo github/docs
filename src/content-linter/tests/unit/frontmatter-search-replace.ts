@@ -19,7 +19,6 @@ describe('search-replace rule in frontmatter', () => {
 
     const errors = result.markdown || []
 
-    // Should find TODOCS in frontmatter
     const todosErrors = errors.filter((e) => e.errorDetail && /TODOCS/.test(e.errorDetail))
     expect(todosErrors.length).toBe(1)
     expect(todosErrors[0].lineNumber).toBe(2) // title: TODOCS
@@ -47,7 +46,6 @@ describe('search-replace rule in frontmatter', () => {
 
     const errors = result.markdown || []
 
-    // Should find all TODOCS instances in frontmatter
     const todosErrors = errors.filter((e) => e.errorDetail && /TODOCS/.test(e.errorDetail))
     expect(todosErrors.length).toBe(3)
     expect(todosErrors[0].lineNumber).toBe(2) // title: TODOCS
@@ -77,7 +75,6 @@ describe('search-replace rule in frontmatter', () => {
 
     const errors = result.markdown || []
 
-    // Should find domain errors in frontmatter
     const domainErrors = errors.filter(
       (e) => e.errorDetail && /docs-domain|help-domain|developer-domain/.test(e.errorDetail),
     )
@@ -108,7 +105,6 @@ describe('search-replace rule in frontmatter', () => {
 
     const errors = result.markdown || []
 
-    // Should find deprecated syntax errors in frontmatter
     const deprecatedErrors = errors.filter(
       (e) => e.errorDetail && /site\.data|octicon/.test(e.errorDetail),
     )

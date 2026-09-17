@@ -525,6 +525,7 @@ These settings apply across all your sessions and repositories. You can use the 
 | `terminalProgress` | `boolean` | `true` | Emit OSC 9;4 terminal progress indicators while the agent is working. Supported terminals include Windows Terminal, iTerm2, Ghostty, and ConEmu. |
 | `theme` | `"default"` \| `"github"` \| `"dim"` \| `"high-contrast"` \| `"colorblind"` | `"github"` | Color palette for terminal output. Managed by the `/settings` and `/theme` slash commands. `colorMode` is a deprecated alias for this setting. | <!-- markdownlint-disable-line GHD046 -->
 | `toolSearch` | `boolean` | model- and feature-dependent | Controls tool search (deferred tool loading). Set `toolSearch: false` to opt out of tool search. |
+| `transcriptView` | `"default"` \| `"concise"` | `"default"` | Set to `"concise"` to group tool activity into expandable work summaries in the timeline. Set to `"default"` to show the full native transcript. |
 | `updateTerminalTitle` | `boolean` | `true` | Show the current intent in the terminal tab or window title. |
 | `worktreeBaseRef` | `"head"` \| `"defaultBranch"` | `"head"` | Starting point for new worktrees created by `/worktree`, `/worktree new`, and `--worktree`. `"defaultBranch"` starts from the remote default branch instead of the current checkout. |
 
