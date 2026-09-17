@@ -65,7 +65,7 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    **2. Yes, and approve TOOL for the rest of the running session**:
 
-   Allow {% data variables.product.prodname_copilot_short %} to use this tool—with any options—without asking again, for the rest of the currently running session. Any pending parallel permission requests of the same type will be auto-approved. You will have to approve the command again in future sessions.
+   Allow {% data variables.product.prodname_copilot_short %} to use this tool—with any options—without asking again, for the rest of the currently running session. Any pending parallel permission requests of the same type will be auto-approved. You must approve the command again in future sessions.
 
    Choosing this option is useful for many tools—such as `chmod`—as it avoids you having to approve similar commands repeatedly in the same session. However, be aware of the security implications of this option. For example, choosing this option for the command `rm` would allow {% data variables.product.prodname_copilot_short %} to delete any file in the current directory or its subdirectories without asking for your approval.
 

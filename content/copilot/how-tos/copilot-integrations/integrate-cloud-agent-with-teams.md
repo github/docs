@@ -37,7 +37,7 @@ The identity {% data variables.product.prodname_copilot_short %} uses depends on
    > [!NOTE]
    > {% data reusables.copilot.cloud-agent.unattributed-additional-approval-note %}
 
-Only users with **write** access to a repository can trigger {% data variables.product.prodname_copilot_short %} to make changes, but any conversation participant can provide input. Guest members of a workspace, and outside collaborators to repositories are not able to start or steer a session with {% data variables.product.prodname_copilot_short %} in Teams.
+Only users with **write** access to a repository can trigger {% data variables.product.prodname_copilot_short %} to make changes, but any conversation participant can provide input. Guest members of a workspace, and outside collaborators to repositories cannot start or steer a session with {% data variables.product.prodname_copilot_short %} in Teams.
 
 {% data variables.product.prodname_copilot_short %} uses all messages in the conversation to inform the work. The entire thread becomes the decision-making context for the artifact.
 
