@@ -103,6 +103,7 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% para glosario en glosarios %}', 'es')).toBe('{% for glossary in glossaries %}')
       expect(fix('{{ glosario.term }}', 'es')).toBe('{{ glossary.term }}')
       expect(fix('{{ glosario.description }}', 'es')).toBe('{{ glossary.description }}')
+      expect(fix('{{ glosario.descripción }}', 'es')).toBe('{{ glossary.description }}')
     })
 
     test('fixes o and y/o → or in ifversion tags', () => {
@@ -941,6 +942,8 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% для глоссария в глоссариях %}', 'ru')).toBe('{% for glossary in glossaries %}')
       expect(fix('{{ глоссарий.term }}', 'ru')).toBe('{{ glossary.term }}')
       expect(fix('{{ глоссарий.description }}', 'ru')).toBe('{{ glossary.description }}')
+      expect(fix('{% конец для %}', 'ru')).toBe('{% endfor %}')
+      expect(fix('{%- конец для %}', 'ru')).toBe('{%- endfor %}')
     })
 
     test('fixes rearranged data tag patterns', () => {
@@ -3314,6 +3317,50 @@ Para más información, consulta "[AUTOTITLE](/path)".
         '1. {% ifversion ghes %}"검사, 워크플로 실행, 상태, 아티팩트, 로그 및 캐시 설정" 섹션에서 **검사, 워크플로 실행, 상태, 아티팩트 및 로그 보존** 아래에 새 값을 입력합니다.'
       const fixed =
         '1. {% ifversion ghes %}"검사, 워크플로 실행, 상태, 아티팩트, 로그 및 캐시 설정" 섹션에서{% else %}{% endif %} **검사, 워크플로 실행, 상태, 아티팩트 및 로그 보존** 아래에 새 값을 입력합니다.'
+      expect(fix(broken, 'ko')).toBe(fixed)
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+  })
+
+  describe('enabling-or-disabling-github-codespaces-for-your-organization.md per-file fix', () => {
+    test('es: reorders the scrambled ifversion/endif tags around "privados e internos"', () => {
+      const broken =
+        'Puede habilitar {% data variables.product.prodname_github_codespaces %} para los repositorios internos y {% endif %}privados {% ifversion ghec %}de la organización.'
+      const fixed =
+        'Puede habilitar {% data variables.product.prodname_github_codespaces %} para los repositorios privados {% ifversion ghec %}e internos {% endif %}de la organización.'
+      expect(fix(broken, 'es')).toBe(fixed)
+      expect(fix(fixed, 'es')).toBe(fixed)
+    })
+  })
+
+  describe('data/reusables/apps/generate-installation-access-token.md per-file fix', () => {
+    test('es: appends the dropped endif after the enterprise scoping sentence', () => {
+      const broken =
+        'Solo tienen acceso a los permisos de empresa que se les han concedido y siempre reciben todos esos permisos.\nLa respuesta incluirá un token.'
+      const fixed =
+        'Solo tienen acceso a los permisos de empresa que se les han concedido y siempre reciben todos esos permisos.{% endif %}\nLa respuesta incluirá un token.'
+      expect(fix(broken, 'es')).toBe(fixed)
+      expect(fix(fixed, 'es')).toBe(fixed)
+    })
+  })
+
+  describe('about-creating-github-apps.md per-file fix', () => {
+    test('pt: restores the dropped ifversion/endif around "empresa,"', () => {
+      const broken =
+        'Para usar seu {% data variables.product.prodname_github_app %}, você precisa instalá-lo em sua conta corporativa, {% ifversion enterprise-installed-apps %}organização ou conta pessoal.'
+      const fixed =
+        'Para usar seu {% data variables.product.prodname_github_app %}, você precisa instalá-lo na sua {% ifversion enterprise-installed-apps %}empresa, {% endif %}organização ou conta pessoal.'
+      expect(fix(broken, 'pt')).toBe(fixed)
+      expect(fix(fixed, 'pt')).toBe(fixed)
+    })
+  })
+
+  describe('data/reusables/package_registry/public-or-private-packages.md per-file fix', () => {
+    test('ko: reorders the scrambled ifversion/else/endif fragment', () => {
+      const broken =
+        '퍼블릭 리포지토리(퍼블릭 패키지)에 패키지를 게시하여 {% else %}엔터프라이즈의 모든 사용자{% endif %}{% ifversion fpt or ghec %} 모두{% data variables.product.prodname_dotcom %}과(와) 공유하거나 프라이빗 리포지토리의 패키지(프라이빗 패키지)를 게시하여 협력자 또는 조직과 공유할 수 있습니다.'
+      const fixed =
+        '퍼블릭 리포지토리(퍼블릭 패키지)에 패키지를 게시하여 {% ifversion fpt or ghec %}모두 {% data variables.product.prodname_dotcom %}과(와){% else %}엔터프라이즈의 모든 사용자와{% endif %} 공유하거나 프라이빗 리포지토리의 패키지(프라이빗 패키지)를 게시하여 협력자 또는 조직과 공유할 수 있습니다.'
       expect(fix(broken, 'ko')).toBe(fixed)
       expect(fix(fixed, 'ko')).toBe(fixed)
     })
