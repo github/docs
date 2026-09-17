@@ -232,15 +232,15 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
 
 To allow the NuGet ecosystem to only access private registries, you can configure the `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#nuget-feed).
 
-The NuGet ecosystem additionally requires a `nuget.config` file to be checked into the repository, with either a `< clear />` tag in `<packageSources>` section or a key `nuget.org` as true in the `disabledPackageSources` section of the `nuget.config` file.
+The NuGet ecosystem additionally requires a `nuget.config` file to be checked into the repository, with either a `<clear />` tag in `<packageSources>` section or a key `nuget.org` as true in the `disabledPackageSources` section of the `nuget.config` file.
 
-This is an example of a `< clear />` tag in the `packageSources` section of the `nuget.config`.
+This is an example of a `<clear />` tag in the `packageSources` section of the `nuget.config`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
  <packageSources>
-   < clear />
+   <clear />
    <add key="example-nuget" value="https://private_registry_url/nuget/example-nuget/index.json" />
  </packageSources>
 </configuration>
