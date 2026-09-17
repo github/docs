@@ -19,7 +19,7 @@ journeyTracks:
     title: 'Phase 1: Choose metrics to monitor Copilot adoption.'
     description: 'Understand what Copilot usage metrics measure and where the data comes from before you start monitoring adoption. Review the concepts behind usage metrics and the data available through the dashboard and API.'
     guides:
-      - href: '/copilot/concepts/copilot-usage-metrics/copilot-metrics'
+      - href: '/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics'
       - href: '/copilot/reference/copilot-usage-metrics/copilot-usage-metrics'
   - id: 'monitor-usage'
     title: 'Phase 2: Monitor usage and adoption'
