@@ -2722,6 +2722,271 @@
   "credential-authorizations": [
     {
       "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations",
+      "title": "Grant credential authorizations for enterprise organizations",
+      "category": "enterprise-admin",
+      "subcategory": "credential-authorizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "credential_id",
+          "description": "<p>The SHA-256 fingerprint of the user-owned SSH authentication key to authorize.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "credential_type",
+          "description": "",
+          "isRequired": true,
+          "enum": [
+            "ssh_key"
+          ]
+        },
+        {
+          "type": "array of strings",
+          "name": "organizations",
+          "description": "<p>Organization slugs within the enterprise. A maximum of 50 organizations can be specified.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Authorizes an existing user credential for selected organizations in an enterprise. Currently supports personal access tokens (classic)\nand user-owned SSH authentication keys.\nThe authenticated GitHub App must be owned by the enterprise or an organization in the enterprise. The credential\nowner must be a member of every selected organization, and the enterprise must be configured with\nan enterprise-level SSO provider.</p>\n<p>Credential authorizations remain active if the GitHub App is uninstalled or loses permission. They\nremain active until explicitly revoked, the credential is revoked or deleted, or the credential\nowner loses organization membership.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 1: Status Code 201",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "credential_id": 12345678,
+              "credential_type": "classic_pat",
+              "organizations": [
+                "octo-org",
+                "octo-enterprise-org"
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Credential authorizations were granted.</p>",
+            "example": {
+              "credential_id": 12345678,
+              "credential_type": "classic_pat",
+              "organizations": [
+                "octo-enterprise-org",
+                "octo-org"
+              ]
+            },
+            "schema": {
+              "discriminator": {
+                "propertyName": "credential_type"
+              },
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "credential_id": {
+                      "type": "integer"
+                    },
+                    "credential_type": {
+                      "type": "string",
+                      "enum": [
+                        "classic_pat"
+                      ]
+                    },
+                    "organizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "credential_id",
+                    "credential_type",
+                    "organizations"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "credential_id": {
+                      "type": "integer"
+                    },
+                    "credential_type": {
+                      "type": "string",
+                      "enum": [
+                        "ssh_key"
+                      ]
+                    },
+                    "fingerprint": {
+                      "type": "string",
+                      "description": "The SHA-256 fingerprint of the authorized SSH key."
+                    },
+                    "organizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "credential_id",
+                    "credential_type",
+                    "fingerprint",
+                    "organizations"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example 2: Status Code 201",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "credential_id": "SHA256:nThbg6kXUpJWGl7E2H9kGJbIIKnKNNL3V9PzAPPSZ3M",
+              "credential_type": "ssh_key",
+              "organizations": [
+                "octo-org",
+                "octo-enterprise-org"
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Credential authorizations were granted.</p>",
+            "example": {
+              "credential_id": 12345679,
+              "credential_type": "ssh_key",
+              "fingerprint": "SHA256:nThbg6kXUpJWGl7E2H9kGJbIIKnKNNL3V9PzAPPSZ3M",
+              "organizations": [
+                "octo-enterprise-org",
+                "octo-org"
+              ]
+            },
+            "schema": {
+              "discriminator": {
+                "propertyName": "credential_type"
+              },
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "credential_id": {
+                      "type": "integer"
+                    },
+                    "credential_type": {
+                      "type": "string",
+                      "enum": [
+                        "classic_pat"
+                      ]
+                    },
+                    "organizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "credential_id",
+                    "credential_type",
+                    "organizations"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "credential_id": {
+                      "type": "integer"
+                    },
+                    "credential_type": {
+                      "type": "string",
+                      "enum": [
+                        "ssh_key"
+                      ]
+                    },
+                    "fingerprint": {
+                      "type": "string",
+                      "description": "The SHA-256 fingerprint of the authorized SSH key."
+                    },
+                    "organizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "credential_id",
+                    "credential_type",
+                    "fingerprint",
+                    "organizations"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Credential authorizations were granted.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict. Returned when credential authorizations are being modified by another request.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise credentials\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
       "verb": "delete",
       "requestPath": "/enterprises/{enterprise}/credential-authorizations",
       "title": "Revoke enterprise-delegated credential authorizations",
@@ -15272,6 +15537,75 @@
                         }
                       },
                       {
+                        "title": "code_quality",
+                        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_quality"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string",
+                                "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                "enum": [
+                                  "errors",
+                                  "warnings",
+                                  "notes",
+                                  "all"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "severity"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_coverage",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_coverage"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_coverage_drop": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              },
+                              "minimum_coverage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
                         "title": "copilot_code_review",
                         "description": "Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.",
                         "type": "object",
@@ -16760,6 +17094,75 @@
                             "required": [
                               "code_scanning_tools"
                             ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_quality",
+                        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_quality"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string",
+                                "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                "enum": [
+                                  "errors",
+                                  "warnings",
+                                  "notes",
+                                  "all"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "severity"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_coverage",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_coverage"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_coverage_drop": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              },
+                              "minimum_coverage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              }
+                            }
                           }
                         }
                       },
@@ -19774,6 +20177,75 @@
                             "required": [
                               "code_scanning_tools"
                             ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_quality",
+                        "description": "Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_quality"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string",
+                                "description": "The lowest severity level at which code quality reviews need to be resolved before commits can be merged.",
+                                "enum": [
+                                  "errors",
+                                  "warnings",
+                                  "notes",
+                                  "all"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "severity"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "code_coverage",
+                        "description": "Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "code_coverage"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_coverage_drop": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              },
+                              "minimum_coverage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.",
+                                "minimum": 0,
+                                "maximum": 100
+                              }
+                            }
                           }
                         }
                       },

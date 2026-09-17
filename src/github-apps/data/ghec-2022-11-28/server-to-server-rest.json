@@ -55,6 +55,36 @@
       "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo/{custom_property_name}"
     },
     {
+      "slug": "list-enterprise-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/policies"
+    },
+    {
+      "slug": "create-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/actions/policies"
+    },
+    {
+      "slug": "get-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
+    },
+    {
       "slug": "get-github-actions-cache-retention-limit-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -347,6 +377,36 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/orgs/{org}/actions/permissions/workflow"
+    },
+    {
+      "slug": "list-organization-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/policies"
+    },
+    {
+      "slug": "create-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/policies"
+    },
+    {
+      "slug": "get-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
     },
     {
       "slug": "list-self-hosted-runner-groups-for-an-organization",
@@ -827,6 +887,36 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
+    },
+    {
+      "slug": "list-repository-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies"
+    },
+    {
+      "slug": "create-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies"
+    },
+    {
+      "slug": "get-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
     },
     {
       "slug": "list-self-hosted-runners-for-a-repository",
@@ -3279,6 +3369,12 @@
       "subcategory": "licensing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/consumed-licenses"
+    },
+    {
+      "slug": "grant-credential-authorizations-for-enterprise-organizations",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations"
     },
     {
       "slug": "revoke-enterprise-delegated-credential-authorizations",

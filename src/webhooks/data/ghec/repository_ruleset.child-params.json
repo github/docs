@@ -927,6 +927,74 @@
           },
           {
             "type": "object",
+            "name": "code_quality",
+            "description": "<p>Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "code_quality"
+                ]
+              },
+              {
+                "type": "object",
+                "name": "parameters",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "severity",
+                    "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+                    "isRequired": true,
+                    "enum": [
+                      "errors",
+                      "warnings",
+                      "notes",
+                      "all"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "code_coverage",
+            "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "code_coverage"
+                ]
+              },
+              {
+                "type": "object",
+                "name": "parameters",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "number",
+                    "name": "max_coverage_drop",
+                    "description": "<p>The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.</p>"
+                  },
+                  {
+                    "type": "number",
+                    "name": "minimum_coverage",
+                    "description": "<p>The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
             "name": "copilot_code_review",
             "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
             "childParamsGroups": [
@@ -2033,6 +2101,74 @@
           },
           {
             "type": "object",
+            "name": "code_quality",
+            "description": "<p>Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "code_quality"
+                ]
+              },
+              {
+                "type": "object",
+                "name": "parameters",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "severity",
+                    "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+                    "isRequired": true,
+                    "enum": [
+                      "errors",
+                      "warnings",
+                      "notes",
+                      "all"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "code_coverage",
+            "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "code_coverage"
+                ]
+              },
+              {
+                "type": "object",
+                "name": "parameters",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "number",
+                    "name": "max_coverage_drop",
+                    "description": "<p>The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.</p>"
+                  },
+                  {
+                    "type": "number",
+                    "name": "minimum_coverage",
+                    "description": "<p>The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
             "name": "copilot_code_review",
             "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
             "childParamsGroups": [
@@ -3132,6 +3268,74 @@
                         "isRequired": true
                       }
                     ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "code_quality",
+            "description": "<p>Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "code_quality"
+                ]
+              },
+              {
+                "type": "object",
+                "name": "parameters",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "severity",
+                    "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+                    "isRequired": true,
+                    "enum": [
+                      "errors",
+                      "warnings",
+                      "notes",
+                      "all"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "code_coverage",
+            "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "code_coverage"
+                ]
+              },
+              {
+                "type": "object",
+                "name": "parameters",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "number",
+                    "name": "max_coverage_drop",
+                    "description": "<p>The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.</p>"
+                  },
+                  {
+                    "type": "number",
+                    "name": "minimum_coverage",
+                    "description": "<p>The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.</p>"
                   }
                 ]
               }
@@ -4272,6 +4476,74 @@
               },
               {
                 "type": "object",
+                "name": "code_quality",
+                "description": "<p>Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.</p>",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true,
+                    "enum": [
+                      "code_quality"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "parameters",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "severity",
+                        "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+                        "isRequired": true,
+                        "enum": [
+                          "errors",
+                          "warnings",
+                          "notes",
+                          "all"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "code_coverage",
+                "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true,
+                    "enum": [
+                      "code_coverage"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "parameters",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "number",
+                        "name": "max_coverage_drop",
+                        "description": "<p>The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.</p>"
+                      },
+                      {
+                        "type": "number",
+                        "name": "minimum_coverage",
+                        "description": "<p>The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.</p>"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
                 "name": "copilot_code_review",
                 "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review and their premium requests quota has not reached the limit.</p>",
                 "childParamsGroups": [
@@ -5216,6 +5488,74 @@
                             "isRequired": true
                           }
                         ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "code_quality",
+                "description": "<p>Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.</p>",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true,
+                    "enum": [
+                      "code_quality"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "parameters",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "severity",
+                        "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+                        "isRequired": true,
+                        "enum": [
+                          "errors",
+                          "warnings",
+                          "notes",
+                          "all"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "code_coverage",
+                "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true,
+                    "enum": [
+                      "code_coverage"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "parameters",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "number",
+                        "name": "max_coverage_drop",
+                        "description": "<p>The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.</p>"
+                      },
+                      {
+                        "type": "number",
+                        "name": "minimum_coverage",
+                        "description": "<p>The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.</p>"
                       }
                     ]
                   }
@@ -6172,6 +6512,74 @@
                                 "isRequired": true
                               }
                             ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "code_quality",
+                    "description": "<p>Choose which severity levels of code quality results should block pull request merges. When configured, a code quality analysis must be done on the pull request before the changes can be merged.</p>",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "type",
+                        "description": "",
+                        "isRequired": true,
+                        "enum": [
+                          "code_quality"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "name": "parameters",
+                        "description": "",
+                        "childParamsGroups": [
+                          {
+                            "type": "string",
+                            "name": "severity",
+                            "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+                            "isRequired": true,
+                            "enum": [
+                              "errors",
+                              "warnings",
+                              "notes",
+                              "all"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "code_coverage",
+                    "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "type",
+                        "description": "",
+                        "isRequired": true,
+                        "enum": [
+                          "code_coverage"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "name": "parameters",
+                        "description": "",
+                        "childParamsGroups": [
+                          {
+                            "type": "number",
+                            "name": "max_coverage_drop",
+                            "description": "<p>The maximum percentage points that line coverage may drop relative to the default branch. Pull requests that reduce line coverage by more than this amount will be blocked.</p>"
+                          },
+                          {
+                            "type": "number",
+                            "name": "minimum_coverage",
+                            "description": "<p>The absolute minimum line coverage percentage required. Pull requests with line coverage below this threshold will be blocked.</p>"
                           }
                         ]
                       }
