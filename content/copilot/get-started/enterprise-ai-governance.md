@@ -38,6 +38,7 @@ journeyTracks:
     title: 'Enabling agents'
     description: 'Roll out and monitor agentic features.'
     guides:
+      - href: '/copilot/tutorials/roll-out-at-scale/enable-developers/copilot-app-for-teams'
       - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/enable-copilot-cloud-agent'
       - href: '/copilot/tutorials/cloud-agent/give-access-to-resources'
       - href: '/copilot/how-tos/copilot-cli/administer-copilot-cli-for-your-enterprise'
