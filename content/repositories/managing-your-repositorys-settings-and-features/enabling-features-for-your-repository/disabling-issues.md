@@ -32,6 +32,6 @@ If you decide to enable issues again in the future, any issues that were previou
 {% ifversion fpt or ghec %}
 
 > [!TIP]
-> Please contact us through the {% data variables.contact.contact_support_portal %} if you want to turn off issues because of abuse from strangers. {% data reusables.policies.abuse %}
+> Contact us through the {% data variables.contact.contact_support_portal %} if you want to turn off issues because of abuse from strangers. {% data reusables.policies.abuse %}
 
 {% endif %}

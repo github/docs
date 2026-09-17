@@ -96,7 +96,7 @@ The `git remote set-url` command takes two arguments:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
-1. List your existing remotes in order to get the name of the remote you want to change.
+1. List your existing remotes to get the name of the remote you want to change.
 
    ```shell
    $ git remote -v
@@ -127,7 +127,7 @@ You can [use a credential helper](/get-started/git-basics/caching-your-github-cr
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
-1. List your existing remotes in order to get the name of the remote you want to change.
+1. List your existing remotes to get the name of the remote you want to change.
 
    ```shell
    $ git remote -v

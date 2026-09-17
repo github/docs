@@ -24,7 +24,7 @@ Other security features require you to purchase one of {% data variables.product
 
 {% ifversion fpt or ghec %}Some of these features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, are enabled for public repositories by default. To run the feature on your private or internal repositories, you must purchase the relevant {% data variables.product.prodname_GHAS %} product.{% endif %}
 
-You must be on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan in order to purchase {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans) and [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security).
+You must be on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan to purchase {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans) and [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security).
 
 ## {% data variables.product.prodname_GH_code_security %}
 
