@@ -4,15 +4,6 @@ Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone 
 
 
 ## Quick links by contributor type
-
-* **Hubbers (GitHub employees):** See [CONTRIBUTING.md](https://github.com/github/docs-content/blob/main/CONTRIBUTING.md) in the `docs-content` repository for GitHub-specific processes.
-
-* **Open source contributors:** See [CONTRIBUTING.md](https://github.com/github/docs/blob/main/.github/CONTRIBUTING.md) in the `docs` repository for a quick-start summary.
-
-## How we sync changes across Docs repositories
-
-There are two GitHub Docs repositories: 
-
 - **`github/docs`** (public): Open to external contributions
 
 - **`github/docs-internal`** (private): For GitHub employee contributions. 
