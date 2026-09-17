@@ -204,6 +204,8 @@ export function correctTranslatedContentStrings(
     )
     content = content.replaceAll('{{ glosario.term }}', '{{ glossary.term }}')
     content = content.replaceAll('{{ glosario.description }}', '{{ glossary.description }}')
+    // `{{ glosario.descripción }}` — accented Spanish translation of "description"
+    content = content.replaceAll('{{ glosario.descripción }}', '{{ glossary.description }}')
     // Catch "o" and "y/o" between any plan names in ifversion/elsif/if tags
     content = content.replace(
       /\{%-? (?:ifversion|elsif|if) [^%]*?(?:\by\/o\b|\bo\b)[^%]*?%\}/g,
@@ -267,6 +269,18 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% de escritorio %}', '{% desktop %}')
     content = content.replaceAll('{%- de escritorio %}', '{%- desktop %}')
 
+    // [SCRAPE-6883] data/reusables/apps/generate-installation-access-token.md:
+    // the `{% endif %}` closing the `{% ifversion enterprise-installed-apps %}`
+    // block was dropped after the "siempre reciben todos esos permisos"
+    // sentence, leaving the tag unclosed. This reusable is rendered on
+    // apps/creating-github-apps/authenticating-with-a-github-app/
+    // authenticating-as-a-github-app-installation.md and
+    // generating-an-installation-access-token-for-a-github-app.md too.
+    content = content.replaceAll(
+      'Solo tienen acceso a los permisos de empresa que se les han concedido y siempre reciben todos esos permisos.\n',
+      'Solo tienen acceso a los permisos de empresa que se les han concedido y siempre reciben todos esos permisos.{% endif %}\n',
+    )
+
     // `{% variablesdatos.producto.` — translator fused "variables" + "datos" (data)
     // without the `data` keyword and used "producto" (product) instead of "variables.product".
     // e.g. `{% variablesdatos.producto.prodname_dotcom %}` → `{% data variables.product.prodname_dotcom %}`
@@ -299,6 +313,20 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '{% ifversion ghec %}SCIM{% else %} con Okta',
       '{% ifversion ghec %}SCIM{% else %} con Okta{% endif %}',
+    )
+
+    // [SCRAPE-6781] codespaces/managing-codespaces-for-your-organization/
+    // enabling-or-disabling-github-codespaces-for-your-organization.md: the
+    // translator reordered the inline Liquid tags to match Spanish word
+    // order, so `{% endif %}` lands before the `{% ifversion ghec %}` that
+    // opens the block. English source is `...private {% ifversion ghec %}
+    // and internal {% endif %}repositories`. Reorder the tags around the
+    // existing translated words so ghec reads "internos y privados" and fpt
+    // reads "privados". This pattern occurs 3 times in the file (intro plus
+    // two body paragraphs), all with the identical scrambled substring.
+    content = content.replaceAll(
+      'los repositorios internos y {% endif %}privados {% ifversion ghec %}de la organización',
+      'los repositorios privados {% ifversion ghec %}e internos {% endif %}de la organización',
     )
 
     // data/reusables/repositories/you-can-fork.md: translation starts with
@@ -931,6 +959,18 @@ export function correctTranslatedContentStrings(
     // appears as `{% modelo %}` orphaned. Drop unmatched bare `{% modelo %}` is
     // risky; instead, leave as-is (Liquid will raise but rare).
 
+    // [SCRAPE-6885] apps/creating-github-apps/about-creating-github-apps/
+    // about-creating-github-apps.md: the translator dropped the closing
+    // `{% endif %}` (and the word "enterprise,") from the
+    // `{% ifversion enterprise-installed-apps %}enterprise, {% endif %}`
+    // fragment, leaving the tag unclosed. English: `...install it on your
+    // {% ifversion enterprise-installed-apps %}enterprise, {% endif %}
+    // organization or personal account.`
+    content = content.replaceAll(
+      'você precisa instalá-lo em sua conta corporativa, {% ifversion enterprise-installed-apps %}organização ou conta pessoal.',
+      'você precisa instalá-lo na sua {% ifversion enterprise-installed-apps %}empresa, {% endif %}organização ou conta pessoal.',
+    )
+
     // Per-file targeted fixes for translator-scrambled Liquid that we can't
     // catch via generic patterns. These are scoped tightly to the originating
     // file so they're a no-op everywhere else, and they touch only the
@@ -1327,8 +1367,9 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- конечным %}', '{%- endif %}')
     // `{%- конец %}` — dash-trimmed form of "end" = endif
     content = content.replaceAll('{%- конец %}', '{%- endif %}')
-    // `{%- конец для %}` — "end for" = endfor
+    // `{%- конец для %}` / `{% конец для %}` — "end for" = endfor
     content = content.replaceAll('{%- конец для %}', '{%- endfor %}')
+    content = content.replaceAll('{% конец для %}', '{% endfor %}')
     // `{% заголовки строк %}` — "row headers" = rowheaders (opener; `{% endrowheaders %}` stays in English)
     content = content.replaceAll('{% заголовки строк %}', '{% rowheaders %}')
     content = content.replaceAll('{%- заголовки строк %}', '{%- rowheaders %}')
@@ -2210,6 +2251,21 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '1. "리포지토리 외부 협력자 초대{% ifversion ghec %}에서 설정 변경에 대한 정보를 검토합니다{% elsif ghes %}." {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}',
       '1. "리포지토리{% ifversion ghec %} 외부 협력자{% elsif ghes %} 초대{% endif %}"에서 설정 변경에 대한 정보를 검토합니다. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}',
+    )
+
+    // [SCRAPE-6886] data/reusables/package_registry/public-or-private-packages.md:
+    // the translator scrambled the `{% ifversion fpt or ghec %}...{% else %}
+    // ...{% endif %}` fragment, moving `{% else %}` to the front (with no
+    // opener) and leaving the true `{% ifversion %}` opener stranded after
+    // the `{% endif %}` it should have preceded (`tag "else" not found`).
+    // This reusable is rendered on introduction-to-github-packages.md and
+    // publishing-a-package.md too. English: `...to share with
+    // {% ifversion fpt or ghec %}all of {% data variables.product.prodname_dotcom %}
+    // {% else %}everyone on your enterprise{% endif %}, or in a private
+    // repository...`
+    content = content.replaceAll(
+      '퍼블릭 리포지토리(퍼블릭 패키지)에 패키지를 게시하여 {% else %}엔터프라이즈의 모든 사용자{% endif %}{% ifversion fpt or ghec %} 모두{% data variables.product.prodname_dotcom %}과(와) 공유하거나 프라이빗 리포지토리의 패키지(프라이빗 패키지)를 게시하여 협력자 또는 조직과 공유할 수 있습니다.',
+      '퍼블릭 리포지토리(퍼블릭 패키지)에 패키지를 게시하여 {% ifversion fpt or ghec %}모두 {% data variables.product.prodname_dotcom %}과(와){% else %}엔터프라이즈의 모든 사용자와{% endif %} 공유하거나 프라이빗 리포지토리의 패키지(프라이빗 패키지)를 게시하여 협력자 또는 조직과 공유할 수 있습니다.',
     )
   }
 
