@@ -725,6 +725,9 @@ For workflows with a matrix, the `matrix` context contains the matrix properties
 
 There are no standard properties in the `matrix` context, only those which are defined in the workflow file.
 
+> [!NOTE]
+> **Case sensitivity:** Matrix property names are case-sensitive. If you define `arch` in your matrix, you must reference `matrix.arch` (not `matrix.Arch`) to access its value.
+
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `matrix` | `object` | This context is only available for jobs in a matrix, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
