@@ -434,7 +434,9 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
+    await expect(getPage).rejects.toThrowError(
+      /`versions` frontmatter.*? product is not available in/,
+    )
   })
 
   describe('versioning optional attributes', () => {
