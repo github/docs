@@ -34,7 +34,7 @@ For more information, see [OIDC connections](https://docs.docker.com/enterprise/
 
 ## Adding the identity provider to Docker
 
-To use OIDC with Docker, establish a trust relationship between {% data variables.product.prodname_actions %} and Docker by creating an OIDC connection. For more information about this process, see [Create and manage OIDC connections](https://docs.docker.com/enterprise/security/oidc-connections/create-manage/) in the Docker documentation.
+To use OIDC with Docker, establish a trust relationship between {% data variables.product.prodname_actions %} and Docker by creating an OIDC connection. For more information about this process, see [Create and manage OIDC connections](https://docs.docker.com/security/authentication/oidc-connections/create-manage/) in the Docker documentation.
 
 1. Sign in to [Docker Home](https://app.docker.com/) and navigate to your organization.
 1. Go to **Identity & auth** > **OIDC connections**.
