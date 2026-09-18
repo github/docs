@@ -37,6 +37,25 @@ The "Requests per chat mode" and "Agent adoption" charts show how developers are
 | Requests per chat mode | Breakdown of chat interactions by mode—Ask, Edit, Plan, or Agent. | A balanced distribution suggests users are exploring multiple capabilities. Heavy use of one mode can highlight where enablement should focus. |
 | Agent adoption | Percentage of active users who used {% data variables.copilot.copilot_agent_short %}. | Growth over time shows that developers are progressing from basic completions to more advanced {% data variables.product.prodname_copilot_short %} features. |
 
+## Reviewing {% data variables.copilot.copilot_cli_short %} customization adoption with the API
+
+To assess how developers adopt {% data variables.copilot.copilot_cli_short %} customizations, use the usage metrics API. It reports skills, custom agents, Model Context Protocol (MCP) server connection activity, slash commands, and plugins for enterprises and organizations. The fields appear in per-user and aggregated 1-day reports, per-user 28-day reports, and aggregated 28-day `day_totals`. They are not available in the dashboard. For field definitions, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#copilot-cli-customization-fields-api-only).
+
+`interaction_count` represents a different event for each category: skill invocations, custom agent starts, MCP connection or reconnection attempts, slash command invocations, or plugin-associated skill invocations. These values count activity events, not users. MCP counts include both successful and failed connection attempts, but not tool calls through an already connected server or ongoing server use. Every plugin interaction is already included in skill interaction counts, while skill interactions that are not associated with a plugin appear only in skill totals. Do not add plugin and skill interaction counts together.
+
+To identify strong adoption signals, look for named customizations that appear in many users' arrays. Each array contains only the five entries with the highest interaction counts for that record. Therefore, do not interpret an absent entry as zero usage or use the arrays to calculate an exact adoption rate.
+
+Distinct counts show how many different item identifiers had activity. At enterprise and organization scope, an identifier counts once even if many users interacted with it, so do not add per-user distinct counts to reproduce an aggregate value. Compare distinct counts across records or `day_totals` to see whether the variety of customizations with activity is changing.
+
+| Signal | What it suggests | Suggested action |
+|:--|:--|:--|
+| A named skill, custom agent, slash command, or plugin has high interaction counts across many users | The customization is broadly useful and may be a good candidate for standardization. | Promote it through internal examples, onboarding materials, or a shared customization library. |
+| A named customization appears in the top five for only a few users but has high interaction counts for those users | Observed activity is concentrated among a small group. Other users may have activity outside their top-five entries. | Ask those users to share example workflows. Then use developer feedback or other internal data to assess broader adoption before expanding enablement. |
+| Distinct counts are high, but most interactions are grouped under `other` | Developers are using many customer-defined customizations whose names are not exposed in the report. | Review your internal customization sources and catalogs to identify opportunities to consolidate, document, or govern overlapping options. |
+| Interaction counts remain low for a skill, custom agent, slash command, or plugin you expect developers to use | Developers may not know that the customization exists or when it is useful. | Improve discoverability with task-focused examples and include the customization in relevant onboarding or enablement sessions. |
+| MCP connection activity is higher or lower than expected | Developers may be reconnecting repeatedly, encountering failed connection attempts, or the planned rollout may not have reached the intended audience. Connection counts alone do not show whether developers are actively using MCP tools. | Check your MCP configuration and rollout process, then use other internal data or developer feedback to assess ongoing server use. |
+| Adoption grows after an enablement activity | The activity may have helped developers discover useful customizations. | Compare multiple reporting periods and gather developer feedback before deciding whether to expand the activity. |
+
 ## Reviewing model adoption
 
 The "Model usage per day" and "Model usage per chat mode" charts help you understand which AI models are most frequently used.

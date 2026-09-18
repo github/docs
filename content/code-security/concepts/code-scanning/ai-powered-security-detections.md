@@ -75,6 +75,6 @@ You do not need to select a model to enable AI Scan.
 
 * **Enterprise**: The **AI Scan** policy under "Code Security" controls whether organizations can enable the feature. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-ai-scan-in-your-enterprises-repositories).
 * **Organization**: The **AI Scan** setting under "Code scanning" enables AI Scan for eligible repositories in the organization where {% data variables.product.prodname_code_scanning %} is enabled. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configure-global-settings#enabling-ai-scan).
-* **Repository**: For an organization-owned repository, the **AI Scan** toggle under "Code scanning" lets repository administrators opt out when AI Scan is enabled for the organization. For an eligible public repository owned by a personal account, the toggle enables or disables AI Scan directly.
+* **Repository**: For an organization-owned repository, the **AI Scan for pull requests** toggle under "Code scanning" lets repository administrators opt out when AI Scan is enabled for the organization. For an eligible public repository owned by a personal account, the toggle enables or disables AI Scan directly.
 
 You can use the REST API to manage the organization or repository `ai-scan` setting. See [AUTOTITLE](/rest/code-scanning/code-scanning#get-the-ai-scan-setting-for-an-organization).

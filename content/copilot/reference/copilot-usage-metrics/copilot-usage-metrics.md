@@ -52,6 +52,7 @@ These metrics appear in the impact dashboard, which groups users into adoption c
 | Metric | Description |
 |:--|:--|
 | Engagement trends | How the organization's adoption cohort mix and pull request throughput (total pull requests merged per month) have changed over the last six months. |
+| Feature engagement | Number of active users who engaged with each included {% data variables.product.prodname_copilot_short %} feature on at least two distinct days during the inclusive 28-day window. |
 | Adoption cohort distribution | Share of licensed users grouped into each adoption phase (Passive users, Phase 1, Phase 2, Phase 3) for the period. Passive users correspond to the `No Cohort` value in the API. |
 | Adoption multiplier | Compares engaged users (Phase 1, 2, or 3) against passive users on code shipped (pull requests merged per user per month) and time to merge pull requests, to show the relative impact of deeper {% data variables.product.prodname_copilot_short %} adoption. |
 | Recommendations | Suggested actions, such as configuring {% data variables.copilot.copilot_cloud_agent %} or enabling {% data variables.copilot.copilot_code-review_short %}, based on the organization's current cohort distribution. |
@@ -80,8 +81,8 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 Reports come in different shapes depending on their scope and granularity, so the fields available in a record depend on which report it comes from:
 
 * **Per-user reports** (`*-users-1-day` and `*-users-28-day`) contain one record per user, including `user_id`, `user_login`, `ai_credits_used`, the `used_*` indicators, and `ai_adoption_phase`. They do not contain active-user counts, `pull_requests`, or `totals_by_ai_adoption_phase`.
-* **Aggregated reports** (`enterprise-1-day` and `org-1-day`) contain one aggregated record per enterprise or organization, including active-user counts, `pull_requests`, and `totals_by_ai_adoption_phase`. They do not contain `user_id`, `user_login`, or the `used_*` indicators.
-* **28-day reports** (`enterprise-28-day` and `org-28-day`) wrap an array of daily aggregated records in a `day_totals` field, with the reporting window at the top level.
+* **Aggregated reports** (`enterprise-1-day` and `organization-1-day`) contain one aggregated record per enterprise or organization, including active-user counts, `pull_requests`, and `totals_by_ai_adoption_phase`. They do not contain `user_id`, `user_login`, or the `used_*` indicators.
+* **28-day aggregate reports** (`enterprise-28-day` and `organization-28-day`) wrap an array of daily aggregated records in a `day_totals` field, with the reporting window and optional `copilot_feature_engagement` object at the top level. The object is not included in per-user reports.
 * **User-teams reports** (`*-user-teams-1-day`) map users to the teams they belong to, so you can construct team-level metrics.
 * **Repository-level reports** (`*-repos-1-day`) contain one record per repository with pull request activity for the day, including pull requests created by {% data variables.copilot.copilot_cloud_agent %} and reviewed by {% data variables.copilot.copilot_code-review_short %}.
 
@@ -126,6 +127,16 @@ Per-user reports contain one record per user for the reporting period. The 28-da
 | `used_copilot_code_review_active` | `boolean` | Yes | Whether the user actively engaged with {% data variables.copilot.copilot_code-review_short %} that day. A user is considered active if they manually requested a {% data variables.product.prodname_copilot_short %} review, or applied a {% data variables.product.prodname_copilot_short %} review suggestion. Null when there is no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. |
 | `used_copilot_code_review_passive` | `boolean` | Yes | Whether the user had {% data variables.product.prodname_copilot_short %} automatically assigned to review their pull request that day, without actively engaging with the review. Null when there is no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. |
 | `ai_adoption_phase` | `object` | No | The user's AI adoption phase for the day. Always present; defaults to the "No Cohort" phase. See [AI adoption phase fields](#ai-adoption-phase-fields). |
+| `distinct_skill_use_count` | `integer` | Yes | Number of different skill identifiers with recorded activity for the user. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `distinct_custom_agent_use_count` | `integer` | Yes | Number of different custom agent identifiers with recorded activity for the user. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `distinct_mcp_use_count` | `integer` | Yes | Number of different Model Context Protocol (MCP) server identifiers with recorded connection activity for the user. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `distinct_slash_cmd_use_count` | `integer` | Yes | Number of different slash command identifiers with recorded activity for the user. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `distinct_plugin_use_count` | `integer` | Yes | Number of different plugin identifiers with recorded activity for the user. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `totals_by_skill` | `array` | Yes | Top skills used in {% data variables.copilot.copilot_cli_short %}, ordered by interaction count. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `totals_by_custom_agent` | `array` | Yes | Top custom agents used in {% data variables.copilot.copilot_cli_short %}, ordered by interaction count. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `totals_by_mcp` | `array` | Yes | MCP servers with the most connection and reconnection attempts in {% data variables.copilot.copilot_cli_short %}, ordered by interaction count. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `totals_by_slash_cmd` | `array` | Yes | Top slash commands used in {% data variables.copilot.copilot_cli_short %}, ordered by interaction count. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `totals_by_plugin` | `array` | Yes | Top plugins used in {% data variables.copilot.copilot_cli_short %}, ordered by interaction count. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
 | `totals_by_cli` | `object` | Yes | CLI-specific metrics for the user. Omitted when the user had no {% data variables.copilot.copilot_cli_short %} usage that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
 | `totals_by_copilot_app` | `object` | Yes | {% data variables.copilot.github_copilot_app_short %} metrics for the user. Omitted when the user had no {% data variables.copilot.github_copilot_app_short %} usage that day. See [{% data variables.copilot.github_copilot_app_short %} metrics fields](#copilot-app-metrics-fields). |
 | `totals_by_3rd_party_agent` | `array` | Yes | Per-agent usage metrics for recognized {% data variables.copilot.agent_apps %}. Omitted when the user had no recognized {% data variables.copilot.agent_app %} activity during the reporting period. See [{% data variables.copilot.agent_apps_caps %} metrics fields](#agent-apps-metrics-fields). |
@@ -171,6 +182,16 @@ Activity totals and breakdowns:
 | `loc_suggested_to_delete_sum` | `integer` | No | Aggregated lines of code suggested to delete for the day. Same definition as the per-user field. |
 | `loc_added_sum` | `integer` | No | Aggregated lines of code added for the day. Same definition as the per-user field. |
 | `loc_deleted_sum` | `integer` | No | Aggregated lines of code deleted for the day. Same definition as the per-user field. |
+| `distinct_skill_use_count` | `integer` | Yes | Number of different skill identifiers with recorded activity across the enterprise or organization. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `distinct_custom_agent_use_count` | `integer` | Yes | Number of different custom agent identifiers with recorded activity across the enterprise or organization. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `distinct_mcp_use_count` | `integer` | Yes | Number of different MCP server identifiers with recorded connection activity across the enterprise or organization. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `distinct_slash_cmd_use_count` | `integer` | Yes | Number of different slash command identifiers with recorded activity across the enterprise or organization. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `distinct_plugin_use_count` | `integer` | Yes | Number of different plugin identifiers with recorded activity across the enterprise or organization. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `totals_by_skill` | `array` | Yes | Top skills used in {% data variables.copilot.copilot_cli_short %} across the enterprise or organization. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `totals_by_custom_agent` | `array` | Yes | Top custom agents used in {% data variables.copilot.copilot_cli_short %} across the enterprise or organization. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `totals_by_mcp` | `array` | Yes | MCP servers with the most connection and reconnection attempts in {% data variables.copilot.copilot_cli_short %} across the enterprise or organization. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `totals_by_slash_cmd` | `array` | Yes | Top slash commands used in {% data variables.copilot.copilot_cli_short %} across the enterprise or organization. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
+| `totals_by_plugin` | `array` | Yes | Top plugins used in {% data variables.copilot.copilot_cli_short %} across the enterprise or organization. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
 | `totals_by_ide` | `array` | No | Aggregated per-IDE activity breakdown. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_feature` | `array` | No | Aggregated per-feature activity breakdown. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_language_feature` | `array` | No | Aggregated language-and-feature activity breakdown. See [Activity breakdown objects](#activity-breakdown-objects). |
@@ -184,14 +205,30 @@ Activity totals and breakdowns:
 
 ### 28-day report fields
 
-The 28-day reports (`enterprise-28-day` and `org-28-day`) are wrappers: they carry the reporting window at the top level and an array of daily aggregated records.
+The 28-day aggregate reports (`enterprise-28-day` and `organization-28-day`) are wrappers: they carry the reporting window at the top level and an array of daily aggregated records.
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
 | `report_start_day` | `string` | No | First calendar day of the 28-day reporting window, in `YYYY-MM-DD` format. |
 | `report_end_day` | `string` | No | Last calendar day of the 28-day reporting window, in `YYYY-MM-DD` format. |
 | `created_at` | `string` | No | Timestamp (ISO 8601) when the report was generated. |
+| `copilot_feature_engagement` | `object` | Yes | Rolling feature engagement for the 28-day window. Included only in enterprise and organization aggregate reports. Null or absent when the optional calculation is unavailable or the report predates this field. See [{% data variables.product.prodname_copilot_short %} feature engagement fields](#copilot-feature-engagement-fields). |
 | `day_totals` | `array` | No | Array of daily aggregated records. Each entry has the same fields as an aggregated 1-day report. See [Aggregated enterprise and organization report fields](#aggregated-enterprise-and-organization-report-fields). |
+
+#### {% data variables.product.prodname_copilot_short %} feature engagement fields
+
+The optional `copilot_feature_engagement` object summarizes the report's rolling active-user population and engagement with seven features. For the `day_totals` entry whose `day` matches `report_end_day`, `copilot_feature_engagement.active_user_count` equals the sum of the mutually exclusive `totals_by_ai_adoption_phase[].users_in_phase_28d` values.
+
+Counts for individual features overlap because a user can engage with more than one feature. Do not add the `engaged_user_count` values together. The initial feature set reports active and passive {% data variables.copilot.copilot_code-review_short %} as separate features. It does not include {% data variables.copilot.copilot_chat_short %} or {% data variables.product.prodname_vscode_shortname %} Agent.
+
+{% data variables.copilot.copilot_chat_short %} is planned for a later release after 28 consecutive days of data have been collected and report consumers support the additional entry.
+
+| Field | Type | Nullable | Description |
+|:--|:--|:--|:--|
+| `copilot_feature_engagement.active_user_count` | `integer` | No | Nonnegative number of distinct active users in the inclusive 28-day report window. A valid zero-user report sets this field to `0`. |
+| `copilot_feature_engagement.totals_by_feature` | `array` | No | Feature engagement counts. The initial array contains exactly one entry for each of these values: `code_completion`, `agent_edit`, `code_review_passive`, `code_review_active`, `cloud_agent`, `copilot_cli`, and `github_app`. A valid zero-user report includes all seven entries with `engaged_user_count` set to `0`. |
+| `copilot_feature_engagement.totals_by_feature[].feature` | `string` | No | Feature identifier. In this object, `github_app` represents the {% data variables.copilot.github_copilot_app_short %}. This differs from the `copilot_app` value used in activity breakdown arrays such as `totals_by_feature`. |
+| `copilot_feature_engagement.totals_by_feature[].engaged_user_count` | `integer` | No | Nonnegative number of distinct active users who engaged with the feature on at least two distinct days during the inclusive 28-day report window. |
 
 ### User-teams fields
 
@@ -265,6 +302,43 @@ The `totals_by_cli` object contains the following nested fields when {% data var
 | `totals_by_cli.last_known_cli_version` | `object` | No | Most recent {% data variables.copilot.copilot_cli_short %} version detected for the user that day, as `{ cli_version, sampled_at }`. Per-user reports only. |
 | `totals_by_cli.last_known_cli_version.cli_version` | `string` | No | {% data variables.copilot.copilot_cli_short %} version string. Defaults to `unknown` if no version was detected. |
 | `totals_by_cli.last_known_cli_version.sampled_at` | `string` | Yes | Timestamp (ISO 8601) when the version was sampled. |
+
+### {% data variables.copilot.copilot_cli_short %} customization fields (API only)
+
+These metrics give enterprise and organization administrators visibility into which {% data variables.copilot.copilot_cli_short %} automations developers use. Use them to understand adoption, identify enablement gaps, and prioritize the skills, Model Context Protocol (MCP) servers, custom agents, slash commands, and plugins that developers find valuable.
+
+To access the reports, the {% data variables.product.prodname_copilot_short %} usage metrics policy must be enabled. For policy configuration instructions, see:
+
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies#enabling-copilot-features-and-models-in-your-organization)
+
+These fields appear in the following enterprise and organization reports:
+
+* Per-user 1-day and 28-day reports
+* Aggregated 1-day reports
+* Each `day_totals` record in aggregated 28-day reports
+
+Each `totals_by_*` array contains up to five entries with the most recorded activity for its record, ordered from highest to lowest `interaction_count`. The values are event counts, not user counts. An entry's absence from an array does not mean that it had zero usage. Do not use these arrays to calculate exact adoption.
+
+Recognized first-party names can appear when available. Customer-defined identifiers are not exposed. Skills, custom agents, MCP servers, and plugins identified only by customer-specific hashes are grouped under `other` in the arrays. {% data variables.copilot.copilot_cli_short %} telemetry reports customer-defined slash commands as `custom`, so slash command arrays preserve that value.
+
+Each array entry contains the name field listed in the table and an integer `interaction_count` field.
+
+| Array | Name field | What `interaction_count` measures | Distinct-count field |
+|:--|:--|:--|:--|
+| `totals_by_skill[]` | `skill` | Skill invocations. | `distinct_skill_use_count` |
+| `totals_by_custom_agent[]` | `custom_agent` | Custom agent starts. | `distinct_custom_agent_use_count` |
+| `totals_by_mcp[]` | `mcp` | Successful or failed MCP server connection and reconnection attempts. Tool calls through an already connected server do not increase this count. | `distinct_mcp_use_count` |
+| `totals_by_slash_cmd[]` | `slash_cmd` | Slash command invocations. | `distinct_slash_cmd_use_count` |
+| `totals_by_plugin[]` | `plugin` | Skill invocations associated with a plugin. Plugin interactions are a subset of skill interactions. | `distinct_plugin_use_count` |
+
+Every plugin interaction is already included in `totals_by_skill`, while skill interactions that are not associated with a plugin appear only in skill totals. Do not add plugin and skill interaction counts together.
+
+The distinct-count fields count different item identifiers with activity, not users or uses. In a per-user record, each different identifier that the user used counts once. In an aggregated enterprise or organization record, each different identifier used by anyone in the scope counts once, regardless of how many users used it. Aggregated distinct counts are not sums of per-user distinct counts.
+
+Distinct counts retain the full identifier cardinality, including items outside the top-five array. When customer-defined artifacts are grouped under `other`, each hidden identifier still contributes separately to the corresponding distinct count.
+
+When these fields are present, empty arrays and distinct counts of `0` mean that no matching activity was recorded. The fields can be null or absent when {% data variables.copilot.copilot_cli_short %} customization data isn't available during rollout.
 
 ### {% data variables.copilot.github_copilot_app_short %} metrics fields
 
@@ -354,13 +428,29 @@ The per-user `ai_adoption_phase` object contains:
 | `ai_adoption_phase.phase` | `string` | No | Human-readable phase name. |
 | `ai_adoption_phase.version` | `string` | No | Version of the adoption-phase model used (for example, `v1`). |
 
-Each entry in the aggregated `totals_by_ai_adoption_phase` array contains:
+Each entry in the aggregated `totals_by_ai_adoption_phase` array contains two separate user counts:
+
+* `total_engaged_users` is the number of users classified into the phase who were active on that individual day.
+* `users_in_phase_28d` is the full population classified into the phase using the rolling 28-day window, as of that day.
+
+Use `users_in_phase_28d` as the population denominator for rolling phase-level calculations. For example, to calculate pull requests merged per user over a 28-day period:
+
+1. Add the daily `total_pull_requests_merged` values.
+1. Add the corresponding daily `users_in_phase_28d` values.
+1. Divide the first total by the second, then multiply the result by 28.
+
+Do not use `total_engaged_users` as the denominator because it includes only users active on an individual day.
+
+The field does not change the existing `avg_*` fields or their calculations, the phase classification rules, or a user's assigned phase. Neither user-count field identifies individuals.
+
+When a phase is present in the rolling snapshot but has no activity that day, the report can include a synthesized entry with `total_engaged_users` set to `0`, a positive `users_in_phase_28d`, and all activity metrics set to zero.
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
 | `phase` | `string` | No | Human-readable phase name. |
 | `phase_number` | `integer` | No | Numeric phase identifier. |
-| `total_engaged_users` | `integer` | No | Number of users grouped into this phase for the period. |
+| `total_engaged_users` | `integer` | No | Number of users classified into this phase who were active on the day. |
+| `users_in_phase_28d` | `integer` | Yes | Complete rolling 28-day population classified into this phase as of the day. A positive value is the measured phase population, and `0` means the phase was measured and had no users. The field is omitted when the day predates this field or the enterprise or organization was absent from the phase snapshot. |
 | `avg_user_initiated_interactions` | `number` | No | Average user-initiated interactions per user in this phase. |
 | `avg_code_generation_activities` | `number` | No | Average code generation activities per user in this phase. |
 | `avg_code_acceptance_activities` | `number` | No | Average code acceptance activities per user in this phase. |

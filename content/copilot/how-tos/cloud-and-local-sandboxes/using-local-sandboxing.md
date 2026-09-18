@@ -20,7 +20,7 @@ docsTeamMetrics:
 
 Sandboxing is currently an experimental feature. To use it, start {% data variables.copilot.copilot_cli_short %} with the `‑‑experimental` command line option, or enter `/experimental on` during a session.
 
-When you enable local sandboxing, {% data variables.copilot.copilot_cli_short %} runs most of the commands and tools it invokes on your behalf inside an operating-system sandbox. After you enable local sandboxing, it is used for all your {% data variables.copilot.copilot_cli_short %} sessions until you disable it, or turn it off for a specific session. If enterprise managed settings require sandboxing, ordinary configuration, the `--no-sandbox` command line option, and the `/sandbox disable` command cannot disable it. However, if the effective policy permits sandbox bypass, you can explicitly disable sandboxing for the rest of the current session from an active bypass permission prompt.
+When you enable local sandboxing, {% data variables.copilot.copilot_cli_short %} runs most of the commands and tools it invokes on your behalf inside an operating-system sandbox. After you enable local sandboxing, it is used for all your {% data variables.copilot.copilot_cli_short %} sessions until you disable it, or turn it off for a specific session. If enterprise managed settings require sandboxing, ordinary configuration and the `--no-sandbox` command line option cannot disable it. However, if the effective policy permits sandbox bypass, you can explicitly disable sandboxing for the rest of the current session, either from an active bypass permission prompt or by running `/sandbox disable`. This session opt-out does not loosen the saved policy.
 
 By default, sandboxed commands and tools can write within your current working directory and temporary folders. Your user profile (home) directory, along with system and tool locations are read-only. Other disk locations are blocked. In a Git repository, the rest of the repository above your current working directory is readable but not writable. Access to your local and private network is permitted, as is outbound internet access.
 
@@ -38,7 +38,7 @@ You manage local sandboxing from within a {% data variables.copilot.copilot_cli_
 | `/sandbox policy` | Show the effective filesystem policy for the current directory—the paths that are readable, writable, or blocked, and the network access in force. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing). |
 | `/sandbox config` | Open the interactive settings interface. Entering `/sandbox` on its own does the same thing. For more information, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings). |
 | `/sandbox enable` | Turn local sandboxing on. See [Enabling local sandboxing](#enabling-local-sandboxing). |
-| `/sandbox disable` | Turn local sandboxing off. If enterprise managed settings require sandboxing, this is refused. See [Disabling local sandboxing](#disabling-local-sandboxing). |
+| `/sandbox disable` | Turn local sandboxing off. If enterprise managed settings require sandboxing, this is refused unless the effective policy permits sandbox bypass, in which case it disables sandboxing for the rest of the current session only. See [Disabling local sandboxing](#disabling-local-sandboxing). |
 
 ## Enabling local sandboxing
 
@@ -60,7 +60,7 @@ After you enable local sandboxing, it continues to be used for the current and f
 
 ## Disabling local sandboxing
 
-If enterprise managed settings require sandboxing, `/sandbox disable` is refused. If the effective policy permits sandbox bypass, you can instead explicitly disable sandboxing for the rest of the current session from an active bypass permission prompt.
+If enterprise managed settings require sandboxing, `/sandbox disable` is refused unless the effective policy permits sandbox bypass. When bypass is permitted, running `/sandbox disable`—or responding to an active bypass permission prompt—disables sandboxing for the rest of the current session only, without loosening the saved policy.
 
 To stop using local sandboxing, enter the following command in an interactive {% data variables.copilot.copilot_cli_short %} session:
 
@@ -84,7 +84,7 @@ copilot --sandbox -p "PROMPT"
 
 ## Running a single command outside the sandbox
 
-When a command needs broader access than the sandbox allows, {% data variables.product.prodname_copilot_short %} can request to run that single command outside the sandbox. You are shown a confirmation prompt describing the command. You can approve that single command, keep it inside the sandbox, or disable sandboxing for the rest of the current session. The session opt-out is available only while responding to an active bypass prompt and only if the effective policy permits sandbox bypass.
+When a command needs broader access than the sandbox allows, {% data variables.product.prodname_copilot_short %} can request to run that single command outside the sandbox. You are shown a confirmation prompt describing the command. You can approve that single command, keep it inside the sandbox, or disable sandboxing for the rest of the current session. Disabling sandboxing for the session is available only if the effective policy permits sandbox bypass. When it is permitted, you can also do this at any time by running `/sandbox disable`.
 
 This behavior is enabled by default and can be turned off in your sandbox settings.
 
