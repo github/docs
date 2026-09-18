@@ -58,9 +58,10 @@
 //     background-color: var(--bgColor-default, var(--color-canvas-default));
 //   }
 //
-// The Brand `ThemeProvider` renders a real wrapping `<div data-color-mode>`
-// (see src/color-schemes/components/BrandThemeProvider.tsx), so it matched that
-// selector and painted itself Primer's canvas. In dark mode that is #0d1117 — a
+// @primer/react's `ThemeProvider` renders a real wrapping `<div data-color-mode>`
+// (brand's no longer does; see src/color-schemes/components/BrandThemeProvider.tsx),
+// so it matched that selector and painted itself Primer's canvas. In dark mode
+// that is #0d1117 — a
 // blue-tinted charcoal — while every surface migrated to Brand tokens sits on
 // Brand's true black (#000000) or its green-tinted near-black (#0f1511). The
 // result was up to three different "blacks" stacked on one page, and fills
@@ -85,31 +86,17 @@ html[data-color-mode] body {
 }
 
 // ...and every NESTED [data-color-mode] wrapper stays transparent so the root
-// canvas shows through. There are two of them: @primer/react's ThemeProvider and
-// brand's, which the app nests inside it (src/frame/pages/app.tsx).
-//
-// This rule must NOT resolve a `--brand-*` token, and that is the whole point of
-// it. Brand declares its palette on the bare `[data-color-mode="light"]` /
-// `[data-color-mode="dark"]` attribute, so a nested wrapper RE-DECLARES the
-// entire brand palette for its own subtree. BrandThemeProvider resolves its mode
-// through PRC's `resolvedColorScheme`, which is only correct after the
-// cookie-reading effect runs — so it server-renders `data-color-mode="light"`.
-// Painting that wrapper with `var(--brand-color-canvas-default)` therefore
-// resolves brand's LIGHT canvas (#ffffff) on a dark load, and the whole page
-// flashes white until React hydrates. Verified: with `<html>` dark and the
-// wrapper at `light`, the wrapper computes rgb(255,255,255) on black text.
-//
-// `:not(html)` is also what wins the cascade here: @primer/css uses
-// `[data-color-mode]` (0,1,0), and `:not(html)` adds `html`'s (0,0,1) to make
-// this (0,1,1).
+// canvas shows through — @primer/react's ThemeProvider still renders one. Never
+// a `--brand-*` token here: a nested wrapper re-declares brand's palette and
+// would paint its own mode, not the page's. `:not(html)` adds html's (0,0,1) to
+// beat @primer/css's `[data-color-mode]` (0,1,0).
 [data-color-mode]:not(html) {
   background-color: transparent;
   color: inherit;
 }
 
-// Brand only defines explicit light/dark modes, but the document defaults to
-// auto. Match Brand's dark canvas/text tokens when the OS prefers dark; nested
-// ThemeProviders still resolve their own explicit modes.
+// No-JS fallback, not dead code: without the pre-paint script <html> keeps the
+// SSR `auto` default, which @primer/primitives honours and brand does not.
 @media (prefers-color-scheme: dark) {
   html[data-color-mode="auto"][data-dark-theme*="dark"] {
     --brand-color-canvas-default: var(--base-color-scale-black-0);

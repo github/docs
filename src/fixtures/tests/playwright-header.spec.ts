@@ -1,6 +1,7 @@
 import { test, expect, type Locator, type Page } from '@playwright/test'
 
 import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
+import { relativeLuminance } from '@/fixtures/helpers/color-contrast'
 import {
   COLOR_MODE_COOKIE_NAME,
   USER_LANGUAGE_COOKIE_NAME,
@@ -102,21 +103,6 @@ async function resolveTokenValues(locator: Locator, tokens: string[]) {
     }
     return resolved
   }, tokens)
-}
-
-// Used only to prove the emulated color scheme actually reached Brand's tokens.
-// Without it, a dark-mode run that silently stayed light would satisfy every
-// "resolved token" assertion below and the dark coverage would be vacuous.
-function relativeLuminance(color: string) {
-  const [r, g, b] = color
-    .match(/\d+(?:\.\d+)?/g)!
-    .slice(0, 3)
-    .map(Number)
-  const channel = (value: number) => {
-    const ratio = value / 255
-    return ratio <= 0.03928 ? ratio / 12.92 : ((ratio + 0.055) / 1.055) ** 2.4
-  }
-  return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b)
 }
 
 async function expectHeaderPlanPicker(page: Page) {
@@ -399,6 +385,8 @@ async function expectHeaderDropdownDesign(
     '--brand-color-text-default',
     '--brand-color-success-fg',
   ])
+  // Proves the emulated scheme reached Brand's tokens: a dark run that silently
+  // stayed light would satisfy every assertion above on its own.
   const luminance = relativeLuminance(tokens['--brand-color-canvas-default'])
   if (colorScheme === 'dark') {
     expect(luminance).toBeLessThan(0.2)
@@ -909,9 +897,8 @@ test.describe('Brand header', () => {
         page,
       }) => {
         await page.setViewportSize({ width: 1440, height: 800 })
-        // No color_mode cookie, so the page stays in `auto` and resolves the
-        // scheme from this media emulation. Set before navigating so the first
-        // paint already uses it.
+        // No color_mode cookie, so colorModeScript resolves `auto` from this
+        // emulation. Set before navigating so the first paint already uses it.
         await page.emulateMedia({ colorScheme })
         await page.goto(ARTICLE)
         await turnOffExperimentsInPage(page)

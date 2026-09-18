@@ -74,6 +74,7 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
   }
 
+  // No-JS fallback; see the note in src/frame/stylesheets/index.scss.
   @media (prefers-color-scheme: dark) {
     :global([data-color-mode="auto"][data-dark-theme*="dark"]) & {
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);

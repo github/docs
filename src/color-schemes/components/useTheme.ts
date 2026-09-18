@@ -62,7 +62,12 @@ function filterMode(mode = ''): CssColorMode | undefined {
   }
 }
 
-function filterTheme({ name = '', color_mode = '' } = {}): SupportedTheme | undefined {
+// `?? {}` rather than a default parameter: a default only covers `undefined`, and
+// the cookie can carry an explicit `null` (`{"light_theme":null}`).
+function filterTheme(
+  theme?: { name?: string; color_mode?: string } | null,
+): SupportedTheme | undefined {
+  const { name = '', color_mode = '' } = theme ?? {}
   if (Object.values<string>(SupportedTheme).includes(name)) {
     return name as SupportedTheme
   }

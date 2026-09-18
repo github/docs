@@ -115,8 +115,6 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
           components receive brand theme context during the Docs 2026 migration
           (github/docs-engineering#5879). Runs alongside the @primer/react
           ThemeProvider above while the component-by-component swap is in progress.
-          Resolve Brand's color mode from Primer React's active color scheme so
-          opposite-mode day/night schemes stay in sync.
         */}
         <BrandThemeProvider>
           <LanguagesContext.Provider value={languagesContext}>
