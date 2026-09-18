@@ -50,7 +50,7 @@ The **Allow sandbox bypass** setting controls what happens when {% data variable
 * **On (default)**: If a command fails inside the sandbox, you are prompted to allow {% data variables.product.prodname_copilot_short %} to run the command outside the sandbox. Your response to this prompt applies to this specific attempt to run the command. Optionally, you can choose to disable the sandbox for the rest of the session (if permitted by your enterprise), or you can enter an instruction for {% data variables.product.prodname_copilot_short %} to work on instead.
 * **Off**: If {% data variables.product.prodname_copilot_short %} can't run a command successfully in the sandbox, it stops working on the task and reports the failure.
 
-If enterprise managed settings set `sandbox.allowBypass` to `false`, you cannot approve individual commands to run outside the sandbox or disable sandboxing for the rest of the session. If managed settings require sandboxing but the effective policy permits bypass, you can disable sandboxing only from an active bypass permission prompt, not through ordinary settings or `/sandbox disable`.
+If enterprise managed settings set `sandbox.allowBypass` to `false`, you cannot approve individual commands to run outside the sandbox or disable sandboxing for the rest of the session. If managed settings require sandboxing but the effective policy permits bypass, you cannot turn sandboxing off through ordinary settings, but you can disable it for the rest of the current session—either from an active bypass permission prompt or by running `/sandbox disable`—without loosening the saved policy.
 
 ## Configuring authentication settings
 
