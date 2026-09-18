@@ -13,7 +13,7 @@ category:
 allowTitleToDifferFromFilename: true
 ---
 
-The following are example schemas for the user-level, enterprise-level, and repository-level data returned by the {% data variables.product.prodname_copilot_short %} usage metrics endpoints. The actual data returned may vary based on the specific metrics being tracked and the level of aggregation. You can use these examples as a reference for understanding the structure of the data and how to interpret the various fields and metrics included in the API response.
+The following examples show schemas for user-, enterprise-, and repository-level data returned by the {% data variables.product.prodname_copilot_short %} usage metrics endpoints. Returned fields vary by metric and aggregation level. Use these examples to understand the response structure and interpret its fields and metrics.
 
 ## User-level schema example
 
@@ -254,6 +254,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "phase" : "Phase 1",
       "phase_number" : 1,
       "total_engaged_users" : 1,
+      "users_in_phase_28d" : 1,
       "total_pull_requests_merged" : 1
     }, {
       "avg_code_acceptance_activities" : 3.0,
@@ -267,9 +268,10 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "avg_pull_requests_review_cycles" : 2.0,
       "avg_pull_requests_reviewed" : 1.0,
       "avg_user_initiated_interactions" : 1.0,
-      "phase" : "Phase 2",
-      "phase_number" : 2,
+      "phase" : "Phase 3",
+      "phase_number" : 3,
       "total_engaged_users" : 1,
+      "users_in_phase_28d" : 1,
       "total_pull_requests_merged" : 1
     } ],
     "totals_by_cli" : {
@@ -378,6 +380,31 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "weekly_passive_copilot_code_review_users" : 0
   } ],
   "enterprise_id" : "1",
+  "copilot_feature_engagement" : {
+    "active_user_count" : 2,
+    "totals_by_feature" : [ {
+      "feature" : "code_completion",
+      "engaged_user_count" : 2
+    }, {
+      "feature" : "agent_edit",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "code_review_passive",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "code_review_active",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "cloud_agent",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "copilot_cli",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "github_app",
+      "engaged_user_count" : 1
+    } ]
+  },
   "report_end_day" : "2025-10-01",
   "report_start_day" : "2025-09-04",
   "etl_id" : "green",
@@ -433,9 +460,10 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "avg_pull_requests_review_cycles" : 0.0,
       "avg_pull_requests_reviewed" : 0.0,
       "avg_user_initiated_interactions" : 0.0,
-      "phase" : "No Cohort",
-      "phase_number" : 0,
+      "phase" : "Phase 3",
+      "phase_number" : 3,
       "total_engaged_users" : 1,
+      "users_in_phase_28d" : 1,
       "total_pull_requests_merged" : 0
     }, {
       "avg_code_acceptance_activities" : 2.0,
@@ -452,6 +480,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "phase" : "Phase 1",
       "phase_number" : 1,
       "total_engaged_users" : 1,
+      "users_in_phase_28d" : 1,
       "total_pull_requests_merged" : 0
     } ],
     "totals_by_custom_agent" : [ ],
@@ -516,6 +545,31 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "weekly_passive_copilot_code_review_users" : 0
   } ],
   "enterprise_id" : "2",
+  "copilot_feature_engagement" : {
+    "active_user_count" : 2,
+    "totals_by_feature" : [ {
+      "feature" : "code_completion",
+      "engaged_user_count" : 2
+    }, {
+      "feature" : "agent_edit",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "code_review_passive",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "code_review_active",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "cloud_agent",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "copilot_cli",
+      "engaged_user_count" : 1
+    }, {
+      "feature" : "github_app",
+      "engaged_user_count" : 1
+    } ]
+  },
   "report_end_day" : "2025-10-01",
   "report_start_day" : "2025-09-04",
   "etl_id" : "green",
@@ -524,7 +578,9 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
 } ]
 ```
 
-Organization aggregated reports use the same `totals_by_3rd_party_agent` entry fields, including `session_count`, and also include `organization_id`.
+In each `totals_by_ai_adoption_phase` entry, `total_engaged_users` is the subset of users active on that day, while `users_in_phase_28d` is the full population classified into the phase using the rolling 28-day window as of that day.
+
+Organization aggregated reports use the same top-level `copilot_feature_engagement` object, `totals_by_ai_adoption_phase` entry fields, and `totals_by_3rd_party_agent` entry fields, including `session_count`. They also include `organization_id`.
 
 The {% data variables.copilot.copilot_cli_short %} customization fields shown in `day_totals` apply to enterprise and organization aggregated 28-day reports. They also appear directly in enterprise and organization aggregated 1-day reports.
 
@@ -597,7 +653,11 @@ The following user-teams report examples are returned by the `user-teams-1-day` 
 
 ## Repository-level schema example
 
-The following repository-level report example is returned in the NDJSON files downloaded from the `repos-1-day` endpoints. Each row represents one repository with pull request activity on the requested day. Both enterprise- and organization-scoped rows populate `organization_id` (the organization that owns each repository). Enterprise-scoped rows also populate `enterprise_id`, and organization-scoped rows populate `enterprise_id` only for organizations owned by an enterprise. For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#repository-level-fields-api-only).
+The following example shows a repository-level report from an NDJSON file downloaded through a `repos-1-day` endpoint. Each row represents one repository with pull request activity on the requested day.
+
+Both enterprise- and organization-scoped rows include `organization_id`, which identifies the organization that owns the repository. Enterprise-scoped rows also include `enterprise_id`. Organization-scoped rows include `enterprise_id` only when an enterprise owns the organization.
+
+For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#repository-level-fields-api-only).
 
 ```json copy
 [

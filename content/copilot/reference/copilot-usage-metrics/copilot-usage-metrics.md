@@ -52,6 +52,7 @@ These metrics appear in the impact dashboard, which groups users into adoption c
 | Metric | Description |
 |:--|:--|
 | Engagement trends | How the organization's adoption cohort mix and pull request throughput (total pull requests merged per month) have changed over the last six months. |
+| Feature engagement | Number of active users who engaged with each included {% data variables.product.prodname_copilot_short %} feature on at least two distinct days during the inclusive 28-day window. |
 | Adoption cohort distribution | Share of licensed users grouped into each adoption phase (Passive users, Phase 1, Phase 2, Phase 3) for the period. Passive users correspond to the `No Cohort` value in the API. |
 | Adoption multiplier | Compares engaged users (Phase 1, 2, or 3) against passive users on code shipped (pull requests merged per user per month) and time to merge pull requests, to show the relative impact of deeper {% data variables.product.prodname_copilot_short %} adoption. |
 | Recommendations | Suggested actions, such as configuring {% data variables.copilot.copilot_cloud_agent %} or enabling {% data variables.copilot.copilot_code-review_short %}, based on the organization's current cohort distribution. |
@@ -80,8 +81,8 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 Reports come in different shapes depending on their scope and granularity, so the fields available in a record depend on which report it comes from:
 
 * **Per-user reports** (`*-users-1-day` and `*-users-28-day`) contain one record per user, including `user_id`, `user_login`, `ai_credits_used`, the `used_*` indicators, and `ai_adoption_phase`. They do not contain active-user counts, `pull_requests`, or `totals_by_ai_adoption_phase`.
-* **Aggregated reports** (`enterprise-1-day` and `org-1-day`) contain one aggregated record per enterprise or organization, including active-user counts, `pull_requests`, and `totals_by_ai_adoption_phase`. They do not contain `user_id`, `user_login`, or the `used_*` indicators.
-* **28-day reports** (`enterprise-28-day` and `org-28-day`) wrap an array of daily aggregated records in a `day_totals` field, with the reporting window at the top level.
+* **Aggregated reports** (`enterprise-1-day` and `organization-1-day`) contain one aggregated record per enterprise or organization, including active-user counts, `pull_requests`, and `totals_by_ai_adoption_phase`. They do not contain `user_id`, `user_login`, or the `used_*` indicators.
+* **28-day aggregate reports** (`enterprise-28-day` and `organization-28-day`) wrap an array of daily aggregated records in a `day_totals` field, with the reporting window and optional `copilot_feature_engagement` object at the top level. The object is not included in per-user reports.
 * **User-teams reports** (`*-user-teams-1-day`) map users to the teams they belong to, so you can construct team-level metrics.
 * **Repository-level reports** (`*-repos-1-day`) contain one record per repository with pull request activity for the day, including pull requests created by {% data variables.copilot.copilot_cloud_agent %} and reviewed by {% data variables.copilot.copilot_code-review_short %}.
 
@@ -204,14 +205,30 @@ Activity totals and breakdowns:
 
 ### 28-day report fields
 
-The 28-day reports (`enterprise-28-day` and `org-28-day`) are wrappers: they carry the reporting window at the top level and an array of daily aggregated records.
+The 28-day aggregate reports (`enterprise-28-day` and `organization-28-day`) are wrappers: they carry the reporting window at the top level and an array of daily aggregated records.
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
 | `report_start_day` | `string` | No | First calendar day of the 28-day reporting window, in `YYYY-MM-DD` format. |
 | `report_end_day` | `string` | No | Last calendar day of the 28-day reporting window, in `YYYY-MM-DD` format. |
 | `created_at` | `string` | No | Timestamp (ISO 8601) when the report was generated. |
+| `copilot_feature_engagement` | `object` | Yes | Rolling feature engagement for the 28-day window. Included only in enterprise and organization aggregate reports. Null or absent when the optional calculation is unavailable or the report predates this field. See [{% data variables.product.prodname_copilot_short %} feature engagement fields](#copilot-feature-engagement-fields). |
 | `day_totals` | `array` | No | Array of daily aggregated records. Each entry has the same fields as an aggregated 1-day report. See [Aggregated enterprise and organization report fields](#aggregated-enterprise-and-organization-report-fields). |
+
+#### {% data variables.product.prodname_copilot_short %} feature engagement fields
+
+The optional `copilot_feature_engagement` object summarizes the report's rolling active-user population and engagement with seven features. For the `day_totals` entry whose `day` matches `report_end_day`, `copilot_feature_engagement.active_user_count` equals the sum of the mutually exclusive `totals_by_ai_adoption_phase[].users_in_phase_28d` values.
+
+Counts for individual features overlap because a user can engage with more than one feature. Do not add the `engaged_user_count` values together. The initial feature set reports active and passive {% data variables.copilot.copilot_code-review_short %} as separate features. It does not include {% data variables.copilot.copilot_chat_short %} or {% data variables.product.prodname_vscode_shortname %} Agent.
+
+{% data variables.copilot.copilot_chat_short %} is planned for a later release after 28 consecutive days of data have been collected and report consumers support the additional entry.
+
+| Field | Type | Nullable | Description |
+|:--|:--|:--|:--|
+| `copilot_feature_engagement.active_user_count` | `integer` | No | Nonnegative number of distinct active users in the inclusive 28-day report window. A valid zero-user report sets this field to `0`. |
+| `copilot_feature_engagement.totals_by_feature` | `array` | No | Feature engagement counts. The initial array contains exactly one entry for each of these values: `code_completion`, `agent_edit`, `code_review_passive`, `code_review_active`, `cloud_agent`, `copilot_cli`, and `github_app`. A valid zero-user report includes all seven entries with `engaged_user_count` set to `0`. |
+| `copilot_feature_engagement.totals_by_feature[].feature` | `string` | No | Feature identifier. In this object, `github_app` represents the {% data variables.copilot.github_copilot_app_short %}. This differs from the `copilot_app` value used in activity breakdown arrays such as `totals_by_feature`. |
+| `copilot_feature_engagement.totals_by_feature[].engaged_user_count` | `integer` | No | Nonnegative number of distinct active users who engaged with the feature on at least two distinct days during the inclusive 28-day report window. |
 
 ### User-teams fields
 
@@ -411,13 +428,29 @@ The per-user `ai_adoption_phase` object contains:
 | `ai_adoption_phase.phase` | `string` | No | Human-readable phase name. |
 | `ai_adoption_phase.version` | `string` | No | Version of the adoption-phase model used (for example, `v1`). |
 
-Each entry in the aggregated `totals_by_ai_adoption_phase` array contains:
+Each entry in the aggregated `totals_by_ai_adoption_phase` array contains two separate user counts:
+
+* `total_engaged_users` is the number of users classified into the phase who were active on that individual day.
+* `users_in_phase_28d` is the full population classified into the phase using the rolling 28-day window, as of that day.
+
+Use `users_in_phase_28d` as the population denominator for rolling phase-level calculations. For example, to calculate pull requests merged per user over a 28-day period:
+
+1. Add the daily `total_pull_requests_merged` values.
+1. Add the corresponding daily `users_in_phase_28d` values.
+1. Divide the first total by the second, then multiply the result by 28.
+
+Do not use `total_engaged_users` as the denominator because it includes only users active on an individual day.
+
+The field does not change the existing `avg_*` fields or their calculations, the phase classification rules, or a user's assigned phase. Neither user-count field identifies individuals.
+
+When a phase is present in the rolling snapshot but has no activity that day, the report can include a synthesized entry with `total_engaged_users` set to `0`, a positive `users_in_phase_28d`, and all activity metrics set to zero.
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
 | `phase` | `string` | No | Human-readable phase name. |
 | `phase_number` | `integer` | No | Numeric phase identifier. |
-| `total_engaged_users` | `integer` | No | Number of users grouped into this phase for the period. |
+| `total_engaged_users` | `integer` | No | Number of users classified into this phase who were active on the day. |
+| `users_in_phase_28d` | `integer` | Yes | Complete rolling 28-day population classified into this phase as of the day. A positive value is the measured phase population, and `0` means the phase was measured and had no users. The field is omitted when the day predates this field or the enterprise or organization was absent from the phase snapshot. |
 | `avg_user_initiated_interactions` | `number` | No | Average user-initiated interactions per user in this phase. |
 | `avg_code_generation_activities` | `number` | No | Average code generation activities per user in this phase. |
 | `avg_code_acceptance_activities` | `number` | No | Average code acceptance activities per user in this phase. |
