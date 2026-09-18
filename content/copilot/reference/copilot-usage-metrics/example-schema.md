@@ -28,6 +28,11 @@ The following are example schemas for the user-level, enterprise-level, and repo
   "code_acceptance_activity_count": 3,
   "code_generation_activity_count": 3,
   "day": "2025-10-01",
+  "distinct_custom_agent_use_count": 2,
+  "distinct_mcp_use_count": 2,
+  "distinct_plugin_use_count": 1,
+  "distinct_skill_use_count": 3,
+  "distinct_slash_cmd_use_count": 2,
   "enterprise_id": "1",
   "loc_added_sum": 32,
   "loc_deleted_sum": 6,
@@ -57,6 +62,13 @@ The following are example schemas for the user-level, enterprise-level, and repo
       "prompt_tokens_sum": 5400
     }
   },
+  "totals_by_custom_agent": [{
+    "custom_agent": "general-purpose",
+    "interaction_count": 4
+  }, {
+    "custom_agent": "other",
+    "interaction_count": 2
+  }],
   "totals_by_3rd_party_agent": [{
     "agent_id": "2246796",
     "agent_name": "Claude (Anthropic)",
@@ -124,7 +136,29 @@ The following are example schemas for the user-level, enterprise-level, and repo
     "loc_suggested_to_delete_sum": 6
   }],
   "totals_by_language_model": [],
+  "totals_by_mcp": [{
+    "interaction_count": 8,
+    "mcp": "github-mcp-server"
+  }, {
+    "interaction_count": 3,
+    "mcp": "other"
+  }],
   "totals_by_model_feature": [],
+  "totals_by_plugin": [{
+    "interaction_count": 2,
+    "plugin": "other"
+  }],
+  "totals_by_skill": [{
+    "interaction_count": 5,
+    "skill": "other"
+  }],
+  "totals_by_slash_cmd": [{
+    "interaction_count": 3,
+    "slash_cmd": "/plan"
+  }, {
+    "interaction_count": 1,
+    "slash_cmd": "custom"
+  }],
   "used_agent": false,
   "used_chat": false,
   "used_cli": true,
@@ -142,7 +176,9 @@ The following are example schemas for the user-level, enterprise-level, and repo
 }]
 ```
 
-Organization per-user reports use the same `totals_by_3rd_party_agent` entry fields and also include `organization_id`. Per-user entries do not include `session_count`.
+Organization per-user reports use the same `totals_by_3rd_party_agent` entry fields and also include `organization_id`. In per-user reports, entries in `totals_by_3rd_party_agent` do not include `session_count`.
+
+The {% data variables.copilot.copilot_cli_short %} customization fields shown in this example appear in both 1-day and 28-day per-user reports.
 
 In this example, `used_copilot_code_review_active` and `used_copilot_code_review_passive` are `null` because there was no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. `used_copilot_cloud_agent` and `used_copilot_coding_agent` always carry the same value.
 
@@ -160,6 +196,11 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "daily_active_users" : 2,
     "daily_passive_copilot_code_review_users" : 0,
     "day" : "2025-10-01",
+    "distinct_custom_agent_use_count" : 2,
+    "distinct_mcp_use_count" : 2,
+    "distinct_plugin_use_count" : 1,
+    "distinct_skill_use_count" : 3,
+    "distinct_slash_cmd_use_count" : 2,
     "enterprise_id" : "1",
     "loc_added_sum" : 54,
     "loc_deleted_sum" : 6,
@@ -251,6 +292,13 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
         "prompt_tokens_sum" : 8600
       }
     },
+    "totals_by_custom_agent" : [ {
+      "custom_agent" : "general-purpose",
+      "interaction_count" : 7
+    }, {
+      "custom_agent" : "other",
+      "interaction_count" : 3
+    } ],
     "totals_by_feature" : [ {
       "code_acceptance_activity_count" : 2,
       "code_generation_activity_count" : 2,
@@ -300,7 +348,29 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "loc_suggested_to_delete_sum" : 6
     } ],
     "totals_by_language_model" : [ ],
+    "totals_by_mcp" : [ {
+      "interaction_count" : 12,
+      "mcp" : "github-mcp-server"
+    }, {
+      "interaction_count" : 5,
+      "mcp" : "other"
+    } ],
     "totals_by_model_feature" : [ ],
+    "totals_by_plugin" : [ {
+      "interaction_count" : 4,
+      "plugin" : "other"
+    } ],
+    "totals_by_skill" : [ {
+      "interaction_count" : 9,
+      "skill" : "other"
+    } ],
+    "totals_by_slash_cmd" : [ {
+      "interaction_count" : 6,
+      "slash_cmd" : "/plan"
+    }, {
+      "interaction_count" : 2,
+      "slash_cmd" : "custom"
+    } ],
     "user_initiated_interaction_count" : 1,
     "weekly_active_copilot_cloud_agent_users" : 1,
     "weekly_active_copilot_code_review_users" : 1,
@@ -322,6 +392,11 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "daily_active_users" : 2,
     "daily_passive_copilot_code_review_users" : 0,
     "day" : "2025-10-01",
+    "distinct_custom_agent_use_count" : 0,
+    "distinct_mcp_use_count" : 0,
+    "distinct_plugin_use_count" : 0,
+    "distinct_skill_use_count" : 0,
+    "distinct_slash_cmd_use_count" : 0,
     "enterprise_id" : "2",
     "loc_added_sum" : 50,
     "loc_deleted_sum" : 3,
@@ -379,6 +454,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "total_engaged_users" : 1,
       "total_pull_requests_merged" : 0
     } ],
+    "totals_by_custom_agent" : [ ],
     "totals_by_feature" : [ {
       "code_acceptance_activity_count" : 1,
       "code_generation_activity_count" : 2,
@@ -428,7 +504,11 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "loc_suggested_to_delete_sum" : 3
     } ],
     "totals_by_language_model" : [ ],
+    "totals_by_mcp" : [ ],
     "totals_by_model_feature" : [ ],
+    "totals_by_plugin" : [ ],
+    "totals_by_skill" : [ ],
+    "totals_by_slash_cmd" : [ ],
     "user_initiated_interaction_count" : 1,
     "weekly_active_copilot_cloud_agent_users" : 0,
     "weekly_active_copilot_code_review_users" : 0,
@@ -445,6 +525,8 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
 ```
 
 Organization aggregated reports use the same `totals_by_3rd_party_agent` entry fields, including `session_count`, and also include `organization_id`.
+
+The {% data variables.copilot.copilot_cli_short %} customization fields shown in `day_totals` apply to enterprise and organization aggregated 28-day reports. They also appear directly in enterprise and organization aggregated 1-day reports.
 
 The following user-teams report examples are returned by the `user-teams-1-day` endpoints and are intended to be joined with the per-user usage report on `user_id`, `day`, and the relevant entity id (`organization_id` for the organization scope, `enterprise_id` for the enterprise scope) to derive team-level metrics. For more guidance, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
 
