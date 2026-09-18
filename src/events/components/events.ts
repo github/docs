@@ -210,7 +210,11 @@ function getColorModePreference() {
   // color mode is set as attributes on <html>, we'll use that information
   // along with media query checking rather than parsing the cookie value
   // set by github.com
-  let color_mode_preference = document.querySelector('html')?.dataset.colorMode
+  //
+  // `data-color-mode` is the resolved mode; the preference attribute is what
+  // keeps `auto` reportable.
+  const html = document.querySelector('html')
+  let color_mode_preference = html?.dataset.colorModePreference || html?.dataset.colorMode
 
   if (color_mode_preference === 'auto') {
     if (window.matchMedia('(prefers-color-scheme: light)').matches) {

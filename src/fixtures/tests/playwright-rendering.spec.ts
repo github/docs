@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
 import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
+import { contrastRatio } from '@/fixtures/helpers/color-contrast'
 import {
   HOVERCARDS_ENABLED,
   ANALYTICS_ENABLED,
@@ -27,7 +28,8 @@ test.describe('Brand document canvas', () => {
   test('follows system color scheme changes in auto mode without a cookie', async ({ page }) => {
     await page.emulateMedia({ colorScheme: 'dark' })
     await page.goto('/get-started/foo/bar')
-    await expect(page.locator('html')).toHaveAttribute('data-color-mode', 'auto')
+    // `auto` is resolved before first paint, so the raw preference gets its own attribute.
+    await expect(page.locator('html')).toHaveAttribute('data-color-mode-preference', 'auto')
 
     // Check both the initial dark paint and live preference changes without reloading.
     for (const colorScheme of ['dark', 'light', 'dark'] as const) {
@@ -35,6 +37,7 @@ test.describe('Brand document canvas', () => {
       const backgroundColor = colorScheme === 'dark' ? 'rgb(0, 0, 0)' : 'rgb(255, 255, 255)'
       const textColor = colorScheme === 'dark' ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)'
 
+      await expect(page.locator('html')).toHaveAttribute('data-color-mode', colorScheme)
       for (const selector of ['html', 'body']) {
         await expect(page.locator(selector)).toHaveCSS('background-color', backgroundColor)
         await expect(page.locator(selector)).toHaveCSS('color', textColor)
@@ -65,6 +68,123 @@ test.describe('Brand document canvas', () => {
         await expect(page.locator(selector)).toHaveCSS('background-color', backgroundColor)
         await expect(page.locator(selector)).toHaveCSS('color', textColor)
       }
+    })
+  }
+
+  // A concrete [data-color-mode] below <html> re-declares brand's whole palette
+  // for that subtree.
+  const MISMATCHES = [
+    { name: 'OS dark, explicit light mode', colorScheme: 'dark', cookie: { color_mode: 'light' } },
+    { name: 'OS light, explicit dark mode', colorScheme: 'light', cookie: { color_mode: 'dark' } },
+    {
+      // Day and night themes are picked independently on github.com, so `light`
+      // mode can itself resolve to a dark theme.
+      name: 'light mode whose day theme is itself dark',
+      colorScheme: 'light',
+      cookie: {
+        color_mode: 'light',
+        light_theme: { name: 'dark_dimmed', color_mode: 'dark' },
+        dark_theme: { name: 'dark', color_mode: 'dark' },
+      },
+    },
+  ] as const
+
+  for (const scenario of MISMATCHES) {
+    test(`declares brand's palette only on <html> (${scenario.name})`, async ({
+      page,
+      context,
+      baseURL,
+    }) => {
+      // A settled assertion cannot catch a wrapper that self-corrects within a
+      // macrotask, so record every data-color-mode below <html> from first paint on.
+      await page.addInitScript(() => {
+        const seen: string[] = []
+        ;(window as unknown as { __modes: string[] }).__modes = seen
+        const note = (node: Node) => {
+          if (!(node instanceof Element) || node === document.documentElement) return
+          const value = node.getAttribute('data-color-mode')
+          if (value) seen.push(value)
+        }
+        new MutationObserver((records) => {
+          for (const record of records) {
+            if (record.type === 'attributes') note(record.target)
+            for (const node of record.addedNodes) {
+              note(node)
+              if (node instanceof Element) {
+                for (const nested of node.querySelectorAll('[data-color-mode]')) note(nested)
+              }
+            }
+          }
+        }).observe(document, {
+          subtree: true,
+          childList: true,
+          attributes: true,
+          attributeFilter: ['data-color-mode'],
+        })
+      })
+      await page.emulateMedia({ colorScheme: scenario.colorScheme })
+      await context.addCookies([
+        {
+          name: COLOR_MODE_COOKIE_NAME,
+          value: encodeURIComponent(JSON.stringify(scenario.cookie)),
+          url: new URL('/', baseURL).href,
+        },
+      ])
+      await page.goto('/get-started/foo/for-playwright')
+
+      const rootMode = await page.locator('html').getAttribute('data-color-mode')
+      expect(rootMode).toMatch(/^(light|dark)$/)
+
+      // Brand's ActionMenu.Overlay wraps an open menu in its own ThemeProvider,
+      // which emits a data-color-mode from brand's context, and only while open.
+      await page.getByTestId('version-picker-button').first().click()
+      await expect(page.getByRole('menu').first()).toBeVisible()
+
+      // `auto` is exempt: brand has no `auto` block, so such a wrapper declares
+      // nothing and inherits.
+      await expect(async () => {
+        const offenders = await page
+          .locator('body [data-color-mode]')
+          .evaluateAll(
+            (nodes, mode) =>
+              nodes
+                .map((node) => node.getAttribute('data-color-mode')!)
+                .filter((value) => value !== 'auto' && value !== mode),
+            rootMode,
+          )
+        expect(offenders).toEqual([])
+      }).toPass()
+
+      const everSeen = await page.evaluate(
+        () => (window as unknown as { __modes: string[] }).__modes,
+      )
+      expect(everSeen.filter((value) => value !== 'auto' && value !== rootMode)).toEqual([])
+
+      // heading-links.ts wraps every heading's text in an `<a class="heading-link">`
+      // held at heading color, so a bare `a[href]` here picks a heading. The
+      // exclusions mirror article-link-overrides.scss.
+      const link = page
+        .locator('#article-contents .markdown-body a[href]:not(.heading-link):not(.btn)')
+        .first()
+      const linkColor = await link.evaluate((element) => getComputedStyle(element).color)
+      const canvas = await page
+        .locator('body')
+        .evaluate((element) => getComputedStyle(element).backgroundColor)
+
+      const expectedLinkColor = await page.locator('html').evaluate((element) => {
+        const probe = document.createElement('span')
+        probe.style.color = 'var(--brand-color-text-link-rest)'
+        element.append(probe)
+        try {
+          return getComputedStyle(probe).color
+        } finally {
+          probe.remove()
+        }
+      })
+      // Equality alone passes if <html> is wrong; contrast alone passes if the
+      // selector drifts off brand links.
+      expect(linkColor).toBe(expectedLinkColor)
+      expect(contrastRatio(linkColor, canvas)).toBeGreaterThanOrEqual(4.5)
     })
   }
 })
