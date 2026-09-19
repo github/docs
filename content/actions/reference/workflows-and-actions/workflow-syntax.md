@@ -113,6 +113,8 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 ### Git diff comparisons
 
 {% data reusables.actions.workflows.triggering-a-workflow-paths5 %}
+> [!NOTE]
+> **Changes to files in a git submodule:** For {% data variables.product.prodname_actions %} to detect changes to files inside a git submodule, filter on the path to the top-level submodule itself, not on paths within the submodule. For example, if a submodule is checked out at `submodules/my-library`, use `paths: - submodules/my-library/**`. The paths to individual files inside the submodule are not tracked by the parent repository's workflow filters.
 
 ## `on.schedule`
 
