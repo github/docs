@@ -12,4 +12,4 @@ children:
   - /personal-dashboard-quickstart
 contentType: get-started
 ---
-
+...start only with the required features and all main arcit... will change according to page count and required features  
