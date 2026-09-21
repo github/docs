@@ -36,7 +36,6 @@ export async function combinedSearchRoute(req: Request, res: Response) {
     return res.status(400).json(combinedValidationErrors[0])
   }
 
-  // Handle search analytics and client_name validation
   const analyticsError = await handleExternalSearchAnalytics(req, 'combined-search')
   if (analyticsError) {
     return res.status(analyticsError.status).json({
@@ -75,12 +74,18 @@ export async function combinedSearchRoute(req: Request, res: Response) {
       })
     } else {
       generalSearchPromise = Promise.resolve({
-        meta: {} as any,
+        meta: {
+          found: { value: 0, relation: 'eq' },
+          took: { query_msec: 0, total_msec: 0 },
+          // Mirror the requested page size so downstream page-count math
+          // (which divides by meta.size) stays finite for the empty branch.
+          size: GENERAL_RESULTS_SIZE,
+          page: 1,
+        },
         hits: [],
       })
     }
 
-    // Async fetch both results from Elasticsearch
     const [aiSearchResults, generalSearchResults] = await Promise.all([
       autocompletePromise,
       generalSearchPromise,

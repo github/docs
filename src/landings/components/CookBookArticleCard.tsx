@@ -1,4 +1,6 @@
-import { Label, LabelGroup, Link } from '@primer/react'
+import { Label } from '@primer/react-brand'
+import { Link } from '@primer/react'
+import { clsx } from 'clsx'
 import { ValidOcticon, getOcticonComponent } from '../lib/octicons'
 
 import styles from './CookBookArticleCard.module.scss'
@@ -14,6 +16,7 @@ type Props = {
   spotlight?: boolean
   image?: string
   complexity?: string
+  surface?: string
 }
 
 function setImage(image: string, alt: string) {
@@ -33,7 +36,7 @@ export const CookBookArticleCard = ({
   return (
     <div className="m-2">
       <div
-        className={`${styles.cardContainer} ${spotlight ? spotlightClasses : 'd-flex pb-3 border-bottom'}`}
+        className={`${styles.cardContainer} ${spotlight ? spotlightClasses : 'd-flex flex-wrap pb-3 border-bottom'}`}
       >
         {spotlight ? setImage(image, title) : null}
         {spotlight
@@ -41,21 +44,30 @@ export const CookBookArticleCard = ({
           : IconComponent && (
               <IconComponent
                 size={48}
-                className="mr-4 bgColor-accent-muted p-3 circle fgColor-accent"
+                className={clsx(
+                  'mr-4',
+                  styles.iconBackdrop,
+                  'p-3',
+                  'circle',
+                  styles.linkAccent,
+                  'flex-shrink-0',
+                )}
               />
             )}
-        <div>
-          <h3 className="h4 fgColor-accent">
-            <Link href={url}>{title}</Link>
+        <div className="min-width-0 flex-1">
+          <h3 className="h4">
+            <Link href={url} className={styles.linkAccent}>
+              {title}
+            </Link>
           </h3>
-          <div className="fgColor-muted mb-3 mt-2">{description}</div>
-          <LabelGroup>
+          <div className={clsx(styles.textMuted, 'mb-3', 'mt-2')}>{description}</div>
+          <div className={styles.labelGroup}>
             {tags.map((tag, index) => (
-              <Label key={index} variant="accent" className={styles.label} size="small">
+              <Label key={index} color="blue" className={styles.label} size="small">
                 {tag}
               </Label>
             ))}
-          </LabelGroup>
+          </div>
         </div>
       </div>
     </div>

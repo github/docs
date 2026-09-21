@@ -1,12 +1,12 @@
 ---
-applyTo: "content/**,data/**,**/*.md"
+applyTo: "content/**,data/**"
 ---
 
 # Concise style guide for docs.github.com
 
 **When to use**: Any content editing, documentation writing, or Markdown file changes. This is a condensed version of the full style guide at `/content/contributing/style-guide-and-content-model/style-guide.md`. Use these rules for routine work. Only consult the full style guide if you encounter a style question not covered here.
 
-For Liquid variable usage, reusables, linking conventions, bullet-list formatting, and parenthetical dashes, see `content.instructions.md` (loaded automatically alongside this file).
+For Liquid variable usage, reusables, linking conventions, bullet-list markers, and parenthetical dashes, see `content.instructions.md` (loaded automatically alongside this file).
 
 ## Core principles
 
@@ -50,9 +50,16 @@ For Liquid variable usage, reusables, linking conventions, bullet-list formattin
 * Keep alerts concise (a couple of sentences max).
 * Use Markdown syntax: `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`, `> [!CAUTION]`, `> [!IMPORTANT]`.
 
+Call reusable content inside alert environments, rather than placing alert environments inside reusable Markdown files. For example:
+
+```
+> [!CAUTION]
+> {% data reusables.foo.bar %}
+> Here is some additional optional text.
+```
+
 ## Links
 
-* Use `[AUTOTITLE](/path/to/article)` for all internal links. Never hardcode article titles in link text.
 * Introduce links with "For more information, see" or "See" when context is clear.
 * Do not use inline links where words within a sentence are hyperlinked without additional context.
 * Do not include punctuation inside a hyperlink.
@@ -60,8 +67,7 @@ For Liquid variable usage, reusables, linking conventions, bullet-list formattin
 
 ## Lists
 
-* Use `*` (asterisks) for unordered lists, never `-` (hyphens).
-* Capitalize the first letter of each list item.
+* Capitalize the first letter of each list item, including the first letter after the colon in a term definition list (for example, `* **Filesystem**: Grant read-only access...`).
 * Use periods only if the item is a complete sentence.
 * Introduce lists with a descriptive sentence, not vague phrases like "the following" in isolation.
 
@@ -83,9 +89,8 @@ For Liquid variable usage, reusables, linking conventions, bullet-list formattin
 * Use full words for Apple modifier keys (`Command`, `Option`, `Control`), not symbols.
 * Capitalize letter keys.
 
-## Product names and variables
+## Product names
 
-* Always use Liquid variables for product names—never hardcode them. Check `data/variables/product.yml` and `data/variables/copilot.yml`.
 * Product names are always singular (for example, "GitHub Actions helps" not "help").
 
 ## Word choice

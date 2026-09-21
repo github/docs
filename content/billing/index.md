@@ -7,8 +7,6 @@ redirect_from:
   - /categories/setting-up-and-managing-billing-and-payments-on-github
 introLinks:
   overview: '{% ifversion fpt or ghec %}/billing/get-started/how-billing-works {% elsif ghes %}/billing/concepts/enterprise-billing/billing-for-enterprises{% endif %}'
-changelog:
-  label: account-management
 layout: discovery-landing
 includedCategories:
   - 'Get started with billing'

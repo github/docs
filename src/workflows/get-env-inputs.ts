@@ -1,10 +1,4 @@
-/*
- * Validates and returns an object of expected environment variables
- *
- * @param {Array<string>} options - Array of environment variables expected
- *
- * @returns {Object} - key value of expected env variables and their values
- */
+// Validates the named environment variables and returns them as an object.
 export function getEnvInputs(options: string[]) {
   return Object.fromEntries(
     options.map((envVarName) => {
@@ -17,18 +11,9 @@ export function getEnvInputs(options: string[]) {
   )
 }
 
-/*
- * Given an environment variable key, return `true` or `false` if the
- * value is recognizable.
- * Turn 'true' or '1' into `true`. And '', '0', or 'false' into `false`.
- * All other values are invalid.
- * Now you can't accidentally set `export FOO=falsee` which as string `'falsee'`
- * could have been interpreted as a truthy value.
- *
- * @param {string} key - name of the environment variable
- *
- * @returns {boolean}
- */
+// Reads an environment variable as a boolean. 'true' and '1' are true; '', '0'
+// and 'false' are false. Anything else throws, so a typo like
+// `export FOO=falsee` can't be read as truthy.
 export function boolEnvVar(key: string) {
   const value = process.env[key] || ''
   if (value === '' || value === 'false' || value === '0') return false

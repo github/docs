@@ -18,8 +18,8 @@ Today it's a dynamic Node.js webserver powered by Express, using middleware to s
 
 The tooling for this site has changed over the years, but many of the tried-and-true authoring conventions of the original Jekyll site have been preserved.
 
-* Content is written in Markdown files, which live in the `content` directory.
-<!-- - Content can use the [Liquid templating language](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-for-github-docs).-->
+* Content is written in Markdown files. These live in the `content` directory.
+* Content can use the Liquid templating language. See [AUTOTITLE](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs).
 * Files in the `data` directory are available to templates via the {% raw %}`{% data %}`{% endraw %} tag.
 * Markdown files can contain [frontmatter](https://jekyllrb.com/docs/front-matter).
 * The [`redirect_from`](https://github.com/jekyll/jekyll-redirect-from) Jekyll plugin behavior is supported.

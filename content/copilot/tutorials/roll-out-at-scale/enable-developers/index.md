@@ -6,6 +6,7 @@ versions:
   feature: copilot
 children:
   - /drive-adoption
+  - /copilot-app-for-teams
   - /integrate-ai-agents
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/enabling-developers
@@ -13,4 +14,3 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/enable-developers
 contentType: tutorials
 ---
-

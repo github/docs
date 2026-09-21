@@ -1,4 +1,4 @@
-Scanning for non-provider patterns is available for the following repository types:
+Scanning for generic patterns is available for the following repository types:
 
 {% ifversion fpt %}
 * Organization-owned repositories on {% data variables.product.prodname_team %} with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}

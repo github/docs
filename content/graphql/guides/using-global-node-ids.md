@@ -100,7 +100,7 @@ query {
 
 This type of query&mdash;that is, finding the node by ID&mdash;is known as a "direct node lookup."
 
-When you run this query, you'll see that the `__typename` is [`User`](/graphql/reference/objects#user).
+When you run this query, you'll see that the `__typename` is [`User`](/graphql/reference/users#object-user).
 
 ## 3. Do a direct node lookup in GraphQL
 

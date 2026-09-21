@@ -14,7 +14,6 @@ import { getMetadata } from './article-pageinfo'
 import {
   makeLanguageSurrogateKey,
   setFastlySurrogateKey,
-  SURROGATE_ENUMS,
 } from '@/frame/middleware/set-fastly-surrogate-key'
 import statsd from '@/observability/lib/statsd'
 
@@ -158,7 +157,7 @@ router.get(
 
     setFastlySurrogateKey(
       res,
-      `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(req.pageinfo?.page?.languageCode || 'en')}`,
+      makeLanguageSurrogateKey(req.pageinfo?.page?.languageCode || 'en'),
       true,
     )
     return res.json(meta)

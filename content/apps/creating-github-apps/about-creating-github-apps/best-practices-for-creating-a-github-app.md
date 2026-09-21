@@ -14,31 +14,31 @@ category:
 
 ## Select the minimum permissions required
 
-When you register a {% data variables.product.prodname_github_app %}, select the minimum permissions that your {% data variables.product.prodname_github_app %} needs. If any keys or tokens for your app become compromised, this will limit the amount of damage that can occur. For more information about how to choose permissions, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app).
+When you register a {% data variables.product.prodname_github_app %}, select the minimum permissions that your {% data variables.product.prodname_github_app %} needs. If any keys or tokens for your app become compromised, this will limit the amount of damage that can occur. For more information about how to choose permissions, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
 
 When your {% data variables.product.prodname_github_app %} creates an installation access token or user access token, you can further limit the repositories that the app can access and the permissions that the token has. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app).
 
 ## Stay under the rate limit
 
-Subscribe to webhook events instead of polling the API for data. This will help your {% data variables.product.prodname_github_app %} stay within the API rate limit. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps) and [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events).
+Subscribe to webhook events instead of polling the API for data. This will help your {% data variables.product.prodname_github_app %} stay within the API rate limit. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps) and [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events).
 
-Consider using conditional requests to help you stay within the rate limit. For more information about conditional requests, see [AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api).
+Consider using conditional requests to help you stay within the rate limit. For more information about conditional requests, see [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api).
 
-If possible, consider using consolidated GraphQL queries instead of REST API requests to help you stay within rate limits. For more information, see [AUTOTITLE](/rest/overview/about-githubs-apis) and [AUTOTITLE](/graphql).
+If possible, consider using consolidated GraphQL queries instead of REST API requests to help you stay within rate limits. For more information, see [AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api) and [AUTOTITLE](/graphql).
 
-If you do hit a rate limit and need to retry an API request, use the `x-ratelimit-reset` or `Retry-After` response headers. If these headers are not available, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries. For more information, see [AUTOTITLE](/rest/guides/best-practices-for-integrators#dealing-with-rate-limits).
+If you do hit a rate limit and need to retry an API request, use the `x-ratelimit-reset` or `Retry-After` response headers. If these headers are not available, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries. For more information, see [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api).
 
 ## Secure your app's credentials
 
 You can generate a private key and client secret for your {% data variables.product.prodname_github_app %}. Private keys are used to generate installation access tokens, while client secrets are used to get user access tokens and refresh tokens. These tokens can be used to make API requests on behalf of an app installation or user.
 
-You must store private keys, tokens, and client secrets securely. However, the storage mechanism and its relative security depends on your integrations architecture and the platform that it runs on. In general, you should use a storage mechanism that is intended to store sensitive data on the platform that you are using.
+You must store private keys, tokens, and client secrets securely, when possible. However, the storage mechanism and its relative security depends on your integrations architecture and the platform that it runs on. In general, you should use a storage mechanism that is intended to store sensitive data on the platform that you are using.
 
 ### Private keys
 
 The private key for your {% data variables.product.prodname_github_app %} grants access to every account that the app is installed on. It **must** be stored securely and never shared broadly.
 
-Consider storing your {% data variables.product.prodname_github_app %}'s private key in a key vault, such as [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), and making it sign-only.
+Consider storing your {% data variables.product.prodname_github_app %}'s private key in a key vault, such as [Azure Key Vault](https://azure.microsoft.com/products/key-vault), and making it sign-only.
 
 Alternatively, you can store the key as an environment variable. However, this is not as strong as storing the key in a key vault. If an attacker gains access to the environment, they can read the private key and gain persistent authentication as the {% data variables.product.prodname_github_app %}.
 
@@ -48,11 +48,11 @@ You should not generate more private keys than you need. You should delete priva
 
 ### Client secrets
 
-Client secrets are required to generate user access tokens for your app, unless your app uses the device flow. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app#using-the-device-flow-to-generate-a-user-access-token).
+Client secrets are required to generate user access tokens for your app from an authorization code.
 
 If your app is a confidential client, meaning it can safely keep the client secret secure, consider storing your client secret in a key vault, such as [Azure Key Vault](https://azure.microsoft.com/products/key-vault), or as an encrypted environment variable or secret on your server.
 
-If your app is a public client (a native app that runs on the user's device, CLI utility, or single-page web application), you cannot secure your client secret. You will have to ship the client secret in the application's code, and you should use PKCE to better secure the authentication flow. You should use caution if you plan to gate access to your own services based on tokens generated by your app because public clients are trivially spoofable - anyone can reuse your app's client ID to sign in.
+If your app is a public client (a native app that runs on the user's device, CLI utility, or single-page web application), you cannot secure your client secret. You do have to ship the client secret in the application's code, and you should use PKCE to better secure the authentication flow. You should use caution if you plan to gate access to your own services based on tokens generated by your app because public clients are trivially spoofable - anyone can reuse your app's client ID to sign in.
 
 #### Don't enable device flow without reason
 
@@ -77,6 +77,11 @@ User access tokens will attribute activity to a user and to your app. These are 
 An installation access token is restricted based on the {% data variables.product.prodname_github_app %}'s permissions and access. A user access token is restricted based on both the {% data variables.product.prodname_github_app %}'s permission and access and the user's permission and access. Therefore, if your {% data variables.product.prodname_github_app %} takes an action on behalf of a user, it should always use a user access token instead of an installation access token. Otherwise, your app might allow a user to see or do things that they shouldn't be able to see or do.
 
 Your app should never use a {% data variables.product.pat_generic %} or {% data variables.product.company_short %} password to authenticate.
+
+## Enable wildcard matching for callback URLs only when necessary
+
+> [!WARNING]
+> {% data reusables.apps.redirect-uri-wildcard-security-warning %}
 
 ## Check authorization thoroughly, durably, and often
 
@@ -128,13 +133,13 @@ Only subscribe to the webhook events that your app needs. This will help reduce 
 
 You should set a webhook secret for your {% data variables.product.prodname_github_app %} and verify that the signature of incoming webhook events matches the secret. This helps to ensure that the incoming webhook event is a valid {% data variables.product.company_short %} event.
 
-For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps#securing-your-webhooks-with-a-webhook-secret). For an example, see [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events).
+For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps#securing-your-webhooks-with-a-webhook-secret). For an example, see [AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events).
 
 ## Allow time for users to accept new permissions
 
 When you add repository or organization permissions to your {% data variables.product.prodname_github_app %}, users who have the app installed on their personal account or organization will receive an email prompting them to review the new permissions. Until the user approves the new permissions, their app installation will only receive the old permissions.
 
-When you update permissions, you should consider making your app backwards compatible to give your users time to accept the new permissions. You can use the [installation webhook with the `new_permissions_accepted` action property](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to learn when users accept new permissions for your app.
+When you update permissions, you should consider making your app backwards compatible to give your users time to accept the new permissions. You can use the [installation webhook with the `new_permissions_accepted` action property](/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to learn when users accept new permissions for your app.
 
 ## Use services in a secure manner
 
@@ -151,8 +156,8 @@ If your {% data variables.product.prodname_github_app %} is available to other u
 ## Further reading
 
 {% ifversion fpt or ghec %}
-* [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)
-* [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)
+* [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps-on-github-marketplace)
+* [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)
 {% endif %}
 * [AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)
-* [AUTOTITLE](/rest/guides/best-practices-for-integrators)
+* [AUTOTITLE](/rest/using-the-rest-api/best-practices-for-using-the-rest-api)

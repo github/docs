@@ -2,10 +2,78 @@ import { graphql } from '@octokit/graphql'
 
 // Shared functions for managing projects (memex)
 
-// Pull out the node ID of a project field
-export function findFieldID(fieldName: string, data: Record<string, any>) {
+/**
+ * The team whose members count as "Docs team" on the review board.
+ *
+ * Renamed from `docs` to `technical-content`. GraphQL looks teams up by slug, so a rename
+ * silently turns the lookup into `null` rather than erroring, which is why the old slug
+ * kept "working" right up until it didn't. Numeric team IDs survive renames, but the
+ * GraphQL `team` field only accepts a slug, so this has to be updated by hand if the team
+ * is renamed again.
+ */
+const DOCS_TEAM_SLUG = 'technical-content'
+
+export interface ProjectV2FieldNode {
+  name: string
+  id: string
+  options?: Array<{ name: string; id: string }>
+}
+
+export interface ProjectV2Data {
+  organization: {
+    projectV2: {
+      id: string
+      fields: {
+        nodes: ProjectV2FieldNode[]
+      }
+    }
+  }
+}
+
+interface TeamMemberData {
+  organization: {
+    team: {
+      members: {
+        nodes: Array<{ login: string }>
+      }
+    } | null
+  }
+}
+
+interface OrgMemberData {
+  user: {
+    organization: { name: string } | null
+  }
+}
+
+interface MutationResult {
+  [key: string]: { item: { id: string } }
+}
+
+export interface FileNode {
+  path: string
+  additions: number
+  deletions: number
+}
+
+export interface ItemData {
+  item: {
+    __typename: string
+    files: {
+      nodes: FileNode[]
+    }
+    author?: {
+      login: string
+    }
+    assignees?: {
+      nodes: Array<{ login: string }>
+    }
+  }
+}
+
+export function findFieldID(fieldName: string, data: ProjectV2Data) {
   const field = data.organization.projectV2.fields.nodes.find(
-    (fieldNode: Record<string, any>) => fieldNode.name === fieldName,
+    (fieldNode) => fieldNode.name === fieldName,
   )
 
   if (field && field.id) {
@@ -15,22 +83,19 @@ export function findFieldID(fieldName: string, data: Record<string, any>) {
   }
 }
 
-// Pull out the node ID of a single select field value
 export function findSingleSelectID(
   singleSelectName: string,
   fieldName: string,
-  data: Record<string, any>,
+  data: ProjectV2Data,
 ) {
   const field = data.organization.projectV2.fields.nodes.find(
-    (fieldData: Record<string, any>) => fieldData.name === fieldName,
+    (fieldData) => fieldData.name === fieldName,
   )
   if (!field) {
     throw new Error(`A field called "${fieldName}" was not found. Check if the field was renamed.`)
   }
 
-  const singleSelect = field.options.find(
-    (option: Record<string, any>) => option.name === singleSelectName,
-  )
+  const singleSelect = field.options?.find((option) => option.name === singleSelectName)
 
   if (singleSelect && singleSelect.id) {
     return singleSelect.id
@@ -41,9 +106,8 @@ export function findSingleSelectID(
   }
 }
 
-// Given a list of PR/issue node IDs and a project node ID,
-// adds the PRs/issues to the project
-// and returns the node IDs of the project items
+// Adds the PRs/issues to the project and returns their project item IDs. An
+// item already on the board keeps its existing ID.
 export async function addItemsToProject(items: string[], project: string) {
   console.log(`Adding ${items} to project ${project}`)
 
@@ -66,16 +130,14 @@ export async function addItemsToProject(items: string[], project: string) {
   }
   `
 
-  const newItems: Record<string, any> = await graphql(mutation, {
+  const newItems: MutationResult = await graphql(mutation, {
     project,
     headers: {
       authorization: `token ${process.env.TOKEN}`,
     },
   })
 
-  // The output of the mutation is
-  // {"item_0":{"projectNextItem":{"id":ID!}},...}
-  // Pull out the ID for each new item
+  // The mutation returns {"item_0":{"item":{"id":ID!}},...}.
 
   const newItemIDs = Object.entries(newItems).map((item) => item[1].item.id)
 
@@ -90,19 +152,17 @@ export async function addItemToProject(item: string, project: string) {
   return newItemID
 }
 
-// Given a GitHub login, returns a bool indicating
-// whether the login is part of the docs team
 export async function isDocsTeamMember(login: string) {
-  // Returns true if login is docs-bot or copilot, to bypass the checks and make PRs opened by docs-bot or copilot be treated as though they were made by a docs team member
+  // docs-bot and copilot bypass the check so their PRs are treated as though a
+  // docs team member opened them.
   if (login === 'docs-bot' || login === 'copilot') {
     return true
   }
-  // Get all members of the docs team
-  const data: Record<string, any> = await graphql(
+  const data: TeamMemberData = await graphql(
     `
-      query {
+      query ($slug: String!) {
         organization(login: "github") {
-          team(slug: "docs") {
+          team(slug: $slug) {
             members {
               nodes {
                 login
@@ -113,23 +173,34 @@ export async function isDocsTeamMember(login: string) {
       }
     `,
     {
+      slug: DOCS_TEAM_SLUG,
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
     },
   )
 
-  const teamMembers = data.organization.team.members.nodes.map(
-    (entry: Record<string, any>) => entry.login,
-  )
+  // `team` is null when the slug no longer resolves, which is what a rename looks like from
+  // here. Dereferencing it threw and killed the whole job *after* the PR had already been
+  // added to the board, leaving an item with no fields populated. Fall through to the
+  // hubber fallback instead so the board stays usable, and say why.
+  const team = data.organization.team
+  if (!team) {
+    console.warn(
+      `Team "${DOCS_TEAM_SLUG}" did not resolve in the github org, so no author can be ` +
+        `identified as a docs team member. The team was probably renamed: update ` +
+        `DOCS_TEAM_SLUG in src/workflows/projects.ts.`,
+    )
+    return false
+  }
+
+  const teamMembers = team.members.nodes.map((entry) => entry.login)
 
   return teamMembers.includes(login)
 }
 
-// Given a GitHub login, returns a bool indicating
-// whether the login is part of the GitHub org
 export async function isGitHubOrgMember(login: string) {
-  const data: Record<string, any> = await graphql(
+  const data: OrgMemberData = await graphql(
     `
       query {
         user(login: "${login}") {
@@ -149,14 +220,14 @@ export async function isGitHubOrgMember(login: string) {
   return Boolean(data.user.organization)
 }
 
-// Formats a date object into the required format for projects
 export function formatDateForProject(date: Date) {
   return date.toISOString()
 }
 
-// Given a date object and optional turnaround time
-// Calculate the date {turnaround} business days from now
-// (excluding weekends; not considering holidays)
+// `turnaround` days from `datePosted`, plus two days if posted on a Thursday
+// or Friday and one if posted on a Saturday. With the default turnaround of 2
+// that lands on a weekday; a larger turnaround can still land on a weekend.
+// Holidays are not considered.
 export function calculateDueDate(datePosted: Date, turnaround = 2) {
   let daysUntilDue
   switch (datePosted.getDay()) {
@@ -177,14 +248,11 @@ export function calculateDueDate(datePosted: Date, turnaround = 2) {
   return dueDate
 }
 
-// Given a project item node ID and author login
-// generates a GraphQL mutation to populate:
-//   - "Status" (as variable passed with the request)
-//   - "Date posted" (as today)
-//   - "Review due date" (as today + {turnaround} weekdays)
-//   - "Contributor type" (as variable passed with the request)
-//   - "Feature" (as {feature})
-//   - "Author" (as {author})"
+// A GraphQL mutation that populates these fields on one project item:
+//   - "Status", "Contributor type" and "Size", passed as request variables
+//   - "Date posted", today
+//   - "Review due date", see calculateDueDate
+//   - "Feature" and "Contributor"
 export function generateUpdateProjectV2ItemFieldMutation({
   item,
   author,
@@ -199,8 +267,8 @@ export function generateUpdateProjectV2ItemFieldMutation({
   const datePosted = new Date()
   const dueDate = calculateDueDate(datePosted, turnaround)
 
-  // Build the mutation to update a single project field
-  // Specify literal=true to indicate that the value should be used as a string, not a variable
+  // Builds the mutation for a single field. literal=true means the value is a
+  // string rather than a variable reference.
   function generateMutationToUpdateField({
     item: itemId,
     fieldID,
@@ -216,8 +284,8 @@ export function generateUpdateProjectV2ItemFieldMutation({
   }) {
     const parsedValue = literal ? `${fieldType}: "${value}"` : `${fieldType}: ${value}`
 
-    // Strip all non-alphanumeric out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
-    // (statistically, this should still give us a unique mutation ID)
+    // Anything outside [a-z0-9] in the mutation ID is a GraphQL parse error,
+    // so strip it. The result is still unique in practice.
     return `
       set_${fieldID.slice(1)}_item_${itemId.replaceAll(
         /[^a-z0-9]/g,
@@ -301,19 +369,17 @@ export function generateUpdateProjectV2ItemFieldMutation({
   return mutation
 }
 
-// Guess the affected docs sets based on the files that the PR changed
-export function getFeature(data: Record<string, any>) {
-  // For issues, just use an empty string
+// Guesses the affected docs sets from the files the PR changed.
+export function getFeature(data: ItemData) {
   if (data.item.__typename !== 'PullRequest') {
     return ''
   }
 
-  const paths = data.item.files.nodes.map((node: Record<string, any>) => node.path)
+  const paths = data.item.files.nodes.map((node) => node.path)
 
-  // For docs and docs-internal and docs-early-access PRs,
-  // determine the affected docs sets by looking at which
-  // directories under `content/` were affected.
-  // (Ignores changes to the data files.)
+  // For docs, docs-internal and docs-early-access, take the docs sets from the
+  // directories under `content/` that changed. Changes to data files are
+  // ignored.
   if (
     process.env.REPO === 'github/docs-internal' ||
     process.env.REPO === 'github/docs' ||
@@ -331,7 +397,7 @@ export function getFeature(data: Record<string, any>) {
     return feature
   }
 
-  // for github/github PRs, try to classify the OpenAPI files
+  // For github/github, classify by the OpenAPI files instead.
   if (process.env.REPO === 'github/github') {
     const features: Set<string> = new Set([])
     if (paths.some((path: string) => path.startsWith('app/api/description'))) {
@@ -363,18 +429,18 @@ export function getFeature(data: Record<string, any>) {
   return ''
 }
 
-// Guess the size of an item
-export function getSize(data: Record<string, any>) {
-  // We need to set something in case this is an issue, so just guesstimate small
+// Guesses the size of an item.
+export function getSize(data: ItemData) {
+  // An issue has no files to measure, so guess small.
   if (data.item.__typename !== 'PullRequest') {
     return 'S'
   }
 
-  // for github/github PRs, estimate the size based on the number of OpenAPI files that were changed
+  // For github/github, size by the count and line changes of OpenAPI files.
   if (process.env.REPO === 'github/github') {
     let numFiles = 0
     let numChanges = 0
-    for (const node of data.item.files.nodes as Record<string, any>[]) {
+    for (const node of data.item.files.nodes) {
       if (node.path.startsWith('app/api/description')) {
         numFiles += 1
         numChanges += node.additions
@@ -391,10 +457,10 @@ export function getSize(data: Record<string, any>) {
       return 'L'
     }
   } else {
-    // Otherwise, estimated the size based on all files
+    // Otherwise size by the count and line changes of all changed files.
     let numFiles = 0
     let numChanges = 0
-    for (const node of data.item.files.nodes as Record<string, any>[]) {
+    for (const node of data.item.files.nodes) {
       numFiles += 1
       numChanges += node.additions
       numChanges += node.deletions

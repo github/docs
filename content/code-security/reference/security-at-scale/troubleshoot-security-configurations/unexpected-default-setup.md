@@ -4,7 +4,9 @@ shortTitle: Unexpected default setup
 intro: You apply a {% data variables.product.prodname_security_configuration %} with "Enabled with advanced setup allowed" and the existing advanced setup for {% data variables.product.prodname_code_scanning %} is ignored in some repositories.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/unexpected-default-setup
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/unexpected-default-setup

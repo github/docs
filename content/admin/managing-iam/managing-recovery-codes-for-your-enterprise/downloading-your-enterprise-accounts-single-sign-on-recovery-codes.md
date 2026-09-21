@@ -13,7 +13,7 @@ category:
   - Configure authentication
 ---
 
-In the event that your IdP is unavailable, you can use a recovery code to sign in and access your enterprise on {% data variables.product.github %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable).
+In the event that your IdP is unavailable, you can use a recovery code to sign in and access your enterprise on {% data variables.product.github %}. For more information, see [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable).
 
 If you did not save your recovery codes when you configured SSO, you can still access the codes from your enterprise's settings.
 

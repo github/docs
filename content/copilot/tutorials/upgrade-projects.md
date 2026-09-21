@@ -22,7 +22,7 @@ category:
 
 You can upgrade a Git-based Maven or Gradle Java project using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}. You will need:
 
-* Either a **{% data variables.copilot.copilot_pro %}**, **{% data variables.copilot.copilot_pro_plus %}**, **{% data variables.copilot.copilot_for_business %}** or **{% data variables.copilot.copilot_enterprise %}** [subscription plan](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* Any paid [{% data variables.product.prodname_copilot_short %} plan](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=cfi).
 * The latest version of [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/).
 * For Maven-based projects, access to the public Maven Central repository.
 * Installed versions of both the source and target JDKs.
@@ -33,7 +33,7 @@ For an overview of the modernization workflow, see [AUTOTITLE](/copilot/tutorial
 
 You can also upgrade a .NET project using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}. You will need:
 
-* Either a **{% data variables.copilot.copilot_pro %}**, **{% data variables.copilot.copilot_pro_plus %}**, **{% data variables.copilot.copilot_for_business %}** or **{% data variables.copilot.copilot_enterprise %}** [subscription plan](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* Any paid [{% data variables.product.prodname_copilot_short %} plan](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=cfi).
 * The latest release of {% data variables.product.prodname_vs %} Enterprise, Professional or Community 2022.
 
 For the next steps, see [GitHub Copilot app modernization - upgrade for .NET](https://marketplace.visualstudio.com/items?itemName=ms-appmod.dotnet-modernization) on Microsoft Visual Studio Marketplace.

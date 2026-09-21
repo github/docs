@@ -18,7 +18,7 @@ This Agreement is a legal agreement between you (“you”) and GitHub, Inc. (�
 
 1. **Program Terms**
 
-   We post the [Program’s benefits and guidelines](/get-started/exploring-integrations/github-developer-program) (the “Program Overview”). As you might expect, the Program Overview will change from time to time. These changes will apply to you as a participant in the Program, so we encourage you to periodically review the Program Overview to keep apprised of any changes. For a variety of reasons, we might need to change, suspend, or discontinue the Program, or some of the benefits we offer. You agree that we can do those things without liability to you, except as specified in Section 9.
+   We post the [Program’s benefits and guidelines](/integrations/concepts/github-developer-program) (the “Program Overview”). As you might expect, the Program Overview will change from time to time. These changes will apply to you as a participant in the Program, so we encourage you to periodically review the Program Overview to keep apprised of any changes. For a variety of reasons, we might need to change, suspend, or discontinue the Program, or some of the benefits we offer. You agree that we can do those things without liability to you, except as specified in Section 9.
 
 1. **API License**
 

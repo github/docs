@@ -11,21 +11,21 @@ redirect_from:
   - /copilot/how-tos/use-chat/use-chat-in-windows-terminal
   - /copilot/how-tos/chat-with-copilot/use-chat-in-windows-terminal
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
+* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/get-started/about-github-copilot#get-access).
 * **{% data variables.product.prodname_windows_terminal %} Canary installed**. For installation instructions, see [Installing {% data variables.product.prodname_windows_terminal %} Canary](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-windows-terminal-canary).
-* **{% data variables.product.prodname_copilot %} connected to Terminal Chat**. See [AUTOTITLE](/copilot/quickstart?tool=windowsterminal).
+* **{% data variables.product.prodname_copilot %} connected to Terminal Chat**. See [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide).
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} if your organization owner or enterprise administrator has disabled {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
+If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} if your organization owner or enterprise administrator has disabled {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
 
 ## Getting command explanations and suggestions
 
-In the Terminal Chat chat window, type a question (for example, `how do i list all markdown files in my directory`) then press <kbd>Enter</kbd>.
+In the Terminal Chat window, type a question (for example, `how do i list all markdown files in my directory`) then press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %}'s answer is displayed below your question.
 

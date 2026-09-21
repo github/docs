@@ -6,5 +6,6 @@ versions:
 children:
   - /restoring-from-a-failed-upgrade
   - /known-issues-with-upgrades-to-your-instance
+  - /rotating-the-signing-key-for-upgrade-packages
 shortTitle: Troubleshoot an upgrade
 ---

@@ -24,16 +24,12 @@ const rawDates: RawDatesData = JSON.parse(
   fs.readFileSync('src/ghes-releases/lib/enterprise-dates.json', 'utf8'),
 )
 
-// ============================================================================
-// STATICALLY DEFINED VALUES
-// ============================================================================
-
 // Upcoming GHES release numbers (used in frontmatter and release planning)
-export const next = '3.21'
-export const nextNext = '3.22'
+export const next = '3.23'
+export const nextNext = '3.24'
 
 // Currently supported GHES versions (in descending order, latest first)
-export const supported = ['3.20', '3.19', '3.18', '3.17', '3.16', '3.15', '3.14']
+export const supported = ['3.22', '3.21', '3.20', '3.19', '3.18', '3.17']
 
 // Set to version number when in RC phase, null when no RC is active
 export const releaseCandidate = null
@@ -41,6 +37,9 @@ export const releaseCandidate = null
 // Deprecated versions with functional redirect handling (3.0+)
 // When archiving a new version, add it here and update the archival process
 export const deprecatedWithFunctionalRedirects = [
+  '3.16',
+  '3.15',
+  '3.14',
   '3.13',
   '3.12',
   '3.11',
@@ -89,7 +88,6 @@ export const deprecated = [
 // Versions with legacy asset handling (stored in separate repos before blob storage)
 export const legacyAssetVersions = ['3.0', '2.22', '2.21']
 
-// Historical milestones that mark feature/process changes
 export const firstReleaseStoredInBlobStorage = '3.2'
 export const firstVersionDeprecatedOnNewSite = '2.13'
 export const lastVersionWithoutArchivedRedirectsFile = '2.17'
@@ -97,14 +95,8 @@ export const lastReleaseWithLegacyFormat = '2.18' // Last to use /enterprise/<re
 export const firstReleaseNote = '2.20'
 export const firstRestoredAdminGuides = '2.21'
 
-// ============================================================================
-// COMPUTED VALUES
-// ============================================================================
-
-// All versions (supported + deprecated)
 export const all = supported.concat(deprecated)
 
-// Latest and stable version helpers
 export const latest = supported[0]
 export const latestStable = releaseCandidate ? supported[1] : latest
 export const oldestSupported = supported[supported.length - 1]
@@ -121,7 +113,6 @@ export const dates: Record<string, EnhancedVersionDateData> = Object.fromEntries
   ]),
 ) as Record<string, EnhancedVersionDateData>
 
-// Deprecation tracking
 export const nextDeprecationDate = dates[oldestSupported].deprecationDate
 export const isOldestReleaseDeprecated = nextDeprecationDate
   ? new Date() > new Date(nextDeprecationDate)
@@ -133,7 +124,6 @@ export const releasesWithOldestDeprecationDate = Object.entries(dates)
   .filter(([, versionData]) => versionData.deprecationDate === nextDeprecationDate)
   .map(([version]) => version)
 
-// Filtered version arrays for different use cases
 export const deprecatedOnNewSite = deprecated.filter((version) =>
   versionSatisfiesRange(version, '>=2.13'),
 )
@@ -150,16 +140,8 @@ export const deprecatedReleasesOnDeveloperSite = deprecated.filter((version) =>
   versionSatisfiesRange(version, '<=2.16'),
 )
 
-// ============================================================================
-// HELPER FUNCTIONS
-// ============================================================================
-
-/**
- * Determines if a release date should be displayed based on current time.
- * Only shows dates that have already occurred to avoid showing future release dates.
- * @param {string|null} date - ISO date string
- * @returns {string|null} - Date string if in the past, null if future or invalid
- */
+// Returns the date only once it has passed, so we never advertise a future
+// release date. An unparseable date gives NaN, which also returns null.
 function processDateForDisplay(date: string | undefined): string | null {
   if (!date) return null
   const currentTimestamp = Math.floor(Date.now() / 1000)
@@ -167,12 +149,7 @@ function processDateForDisplay(date: string | undefined): string | null {
   return dateTimestamp <= currentTimestamp ? date : null
 }
 
-/**
- * Validates that version sequence is correct (each version is exactly one release ahead)
- * @param {string} v1 - Current version
- * @param {string} v2 - Next version
- * @throws {Error} If version sequence is invalid
- */
+// Throws unless v2 is exactly one release ahead of v1.
 function isValidNext(v1: string, v2: string): void {
   const semverV1 = semver.coerce(v1)!.raw
   const semverV2 = semver.coerce(v2)!.raw
@@ -194,13 +171,8 @@ export const getPreviousReleaseNumber = (releaseNum: string): string => {
   return all[findReleaseNumberIndex(releaseNum) + 1]
 }
 
-// Validate that version sequence is correct
 isValidNext(supported[0], next)
 isValidNext(next, nextNext)
-
-// ============================================================================
-// DEFAULT EXPORT
-// ============================================================================
 
 export default {
   next,

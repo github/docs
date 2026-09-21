@@ -30,7 +30,7 @@ Use the tabs at the top of this article to display instructions for each of thes
 
 ## Why you should delete unused codespaces
 
-There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. See [AUTOTITLE](/billing/concepts/product-billing/github-codespaces).
 
 {% data reusables.codespaces.max-number-codespaces %}
 

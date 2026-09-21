@@ -1,6 +1,7 @@
 // when updating to typescript,
 // update links in content/contributing as well
 
+import type { SchemaObject } from 'ajv'
 import parse from '@/frame/lib/read-frontmatter'
 import { allVersions } from '@/versions/lib/all-versions'
 import { allTools } from '@/tools/lib/all-tools'
@@ -10,20 +11,25 @@ interface SchemaProperty {
   type?: string | string[]
   translatable?: boolean
   deprecated?: boolean
-  default?: any
+  default?: unknown
   minimum?: number
   maximum?: number
-  enum?: any[]
+  enum?: unknown[]
   errorMessage?: string
-  items?: any
-  properties?: Record<string, any>
+  items?: SchemaProperty | SchemaProperty[]
+  properties?: Record<string, SchemaProperty>
   required?: string[]
   additionalProperties?: boolean
-  patternProperties?: Record<string, any>
+  patternProperties?: Record<string, SchemaProperty>
   format?: string
   description?: string
   minItems?: number
   maxItems?: number
+}
+
+interface FrontmatterOptions {
+  schema?: SchemaObject
+  filepath?: string | null
 }
 
 interface Schema {
@@ -36,8 +42,6 @@ interface Schema {
 const layoutNames = [
   'default',
   'graphql-explorer',
-  'product-landing',
-  'product-guides',
   'release-notes',
   'inline',
   'category-landing',
@@ -59,6 +63,10 @@ export const contentTypesEnum = [
   'rai', // Only applies to files that live in directories with 'responsible-use' in the name.
   'other', // Everything else.
 ]
+
+// Values supported in the docsTeamMetrics frontmatter property. Used to track
+// related articles (e.g. by feature or subject) that may span different directories.
+export const docsTeamMetricsEnum = ['ai-governance', 'copilot-cli', 'enterprise-onboarding']
 
 export const schema: Schema = {
   type: 'object',
@@ -163,27 +171,10 @@ export const schema: Schema = {
           type: 'string',
           translatable: true,
         },
-        videos: {
-          type: 'array',
-          items: {
-            type: 'object',
-            properties: {
-              title: {
-                type: 'string',
-              },
-              href: {
-                type: 'string',
-              },
-            },
-          },
-        },
-        // allows you to use an alternate heading for the videos column
-        videosHeading: {
-          type: 'string',
-        },
       },
     },
-    // Shown in `product-landing.html` "What's new" section
+    // DEPRECATED: tied to the removed product-landing layout. Schema entry kept
+    // because translations still carry `changelog:` until they catch up.
     changelog: {
       type: 'object',
       properties: {
@@ -202,11 +193,11 @@ export const schema: Schema = {
       type: 'string',
       enum: contentTypesEnum,
     },
-    includeGuides: {
-      type: 'array',
-    },
-    learningTracks: {
-      type: 'array',
+    // Optional heading override for the single-track journey landing UI
+    journeyArticlesHeading: {
+      type: 'string',
+      translatable: true,
+      description: 'Override the default "Articles" heading on single-track journey landing pages',
     },
     // Journey tracks for journey landing pages
     journeyTracks: {
@@ -228,6 +219,12 @@ export const schema: Schema = {
             type: 'string',
             translatable: true,
             description: 'Optional description for the journey track',
+          },
+          timeCommitment: {
+            type: 'string',
+            translatable: true,
+            description:
+              'Optional time commitment displayed as metadata for the track (e.g. "2-4 hours")',
           },
           guides: {
             type: 'array',
@@ -254,17 +251,10 @@ export const schema: Schema = {
       },
       description: 'Array of journey tracks for journey landing pages',
     },
-    // Used in `product-landing.html`
+    // DEPRECATED: tied to the removed product-landing layout. Schema entry kept
+    // because translations still carry `beta_product:` until they catch up.
     beta_product: {
       type: 'boolean',
-    },
-    // Show in `product-landing.html`
-    product_video: {
-      type: 'string',
-    },
-    // Show in `product-landing.html`
-    product_video_transcript: {
-      type: 'string',
     },
     // Hero image for landing pages
     heroImage: {
@@ -272,6 +262,13 @@ export const schema: Schema = {
     },
     interactive: {
       type: 'boolean',
+    },
+    docsTeamMetrics: {
+      type: 'array',
+      items: {
+        type: 'string',
+        enum: docsTeamMetricsEnum,
+      },
     },
     communityRedirect: {
       type: 'object',
@@ -289,8 +286,8 @@ export const schema: Schema = {
       type: 'string',
       enum: ['mac', 'windows', 'linux'],
     },
-    // Tool-specific content preference, the list of tools are kept in
-    // make it easier to update in a single place
+    // Tool-specific content preference.
+    // The tool list lives in allTools so it only has to be updated in one place.
     defaultTool: {
       type: 'string',
       enum: Object.keys(allTools),
@@ -356,7 +353,6 @@ export const schema: Schema = {
         'webhooks',
       ],
     },
-    // START category-landing tags
     category: {
       type: 'array',
       errorMessage: `must be an array, which is written in frontmatter like:
@@ -366,13 +362,15 @@ category:
     complexity: {
       type: 'array',
     },
+    surface: {
+      type: 'array',
+    },
     industry: {
       type: 'array',
     },
     octicon: {
       type: 'string',
     },
-    // END category landing tags
     // Custom sidebar link for category pages
     sidebarLink: {
       type: 'object',
@@ -407,6 +405,17 @@ category:
       },
       description: 'Array of articles to feature in the spotlight section',
     },
+    // Filters to display on cookbook-style category landing pages.
+    // Allowed values: 'category' (always shown), 'surface', 'complexity'.
+    filters: {
+      type: 'array',
+      items: {
+        type: 'string',
+        enum: ['category', 'surface', 'complexity'],
+      },
+      description:
+        'Which filter menus to display on the category landing page. The category filter is always shown.',
+    },
     // Carousels configuration for category landing pages (supports multiple carousels)
     carousels: {
       type: 'object',
@@ -433,7 +442,6 @@ category:
   },
 }
 
-// returns a list of deprecated properties
 export const deprecatedProperties = Object.keys(schema.properties).filter((prop: string) => {
   return (schema.properties as Record<string, SchemaProperty>)[prop].deprecated
 })
@@ -458,17 +466,20 @@ const semverRange = {
   errorMessage: 'Must be a valid SemVer range: ${0}',
 }
 
-;(schema.properties as Record<string, any>).versions = {
+;(schema.properties as Record<string, SchemaProperty>).versions = {
   type: ['object', 'string'], // allow a '*' string to indicate all versions
   additionalProperties: false, // don't allow any versions in FM that aren't defined in lib/all-versions
-  properties: Object.values(allVersions).reduce((acc: any, versionObj) => {
-    acc[versionObj.plan] = semverRange
-    acc[versionObj.shortName] = semverRange
-    return acc
-  }, featureVersionsProp),
+  properties: Object.values(allVersions).reduce(
+    (acc: Record<string, SchemaProperty>, versionObj) => {
+      acc[versionObj.plan] = semverRange
+      acc[versionObj.shortName] = semverRange
+      return acc
+    },
+    featureVersionsProp,
+  ),
 }
 
-export function frontmatter(markdown: string, opts: any = {}) {
+export function frontmatter(markdown: string, opts: FrontmatterOptions = {}) {
   const defaults = {
     schema,
   }

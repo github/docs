@@ -21,7 +21,7 @@ You can also audit responses to {% data variables.product.prodname_secret_scanni
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}
 
-In addition to displaying an alert in the **Security** tab of the repository, {% data variables.product.github %} can also send email notifications for alerts. These notifications are different for incremental scans and historical scans.
+In addition to displaying an alert in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of the repository, {% data variables.product.github %} can also send email notifications for alerts. These notifications are different for incremental scans and historical scans.
 
 ### Incremental scans
 

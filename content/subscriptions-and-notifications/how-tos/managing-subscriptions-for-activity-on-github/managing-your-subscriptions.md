@@ -15,7 +15,7 @@ contentType: how-tos
 category:
   - Manage subscriptions and triage your inbox
 ---
-To help you understand your subscriptions and decide whether to unsubscribe, see [AUTOTITLE](/subscriptions-and-notifications/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions).
+To help you understand your subscriptions and decide whether to unsubscribe, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions).
 
 > [!NOTE]
 > Instead of unsubscribing, you have the option to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% ifversion fpt or ghec %}If you're experiencing abuse and want to ignore a repository, please visit {% data variables.contact.contact_support_page %} so we can help. {% data reusables.policies.abuse %}{% endif %}
@@ -28,7 +28,7 @@ To unsubscribe from multiple notifications at the same time, you can unsubscribe
 
 ### Benefits of unsubscribing from your inbox
 
-When you unsubscribe from notifications in your inbox, you have several other triaging options and can filter your notifications by custom filters and discussion types. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox).
+When you unsubscribe from notifications in your inbox, you have several other triaging options and can filter your notifications by custom filters and discussion types. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox).
 
 ### Benefits of unsubscribing from the subscriptions page
 

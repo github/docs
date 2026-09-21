@@ -11,7 +11,8 @@ export function sanitizeSearchQuery(query: string): string {
 
   // Redact GitHub tokens (all formats)
   // Classic tokens: ghp_, gho_, ghu_, ghs_, ghr_
-  sanitized = sanitized.replace(/\b(ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{20,}\b/gi, '[TOKEN]')
+  // See https://github.blog/changelog/2026-05-15-github-app-installation-tokens-per-request-override-header/
+  sanitized = sanitized.replace(/(ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9._-]{20,}/gi, '[TOKEN]')
   // Fine-grained personal access tokens: github_pat_
   sanitized = sanitized.replace(/\bgithub_pat_[A-Za-z0-9_]{20,}\b/gi, '[TOKEN]')
   // OAuth tokens: gho_

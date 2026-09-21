@@ -8,10 +8,9 @@
 import { Command } from 'commander'
 import fs from 'fs'
 import path from 'path'
-import yaml from 'js-yaml'
+import { load, dump } from 'js-yaml'
 import chalk from 'chalk'
 
-// Type definitions
 interface ExpandOptions {
   paths: string[]
   verbose?: boolean
@@ -30,23 +29,21 @@ interface LiquidReference {
   endIndex: number
 }
 
-// Constants
 const ROOT = process.env.ROOT || '.'
 const DATA_ROOT = path.resolve(path.join(ROOT, 'data'))
 const REUSABLES_ROOT = path.join(DATA_ROOT, 'reusables')
 const VARIABLES_ROOT = path.join(DATA_ROOT, 'variables')
 
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error)
+}
+
 // Regex pattern to match expanded content blocks
 const EXPANDED_PATTERN = /<!-- begin (reusable|variable)s\.([^>]+) -->(.+?)<!-- end \1s\.\2 -->/gs
 
-/**
- * Get the file path for a data reference
- *
- * Validates and normalizes the incoming dataPath to prevent path traversal
- * and ensure the final resolved path remains within the expected root.
- */
+// Validates and normalizes the incoming dataPath to prevent path traversal
+// and ensure the final resolved path remains within the expected root.
 function getDataFilePath(type: 'reusable' | 'variable', dataPath: string): string {
-  // Basic validation of the raw dataPath
   if (path.isAbsolute(dataPath)) {
     throw new Error(`Invalid ${type} data path: absolute paths are not allowed: ${dataPath}`)
   }
@@ -85,9 +82,6 @@ function getDataFilePath(type: 'reusable' | 'variable', dataPath: string): strin
   }
 }
 
-/**
- * Convert a file path back to data path format (for consistent verbose output)
- */
 function convertFilePathToDataPath(filePath: string): string {
   const normalizedPath = path.normalize(filePath)
 
@@ -130,9 +124,6 @@ program
 
 program.parse()
 
-/**
- * Get allowed types based on command options
- */
 function getAllowedTypes(options: ExpandOptions): Array<'reusable' | 'variable'> {
   if (options.reusablesOnly && options.variablesOnly) {
     console.log(
@@ -151,13 +142,9 @@ function getAllowedTypes(options: ExpandOptions): Array<'reusable' | 'variable'>
     return ['variable']
   }
 
-  // Default: process both types
   return ['reusable', 'variable']
 }
 
-/**
- * Expand Liquid data references in content files
- */
 async function expandReferences(options: ExpandOptions): Promise<void> {
   const { paths, verbose, markers, shallow } = options
   // markers will be true by default, false when --no-markers is used
@@ -213,7 +200,6 @@ async function expandReferences(options: ExpandOptions): Promise<void> {
           }
         }
 
-        // Check for remaining references
         const remainingRefs = findLiquidReferences(expandedContent, allowedTypes)
         hasRemainingRefs = remainingRefs.length > 0
 
@@ -268,15 +254,12 @@ async function expandReferences(options: ExpandOptions): Promise<void> {
           )
         }
       }
-    } catch (error: any) {
-      console.error(chalk.red(`Error processing ${filePath}: ${error.message}`))
+    } catch (error: unknown) {
+      console.error(chalk.red(`Error processing ${filePath}: ${getErrorMessage(error)}`))
     }
   }
 }
 
-/**
- * Restore content by restoring original Liquid statements from HTML comments
- */
 async function restoreReferences(options: ExpandOptions): Promise<void> {
   const { paths, verbose } = options
   const allowedTypes = getAllowedTypes(options)
@@ -302,7 +285,6 @@ async function restoreReferences(options: ExpandOptions): Promise<void> {
 
       const content = fs.readFileSync(filePath, 'utf-8')
 
-      // Check for content edits before restoring
       const hasEdits = await detectContentEdits(content, verbose, allowedTypes)
       if (hasEdits) {
         console.log(
@@ -351,15 +333,12 @@ async function restoreReferences(options: ExpandOptions): Promise<void> {
       } else {
         console.log(chalk.gray(`No expanded references found in: ${filePath}`))
       }
-    } catch (error: any) {
-      console.error(chalk.red(`Error restoring ${filePath}: ${error.message}`))
+    } catch (error: unknown) {
+      console.error(chalk.red(`Error restoring ${filePath}: ${getErrorMessage(error)}`))
     }
   }
 }
 
-/**
- * Expand all Liquid data references in file content
- */
 async function expandFileContent(
   content: string,
   filePath: string,
@@ -408,21 +387,19 @@ async function expandFileContent(
           console.log(chalk.yellow(`  Warning: Could not expand ${ref.type}s.${ref.path}`))
         }
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       if (verbose) {
-        console.log(chalk.red(`  Error expanding ${ref.type}s.${ref.path}: ${error.message}`))
+        console.log(
+          chalk.red(`  Error expanding ${ref.type}s.${ref.path}: ${getErrorMessage(error)}`),
+        )
       }
     }
   }
 
-  // Note: Remaining reference detection is now handled in expandReferences function for recursive mode
-
+  // expandReferences handles remaining-reference detection in recursive mode.
   return expandedContent
 }
 
-/**
- * Detect if expanded content has been edited by comparing with original data
- */
 async function detectContentEdits(
   content: string,
   verbose?: boolean,
@@ -435,7 +412,6 @@ async function detectContentEdits(
     const [, type, dataPath, resolvedContent] = match
     const refType = type as 'reusable' | 'variable'
 
-    // Only check if this type is allowed
     if (!allowedTypes || allowedTypes.includes(refType)) {
       try {
         // Load the original content from data files
@@ -472,9 +448,6 @@ async function detectContentEdits(
   return hasEdits
 }
 
-/**
- * Load data value from file system (helper for edit detection)
- */
 function loadDataValue(type: 'reusable' | 'variable', dataPath: string): string | null {
   try {
     const targetPath = getDataFilePath(type, dataPath)
@@ -490,14 +463,13 @@ function loadDataValue(type: 'reusable' | 'variable', dataPath: string): string 
       return contentWithoutFrontmatter.trim()
     } else {
       const yamlContent = fs.readFileSync(targetPath, 'utf8')
-      const data = yaml.load(yamlContent) as any
+      const data = load(yamlContent) as Record<string, unknown>
 
-      // Navigate to the nested property
       const pathParts = dataPath.split('.')
-      let current = data
+      let current: unknown = data
       for (let i = 1; i < pathParts.length; i++) {
         if (current && typeof current === 'object' && pathParts[i] in current) {
-          current = current[pathParts[i]]
+          current = (current as Record<string, unknown>)[pathParts[i]]
         } else {
           return null
         }
@@ -511,9 +483,6 @@ function loadDataValue(type: 'reusable' | 'variable', dataPath: string): string 
   return null
 }
 
-/**
- * Restore content by restoring original Liquid statements
- */
 function restoreFileContent(
   content: string,
   verbose?: boolean,
@@ -522,7 +491,6 @@ function restoreFileContent(
   return content.replace(EXPANDED_PATTERN, (match, type, dataPath) => {
     const refType = type as 'reusable' | 'variable'
 
-    // Only restore if this type is allowed
     if (!allowedTypes || allowedTypes.includes(refType)) {
       const originalLiquid = `{% data ${type}s.${dataPath} %}`
 
@@ -533,15 +501,10 @@ function restoreFileContent(
       return originalLiquid
     }
 
-    // Return unchanged if type is not allowed
     return match
   })
 }
 
-/**
- * Update data files with content from expanded blocks
- * Returns array of file paths that were updated
- */
 function updateDataFiles(
   filePath: string,
   verbose?: boolean,
@@ -558,7 +521,6 @@ function updateDataFiles(
     return []
   }
 
-  // Group updates by file path
   const updatesByFile = new Map<string, string[]>()
   for (const update of updates) {
     const key = `${update.type}:${update.path}`
@@ -570,7 +532,6 @@ function updateDataFiles(
 
   const updatedFiles: string[] = []
 
-  // Apply updates to each data file
   for (const [key, contents] of updatesByFile) {
     const [type, dataPath] = key.split(':')
     const targetFilePath = applyDataUpdates(
@@ -588,9 +549,6 @@ function updateDataFiles(
   return updatedFiles
 }
 
-/**
- * Extract data updates from expanded content blocks
- */
 function extractDataUpdates(
   content: string,
   allowedTypes?: Array<'reusable' | 'variable'>,
@@ -602,13 +560,11 @@ function extractDataUpdates(
     const [, type, dataPath, resolvedContent] = match
     const refType = type as 'reusable' | 'variable'
 
-    // Only include if this type is allowed
     if (!allowedTypes || allowedTypes.includes(refType)) {
       // Check if this content was actually changed before including it
       try {
         const originalContent = loadDataValue(refType, dataPath.trim())
         if (originalContent !== null && resolvedContent.trim() !== originalContent.trim()) {
-          // Only add to updates if content was actually changed
           updates.push({
             type: refType,
             path: dataPath.trim(),
@@ -629,10 +585,6 @@ function extractDataUpdates(
   return updates
 }
 
-/**
- * Apply updates to a specific data file
- * Returns the file path if file was updated, null otherwise
- */
 function applyDataUpdates(
   type: 'reusable' | 'variable',
   dataPath: string,
@@ -642,7 +594,6 @@ function applyDataUpdates(
 ): string | null {
   const targetPath = getDataFilePath(type, dataPath)
 
-  // Check if file exists
   if (!fs.existsSync(targetPath)) {
     if (verbose) {
       console.log(chalk.red(`  Error: Data file not found: ${targetPath}`))
@@ -693,21 +644,19 @@ function applyDataUpdates(
     } else {
       // For variables, update YAML structure
       const yamlContent = fs.readFileSync(targetPath, 'utf8')
-      const data = yaml.load(yamlContent) as any
+      const data = load(yamlContent) as Record<string, unknown>
 
-      // Navigate to the nested property
       const pathParts = dataPath.split('.')
       const propertyPath = pathParts.slice(1) // Skip the file name
 
-      let current = data
+      let current: Record<string, unknown> = data
       for (let i = 0; i < propertyPath.length - 1; i++) {
         if (!current[propertyPath[i]]) {
           current[propertyPath[i]] = {}
         }
-        current = current[propertyPath[i]]
+        current = current[propertyPath[i]] as Record<string, unknown>
       }
 
-      // Update the final property
       const finalKey = propertyPath[propertyPath.length - 1]
       if (contents.length > 1) {
         console.log(
@@ -718,28 +667,24 @@ function applyDataUpdates(
 
       // Preserve original file's newline behavior for YAML
       const hasTrailingNewline = yamlContent.endsWith('\n')
-      const yamlOutput = yaml.dump(data)
+      const yamlOutput = dump(data)
       const finalYaml =
         hasTrailingNewline && !yamlOutput.endsWith('\n') ? `${yamlOutput}\n` : yamlOutput
 
-      // Write back to file
       fs.writeFileSync(targetPath, finalYaml)
       if (verbose) {
         console.log(chalk.green(`  Updated: ${type}s.${dataPath}`))
       }
     }
     return targetPath
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (verbose) {
-      console.log(chalk.red(`  Error updating ${type}s.${dataPath}: ${error.message}`))
+      console.log(chalk.red(`  Error updating ${type}s.${dataPath}: ${getErrorMessage(error)}`))
     }
     return null
   }
 }
 
-/**
- * Find all Liquid data references in content
- */
 function findLiquidReferences(
   content: string,
   allowedTypes?: Array<'reusable' | 'variable'>,
@@ -755,7 +700,6 @@ function findLiquidReferences(
     const [original, type, dataPath] = match
     const refType = type.slice(0, -1) as 'reusable' | 'variable' // Remove 's' from end
 
-    // Only include if this type is allowed
     if (types.includes(refType)) {
       references.push({
         original,
@@ -770,9 +714,6 @@ function findLiquidReferences(
   return references
 }
 
-/**
- * Resolve a single Liquid data reference to its content
- */
 async function resolveLiquidReference(
   ref: LiquidReference,
   verbose?: boolean,
@@ -783,18 +724,15 @@ async function resolveLiquidReference(
     } else if (ref.type === 'variable') {
       return await resolveVariable(ref.path, verbose)
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (verbose) {
-      console.log(chalk.red(`  Error resolving ${ref.type}: ${error.message}`))
+      console.log(chalk.red(`  Error resolving ${ref.type}: ${getErrorMessage(error)}`))
     }
   }
 
   return null
 }
 
-/**
- * Resolve a reusable reference by reading the markdown file
- */
 async function resolveReusable(reusablePath: string, verbose?: boolean): Promise<string | null> {
   const filePath = getDataFilePath('reusable', reusablePath)
 
@@ -810,17 +748,16 @@ async function resolveReusable(reusablePath: string, verbose?: boolean): Promise
     // Remove any frontmatter if present
     const contentWithoutFrontmatter = content.replace(/^---[\s\S]*?---\s*/, '')
     return contentWithoutFrontmatter.trim()
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (verbose) {
-      console.log(chalk.yellow(`  Error reading reusable ${reusablePath}: ${error.message}`))
+      console.log(
+        chalk.yellow(`  Error reading reusable ${reusablePath}: ${getErrorMessage(error)}`),
+      )
     }
     return null
   }
 }
 
-/**
- * Resolve a variable reference by reading from YAML files
- */
 async function resolveVariable(variablePath: string, verbose?: boolean): Promise<string | null> {
   const pathParts = variablePath.split('.')
 
@@ -842,14 +779,14 @@ async function resolveVariable(variablePath: string, verbose?: boolean): Promise
 
   try {
     const yamlContent = fs.readFileSync(filePath, 'utf-8')
-    const data = yaml.load(yamlContent) as Record<string, any>
+    const data = load(yamlContent) as Record<string, unknown>
 
     // Navigate through the key path to find the value
     const [, ...keyPath] = pathParts // Skip filename, get remaining path
-    let value: any = data
+    let value: unknown = data
     for (const key of keyPath) {
       if (value && typeof value === 'object' && key in value) {
-        value = value[key]
+        value = (value as Record<string, unknown>)[key]
       } else {
         if (verbose) {
           console.log(chalk.yellow(`  Variable key not found: ${variablePath}`))
@@ -858,7 +795,6 @@ async function resolveVariable(variablePath: string, verbose?: boolean): Promise
       }
     }
 
-    // Convert value to string
     if (typeof value === 'string') {
       return value
     } else if (value !== null && value !== undefined) {
@@ -869,9 +805,11 @@ async function resolveVariable(variablePath: string, verbose?: boolean): Promise
       }
       return null
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     if (verbose) {
-      console.log(chalk.yellow(`  Error parsing variable ${variablePath}: ${error.message}`))
+      console.log(
+        chalk.yellow(`  Error parsing variable ${variablePath}: ${getErrorMessage(error)}`),
+      )
     }
     return null
   }

@@ -1,4 +1,4 @@
-import type { ExtendedRequest, ResolvedArticle } from '@/types'
+import type { ExtendedRequest, Page, ResolvedArticle } from '@/types'
 import type { Response, NextFunction } from 'express'
 import findPage from '@/frame/lib/find-page'
 import { renderContent } from '@/content-render/index'
@@ -6,29 +6,28 @@ import Permalink from '@/frame/lib/permalink'
 
 import { createLogger } from '@/observability/logger/index'
 
+// The Page class has rawCarousels and carousels properties that aren't on the Page type
+interface PageCarouselProps {
+  rawCarousels?: Record<string, string[]>
+  carousels?: Record<string, ResolvedArticle[]>
+}
+
 const logger = createLogger('middleware:resolve-carousels')
 
-/**
- * Build an article path by combining language, optional base path, and article path
- */
 function buildArticlePath(currentLanguage: string, articlePath: string, basePath?: string): string {
   const pathPrefix = basePath ? `/${currentLanguage}/${basePath}` : `/${currentLanguage}`
   const separator = articlePath.startsWith('/') ? '' : '/'
   return `${pathPrefix}${separator}${articlePath}`
 }
 
-/**
- * Try to resolve an article path using multiple resolution strategies
- */
 function tryResolveArticlePath(
   rawPath: string,
   pageRelativePath: string | undefined,
   req: ExtendedRequest,
-): any {
+): Page | undefined {
   const { pages, redirects } = req.context!
   const currentLanguage = req.context!.currentLanguage || 'en'
 
-  // Check if we have the required dependencies
   if (!pages || !redirects) {
     return undefined
   }
@@ -83,19 +82,14 @@ function tryResolveArticlePath(
   return foundPage
 }
 
-/**
- * Get the path for a page (without language/version)
- */
-function getPageHref(page: any): string {
+// Returns a page's path without the language or version prefix.
+function getPageHref(page: Page): string {
   if (page.relativePath) {
     return Permalink.relativePathToSuffix(page.relativePath)
   }
-  return '' // fallback
+  return ''
 }
 
-/**
- * Middleware to resolve carousel articles from rawCarousels object
- */
 async function resolveCarousels(
   req: ExtendedRequest,
   res: Response,
@@ -103,9 +97,8 @@ async function resolveCarousels(
 ): Promise<void> {
   try {
     const page = req.context?.page
-    const rawCarousels = (page as any)?.rawCarousels
+    const rawCarousels = (page as unknown as PageCarouselProps)?.rawCarousels
 
-    // Handle carousels format
     if (rawCarousels && typeof rawCarousels === 'object') {
       const resolvedCarousels: Record<string, ResolvedArticle[]> = {}
 
@@ -114,7 +107,6 @@ async function resolveCarousels(
           continue
         }
 
-        // Remove duplicate articles
         const uniquePaths = [...new Set(articlePaths)]
         const resolved: ResolvedArticle[] = []
 
@@ -156,9 +148,8 @@ async function resolveCarousels(
         }
       }
 
-      // Store resolved carousels on the page
       if (page && Object.keys(resolvedCarousels).length > 0) {
-        ;(page as any).carousels = resolvedCarousels
+        ;(page as unknown as PageCarouselProps).carousels = resolvedCarousels
       }
     }
   } catch (error) {

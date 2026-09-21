@@ -16,6 +16,6 @@ category:
 
 ## About artifacts in {% data variables.product.prodname_actions %}
 
-You can use the REST API to download, delete, and retrieve information about workflow artifacts in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-artifacts %} For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
+You can use the REST API to download, delete, and retrieve information about workflow artifacts in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-artifacts %} For more information, see [AUTOTITLE](/actions/tutorials/store-and-share-data).
 
 <!-- Content after this section is automatically generated -->

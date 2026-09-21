@@ -3,7 +3,7 @@ Use `jobs.<job_id>.environment` to define the environment that the job reference
 You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see [AUTOTITLE](/rest/repos#deployments).
 
 > [!NOTE]
-> All deployment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see [AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment).
+> All deployment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
 
 ### Example: Using a single environment name
 
@@ -23,7 +23,7 @@ environment:
   url: https://github.com
 ```
 
-The value of `url` can be an expression. Allowed expression contexts: [`github`](/actions/learn-github-actions/contexts#github-context), [`inputs`](/actions/learn-github-actions/contexts#inputs-context), [`vars`](/actions/learn-github-actions/contexts#vars-context), [`needs`](/actions/learn-github-actions/contexts#needs-context), [`strategy`](/actions/learn-github-actions/contexts#strategy-context), [`matrix`](/actions/learn-github-actions/contexts#matrix-context), [`job`](/actions/learn-github-actions/contexts#job-context), [`runner`](/actions/learn-github-actions/contexts#runner-context), [`env`](/actions/learn-github-actions/contexts#env-context), and [`steps`](/actions/learn-github-actions/contexts#steps-context). For more information about expressions, see [AUTOTITLE](/actions/learn-github-actions/expressions).
+The value of `url` can be an expression. Allowed expression contexts: [`github`](/actions/reference/workflows-and-actions/contexts#github-context), [`inputs`](/actions/reference/workflows-and-actions/contexts#inputs-context), [`vars`](/actions/reference/workflows-and-actions/contexts#vars-context), [`needs`](/actions/reference/workflows-and-actions/contexts#needs-context), [`strategy`](/actions/reference/workflows-and-actions/contexts#strategy-context), [`matrix`](/actions/reference/workflows-and-actions/contexts#matrix-context), [`job`](/actions/reference/workflows-and-actions/contexts#job-context), [`runner`](/actions/reference/workflows-and-actions/contexts#runner-context), [`env`](/actions/reference/workflows-and-actions/contexts#env-context), and [`steps`](/actions/reference/workflows-and-actions/contexts#steps-context). For more information about expressions, see [AUTOTITLE](/actions/reference/workflows-and-actions/expressions).
 
 ### Example: Using output as URL
 
@@ -37,7 +37,7 @@ environment:
 
 {% endraw %}
 
-The value of `name` can be an expression. Allowed expression contexts: [`github`](/actions/learn-github-actions/contexts#github-context), [`inputs`](/actions/learn-github-actions/contexts#inputs-context), [`vars`](/actions/learn-github-actions/contexts#vars-context), [`needs`](/actions/learn-github-actions/contexts#needs-context), [`strategy`](/actions/learn-github-actions/contexts#strategy-context), and [`matrix`](/actions/learn-github-actions/contexts#matrix-context). For more information about expressions, see [AUTOTITLE](/actions/learn-github-actions/expressions).
+The value of `name` can be an expression. Allowed expression contexts: [`github`](/actions/reference/workflows-and-actions/contexts#github-context), [`inputs`](/actions/reference/workflows-and-actions/contexts#inputs-context), [`vars`](/actions/reference/workflows-and-actions/contexts#vars-context), [`needs`](/actions/reference/workflows-and-actions/contexts#needs-context), [`strategy`](/actions/reference/workflows-and-actions/contexts#strategy-context), and [`matrix`](/actions/reference/workflows-and-actions/contexts#matrix-context). For more information about expressions, see [AUTOTITLE](/actions/reference/workflows-and-actions/expressions).
 
 ### Example: Using an expression as environment name
 

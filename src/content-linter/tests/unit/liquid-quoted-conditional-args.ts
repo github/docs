@@ -105,4 +105,22 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
+  test('quoted strings in comparisons are allowed', async () => {
+    const markdown = [
+      '---',
+      'title: Good sample page',
+      '---',
+      '',
+      '{% if entry.provider == "openai" %}',
+      '{% if entry.name != "test" %}',
+      '{% unless entry.type == "premium" %}',
+      '{% if entry.status contains "active" %}',
+      '{% if "standalone" %}',
+    ].join('\n')
+    const result = await runRule(liquidQuotedConditionalArg, { strings: { markdown } })
+    const errors = result.markdown
+    // Only the standalone quoted arg (line 9) should be flagged
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(9)
+  })
 })

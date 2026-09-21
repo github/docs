@@ -76,15 +76,15 @@ By following these practices, you can significantly reduce the risk posed by out
 
 {% data variables.product.github %} provides security features to help you maintain dependencies:
 
-**Dependency graph**: Tracks your project dependencies and identifies vulnerabilities. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
+**Dependency graph**: Tracks your project dependencies and identifies vulnerabilities. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph).
 
-**Dependency review**: Catches insecure dependencies in pull requests before they're merged. In addition, the {% data variables.dependency-review.action_name %} can fail checks and, when required by branch protection rules, prevent pull requests that introduce vulnerabilities from being merged. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
+**Dependency review**: Catches insecure dependencies in pull requests before they're merged. In addition, the {% data variables.dependency-review.action_name %} can fail checks and, when required by branch protection rules, prevent pull requests that introduce vulnerabilities from being merged. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review).
 
-**{% data variables.product.prodname_dependabot %}**: Automatically scans for vulnerabilities, creates alerts, and opens pull requests to update vulnerable or outdated dependencies. You can group multiple updates into single pull requests to streamline reviews. See [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+**{% data variables.product.prodname_dependabot %}**: Automatically scans for vulnerabilities, creates alerts, and opens pull requests to update vulnerable or outdated dependencies. You can group multiple updates into single pull requests to streamline reviews. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts).
 
-**{% data variables.product.prodname_advisory_database %}**: Provides security advisories that power {% data variables.product.prodname_dependabot %}'s vulnerability detection. See [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database).{% ifversion fpt or ghec %}
+**{% data variables.product.prodname_advisory_database %}**: Provides security advisories that power {% data variables.product.prodname_dependabot %}'s vulnerability detection. See [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/github-advisory-database).{% ifversion fpt or ghec %}
 
 **Private vulnerability reporting**: Enables maintainers to receive, discuss, and fix vulnerability reports in private before public disclosure. {% endif %}
-**Security overview**: Shows your organization's security posture with dashboards for at-risk repositories, alert trends, and feature enablement status. See [AUTOTITLE](/code-security/security-overview/about-security-overview).
+**Security overview**: Shows your organization's security posture with dashboards for at-risk repositories, alert trends, and feature enablement status. See [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview).
 
-For end-to-end supply chain guidance, see [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview).
+For end-to-end supply chain guidance, see [AUTOTITLE](/code-security/tutorials/implement-supply-chain-best-practices/end-to-end-supply-chain-overview).

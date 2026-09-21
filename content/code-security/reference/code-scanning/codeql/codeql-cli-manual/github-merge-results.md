@@ -40,7 +40,7 @@ codeql github merge-results --sarif=<file> --output=<file> <options>...
 \[Mandatory] Path to the SARIF files to use. This should be the output
 of [codeql database analyze](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-analyze) (or [codeql database interpret-results](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-interpret-results)) with `--format sarif-latest` for upload to github.com or
 the appropriate supported format tag for GitHub Enterprise Server
-instances (see [AUTOTITLE](/enterprise-server@latest/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning) for
+instances (see [AUTOTITLE](/enterprise-server@latest/code-security/reference/code-scanning/sarif-files/sarif-support) for
 SARIF versions supported by your release).
 
 #### `-o, --output=<file>`

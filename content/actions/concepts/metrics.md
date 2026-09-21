@@ -26,4 +26,4 @@ contentType: concepts
 
 ## Next steps
 
-To learn how to find metrics for your organization or repository, see [AUTOTITLE](/actions/how-tos/administering-github-actions/viewing-github-actions-metrics).
+To learn how to find metrics for your organization or repository, see [AUTOTITLE](/actions/how-tos/administer/view-metrics).

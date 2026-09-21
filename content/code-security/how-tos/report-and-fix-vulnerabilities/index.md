@@ -9,7 +9,7 @@ versions:
 contentType: how-tos
 children:
   - configure-vulnerability-reporting
-  - privately-reporting-a-security-vulnerability
+  - report-privately
   - fix-reported-vulnerabilities
 ---
 

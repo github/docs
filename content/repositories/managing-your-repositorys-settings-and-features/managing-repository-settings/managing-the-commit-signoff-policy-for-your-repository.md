@@ -23,4 +23,4 @@ Organization owners can also enable compulsory commit signoffs at the organizati
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Select **Require contributors to sign off on web-based commits**.
+1. Under "Commits", Select **Require contributors to sign off on web-based commits**.

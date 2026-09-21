@@ -1,6 +1,9 @@
 import fs from 'fs'
 import { brotliDecompressSync } from 'zlib'
 
+import { createLogger } from '@/observability/logger'
+const logger = createLogger(import.meta.url)
+
 export default function readJsonFile(xpath: string): unknown {
   return JSON.parse(fs.readFileSync(xpath, 'utf8'))
 }
@@ -68,10 +71,9 @@ export function readCompressedJsonFileFallbackLazily(xpath: string): () => unkno
     if (!cache.has(xpath)) {
       cache.set(xpath, readCompressedJsonFileFallback(xpath))
       if (globalCacheCounter[xpath]) {
-        console.warn(
-          "If this happens it's because the readCompressedJsonFileFallbackLazily " +
-            'function has been called non-globally. Only use ' +
-            'readCompressedJsonFileFallback once at module-level.',
+        logger.warn(
+          'readCompressedJsonFileFallbackLazily called non-globally. Only use readCompressedJsonFileFallback once at module-level.',
+          { xpath },
         )
         throw new Error(`Globally reading the same file more than once (${xpath})`)
       }

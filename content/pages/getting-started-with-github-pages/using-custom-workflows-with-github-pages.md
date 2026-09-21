@@ -26,7 +26,7 @@ To use the action place this snippet under your `jobs` in the desired workflow.
   uses: actions/configure-pages@v5
 ```
 
-This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use workflow templates for some of the most widely used static site generators. For more information, see [AUTOTITLE](/actions/learn-github-actions/using-starter-workflows).
+This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use workflow templates for some of the most widely used static site generators. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/use-workflow-templates).
 
 ## Configuring the `upload-pages-artifact` action
 
@@ -163,4 +163,4 @@ jobs:
 # ...
 ```
 
-You can define your jobs to be run on different runners, sequentially, or in parallel. For more information, see [AUTOTITLE](/actions/using-jobs).
+You can define your jobs to be run on different runners, sequentially, or in parallel. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do).

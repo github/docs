@@ -40,7 +40,7 @@ Certain GitLab constructs must be migrated manually. These include:
 * Masked project or group variable values
 * Artifact reports
 
-For more information on manual migrations, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions).
+For more information on manual migrations, see [AUTOTITLE](/actions/tutorials/migrate-to-github-actions/manual-migrations/migrate-from-gitlab-cicd).
 
 ## Installing the {% data variables.product.prodname_actions_importer %} CLI extension
 
@@ -312,7 +312,7 @@ gh actions-importer migrate gitlab --project my-project-name --output-dir output
 
 ### Supported syntax for GitLab pipelines
 
-The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how GitLab pipeline syntax aligns with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions).
+The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how GitLab pipeline syntax aligns with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/tutorials/migrate-to-github-actions/manual-migrations/migrate-from-gitlab-cicd).
 
 | GitLab Pipelines                        | GitHub Actions                  | Status                      |
 | :-------------------------------------- | :------------------------------ | :-------------------------- |

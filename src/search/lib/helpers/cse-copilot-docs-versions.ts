@@ -2,12 +2,6 @@
 import { versionToIndexVersionMap } from '../elasticsearch-versions'
 const CSE_COPILOT_DOCS_VERSIONS = ['dotcom', 'ghec', 'ghes']
 
-// Languages supported by cse-copilot
-const DOCS_LANGUAGES = ['en']
-export function supportedCSECopilotLanguages() {
-  return DOCS_LANGUAGES
-}
-
 export function getCSECopilotSource(version: (typeof CSE_COPILOT_DOCS_VERSIONS)[number]) {
   if (!version) {
     throw new Error(`Missing required key 'version' in request body`)

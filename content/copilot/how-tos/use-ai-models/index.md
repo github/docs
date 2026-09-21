@@ -5,7 +5,6 @@ intro: 'Learn how to use alternative large language models for {% data variables
 versions:
   feature: copilot
 children:
-  - /configure-access-to-ai-models
   - /change-the-chat-model
   - /change-the-completion-model
 redirect_from:

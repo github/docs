@@ -9,6 +9,7 @@ versions:
 contentType: reference
 children:
   - /metrics-and-ratings
+  - /code-coverage
   - /codeql-detection
   - /codeql-queries
 redirect_from:

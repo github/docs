@@ -16,9 +16,8 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   const [isTallEnough, setIsTallEnough] = useState(false)
 
   useEffect(() => {
-    // We cannot determine document.documentElement.scrollTop height because we set the height: 100vh and set overflow to auto to keep the header sticky
-    // That means window.scrollTop height is always 0
-    // Using IntersectionObserver we can determine if the h1 header is in view or not. If not, we show the scroll to top button, if so, we hide it
+    // Show the button once the article h1 has scrolled out of view, and hide it
+    // again when the h1 comes back.
     const h1Element = document.getElementsByTagName('h1')[0]
     if (!h1Element) {
       if (process.env.NODE_ENV !== 'production') {
@@ -54,6 +53,8 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
     return () => window.removeEventListener('resize', updateDocumentSize)
   }, [])
 
+  const isVisible = show && isTallEnough
+
   const onClick = () => {
     document?.getElementById('github-logo')?.focus()
     document?.getElementById('main-content')?.scrollIntoView()
@@ -62,10 +63,17 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   return (
     <div
       role="tooltip"
-      className={cx(className, transition200, show && isTallEnough ? opacity100 : opacity0)}
+      className={cx(
+        className,
+        transition200,
+        isVisible ? opacity100 : opacity0,
+        styles.scrollWrapper,
+      )}
+      aria-hidden={!show}
     >
       <button
         onClick={onClick}
+        tabIndex={show ? 0 : -1}
         className={cx(
           'ghd-scroll-to-top', // for data tracking, see events.ts
           'tooltipped tooltipped-n tooltipped-no-delay btn circle border-1',

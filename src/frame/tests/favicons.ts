@@ -3,6 +3,24 @@ import { describe, expect, test, vi } from 'vitest'
 import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { get } from '@/tests/helpers/e2etest'
 
+function getMaxAge(header: string | undefined): number {
+  return Number(String(header).match(/(?:^|[ ,])max-age=(\d+)/)?.[1])
+}
+
+// The CDN holds favicons for a long time because we can purge it on demand with
+// the manual surrogate key. The browser gets a shorter window because we can't.
+function expectAggressiveCaching(headers: Record<string, string>) {
+  const cdnMaxAge = getMaxAge(headers['surrogate-control'])
+  expect(headers['surrogate-control']).toContain('public')
+  expect(headers['surrogate-control']).toContain('immutable')
+  expect(cdnMaxAge).toBeGreaterThanOrEqual(60 * 60)
+
+  const browserMaxAge = getMaxAge(headers['cache-control'])
+  expect(headers['cache-control']).toContain('public')
+  expect(browserMaxAge).toBeGreaterThan(0)
+  expect(browserMaxAge).toBeLessThan(cdnMaxAge)
+}
+
 describe('favicon assets', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
@@ -12,16 +30,7 @@ describe('favicon assets', () => {
     expect(parseInt(res.headers['content-length'], 10)).toBeGreaterThan(0)
     expect(res.headers['content-type']).toBe('image/x-icon')
     expect(res.headers['set-cookie']).toBeUndefined()
-    expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toContain('immutable')
-    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    const maxAgeSeconds = parseInt(
-      (res.headers['cache-control'] || '').match(/max-age=(\d+)/)?.[1] || '',
-      10,
-    )
-    // Let's not be too specific in the tests, just as long as it's testing
-    // that it's a reasonably large number of seconds.
-    expect(maxAgeSeconds).toBeGreaterThanOrEqual(60 * 60)
+    expectAggressiveCaching(res.headers)
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
   })
 
@@ -31,16 +40,7 @@ describe('favicon assets', () => {
     expect(parseInt(res.headers['content-length'] || '', 10)).toBeGreaterThan(0)
     expect(res.headers['content-type']).toBe('image/png')
     expect(res.headers['set-cookie']).toBeUndefined()
-    expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toContain('immutable')
-    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    const maxAgeSeconds = parseInt(
-      (res.headers['cache-control'] || '').match(/max-age=(\d+)/)?.[1] || '',
-      10,
-    )
-    // Let's not be too specific in the tests, just as long as it's testing
-    // that it's a reasonably large number of seconds.
-    expect(maxAgeSeconds).toBeGreaterThanOrEqual(60 * 60)
+    expectAggressiveCaching(res.headers)
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
   })
 

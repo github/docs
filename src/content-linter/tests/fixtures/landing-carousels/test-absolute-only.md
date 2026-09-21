@@ -1,6 +1,6 @@
 ---
 title: Test Absolute Only Path
-layout: product-landing
+layout: discovery-landing
 versions:
   fpt: '*'
 carousels:

@@ -32,9 +32,9 @@ Some information that {% data variables.contact.github_support %} will request c
   For example: `https://github.com/ORG/REPO/actions/runs/0123456789`
   {% endif %}
   
-* The workflow `.yml` file(s) attached to the ticket as `.txt` files. For more information about workflows, see [AUTOTITLE](/actions/using-workflows/about-workflows#about-workflows).
-* A copy of your workflow run logs for an example workflow run failure. For more information about workflow run logs, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#downloading-logs).
-* {% ifversion ghes %}A copy of your runner logs, {% else %}If you are running this workflow on a self-hosted runner, self-hosted runner logs{% endif %} which can be found under the `_diag` folder within the runner. For more information about self-hosted runners, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files).
+* The workflow `.yml` file(s) attached to the ticket as `.txt` files. For more information about workflows, see [AUTOTITLE](/actions/concepts/workflows-and-actions/workflows#about-workflows).
+* A copy of your workflow run logs for an example workflow run failure. For more information about workflow run logs, see [AUTOTITLE](/actions/how-tos/monitor-workflows/use-workflow-run-logs#downloading-logs).
+* {% ifversion ghes %}A copy of your runner logs, {% else %}If you are running this workflow on a self-hosted runner, self-hosted runner logs{% endif %} which can be found under the `_diag` folder within the runner. For more information about self-hosted runners, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/monitor-and-troubleshoot#reviewing-the-self-hosted-runner-application-log-files).
 
   Self-hosted runner log file names are formatted: `Runner_YYYY####-xxxxxx-utc.log` and `Worker_YYYY####-xxxxxx-utc.log`.
 
@@ -52,19 +52,19 @@ Depending on the nature of your inquiry, {% data variables.contact.github_suppor
 
 ### Ephemeral Runner Application Log Files
 
-{% data variables.contact.github_support %} may request the runner application log files from ephemeral runners. {% data variables.product.prodname_dotcom %} expects and recommends that you have implemented a mechanism to forward and preserve the runner application log files from self-hosted ephemeral runners. For more information about runner application log files and troubleshooting self-hosted runners, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files).
+{% data variables.contact.github_support %} may request the runner application log files from ephemeral runners. {% data variables.product.prodname_dotcom %} expects and recommends that you have implemented a mechanism to forward and preserve the runner application log files from self-hosted ephemeral runners. For more information about runner application log files and troubleshooting self-hosted runners, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/monitor-and-troubleshoot#reviewing-the-self-hosted-runner-application-log-files).
 
 ### {% data variables.product.prodname_actions_runner_controller %}
 
-If you are using {% data variables.product.prodname_actions_runner_controller %} (ARC), {% data variables.contact.github_support %} may ask you to submit the complete logs for the controller, listeners, and runner pods. For more information about collecting {% data variables.product.prodname_actions_runner_controller %}'s logs, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors#checking-the-logs-of-the-controller-and-runner-set-listener).
+If you are using {% data variables.product.prodname_actions_runner_controller %} (ARC), {% data variables.contact.github_support %} may ask you to submit the complete logs for the controller, listeners, and runner pods. For more information about collecting {% data variables.product.prodname_actions_runner_controller %}'s logs, see [AUTOTITLE](/actions/tutorials/use-actions-runner-controller/troubleshoot#checking-the-logs-of-the-controller-and-runner-set-listener).
 
-For more information about the scope of support for {% data variables.product.prodname_actions_runner_controller %}, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
+For more information about the scope of support for {% data variables.product.prodname_actions_runner_controller %}, see [AUTOTITLE](/actions/concepts/runners/support-for-arc).
 
 ### {% data variables.product.prodname_codeql %} and {% data variables.product.prodname_actions %}
 
-If you are requesting assistance with a {% data variables.code-scanning.codeql_workflow %}, {% data variables.contact.github_support %} may request a copy of the {% data variables.product.prodname_codeql %} debugging artifacts. For more information about debugging artifacts for a {% data variables.code-scanning.codeql_workflow %}, see [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/logs-not-detailed-enough#creating-codeql-debugging-artifacts).
+If you are requesting assistance with a {% data variables.code-scanning.codeql_workflow %}, {% data variables.contact.github_support %} may request a copy of the {% data variables.product.prodname_codeql %} debugging artifacts. For more information about debugging artifacts for a {% data variables.code-scanning.codeql_workflow %}, see [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors/logs-not-detailed-enough#creating-codeql-debugging-artifacts).
 
-To provide the debugging artifacts to {% data variables.contact.github_support %}, please download the {% data variables.product.prodname_codeql %} debugging artifacts from a sample workflow run and attach it to your ticket as a `.zip` file. For more information on downloading workflow artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
+To provide the debugging artifacts to {% data variables.contact.github_support %}, please download the {% data variables.product.prodname_codeql %} debugging artifacts from a sample workflow run and attach it to your ticket as a `.zip` file. For more information on downloading workflow artifacts, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/download-workflow-artifacts).
 
 If the {% data variables.product.prodname_codeql %} debugging artifacts `.zip` file is too large to upload to the ticket, please advise {% data variables.contact.github_support %}, and we will work with you to determine the next steps.
 

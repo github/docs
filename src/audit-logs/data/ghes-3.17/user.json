@@ -26,8 +26,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -57,8 +57,11 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ],
     "docs_reference_titles": "How GitHub billing works"
   },
@@ -151,8 +154,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -182,13 +185,16 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
       "actions_cache_id",
       "actions_cache_key",
-      "actions_cache_version",
       "actions_cache_scope",
+      "actions_cache_version",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -218,8 +224,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "workflow_run_id"
     ]
   },
   {
@@ -249,7 +260,9 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "Managing your payment and billing information"
@@ -281,9 +294,13 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "email"
+      "email",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Managing your payment and billing information"
   },
@@ -314,9 +331,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "oauth_application_id",
-      "operation_type",
-      "created_at"
+      "operation_type"
     ]
   },
   {
@@ -346,8 +365,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -377,6 +399,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -408,14 +431,14 @@
       "user",
       "user_id",
       "user_agent",
-      "query",
-      "filename",
-      "requested_at",
-      "start_date",
-      "end_date",
+      "actor_is_bot",
       "created_at",
+      "end_date",
+      "filename",
       "operation_type",
-      "actor_is_bot"
+      "query",
+      "requested_at",
+      "start_date"
     ]
   },
   {
@@ -445,12 +468,12 @@
       "user",
       "user_id",
       "user_agent",
-      "query",
-      "filename",
-      "requested_at",
+      "actor_is_bot",
       "created_at",
+      "filename",
       "operation_type",
-      "actor_is_bot"
+      "query",
+      "requested_at"
     ]
   },
   {
@@ -480,14 +503,14 @@
       "user",
       "user_id",
       "user_agent",
-      "query",
-      "filename",
-      "requested_at",
-      "start_date",
-      "end_date",
+      "actor_is_bot",
       "created_at",
+      "end_date",
+      "filename",
       "operation_type",
-      "actor_is_bot"
+      "query",
+      "requested_at",
+      "start_date"
     ]
   },
   {
@@ -517,12 +540,12 @@
       "user",
       "user_id",
       "user_agent",
-      "query",
-      "filename",
-      "requested_at",
+      "actor_is_bot",
       "created_at",
+      "filename",
       "operation_type",
-      "actor_is_bot"
+      "query",
+      "requested_at"
     ]
   },
   {
@@ -552,10 +575,12 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "policy",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "policy"
     ],
     "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
   },
@@ -586,10 +611,12 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "policy",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "policy"
     ],
     "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
   },
@@ -620,10 +647,12 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
+      "actor_is_bot",
+      "created_at",
       "limit",
-      "operation_type",
-      "created_at"
+      "name",
+      "oauth_application_id",
+      "operation_type"
     ],
     "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
   },
@@ -654,8 +683,11 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
+      "actor_is_bot",
       "created_at",
+      "default_workflow_permissions_value",
+      "name",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
@@ -687,10 +719,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "name",
-      "policy",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "policy"
     ],
     "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
   },
@@ -721,9 +755,12 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "workflow_permission_can_approve_pr_value"
     ],
     "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
   },
@@ -754,9 +791,12 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "public_repo",
+      "visibility"
     ],
     "docs_reference_titles": "/rest/checks#update-repository-preferences-for-check-suites"
   },
@@ -787,10 +827,12 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "operation_type",
+      "public_repo",
+      "visibility"
     ],
     "docs_reference_titles": "/rest/checks#update-repository-preferences-for-check-suites"
   },
@@ -821,8 +863,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -852,9 +898,10 @@
       "user",
       "user_id",
       "user_agent",
-      "origin_repository",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "origin_repository"
     ]
   },
   {
@@ -884,15 +931,17 @@
       "user",
       "user_id",
       "user_agent",
-      "pull_request_id",
-      "owner",
-      "name",
-      "operation_type",
-      "created_at",
-      "public_repo",
       "actor_is_bot",
+      "created_at",
+      "devcontainer_path",
       "machine_type",
-      "devcontainer_path"
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "owner",
+      "public_repo",
+      "pull_request_id",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -922,14 +971,17 @@
       "user",
       "user_id",
       "user_agent",
-      "pull_request_id",
-      "owner",
-      "name",
-      "operation_type",
-      "created_at",
       "actor_is_bot",
+      "created_at",
+      "devcontainer_path",
       "machine_type",
-      "devcontainer_path"
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "owner",
+      "public_repo",
+      "pull_request_id",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Creating a codespace for a repository"
   },
@@ -960,11 +1012,16 @@
       "user",
       "user_id",
       "user_agent",
-      "pull_request_id",
-      "owner",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "name",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "owner",
+      "public_repo",
+      "pull_request_id",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Deleting a codespace"
   },
@@ -995,11 +1052,13 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
-      "owner",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "public_repo"
+      "owner",
+      "public_repo",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1029,10 +1088,10 @@
       "user",
       "user_id",
       "user_agent",
-      "owner",
-      "public_repo",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "owner",
+      "public_repo"
     ]
   },
   {
@@ -1062,14 +1121,17 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "owner",
-      "pull_request_id",
-      "machine_type",
-      "devcontainer_path",
-      "public_repo",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "devcontainer_path",
+      "machine_type",
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "owner",
+      "public_repo",
+      "pull_request_id",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1099,10 +1161,18 @@
       "user",
       "user_id",
       "user_agent",
-      "owner",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "devcontainer_path",
+      "machine_type",
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "owner",
+      "public_repo",
+      "pull_request_id",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1132,8 +1202,11 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ],
     "docs_reference_titles": "Managing access to other repositories within your codespace"
   },
@@ -1164,8 +1237,14 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "owner",
+      "owner_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1195,10 +1274,16 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "owner",
+      "owner_type",
+      "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "What is GitHub Copilot?"
+    "docs_reference_titles": "About GitHub Copilot"
   },
   {
     "action": "copilot.cfb_seat_assignment_refreshed",
@@ -1227,8 +1312,14 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "owner",
+      "owner_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1258,8 +1349,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "owner",
+      "owner_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1289,8 +1385,14 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "owner",
+      "owner_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1321,7 +1423,10 @@
       "user_id",
       "user_agent",
       "created_at",
+      "oauth_application_id",
       "operation_type",
+      "owner",
+      "owner_type",
       "seat_assignment"
     ]
   },
@@ -1352,8 +1457,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "owner",
+      "owner_type",
+      "seat_assignment"
     ]
   },
   {
@@ -1383,10 +1492,12 @@
       "user",
       "user_id",
       "user_agent",
-      "owner_type",
-      "owner",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "owner",
+      "owner_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1416,10 +1527,12 @@
       "user",
       "user_id",
       "user_agent",
-      "owner_type",
-      "owner",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "owner",
+      "owner_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1449,10 +1562,10 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "runner_group_id",
       "created_at",
-      "operation_type"
+      "name",
+      "operation_type",
+      "runner_group_id"
     ]
   },
   {
@@ -1513,10 +1626,10 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "runner_group_id",
       "created_at",
-      "operation_type"
+      "name",
+      "operation_type",
+      "runner_group_id"
     ]
   },
   {
@@ -1546,8 +1659,10 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories"
   },
@@ -1578,8 +1693,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories"
   },
@@ -1610,8 +1729,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
   },
@@ -1642,8 +1765,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
   },
@@ -1674,8 +1801,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1705,8 +1836,10 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization"
   },
@@ -1737,8 +1870,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1768,8 +1905,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization"
   },
@@ -1800,8 +1941,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1831,7 +1976,9 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization"
@@ -1863,8 +2010,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1894,8 +2045,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization"
   },
@@ -1926,8 +2081,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -1957,9 +2116,17 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "environment_name",
+      "integration",
       "name",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Managing environments for deployment"
   },
@@ -1990,10 +2157,15 @@
       "user",
       "user_id",
       "user_agent",
-      "environment_name",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "environment_name",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2023,12 +2195,16 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
-      "key",
-      "visibility",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "environment_name",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "Managing environments for deployment"
   },
@@ -2059,13 +2235,16 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "visibility",
-      "environment_name",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "environment_name",
+      "key",
+      "oauth_application_id",
       "operation_type",
-      "actor_is_bot"
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "Store information in variables"
   },
@@ -2096,11 +2275,15 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "environment_name",
+      "name",
+      "oauth_application_id",
+      "operation_type",
       "public_repo",
-      "actor_is_bot"
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Managing environments for deployment"
   },
@@ -2131,11 +2314,15 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
-      "key",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "environment_name",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Managing environments for deployment"
   },
@@ -2166,11 +2353,15 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "environment_name",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "environment_name",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Store information in variables"
   },
@@ -2201,10 +2392,16 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "environment_name",
+      "integration",
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Managing environments for deployment"
   },
@@ -2235,12 +2432,16 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
-      "key",
-      "visibility",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "environment_name",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "Managing environments for deployment"
   },
@@ -2271,12 +2472,16 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "visibility",
-      "environment_name",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "environment_name",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "Store information in variables"
   },
@@ -2307,10 +2512,13 @@
       "user",
       "user_id",
       "user_agent",
-      "new_value",
-      "approvers_was",
       "approvers",
+      "approvers_was",
       "can_admins_bypass",
+      "environment_id",
+      "environment_name",
+      "new_value",
+      "old_value",
       "prevent_self_review"
     ],
     "docs_reference_titles": "Managing environments for deployment"
@@ -2342,9 +2550,12 @@
       "user",
       "user_id",
       "user_agent",
-      "gist_id",
       "created_at",
+      "gist",
+      "gist_id",
+      "oauth_application_id",
       "operation_type",
+      "user_programmatic_access_name",
       "visibility"
     ]
   },
@@ -2375,10 +2586,13 @@
       "user",
       "user_id",
       "user_agent",
-      "gist_id",
-      "visibility",
       "created_at",
-      "operation_type"
+      "gist",
+      "gist_id",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -2408,10 +2622,13 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "created_at",
+      "gist",
       "gist_id",
-      "visibility",
-      "created_at"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -2441,11 +2658,14 @@
       "user",
       "user_id",
       "user_agent",
-      "title",
-      "key",
-      "fingerprint",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "fingerprint",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "title",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
   },
@@ -2476,12 +2696,15 @@
       "user",
       "user_id",
       "user_agent",
-      "title",
-      "key",
-      "fingerprint",
-      "explanation",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "explanation",
+      "fingerprint",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "title",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
   },
@@ -2512,10 +2735,14 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "runner_group_id",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "runner_group_id",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2545,9 +2772,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "actor_is_bot"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2577,10 +2807,14 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "runner_group_id",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "runner_group_id",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2610,8 +2844,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "key",
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2641,8 +2880,14 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "key",
+      "name",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2672,13 +2917,20 @@
       "user",
       "user_id",
       "user_agent",
-      "created_at",
-      "name",
-      "events",
       "active",
       "active_was",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "events",
       "hook_id",
-      "operation_type"
+      "integration",
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "sponsors_listing_id",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2708,12 +2960,19 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "name",
-      "hook_id",
+      "active",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "events",
+      "hook_id",
+      "integration",
+      "name",
       "oauth_application_id",
-      "events"
+      "operation_type",
+      "public_repo",
+      "sponsors_listing_id",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2743,13 +3002,20 @@
       "user",
       "user_id",
       "user_agent",
+      "active",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "events",
+      "hook_id",
+      "integration",
+      "name",
       "oauth_application",
       "oauth_application_id",
-      "hook_id",
-      "events",
       "operation_type",
-      "name",
-      "created_at"
+      "public_repo",
+      "sponsors_listing_id",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "About webhooks"
   },
@@ -2780,12 +3046,19 @@
       "user",
       "user_id",
       "user_agent",
-      "events",
+      "active",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "events",
+      "hook_id",
+      "integration",
       "name",
-      "operation_type",
       "oauth_application_id",
-      "hook_id"
+      "operation_type",
+      "public_repo",
+      "sponsors_listing_id",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2815,13 +3088,19 @@
       "user",
       "user_id",
       "user_agent",
-      "events",
-      "operation_type",
-      "name",
-      "events_were",
+      "active",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "events",
+      "events_were",
       "hook_id",
-      "oauth_application_id"
+      "integration",
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -2851,11 +3130,13 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "name",
-      "integration",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
-      "application_client_id"
+      "integration",
+      "name",
+      "oauth_application_id",
+      "operation_type"
     ]
   },
   {
@@ -2885,10 +3166,13 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
+      "created_at",
       "integration",
-      "operation_type",
-      "created_at"
+      "name",
+      "operation_type"
     ]
   },
   {
@@ -2918,11 +3202,14 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "integration",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
-      "application_client_id"
+      "integration",
+      "name",
+      "oauth_application_id",
+      "operation_type"
     ]
   },
   {
@@ -2952,12 +3239,18 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "name",
-      "repository_selection",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
       "integration",
-      "application_client_id"
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "repository_selection",
+      "topic",
+      "trigger_id",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/apps/using-github-apps/authorizing-github-apps"
   },
@@ -2988,12 +3281,16 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
-      "repository_selection",
       "integration",
-      "operation_type",
       "name",
-      "application_client_id"
+      "oauth_application_id",
+      "operation_type",
+      "repository_selection",
+      "topic"
     ],
     "docs_reference_titles": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
   },
@@ -3024,15 +3321,19 @@
       "user",
       "user_id",
       "user_agent",
-      "repository_selection",
-      "name",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
+      "created_at",
       "integration",
+      "name",
+      "oauth_application_id",
       "operation_type",
       "repositories_added",
-      "created_at",
       "repositories_added_names",
-      "actor_is_bot",
-      "application_client_id"
+      "repository_selection",
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access"
   },
@@ -3063,15 +3364,18 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "repository_selection",
-      "repositories_removed",
-      "integration",
-      "created_at",
-      "name",
-      "repositories_removed_names",
+      "actor_is_agent",
       "actor_is_bot",
-      "application_client_id"
+      "application_client_id",
+      "created_at",
+      "integration",
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "repositories_removed",
+      "repositories_removed_names",
+      "repository_selection",
+      "topic"
     ],
     "docs_reference_titles": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access"
   },
@@ -3102,12 +3406,14 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "repository_selection",
-      "integration",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
-      "application_client_id"
+      "integration",
+      "name",
+      "operation_type",
+      "repository_selection"
     ],
     "docs_reference_titles": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
   },
@@ -3138,11 +3444,14 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "repository_selection",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
+      "created_at",
       "integration",
+      "name",
       "operation_type",
-      "created_at"
+      "repository_selection"
     ],
     "docs_reference_titles": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
   },
@@ -3173,12 +3482,17 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
+      "created_at",
+      "events_added",
+      "events_removed",
+      "events_unchanged",
       "integration",
       "name",
       "operation_type",
-      "created_at",
-      "repository_selection",
-      "application_client_id"
+      "repository_selection"
     ],
     "docs_reference_titles": "/apps/using-github-apps/approving-updated-permissions-for-a-github-app"
   },
@@ -3209,11 +3523,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
-      "name",
+      "integration",
       "manager",
-      "operation_type",
-      "integration"
+      "name",
+      "operation_type"
     ],
     "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization#giving-someone-the-ability-to-manage-all-github-apps-owned-by-the-organization"
   },
@@ -3244,11 +3560,13 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "integration",
-      "name",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
-      "manager"
+      "integration",
+      "manager",
+      "name",
+      "operation_type"
     ],
     "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization#removing-a-github-app-managers-permissions-for-the-entire-organization"
   },
@@ -3279,10 +3597,13 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
+      "created_at",
       "integration",
-      "operation_type",
-      "created_at"
+      "name",
+      "operation_type"
     ]
   },
   {
@@ -3312,11 +3633,12 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "integration",
-      "operation_type",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
-      "application_client_id"
+      "integration",
+      "name",
+      "operation_type"
     ]
   },
   {
@@ -3346,11 +3668,12 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "integration",
-      "operation_type",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
-      "application_client_id"
+      "integration",
+      "name",
+      "operation_type"
     ]
   },
   {
@@ -3380,11 +3703,15 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "integration",
+      "actor_is_agent",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
+      "integration",
+      "name",
+      "oauth_application_id",
       "operation_type",
-      "application_client_id"
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
   },
@@ -3415,17 +3742,19 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "application_client_id",
+      "created_at",
+      "integration",
       "name",
-      "transfer_to_id",
+      "operation_type",
       "requester",
       "requester_id",
-      "created_at",
-      "transfer_to",
-      "operation_type",
-      "integration",
       "transfer_from",
       "transfer_from_id",
       "transfer_from_type",
+      "transfer_to",
+      "transfer_to_id",
       "transfer_to_type"
     ],
     "docs_reference_titles": "/apps/maintaining-github-apps/transferring-ownership-of-a-github-app"
@@ -3457,11 +3786,12 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "integration",
+      "actor_is_bot",
+      "application_client_id",
       "created_at",
-      "operation_type",
-      "application_client_id"
+      "integration",
+      "name",
+      "operation_type"
     ],
     "docs_reference_titles": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
   },
@@ -3492,8 +3822,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -3523,12 +3854,15 @@
       "user",
       "user_id",
       "user_agent",
-      "secondary_category",
-      "primary_category",
-      "operation_type",
+      "actor_is_bot",
       "created_at",
+      "integration",
       "marketplace_listing",
-      "integration"
+      "oauth_application",
+      "oauth_application_id",
+      "operation_type",
+      "primary_category",
+      "secondary_category"
     ]
   },
   {
@@ -3558,12 +3892,13 @@
       "user",
       "user_id",
       "user_agent",
-      "primary_category",
-      "marketplace_listing",
+      "actor_is_bot",
+      "created_at",
       "integration",
-      "secondary_category",
+      "marketplace_listing",
       "operation_type",
-      "created_at"
+      "primary_category",
+      "secondary_category"
     ]
   },
   {
@@ -3593,13 +3928,15 @@
       "user",
       "user_id",
       "user_agent",
-      "primary_category",
+      "actor_is_bot",
       "created_at",
-      "oauth_application",
+      "integration",
       "marketplace_listing",
-      "secondary_category",
+      "oauth_application",
       "oauth_application_id",
-      "operation_type"
+      "operation_type",
+      "primary_category",
+      "secondary_category"
     ]
   },
   {
@@ -3630,11 +3967,11 @@
       "user_id",
       "user_agent",
       "created_at",
-      "secondary_category",
-      "operation_type",
+      "integration",
       "marketplace_listing",
+      "operation_type",
       "primary_category",
-      "integration"
+      "secondary_category"
     ]
   },
   {
@@ -3664,15 +4001,15 @@
       "user",
       "user_id",
       "user_agent",
-      "created_at",
-      "operation_type",
-      "marketplace_listing",
-      "has_free_trial",
-      "yearly_price_in_cents",
-      "description",
       "bullets",
+      "created_at",
+      "description",
+      "has_free_trial",
+      "marketplace_listing",
+      "marketplace_listing_plan",
       "monthly_price_in_cents",
-      "marketplace_listing_plan"
+      "operation_type",
+      "yearly_price_in_cents"
     ]
   },
   {
@@ -3702,14 +4039,14 @@
       "user",
       "user_id",
       "user_agent",
-      "marketplace_listing_plan",
-      "marketplace_listing",
-      "description",
       "bullets",
-      "has_free_trial",
       "created_at",
-      "operation_type",
+      "description",
+      "has_free_trial",
+      "marketplace_listing",
+      "marketplace_listing_plan",
       "monthly_price_in_cents",
+      "operation_type",
       "yearly_price_in_cents"
     ]
   },
@@ -3740,15 +4077,15 @@
       "user",
       "user_id",
       "user_agent",
-      "marketplace_listing_plan",
-      "description",
-      "yearly_price_in_cents",
-      "created_at",
       "bullets",
+      "created_at",
+      "description",
       "has_free_trial",
       "marketplace_listing",
+      "marketplace_listing_plan",
       "monthly_price_in_cents",
-      "operation_type"
+      "operation_type",
+      "yearly_price_in_cents"
     ]
   },
   {
@@ -3778,15 +4115,15 @@
       "user",
       "user_id",
       "user_agent",
-      "monthly_price_in_cents",
-      "marketplace_listing",
-      "description",
       "bullets",
-      "yearly_price_in_cents",
+      "created_at",
+      "description",
       "has_free_trial",
+      "marketplace_listing",
       "marketplace_listing_plan",
+      "monthly_price_in_cents",
       "operation_type",
-      "created_at"
+      "yearly_price_in_cents"
     ]
   },
   {
@@ -3816,13 +4153,15 @@
       "user",
       "user_id",
       "user_agent",
-      "secondary_category",
+      "actor_is_bot",
+      "created_at",
+      "integration",
+      "marketplace_listing",
+      "oauth_application",
       "oauth_application_id",
       "operation_type",
-      "oauth_application",
-      "created_at",
-      "marketplace_listing",
-      "primary_category"
+      "primary_category",
+      "secondary_category"
     ]
   },
   {
@@ -3852,13 +4191,15 @@
       "user",
       "user_id",
       "user_agent",
-      "primary_category",
-      "secondary_category",
+      "actor_is_bot",
+      "created_at",
+      "integration",
       "marketplace_listing",
       "oauth_application",
       "oauth_application_id",
       "operation_type",
-      "created_at"
+      "primary_category",
+      "secondary_category"
     ]
   },
   {
@@ -3888,9 +4229,13 @@
       "user",
       "user_id",
       "user_agent",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -3920,10 +4265,13 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -3953,9 +4301,13 @@
       "user",
       "user_id",
       "user_agent",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic"
     ]
   },
   {
@@ -3985,11 +4337,17 @@
       "user",
       "user_id",
       "user_agent",
-      "max_entries_to_build",
-      "min_entries_to_merge",
-      "public_repo",
+      "actor_is_bot",
+      "check_response_timeout_minutes",
       "created_at",
-      "operation_type"
+      "max_entries_to_build",
+      "max_entries_to_merge",
+      "merge_method",
+      "merging_strategy",
+      "min_entries_to_merge",
+      "min_entries_to_merge_wait_minutes",
+      "operation_type",
+      "public_repo"
     ]
   },
   {
@@ -4019,8 +4377,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -4050,8 +4409,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -4112,9 +4472,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "actor_is_bot"
+      "public_repo"
     ]
   },
   {
@@ -4144,9 +4506,14 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_bot",
       "created_at",
-      "oauth_application_name"
+      "integration",
+      "oauth_application_id",
+      "oauth_application_name",
+      "operation_type",
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps, Managing your personal access tokens"
   },
@@ -4177,10 +4544,16 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
       "explanation",
-      "oauth_application_name"
+      "integration",
+      "oauth_application_id",
+      "oauth_application_name",
+      "operation_type",
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps"
   },
@@ -4211,9 +4584,14 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
+      "integration",
+      "oauth_application_id",
+      "oauth_application_name",
       "operation_type",
-      "oauth_application_name"
+      "topic",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -4244,6 +4622,7 @@
       "user_id",
       "user_agent",
       "created_at",
+      "explanation",
       "operation_type"
     ]
   },
@@ -4274,8 +4653,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -4305,10 +4685,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application",
       "oauth_application_id",
-      "operation_type",
-      "oauth_application"
+      "operation_type"
     ],
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
   },
@@ -4339,10 +4720,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application",
       "oauth_application_id",
-      "operation_type",
-      "oauth_application"
+      "operation_type"
     ],
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
   },
@@ -4373,10 +4755,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "oauth_application",
       "oauth_application_id",
-      "operation_type",
-      "created_at"
+      "operation_type"
     ],
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
   },
@@ -4407,10 +4790,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "oauth_application",
       "oauth_application_id",
-      "operation_type",
-      "created_at"
+      "operation_type"
     ],
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
   },
@@ -4441,10 +4825,10 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application",
-      "operation_type",
       "created_at",
-      "oauth_application_id"
+      "oauth_application",
+      "oauth_application_id",
+      "operation_type"
     ],
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
   },
@@ -4475,10 +4859,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "oauth_application",
       "oauth_application_id",
-      "operation_type",
-      "created_at"
+      "operation_type"
     ],
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
   },
@@ -4509,9 +4894,10 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
-      "oauth_application",
+      "actor_is_bot",
       "created_at",
+      "oauth_application",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
@@ -4543,10 +4929,11 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_bot",
       "created_at",
       "oauth_application",
-      "oauth_application_id"
+      "oauth_application_id",
+      "operation_type"
     ],
     "docs_reference_titles": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
   },
@@ -4577,10 +4964,14 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at",
       "actor_is_bot",
-      "oauth_application_name"
+      "created_at",
+      "integration",
+      "oauth_application_id",
+      "oauth_application_name",
+      "operation_type",
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps"
   },
@@ -4611,11 +5002,15 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
       "explanation",
-      "actor_is_bot",
-      "oauth_application_name"
+      "integration",
+      "oauth_application_id",
+      "oauth_application_name",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Reviewing and revoking authorization of GitHub Apps"
   },
@@ -4646,10 +5041,12 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at",
       "actor_is_bot",
-      "oauth_application_name"
+      "created_at",
+      "integration",
+      "oauth_application_name",
+      "operation_type",
+      "topic"
     ],
     "docs_reference_titles": "/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps"
   },
@@ -4680,10 +5077,14 @@
       "user",
       "user_id",
       "user_agent",
-      "permission",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "actor_is_bot"
+      "invitation_id",
+      "oauth_application_id",
+      "operation_type",
+      "permission",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -4713,12 +5114,14 @@
       "user",
       "user_id",
       "user_agent",
-      "inviter",
-      "public_repo",
-      "permission",
-      "invitee",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "invitee",
+      "inviter",
+      "oauth_application_id",
+      "operation_type",
+      "permission",
+      "public_repo"
     ]
   },
   {
@@ -4748,8 +5151,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -4779,8 +5186,10 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ]
   },
   {
@@ -4810,8 +5219,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -4841,8 +5254,11 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ]
   },
   {
@@ -4872,8 +5288,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -4903,14 +5323,14 @@
       "user",
       "user_id",
       "user_agent",
-      "query",
-      "filename",
-      "requested_at",
-      "start_date",
-      "end_date",
+      "actor_is_bot",
       "created_at",
+      "end_date",
+      "filename",
       "operation_type",
-      "actor_is_bot"
+      "query",
+      "requested_at",
+      "start_date"
     ]
   },
   {
@@ -4940,12 +5360,12 @@
       "user",
       "user_id",
       "user_agent",
-      "query",
-      "filename",
-      "requested_at",
+      "actor_is_bot",
       "created_at",
+      "filename",
       "operation_type",
-      "actor_is_bot"
+      "query",
+      "requested_at"
     ]
   },
   {
@@ -4975,14 +5395,14 @@
       "user",
       "user_id",
       "user_agent",
-      "query",
-      "filename",
-      "requested_at",
-      "start_date",
-      "end_date",
+      "actor_is_bot",
       "created_at",
+      "end_date",
+      "filename",
       "operation_type",
-      "actor_is_bot"
+      "query",
+      "requested_at",
+      "start_date"
     ]
   },
   {
@@ -5012,12 +5432,12 @@
       "user",
       "user_id",
       "user_agent",
-      "query",
-      "filename",
-      "requested_at",
+      "actor_is_bot",
       "created_at",
+      "filename",
       "operation_type",
-      "actor_is_bot"
+      "query",
+      "requested_at"
     ]
   },
   {
@@ -5047,9 +5467,13 @@
       "user",
       "user_id",
       "user_agent",
-      "policy",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "policy",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#requiring-approval-for-workflows-from-public-forks"
   },
@@ -5080,9 +5504,13 @@
       "user",
       "user_id",
       "user_agent",
-      "policy",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "policy",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks"
   },
@@ -5113,9 +5541,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "limit",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization"
   },
@@ -5146,8 +5578,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "default_workflow_permissions_value",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization"
   },
@@ -5178,9 +5615,13 @@
       "user",
       "user_id",
       "user_agent",
-      "policy",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "policy",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks"
   },
@@ -5211,8 +5652,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name",
+      "workflow_permission_can_approve_pr_value"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
@@ -5243,10 +5689,14 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "old_permission",
+      "operation_type",
       "permission",
-      "operation_type"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -5276,10 +5726,14 @@
       "user",
       "user_id",
       "user_agent",
-      "permission",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "visibility",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "permission",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -5309,9 +5763,10 @@
       "user",
       "user_id",
       "user_agent",
-      "permission",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "permission"
     ],
     "docs_reference_titles": "Setting permissions for adding outside collaborators"
   },
@@ -5342,12 +5797,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "domain",
+      "operation_type",
       "owner",
       "owner_type",
-      "domain",
-      "state",
-      "created_at",
-      "operation_type"
+      "state"
     ],
     "docs_reference_titles": "/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
   },
@@ -5378,12 +5834,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "domain",
+      "operation_type",
       "owner",
       "owner_type",
-      "domain",
-      "state",
-      "created_at",
-      "operation_type"
+      "state"
     ],
     "docs_reference_titles": "/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
   },
@@ -5414,12 +5871,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "domain",
+      "operation_type",
       "owner",
       "owner_type",
-      "domain",
-      "state",
-      "created_at",
-      "operation_type"
+      "state"
     ],
     "docs_reference_titles": "/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
   },
@@ -5450,8 +5908,9 @@
       "user",
       "user_id",
       "user_agent",
-      "nickname",
+      "actor_is_bot",
       "created_at",
+      "nickname",
       "operation_type"
     ]
   },
@@ -5482,8 +5941,9 @@
       "user",
       "user_id",
       "user_agent",
-      "nickname",
+      "actor_is_bot",
       "created_at",
+      "nickname",
       "operation_type"
     ]
   },
@@ -5514,8 +5974,10 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ]
   },
   {
@@ -5545,7 +6007,9 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ]
   },
@@ -5576,8 +6040,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -5607,11 +6072,14 @@
       "user",
       "user_id",
       "user_agent",
-      "user_programmatic_access_id",
-      "user_programmatic_access_name",
-      "repository_selection",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "repositories",
+      "repository_selection",
+      "user_programmatic_access_id",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
   },
@@ -5642,11 +6110,15 @@
       "user",
       "user_id",
       "user_agent",
-      "user_programmatic_access_id",
-      "user_programmatic_access_name",
-      "repository_selection",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "repositories",
+      "repository_selection",
+      "user_programmatic_access_id",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization"
   },
@@ -5677,10 +6149,11 @@
       "user",
       "user_id",
       "user_agent",
-      "user_programmatic_access_name",
-      "repository_selection",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "repository_selection",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -5710,9 +6183,10 @@
       "user",
       "user_id",
       "user_agent",
-      "user_programmatic_access_name",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -5742,9 +6216,10 @@
       "user",
       "user_id",
       "user_agent",
-      "user_programmatic_access_name",
       "created_at",
-      "operation_type"
+      "explanation",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/code-security/getting-started/github-security-features#secret-scanning-alerts-for-users"
   },
@@ -5775,10 +6250,12 @@
       "user",
       "user_id",
       "user_agent",
-      "user_programmatic_access_name",
-      "explanation",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "explanation",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -5808,10 +6285,11 @@
       "user",
       "user_id",
       "user_agent",
-      "user_programmatic_access_name",
-      "repository_selection",
+      "actor_is_bot",
       "created_at",
       "operation_type",
+      "repository_selection",
+      "user_programmatic_access_name",
       "user_programmatic_access_request_id"
     ]
   },
@@ -5842,11 +6320,13 @@
       "user",
       "user_id",
       "user_agent",
-      "user_programmatic_access_id",
-      "user_programmatic_access_name",
-      "repository_selection",
+      "actor_is_bot",
       "created_at",
       "operation_type",
+      "repositories",
+      "repository_selection",
+      "user_programmatic_access_id",
+      "user_programmatic_access_name",
       "user_programmatic_access_request_id"
     ],
     "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
@@ -5878,10 +6358,12 @@
       "user",
       "user_id",
       "user_agent",
-      "user_programmatic_access_name",
-      "repository_selection",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type",
+      "repository_selection",
+      "user_programmatic_access_name",
       "user_programmatic_access_request_id"
     ],
     "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
@@ -5913,10 +6395,12 @@
       "user",
       "user_id",
       "user_agent",
-      "user_programmatic_access_name",
-      "repository_selection",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "pat_field_changed",
+      "repository_selection",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens"
   },
@@ -5947,10 +6431,10 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "runner_group_id",
       "created_at",
-      "operation_type"
+      "name",
+      "operation_type",
+      "runner_group_id"
     ]
   },
   {
@@ -6011,10 +6495,10 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "runner_group_id",
       "created_at",
-      "operation_type"
+      "name",
+      "operation_type",
+      "runner_group_id"
     ]
   },
   {
@@ -6168,9 +6652,15 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
+      "integration",
+      "marketplace_listing",
+      "oauth_application",
+      "oauth_application_id",
+      "operation_type",
       "owner",
-      "operation_type"
+      "team"
     ],
     "docs_reference_titles": "Personalize your profile"
   },
@@ -6201,8 +6691,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -6232,12 +6722,18 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
+      "operation_type",
       "project_id",
-      "project_kind"
+      "project_kind",
+      "project_name",
+      "public_project",
+      "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Closing a project (classic)"
+    "docs_reference_titles": "Planning and tracking with Projects"
   },
   {
     "action": "project_collaborator.add",
@@ -6266,15 +6762,16 @@
       "user",
       "user_id",
       "user_agent",
-      "collaborator_type",
-      "collaborator",
-      "created_at",
-      "operation_type",
       "actor_is_bot",
-      "public_project",
+      "collaborator",
+      "collaborator_type",
+      "created_at",
+      "old_project_role",
+      "operation_type",
+      "project_id",
       "project_name",
       "project_role",
-      "old_project_role"
+      "public_project"
     ]
   },
   {
@@ -6304,10 +6801,16 @@
       "user",
       "user_id",
       "user_agent",
-      "collaborator_type",
+      "actor_is_bot",
       "collaborator",
+      "collaborator_type",
       "created_at",
-      "operation_type"
+      "old_project_role",
+      "operation_type",
+      "project_id",
+      "project_name",
+      "project_role",
+      "public_project"
     ]
   },
   {
@@ -6337,15 +6840,16 @@
       "user",
       "user_id",
       "user_agent",
-      "public_project",
-      "project_name",
-      "collaborator_type",
-      "project_role",
-      "old_project_role",
-      "project_id",
+      "actor_is_bot",
       "collaborator",
+      "collaborator_type",
       "created_at",
-      "operation_type"
+      "old_project_role",
+      "operation_type",
+      "project_id",
+      "project_name",
+      "project_role",
+      "public_project"
     ]
   },
   {
@@ -6375,8 +6879,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -6406,8 +6914,9 @@
       "user",
       "user_id",
       "user_agent",
+      "created_at",
       "operation_type",
-      "created_at"
+      "public_repo"
     ]
   },
   {
@@ -6437,8 +6946,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/issues/planning-and-tracking-with-projects/understanding-fields"
   },
@@ -6469,8 +6982,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/issues/planning-and-tracking-with-projects/understanding-fields/deleting-custom-fields"
   },
@@ -6501,8 +7019,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -6532,13 +7050,18 @@
       "user",
       "user_id",
       "user_agent",
-      "project_id",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
+      "operation_type",
+      "project_id",
       "project_kind",
-      "project_name"
+      "project_name",
+      "public_project",
+      "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "Reopening a closed project (classic)"
+    "docs_reference_titles": "Planning and tracking with Projects"
   },
   {
     "action": "project.rename",
@@ -6599,8 +7122,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -6630,8 +7153,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -6693,8 +7217,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -6724,8 +7252,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views"
   },
@@ -6756,8 +7288,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views"
   },
@@ -6788,11 +7324,15 @@
       "user",
       "user_id",
       "user_agent",
-      "project_id",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
+      "project_id",
       "project_kind",
-      "project_name"
+      "project_name",
+      "public_project",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -6822,11 +7362,15 @@
       "user",
       "user_id",
       "user_agent",
-      "project_id",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
+      "project_id",
       "project_kind",
-      "project_name"
+      "project_name",
+      "public_project",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -6856,11 +7400,15 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "merge_queue_enforcement_level",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "merge_queue_enforcement_level",
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-merge-queue"
   },
@@ -6891,12 +7439,17 @@
       "user",
       "user_id",
       "user_agent",
-      "read_only",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "key",
       "fingerprint",
-      "title"
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "read_only",
+      "title",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
   },
@@ -6927,13 +7480,18 @@
       "user",
       "user_id",
       "user_agent",
-      "fingerprint",
-      "read_only",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "explanation",
+      "fingerprint",
       "key",
+      "oauth_application_id",
       "operation_type",
+      "public_repo",
+      "read_only",
       "title",
-      "created_at"
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys"
   },
@@ -6964,12 +7522,13 @@
       "user",
       "user_id",
       "user_agent",
-      "title",
-      "key",
-      "fingerprint",
-      "read_only",
       "created_at",
-      "operation_type"
+      "fingerprint",
+      "key",
+      "operation_type",
+      "public_repo",
+      "read_only",
+      "title"
     ],
     "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
   },
@@ -7001,12 +7560,13 @@
       "user_id",
       "user_agent",
       "created_at",
-      "operation_type",
-      "title",
-      "key",
-      "read_only",
       "explanation",
-      "fingerprint"
+      "fingerprint",
+      "key",
+      "operation_type",
+      "public_repo",
+      "read_only",
+      "title"
     ],
     "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
   },
@@ -7037,12 +7597,17 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "fingerprint",
-      "read_only",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "title"
+      "fingerprint",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "read_only",
+      "title",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
   },
@@ -7073,13 +7638,17 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "fingerprint",
-      "oauth_application_id",
-      "title",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "fingerprint",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
       "read_only",
-      "operation_type"
+      "title",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
   },
@@ -7110,12 +7679,17 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "key",
       "fingerprint",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "read_only",
       "title",
-      "read_only"
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
   },
@@ -7146,10 +7720,15 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "visibility",
-      "previous_visibility"
+      "oauth_application_id",
+      "operation_type",
+      "previous_visibility",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility"
   },
@@ -7180,8 +7759,17 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "integration",
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "repository_selection",
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api"
   },
@@ -7212,10 +7800,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "oauth_application_id"
+      "permission",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "Inviting collaborators to a personal repository"
   },
@@ -7246,9 +7839,14 @@
       "user",
       "user_id",
       "user_agent",
-      "topic",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics"
   },
@@ -7279,9 +7877,15 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "actor_is_bot"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository"
   },
@@ -7312,10 +7916,15 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
+      "operation_type",
       "public_repo",
-      "actor_is_bot"
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository"
   },
@@ -7346,8 +7955,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
       "visibility"
     ],
     "docs_reference_titles": "/repositories/archiving-a-github-repository"
@@ -7379,11 +7993,14 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
       "public_repo",
-      "actor_is_bot"
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -7413,12 +8030,15 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "category",
+      "created_at",
       "oauth_application_id",
       "operation_type",
-      "created_at",
       "public_repo",
       "tool",
-      "category"
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository"
   },
@@ -7449,12 +8069,13 @@
       "user",
       "user_id",
       "user_agent",
-      "tool",
+      "actor_is_bot",
       "branch",
       "category",
-      "public_repo",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "public_repo",
+      "tool"
     ],
     "docs_reference_titles": "Resolving code scanning alerts"
   },
@@ -7485,8 +8106,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
   },
@@ -7517,8 +8143,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "topic"
     ],
     "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
   },
@@ -7549,8 +8179,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
   },
@@ -7581,9 +8216,13 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
   },
@@ -7614,8 +8253,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo"
     ],
     "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
   },
@@ -7646,8 +8288,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
   },
@@ -7678,10 +8324,13 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-a-repository"
   },
@@ -7712,14 +8361,16 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "operation_type",
-      "request_category",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
       "oauth_application_id",
-      "request_method",
+      "operation_type",
       "public_repo",
-      "actor_is_bot"
+      "request_category",
+      "request_method",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/creating-and-managing-repositories/creating-a-new-repository"
   },
@@ -7750,9 +8401,15 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "key",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "Using secrets in GitHub Actions"
   },
@@ -7783,11 +8440,15 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "visibility",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "Store information in variables"
   },
@@ -7818,12 +8479,16 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "visibility",
-      "integration",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "integration",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -7853,13 +8518,16 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "request_category",
-      "visibility",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "request_method",
       "oauth_application_id",
-      "actor_is_bot"
+      "operation_type",
+      "public_repo",
+      "request_category",
+      "request_method",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/creating-and-managing-repositories/deleting-a-repository"
   },
@@ -7890,11 +8558,17 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
+      "actor_is_agent",
+      "actor_is_bot",
       "cname",
       "created_at",
+      "oauth_application_id",
+      "old_cname",
       "operation_type",
-      "old_cname"
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -7924,9 +8598,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -7956,9 +8636,15 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "visibility",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -7988,9 +8674,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -8020,9 +8712,15 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "visibility",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -8052,9 +8750,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -8084,9 +8788,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -8116,10 +8826,12 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "public_repo",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "visibility"
     ]
   },
   {
@@ -8149,10 +8861,14 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -8182,9 +8898,15 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "visibility",
-      "created_at"
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -8214,8 +8936,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "operation_type",
-      "created_at"
+      "public_repo"
     ],
     "docs_reference_titles": "Adding self-hosted runners"
   },
@@ -8246,9 +8971,14 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "key",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Using secrets in GitHub Actions"
   },
@@ -8279,10 +9009,14 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Store information in variables"
   },
@@ -8313,11 +9047,15 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "integration",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "integration",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -8347,8 +9085,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
       "visibility"
     ],
     "docs_reference_titles": "Removing a collaborator from a personal repository"
@@ -8380,8 +9123,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Removing self-hosted runners"
   },
@@ -8412,9 +9160,14 @@
       "user",
       "user_id",
       "user_agent",
-      "topic",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -8444,9 +9197,14 @@
       "user",
       "user_id",
       "user_agent",
-      "old_name",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
+      "old_name",
       "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
       "visibility"
     ],
     "docs_reference_titles": "/repositories/creating-and-managing-repositories/renaming-a-repository"
@@ -8478,8 +9236,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "operation_type",
-      "created_at"
+      "public_repo"
     ]
   },
   {
@@ -8509,11 +9269,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "policy",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "public_repo"
+      "policy",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks"
   },
@@ -8544,11 +9308,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type",
       "policy",
       "public_repo",
-      "created_at",
-      "operation_type"
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories"
   },
@@ -8579,10 +9347,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "limit",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository"
   },
@@ -8613,10 +9386,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "default_workflow_permissions_value",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository"
   },
@@ -8647,10 +9425,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "policy",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "policy",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks"
   },
@@ -8681,10 +9464,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility",
+      "workflow_permission_can_approve_pr_value"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
@@ -8715,8 +9503,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "public_repo"
     ]
   },
   {
@@ -8746,9 +9536,11 @@
       "user",
       "user_id",
       "user_agent",
-      "public_repo",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo"
     ],
     "docs_reference_titles": "Accessing user-owned repositories in your enterprise"
   },
@@ -8779,12 +9571,15 @@
       "user",
       "user_id",
       "user_agent",
-      "owner",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "old_user",
       "operation_type",
-      "created_at",
-      "visibility",
-      "repo_was"
+      "owner",
+      "public_repo",
+      "repo_was",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/creating-and-managing-repositories/transferring-a-repository"
   },
@@ -8815,11 +9610,13 @@
       "user",
       "user_id",
       "user_agent",
-      "new_nwo",
-      "visibility",
+      "actor_is_bot",
       "created_at",
+      "new_nwo",
+      "oauth_application_id",
       "operation_type",
-      "public_repo"
+      "public_repo",
+      "visibility"
     ]
   },
   {
@@ -8849,8 +9646,11 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
       "visibility"
     ]
   },
@@ -8881,8 +9681,13 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
       "visibility"
     ],
     "docs_reference_titles": "/repositories/archiving-a-github-repository"
@@ -8914,11 +9719,11 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "policy",
-      "old_policy",
       "created_at",
-      "operation_type"
+      "old_policy",
+      "operation_type",
+      "policy",
+      "visibility"
     ]
   },
   {
@@ -8948,10 +9753,15 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "key",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "Using secrets in GitHub Actions"
   },
@@ -8982,13 +9792,21 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
       "new_policy",
+      "oauth_application_id",
       "old_policy",
+      "operation_type",
+      "public_repo",
       "updated_access_policy",
-      "actor_is_bot"
+      "updated_allowed_types",
+      "updated_github_owned_allowed",
+      "updated_patterns",
+      "updated_verified_allowed",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -9018,11 +9836,15 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "visibility",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ],
     "docs_reference_titles": "Store information in variables"
   },
@@ -9053,10 +9875,15 @@
       "user",
       "user_id",
       "user_agent",
-      "visibility",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "actor_is_bot"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "topic",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -9086,12 +9913,16 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "visibility",
-      "integration",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "integration",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -9121,17 +9952,20 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "oauth_application_id",
-      "operation_type",
-      "visibility",
-      "old_permission",
-      "old_base_role",
-      "old_repo_permission",
-      "old_repo_base_role",
       "new_repo_base_role",
       "new_repo_permission",
-      "actor_is_bot"
+      "oauth_application_id",
+      "old_base_role",
+      "old_permission",
+      "old_repo_base_role",
+      "old_repo_permission",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -9161,9 +9995,11 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_bot",
+      "content_type",
       "created_at",
-      "content_type"
+      "operation_type",
+      "public_repo"
     ]
   },
   {
@@ -9193,9 +10029,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "content_type",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "public_repo"
     ]
   },
   {
@@ -9225,10 +10063,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "invitee",
+      "inviter",
+      "oauth_application_id",
       "operation_type",
-      "inviter"
+      "public_repo"
     ]
   },
   {
@@ -9258,10 +10099,15 @@
       "user",
       "user_id",
       "user_agent",
-      "inviter",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "invitee",
-      "created_at"
+      "inviter",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -9291,10 +10137,15 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
+      "created_at",
       "invitee",
       "inviter",
-      "created_at",
-      "operation_type"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -9324,10 +10175,13 @@
       "user",
       "user_id",
       "user_agent",
-      "invitee",
-      "operation_type",
+      "actor_is_bot",
       "created_at",
-      "inviter"
+      "invitee",
+      "inviter",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo"
     ]
   },
   {
@@ -9357,17 +10211,21 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "name",
+      "oauth_application_id",
       "operation_type",
+      "public_repo",
+      "ruleset_bypass_actors",
+      "ruleset_conditions",
+      "ruleset_enforcement",
       "ruleset_id",
       "ruleset_name",
-      "ruleset_enforcement",
-      "ruleset_source_type",
       "ruleset_rules",
-      "ruleset_conditions",
-      "ruleset_bypass_actors"
+      "ruleset_source_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository"
   },
@@ -9398,16 +10256,21 @@
       "user",
       "user_id",
       "user_agent",
-      "name",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "name",
+      "oauth_application_id",
       "operation_type",
+      "public_repo",
+      "ruleset_bypass_actors",
+      "ruleset_conditions",
+      "ruleset_enforcement",
       "ruleset_id",
       "ruleset_name",
-      "ruleset_enforcement",
-      "ruleset_source_type",
       "ruleset_rules",
-      "ruleset_bypass_actors"
+      "ruleset_source_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#deleting-a-ruleset"
   },
@@ -9438,26 +10301,29 @@
       "user",
       "user_id",
       "user_agent",
-      "old_name",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
+      "old_name",
       "operation_type",
-      "ruleset_id",
-      "ruleset_name",
-      "ruleset_enforcement",
-      "ruleset_source_type",
-      "ruleset_rules_updated",
-      "ruleset_conditions_added",
-      "ruleset_conditions_deleted",
-      "ruleset_old_enforcement",
-      "ruleset_rules_added",
-      "ruleset_rules_deleted",
-      "ruleset_old_name",
-      "ruleset_conditions_updated",
+      "public_repo",
       "ruleset_bypass_actors_added",
       "ruleset_bypass_actors_deleted",
       "ruleset_bypass_actors_updated",
-      "actor_is_bot"
+      "ruleset_conditions_added",
+      "ruleset_conditions_deleted",
+      "ruleset_conditions_updated",
+      "ruleset_enforcement",
+      "ruleset_id",
+      "ruleset_name",
+      "ruleset_old_enforcement",
+      "ruleset_old_name",
+      "ruleset_rules_added",
+      "ruleset_rules_deleted",
+      "ruleset_rules_updated",
+      "ruleset_source_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#editing-a-ruleset"
   },
@@ -9488,6 +10354,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -9519,8 +10386,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -9550,9 +10418,9 @@
       "user",
       "user_id",
       "user_agent",
-      "sponsors_listing_id",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "sponsors_listing_id"
     ]
   },
   {
@@ -9582,9 +10450,9 @@
       "user",
       "user_id",
       "user_agent",
-      "sponsors_listing_id",
+      "created_at",
       "operation_type",
-      "created_at"
+      "sponsors_listing_id"
     ],
     "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers"
   },
@@ -9615,9 +10483,10 @@
       "user",
       "user_id",
       "user_agent",
-      "sponsors_listing_id",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "sponsors_listing_id"
     ]
   },
   {
@@ -9647,8 +10516,13 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "public_repo",
+      "topic",
+      "visibility"
     ],
     "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository"
   },
@@ -9679,8 +10553,11 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "active",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ],
     "docs_reference_titles": "Downgrading a sponsorship"
   },
@@ -9711,8 +10588,10 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "active",
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ],
     "docs_reference_titles": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
   },
@@ -9744,6 +10623,7 @@
       "user_id",
       "user_agent",
       "active",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ],
@@ -9776,7 +10656,10 @@
       "user",
       "user_id",
       "user_agent",
+      "active",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship"
@@ -9808,8 +10691,10 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "active",
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ],
     "docs_reference_titles": "Upgrading a sponsorship, Downgrading a sponsorship"
   },
@@ -9840,8 +10725,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "operation_type",
-      "created_at"
+      "sponsors_listing_id"
     ],
     "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
   },
@@ -9872,8 +10759,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "sponsors_listing_id"
     ],
     "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
   },
@@ -9904,9 +10794,10 @@
       "user",
       "user_id",
       "user_agent",
-      "sponsors_listing_id",
+      "actor_is_bot",
+      "created_at",
       "operation_type",
-      "created_at"
+      "sponsors_listing_id"
     ]
   },
   {
@@ -9936,8 +10827,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "sponsors_listing_id"
     ],
     "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors"
   },
@@ -9968,8 +10862,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "sponsors_listing_id"
     ]
   },
   {
@@ -9999,8 +10895,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "operation_type",
-      "created_at"
+      "sponsors_listing_id"
     ],
     "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
   },
@@ -10031,8 +10929,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "sponsors_listing_id"
     ],
     "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers"
   },
@@ -10063,8 +10964,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ],
     "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors"
   },
@@ -10095,10 +10997,11 @@
       "user",
       "user_id",
       "user_agent",
-      "patreon_email",
-      "patreon_username",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "patreon_email",
+      "patreon_username"
     ],
     "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/enabling-sponsorships-through-patreon#linking-your-patreon-account-to-your-github-account"
   },
@@ -10129,10 +11032,11 @@
       "user",
       "user_id",
       "user_agent",
-      "patreon_email",
-      "patreon_username",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "patreon_email",
+      "patreon_username"
     ],
     "docs_reference_titles": "Unlinking your Patreon account from GitHub"
   },
@@ -10163,9 +11067,11 @@
       "user",
       "user_id",
       "user_agent",
-      "sponsors_listing_id",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "public_repo",
+      "sponsors_listing_id"
     ]
   },
   {
@@ -10195,9 +11101,11 @@
       "user",
       "user_id",
       "user_agent",
-      "sponsors_listing_id",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "public_repo",
+      "sponsors_listing_id"
     ]
   },
   {
@@ -10227,8 +11135,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "sponsors_listing_id"
     ],
     "docs_reference_titles": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
   },
@@ -10259,9 +11170,9 @@
       "user",
       "user_id",
       "user_agent",
-      "sponsors_listing_id",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "sponsors_listing_id"
     ]
   },
   {
@@ -10291,11 +11202,14 @@
       "user",
       "user_id",
       "user_agent",
-      "title",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "actor_is_bot"
+      "public_repo",
+      "title",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -10325,11 +11239,14 @@
       "user",
       "user_id",
       "user_agent",
-      "title",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "actor_is_bot"
+      "public_repo",
+      "title",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -10359,11 +11276,14 @@
       "user",
       "user_id",
       "user_agent",
-      "title",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "actor_is_bot"
+      "public_repo",
+      "title",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -10393,11 +11313,14 @@
       "user",
       "user_id",
       "user_agent",
-      "title",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "actor_is_bot"
+      "public_repo",
+      "title",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -10427,8 +11350,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ],
     "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
   },
@@ -10459,8 +11382,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ],
     "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
   },
@@ -10491,8 +11414,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ],
     "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
   },
@@ -10523,8 +11446,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ],
     "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
   },
@@ -10555,8 +11479,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -10586,8 +11510,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ],
     "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
   },
@@ -10618,8 +11543,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -10649,8 +11574,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -10804,8 +11729,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -10835,8 +11760,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -10866,8 +11792,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -10897,6 +11823,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ],
@@ -10929,6 +11856,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ],
@@ -10961,8 +11889,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ],
     "docs_reference_titles": "Configuring two-factor authentication"
   },
@@ -10993,8 +11922,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -11024,8 +11953,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -11055,6 +11985,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ],
@@ -11087,8 +12018,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -11149,9 +12080,12 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_bot",
+      "created_at",
       "email",
-      "created_at"
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Adding an email address to your GitHub account"
   },
@@ -11182,6 +12116,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -11213,8 +12148,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "operation_type",
-      "created_at"
+      "query_phrase"
     ]
   },
   {
@@ -11244,9 +12181,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "blocked_user",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -11276,8 +12216,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -11307,8 +12248,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "public_repo",
+      "user_programmatic_access_name"
     ],
     "docs_reference_titles": "Managing access to other repositories within your codespace"
   },
@@ -11339,8 +12284,9 @@
       "user",
       "user_id",
       "user_agent",
+      "created_at",
       "operation_type",
-      "created_at"
+      "topic"
     ],
     "docs_reference_titles": "Managing access to other repositories within your codespace"
   },
@@ -11371,9 +12317,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "email",
-      "operation_type",
-      "created_at"
+      "oauth_application_id",
+      "operation_type"
     ]
   },
   {
@@ -11403,11 +12351,14 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "visibility",
-      "integration",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "integration",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -11437,9 +12388,11 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
       "operation_type",
-      "oauth_application_id"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -11469,8 +12422,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -11500,8 +12454,8 @@
       "user",
       "user_id",
       "user_agent",
-      "oauth_application_id",
       "created_at",
+      "oauth_application_id",
       "operation_type"
     ]
   },
@@ -11563,6 +12517,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -11594,8 +12549,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -11625,13 +12581,14 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
     "action": "user.disable_collaborators_only",
-    "description": "N/A",
+    "description": "The interaction limit for collaborators only was disabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -11656,13 +12613,15 @@
       "user",
       "user_id",
       "user_agent",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
     "action": "user.disable_contributors_only",
-    "description": "N/A",
+    "description": "The interaction limit for prior contributors only was disabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -11687,13 +12646,14 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "oauth_application_id",
+      "operation_type"
     ]
   },
   {
     "action": "user.disable_sockpuppet_disallowed",
-    "description": "N/A",
+    "description": "The interaction limit for existing users only was disabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -11718,8 +12678,10 @@
       "user",
       "user_id",
       "user_agent",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -11749,9 +12711,9 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type",
-      "actor_is_bot"
+      "operation_type"
     ]
   },
   {
@@ -11781,15 +12743,15 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type",
-      "actor_is_bot"
+      "operation_type"
     ],
     "docs_reference_titles": "An, GitHub Help Documentation, managed, user, unclaimed, an, email, address."
   },
   {
     "action": "user.enable_collaborators_only",
-    "description": "N/A",
+    "description": "The interaction limit for collaborators only was enabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -11814,13 +12776,15 @@
       "user",
       "user_id",
       "user_agent",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
     "action": "user.enable_contributors_only",
-    "description": "N/A",
+    "description": "The interaction limit for prior contributors only was enabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -11845,13 +12809,15 @@
       "user",
       "user_id",
       "user_agent",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
     "action": "user.enable_sockpuppet_disallowed",
-    "description": "N/A",
+    "description": "The interaction limit for existing users only was enabled for a personal account.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -11876,8 +12842,10 @@
       "user",
       "user_id",
       "user_agent",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -11907,8 +12875,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -11938,9 +12907,10 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_bot",
+      "created_at",
       "email",
-      "created_at"
+      "operation_type"
     ],
     "docs_reference_titles": "/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials"
   },
@@ -12002,6 +12972,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ],
@@ -12034,8 +13005,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_bot",
       "created_at",
+      "operation_type",
       "passkey_nickname"
     ]
   },
@@ -12066,6 +13038,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -12097,8 +13070,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -12191,9 +13165,12 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_bot",
       "created_at",
-      "email"
+      "email",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -12223,10 +13200,13 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "integration",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "integration",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -12256,8 +13236,11 @@
       "user",
       "user_id",
       "user_agent",
-      "old_login",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
+      "old_login",
       "operation_type"
     ]
   },
@@ -12288,6 +13271,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -12319,6 +13303,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -12350,8 +13335,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ],
     "docs_reference_titles": "Manage visibility settings for private contributions"
   },
@@ -12382,8 +13368,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -12413,6 +13400,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -12444,11 +13432,15 @@
       "user",
       "user_id",
       "user_agent",
-      "message",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "limited_availability",
       "emoji",
-      "operation_type"
+      "limited_availability",
+      "message",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -12478,10 +13470,12 @@
       "user",
       "user_id",
       "user_agent",
-      "limited_availability",
-      "message",
+      "actor_is_bot",
       "created_at",
       "emoji",
+      "limited_availability",
+      "message",
+      "oauth_application_id",
       "operation_type"
     ],
     "docs_reference_titles": "Personalize your profile"
@@ -12513,9 +13507,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "oauth_application_id",
-      "operation_type",
-      "created_at"
+      "operation_type"
     ]
   },
   {
@@ -12545,8 +13540,8 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -12576,8 +13571,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -12607,8 +13603,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -12638,8 +13635,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -12669,8 +13667,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -12700,8 +13699,9 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
-      "created_at"
+      "actor_is_bot",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -12731,6 +13731,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -12762,6 +13763,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ],
@@ -12794,9 +13796,12 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "blocked_user",
+      "created_at",
+      "oauth_application_id",
       "operation_type",
-      "created_at"
+      "user_programmatic_access_name"
     ]
   },
   {
@@ -12826,9 +13831,10 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
+      "created_at",
       "oauth_application_id",
-      "operation_type",
-      "created_at"
+      "operation_type"
     ]
   },
   {
@@ -12858,11 +13864,14 @@
       "user",
       "user_id",
       "user_agent",
-      "key",
-      "visibility",
-      "integration",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "integration",
+      "key",
+      "oauth_application_id",
+      "operation_type",
+      "user_programmatic_access_name",
+      "visibility"
     ]
   },
   {
@@ -12892,6 +13901,7 @@
       "user",
       "user_id",
       "user_agent",
+      "actor_is_bot",
       "created_at",
       "operation_type"
     ]
@@ -12923,11 +13933,16 @@
       "user",
       "user_id",
       "user_agent",
-      "workflow_run_id",
-      "run_number",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "run_number",
+      "topic",
+      "user_programmatic_access_name",
+      "workflow_run_id"
     ],
     "docs_reference_titles": "Reviewing deployments"
   },
@@ -12958,11 +13973,12 @@
       "user",
       "user_id",
       "user_agent",
-      "workflow_run_id",
-      "run_number",
-      "public_repo",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "public_repo",
+      "run_number",
+      "workflow_run_id"
     ]
   },
   {
@@ -12992,11 +14008,13 @@
       "user",
       "user_id",
       "user_agent",
-      "workflow_run_id",
-      "run_number",
-      "public_repo",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "public_repo",
+      "run_number",
+      "workflow_run_id"
     ]
   },
   {
@@ -13026,13 +14044,23 @@
       "user",
       "user_id",
       "user_agent",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "workflow_run_id",
-      "started_at",
+      "event",
       "head_branch",
       "head_sha",
-      "trigger_id"
+      "name",
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "run_number",
+      "started_at",
+      "topic",
+      "trigger_id",
+      "user_programmatic_access_name",
+      "workflow_id",
+      "workflow_run_id"
     ],
     "docs_reference_titles": "Deleting a workflow run"
   },
@@ -13063,11 +14091,14 @@
       "user",
       "user_id",
       "user_agent",
-      "workflow_id",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
+      "oauth_application_id",
+      "operation_type",
       "public_repo",
-      "actor_is_bot"
+      "user_programmatic_access_name",
+      "workflow_id"
     ]
   },
   {
@@ -13097,10 +14128,14 @@
       "user",
       "user_id",
       "user_agent",
-      "workflow_id",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "user_programmatic_access_name",
+      "workflow_id"
     ]
   },
   {
@@ -13130,11 +14165,11 @@
       "user",
       "user_id",
       "user_agent",
-      "public_repo",
-      "workflow_id",
+      "actor_is_bot",
       "created_at",
       "operation_type",
-      "actor_is_bot"
+      "public_repo",
+      "workflow_id"
     ]
   },
   {
@@ -13164,11 +14199,15 @@
       "user",
       "user_id",
       "user_agent",
-      "workflow_run_id",
-      "run_number",
-      "operation_type",
+      "actor_is_agent",
+      "actor_is_bot",
       "created_at",
-      "public_repo"
+      "oauth_application_id",
+      "operation_type",
+      "public_repo",
+      "run_number",
+      "user_programmatic_access_name",
+      "workflow_run_id"
     ],
     "docs_reference_titles": "Reviewing deployments"
   },
@@ -13199,11 +14238,11 @@
       "user",
       "user_id",
       "user_agent",
-      "public_repo",
-      "workflow_id",
+      "actor_is_bot",
       "created_at",
       "operation_type",
-      "actor_is_bot"
+      "public_repo",
+      "workflow_id"
     ]
   }
 ]

@@ -82,7 +82,7 @@ If you merged multiple personal accounts, issues, pull requests, and discussions
 ## How contribution event times are calculated
 
 Timestamps are calculated differently for commits and pull requests:
-* **Commits** use the time zone information in the commit timestamp. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline).
+* **Commits** use the time zone information in the commit timestamp. For more information, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/viewing-commit-details-from-your-timeline).
 * **Pull requests** and **issues** opened on {% data variables.product.github %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
 ## How GitHub uses the Git author date and commit date
@@ -91,7 +91,7 @@ In Git, the author date is when someone first creates a commit with `git commit`
 
 On your profile page, the author date is used to calculate when a commit was made. Whereas, in a repository, the commit date is used to calculate when a commit was made in the repository.
 
-Most often, the author date and commit date are the same but you may notice that your commit sequence is out of order if the commit history is changed. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile).
+Most often, the author date and commit date are the same but you may notice that your commit sequence is out of order if the commit history is changed. For more information, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/troubleshooting-missing-contributions).
 
 ## Sharing contributions from {% data variables.product.prodname_ghe_server %}
 

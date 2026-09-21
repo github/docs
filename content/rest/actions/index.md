@@ -15,9 +15,11 @@ versions:
 children:
   - /artifacts
   - /cache
+  - /concurrency-groups
   - /hosted-runners
   - /oidc
   - /permissions
+  - /policies
   - /secrets
   - /self-hosted-runner-groups
   - /self-hosted-runners

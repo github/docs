@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Update enterprise release dates from github/enterprise-releases
+ */
 // [start-readme]
 //
 // This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json
@@ -40,7 +44,6 @@ if (!process.env.GITHUB_TOKEN) {
 main()
 
 async function main(): Promise<void> {
-  // send owner, repo, ref, path
   let rawDates: RawReleaseData = {}
   try {
     rawDates = JSON.parse(

@@ -6,14 +6,20 @@ intro: Learn how {% data variables.product.prodname_copilot %} can independently
 versions:
   feature: copilot
 children:
-  - /coding-agent
+  - /cloud-agent
   - /copilot-cli
+  - /github-copilot-app
+  - /copilot-in-jetbrains
   - /code-review
+  - /about-github-agentic-workflows
   - /copilot-memory
-  - /about-third-party-agents
+  - /hooks
+  - /about-plugins
+  - /about-third-party-coding-agents
+  - /agent-apps
   - /openai-codex
   - /anthropic-claude
   - /about-agent-skills
-  - /enterprise-management
 contentType: concepts
 ---
+

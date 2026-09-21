@@ -1,14 +1,16 @@
 ---
 title: How-tos for bypass requests
 shortTitle: Manage bypass requests
-intro: Learn how to use the delegated bypass feature.
+intro: Control when contributors can push secrets by granting exemptions or bypass permissions to trusted actors.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: how-tos
 children:
-  - /enabling-delegated-bypass-for-push-protection
-  - /managing-requests-to-bypass-push-protection
-  - /reviewing-requests-to-bypass-push-protection
+  - /enable-delegated-bypass
+  - /grant-exemptions
+  - /manage-bypass-requests
+  - /review-bypass-requests
 ---
+

@@ -11,6 +11,7 @@
    > [!NOTE]
    > * For {% data variables.product.premium_support_plan %}, {% data variables.product.premium_plus_support_plan %}, or {% data variables.product.microsoft_premium_plus_support_plan %} support, you need to choose an enterprise account with a {% data variables.contact.premium_support %} plan. If you don't see an Enterprises section in the dropdown menu, you're not entitled to open support tickets on behalf of an enterprise account. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-support#about-support-entitlement)
    > * To see a list of your enterprise accounts with a {% data variables.contact.premium_support %} plan, you must be signed into the {% data variables.contact.enterprise_portal %}. For more information, see [AUTOTITLE](/support/contacting-github-support/getting-your-enterprise-started-with-the-github-support-portal).
+   > * If there is a mismatch between the account you select and the identity or topic you are discussing, {% data variables.contact.github_support %} may instruct or require you to open a new ticket linked to the correct account.
 
 {% endif %}
 1. Select the **From** dropdown menu and click the email address you'd like {% data variables.contact.github_support %} to contact.

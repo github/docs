@@ -1,0 +1,55 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI Check Fixture",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.github.com"
+    }
+  ],
+  "paths": {
+    "/fixture/test": {
+      "get": {
+        "summary": "Test endpoint for openapi-check validation",
+        "operationId": "fixture/test",
+        "tags": ["fixture"],
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://docs.github.com/rest"
+        },
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "message": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "category": "fixture",
+          "subcategory": "test"
+        }
+      }
+    }
+  }
+}

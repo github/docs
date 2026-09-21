@@ -24,6 +24,7 @@ In this guide, you’ll get started with GitHub and sign up for accounts and dis
 ### Creating a free personal account
 
 {% data reusables.accounts.create-account %}
+
 1. Follow the prompts to create your free personal account.
 
 ### Creating an organization
@@ -31,6 +32,7 @@ In this guide, you’ll get started with GitHub and sign up for accounts and dis
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
+
 1. Follow the prompts to create a free organization.
 
 For more information, see [Get Started](/get-started/learning-about-github/types-of-github-accounts).

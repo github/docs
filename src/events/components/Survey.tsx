@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { Link } from '@/frame/components/Link'
@@ -9,6 +8,7 @@ import { sendEvent } from '@/events/components/events'
 import { EventType } from '../types'
 
 import styles from './Survey.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 enum ViewState {
   START = 'START',
@@ -110,7 +110,7 @@ export const Survey = () => {
       data-testid="survey-form"
       aria-live="polite"
     >
-      <h3 id="survey-title" className="f4 mb-3">{t`able_to_find`}</h3>
+      <h3 id="survey-title">{t`able_to_find`}</h3>
 
       {/* Honeypot: token isn't a real field */}
       <input
@@ -140,10 +140,6 @@ export const Survey = () => {
             )}
             htmlFor="survey-yes"
           >
-            <ThumbsupIcon
-              size={16}
-              className={voteState === VoteState.YES ? 'color-fg-on-emphasis' : 'color-fg-muted'}
-            />{' '}
             {t`yes`}
           </label>
           <input
@@ -163,10 +159,6 @@ export const Survey = () => {
             )}
             htmlFor="survey-no"
           >
-            <ThumbsdownIcon
-              size={16}
-              className={voteState === VoteState.NO ? 'color-fg-on-emphasis' : 'color-fg-muted'}
-            />{' '}
             {t`no`}
           </label>
         </div>
@@ -187,7 +179,7 @@ export const Survey = () => {
               <span>{t`additional_feedback`}</span>
             </label>
             <textarea
-              className="form-control input-sm width-full"
+              className={cx('form-control input-sm width-full', styles.accessibleBorder)}
               name="survey-comment"
               id="survey-comment"
               value={comment}
@@ -201,7 +193,10 @@ export const Survey = () => {
             </label>
             <input
               type="email"
-              className="form-control input-sm width-full color-bg-transparent"
+              className={cx(
+                'form-control input-sm width-full color-bg-transparent',
+                styles.accessibleBorder,
+              )}
               name="survey-email"
               id="survey-email"
               value={email}
@@ -216,10 +211,7 @@ export const Survey = () => {
             )}
           </div>
 
-          <span
-            className="f6 color-fg-muted"
-            dangerouslySetInnerHTML={{ __html: t`not_support` }}
-          ></span>
+          <RenderedHTML as="span" className="f6 color-fg-muted" html={t`not_support`} />
           <div className="d-flex flex-justify-end flex-items-center mt-3">
             <button
               type="button"
@@ -241,13 +233,15 @@ export const Survey = () => {
         <p role="status" className="color-fg-muted f6" data-testid="survey-end">{t`feedback`}</p>
       )}
 
-      <Link
-        className="f6"
-        href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
-        target="_blank"
-      >
-        {t`privacy_policy`}
-      </Link>
+      {(voteState || state === ViewState.END) && (
+        <Link
+          className="f6"
+          href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
+          target="_blank"
+        >
+          {t`privacy_policy`}
+        </Link>
+      )}
     </form>
   )
 }

@@ -14,7 +14,7 @@ category:
 
 {% data reusables.enterprise_installation.hotpatching-explanation %}
 
-Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. You can use the administrative shell to install a hotpatch with the `ghe-upgrade` utility. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process) and [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements).
+Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. You can use the administrative shell to install a hotpatch with the `ghe-upgrade` utility. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process) and [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/upgrade-requirements).
 
 ## Upgrading a standalone instance using a hotpatch
 
@@ -29,7 +29,7 @@ You can use the {% data variables.enterprise.management_console %} to upgrade wi
 
 If the upgrade target you're presented with is a feature release instead of a patch release, you cannot use the {% data variables.enterprise.management_console %} to install a hotpatch. You must install the hotpatch using the administrative shell instead.
 
-1. Enable automatic updates. For more information, see [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks).
+1. Enable automatic updates. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks).
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.updates-tab %}

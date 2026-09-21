@@ -43,14 +43,14 @@ Now that you understand the basics, you can start monitoring usage and tracking 
 With insight into your spending patterns, you can take proactive steps to manage costs and prevent budget overruns.
 
 * Learn how budgets and alerts allow you to track and control spending. See [AUTOTITLE](/billing/concepts/budgets-and-alerts).
-* Set up budgets and alerts to proactively address potential overspending before it becomes a problem. See [AUTOTITLE](/billing/tutorials/set-up-budgets).
+* Set up budgets and alerts to proactively address potential overspending before it becomes a problem. See [AUTOTITLE](/billing/how-tos/set-up-budgets).
 * Adjust budgets and thresholds as your organization grows or usage patterns change.
 
 ## 4. Attribute costs (enterprise only)
 
 If you manage an enterprise account, you can use cost centers to organize and track spending across different teams and business units.
 
-* Organize spend with cost centers to help you see which teams, projects, or business units are responsible for portions of your {% data variables.product.github %} bill. See [AUTOTITLE](/billing/tutorials/use-cost-centers).
+* Organize spend with cost centers to help you see which teams, projects, or business units are responsible for portions of your {% data variables.product.github %} bill. See [AUTOTITLE](/billing/how-tos/products/use-cost-centers).
 * Attribute parts of the bill to specific teams to increase visibility and accountability.
 * Compare groups and identify opportunities for optimization.
 
@@ -66,5 +66,5 @@ As a billing manager, you'll need to work closely with other stakeholders to sha
 
 Now that you understand how billing works on {% data variables.product.github %}, you can look at tutorials to learn how to perform specific tasks.
 
-* To estimate your spending and make informed decisions towards optimal budgeting, see [AUTOTITLE](/billing/tutorials/estimate-spending).
+* To estimate your spending and make informed decisions towards optimal budgeting, see [AUTOTITLE](/billing/how-tos/products/estimate-spending).
 * To find which teams or members drive most of your usage and who's using what, see [AUTOTITLE](/billing/tutorials/gather-insights).

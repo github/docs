@@ -17,6 +17,6 @@ category:
 
 ## About {% data variables.product.prodname_dependabot_alerts %}
 
-You can view {% data variables.product.prodname_dependabot %} alerts for a repository and update individual alerts with the REST API. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+You can view {% data variables.product.prodname_dependabot %} alerts for a repository and update individual alerts with the REST API. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts).
 
 <!-- Content after this section is automatically generated -->

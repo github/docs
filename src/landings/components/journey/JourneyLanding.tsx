@@ -5,7 +5,8 @@ import { JourneyLearningTracks } from './JourneyLearningTracks'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 export const JourneyLanding = () => {
-  const { title, intro, heroImage, introLinks, journeyTracks } = useLandingContext()
+  const { title, intro, heroImage, introLinks, journeyTracks, journeyArticlesHeading } =
+    useLandingContext()
 
   return (
     <DefaultLayout>
@@ -14,7 +15,10 @@ export const JourneyLanding = () => {
         <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
 
         <div className="container-xl px-3 px-md-6 mt-6 mb-4">
-          <JourneyLearningTracks tracks={journeyTracks ?? []} />
+          <JourneyLearningTracks
+            tracks={journeyTracks ?? []}
+            articlesHeading={journeyArticlesHeading}
+          />
         </div>
       </div>
     </DefaultLayout>

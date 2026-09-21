@@ -24,7 +24,7 @@ category:
 
 As an enterprise owner, you can allow end users to send anonymized contribution counts for their work from {% data variables.location.product_location %} to their contribution graph on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}.
 
-After you enable {% data variables.enterprise.prodname_unified_contributions %}, before individual users can send contribution counts from {% data variables.location.product_location %} to {% data variables.product.prodname_ghe_cloud %}, each user must also connect their user account on {% data variables.product.prodname_ghe_server %} with an account on {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile).
+After you enable {% data variables.enterprise.prodname_unified_contributions %}, before individual users can send contribution counts from {% data variables.location.product_location %} to {% data variables.product.prodname_ghe_cloud %}, each user must also connect their user account on {% data variables.product.prodname_ghe_server %} with an account on {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/sharing-contributions-from-github-enterprise-server).
 
 {% data reusables.github-connect.sync-frequency %}
 

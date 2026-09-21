@@ -2,7 +2,7 @@ import assert from 'assert'
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
-import yaml from 'js-yaml'
+import { loadYaml } from '@/frame/lib/load-yaml'
 import { isRegExp, setWith } from 'lodash-es'
 import filenameToKey from './filename-to-key'
 import matter from '@gr2m/gray-matter'
@@ -31,21 +31,17 @@ export default function dataDirectory(
 
   const mergedOpts = Object.assign({}, defaultOpts, opts)
 
-  // validate input
   assert(Array.isArray(mergedOpts.ignorePatterns))
   assert(mergedOpts.ignorePatterns.every(isRegExp))
   assert(Array.isArray(mergedOpts.extensions))
   assert(mergedOpts.extensions.length)
 
-  // start with an empty data object
   const data: DataDirectoryResult = {}
 
   // find YAML and Markdown files in the given directory, recursively
   const filenames = walk(dir, { includeBasePath: true }).filter((filename: string) => {
-    // ignore files that match any of ignorePatterns regexes
     if (mergedOpts.ignorePatterns.some((pattern) => pattern.test(filename))) return false
 
-    // ignore files that don't have a whitelisted file extension
     return mergedOpts.extensions.includes(path.extname(filename).toLowerCase())
   })
 
@@ -74,7 +70,7 @@ export default function dataDirectory(
         setWith(data, key, JSON.parse(processedContent), Object)
         break
       case '.yml':
-        setWith(data, key, yaml.load(processedContent, { filename }), Object)
+        setWith(data, key, loadYaml(processedContent, { filename }), Object)
         break
       case '.md':
       case '.markdown':

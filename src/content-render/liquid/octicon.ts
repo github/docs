@@ -1,20 +1,5 @@
-import { TokenizationError } from 'liquidjs'
+import { TokenizationError, type TagToken } from 'liquidjs'
 import octicons from '@primer/octicons'
-
-// Note: Using 'any' for liquidjs-related types because liquidjs doesn't provide comprehensive TypeScript definitions
-interface LiquidTag {
-  icon: string
-  options: Record<string, string>
-  parse(tagToken: any): void
-  render(): Promise<string>
-}
-
-interface OcticonsMatch {
-  groups: {
-    icon: string
-    options?: string
-  }
-}
 
 const OptionsSyntax = /([a-zA-Z-]+)="([\w\s-]+)"*/g
 const Syntax = new RegExp(`"(?<icon>[a-zA-Z-]+)"(?<options>(?:\\s${OptionsSyntax.source})*)`)
@@ -30,17 +15,16 @@ const SyntaxHelp = 'Syntax Error in tag \'octicon\' - Valid syntax: octicon "<na
  * {% octicon "check" %} <!-- auto-generates aria-label="check icon" -->
  * {% octicon "check" width="64" aria-label="Example label" %}
  */
-const Octicon: LiquidTag = {
+const Octicon = {
   icon: '',
-  options: {},
+  options: {} as Record<string, string>,
 
-  parse(tagToken: any): void {
-    const match: OcticonsMatch | null = tagToken.args.match(Syntax)
-    if (!match) {
+  parse(tagToken: TagToken): void {
+    const match = tagToken.args.match(Syntax)
+    if (!match || !match.groups) {
       throw new TokenizationError(SyntaxHelp, tagToken)
     }
 
-    // Memoize the icon
     this.icon = match.groups.icon
     // Breaking change in octicons 12
     // https://github.com/primer/octicons/releases/tag/v12.0.0
@@ -51,29 +35,24 @@ const Octicon: LiquidTag = {
 
     this.options = {}
 
-    // Memoize any options passed
     if (match.groups.options) {
       let optionsMatch: RegExpExecArray | null
 
-      // Loop through each option matching the OptionsSyntax regex
       while ((optionsMatch = OptionsSyntax.exec(match.groups.options))) {
         // Pull out the key/value ([0] is the whole input)
         const [, key, value] = optionsMatch
         this.options[key] = value
 
-        // Alias label to aria-label
         if (key === 'label') this.options['aria-label'] = value
       }
     }
   },
 
   async render(): Promise<string> {
-    // Throw an error if the requested octicon does not exist.
     if (!Object.prototype.hasOwnProperty.call(octicons, this.icon)) {
       throw new Error(`Octicon ${this.icon} does not exist`)
     }
 
-    // Auto-generate aria-label if not provided
     // Replace non-alphanumeric characters with spaces and append " icon"
     if (!this.options['aria-label']) {
       const defaultLabel = `${this.icon.toLowerCase().replace(/[^a-z0-9]+/gi, ' ')} icon`

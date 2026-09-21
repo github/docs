@@ -27,4 +27,4 @@ contentType: how-tos
 
 ## Next steps
 
-To learn about the process {% data variables.product.prodname_dotcom %} uses to cancel a workflow run, as well as the ways you can free up related resources, see [AUTOTITLE](/actions/reference/workflow-cancellation-reference).
+To learn about the process {% data variables.product.prodname_dotcom %} uses to cancel a workflow run, as well as the ways you can free up related resources, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-cancellation).

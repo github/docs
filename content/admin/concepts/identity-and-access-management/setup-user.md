@@ -31,10 +31,29 @@ When you create the password, we strongly recommend that you **enable two-factor
 
 Unlike provisioned managed users, the setup user cannot sign in via SSO. 
 
+If you need to access enterprise recovery codes:
+1. Navigate to github.com/login.
+1. Enter the setup user's username (for example, shortcode_admin) and password.
+1. Complete your 2FA challenge, or enter an enterprise recovery code if prompted. 
+
+Enterprise recovery codes are not the same as personal two-factor authentication recovery codes. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes).
+
 - **Without 2FA enabled**, you must provide an enterprise recovery code **every** time you sign in.
 - If **2FA is enabled**, you must sign in with a successful 2FA challenge response. You only need to enter an enterprise recovery code to access enterprise settings.
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
+
+## Can I change the email address for the setup user?
+
+You can change the email address at any time while signed in to the setup user account. This is useful if the original recipient has left your organization or if you need to route notifications to a different address.
+
+> [!WARNING]
+> Ensure you have access to the new email address before making this change. You'll need to verify the new address via email.
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
+1. Under "Update email address *", type a new email address and click **Update**.
+1. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
 
 ## Can I delete the setup user?
 

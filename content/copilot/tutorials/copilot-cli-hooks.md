@@ -10,6 +10,9 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Administer Copilot CLI # Copilot CLI bespoke page
 allowTitleToDifferFromFilename: true
+docsTeamMetrics:
+  - copilot-cli
+  - ai-governance
 ---
 
 This tutorial is for DevOps engineers, platform teams, and engineering leaders who support developers using {% data variables.copilot.copilot_cli_short %}.
@@ -24,10 +27,11 @@ You’ll configure repository-scoped hooks that:
 
 ## Prerequisites
 
-* Familiarity with shell scripting (Bash or PowerShell)
-* Basic understanding of JSON configuration files
-* Access to a repository where {% data variables.copilot.copilot_cli_short %} is used
-* `jq` installed (for the Bash examples)
+* Familiarity with shell scripting (Bash or PowerShell).
+* Basic understanding of JSON configuration files.
+* Access to a repository where {% data variables.copilot.copilot_cli_short %} is used.
+* For the Bash examples: `jq` must be installed.
+* For the PowerShell examples: PowerShell 7.0 or later must be installed.
 
 ## 1. Define an organizational policy
 
@@ -77,7 +81,7 @@ Clear expectations make policy enforcement easier to adopt and maintain.
 Throughout this tutorial, you’ll use **repository-scoped hooks** stored in the repository under `.github/hooks/`. These hooks apply whenever {% data variables.copilot.copilot_cli_short %} runs from within this repository.
 
 > [!NOTE]
-> {% data variables.product.prodname_copilot_short %} agents load hook configuration files from `.github/hooks/*.json` in the repository. Hooks run synchronously and can block execution.
+> {% data variables.product.prodname_copilot_short %} agents load hook configurations from `.github/hooks/*.json` files in the repository. Hooks run synchronously and can block execution.
 
 ### Create the directory structure
 
@@ -110,6 +114,9 @@ This tutorial uses the following structure:
         ├── pre-tool-policy.sh
         └── pre-tool-policy.ps1
 ```
+
+> [!NOTE]
+> This tutorial seeks to create portable hook configurations and scripts that can be used on Windows, Linux, and macOS. The `scripts` directory will therefore contain both Bash and PowerShell scripts, and the hook configuration files will include `bash` and `powershell` entries. The CLI will use the appropriate entry based on your operating system.
 
 ### Create a hook configuration file
 
@@ -368,7 +375,7 @@ REDACTED_TOOL_ARGS="$(echo "$TOOL_ARGS_RAW" | \
   sed -E 's/ghp_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
   sed -E 's/gho_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
   sed -E 's/ghu_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
-  sed -E 's/ghs_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
+  sed -E 's/ghs_[A-Za-z0-9\._\-]{20,}/[REDACTED_TOKEN]/g' | \
   sed -E 's/Bearer [A-Za-z0-9_\-\.]+/Bearer [REDACTED]/g' | \
   sed -E 's/--password[= ][^ ]+/--password=[REDACTED]/g' | \
   sed -E 's/--token[= ][^ ]+/--token=[REDACTED]/g')"
@@ -393,15 +400,6 @@ fi
 
 COMMAND="$(echo "$TOOL_ARGS_RAW" | jq -r '.command // empty')"
 
-# ---------------------------------------------------------------------------
-# Demo-only deny rule for safe testing.
-# This blocks a harmless test command so you can validate the deny flow.
-# Remove this rule after confirming your hooks work as expected.
-# ---------------------------------------------------------------------------
-if echo "$COMMAND" | grep -q "COPILOT_HOOKS_DENY_DEMO"; then
-  deny "Blocked demo command (test rule). Remove this rule after validating hooks."
-fi
-
 deny() {
   local reason="$1"
 
@@ -410,7 +408,7 @@ deny() {
     sed -E 's/ghp_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
     sed -E 's/gho_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
     sed -E 's/ghu_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
-    sed -E 's/ghs_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
+    sed -E 's/ghs_[A-Za-z0-9\.\-_]{20,}/[REDACTED_TOKEN]/g' | \
     sed -E 's/Bearer [A-Za-z0-9_\-\.]+/Bearer [REDACTED]/g' | \
     sed -E 's/--password[= ][^ ]+/--password=[REDACTED]/g' | \
     sed -E 's/--token[= ][^ ]+/--token=[REDACTED]/g')"
@@ -429,6 +427,15 @@ deny() {
 
   exit 0
 }
+
+# ---------------------------------------------------------------------------
+# Demo-only deny rule for safe testing.
+# This blocks a harmless test command so you can validate the deny flow.
+# Remove this rule after confirming your hooks work as expected.
+# ---------------------------------------------------------------------------
+if echo "$COMMAND" | grep -q "COPILOT_HOOKS_DENY_DEMO"; then
+  deny "Blocked demo command (test rule). Remove this rule after validating hooks."
+fi
 
 # Privilege escalation
 if echo "$COMMAND" | grep -qE '\b(sudo|su|runas)\b'; then
@@ -693,4 +700,4 @@ Some teams (for example, infrastructure or platform teams) may require broader p
 
 ## Further reading
 
-For troubleshooting hooks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks#troubleshooting).
+For troubleshooting hooks, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/use-hooks#troubleshooting).

@@ -1,4 +1,3 @@
-import React from 'react'
 import { ActionList, Spinner } from '@primer/react'
 import {
   SearchIcon,

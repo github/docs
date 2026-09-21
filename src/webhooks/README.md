@@ -32,6 +32,9 @@ To run the webhooks pipeline locally:
 1. Set a `GITHUB_TOKEN` in your `.env` with (classic) `repo` scopes & enable SSO for the github org. 
 1. Run `npm run sync-rest -- -s rest-api-description -o webhooks`.
 
+> [!NOTE]
+> The `npm run sync-webhooks` shortcut in `package.json` does **not** pass `-s`, so it defaults to sourcing from the private `github/github` monorepo and will fail unless you are in a Codespace with that repo checked out as a sibling directory. Use the `sync-rest` command above for local development.
+
 ## About this directory
 
 - `src/webhooks/data` - The automatically generated data files created by running this pipeline.
@@ -53,10 +56,10 @@ The content writers can manually update frontmatter and introductory content in 
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about the webhooks pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the webhooks pipeline, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about the webhooks pipeline, you can ask in the `#technical-content` Slack channel. If you notice a problem with the webhooks pipeline, you can open an issue in the `github/technical-content` repository.
 
 ## Ownership & Escalation
 
@@ -65,9 +68,9 @@ If you have a question about the webhooks pipeline, you can ask in the `#docs-en
 - **Source data**: API Platform (github/rest-api-description)
 
 ### Escalation path
-1. **Pipeline failures** → #docs-engineering Slack
+1. **Pipeline failures** → #technical-content Slack
 2. **OpenAPI schema issues** → #api-platform Slack
-3. **Production incidents** → #docs-engineering
+3. **Production incidents** → #technical-content
 
 ### On-call procedures
 If the webhooks pipeline fails:

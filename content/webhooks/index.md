@@ -15,8 +15,6 @@ children:
   - /webhook-events-and-payloads
   - /using-webhooks
   - /testing-and-troubleshooting-webhooks
-changelog:
-  label: webhooks
 layout: discovery-landing
 redirect_from:
   - /developers/webhooks-and-events

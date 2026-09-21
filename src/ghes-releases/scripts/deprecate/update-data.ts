@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { difference } from 'lodash-es'
 import walkFiles from 'walk-sync'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 
 import { isInAllGhes, isFeatureDeprecated } from '../version-utils'
 import type { MarkdownFrontmatter } from '@/types'
@@ -36,7 +36,6 @@ export function updateDataFiles() {
 function updateReusableData() {
   const deletedDataFiles = []
 
-  // Remove empty reusables
   for (const file of dataReusables) {
     const oldContents = fs.readFileSync(file, 'utf8').trim()
     if (oldContents === '') {
@@ -71,16 +70,15 @@ function updateReusableData() {
   }
 }
 
-// Removes deprecated data/feature files and outputs a list
-// of data/features available in all versions - this list
-// is currently only used used for reviewing purposes when
-// deprecating a GHES release
+// Removes deprecated data/feature files and outputs a list of data/features
+// available in all versions. That list is only used for review during a GHES
+// deprecation.
 function updateFeatureData() {
   const allFeatureFiles = new Set()
 
   for (const file of dataFeatures) {
     const dataFeatureContent = fs.readFileSync(file, 'utf8')
-    const data = yaml.load(dataFeatureContent) as MarkdownFrontmatter
+    const data = load(dataFeatureContent) as MarkdownFrontmatter
     if (!data) throw new Error(`Could not load feature versions from ${file}`)
 
     if (isFeatureDeprecated(data.versions)) {

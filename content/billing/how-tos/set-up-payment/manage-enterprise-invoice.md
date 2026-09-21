@@ -15,7 +15,7 @@ category:
   - Set up payment
 ---
 
-{% data variables.product.github %} bills invoiced {% data variables.product.prodname_enterprise %} customers through an enterprise account on {% data variables.product.prodname_dotcom_the_website %}. Each invoice includes a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services and any {% data variables.product.prodname_ghe_server %} instances. For more information, see [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise).
+{% data variables.product.github %} bills invoiced {% data variables.product.prodname_enterprise %} customers through an enterprise account on {% data variables.product.prodname_dotcom_the_website %}. Each invoice includes a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services and any {% data variables.product.prodname_ghe_server %} instances. For more information, see [AUTOTITLE](/billing/concepts/enterprise-billing/billing-for-enterprises).
 
 ## Viewing your current invoice
 

@@ -20,7 +20,7 @@ category:
 
 {% ifversion fpt %}{% data reusables.marketplace.marketplace-app-page %}{% endif %}
 
-**When you downgrade an app, your subscription remains active until the end of your current billing cycle. The downgrade takes effect on your next billing date**. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace).
+**When you downgrade an app, your subscription remains active until the end of your current billing cycle. The downgrade takes effect on your next billing date**. For more information, see [AUTOTITLE](/billing/concepts/third-party-payments/github-marketplace-apps).
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
@@ -58,4 +58,4 @@ category:
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app)
+* [AUTOTITLE](/billing/how-tos/pay-third-parties/cancel-marketplace-app)

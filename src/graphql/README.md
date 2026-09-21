@@ -17,7 +17,7 @@ This subject is responsible for:
 ### Key capabilities and their locations
 
 - **Schema synchronization** - `scripts/sync.ts` fetches schema from GitHub's GraphQL API
-- **Data generation** - Generates version-specific JSON files in `data/VERSION/` directories (e.g., `data/ghec/schema.json`)
+- **Data generation** - Generates version-specific JSON files in `data/VERSION/` directories. The schema is split per docs category (`data/ghec/schema-repos.json`, `data/ghec/schema-issues.json`, etc.) so the runtime can lazily load only the bucket needed for a given page.
 - **Validation** - `lib/validator.ts` validates schema structure
 - **Data loading** - `lib/index.ts` provides functions to load GraphQL data in Next.js pages
 - **Content rendering** - Markdown files in `content/graphql/` use Liquid to render documentation
@@ -34,7 +34,7 @@ npm run sync-graphql
 
 This:
 1. Fetches schema from GitHub's GraphQL API for each version
-2. Generates `data/VERSION/schema.json` files (e.g., `data/ghec/schema.json`)
+2. Generates per-category `data/VERSION/schema-<category>.json` files plus `category-map.json`
 3. Builds `data/previews.json`, `data/upcoming-changes.json`, `data/changelog.json`
 
 ### Running tests
@@ -105,8 +105,9 @@ Human-editable configuration:
 ### Version-specific schemas
 
 Schema files generated per version:
-- `data/ghec/schema.json` - GitHub Enterprise Cloud
-- `data/ghes-3.11/schema.json`, `data/ghes-3.10/schema.json`, etc. - GHES versions
+- `data/ghec/schema-<category>.json` - GitHub Enterprise Cloud (one file per docs category)
+- `data/ghes-3.21/schema-<category>.json`, etc. - GHES versions
+- `data/<version>/category-map.json` - lookup table used by the redirect middleware
 - Older versions may be archived
 
 ### Content authoring
@@ -134,7 +135,7 @@ Automated sync (if configured):
 When a new GHES version releases:
 1. Update version list in sync script
 2. Run `npm run sync-graphql`
-3. Commit new `data/ghes-X.XX/schema.json` file
+3. Commit new `data/ghes-X.XX/schema-*.json` files
 4. Update content if needed
 
 ### Troubleshooting
@@ -145,7 +146,7 @@ When a new GHES version releases:
 - Check for schema validation errors
 
 **Schema not loading:**
-- Verify `data/VERSION/schema.json` exists (e.g., `data/ghec/schema.json`)
+- Verify `data/VERSION/schema-<category>.json` files exist (e.g., `data/ghec/schema-repos.json`)
 - Verify version detection logic
 
 **Content not rendering:**

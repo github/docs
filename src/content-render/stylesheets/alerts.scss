@@ -9,8 +9,12 @@ $colors:
 
 .ghd-alert {
   padding: var(--base-size-8, 0.5rem) var(--base-size-16, 1rem);
+  // Docs 2026: brand-align the callout container — rounded corners + brand
+  // border-radius token. The colored left border is set per-type below; the
+  // callout *system* redesign (Note/Warning/Tip/Pro tip) is tracked separately.
   border-left: 0.25em solid
-    var(--borderColor-default, var(--color-border-default));
+    var(--brand-color-border-default, var(--color-border-default));
+  border-radius: var(--brand-borderRadius-medium, 0.5rem);
   margin: 1rem 0;
 
   p:last-child,
@@ -40,15 +44,4 @@ $colors:
       color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
     }
   }
-
-  // Temporary: so that the existing "notes" "callouts" etc color the first word
-  .ghd-spotlight-#{$color} {
-    p:first-child {
-      strong:first-child,
-      b:first-child {
-        color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
-      }
-    }
-  }
-  // End temporary
 }

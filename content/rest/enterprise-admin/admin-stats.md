@@ -13,7 +13,7 @@ category:
 
 {% ifversion ghes %}## About admin stats
 
-These endpoints are only available to [authenticated](/rest/overview/authenticating-to-the-rest-api) site administrators. Normal users will receive a `404` response.
+These endpoints are only available to [authenticated](/rest/authentication/authenticating-to-the-rest-api) site administrators. Normal users will receive a `404` response.
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}{% elsif ghec %}{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}{% endif %}
 

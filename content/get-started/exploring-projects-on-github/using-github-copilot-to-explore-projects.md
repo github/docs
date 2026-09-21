@@ -39,7 +39,7 @@ When you’re exploring a project, you might want to understand the contents of 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase)
+* [AUTOTITLE](/copilot/tutorials/explore-a-codebase)
 
 ## Next steps
 

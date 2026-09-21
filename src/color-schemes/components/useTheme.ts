@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Cookies from '../../frame/components/lib/cookies'
 import { COLOR_MODE_COOKIE_NAME } from '@/frame/lib/constants'
 
-enum CssColorMode {
+export enum CssColorMode {
   auto = 'auto',
   light = 'light',
   dark = 'dark',
@@ -14,7 +14,7 @@ enum ComponentColorMode {
   night = 'night',
 }
 
-enum SupportedTheme {
+export enum SupportedTheme {
   light = 'light',
   dark = 'dark',
   dark_dimmed = 'dark_dimmed',
@@ -62,7 +62,12 @@ function filterMode(mode = ''): CssColorMode | undefined {
   }
 }
 
-function filterTheme({ name = '', color_mode = '' } = {}): SupportedTheme | undefined {
+// `?? {}` rather than a default parameter: a default only covers `undefined`, and
+// the cookie can carry an explicit `null` (`{"light_theme":null}`).
+function filterTheme(
+  theme?: { name?: string; color_mode?: string } | null,
+): SupportedTheme | undefined {
+  const { name = '', color_mode = '' } = theme ?? {}
   if (Object.values<string>(SupportedTheme).includes(name)) {
     return name as SupportedTheme
   }

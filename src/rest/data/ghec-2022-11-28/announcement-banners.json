@@ -48,7 +48,7 @@
                     "string",
                     "null"
                   ],
-                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-cloud@latest//github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\""
+                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-cloud@latest/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\""
                 },
                 "expires_at": {
                   "type": [
@@ -112,7 +112,7 @@
         {
           "type": "string or null",
           "name": "announcement",
-          "description": "<p>The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax\">Basic writing and formatting syntax</a>.\"</p>",
+          "description": "<p>The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax\">Basic writing and formatting syntax</a>.\"</p>",
           "isRequired": true
         },
         {
@@ -162,7 +162,7 @@
                     "string",
                     "null"
                   ],
-                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-cloud@latest//github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\""
+                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-cloud@latest/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\""
                 },
                 "expires_at": {
                   "type": [
@@ -303,7 +303,7 @@
                     "string",
                     "null"
                   ],
-                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-cloud@latest//github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\""
+                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-cloud@latest/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\""
                 },
                 "expires_at": {
                   "type": [
@@ -371,7 +371,7 @@
         {
           "type": "string or null",
           "name": "announcement",
-          "description": "<p>The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax\">Basic writing and formatting syntax</a>.\"</p>",
+          "description": "<p>The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax\">Basic writing and formatting syntax</a>.\"</p>",
           "isRequired": true
         },
         {
@@ -421,7 +421,7 @@
                     "string",
                     "null"
                   ],
-                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-cloud@latest//github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\""
+                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-cloud@latest/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\""
                 },
                 "expires_at": {
                   "type": [

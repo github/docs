@@ -1,4 +1,5 @@
-import { Heading, Flash } from '@primer/react'
+import { Flash } from '@primer/react'
+import { Heading } from '@primer/react-brand'
 
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { useTranslation } from '@/languages/components/useTranslation'
@@ -15,7 +16,12 @@ export function NoQuery() {
 
   return (
     <>
-      <Heading as="h1">{page.title}</Heading>
+      {/* Brand ships no Flash/Banner/Alert equivalent, so the callout stays on
+        @primer/react until the Docs 2026 callout system lands
+        (github/docs-engineering#6702). */}
+      <Heading as="h1" size="3" className={styles.heading}>
+        {page.title}
+      </Heading>
 
       <Flash variant="danger" className={styles.flash}>
         {t('description')}

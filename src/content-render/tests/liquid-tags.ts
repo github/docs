@@ -10,16 +10,13 @@ describe('liquid-tags script integration tests', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeEach(async () => {
-    // Create test directory
     await fs.mkdir(testContentDir, { recursive: true })
   })
 
   afterEach(async () => {
-    // Clean up test files
     await fs.rm(testContentDir, { recursive: true, force: true })
   })
 
-  // Helper function to run script commands
   async function runScript(args: string): Promise<{ output: string; exitCode: number }> {
     let output = ''
     let exitCode = 0
@@ -41,7 +38,6 @@ describe('liquid-tags script integration tests', () => {
   }
 
   test('expand command should complete successfully with basic content', async () => {
-    // Create a test file with liquid reference
     const testFile = path.join(testContentDir, 'basic-test.md')
     const testContent = `---
 title: Test
@@ -54,11 +50,9 @@ This uses {% data variables.product.prodname_dotcom %} in content.
 
     const { output, exitCode } = await runScript(`expand --paths "${testFile}"`)
 
-    // Should complete without error
     expect(exitCode, `Script failed with output: ${output}`).toBe(0)
     expect(output.length).toBeGreaterThan(0)
 
-    // Check that the file was modified
     const expandedContent = await fs.readFile(testFile, 'utf8')
     expect(expandedContent).not.toBe(testContent)
     expect(expandedContent).toContain('GitHub') // Should expand to actual fixture value
@@ -75,16 +69,13 @@ This uses {% data variables.product.prodname_dotcom %} in content.
 
     await fs.writeFile(testFile, originalContent)
 
-    // First expand
     await runScript(`expand --paths "${testFile}"`)
 
-    // Then restore
     const { output, exitCode } = await runScript(`restore --paths "${testFile}"`)
 
     expect(exitCode, `Restore script failed with output: ${output}`).toBe(0)
     expect(output.length).toBeGreaterThan(0)
 
-    // Should be back to original liquid tags
     const restoredContent = await fs.readFile(testFile, 'utf8')
     expect(restoredContent).toContain('{% data variables.product.prodname_dotcom %}')
     expect(restoredContent).not.toContain('GitHub')

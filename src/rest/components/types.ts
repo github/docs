@@ -51,7 +51,12 @@ export interface CodeSample {
   request: {
     contentType: string
     acceptHeader: string
-    bodyParameters: Record<string, string | Array<string | { [key: string]: string }>>
+    // Most request bodies are an object of named parameters, but some REST
+    // operations take a single scalar value or a top-level JSON array.
+    bodyParameters:
+      | Record<string, string | Array<string | { [key: string]: string }>>
+      | Array<unknown>
+      | string
     parameters: Record<string, string>
     description: string
   }

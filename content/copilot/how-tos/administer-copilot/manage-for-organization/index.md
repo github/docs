@@ -1,7 +1,7 @@
 ---
 title: Managing GitHub Copilot in your organization
 shortTitle: Manage for organization
-intro: 'Organization owners can subscribe to {% data variables.product.prodname_copilot_short %}, manage {% data variables.product.prodname_copilot_short %} for their organization, and control {% data variables.product.prodname_copilot_short %} policies.'
+intro: Organization owners can subscribe to {% data variables.product.prodname_copilot_short %}, manage {% data variables.product.prodname_copilot_short %} for their organization, and control {% data variables.product.prodname_copilot_short %} policies.
 versions:
   feature: copilot
 redirect_from:
@@ -14,9 +14,12 @@ children:
   - /manage-plan
   - /manage-access
   - /manage-policies
-  - /add-copilot-coding-agent
+  - /add-copilot-cloud-agent
+  - /configure-runner-for-coding-agent
   - /prepare-for-custom-agents
+  - /manage-default-models
   - /review-activity
-  - /use-your-own-api-keys
+  - /enable-custom-models
 contentType: how-tos
 ---
+

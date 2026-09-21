@@ -34,7 +34,7 @@ A workflow created in a repository can access the following number of secrets:
 * If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
 * All 100 environment secrets.
 
-Secrets are limited to 48 KB in size. To store larger secrets, see [AUTOTITLE](/actions/how-tos/security-for-github-actions/security-guides/using-secrets-in-github-actions#storing-large-secrets).
+Secrets are limited to 48 KB in size. To store larger secrets, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#storing-large-secrets).
 
 ## When {% data variables.product.prodname_actions %} reads secrets
 
@@ -63,4 +63,4 @@ Organization and repository secrets are read when a workflow run is queued, and 
 
 ## Security
 
-For security best practices using secrets, see [AUTOTITLE](/actions/reference/secure-use-reference#use-secrets-for-sensitive-information).
+For security best practices using secrets, see [AUTOTITLE](/actions/reference/security/secure-use#use-secrets-for-sensitive-information).

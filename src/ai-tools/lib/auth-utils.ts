@@ -1,7 +1,8 @@
 import { execSync } from 'child_process'
 
 /**
- * Ensure GitHub token is available, exiting process if not found
+ * Falls back to the gh CLI token, setting process.env.GITHUB_TOKEN.
+ * Exits the process if neither is available.
  */
 export function ensureGitHubToken(): void {
   if (!process.env.GITHUB_TOKEN) {

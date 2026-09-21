@@ -18,7 +18,7 @@ category:
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-For more information on merging a pull request using a merge queue, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue).
+For more information on merging a pull request using a merge queue, see [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/merging-a-pull-request-with-a-merge-queue).
 
 ## Configuring continuous integration (CI) workflows for merge queues
 
@@ -42,7 +42,7 @@ on:
   merge_group:
 ```
 
-For more information on the `merge_group` event, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group).
+For more information on the `merge_group` event, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#merge_group).
 
 ### Triggering merge group checks with third-party CI providers
 
@@ -83,7 +83,7 @@ As pull requests are added to the merge queue, the merge queue ensures that they
 
 A merge queue creates temporary branches with a special prefix to validate pull request changes. When a pull request is added to the merge queue, the changes in the pull request are grouped into a `merge_group` with the latest version of the `base_branch` as well as changes from pull requests ahead of it in the queue. {% data variables.product.github %} will merge all these changes into the `base_branch` once the checks required by the branch protections of `base_branch` pass.
 
-For information about merge methods, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges).
+For information about merge methods, see [AUTOTITLE](/pull-requests/reference/pull-request-merges).
 
 ### Successful CI
 
@@ -130,5 +130,5 @@ The following scenario outlines what happens when a user jumps the queue.
 
 ## Further reading
 
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)
+* [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/merging-a-pull-request-with-a-merge-queue)
 * [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)

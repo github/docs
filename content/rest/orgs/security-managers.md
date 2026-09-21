@@ -14,8 +14,6 @@ category:
 
 ## About security managers
 
-{% data reusables.organizations.security-manager-beta-note %}
-
 {% data reusables.organizations.about-security-managers %}
 
 <!-- Content after this section is automatically generated -->

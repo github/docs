@@ -3,6 +3,8 @@ import fs from 'fs/promises'
 
 import PageClass from './page'
 import type { UnversionedTree, Page } from '@/types'
+import { createLogger } from '@/observability/logger'
+const logger = createLogger(import.meta.url)
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -19,8 +21,8 @@ export default async function createTree(
   let filepath: string
   let mtime: number
   // This kills two birds with one stone. We (attempt to) read it as a file,
-  // to find out if it's a directory or a file and whence we know that
-  // we also collect it's modification time.
+  // to find out if it's a directory or a file, and while we're there we also
+  // collect its modification time.
   try {
     filepath = `${originalPath}.md`
     mtime = await getMtime(filepath)
@@ -42,15 +44,15 @@ export default async function createTree(
       }
       // Throw an error if we can't find a content file associated with the children: entry.
       // But don't throw an error if the user is running the site locally and hasn't cloned the Early Access repo.
-      // Also don't throw for missing children *within* early-access content — a broken
-      // early-access article should not block every docs-internal PR from merging.
+      // Also don't throw for missing children *within* early-access content.
+      // A broken early-access article should not block every docs-internal PR.
       const msg = `Cannot find a content file at ${originalPath}. Check the 'children' frontmatter in the parent index.md.`
 
       if (
         originalPath === 'content/early-access' ||
         originalPath.startsWith('content/early-access/')
       ) {
-        console.warn(`Warning: ${msg}`)
+        logger.warn(msg, { path: originalPath })
         return
       }
       throw new Error(msg)
@@ -76,17 +78,13 @@ export default async function createTree(
       basePath,
       relativePath,
       languageCode: 'en',
-      mtime,
-      // PageInitOptions doesn't include mtime in its type definition, but PageReadResult uses `& any`
-      // which allows additional properties to be passed through to the Page constructor
-    } as any)
+    })
     if (!newPage) {
       throw Error(`Cannot initialize page for ${filepath}`)
     }
     page = newPage as unknown as Page
   }
 
-  // Create the root tree object on the first run, and create children recursively.
   const item: UnversionedTree = {
     page,
     // This is only here for the sake of reloading the tree later which
@@ -99,23 +97,18 @@ export default async function createTree(
     // this value now will be different from what it was before.
     // It's not enough to rely on *length* of the array before and after
     // because the change could have been to remove one and add another.
-    // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
-    children: (page as any).children || [],
+    children: page.children || [],
     childPages: [],
   }
 
-  // Process frontmatter children recursively.
-  // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
-  if ((page as any).children) {
-    assertUniqueChildren(page as any)
+  if (page.children) {
+    assertUniqueChildren(page)
     item.childPages = (
       await Promise.all(
-        // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
-        ((page as any).children as string[]).map(async (child: string, i: number) => {
+        (page.children as string[]).map(async (child: string, i: number) => {
           let childPreviousTree: UnversionedTree | undefined
           if (previousTree && previousTree.childPages) {
-            // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
-            if (equalArray((page as any).children, previousTree.children)) {
+            if (equalArray(page.children as string[], previousTree.children)) {
               // We can only safely rely on picking the same "n'th" item
               // from the array if we're confident the names are the same
               // as they were before.
@@ -126,12 +119,11 @@ export default async function createTree(
             }
           }
 
-          // Handle absolute /content/ paths - allows cross-product directory inclusion
-          // e.g., /content/actions/workflows will include the entire actions/workflows tree
+          // Absolute /content/ paths pull in a whole subtree resolved from the
+          // content root, which may or may not be the current product.
+          // For example, /content/actions/workflows includes all of actions/workflows.
           let childPath: string
           if (child.startsWith('/content/')) {
-            // Absolute content path - resolve from the content root
-            // Strip '/content/' prefix and join with the base content directory
             const absoluteChildPath = child.slice('/content/'.length)
             childPath = path.posix.join(basePath, absoluteChildPath)
 
@@ -163,7 +155,7 @@ export default async function createTree(
             // mutate the `page.children` so we can benefit from the
             // ability to reload the site tree on consecutive requests.
             // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
-            ;(page as any).children = ((page as any).children as string[]).filter(
+            ;(page.children as string[]) = (page.children as string[]).filter(
               (c: string) => c !== child,
             )
           }
@@ -189,11 +181,11 @@ async function getMtime(filePath: string): Promise<number> {
   return Math.round((await fs.stat(filePath)).mtimeMs)
 }
 
-// Page class has dynamic frontmatter properties that aren't in the type definition
-function assertUniqueChildren(page: any): void {
-  if (page.children.length !== new Set(page.children).size) {
+function assertUniqueChildren(page: Page): void {
+  const children = page.children || []
+  if (children.length !== new Set(children).size) {
     const count: Record<string, number> = {}
-    for (const entry of page.children) {
+    for (const entry of children) {
       count[entry] = 1 + (count[entry] || 0)
     }
     let msg = `${page.relativePath} has duplicates in the 'children' key.`

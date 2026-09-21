@@ -73,7 +73,7 @@ You can create a diagnostic file from the {% data variables.enterprise.managemen
 
 You can use this method without signing into the {% data variables.enterprise.management_console %}.
 
-Use the [ghe-diagnostics](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-diagnostics) command-line utility to retrieve the diagnostics for your instance.
+Use the [ghe-diagnostics](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-diagnostics) command-line utility to retrieve the diagnostics for your instance.
 
 ```shell
 ssh -p122 admin@HOSTNAME -- 'ghe-diagnostics' > diagnostics.txt
@@ -95,7 +95,7 @@ After you submit your support request, we may ask you to share a support bundle 
 * `collectd/logs/collectd.log`: Collectd logs
 * `mail-logs/mail.log`: SMTP email delivery logs
 
-For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise).
+For more information, see [AUTOTITLE](/admin/concepts/security-and-compliance/audit-log-for-an-enterprise).
 
 Support bundles include logs from the past two days by default. You can specify an exact duration in days. To provide logs from the past eight days, you can download an extended support bundle. For more information, see [Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles).
 
@@ -126,7 +126,7 @@ You can use these steps to create and share a support bundle if you have SSH acc
    ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
    ```
 
-   For more information about the `ghe-support-bundle` command, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-support-bundle).
+   For more information about the `ghe-support-bundle` command, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-support-bundle).
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
@@ -188,4 +188,4 @@ You can directly upload a support bundle to our server if:
 ## Further reading
 
 * [AUTOTITLE](/support/learning-about-github-support/about-github-support)
-* [AUTOTITLE](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)
+* [AUTOTITLE](/enterprise-server@latest/admin/monitoring-and-managing-your-instance/monitoring-your-instance/generating-a-health-check-for-your-enterprise)

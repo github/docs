@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
 import type { ExtendedRequest } from '@/types'
 import type { ServerResponse } from 'http'
 
@@ -53,7 +54,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // Update the existing context to include the miniTocItems from GraphQL
   automatedPageContext.miniTocItems.push(...changelogMiniTocItems)
 
-  const mainContext = await getMainContext(req, res)
+  const mainContext = await getMainContext(req, res as unknown as Response)
   addUINamespaces(req, mainContext.data.ui, ['graphql'])
 
   return {

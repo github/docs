@@ -22,7 +22,6 @@ import { syncWebhookData } from '../../webhooks/scripts/sync'
 import { syncGitHubAppsData } from '../../github-apps/scripts/sync'
 import { syncRestRedirects } from './utils/get-redirects'
 import { syncChangelogs } from './utils/sync-changelogs'
-import { MODELS_GATEWAY_ROOT, injectModelsSchema } from './utils/inject-models-schema'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const TEMP_OPENAPI_DIR = path.join(__dirname, '../../../rest-api-description/openApiTemp')
@@ -50,8 +49,8 @@ program
       '-s, --source-repos [repos...]',
       `The source repositories to get the dereferenced files from. When the source repo is ${REST_API_DESCRIPTION_ROOT}, the bundler is not run to generate the source dereferenced OpenAPI files because the ${REST_API_DESCRIPTION_ROOT} repo already contains them.`,
     )
-      .choices(['github', REST_API_DESCRIPTION_ROOT, MODELS_GATEWAY_ROOT])
-      .default(['github', MODELS_GATEWAY_ROOT]),
+      .choices(['github', REST_API_DESCRIPTION_ROOT])
+      .default(['github']),
   )
   .option(
     '-v --versions [VERSIONS...]',
@@ -130,7 +129,7 @@ async function main() {
 
   if (pipelines.includes('rest')) {
     console.log(`\n▶️  Generating REST data files...\n`)
-    await syncRestData(TEMP_OPENAPI_DIR, restSchemas, sourceRepoDirectory, injectModelsSchema)
+    await syncRestData(TEMP_OPENAPI_DIR, restSchemas, sourceRepoDirectory)
     await syncChangelogs(sourceRepoDirectory, VERSION_NAMES)
   }
 
@@ -186,14 +185,13 @@ async function getBundledFiles(): Promise<void> {
     execSync('git pull', { cwd: GITHUB_REP_DIR })
   }
 
-  // Create a tmp directory to store schema files generated from github/github
   await rimraf(TEMP_OPENAPI_DIR)
   await mkdirp(TEMP_BUNDLED_OPENAPI_DIR)
 
   console.log(
     `\n🏃‍♀️🏃🏃‍♀️Running \`bin/openapi bundle\` in branch '${githubBranch}' of your github/github checkout to generate the dereferenced OpenAPI schema files.\n`,
   )
-  // Format the command supplied to the bundle script in `github/github`
+  // Build the command for the bundle script in `github/github`.
   const bundlerOptions = await getBundlerOptions()
   const bundleCommand = `bundle -v -w${
     next ? ' -n' : ''
@@ -229,18 +227,17 @@ async function validateInputParameters(): Promise<void> {
   // The `--versions` option cannot be used
   // with the `--include-deprecated` option
   if (includeDeprecated && versions) {
-    const errorMsg = `🛑 You cannot use the versions option with the include-deprecated option. This is not currently supported in the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
+    const errorMsg = `🛑 You cannot use the versions option with the include-deprecated option. This is not currently supported in the bundler.\nPlease reach out to #technical-content if a new use case should be supported.`
     throw new Error(errorMsg)
   }
 
   // The `--decorate-only` option cannot be used
   // with the `--include-deprecated` or `--include-unpublished` options
   if ((includeDeprecated || includeUnpublished) && !sourceRepos.includes('github')) {
-    const errorMsg = `🛑 You cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
+    const errorMsg = `🛑 You cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #technical-content if a new use case should be supported.`
     throw new Error(errorMsg)
   }
 
-  // Check that the source repo exists.
   for (const sourceRepoDirectory of sourceRepoDirectories) {
     if (!existsSync(sourceRepoDirectory)) {
       const errorMsg =
@@ -256,13 +253,9 @@ async function validateInputParameters(): Promise<void> {
   }
 }
 
-// Version names in the data consumed by the docs site varies depending on the
-// team that owns the data we consume. This function translates the version
-// names to use the names in the src/<pipeline>/lib/config.json file.
-// The names in the config.json file maps the incoming version name to
-// the short name of the version defined in lib/allVersions.ts.
-// This function also translates calendar-date format from .2022-11-28 to
-// -2022-11-28
+// Version names in the incoming data vary by the team that owns it. This
+// renames the files using the versionMapping in src/rest/lib/config.json, and
+// rewrites a calendar date suffix from .2022-11-28 to -2022-11-28.
 export async function normalizeDataVersionNames(sourceDirectory: string): Promise<void> {
   const schemas = await readdir(sourceDirectory)
 
@@ -280,10 +273,8 @@ export async function normalizeDataVersionNames(sourceDirectory: string): Promis
     // Match a calendar version if it exists, e.g., .2022-11-28
     const regex = /.\d{4}-\d{2}-\d{2}/
     const matches = baseName.match(regex)
-    // Separate the version name from the calendar date version
     const versionName = matches ? docsBaseName.replace(matches[0], '') : docsBaseName
     const calendarSuffix = matches ? matches[0].replace('.', '-') : ''
-    // Build the new version name
     const translatedVersion = `${versionName}${calendarSuffix}.json`
     await rename(path.join(sourceDirectory, schema), path.join(sourceDirectory, translatedVersion))
   }

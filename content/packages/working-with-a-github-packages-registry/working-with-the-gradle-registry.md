@@ -31,7 +31,7 @@ category:
 
 {% data reusables.package_registry.authenticate-packages %}
 
-{% data reusables.package_registry.authenticate-packages-github-token %} For more information about using `GITHUB_TOKEN` with Gradle, see [AUTOTITLE](/actions/publishing-packages/publishing-java-packages-with-gradle#publishing-packages-to-github-packages).
+{% data reusables.package_registry.authenticate-packages-github-token %} For more information about using `GITHUB_TOKEN` with Gradle, see [AUTOTITLE](/actions/tutorials/publish-packages/publish-java-packages-with-gradle#publishing-packages-to-github-packages).
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 

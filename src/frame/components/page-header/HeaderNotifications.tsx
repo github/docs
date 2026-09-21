@@ -13,6 +13,7 @@ import styles from './HeaderNotifications.module.scss'
 import { useSharedUIContext } from '@/frame/components/context/SharedUIContext'
 import Cookies from '@/frame/components/lib/cookies'
 import { MACHINE_TRANSLATION_BANNER_COOKIE_NAME } from '@/frame/lib/constants'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML'
 
 enum NotificationType {
   RELEASE = 'RELEASE',
@@ -58,11 +59,9 @@ export const HeaderNotifications = () => {
           try {
             setUserLanguageCookie('en')
           } catch (err) {
-            // You can never be too careful because setting a cookie
-            // can fail. For example, some browser
-            // extensions disallow all setting of cookies and attempts
-            // at the `document.cookie` setter could throw. Just swallow
-            // and move on.
+            // Setting a cookie can fail: some browser extensions disallow it
+            // entirely, and the `document.cookie` setter can throw. Swallow and
+            // move on.
             console.warn('Unable to set cookie', err)
           }
         },
@@ -140,7 +139,7 @@ export const HeaderNotifications = () => {
                 <XIcon size="small" className="octicon mr-1" />
               </button>
             )}
-            <p dangerouslySetInnerHTML={{ __html: content }} />
+            <RenderedHTML as="p" html={content} />
           </div>
         )
       })}

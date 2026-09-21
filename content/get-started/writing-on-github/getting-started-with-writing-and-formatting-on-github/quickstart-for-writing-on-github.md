@@ -25,7 +25,7 @@ Your profile README lets you share information about yourself with the community
 
 If you don't already have a profile README, you can add one.
 
-1. Create a repository with the same name as your {% data variables.product.prodname_dotcom %} username, initializing the repository with a `README.md` file. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme#adding-a-profile-readme).
+1. Create a repository with the same name as your {% data variables.product.prodname_dotcom %} username, initializing the repository with a `README.md` file. For more information, see [AUTOTITLE](/account-and-profile/how-tos/profile-customization/managing-your-profile-readme#adding-a-profile-readme).
 1. Edit the `README.md` file and delete the template text (beginning `### Hi there`) that is automatically added when you create the file.
 
 If you already have a profile README, you can edit it from your profile page.

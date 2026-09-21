@@ -1,7 +1,7 @@
 ---
 title: Running jobs on larger runners
 shortTitle: Use larger runners
-intro: You can speed up your workflows by configuring them to run on {% data variables.actions.hosted_runner %}s.
+intro: Identify available {% data variables.actions.hosted_runner %}s, then route jobs to the right runners by using runner groups and workflow labels.
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
 defaultPlatform: linux
 versions:
@@ -17,39 +17,9 @@ category:
 contentType: how-tos
 ---
 
-## Running jobs on your runner
-
-{% linux %}
-
-{% data reusables.actions.run-jobs-larger-runners %}
-
-{% endlinux %}
-
-{% windows %}
-
-{% data reusables.actions.run-jobs-larger-runners %}
-
-{% endwindows %}
-
-{% mac %}
-
-Once your runner type has been defined, you can update your workflow YAML files to send jobs to runner instances for processing. To run jobs on macOS {% data variables.actions.hosted_runner %}s, update the `runs-on` key in your workflow YAML files to use one of the {% data variables.product.company_short %}-defined labels for macOS runners. For more information, see [Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners).
-
-{% endmac %}
-
-{% mac %}
-
-## Available macOS {% data variables.actions.hosted_runner %}s
-
-Use the labels in the table below to run your workflows on the corresponding macOS {% data variables.actions.hosted_runner %}.
-
-{% data reusables.actions.larger-runners-table %}
-
-{% endmac %}
-
 {% ifversion repository-actions-runners %}
 
-## Viewing available runners for a repository
+## Identifying available runners for a repository
 
 {% data reusables.actions.about-viewing-runner-list %}
 
@@ -63,9 +33,17 @@ Use the labels in the table below to run your workflows on the corresponding mac
 
 {% endif %}
 
-{% linux %}
+## Targeting larger runners in a workflow
 
-## Using groups to control where jobs are run
+After you identify the {% data variables.actions.hosted_runner %}s you want to use, you can target them in your workflow with runner groups, workflow labels, or both. Use runner groups to route jobs to a set of runners, workflow labels to target runners with a specific label, or both when a job must match both conditions.
+
+If an administrator has disabled standard {% data variables.product.github %}-hosted runners, you can only use runner groups.
+
+### Targeting by runner group
+
+Reference the runner group name in your workflow. Use this when you want to route a job to any available runner in a specific group.
+
+{% linux %}
 
 {% data reusables.actions.jobs.example-runs-on-groups %}
 
@@ -73,17 +51,39 @@ Use the labels in the table below to run your workflows on the corresponding mac
 
 {% windows %}
 
-## Using groups to control where jobs are run
-
 {% data reusables.actions.jobs.example-runs-on-groups %}
 
 {% endwindows %}
 
+{% mac %}
+
+In this example, the `runs-on` key sends the job to any available runner in the `macos-build-runners` group:
+
+```yaml
+name: learn-github-actions
+on: [push]
+jobs:
+  check-swift-version:
+    runs-on:
+      group: macos-build-runners
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
+```
+
+{% endmac %}
+
+### Targeting by workflow label
+
+Reference a workflow label in your workflow when you want to route a job to runners that share a specific label.
+
+{% data variables.actions.hosted_runner_caps %}s are automatically assigned a workflow label that matches the runner name.
+
+
 {% linux %}
-
-## Using labels to control where jobs are run
-
-{% data reusables.actions.runner-labels-implicit %}
 
 In this example, the `runs-on` key sends the job to any available runner that has been assigned the `ubuntu-24.04-16core` label:
 
@@ -103,15 +103,9 @@ jobs:
       - run: bats -v
 ```
 
-{% data reusables.actions.runner-labels %}
-
 {% endlinux %}
 
 {% windows %}
-
-## Using labels to control where jobs are run
-
-{% data reusables.actions.runner-labels-implicit %}
 
 In this example, the `runs-on` key sends the job to any available runner that has been assigned the `windows-2022-16core` label:
 
@@ -131,23 +125,19 @@ jobs:
       - run: bats -v
 ```
 
-{% data reusables.actions.runner-labels %}
-
 {% endwindows %}
 
 {% mac %}
 
-## Targeting macOS {% data variables.actions.hosted_runner %}s in a workflow
+For macOS {% data variables.actions.hosted_runners %}, you can use either {% data variables.product.prodname_dotcom %}-defined workflow labels or the workflow label that is automatically assigned from the {% data variables.actions.hosted_runner %} name you set when you create it. For a list of available macOS workflow labels, see [AUTOTITLE](/actions/reference/runners/larger-runners#available-macos-larger-runners-and-labels).
 
-To run your workflows on macOS {% data variables.actions.hosted_runner %}s, set the value of the `runs-on` key to a label associated with a macOS {% data variables.actions.hosted_runner %}. For a list of macOS {% data variables.actions.hosted_runner %} labels, see [Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners).
-
-In this example, the workflow uses a label that is associated with macOS XL runners. The `runs-on` key sends the job to any available runner with a matching label:
+In this example, the `runs-on` key sends the job to any available runner that has been assigned the `macos-26-xlarge` label.
 
 ```yaml
-name: learn-github-actions-testing
+name: learn-github-actions
 on: [push]
 jobs:
-  build:
+  check-swift-version:
     runs-on: macos-26-xlarge
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -159,45 +149,46 @@ jobs:
 
 {% endmac %}
 
+### Using labels and groups to control where jobs are run
+
+Use both labels and groups when a job must run only on runners in a specific group that also have a specific label. The runner must meet both requirements to be eligible to run the job.
+
 {% linux %}
 
-## Using labels and groups to control where jobs are run
-
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
-
-{% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
 {% endlinux %}
 
 {% windows %}
 
-## Using labels and groups to control where jobs are run
-
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
-
-{% data reusables.actions.section-using-unique-names-for-runner-groups %}
-
-{% endwindows %}
-
-## Troubleshooting {% data variables.actions.hosted_runner %}s
-
-{% linux %}
-
-{% data reusables.actions.larger-runners-troubleshooting-linux-windows %}
-
-{% endlinux %}
-
-{% windows %}
-
-{% data reusables.actions.larger-runners-troubleshooting-linux-windows %}
 
 {% endwindows %}
 
 {% mac %}
 
-Because macOS arm64 does not support Node 12, macOS {% data variables.actions.hosted_runner %}s automatically use Node 16 to execute any JavaScript action written for Node 12. Some community actions may not be compatible with Node 16. If you use an action that requires a different Node version, you may need to manually install a specific version at runtime.
+In this example, the `runs-on` key combines `group` and `labels` so that the job is routed to any available runner within the group that also has a matching label:
 
-> [!NOTE]
-> ARM-powered runners are currently in {% data variables.release-phases.public_preview %} and are subject to change.
+```yaml
+name: learn-github-actions
+on: [push]
+jobs:
+  check-swift-version:
+    runs-on:
+      group: macos-runners
+      labels: macos-26-xlarge
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
+```
 
 {% endmac %}
+
+## Further reading
+
+For syntax details for the `runs-on` key, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idruns-on).
+
+For specifications, labels, limitations, and troubleshooting information, see [AUTOTITLE](/actions/reference/runners/larger-runners).

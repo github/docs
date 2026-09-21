@@ -3,6 +3,9 @@ import type { TagToken, Liquid, Template } from 'liquidjs'
 
 import { THROW_ON_EMPTY, DataReferenceError } from './error-handling'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 const Syntax = /([a-z0-9/\\_.\-[\]]+)/i
 const SyntaxHelp = "Syntax Error in 'data' - Valid syntax: data [path]"
@@ -35,14 +38,16 @@ export default {
   },
 
   async render(scope: CustomScope) {
-    let text = getDataByLanguage(this.path, scope.environments.currentLanguage || '')
+    let text = getDataByLanguage(this.path, scope.environments.currentLanguage || '') as
+      | string
+      | undefined
     if (text === undefined) {
       if (scope.environments.currentLanguage === 'en') {
         const message = `Can't find the key 'data ${this.path}' in the scope.`
         if (THROW_ON_EMPTY) {
           throw new DataReferenceError(message)
         }
-        console.warn(message)
+        logger.warn(message)
       }
       return
     }
@@ -86,7 +91,6 @@ function handleIndent(tagToken: TagToken, text: string): string {
 // keep the blockquote character on every successive line.
 const blockquoteRegexp = /^\n?([ \t]*>[ \t]?)/
 function handleBlockquote(tagToken: TagToken, text: string): string {
-  // If the text isn't multiline, skip
   if (text.split('\n').length <= 1) return text
 
   // If the line with the liquid tag starts with a blockquote...
@@ -95,7 +99,6 @@ function handleBlockquote(tagToken: TagToken, text: string): string {
   const inputLine = input.split('\n').find((line) => line.includes(content))
   if (!inputLine || !blockquoteRegexp.test(inputLine)) return text
 
-  // Keep the character on successive lines
   const match = inputLine.match(blockquoteRegexp)
   if (!match) return text
   const start = match[0]

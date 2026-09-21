@@ -10,10 +10,12 @@ contentType: how-tos
 children:
   - /secure-at-scale
   - /secure-your-secrets
-  - /scan-code-for-vulnerabilities
+  - find-and-fix-code-vulnerabilities
   - secure-your-supply-chain
   - manage-security-alerts
   - /maintain-quality-code
   - /report-and-fix-vulnerabilities
+  - /use-ghas-with-ai-coding-agents
   - /view-and-interpret-data
 ---
+

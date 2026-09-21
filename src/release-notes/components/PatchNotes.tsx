@@ -1,6 +1,7 @@
 import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 const SectionToLabelMap: Record<string, string> = {
   features: 'Features',
@@ -32,7 +33,7 @@ export function PatchNotes({ patch }: Props) {
             <ul>
               {sectionItems.map((item, i) => {
                 if (typeof item === 'string') {
-                  return <li key={item} dangerouslySetInnerHTML={{ __html: item }} />
+                  return <RenderedHTML as="li" key={item} html={item} />
                 }
 
                 const headingSlug = item.heading ? slug(item.heading) : `heading${i}`
@@ -43,7 +44,7 @@ export function PatchNotes({ patch }: Props) {
                     </h4>
                     <ul>
                       {item.notes.map((note) => {
-                        return <li key={note} dangerouslySetInnerHTML={{ __html: note }} />
+                        return <RenderedHTML as="li" key={note} html={note} />
                       })}
                     </ul>
                   </li>

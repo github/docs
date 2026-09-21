@@ -109,6 +109,9 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 1. At the bottom of the list of changes, next to your profile picture, describe your commit:
    * If you have access to {% data variables.product.prodname_copilot %}, you can automatically create a commit message and details based on the changes you made. Click {% octicon "copilot" aria-label="Generate commit message with Copilot" %}.
    * If you want to regenerate a different commit message, click {% octicon "copilot" aria-label="Regenerate commit message with Copilot" %} again to generate a new suggestion.
+   * To choose the model used to generate commit messages, configure {% data variables.product.prodname_copilot_short %} settings. For more information, see [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-copilot-in-github-desktop).
+   * {% data variables.product.prodname_copilot_short %} uses any repository custom instructions to shape the generated commit message and details. For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
+   * {% data variables.product.prodname_copilot_short %} also uses any repository rulesets that restrict commit metadata to shape the generated commit message and details. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#adding-metadata-restrictions).
    * Alternatively, type your own short, meaningful commit message in the Summary field. You can also add more information about the change in the Description field.
 
    ![Screenshot of the "Changes" tab. The "Summary" field and "Generate commit message with Copilot" button are outlined in orange.](/assets/images/help/desktop/create-commit-details.png)

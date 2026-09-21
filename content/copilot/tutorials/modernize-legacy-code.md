@@ -407,9 +407,16 @@ In this example, we looked at an account management system written in COBOL and 
 
 ## Hands-on practice
 
-Try the [Modernizing your legacy code with {% data variables.product.prodname_copilot %}](https://github.com/skills/modernize-your-legacy-code-with-github-copilot) Skills exercise for practical experience updating a legacy codebase with {% data variables.product.prodname_copilot %}.
+Practice modernizing legacy code with the [Modernizing your legacy code with {% data variables.product.prodname_copilot %}](https://github.com/skills/modernize-your-legacy-code-with-github-copilot) Skills exercise.
+
+In this exercise, you will learn how to:
+
+* Analyze legacy COBOL code with {% data variables.copilot.copilot_chat %} to understand business logic.
+* Generate documentation, such as Mermaid data flow diagrams and test plans.
+* Transform a COBOL codebase to Node.js with {% data variables.product.prodname_copilot_short %}.
+* Create unit tests based on the generated test plan.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/documenting-legacy-code)
+* [AUTOTITLE](/copilot/tutorials/copilot-cookbook/document-code/document-legacy-code)
 * [Modernizing legacy code with {% data variables.product.prodname_copilot %}: Tips and examples](https://github.blog/ai-and-ml/github-copilot/modernizing-legacy-code-with-github-copilot-tips-and-examples/) on the {% data variables.product.github %} Blog

@@ -21,11 +21,11 @@ The following list contains limitations and considerations when changing your {%
 
 {% ifversion ghec %}
 
-Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your {% data variables.product.github %} username. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
+Members of an {% data variables.enterprise.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your {% data variables.product.github %} username. For more information, see [AUTOTITLE](/admin/concepts/identity-and-access-management/enterprise-managed-users).
 
 {% elsif ghes %}
 
-If you sign into {% data variables.location.product_location %} with LDAP credentials or single sign-on (SSO), only your local administrator can change your username. For more information about authentication methods for {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise).
+If you sign into {% data variables.location.product_location %} with LDAP credentials or single sign-on (SSO), only your local administrator can change your username. For more information about authentication methods for {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises).
 
 {% endif %}
 

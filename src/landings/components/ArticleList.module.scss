@@ -8,6 +8,11 @@
   h3,
   span {
     user-select: text;
-    color: var(--fgColor-accent, var(--color-accent-fg));
+    color: var(--brand-color-text-link-rest);
   }
+}
+
+// Muted secondary copy (article intro, published date) under each link title.
+.textMuted {
+  color: var(--brand-color-text-muted);
 }

@@ -74,7 +74,7 @@ If you publish your site privately, the URL for your site will be different. For
 {% endif %}
 
 {% ifversion ghes %}
-For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation) or contact your site administrator.
+For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/enabling-subdomain-isolation) or contact your site administrator.
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -89,7 +89,7 @@ You can host your site on {% data variables.product.prodname_dotcom %}'s `github
 
 ## Data collection
 
-When a {% data variables.product.prodname_pages %} site is visited, the visitor's IP address is logged and stored for security purposes, regardless of whether the visitor has signed into {% data variables.product.prodname_dotcom %} or not. For more information about {% data variables.product.prodname_dotcom %}'s security practices, see [{% data variables.product.prodname_dotcom %} Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).
+When a {% data variables.product.prodname_pages %} site is visited, the visitor's IP address is logged and stored for security purposes, regardless of whether the visitor has signed into {% data variables.product.prodname_dotcom %} or not. For more information about {% data variables.product.prodname_dotcom %}'s security practices, see [{% data variables.product.prodname_dotcom %} Privacy Statement](/site-policy/privacy-policies/github-general-privacy-statement).
 {% endif %}
 
 ## Further reading

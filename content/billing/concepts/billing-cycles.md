@@ -39,8 +39,6 @@ For example, if you started a paid plan or converted from a trial on the 15th of
 
 Volume-based licenses may follow a different billing cycle. These products are often billed based on the anniversary date of your subscription rather than by calendar month.
 
-You can switch between annual and monthly billing from the "Licensing" page under "Billing and licensing", see [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan#changing-your-billing-cycle).
-
 ## How mid-cycle changes affect your billing
 
 Changes you make mid-cycle, such as adding or removing users, seats, or resources, can affect your bill. Some behaviors apply to both metered and volume-based billing; others are specific to one model.
@@ -64,9 +62,10 @@ Changes you make mid-cycle, such as adding or removing users, seats, or resource
 
 Find product-specific guidance on how usage is calculated and billed.
 
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-packages/about-billing-for-github-packages)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise#about-licenses-for-visual-studio-subscriptions-with-github-enterprise-cloud)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)
+* [AUTOTITLE](/billing/concepts/product-billing/github-actions)
+* [AUTOTITLE](/billing/concepts/product-billing/github-codespaces)
+* [AUTOTITLE](/billing/concepts/product-billing/github-packages)
+* [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses)
+* [AUTOTITLE](/billing/concepts/product-billing/cloud-and-local-sandboxes)
+* [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/concepts/enterprise-billing/visual-studio-subs#about-licenses-for-visual-studio-subscriptions-with-github-enterprise-cloud)
+* [AUTOTITLE](/billing/concepts/product-billing/git-lfs)

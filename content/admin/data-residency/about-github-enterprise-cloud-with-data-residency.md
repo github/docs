@@ -78,7 +78,7 @@ Network details such as IP ranges and SSH key fingerprints differ between {% dat
 
 Administrators and developers with access to your enterprise can take advantage of the full {% data variables.product.prodname_dotcom %} platform, with the exception of some features that are currently unavailable.
 
-Developers may have experience using a personal account on {% data variables.product.prodname_dotcom_the_website %}, or a user account on a {% data variables.product.prodname_ghe_server %} instance. The experience of using a {% data variables.enterprise.prodname_managed_user %} on {% data variables.enterprise.data_residency_site %} differs in some ways. See [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
+Developers may have experience using a personal account on {% data variables.product.prodname_dotcom_the_website %}, or a user account on a {% data variables.product.prodname_ghe_server %} instance. The experience of using a {% data variables.enterprise.prodname_managed_user %} on {% data variables.enterprise.data_residency_site %} differs in some ways. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
 
 ### Repository visibility
 
@@ -90,18 +90,18 @@ Public repositories are not available in an {% data variables.enterprise.prodnam
 
 Users can simplify API requests by using the {% data variables.product.prodname_cli %}. However, if they also need to access resources on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_ghe_server %}, they will need to authenticate to multiple accounts and specify a target platform for most requests. See [AUTOTITLE](/github-cli/github-cli/using-multiple-accounts).
 
-Rate limits apply for requests to the REST API. See [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api).
+Rate limits apply for requests to the REST API. See [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
 ### {% data variables.product.prodname_copilot %}
 
 Your developers can access {% data variables.product.prodname_copilot %} if you grant them access to a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} subscription. {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.copilot.copilot_individuals_short %}.
 
-* Users must perform some additional setup to authenticate to their account from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
+* Users must perform some additional setup to authenticate to their account from their development environment. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
 * Certain {% data variables.product.prodname_copilot %} features are currently unavailable on {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency#currently-unavailable-features).
 
 ### Documentation
 
-In general, the content on [{% data variables.product.prodname_docs %}](/enterprise-cloud@latest) reflects the user experience on {% data variables.enterprise.data_residency_site %}. Readers should use the "{% data variables.product.prodname_ghe_cloud %}" version of the site. See [AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs#about-versions-of-github-docs).
+In general, the content on [{% data variables.product.prodname_docs %}](/enterprise-cloud@latest/) reflects the user experience on {% data variables.enterprise.data_residency_site %}. Readers should use the "{% data variables.product.prodname_ghe_cloud %}" version of the site. See [AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs#about-versions-of-github-docs).
 
 When reading the documentation, readers may need to substitute references to {% data variables.product.prodname_dotcom_the_website %} with your enterprise's dedicated URL on {% data variables.enterprise.data_residency_site %}.
 

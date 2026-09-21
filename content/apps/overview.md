@@ -18,7 +18,7 @@ category:
 
 For more information about using {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/using-github-apps/about-using-github-apps).
 
-For more information about building {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
+For more information about building {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 ## {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
 

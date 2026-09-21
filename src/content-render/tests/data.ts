@@ -6,8 +6,7 @@ import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-v
 import { DataDirectory } from '@/tests/helpers/data-directory'
 
 describe('data tag', () => {
-  // Using 'any' type as DataDirectory is from data-directory.ts which lacks type definitions
-  let dd: any
+  let dd: DataDirectory
   const enDirBefore = languages.en.dir
 
   beforeAll(() => {

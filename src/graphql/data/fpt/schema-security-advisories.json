@@ -1,0 +1,1134 @@
+{
+  "queries": [
+    {
+      "name": "securityAdvisories",
+      "type": "SecurityAdvisoryConnection!",
+      "id": "securityadvisoryconnection",
+      "href": "/graphql/reference/security-advisories#object-securityadvisoryconnection",
+      "description": "<p>GitHub Security Advisories.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "classifications",
+          "type": "[SecurityAdvisoryClassification!]",
+          "id": "securityadvisoryclassification",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryclassification",
+          "description": "<p>A list of classifications to filter advisories by.</p>"
+        },
+        {
+          "name": "epssPercentage",
+          "type": "Float",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float",
+          "description": "<p>The EPSS percentage to filter advisories by.</p>"
+        },
+        {
+          "name": "epssPercentile",
+          "type": "Float",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float",
+          "description": "<p>The EPSS percentile to filter advisories by.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "identifier",
+          "type": "SecurityAdvisoryIdentifierFilter",
+          "id": "securityadvisoryidentifierfilter",
+          "href": "/graphql/reference/security-advisories#input-object-securityadvisoryidentifierfilter",
+          "description": "<p>Filter advisories by identifier, e.g. GHSA or CVE.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "orderBy",
+          "type": "SecurityAdvisoryOrder",
+          "id": "securityadvisoryorder",
+          "href": "/graphql/reference/security-advisories#input-object-securityadvisoryorder",
+          "description": "<p>Ordering options for the returned topics.</p>"
+        },
+        {
+          "name": "publishedSince",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime",
+          "description": "<p>Filter advisories to those published since a time in the past.</p>"
+        },
+        {
+          "name": "updatedSince",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime",
+          "description": "<p>Filter advisories to those updated since a time in the past.</p>"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "securityAdvisory",
+      "type": "SecurityAdvisory",
+      "id": "securityadvisory",
+      "href": "/graphql/reference/security-advisories#object-securityadvisory",
+      "description": "<p>Fetch a Security Advisory by its GHSA ID.</p>",
+      "args": [
+        {
+          "name": "ghsaId",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>GitHub Security Advisory ID.</p>"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "securityVulnerabilities",
+      "type": "SecurityVulnerabilityConnection!",
+      "id": "securityvulnerabilityconnection",
+      "href": "/graphql/reference/security-advisories#object-securityvulnerabilityconnection",
+      "description": "<p>Software Vulnerabilities documented by GitHub Security Advisories.</p>",
+      "args": [
+        {
+          "name": "after",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Returns the elements in the list that come after the specified cursor.</p>"
+        },
+        {
+          "name": "before",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>Returns the elements in the list that come before the specified cursor.</p>"
+        },
+        {
+          "name": "classifications",
+          "type": "[SecurityAdvisoryClassification!]",
+          "id": "securityadvisoryclassification",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryclassification",
+          "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>"
+        },
+        {
+          "name": "ecosystem",
+          "type": "SecurityAdvisoryEcosystem",
+          "id": "securityadvisoryecosystem",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryecosystem",
+          "description": "<p>An ecosystem to filter vulnerabilities by.</p>"
+        },
+        {
+          "name": "first",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "description": "<p>Returns the first <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "last",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "orderBy",
+          "type": "SecurityVulnerabilityOrder",
+          "id": "securityvulnerabilityorder",
+          "href": "/graphql/reference/security-advisories#input-object-securityvulnerabilityorder",
+          "description": "<p>Ordering options for the returned topics.</p>"
+        },
+        {
+          "name": "package",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A package name to filter vulnerabilities by.</p>"
+        },
+        {
+          "name": "severities",
+          "type": "[SecurityAdvisorySeverity!]",
+          "id": "securityadvisoryseverity",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity",
+          "description": "<p>A list of severities to filter vulnerabilities by.</p>"
+        }
+      ],
+      "category": "security-advisories"
+    }
+  ],
+  "objects": [
+    {
+      "name": "CVSS",
+      "id": "cvss",
+      "href": "/graphql/reference/security-advisories#object-cvss",
+      "description": "<p>The Common Vulnerability Scoring System.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "score",
+          "description": "<p>The CVSS score associated with this advisory.</p>",
+          "type": "Float!",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float"
+        },
+        {
+          "name": "vectorString",
+          "description": "<p>The CVSS vector string associated with this advisory.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "CWE",
+      "id": "cwe",
+      "href": "/graphql/reference/security-advisories#object-cwe",
+      "description": "<p>A common weakness enumeration.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "cweId",
+          "description": "<p>The id of the CWE.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "description",
+          "description": "<p>A detailed description of this CWE.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the CWE object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of this CWE.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "CWEConnection",
+      "id": "cweconnection",
+      "href": "/graphql/reference/security-advisories#object-cweconnection",
+      "description": "<p>The connection type for CWE.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CWEEdge]",
+          "id": "cweedge",
+          "href": "/graphql/reference/security-advisories#object-cweedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[CWE]",
+          "id": "cwe",
+          "href": "/graphql/reference/security-advisories#object-cwe"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "CWEEdge",
+      "id": "cweedge",
+      "href": "/graphql/reference/security-advisories#object-cweedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "CWE",
+          "id": "cwe",
+          "href": "/graphql/reference/security-advisories#object-cwe"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "CvssSeverities",
+      "id": "cvssseverities",
+      "href": "/graphql/reference/security-advisories#object-cvssseverities",
+      "description": "<p>The Common Vulnerability Scoring System.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "cvssV3",
+          "description": "<p>The CVSS v3 severity associated with this advisory.</p>",
+          "type": "CVSS",
+          "id": "cvss",
+          "href": "/graphql/reference/security-advisories#object-cvss"
+        },
+        {
+          "name": "cvssV4",
+          "description": "<p>The CVSS v4 severity associated with this advisory.</p>",
+          "type": "CVSS",
+          "id": "cvss",
+          "href": "/graphql/reference/security-advisories#object-cvss"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "EPSS",
+      "id": "epss",
+      "href": "/graphql/reference/security-advisories#object-epss",
+      "description": "<p>The Exploit Prediction Scoring System.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "percentage",
+          "description": "<p>The EPSS percentage represents the likelihood of a CVE being exploited.</p>",
+          "type": "Float",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float"
+        },
+        {
+          "name": "percentile",
+          "description": "<p>The EPSS percentile represents the relative rank of the CVE's likelihood of being exploited compared to other CVEs.</p>",
+          "type": "Float",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisory",
+      "id": "securityadvisory",
+      "href": "/graphql/reference/security-advisories#object-securityadvisory",
+      "description": "<p>A GitHub Security Advisory.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "classification",
+          "description": "<p>The classification of the advisory.</p>",
+          "type": "SecurityAdvisoryClassification!",
+          "id": "securityadvisoryclassification",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryclassification"
+        },
+        {
+          "name": "cvss",
+          "description": "<p>The CVSS associated with this advisory.</p>",
+          "type": "CVSS!",
+          "id": "cvss",
+          "href": "/graphql/reference/security-advisories#object-cvss",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>cvss</code> will be removed. New <code>cvss_severities</code> field will now contain both <code>cvss_v3</code> and <code>cvss_v4</code> properties. Removal on 2025-10-01 UTC.</p>"
+        },
+        {
+          "name": "cvssSeverities",
+          "description": "<p>The CVSS associated with this advisory.</p>",
+          "type": "CvssSeverities!",
+          "id": "cvssseverities",
+          "href": "/graphql/reference/security-advisories#object-cvssseverities"
+        },
+        {
+          "name": "cwes",
+          "description": "<p>CWEs associated with this Advisory.</p>",
+          "type": "CWEConnection!",
+          "id": "cweconnection",
+          "href": "/graphql/reference/security-advisories#object-cweconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "description",
+          "description": "<p>This is a long plaintext description of the advisory.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "epss",
+          "description": "<p>The Exploit Prediction Scoring System.</p>",
+          "type": "EPSS",
+          "id": "epss",
+          "href": "/graphql/reference/security-advisories#object-epss"
+        },
+        {
+          "name": "ghsaId",
+          "description": "<p>The GitHub Security Advisory ID.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the SecurityAdvisory object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "identifiers",
+          "description": "<p>A list of identifiers for this advisory.</p>",
+          "type": "[SecurityAdvisoryIdentifier!]!",
+          "id": "securityadvisoryidentifier",
+          "href": "/graphql/reference/security-advisories#object-securityadvisoryidentifier"
+        },
+        {
+          "name": "notificationsPermalink",
+          "description": "<p>The permalink for the advisory's dependabot alerts page.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "origin",
+          "description": "<p>The organization that originated the advisory.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "permalink",
+          "description": "<p>The permalink for the advisory.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "publishedAt",
+          "description": "<p>When the advisory was published.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "references",
+          "description": "<p>A list of references for this advisory.</p>",
+          "type": "[SecurityAdvisoryReference!]!",
+          "id": "securityadvisoryreference",
+          "href": "/graphql/reference/security-advisories#object-securityadvisoryreference"
+        },
+        {
+          "name": "severity",
+          "description": "<p>The severity of the advisory.</p>",
+          "type": "SecurityAdvisorySeverity!",
+          "id": "securityadvisoryseverity",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity"
+        },
+        {
+          "name": "summary",
+          "description": "<p>A short plaintext summary of the advisory.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>When the advisory was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "vulnerabilities",
+          "description": "<p>Vulnerabilities associated with this Advisory.</p>",
+          "type": "SecurityVulnerabilityConnection!",
+          "id": "securityvulnerabilityconnection",
+          "href": "/graphql/reference/security-advisories#object-securityvulnerabilityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "classifications",
+              "description": "<p>A list of advisory classifications to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "[SecurityAdvisoryClassification!]",
+                "id": "securityadvisoryclassification",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryclassification"
+              }
+            },
+            {
+              "name": "ecosystem",
+              "description": "<p>An ecosystem to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "SecurityAdvisoryEcosystem",
+                "id": "securityadvisoryecosystem",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryecosystem"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the returned topics.</p>",
+              "type": {
+                "name": "SecurityVulnerabilityOrder",
+                "id": "securityvulnerabilityorder",
+                "href": "/graphql/reference/security-advisories#input-object-securityvulnerabilityorder"
+              }
+            },
+            {
+              "name": "package",
+              "description": "<p>A package name to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "severities",
+              "description": "<p>A list of severities to filter vulnerabilities by.</p>",
+              "type": {
+                "name": "[SecurityAdvisorySeverity!]",
+                "id": "securityadvisoryseverity",
+                "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity"
+              }
+            }
+          ]
+        },
+        {
+          "name": "withdrawnAt",
+          "description": "<p>When the advisory was withdrawn, if it has been withdrawn.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisoryConnection",
+      "id": "securityadvisoryconnection",
+      "href": "/graphql/reference/security-advisories#object-securityadvisoryconnection",
+      "description": "<p>The connection type for SecurityAdvisory.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SecurityAdvisoryEdge]",
+          "id": "securityadvisoryedge",
+          "href": "/graphql/reference/security-advisories#object-securityadvisoryedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SecurityAdvisory]",
+          "id": "securityadvisory",
+          "href": "/graphql/reference/security-advisories#object-securityadvisory"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisoryEdge",
+      "id": "securityadvisoryedge",
+      "href": "/graphql/reference/security-advisories#object-securityadvisoryedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SecurityAdvisory",
+          "id": "securityadvisory",
+          "href": "/graphql/reference/security-advisories#object-securityadvisory"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisoryIdentifier",
+      "id": "securityadvisoryidentifier",
+      "href": "/graphql/reference/security-advisories#object-securityadvisoryidentifier",
+      "description": "<p>A GitHub Security Advisory Identifier.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "type",
+          "description": "<p>The identifier type, e.g. GHSA, CVE.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "value",
+          "description": "<p>The identifier.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisoryPackage",
+      "id": "securityadvisorypackage",
+      "href": "/graphql/reference/security-advisories#object-securityadvisorypackage",
+      "description": "<p>An individual package.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "ecosystem",
+          "description": "<p>The ecosystem the package belongs to, e.g. RUBYGEMS, NPM.</p>",
+          "type": "SecurityAdvisoryEcosystem!",
+          "id": "securityadvisoryecosystem",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryecosystem"
+        },
+        {
+          "name": "name",
+          "description": "<p>The package name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisoryPackageVersion",
+      "id": "securityadvisorypackageversion",
+      "href": "/graphql/reference/security-advisories#object-securityadvisorypackageversion",
+      "description": "<p>An individual package version.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "identifier",
+          "description": "<p>The package name or version.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisoryReference",
+      "id": "securityadvisoryreference",
+      "href": "/graphql/reference/security-advisories#object-securityadvisoryreference",
+      "description": "<p>A GitHub Security Advisory Reference.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "url",
+          "description": "<p>A publicly accessible reference.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityVulnerability",
+      "id": "securityvulnerability",
+      "href": "/graphql/reference/security-advisories#object-securityvulnerability",
+      "description": "<p>An individual vulnerability within an Advisory.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "advisory",
+          "description": "<p>The Advisory associated with this Vulnerability.</p>",
+          "type": "SecurityAdvisory!",
+          "id": "securityadvisory",
+          "href": "/graphql/reference/security-advisories#object-securityadvisory"
+        },
+        {
+          "name": "firstPatchedVersion",
+          "description": "<p>The first version containing a fix for the vulnerability.</p>",
+          "type": "SecurityAdvisoryPackageVersion",
+          "id": "securityadvisorypackageversion",
+          "href": "/graphql/reference/security-advisories#object-securityadvisorypackageversion"
+        },
+        {
+          "name": "package",
+          "description": "<p>A description of the vulnerable package.</p>",
+          "type": "SecurityAdvisoryPackage!",
+          "id": "securityadvisorypackage",
+          "href": "/graphql/reference/security-advisories#object-securityadvisorypackage"
+        },
+        {
+          "name": "severity",
+          "description": "<p>The severity of the vulnerability within this package.</p>",
+          "type": "SecurityAdvisorySeverity!",
+          "id": "securityadvisoryseverity",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>When the vulnerability was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "vulnerableVersionRange",
+          "description": "<p>A string that describes the vulnerable package versions.\nThis string follows a basic syntax with a few forms.</p>\n<ul>\n<li><code>= 0.2.0</code> denotes a single vulnerable version.</li>\n<li><code>&#x3C;= 1.0.8</code> denotes a version range up to and including the specified version</li>\n<li><code>&#x3C; 0.1.11</code> denotes a version range up to, but excluding, the specified version</li>\n<li><code>>= 4.3.0, &#x3C; 4.3.5</code> denotes a version range with a known minimum and maximum version.</li>\n<li><code>>= 0.0.1</code> denotes a version range with a known minimum, but no known maximum.</li>\n</ul>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityVulnerabilityConnection",
+      "id": "securityvulnerabilityconnection",
+      "href": "/graphql/reference/security-advisories#object-securityvulnerabilityconnection",
+      "description": "<p>The connection type for SecurityVulnerability.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SecurityVulnerabilityEdge]",
+          "id": "securityvulnerabilityedge",
+          "href": "/graphql/reference/security-advisories#object-securityvulnerabilityedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SecurityVulnerability]",
+          "id": "securityvulnerability",
+          "href": "/graphql/reference/security-advisories#object-securityvulnerability"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityVulnerabilityEdge",
+      "id": "securityvulnerabilityedge",
+      "href": "/graphql/reference/security-advisories#object-securityvulnerabilityedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SecurityVulnerability",
+          "id": "securityvulnerability",
+          "href": "/graphql/reference/security-advisories#object-securityvulnerability"
+        }
+      ],
+      "category": "security-advisories"
+    }
+  ],
+  "enums": [
+    {
+      "name": "SecurityAdvisoryClassification",
+      "id": "securityadvisoryclassification",
+      "href": "/graphql/reference/security-advisories#enum-securityadvisoryclassification",
+      "description": "<p>Classification of the advisory.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "GENERAL",
+          "description": "<p>Classification of general advisories.</p>"
+        },
+        {
+          "name": "MALWARE",
+          "description": "<p>Classification of malware advisories.</p>"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisoryEcosystem",
+      "id": "securityadvisoryecosystem",
+      "href": "/graphql/reference/security-advisories#enum-securityadvisoryecosystem",
+      "description": "<p>The possible ecosystems of a security vulnerability's package.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ACTIONS",
+          "description": "<p>GitHub Actions.</p>"
+        },
+        {
+          "name": "COMPOSER",
+          "description": "<p>PHP packages hosted at packagist.org.</p>"
+        },
+        {
+          "name": "ERLANG",
+          "description": "<p>Erlang/Elixir packages hosted at hex.pm.</p>"
+        },
+        {
+          "name": "GO",
+          "description": "<p>Go modules.</p>"
+        },
+        {
+          "name": "MAVEN",
+          "description": "<p>Java artifacts hosted at the Maven central repository.</p>"
+        },
+        {
+          "name": "NPM",
+          "description": "<p>JavaScript packages hosted at npmjs.com.</p>"
+        },
+        {
+          "name": "NUGET",
+          "description": "<p>.NET packages hosted at the NuGet Gallery.</p>"
+        },
+        {
+          "name": "PIP",
+          "description": "<p>Python packages hosted at PyPI.org.</p>"
+        },
+        {
+          "name": "PUB",
+          "description": "<p>Dart packages hosted at pub.dev.</p>"
+        },
+        {
+          "name": "RUBYGEMS",
+          "description": "<p>Ruby gems hosted at RubyGems.org.</p>"
+        },
+        {
+          "name": "RUST",
+          "description": "<p>Rust crates.</p>"
+        },
+        {
+          "name": "SWIFT",
+          "description": "<p>Swift packages.</p>"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisoryIdentifierType",
+      "id": "securityadvisoryidentifiertype",
+      "href": "/graphql/reference/security-advisories#enum-securityadvisoryidentifiertype",
+      "description": "<p>Identifier formats available for advisories.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CVE",
+          "description": "<p>Common Vulnerabilities and Exposures Identifier.</p>"
+        },
+        {
+          "name": "GHSA",
+          "description": "<p>GitHub Security Advisory ID.</p>"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisoryOrderField",
+      "id": "securityadvisoryorderfield",
+      "href": "/graphql/reference/security-advisories#enum-securityadvisoryorderfield",
+      "description": "<p>Properties by which security advisory connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "EPSS_PERCENTAGE",
+          "description": "<p>Order advisories by EPSS percentage.</p>"
+        },
+        {
+          "name": "EPSS_PERCENTILE",
+          "description": "<p>Order advisories by EPSS percentile.</p>"
+        },
+        {
+          "name": "PUBLISHED_AT",
+          "description": "<p>Order advisories by publication time.</p>"
+        },
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>Order advisories by update time.</p>"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisorySeverity",
+      "id": "securityadvisoryseverity",
+      "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity",
+      "description": "<p>Severity of the vulnerability.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CRITICAL",
+          "description": "<p>Critical.</p>"
+        },
+        {
+          "name": "HIGH",
+          "description": "<p>High.</p>"
+        },
+        {
+          "name": "LOW",
+          "description": "<p>Low.</p>"
+        },
+        {
+          "name": "MODERATE",
+          "description": "<p>Moderate.</p>"
+        },
+        {
+          "name": "UNKNOWN",
+          "description": "<p>Unknown.</p>"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityVulnerabilityOrderField",
+      "id": "securityvulnerabilityorderfield",
+      "href": "/graphql/reference/security-advisories#enum-securityvulnerabilityorderfield",
+      "description": "<p>Properties by which security vulnerability connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>Order vulnerability by update time.</p>"
+        }
+      ],
+      "category": "security-advisories"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "SecurityAdvisoryIdentifierFilter",
+      "id": "securityadvisoryidentifierfilter",
+      "href": "/graphql/reference/security-advisories#input-object-securityadvisoryidentifierfilter",
+      "description": "<p>An advisory identifier to filter results on.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "type",
+          "description": "<p>The identifier type.</p>",
+          "type": "SecurityAdvisoryIdentifierType!",
+          "id": "securityadvisoryidentifiertype",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryidentifiertype"
+        },
+        {
+          "name": "value",
+          "description": "<p>The identifier string. Supports exact or partial matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityAdvisoryOrder",
+      "id": "securityadvisoryorder",
+      "href": "/graphql/reference/security-advisories#input-object-securityadvisoryorder",
+      "description": "<p>Ordering options for security advisory connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order security advisories by.</p>",
+          "type": "SecurityAdvisoryOrderField!",
+          "id": "securityadvisoryorderfield",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryorderfield"
+        }
+      ],
+      "category": "security-advisories"
+    },
+    {
+      "name": "SecurityVulnerabilityOrder",
+      "id": "securityvulnerabilityorder",
+      "href": "/graphql/reference/security-advisories#input-object-securityvulnerabilityorder",
+      "description": "<p>Ordering options for security vulnerability connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order security vulnerabilities by.</p>",
+          "type": "SecurityVulnerabilityOrderField!",
+          "id": "securityvulnerabilityorderfield",
+          "href": "/graphql/reference/security-advisories#enum-securityvulnerabilityorderfield"
+        }
+      ],
+      "category": "security-advisories"
+    }
+  ]
+}

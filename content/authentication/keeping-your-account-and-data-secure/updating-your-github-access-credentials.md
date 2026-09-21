@@ -57,9 +57,9 @@ category:
 
 ## Updating your access tokens
 
-See [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations) for instructions on reviewing and deleting access tokens. To generate new access tokens, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+See [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps) for instructions on reviewing and deleting access tokens. To generate new access tokens, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
-If you have reset your account password and would also like to trigger a sign-out from the {% data variables.product.prodname_mobile %} app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" {% data variables.product.prodname_oauth_app %}. This will sign out all instances of the {% data variables.product.prodname_mobile %} app associated with your account. For additional information, see [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations).
+If you have reset your account password and would also like to trigger a sign-out from the {% data variables.product.prodname_mobile %} app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" {% data variables.product.prodname_oauth_app %}. This will sign out all instances of the {% data variables.product.prodname_mobile %} app associated with your account. For additional information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps).
 
 ## Updating your SSH keys
 

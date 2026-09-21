@@ -12,4 +12,4 @@ children:
   - /replit-with-github-classroom
   - /run-student-code-in-an-ide
 ---
-
+{% data reusables.classroom.closing-down-notice %}

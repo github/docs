@@ -23,7 +23,7 @@ contentType: how-tos
 >[!NOTE]
 > You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
 
-Before you can publish an action, you'll need to create an action in your repository. For more information, see [AUTOTITLE](/actions/creating-actions).
+Before you can publish an action, you'll need to create an action in your repository. For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations).
 
 When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need to ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
 
@@ -32,7 +32,6 @@ Actions are published to {% data variables.product.prodname_marketplace %} immed
 * The action must be in a public repository.
 * Each repository must contain a single action metadata file (`action.yml` or `action.yaml`) at the root.
   * Repositories may include other actions metadata files in sub-folders, but they will not be automatically listed in the marketplace.
-* Each repository must _not_ contain any workflow files.
 * The `name` in the action's metadata file must be unique.
   * The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
   * The `name` cannot match a user or organization on {% data variables.product.prodname_dotcom %}, unless the user or organization owner is publishing the action. For example, only the {% data variables.product.prodname_dotcom %} organization can publish an action named `github`.

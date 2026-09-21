@@ -9,7 +9,6 @@ import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
 // Search context values for identifying each search event
 export const GENERAL_SEARCH_CONTEXT = 'general-search'
 export const AI_SEARCH_CONTEXT = 'ai-search'
-export const COMBINED_SEARCH_CONTEXT = 'combined-search'
 
 // The logic that redirects to the /search page with the proper query params
 // The query params will be consumed in the general search middleware
@@ -65,9 +64,8 @@ export async function executeAISearch(version: string, query: string, debug = fa
   return response
 }
 
-/**
- * The AJAX request logic that fetches combined search results AI autocomplete suggestions + general search suggestions
- */
+// Fetches combined search results: AI autocomplete suggestions plus general
+// search suggestions.
 export async function executeCombinedSearch(
   router: NextRouter,
   version: string,
@@ -92,7 +90,6 @@ export async function executeCombinedSearch(
     headers: {
       'Content-Type': 'application/json',
     },
-    // Allow the caller to pass in an AbortSignal to cancel the request
     signal: abortSignal || undefined,
   })
   if (!response?.ok) {

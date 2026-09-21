@@ -1,5 +1,6 @@
 ---
 title: CodeQL CLI CSV output
+shortTitle: CSV output
 intro: Understand CSV results from the {% data variables.product.prodname_codeql_cli %}.
 product: '{% data reusables.gated-features.codeql %}'
 allowTitleToDifferFromFilename: true

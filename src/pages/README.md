@@ -19,7 +19,7 @@ Note: Actual page implementations live in subject directories (e.g., `src/landin
 ### Key capabilities and their locations
 
 - `_app.tsx` - Application wrapper, imports global styles, re-exports from `@/frame/pages/app`
-- `_document.tsx` - Custom HTML document with styled-components SSR and color scheme defaults
+- `_document.tsx` - Custom HTML document with color scheme defaults
 - `_error.tsx` - Error page that reports to Failbot on server-side errors
 - `index.tsx` - Homepage, re-exports from `@/landings/pages/home`
 - `[versionId]/[productId]/index.tsx` - Product/category pages, re-exports from `@/landings/pages/product`
@@ -50,7 +50,7 @@ This keeps routing logic in `src/pages/` while page implementation stays with it
 ### Special Next.js files
 
 - `_app.tsx` - Wraps every page, initializes global state, imports styles
-- `_document.tsx` - Customizes HTML structure, handles styled-components SSR
+- `_document.tsx` - Customizes HTML structure
 - `_error.tsx` - Renders error pages, reports server-side errors to Failbot
 
 ### Adding a new route
@@ -69,7 +69,6 @@ This keeps routing logic in `src/pages/` while page implementation stays with it
 - Next.js pages router (being migrated to app router)
 - Subject page implementations (`@/landings`, `@/rest`, `@/search`, etc.)
 - `@/frame` - Application wrapper and global styles
-- styled-components - CSS-in-JS for server-side rendering
 
 ### Route resolution
 1. Next.js matches incoming URL to file in `src/pages/`
@@ -111,7 +110,6 @@ Edit `_app.tsx`:
 
 Edit `_document.tsx`:
 - Only for global HTML document changes
-- styled-components SSR configuration
 - Default color scheme values
 
 Edit `_error.tsx`:

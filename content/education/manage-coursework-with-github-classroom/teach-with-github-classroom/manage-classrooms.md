@@ -10,6 +10,7 @@ redirect_from:
 category:
   - Set up GitHub Classroom
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About classrooms
 

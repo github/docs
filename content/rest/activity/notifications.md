@@ -18,7 +18,7 @@ category:
 
 {% data reusables.user-settings.notifications-api-classic-pat-only %}
 
-You can use the REST API to manage {% data variables.product.github %} notifications. For more information about notifications, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+You can use the REST API to manage {% data variables.product.github %} notifications. For more information about notifications, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications).
 
 All calls to these endpoints require the `notifications` or `repo` scopes. You will need the `repo` scope to access issues and commits from their respective endpoints.
 
@@ -48,7 +48,7 @@ There are a few potential `reason`s for receiving a notification.
 
 Reason Name | Description
 ------------|------------
-`approval_requested` | You were requested to review and approve a deployment. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments).
+`approval_requested` | You were requested to review and approve a deployment. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments).
 `assign` | You were assigned to the issue.
 `author` | You created the thread.
 `ci_activity` | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.
@@ -59,7 +59,7 @@ Reason Name | Description
 `mention` | You were specifically **@mentioned** in the content.
 `review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
 `security_advisory_credit` | You were credited for contributing to a security advisory.
-`security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) in your repository.{% endif %}
+`security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/code-security/concepts/supply-chain-security/dependabot-alerts) in your repository.{% endif %}
 `state_change` | You changed the thread state (for example, closing an issue or merging a pull request).
 `subscribed` | You're watching the repository.
 `team_mention` | You were on a team that was mentioned.

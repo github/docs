@@ -1,5 +1,8 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
+import type { ServerResponse } from 'http'
 import { Operation } from '@/rest/components/types'
+import type { ExtendedRequest, AllVersions } from '@/types/types'
 import { RestReferencePage } from '@/rest/components/RestReferencePage'
 import {
   addUINamespaces,
@@ -37,15 +40,15 @@ export default function SubCategory({ mainContext, automatedPageContext, restOpe
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index')
 
-  const req = context.req as any
-  const res = context.res as any
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as ServerResponse
   // e.g. the `activity` from `/en/rest/activity/events`
   const category = context.params!.category as string
   let subCategory = context.params!.subcategory as string
   const currentVersion = context.params!.versionId as string
-  const currentLanguage = req.context.currentLanguage as string
-  const allVersions = req.context.allVersions
-  const queryApiVersion = context.query.apiVersion
+  const currentLanguage = req.context!.currentLanguage as string
+  const allVersions = req.context!.allVersions as AllVersions
+  const queryApiVersion = context.query.apiVersion as string
   const apiVersion = allVersions[currentVersion].apiVersions.includes(queryApiVersion)
     ? queryApiVersion
     : allVersions[currentVersion].latestApiVersion
@@ -63,12 +66,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // content/rest/*
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
-  // When operations exist, update the miniTocItems in the article context
-  // with the list of operations in the OpenAPI.
-
-  // The context passed will have the Markdown content for the language
-  // of the page being requested and the Markdown will be rendered
-  // using the `currentVersion`
+  // Build mini-TOC items from the operation titles, using the request context
+  // for the language and version, and append them to the article's mini-TOC.
   if (restOperations) {
     const { restOperationsMiniTocItems } = (await getRestMiniTocItems(
       category,
@@ -77,7 +76,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       restOperations,
       currentLanguage,
       currentVersion,
-      req.context,
+      req.context!,
     )) as MinitocItemsT
 
     if (restOperationsMiniTocItems) {
@@ -85,7 +84,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     }
   }
 
-  const mainContext = await getMainContext(req, res)
+  const mainContext = await getMainContext(req, res as unknown as Response)
   addUINamespaces(req, mainContext.data.ui, ['parameter_table', 'rest_reference'])
 
   return {

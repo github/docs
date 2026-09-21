@@ -40,8 +40,8 @@ After configuring {% data variables.product.prodname_code_scanning %} using defa
 
 1. Optionally, to see more detail about the commit that triggered the workflow run, click the short commit hash. The short commit hash is 7 lowercase characters immediately following the commit author's username.
 
-1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository).
+1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/assess-alerts#viewing-the-alerts-for-a-repository).
 
 ## Further reading
 
-If you're looking for diagnostic information about whether {% data variables.product.prodname_code_scanning %} accessed any private registries, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/viewing-code-scanning-logs).
+If you're looking for diagnostic information about whether {% data variables.product.prodname_code_scanning %} accessed any private registries, see [AUTOTITLE](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).

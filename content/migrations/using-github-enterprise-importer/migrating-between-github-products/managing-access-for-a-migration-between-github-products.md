@@ -86,7 +86,7 @@ For other tasks, such as downloading a migration log, you only need one {% data 
 The scopes that are required for your {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %} depend on your role and the task you want to complete.
 
 > [!NOTE]
-> {% data reusables.user-settings.generic-classic-pat-only %} This means that you cannot use {% data variables.product.prodname_importer_proper_name %} if your organization uses the "Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations" policy. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise#restricting-access-by-personal-access-tokens).
+> {% data reusables.user-settings.generic-classic-pat-only %} This means that you cannot use {% data variables.product.prodname_importer_proper_name %} if your organization uses the "Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations" policy. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise#restricting-access-by-personal-access-tokens).
 
 Task | Enterprise owner | Organization owner | Migrator
 ---- | ------------------ | -------- | ----- |
@@ -126,6 +126,7 @@ To grant the migrator role using the CLI, you must have installed the {% data va
 
 ## Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_importer_proper_name %}
 
+1. Verify that you have a sufficient role for the task you want to complete. For more information, see [Required roles](#required-roles).
 {% data reusables.enterprise-migration-tool.creating-a-pat-steps %}
 
 ## Configuring IP allow lists for migrations

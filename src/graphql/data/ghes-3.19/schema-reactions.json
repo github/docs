@@ -1,0 +1,693 @@
+{
+  "mutations": [
+    {
+      "name": "addReaction",
+      "id": "addreaction",
+      "href": "/graphql/reference/reactions#mutation-addreaction",
+      "description": "<p>Adds a reaction to a subject.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddReactionInput!",
+          "id": "addreactioninput",
+          "href": "/graphql/reference/reactions#input-object-addreactioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "reaction",
+          "type": "Reaction",
+          "id": "reaction",
+          "href": "/graphql/reference/reactions#object-reaction",
+          "description": "<p>The reaction object.</p>"
+        },
+        {
+          "name": "reactionGroups",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "href": "/graphql/reference/reactions#object-reactiongroup",
+          "description": "<p>The reaction groups for the subject.</p>"
+        },
+        {
+          "name": "subject",
+          "type": "Reactable",
+          "id": "reactable",
+          "href": "/graphql/reference/reactions#interface-reactable",
+          "description": "<p>The reactable subject.</p>"
+        }
+      ],
+      "category": "reactions"
+    },
+    {
+      "name": "removeReaction",
+      "id": "removereaction",
+      "href": "/graphql/reference/reactions#mutation-removereaction",
+      "description": "<p>Removes a reaction from a subject.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RemoveReactionInput!",
+          "id": "removereactioninput",
+          "href": "/graphql/reference/reactions#input-object-removereactioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "reaction",
+          "type": "Reaction",
+          "id": "reaction",
+          "href": "/graphql/reference/reactions#object-reaction",
+          "description": "<p>The reaction object.</p>"
+        },
+        {
+          "name": "reactionGroups",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "href": "/graphql/reference/reactions#object-reactiongroup",
+          "description": "<p>The reaction groups for the subject.</p>"
+        },
+        {
+          "name": "subject",
+          "type": "Reactable",
+          "id": "reactable",
+          "href": "/graphql/reference/reactions#interface-reactable",
+          "description": "<p>The reactable subject.</p>"
+        }
+      ],
+      "category": "reactions"
+    }
+  ],
+  "objects": [
+    {
+      "name": "Reaction",
+      "id": "reaction",
+      "href": "/graphql/reference/reactions#object-reaction",
+      "description": "<p>An emoji reaction to a particular piece of content.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "content",
+          "description": "<p>Identifies the emoji reaction.</p>",
+          "type": "ReactionContent!",
+          "id": "reactioncontent",
+          "href": "/graphql/reference/reactions#enum-reactioncontent"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Reaction object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "reactable",
+          "description": "<p>The reactable piece of content.</p>",
+          "type": "Reactable!",
+          "id": "reactable",
+          "href": "/graphql/reference/reactions#interface-reactable"
+        },
+        {
+          "name": "user",
+          "description": "<p>Identifies the user who created this reaction.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "reactions"
+    },
+    {
+      "name": "ReactionConnection",
+      "id": "reactionconnection",
+      "href": "/graphql/reference/reactions#object-reactionconnection",
+      "description": "<p>A list of reactions that have been left on the subject.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ReactionEdge]",
+          "id": "reactionedge",
+          "href": "/graphql/reference/reactions#object-reactionedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Reaction]",
+          "id": "reaction",
+          "href": "/graphql/reference/reactions#object-reaction"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "viewerHasReacted",
+          "description": "<p>Whether or not the authenticated user has left a reaction on the subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "reactions"
+    },
+    {
+      "name": "ReactionEdge",
+      "id": "reactionedge",
+      "href": "/graphql/reference/reactions#object-reactionedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Reaction",
+          "id": "reaction",
+          "href": "/graphql/reference/reactions#object-reaction"
+        }
+      ],
+      "category": "reactions"
+    },
+    {
+      "name": "ReactionGroup",
+      "id": "reactiongroup",
+      "href": "/graphql/reference/reactions#object-reactiongroup",
+      "description": "<p>A group of emoji reactions to a particular piece of content.</p>",
+      "fields": [
+        {
+          "name": "content",
+          "description": "<p>Identifies the emoji reaction.</p>",
+          "type": "ReactionContent!",
+          "id": "reactioncontent",
+          "href": "/graphql/reference/reactions#enum-reactioncontent"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies when the reaction was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "reactors",
+          "description": "<p>Reactors to the reaction subject with the emotion represented by this reaction group.</p>",
+          "type": "ReactorConnection!",
+          "id": "reactorconnection",
+          "href": "/graphql/reference/reactions#object-reactorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "subject",
+          "description": "<p>The subject that was reacted to.</p>",
+          "type": "Reactable!",
+          "id": "reactable",
+          "href": "/graphql/reference/reactions#interface-reactable"
+        },
+        {
+          "name": "users",
+          "description": "<p>Users who have reacted to the reaction subject with the emotion represented by this reaction group.</p>",
+          "type": "ReactingUserConnection!",
+          "id": "reactinguserconnection",
+          "href": "/graphql/reference/users#object-reactinguserconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Reactors can now be mannequins, bots, and organizations. Use the <code>reactors</code> field instead. Removal on 2021-10-01 UTC.</p>"
+        },
+        {
+          "name": "viewerHasReacted",
+          "description": "<p>Whether or not the authenticated user has left a reaction on the subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "reactions"
+    },
+    {
+      "name": "ReactorConnection",
+      "id": "reactorconnection",
+      "href": "/graphql/reference/reactions#object-reactorconnection",
+      "description": "<p>The connection type for Reactor.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ReactorEdge]",
+          "id": "reactoredge",
+          "href": "/graphql/reference/reactions#object-reactoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Reactor]",
+          "id": "reactor",
+          "href": "/graphql/reference/reactions#union-reactor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "reactions"
+    },
+    {
+      "name": "ReactorEdge",
+      "id": "reactoredge",
+      "href": "/graphql/reference/reactions#object-reactoredge",
+      "description": "<p>Represents an author of a reaction.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The author of the reaction.</p>",
+          "type": "Reactor!",
+          "id": "reactor",
+          "href": "/graphql/reference/reactions#union-reactor"
+        },
+        {
+          "name": "reactedAt",
+          "description": "<p>The moment when the user made the reaction.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        }
+      ],
+      "category": "reactions"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "Reactable",
+      "id": "reactable",
+      "href": "/graphql/reference/reactions#interface-reactable",
+      "description": "<p>Represents a subject that can be reacted on.</p>",
+      "fields": [
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Reactable object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "reactionGroups",
+          "description": "<p>A list of reactions grouped by content left on the subject.</p>",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "href": "/graphql/reference/reactions#object-reactiongroup"
+        },
+        {
+          "name": "reactions",
+          "description": "<p>A list of Reactions left on the Issue.</p>",
+          "type": "ReactionConnection!",
+          "id": "reactionconnection",
+          "href": "/graphql/reference/reactions#object-reactionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "content",
+              "description": "<p>Allows filtering Reactions by emoji.</p>",
+              "type": {
+                "name": "ReactionContent",
+                "id": "reactioncontent",
+                "href": "/graphql/reference/reactions#enum-reactioncontent"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Allows specifying the order in which reactions are returned.</p>",
+              "type": {
+                "name": "ReactionOrder",
+                "id": "reactionorder",
+                "href": "/graphql/reference/reactions#input-object-reactionorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "viewerCanReact",
+          "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "reactions"
+    }
+  ],
+  "enums": [
+    {
+      "name": "ReactionContent",
+      "id": "reactioncontent",
+      "href": "/graphql/reference/reactions#enum-reactioncontent",
+      "description": "<p>Emojis that can be attached to Issues, Pull Requests and Comments.</p>",
+      "values": [
+        {
+          "name": "CONFUSED",
+          "description": "<p>Represents the <code>:confused:</code> emoji.</p>"
+        },
+        {
+          "name": "EYES",
+          "description": "<p>Represents the <code>:eyes:</code> emoji.</p>"
+        },
+        {
+          "name": "HEART",
+          "description": "<p>Represents the <code>:heart:</code> emoji.</p>"
+        },
+        {
+          "name": "HOORAY",
+          "description": "<p>Represents the <code>:hooray:</code> emoji.</p>"
+        },
+        {
+          "name": "LAUGH",
+          "description": "<p>Represents the <code>:laugh:</code> emoji.</p>"
+        },
+        {
+          "name": "ROCKET",
+          "description": "<p>Represents the <code>:rocket:</code> emoji.</p>"
+        },
+        {
+          "name": "THUMBS_DOWN",
+          "description": "<p>Represents the <code>:-1:</code> emoji.</p>"
+        },
+        {
+          "name": "THUMBS_UP",
+          "description": "<p>Represents the <code>:+1:</code> emoji.</p>"
+        }
+      ],
+      "category": "reactions"
+    },
+    {
+      "name": "ReactionOrderField",
+      "id": "reactionorderfield",
+      "href": "/graphql/reference/reactions#enum-reactionorderfield",
+      "description": "<p>A list of fields that reactions can be ordered by.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Allows ordering a list of reactions by when they were created.</p>"
+        }
+      ],
+      "category": "reactions"
+    }
+  ],
+  "unions": [
+    {
+      "name": "Reactor",
+      "id": "reactor",
+      "href": "/graphql/reference/reactions#union-reactor",
+      "description": "<p>Types that can be assigned to reactions.</p>",
+      "possibleTypes": [
+        {
+          "name": "Bot",
+          "id": "bot",
+          "href": "/graphql/reference/apps#object-bot"
+        },
+        {
+          "name": "Mannequin",
+          "id": "mannequin",
+          "href": "/graphql/reference/migrations#object-mannequin"
+        },
+        {
+          "name": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "reactions"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "AddReactionInput",
+      "id": "addreactioninput",
+      "href": "/graphql/reference/reactions#input-object-addreactioninput",
+      "description": "<p>Autogenerated input type of AddReaction.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "content",
+          "description": "<p>The name of the emoji to react with.</p>",
+          "type": "ReactionContent!",
+          "id": "reactioncontent",
+          "href": "/graphql/reference/reactions#enum-reactioncontent"
+        },
+        {
+          "name": "subjectId",
+          "description": "<p>The Node ID of the subject to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "reactions"
+    },
+    {
+      "name": "ReactionOrder",
+      "id": "reactionorder",
+      "href": "/graphql/reference/reactions#input-object-reactionorder",
+      "description": "<p>Ways in which lists of reactions can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order reactions by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order reactions by.</p>",
+          "type": "ReactionOrderField!",
+          "id": "reactionorderfield",
+          "href": "/graphql/reference/reactions#enum-reactionorderfield"
+        }
+      ],
+      "category": "reactions"
+    },
+    {
+      "name": "RemoveReactionInput",
+      "id": "removereactioninput",
+      "href": "/graphql/reference/reactions#input-object-removereactioninput",
+      "description": "<p>Autogenerated input type of RemoveReaction.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "content",
+          "description": "<p>The name of the emoji reaction to remove.</p>",
+          "type": "ReactionContent!",
+          "id": "reactioncontent",
+          "href": "/graphql/reference/reactions#enum-reactioncontent"
+        },
+        {
+          "name": "subjectId",
+          "description": "<p>The Node ID of the subject to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "reactions"
+    }
+  ]
+}

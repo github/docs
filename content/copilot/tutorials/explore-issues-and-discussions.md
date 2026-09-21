@@ -49,4 +49,4 @@ The following prompts are examples of the kind of questions you can ask {% data 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase#further-reading)
+* [AUTOTITLE](/copilot/tutorials/explore-a-codebase#further-reading)

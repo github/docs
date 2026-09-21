@@ -26,6 +26,7 @@ $dark-color: "%23ffffff";
     background-image: octicon-svg($path, $dark-color);
   }
 
+  // No-JS fallback; see the note in src/frame/stylesheets/index.scss.
   @media (prefers-color-scheme: dark) {
     [data-color-mode="auto"][data-dark-theme*="dark"] & {
       background-image: octicon-svg($path, $dark-color);

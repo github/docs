@@ -1,18 +1,13 @@
-/**
- * This exists for local reviewing. Only.
- * We load in the entire tree on startup, then that's used for things like
- * sidebars and breadcrumbs and landing pages and ToC pages (and possibly
- * more).
- * When an individual page is requested, we always reload it from disk
- * in case it has changed. But that's not feasible with all 1k+ pages.
- *
- * The core of this middleware calls `createTree()` but by passing the
- * optional previous tree so that within `createTree` it can opt to
- * re-use those that haven't changed on disk.
- *
- * The intention here is so that things like sidebars can refresh
- * without having to restart the entire server.
- */
+// This exists for local reviewing only.
+//
+// We load the entire tree on startup and use it for sidebars, breadcrumbs,
+// landing pages, and ToC pages. In development, an individual English page is
+// reread from disk on each request in case it changed, but doing that for all
+// 1k+ pages is not feasible.
+//
+// So this middleware calls `createTree()` with the previous tree, letting
+// `createTree` reuse the pages that haven't changed on disk. That way things
+// like sidebars refresh without restarting the server.
 
 import path from 'path'
 

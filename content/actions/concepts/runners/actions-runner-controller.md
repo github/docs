@@ -84,9 +84,9 @@ ARC consists of several custom resource definitions (CRDs). For more information
 * [actions.github.com/v1alpha1](https://pkg.go.dev/github.com/actions/actions-runner-controller/apis/actions.github.com/v1alpha1)
 * [actions.summerwind.net/v1alpha1](https://pkg.go.dev/github.com/actions/actions-runner-controller/apis/actions.summerwind.net/v1alpha1)
 
-Because custom resources are extensions of the Kubernetes API, they won't be available in a default Kubernetes installation. You will need to install these custom resources to use ARC. For more information on installing custom resources, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller).
+Because custom resources are extensions of the Kubernetes API, they won't be available in a default Kubernetes installation. You will need to install these custom resources to use ARC. For more information on installing custom resources, see [AUTOTITLE](/actions/tutorials/use-actions-runner-controller/get-started).
 
-Once the custom resources are installed, you can deploy ARC into your Kubernetes cluster. For information about deploying ARC, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
+Once the custom resources are installed, you can deploy ARC into your Kubernetes cluster. For information about deploying ARC, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/deploy-runner-scale-sets).
 
 ### About the runner container image
 
@@ -102,7 +102,7 @@ For example, if the `FROM` line in the runner image Dockerfile is `mcr.microsoft
 
 You can create your own runner image that meets your requirements. Your runner image must fulfill the following conditions.
 
-* Use a base image that can run the self-hosted runner application. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners).
+* Use a base image that can run the self-hosted runner application. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners).
 
 * The [runner binary](https://github.com/actions/runner/releases) must be placed under `/home/runner/` and launched using `/home/runner/run.sh`.
 * If you use Kubernetes mode, the [runner container hooks](https://github.com/actions/runner-container-hooks/releases) must be placed under `/home/runner/k8s`.
@@ -178,8 +178,8 @@ The supported runner image is released as a separate container image, which you 
 
 If you're new to ARC, see [AUTOTITLE](/actions/tutorials/use-actions-runner-controller/get-started) to try out the basics.
 
-When you're ready to use ARC to execute workflows, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow).
+When you're ready to use ARC to execute workflows, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/use-arc-in-a-workflow).
 
-{% data reusables.actions.actions-runner-controller-labels %} See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow).
+{% data reusables.actions.actions-runner-controller-labels %} See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/use-in-a-workflow).
 
-You can scale runners statically or dynamically depending on your needs. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#scaling-runners).
+You can scale runners statically or dynamically depending on your needs. See [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/deploy-runner-scale-sets).

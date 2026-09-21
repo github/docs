@@ -127,4 +127,4 @@ From here, you can repeat the process with another targeted set of alerts, such 
 
 ## Next steps
 
-Ready to launch your campaign? To create and manage your security campaign, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns).
+Ready to launch your campaign? To create and manage your security campaign, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/creating-managing-security-campaigns).

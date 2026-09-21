@@ -22,6 +22,7 @@ import type { AIReference } from '../types'
 import type { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
 
 import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
+import { MAX_QUERY_LENGTH } from '@/search/lib/ai-search-constants'
 
 import {
   SearchContext,
@@ -31,10 +32,11 @@ import {
 } from './SearchContext'
 import { SearchGroups } from './SearchGroups'
 import styles from './SearchOverlay.module.scss'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   searchOverlayOpen: boolean
-  parentRef: RefObject<HTMLElement>
+  parentRef: RefObject<HTMLElement | null>
   debug: boolean
   onClose: () => void
   params: {
@@ -62,7 +64,6 @@ export function SearchOverlay({
   const { currentVersion } = useVersion()
   const router = useRouter()
 
-  // Map props from multi query state
   const urlSearchInputQuery = params['search-overlay-input']
   const isAskAIState = params['search-overlay-ask-ai'] === 'true'
 
@@ -156,7 +157,8 @@ export function SearchOverlay({
     autoCompleteSearchError,
   ])
 
-  // Filter out any options that match the local query and replace them with a custom user query option that include isUserQuery: true
+  // Drop the option that duplicates what the user typed. It comes back below
+  // as a user-query option carrying isUserQuery: true.
   const filteredAIOptions = aiAutocompleteOptions.filter(
     (option) => option.term !== urlSearchInputQuery,
   )
@@ -189,7 +191,7 @@ export function SearchOverlay({
       generalWithView.push({
         title: t('search.overlay.view_all_search_results'),
         isViewAllResults: true,
-      } as any)
+      } as unknown as GeneralSearchHitWithOptions)
     } else if (autoCompleteSearchError) {
       if (urlSearchInputQuery.trim() !== '') {
         generalWithView.push({
@@ -202,7 +204,7 @@ export function SearchOverlay({
       generalWithView.push({
         title: t('search.overlay.no_results_found'),
         isNoResultsFound: true,
-      } as any)
+      } as unknown as GeneralSearchHitWithOptions)
     } else {
       generalWithView = []
     }
@@ -297,10 +299,10 @@ export function SearchOverlay({
   const handleSearchQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault()
     const newQuery = event.target.value
-    setSelectedIndex(-1) // Reset selected index when query changes
-    // Whenever the query changes, we want to leave the Ask AI state
+    setSelectedIndex(-1)
     setSearchLoading(true)
     updateAutocompleteResults(newQuery)
+    // Changing the query leaves the Ask AI state.
     if (isAskAIState) {
       updateParams({
         'search-overlay-ask-ai': '',
@@ -409,7 +411,6 @@ export function SearchOverlay({
       event.preventDefault()
       if (optionsLength > 0) {
         let newIndex = 0
-        // If no item is selected, select the first item
         if (selectedIndex === -1) {
           newIndex = 0
         } else {
@@ -422,7 +423,7 @@ export function SearchOverlay({
         // If it's the "no results found" option, skip it
         if (
           newIndex >= selectedIndex &&
-          (combinedOptions[newIndex]?.option as any)?.isNoResultsFound
+          (combinedOptions[newIndex]?.option as GeneralSearchHitWithOptions)?.isNoResultsFound
         ) {
           newIndex += 1
         }
@@ -438,22 +439,19 @@ export function SearchOverlay({
       event.preventDefault()
       if (optionsLength > 0) {
         let newIndex = 0
-        // If no item is selected, select the last item
         if (selectedIndex === -1) {
           newIndex = optionsLength - 1
         } else {
-          // Otherwise, select the previous item
           newIndex = (selectedIndex - 1 + optionsLength) % optionsLength
           // If we go "out of bounds" (i.e. the index is greater than the selected index), unselect the item
           if (newIndex > selectedIndex) {
             newIndex = -1
-            // If it's the "no results found" option, skip it
           }
         }
         // If it's the "no results found" option, skip it
         if (
           newIndex <= selectedIndex &&
-          (combinedOptions[newIndex]?.option as any)?.isNoResultsFound
+          (combinedOptions[newIndex]?.option as GeneralSearchHitWithOptions)?.isNoResultsFound
         ) {
           newIndex -= 1
         }
@@ -525,7 +523,6 @@ export function SearchOverlay({
       'search-overlay-ask-ai': '',
       'search-overlay-input': urlSearchInputQuery,
     })
-    // Focus the search input
     inputRef.current?.focus()
   }
 
@@ -693,9 +690,11 @@ export function SearchOverlay({
             ref={inputRef}
             value={urlSearchInputQuery}
             onChange={handleSearchQueryChange}
+            maxLength={MAX_QUERY_LENGTH}
             leadingVisual={<SearchIcon />}
             role="combobox"
-            // In AskAI the search input not longer "controls" the suggestions list, because there is no list, so we remove the aria-controls attribute
+            // In Ask AI the input controls the results region instead of the
+            // suggestions list.
             aria-controls={isAskAIState ? 'ask-ai-result-container' : 'search-suggestions-list'}
             aria-expanded={combinedOptions.length > 0}
             aria-label={t('search.overlay.input_aria_label')}
@@ -739,9 +738,10 @@ export function SearchOverlay({
         {OverlayContents}
         <ActionList.Divider className={styles.dividerFullWidth} />
         <div key="description" className={styles.footer}>
-          <p
+          <RenderedHTML
+            as="p"
             className={styles.privacyDisclaimer}
-            dangerouslySetInnerHTML={{ __html: t('search.overlay.privacy_disclaimer') }}
+            html={t('search.overlay.privacy_disclaimer')}
           />
         </div>
         <div aria-live="assertive" className={styles.screenReaderOnly}>

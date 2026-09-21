@@ -18,7 +18,7 @@ In this guide, you'll get started with {% data variables.product.github %}, sign
 {% data variables.product.github %} also offers partnerships with educational institutions through the {% data variables.product.prodname_campus_program %}. For more information, see the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) website.
 
 > [!NOTE]
-> If you're a student and you'd like to take advantage of an academic discount, see [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student).
+> If you're a student and you'd like to take advantage of an academic discount, see [AUTOTITLE](/education/about-github-education/github-education-for-students/apply-to-github-education-as-a-student).
 
 ## Creating accounts
 

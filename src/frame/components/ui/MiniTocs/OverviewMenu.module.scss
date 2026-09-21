@@ -1,0 +1,83 @@
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+// The collapsed control's trigger — a full-width button labeled with the current
+// section. Mirrors the former in-content mobile toggle.
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 8px 12px;
+  background: transparent;
+  border: 0;
+  font-family: var(--brand-fontStack-sansSerif, "Mona Sans", sans-serif);
+  font-size: var(--brand-text-size-100, 0.875rem);
+  font-weight: var(--base-text-weight-bold, 700);
+  // `inherit` rather than brand's text-default: that token is pure #000, darker
+  // than the #1f2328 the surrounding text still gets from Primer (see the same
+  // note on .upNextLink in Minitocs.module.scss).
+  color: inherit;
+  cursor: pointer;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: transform 0.15s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+// The dropdown panel, anchored under the trigger.
+.popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  margin-top: 4px;
+  max-height: min(60vh, 480px);
+  overflow-y: auto;
+  padding: 8px 0;
+  // Same canvas as the expanded drawer panel (ArticleGridLayout) and the sub-bar
+  // this opens out of, all now on brand's.
+  background: var(--brand-color-canvas-default);
+  // border-*subtle*, not *default*: brand's default (#b6bfb8) is far heavier than
+  // the #d1d9e0 this used to paint, which would make the floating panel's outline
+  // the strongest line on screen. Subtle (#d2d9d4 / #262c28) matches today.
+  border: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-subtle, #d2d9d4);
+  border-radius: var(--brand-borderRadius-medium, 0.5rem);
+  // Neither design system offers a usable elevation token here: brand ships only
+  // component-scoped shadows (--brand-SubNav-shadow and friends), and
+  // --shadow-resting-medium is defined only in @primer/primitives files this app
+  // never imports — so the var() always fell through to its literal and this
+  // panel kept a light-mode shadow in dark mode. State the literal outright and
+  // darken it explicitly, following DocsFooter.module.scss.
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+
+  :global([data-color-mode="dark"]) & {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+  }
+
+  // No-JS fallback; see the note in src/frame/stylesheets/index.scss.
+  @media (prefers-color-scheme: dark) {
+    :global([data-color-mode="auto"][data-dark-theme*="dark"]) & {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+    }
+  }
+}

@@ -1,1 +1,1 @@
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" aria-label="codescan" %} {% data variables.product.UI_advanced_security %}**.
+1. In the "{% ifversion security-and-quality-tab %}Security and quality{% else %}Security{% endif %}" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" aria-label="codescan" %} {% data variables.product.UI_advanced_security %}**.

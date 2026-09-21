@@ -56,7 +56,7 @@ You can search the build logs for a particular step. When you search logs, only 
 
 ## Downloading logs
 
-You can download the log files from your workflow run. You can also download a workflow's artifacts. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts). {% data reusables.repositories.permissions-statement-read %}
+You can download the log files from your workflow run. You can also download a workflow's artifacts. For more information, see [AUTOTITLE](/actions/tutorials/store-and-share-data). {% data reusables.repositories.permissions-statement-read %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

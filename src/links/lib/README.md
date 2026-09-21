@@ -4,13 +4,20 @@
 
 - [Automations](#automations)
 - [Tips for investigation](#tips-for-investigation)
-- [Excluding links from daily checking](#excluding-links-from-daily-checking)
+- [Excluding links from scheduled checking](#excluding-links-from-scheduled-checking)
 
 ## Automations
 
-Every day, the [`link-check-daily.yml`](https://github.com/github/docs-internal/blob/main/.github/workflows/link-check-daily.yml) GitHub Actions workflow checks all links in the English content on GitHub Docs. The workflow checks both internal links within GitHub Docs and external links to other domains.
+Link checking is split across several GitHub Actions workflows:
 
-If the action finds any broken links, it opens an internal issue for the Docs Content team with the `broken link report` label.
+| Workflow                                                                                                                           | Runs               | Checks                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------ |
+| [`link-check-on-pr.yml`](https://github.com/github/docs-internal/blob/main/.github/workflows/link-check-on-pr.yml)                 | Every pull request | Internal links in the changed files              |
+| [`link-check-internal.yml`](https://github.com/github/docs-internal/blob/main/.github/workflows/link-check-internal.yml)           | Mondays, 16:20 UTC | All internal links, every version and language   |
+| [`link-check-external.yml`](https://github.com/github/docs-internal/blob/main/.github/workflows/link-check-external.yml)           | Mondays, 16:20 UTC | External links to other domains                  |
+| [`link-check-github-github.yml`](https://github.com/github/docs-internal/blob/main/.github/workflows/link-check-github-github.yml) | Mondays, 16:20 UTC | Accidental links to private `github/github` URLs |
+
+If the scheduled workflows find any broken links, they open an internal issue for the Docs Content team with the `broken link report` label. The pull request workflow comments on the PR instead.
 
 ## Tips for investigation
 
@@ -32,9 +39,9 @@ If the action finds any broken links, it opens an internal issue for the Docs Co
 
 - Seek help if you're not sure where the link should go. The blame view for the article may help you track down who originally added the link.
 
-## Excluding links from daily checking
+## Excluding links from scheduled checking
 
-Before you decide whether to exclude a link from the daily link checker, you should check whether the URL for the article is stable. For example:
+Before you decide whether to exclude a link from the link checker, you should check whether the URL for the article is stable. For example:
 
 - Has it has been flagged as a broken link for more than a week, but the URL works when a real user opens it in their browser?
 - Has the URL been available for more than 3 months? You can check using the [Wayback Machine](https://web.archive.org).

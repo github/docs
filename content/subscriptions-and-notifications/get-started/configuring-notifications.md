@@ -54,7 +54,7 @@ In addition, you can receive and triage notifications on your mobile device with
 
 ### Benefits of using an email client for notifications
 
-One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 5 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications#notification-retention-policy).
+One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 5 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see [AUTOTITLE](/subscriptions-and-notifications/concepts/about-notifications#notification-retention-policy).
 
 Sending notifications to your email client also allows you to customize your inbox according to your email client's settings, which can include custom or color-coded labels.
 
@@ -64,7 +64,7 @@ Email notifications also allow flexibility with the types of notifications you r
 
 When you watch a repository, you're subscribing to updates for activity in that repository.
 
-To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github).
+To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-subscriptions-for-activity-on-github).
 
 You can configure notifications for a repository on the repository page, or on your watching page.
 
@@ -83,11 +83,11 @@ You can customize notifications for a repository. For example, you can choose to
 
 Anytime you comment in a conversation or when someone @mentions your username, you are participating in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
 
-{% ifversion update-notification-settings-22 %}For conversations you're watching or participating in, you can choose whether you want to receive notifications on {% data variables.product.company_short %} or by email in your notification settings. For more information, see [Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
+{% ifversion update-notification-settings-22 %}For conversations you're watching or participating in, you can choose whether you want to receive notifications on {% data variables.product.company_short %} or by email in your notification settings. For more information, see [Choosing your notification settings](/subscriptions-and-notifications/get-started/configuring-notifications#choosing-your-notification-settings).
 
 {% else %}
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox. For more information, see [Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
+For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox. For more information, see [Choosing your notification settings](/subscriptions-and-notifications/get-started/configuring-notifications#choosing-your-notification-settings).
 
 ![Screenshot of the "Notification settings" page. "Participating" and "Watching" each have two checkbox options: "Email" and "Web and Mobile".](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
 
@@ -121,7 +121,7 @@ Choose a default email address where you want to send updates for conversations 
 * Pull request pushes
 * Your own updates, such as when you open, comment on, or close an issue or pull request
 
-Depending on the organization that owns the repository, you can also send notifications to different email addresses. Your organization may require the email address to be verified for a specific domain. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent).
+Depending on the organization that owns the repository, you can also send notifications to different email addresses. Your organization may require the email address to be verified for a specific domain. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-organization-notifications#choosing-where-your-organizations-email-notifications-are-sent).
 
 You can also send notifications for a specific repository to an email address. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository).
 
@@ -167,7 +167,7 @@ By default, anytime you gain access to a new repository, you will automatically 
 
 If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option.
 
-For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
+For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#choosing-your-notification-settings).
 
 {% endif %}
 

@@ -10,9 +10,10 @@ category:
   - Scale your instance
 ---
 
+{% ifversion ghes < 3.21 %}
 > [!NOTE]
-> The ability to add additional compute nodes to HA is in {% data variables.release-phases.public_preview %} and subject to change. During the preview, please share any feedback with your customer success team.
-
+> Support for additional nodes in a high availability configuration is currently in {% data variables.release-phases.public_preview %} and subject to change.
+{% endif %}
 
 For {% data variables.product.prodname_ghe_server %} customers looking to scale horizontally, migrating to and operating a cluster is an option, but is resource-intensive and time-consuming. As an alternative, we recommend adding nodes to an HA configuration.
 
@@ -59,19 +60,43 @@ ghe-cluster-balance rebalance --yes
 
 The `ghe-config-apply` command is a requirement to add stateless nodes.
 
-For the public preview, we have not specifically tested for downtime, and it's not clear if a maintenance window is required.
+We recommend a maintenance window to add stateless nodes.
 
 ## Removing an additional node
 
-To remove a node, run `ghe-remove-node` from the node you want to remove. Then, on the primary node, you must run:
+Before removing an additional node, install the same latest patch for your feature release on every node in the HA deployment and schedule a maintenance window. Wait for any upgrade or configuration run to finish before starting removal.
 
-``` shell copy
-ghe-config-apply
-```
+1. On the HA primary, check the status of every node in the HA deployment.
 
-The `ghe-config-apply` command is a requirement to remove stateless nodes.
+    ```shell copy
+    ghe-cluster-nodes
+    ghe-cluster-nodes --offline
+    nomad node status
+    ghe-cluster-status --extended --verbose
+    ```
 
-For the public preview, we have not specifically tested for downtime, and it's not clear if a maintenance window is required.
+    Confirm that both `ghe-cluster-nodes` commands list the same hostnames and include the hostname of the node you plan to remove. Confirm that every node has a Nomad status of `ready`, and `connect-ssh` and `enterprise-version` are `ok` for every node. Confirm that stateful services on the primary and any replicas are healthy. If no replica remains, a warning that no MySQL replica was found is expected. Failures limited to web, job, or memcache workloads on the target do not block removal. If any other node-level or stateful-service check fails, contact {% data variables.contact.github_support %} before removal.
+
+1. On the HA primary, remove the additional node. Replace `HOSTNAME` with the hostname of the additional node.
+
+    ```shell copy
+    ghe-remove-node --verbose HOSTNAME
+    ```
+
+    If another non-primary node remains, the command drains the target, removes it from the HA configuration, and runs `ghe-config-apply`. If no non-primary node remains, the command removes the cluster metadata and converts the primary to a standalone instance without running `ghe-config-apply`. Do not run `ghe-config-apply` separately in either case.
+
+1. Verify the removal.
+
+    If another non-primary node remains, run the following commands on the HA primary. Confirm that the hostname is absent and that the HA configuration is healthy.
+
+    ```shell copy
+    ghe-cluster-nodes --offline
+    ghe-cluster-status --extended --verbose
+    ```
+
+    If no non-primary node remains, do not run the cluster-only commands. Confirm that the removal output contains `Cluster artifacts removed; now standalone.`, then confirm that the primary serves user traffic and processes web and job workloads.
+
+If an additional node is offline, unreachable, or on a different version, or if `ghe-remove-node` or a verification check fails, contact {% data variables.contact.github_support %}. Do not edit `cluster.conf` manually.
 
 ## Reprovisioning a node that previously hosted {% data variables.product.prodname_ghe_server %}
 
@@ -133,6 +158,58 @@ On the primary node, the Management Console monitoring dashboards display metric
 Logs are stored locally on the stateless nodes. They can be exported from these nodes to third-party log management services.
 
 You can use the `ghe-cluster-support-bundle` and `ghe-support-bundle` commands to generate and upload cluster or single-node bundles.
+
+## Mitigating single-core softirq saturation
+
+
+
+Adding a stateless node to a {% data variables.product.prodname_ghe_server %} high-availability deployment sends all traffic between two nodes over a single WireGuard tunnel. Because every packet for that node pair shares one UDP port, the network card steers it to one receive queue, and one CPU core processes all inbound packets. Under heavy traffic that core reaches 100 percent while the others stay idle, and the node drops packets. {% data variables.product.prodname_ghe_server %} includes the built-in mitigations described below. 
+
+### 1. Scale out with more stateless nodes
+
+Each stateless node reaches the primary over its own WireGuard tunnel, so the primary processes each node's traffic on a separate receive queue and CPU core. Spreading workloads across more, smaller stateless nodes lets the load balancer share cross-tunnel load across more of the primary's cores, and this does not rely on tunnel-level hashing. Two nodes roughly halve the per-core receive load, and three cut it to about a third.
+
+{% data variables.product.prodname_ghe_server %} sizes each node's web workers from its memory and caps its own value at 30. Keep `app.github.github-workers` near 30 per node; higher counts cost memory and, during a tunnel stall, add queue depth rather than throughput, because the extra workers block on the primary. For more capacity, add more stateless nodes.
+
+### 2. Multi-tunnel WireGuard (opt-in)
+
+{% data variables.product.prodname_ghe_server %} can spread inter-node traffic across several WireGuard tunnels. Each tunnel uses its own UDP port, so different connections land on different receive queues and different CPU cores share the work. Set the tunnel count to the lowest number of receive queues across your cluster nodes, the "Combined" value of `ethtool -l eth0`.
+
+```shell copy
+ghe-config wireguard.num-tunnels 8
+ghe-config-apply
+```
+
+The default is 1. The maximum is 16; higher values are capped. More tunnels than the interface has receive queues adds no benefit. To revert, remove the setting and apply.
+
+```shell copy
+ghe-config --unset wireguard.num-tunnels
+ghe-config-apply
+```
+
+**Before you enable (one-time):**
+
+* In your external firewall or cloud security group, open the extra tunnel UDP ports between all nodes, including all replicas. Ports count up from 1194, so 8 tunnels use UDP 1194 to 1201. The full range requires UDP 1194 to 1209.
+* Enabling multi-tunnel updates the host firewall. Apply it once by rebooting all nodes, or by reloading the firewall with `sudo ufw reload` on each node. Confirm your network security group already restricts inbound access first, as the ufw reload briefly drops and recreates the rules. Later `num-tunnels` changes do not need this step.
+
+### 3. Local git-proxy routing on the primary (automatic)
+
+Git requests that a stateless node would otherwise send back across the tunnel now stay on the primary, where the Git data already lives. This removes a large share of cross-tunnel packets, and needs no action. The primary uses its local Git proxy first and falls back to a remote node only if the local one is unavailable.
+
+### 4. Capacity-based web request weighting (opt-in)
+
+When nodes run different numbers of web workers, {% data variables.product.prodname_ghe_server %} can distribute requests in proportion to each node's worker count instead of evenly. Enable it when worker counts are uneven, for example a primary with 100 workers and a stateless node with 30.
+
+```shell copy
+ghe-config app.github.unicorn-weight-by-capacity true
+ghe-config-apply
+```
+
+The default is off.
+
+### Choosing what to enable
+
+Start by scaling out to more stateless nodes. It is the most complete option, spreads load across more of the primary's cores through the load balancer, and needs no feature flag. If a single core still saturates, enable multi-tunnel WireGuard. Enable capacity-based weighting only when worker counts differ across nodes.
 
 ## Known limitations
 

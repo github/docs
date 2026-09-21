@@ -17,7 +17,7 @@ category:
 > [!WARNING]
 > Due to very low levels of usage and available alternatives, the Source Imports API has been {% data variables.release-phases.retired %}. For more details and alternatives, see the [changelog](https://gh.io/source-imports-api-deprecation).
 
-{% data variables.migrations.source_imports_intro %} A typical source import would start the import and then (optionally) update the authors and/or update the preference for using Git LFS if large files exist in the import. You can also create a webhook that listens for the [`RepositoryImportEvent`](/webhooks-and-events/webhooks/webhook-events-and-payloads#repository_import) to find out the status of the import.
+{% data variables.migrations.source_imports_intro %} A typical source import would start the import and then (optionally) update the authors and/or update the preference for using Git LFS if large files exist in the import. You can also create a webhook that listens for the [`RepositoryImportEvent`](/webhooks/webhook-events-and-payloads#repository_import) to find out the status of the import.
 
 {% data reusables.user-settings.imports-api-classic-pat-only %}
 

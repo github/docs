@@ -12,6 +12,8 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page
   - Quickstarts
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Overview

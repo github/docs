@@ -36,7 +36,6 @@ export default function abort(req: ExtendedRequest, res: Response, next: NextFun
 
     const abortError = new AbortError('Client closed request', 499, 'ECONNRESET')
 
-    // Pass the error to the Express error handler
     return next(abortError)
   })
 

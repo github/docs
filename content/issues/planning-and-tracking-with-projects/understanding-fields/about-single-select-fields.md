@@ -25,6 +25,17 @@ Single select fields can contain up to 50 options.
    * To add additional options, click **Add option**.
 1. Click **Save**.
 
+## Setting a default value
+
+Choose an existing option as the default value for a single select field. New items added to the project are automatically pre-populated with that option.
+
+1. Access your project's settings.
+1. Click the name of the single select field to configure.
+1. In the list of options, select the option to use as the default.
+1. Click **Save**.
+
+To remove a default value, deselect the currently selected default option, then click **Save**. Removing a default value does not affect existing items in the project.
+
 ## Editing a single select field
 
 You can set descriptions and colors for each of your single select options.

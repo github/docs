@@ -17,5 +17,20 @@
   "/desktop-classic": "https://desktop.github.com",
   "/github/copilot/research-recitation": "https://github.blog/2021-06-30-github-copilot-research-recitation/",
   "/early-access/github/copilot/research-recitation": "https://github.blog/2021-06-30-github-copilot-research-recitation/",
-  "/site-policy/privacy-policies/github-copilot-business-privacy-statement": "https://copilot.github.trust.page/"
+  "/site-policy/privacy-policies/github-copilot-business-privacy-statement": "https://copilot.github.trust.page/",
+  "/copilot/concepts/spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/tutorials/spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/tutorials/spark/your-first-spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/tutorials/building-your-first-app-in-minutes-with-github-spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/tutorials/spark/easy-apps-with-spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/tutorials/spark/prompt-tips": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/tutorials/spark/deploy-from-cli": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/tutorials/spark/build-apps-with-spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/tutorials/building-ai-app-prototypes": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/tutorials/build-apps-with-spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/billing/concepts/product-billing/github-spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/concepts/copilot-billing/about-billing-for-github-spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/concepts/copilot-billing/billing-for-spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/",
+  "/copilot/how-tos/troubleshoot-copilot/troubleshoot-spark": "https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com/"
 }

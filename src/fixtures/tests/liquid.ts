@@ -5,36 +5,6 @@ import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import { getDOM } from '@/tests/helpers/e2etest'
 import { supported } from '@/versions/lib/enterprise-server-releases'
 
-describe('spotlight', () => {
-  test('renders styled warnings', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/warnings')
-    const nodes = $('.ghd-spotlight-attention')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('This is inside the warning.')).toBe(true)
-  })
-
-  test('renders styled danger', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/danger')
-    const nodes = $('.ghd-spotlight-danger')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('Danger, Will Robinson.')).toBe(true)
-  })
-
-  test('renders styled tips', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/tips')
-    const nodes = $('.ghd-spotlight-success')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('This is inside the tip.')).toBe(true)
-  })
-
-  test('renders styled notes', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/notes')
-    const nodes = $('.ghd-spotlight-accent')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('This is inside the note.')).toBe(true)
-  })
-})
-
 describe('raw', () => {
   test('renders raw', async () => {
     const $: CheerioAPI = await getDOM('/get-started/liquid/raw')
@@ -63,6 +33,17 @@ describe('tool', () => {
     expect($('h2#in-this-article + nav ul .ghd-tool.mac').length).toBe(1)
     expect($('h2#in-this-article + nav ul .ghd-tool.windows').length).toBe(1)
     expect($('h2#in-this-article + nav ul .ghd-tool.linux').length).toBe(1)
+  })
+})
+
+describe('codetabs', () => {
+  test('renders code tabs with language metadata', async () => {
+    const $: CheerioAPI = await getDOM('/get-started/liquid/code-tabs-test')
+
+    expect($('.ghd-codetabs').length).toBe(2)
+    expect($('.ghd-codetab[data-lang="typescript"][data-label="TypeScript"]').length).toBe(2)
+    expect($('.ghd-codetab[data-lang="python"][data-label="Python"]').length).toBe(2)
+    expect($('.ghd-codetab-fallback-label').first().text()).toBe('TypeScript')
   })
 })
 

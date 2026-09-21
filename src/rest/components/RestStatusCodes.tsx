@@ -1,5 +1,6 @@
 import { useTranslation } from '@/languages/components/useTranslation'
 import { StatusCode } from './types'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type Props = {
   statusCodes: Array<StatusCode>
@@ -30,7 +31,7 @@ export function RestStatusCodes({ statusCodes, slug, heading }: Props) {
                 <code>{statusCode.httpStatusCode}</code>
               </td>
               <td>
-                <div dangerouslySetInnerHTML={{ __html: statusCode.description }} />
+                <RenderedHTML as="div" html={statusCode.description} />
               </td>
             </tr>
           ))}

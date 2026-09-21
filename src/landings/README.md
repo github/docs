@@ -1,15 +1,15 @@
 # Landing pages
 
-The landings subject provides components and logic for rendering various types of landing pages across docs.github.com, including the Docs home page, product landing pages, product guides pages, category pages, and specialized layouts like journey and discovery landings.
+The landings subject provides components and logic for rendering various types of landing pages across docs.github.com, including the Docs home page, category pages, and specialized layouts like journey, discovery, and bespoke landings.
 
 ## Purpose & Scope
 
 This subject is responsible for:
-- Rendering different landing page layouts (product, guides, category, journey, discovery, bespoke)
+- Rendering different landing page layouts (toc, category, journey, discovery, bespoke)
 - Building and displaying featured links, article cards, and guide cards
 - Managing landing page context and data requirements
 - Providing hierarchical navigation for products and categories
-- Displaying article carousels and product releases
+- Displaying article carousels
 
 Landing pages serve as navigational hubs that provide a hierarchical view of their area, making it easier to find and discover documentation.
 
@@ -17,12 +17,11 @@ Landing pages serve as navigational hubs that provide a hierarchical view of the
 
 | Landing Page Type | Layout Value | Purpose |
 |-------------------|--------------|---------|
-| Product landing | `product-landing` | Product overview pages with featured links and release notes |
-| Product guides | `product-guides` | Product guides listing organized by categories |
 | Category landing | `category-landing` | Category pages with hierarchical navigation |
 | Table of contents | `toc-landing` | Table of contents pages |
 | Journey landing | `journey-landing` | Guided learning journey pages with track navigation |
 | Discovery landing | `discovery-landing` | Discovery/exploration pages |
+| Bespoke landing | `bespoke-landing` | Custom hand-built landing pages |
 | Home page | (special) | Docs.github.com homepage |
 
 ## Setup & Usage
@@ -43,7 +42,6 @@ npm run test -- src/landings/tests
 ### Dependencies
 - [`@/frame`](../frame/README.md) - Context object, page data, shared components
 - [`@/content-render`](../content-render/README.md) - Renders Liquid in featured link titles
-- [`@/learning-track`](../learning-track/README.md) - Learning track data resolution
 - [`@/journeys`](../journeys/README.md) - Journey track components and data
 - [`@/products`](../products/README.md) - Product metadata and groupings
 - [`@/versions`](../versions/README.md) - Version-aware content filtering

@@ -647,11 +647,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         }
       ],
@@ -913,8 +913,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -987,8 +986,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1057,8 +1055,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1581,12 +1578,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "last_accessed_at",
             "enum": [
               "created_at",
               "last_accessed_at",
               "size_in_bytes"
-            ],
-            "default": "last_accessed_at"
+            ]
           }
         },
         {
@@ -1596,11 +1593,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         }
       ],
@@ -2020,8 +2017,7 @@
         {
           "type": "array of strings",
           "name": "include_claim_keys",
-          "description": "<p>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</p>",
-          "isRequired": true
+          "description": "<p>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates or updates the customization template for an OpenID Connect (OIDC) subject claim.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
@@ -9384,6 +9380,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -9409,6 +9406,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -9501,6 +9499,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -11789,6 +11794,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -11814,6 +11820,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -11910,6 +11917,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -12239,6 +12253,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -12264,6 +12279,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -12356,6 +12372,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -12682,6 +12705,13 @@
                     },
                     "ephemeral": {
                       "type": "boolean"
+                    },
+                    "version": {
+                      "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -14322,6 +14352,7 @@
               "status": "online",
               "busy": true,
               "ephemeral": false,
+              "version": "2.323.0",
               "labels": [
                 {
                   "id": 5,
@@ -14404,6 +14435,13 @@
                 },
                 "ephemeral": {
                   "type": "boolean"
+                },
+                "version": {
+                  "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -15263,6 +15301,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -15288,6 +15327,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -15384,6 +15424,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -15718,6 +15765,13 @@
                     },
                     "ephemeral": {
                       "type": "boolean"
+                    },
+                    "version": {
+                      "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -17370,6 +17424,7 @@
               "status": "online",
               "busy": true,
               "ephemeral": false,
+              "version": "2.323.0",
               "labels": [
                 {
                   "id": 5,
@@ -17452,6 +17507,13 @@
                 },
                 "ephemeral": {
                   "type": "boolean"
+                },
+                "version": {
+                  "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -18345,6 +18407,7 @@
                   "status": "online",
                   "busy": true,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -18370,6 +18433,7 @@
                   "status": "offline",
                   "busy": false,
                   "ephemeral": false,
+                  "version": "2.323.0",
                   "labels": [
                     {
                       "id": 5,
@@ -18466,6 +18530,13 @@
                       },
                       "ephemeral": {
                         "type": "boolean"
+                      },
+                      "version": {
+                        "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -18820,6 +18891,13 @@
                     },
                     "ephemeral": {
                       "type": "boolean"
+                    },
+                    "version": {
+                      "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -20502,6 +20580,7 @@
               "status": "online",
               "busy": true,
               "ephemeral": false,
+              "version": "2.323.0",
               "labels": [
                 {
                   "id": 5,
@@ -20584,6 +20663,13 @@
                 },
                 "ephemeral": {
                   "type": "boolean"
+                },
+                "version": {
+                  "description": "The version of the GitHub Actions Runner software. This is only set if the runner has connected to the service at least once.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -24420,11 +24506,13 @@
               "properties": {
                 "id": {
                   "description": "The id of the job.",
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "run_id": {
                   "description": "The id of the associated workflow run.",
-                  "type": "integer"
+                  "type": "integer",
+                  "format": "int64"
                 },
                 "run_url": {
                   "type": "string"
@@ -24940,11 +25028,13 @@
                     "properties": {
                       "id": {
                         "description": "The id of the job.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_id": {
                         "description": "The id of the associated workflow run.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_url": {
                         "type": "string"
@@ -25222,11 +25312,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "latest",
             "enum": [
               "latest",
               "all"
-            ],
-            "default": "latest"
+            ]
           }
         },
         {
@@ -25397,11 +25487,13 @@
                     "properties": {
                       "id": {
                         "description": "The id of the job.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_id": {
                         "description": "The id of the associated workflow run.",
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                       },
                       "run_url": {
                         "type": "string"
@@ -25677,6 +25769,12 @@
           "name": "enable_debug_logging",
           "description": "<p>Whether to enable debug logging for the re-run.</p>",
           "default": false
+        },
+        {
+          "type": "boolean",
+          "name": "enable_debugger",
+          "description": "<p>Whether to enable the debugger for the re-run of this job.</p>",
+          "default": false
         }
       ],
       "descriptionHTML": "<p>Re-run a job and its dependent jobs in a workflow run.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
@@ -25832,8 +25930,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -26124,6 +26221,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the workflow run."
                       },
                       "name": {
@@ -26138,6 +26236,7 @@
                       },
                       "check_suite_id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the associated check suite."
                       },
                       "check_suite_node_id": {
@@ -28310,6 +28409,7 @@
               "properties": {
                 "id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the workflow run."
                 },
                 "name": {
@@ -28324,6 +28424,7 @@
                 },
                 "check_suite_id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the associated check suite."
                 },
                 "check_suite_node_id": {
@@ -30864,6 +30965,7 @@
               "properties": {
                 "id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the workflow run."
                 },
                 "name": {
@@ -30878,6 +30980,7 @@
                 },
                 "check_suite_id": {
                   "type": "integer",
+                  "format": "int64",
                   "description": "The ID of the associated check suite."
                 },
                 "check_suite_node_id": {
@@ -34614,16 +34717,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "actor",
@@ -34701,8 +34795,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -34994,6 +35087,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the workflow run."
                       },
                       "name": {
@@ -35008,6 +35102,7 @@
                       },
                       "check_suite_id": {
                         "type": "integer",
+                        "format": "int64",
                         "description": "The ID of the associated check suite."
                       },
                       "check_suite_node_id": {
@@ -37095,16 +37190,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -37251,16 +37337,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -37331,16 +37408,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [
@@ -37431,16 +37499,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],

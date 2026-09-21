@@ -6,6 +6,7 @@ import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { Link } from '@/frame/components/Link'
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 const restRepoDisplayPages = [
   'branches',
@@ -35,7 +36,8 @@ const restRepoCategoryExceptionsTitles = {
 export const RestBanner = () => {
   const router = useRouter()
   const { t } = useTranslation('rest')
-  // Having a productId === 'rest' and no router.query.category would mean a product landing page like http://docs.github.com/en/rest?apiVersion=2022-08-09
+  // A productId of 'rest' with no category is the product landing page, e.g.
+  // /en/rest?apiVersion=2022-08-09.
   const isRestPage = router.query.productId === 'rest' || router.query.category
   const restPage = router.query.category as string
   const { currentVersion } = useVersion()
@@ -78,14 +80,13 @@ export const RestBanner = () => {
         className="container-xl mt-3 mx-auto p-responsive"
       >
         <Flash>
-          <span dangerouslySetInnerHTML={{ __html: bannerText }} />{' '}
-          <span
-            dangerouslySetInnerHTML={{
-              __html: t('rest.banner.api_version_info').replace(
-                /{{\s*versionWithApiVersion\s*}}/,
-                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`,
-              ),
-            }}
+          <RenderedHTML as="span" html={bannerText} />{' '}
+          <RenderedHTML
+            as="span"
+            html={t('rest.banner.api_version_info').replace(
+              /{{\s*versionWithApiVersion\s*}}/,
+              versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`,
+            )}
           />
         </Flash>
       </div>

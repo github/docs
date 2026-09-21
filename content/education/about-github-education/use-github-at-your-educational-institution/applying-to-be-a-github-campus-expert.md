@@ -29,7 +29,6 @@ To become a {% data variables.product.prodname_student_leader_program_singular %
 * Be at least 18 years of age.
 * Be enrolled in a formal higher education institution.
 * Have more than one year left as a student before graduating.
-* Not be enrolled in the {% data variables.product.prodname_dotcom %} Campus Advisors Program.
 * Validate your student status through the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
 
 ### Submitting your application form

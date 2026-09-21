@@ -8,8 +8,11 @@ import octicons from '@primer/octicons'
 import { parse } from 'parse5'
 import { fromParse5 } from 'hast-util-from-parse5'
 import { getPreMeta } from './code-header'
+import { createLogger } from '@/observability/logger'
 import { generatePromptId } from '../lib/prompt-id'
 import type { Element, Root } from 'hast'
+
+const logger = createLogger(import.meta.url)
 
 export function getPrompt(
   node: Element,
@@ -44,7 +47,6 @@ function buildPromptData(
   tree: Root,
   code: string,
 ): { promptContent: string; ariaLabel: string } {
-  // Find a ref meta in the format 'ref=<id>'
   const ref = getPreMeta(node).ref
 
   if (!ref) {
@@ -55,7 +57,7 @@ function buildPromptData(
   // If the 'ref=<id>' meta is found, find a matching code block to include as context in the prompt link.
   const matchingCodeEl = findMatchingCode(ref as string, tree)
   if (!matchingCodeEl) {
-    console.warn(`Can't find referenced code block with id=${ref}`)
+    logger.warn('Cannot find referenced code block', { ref })
     return promptOnly(code)
   }
   // AST structure: element -> code -> text node with value property

@@ -10,9 +10,7 @@
   column-gap: 80px;
   row-gap: 0;
   grid-template-areas:
-    "breadcrumbs"
     "topper"
-    "sidebar"
     "intro"
     "content";
   grid-template-rows: auto 1fr;
@@ -34,12 +32,4 @@
 
 .articleContainer {
   max-width: 720px;
-}
-
-.sidebarBox {
-  border-bottom: 1px solid var(--color-border-default) !important;
-
-  @include breakpoint-xxl {
-    border-bottom: none !important;
-  }
 }

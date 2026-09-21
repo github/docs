@@ -22,7 +22,7 @@ category:
 
 ## Prerequisites
 
-Before you can collaborate in a temporary private fork, you must create a draft security advisory. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory).
+Before you can collaborate in a temporary private fork, you must create a draft security advisory. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/create-repository-advisory).
 
 ## Creating a temporary private fork
 
@@ -51,7 +51,7 @@ You can also use the REST API to create temporary private forks. For more inform
 
 ## Adding collaborators to a temporary private fork
 
-Anyone with admin permissions to a security advisory can add additional collaborators to the security advisory, and collaborators on the security advisory can access the temporary private fork. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory).
+Anyone with admin permissions to a security advisory can add additional collaborators to the security advisory, and collaborators on the security advisory can access the temporary private fork. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/add-collaborators).
 
 ## Adding changes to a temporary private fork
 
@@ -62,7 +62,7 @@ Anyone with write permissions to a security advisory can collaborate on a patch 
 {% data reusables.repositories.sidebar-advisories %}
 1. In the "Security Advisories" list, click the name of the security advisory you'd like to work on.
 1. You can make your changes on {% data variables.product.github %} or locally:
-   * To make your changes on {% data variables.product.github %}, under "Collaborate on a patch", click **the temporary private fork**. Then, create a new branch and edit files. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) and [AUTOTITLE](/repositories/working-with-files/managing-files/editing-files).
+   * To make your changes on {% data variables.product.github %}, under "Collaborate on a patch", click **the temporary private fork**. Then, create a new branch and edit files. For more information, see [AUTOTITLE](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository) and [AUTOTITLE](/repositories/working-with-files/managing-files/editing-files).
    * To add changes locally, follow the instructions under "Clone and create a new branch" and "Make your changes, then push."
 
    ![Screenshot of the "Collaborate on a patch" area of a draft security advisory. The "the temporary private fork" link is outlined in dark orange.](/assets/images/help/security/add-changes-to-this-advisory-box.png)
@@ -78,7 +78,7 @@ Anyone with write permissions to a security advisory can create a pull request f
 1. Scroll to the bottom of the advisory form. Then, under "Collaborate on a patch", click **Compare & pull request** to create a pull request for the associated branch.
 
    ![Screenshot of the "Collaborate on a patch" area of a draft security advisory. The "Compare & pull request" button is outlined in dark orange.](/assets/images/help/security/security-advisory-compare-and-pr.png)
-   The "Open a pull request" includes a header showing the branches that will be compared in a three-dot Git diff comparison when the pull request is created. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons).
+   The "Open a pull request" includes a header showing the branches that will be compared in a three-dot Git diff comparison when the pull request is created. For more information, see [AUTOTITLE](/pull-requests/reference/branches#three-dot-and-two-dot-git-diff-comparisons).
 {% data reusables.repositories.create-pull-request %}
 
 {% data reusables.repositories.merge-all-pulls-together %} For more information, see [Merging changes in a security advisory](#merging-changes-in-a-security-advisory).
@@ -104,9 +104,9 @@ Additionally, there can be no merge conflicts, and {% data variables.product.pro
   > [!NOTE]
   > You can only merge one pull request into the `main` branch of a temporary private fork. If more than one pull request targets the `main` branch, merging is blocked.
 
-After you merge changes in a security advisory, you can publish the security advisory to alert your community about the security vulnerability in previous versions of your project. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory).
+After you merge changes in a security advisory, you can publish the security advisory to alert your community about the security vulnerability in previous versions of your project. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/publish-repository-advisory).
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories)
-* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory)
+* [AUTOTITLE](/code-security/reference/permissions/repository-security-advisory)
+* [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/publish-repository-advisory)

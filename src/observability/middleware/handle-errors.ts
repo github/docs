@@ -3,9 +3,12 @@ import type { NextFunction, Response } from 'express'
 import FailBot from '../lib/failbot'
 import { nextApp } from '@/frame/middleware/next'
 import { minimumNotFoundHtml } from '@/frame/lib/constants'
-import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import {
+  setFastlySurrogateKey,
+  makeLanguageSurrogateKey,
+} from '@/frame/middleware/set-fastly-surrogate-key'
 import { errorCacheControl } from '@/frame/middleware/cache-control'
-import statsd from '@/observability/lib/statsd'
+import { toError } from '@/observability/lib/to-error'
 import { ExtendedRequest } from '@/types'
 import { createLogger } from '@/observability/logger'
 
@@ -29,7 +32,6 @@ function shouldLogException(error: ErrorWithCode) {
     return false
   }
 
-  // We should log this exception
   return true
 }
 
@@ -42,57 +44,32 @@ async function logException(error: ErrorWithCode, req: ExtendedRequest) {
   }
 }
 
-function timedOut(req: ExtendedRequest) {
-  // The `req.pagePath` can come later so it's not guaranteed to always
-  // be present. It's added by the `handle-next-data-path.ts` middleware
-  // we translates those "cryptic" `/_next/data/...` URLs from
-  // client-side routing.
-  const incrementTags = [`path:${req.pagePath || req.path}`]
-  if (req.context?.currentCategory) {
-    incrementTags.push(`product:${req.context.currentCategory}`)
-  }
-  statsd.increment('middleware.timeout', 1, incrementTags)
-  logger.warn('Request timed out', {
-    path: req.pagePath || req.path,
-    method: req.method,
-  })
-}
-
 async function handleError(
   error: ErrorWithCode | number,
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ) {
-  // Potentially set by the `connect-timeout` middleware.
-  if (req.timedout) {
-    timedOut(req)
-  }
-
   const responseDone = res.headersSent || req.aborted
 
   if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {
     if (!responseDone) {
-      // By default, Fastly will cache 404 responses unless otherwise
-      // told not to.
-      // See https://docs.fastly.com/en/guides/how-caching-and-cdns-work#http-status-codes-cached-by-default
-      // Let's cache our 404'ing assets conservatively.
-      // The Cache-Control is short, and let's use the default surrogate
-      // key just in case it was a mistake.
+      // Fastly caches 404s by default, so cache 404'ing assets conservatively:
+      // a short Cache-Control, plus the default surrogate key
+      // in case the 404 was a mistake.
+      // https://docs.fastly.com/en/guides/how-caching-and-cdns-work#http-status-codes-cached-by-default
       errorCacheControl(res)
-      // Makes sure the surrogate key is NOT the manual one if it failed.
-      // This basically unsets what was assumed in the beginning of
-      // loading all the middlewares.
-      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+      // Unsets the manual surrogate key assumed earlier in the middleware chain.
+      // Falls back to `no-language` when `req.language` isn't set yet,
+      // e.g. errors before language detection.
+      setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
     }
   } else if (DEBUG_MIDDLEWARE_TESTS) {
-    console.warn('An error occurred in some middleware handler', error)
+    logger.warn('An error occurred in some middleware handler', { error })
   }
 
   try {
-    // If the headers have already been sent or the request was aborted...
     if (responseDone) {
-      // Report to Failbot
       if (typeof error !== 'number') {
         await logException(error, req)
       }
@@ -109,7 +86,7 @@ async function handleError(
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
       errorCacheControl(res)
-      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+      setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
       res.status(404).type('html').send(minimumNotFoundHtml)
       return
     }
@@ -122,21 +99,17 @@ async function handleError(
       req.context.error = error
     }
 
-    // If the error contains a status code, just send that back. This is usually
-    // from a middleware like `express.json()`.
+    // Errors with a status code usually come from a middleware like `express.json()`.
     if (error.statusCode) {
       res.sendStatus(error.statusCode)
       return
     }
 
     res.statusCode = 500
-    // When in local development mode, we don't need the pretty HTML
-    // renderig of 500.tsx.
-    // Incidentally, as Jan 2024, if you try to execute nextApp.renderError
-    // when `NODE_ENV` is 'development' it will hang forever. A problem
-    // we can't fully explain but it's also moot because in local dev
-    // it's easier to just see the full stack trace in the console
-    // and in the client.
+    // Local dev doesn't need the pretty HTML rendering of 500.tsx.
+    // Also, as of Jan 2024, calling nextApp.renderError hangs forever
+    // when `NODE_ENV` is 'development'. We can't fully explain it,
+    // and it's moot because in local dev the full stack trace is more useful.
     if (process.env.NODE_ENV === 'development') {
       next(error)
       return
@@ -147,7 +120,9 @@ async function handleError(
       await logException(error, req)
     }
   } catch (handlingError) {
-    console.error('An error occurred in the error handling middleware!', handlingError)
+    logger.error('An error occurred in the error handling middleware', {
+      error: toError(handlingError),
+    })
     next(handlingError)
     return
   }

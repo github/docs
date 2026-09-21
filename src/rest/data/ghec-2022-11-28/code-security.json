@@ -20,7 +20,7 @@
         {
           "name": "per_page",
           "in": "query",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "required": false,
           "schema": {
             "type": "integer",
@@ -29,7 +29,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -38,7 +38,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -145,7 +145,10 @@
                     ]
                   },
                   "description": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -333,6 +336,15 @@
                                 "ROLE"
                               ]
                             },
+                            "mode": {
+                              "type": "string",
+                              "description": "The bypass mode for the reviewer",
+                              "enum": [
+                                "ALWAYS",
+                                "EXEMPT"
+                              ],
+                              "default": "ALWAYS"
+                            },
                             "security_configuration_id": {
                               "type": "integer",
                               "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -401,7 +413,8 @@
                     "description": "The enforcement status for a security configuration",
                     "enum": [
                       "enforced",
-                      "unenforced"
+                      "unenforced",
+                      "enterprise_enforced"
                     ]
                   },
                   "url": {
@@ -478,8 +491,7 @@
         {
           "type": "string",
           "name": "description",
-          "description": "<p>A description of the code security configuration</p>",
-          "isRequired": true
+          "description": "<p>A description of the code security configuration</p>"
         },
         {
           "type": "string",
@@ -720,7 +732,8 @@
           "description": "<p>The enforcement status for a security configuration</p>",
           "enum": [
             "enforced",
-            "unenforced"
+            "unenforced",
+            "enterprise_enforced"
           ],
           "default": "enforced"
         }
@@ -799,7 +812,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -987,6 +1003,15 @@
                               "ROLE"
                             ]
                           },
+                          "mode": {
+                            "type": "string",
+                            "description": "The bypass mode for the reviewer",
+                            "enum": [
+                              "ALWAYS",
+                              "EXEMPT"
+                            ],
+                            "default": "ALWAYS"
+                          },
                           "security_configuration_id": {
                             "type": "integer",
                             "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -1055,7 +1080,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -1166,16 +1192,7 @@
                   },
                   "secret_scanning": "enabled",
                   "secret_scanning_push_protection": "enabled",
-                  "secret_scanning_delegated_bypass": "enabled",
-                  "secret_scanning_delegated_bypass_options": {
-                    "reviewers": [
-                      {
-                        "security_configuration_id": 1325,
-                        "reviewer_id": 5678,
-                        "reviewer_type": "TEAM"
-                      }
-                    ]
-                  },
+                  "secret_scanning_delegated_bypass": "disabled",
                   "secret_scanning_validity_checks": "enabled",
                   "secret_scanning_non_provider_patterns": "enabled",
                   "private_vulnerability_reporting": "enabled",
@@ -1258,7 +1275,10 @@
                         ]
                       },
                       "description": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -1446,6 +1466,15 @@
                                     "ROLE"
                                   ]
                                 },
+                                "mode": {
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "default": "ALWAYS"
+                                },
                                 "security_configuration_id": {
                                   "type": "integer",
                                   "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -1514,7 +1543,8 @@
                         "description": "The enforcement status for a security configuration",
                         "enum": [
                           "enforced",
-                          "unenforced"
+                          "unenforced",
+                          "enterprise_enforced"
                         ]
                       },
                       "url": {
@@ -1651,7 +1681,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -1839,6 +1872,15 @@
                               "ROLE"
                             ]
                           },
+                          "mode": {
+                            "type": "string",
+                            "description": "The bypass mode for the reviewer",
+                            "enum": [
+                              "ALWAYS",
+                              "EXEMPT"
+                            ],
+                            "default": "ALWAYS"
+                          },
                           "security_configuration_id": {
                             "type": "integer",
                             "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -1907,7 +1949,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -2224,7 +2267,8 @@
           "description": "<p>The enforcement status for a security configuration</p>",
           "enum": [
             "enforced",
-            "unenforced"
+            "unenforced",
+            "enterprise_enforced"
           ]
         }
       ],
@@ -2300,7 +2344,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -2488,6 +2535,15 @@
                               "ROLE"
                             ]
                           },
+                          "mode": {
+                            "type": "string",
+                            "description": "The bypass mode for the reviewer",
+                            "enum": [
+                              "ALWAYS",
+                              "EXEMPT"
+                            ],
+                            "default": "ALWAYS"
+                          },
                           "security_configuration_id": {
                             "type": "integer",
                             "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -2556,7 +2612,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -2863,8 +2920,17 @@
                   },
                   "code_scanning_delegated_alert_dismissal": "disabled",
                   "secret_scanning": "enabled",
-                  "secret_scanning_push_protection": "disabled",
-                  "secret_scanning_delegated_bypass": "disabled",
+                  "secret_scanning_push_protection": "enabled",
+                  "secret_scanning_delegated_bypass": "enabled",
+                  "secret_scanning_delegated_bypass_options": {
+                    "reviewers": [
+                      {
+                        "security_configuration_id": 1325,
+                        "reviewer_id": 5678,
+                        "reviewer_type": "TEAM"
+                      }
+                    ]
+                  },
                   "secret_scanning_validity_checks": "disabled",
                   "secret_scanning_non_provider_patterns": "disabled",
                   "secret_scanning_generic_secrets": "disabled",
@@ -2913,7 +2979,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -3101,6 +3170,15 @@
                                   "ROLE"
                                 ]
                               },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
+                              },
                               "security_configuration_id": {
                                 "type": "integer",
                                 "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -3169,7 +3247,8 @@
                       "description": "The enforcement status for a security configuration",
                       "enum": [
                         "enforced",
-                        "unenforced"
+                        "unenforced",
+                        "enterprise_enforced"
                       ]
                     },
                     "url": {
@@ -3247,7 +3326,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3257,7 +3336,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3266,7 +3345,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3275,7 +3354,7 @@
         },
         {
           "name": "status",
-          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code></p>",
+          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code>, <code>enterprise_enforced</code></p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3393,7 +3472,8 @@
                       "enforced",
                       "failed",
                       "updating",
-                      "removed_by_enterprise"
+                      "removed_by_enterprise",
+                      "enterprise_enforced"
                     ]
                   },
                   "repository": {
@@ -3813,17 +3893,17 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "global",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
           "name": "per_page",
           "in": "query",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "required": false,
           "schema": {
             "type": "integer",
@@ -3832,7 +3912,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3841,7 +3921,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3882,16 +3962,7 @@
                 "code_scanning_delegated_alert_dismissal": "enabled",
                 "secret_scanning": "enabled",
                 "secret_scanning_push_protection": "enabled",
-                "secret_scanning_delegated_bypass": "enabled",
-                "secret_scanning_delegated_bypass_options": {
-                  "reviewers": [
-                    {
-                      "security_configuration_id": 17,
-                      "reviewer_id": 5678,
-                      "reviewer_type": "TEAM"
-                    }
-                  ]
-                },
+                "secret_scanning_delegated_bypass": "disabled",
                 "secret_scanning_validity_checks": "enabled",
                 "secret_scanning_non_provider_patterns": "enabled",
                 "secret_scanning_delegated_alert_dismissal": "not_set",
@@ -3955,7 +4026,10 @@
                     ]
                   },
                   "description": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "A description of the code security configuration"
                   },
                   "advanced_security": {
@@ -4143,6 +4217,15 @@
                                 "ROLE"
                               ]
                             },
+                            "mode": {
+                              "type": "string",
+                              "description": "The bypass mode for the reviewer",
+                              "enum": [
+                                "ALWAYS",
+                                "EXEMPT"
+                              ],
+                              "default": "ALWAYS"
+                            },
                             "security_configuration_id": {
                               "type": "integer",
                               "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -4211,7 +4294,8 @@
                     "description": "The enforcement status for a security configuration",
                     "enum": [
                       "enforced",
-                      "unenforced"
+                      "unenforced",
+                      "enterprise_enforced"
                     ]
                   },
                   "url": {
@@ -4292,8 +4376,7 @@
         {
           "type": "string",
           "name": "description",
-          "description": "<p>A description of the code security configuration</p>",
-          "isRequired": true
+          "description": "<p>A description of the code security configuration</p>"
         },
         {
           "type": "string",
@@ -4509,6 +4592,16 @@
                     "TEAM",
                     "ROLE"
                   ]
+                },
+                {
+                  "type": "string",
+                  "name": "mode",
+                  "description": "<p>The bypass mode for the reviewer</p>",
+                  "enum": [
+                    "ALWAYS",
+                    "EXEMPT"
+                  ],
+                  "default": "ALWAYS"
                 }
               ]
             }
@@ -4635,8 +4728,17 @@
               },
               "code_scanning_delegated_alert_dismissal": "disabled",
               "secret_scanning": "enabled",
-              "secret_scanning_push_protection": "disabled",
-              "secret_scanning_delegated_bypass": "disabled",
+              "secret_scanning_push_protection": "enabled",
+              "secret_scanning_delegated_bypass": "enabled",
+              "secret_scanning_delegated_bypass_options": {
+                "reviewers": [
+                  {
+                    "security_configuration_id": 1325,
+                    "reviewer_id": 5678,
+                    "reviewer_type": "TEAM"
+                  }
+                ]
+              },
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "secret_scanning_generic_secrets": "disabled",
@@ -4670,7 +4772,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -4858,6 +4963,15 @@
                               "ROLE"
                             ]
                           },
+                          "mode": {
+                            "type": "string",
+                            "description": "The bypass mode for the reviewer",
+                            "enum": [
+                              "ALWAYS",
+                              "EXEMPT"
+                            ],
+                            "default": "ALWAYS"
+                          },
                           "security_configuration_id": {
                             "type": "integer",
                             "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -4926,7 +5040,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -5029,16 +5144,7 @@
                   },
                   "secret_scanning": "enabled",
                   "secret_scanning_push_protection": "enabled",
-                  "secret_scanning_delegated_bypass": "enabled",
-                  "secret_scanning_delegated_bypass_options": {
-                    "reviewers": [
-                      {
-                        "security_configuration_id": 1325,
-                        "reviewer_id": 5678,
-                        "reviewer_type": "TEAM"
-                      }
-                    ]
-                  },
+                  "secret_scanning_delegated_bypass": "disabled",
                   "secret_scanning_validity_checks": "enabled",
                   "secret_scanning_non_provider_patterns": "enabled",
                   "private_vulnerability_reporting": "enabled",
@@ -5121,7 +5227,10 @@
                         ]
                       },
                       "description": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A description of the code security configuration"
                       },
                       "advanced_security": {
@@ -5309,6 +5418,15 @@
                                     "ROLE"
                                   ]
                                 },
+                                "mode": {
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "default": "ALWAYS"
+                                },
                                 "security_configuration_id": {
                                   "type": "integer",
                                   "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -5377,7 +5495,8 @@
                         "description": "The enforcement status for a security configuration",
                         "enum": [
                           "enforced",
-                          "unenforced"
+                          "unenforced",
+                          "enterprise_enforced"
                         ]
                       },
                       "url": {
@@ -5458,10 +5577,11 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository IDs to detach from configurations. Up to 250 IDs can be provided.</p>"
+          "description": "<p>An array of repository IDs to detach from configurations. Up to 250 IDs can be provided.</p>",
+          "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>Repositories with active enterprise-enforced attachments are skipped unless the authenticated user can manage the enterprise's code security settings; the rest are detached. Inactive enterprise-enforced attachments, such as failed attachments, are detached. The request still returns <code>204</code> if every repository is skipped.</p>\n<p>OAuth app tokens and classic PATs require the <code>write:org</code> scope. Managing enterprise-enforced configurations also requires <code>admin:enterprise</code> and is not supported by fine-grained PATs or GitHub App access tokens.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5584,8 +5704,17 @@
               },
               "code_scanning_delegated_alert_dismissal": "disabled",
               "secret_scanning": "enabled",
-              "secret_scanning_push_protection": "disabled",
-              "secret_scanning_delegated_bypass": "disabled",
+              "secret_scanning_push_protection": "enabled",
+              "secret_scanning_delegated_bypass": "enabled",
+              "secret_scanning_delegated_bypass_options": {
+                "reviewers": [
+                  {
+                    "security_configuration_id": 1325,
+                    "reviewer_id": 5678,
+                    "reviewer_type": "TEAM"
+                  }
+                ]
+              },
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "secret_scanning_generic_secrets": "disabled",
@@ -5619,7 +5748,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -5807,6 +5939,15 @@
                               "ROLE"
                             ]
                           },
+                          "mode": {
+                            "type": "string",
+                            "description": "The bypass mode for the reviewer",
+                            "enum": [
+                              "ALWAYS",
+                              "EXEMPT"
+                            ],
+                            "default": "ALWAYS"
+                          },
                           "security_configuration_id": {
                             "type": "integer",
                             "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -5875,7 +6016,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -6172,6 +6314,16 @@
                     "TEAM",
                     "ROLE"
                   ]
+                },
+                {
+                  "type": "string",
+                  "name": "mode",
+                  "description": "<p>The bypass mode for the reviewer</p>",
+                  "enum": [
+                    "ALWAYS",
+                    "EXEMPT"
+                  ],
+                  "default": "ALWAYS"
                 }
               ]
             }
@@ -6326,7 +6478,10 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "A description of the code security configuration"
                 },
                 "advanced_security": {
@@ -6514,6 +6669,15 @@
                               "ROLE"
                             ]
                           },
+                          "mode": {
+                            "type": "string",
+                            "description": "The bypass mode for the reviewer",
+                            "enum": [
+                              "ALWAYS",
+                              "EXEMPT"
+                            ],
+                            "default": "ALWAYS"
+                          },
                           "security_configuration_id": {
                             "type": "integer",
                             "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -6582,7 +6746,8 @@
                   "description": "The enforcement status for a security configuration",
                   "enum": [
                     "enforced",
-                    "unenforced"
+                    "unenforced",
+                    "enterprise_enforced"
                   ]
                 },
                 "url": {
@@ -6756,7 +6921,7 @@
           "description": "<p>An array of repository IDs to attach the configuration to. You can only provide a list of repository ids when the <code>scope</code> is set to <code>selected</code>.</p>"
         }
       ],
-      "descriptionHTML": "<p>Attach a code security configuration to a set of repositories. If the repositories specified are already attached to a configuration, they will be re-attached to the provided configuration.</p>\n<p>If insufficient GHAS licenses are available to attach the configuration to a repository, only free features will be enabled.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Attach a code security configuration to a set of repositories. If the repositories specified are already attached to a configuration, they will be re-attached to the provided configuration.</p>\n<p>If insufficient GHAS licenses are available to attach the configuration to a repository, only free features will be enabled.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>Directly applying an enterprise-enforced configuration also requires permission to manage the enterprise's code security settings. Without it, the request returns <code>403</code> and no repositories change.</p>\n<p>When applying a different configuration, repositories with active enterprise-enforced attachments are skipped unless the authenticated user can manage the enterprise's code security settings; the remaining repositories are updated. The request still returns <code>202</code> if every repository is skipped.</p>\n<p>OAuth app tokens and classic PATs require the <code>write:org</code> scope. Directly applying an enterprise-enforced configuration also requires <code>admin:enterprise</code> and is not supported by fine-grained PATs or GitHub App access tokens.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6790,6 +6955,10 @@
         {
           "httpStatusCode": "202",
           "description": "<p>Accepted</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
         }
       ],
       "previews": [],
@@ -6844,7 +7013,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Sets a code security configuration as a default to be applied to new repositories in your organization.</p>\n<p>This configuration will be applied to the matching repository type (all, none, public, private and internal) by default when they are created.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets a code security configuration as a default to be applied to new repositories in your organization.</p>\n<p>This configuration will be applied to the matching repository type (all, none, public, private and internal) by default when they are created.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint. Setting an enterprise-enforced configuration as the default also requires permission to manage the enterprise's code security settings.</p>\n<p>A default set with this endpoint is an organization default, even if the configuration is owned or enforced by the enterprise. An enterprise-enforced configuration set as an enterprise-level default for the same repository visibility takes precedence.</p>\n<p>OAuth app tokens and classic PATs require the <code>write:org</code> scope; setting an enterprise-enforced configuration as the default also requires <code>admin:enterprise</code>. Fine-grained PATs and GitHub App access tokens cannot perform that action.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6889,8 +7058,17 @@
                   },
                   "code_scanning_delegated_alert_dismissal": "disabled",
                   "secret_scanning": "enabled",
-                  "secret_scanning_push_protection": "disabled",
-                  "secret_scanning_delegated_bypass": "disabled",
+                  "secret_scanning_push_protection": "enabled",
+                  "secret_scanning_delegated_bypass": "enabled",
+                  "secret_scanning_delegated_bypass_options": {
+                    "reviewers": [
+                      {
+                        "security_configuration_id": 1325,
+                        "reviewer_id": 5678,
+                        "reviewer_type": "TEAM"
+                      }
+                    ]
+                  },
                   "secret_scanning_validity_checks": "disabled",
                   "secret_scanning_non_provider_patterns": "disabled",
                   "secret_scanning_generic_secrets": "disabled",
@@ -6939,7 +7117,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -7127,6 +7308,15 @@
                                   "ROLE"
                                 ]
                               },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
+                              },
                               "security_configuration_id": {
                                 "type": "integer",
                                 "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -7195,7 +7385,8 @@
                       "description": "The enforcement status for a security configuration",
                       "enum": [
                         "enforced",
-                        "unenforced"
+                        "unenforced",
+                        "enterprise_enforced"
                       ]
                     },
                     "url": {
@@ -7277,7 +7468,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7287,7 +7478,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7296,7 +7487,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7305,7 +7496,7 @@
         },
         {
           "name": "status",
-          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>detached</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code></p>",
+          "description": "<p>A comma-separated list of statuses. If specified, only repositories with these attachment statuses will be returned.</p>\n<p>Can be: <code>all</code>, <code>attached</code>, <code>attaching</code>, <code>detached</code>, <code>removed</code>, <code>enforced</code>, <code>failed</code>, <code>updating</code>, <code>removed_by_enterprise</code>, <code>enterprise_enforced</code></p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7423,7 +7614,8 @@
                       "enforced",
                       "failed",
                       "updating",
-                      "removed_by_enterprise"
+                      "removed_by_enterprise",
+                      "enterprise_enforced"
                     ]
                   },
                   "repository": {
@@ -7913,7 +8105,8 @@
                     "enforced",
                     "failed",
                     "updating",
-                    "removed_by_enterprise"
+                    "removed_by_enterprise",
+                    "enterprise_enforced"
                   ]
                 },
                 "configuration": {
@@ -7938,7 +8131,10 @@
                       ]
                     },
                     "description": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A description of the code security configuration"
                     },
                     "advanced_security": {
@@ -8126,6 +8322,15 @@
                                   "ROLE"
                                 ]
                               },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
+                              },
                               "security_configuration_id": {
                                 "type": "integer",
                                 "description": "The ID of the security configuration associated with this bypass reviewer"
@@ -8194,7 +8399,8 @@
                       "description": "The enforcement status for a security configuration",
                       "enum": [
                         "enforced",
-                        "unenforced"
+                        "unenforced",
+                        "enterprise_enforced"
                       ]
                     },
                     "url": {

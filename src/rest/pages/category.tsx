@@ -1,12 +1,10 @@
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
+import type { ServerResponse } from 'http'
 import { Operation } from '@/rest/components/types'
+import type { ExtendedRequest, AllVersions } from '@/types/types'
 import { RestReferencePage } from '@/rest/components/RestReferencePage'
-import {
-  addUINamespaces,
-  getMainContext,
-  MainContext,
-  MainContextT,
-} from '@/frame/components/context/MainContext'
+import { getMainContext, MainContext, MainContextT } from '@/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
@@ -65,16 +63,18 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     await import('@/versions/lib/non-enterprise-default-version')
   const nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersionModule.default as string
 
-  const req = context.req as any
-  const res = context.res as any
-  const tocLandingContext = getTocLandingContextFromRequest(req)
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as ServerResponse
+  const tocLandingContext = getTocLandingContextFromRequest(
+    req as unknown as Parameters<typeof getTocLandingContextFromRequest>[0],
+  )
   // e.g. the `activity` from `/en/rest/activity/events`
   const category = context.params!.category as string
   let subcategory = context.params!.subcategory as string
   const currentVersion = context.params!.versionId as string
-  const currentLanguage = req.context.currentLanguage as string
-  const allVersions = req.context.allVersions
-  const queryApiVersion = context.query.apiVersion
+  const currentLanguage = req.context!.currentLanguage as string
+  const allVersions = req.context!.allVersions as AllVersions
+  const queryApiVersion = context.query.apiVersion as string
   const apiVersion = allVersions[currentVersion].apiVersions.includes(queryApiVersion)
     ? queryApiVersion
     : allVersions[currentVersion].latestApiVersion
@@ -88,12 +88,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const categoryData = await getRest(currentVersion, apiVersion, category)
   const restOperations = (categoryData && categoryData[subcategory]) || []
 
-  // Build table of contents for all category operations for TocLanding:
-  //
-  // * get all operations for a category (will be broken up by subcategory)
-  // * loop over subcategories and get the operations per subcategory
-  //   * get the minitoc items per set of subcategory operations
-  //   * with this data, build a collection of toc items that can be used by TocLanding
+  // Build the TocLanding table of contents for every operation in the category.
+  // The operations come back grouped by subcategory, so walk the subcategories,
+  // take the minitoc items for each one's operations, and collect them.
   const restCategoryOperations = categoryData || {}
   const restCategoryTocItems = []
 
@@ -140,7 +137,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       subCatOperations,
       currentLanguage,
       currentVersion,
-      req.context,
+      req.context!,
     )) as MinitocItemsT
 
     for (const operationMinitoc of miniTocItems.restOperationsMiniTocItems) {
@@ -182,12 +179,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // content/rest/*
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
-  // When operations exist, update the miniTocItems in the article context
-  // with the list of operations in the OpenAPI.
-
-  // The context passed will have the Markdown content for the language
-  // of the page being requested and the Markdown will be rendered
-  // using the `currentVersion`
+  // Build mini-TOC items from the operation titles, using the request context
+  // for the language and version, and append them to the article's mini-TOC.
   if (restOperations) {
     const { restOperationsMiniTocItems } = (await getRestMiniTocItems(
       category,
@@ -196,7 +189,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       restOperations,
       currentLanguage,
       currentVersion,
-      req.context,
+      req.context!,
     )) as MinitocItemsT
 
     if (restOperationsMiniTocItems) {
@@ -204,14 +197,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     }
   }
 
-  // Replace the toc items in the context with the REST toc items we just
-  // created.
   tocLandingContext.tocItems = restCategoryTocItems
 
-  const mainContext = await getMainContext(req, res)
-  if (tocLandingContext.currentLearningTrack?.trackName) {
-    addUINamespaces(req, mainContext.data.ui, ['learning_track_nav'])
-  }
+  const mainContext = await getMainContext(req, res as unknown as Response)
 
   return {
     props: {

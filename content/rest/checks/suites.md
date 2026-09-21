@@ -16,6 +16,6 @@ category:
 > {% data reusables.apps.checks-availability %}
 
 > [!NOTE]
-> A GitHub App usually only receives one [`check_suite`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) event per commit SHA, even if you push the commit SHA to more than one branch. To find out when a commit SHA is pushed to a branch, you can subscribe to branch [`create`](/webhooks-and-events/webhooks/webhook-events-and-payloads#create) events.
+> A GitHub App usually only receives one [`check_suite`](/webhooks/webhook-events-and-payloads#check_suite) event per commit SHA, even if you push the commit SHA to more than one branch. To find out when a commit SHA is pushed to a branch, you can subscribe to branch [`create`](/webhooks/webhook-events-and-payloads#create) events.
 
 <!-- Content after this section is automatically generated -->

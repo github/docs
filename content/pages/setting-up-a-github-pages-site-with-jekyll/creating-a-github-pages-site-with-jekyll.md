@@ -118,7 +118,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder
    ```
 
-1. Optionally, test your site locally. For more information, see [Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll).
+1. Optionally, test your site locally. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).
 1. Add and commit your work.
 
    ```shell

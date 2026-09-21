@@ -40,11 +40,17 @@ category:
 
 {% data reusables.actions.azure-vnet-networking-policies %}
 
+## About VNET failover
+
+{% data reusables.actions.azure-vnet-about-failover %}
+
+For more information about configuring a failover network, see [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#5-optionally-add-a-failover-network-to-a-network-configuration).
+
 ## Managing network configuration policies for organizations in your enterprise
 
 You can give organization owners in your enterprise the ability to set up and maintain organization-level network configurations for {% data variables.product.company_short %}-hosted runners.
 
-For more information, see [AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#enabling-creation-of-network-configurations-for-organizations).
+For more information, see [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#enabling-creation-of-network-configurations-for-organizations).
 
 ## Using {% data variables.product.company_short %}-hosted runners with an Azure VNET
 

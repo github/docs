@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 contentType: reference
 children:
-  - /sarif-support-for-code-scanning
+  - /sarif-support
   - /troubleshoot-sarif-uploads
 ---
+

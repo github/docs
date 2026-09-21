@@ -75,5 +75,5 @@ For enterprise managed user accounts, only enterprise owners can purchase and in
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information)
-* [AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-personal-account)
+* [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info)
+* [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account)

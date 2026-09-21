@@ -7,8 +7,7 @@ import { fastTextOnly } from '@/content-render/unified/text-only'
 import { extractManualContent } from '@/article-api/lib/graphql-helpers'
 
 /**
- * Transformer for GraphQL changelog page
- * Renders the changelog with schema changes, preview changes, and upcoming changes
+ * Renders the GraphQL changelog: schema changes, preview changes, and upcoming changes.
  */
 export class GraphQLChangelogTransformer implements PageTransformer {
   templateName = 'graphql-changelog.template.md'
@@ -22,20 +21,30 @@ export class GraphQLChangelogTransformer implements PageTransformer {
   async transform(page: Page, _pathname: string, context: Context): Promise<string> {
     const currentVersion = context.currentVersion!
 
-    const { getGraphqlChangelog } = await import('@/graphql/lib/index')
+    const { getGraphqlChangelogByYear, getGraphqlChangelogYears } =
+      await import('@/graphql/lib/index')
 
-    const schema = getGraphqlChangelog(currentVersion) as ChangelogItemT[]
+    const yearMatch = page.relativePath.match(/changelog\/(\d{4})\.md$/)
+    const year = yearMatch ? Number(yearMatch[1]) : null
+    const years = getGraphqlChangelogYears(currentVersion)
+
+    let schema: ChangelogItemT[]
+    if (year) {
+      schema = getGraphqlChangelogByYear(currentVersion, year) as ChangelogItemT[]
+    } else {
+      // Index page: show only the latest year
+      const latestYear = years[0]
+      schema = getGraphqlChangelogByYear(currentVersion, latestYear) as ChangelogItemT[]
+    }
 
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
     const manualContent = await extractManualContent(page, context)
 
-    // Process changelog items
     const changelogItems = schema.map((item) => {
       const processChanges = (changes: Array<{ title: string; changes: string[] }>) =>
         changes.map((change) => ({
           title: change.title,
           changes: change.changes.map((html: string) => {
-            // Remove wrapping <p> tags if present
             if (html.startsWith('<p>') && html.endsWith('</p>')) {
               return fastTextOnly(html.slice(3, -4))
             }
@@ -51,11 +60,18 @@ export class GraphQLChangelogTransformer implements PageTransformer {
       }
     })
 
+    const displayYear = year || years[0]
+    const yearNavItems = years.map((y) => ({
+      year: y,
+      isCurrent: y === displayYear,
+    }))
+
     const templateData: Record<string, unknown> = {
       pageTitle: page.title,
       pageIntro: intro,
       manualContent,
       changelogItems,
+      yearNavItems,
     }
 
     const templateContent = loadTemplate(this.templateName)

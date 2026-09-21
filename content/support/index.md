@@ -13,6 +13,7 @@ redirect_from:
   - /categories/working-with-github-support
   - /forum
   - /github/working-with-github-support
+  - /enterprise-onboarding/support-for-your-enterprise
 children:
   - learning-about-github-support
   - contacting-github-support

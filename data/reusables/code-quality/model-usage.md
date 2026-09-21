@@ -1,0 +1,1 @@
+{% data variables.product.prodname_code_quality_short %} is a purpose-built product that uses a carefully tuned mix of models, prompts, and system behaviors to deliver consistent, high-quality analysis across a wide range of codebases. Model switching is not supported, as changing the model is likely to compromise the reliability and accuracy of analysis results.

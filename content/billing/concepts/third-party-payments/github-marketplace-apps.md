@@ -56,13 +56,13 @@ All paid {% data variables.product.prodname_marketplace %} app subscriptions for
 
 ## Unit plan limits
 
-For plans that charge per unit (for example, per user), exceeding the purchased units can lead the developer to restrict or disable app access until you move to a plan that covers the higher usage. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app).
+For plans that charge per unit (for example, per user), exceeding the purchased units can lead the developer to restrict or disable app access until you move to a plan that covers the higher usage. For more information, see [AUTOTITLE](/billing/how-tos/pay-third-parties/upgrade-marketplace-app).
 
 ## Plan changes and cancellation
 
 * **Upgrading or adding capacity** takes effect immediately; a prorated amount may be charged for the rest of the cycle (if applicable).
 * **Downgrading a paid plan or canceling a paid app** takes effect at the end of the current billing cycle; access continues until then. Your subscription will be moved to your new plan on your next billing date.
-  To learn how to downgrade a paid plan or cancel a paid app, see [AUTOTITLE](/billing/how-tos/pay-third-parties/downgrade-marketplace-app) and [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app).
+  To learn how to downgrade a paid plan or cancel a paid app, see [AUTOTITLE](/billing/how-tos/pay-third-parties/downgrade-marketplace-app) and [AUTOTITLE](/billing/how-tos/pay-third-parties/cancel-marketplace-app).
 * **Cancelling a free plan** ends the subscription immediately with loss of access.
 * **Canceling a free trial** on a paid plan ends the trial immediately and access stops.
 

@@ -50,7 +50,7 @@ export default function GroupedEvents({ auditLogEvents, category, categoryNote }
       <div>
         {auditLogEvents.map((event) => (
           <div key={event.action} className={styles.eventItem}>
-            <dl>
+            <dl role="none">
               <dt className={styles.eventAction}>
                 <code>{event.action}</code>
               </dt>

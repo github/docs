@@ -1,3 +1,10 @@
+// The page wrapper is full-bleed now (see SearchPage.module.scss), so this state
+// supplies its own inset to line up with the hero band and result rows.
+.heading {
+  margin: 32px 48px 0;
+  line-height: 1.2;
+}
+
 .flash {
   margin: 2rem;
 }

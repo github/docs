@@ -45,7 +45,7 @@ To avoid throttling and performance issues, we recommend staying within the foll
 * **Push size**: This limit is enforced at 2GB.
 * **Single object size**:
 
-  The recommended maximum limit is 1MB. This is enforced at 100MB. To track large files in a Git repository, we recommend using {% data variables.large_files.product_name_short %}. See [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage).
+  The recommended maximum limit is 1MB. {% ifversion ghes %}By default, this is enforced at 100 MB, but enterprise owners can change or remove this limit. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-git-push-limits).{% else %}This is enforced at 100 MB.{% endif %} To track large files in a Git repository, we recommend using {% data variables.large_files.product_name_short %}. See [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage).
 
 * **Git read operations (e.g. fetches, clones)**:
 
@@ -86,13 +86,9 @@ The compare view and pull requests pages display a list of commits between the `
 
 The maximum count of commits displayed on the Commits tab is **10,000**. Use other tools such as `git rev-list --count mybranch` to count and enumerate a high volume of commits when needed.
 
-{% ifversion fpt or ghec or ghes > 3.16 %}
-
 ## Rebase limits
 
 Merging a pull request using the "Rebase and merge" option is limited to **100** commits.  If you have a pull request with more than 100 commits, you need to create a merge commit, squash and merge, or split the commits up into multiple pull requests.
-
-{% endif %}
 
 ## Organization and account limits
 

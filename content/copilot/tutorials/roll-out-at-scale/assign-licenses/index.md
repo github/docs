@@ -5,6 +5,7 @@ intro: Learn recommended practices for assigning licenses and managing costs.
 versions:
   feature: copilot
 children:
+  - /choose-enterprise-plan
   - /set-up-self-serve-licenses
   - /track-usage-and-adoption
   - /remind-inactive-users

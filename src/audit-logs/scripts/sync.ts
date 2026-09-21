@@ -1,18 +1,14 @@
-/**
- * Required env variables:
- *
- * GITHUB_TOKEN
- *
- * Gets latest audit log event data, extracts the data we need for rendering on
- * the 3 different audit log pages, and writes out the data to files versioned
- * per page.
- */
+// Gets the latest audit log event data, extracts what we need for the 3 audit
+// log pages, and writes it out to files versioned per page.
+//
+// Requires GITHUB_TOKEN.
 import { existsSync } from 'fs'
 import { readFile, writeFile } from 'fs/promises'
 import { mkdirp } from 'mkdirp'
 import path from 'path'
 
 import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index'
+import { writeDeduplicatedAuditLogData } from '../lib/deduplicate'
 import { getContents, getCommitSha } from '@/workflows/git-utils'
 import { latest, latestStable, releaseCandidate } from '@/versions/lib/enterprise-server-releases'
 import { loadPages, loadPageMap } from '@/frame/lib/page-data'
@@ -71,7 +67,6 @@ async function main() {
   pipelineConfig.sha = mainSha
   await writeFile(configFilepath, JSON.stringify(pipelineConfig, null, 2))
 
-  // Load pages and redirects for title resolution
   console.log('Loading pages and redirects for title resolution...')
   const pageList = await loadPages(undefined, ['en'])
   const pages = await loadPageMap(pageList)
@@ -209,6 +204,9 @@ async function main() {
       }
     }
   }
+
+  // Write deduplicated shared format
+  await writeDeduplicatedAuditLogData(auditLogData)
 }
 
 main()

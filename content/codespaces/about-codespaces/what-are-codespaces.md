@@ -41,7 +41,7 @@ If you create a codespace from an organization-owned repository, use of the code
 
 ### Using organization-owned codespaces
 
-Owners of organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can pay for their members' and collaborators' use of {% data variables.product.prodname_github_codespaces %}. This applies to codespaces created from repositories owned by the organization. See [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization). You can set a spending limit for use of {% data variables.product.prodname_github_codespaces %} on your organization or enterprise account. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces).
+Owners of organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can pay for their members' and collaborators' use of {% data variables.product.prodname_github_codespaces %}. This applies to codespaces created from repositories owned by the organization. See [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization). You can set a spending limit for use of {% data variables.product.prodname_github_codespaces %} on your organization or enterprise account. See [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 If use of a codespace will be billed to an organization or enterprise, this is shown when the codespace is created. See [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository). Codespaces that are billed to an organization, or its parent enterprise, are owned by the organization and can be deleted by an organization owner. See [AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace#deleting-codespaces-in-your-organization).
 
@@ -59,8 +59,8 @@ See [AUTOTITLE](/codespaces/customizing-your-codespace).
 
 ## Billing for {% data variables.product.prodname_codespaces %}
 
-For information on pricing, storage, and usage for {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+For information on pricing, storage, and usage for {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/billing/concepts/product-billing/github-codespaces).
 
 {% data reusables.billing.default-over-quota-behavior %}
 
-{% data reusables.codespaces.codespaces-monthly-billing %} For information on how organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an organization, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces).
+{% data reusables.codespaces.codespaces-monthly-billing %} For information on how organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an organization, see [AUTOTITLE](/billing/how-tos/set-up-budgets).

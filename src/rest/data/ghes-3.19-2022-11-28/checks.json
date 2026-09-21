@@ -4833,11 +4833,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "latest",
             "enum": [
               "latest",
               "all"
-            ],
-            "default": "latest"
+            ]
           }
         },
         {
@@ -5976,11 +5976,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "latest",
             "enum": [
               "latest",
               "all"
-            ],
-            "default": "latest"
+            ]
           }
         },
         {

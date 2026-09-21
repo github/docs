@@ -3,8 +3,18 @@ import { languagePrefixPathRegex } from '@/languages/lib/languages-server'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import type { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
+import { createHash } from 'crypto'
+
+import { colorModeScript } from '@/color-schemes/lib/color-mode-script'
 
 const isDev = process.env.NODE_ENV === 'development'
+
+// The pre-paint theme script in `_document.tsx` is inlined, so it needs an
+// explicit CSP `script-src` allowance. We hash the exact script string rather
+// than using a nonce, because a nonce would have to vary per response and would
+// break the shared CDN cache. The script is identical for every request, so its
+// hash is stable and the HTML stays cacheable.
+const colorModeScriptHash = `'sha256-${createHash('sha256').update(colorModeScript).digest('base64')}'`
 const GITHUB_DOMAINS = [
   "'self'",
   'github.com',
@@ -15,7 +25,7 @@ const GITHUB_DOMAINS = [
 
 const DEFAULT_OPTIONS = {
   crossOriginResourcePolicy: true,
-  crossOriginEmbedderPolicy: false, // doesn't work with youtube
+  crossOriginEmbedderPolicy: false,
   referrerPolicy: {
     policy: 'no-referrer-when-downgrade' as const,
   },
@@ -36,19 +46,23 @@ const DEFAULT_OPTIONS = {
       // For use during development only!
       // `unsafe-eval` allows us to use a performant webpack devtool setting (eval)
       // https://webpack.js.org/configuration/devtool/#devtool
-      scriptSrc: [...GITHUB_DOMAINS, "'self'", 'data:', isDev && "'unsafe-eval'"].filter(
-        Boolean,
-      ) as string[],
+      scriptSrc: [
+        ...GITHUB_DOMAINS,
+        "'self'",
+        'data:',
+        colorModeScriptHash,
+        isDev && "'unsafe-eval'",
+      ].filter(Boolean) as string[],
       scriptSrcAttr: ["'self'"],
       frameSrc: [
         ...GITHUB_DOMAINS,
         isDev && 'http://localhost:3000',
-        // This URL is also set in ArticleContext.tsx. We don't rely on importing a constant as we may run into an import conflict where the env variable is not yet set.
+        // ArticleContext.tsx sets this URL too. We don't import a shared
+        // constant because the env var may not be set yet at import time.
         process.env.NODE_ENV === 'production'
           ? 'https://support.github.com'
           : // Assume that a developer is not testing the VA iframe locally if this env var is not set
             process.env.SUPPORT_PORTAL_URL || '',
-        'https://www.youtube-nocookie.com',
       ].filter(Boolean) as string[],
       frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],
       styleSrc: [...GITHUB_DOMAINS, "'self'", "'unsafe-inline'", 'data:'],

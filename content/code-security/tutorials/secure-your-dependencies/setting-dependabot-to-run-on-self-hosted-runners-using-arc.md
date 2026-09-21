@@ -22,7 +22,7 @@ This article provides step-by-step instructions for setting up ARC on a Kubernet
 
 ## What is ARC?
 
-The {% data variables.product.prodname_actions_runner_controller %} is a Kubernetes controller that manages self-hosted {% data variables.product.prodname_actions %} as Kubernetes pods. It allows you to dynamically scale and orchestrate runners based on your workflows, providing better resource utilization and integration with Kubernetes environments. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
+The {% data variables.product.prodname_actions_runner_controller %} is a Kubernetes controller that manages self-hosted {% data variables.product.prodname_actions %} as Kubernetes pods. It allows you to dynamically scale and orchestrate runners based on your workflows, providing better resource utilization and integration with Kubernetes environments. See [AUTOTITLE](/actions/concepts/runners/actions-runner-controller).
 
 ## {% data variables.product.prodname_dependabot %} on ARC
 
@@ -40,7 +40,7 @@ You can run {% data variables.product.prodname_dependabot %} on self-hosted {% d
 
 ### Setting up ARC
 
-1. Install ARC. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller).
+1. Install ARC. For more information, see [AUTOTITLE](/actions/tutorials/use-actions-runner-controller/get-started).
 1. Create a work directory for the ARC setup and create a shell script file (for example, `helm_install_arc.sh`) to install the latest ARC version.
 
     ```bash copy
@@ -107,7 +107,7 @@ You can run {% data variables.product.prodname_dependabot %} on self-hosted {% d
 
 Runner groups are used to control which organizations or repositories have access to runner scale sets. To add a runner scale set to a runner group, you must already have a runner group created.
 
-For information about creating runner groups, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization).
+For information about creating runner groups, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/manage-access#creating-a-self-hosted-runner-group-for-an-organization).
 
 Don't forget to add the following setting to the runner scale set configuration in the helm chart.
 
@@ -164,7 +164,7 @@ Don't forget to add the following setting to the runner scale set configuration 
 
 1. Create an organization on {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 1. Create a runner group. See [Adding runner groups](#adding-runner-groups).
-1. Enable the dependency graph from the {% data variables.enterprise.management_console %}. See [AUTOTITLE](/admin/managing-code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise#enabling-the-dependency-graph-via-the-management-console).
+1. Enable the dependency graph from the {% data variables.enterprise.management_console %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/enable-dependency-graph#enabling-the-dependency-graph-via-the-management-console).
 1. Enable {% data variables.product.prodname_github_connect %} for your enterprise. See [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom#enabling-github-connect).
 1. Enable {% data variables.product.prodname_dependabot_alerts %} for the enterprise. See [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-dependabot-for-your-enterprise#enabling-dependabot-alerts).
 
@@ -197,7 +197,7 @@ You can view the ARC runners that have been created for the {% data variables.pr
 
 Additionally, you can verify:
 
-* The logs, by checking the runner and machine name. See [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs).
+* The logs, by checking the runner and machine name. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/view-dependabot-logs).
 
   ![Example of log for a dependabot self hosted runner.](/assets/images/help/dependabot/dependabot-self-hosted-runner-log.png)
 

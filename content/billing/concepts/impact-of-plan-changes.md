@@ -38,7 +38,7 @@ Key takeaways:
 
 Making a change to the {% data variables.product.github %} plan for your personal account, organization, or enterprise account does not affect billing for use of {% data variables.product.github %} features, such as {% data variables.product.prodname_copilot_short %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
 
-For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans) and [AUTOTITLE](/billing/using-the-billing-platform/about-billing-on-github).
+For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans) and [AUTOTITLE](/billing/get-started/how-billing-works).
 
 ## Examples
 
@@ -51,7 +51,7 @@ The following examples illustrate how billing rules are applied in practice:
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-the-plan-for-your-github-account)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-marketplace-apps)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage)
-* [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)
+* [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses)
+* [AUTOTITLE](/billing/how-tos/pay-third-parties)
+* [AUTOTITLE](/billing/how-tos/products)
+* [AUTOTITLE](/billing/reference/github-license-users)

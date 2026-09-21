@@ -8,11 +8,11 @@ versions:
   ghec: '*'
 contentType: tutorials
 children:
-  - /dependabot-quickstart-guide
-  - /automating-dependabot-with-github-actions
+  - /dependabot-quickstart
+  - /automate-dependabot-with-actions
   - /optimizing-pr-creation-version-updates
   - /setting-dependabot-to-run-on-self-hosted-runners-using-arc
   - /customizing-dependabot-prs
-  - /customizing-your-dependency-review-action-configuration
+  - /customize-dependency-review-action
 ---
 

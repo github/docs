@@ -19,7 +19,7 @@ export async function getAISearchAutocompleteResults({
   const t0 = new Date()
   const client = getElasticsearchClient() as Client
 
-  const searchQuery: any = {
+  const searchQuery: estypes.SearchRequest = {
     index: indexName,
     size,
     // Send absolutely minimal from Elasticsearch to here. Less data => faster.
@@ -84,7 +84,6 @@ function getAISearchAutocompleteMatchQueries(
 
   const matchQueries: estypes.QueryDslQueryContainer[] = []
 
-  // Use match_phrase for exact term matches
   matchQueries.push({
     match_phrase: {
       term: {
@@ -95,7 +94,6 @@ function getAISearchAutocompleteMatchQueries(
     },
   })
 
-  // Use match for general matching
   matchQueries.push({
     match: {
       term: {
@@ -105,7 +103,6 @@ function getAISearchAutocompleteMatchQueries(
     },
   })
 
-  // Match phrase prefix for partial term matches
   matchQueries.push({
     match_phrase_prefix: {
       term: {

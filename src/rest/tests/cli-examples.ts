@@ -11,7 +11,6 @@ describe('CLI examples generation', () => {
     serverUrl: 'https://api.github.com',
     subcategory: 'code-scanning',
     parameters: [],
-    // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
   } as unknown as Operation
 
   const mockVersions = {
@@ -19,7 +18,6 @@ describe('CLI examples generation', () => {
       apiVersions: ['2022-11-28'],
       latestApiVersion: '2022-11-28',
     },
-    // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
   } as unknown as Record<string, VersionItem>
 
   test('GitHub CLI example properly escapes contractions in string values', () => {
@@ -37,14 +35,11 @@ describe('CLI examples generation', () => {
             "This alert is not actually correct, because there's a sanitizer included in the library.",
         },
       },
-      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
     } as unknown as CodeSample
 
     const result = getGHExample(mockOperation, codeSample, 'free-pro-team@latest', mockVersions)
 
-    // Check that the contraction is properly escaped
     expect(result).toContain("there'\\''s")
-    // Ensure the command is properly formatted
     expect(result).toContain('gh api')
     expect(result).toContain('--method PATCH')
     expect(result).toContain("-f 'dismissed_comment=")
@@ -66,12 +61,10 @@ describe('CLI examples generation', () => {
         },
         contentType: 'application/json',
       },
-      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
     } as unknown as CodeSample
 
     const result = getShellExample(mockOperation, codeSample, 'free-pro-team@latest', mockVersions)
 
-    // Check that the JSON string is properly escaped
     expect(result).toContain("there'\\''s")
     expect(result).toContain('curl -L')
     expect(result).toContain('-X PATCH')
@@ -89,7 +82,6 @@ describe('CLI examples generation', () => {
           body: "It's not working because there's an issue and we can't fix it",
         },
       },
-      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
     } as unknown as CodeSample
 
     const mockSimpleOperation = {
@@ -98,7 +90,6 @@ describe('CLI examples generation', () => {
       serverUrl: 'https://api.github.com',
       subcategory: 'issues',
       parameters: [],
-      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
     } as unknown as Operation
 
     const result = getGHExample(
@@ -108,7 +99,6 @@ describe('CLI examples generation', () => {
       mockVersions,
     )
 
-    // Check that all contractions are properly escaped
     expect(result).toContain("Here'\\''s what'\\''s")
     expect(result).toContain("It'\\''s not working")
     expect(result).toContain("there'\\''s an issue")
@@ -129,12 +119,10 @@ describe('CLI examples generation', () => {
             'This alert is not actually correct because there is a sanitizer included in the library.',
         },
       },
-      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
     } as unknown as CodeSample
 
     const result = getGHExample(mockOperation, codeSample, 'free-pro-team@latest', mockVersions)
 
-    // Check that normal text is not modified
     expect(result).toContain('there is a sanitizer')
     expect(result).not.toContain("'\\''")
     expect(result).toContain('gh api')
@@ -152,7 +140,6 @@ describe('CLI examples generation', () => {
         },
         contentType: 'application/x-www-form-urlencoded',
       },
-      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
     } as unknown as CodeSample
 
     const mockSimpleOperation = {
@@ -161,7 +148,6 @@ describe('CLI examples generation', () => {
       serverUrl: 'https://api.github.com',
       subcategory: 'pulls',
       parameters: [],
-      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
     } as unknown as Operation
 
     const result = getShellExample(
@@ -171,7 +157,6 @@ describe('CLI examples generation', () => {
       mockVersions,
     )
 
-    // Check that form data values are properly escaped
     expect(result).toContain("Here'\\''s my feedback")
     expect(result).toContain('--data-urlencode')
   })

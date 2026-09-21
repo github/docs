@@ -3,6 +3,9 @@
 environments:
   - name: production
     require_pipeline: true
+    # Bumped from default 10m because pod scheduling occasionally pushes
+    # rollouts past the timeout even though the deploy itself succeeds.
+    timeout: 1200
     cluster_selector:
       profile: general
       region: iad
@@ -201,13 +204,13 @@ pipelines:
   production_rollout:
     thread_notifications: true
     notify_users_via_dm: false
-    timeout: 1200
+    timeout: 1800
     stages:
       - name: full_production
         kind: deployment
         config:
           environment: production
-          timeout: 1200
+          timeout: 1800
 
 notifications:
   slack_channels:

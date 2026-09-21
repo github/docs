@@ -8,6 +8,7 @@ versions:
   feature: desktop
 children:
   - /managing-branches-in-github-desktop
+  - /managing-worktrees-in-github-desktop
   - /committing-and-reviewing-changes-to-your-project-in-github-desktop
   - /working-with-git-hooks-in-github-desktop
   - /stashing-changes-in-github-desktop

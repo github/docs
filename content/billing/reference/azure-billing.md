@@ -16,7 +16,7 @@ You can connect an Azure subscription to your {% data variables.product.github %
 
 Connecting an Azure subscription allows you to consolidate invoices and manage {% data variables.product.github %} spending within your organization’s existing Azure billing processes.
 
-For details on how to connect, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
+For details on how to connect, see [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub).
 
 ## Billing cycles and invoicing
 

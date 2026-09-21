@@ -8,24 +8,52 @@ versions:
 contentType: how-tos
 category:
   - Configure Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## About authentication
 
-{% data variables.copilot.copilot_cli %} supports three authentication methods. The method you use depends on whether you are working interactively or in an automated environment.
+If you use your own LLM provider API keys (BYOK), {% data variables.product.github %} authentication is not required.
 
-* **OAuth device flow**: The default and recommended method for interactive use. When you run `/login` in {% data variables.copilot.copilot_cli_short %}, the CLI generates a one-time code and directs you to authenticate in your browser. This is the simplest way to authenticate.
-* **Environment variables**: Recommended for CI/CD pipelines, containers, and non-interactive environments. You set a supported token as an environment variable (`COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN`), and the CLI uses it automatically without prompting.
-* **{% data variables.product.prodname_cli %} fallback**: If you have {% data variables.product.prodname_cli %} (`gh`) (note: the `gh` CLI, not `copilot`) installed and authenticated, {% data variables.copilot.copilot_cli_short %} can use its token automatically. This is the lowest priority method and activates only when no other credentials are found.
+Authentication is required for any other {% data variables.copilot.copilot_cli %} usage.
+
+When authentication is required, {% data variables.copilot.copilot_cli_short %} supports several methods. The method you use depends on whether you are working interactively or in an automated environment.
+
+* **OAuth**: The default and recommended method for interactive use. There are two OAuth flows. The browser (web) flow opens your browser to authorize the sign-in and completes it on a local loopback callback. The device code flow displays a one-time code that you enter in your browser. The browser flow is the default on a local desktop, and known remote or headless environments (including SSH, {% data variables.product.prodname_github_codespaces %}, dev containers, and CI) default to the device code flow. See [Authenticating with OAuth](#authenticating-with-oauth).
+* **Environment variables**: Recommended for CI/CD pipelines, containers, and non-interactive environments. You set a supported token as an environment variable (`COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN`), and the CLI uses it automatically without prompting. See [Authenticating with environment variables](#authenticating-with-environment-variables).
+* **{% data variables.product.prodname_cli %} fallback**: If you have {% data variables.product.prodname_cli %} (`gh`) (note: the `gh` CLI, not `copilot`) installed and authenticated, {% data variables.copilot.copilot_cli_short %} can use its token automatically. This is the lowest priority method and activates only when no other credentials are found. See [Authenticating with {% data variables.product.prodname_cli %}](#authenticating-with-github-cli).
 
 Once authenticated, {% data variables.copilot.copilot_cli_short %} remembers your login and automatically uses the token for all {% data variables.product.prodname_copilot_short %} API requests. You can log in with multiple accounts, and the CLI will remember the last-used account. Token lifetime and expiration depend on how the token was created on your account or organization settings.
+
+## Unauthenticated use
+
+If you configure {% data variables.copilot.copilot_cli_short %} to use your own LLM provider API keys (BYOK), {% data variables.product.github %} authentication is **not required**. {% data variables.copilot.copilot_cli_short %} can connect directly to your configured provider without a {% data variables.product.github %} account or token.
+
+However, without {% data variables.product.github %} authentication, the following features are **not available**:
+
+* `/delegate`: Requires {% data variables.copilot.copilot_cloud_agent %}, which runs on {% data variables.product.github %}'s servers
+* {% data variables.product.github %} MCP server: Requires authentication to access {% data variables.product.github %} APIs
+* {% data variables.product.github %} Code Search: Requires authentication to query {% data variables.product.github %}'s search index
+
+You can combine BYOK with {% data variables.product.github %} authentication to get the best of both: your preferred model for AI responses, plus access to {% data variables.product.github %}-hosted features like `/delegate` and code search.
+
+### Offline mode
+
+ If you set the `COPILOT_OFFLINE` environment variable to `true`, {% data variables.copilot.copilot_cli_short %} runs without contacting {% data variables.product.github %}'s servers. In offline mode:
+
+* No {% data variables.product.github %} authentication is attempted.
+* The CLI only makes network requests to your configured BYOK provider.
+* Telemetry is fully disabled.
+
+Offline mode is **only fully air-gapped** if your BYOK provider is local or otherwise within the same isolated environment (for example, a model running on-premises with no external network access). If `COPILOT_PROVIDER_BASE_URL` points to a remote or internet-accessible endpoint, prompts and code context will still be sent over the network to that provider. Without offline mode, even when using BYOK without {% data variables.product.github %} authentication, telemetry is still sent normally.
 
 ### Supported token types
 
 | Token type                 | Prefix        | Supported | Notes                                                  |
 |----------------------------|---------------|-----------|--------------------------------------------------------|
-| OAuth token (device flow)  | `gho_`        | Yes       | Default method via `copilot login`                     |
-| Fine-grained PAT           | `github_pat_` | Yes       | Must include required permissions **Copilot Requests** |
+| OAuth token (browser or device flow) | `gho_` | Yes    | Default method via `copilot login`                     |
+| Fine-grained PAT           | `github_pat_` | Yes       | Must be owned by your personal account (not an organization) with the **{% data variables.product.prodname_copilot_short %} Requests** account permission |
 | GitHub App user-to-server  | `ghu_`        | Yes       | Via environment variable                               |
 | Classic PAT                | `ghp_`        | No        | Not supported by {% data variables.copilot.copilot_cli_short %} |
 
@@ -50,11 +78,12 @@ When you run a command, {% data variables.copilot.copilot_cli_short %} checks fo
 1. GitHub CLI (`gh auth token`) fallback
 
 > [!NOTE]
-> An environment variable silently overrides a stored OAuth token. If you set `GH_TOKEN` for another tool, the CLI uses that token instead of the OAuth token from `copilot login`. To avoid unexpected behavior, unset environment variables you do not intend the CLI to use.
+> * An environment variable silently overrides a stored OAuth token. If you set `GH_TOKEN` for another tool, the CLI uses that token instead of the OAuth token from `copilot login`. To avoid unexpected behavior, unset environment variables you do not intend the CLI to use. There is one exception: in {% data variables.product.prodname_github_codespaces %}, the `GITHUB_TOKEN` that is injected automatically does not take precedence over an account you signed in with using `/login`. A `GITHUB_TOKEN`, `COPILOT_GITHUB_TOKEN`, or `GH_TOKEN` that you export explicitly still does.
+> * When you configure BYOK provider environment variables (for example, `COPILOT_PROVIDER_BASE_URL`, `COPILOT_PROVIDER_API_KEY`), {% data variables.copilot.copilot_cli_short %} uses these for AI model requests regardless of your {% data variables.product.github %} authentication status. {% data variables.product.github %} tokens are only needed for {% data variables.product.github %}-hosted features.
 
 ## Authenticating with OAuth
 
-The OAuth device flow is the default authentication method for interactive use. You can authenticate by running `/login` from {% data variables.copilot.copilot_cli_short %} or `copilot login` from your terminal.
+OAuth is the default authentication method for interactive use. You can authenticate by running `/login` from {% data variables.copilot.copilot_cli_short %} or `copilot login` from your terminal. Both offer a browser (web) flow and a device code flow.
 
 ### Authenticate with `/login`
 
@@ -72,16 +101,28 @@ The OAuth device flow is the default authentication method for interactive use. 
     2. {% data variables.product.prodname_ghe_cloud %} with data residency (*.ghe.com)
    ```
 
-1. The CLI displays a one-time user code and automatically copies it to your clipboard and opens your browser.
+1. Choose how you want to sign in. The recommended option is listed first, and depends on your environment: the browser flow on a local terminal, or the device code flow in a remote or headless environment. The following example shows the prompt in a local terminal:
 
    ```text
-   Waiting for authorization...
-   Enter one-time code: 1234-5678 at https://github.com/login/device
-   Press any key to copy to clipboard and open browser...
+   How do you want to sign in?
+    1. Sign in with your browser (recommended)
+    2. Sign in with a device code
    ```
 
-1. Navigate to the verification URL at `https://github.com/login/device` if your browser did not open automatically.
-1. Paste the one-time code in the field on the page.
+1. Complete the flow you selected.
+
+   * **Browser**: {% data variables.copilot.copilot_cli_short %} opens your browser so that you can authorize the sign-in. If your browser does not open automatically, the terminal displays a URL that you can visit instead.
+
+   * **Device code**: The CLI displays a one-time user code, and can copy it to your clipboard and open your browser for you.
+
+     ```text
+     Waiting for authorization...
+     Enter one-time code: 1234-5678 at https://github.com/login/device
+     Press any key to copy to clipboard and open browser...
+     ```
+
+     Navigate to the verification URL at `https://github.com/login/device` if your browser did not open automatically, then paste the one-time code in the field on the page.
+
 1. If your organization uses SAML SSO, click **Authorize** next to each organization you want to grant access to.
 1. Review the requested permissions and click **Authorize GitHub Copilot CLI**.
 1. Return to your terminal. The CLI displays a success message when authentication is complete.
@@ -104,14 +145,27 @@ The OAuth device flow is the default authentication method for interactive use. 
    copilot login --host HOSTNAME
    ```
 
-   The CLI displays a one-time user code and automatically copies it to your clipboard and opens your browser.
+1. Authorize the sign-in.
+
+   On a local desktop, `copilot login` uses the browser flow by default. It opens your browser to authorize the sign-in and captures the result on a local loopback callback.
 
    ```text
-   To authenticate, visit https://github.com/login/device and enter code 1234-5678.
+   Opening your browser to authenticate...
+   If it doesn't open automatically, visit:
+   URL
+   Waiting for authorization...
    ```
 
-1. Navigate to the verification URL at `https://github.com/login/device` if your browser did not open automatically.
-1. Paste the one-time code in the field on the page.
+   Known remote or headless environments (including SSH, {% data variables.product.prodname_github_codespaces %}, dev containers, and CI) use the device code flow instead. The CLI displays a one-time code and, when supported by the environment, can copy it to your clipboard and open a browser.
+
+   ```text
+   To authenticate, visit https://github.com/login/device and enter code 1234-5678
+   Waiting for authorization...
+   ```
+
+   To force a particular flow, add the `--web-flow` or `--device-code` option.
+
+1. Navigate to the URL displayed in your terminal if your browser did not open automatically. For the device code flow, paste the one-time code in the field on the page.
 1. If your organization uses SAML SSO, click **Authorize** next to each organization you want to grant access to.
 1. Review the requested permissions and click **Authorize GitHub Copilot CLI**.
 1. Return to your terminal. The CLI displays a success message when authentication is complete.
@@ -147,8 +201,8 @@ If you have {% data variables.product.prodname_cli %} installed and authenticate
 
 ## Switching between accounts
 
-{% data variables.copilot.copilot_cli_short %} supports multiple accounts. You can list available accounts and switch between them from within the CLI. 
-To list available accounts, run `/user list` from the {% data variables.copilot.copilot_cli_short %} prompt. 
+{% data variables.copilot.copilot_cli_short %} supports multiple accounts. You can list available accounts and switch between them from within the CLI.
+To list available accounts, run `/user list` from the {% data variables.copilot.copilot_cli_short %} prompt.
 To switch to a different account, type `/user switch` on the prompt.
 
 To add another account, run `copilot login` from a new terminal session, or run the login command from within the CLI and authorize with the other account.
@@ -161,7 +215,11 @@ To revoke the OAuth app authorization on {% data variables.product.github %} and
 
 1. Navigate to **Settings** > **Applications** > **Authorized OAuth Apps**.
 1. Navigate to your settings page:
-   1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture. 
+   1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
    1. Click **Settings**.
 1. In the left sidebar, click **Applications**.
 1. Under **Authorized OAuth Apps**, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} next to **GitHub CLI** to expand the menu and select **Revoke**.
+
+## Next steps
+
+If you run into authentication problems, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth).

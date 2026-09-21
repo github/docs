@@ -1,5 +1,6 @@
 ---
 title: Extractor options
+shortTitle: Extractor options
 intro: Control how the {% data variables.product.prodname_codeql_cli %} builds databases for analysis with extractor options.
 product: '{% data reusables.gated-features.codeql %}'
 versions:

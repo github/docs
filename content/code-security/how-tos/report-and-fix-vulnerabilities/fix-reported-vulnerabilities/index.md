@@ -11,13 +11,14 @@ redirect_from:
   - /code-security/security-advisories/working-with-repository-security-advisories
   - /code-security/security-advisories
 children:
-  - managing-privately-reported-security-vulnerabilities
-  - creating-a-repository-security-advisory
-  - publishing-a-repository-security-advisory
-  - adding-a-collaborator-to-a-repository-security-advisory
-  - removing-a-collaborator-from-a-repository-security-advisory
-  - editing-a-repository-security-advisory
-  - deleting-a-repository-security-advisory
-  - browsing-security-advisories-in-the-github-advisory-database
-  - editing-security-advisories-in-the-github-advisory-database
+  - manage-vulnerability-reports
+  - create-repository-advisory
+  - publish-repository-advisory
+  - add-collaborators
+  - remove-collaborators
+  - edit-repository-advisories
+  - delete-repository-advisories
+  - browse-advisory-database
+  - edit-advisory-database
 ---
+

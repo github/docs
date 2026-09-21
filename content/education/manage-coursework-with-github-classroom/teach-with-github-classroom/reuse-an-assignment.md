@@ -8,6 +8,7 @@ shortTitle: Reuse an assignment
 category:
   - Create and manage assignments
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About reusing assignments
 

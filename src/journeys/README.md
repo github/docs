@@ -5,7 +5,7 @@ The **journeys** subject provides guided learning experiences (called "tracks") 
 ## Purpose & Scope
 
 This subject is responsible for:
-- Rendering journey landing pages that display multiple learning tracks
+- Rendering journey landing pages that display multiple journey tracks
 - Providing prev/next navigation within journey track articles
 - Resolving journey context based on the current article path
 - Rendering Liquid templates in journey metadata (titles, descriptions, guide paths)
@@ -17,7 +17,6 @@ Journey tracks are defined in article frontmatter using the `journeyTracks` fiel
 ```
 src/journeys/
 ├── components/
-│   ├── JourneyTrackCard.tsx    # Card showing journey progress with next/prev links
 │   ├── JourneyTrackNav.tsx     # Navigation bar for prev/next articles in a track
 │   └── index.ts                # Component exports
 ├── lib/
@@ -51,6 +50,7 @@ journeyTracks:
   - id: 'getting_started'
     title: 'Getting started with {% data variables.product.prodname_ghe_cloud %}'
     description: 'Master the fundamentals and get started with a trial.'
+    timeCommitment: '2-4 hours'
     guides:
       - '/enterprise-onboarding/choose-an-enterprise-type'
       - '/enterprise-onboarding/setting-up-a-trial'

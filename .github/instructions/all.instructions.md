@@ -4,7 +4,7 @@ applyTo: "**"
 
 # Copilot instructions for docs.github.com
 
-This repository contains code to run the GitHub Docs site on docs.github.com, as well as the content that the site displays. We write the code in JavaScript and TypeScript, and we write the content primarily in Markdown.
+This repository powers the GitHub Docs site (docs.github.com). It contains both the Next.js application code (TypeScript) and the documentation content (Markdown).
 
 ## Creating a pull request
 
@@ -29,6 +29,8 @@ When you create a pull request:
 3. Label with "llm-generated". 
 4. If an issue exists, include "fixes owner/repo#issue" or "towards owner/repo#issue" as appropriate. 
 5. Always create PRs in **draft mode** using `--draft` flag.
+6. Do not commit directly to `main`.
+7. Whenever you create or comment on an issue or pull request, indicate you are GitHub Copilot.
 
 ## Accessing docs.github.com content programmatically
 

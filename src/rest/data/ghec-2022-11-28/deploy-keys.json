@@ -28,7 +28,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -37,7 +37,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -194,7 +194,7 @@
         {
           "type": "boolean",
           "name": "read_only",
-          "description": "<p>If <code>true</code>, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.</p>\n<p>Deploy keys with write access can perform the same actions as an organization member with admin access, or a collaborator on a personal repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/repository-permission-levels-for-an-organization/\">Repository permission levels for an organization</a>\" and \"<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/permission-levels-for-a-user-account-repository/\">Permission levels for a user account repository</a>.\"</p>"
+          "description": "<p>If <code>true</code>, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.</p>\n<p>Deploy keys with write access can perform the same actions as an organization member with admin access, or a collaborator on a personal repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/repository-permission-levels-for-an-organization/\">Repository permission levels for an organization</a>\" and \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/permission-levels-for-a-user-account-repository/\">Permission levels for a user account repository</a>.\"</p>"
         }
       ],
       "descriptionHTML": "<p>You can create a read-only deploy key.</p>",

@@ -45,3 +45,26 @@ You can add up to {% data variables.projects.sub-issue_limit %} sub-issues per p
     * Select an issue from one of the suggestions.
     * In the "Search issues" field, type an issue title or issue number, then click on the results.
     * To add issues from other repositories, click {% octicon "arrow-left" aria-label="Back to repository selection" %} next to the repository name and select a different repository.
+
+## Working with sub-issues using {% data variables.product.prodname_cli %}
+
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
+
+To create a new issue as a sub-issue of an existing parent, use the `--parent` flag with `gh issue create`. The parent can be specified by issue number or URL.
+
+```shell
+gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION" --parent PARENT-ISSUE-NUMBER
+```
+
+To add existing issues as sub-issues of a parent, use the `--add-sub-issue` flag with `gh issue edit`. The flag accepts a comma-separated list of issue numbers or URLs.
+
+```shell
+gh issue edit PARENT-ISSUE-NUMBER --add-sub-issue SUB-ISSUE-NUMBER
+```
+
+To remove a sub-issue from its parent, use `--remove-sub-issue` on the parent or `--remove-parent` on the sub-issue.
+
+```shell
+gh issue edit PARENT-ISSUE-NUMBER --remove-sub-issue SUB-ISSUE-NUMBER
+gh issue edit SUB-ISSUE-NUMBER --remove-parent
+```

@@ -26,8 +26,8 @@ In addition to reducing risk in your organization’s codebase, alerts in a secu
 
 * You have a campaign manager on the security team to collaborate with and a specific contact link for discussing campaign activities.
 * You know that you are fixing a security alert that is important to the company.
-* Potentially, you may have access to targeted training materials.{% ifversion security-campaigns-autofix %}
-* You don't need to request a {% data variables.copilot.copilot_autofix %} suggestion, it is already available as a starting point.{% endif %}{% ifversion copilot %}
+* Potentially, you may have access to targeted training materials.{% ifversion copilot %}
+* If {% data variables.copilot.copilot_cloud_agent %} is available, you can assign alerts to {% data variables.product.prodname_copilot_short %} and it resolves them for you in a pull request. Otherwise, a {% data variables.copilot.copilot_autofix %} suggestion is already available as a starting point.
 * If you have access to {% data variables.copilot.copilot_chat %}, you can ask questions about the alert and the suggested fix.{% endif %}
 * You are improving and demonstrating your knowledge of secure coding.
 
@@ -45,7 +45,7 @@ You'll automatically receive email updates about security campaigns for any repo
 
 ### View campaign details
 
-When you open the **Security** tab for a repository with one or more campaign alerts, you can see the campaign name in the sidebar of the view. Click the campaign name to see the list of alerts included in the campaign and summary information on how the campaign is progressing.
+When you open the **{% data variables.product.prodname_security_and_quality_tab %}** tab for a repository with one or more campaign alerts, you can see the campaign name in the sidebar of the view. Click the campaign name to see the list of alerts included in the campaign and summary information on how the campaign is progressing.
 
 ### Campaign-generated {% data variables.product.prodname_github_issues %}
 
@@ -78,7 +78,7 @@ A security campaign will generally include a contact URL, which might link you t
 
 To find the contact URL:
 
-1. Open the **Security** tab for your repository.
+1. Open the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your repository.
 1. On the left sidebar, click the name of the campaign you are participating in.
 1. On the campaign tracking page, to the right of the campaign manager's name, click **{% octicon "comment" aria-hidden="true" aria-label="comment" %}**.
 
@@ -94,21 +94,13 @@ You can leverage {% data variables.product.prodname_copilot_short %} to help res
 
 {% ifversion code-scanning-autofix %}
 
-### {% data variables.copilot.copilot_autofix_short %}
+### Autofix for {% data variables.product.prodname_code_scanning %} alerts
 
-{% data variables.copilot.copilot_autofix_short %} is automatically triggered for alerts that are included in a campaign, meaning that where possible, fixes are automatically generated for you. You can commit the suggested fix to resolve the alert and then verify that continuous integration testing (CI) for the codebase is still passing. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign).
+If {% data variables.copilot.copilot_cloud_agent %} is enabled in the repository, you can select one or more alerts in the campaign view and assign them to {% data variables.product.prodname_copilot_short %}. {% data variables.copilot.copilot_cloud_agent %} explores the codebase, generates fixes, validates the changes, and opens a single pull request for the selected alerts. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).
 
-{% ifversion security-campaigns-assign-to-cca %}
-
-If {% data variables.copilot.copilot_coding_agent %} is enabled in the repository, you can also assign alerts to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-coding-agent).
-
-By assigning multiple alerts, {% data variables.copilot.copilot_coding_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
-
-{% endif %}
+If {% data variables.copilot.copilot_cloud_agent %} isn't enabled in the repository, {% data variables.copilot.copilot_autofix_short %} is automatically triggered for alerts included in a campaign, so a fix is generated for you where possible. Commit the suggested fix to resolve the alert, then verify that CI is still passing. See [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign).{% endif %}
 
 ### {% data variables.copilot.copilot_chat_short %}
-
-{% endif %}
 
 You can ask {% data variables.copilot.copilot_chat_short %} for help in understanding the vulnerability, the suggested fix, and how to test that the fix is comprehensive. To access {% data variables.copilot.copilot_chat_short %}, navigate to [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 
@@ -122,10 +114,10 @@ For example:
 
    ```
 
-If you don't already have access to {% data variables.copilot.copilot_chat_short %} through your organization{% ifversion ghec %} or enterprise{% endif %}, you can sign up to {% data variables.copilot.copilot_free %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/accessing-github-copilot-free).
+If you don't already have access to {% data variables.copilot.copilot_chat_short %} through your organization{% ifversion ghec %} or enterprise{% endif %}, you can sign up to {% data variables.copilot.copilot_free %}. See [AUTOTITLE](/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan).
 
 {% endif %}
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign)
+* [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/fixing-alerts-in-security-campaign)

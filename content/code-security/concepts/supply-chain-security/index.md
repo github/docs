@@ -9,21 +9,23 @@ contentType: concepts
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain
 children:
-  - about-supply-chain-security
+  - supply-chain-security
+  - open-source-license-compliance
   - best-practices-for-maintaining-dependencies
-  - about-the-dependency-graph
+  - dependency-graph
   - dependency-graph-data
-  - about-dependency-review
-  - about-dependabot-alerts
-  - dependabot-malware-alerts
-  - about-metrics-for-dependabot-alerts
-  - about-dependabot-security-updates
-  - about-dependabot-version-updates
-  - about-dependabot-pull-requests
+  - dependency-review
+  - dependabot-alerts
+  - malware-alerts
+  - dependabot-alert-metrics
+  - dependabot-security-updates
+  - dependabot-version-updates
+  - dependabot-pull-requests
   - multi-ecosystem-updates
   - about-the-dependabot-yml-file
-  - about-dependabot-auto-triage-rules
-  - about-dependabot-on-github-actions-runners
+  - automatic-dependabot-access-to-github-registries
+  - dependabot-auto-triage-rules
+  - dependabot-on-actions
   - dependabot-job-logs
   - immutable-releases
   - linked-artifacts

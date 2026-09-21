@@ -37,9 +37,9 @@ export function prettyPrintResults(
 
   for (const [file, flaws] of Object.entries(results)) {
     console.log(chalk.bold(file))
-    console.log('') // blank line
+    console.log('')
 
-    // It's very possible that a the same file has multiple flaws of the
+    // It's very possible that the same file has multiple flaws of the
     // same rule but on different line numbers.
     const sorted = [...flaws]
       .sort((a, b) => a.lineNumber - b.lineNumber)
@@ -152,8 +152,8 @@ function chalkFunColors(text: string): string {
     .map((char) => {
       const color = shuffledColors[colorIndex]
       colorIndex = (colorIndex + 1) % shuffledColors.length
-      // Chalk's TypeScript types don't support dynamic property access, but these are valid color methods
-      return (chalk as any)[color](char)
+      const colorFn = chalk[color] as (text: string) => string
+      return colorFn(char)
     })
     .join('')
 }

@@ -7,7 +7,6 @@ const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
 addFormats(ajv)
 addErrors(ajv)
 
-// Custom JSON keywords
 ajv.addKeyword({
   keyword: 'translatable',
 })
@@ -22,7 +21,6 @@ ajv.addKeyword({
   type: 'string',
 })
 
-// Custom JSON formats
 ajv.addFormat('semver', {
   validate: (x: string): boolean => semver.validRange(x) !== null,
 })

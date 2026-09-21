@@ -1,5 +1,5 @@
 import { addError } from 'markdownlint-rule-helpers'
-import yaml from 'js-yaml'
+import { dump } from 'js-yaml'
 
 import { getRange, getFrontmatter } from '../helpers/utils'
 import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types'
@@ -75,7 +75,7 @@ export const frontmatterEarlyAccessReferences: Rule = {
 
     // Convert updated frontmatter back to a string
     // to search for 'early-access'.'
-    const fmStrings = yaml.dump(fm).split('\n')
+    const fmStrings = dump(fm).split('\n')
 
     for (const line of fmStrings) {
       const matches = line.match(EARLY_ACCESS_REGEX)

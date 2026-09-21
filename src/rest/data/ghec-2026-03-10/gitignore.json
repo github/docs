@@ -9,7 +9,7 @@
       "subcategory": "gitignore",
       "parameters": [],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List all templates available to pass as an option when <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/repos/repos#create-a-repository-for-the-authenticated-user\">creating a repository</a>.</p>",
+      "descriptionHTML": "<p>List all templates available to pass as an option when <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/repos/repos#create-a-repository-for-the-authenticated-user\">creating a repository</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -77,7 +77,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Get the content of a gitignore template.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw .gitignore contents.</li>\n</ul>",
+      "descriptionHTML": "<p>Get the content of a gitignore template.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw .gitignore contents.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {

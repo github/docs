@@ -39,9 +39,8 @@ describe(imageAltTextExcludeStartWords.names.join(' - '), () => {
     ].join('\n')
     const result = await runRule(imageAltTextExcludeStartWords, { strings: { markdown } })
     const errors = result.markdown
-    // This rule is not concerned with empty alt text
-    // That will be caught by the incorrect-alt-text-empty rule
-    // So technically, it's not imageAltTextEndPunctuation's problem.
+    // This rule is not concerned with empty alt text. The
+    // incorrect-alt-text-length rule catches that instead.
     expect(errors.length).toBe(0)
   })
 })

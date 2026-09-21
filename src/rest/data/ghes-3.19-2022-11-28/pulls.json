@@ -33,12 +33,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -66,13 +66,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "popularity",
               "long-running"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -859,6 +859,125 @@
                         },
                         "default": {
                           "type": "boolean"
+                        },
+                        "archived_by": {
+                          "description": "The user who archived the label, or `null` if it has not been archived.",
+                          "allOf": [
+                            {
+                              "title": "Simple User",
+                              "description": "A GitHub user.",
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "email": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "login": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "integer",
+                                  "format": "int64"
+                                },
+                                "node_id": {
+                                  "type": "string"
+                                },
+                                "avatar_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "gravatar_id": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "html_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "followers_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "following_url": {
+                                  "type": "string"
+                                },
+                                "gists_url": {
+                                  "type": "string"
+                                },
+                                "starred_url": {
+                                  "type": "string"
+                                },
+                                "subscriptions_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "organizations_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "repos_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "events_url": {
+                                  "type": "string"
+                                },
+                                "received_events_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "site_admin": {
+                                  "type": "boolean"
+                                },
+                                "starred_at": {
+                                  "type": "string"
+                                },
+                                "user_view_type": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "avatar_url",
+                                "events_url",
+                                "followers_url",
+                                "following_url",
+                                "gists_url",
+                                "gravatar_id",
+                                "html_url",
+                                "id",
+                                "node_id",
+                                "login",
+                                "organizations_url",
+                                "received_events_url",
+                                "repos_url",
+                                "site_admin",
+                                "starred_url",
+                                "subscriptions_url",
+                                "type",
+                                "url"
+                              ]
+                            }
+                          ],
+                          "type": [
+                            "null"
+                          ]
                         }
                       },
                       "required": [
@@ -868,7 +987,9 @@
                         "name",
                         "description",
                         "color",
-                        "default"
+                        "default",
+                        "archived_at",
+                        "archived_by"
                       ]
                     }
                   },
@@ -3586,6 +3707,52 @@
                       "commit_message"
                     ]
                   },
+                  "stack": {
+                    "title": "Pull Request Stack",
+                    "description": "The stack information associated with a pull request.",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "base": {
+                        "type": "object",
+                        "properties": {
+                          "ref": {
+                            "type": "string",
+                            "description": "The base ref of the stack this pull request belongs to."
+                          },
+                          "sha": {
+                            "type": "string",
+                            "description": "The base SHA of the stack this pull request belongs to."
+                          }
+                        },
+                        "required": [
+                          "ref",
+                          "sha"
+                        ]
+                      },
+                      "size": {
+                        "type": "integer",
+                        "description": "The total number of pull requests in the stack."
+                      },
+                      "position": {
+                        "type": "integer",
+                        "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                      },
+                      "id": {
+                        "type": "integer",
+                        "description": "The ID of the stack that this pull request belongs to."
+                      },
+                      "number": {
+                        "type": "integer",
+                        "description": "The number of the stack that this pull request belongs to."
+                      }
+                    },
+                    "required": [
+                      "base"
+                    ]
+                  },
                   "draft": {
                     "description": "Indicates whether or not the pull request is a draft.",
                     "type": "boolean"
@@ -4501,6 +4668,125 @@
                       },
                       "default": {
                         "type": "boolean"
+                      },
+                      "archived_by": {
+                        "description": "The user who archived the label, or `null` if it has not been archived.",
+                        "allOf": [
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          }
+                        ],
+                        "type": [
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -4510,7 +4796,9 @@
                       "name",
                       "description",
                       "color",
-                      "default"
+                      "default",
+                      "archived_at",
+                      "archived_by"
                     ]
                   }
                 },
@@ -7099,6 +7387,52 @@
                     "merge_method",
                     "commit_title",
                     "commit_message"
+                  ]
+                },
+                "stack": {
+                  "title": "Pull Request Stack",
+                  "description": "The stack information associated with a pull request.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "base": {
+                      "type": "object",
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "description": "The base ref of the stack this pull request belongs to."
+                        },
+                        "sha": {
+                          "type": "string",
+                          "description": "The base SHA of the stack this pull request belongs to."
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "sha"
+                      ]
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "The total number of pull requests in the stack."
+                    },
+                    "position": {
+                      "type": "integer",
+                      "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                    },
+                    "id": {
+                      "type": "integer",
+                      "description": "The ID of the stack that this pull request belongs to."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "The number of the stack that this pull request belongs to."
+                    }
+                  },
+                  "required": [
+                    "base"
                   ]
                 },
                 "draft": {
@@ -8143,6 +8477,125 @@
                       },
                       "default": {
                         "type": "boolean"
+                      },
+                      "archived_by": {
+                        "description": "The user who archived the label, or `null` if it has not been archived.",
+                        "allOf": [
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          }
+                        ],
+                        "type": [
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -8152,7 +8605,9 @@
                       "name",
                       "description",
                       "color",
-                      "default"
+                      "default",
+                      "archived_at",
+                      "archived_by"
                     ]
                   }
                 },
@@ -10741,6 +11196,52 @@
                     "merge_method",
                     "commit_title",
                     "commit_message"
+                  ]
+                },
+                "stack": {
+                  "title": "Pull Request Stack",
+                  "description": "The stack information associated with a pull request.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "base": {
+                      "type": "object",
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "description": "The base ref of the stack this pull request belongs to."
+                        },
+                        "sha": {
+                          "type": "string",
+                          "description": "The base SHA of the stack this pull request belongs to."
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "sha"
+                      ]
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "The total number of pull requests in the stack."
+                    },
+                    "position": {
+                      "type": "integer",
+                      "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                    },
+                    "id": {
+                      "type": "integer",
+                      "description": "The ID of the stack that this pull request belongs to."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "The number of the stack that this pull request belongs to."
+                    }
+                  },
+                  "required": [
+                    "base"
                   ]
                 },
                 "draft": {
@@ -11838,6 +12339,125 @@
                       },
                       "default": {
                         "type": "boolean"
+                      },
+                      "archived_by": {
+                        "description": "The user who archived the label, or `null` if it has not been archived.",
+                        "allOf": [
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          }
+                        ],
+                        "type": [
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -11847,7 +12467,9 @@
                       "name",
                       "description",
                       "color",
-                      "default"
+                      "default",
+                      "archived_at",
+                      "archived_by"
                     ]
                   }
                 },
@@ -14436,6 +15058,52 @@
                     "merge_method",
                     "commit_title",
                     "commit_message"
+                  ]
+                },
+                "stack": {
+                  "title": "Pull Request Stack",
+                  "description": "The stack information associated with a pull request.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "base": {
+                      "type": "object",
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "description": "The base ref of the stack this pull request belongs to."
+                        },
+                        "sha": {
+                          "type": "string",
+                          "description": "The base SHA of the stack this pull request belongs to."
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "sha"
+                      ]
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "The total number of pull requests in the stack."
+                    },
+                    "position": {
+                      "type": "integer",
+                      "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                    },
+                    "id": {
+                      "type": "integer",
+                      "description": "The ID of the stack that this pull request belongs to."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "The number of the stack that this pull request belongs to."
+                    }
+                  },
+                  "required": [
+                    "base"
                   ]
                 },
                 "draft": {
@@ -15955,8 +16623,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -16491,8 +17158,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -17009,8 +17675,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -17533,8 +18198,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -17621,11 +18285,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -17647,8 +18311,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -18790,8 +19453,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -20582,6 +21244,125 @@
                       },
                       "default": {
                         "type": "boolean"
+                      },
+                      "archived_by": {
+                        "description": "The user who archived the label, or `null` if it has not been archived.",
+                        "allOf": [
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          }
+                        ],
+                        "type": [
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -20591,7 +21372,9 @@
                       "name",
                       "description",
                       "color",
-                      "default"
+                      "default",
+                      "archived_at",
+                      "archived_by"
                     ]
                   }
                 },
@@ -23307,6 +24090,52 @@
                     "merge_method",
                     "commit_title",
                     "commit_message"
+                  ]
+                },
+                "stack": {
+                  "title": "Pull Request Stack",
+                  "description": "The stack information associated with a pull request.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "base": {
+                      "type": "object",
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "description": "The base ref of the stack this pull request belongs to."
+                        },
+                        "sha": {
+                          "type": "string",
+                          "description": "The base SHA of the stack this pull request belongs to."
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "sha"
+                      ]
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "The total number of pull requests in the stack."
+                    },
+                    "position": {
+                      "type": "integer",
+                      "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                    },
+                    "id": {
+                      "type": "integer",
+                      "description": "The ID of the stack that this pull request belongs to."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "The number of the stack that this pull request belongs to."
+                    }
+                  },
+                  "required": [
+                    "base"
                   ]
                 },
                 "draft": {
@@ -24185,6 +25014,125 @@
                       },
                       "default": {
                         "type": "boolean"
+                      },
+                      "archived_by": {
+                        "description": "The user who archived the label, or `null` if it has not been archived.",
+                        "allOf": [
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          }
+                        ],
+                        "type": [
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -24194,7 +25142,9 @@
                       "name",
                       "description",
                       "color",
-                      "default"
+                      "default",
+                      "archived_at",
+                      "archived_by"
                     ]
                   }
                 },
@@ -26910,6 +27860,52 @@
                     "merge_method",
                     "commit_title",
                     "commit_message"
+                  ]
+                },
+                "stack": {
+                  "title": "Pull Request Stack",
+                  "description": "The stack information associated with a pull request.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "base": {
+                      "type": "object",
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "description": "The base ref of the stack this pull request belongs to."
+                        },
+                        "sha": {
+                          "type": "string",
+                          "description": "The base SHA of the stack this pull request belongs to."
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "sha"
+                      ]
+                    },
+                    "size": {
+                      "type": "integer",
+                      "description": "The total number of pull requests in the stack."
+                    },
+                    "position": {
+                      "type": "integer",
+                      "description": "The one-based position of this pull request within the stack, where 1 is the bottom of the stack."
+                    },
+                    "id": {
+                      "type": "integer",
+                      "description": "The ID of the stack that this pull request belongs to."
+                    },
+                    "number": {
+                      "type": "integer",
+                      "description": "The number of the stack that this pull request belongs to."
+                    }
+                  },
+                  "required": [
+                    "base"
                   ]
                 },
                 "draft": {

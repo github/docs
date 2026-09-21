@@ -91,9 +91,7 @@ npm run test -- src/shielding/tests
 - [`src/observability`](../observability/README.md) - Logging suspicious traffic patterns
 - CDN configuration - Fastly edge rules
 
-### Internal documentation
-For detailed discussion on resilience and availability improvements, see:
-- [How we have fortified Docs for better resiliency and availability (June 2023)](https://github.com/github/docs-engineering/discussions/3262)
+
 
 ### Ownership
 - Team: Docs Engineering
@@ -165,4 +163,3 @@ CDN integration:
 - Check that redirects are followed
 - Analyze cache miss patterns
 - Coordinate with CDN configuration
-

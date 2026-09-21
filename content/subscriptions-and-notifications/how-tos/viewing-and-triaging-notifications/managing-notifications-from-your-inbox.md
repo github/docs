@@ -20,7 +20,7 @@ category:
 
 ## Prerequisites
 
-{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#choosing-your-notification-settings).
 
 ## Accessing your inbox
 
@@ -44,7 +44,7 @@ You have several options for triaging notifications from your inbox.
 
 To see the available keyboard shortcuts, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#notifications).
 
-Before choosing a triage option, you can preview your notification's details first and investigate. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification).
+Before choosing a triage option, you can preview your notification's details first and investigate. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/triaging-a-single-notification).
 
 ## Triaging multiple notifications at the same time
 

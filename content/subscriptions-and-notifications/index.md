@@ -10,8 +10,6 @@ redirect_from:
 introLinks:
   overview: /subscriptions-and-notifications/concepts/about-notifications
   quickstart: /subscriptions-and-notifications/get-started/configuring-notifications
-changelog:
-  label: notifications
 layout: discovery-landing
 includedCategories:
   - Understand notifications

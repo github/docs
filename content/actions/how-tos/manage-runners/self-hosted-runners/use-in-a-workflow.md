@@ -30,7 +30,7 @@ contentType: how-tos
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.repository-runners %}
 1. Click the **Self hosted** tab at the top of the list of runners.
-1. Review the list of available self-hosted runners for the repository. This list includes both self-hosted runners and runner scale sets created with {% data variables.product.prodname_actions_runner_controller %}. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
+1. Review the list of available self-hosted runners for the repository. This list includes both self-hosted runners and runner scale sets created with {% data variables.product.prodname_actions_runner_controller %}. For more information, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller).
 {% data reusables.actions.copy-runner-label %}
 
 {% data reusables.actions.actions-tab-new-runners-note %}

@@ -24,6 +24,9 @@ category:
 
 ## Hardware considerations
 
+>[!NOTE]
+>The root disk defaults to 200 GB. For non-cluster topologies, we recommend increasing it to 400 GB by updating the disk attributes in the OVF template before deployment.
+
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
 ## Downloading the {% data variables.product.prodname_ghe_server %} image
@@ -50,7 +53,7 @@ category:
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see [AUTOTITLE](/admin/configuring-settings).
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 

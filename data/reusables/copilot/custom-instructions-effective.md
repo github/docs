@@ -5,7 +5,6 @@ The instructions you add to your custom instruction file(s) should be short, sel
 The exact structure you utilize for your instructions file(s) will vary by project and need, but the following guidelines provide a good starting point:
 
 * Provide an overview of the project you're working on, including its purpose, goals, and any relevant background information.
-* Include the folder structure of the repository, including any important directories or files that are relevant to the project.
 * Specify the coding standards and conventions that should be followed, such as naming conventions, formatting rules, and best practices.
 * Include any specific tools, libraries, or frameworks that are used in the project, along with any relevant version numbers or configurations.
 
@@ -15,12 +14,6 @@ The following instructions file is an example of these practices in action:
 # Project Overview
 
 This project is a web application that allows users to manage their tasks and to-do lists. It is built using React and Node.js, and uses MongoDB for data storage.
-
-## Folder Structure
-
-- `/src`: Contains the source code for the frontend.
-- `/server`: Contains the source code for the Node.js backend.
-- `/docs`: Contains documentation for the project, including API specifications and user guides.
 
 ## Libraries and Frameworks
 

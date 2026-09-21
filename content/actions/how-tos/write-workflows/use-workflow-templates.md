@@ -33,18 +33,18 @@ category:
 1. The "Choose a workflow" page shows a selection of recommended workflow templates. Find the workflow template that you want to use, then click **Configure**. To help you find the workflow template that you want, you can search for keywords or filter by category.
 1. If the workflow template contains comments detailing additional setup steps, follow these steps.
 
-   There are guides to accompany many of the workflow templates for building and testing projects. For more information, see [AUTOTITLE](/actions/automating-builds-and-tests).
+   There are guides to accompany many of the workflow templates for building and testing projects. For more information, see [AUTOTITLE](/actions/tutorials/build-and-test-code).
 
-1. Some workflow templates use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow template uses a secret, store the value described in the secret name as a secret in your repository. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+1. Some workflow templates use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow template uses a secret, store the value described in the secret name as a secret in your repository. For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 1. Optionally, make additional changes. For example, you might want to change the value of `on` when the workflow runs.
 1. Click **Start commit**.
 1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.
 
 ## Further reading
 
-* [AUTOTITLE](/actions/automating-builds-and-tests/about-continuous-integration)
-* [AUTOTITLE](/actions/managing-workflow-runs)
-* [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)
+* [AUTOTITLE](/actions/get-started/continuous-integration)
+* [AUTOTITLE](/actions/how-tos/manage-workflow-runs)
+* [AUTOTITLE](/actions/how-tos/monitor-workflows)
 {% ifversion fpt or ghec %}
-* [AUTOTITLE](/billing/managing-billing-for-github-actions)
+* [AUTOTITLE](/billing/concepts/product-billing/github-actions)
 {% endif %}

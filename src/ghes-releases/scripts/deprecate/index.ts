@@ -3,31 +3,38 @@ import { execSync } from 'child_process'
 import { updateContentFiles } from '@/ghes-releases/scripts/deprecate/update-content'
 import { updateDataFiles } from '@/ghes-releases/scripts/deprecate/update-data'
 import { updateAutomatedConfigFiles } from '@/ghes-releases/scripts/deprecate/update-automated-pipelines'
-
-program.option('-f, --foo', 'enable some foo')
+import { collapseBlankLines } from '@/ghes-releases/scripts/deprecate/collapse-blank-lines'
 
 program
-  .description('Update deprecated versions frontmatter and remove deprecated content files.')
   .command('content')
+  .description('Update deprecated versions frontmatter and remove deprecated content files.')
   .action(updateContentFiles)
 
 program
+  .command('data')
   .description(
     'Update deprecated versions in data files, remove empty data files, and remove deleted reusables from content files.',
   )
-  .command('data')
   .action(updateDataFiles)
 
 program
+  .command('pipelines')
   .description(
     'Removes automated pipeline data files and updates the automated pipeline config files.',
   )
-  .command('pipelines')
   .action(updateAutomatedConfigFiles)
 
 program
+  .command('collapse-blank-lines')
+  .description(
+    'Collapse 2+ consecutive blank lines left by removed Liquid into one, in changed markdown files only. Pass --check to report without writing.',
+  )
+  .option('--check', 'Report files with double blank lines and exit non-zero instead of fixing.')
+  .action((options) => collapseBlankLines({ check: options.check }))
+
+program
+  .command('create-repo')
   .description('Create new `github/docs-ghes-<RELEASE>` repository.')
-  .command('repo')
   .option('-v, --version <version>', 'The GHES version to create the repo for.')
   .action((options) => {
     if (!options.version) {

@@ -22,7 +22,7 @@ category:
 ---
 
 > [!IMPORTANT]
-> The connection between your accounts is governed by [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement) and users enabling the connection must agree to the [GitHub Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service).
+> The connection between your accounts is governed by [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement) and users enabling the connection must agree to the [GitHub Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service).
 
 ## Sending your enterprise contributions to your profile
 
@@ -30,7 +30,7 @@ Before you can connect your {% data variables.product.prodname_ghe_server %} pro
 
 {% ifversion fpt or ghec %}
 
-To share contributions from {% data variables.product.prodname_ghe_server %}, switch to the [{% data variables.product.prodname_ghe_server %} version of this article](/enterprise-server@latest/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile).
+To share contributions from {% data variables.product.prodname_ghe_server %}, switch to the [{% data variables.product.prodname_ghe_server %} version of this article](/enterprise-server@latest/account-and-profile/how-tos/contribution-settings/sharing-contributions-from-github-enterprise-server).
 
 {% elsif ghes %}
 

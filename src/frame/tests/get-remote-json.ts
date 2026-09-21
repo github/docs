@@ -8,11 +8,8 @@ import nock from 'nock'
 
 import getRemoteJSON, { cache } from '@/frame/lib/get-remote-json'
 
-/**
- *
- * These unit tests test that the in-memory cache works and when it's
- * not a cache it, it can benefit from using the disk cache.
- */
+// Covers the in-memory cache, and the fallback to the disk cache when memory
+// misses.
 
 describe('getRemoteJSON', () => {
   const envVarValueBefore = process.env.GET_REMOTE_JSON_DISK_CACHE_ROOT
@@ -69,7 +66,6 @@ describe('getRemoteJSON', () => {
     nock(origin).get(pathname).reply(200, { cool: true })
     await getRemoteJSON(url, {})
 
-    // Make every file in the cache directory an empty file
     for (const file of fs.readdirSync(tempTempDir)) {
       fs.writeFileSync(path.join(tempTempDir, file), '')
     }
@@ -91,7 +87,7 @@ describe('getRemoteJSON', () => {
     nock(origin).get(pathname).reply(200, { cool: true })
     await getRemoteJSON(url, {})
 
-    // Make every file in the cache directory an empty file
+    // Corrupt every cached file so the disk cache can't be parsed.
     for (const file of fs.readdirSync(tempTempDir)) {
       fs.writeFileSync(path.join(tempTempDir, file), '{"not:JSON{')
     }

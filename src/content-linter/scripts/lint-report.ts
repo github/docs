@@ -13,11 +13,8 @@ const MAX_ISSUE_BODY_SIZE = 60000
 // If the number of warnings exceeds this number, print a warning so we can give them attention
 const MAX_WARNINGS_BEFORE_ALERT = 20
 
-/**
- * Config that only applies to automated weekly reports.
- */
+// Config that only applies to automated weekly reports.
 export const reportingConfig = {
-  // Include only rules with these severities in reports
   includeSeverities: ['error', 'warning'],
   // Include these rules regardless of severity in reports
   includeRules: ['expired-content'],
@@ -29,13 +26,9 @@ interface LintFlaw {
   errorDetail?: string
 }
 
-/**
- * Determines if a lint result should be included in the automated report
- */
 function shouldIncludeInReport(flaw: LintFlaw): boolean {
   const allRuleNames = getAllRuleNames(flaw)
 
-  // Check if severity should be included
   if (reportingConfig.includeSeverities.includes(flaw.severity)) {
     return true
   }
@@ -95,12 +88,10 @@ async function main() {
   // Keep track of warnings so we can print an alert when they exceed a manageable number
   let totalWarnings = 0
 
-  // Filter results based on reporting configuration
   const filteredResults: Record<string, LintFlaw[]> = {}
   for (const [file, flaws] of Object.entries(parsedResults)) {
     const filteredFlaws = (flaws as LintFlaw[]).filter((flaw) => shouldIncludeInReport(flaw))
 
-    // Only include files that have remaining flaws after filtering
     if (filteredFlaws.length > 0) {
       totalWarnings += filteredFlaws.filter((flaw) => flaw.severity === 'warning').length
       filteredResults[file] = filteredFlaws
@@ -119,7 +110,6 @@ async function main() {
   for (const [file, flaws] of Object.entries(filteredResults)) {
     const fileEntry = `File: \`${file}\`:\n\`\`\`json\n${JSON.stringify(flaws, null, 2)}\n\`\`\`\n`
 
-    // Check if adding this file would exceed the size limit
     if (reportBody.length + fileEntry.length > MAX_ISSUE_BODY_SIZE) {
       truncated = true
       break
@@ -129,7 +119,6 @@ async function main() {
     filesIncluded++
   }
 
-  // Add truncation notice if needed
   if (truncated) {
     const remaining = totalFiles - filesIncluded
     reportBody += `\n---\n\n⚠️ **Output truncated**: Showing ${filesIncluded} of ${totalFiles} files with lint issues. ${remaining} additional files have been omitted to stay within GitHub's issue size limits.\n`

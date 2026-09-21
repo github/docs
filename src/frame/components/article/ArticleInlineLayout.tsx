@@ -5,35 +5,23 @@ import { SupportPortalVaIframe, SupportPortalVaIframeProps } from './SupportPort
 import styles from './ArticleInlineLayout.module.scss'
 
 type Props = {
-  breadcrumbs?: React.ReactNode
   intro?: React.ReactNode
   introCallOuts?: React.ReactNode
   topper?: React.ReactNode
-  toc?: React.ReactNode
   children?: React.ReactNode
   className?: string
   supportPortalVaIframeProps?: SupportPortalVaIframeProps
 }
 export const ArticleInlineLayout = ({
-  breadcrumbs,
   intro,
   introCallOuts,
   topper,
-  toc,
   children,
   className,
   supportPortalVaIframeProps,
 }: Props) => {
   return (
     <div className={cx(styles.containerBox, className)}>
-      {breadcrumbs && (
-        <div
-          style={{ gridArea: 'breadcrumbs' }}
-          className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}
-        >
-          {breadcrumbs}
-        </div>
-      )}
       <div className={cx(styles.contentBox)}>
         {topper && <div style={{ gridArea: 'topper' }}>{topper}</div>}
 
@@ -44,20 +32,24 @@ export const ArticleInlineLayout = ({
         )}
 
         {introCallOuts && (
-          <div style={{ gridArea: 'intro' }} className="f4 mb-4">
+          // `mt-4` (24px) matches the gap the grid layout gets from
+          // .belowIntroPlacement's own bottom margin. It is needed here because
+          // this layout puts the callouts in a separate wrapper from the intro,
+          // so the copy-markdown control is the last child of ITS wrapper and
+          // that rule cannot reach across. Without it the control sat flush on
+          // the callout box's top border.
+          <div style={{ gridArea: 'intro' }} className="f4 mt-4 mb-4">
             {introCallOuts}
           </div>
         )}
 
-        {toc && (
-          <div
-            data-container="toc"
-            style={{ gridArea: 'sidebar', alignSelf: 'flex-start' }}
-            className={cx(styles.sidebarBox, 'border-bottom border-lg-0 pb-4 mb-5 pb-xl-0 mb-xl-0')}
-          >
-            {toc}
-          </div>
-        )}
+        {/* Deliberately no mini-TOC cell. On inline pages DefaultLayout passes
+            hasDrawer={false}, so the secondary bar's OverviewSubBar owns "In
+            this article" at every width. Rendering one here too gave an empty
+            bordered box between the title and the intro (the cell kept
+            .sidebarBox's !important border while MiniTocs' contents are
+            display:none below the drawer breakpoint), plus a second nav
+            landmark with the same label once the drawer revealed at 1400px. */}
 
         <div
           data-container="article"

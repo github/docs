@@ -1,7 +1,7 @@
 import { renderContent } from '@/content-render/index'
 import Page from '@/frame/lib/page'
 import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-links'
-import type { Context } from '@/types'
+import type { Context, Page as PageType } from '@/types'
 
 export class EmptyTitleError extends Error {}
 
@@ -31,8 +31,8 @@ export class LiquidError extends Error {
 interface RenderOptions {
   throwIfEmpty?: boolean
   textOnly?: boolean
-  cache?: boolean | ((template: string, context: any) => string)
-  [key: string]: any
+  cache?: boolean | ((template: string, context: Context) => string)
+  [key: string]: unknown
 }
 
 const LIQUID_ERROR_NAMES = new Set(['RenderError', 'ParseError', 'TokenizationError'])
@@ -56,14 +56,11 @@ export function createTranslationFallbackComment(error: Error, property: string)
   const errorType = error.name || 'UnknownError'
   const errorDetails: string[] = []
 
-  // Add basic error information
   errorDetails.push(`TRANSLATION_FALLBACK`)
   errorDetails.push(`prop=${property}`)
   errorDetails.push(`type=${errorType}`)
 
-  // Extract detailed error information based on error type
   if (isLiquidError(error)) {
-    // For Liquid errors, we can extract rich debugging information
     if (error.token) {
       if (error.token.file) {
         errorDetails.push(`file=${error.token.file}`)
@@ -75,13 +72,10 @@ export function createTranslationFallbackComment(error: Error, property: string)
       }
     }
 
-    // Include the original error message if available
     const originalMessage = error.originalError?.message || error.message
     if (originalMessage) {
-      // Clean up the message but keep useful information
       let cleanMessage = originalMessage.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim()
 
-      // Limit message length to keep comment manageable
       if (cleanMessage.length > 200) {
         cleanMessage = `${cleanMessage.substring(0, 200)}...`
       }
@@ -89,7 +83,6 @@ export function createTranslationFallbackComment(error: Error, property: string)
       errorDetails.push(`msg="${cleanMessage.replace(/"/g, "'")}"`)
     }
   } else if (isAutotitleError(error)) {
-    // For AUTOTITLE errors, include the error message
     if (error.message) {
       const cleanMessage = error.message
         .replace(/\n/g, ' ')
@@ -99,7 +92,6 @@ export function createTranslationFallbackComment(error: Error, property: string)
       errorDetails.push(`msg="${cleanMessage.replace(/"/g, "'")}"`)
     }
   } else if (isEmptyTitleError(error)) {
-    // For empty title errors, include the property info
     errorDetails.push(`msg="Content became empty after rendering"`)
   }
 
@@ -117,9 +109,10 @@ export function createTranslationFallbackComment(error: Error, property: string)
 // higher level than `lib/`) how to use the URL to figure out the
 // equivalent English page instance.
 export async function renderContentWithFallback(
-  // Using `any` type for page because the actual Page class from @/frame/lib/page
-  // has more properties than the Page interface defined in @/types, causing type conflicts
-  page: any,
+  // Typed as the @/types Page interface (not the Page class) for caller
+  // compatibility. The runtime contract is stricter: the value must be an
+  // actual Page instance (enforced by the `page instanceof Page` check below).
+  page: PageType,
   property: string,
   context: Context,
   options?: RenderOptions,
@@ -130,7 +123,7 @@ export async function renderContentWithFallback(
   if (typeof property !== 'string') {
     throw new Error(`The second argument has to be a string (not ${typeof property})`)
   }
-  const template = (page as any)[property] as string
+  const template = (page as unknown as Record<string, string>)[property]
   try {
     const output = await renderContent(template, context, options)
     if (options && options.throwIfEmpty && !output.trim()) {
@@ -142,12 +135,11 @@ export async function renderContentWithFallback(
     // on English for.
     if (isFallbackableError(error) && context.getEnglishPage) {
       const enPage = context.getEnglishPage(context)
-      const englishTemplate = (enPage as any)[property] as string
+      const englishTemplate = (enPage as unknown as Record<string, string>)[property]
       // If you don't change the context, it'll confuse the liquid plugins
       // like `data.ts` that uses `environment.scope.currentLanguage`
       const enContext = Object.assign({}, context, { currentLanguage: 'en' })
 
-      // Render the English fallback content
       const fallbackContent = await renderContent(englishTemplate, enContext, options)
 
       // Add HTML comment with error details for non-English languages

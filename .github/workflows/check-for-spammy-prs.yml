@@ -1,0 +1,84 @@
+name: Check for Spammy PRs
+
+# **What it does**: This action closes low value pull requests in the open-source repository.
+# **Why we have it**: We get lots of spam in the open-source repository.
+# **Who does it impact**: Open-source contributors.
+
+on:
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  spammy-pr-check:
+    name: Label PRs that only delete files or touch a large number of files
+    if: >
+      github.repository == 'github/docs' && github.event_name == 'pull_request_target' &&
+      github.event.pull_request.user.login != 'docs-bot'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const owner = 'github'
+            const repo = 'docs'
+            const pull_number = context.payload.pull_request.number
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number,
+              per_page: 100,
+            })
+
+            const onlyDeletes = files.length > 0 && files.every(f => f.status === 'removed')
+            const onlyDeletesLines =
+              files.some(file => file.deletions > 0) &&
+              files.every(file => file.additions === 0)
+            const isEmptyCommit = !files.length
+            const touchesTooMany = files.length > 10
+            const isBlankLineEdit = files.length > 0 && files.every(file => {
+              const changedLines = (file.patch || '')
+                .split('\n')
+                .filter(line => /^[+-]/.test(line))
+              return changedLines.length > 0 &&
+                changedLines.every(line => line.slice(1).trim() === '')
+            })
+            const onlyRenames = files.length > 0 && files.every(f => f.status === 'renamed')
+
+            // Close the PR and add the invalid label
+            if (
+              onlyDeletesLines ||
+              onlyDeletes ||
+              isEmptyCommit ||
+              touchesTooMany ||
+              isBlankLineEdit ||
+              onlyRenames
+            ) {
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number: pull_number,
+                labels: ['invalid'],
+              })
+
+              // Comment on the PR
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: pull_number,
+                body: onlyDeletesLines
+                  ? `This pull request only removes existing content. Before submitting a content-removal pull request, please [open an issue](https://github.com/github/docs/issues/new/choose) explaining the proposed removal and wait for approval from the GitHub Docs team. Once the change has been approved, you can open a new pull request and link it to the issue.`
+                  : `This pull request may have been opened accidentally. I'm going to close it now, but feel free to check out our [contribution guidelines](https://docs.github.com/en/contributing), or raise an issue.`,
+              })
+
+              if (onlyDeletesLines) {
+                core.setFailed(
+                  'This pull request only deletes lines. An approved issue is required first.',
+                )
+              }
+            }

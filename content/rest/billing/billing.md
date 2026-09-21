@@ -16,6 +16,6 @@ category:
 
 ## About billing
 
-You can get billing information for an enterprise. For more information, see [AUTOTITLE](/rest/enterprise-admin/billing).
+You can get billing information for an enterprise. For more information, see [AUTOTITLE](/rest/billing/billing).
 
 <!-- Content after this section is automatically generated -->

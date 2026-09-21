@@ -169,9 +169,8 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
           `Found "${version}" inside "${cond}" with a "${operator}" operator, but "${version}" does not support semantic comparisons"`,
         )
       }
-      // Using 'as any' because the operator is a runtime string value that we validate,
       // but the allowedVersionOperators array has a more specific type that TypeScript can't infer
-      if (!allowedVersionOperators.includes(operator as any)) {
+      if (!(allowedVersionOperators as readonly string[]).includes(operator)) {
         errors.push(
           `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`,
         )
@@ -259,11 +258,9 @@ function getVersionsObject(part: string, allFeatures: AllFeatures): Record<strin
   const versions: Record<string, string> = {}
   if (part in allFeatures) {
     for (const [shortName, version] of Object.entries(allFeatures[part].versions)) {
-      // Using 'as any' for recursive getVersionsObject call because it can return either
-      // a string or a nested Record<string, string>, but we flatten it to string for this context
       const versionOperator: string =
         version in allFeatures
-          ? (getVersionsObject(version, allFeatures) as any)
+          ? Object.values(getVersionsObject(version, allFeatures))[0] || '*'
           : (version as string)
       if (shortName in versions) {
         versions[shortName] = lowestVersion(versionOperator, versions[shortName])

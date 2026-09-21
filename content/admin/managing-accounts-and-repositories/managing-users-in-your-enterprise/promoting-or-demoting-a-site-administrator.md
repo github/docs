@@ -15,7 +15,7 @@ category:
   - Manage accounts and repositories
 ---
 
-> [!NOTE] For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-org-admin-promote).
+> [!NOTE] For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-org-admin-promote).
 
 ## Considerations with external authentication
 
@@ -45,8 +45,8 @@ If you use certain external authentication features, you may not be able to mana
 
 ## Promoting a user from the command line
 
-1. [SSH](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh) into your appliance.
-1. Run [ghe-user-promote](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-promote) with the username to promote.
+1. [SSH](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh) into your appliance.
+1. Run [ghe-user-promote](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-user-promote) with the username to promote.
 
    ```shell
    ghe-user-promote USERNAME
@@ -54,8 +54,8 @@ If you use certain external authentication features, you may not be able to mana
 
 ## Demoting a site administrator from the command line
 
-1. [SSH](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh) into your appliance.
-1. Run [ghe-user-demote](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-demote) with the username to demote.
+1. [SSH](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh) into your appliance.
+1. Run [ghe-user-demote](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-user-demote) with the username to demote.
 
    ```shell
    ghe-user-demote USERNAME

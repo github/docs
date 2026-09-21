@@ -66,7 +66,7 @@ You can add up to six templates to your organization's recommended templates.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
+1. {% data reusables.user-settings.code-planning-automation %} click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 1. Under "Recommended templates", click **Customize recommended templates**.
 1. In the list of templates owned by your organization, select up to six templates that you want to recommend to your members.
 

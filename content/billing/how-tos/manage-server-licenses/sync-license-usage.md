@@ -17,7 +17,7 @@ A {% data variables.product.prodname_enterprise %} license allows a user to use 
 To view combined license details on {% data variables.product.prodname_ghe_cloud %} and ensure users only consume one license, you must sync licenses between deployments. You can do this:
 
 * Automatically, using {% data variables.product.prodname_github_connect %}.
-* Manually, by uploading a license file from from {% data variables.product.prodname_ghe_server %} to {% data variables.product.github %}.
+* Manually, by uploading a license file from {% data variables.product.prodname_ghe_server %} to {% data variables.product.github %}.
 
 When you synchronize license usage, only the user ID and email addresses for each user account on {% data variables.product.prodname_ghe_server %} are transmitted to {% data variables.product.prodname_ghe_cloud %}.
 
@@ -62,4 +62,4 @@ You can download a JSON file from {% data variables.product.prodname_ghe_server 
 
 {% data reusables.enterprise-licensing.view-consumed-licenses %}
 
-To make troubleshooting easier, if you synchronize license usage and do not use {% data variables.product.prodname_emus %}, we highly recommend enabling verified domains for your enterprise account on {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+To make troubleshooting easier, if you synchronize license usage and do not use {% data variables.product.prodname_emus %}, we highly recommend enabling verified domains for your enterprise account on {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}

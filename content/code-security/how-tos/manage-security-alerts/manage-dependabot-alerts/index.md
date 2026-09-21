@@ -8,8 +8,9 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - viewing-and-updating-dependabot-alerts
+  - view-dependabot-alerts
   - manage-malware-alerts
   - managing-automatically-dismissed-alerts
   - enable-delegated-alert-dismissal
 ---
+

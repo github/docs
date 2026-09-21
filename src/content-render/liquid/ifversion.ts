@@ -8,11 +8,15 @@ import {
   type Emitter,
   type Template,
   type TopLevelToken,
+  type Liquid,
 } from 'liquidjs'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import supportedOperators, {
   type IfversionSupportedOperator,
 } from './ifversion-supported-operators'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 interface Branch {
   cond: string
@@ -24,6 +28,11 @@ interface VersionObj {
   hasNumberedReleases?: boolean
   currentRelease?: string
   internalLatestRelease?: string
+}
+
+interface IfversionEnvironments {
+  currentVersionObj?: VersionObj
+  markdownRequested?: boolean
 }
 
 const SyntaxHelp =
@@ -44,7 +53,7 @@ export default class Ifversion extends Tag {
   currentVersionObj: VersionObj | null = null
 
   // The following is verbatim from https://github.com/harttle/liquidjs/blob/v9.22.1/src/builtin/tags/if.ts
-  constructor(tagToken: TagToken, remainTokens: TopLevelToken[], liquid: any) {
+  constructor(tagToken: TagToken, remainTokens: TopLevelToken[], liquid: Liquid) {
     super(tagToken, remainTokens, liquid)
 
     this.tagToken = tagToken
@@ -60,7 +69,7 @@ export default class Ifversion extends Tag {
           templates: (p = []),
         }),
       )
-      .on('tag:elsif', (token: any) => {
+      .on('tag:elsif', (token: TagToken) => {
         this.branches.push({
           cond: token.args,
           templates: (p = []),
@@ -78,29 +87,27 @@ export default class Ifversion extends Tag {
 
   // The following is _mostly_ verbatim from https://github.com/harttle/liquidjs/blob/v9.22.1/src/builtin/tags/if.ts
   // The additions here are the handleNots(), handleOperators(), and handleVersionNames() calls.
-  *render(ctx: Context, emitter: Emitter): Generator<any, void, unknown> {
+  *render(ctx: Context, emitter: Emitter): Generator<unknown, void, unknown> {
     const r = this.liquid.renderer
 
-    this.currentVersionObj = (ctx.environments as any).currentVersionObj
+    this.currentVersionObj = (ctx.environments as IfversionEnvironments).currentVersionObj ?? null
 
     for (const branch of this.branches) {
       let resolvedBranchCond = branch.cond
 
-      // Resolve "not" keywords in the conditional, if any.
       resolvedBranchCond = this.handleNots(resolvedBranchCond)
 
       // Resolve special operators in the conditional, if any.
       // This will replace syntax like `fpt or ghes < 3.0` with `fpt or true` or `fpt or false`.
       resolvedBranchCond = this.handleOperators(resolvedBranchCond)
 
-      // Resolve version names to boolean values for Markdown API context.
-      // This will replace syntax like `fpt or ghec` with `true or false` based on current version.
-      // Only apply this transformation in Markdown API context to avoid breaking existing functionality.
-      if ((ctx.environments as any).markdownRequested) {
+      // Replace syntax like `fpt or ghec` with `true or false` based on the current
+      // version. Only done for the Markdown API, where the version names would
+      // otherwise be undefined.
+      if ((ctx.environments as IfversionEnvironments).markdownRequested) {
         resolvedBranchCond = this.handleVersionNames(resolvedBranchCond)
       }
 
-      // Use Liquid's native function for the final evaluation.
       const cond = yield new Value(resolvedBranchCond, this.liquid).value(ctx, ctx.opts.lenientIf)
 
       if (isTruthy(cond, ctx)) {
@@ -116,7 +123,6 @@ export default class Ifversion extends Tag {
 
     const condArray = resolvedBranchCond.split(' ')
 
-    // Find the first index in the array that contains "not".
     const notIndex = condArray.findIndex((el: string) => el === 'not')
 
     // E.g., ['not', 'fpt']
@@ -147,7 +153,6 @@ export default class Ifversion extends Tag {
     // If this conditional contains multiple parts using `or` or `and`, get only the conditional with operators.
     const condArray = resolvedBranchCond.split(' ')
 
-    // Find the first index in the array that contains an operator.
     const operatorIndex = condArray.findIndex((el: string) =>
       supportedOperators.find((op: string) => el === op),
     )
@@ -155,7 +160,6 @@ export default class Ifversion extends Tag {
     // E.g., ['ghes', '<', '3.1']
     const condParts = condArray.slice(operatorIndex - 1, operatorIndex + 2)
 
-    // Assign to vars.
     const [versionShortName, operator, releaseToEvaluate] = condParts
 
     // Make sure the operator is supported and the release number matches `\d\d?\.\d\d?`
@@ -168,17 +172,7 @@ export default class Ifversion extends Tag {
     }
 
     if (!this.currentVersionObj) {
-      console.warn(
-        `
-        If this happens, it means the context prepared for rendering Liquid
-        did not supply an object called 'currentVersionObj'.
-        To fix the error, find the code that prepares the context before
-        calling 'liquid.parseAndRender' and make sure there's an object
-        called 'currentVersionObj' included there.
-      `
-          .replace(/\n\s+/g, ' ')
-          .trim(),
-      )
+      logger.warn('Context missing currentVersionObj for Liquid rendering')
       throw new Error('currentVersionObj not found in environment context.')
     }
 
@@ -216,21 +210,16 @@ export default class Ifversion extends Tag {
 
   handleVersionNames(resolvedBranchCond: string): string {
     if (!this.currentVersionObj) {
-      console.warn('currentVersionObj not found in ifversion context.')
+      logger.warn('currentVersionObj not found in ifversion context')
       return resolvedBranchCond
     }
 
-    // Split the condition into tokens for processing
     const tokens = resolvedBranchCond.split(/\s+/)
     const processedTokens = tokens.map((token: string) => {
-      // Check if the token is a version short name (fpt, ghec, ghes, ghae)
       const versionShortNames = ['fpt', 'ghec', 'ghes', 'ghae']
       if (versionShortNames.includes(token)) {
-        // Transform version names to boolean values for Markdown API
-        // This fixes the original issue where version names were undefined in API context
         return token === this.currentVersionObj!.shortName ? 'true' : 'false'
       }
-      // Return the token unchanged if it's not a version name
       return token
     })
 

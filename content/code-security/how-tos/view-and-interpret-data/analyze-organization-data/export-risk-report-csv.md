@@ -20,4 +20,4 @@ category:
 
 ## Next steps
 
-To better understand the fields of your CSV file, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/risk-report-csv-contents).
+To better understand the fields of your CSV file, see [AUTOTITLE](/code-security/reference/secret-security/risk-report-csv-contents).

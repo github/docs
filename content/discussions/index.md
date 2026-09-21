@@ -14,8 +14,6 @@ redirect_from:
   - /rest/teams/discussion-comments
   - /rest/teams/discussions
   - /rest/repos/discussions
-changelog:
-  label: discussions
 layout: discovery-landing
 includedCategories:
   - Participate in discussions

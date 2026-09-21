@@ -87,7 +87,7 @@ The preferred way to build and sync the search indices is to do so via the [GitH
 - **Team**: Docs Engineering
 - **Primary contacts**: @docs-engineering (GitHub team)
 - **Search infrastructure**: Internal Elasticsearch cluster for autocomplete and general search results, and an external RAG app ([cse-copilot](https://github.com/github/cse-copilot)) owned by @github/customer-success-engineering for LLM-generated responses
-- **Slack**: #docs-engineering
+- **Slack**: #technical-content
 
 ### On-call procedures
 If search is not working:

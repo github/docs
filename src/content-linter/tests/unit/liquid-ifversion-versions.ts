@@ -114,8 +114,7 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
   })
 
   test.skip('ifversion using feature based version extended with shortname all versions', async () => {
-    // That `features/volvo.yml` contains `fpt:'*', ghec:'*'`
-    // so combined with the
+    // That `features/volvo.yml` contains `fpt:'*', ghec:'*'`.
     const markdown = `
       {% ifversion volvo or ghes %}{% endif %}
     `
@@ -131,6 +130,76 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     const markdown = [
       ...placeholderAllVersionsFm,
       `{% ifversion ghes or fpt or not ghec %}{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('does not crash with nested if blocks inside ifversion', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% ifversion ghec %}',
+      '  {% if "foo" %}',
+      '    {% if "bar" %}nested{% endif %}',
+      '  {% endif %}',
+      '{% endif %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    // No crash; zero errors expected for valid ifversion usage
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('does not crash with nested if blocks at top level', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% if "foo" %}',
+      '  {% if "bar" %}...{% endif %}',
+      '{% endif %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('does not crash with ifversion nested inside if blocks', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% if "foo" %}',
+      '  {% ifversion ghec %}',
+      '  {% endif %}',
+      '{% endif %}',
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('does not crash with mixed if/ifversion nesting and else branches', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      '{% if "foo" %}',
+      '  {% ifversion ghec %}',
+      '    {% if "bar" %}nested{% endif %}',
+      '  {% else %}',
+      '    text',
+      '  {% endif %}',
+      '{% else %}',
+      '  top-level else',
+      '{% endif %}',
     ].join('\n')
 
     const result = await runRule(liquidIfversionVersions, {

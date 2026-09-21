@@ -19,7 +19,7 @@ A runner scale set is a group of homogeneous runners that can be assigned jobs f
 
 You can use runner groups to manage runner scale sets. Similar to self-hosted runners, you can add runner scale sets to existing runner groups. However, runner scale sets can belong to only one runner group at a time and can only have one label assigned to them.
 
-To assign jobs to a runner scale set, you must configure your workflow to reference the runner scale set’s name. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow).
+To assign jobs to a runner scale set, you must configure your workflow to reference the runner scale set’s name. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/use-arc-in-a-workflow).
 
 ## Legal notice
 
@@ -27,5 +27,5 @@ To assign jobs to a runner scale set, you must configure your workflow to refere
 
 ## Next steps
 
-* For more information about the {% data variables.product.prodname_actions_runner_controller %} as a concept, see [AUTOTITLE](/actions/concepts/runners/about-actions-runner-controller).
-* To learn about runner groups, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
+* For more information about the {% data variables.product.prodname_actions_runner_controller %} as a concept, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller).
+* To learn about runner groups, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/manage-access).

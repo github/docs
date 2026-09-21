@@ -8,9 +8,7 @@ interface DataSchemas {
   [key: string]: string
 }
 
-// Helper function to resolve schema paths based on runtime context
 function resolveSchemaPath(filename: string): string {
-  // Check if we're in a test context
   const isTest = process.env.NODE_ENV === 'test'
 
   if (isTest) {
@@ -37,7 +35,6 @@ function loadTableSchemas(): DataSchemas {
       const schemaPath = path.join(schemasDir, `${name}.ts`)
 
       if (fs.existsSync(schemaPath)) {
-        // Use the resolver for consistent path handling
         tableSchemas[`data/tables/${yamlFile}`] = resolveSchemaPath(`tables/${name}.ts`)
       }
     }
@@ -50,14 +47,17 @@ function loadTableSchemas(): DataSchemas {
 const manualSchemas: DataSchemas = {
   'data/features': resolveSchemaPath('features.ts'),
   'data/variables': resolveSchemaPath('variables.ts'),
-  'data/learning-tracks': resolveSchemaPath('learning-tracks.ts'),
   'data/release-notes': resolveSchemaPath('release-notes.ts'),
   'data/code-languages.yml': resolveSchemaPath('code-languages.ts'),
   'data/glossaries/candidates.yml': resolveSchemaPath('glossaries-candidates.ts'),
   'data/glossaries/external.yml': resolveSchemaPath('glossaries-external.ts'),
+  // Tables in subdirectories of data/tables are not picked up by loadTableSchemas(),
+  // which only reads the top level, so the matrix is registered explicitly here.
+  // The matrix/ entry is a directory schema: every per-IDE file is validated against it.
+  'data/tables/copilot/matrix': resolveSchemaPath('tables/copilot/matrix-ide.ts'),
+  'data/tables/copilot/matrix-meta.yml': resolveSchemaPath('tables/copilot/matrix-meta.ts'),
 }
 
-// Combine manual registrations with auto-discovered table schemas
 const dataSchemas: DataSchemas = {
   ...manualSchemas,
   ...loadTableSchemas(),

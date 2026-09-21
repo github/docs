@@ -71,7 +71,7 @@ For example, if you assign `@platform-team` at the group level and `@docker-admi
 
 Attempting to set these options at the ecosystem level will cause a configuration error.
 
-For a complete reference of all available configuration options and their behavior, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#multi-ecosystem-groups).
+For a complete reference of all available configuration options and their behavior, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#multi-ecosystem-groups-).
 
 ## Use cases
 

@@ -20,7 +20,7 @@ When you remove a member from your enterprise, the member is removed from all or
 
 If the enterprise member you're removing is the last owner of an organization owned by your enterprise, you will become an owner of that organization.
 
->[!TIP] For automated offboarding, you can also remove users with the GraphQL API. See [AUTOTITLE](/graphql/reference/mutations#removeenterprisemember).
+>[!TIP] For automated offboarding, you can also remove users with the GraphQL API. See [AUTOTITLE](/graphql/reference/enterprise-admin#mutation-removeenterprisemember).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}

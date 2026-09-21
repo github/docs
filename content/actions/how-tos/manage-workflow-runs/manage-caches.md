@@ -46,13 +46,13 @@ Users with `write` access to a repository can use the {% data variables.product.
 
 ## Force deleting cache entries
 
-Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see [AUTOTITLE](/actions/reference/dependency-caching-reference#restrictions-for-accessing-a-cache). If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency.
+Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching). If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency.
 
 For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. {% data reusables.actions.cache-eviction-policy %} In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the {% data variables.product.prodname_cli %} to delete caches for specific branches.
 
 The following example workflow uses `gh cache` to delete up to 100 caches created by a branch once a pull request is closed.
 
-To run the following example on cross-repository pull requests or pull requests from forks, you can trigger the workflow with the `pull_request_target` event. If you do use `pull_request_target` to trigger the workflow, there are security considerations to keep in mind. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request_target).
+To run the following example on cross-repository pull requests or pull requests from forks, you can trigger the workflow with the `pull_request_target` event. If you do use `pull_request_target` to trigger the workflow, there are security considerations to keep in mind. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target).
 
 ```yaml
 name: Cleanup github runner caches on closed pull requests

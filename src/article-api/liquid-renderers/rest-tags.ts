@@ -1,4 +1,4 @@
-import type { TagToken, Context as LiquidContext } from 'liquidjs'
+import type { TagToken, Context as LiquidContext, Liquid, Emitter, TopLevelToken } from 'liquidjs'
 import { fastTextOnly } from '@/content-render/unified/text-only'
 import { renderContent } from '@/content-render/index'
 import type { Context } from '@/types'
@@ -7,24 +7,21 @@ import { createLogger } from '@/observability/logger'
 
 const logger = createLogger('article-api/liquid-renderers/rest-tags')
 
-/**
- * Custom Liquid tag for rendering REST API parameters
- * Usage: {% rest_parameter param %}
- */
+// Usage: {% rest_parameter param %}
 export class RestParameter {
   private paramName: string
 
   constructor(
     token: TagToken,
-    remainTokens: TagToken[],
-    liquid: { options: any; parser: any },
+    remainTokens: TopLevelToken[],
+    liquid: Liquid,
     private liquidContext?: LiquidContext,
   ) {
     // The tag receives the parameter object from the template context
     this.paramName = token.args.trim()
   }
 
-  async render(ctx: LiquidContext, emitter: any): Promise<void> {
+  async render(ctx: LiquidContext, emitter: Emitter): Promise<void> {
     const param = ctx.get([this.paramName]) as Parameter
     const context = ctx.get(['context']) as Context
 
@@ -56,18 +53,14 @@ export class RestParameter {
   }
 }
 
-/**
- * Custom Liquid tag for rendering REST API body parameters
- * Usage: {% rest_body_parameter param indent %}
- */
+// Usage: {% rest_body_parameter param indent %}
 export class RestBodyParameter {
   constructor(
     token: TagToken,
-    remainTokens: TagToken[],
-    liquid: { options: any; parser: any },
+    remainTokens: TopLevelToken[],
+    liquid: Liquid,
     private liquidContext?: LiquidContext,
   ) {
-    // Parse arguments - param name and optional indent level
     const args = token.args.trim().split(/\s+/)
     this.param = args[0]
     this.indent = args[1] ? parseInt(args[1]) : 0
@@ -76,7 +69,7 @@ export class RestBodyParameter {
   private param: string
   private indent: number
 
-  async render(ctx: LiquidContext, emitter: any): Promise<void> {
+  async render(ctx: LiquidContext, emitter: Emitter): Promise<void> {
     const param = ctx.get([this.param]) as BodyParameter
     const context = ctx.get(['context']) as Context
     const indent = this.indent
@@ -106,7 +99,6 @@ export class RestBodyParameter {
       lines.push(`${prefix}  Can be one of: ${param.enum.map((v) => `\`${v}\``).join(', ')}`)
     }
 
-    // Handle nested parameters
     if (param.childParamsGroups && param.childParamsGroups.length > 0) {
       for (const childGroup of param.childParamsGroups) {
         lines.push(await renderChildParameter(childGroup, context, indent + 1))
@@ -117,23 +109,20 @@ export class RestBodyParameter {
   }
 }
 
-/**
- * Custom Liquid tag for rendering REST API status codes
- * Usage: {% rest_status_code statusCode %}
- */
+// Usage: {% rest_status_code statusCode %}
 export class RestStatusCode {
   private statusCodeName: string
 
   constructor(
     token: TagToken,
-    remainTokens: TagToken[],
-    liquid: { options: any; parser: any },
+    remainTokens: TopLevelToken[],
+    liquid: Liquid,
     private liquidContext?: LiquidContext,
   ) {
     this.statusCodeName = token.args.trim()
   }
 
-  async render(ctx: LiquidContext, emitter: any): Promise<void> {
+  async render(ctx: LiquidContext, emitter: Emitter): Promise<void> {
     const statusCode = ctx.get([this.statusCodeName]) as StatusCode
     const context = ctx.get(['context']) as Context
 
@@ -158,9 +147,6 @@ export class RestStatusCode {
   }
 }
 
-/**
- * Helper function to render child parameters recursively
- */
 async function renderChildParameter(
   param: ChildParameter,
   context: Context,
@@ -186,7 +172,6 @@ async function renderChildParameter(
     lines.push(`${prefix}  Can be one of: ${param.enum.map((v: string) => `\`${v}\``).join(', ')}`)
   }
 
-  // Recursively handle nested parameters
   if (param.childParamsGroups && param.childParamsGroups.length > 0) {
     for (const child of param.childParamsGroups) {
       lines.push(await renderChildParameter(child, context, indent + 1))
@@ -196,9 +181,6 @@ async function renderChildParameter(
   return lines.join('\n')
 }
 
-/**
- * Helper function to convert HTML to markdown
- */
 async function htmlToMarkdown(html: string, context: Context): Promise<string> {
   if (!html) return ''
 
@@ -215,12 +197,10 @@ async function htmlToMarkdown(html: string, context: Context): Promise<string> {
     if (process.env.NODE_ENV !== 'production') {
       throw error
     }
-    // Fallback to simple text extraction
     return fastTextOnly(html)
   }
 }
 
-// Export tag names for registration
 export const restTags = {
   rest_parameter: RestParameter,
   rest_body_parameter: RestBodyParameter,

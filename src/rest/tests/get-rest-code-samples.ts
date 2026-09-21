@@ -70,7 +70,7 @@ describe('getGHExample - GitHub CLI code generation', () => {
               },
             },
           ],
-        } as any,
+        } as unknown as CodeSample['request']['bodyParameters'],
         parameters: {
           org: 'ORG',
         },
@@ -95,7 +95,6 @@ describe('getGHExample - GitHub CLI code generation', () => {
 
     const result = getGHExample(operation, codeSample, currentVersion, allVersions)
 
-    // The result should use --input for complex objects with arrays
     expect(result).toContain("--input - <<< '")
     expect(result).toContain('"bypass_actors": [')
     expect(result).toContain('"actor_id": 234')
@@ -104,7 +103,6 @@ describe('getGHExample - GitHub CLI code generation', () => {
     expect(result).toContain('"rules": [')
     expect(result).toContain('"type": "commit_author_email_pattern"')
 
-    // Verify the JSON structure is properly formatted
     expect(result).toContain('"name": "super cool ruleset"')
     expect(result).toContain('"target": "branch"')
     expect(result).toContain('"enforcement": "active"')
@@ -144,7 +142,7 @@ describe('getGHExample - GitHub CLI code generation', () => {
               timeout: '30',
             },
           },
-        } as any,
+        } as unknown as CodeSample['request']['bodyParameters'],
         parameters: {},
       },
       response: {
@@ -228,5 +226,74 @@ describe('getGHExample - GitHub CLI code generation', () => {
     expect(result).toContain('"tag1"')
     expect(result).toContain('"tag2"')
     expect(result).toContain('"tag3"')
+  })
+
+  test('handles a top-level array body via --input', () => {
+    const operation: Operation = {
+      serverUrl: 'https://api.github.com',
+      verb: 'post',
+      requestPath: '/enterprises/{enterprise}/innersource-vulnerabilities/sync',
+      title: 'Sync InnerSource vulnerabilities',
+      descriptionHTML: '<p>Sync vulnerabilities</p>',
+      previews: [],
+      statusCodes: [],
+      bodyParameters: [],
+      category: 'enterprise-admin',
+      subcategory: 'security-advisories',
+      parameters: [
+        {
+          name: 'enterprise',
+          in: 'path',
+          required: true,
+          description: 'The enterprise slug',
+          schema: { type: 'string' },
+        },
+      ],
+      codeExamples: [],
+      progAccess: {
+        permissions: [],
+        userToServerRest: true,
+        serverToServer: true,
+        fineGrainedPat: true,
+      },
+    }
+
+    const codeSample: CodeSample = {
+      request: {
+        contentType: 'application/json',
+        description: 'Example',
+        acceptHeader: 'application/vnd.github+json',
+        bodyParameters: [
+          {
+            id: 'MVS-2026-001',
+            summary: 'Example vulnerability summary',
+            aliases: ['GHSA-xxxx-xxxx-xxxx'],
+          },
+        ],
+        parameters: { enterprise: 'octo-enterprise' },
+      },
+      response: {
+        statusCode: '200',
+        contentType: 'application/json',
+        description: 'Response',
+        example: {},
+      },
+    }
+
+    const currentVersion = 'enterprise-cloud@latest'
+    const allVersions: Record<string, VersionItem> = {
+      'enterprise-cloud@latest': {
+        version: 'enterprise-cloud@latest',
+        versionTitle: 'Enterprise Cloud',
+        apiVersions: ['2022-11-28'],
+        latestApiVersion: '2022-11-28',
+      },
+    }
+
+    const result = getGHExample(operation, codeSample, currentVersion, allVersions)
+
+    expect(result).toContain('--input - <<<')
+    expect(result).toContain('"MVS-2026-001"')
+    expect(result).toContain('"GHSA-xxxx-xxxx-xxxx"')
   })
 })

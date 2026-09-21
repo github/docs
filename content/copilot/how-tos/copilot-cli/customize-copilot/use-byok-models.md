@@ -1,0 +1,147 @@
+---
+title: Using your own LLM models in GitHub Copilot CLI
+shortTitle: Use your own model provider
+intro: 'Use a model from an external provider of your choice in {% data variables.product.prodname_copilot_short %} by supplying your own API key.'
+allowTitleToDifferFromFilename: true
+versions:
+  fpt: '*'
+  ghec: '*'
+contentType: how-tos
+category:
+  - Configure Copilot
+  - Configure Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
+---
+
+You can configure {% data variables.copilot.copilot_cli_short %} to use your own LLM provider, also called BYOK (Bring Your Own Key), instead of {% data variables.product.github %}-hosted models. This lets you connect to OpenAI-compatible endpoints, Azure OpenAI, or Anthropic, including locally running models such as Ollama.
+
+> [!NOTE]
+> This article is for users who want to configure their own LLM provider API key on their local machine. To set up custom models for users in an enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models).
+
+## Prerequisites
+
+* {% data variables.copilot.copilot_cli_short %} is installed. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
+* You have an API key from a supported LLM provider, or you have a local model running (such as Ollama).
+
+## Supported providers
+
+{% data variables.copilot.copilot_cli_short %} supports three provider types:
+
+| Provider type | Compatible services |
+|---|---|
+| `openai` | OpenAI, Ollama, vLLM, Foundry Local, and any other OpenAI Chat Completions API-compatible endpoint. This is the default provider type. |
+| `azure` | Azure OpenAI Service. |
+| `anthropic` | Anthropic (Claude models). |
+
+For additional examples, run `copilot help providers` in your terminal.
+
+## Model requirements
+
+Models must support **tool calling** (also called function calling) and **streaming**. If a model does not support either capability, {% data variables.copilot.copilot_cli_short %} returns an error. For best results, use a model with a context window of at least 128k tokens.
+
+## Configuring your provider
+
+You configure your model provider by setting environment variables before starting {% data variables.copilot.copilot_cli_short %}.
+
+| Environment variable | Required | Description |
+|---|---|---|
+| `COPILOT_PROVIDER_BASE_URL` | Yes | The base URL of your model provider's API endpoint. |
+| `COPILOT_PROVIDER_TYPE` | No | The provider type: `openai` (default), `azure`, or `anthropic`. |
+| `COPILOT_PROVIDER_API_KEY` | No | Your API key for the provider. Not required for providers that do not use authentication, such as a local Ollama instance. |
+| `COPILOT_PROVIDER_BEARER_TOKEN` | No | Bearer token used for provider authentication when API-key authentication is not used. |
+| `COPILOT_PROVIDER_WIRE_API` | No | Specifies the API protocol used when communicating with the provider. |
+| `COPILOT_PROVIDER_AZURE_API_VERSION` | Azure only | The Azure OpenAI API version used for requests. |
+| `COPILOT_PROVIDER_MODEL_ID` | No | The well-known model name used to identify model capabilities and token limits. |
+| `COPILOT_PROVIDER_WIRE_MODEL` | No | The model name sent to the provider API for inference. For Azure OpenAI, use the deployment name. |
+| `COPILOT_PROVIDER_MAX_PROMPT_TOKENS` | No | Maximum number of prompt tokens allowed in a request. |
+| `COPILOT_PROVIDER_MAX_OUTPUT_TOKENS` | No | Maximum number of tokens generated in a response. |
+| `COPILOT_MODEL` | Yes | The model identifier to use. You can also set this with the `--model` command-line flag. |
+
+## Connecting to an OpenAI-compatible endpoint
+
+Use the following steps if you are connecting to OpenAI, Ollama, vLLM, Foundry Local, or any other endpoint that is compatible with the OpenAI Chat Completions API.
+
+1. Set environment variables for your provider. For example, for a local Ollama instance:
+
+   ```shell
+   export COPILOT_PROVIDER_BASE_URL=http://localhost:11434
+   export COPILOT_MODEL=YOUR-MODEL-NAME
+   ```
+
+   Replace `YOUR-MODEL-NAME` with the name of the model you have pulled in Ollama (for example, `llama3.2`).
+
+1. For a remote OpenAI endpoint, also set your API key.
+
+   ```shell
+   export COPILOT_PROVIDER_BASE_URL=https://api.openai.com/v1
+   export COPILOT_PROVIDER_API_KEY=YOUR-OPENAI-API-KEY
+   export COPILOT_MODEL=YOUR-MODEL-NAME
+   ```
+
+   Replace `YOUR-OPENAI-API-KEY` with your OpenAI API key and `YOUR-MODEL-NAME` with the model you want to use (for example, `gpt-4o`).
+
+{% data reusables.copilot.copilot-cli.start-cli %}
+
+## Connecting to Azure OpenAI
+
+1. Set the environment variables for Azure OpenAI.
+
+   ```shell
+   export COPILOT_PROVIDER_BASE_URL=https://YOUR-RESOURCE-NAME.openai.azure.com
+   export COPILOT_PROVIDER_TYPE=azure
+   export COPILOT_PROVIDER_API_KEY=YOUR-AZURE-API-KEY
+   export COPILOT_PROVIDER_AZURE_API_VERSION=YOUR-AZURE-API-VERSION
+   export COPILOT_PROVIDER_MODEL_ID=YOUR-MODEL-NAME
+   export COPILOT_PROVIDER_WIRE_MODEL=YOUR-DEPLOYMENT-NAME
+   export COPILOT_MODEL=YOUR-DEPLOYMENT-NAME
+   ```
+
+   Replace the following placeholders:
+
+    * `YOUR-RESOURCE-NAME`: your Azure OpenAI resource name
+    * `YOUR-DEPLOYMENT-NAME`: the deployment name that receives requests
+    * `YOUR-MODEL-NAME`: the underlying model associated with the deployment (for example, `gpt-4o`)
+    * `YOUR-AZURE-API-VERSION`: the Azure OpenAI API version
+    * `YOUR-AZURE-API-KEY`: your Azure OpenAI API key
+
+### Azure-specific environment variables
+
+| Variable | Description |
+|---|---|
+| `COPILOT_PROVIDER_MODEL_ID` | The well-known model name. {% data variables.copilot.copilot_cli_short %} uses this value to identify model capabilities and token limits. |
+| `COPILOT_PROVIDER_WIRE_MODEL` | The Azure OpenAI deployment name. Azure OpenAI routes requests through deployments rather than directly through model names. |
+
+{% data reusables.copilot.copilot-cli.start-cli %}
+
+## Connecting to Anthropic
+
+1. Set the environment variables for Anthropic:
+
+   ```shell
+   export COPILOT_PROVIDER_TYPE=anthropic
+   export COPILOT_PROVIDER_BASE_URL=https://api.anthropic.com
+   export COPILOT_PROVIDER_API_KEY=YOUR-ANTHROPIC-API-KEY
+   export COPILOT_MODEL=YOUR-MODEL-NAME
+   ```
+
+   Replace `YOUR-ANTHROPIC-API-KEY` with your Anthropic API key and YOUR-MODEL-NAME with the Claude model you want to use (for example, `claude-opus-4-5`).
+
+{% data reusables.copilot.copilot-cli.start-cli %}
+
+## Running in offline mode
+
+You can run {% data variables.copilot.copilot_cli_short %} in offline mode to prevent it from contacting {% data variables.product.github %}'s servers. This is designed for isolated environments where the CLI should communicate only with your local or on-premises model provider.
+
+> [!IMPORTANT]
+> Offline mode only guarantees full network isolation if your provider is also local or within the same isolated environment. If `COPILOT_PROVIDER_BASE_URL` points to a remote endpoint, your prompts and code context are still sent over the network to that provider.
+
+1. Configure your provider environment variables as described in Configuring your provider.
+
+1. Set the offline mode environment variable:
+
+   ```shell
+   export COPILOT_OFFLINE=true
+   ```
+   
+1. {% data reusables.copilot.copilot-cli.start-cli %}

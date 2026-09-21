@@ -2,6 +2,18 @@ import type { NextPageContext } from 'next'
 
 import { GenericError } from '@/frame/components/GenericError'
 
+interface ExpressRequestExtensions {
+  FailBot?: {
+    report: (
+      err: Error,
+      context: Record<string, string>,
+    ) => Array<Promise<Response | void>> | undefined
+  }
+  method?: string
+  query?: Record<string, unknown>
+  language?: string
+}
+
 function Error() {
   return <GenericError />
 }
@@ -34,7 +46,7 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
     // do which mutate the Express request object by attaching
     // callables to it. This way it's only ever present in SSR executed
     // code and doesn't need any custom webpack configuration.
-    const expressRequest = req as any
+    const expressRequest = req as unknown as ExpressRequestExtensions
     const FailBot = expressRequest.FailBot
     if (FailBot) {
       try {
@@ -42,7 +54,7 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
         // they don't contain an PII.
         const OK_HEADER_KEYS = ['user-agent', 'referer', 'accept-encoding', 'accept-language']
         const reported = FailBot.report(err, {
-          path: req.url,
+          path: req.url || '',
           request: JSON.stringify(
             {
               method: expressRequest.method,

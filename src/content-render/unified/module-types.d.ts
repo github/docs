@@ -1,7 +1,3 @@
-/**
- * Type declarations for modules without TypeScript definitions
- */
-
 declare module 'remark-gemoji-to-emoji' {
   import type { Plugin } from 'unified'
   const plugin: Plugin
@@ -19,7 +15,7 @@ declare module 'rehype-highlight' {
   import type { Options } from 'lowlight'
 
   interface HighlightOptions extends Options {
-    languages?: Record<string, any>
+    languages?: Record<string, unknown>
     subset?: boolean
     aliases?: Record<string, string>
   }

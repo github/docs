@@ -8,7 +8,9 @@ children:
   - /install-copilot-cli
   - /authenticate-copilot-cli
   - /configure-copilot-cli
+  - /add-lsp-servers
   - /troubleshoot-copilot-cli-auth
-
 contentType: how-tos
+docsTeamMetrics:
+  - copilot-cli
 ---

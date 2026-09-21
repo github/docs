@@ -4,11 +4,9 @@ import { Request, Response } from 'express'
 export const CSE_COPILOT_PREFIX = 'cse-copilot'
 
 export function cseCopilotPostAnswersMock(req: Request, res: Response) {
-  // Set headers for chunked transfer and encoding
   res.setHeader('Content-Type', 'application/json; charset=utf-8')
   res.setHeader('Transfer-Encoding', 'chunked')
 
-  // Define the SOURCES chunk
   const sourcesChunk = {
     chunkType: 'SOURCES',
     sources: [
@@ -30,21 +28,17 @@ export function cseCopilotPostAnswersMock(req: Request, res: Response) {
     ],
   }
 
-  // Function to send a chunk with proper encoding
   const sendEncodedChunk = (data: string, isLast = false) => {
-    const prefix = isLast ? '' : '\n' // Optionally, add delimiters if needed
+    const prefix = isLast ? '' : '\n'
     const buffer = Buffer.from(prefix + data, 'utf-8')
     res.write(buffer)
   }
 
-  // Send the SOURCES chunk
   sendEncodedChunk(`Chunk: ${JSON.stringify(sourcesChunk)}\n\n`)
 
-  // Define the message to be sent in chunks
   const message =
     'Creating a repository on GitHub is something you should already know how to do :shrug:'
 
-  // Split the message into words (or adjust the splitting logic as needed)
   const words = message.split(' ')
 
   let index = 0
@@ -55,17 +49,15 @@ export function cseCopilotPostAnswersMock(req: Request, res: Response) {
       const isLastWord = index === words.length - 1
       const chunk = {
         chunkType: 'MESSAGE_CHUNK',
-        text: word + (isLastWord ? '' : ' '), // Add space if not the last word
+        text: word + (isLastWord ? '' : ' '),
       }
       sendEncodedChunk(`${JSON.stringify(chunk)}\n`)
       index++
-      sendChunk() // Adjust the delay as needed
+      sendChunk()
     } else {
-      // End the response after all chunks are sent
       res.end()
     }
   }
 
-  // Start sending MESSAGE_CHUNKs
   sendChunk()
 }
