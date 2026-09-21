@@ -303,6 +303,7 @@ prodname_vs: 'Visual Studio'
 # Visual Studio Code
 prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
+prodname_vscode_web: 'VS Code for the Web'
 prodname_vscode_command_palette_shortname: 'VS Code Command Palette'
 prodname_vscode_command_palette: 'Visual Studio Code Command Palette'
 prodname_vscode_marketplace: 'Visual Studio Code Marketplace'

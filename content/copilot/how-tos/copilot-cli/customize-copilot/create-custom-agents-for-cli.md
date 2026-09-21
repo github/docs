@@ -134,6 +134,30 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
 
   Where `security-auditor` is the file name of the {% data variables.copilot.copilot_custom_agent_short %} profile, without the `.agent.md` extension. Typically, but not necessarily, this is the same as the `name` value in the agent profile.
 
+## Applying your repository's custom instructions to a {% data variables.copilot.copilot_custom_agent_short %}
+
+Custom instruction files—such as `.github/copilot-instructions.md`, `AGENTS.md`, and `CLAUDE.md`—tell {% data variables.product.prodname_copilot_short %} how to work in your repository. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
+
+When {% data variables.product.prodname_copilot_short %} runs your {% data variables.copilot.copilot_custom_agent_short %} as a subagent—to handle part of a larger task—the subagent does not follow your repository's custom instructions by default. This keeps the subagent focused on the specific task it was given.
+
+If you want a subagent to follow your repository's conventions—for example, an agent that reviews or edits code—add `include-custom-instructions: true` to the agent file's frontmatter:
+
+```text
+---
+name: RepoAwareReviewer
+description: Reviews a change against this repository's conventions
+tools: ["*"]
+include-custom-instructions: true
+---
+
+Review the change and flag anything that violates the repository's conventions.
+```
+
+> [!NOTE]
+> This setting only affects the agent when it runs as a subagent. A {% data variables.copilot.copilot_custom_agent_short %} that you select yourself—with `--agent`, `/agent`, or by inference—already follows your repository's custom instructions, so the setting has no effect in that case.
+
+For more information, including how this setting interacts with the `--no-custom-instructions` option, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#repository-custom-instructions-for-subagents).
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/comparing-cli-features)
