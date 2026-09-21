@@ -142,7 +142,7 @@ When {% data variables.product.prodname_copilot_short %} runs your {% data varia
 
 If you want a subagent to follow your repository's conventions—for example, an agent that reviews or edits code—add `include-custom-instructions: true` to the agent file's frontmatter:
 
-```markdown
+```text
 ---
 name: RepoAwareReviewer
 description: Reviews a change against this repository's conventions
