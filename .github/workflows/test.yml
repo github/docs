@@ -38,31 +38,38 @@ jobs:
         # Note that *if you add* to this, remember to also add that
         # to the **required checks** in the branch protection rules.
         name:
-          # src/ directory
+          # Every directory in src/ is listed here.
+          # A commented out entry has no test files of its own.
+          # - ai-tools
+          # - app
           - archives
           - article-api
           - assets
           - audit-logs
           - automated-pipelines
-          # - bookmarklets
-          # - code-scanning
-          # - codeql-cli
+          # - codeql-cli # enable once github/docs-internal#63239 removes the broken scratch test
+          # - codeql-queries
           - color-schemes
           - content-linter
+          # - content-pipelines
           - content-render
           - data-directory
+          # - deployments
           # - dev-toc
           - early-access
+          # - eslint-rules
           - events
           - fixtures
           - frame
+          - ghes-releases
           - github-apps
           - graphql
+          - journeys
           - landings
           - languages
-          # - links
+          - links
+          # - metrics
           - observability
-          # - open-source
           # - pages
           - products
           - redirects
@@ -73,6 +80,7 @@ jobs:
           - shielding
           # - tests
           # - tools
+          # - types
           - versions
           - webhooks
           - workflows

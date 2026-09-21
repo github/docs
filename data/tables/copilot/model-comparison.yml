@@ -137,6 +137,11 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Grok 4.6 model card](https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf)'
 
+- name: Grok 4.7
+  task_area: Agentic coding and complex, multistep workflows
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: 'Coming soon'
+
 # Other providers (alphabetized by model name)
 - name: Qwen2.5
   task_area: General-purpose coding and writing

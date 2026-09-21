@@ -10966,6 +10966,10 @@
           "description": "<p>Unacceptable</p>"
         },
         {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
           "httpStatusCode": "500",
           "description": "<p>Internal Error</p>"
         },

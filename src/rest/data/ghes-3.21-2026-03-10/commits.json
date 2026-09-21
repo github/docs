@@ -738,6 +738,14 @@
           "description": "<p>Conflict</p>"
         },
         {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "429",
+          "description": "<p>The request could not be processed due to heavy server load. Please try again.</p>"
+        },
+        {
           "httpStatusCode": "500",
           "description": "<p>Internal Error</p>"
         }
@@ -5259,6 +5267,10 @@
           "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
         },
         {
+          "httpStatusCode": "429",
+          "description": "<p>The request could not be processed due to heavy server load. Please try again.</p>"
+        },
+        {
           "httpStatusCode": "500",
           "description": "<p>Internal Error</p>"
         },
@@ -7351,6 +7363,10 @@
         {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
         },
         {
           "httpStatusCode": "500",

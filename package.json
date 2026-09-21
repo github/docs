@@ -124,7 +124,7 @@
     "warmup-remotejson": "tsx src/archives/scripts/warmup-remotejson.ts",
     "what-docs-early-access-branch": "tsx src/early-access/scripts/what-docs-early-access-branch.ts",
     "writers": "tsx src/workflows/writers-help-metadata.ts",
-    "postinstall": "npx --no-install patch-package"
+    "postinstall": "npx --no-install patch-package --error-on-fail"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache --fix",
@@ -171,7 +171,7 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "8.19.1",
-    "@github/failbot": "0.8.3",
+    "@github/failbot": "1.1.1",
     "@github/hydro-analytics-client": "^2.4.1",
     "@gr2m/gray-matter": "4.0.3-with-pr-137",
     "@horizon-rs/language-guesser": "0.1.1",
