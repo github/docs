@@ -5119,6 +5119,44 @@ The object which triggered a `ClosedEvent`.
 union Closer @docsCategory(name: "issues") = Commit | ProjectV2 | PullRequest
 
 """
+Enforce minimum line coverage thresholds on pull requests. When configured,
+uploaded coverage data must meet the specified criteria before changes can be merged.
+"""
+type CodeCoverageParameters {
+  """
+  The maximum percentage points that line coverage may drop relative to the
+  default branch. Pull requests that reduce line coverage by more than this
+  amount will be blocked.
+  """
+  maxCoverageDrop: Float
+
+  """
+  The absolute minimum line coverage percentage required. Pull requests with
+  line coverage below this threshold will be blocked.
+  """
+  minimumCoverage: Float
+}
+
+"""
+Enforce minimum line coverage thresholds on pull requests. When configured,
+uploaded coverage data must meet the specified criteria before changes can be merged.
+"""
+input CodeCoverageParametersInput {
+  """
+  The maximum percentage points that line coverage may drop relative to the
+  default branch. Pull requests that reduce line coverage by more than this
+  amount will be blocked.
+  """
+  maxCoverageDrop: Float
+
+  """
+  The absolute minimum line coverage percentage required. Pull requests with
+  line coverage below this threshold will be blocked.
+  """
+  minimumCoverage: Float
+}
+
+"""
 The Code of Conduct for a repository
 """
 type CodeOfConduct implements Node @docsCategory(name: "meta") {
@@ -5151,6 +5189,55 @@ type CodeOfConduct implements Node @docsCategory(name: "meta") {
   The HTTP URL for this Code of Conduct
   """
   url: URI
+}
+
+"""
+Choose which severity levels of code quality results should block pull request
+merges. When configured, a code quality analysis must be done on the pull
+request before the changes can be merged.
+"""
+type CodeQualityParameters @docsCategory(name: "code-scanning") {
+  """
+  The lowest severity level at which code quality reviews need to be resolved before commits can be merged.
+  """
+  severity: CodeQualitySeverity!
+}
+
+"""
+Choose which severity levels of code quality results should block pull request
+merges. When configured, a code quality analysis must be done on the pull
+request before the changes can be merged.
+"""
+input CodeQualityParametersInput @docsCategory(name: "code-scanning") {
+  """
+  The lowest severity level at which code quality reviews need to be resolved before commits can be merged.
+  """
+  severity: CodeQualitySeverity!
+}
+
+"""
+The lowest severity level at which code quality reviews need to be resolved before commits can be merged.
+"""
+enum CodeQualitySeverity @docsCategory(name: "code-scanning") {
+  """
+  All
+  """
+  ALL
+
+  """
+  Errors
+  """
+  ERRORS
+
+  """
+  Notes and higher
+  """
+  NOTES
+
+  """
+  Warnings and higher
+  """
+  WARNINGS
 }
 
 """
@@ -20286,15 +20373,6 @@ type Issue implements Assignable &
   editor: Actor
 
   """
-  A list of rationales associated with this issue's timeline events. Always
-  returns an empty list; use the `intent` field on individual timeline events instead.
-  """
-  eventRationales: [IssueEventRationale!]!
-    @deprecated(
-      reason: "Use the `intent` field on individual timeline events instead. This field is being removed and now always returns an empty list."
-    )
-
-  """
   Identifies the primary key from the database as a BigInt.
   """
   fullDatabaseId: BigInt
@@ -21548,49 +21626,6 @@ enum IssueEventConfidenceLevel @docsCategory(name: "issues") {
 }
 
 """
-Rationale text associated with an issue timeline event. Deprecated: the fields
-that return this type are being removed and now return null/empty. Use the
-`intent` field on individual timeline events instead.
-"""
-type IssueEventRationale @docsCategory(name: "issues") {
-  """
-  The agent or user who produced the rationale.
-  """
-  actor: Actor
-
-  """
-  Identifies the date and time when the rationale was created.
-  """
-  createdAt: DateTime!
-
-  """
-  The issue timeline event this rationale is associated with.
-  """
-  issueEvent: IssueEventWithRationale
-
-  """
-  The reasoning or explanation text for the event.
-  """
-  rationale: String!
-}
-
-"""
-An issue timeline event that may have an associated rationale. Deprecated: this
-union is only reachable via the deprecated `IssueEventRationale` type, which is
-being removed. Use the `intent` field on individual timeline events instead.
-"""
-union IssueEventWithRationale @docsCategory(name: "issues") =
-  | ClosedEvent
-  | IssueFieldAddedEvent
-  | IssueFieldChangedEvent
-  | IssueFieldRemovedEvent
-  | IssueTypeAddedEvent
-  | IssueTypeChangedEvent
-  | IssueTypeRemovedEvent
-  | LabeledEvent
-  | UnlabeledEvent
-
-"""
 Represents a 'issue_field_added' event on a given issue.
 """
 type IssueFieldAddedEvent implements Node @docsCategory(name: "issues") {
@@ -21628,12 +21663,6 @@ type IssueFieldAddedEvent implements Node @docsCategory(name: "issues") {
   The selected options for option-backed fields; single-select returns one option and multi-select returns many.
   """
   options: [IssueFieldTimelineOption!]
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale
-    @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 
   """
   The value of the added field.
@@ -21699,12 +21728,6 @@ type IssueFieldChangedEvent implements Node @docsCategory(name: "issues") {
   The previous value of the field.
   """
   previousValue: String
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale
-    @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -22080,12 +22103,6 @@ type IssueFieldRemovedEvent implements Node @docsCategory(name: "issues") {
   The removed options for option-backed fields; single-select returns one option and multi-select returns many.
   """
   options: [IssueFieldTimelineOption!]
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale
-    @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -23430,12 +23447,6 @@ type IssueTypeAddedEvent implements Node @docsCategory(name: "issues") {
   The issue type added.
   """
   issueType: IssueType
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale
-    @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -23471,12 +23482,6 @@ type IssueTypeChangedEvent implements Node @docsCategory(name: "issues") {
   The issue type removed.
   """
   prevIssueType: IssueType
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale
-    @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -23622,12 +23627,6 @@ type IssueTypeRemovedEvent implements Node @docsCategory(name: "issues") {
   The issue type removed.
   """
   issueType: IssueType
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale
-    @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -24035,12 +24034,6 @@ type LabeledEvent implements Node @docsCategory(name: "issues") {
   Identifies the `Labelable` associated with the event.
   """
   labelable: Labelable!
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale
-    @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """
@@ -38538,7 +38531,7 @@ enum PatchStatus @docsCategory(name: "pulls") {
 """
 A pending suggestion to assign a user to an issue.
 """
-type PendingAssigneeSuggestion @docsCategory(name: "issues") {
+type PendingAssigneeSuggestion implements Node @docsCategory(name: "issues") {
   """
   The actor who suggested the assignee.
   """
@@ -38555,6 +38548,11 @@ type PendingAssigneeSuggestion @docsCategory(name: "issues") {
   createdAt: DateTime!
 
   """
+  The Node ID of the PendingAssigneeSuggestion object
+  """
+  id: ID!
+
+  """
   The rationale provided for suggesting this assignee.
   """
   rationale: String
@@ -38568,7 +38566,7 @@ type PendingAssigneeSuggestion @docsCategory(name: "issues") {
 """
 A pending suggestion to close an issue.
 """
-type PendingCloseSuggestion @docsCategory(name: "issues") {
+type PendingCloseSuggestion implements Node @docsCategory(name: "issues") {
   """
   The actor who suggested closing the issue.
   """
@@ -38584,6 +38582,11 @@ type PendingCloseSuggestion @docsCategory(name: "issues") {
   duplicate of. Only set when `stateReason` is `DUPLICATE`.
   """
   duplicateOf: IssueOrPullRequest
+
+  """
+  The Node ID of the PendingCloseSuggestion object
+  """
+  id: ID!
 
   """
   The rationale provided for suggesting this close.
@@ -38604,7 +38607,7 @@ type PendingCloseSuggestion @docsCategory(name: "issues") {
 """
 A pending suggestion to set an issue field's value.
 """
-type PendingFieldSuggestion @docsCategory(name: "issues") {
+type PendingFieldSuggestion implements Node @docsCategory(name: "issues") {
   """
   The actor who suggested the field value.
   """
@@ -38614,6 +38617,11 @@ type PendingFieldSuggestion @docsCategory(name: "issues") {
   When the suggestion was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of the PendingFieldSuggestion object
+  """
+  id: ID!
 
   """
   The issue field the suggestion targets.
@@ -38709,7 +38717,7 @@ input PendingIssueSuggestionRef @docsCategory(name: "issues") {
 """
 A pending suggestion to add a label to an issue.
 """
-type PendingLabelSuggestion @docsCategory(name: "issues") {
+type PendingLabelSuggestion implements Node @docsCategory(name: "issues") {
   """
   The actor who suggested the label.
   """
@@ -38719,6 +38727,11 @@ type PendingLabelSuggestion @docsCategory(name: "issues") {
   When the suggestion was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of the PendingLabelSuggestion object
+  """
+  id: ID!
 
   """
   The suggested label.
@@ -38739,7 +38752,7 @@ type PendingLabelSuggestion @docsCategory(name: "issues") {
 """
 A pending suggestion to change an issue's type.
 """
-type PendingTypeSuggestion @docsCategory(name: "issues") {
+type PendingTypeSuggestion implements Node @docsCategory(name: "issues") {
   """
   The actor who suggested the type change.
   """
@@ -38749,6 +38762,11 @@ type PendingTypeSuggestion @docsCategory(name: "issues") {
   When the suggestion was created.
   """
   createdAt: DateTime!
+
+  """
+  The Node ID of the PendingTypeSuggestion object
+  """
+  id: ID!
 
   """
   The suggested issue type.
@@ -57588,6 +57606,11 @@ enum RepositoryPermission @docsCategory(name: "repos") {
   TRIAGE
 
   """
+  Can read and clone this repository. Can also manage issues and pull requests, plus additional triage abilities
+  """
+  TRIAGE_PLUS
+
+  """
   Can read, clone, and push to this repository. Can also manage issues and pull requests
   """
   WRITE
@@ -57861,6 +57884,19 @@ enum RepositoryRuleType {
   Branch name pattern
   """
   BRANCH_NAME_PATTERN
+
+  """
+  Enforce minimum line coverage thresholds on pull requests. When configured,
+  uploaded coverage data must meet the specified criteria before changes can be merged.
+  """
+  CODE_COVERAGE
+
+  """
+  Choose which severity levels of code quality results should block pull request
+  merges. When configured, a code quality analysis must be done on the pull
+  request before the changes can be merged.
+  """
+  CODE_QUALITY
 
   """
   Choose which tools must provide code scanning results before the reference is
@@ -59997,6 +60033,8 @@ Types which can be parameters for `RepositoryRule` objects.
 """
 union RuleParameters =
   | BranchNamePatternParameters
+  | CodeCoverageParameters
+  | CodeQualityParameters
   | CodeScanningParameters
   | CommitAuthorEmailPatternParameters
   | CommitMessagePatternParameters
@@ -60022,6 +60060,16 @@ input RuleParametersInput {
   Parameters used for the `branch_name_pattern` rule type
   """
   branchNamePattern: BranchNamePatternParametersInput
+
+  """
+  Parameters used for the `code_coverage` rule type
+  """
+  codeCoverage: CodeCoverageParametersInput
+
+  """
+  Parameters used for the `code_quality` rule type
+  """
+  codeQuality: CodeQualityParametersInput
 
   """
   Parameters used for the `code_scanning` rule type
@@ -60497,7 +60545,7 @@ type SecurityAdvisory implements Node @docsCategory(name: "security-advisories")
   permalink: URI
 
   """
-  When the advisory was published
+  When GitHub published this advisory
   """
   publishedAt: DateTime!
 
@@ -68026,12 +68074,6 @@ type UnlabeledEvent implements Node @docsCategory(name: "issues") {
   Identifies the `Labelable` associated with the event.
   """
   labelable: Labelable!
-
-  """
-  The rationale associated with this event. Always returns null; use `intent` instead.
-  """
-  rationale: IssueEventRationale
-    @deprecated(reason: "Use `intent` instead. This field is being removed and now always returns null.")
 }
 
 """

@@ -503,7 +503,7 @@
         },
         {
           "name": "publishedAt",
-          "description": "<p>When the advisory was published.</p>",
+          "description": "<p>When GitHub published this advisory.</p>",
           "type": "DateTime!",
           "id": "datetime",
           "href": "/graphql/reference/other#scalar-datetime"

@@ -9317,6 +9317,10 @@
           "description": "<p>Can read and clone this repository. Can also manage issues and pull requests.</p>"
         },
         {
+          "name": "TRIAGE_PLUS",
+          "description": "<p>Can read and clone this repository. Can also manage issues and pull requests, plus additional triage abilities.</p>"
+        },
+        {
           "name": "WRITE",
           "description": "<p>Can read, clone, and push to this repository. Can also manage issues and pull requests.</p>"
         }
@@ -9376,6 +9380,14 @@
         {
           "name": "BRANCH_NAME_PATTERN",
           "description": "<p>Branch name pattern.</p>"
+        },
+        {
+          "name": "CODE_COVERAGE",
+          "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured,\nuploaded coverage data must meet the specified criteria before changes can be merged.</p>"
+        },
+        {
+          "name": "CODE_QUALITY",
+          "description": "<p>Choose which severity levels of code quality results should block pull request\nmerges. When configured, a code quality analysis must be done on the pull\nrequest before the changes can be merged.</p>"
         },
         {
           "name": "CODE_SCANNING",
@@ -9740,6 +9752,16 @@
           "href": "/graphql/reference/branches#object-branchnamepatternparameters"
         },
         {
+          "name": "CodeCoverageParameters",
+          "id": "codecoverageparameters",
+          "href": "/graphql/reference/other#object-codecoverageparameters"
+        },
+        {
+          "name": "CodeQualityParameters",
+          "id": "codequalityparameters",
+          "href": "/graphql/reference/code-scanning#object-codequalityparameters"
+        },
+        {
           "name": "CodeScanningParameters",
           "id": "codescanningparameters",
           "href": "/graphql/reference/repos#object-codescanningparameters"
@@ -9960,6 +9982,29 @@
           "type": "RepositoryVisibility!",
           "id": "repositoryvisibility",
           "href": "/graphql/reference/repos#enum-repositoryvisibility"
+        }
+      ],
+      "category": "repos"
+    },
+    {
+      "name": "CodeCoverageParametersInput",
+      "id": "codecoverageparametersinput",
+      "href": "/graphql/reference/repos#input-object-codecoverageparametersinput",
+      "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured,\nuploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+      "inputFields": [
+        {
+          "name": "maxCoverageDrop",
+          "description": "<p>The maximum percentage points that line coverage may drop relative to the\ndefault branch. Pull requests that reduce line coverage by more than this\namount will be blocked.</p>",
+          "type": "Float",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float"
+        },
+        {
+          "name": "minimumCoverage",
+          "description": "<p>The absolute minimum line coverage percentage required. Pull requests with\nline coverage below this threshold will be blocked.</p>",
+          "type": "Float",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float"
         }
       ],
       "category": "repos"
@@ -10804,6 +10849,20 @@
           "type": "BranchNamePatternParametersInput",
           "id": "branchnamepatternparametersinput",
           "href": "/graphql/reference/branches#input-object-branchnamepatternparametersinput"
+        },
+        {
+          "name": "codeCoverage",
+          "description": "<p>Parameters used for the <code>code_coverage</code> rule type.</p>",
+          "type": "CodeCoverageParametersInput",
+          "id": "codecoverageparametersinput",
+          "href": "/graphql/reference/repos#input-object-codecoverageparametersinput"
+        },
+        {
+          "name": "codeQuality",
+          "description": "<p>Parameters used for the <code>code_quality</code> rule type.</p>",
+          "type": "CodeQualityParametersInput",
+          "id": "codequalityparametersinput",
+          "href": "/graphql/reference/code-scanning#input-object-codequalityparametersinput"
         },
         {
           "name": "codeScanning",
