@@ -250,9 +250,6 @@ copilot_raptor_mini: 'Raptor mini'
 copilot_kimi_k27_code: 'Kimi K2.7 Code'
 copilot_kimi_k3: 'Kimi K3'
 
-## Current model used by Copilot cloud agent and Copilot CLI
-cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'
-
 ## Next edit suggestions
 next_edit_suggestions: 'next edit suggestions'
 next_edit_suggestions_caps: 'Next edit suggestions'
