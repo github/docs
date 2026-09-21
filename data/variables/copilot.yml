@@ -240,6 +240,7 @@ copilot_o4_mini: 'o4-mini'
 copilot_grok_code: 'Grok Code Fast 1'
 copilot_grok_45: 'Grok 4.5'
 copilot_grok_46: 'Grok 4.6'
+copilot_grok_47: 'Grok 4.7'
 # Qwen:
 copilot_qwen_25: 'Qwen2.5'
 # Microsoft:
@@ -249,9 +250,6 @@ copilot_raptor_mini: 'Raptor mini'
 # Open-weight models:
 copilot_kimi_k27_code: 'Kimi K2.7 Code'
 copilot_kimi_k3: 'Kimi K3'
-
-## Current model used by Copilot cloud agent and Copilot CLI
-cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'
 
 ## Next edit suggestions
 next_edit_suggestions: 'next edit suggestions'

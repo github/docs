@@ -57,7 +57,7 @@
 
 - name: 'Gemini 2.5 Pro'
   retirement_date: '2026-07-31'
-  suggested_alternative: 'Gemini 3.1 Pro'
+  suggested_alternative: 'Gemini 3.8 Flash'
 
 - name: 'Gemini 3 Flash'
   retirement_date: '2026-07-31'
@@ -67,17 +67,18 @@
   retirement_date: '2026-06-29'
   suggested_alternative: 'Claude Opus 4.8 (fast mode) (preview)'
 
+- name: 'GPT-5.2'
+  retirement_date: '2026-06-05'
+  suggested_alternative: 'GPT-5.5'
+
+- name: 'GPT-5.2-Codex'
+  retirement_date: '2026-06-05'
+  suggested_alternative: 'GPT-5.3-Codex'
+
 - name: 'GPT-4.1'
   retirement_date: '2026-06-01'
   suggested_alternative: 'GPT-5.5'
 
-- name: 'GPT-5.2'
-  retirement_date: '2026-06-01'
-  suggested_alternative: 'GPT-5.5'
-
-- name: 'GPT-5.2-Codex'
-  retirement_date: '2026-06-01'
-  suggested_alternative: 'GPT-5.3-Codex'
 - name: 'Grok Code Fast 1'
   retirement_date: '2026-05-15'
   suggested_alternative: 'GPT-5 mini'
@@ -104,11 +105,11 @@
 
 - name: 'Gemini 3 Pro'
   retirement_date: '2026-03-26'
-  suggested_alternative: 'Gemini 3.1 Pro'
+  suggested_alternative: 'Gemini 3.8 Flash'
 
 - name: 'Claude Opus 4.1'
   retirement_date: '2026-02-17'
-  suggested_alternative: 'Claude Opus 4.6'
+  suggested_alternative: 'Claude Opus 5'
 
 - name: 'GPT-5'
   retirement_date: '2026-02-17'
@@ -124,7 +125,7 @@
 
 - name: 'Claude Opus 4'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'Claude Opus 4.6'
+  suggested_alternative: 'Claude Opus 5'
 
 - name: 'Claude Sonnet 3.7'
   retirement_date: '2025-10-23'
@@ -136,7 +137,7 @@
 
 - name: 'Gemini 2.0 Flash'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'Gemini 2.5 Pro'
+  suggested_alternative: 'Gemini 3.8 Flash'
 
 - name: 'o1-mini'
   retirement_date: '2025-10-23'

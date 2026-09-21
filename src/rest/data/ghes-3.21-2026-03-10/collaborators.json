@@ -51,6 +51,7 @@
             "enum": [
               "pull",
               "triage",
+              "triage_plus",
               "push",
               "maintain",
               "admin"
@@ -1922,6 +1923,7 @@
                       "write",
                       "admin",
                       "triage",
+                      "triage_plus",
                       "maintain"
                     ]
                   },
@@ -3108,6 +3110,7 @@
                     "write",
                     "admin",
                     "triage",
+                    "triage_plus",
                     "maintain"
                   ]
                 },
@@ -4335,6 +4338,7 @@
                       "write",
                       "admin",
                       "triage",
+                      "triage_plus",
                       "maintain"
                     ]
                   },
