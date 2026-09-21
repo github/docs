@@ -17,7 +17,7 @@ Choose from a selection of models, each with its own particular strengths. You m
 
 To view the available models per client, see [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-per-client).
 
-> [!NOTE] Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
+> [!NOTE] The models available to you depend on your {% data variables.product.prodname_copilot_short %} plan and where you're using {% data variables.product.prodname_copilot_short %}, such as {% data variables.product.prodname_dotcom_the_website %} or an IDE. Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 
 {% data variables.product.prodname_copilot_short %} allows you to change the model during a chat and have the alternative model used to generate responses to your prompts.
 
