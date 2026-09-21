@@ -10,6 +10,10 @@ redirect_from:
   - /copilot/how-tos/github-flow/use-copilot-to-create-issues
   - /copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-issues
   - /copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-or-update-issues
+  - /copilot/tutorials/plan-a-project
+  - /copilot/tutorials/copilot-cookbook/document-code/filing-issues-without-breaking-your-flow
+  - /copilot/tutorials/copilot-chat-cookbook/document-code/creating-issues
+  - /copilot/tutorials/copilot-chat-cookbook/document-code/filing-issues-without-breaking-your-flow
 contentType: how-tos
 category:
   - Author and optimize with Copilot
@@ -91,4 +95,3 @@ With {% data variables.copilot.copilot_cloud_agent %} enabled, you can assign an
 ## Further reading
 
 * [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)
-* [AUTOTITLE](/copilot/tutorials/plan-a-project)

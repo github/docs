@@ -29,7 +29,7 @@ Choose the model based on the work involved:
 
 Use as much capability as the task requires, and as little as necessary. Matching capability to task improves outcomes and directly controls costs at scale.
 
-For a breakdown by model and task type, see [AUTOTITLE](/copilot/tutorials/compare-ai-models).
+For a breakdown by model and task type, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison#recommended-models-by-task).
 
 ### Configure the reasoning level of the model
 

@@ -1348,6 +1348,19 @@ export function correctTranslatedContentStrings(
       '{% ifversion ghes %}在“检查、工作流运行、状态、工件、日志和缓存设置”部分的 **检查、工作流运行、状态、工件和日志保留** 下，输入一个新值。',
       '{% ifversion ghes %}在“检查、工作流运行、状态、工件、日志和缓存设置”部分的{% else %}在{% endif %} **检查、工作流运行、状态、工件和日志保留** 下，输入一个新值。',
     )
+
+    // filtering-and-searching-issues-and-pull-requests.md: the translator
+    // dropped the `{% endif %}` closing the `{% ifversion ghes < 3.18 %}`
+    // that wraps the "qualifiers within parentheses" sentence, leaving the
+    // outer `{% webui %}...{% endwebui %}` block unterminated
+    // (`tag "endwebui" not found`). English: `...up to five levels
+    // deep.{% ifversion ghes < 3.18 %} It's not currently possible to
+    // include the \`repo\`, \`org\`, or \`user\` qualifiers within
+    // parentheses.{% endif %}`.
+    content = content.replaceAll(
+      '你可以使用圆括号嵌套筛选器，最多可达五层深度。{% ifversion ghes < 3.18 %} 目前无法在括号中包含`repo`、`org`或`user`限定符。\n\n{% endwebui %}',
+      '你可以使用圆括号嵌套筛选器，最多可达五层深度。{% ifversion ghes < 3.18 %} 目前无法在括号中包含`repo`、`org`或`user`限定符。{% endif %}\n\n{% endwebui %}',
+    )
   }
 
   if (context.code === 'ru') {
@@ -2338,6 +2351,18 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       '퍼블릭 리포지토리(퍼블릭 패키지)에 패키지를 게시하여 {% else %}엔터프라이즈의 모든 사용자{% endif %}{% ifversion fpt or ghec %} 모두{% data variables.product.prodname_dotcom %}과(와) 공유하거나 프라이빗 리포지토리의 패키지(프라이빗 패키지)를 게시하여 협력자 또는 조직과 공유할 수 있습니다.',
       '퍼블릭 리포지토리(퍼블릭 패키지)에 패키지를 게시하여 {% ifversion fpt or ghec %}모두 {% data variables.product.prodname_dotcom %}과(와){% else %}엔터프라이즈의 모든 사용자와{% endif %} 공유하거나 프라이빗 리포지토리의 패키지(프라이빗 패키지)를 게시하여 협력자 또는 조직과 공유할 수 있습니다.',
+    )
+
+    // pull-request-alert-metrics.md: translator moved `{% endif %}` right
+    // after the `{% data variables.copilot.copilot_autofix_short %}` mention,
+    // ahead of the `{% ifversion code-scanning-autofix %}` opener that should
+    // wrap it (`tag "endif" not found`). English: `...how many alerts were
+    // fixed{% ifversion code-scanning-autofix %} with and without
+    // {% data variables.copilot.copilot_autofix_short %} suggestions{% endif %},
+    // how many were unresolved...`
+    content = content.replaceAll(
+      '{% data variables.copilot.copilot_autofix_short %} 제안{% endif %} 사용 여부에 따라 수정된 경고 수 {% ifversion code-scanning-autofix %}, 해결되지 않은 상태로 병합된 수',
+      '{% ifversion code-scanning-autofix %} {% data variables.copilot.copilot_autofix_short %} 제안 사용 여부에 따라{% endif %} 수정된 경고 수, 해결되지 않은 상태로 병합된 수',
     )
   }
 

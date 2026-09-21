@@ -13,6 +13,12 @@ redirect_from:
   - /copilot/how-tos/chat/get-started-with-chat
   - /copilot/how-tos/use-chat/get-started-with-chat
   - /copilot/how-tos/chat-with-copilot/get-started-with-chat
+  - /copilot/tutorials/copilot-cookbook/refactor-code/fix-lint-errors
+  - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/fixing-lint-errors
+  - /copilot/copilot-chat-cookbook/refactoring-code/fixing-lint-errors
+  - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/fixing-lint-errors
+  - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/fix-lint-errors
+  - /copilot/tutorials/copilot-chat-cookbook/refactor-code/fix-lint-errors
 shortTitle: Get started with Chat in your IDE
 contentType: how-tos
 category:

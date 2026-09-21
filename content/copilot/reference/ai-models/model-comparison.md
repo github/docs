@@ -10,6 +10,10 @@ category:
 redirect_from:
   - /copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task
   - /copilot/reference/ai-models/choosing-the-right-ai-model-for-your-task
+  - /copilot/tutorials/compare-ai-models
+  - /copilot/using-github-copilot/ai-models/examples-for-ai-model-comparison
+  - /copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks
+  - /copilot/tutorials/comparing-ai-models-using-different-tasks
 contentType: reference
 ---
 
@@ -149,6 +153,5 @@ Some models have behaviors, limitations, or safeguards that are useful to unders
 Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_5_mini %}, then adjust based on your needs.
 
 * For detailed model specs and pricing, see [AUTOTITLE](/copilot/reference/ai-models/supported-models).
-* For more examples of how to use different models, see [AUTOTITLE](/copilot/tutorials/compare-ai-models).
 * To switch between models, refer to [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model) or [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
 * To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).
