@@ -1,6 +1,6 @@
 name: Check for Spammy PRs
 
-# **What it does**: This action closes low value pull requests in the open-source repository.
+# **What it does**: This action closes low value pull requests and PRs that do not target main.
 # **Why we have it**: We get lots of spam in the open-source repository.
 # **Who does it impact**: Open-source contributors.
 
@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   spammy-pr-check:
-    name: Label PRs that only delete files or touch a large number of files
+    name: Label spammy PRs and reject non-main targets
     if: >
       github.repository == 'github/docs' && github.event_name == 'pull_request_target' &&
       github.event.pull_request.user.login != 'docs-bot'
@@ -27,6 +27,7 @@ jobs:
             const owner = 'github'
             const repo = 'docs'
             const pull_number = context.payload.pull_request.number
+            const targetsNonMain = context.payload.pull_request.base.ref !== 'main'
 
             const files = await github.paginate(github.rest.pulls.listFiles, {
               owner,
@@ -50,8 +51,8 @@ jobs:
             })
             const onlyRenames = files.length > 0 && files.every(f => f.status === 'renamed')
 
-            // Close the PR and add the invalid label
             if (
+              targetsNonMain ||
               onlyDeletesLines ||
               onlyDeletes ||
               isEmptyCommit ||
@@ -66,15 +67,25 @@ jobs:
                 labels: ['invalid'],
               })
 
-              // Comment on the PR
               await github.rest.issues.createComment({
                 owner,
                 repo,
                 issue_number: pull_number,
-                body: onlyDeletesLines
-                  ? `This pull request only removes existing content. Before submitting a content-removal pull request, please [open an issue](https://github.com/github/docs/issues/new/choose) explaining the proposed removal and wait for approval from the GitHub Docs team. Once the change has been approved, you can open a new pull request and link it to the issue.`
-                  : `This pull request may have been opened accidentally. I'm going to close it now, but feel free to check out our [contribution guidelines](https://docs.github.com/en/contributing), or raise an issue.`,
+                body: targetsNonMain
+                  ? 'Pull requests must target the `main` branch. This pull request has been closed as invalid. If you think this is incorrect, please mention this in a corresponding issue.'
+                  : onlyDeletesLines
+                    ? 'This pull request only removes existing content. Before submitting a content-removal pull request, please [open an issue](https://github.com/github/docs/issues/new/choose) explaining the proposed removal and wait for approval from the GitHub Docs team. Once the change has been approved, you can open a new pull request and link it to the issue.'
+                    : "This pull request may have been opened accidentally. I'm going to close it now, but feel free to check out our [contribution guidelines](https://docs.github.com/en/contributing), or raise an issue.",
               })
+
+              if (targetsNonMain) {
+                await github.rest.pulls.update({
+                  owner,
+                  repo,
+                  pull_number,
+                  state: 'closed',
+                })
+              }
 
               if (onlyDeletesLines) {
                 core.setFailed(
