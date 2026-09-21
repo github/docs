@@ -90,7 +90,7 @@ To focus on a group of notifications in your inbox, you can create custom filter
 
 ## Notification retention policy
 
-Notifications that are not marked as **Saved** are kept for 5 months. Notifications marked as **Saved** are kept indefinitely. If your saved notification is older than 5 months and you unsave it, the notification will disappear from your inbox within a day.
+Notifications that are not marked as **Saved** are kept for 3 months. Notifications marked as **Saved** are kept indefinitely. If your saved notification is older than 3 months and you unsave it, the notification will disappear from your inbox within a day.
 
 ## Feedback and support
 
