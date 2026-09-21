@@ -67,7 +67,7 @@ Unlike completions or chat, {% data variables.copilot.copilot_agent_short %} doe
 
 Example output for agent-related LoC activity:
 
-```json
+```jsonc
 "totals_by_language_feature": [
   {
     "language": "unknown",

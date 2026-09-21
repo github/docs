@@ -841,7 +841,7 @@ Use `disableAllHooks` when you want to keep your hook configuration on disk but 
 
 Set `disableAllHooks` to `true` at the top level to skip every hook in the file without deleting it.
 
-```json
+```jsonc
 {
   "version": 1,
   "disableAllHooks": false,

@@ -392,7 +392,7 @@ This provides a web UI to:
 
 Check your server supports the protocol version the SDK uses:
 
-```json
+```jsonc
 // In initialize response, check protocolVersion
 {"result":{"protocolVersion":"2024-11-05",...}}
 ```
