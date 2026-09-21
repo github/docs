@@ -1,1 +1,68 @@
-{}
+{
+  "objects": [
+    {
+      "name": "CodeQualityParameters",
+      "id": "codequalityparameters",
+      "href": "/graphql/reference/code-scanning#object-codequalityparameters",
+      "description": "<p>Choose which severity levels of code quality results should block pull request\nmerges. When configured, a code quality analysis must be done on the pull\nrequest before the changes can be merged.</p>",
+      "isDeprecated": false,
+      "fields": [
+        {
+          "name": "severity",
+          "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+          "type": "CodeQualitySeverity!",
+          "id": "codequalityseverity",
+          "href": "/graphql/reference/code-scanning#enum-codequalityseverity"
+        }
+      ],
+      "category": "code-scanning"
+    }
+  ],
+  "enums": [
+    {
+      "name": "CodeQualitySeverity",
+      "id": "codequalityseverity",
+      "href": "/graphql/reference/code-scanning#enum-codequalityseverity",
+      "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>All.</p>"
+        },
+        {
+          "name": "ERRORS",
+          "description": "<p>Errors.</p>"
+        },
+        {
+          "name": "NOTES",
+          "description": "<p>Notes and higher.</p>"
+        },
+        {
+          "name": "WARNINGS",
+          "description": "<p>Warnings and higher.</p>"
+        }
+      ],
+      "category": "code-scanning"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "CodeQualityParametersInput",
+      "id": "codequalityparametersinput",
+      "href": "/graphql/reference/code-scanning#input-object-codequalityparametersinput",
+      "description": "<p>Choose which severity levels of code quality results should block pull request\nmerges. When configured, a code quality analysis must be done on the pull\nrequest before the changes can be merged.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "severity",
+          "description": "<p>The lowest severity level at which code quality reviews need to be resolved before commits can be merged.</p>",
+          "type": "CodeQualitySeverity!",
+          "id": "codequalityseverity",
+          "href": "/graphql/reference/code-scanning#enum-codequalityseverity"
+        }
+      ],
+      "category": "code-scanning"
+    }
+  ]
+}

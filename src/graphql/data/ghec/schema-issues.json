@@ -3017,15 +3017,6 @@
           "href": "/graphql/reference/users#interface-actor"
         },
         {
-          "name": "eventRationales",
-          "description": "<p>A list of rationales associated with this issue's timeline events. Always\nreturns an empty list; use the <code>intent</code> field on individual timeline events instead.</p>",
-          "type": "[IssueEventRationale!]!",
-          "id": "issueeventrationale",
-          "href": "/graphql/reference/issues#object-issueeventrationale",
-          "isDeprecated": true,
-          "deprecationReason": "<p>Use the <code>intent</code> field on individual timeline events instead. This field is being removed and now always returns an empty list.</p>"
-        },
-        {
           "name": "fullDatabaseId",
           "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
           "type": "BigInt",
@@ -4917,44 +4908,6 @@
       "category": "issues"
     },
     {
-      "name": "IssueEventRationale",
-      "id": "issueeventrationale",
-      "href": "/graphql/reference/issues#object-issueeventrationale",
-      "description": "<p>Rationale text associated with an issue timeline event. Deprecated: the fields\nthat return this type are being removed and now return null/empty. Use the\n<code>intent</code> field on individual timeline events instead.</p>",
-      "isDeprecated": false,
-      "fields": [
-        {
-          "name": "actor",
-          "description": "<p>The agent or user who produced the rationale.</p>",
-          "type": "Actor",
-          "id": "actor",
-          "href": "/graphql/reference/users#interface-actor"
-        },
-        {
-          "name": "createdAt",
-          "description": "<p>Identifies the date and time when the rationale was created.</p>",
-          "type": "DateTime!",
-          "id": "datetime",
-          "href": "/graphql/reference/other#scalar-datetime"
-        },
-        {
-          "name": "issueEvent",
-          "description": "<p>The issue timeline event this rationale is associated with.</p>",
-          "type": "IssueEventWithRationale",
-          "id": "issueeventwithrationale",
-          "href": "/graphql/reference/issues#union-issueeventwithrationale"
-        },
-        {
-          "name": "rationale",
-          "description": "<p>The reasoning or explanation text for the event.</p>",
-          "type": "String!",
-          "id": "string",
-          "href": "/graphql/reference/other#scalar-string"
-        }
-      ],
-      "category": "issues"
-    },
-    {
       "name": "IssueFieldAddedEvent",
       "id": "issuefieldaddedevent",
       "href": "/graphql/reference/issues#object-issuefieldaddedevent",
@@ -5016,15 +4969,6 @@
           "type": "[IssueFieldTimelineOption!]",
           "id": "issuefieldtimelineoption",
           "href": "/graphql/reference/issues#object-issuefieldtimelineoption"
-        },
-        {
-          "name": "rationale",
-          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
-          "type": "IssueEventRationale",
-          "id": "issueeventrationale",
-          "href": "/graphql/reference/issues#object-issueeventrationale",
-          "isDeprecated": true,
-          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         },
         {
           "name": "value",
@@ -5126,15 +5070,6 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/other#scalar-string"
-        },
-        {
-          "name": "rationale",
-          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
-          "type": "IssueEventRationale",
-          "id": "issueeventrationale",
-          "href": "/graphql/reference/issues#object-issueeventrationale",
-          "isDeprecated": true,
-          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -5550,15 +5485,6 @@
           "type": "[IssueFieldTimelineOption!]",
           "id": "issuefieldtimelineoption",
           "href": "/graphql/reference/issues#object-issuefieldtimelineoption"
-        },
-        {
-          "name": "rationale",
-          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
-          "type": "IssueEventRationale",
-          "id": "issueeventrationale",
-          "href": "/graphql/reference/issues#object-issueeventrationale",
-          "isDeprecated": true,
-          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -6534,15 +6460,6 @@
           "type": "IssueType",
           "id": "issuetype",
           "href": "/graphql/reference/issues#object-issuetype"
-        },
-        {
-          "name": "rationale",
-          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
-          "type": "IssueEventRationale",
-          "id": "issueeventrationale",
-          "href": "/graphql/reference/issues#object-issueeventrationale",
-          "isDeprecated": true,
-          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -6602,15 +6519,6 @@
           "type": "IssueType",
           "id": "issuetype",
           "href": "/graphql/reference/issues#object-issuetype"
-        },
-        {
-          "name": "rationale",
-          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
-          "type": "IssueEventRationale",
-          "id": "issueeventrationale",
-          "href": "/graphql/reference/issues#object-issueeventrationale",
-          "isDeprecated": true,
-          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -6723,15 +6631,6 @@
           "type": "IssueType",
           "id": "issuetype",
           "href": "/graphql/reference/issues#object-issuetype"
-        },
-        {
-          "name": "rationale",
-          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
-          "type": "IssueEventRationale",
-          "id": "issueeventrationale",
-          "href": "/graphql/reference/issues#object-issueeventrationale",
-          "isDeprecated": true,
-          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -7147,15 +7046,6 @@
           "type": "Labelable!",
           "id": "labelable",
           "href": "/graphql/reference/issues#interface-labelable"
-        },
-        {
-          "name": "rationale",
-          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
-          "type": "IssueEventRationale",
-          "id": "issueeventrationale",
-          "href": "/graphql/reference/issues#object-issueeventrationale",
-          "isDeprecated": true,
-          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -7953,6 +7843,13 @@
       "href": "/graphql/reference/issues#object-pendingassigneesuggestion",
       "description": "<p>A pending suggestion to assign a user to an issue.</p>",
       "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
       "fields": [
         {
           "name": "actor",
@@ -7974,6 +7871,13 @@
           "type": "DateTime!",
           "id": "datetime",
           "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PendingAssigneeSuggestion object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
         },
         {
           "name": "rationale",
@@ -7998,6 +7902,13 @@
       "href": "/graphql/reference/issues#object-pendingclosesuggestion",
       "description": "<p>A pending suggestion to close an issue.</p>",
       "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
       "fields": [
         {
           "name": "actor",
@@ -8019,6 +7930,13 @@
           "type": "IssueOrPullRequest",
           "id": "issueorpullrequest",
           "href": "/graphql/reference/issues#union-issueorpullrequest"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PendingCloseSuggestion object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
         },
         {
           "name": "rationale",
@@ -8050,6 +7968,13 @@
       "href": "/graphql/reference/issues#object-pendingfieldsuggestion",
       "description": "<p>A pending suggestion to set an issue field's value.</p>",
       "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
       "fields": [
         {
           "name": "actor",
@@ -8064,6 +7989,13 @@
           "type": "DateTime!",
           "id": "datetime",
           "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PendingFieldSuggestion object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
         },
         {
           "name": "issueField",
@@ -8102,6 +8034,13 @@
       "href": "/graphql/reference/issues#object-pendinglabelsuggestion",
       "description": "<p>A pending suggestion to add a label to an issue.</p>",
       "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
       "fields": [
         {
           "name": "actor",
@@ -8116,6 +8055,13 @@
           "type": "DateTime!",
           "id": "datetime",
           "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PendingLabelSuggestion object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
         },
         {
           "name": "label",
@@ -8147,6 +8093,13 @@
       "href": "/graphql/reference/issues#object-pendingtypesuggestion",
       "description": "<p>A pending suggestion to change an issue's type.</p>",
       "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
       "fields": [
         {
           "name": "actor",
@@ -8161,6 +8114,13 @@
           "type": "DateTime!",
           "id": "datetime",
           "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PendingTypeSuggestion object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
         },
         {
           "name": "issueType",
@@ -8934,15 +8894,6 @@
           "type": "Labelable!",
           "id": "labelable",
           "href": "/graphql/reference/issues#interface-labelable"
-        },
-        {
-          "name": "rationale",
-          "description": "<p>The rationale associated with this event. Always returns null; use <code>intent</code> instead.</p>",
-          "type": "IssueEventRationale",
-          "id": "issueeventrationale",
-          "href": "/graphql/reference/issues#object-issueeventrationale",
-          "isDeprecated": true,
-          "deprecationReason": "<p>Use <code>intent</code> instead. This field is being removed and now always returns null.</p>"
         }
       ],
       "category": "issues"
@@ -10612,61 +10563,6 @@
           "name": "PullRequest",
           "id": "pullrequest",
           "href": "/graphql/reference/pulls#object-pullrequest"
-        }
-      ],
-      "category": "issues"
-    },
-    {
-      "name": "IssueEventWithRationale",
-      "id": "issueeventwithrationale",
-      "href": "/graphql/reference/issues#union-issueeventwithrationale",
-      "description": "<p>An issue timeline event that may have an associated rationale. Deprecated: this\nunion is only reachable via the deprecated <code>IssueEventRationale</code> type, which is\nbeing removed. Use the <code>intent</code> field on individual timeline events instead.</p>",
-      "isDeprecated": false,
-      "possibleTypes": [
-        {
-          "name": "ClosedEvent",
-          "id": "closedevent",
-          "href": "/graphql/reference/issues#object-closedevent"
-        },
-        {
-          "name": "IssueFieldAddedEvent",
-          "id": "issuefieldaddedevent",
-          "href": "/graphql/reference/issues#object-issuefieldaddedevent"
-        },
-        {
-          "name": "IssueFieldChangedEvent",
-          "id": "issuefieldchangedevent",
-          "href": "/graphql/reference/issues#object-issuefieldchangedevent"
-        },
-        {
-          "name": "IssueFieldRemovedEvent",
-          "id": "issuefieldremovedevent",
-          "href": "/graphql/reference/issues#object-issuefieldremovedevent"
-        },
-        {
-          "name": "IssueTypeAddedEvent",
-          "id": "issuetypeaddedevent",
-          "href": "/graphql/reference/issues#object-issuetypeaddedevent"
-        },
-        {
-          "name": "IssueTypeChangedEvent",
-          "id": "issuetypechangedevent",
-          "href": "/graphql/reference/issues#object-issuetypechangedevent"
-        },
-        {
-          "name": "IssueTypeRemovedEvent",
-          "id": "issuetyperemovedevent",
-          "href": "/graphql/reference/issues#object-issuetyperemovedevent"
-        },
-        {
-          "name": "LabeledEvent",
-          "id": "labeledevent",
-          "href": "/graphql/reference/issues#object-labeledevent"
-        },
-        {
-          "name": "UnlabeledEvent",
-          "id": "unlabeledevent",
-          "href": "/graphql/reference/issues#object-unlabeledevent"
         }
       ],
       "category": "issues"
