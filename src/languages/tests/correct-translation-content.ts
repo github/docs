@@ -3431,4 +3431,38 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(fix(fixed, 'fr')).toBe(fixed)
     })
   })
+
+  // ─── filtering-and-searching-issues-and-pull-requests.md per-file fix ──
+  // The translator dropped the `{% endif %}` closing the
+  // `{% ifversion ghes < 3.18 %}` that wraps the "qualifiers within
+  // parentheses" sentence, leaving the outer `{% webui %}...{% endwebui %}`
+  // block unterminated (`tag "endwebui" not found`).
+  describe('zh: filtering-and-searching-issues-and-pull-requests.md per-file fix', () => {
+    test('restores the endif dropped before endwebui', () => {
+      const broken =
+        '你可以使用圆括号嵌套筛选器，最多可达五层深度。{% ifversion ghes < 3.18 %} 目前无法在括号中包含`repo`、`org`或`user`限定符。\n\n{% endwebui %}'
+      const fixed =
+        '你可以使用圆括号嵌套筛选器，最多可达五层深度。{% ifversion ghes < 3.18 %} 目前无法在括号中包含`repo`、`org`或`user`限定符。{% endif %}\n\n{% endwebui %}'
+      expect(fix(broken, 'zh')).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(fix(fixed, 'zh')).toBe(fixed)
+    })
+  })
+
+  // ─── pull-request-alert-metrics.md per-file fix ─────────────────────
+  // The translator moved `{% endif %}` right after the
+  // `{% data variables.copilot.copilot_autofix_short %}` mention, ahead of
+  // the `{% ifversion code-scanning-autofix %}` opener that should wrap it
+  // (`tag "endif" not found`).
+  describe('ko: pull-request-alert-metrics.md per-file fix', () => {
+    test('moves the ifversion opener back before its content', () => {
+      const broken =
+        '{% data variables.copilot.copilot_autofix_short %} 제안{% endif %} 사용 여부에 따라 수정된 경고 수 {% ifversion code-scanning-autofix %}, 해결되지 않은 상태로 병합된 수'
+      const fixed =
+        '{% ifversion code-scanning-autofix %} {% data variables.copilot.copilot_autofix_short %} 제안 사용 여부에 따라{% endif %} 수정된 경고 수, 해결되지 않은 상태로 병합된 수'
+      expect(fix(broken, 'ko')).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(fix(fixed, 'ko')).toBe(fixed)
+    })
+  })
 })
