@@ -32,6 +32,7 @@ jobs:
         env:
           # need to use a token from a user with access to github/github for this step
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          NODE_OPTIONS: '--max-old-space-size=8192'
         run: npm run sync-graphql
       - name: Create pull request
         id: create-pull-request
