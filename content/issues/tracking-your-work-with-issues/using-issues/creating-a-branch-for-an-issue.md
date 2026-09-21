@@ -18,7 +18,7 @@ category:
 
 ## About branches connected to an issue
 
-Branches connected to an issue are shown under the "Development" section in the sidebar of an issue. When you create a pull request for one of these branches, it is automatically linked to the issue. The connection with that branch is removed and only the pull request is shown in the "Development" section. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
+Branches connected to an issue are shown under the "Development" section in the sidebar of an issue. When you create a pull request for one of these branches, it is automatically linked to the issue if the pull request targets the default branch of the repository. The connection with that branch is removed and only the pull request is shown in the "Development" section. If the pull request targets a different branch, it is not automatically linked and the branch remains in the "Development" section. You can link the pull request manually. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
 
 ## Creating a branch for an issue
 
