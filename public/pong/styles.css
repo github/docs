@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #10131f;
+  color: #f5f7ff;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at top, #202943 0, #10131f 58%);
+}
+
+.game-shell {
+  width: min(960px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 36px;
+}
+
+.game-header,
+.scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #7ee7cc;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+}
+
+.reset-button {
+  border: 1px solid #495575;
+  border-radius: 999px;
+  padding: 10px 18px;
+  color: #f5f7ff;
+  background: #202943;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.reset-button:hover,
+.reset-button:focus-visible {
+  background: #2e3a60;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.scoreboard {
+  justify-content: center;
+  gap: 24px;
+  margin: 38px 0 18px;
+}
+
+.score-card {
+  display: grid;
+  gap: 2px;
+  min-width: 110px;
+}
+
+.computer-score-card {
+  text-align: right;
+}
+
+.score-label {
+  color: #aab4d0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.score-card strong {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.score-divider {
+  color: #586584;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.court-wrap {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #3b4664;
+  border-radius: 18px;
+  padding: 10px;
+  background: #090c16;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: #101729;
+}
+
+.game-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 9px 15px;
+  border: 1px solid rgba(126, 231, 204, 0.35);
+  border-radius: 999px;
+  color: #d7fff4;
+  background: rgba(16, 19, 31, 0.78);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+  transition: opacity 180ms ease;
+}
+
+.game-message.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.instructions {
+  margin: 18px 0 0;
+  color: #aab4d0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+kbd {
+  display: inline-block;
+  min-width: 25px;
+  margin: 0 2px;
+  padding: 2px 6px;
+  border: 1px solid #495575;
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  color: #f5f7ff;
+  background: #202943;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .game-shell {
+    padding-top: 28px;
+  }
+
+  .game-header {
+    align-items: flex-start;
+  }
+
+  .reset-button {
+    padding: 8px 13px;
+    font-size: 0.85rem;
+  }
+
+  .instructions {
+    line-height: 2;
+  }
+}

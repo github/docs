@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="game-header">
+        <div>
+          <p class="eyebrow">ARCADE CLASSIC</p>
+          <h1>Pong</h1>
+        </div>
+        <button id="reset-button" class="reset-button" type="button">New game</button>
+      </header>
+
+      <section class="scoreboard" aria-label="Scoreboard">
+        <div class="score-card player-score-card">
+          <span class="score-label">You</span>
+          <strong id="player-score">0</strong>
+        </div>
+        <span class="score-divider">:</span>
+        <div class="score-card computer-score-card">
+          <span class="score-label">Computer</span>
+          <strong id="computer-score">0</strong>
+        </div>
+      </section>
+
+      <section class="court-wrap" aria-label="Pong game">
+        <canvas id="game-canvas" width="900" height="520"></canvas>
+        <div id="game-message" class="game-message" aria-live="polite">Press an arrow key to serve</div>
+      </section>
+
+      <p class="instructions">
+        Move your paddle with <kbd>↑</kbd> <kbd>↓</kbd> or <kbd>W</kbd> <kbd>S</kbd>.
+        Press <kbd>←</kbd> <kbd>→</kbd> to serve again after a point.
+      </p>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
