@@ -63,25 +63,22 @@ RUN --mount=type=secret,id=DOCS_BOT_PAT_BASE,mode=0444 \
   . ./build-scripts/fetch-repos.sh
 
 # ------------------------------------------------
-# PROD_DEPS STAGE: Install production dependencies
+# ALL_DEPS STAGE: Install all dependencies
 # ------------------------------------------------
-FROM base AS prod_deps
+FROM base AS all_deps
 USER node:node
 WORKDIR $APP_HOME
 
-# Copy what is needed to run npm ci
 COPY --chown=node:node package.json package-lock.json ./
-
-# Install only production dependencies (skip scripts to avoid husky)
-RUN npm ci --omit=dev --ignore-scripts --registry https://registry.npmjs.org/
-
-# ------------------------------------------------------------
-# ALL_DEPS STAGE: Install all dependencies on top of prod deps
-# ------------------------------------------------------------
-FROM prod_deps AS all_deps
-
-# Install dev dependencies on top of production ones
+COPY --chown=node:node patches patches/
 RUN npm ci --registry https://registry.npmjs.org/
+
+# ------------------------------------------------------------
+# PROD_DEPS STAGE: Strip dev dependencies back out
+# ------------------------------------------------------------
+FROM all_deps AS prod_deps
+
+RUN npm prune --omit=dev --ignore-scripts
 
 # ----------------------------------
 # BUILD STAGE: Build the application
