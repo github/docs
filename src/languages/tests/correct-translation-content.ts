@@ -3465,4 +3465,63 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(fix(fixed, 'ko')).toBe(fixed)
     })
   })
+
+  // ─── dependabot-custom-auto-triage-rules.md per-file fix ────────────
+  // The translator duplicated the opening `{%- ifversion fpt %}` block in
+  // place of the `{%- elsif ghec %}` that should follow it, leaving the
+  // tag never closed and the `ghes` branch unreachable.
+  describe('es: dependabot-custom-auto-triage-rules.md per-file fix', () => {
+    const context = {
+      relativePath: 'data/reusables/gated-features/dependabot-custom-auto-triage-rules.md',
+      code: 'es',
+    }
+
+    test('restores the duplicated ifversion opener to elsif ghec', () => {
+      const broken =
+        '{%- ifversion fpt %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles en repositorios públicos y en cualquier repositorio propiedad de una organización en {% data variables.product.prodname_team %} con [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) habilitado.\n\n{%- ifversion fpt %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles en repositorios públicos y en cualquier repositorio propiedad de una organización en {% data variables.product.prodname_team %} o {% data variables.product.prodname_enterprise %} con [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) habilitado.\n\n{%- elsif ghes %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles para los repositorios propiedad de la organización con [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) habilitado.\n\n{% endif %}'
+      const fixed =
+        '{%- ifversion fpt %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles en repositorios públicos y en cualquier repositorio propiedad de una organización en {% data variables.product.prodname_team %} con [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) habilitado.\n\n{%- elsif ghec %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles en repositorios públicos y en cualquier repositorio propiedad de una organización en {% data variables.product.prodname_team %} o {% data variables.product.prodname_enterprise %} con [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) habilitado.\n\n{%- elsif ghes %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles para los repositorios propiedad de la organización con [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) habilitado.\n\n{% endif %}'
+      expect(correctTranslatedContentStrings(broken, '', context)).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(correctTranslatedContentStrings(fixed, '', context)).toBe(fixed)
+    })
+
+    test('does not touch other languages or other files', () => {
+      const broken =
+        '{%- ifversion fpt %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles en repositorios públicos y en cualquier repositorio propiedad de una organización en {% data variables.product.prodname_team %} con [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) habilitado.\n\n{%- ifversion fpt %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles en repositorios públicos y en cualquier repositorio propiedad de una organización en {% data variables.product.prodname_team %} o '
+      expect(correctTranslatedContentStrings(broken, '', { ...context, code: 'pt' })).toBe(broken)
+      expect(
+        correctTranslatedContentStrings(broken, '', { ...context, relativePath: 'other.md' }),
+      ).toBe(broken)
+    })
+  })
+
+  // ─── service-container-host-runner.md per-file fix ──────────────────
+  // The translator dropped the `{%- endif %}` that closes the
+  // `{% ifversion not ghes %}` conditional.
+  describe('es: service-container-host-runner.md per-file fix', () => {
+    const context = {
+      relativePath: 'data/reusables/actions/service-container-host-runner.md',
+      code: 'es',
+    }
+
+    test('restores the dropped endif before the runner mention', () => {
+      const broken =
+        'En el ejemplo se usa el ejecutor hospedado en {% data variables.product.prodname_dotcom %} `ubuntu-latest` {% ifversion not ghes %} como host de Docker.'
+      const fixed =
+        'En el ejemplo se usa el ejecutor hospedado en {% data variables.product.prodname_dotcom %} `ubuntu-latest` {% ifversion not ghes %} {%- endif %} como host de Docker.'
+      expect(correctTranslatedContentStrings(broken, '', context)).toBe(fixed)
+      // idempotent: the fix only matches the broken form
+      expect(correctTranslatedContentStrings(fixed, '', context)).toBe(fixed)
+    })
+
+    test('does not touch other languages or other files', () => {
+      const broken =
+        'En el ejemplo se usa el ejecutor hospedado en {% data variables.product.prodname_dotcom %} `ubuntu-latest` {% ifversion not ghes %} como host de Docker.'
+      expect(correctTranslatedContentStrings(broken, '', { ...context, code: 'pt' })).toBe(broken)
+      expect(
+        correctTranslatedContentStrings(broken, '', { ...context, relativePath: 'other.md' }),
+      ).toBe(broken)
+    })
+  })
 })

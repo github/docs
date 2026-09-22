@@ -28,6 +28,8 @@ Used for:
 * {% data variables.copilot.copilot_gpt_56_sol %}
 * {% data variables.copilot.copilot_gpt_56_terra %}
 * {% data variables.copilot.copilot_gpt_6_astra %}
+* {% data variables.copilot.copilot_gpt_6_luna %}
+* {% data variables.copilot.copilot_gpt_6_sol %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
@@ -48,6 +50,7 @@ Used for:
 * {% data variables.copilot.copilot_claude_opus_48 %}
 * {% data variables.copilot.copilot_claude_opus_48_fast %}
 * {% data variables.copilot.copilot_claude_opus_5 %}
+* {% data variables.copilot.copilot_claude_opus_55 %}
 * {% data variables.copilot.copilot_claude_fable_5 %}
 * {% data variables.copilot.copilot_claude_fable_51 %}
 

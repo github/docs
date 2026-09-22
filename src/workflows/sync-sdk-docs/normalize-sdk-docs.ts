@@ -30,7 +30,7 @@ import path from 'node:path'
 import { parseArgs } from 'node:util'
 import matter from '@gr2m/gray-matter'
 
-import { stripHiddenBlocks } from './strip-hidden-blocks'
+import { stripHiddenBlocks, nextFenceState, type OpenFence } from './strip-hidden-blocks'
 
 // Parse CLI arguments
 const { values: args } = parseArgs({
@@ -819,18 +819,19 @@ function convertDetailsToCodetabs(filePath: string): void {
   const lines = raw.split('\n')
   const result: string[] = []
   let changed = false
-  let inCodeBlock = false
+  let openFence: OpenFence | null = null
   let i = 0
 
   while (i < lines.length) {
     const line = lines[i]
 
-    // Track code fences to avoid matching <details> inside code blocks
-    if (/^\s*```/.test(line)) {
-      inCodeBlock = !inCodeBlock
-    }
+    // A bare toggle counts any ``` line as a delimiter, so a fenced content
+    // line such as ```<details> flips the state mid-block. That used to
+    // self-correct only because a stalled cursor re-toggled the same line.
+    // Now that every line is visited once, track fences the CommonMark way.
+    openFence = nextFenceState(line, openFence)
 
-    if (inCodeBlock || !/<details[\s>]/.test(line)) {
+    if (openFence || !/<details[\s>]/.test(line)) {
       result.push(line)
       i++
       continue
@@ -862,6 +863,14 @@ function convertDetailsToCodetabs(filePath: string): void {
 
     // Only convert groups of 2+ blocks
     if (group.length < 2) {
+      // When the first block fails to parse, `i` never moved — which happens
+      // for an inline `<details>` mention in prose, since fence tracking does
+      // not cover code spans. Step over the line so the loop can't stall.
+      if (i === groupStartLine) {
+        result.push(lines[i])
+        i++
+        continue
+      }
       // Emit original lines unchanged
       for (let j = groupStartLine; j < i; j++) {
         result.push(lines[j])

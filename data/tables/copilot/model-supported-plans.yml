@@ -47,6 +47,13 @@
   business: true
   enterprise: true
 
+- name: Claude Opus 5.5
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Claude Fable 5
   pro: false
   pro_plus: true
@@ -167,6 +174,20 @@
   enterprise: true
 
 - name: GPT-6 Astra
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-6 Luna
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-6 Sol
   pro: false
   pro_plus: true
   max: true

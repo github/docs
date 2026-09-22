@@ -1,5 +1,6 @@
 * {% data variables.copilot.copilot_claude_opus_47 %}
 * {% data variables.copilot.copilot_claude_opus_5 %}
+* {% data variables.copilot.copilot_claude_opus_55 %}
 * {% data variables.copilot.copilot_claude_haiku_45 %}
 * {% data variables.copilot.copilot_gemini_35_flash %}
 * {% data variables.copilot.copilot_gemini_36_flash %}
@@ -10,6 +11,8 @@
 * {% data variables.copilot.copilot_gpt_56_sol %}
 * {% data variables.copilot.copilot_gpt_56_terra %}
 * {% data variables.copilot.copilot_gpt_6_astra %}
+* {% data variables.copilot.copilot_gpt_6_luna %}
+* {% data variables.copilot.copilot_gpt_6_sol %}
 * {% data variables.copilot.copilot_grok_45 %}
 * {% data variables.copilot.copilot_grok_46 %}
 * {% data variables.copilot.copilot_grok_47 %}

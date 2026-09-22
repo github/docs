@@ -55,6 +55,14 @@
   provider: 'OpenAI'
   release_status: 'GA'
 
+- name: 'GPT-6 Luna'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
+- name: 'GPT-6 Sol'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
 # Anthropic models
 
 - name: 'Claude Fable 5'
@@ -82,6 +90,10 @@
   release_status: 'GA'
 
 - name: 'Claude Opus 5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
+- name: 'Claude Opus 5.5'
   provider: 'Anthropic'
   release_status: 'GA'
 

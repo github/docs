@@ -59,6 +59,15 @@
   xcode: true
   jetbrains: true
 
+- name: Claude Opus 5.5
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Claude Fable 5
   dotcom: true
   cli: true
@@ -222,6 +231,24 @@
   jetbrains: false
 
 - name: GPT-6 Astra
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: GPT-6 Luna
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: GPT-6 Sol
   dotcom: true
   cli: true
   vscode: true
