@@ -180,6 +180,20 @@
   business: true
   enterprise: true
 
+- name: GPT-6 Luna
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-6 Sol
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Grok 4.5
   pro: true
   pro_plus: true

@@ -53,6 +53,16 @@
   excels_at: Long-horizon coding tasks with continuous planning, batched diagnosis and verification, and independent result confirmation
   further_reading: '[GPT-6 Astra model card](https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf)'
 
+- name: GPT-6 Luna
+  task_area: Fast help with simple or repetitive tasks
+  excels_at: Quick, cost-efficient responses for smaller, faster tasks
+  further_reading: 'Coming soon'
+
+- name: GPT-6 Sol
+  task_area: Interactive and agentic coding
+  excels_at: All-round development tasks that benefit from careful, multistep validation
+  further_reading: 'Coming soon'
+
 # Anthropic
 - name: Claude Fable 5
   task_area: Long-horizon, autonomous coding and knowledge-work
@@ -145,7 +155,7 @@
 - name: Grok 4.7
   task_area: Agentic coding and complex, multistep workflows
   excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: 'Coming soon'
+  further_reading: '[Grok 4.7 model card](https://media.x.ai/v1/website/4p7card-5eccc980.pdf)'
 
 # Other providers (alphabetized by model name)
 - name: Qwen2.5

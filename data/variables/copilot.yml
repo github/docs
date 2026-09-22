@@ -234,6 +234,8 @@ copilot_gpt_56_luna: 'GPT-5.6 Luna'
 copilot_gpt_56_sol: 'GPT-5.6 Sol'
 copilot_gpt_56_terra: 'GPT-5.6 Terra'
 copilot_gpt_6_astra: 'GPT-6 Astra'
+copilot_gpt_6_luna: 'GPT-6 Luna'
+copilot_gpt_6_sol: 'GPT-6 Sol'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
