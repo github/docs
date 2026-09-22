@@ -65,7 +65,8 @@ To use the CLI programmatically, include the `-p` or `--prompt` command-line opt
 
 ## Running {% data variables.copilot.copilot_cli_short %} commands in a sandbox
 
-{% data reusables.cli.public-preview-sandbox %}
+> [!NOTE]
+> {% data reusables.cli.public-preview-sandbox %}
 
 To prevent {% data variables.product.prodname_copilot_short %} from modifying files you don't want it to touch, you can force agents to run commands within a local sandboxed environment. Alternatively, you can run an entire CLI session in an isolated environment in the cloud. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
