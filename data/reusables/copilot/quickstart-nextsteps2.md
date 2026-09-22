@@ -1,3 +1,0 @@
-* **Use {% data variables.product.prodname_copilot_short %} on your mobile device** - See [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-mobile).
-* **Use {% data variables.product.prodname_copilot_short %} on the command line** - See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
-* **Configure {% data variables.product.prodname_copilot_short %} in your editor** - You can enable or disable {% data variables.product.prodname_copilot %} from within your editor, and create your own preferred keyboard shortcuts for {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide).
