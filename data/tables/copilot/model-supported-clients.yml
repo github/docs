@@ -59,6 +59,15 @@
   xcode: true
   jetbrains: true
 
+- name: Claude Opus 5.5
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Claude Fable 5
   dotcom: true
   cli: true

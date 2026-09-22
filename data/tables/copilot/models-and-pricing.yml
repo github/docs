@@ -251,6 +251,15 @@
   output: $25.00
   cache_write: $6.25
 
+- model: Claude Opus 5.5
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $4.00
+  cached_input: $0.20
+  output: $20.00
+  cache_write: $5.00
+
 - model: Claude Sonnet 5
   provider: anthropic
   release_status: GA

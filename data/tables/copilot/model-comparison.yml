@@ -89,6 +89,11 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Opus 5 model card](https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf)'
 
+- name: Claude Opus 5.5
+  task_area: Long-running agentic coding and knowledge work
+  excels_at: Efficient multistep tasks, error recovery, and collaboration
+  further_reading: '[Claude Opus 5.5 model card](https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf)'
+
 - name: Claude Sonnet 4.6
   task_area: General-purpose coding and agent tasks
   excels_at: Complex problem-solving challenges, sophisticated reasoning
