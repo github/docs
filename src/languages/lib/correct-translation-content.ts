@@ -159,6 +159,48 @@ export function correctTranslatedContentStrings(
     )
   }
 
+  // data/reusables/gated-features/dependabot-custom-auto-triage-rules.md (es):
+  // the translator duplicated the opening `{%- ifversion fpt %}` block in
+  // place of the `{%- elsif ghec %}` that should follow it, so the tag is
+  // never closed (`tag {%- ifversion fpt %} not closed`) and the `ghes`
+  // branch below is unreachable. English source has three branches: `fpt`,
+  // `elsif ghec`, `elsif ghes`. Restore the second branch's opener from
+  // `ifversion fpt` to `elsif ghec` — this string is unique to this file.
+  // Scoped path check supports both `dottedPath` (production reusable
+  // rendering via get-data.ts) and `relativePath` (count-translation-
+  // corruptions.ts validation path).
+  if (
+    context.code === 'es' &&
+    (context.dottedPath === 'reusables.gated-features.dependabot-custom-auto-triage-rules' ||
+      context.relativePath?.endsWith(
+        'data/reusables/gated-features/dependabot-custom-auto-triage-rules.md',
+      ))
+  ) {
+    content = content.replace(
+      /(están disponibles en repositorios públicos y en cualquier repositorio propiedad de una organización en \{% data variables\.product\.prodname_team %\} con \[\{% data variables\.product\.prodname_GH_code_security %\}\]\(\/get-started\/learning-about-github\/about-github-advanced-security\) habilitado\.\n\n)\{%- ifversion fpt %\}( \{% data variables\.dependabot\.custom_rules_caps %\} para \{% data variables\.product\.prodname_dependabot_alerts %\} están disponibles en repositorios públicos y en cualquier repositorio propiedad de una organización en \{% data variables\.product\.prodname_team %\} o )/,
+      '$1{%- elsif ghec %}$2',
+    )
+  }
+
+  // data/reusables/actions/service-container-host-runner.md (es): the
+  // translator dropped the `{%- endif %}` that closes the
+  // `{% ifversion not ghes %}` conditional, leaving the tag never closed.
+  // English: `...the {% ifversion not ghes %} {% data
+  // variables.product.prodname_dotcom %}-hosted {%- endif %} runner...`.
+  // Every other translated language keeps the closing tag; only es dropped
+  // it. Restore it right before " runner" / "ejecutor", matching the
+  // English tag placement.
+  if (
+    context.code === 'es' &&
+    (context.dottedPath === 'reusables.actions.service-container-host-runner' ||
+      context.relativePath?.endsWith('data/reusables/actions/service-container-host-runner.md'))
+  ) {
+    content = content.replace(
+      /(En el ejemplo se usa el ejecutor hospedado en \{% data variables\.product\.prodname_dotcom %\} `ubuntu-latest` \{% ifversion not ghes %\}) (como host de Docker\.)/,
+      '$1 {%- endif %} $2',
+    )
+  }
+
   // --- Per-language fixes (es, ja, pt, zh, ru, fr, ko, de) ---
 
   if (context.code === 'es') {
