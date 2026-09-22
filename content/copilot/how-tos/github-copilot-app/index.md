@@ -18,6 +18,7 @@ redirect_from:
 children:
   - /customize-github-copilot-app
   - /agent-sessions
+  - /configure-local-sandboxing
   - /working-with-canvas-extensions
   - /managing-issues-and-pull-requests
   - /using-automations

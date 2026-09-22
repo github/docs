@@ -13,7 +13,8 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-{% data reusables.cli.public-preview-local-sandbox %}
+> [!NOTE]
+> {% data reusables.cli.public-preview-local-sandbox %}
 
 {% data reusables.cli.sandbox-on-windows %}
 

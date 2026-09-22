@@ -15,7 +15,8 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-{% data reusables.cli.public-preview-sandbox %}
+> [!NOTE]
+> {% data reusables.cli.public-preview-sandbox %}
 
 ## Introduction
 
@@ -24,7 +25,9 @@ docsTeamMetrics:
 Sandboxing is available in both {% data variables.copilot.copilot_cli %} and the {% data variables.copilot.github_copilot_app %}, but the two surfaces expose it differently:
 
 * In {% data variables.copilot.copilot_cli_short %}, you control both local and cloud sandboxing with the commands and settings described in this article.
-* In the {% data variables.copilot.github_copilot_app %}, you choose cloud sandboxing when you start a new session, without running any commands. This feature is currently in {% data variables.release-phases.public_preview %} and subject to change. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#starting-a-session).
+* In the {% data variables.copilot.github_copilot_app %}, you can run a session in a cloud sandbox or use local sandboxing for local repository and working tree sessions. Project settings define the default for new local sessions, and you can change sandboxing for an active local session. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#using-cloud-and-local-sandboxes).
+
+Local sandbox settings are configured separately in {% data variables.copilot.copilot_cli_short %} and the {% data variables.copilot.github_copilot_app %}. Enabling or configuring local sandboxing in one surface does not change it in the other.
 
 With sandboxing, you can choose where {% data variables.product.prodname_copilot_short %} runs:
 
@@ -34,9 +37,11 @@ With sandboxing, you can choose where {% data variables.product.prodname_copilot
 ## Local sandboxing
 
 > [!NOTE]
-> Local sandboxing is currently an experimental feature. To use it, start {% data variables.copilot.copilot_cli_short %} with the `‑‑experimental` command line option, or enter `/experimental on` during a session.
+>
+> * In {% data variables.copilot.copilot_cli_short %}, local sandboxing is currently an experimental feature. To use it, start the CLI with the `‑‑experimental` command line option, or enter `/experimental on` during a session.
+> * In the {% data variables.copilot.github_copilot_app %}, local sandboxing is in {% data variables.release-phases.public_preview %} and subject to change.
 
-Local sandboxing lets {% data variables.product.prodname_copilot_short %} run in a sandboxed environment directly on your machine, with restricted access to your filesystem, network connectivity, and system capabilities. You configure local sandboxing in {% data variables.copilot.copilot_cli_short %}, using the commands and settings described in the following sections.
+Local sandboxing lets {% data variables.product.prodname_copilot_short %} run in a sandboxed environment directly on your machine, with restricted access to your filesystem, network connectivity, and system capabilities. You can configure local sandboxing in {% data variables.copilot.copilot_cli_short %} or the {% data variables.copilot.github_copilot_app %}.
 
 Local sandboxing is turned off by default. Until you enable it, the shell commands that {% data variables.product.prodname_copilot_short %} runs execute directly on your machine with the same access as your user account: they can read, write, and delete wherever you can, reach any network your machine can reach, and use your credentials without restriction. Enabling local sandboxing constrains this access to a policy that you control.
 
@@ -60,11 +65,15 @@ After you enable local sandboxing, the commands and tools that an agent runs on 
 
 The CLI's built-in file tools—first-party commands that are part of the CLI, rather than shell commands like `sed`—run in-process in the CLI. Because the CLI itself is not sandboxed, the operating-system sandbox never sees the file operations these tools perform and cannot constrain them. Instead, the built-in tools are coded to check the sandbox policy themselves and honor your configured settings on a best-effort basis.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
+For more information about enabling local sandboxing in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
+
+In the {% data variables.copilot.github_copilot_app %}, project settings define the local sandboxing default for new local repository and working tree sessions. You can also change sandboxing for an active local session without changing the project default. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/configure-local-sandboxing).
 
 ### Configuring local sandboxing
 
-You can use the default local sandboxing behavior, or you can modify what {% data variables.product.prodname_copilot_short %} can access. When you configure local sandboxing, you can control several dimensions of access:
+You can use the default local sandboxing behavior, or modify what {% data variables.product.prodname_copilot_short %} can access. The available controls depend on the surface you use.
+
+In {% data variables.copilot.copilot_cli_short %}, you can control several dimensions of access:
 
 * **Filesystem**: Grant read-only or read/write access to specific paths, or deny paths.
 * **Network**: Allow or block outbound internet access and local network access independently.
@@ -73,14 +82,26 @@ You can use the default local sandboxing behavior, or you can modify what {% dat
 * **Keychain (macOS)**: Choose whether the system keychain is reachable from inside the sandbox.
 * **Per-command exceptions**: Allow or prevent individual commands from running outside the sandbox when they need broader access.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
+For more information about configuring local sandbox settings in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings).
+
+In the {% data variables.copilot.github_copilot_app %}, project settings expose a subset of these controls:
+
+* **Filesystem**: Grant additional read-only or read/write access to specific paths, or deny paths.
+* **Network**: Allow or block outbound internet and local network access.
+* **Credentials**: Choose whether your Git and {% data variables.product.prodname_cli %} credentials are available inside the sandbox.
+
+The app can also ask you to approve an individual command to run outside the sandbox. You cannot configure whether bypass requests are allowed in the project settings. For more information about configuring the project policy and changing sandboxing for an active local session, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/configure-local-sandboxing).
 
 ### Cross-platform support
 
 Local sandboxing is available on macOS, on Linux, and on recent Windows 11 builds. Each operating system uses a different isolation backend, so the requirements are different:
 
 * **macOS** uses the Seatbelt backend. {% data variables.copilot.copilot_cli_short %} applies a process-scoped profile to each sandboxed command. Use macOS 15 (Sequoia) or later. {% data variables.copilot.copilot_cli_short %} does not block an older macOS, but the backend is not tested there.
-* **Linux** uses the bubblewrap backend. Install bubblewrap 0.5.0 or later, and make sure `bwrap` is on your `PATH`. If `/sandbox` reports that your `bwrap` is too old, upgrade the package.
+* **Linux** uses the bubblewrap backend. Install bubblewrap 0.5.0 or later, and make sure `bwrap` is on your `PATH`. If `/sandbox` reports that your `bwrap` is too old, upgrade the package. When the sandbox policy permits outbound traffic, you must also have:
+  * `slirp4netns` on your `PATH`.
+  * `unshare` and `nsenter` from util-linux 2.35 or later, with `--map-current-user` and `--keep-caps` support.
+  * `iptables`, `ip6tables`, and their restore binaries. Use the `nf_tables` backend. The legacy backend also operates, but only if you can write to `/run/xtables.lock`.
+  * Access to `/dev/net/tun`.
 * **Windows** uses the BaseContainer tier of the ProcessContainer backend. {% data variables.copilot.copilot_cli_short %} does not use the AppContainer fallback tiers. If your Windows build cannot supply BaseContainer, {% data variables.copilot.copilot_cli_short %} reports that sandboxing is not supported. To find the supported Windows versions, see [Windows OS support for Copilot sandboxing](https://aka.ms/ghcp-sandbox-os-support).
 
 #### Proxy support
@@ -88,19 +109,16 @@ Local sandboxing is available on macOS, on Linux, and on recent Windows 11 build
 The sandbox proxy operates differently on each operating system:
 
 * **macOS**: {% data variables.copilot.copilot_cli_short %} does not give the proxy to Seatbelt. It sets `HTTP_PROXY`, `HTTPS_PROXY`, and `ALL_PROXY` in the sandboxed environment instead. Only programs that obey these variables use the proxy. A program that ignores them connects directly.
-* **Linux**: bubblewrap enforces the proxy. The sandbox gets a private network namespace, and only the proxy endpoint is permitted. This mode has more requirements. You must have:
-  * `slirp4netns` on your `PATH`.
-  * `unshare` and `nsenter` from util-linux 2.35 or later, with `--map-current-user` and `--keep-caps` support.
-  * `iptables` and `ip6tables`. Use the `nf_tables` backend. The legacy backend also operates, but only if you can write to `/run/xtables.lock`.
+* **Linux**: bubblewrap enforces the proxy. The sandbox gets a private network namespace, and only the proxy endpoint is permitted. The Linux requirements for outbound traffic listed in [Cross-platform support](#cross-platform-support) also apply when you configure an upstream proxy. The proxy must have an IPv4 address, because {% data variables.copilot.copilot_cli_short %} refuses a proxy that only IPv6 can reach. The proxy URL must not contain credentials, so give the credentials to the proxy itself.
+* **Windows**: the proxy is not available. In {% data variables.copilot.copilot_cli_short %}, do not use denied paths either. If a CLI sandbox policy includes either setting, the sandboxed command fails with an error. In the {% data variables.copilot.github_copilot_app %}, you can save denied paths in the project settings. If the active BaseContainer capabilities cannot enforce a denied path, the sandboxed command fails instead of running with a weaker policy or without a sandbox.
 
-  Two more limits apply on Linux. The proxy must have an IPv4 address, because {% data variables.copilot.copilot_cli_short %} refuses a proxy that only IPv6 can reach. The proxy URL must not contain credentials, so give the credentials to the proxy itself.
-
-  Also on Linux, bubblewrap cannot control local network access independently of outbound access. Your local network setting therefore does not have a separate effect there.
-* **Windows**: the proxy is not available. Do not use denied paths on Windows either. {% data variables.copilot.copilot_cli_short %} cannot enforce these settings, and the sandboxed command fails with an error.
+On Linux, bubblewrap cannot control local network access independently for spawned processes, including shell commands and local MCP or LSP servers. In the {% data variables.copilot.github_copilot_app %}, the local network setting still applies to in-process operations, such as web requests and remote MCP connections.
 
 #### If your host does not support local sandboxing
 
-{% data variables.copilot.copilot_cli_short %} turns the sandbox off for the session and shows a notice. Shell commands and sandboxed services then run without a sandbox, and your `sandbox.enabled` setting does not change. If your enterprise enforces sandboxing through device-managed settings, the session fails closed instead: sandboxed commands do not run.
+In {% data variables.copilot.copilot_cli_short %}, the sandbox is turned off for the session and a notice is displayed. Shell commands and sandboxed services then run without a sandbox, and your `sandbox.enabled` setting does not change. If your enterprise enforces sandboxing through device-managed settings, the session fails closed instead: sandboxed commands do not run.
+
+In the {% data variables.copilot.github_copilot_app %}, host support is checked when the first sandboxed shell starts. If the host cannot enforce the requested policy, the shell fails with an unsupported-platform or unsupported-policy message and does not run unsandboxed.
 
 ### Enterprise policy enforcement
 

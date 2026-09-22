@@ -66,6 +66,7 @@ Some commands require specific context, such as an active session, session chang
 | `/restart-session` | **Requires an active session.** Restarts the current session and keeps its history. |
 | `/review` | **Requires an active session.** Reviews the current session's changes. |
 | `/rubber-duck [PROMPT]` | Requests critique on your approach or implementation by a model other than the one you have used in the session. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#using-the-rubber-duck-agent). |
+| `/sandbox on` or `/sandbox off` | Enables or disables local sandboxing for the current session. If no session is active, changes the selected project's default for new sessions. Local sandboxing is not available for cloud sandbox or remote-host sessions. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/configure-local-sandboxing#changing-sandboxing-for-a-session). |
 | `/security-review` | **Requires an active session with changes.** Runs a security-focused review against current diffs. See [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#using-security-review-in-app-sessions). |
 | `/skills` | Manages skills; use `/skills reload` to reload skills mid-session. |
 | `/spar [PROMPT]` | Runs adversarial reasoning to challenge your approach. |
