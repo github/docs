@@ -44,21 +44,12 @@ const EMPTY = Symbol('EMPTY')
 
 const pageList = await loadPages(undefined, ['en'])
 
-const SDK_DOCS_PATH = 'content/copilot/how-tos/copilot-sdk/'
-
 function getChangedContentFiles() {
   const deleted = new Set([...getDeletedContentFiles(), ...getRenamedOldContentFiles()])
-  return getContentFiles(process.env.CHANGED_FILES).filter(
-    (f) => !deleted.has(f) && !f.startsWith(SDK_DOCS_PATH),
-  )
+  return getContentFiles(process.env.CHANGED_FILES).filter((f) => !deleted.has(f))
 }
 function getDeletedContentFiles() {
-  return getContentFiles(process.env.DELETED_FILES).filter((file) => {
-    // Auto-generated SDK docs are managed by the sync-sdk-docs pipeline,
-    // which deletes and recreates pages when the source repo restructures.
-    // These deletions are expected and don't need redirects.
-    return !file.startsWith(SDK_DOCS_PATH)
-  })
+  return getContentFiles(process.env.DELETED_FILES)
 }
 
 // Parse `RENAMED_FILES` from tj-actions/changed-files `all_old_new_renamed_files`

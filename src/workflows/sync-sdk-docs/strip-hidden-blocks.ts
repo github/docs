@@ -38,7 +38,7 @@ const HIDDEN_CLOSE = /^\s*<!--\s*\/\s*docs-validate:\s*hidden\s*-->/i
 // indented at most 3 spaces, and the run of backticks or tildes may exceed 3.
 const FENCE = /^ {0,3}(`{3,}|~{3,})(.*)$/
 
-interface OpenFence {
+export interface OpenFence {
   char: string
   length: number
 }
@@ -50,7 +50,7 @@ interface OpenFence {
  * long, and carry no info string. Tracking the length matters because a
  * four-backtick fence can legally contain a three-backtick line as content.
  */
-function nextFenceState(line: string, open: OpenFence | null): OpenFence | null {
+export function nextFenceState(line: string, open: OpenFence | null): OpenFence | null {
   const match = FENCE.exec(line)
   if (!match) return open
 
