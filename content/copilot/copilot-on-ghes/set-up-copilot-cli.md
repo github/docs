@@ -1,15 +1,17 @@
 ---
-title: Set up and use GitHub Copilot CLI
-shortTitle: 'Set up and use {% data variables.copilot.copilot_cli_short %}'
+title: Set up GitHub Copilot CLI for GitHub Enterprise Server
+shortTitle: Set up {% data variables.copilot.copilot_cli_short %}
 intro: Configure a model provider for your {% data variables.product.prodname_ghe_server %} instance, then connect {% data variables.copilot.copilot_cli_short %} clients to the instance.
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot-cli-ghes
 contentType: how-tos
-category:
-  - Configure Copilot CLI
 docsTeamMetrics:
   - copilot-cli
+redirect_from:
+  - /admin/github-copilot/copilot-cli/set-up-and-use-copilot-cli
+category:
+  - Manage Copilot for a team
 ---
 
 > [!NOTE]
