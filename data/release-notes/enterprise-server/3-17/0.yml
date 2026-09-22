@@ -107,12 +107,6 @@ sections:
         - |
           Administrators can use the GHES Management Console to configure repository exports with local storage, reducing reliance on external blob storage and simplifying the migration process. Exports are stored on the GHES disk, and customers can choose how to provide the archive to GitHub Enterprise Importer, including using GitHub-owned blob storage.
 
-    - heading: Audit logs
-      notes:
-        # https://github.com/github/releases/issues/4939
-        - |
-          Audit log streaming of API requests targeting your enterprise's private assets is generally available.
-
     - heading: Repositories
       notes:
         # https://github.com/github/releases/issues/4042
@@ -240,3 +234,5 @@ sections:
   errata:
     - |
       The "Features" section incorrectly indicated that updated insight views for repositories are available in this release. This feature is unavailable in GitHub Enterprise Server 3.17, and is available from GitHub Enterprise Server 3.19.0. [Updated: 2026-01-12]
+    - |
+      The "Features" section incorrectly indicated that audit log streaming of API requests targeting private enterprise assets was generally available. This feature is unavailable on GitHub Enterprise Server. [Updated: 2026-09-16]

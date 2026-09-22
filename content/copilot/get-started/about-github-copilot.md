@@ -92,6 +92,8 @@ You can start using {% data variables.product.prodname_copilot_short %} in sever
 
 {% data reusables.copilot.plans.subscribe-for-enterprise %}
 
+If you are on **{% data variables.product.prodname_ghe_server %}**, see [AUTOTITLE](/enterprise-server@latest/copilot/copilot-on-ghes/about-copilot-on-ghes).
+
 ## Control for organizations and enterprises
 
 If you use {% data variables.product.prodname_copilot_short %} through an organization or enterprise, administrators decide how it can be used. They control which members have access, set policies for which features are available, exclude files that {% data variables.product.prodname_copilot_short %} shouldn't see, and review usage data and audit logs to understand how it's being used.

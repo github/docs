@@ -12,6 +12,7 @@ layout: discovery-landing
 heroImage: /assets/images/banner-images/hero-6
 versions:
   feature: copilot
+  ghes: '*'
 children:
   - /get-started
   - /concepts
@@ -19,6 +20,7 @@ children:
   - /reference
   - /tutorials
   - /responsible-use
+  - /copilot-on-ghes
 contentType: landing
 includedCategories:
   - Learn about Copilot
