@@ -1,7 +1,7 @@
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import gfm from 'remark-gfm'
-import emoji from 'remark-gemoji-to-emoji'
+import emoji from 'remark-gemoji'
 import remark2rehype from 'remark-rehype'
 import raw from 'rehype-raw'
 import slug from 'rehype-slug'
