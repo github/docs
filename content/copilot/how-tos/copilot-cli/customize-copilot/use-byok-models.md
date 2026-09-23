@@ -81,6 +81,16 @@ Use the following steps if you are connecting to OpenAI, Ollama, vLLM, Foundry L
 
    Replace `YOUR-OPENAI-API-KEY` with your OpenAI API key and `YOUR-MODEL-NAME` with the model you want to use (for example, `gpt-4o`).
 
+   For a third-party OpenAI-compatible gateway such as Yolo-Auto, set the same three variables with that gateway's values:
+
+   ```shell
+   export COPILOT_PROVIDER_BASE_URL=https://yolo-auto.com/v1
+   export COPILOT_PROVIDER_API_KEY=YOUR-YOLO-AUTO-API-KEY
+   export COPILOT_MODEL=yolo
+   ```
+
+   `yolo` is the gateway's reasoning model and `yolo-small` its non-reasoning fast model. Both support tool calling, streaming, and image inputs, and the gateway enforces a 131072-token context window per plan, so set `COPILOT_PROVIDER_MAX_PROMPT_TOKENS` if you run a smaller client budget.
+
 {% data reusables.copilot.copilot-cli.start-cli %}
 
 ## Connecting to Azure OpenAI
