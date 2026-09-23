@@ -73,7 +73,6 @@ if (earlyAccessPath) {
   selectedFiles = contentFiles.concat(dataFiles)
 }
 
-// Update the EA content and data files
 for (const file of selectedFiles) {
   const oldContents = fs.readFileSync(file, 'utf8')
 
@@ -83,53 +82,41 @@ for (const file of selectedFiles) {
   const replacements: Record<string, string> = {}
 
   if (add) {
-    // Since we're adding early-access to the path, filter for those that do not already include it
     const dataRefsToAdd = dataRefs.filter((ref) => !ref.includes(' early-access.'))
     for (const dataRef of dataRefsToAdd) {
-      // Add to the { oldRef: newRef } replacements object
       replacements[dataRef] = dataRef.replace(
         /({% (?:data|indented_data_reference) )(.*)/,
         '$1early-access.$2',
       )
     }
 
-    // Since we're adding early-access to the path, filter for those that do not already include it
     const imageRefsToAdd = imageRefs.filter((ref) => !ref.split('/').includes('early-access'))
     for (const imageRef of imageRefsToAdd) {
-      // Add to the { oldRef: newRef } replacements object
       replacements[imageRef] = imageRef.replace('/assets/images/', '/assets/images/early-access/')
     }
   }
 
   if (remove) {
-    // Since we're removing early-access from the path, filter for those that include it
     const dataRefsToRemove = dataRefs.filter((ref) => ref.includes(' early-access.'))
     for (const dataRef of dataRefsToRemove) {
-      // Add to the { oldRef: newRef } replacements object
       replacements[dataRef] = dataRef.replace('early-access.', '').replace('-alt.', '.')
-      // replacements[dataRef] = dataRef.replace('early-access.', '')
     }
 
-    // Since we're removing early-access from the path, filter for those that include it
     const imageRefsToRemove = imageRefs.filter((ref) => ref.split('/').includes('early-access'))
     for (const imageRef of imageRefsToRemove) {
-      // Add to the { oldRef: newRef } replacements object
       replacements[imageRef] = imageRef.replace('/assets/images/early-access/', '/assets/images/')
     }
   }
 
-  // Return early if nothing to replace
   if (!Object.keys(replacements).length) {
     continue
   }
 
-  // Make the replacement in the content
   let newContents = oldContents
   for (const [oldRef, newRef] of Object.entries(replacements)) {
     newContents = newContents.replace(new RegExp(escapeRegExp(oldRef), 'g'), newRef)
   }
 
-  // Write the updated content
   fs.writeFileSync(file, newContents)
 }
 

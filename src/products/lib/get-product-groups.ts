@@ -19,21 +19,17 @@ async function getPage(
   const productId = id.split('/')[0]
   const product = productMap[productId]
 
-  const external = product.external || false // undefined becomes false
+  const external = product.external || false
 
-  // The href depends. Initially all we have is an `id` which might be
-  // something like 'code-security/dependabot'.
-  // To get from that to a Page instance, we have to "guess" what the
-  // href might be.
-  // If URL currently is `/fr/enterprise-server@3.9`,
-  // we're going to try `/fr/enterprise-server@3.9/code-security/dependabot`
-  // first. And if the URL is `/en` we'll try `/en/code-security/dependabot`.
-  // But some pages are not available in all versions.
-  // So we have to try `product.versions[0]` which comes from the `productMap`
-  // (not be confused with the `pageMap`!)
-  // Once we have a page, we can get to its `.applicableVersions`.
-  // This way, we get the best of both worlds. We use the `currentVersion`
-  // if it's applicable, but we fall back to the first version if it's not.
+  // We only have an `id` like 'code-security/dependabot',
+  // so the href has to be guessed.
+  // On `/fr/enterprise-server@3.9` we try
+  // `/fr/enterprise-server@3.9/code-security/dependabot` first.
+  // Pages aren't available in every version,
+  // so the fallback is `product.versions[0]` from the `productMap`,
+  // not to be confused with the `pageMap`.
+  // That keeps the current version when it applies,
+  // and degrades to the first when it doesn't.
   let href = product.href
 
   let name = product.name
@@ -41,13 +37,11 @@ async function getPage(
   if (!context.currentVersion) throw new Error('context.currentVersion is not set')
 
   if (!external) {
-    // First we have to find it as a page object based on its ID.
     href = removeFPTFromPath(path.posix.join('/', lang, context.currentVersion, id))
     if (!pageMap[href]) {
-      // If the page is not available in the *current* version, we
-      // fall back it its default version, which is `product.versions[0]`.
-      // For example, you're on `/en/enterprise-server@3.1` and you're
-      // but a `/foo/bar` is only available in `enterprise-cloud@latest`.
+      // Fall back to `product.versions[0]`.
+      // For example, you're on `/en/enterprise-server@3.1`
+      // but `/foo/bar` only exists in `enterprise-cloud@latest`.
       if (!product.versions) throw new Error(`Product ${productId} has no versions`)
       href = removeFPTFromPath(path.posix.join('/', lang, product.versions[0], id))
     }
@@ -117,7 +111,6 @@ export async function getLocalizedGroupNames(lang: string): Promise<{ [key: stri
 
     return createOcticonToNameMap(localizedData.childGroups)
   } catch {
-    // If localized file doesn't exist or can't be read, return empty map
     return {}
   }
 }
@@ -157,7 +150,6 @@ export async function getProductGroups(
   // Always use English version for structure (octicon, children)
   const englishChildGroups = data?.childGroups || []
 
-  // Get localized names if available
   const localizedByOcticon = await getLocalizedGroupNames(lang)
   const localizedNames = mapEnglishToLocalizedNames(englishChildGroups, localizedByOcticon)
 

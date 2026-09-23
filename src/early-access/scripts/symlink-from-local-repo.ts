@@ -8,7 +8,6 @@ import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'
 
-// Early Access details
 const earlyAccessRepo = 'docs-early-access'
 const earlyAccessDirName = 'early-access'
 const earlyAccessRepoUrl = `https://github.com/github/${earlyAccessRepo}`
@@ -35,7 +34,6 @@ if (!pathToEarlyAccessRepo && !unlink) {
 
 let earlyAccessLocalRepoDir: string | undefined
 
-// If creating symlinks, run some extra validation
 if (!unlink && pathToEarlyAccessRepo) {
   earlyAccessLocalRepoDir = path.resolve(process.cwd(), pathToEarlyAccessRepo)
 
@@ -74,32 +72,24 @@ for (const dirName of destinationDirNames) {
   console.log(`- Removed symlink for early access directory '${dirName}' from this repo`)
 }
 
-// If removing symlinks, just stop here!
 if (unlink) {
   process.exit(0)
 }
 
-//
-// Otherwise, keep going...
-//
-
-// Move the latest early access source directories into this repo
+// Symlink the latest early access source directories into this repo
 for (const dirName of destinationDirNames) {
   if (!earlyAccessLocalRepoDir) continue
 
   const sourceDir = path.join(earlyAccessLocalRepoDir, dirName)
   const destDir = destinationDirsMap[dirName]
 
-  // If the source directory doesn't exist, skip it
   if (!fs.existsSync(sourceDir)) {
     console.warn(`Early access directory '${dirName}' does not exist. Skipping...`)
     continue
   }
 
-  // Create a symbolic link to the directory
   fs.symlinkSync(sourceDir, destDir, 'junction')
 
-  // Confirm the newly moved directory exist
   if (!fs.existsSync(destDir)) {
     throw new Error(`Failed to symlink early access directory '${dirName}'!`)
   }
