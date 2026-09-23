@@ -34,6 +34,9 @@ As an alternative to the {% data variables.product.prodname_cli %} extension, yo
 
 We recommend VPN tools like [OpenVPN](https://openvpn.net/) to access resources on a private network. For more information, see [Using the OpenVPN client from {% data variables.product.prodname_github_codespaces %}](https://github.com/codespaces-contrib/codespaces-openvpn).
 
+> [!WARNING]
+> The linked example repository is archived and is no longer maintained.
+
 There are also a number of third party solutions that, while not explicitly endorsed by {% data variables.product.prodname_dotcom %}, have provided examples of how to integrate with {% data variables.product.prodname_github_codespaces %}.
 
 These third party solutions include:
