@@ -1,13 +1,6 @@
 /**
- * Link report generation utilities.
- *
- * Creates actionable, well-grouped reports for the content team.
- * Reports are grouped by broken link target, showing all files affected.
+ * Groups broken links by target so one report section covers every file that links to it.
  */
-
-// ============================================================================
-// Types
-// ============================================================================
 
 export interface BrokenLink {
   href: string
@@ -41,7 +34,7 @@ export interface BrokenLink {
 /**
  * A cross-page anchor link (`/path#fragment`) whose fragment doesn't match any heading on
  * the target page, along with the versions it breaks in. Reported separately from broken
- * page links because the target page exists — only the fragment is stale.
+ * page links because the target page exists and only the fragment is stale.
  */
 export interface CrossPageAnchorFlaw {
   href: string
@@ -71,12 +64,7 @@ export interface LinkReport {
   versionsChecked?: string[]
 }
 
-// ============================================================================
-// Report Templates
-// ============================================================================
-
 const TEMPLATES = {
-  // Main report header
   reportHeader: (title: string, summary: string, timestamp: string, actionUrl?: string) =>
     `
 # ${title}
@@ -88,7 +76,6 @@ ${summary}
 **Generated:** ${timestamp}${actionUrl ? `\n**Action Run:** [View Details](${actionUrl})` : ''}
 `.trim(),
 
-  // Table of contents for large reports
   tableOfContents: (groups: GroupedBrokenLinks[]) => {
     const items = groups.map((g) => {
       const icon = g.isWarning ? '⚠️' : '❌'
@@ -98,11 +85,9 @@ ${summary}
     return `## Quick Navigation\n\n${items.join('\n')}`
   },
 
-  // Section header (Broken Links or Redirects)
   sectionHeader: (isWarning: boolean) =>
     isWarning ? '## ⚠️ Redirects to Update' : '## ❌ Broken Links',
 
-  // Individual group within a section
   group: (group: GroupedBrokenLinks, isExternal = false) => {
     const icon = group.isWarning ? '⚠️' : '❌'
     const count = group.occurrences.length
@@ -134,7 +119,6 @@ ${statusInfo}${suggestion}**Found in ${count} file${plural}:**
 ${tableRows}${moreFiles}`
   },
 
-  // Self-referential links section
   selfReferentialLinks: (title: string, groups: GroupedBrokenLinks[]) => {
     const totalOccurrences = groups.reduce((sum, g) => sum + g.occurrences.length, 0)
     const rows = groups
@@ -153,10 +137,8 @@ The following links point to \`docs.github.com\`. Consider replacing them with r
 ${rows}`
   },
 
-  // Empty report
   noIssues: () => 'No issues found! 🎉',
 
-  // PR comment
   prComment: (
     errors: GroupedBrokenLinks[],
     warnings: GroupedBrokenLinks[],
@@ -223,13 +205,6 @@ ${rows}${moreLine}
   },
 }
 
-// ============================================================================
-// Grouping Functions
-// ============================================================================
-
-/**
- * Group links by href and determine if they are warnings (redirects)
- */
 function groupByTarget(links: BrokenLink[]): Map<string, BrokenLink[]> {
   const groups = new Map<string, BrokenLink[]>()
 
@@ -265,9 +240,6 @@ function sameDestination(a: string, b: string): boolean {
   return a.replace(VERSION_PREFIX_RE, '') === b.replace(VERSION_PREFIX_RE, '')
 }
 
-/**
- * Create a suggestion message for a redirect
- */
 function createRedirectSuggestion(
   target: string,
   occurrences: BrokenLink[],
@@ -302,16 +274,10 @@ function createRedirectSuggestion(
   return `This path redirects to \`${redirectTarget}\`. Consider updating to the new path.`
 }
 
-/**
- * Sort occurrences by file path for consistent output
- */
 function sortOccurrencesByFile(occurrences: BrokenLink[]): BrokenLink[] {
   return [...occurrences].sort((a, b) => a.file.localeCompare(b.file))
 }
 
-/**
- * Group broken links by their target href
- */
 export function groupBrokenLinks(
   brokenLinks: BrokenLink[],
   redirects?: Record<string, string>,
@@ -339,9 +305,6 @@ export function groupBrokenLinks(
   })
 }
 
-/**
- * Extract domain from URL, handling invalid URLs
- */
 function extractDomain(href: string): string {
   try {
     return new URL(href).hostname
@@ -350,9 +313,6 @@ function extractDomain(href: string): string {
   }
 }
 
-/**
- * Group external broken links by domain
- */
 export function groupExternalLinksByDomain(brokenLinks: BrokenLink[]): GroupedBrokenLinks[] {
   const groups = new Map<string, BrokenLink[]>()
 
@@ -372,13 +332,6 @@ export function groupExternalLinksByDomain(brokenLinks: BrokenLink[]): GroupedBr
     .sort((a, b) => b.occurrences.length - a.occurrences.length)
 }
 
-// ============================================================================
-// Report Generation
-// ============================================================================
-
-/**
- * Create summary text for a report
- */
 function createSummary(errorCount: number, warningCount: number, totalOccurrences: number): string {
   if (errorCount === 0 && warningCount === 0) {
     return 'All links are valid! ✅'
@@ -474,9 +427,6 @@ export function mergeInternalLinkReports(
   return { ...report, versionsChecked, summary: report.summary + scope }
 }
 
-/**
- * Generate a report for internal links
- */
 export function generateInternalLinkReport(
   brokenLinks: BrokenLink[],
   options: {
@@ -506,9 +456,6 @@ export function generateInternalLinkReport(
   }
 }
 
-/**
- * Generate a report for external links
- */
 export function generateExternalLinkReport(
   brokenLinks: BrokenLink[],
   options: { actionUrl?: string; selfReferentialLinks?: BrokenLink[] } = {},
@@ -534,10 +481,6 @@ export function generateExternalLinkReport(
     actionUrl: options.actionUrl,
   }
 }
-
-// ============================================================================
-// Fix strategy grouping
-// ============================================================================
 
 /**
  * How a writer actually fixes a group.
@@ -671,7 +614,6 @@ function renderCodemodSection(groups: GroupedBrokenLinks[], versionsChecked?: st
     describeVersions(groupVersions(group), versionsChecked)
   const showVersions = groups.some((group) => versionFor(group))
 
-  // Most-used links first, so the truncated tail is the least interesting part.
   const { listed, hidden } = capGroups(groups, MAX_CODEMOD_ROWS)
 
   const rows = listed
@@ -858,13 +800,6 @@ Work top to bottom. Bucket 1 is usually most of the report and costs one command
   return parts.join('\n\n')
 }
 
-// ============================================================================
-// Markdown Rendering
-// ============================================================================
-
-/**
- * Render groups as markdown sections
- */
 function renderGroups(groups: GroupedBrokenLinks[], isExternal: boolean): string {
   const errors = groups.filter((g) => !g.isWarning)
   const warnings = groups.filter((g) => g.isWarning)
@@ -892,15 +827,11 @@ function renderGroups(groups: GroupedBrokenLinks[], isExternal: boolean): string
   return sections.join('\n')
 }
 
-/**
- * Convert a LinkReport to Markdown string
- */
 export function reportToMarkdown(report: LinkReport, isExternal = false): string {
   const parts: string[] = []
   const hasBrokenOrRedirectGroups = report.groups.length > 0
   const hasSelfReferentialGroups = Boolean(report.selfReferentialGroups?.length)
 
-  // Header
   parts.push(
     TEMPLATES.reportHeader(report.title, report.summary, report.timestamp, report.actionUrl),
   )
@@ -918,7 +849,6 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
     parts.push('')
   }
 
-  // Groups
   if (hasBrokenOrRedirectGroups) {
     parts.push(
       isExternal
@@ -938,9 +868,6 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
   return parts.join('\n')
 }
 
-/**
- * Generate a compact PR comment for broken links
- */
 export function generatePRComment(
   brokenLinks: BrokenLink[],
   options: {
@@ -960,13 +887,6 @@ export function generatePRComment(
   return TEMPLATES.prComment(errors, warnings, anchorSection, options.actionUrl)
 }
 
-// ============================================================================
-// Demo / Sample Output
-// ============================================================================
-
-/**
- * Generate sample reports for testing and documentation
- */
 export function generateSampleReports(): {
   internal: { report: LinkReport; markdown: string }
   external: { report: LinkReport; markdown: string }
