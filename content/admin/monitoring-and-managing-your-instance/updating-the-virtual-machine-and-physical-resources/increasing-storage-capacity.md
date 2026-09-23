@@ -112,20 +112,18 @@ Ensure the appliance is in maintenance mode and no background jobs are running:
 > [!WARNING]
 > Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode).
 
-Before resizing the root partition, determine whether the appliance has a GUID partition table.
+1. Attach a new disk with the desired size to your {% data variables.product.prodname_ghe_server %} appliance.
+1. Run the `lsblk` command to identify the new disk's device name.
+1. Before proceeding, determine whether the appliance has a globally unique identifier (GUID) partition table (`gpt`) or a master boot record (MBR) partition table (`dos`). The partition table type depends on how the appliance's root disk was originally provisioned, not on the release version of {% data variables.product.prodname_ghe_server %}, so always verify it directly rather than assuming based on the version.
 
-On instances created from GHES releases 3.14 and later, follow the instructions for [Increasing the root partition size on a GUID partition table](#increasing-the-root-partition-size-on-a-guid-partition-table).
-
-On instances created from GHES releases prior to 3.14, follow the instructions for [Increasing the root partition size on a legacy partition table](#increasing-the-root-partition-size-on-a-legacy-partition-table).
-
-To verify the partition table type, run the following command. The result should be either `gpt` or `msdos`.
-
+   To check the partition table type, run the following command. The result will be either `gpt` or `dos`.
+   
    ```shell
    sudo lsblk -no pttype $(findmnt -no source /)
    ```
 
-1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
-1. Run the `lsblk` command to identify the new disk's device name.
+   * If the result is `gpt`, follow the instructions for [Increasing the root partition size on a GUID partition table](#increasing-the-root-partition-size-on-a-guid-partition-table).
+   * If the result is `dos`, follow the instructions for [Increasing the root partition size on an MBR partition table](#increasing-the-root-partition-size-on-an-mbr-partition-table).
 
 ### Increasing the root partition size on a GUID partition table
 
@@ -180,7 +178,7 @@ To verify the partition table type, run the following command. The result should
 
 If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
 
-### Increasing the root partition size on a legacy partition table
+### Increasing the root partition size on an MBR partition table
 
 1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
 
