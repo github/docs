@@ -8,8 +8,9 @@ versions:
 redirect_from:
   - /copilot/concepts/content-exclusion-for-github-copilot
   - /copilot/concepts/content-exclusion
+  - /copilot/concepts/context/content-exclusion
 contentType: concepts
-category: 
+category:
   - Manage Copilot for a team
 ---
 

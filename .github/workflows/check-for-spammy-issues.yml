@@ -70,7 +70,7 @@ jobs:
               owner: owner,
               repo: repo,
               issue_number: issue.number,
-              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title!`
+              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title! Make sure not to include full URLs in your issue titles, and use paths instead.`
             });
 
             // Add the issue to the Done column on the triage board

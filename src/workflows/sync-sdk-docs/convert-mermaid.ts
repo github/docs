@@ -1,20 +1,16 @@
 #!/usr/bin/env node
 
-/**
- * Converts Mermaid code blocks in SDK docs to PNG images.
- *
- * For each ```mermaid block found in markdown files:
- *   - Extracts the Mermaid source
- *   - Renders it to PNG using @mermaid-js/mermaid-cli (mmdc)
- *   - Saves the PNG to the assets directory
- *   - Replaces the code block with an image reference
- *
- * Filenames are deterministic based on source file path and block index,
- * so re-running produces stable results.
- *
- * Usage:
- *   node convert-mermaid.mjs --sdk-docs-dir <path> --assets-dir <path>
- */
+// Renders each ```mermaid block in the SDK docs to a PNG with
+// @mermaid-js/mermaid-cli (mmdc), saves it under the assets directory, and
+// replaces the code block with an image reference. A block whose render fails
+// is left as it is.
+//
+// Filenames come from the source file path and the block index, so re-running
+// produces stable results.
+//
+// Usage:
+//   npx tsx src/workflows/sync-sdk-docs/convert-mermaid.ts --sdk-docs-dir <path> \
+//     --assets-dir <path> [--repo-root <path>] [--puppeteer-config <path>]
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -40,7 +36,7 @@ if (!fs.existsSync(SDK_DOCS_DIR)) {
   process.exit(1)
 }
 
-// Find mmdc binary — check global PATH first, then local node_modules
+// Find the mmdc binary: global PATH first, then local node_modules.
 let MMDC_BIN: string
 try {
   MMDC_BIN = execSync('which mmdc', { encoding: 'utf8' }).trim()
@@ -54,7 +50,7 @@ try {
   }
 }
 
-/** Recursively collect all .md files. */
+// Recursively collect all .md files.
 function getAllMarkdownFiles(dir: string): string[] {
   const results: string[] = []
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -68,24 +64,19 @@ function getAllMarkdownFiles(dir: string): string[] {
   return results
 }
 
-/**
- * Generate a deterministic filename for a mermaid diagram.
- * Based on the source file's relative path and the block index.
- */
+// Generates a filename from the source file's relative path and the block
+// index, so it is stable across runs.
 function generateImageName(filePath: string, blockIndex: number): string {
   const rel = path.relative(SDK_DOCS_DIR, filePath).replace(/\.md$/, '').replace(/\//g, '-')
   return `${rel}-diagram-${blockIndex}.png`
 }
 
-/**
- * Generate alt text from a mermaid diagram source.
- * Uses the diagram type and first meaningful line.
- */
+// Builds generic alt text from the diagram type named on the first line. The
+// contents of the diagram are not used.
 function generateAltText(mermaidSource: string): string {
   const lines = mermaidSource.trim().split('\n')
   const firstLine = lines[0].trim()
 
-  // Extract the diagram type
   const typeMatch = firstLine.match(
     /^(flowchart|sequenceDiagram|classDiagram|stateDiagram|erDiagram|gantt|pie|graph|gitGraph|journey|mindmap|timeline|quadrantChart|sankey|xychart)/i,
   )
@@ -115,14 +106,10 @@ function generateAltText(mermaidSource: string): string {
   return 'Diagram illustrating the described process.'
 }
 
-/**
- * Process a single markdown file, converting all mermaid blocks to PNG.
- * Returns the number of conversions performed.
- */
+// Converts the mermaid blocks in one file and returns how many succeeded.
 function processFile(filePath: string, assetsUrlPath: string): number {
   const raw = fs.readFileSync(filePath, 'utf8')
 
-  // Match ```mermaid ... ``` blocks
   const mermaidRegex = /```mermaid\n([\s\S]*?)```/g
   const matches = [...raw.matchAll(mermaidRegex)]
 
@@ -139,7 +126,6 @@ function processFile(filePath: string, assetsUrlPath: string): number {
     const altText = generateAltText(mermaidSource)
     const imagePath = path.join(ASSETS_DIR, imageName)
 
-    // Write mermaid source to temp file
     const tmpFile = path.join(ASSETS_DIR, `_tmp_${imageName}.mmd`)
     fs.writeFileSync(tmpFile, mermaidSource, 'utf8')
 
@@ -168,7 +154,6 @@ function processFile(filePath: string, assetsUrlPath: string): number {
         `  WARN (render failed): ${path.relative(SDK_DOCS_DIR, filePath)} block ${i}: ${(err as Error).message}`,
       )
     } finally {
-      // Clean up temp file
       if (fs.existsSync(tmpFile)) fs.unlinkSync(tmpFile)
     }
   }
@@ -180,11 +165,8 @@ function processFile(filePath: string, assetsUrlPath: string): number {
   return converted
 }
 
-// --- Main ---
-
 console.log('--- Converting Mermaid diagrams to PNG ---\n')
 
-// Ensure assets directory exists
 fs.mkdirSync(ASSETS_DIR, { recursive: true })
 
 // Compute the URL path for image references

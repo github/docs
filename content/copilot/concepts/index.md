@@ -8,14 +8,12 @@ children:
   - /completions
   - /chat
   - /agents
-  - /about-cloud-and-local-sandboxes
   - /prompting
   - /context
   - /tools
   - /models
   - /billing-and-usage
-  - /network-settings
+  - /security-governance-and-network-settings
   - /enterprise
 contentType: concepts
 ---
-

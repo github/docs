@@ -148,7 +148,7 @@ In {% data variables.copilot.copilot_cli_short %}, `/chronicle` can generate use
 * Use `/chronicle tips` to analyze your recent session history and surface opportunities to use {% data variables.product.prodname_copilot_short %} more efficiently.
 * Use `/chronicle cost-tips` to understand your token usage patterns and get insights into how to reduce cost.
 
-See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle#the-chronicle-slash-command).
+See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle#using-the-chronicle-slash-command).
 
 ### Feed insights into a `copilot-instructions.md` file
 

@@ -44,7 +44,7 @@ From the Agents tab, you can:
     {% data reusables.copilot.cloud-agent.use-latest-vscode %}
 * **Review and merge agent code**: Once the agent completes a session, you can jump to the pull request to review the changes, request further improvements, or approve and merge. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output).
 * **Set up {% data variables.copilot.copilot_automations %}**: Run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events such as an issue being opened. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
-* **Query your past sessions**: You can search and reference your past agent sessions using natural language from {% data variables.copilot.copilot_cli_short %} or {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle).
+* **Query your past sessions**: You can search and reference your past agent sessions using natural language from {% data variables.copilot.copilot_cli_short %} or {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/concepts/security-governance-and-network-settings/session-data).
 
 ## Next steps
 

@@ -107,7 +107,7 @@ Forks are powerful collaboration tools, but they can expose code and history in 
 * Organization owners may have administrative access to forks created in personal namespaces.
 * Organization owners of a repository that has been forked have read permission to forks created in organizations, but do not have the ability to delete the fork or its branches.
 * Forks created in another organization will not be deleted when individual access is removed from the upstream repository.
-* Commits to any repository in a network can be accessed from any repository in the same network, including the upstream repository, even after a fork is deleted.
+* Git data from any repository in a network may be accessed from any repository in the same network, including the upstream repository, even after a fork is deleted.
 
 Before allowing forks for sensitive work, review the permissions and visibility model for your repository or organization.
 

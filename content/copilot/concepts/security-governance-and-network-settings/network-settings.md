@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /copilot/concepts/network-settings-for-github-copilot
+  - /copilot/concepts/network-settings
 contentType: concepts
 category: 
   - Manage Copilot for a team

@@ -23,7 +23,7 @@
  *
  * Nothing enforced the publishing half of that contract. The markers are plain
  * HTML comments, and a Markdown parser treats each as a self-contained
- * single-line HTML block — the fence between them is a sibling node, not a
+ * single-line HTML block. The fence between them is a sibling node, not a
  * child, so it renders like any other code block. Without this step both
  * samples ship and readers see the same example twice.
  */
@@ -142,7 +142,7 @@ export function stripHiddenBlocks(content: string): StripHiddenBlocksResult {
       const nextIsBlank = next === undefined || next.trim() === ''
 
       if (previousIsBlank && nextIsBlank) {
-        // Both sides were blank and are now adjacent — keep only one.
+        // Both sides were blank and are now adjacent, so keep only one.
         i++
       } else if (!previousIsBlank && !nextIsBlank) {
         // The range was the only thing separating two blocks. Without a blank

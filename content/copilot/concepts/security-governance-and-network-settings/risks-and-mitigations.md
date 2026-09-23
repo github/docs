@@ -1,7 +1,7 @@
 ---
 title: Risks and mitigations for GitHub Copilot cloud agent
 shortTitle: Risks and mitigations
-intro: 'How do {% data variables.copilot.copilot_cloud_agent %}''s built-in security protections mitigate known risks?'
+intro: How do {% data variables.copilot.copilot_cloud_agent %}'s built-in security protections mitigate known risks?
 versions:
   feature: copilot
 contentType: concepts
@@ -11,6 +11,7 @@ category:
   - Roll Copilot out at scale
 redirect_from:
   - /copilot/concepts/agents/coding-agent/risks-and-mitigations
+  - /copilot/concepts/agents/cloud-agent/risks-and-mitigations
 ---
 
 {% data variables.copilot.copilot_cloud_agent %} is an autonomous agent that has access to your code and can push changes to your repository. This entails certain risks.
