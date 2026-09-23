@@ -7,6 +7,7 @@ versions:
   feature: copilot
 redirect_from:
   - /copilot/concepts/about-github-sandbox
+  - /copilot/concepts/about-cloud-and-local-sandboxes
 contentType: concepts
 category:
   - Learn about Copilot
