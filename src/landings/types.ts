@@ -13,15 +13,13 @@ export type FeaturedLink = {
   fullTitle?: string
 }
 
-// Base type for all TOC items with core properties
 export type BaseTocItem = {
   fullPath: string
   title: string
   intro?: string | null
 }
 
-// Extended type for child TOC items with additional metadata
-// This is recursive - children can also have their own children
+// Recursive: children can have their own children.
 export type ChildTocItem = BaseTocItem & {
   octicon?: ValidOcticon | null
   category?: string[] | null
@@ -31,7 +29,6 @@ export type ChildTocItem = BaseTocItem & {
   childTocItems?: ChildTocItem[]
 }
 
-// Main TOC item type that can contain children
 export type TocItem = BaseTocItem & {
   childTocItems?: ChildTocItem[]
   octicon?: ValidOcticon | null
@@ -41,11 +38,10 @@ export type TocItem = BaseTocItem & {
   industry?: string[] | null
 }
 
-// Type alias for article card components
 export type ArticleCardItems = ChildTocItem[]
 
-// Raw TOC type that matches the actual data structure from getTocItems()
-// This includes all properties that may be present in the source data
+// Matches the data shape returned by getTocItems(), including every property that
+// may be present in the source data.
 export type RawTocItem = {
   title: string
   fullPath: string
@@ -58,7 +54,6 @@ export type RawTocItem = {
   childTocItems: RawTocItem[]
 }
 
-// Simplified TOC item type for basic landing pages that don't need extended metadata
 export type SimpleTocItem = {
   fullPath: string
   title: string
@@ -69,7 +64,6 @@ export type SimpleTocItem = {
   }>
 }
 
-// Reusable mapper function to convert RawTocItem to TocItem with full metadata
 export function mapRawTocItemToTocItem(raw: RawTocItem): TocItem {
   return {
     fullPath: raw.fullPath,
@@ -84,7 +78,6 @@ export function mapRawTocItemToTocItem(raw: RawTocItem): TocItem {
   }
 }
 
-// Reusable mapper function to convert RawTocItem to SimpleTocItem
 export function mapRawTocItemToSimpleTocItem(raw: RawTocItem): SimpleTocItem {
   return {
     fullPath: raw.fullPath,

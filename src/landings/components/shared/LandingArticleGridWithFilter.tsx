@@ -24,7 +24,6 @@ type ArticleGridProps = {
 
 const ALL_CATEGORIES = 'all_categories'
 
-// Hook to get current articles per page based on screen size
 const useResponsiveArticlesPerPage = () => {
   const [articlesPerPage, setArticlesPerPage] = useState(9) // Default to desktop
 
@@ -65,15 +64,12 @@ export const ArticleGrid = ({
   const headingRef = useRef<HTMLHeadingElement>(null)
   const statusTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  // Read filter state directly from query params
   const searchQuery = params['articles-filter'] || ''
   const selectedCategory = params['articles-category'] || ALL_CATEGORIES
   const currentPage = parseInt(params['articles-page'] || '1', 10)
 
-  // Recursively flatten all articles from tocItems, including both direct children and nested articles
   const allArticles = useMemo(() => flattenArticles(tocItems), [tocItems])
 
-  // Auto-derive stop words from article frequency
   const stopWords = useMemo(() => deriveStopWords(allArticles), [allArticles])
 
   // Filter articles based on includedCategories for discovery landing pages
@@ -111,20 +107,17 @@ export const ArticleGrid = ({
     [filteredArticlesByLandingType, includedCategories],
   )
 
-  // Calculate the selected category index based on the current query param
   const selectedCategoryIndex = useMemo(() => {
     const index = categories.indexOf(selectedCategory)
     return index !== -1 ? index : 0
   }, [categories, selectedCategory])
 
-  // Clear invalid category from query params if it doesn't exist in available categories
   useEffect(() => {
     if (selectedCategory !== ALL_CATEGORIES && selectedCategoryIndex === 0) {
       updateParams({ 'articles-category': '' })
     }
   }, [selectedCategory, selectedCategoryIndex, updateParams])
 
-  // Sync the input field value with query params
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.value = searchQuery
@@ -147,19 +140,16 @@ export const ArticleGrid = ({
 
   const filteredResults = applyFilters()
 
-  // Calculate pagination
   const totalPages = Math.ceil(filteredResults.length / articlesPerPage)
   const startIndex = (currentPage - 1) * articlesPerPage
   const paginatedResults = filteredResults.slice(startIndex, startIndex + articlesPerPage)
 
   const handleSearch = (query: string) => {
-    // Update query params, clear if empty, and reset to first page
     // Don't add to history for search filtering
     updateParams({ 'articles-filter': query || '', 'articles-page': '' }, false)
   }
 
   const handleFilter = (option: string) => {
-    // Update query params, clear if "all categories", and reset to first page
     updateParams(
       {
         'articles-category': option === ALL_CATEGORIES ? '' : option,
@@ -169,19 +159,16 @@ export const ArticleGrid = ({
     )
   }
 
-  // Track previous page to determine if we should scroll
   const prevPageRef = useRef(currentPage)
   const hasMountedRef = useRef(false)
 
   const handlePageChange = (e: React.MouseEvent, pageNumber: number) => {
     e.preventDefault()
     if (pageNumber >= 1 && pageNumber <= totalPages) {
-      // Update page in query params, clear if page 1
       updateParams({ 'articles-page': pageNumber === 1 ? '' : String(pageNumber) }, true)
     }
   }
 
-  // Scroll to heading on initial mount if query params are present
   useEffect(() => {
     if (!hasMountedRef.current) {
       hasMountedRef.current = true
@@ -192,7 +179,6 @@ export const ArticleGrid = ({
       const hasQueryParams = searchQuery || hasValidCategory || currentPage > 1
 
       if (hasQueryParams && headingRef.current) {
-        // Use setTimeout to ensure the component is fully rendered
         setTimeout(() => {
           if (headingRef.current) {
             const elementPosition = headingRef.current.getBoundingClientRect().top + window.scrollY
@@ -207,7 +193,6 @@ export const ArticleGrid = ({
     }
   }, []) // Only run on mount
 
-  // Scroll to heading when page changes via pagination
   useEffect(() => {
     const pageChanged = currentPage !== prevPageRef.current
     const isPaginationClick = pageChanged && prevPageRef.current !== 1
@@ -247,7 +232,7 @@ export const ArticleGrid = ({
     if (!filtersChanged) return
 
     // Debounce: cancel any pending scroll from a prior change, schedule a fresh
-    // one. Do NOT clear on effect cleanup — cleanup runs on unrelated re-renders
+    // one. Do NOT clear on effect cleanup: cleanup runs on unrelated re-renders
     // and would cancel the scroll before it fires.
     if (anchorTimeoutRef.current) clearTimeout(anchorTimeoutRef.current)
     anchorTimeoutRef.current = setTimeout(() => {
@@ -261,7 +246,7 @@ export const ArticleGrid = ({
 
   // Announce search/filter no-results to assistive technologies.
   // Uses @primer/live-region-element which renders a <live-region> web component
-  // with a shadow DOM on document.body — completely isolated from React's component
+  // with a shadow DOM on document.body, completely isolated from React's component
   // tree. This avoids VoiceOver re-announcing the focused input when React re-renders
   // cause DOM mutations near the TextInput.
   const noArticlesFoundMessage = t('article_grid.no_articles_found')
@@ -280,16 +265,13 @@ export const ArticleGrid = ({
   }, [filteredResults.length, searchQuery, selectedCategory, noArticlesFoundMessage])
   return (
     <div className={styles.gridSection} data-testid="article-grid-container">
-      {/* Filter and Search Controls */}
       <div className={styles.filterHeader} data-testid="filter-header">
-        {/* Title */}
         <h2 ref={headingRef} className={cx(styles.headerTitle, styles.headerTitleText)}>
           {t('article_grid.heading')}
         </h2>
 
-        {/* Right-aligned controls: category dropdown + search (search last) */}
         <div className={styles.controls}>
-          {/* Category Dropdown — text-style control (Docs 2026 "Sort by" pattern) */}
+          {/* Text-style control, matching the Docs 2026 "Sort by" pattern. */}
           <div className={styles.categoryDropdown}>
             <ActionMenu>
               <ActionMenu.Button>
@@ -318,7 +300,6 @@ export const ArticleGrid = ({
             </ActionMenu>
           </div>
 
-          {/* Search */}
           <div className={styles.searchContainer}>
             <form onSubmit={(e) => e.preventDefault()}>
               <TextInput
@@ -338,7 +319,6 @@ export const ArticleGrid = ({
         </div>
       </div>
 
-      {/* Results Grid */}
       <div className={styles.articleGrid} data-testid="article-grid">
         {paginatedResults.map((article, index) => (
           <ArticleCard
@@ -358,7 +338,6 @@ export const ArticleGrid = ({
         )}
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className={styles.paginationContainer}>
           <div className={styles.showingResults}>
@@ -389,7 +368,7 @@ type ArticleCardProps = {
 const ArticleCard = ({ article, includedCategories }: ArticleCardProps) => {
   const router = useRouter()
 
-  // Filter categories to only show those in includedCategories (if provided and not empty)
+  // An empty or missing includedCategories means no filtering.
   const displayCategories =
     includedCategories && includedCategories.length > 0 && article.category
       ? article.category.filter((cat) =>

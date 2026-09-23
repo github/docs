@@ -10,14 +10,14 @@ import { SIDEBAR_EXPANDED_COOKIE_NAME } from '@/frame/lib/constants'
 // cookie, read once per mount, and shared through context.
 //
 // Semantics: a category is open when the user has explicitly toggled it (their
-// choice wins and persists); otherwise it follows the active chain — the ancestor
+// choice wins and persists); otherwise it follows the active chain: the ancestor
 // path of the current page auto-opens. Because brand NavList only auto-expands the
 // aria-current chain for *uncontrolled* items, a controlled item must fold that in
 // itself, which is what the `onActiveChain` fallback does here.
 //
 // SSR-safety: the cookie is read server-side in getMainContext and passed to the
 // provider as `initial`, so the very first render (server + client hydration) already
-// reflects the persisted state and markup matches — no post-mount flash. When rendered
+// reflects the persisted state and markup matches, with no post-mount flash. When rendered
 // without an `initial` (e.g. outside the SSR data path), it falls back to reading the
 // cookie client-side via the SSR-safe cookie lib.
 
@@ -43,7 +43,7 @@ function persistStore(store: ExpandedStore) {
   try {
     Cookies.set(SIDEBAR_EXPANDED_COOKIE_NAME, JSON.stringify(store))
   } catch {
-    // Cookie writes may fail (disabled cookies, etc.) — degrade to non-persisted
+    // Cookie writes may fail (disabled cookies, etc.), so degrade to non-persisted
     // state rather than throwing.
   }
 }

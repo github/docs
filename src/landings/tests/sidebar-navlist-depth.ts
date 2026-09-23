@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { flattenDescendants, MAX_NAVLIST_LEVEL } from '../components/sidebar-navlist-depth'
 
 // The sidebar renders on @primer/react-brand NavList, which supports at most 5
-// nesting levels — a level-5 item that contains a SubNav is dropped. SidebarProduct
+// nesting levels, and a level-5 item that contains a SubNav is dropped. SidebarProduct
 // guards against this: at MAX_NAVLIST_LEVEL it stops nesting and flattens the
 // remaining subtree into leaf links so no page becomes unreachable. These tests
 // pin that reachability guarantee.

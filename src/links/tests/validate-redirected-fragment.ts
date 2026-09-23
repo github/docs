@@ -93,7 +93,7 @@ describe('RedirectedFragmentValidator.classify', () => {
     })
     const validator = new StubValidator({
       'free-pro-team@latest|content/foo.md': new Set(['intro']),
-      // null models a render failure — must not lead to a drop.
+      // null models a render failure, which must not lead to a drop.
       'enterprise-cloud@latest|content/foo.md': null,
     })
     expect(await validator.classify(page, '#setup')).toBe('unvalidatable')
