@@ -49,7 +49,9 @@ jobs:
               return changedLines.length > 0 &&
                 changedLines.every(line => line.slice(1).trim() === '')
             })
-            const onlyRenames = files.length > 0 && files.every(f => f.status === 'renamed')
+            const onlyRenames = files.length > 0 && files.every(
+              f => f.status === 'renamed' && f.additions === 0 && f.deletions === 0
+            )
 
             if (
               targetsNonMain ||
