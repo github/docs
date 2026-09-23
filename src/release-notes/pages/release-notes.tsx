@@ -1,7 +1,6 @@
 import { GetServerSideProps } from 'next'
 import { Liquid } from 'liquidjs'
-import pick from 'lodash/pick'
-import get from 'lodash/get'
+import { pick, get } from 'lodash-es'
 import type { Response } from 'express'
 
 import {
