@@ -20,7 +20,6 @@ export const frontmatterDocsTeamMetrics = {
 
     const filePath = params.name
 
-    // Determine which path-enforced metrics values match this file's path.
     const expectedValues = PATH_ENFORCED_METRICS.filter((value) => filePath.includes(value))
     if (expectedValues.length === 0) return
 

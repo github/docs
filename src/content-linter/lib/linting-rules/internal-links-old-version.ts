@@ -33,17 +33,14 @@ export const internalLinksOldVersion: Rule = {
         //  ['href', 'get-started'], ['target', '_blank'],
         //  ['rel', 'canonical'],
         // ]
-        const hrefsMissingSlashes = child.attrs
+        const hrefsWithHardcodedVersion = child.attrs
           // The attribute could also be `target` or `rel`
           .filter((attr) => attr[0] === 'href')
           .filter((attr) => attr[1].startsWith('/') || !attr[1].startsWith('//'))
-          // Filter out link paths that matches the version link regex
           .filter((attr) => attr[1].match(versionLinkRegEx))
-          // Get the link path from the attribute
           .map((attr) => attr[1])
 
-        // Create errors for each link path that includes a hardcoded version
-        for (const linkPath of hrefsMissingSlashes) {
+        for (const linkPath of hrefsWithHardcodedVersion) {
           const range = getRange(child.line, linkPath)
           addError(
             onError,

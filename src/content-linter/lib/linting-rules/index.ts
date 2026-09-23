@@ -106,7 +106,7 @@ export const gitHubDocsMarkdownlint = {
     thirdPartyActionPinning, // GHD041
     liquidTagWhitespace, // GHD042
     linkQuotation, // GHD043
-    // GHD044 removed - octicon aria-labels are now auto-generated
+    // GHD044 removed: octicon aria-labels are now auto-generated.
     codeAnnotationCommentSpacing, // GHD045
     outdatedReleasePhaseTerminology, // GHD046
     tableColumnIntegrity, // GHD047

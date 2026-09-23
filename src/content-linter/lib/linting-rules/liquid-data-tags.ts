@@ -32,8 +32,8 @@ export const liquidDataReferencesDefined = {
 
     for (const token of tokens) {
       // When the liquid tag is indented_data_reference, there are
-      // two arguments: the path in the data directory and the number
-      // of spaces to indent. We only want the first argument to
+      // two arguments: the path in the data directory and the number of
+      // spaces to indent. We only want the first argument to
       // validate if the data reference is defined.
       const dataDirectoryReference = token.args.split(/\s+/)[0]
       if (hasData(dataDirectoryReference)) continue

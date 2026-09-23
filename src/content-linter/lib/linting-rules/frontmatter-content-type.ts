@@ -21,7 +21,7 @@ const KNOWN_CONTENT_TYPE_DIRS = new Set([
 ])
 
 // Lazily computed set of product directories whose subdirectories all follow
-// the content-type directory pattern.  Once computed the set is reused for
+// the content-type directory pattern. Once computed the set is reused for
 // every file processed in the same lint run.
 let qualifyingProducts: Set<string> | null = null
 
@@ -48,7 +48,7 @@ function getQualifyingProducts(): Set<string> {
     if (subdirs.length === 0) continue
 
     // A product qualifies when ALL of its subdirectories are known
-    // content-type directories.  Use .includes() for responsible-use so
+    // content-type directories. Use .includes() for responsible-use so
     // that variations like "responsible-use-of-…" are recognised, matching
     // the logic in dirToContentType().
     const isKnownDir = (name: string) =>
@@ -110,7 +110,6 @@ export const frontmatterContentType = {
     const fm = getFrontmatter(params.lines)
     if (!fm) return
 
-    // Determine expected contentType
     let expectedType: string
     if (segments.length === 2 && segments[1] === 'index.md') {
       // Product-level index.md is always a landing page
@@ -135,7 +134,6 @@ export const frontmatterContentType = {
 
     const fixHint = `Run \`npx tsx src/content-render/scripts/add-content-type.ts --paths ${product}\` to fix.`
 
-    // Check: contentType must exist
     if (!fm.contentType) {
       addError(
         onError,
@@ -148,7 +146,6 @@ export const frontmatterContentType = {
       return
     }
 
-    // Check: contentType must match the directory-derived value
     if (fm.contentType !== expectedType) {
       addError(
         onError,

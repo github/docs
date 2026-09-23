@@ -48,20 +48,13 @@ export function isStringQuoted(text: string): boolean {
 }
 
 export function isStringPunctuated(text: string): boolean {
-  // String ends with punctuation of either
-  // . ? ! and optionally ends with single
-  // or double quotes. This also allows
-  // for single or double quotes before
-  // the punctuation.
+  // String ends with a period, question mark, or exclamation point, optionally
+  // followed by a single or double quote.
   return /^.*[.?!]['"]?$/.test(text)
 }
 
 export function doesStringEndWithPeriod(text: string): boolean {
-  // String ends with punctuation of either
-  // . ? ! and optionally ends with single
-  // or double quotes. This also allows
-  // for single or double quotes before
-  // the punctuation.
+  // String ends with a period, optionally followed by a single or double quote.
   return /^.*\.['"]?$/.test(text)
 }
 
@@ -73,9 +66,7 @@ export function quotePrecedesLinkOpen(text: string | undefined): boolean {
 // Lines is an array of strings read from a
 // Markdown file a split around new lines.
 // This is the format we get from Markdownlint.
-// Returns null if the lines do not contain
-// frontmatter properties.
-// Returns frontmatter as a Record with unknown values since YAML can contain various types
+// Returns null if the lines do not contain frontmatter properties.
 export function getFrontmatter(lines: string[]): Record<string, unknown> | null {
   const fmString = lines.join('\n')
   const { data } = matter(fmString)
