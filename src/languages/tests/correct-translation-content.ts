@@ -18,12 +18,10 @@ function fix(content: string, code: string, englishContent = '') {
 
 const ghesVersion = `enterprise-server@${supported[0]}`
 
-// A string fix can produce valid Liquid that still renders the wrong thing for
-// a given version: a dropped separator, or a branch that swallows the whole
-// sentence. `render` evaluates a corrected string per version so those failures
-// are caught. Product names resolve from the English data directory, since only
-// `en` is loaded in tests, but the branch structure under test is language
-// independent.
+// A string fix can produce valid Liquid that still renders wrong for some version,
+// such as a dropped separator or a branch that swallows the whole sentence.
+// render evaluates a corrected string per version to catch those failures.
+// Product names resolve from English data because tests load only en.
 async function render(content: string, currentVersion: string) {
   const req = {} as ExtendedRequest
   req.context = {
@@ -37,11 +35,14 @@ async function render(content: string, currentVersion: string) {
 }
 
 describe('correctTranslatedContentStrings', () => {
-  // ─── SPANISH (es) ───────────────────────────────────────────────────
-
   describe('Spanish (es)', () => {
     test('fixes colon-prefix tags', () => {
       expect(fix('{%: ifversion ghec %}', 'es')).toBe('{% ifversion ghec %}')
+    })
+
+    test('fixes translated warning keyword', () => {
+      expect(fix('{% advertencia %}', 'es')).toBe('')
+      expect(fix('{% warning %}', 'es')).toBe('')
     })
 
     test('fixes translated data tag variants', () => {
@@ -59,11 +60,9 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes extra Spanish word inserted around "de datos" and "de variables"', () => {
-      // `{% WORD de datos variables.`: leading translator word
       expect(fix('{% uso de datos variables.product.github %}', 'es')).toBe(
         '{% data variables.product.github %}',
       )
-      // Unicode-aware: accented words must also match
       expect(fix('{% análisis de datos variables.product.github %}', 'es')).toBe(
         '{% data variables.product.github %}',
       )
@@ -71,12 +70,10 @@ describe('correctTranslatedContentStrings', () => {
         '{%- data reusables.foo.bar %}',
       )
 
-      // `{% de datos WORD variables.`: adjective inserted after "de datos"
       expect(fix('{% de datos específico variables.product.github %}', 'es')).toBe(
         '{% data variables.product.github %}',
       )
 
-      // `{% WORD de variables.`: missing "datos" keyword
       expect(fix('{% alerta de variables.product.github %}', 'es')).toBe(
         '{% data variables.product.github %}',
       )
@@ -213,8 +210,6 @@ describe('correctTranslatedContentStrings', () => {
     })
   })
 
-  // ─── JAPANESE (ja) ──────────────────────────────────────────────────
-
   describe('Japanese (ja)', () => {
     test('fixes translated data tags', () => {
       expect(fix('{% データ variables.product.github %}', 'ja')).toBe(
@@ -241,6 +236,11 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes note keyword', () => {
       expect(fix('{% メモ %}', 'ja')).toBe('')
       expect(fix('{%- メモ %}', 'ja')).toBe('')
+    })
+
+    test('fixes translated warning keyword', () => {
+      expect(fix('{% 警告 %}', 'ja')).toBe('')
+      expect(fix('{% warning %}', 'ja')).toBe('')
     })
 
     test('fixes Japanese or (または) in ifversion tags', () => {
@@ -347,7 +347,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes garbled endif with percent placed after keyword', () => {
-      // `{ endif% %}`: percent appears after "endif" instead of after the opening brace
       expect(fix('some content\n{ endif% %}\nmore', 'ja')).toBe('some content\n{% endif %}\nmore')
     })
 
@@ -365,7 +364,6 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% それ以外の場合 ifversion codeql-rust-public-preview %}', 'ja')).toBe(
         '{% elsif codeql-rust-public-preview %}',
       )
-      // no space before closing tag
       expect(fix('{% それ以外の場合 ifversion codeql-rust-public-preview%}', 'ja')).toBe(
         '{% elsif codeql-rust-public-preview %}',
       )
@@ -387,13 +385,13 @@ describe('correctTranslatedContentStrings', () => {
     })
   })
 
-  // ─── PORTUGUESE (pt) ───────────────────────────────────────────────
-
   describe('Portuguese (pt)', () => {
+    test('fixes translated warning keyword', () => {
+      expect(fix('{% aviso %}', 'pt')).toBe('')
+      expect(fix('{% warning %}', 'pt')).toBe('')
+    })
+
     test('strips stray unclosed {% vscode %} opener with no English counterpart', () => {
-      // Confirmed in data/reusables/copilot/code-completion-switch-prereqs-vscode.md:
-      // translator inserted a stray `{% vscode %}` opener mid-sentence with no
-      // matching `{% endvscode %}`, and the English source never used this tag.
       expect(
         fix(
           'Você está usando as versões mais recentes do {% vscode %} Você pode alternar os modelos.',
@@ -402,15 +400,12 @@ describe('correctTranslatedContentStrings', () => {
         ),
       ).toBe('Você está usando as versões mais recentes do Você pode alternar os modelos.')
 
-      // Leave the tag alone when it's properly closed.
       expect(
         fix('{% vscode %}Conteúdo{% endvscode %}', 'pt', 'You are using the latest releases.'),
       ).toBe('{% vscode %}Conteúdo{% endvscode %}')
 
-      // Leave the tag alone when the English source also uses it (legitimate tab content).
       expect(fix('{% vscode %}Conteúdo', 'pt', '{% vscode %}Content')).toBe('{% vscode %}Conteúdo')
 
-      // Every opener is stray when there is no closer at all, so strip all of them.
       expect(
         fix('a {% vscode %} b {% vscode %} c', 'pt', 'You are using the latest releases.'),
       ).toBe('a b c')
@@ -433,7 +428,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes en-dash in trim modifier', () => {
-      // `{%–`: en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
+      // {%– uses an en dash (U+2013) instead of a hyphen.
       expect(fix('{%– ifversion projects-v1 %}', 'pt')).toBe('{%- ifversion projects-v1 %}')
       expect(fix('{%– endif %}', 'pt')).toBe('{%- endif %}')
     })
@@ -445,14 +440,12 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes datavariables / dadosvariables (no space)', () => {
-      // `{% datavariables`: no space between "data" and "variables" (post-translation)
       expect(fix('{% datavariables.product.github %}', 'pt')).toBe(
         '{% data variables.product.github %}',
       )
       expect(fix('{%- datavariables.product.github %}', 'pt')).toBe(
         '{%- data variables.product.github %}',
       )
-      // `{% dadosvariables`: Portuguese "dados" fused with "variables"
       expect(fix('{% dadosvariables.product.github %}', 'pt')).toBe(
         '{% data variables.product.github %}',
       )
@@ -498,7 +491,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes multi-plan word-order swap with ou (ghes ifversion ou ghec)', () => {
-      // `{% ghes ifversion ou ghec %}`: word-order swap + Portuguese "ou" for "or"
       expect(fix('{% ghes ifversion ou ghec %}', 'pt')).toBe('{% ifversion ghes or ghec %}')
       expect(fix('{%- ghes ifversion ou ghec %}', 'pt')).toBe('{%- ifversion ghes or ghec %}')
       expect(fix('{% fpt ifversion ou ghec %}', 'pt')).toBe('{% ifversion fpt or ghec %}')
@@ -506,7 +498,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes fully translated reutilizáveis reusables path', () => {
-      // `reutilizáveis` is Portuguese for "reusables"
       expect(fix('{% dados reutilizáveis.repositórios.reaction_list %}', 'pt')).toBe(
         '{% data reusables.repositories.reaction_list %}',
       )
@@ -514,7 +505,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes translated repositórios path segment', () => {
-      // `repositórios` is Portuguese for "repositories"
       expect(fix('{% data reusables.repositórios.reaction_list %}', 'pt')).toBe(
         '{% data reusables.repositories.reaction_list %}',
       )
@@ -542,11 +532,9 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% data variables.produto.prodname_github_codespaces %}', 'pt')).toBe(
         '{% data variables.product.prodname_github_codespaces %}',
       )
-      // Already-correct input is left unchanged.
       expect(fix('{% data variables.product.prodname_pro %}', 'pt')).toBe(
         '{% data variables.product.prodname_pro %}',
       )
-      // Prose outside a Liquid `data` tag is left unchanged.
       expect(fix('Veja myvariables.produto.exemplo para detalhes.', 'pt')).toBe(
         'Veja myvariables.produto.exemplo para detalhes.',
       )
@@ -588,9 +576,17 @@ describe('correctTranslatedContentStrings', () => {
     })
   })
 
-  // ─── CHINESE (zh) ──────────────────────────────────────────────────
-
   describe('Chinese (zh)', () => {
+    test('fixes translated warning keyword', () => {
+      expect(fix('{% 警告 %}', 'zh')).toBe('')
+      expect(fix('{% warning %}', 'zh')).toBe('')
+    })
+
+    test('fixes translated endwarning keyword', () => {
+      expect(fix('{% 结束警告 %}', 'zh')).toBe('')
+      expect(fix('{% endwarning %}', 'zh')).toBe('')
+    })
+
     test('fixes translated data tags', () => {
       expect(fix('{% 数据variables.product.github %}', 'zh')).toBe(
         '{% data variables.product.github %}',
@@ -599,7 +595,6 @@ describe('correctTranslatedContentStrings', () => {
         '{% data variables.product.github %}',
       )
       expect(fix('{% 数据可重用s.foo %}', 'zh')).toBe('{% data reusables.foo %}')
-      // No space between `{%` and 数据
       expect(fix('{%数据variables.product.github%}', 'zh')).toBe(
         '{% data variables.product.github%}',
       )
@@ -670,11 +665,8 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes {% 捕获 X %} → {% capture X %} (translated capture tag)', () => {
-      // With space between 捕获 and identifier
       expect(fix('{% 捕获 myvar %}', 'zh')).toBe('{% capture myvar %}')
-      // Without space
       expect(fix('{% 捕获myvar %}', 'zh')).toBe('{% capture myvar %}')
-      // Whitespace-stripping forms
       expect(fix('{%- 捕获 myvar -%}', 'zh')).toBe('{%- capture myvar -%}')
       expect(fix('{%- 捕获myvar %}', 'zh')).toBe('{%- capture myvar %}')
     })
@@ -693,7 +685,6 @@ describe('correctTranslatedContentStrings', () => {
       const fixed =
         '可以{% ifversion ghec %}在企业或组织级别{% else %}在组织级别{% endif %}创建网络配置，从而将 Azure 虚拟网络 (VNET) 用于专用网络。'
       expect(fixAt(broken, 'zh', path)).toBe(fixed)
-      // unchanged if already correct
       expect(fixAt(fixed, 'zh', path)).toBe(fixed)
     })
 
@@ -750,8 +741,6 @@ describe('correctTranslatedContentStrings', () => {
     })
   })
 
-  // ─── RUSSIAN (ru) ──────────────────────────────────────────────────
-
   describe('Russian (ru)', () => {
     test('fixes AUTOTITLE with guillemets', () => {
       expect(fix('[«AUTOTITLE»](/path)', 'ru')).toBe('[AUTOTITLE](/path)')
@@ -789,15 +778,12 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes fully translated "data reusables" tag prefixes', () => {
-      // "данных, многократно используемых" = "data, repeatedly used"
       expect(fix('{% данных, многократно используемых.copilot.jetbrains-settings %}', 'ru')).toBe(
         '{% data reusables.copilot.jetbrains-settings %}',
       )
-      // "данных, которые можно использовать повторно" = "data that can be reused"
       expect(
         fix('{% данных, которые можно использовать повторно.projects.what-gets-copied %}', 'ru'),
       ).toBe('{% data reusables.projects.what-gets-copied %}')
-      // already-correct input is left unchanged
       expect(fix('{% data reusables.copilot.foo %}', 'ru')).toBe('{% data reusables.copilot.foo %}')
     })
 
@@ -1024,18 +1010,12 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes doubled plan name before ifversion (ghes ghes ifversion → ifversion ghes)', () => {
-      // `{% ghes ghes ifversion %}`: plan name appears twice before `ifversion`;
-      // collapses the duplicate and swaps to canonical `{% ifversion PLAN %}`.
       expect(fix('{% ghes ghes ifversion %}', 'ru')).toBe('{% ifversion ghes %}')
       expect(fix('{%- ghec ghec ifversion %}', 'ru')).toBe('{%- ifversion ghec %}')
-      // Does not affect normal word-order swap (single plan name)
       expect(fix('{% ghes ifversion %}', 'ru')).toBe('{% ifversion ghes %}')
-      // Unchanged when already correct
       expect(fix('{% ifversion ghes %}', 'ru')).toBe('{% ifversion ghes %}')
     })
   })
-
-  // ─── FRENCH (fr) ───────────────────────────────────────────────────
 
   describe('French (fr)', () => {
     test('fixes translated data tags', () => {
@@ -1047,15 +1027,12 @@ describe('correctTranslatedContentStrings', () => {
         '{% data variables.product.github %}',
       )
       expect(fix('{% données reusables.foo %}', 'fr')).toBe('{% data reusables.foo %}')
-      // `{% de données variables.`: preposition "de" prepended
       expect(fix('{% de données variables.product.github %}', 'fr')).toBe(
         '{% data variables.product.github %}',
       )
-      // `{% de data variables.`: partially-corrected form
       expect(fix('{% de data variables.product.github %}', 'fr')).toBe(
         '{% data variables.product.github %}',
       )
-      // `{% données.variables.X %}`: dot instead of space after "données"
       expect(fix('{% données.variables.copilot.copilot_chat_short %}', 'fr')).toBe(
         '{% data variables.copilot.copilot_chat_short %}',
       )
@@ -1113,7 +1090,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('removes orphaned endif when no matching ifversion/elsif opener exists', () => {
-      // Caused by translations where only the closing tag survived (e.g. user-api.md reusable)
       const fixWithStrip = (s: string) =>
         correctTranslatedContentStrings(s, '', { code: 'fr', relativePath: 'test.md' })
       expect(fixWithStrip('Some content\n{% endif %}\nMore content')).toBe(
@@ -1179,8 +1155,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes flux de travail variables → data variables', () => {
-      // `{% flux de travail variables.`: French "flux de travail" (workflow) mistakenly
-      // used as the Liquid tag name instead of "data".
       expect(fix('{% flux de travail variables.product.prodname_actions %}', 'fr')).toBe(
         '{% data variables.product.prodname_actions %}',
       )
@@ -1205,9 +1179,12 @@ describe('correctTranslatedContentStrings', () => {
     })
   })
 
-  // ─── KOREAN (ko) ──────────────────────────────────────────────────
-
   describe('Korean (ko)', () => {
+    test('fixes translated warning keyword', () => {
+      expect(fix('{% 경고 %}', 'ko')).toBe('')
+      expect(fix('{% warning %}', 'ko')).toBe('')
+    })
+
     test('fixes AUTOTITLE with Korean suffix', () => {
       expect(fix('[AUTOTITLE"을 참조하세요]', 'ko')).toBe('[AUTOTITLE]')
     })
@@ -1320,9 +1297,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes 데이터 재사용 가능항목 (missing internal space) → data reusables', () => {
-      // Variant with a space before "재사용" but missing between "가능" and
-      // "항목", distinct from the already-handled fully-spaced and
-      // fully-fused variants.
       expect(fix('{% 데이터 재사용 가능항목.webhooks.commit_comment_short_desc %}', 'ko')).toBe(
         '{% data reusables.webhooks.commit_comment_short_desc %}',
       )
@@ -1369,8 +1343,6 @@ describe('correctTranslatedContentStrings', () => {
     })
   })
 
-  // ─── GERMAN (de) ──────────────────────────────────────────────────
-
   describe('German (de)', () => {
     test('fixes translated data tags', () => {
       expect(fix('{% Daten variables.product.github %}', 'de')).toBe(
@@ -1381,7 +1353,6 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% Daten reusables.foo %}', 'de')).toBe('{% data reusables.foo %}')
       expect(fix('{%- Daten reusables.foo %}', 'de')).toBe('{%- data reusables.foo %}')
-      // `{% Datenseite variables.`: "Datenseite" (data page) compound = data
       expect(fix('{% Datenseite variables.product.prodname_github_app %}', 'de')).toBe(
         '{% data variables.product.prodname_github_app %}',
       )
@@ -1457,7 +1428,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes wiederverwendbare reusables path', () => {
-      // `wiederverwendbare` is German for "reusables"
       expect(fix('{% data wiederverwendbare.audit_log.reference %}', 'de')).toBe(
         '{% data reusables.audit_log.reference %}',
       )
@@ -1467,8 +1437,6 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- Daten wiederverwendbare.audit_log.reference %}', 'de')).toBe(
         '{%- data reusables.audit_log.reference %}',
       )
-      // Full real-world example: `{% Data wiederverwendbare.audit_log.referenz-nach-kategorie-gruppiert %}`
-      // The `{% Data ` → `{% data ` fix runs before this, so by the time we check:
       expect(
         fix('{% Data wiederverwendbare.audit_log.referenz-nach-kategorie-gruppiert %}', 'de'),
       ).toBe('{% data reusables.audit_log.referenz-nach-kategorie-gruppiert %}')
@@ -1636,7 +1604,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes Datenauflistung → data', () => {
-      // `{% Datenauflistung variables.X %}`: "data listing" compound = data
       expect(fix('{% Datenauflistung variables.product.github %}', 'de')).toBe(
         '{% data variables.product.github %}',
       )
@@ -1659,42 +1626,28 @@ describe('correctTranslatedContentStrings', () => {
       const fixed =
         'werden {% ifversion ghes %}200 GB auf dem Stammdateisystem verfügbar sein. Die verbleibenden 200GB{% else %}100GB sind auf dem Stammdateisystem verfügbar.'
       expect(fixAt(broken, 'de', path)).toBe(fixed)
-      // unchanged if already correct
       expect(fixAt(fixed, 'de', path)).toBe(fixed)
     })
   })
 
   describe('Generic fixes (all languages)', () => {
     test('fixes reordered ifversion/endif/else back to ifversion/else/endif', () => {
-      // Confirmed corruption pattern across all 8 translated languages in
-      // data/reusables/organizations/custom-org-roles-intro.md: `{% endif %}`
-      // and `{% else %}` were swapped, producing a "tag 'else' not found"
-      // parse error.
       expect(
         fix('{% ifversion org-custom-role-with-repo-permissions %}A{% endif %}B{% else %}C', 'pt'),
       ).toBe('{% ifversion org-custom-role-with-repo-permissions %}A{% else %}B{% endif %}C')
-      // Already-correct input is left unchanged.
       expect(fix('{% ifversion ghec %}A{% else %}B{% endif %}', 'pt')).toBe(
         '{% ifversion ghec %}A{% else %}B{% endif %}',
       )
     })
 
     test('fixes stray % before closing }} in an output tag', () => {
-      // Translators sometimes left a stray `%` right before the closing `}}`
-      // of a Liquid output tag, likely from copy-pasting a neighboring
-      // `{% ... %}` tag's closer. This breaks Liquid parsing with
-      // `expected "|" before filter`. Confirmed in a ko translation
-      // (SCRAPE: configuring-interactive-maps.md).
       expect(fix('{{ allVersions[currentVersion].currentRelease %}}', 'ko')).toBe(
         '{{ allVersions[currentVersion].currentRelease }}',
       )
       expect(fix('{{ foo.bar %}}', 'de')).toBe('{{ foo.bar }}')
-      // Already-correct input is left unchanged.
       expect(fix('{{ allVersions[currentVersion].currentRelease }}', 'ko')).toBe(
         '{{ allVersions[currentVersion].currentRelease }}',
       )
-      // Doesn't touch normal `{% ... %}` tags or `{{ ... }}` output tags
-      // that legitimately contain a `%` character in their content.
       expect(fix('{% ifversion ghes %}A{% endif %}', 'ko')).toBe('{% ifversion ghes %}A{% endif %}')
       expect(fix('{{ "100%" }}', 'ko')).toBe('{{ "100%" }}')
       expect(fix('{{ rate | append: "%" }}', 'ko')).toBe('{{ rate | append: "%" }}')
@@ -1718,9 +1671,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes missing space between {% and data keyword', () => {
-      // Translators sometimes dropped the space between `{%` and `data`,
-      // producing `{%data variables.X %}` / `{%data reusables.X %}`, which
-      // breaks the Liquid parser. Confirmed across ja, pt, zh, ko, and de.
       expect(fix('{%data variables.product.github %}', 'ja')).toBe(
         '{% data variables.product.github %}',
       )
@@ -1728,14 +1678,12 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%-data variables.product.github %}', 'de')).toBe(
         '{%- data variables.product.github %}',
       )
-      // Already-correct input is left unchanged.
       expect(fix('{% data variables.product.github %}', 'zh')).toBe(
         '{% data variables.product.github %}',
       )
     })
 
     test('fixes leading dot in {% data paths', () => {
-      // `{% data .variables.X %}`: translator inserted a stray dot
       expect(fix('{% data .variables.product.prodname_ghe_server %}', 'ja')).toBe(
         '{% data variables.product.prodname_ghe_server %}',
       )
@@ -1746,10 +1694,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes stray space after a dot inside {% data variables/reusables paths', () => {
-      // Translators sometimes inserted a stray space right after a dot in a
-      // multi-segment `variables.X.Y` / `reusables.X.Y` path (e.g. wrapping
-      // long lines mid-path). Liquid parses the space as ending the variable
-      // lookup early, breaking the tag. Confirmed in de-de, ja-jp, ru-ru.
       expect(fix('{% data variables.product. prodname_pages %}', 'de')).toBe(
         '{% data variables.product.prodname_pages %}',
       )
@@ -1760,14 +1704,12 @@ describe('correctTranslatedContentStrings', () => {
         '{% data variables.copilot.copilot_chat_short %}',
       )
       expect(fix('{%- data reusables.foo. bar -%}', 'de')).toBe('{%- data reusables.foo.bar -%}')
-      // Already-correct input is left unchanged.
       expect(fix('{% data variables.product.prodname_pages %}', 'de')).toBe(
         '{% data variables.product.prodname_pages %}',
       )
     })
 
     test('fixes singular variable / reusable in {% data paths', () => {
-      // `{% data variable.product.X %}` (singular) → `{% data variables.product.X %}`
       expect(fix('{% data variable.product.prodname_container_registry %}', 'zh')).toBe(
         '{% data variables.product.prodname_container_registry %}',
       )
@@ -1848,7 +1790,6 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('[ AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
       expect(fix('[ "AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
       expect(fix('[AUTOTITLE] (/path)', 'es')).toBe('[AUTOTITLE](/path)')
-      // Already-correct input is left unchanged.
       expect(fix('[AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
     })
 
@@ -1996,8 +1937,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes missing endprompt on the JS-numCats line (all translation languages)', () => {
-      // The `${}` template literal inside a backtick confused translators and they dropped
-      // `{% endprompt %}` from the line. Fix is applied universally across all languages.
       const input =
         "* {% prompt %}How do I write `The ${'cat is' : 'cats are'} hungry.`?{% endprompt %}\n" +
         "* {% prompt %}In JS I'd write: `The ${'cat is' : 'cats are'} hungry.`. ¿How in NEW-LANGUAGE?\n" +
@@ -2032,10 +1971,6 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('does not inject linebreak after data tag that is mid-heading', () => {
-      // English: tag is at end of heading line → English has tag+newline.
-      // Japanese: tag is mid-heading, followed by Japanese text.
-      // The linebreak recovery must NOT replace the space with a newline here,
-      // or the heading gets split into `#### TAG` + `Japanese text` paragraph.
       const en = '#### Using {% data variables.copilot.subagents_short %}\n\nSome paragraph.'
       const translated =
         '#### {% data variables.copilot.subagents_short %} の使用\n\nSome paragraph.'
@@ -2058,30 +1993,22 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('rejoins broken bullet markers split across lines (all languages)', () => {
-      // Lone `*` with content on indented next line → `* content`
       const broken = '* \n              [AUTOTITLE](/orgs/transfer)'
       const expected = '* [AUTOTITLE](/orgs/transfer)'
       for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
         expect(fix(broken, lang)).toBe(expected)
       }
-      // No trailing space variant
       expect(fix('*\n  [AUTOTITLE](/path)', 'ko')).toBe('* [AUTOTITLE](/path)')
-      // Multiple consecutive broken bullets
       expect(fix('* \n  one\n* \n  two', 'fr')).toBe('* one\n* two')
-      // Valid bullets are not modified
       expect(fix('* normal\n* another', 'de')).toBe('* normal\n* another')
 
-      // Lone `-` (hyphen) bullet markers are also rejoined (same corruption)
       const brokenHyphen = '- \n              [AUTOTITLE](/orgs/transfer)'
       const expectedHyphen = '- [AUTOTITLE](/orgs/transfer)'
       for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
         expect(fix(brokenHyphen, lang)).toBe(expectedHyphen)
       }
-      // No trailing space variant
       expect(fix('-\n  [AUTOTITLE](/path)', 'ko')).toBe('- [AUTOTITLE](/path)')
-      // Multiple consecutive broken hyphen bullets
       expect(fix('- \n  one\n- \n  two', 'fr')).toBe('- one\n- two')
-      // Valid hyphen bullets are not modified
       expect(fix('- normal\n- another', 'de')).toBe('- normal\n- another')
     })
 
@@ -2091,17 +2018,11 @@ describe('correctTranslatedContentStrings', () => {
       for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
         expect(fix(broken, lang)).toBe(expected)
       }
-      // Pipe with trailing whitespace
       expect(fix('|   \n  cell text', 'zh')).toBe('| cell text')
-      // Valid table rows are not modified
       expect(fix('| a | b |\n| c | d |', 'es')).toBe('| a | b |\n| c | d |')
     })
 
     test('rejoins table cells split across several continuation lines', () => {
-      // The Copilot model-comparison tables split one row across two indented
-      // lines, separating `{{ model.name }}` from the `{% if %}` footnote
-      // markers. Joining only the first line left the row broken and unbalanced
-      // the surrounding `{% for %}`/`{% endfor %}` pair, which 500s the page.
       const broken =
         '|\n              {{ model.name }}\n' +
         "              {% if model.name == 'X' %}[^x]{% endif %} | {% if model.pro %}yes{% endif %} |"
@@ -2111,30 +2032,21 @@ describe('correctTranslatedContentStrings', () => {
         expect(fix(broken, lang)).toBe(expected)
       }
 
-      // Three or more continuation lines collapse just the same.
       expect(fix('|\n      one |\n      two |\n      three |', 'fr')).toBe('| one |two |three |')
 
-      // A single continuation line still behaves exactly as before.
       expect(fix('|\n              cell text', 'fr')).toBe('| cell text')
 
-      // Unlike the heading/blockquote rejoin, the pipe rule has never required a
-      // deep indent, so a shallow continuation line still joins.
       expect(fix('|\n  cell text', 'fr')).toBe('| cell text')
 
-      // Consecutive stranded pipes stay separate rows.
       expect(fix('|\n      one\n|\n      two', 'fr')).toBe('| one\n| two')
 
-      // Pieces that would otherwise fuse two words get a separating space.
       expect(fix('|\n      cell one\n      cell two', 'fr')).toBe('| cell one cell two')
     })
 
     test('keeps legitimate endif tags when the opener is a bare if (fr)', () => {
-      // The orphan-endif rule only recognised `ifversion`/`elsif` openers, so it
-      // deleted the closing tags in content that opens with a bare `{% if %}`.
       const content = "{% if model.name == 'X' %}[^x]{% endif %}"
       expect(fix(content, 'fr')).toBe(content)
 
-      // A genuinely orphaned endif, with no opener of any kind, is still removed.
       expect(fix('Some text {% endif %}', 'fr')).toBe('Some text ')
     })
 
@@ -2144,17 +2056,11 @@ describe('correctTranslatedContentStrings', () => {
       for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
         expect(fix(broken, lang)).toBe(expected)
       }
-      // All heading levels
       expect(fix('# \n              Title', 'ja')).toBe('# Title')
       expect(fix('###### \n              Title', 'ja')).toBe('###### Title')
-      // 0–3 leading spaces are accepted
       expect(fix('   ### \n              Title', 'ja')).toBe('   ### Title')
-      // Valid headings are not modified
       expect(fix('### Already correct', 'ja')).toBe('### Already correct')
-      // 4-space indented heading-like text is not collapsed (no marker join);
-      // but selfStrip still removes the 14-space indentation from the next line.
       expect(fix('    ###\n              code', 'ja')).toBe('    ###\ncode')
-      // Shallow next-line indent (<6) is not collapsed
       expect(fix('### \n  Title', 'ja')).toBe('### \n  Title')
     })
 
@@ -2164,9 +2070,7 @@ describe('correctTranslatedContentStrings', () => {
       for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
         expect(fix(broken, lang)).toBe(expected)
       }
-      // 0–3 leading spaces are accepted
       expect(fix('  > \n              Quote', 'ja')).toBe('  > Quote')
-      // Valid blockquotes are not modified
       expect(fix('> Already correct', 'ja')).toBe('> Already correct')
       expect(fix('>\n> Continued blockquote', 'ja')).toBe('>\n> Continued blockquote')
     })
@@ -2179,17 +2083,10 @@ describe('correctTranslatedContentStrings', () => {
       for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
         expect(fix(broken, lang)).toBe(expected)
       }
-      // Numbered list marker
       expect(fix('1. **\n              Important**: text', 'ja')).toBe('1. **Important**: text')
-      // Heading marker
       expect(fix('### **\n              Bold heading**', 'ja')).toBe('### **Bold heading**')
-      // Blockquote marker
       expect(fix('> **\n              Quoted bold**', 'ja')).toBe('> **Quoted bold**')
-      // Table cell
       expect(fix('| **\n              Cell bold** | x', 'ja')).toBe('| **Cell bold** | x')
-      // Bare `**` (no preceding marker) is not marker-joined, but selfStrip
-      // still removes the 14-space indentation from the next line so it does
-      // not render as an indented code block.
       expect(fix('**\n              text', 'ja')).toBe('**\ntext')
     })
 
@@ -2201,31 +2098,23 @@ describe('correctTranslatedContentStrings', () => {
       for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
         expect(fix(broken, lang)).toBe(expected)
       }
-      // Higher numbered items
       expect(fix('2. \n              Content', 'ja')).toBe('2. Content')
       expect(fix('10. \n              Content', 'ja')).toBe('10. Content')
-      // 0–3 leading spaces are accepted
       expect(fix('   1. \n              Indented', 'ja')).toBe('   1. Indented')
-      // Valid ordered list items are not modified
       expect(fix('1. Already correct', 'ja')).toBe('1. Already correct')
-      // Shallow next-line indent (<6 spaces) is not collapsed
       expect(fix('1. \n  Content', 'ja')).toBe('1. \n  Content')
     })
 
     test('does not modify content inside fenced code blocks', () => {
-      // Markdown example inside ```md fence should be preserved verbatim
       const fenced = '```md\n### \n              Heading example\n```'
       expect(fix(fenced, 'ja')).toBe(fenced)
-      // Tilde fences are also respected
       const tilde = '~~~md\n> \n              Quote example\n~~~'
       expect(fix(tilde, 'ja')).toBe(tilde)
-      // Bold-open inside code fence
       const boldFenced = '```md\n* **\n              bold example**\n```'
       expect(fix(boldFenced, 'ja')).toBe(boldFenced)
     })
 
     test('does not modify YAML frontmatter', () => {
-      // Multiline YAML scalars and indented values must not be joined
       const fm = `---
 title: Example
 intro: >
@@ -2251,9 +2140,6 @@ versions:
     })
 
     test('frontmatter containing fence-like characters does not break body fence tracking', () => {
-      // A multiline scalar in frontmatter that includes ``` (or ~~~) must
-      // NOT toggle the body's fence-tracking state. After frontmatter
-      // closes, dangling markers in the body should still be rejoined.
       const fm = `---
 title: Example
 intro: |
@@ -2277,18 +2163,11 @@ intro: |
     })
 
     test('does not collapse nested-list indented code blocks', () => {
-      // A list item followed by blank line + 6-space-indented "code" should
-      // be left alone because the marker line itself is empty (not a
-      // bare `>`/`#`/`* **` form), and the previous content line is not
-      // a heading/blockquote/bold-open marker.
       const nested = '1. Run this command:\n\n      gh auth login'
       expect(fix(nested, 'ja')).toBe(nested)
     })
 
     test('strips standalone deeply-indented paragraph lines (all languages)', () => {
-      // The translation pipeline sometimes indents an entire paragraph line
-      // with 14 spaces, causing it to render as a code block at the document
-      // level.  Such lines should have their leading whitespace stripped.
       const broken =
         '### MCP サーバーの手動での構成\n\n              {% data variables.product.prodname_vscode %}で MCP サーバーを構成するには、...'
       const expected =
@@ -2296,20 +2175,14 @@ intro: |
       for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
         expect(fix(broken, lang)).toBe(expected)
       }
-      // 9 spaces is the minimum threshold
       expect(fix('         content', 'ja')).toBe('content')
-      // 8 spaces is below threshold and should be preserved
       expect(fix('        content', 'ja')).toBe('        content')
-      // Standalone 14-space line mid-document
       expect(fix('Para one.\n\n              Para two.\n\nPara three.', 'ja')).toBe(
         'Para one.\n\nPara two.\n\nPara three.',
       )
     })
 
     test('does not strip content inside 4-space-indented fences (list code blocks)', () => {
-      // A fenced code block that itself lives inside a list item is indented
-      // by 4 spaces.  Its content may have 6–25 spaces of leading whitespace
-      // but must NOT be stripped.
       const fenced = [
         '1. Add this config:',
         '',
@@ -2325,8 +2198,6 @@ intro: |
       expect(fix(fenced, 'ja')).toBe(fenced)
     })
   })
-
-  // ─── EDGE CASES ────────────────────────────────────────────────────
 
   describe('Edge cases', () => {
     test('handles empty string', () => {
@@ -2389,8 +2260,6 @@ intro: |
     })
   })
 
-  // ─── PERFORMANCE REGRESSION ────────────────────────────────────────
-
   describe('Performance regression', () => {
     test('linebreak recovery does not degrade quadratically on large content', () => {
       const tagCount = 500
@@ -2401,8 +2270,7 @@ intro: |
       fix(content, 'es', english)
       const elapsed = performance.now() - start
 
-      // Generous threshold to avoid CI flakiness; the real concern is
-      // O(n²) regression which would push this into multi-second territory.
+      // Generous threshold for CI; an O(n²) regression would be multi-second.
       expect(elapsed).toBeLessThan(500)
     })
 
@@ -2431,14 +2299,11 @@ Para más información, consulta "[AUTOTITLE](/path)".
       }
       const elapsed = performance.now() - start
 
-      // 10 iterations of ~50KB content; generous threshold to avoid CI flakiness.
-      // O(n²) regression would push this into multi-second territory.
+      // Generous threshold for CI; an O(n²) regression would be multi-second.
       expect(elapsed).toBeLessThan(2000)
     })
 
     test('split-based raw→endraw does not backtrack on large content', () => {
-      // Before the fix, `[^]*?` regex caused ~20s backtracking on this.
-      // Split-based approach is O(n): should be <50ms.
       const prefix = `{% raw %}${'a'.repeat(50000)}`
       const suffix = `{% конец %}{% raw %}${'b'.repeat(25000)}`
       const content = prefix + suffix
@@ -2448,13 +2313,11 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const elapsed = performance.now() - start
 
       expect(result).toContain('{% endraw %}')
-      // Before the fix this took ~20s. Generous threshold for CI; the real
-      // concern is catastrophic backtracking, not marginal speed.
+      // Generous threshold for CI; catastrophic backtracking would be multi-second.
       expect(elapsed).toBeLessThan(2000)
     })
 
     test('large content without raw tags is not penalized', () => {
-      // 75KB of content with no {% raw %} should be fast
       const content = '{% ifversion ghec %}hello{% endif %}\n'.repeat(2000)
 
       const start = performance.now()
@@ -2466,9 +2329,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
-  // ─── SCRAPE-6548: search-scrape failures ─────────────────────────────
-  // Tests for the per-file Liquid corrections added to stop the daily
-  // search-scrape failures reported in github/docs-engineering#6548.
   describe('SCRAPE-6548 per-file fixes', () => {
     function fixAt(content: string, code: string, relativePath: string) {
       return correctTranslatedContentStrings(content, '', {
@@ -2565,7 +2425,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const broken =
         'SCIM{% endif %} を使用したエンタープライズ マネージド ユーザー{% else %} 向けのプロビジョニング アカウント{% ifversion ghec %}'
       const out = fix(broken, 'ja')
-      // After fix: balanced ifversion/else/endif and starts with ifversion
       expect(out).toMatch(/^\{% ifversion ghec %\}/)
       expect(out).toMatch(/\{% endif %\}$/)
       expect(out.match(/\{% endif %\}/g) || []).toHaveLength(1)
@@ -2606,9 +2465,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
-  // ─── SCRAPE-6572: search-scrape failures ─────────────────────────────
-  // Tests for the per-file Liquid corrections added to stop the daily
-  // search-scrape failures reported in github/docs-engineering#6572.
   describe('SCRAPE-6572 per-file fixes', () => {
     test('ko: configuring-access-to-private-registries-for-dependabot intro missing endif', () => {
       const broken =
@@ -2629,16 +2485,8 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
-  // ─── SCRAPE-6608: discovery-landing index-scrape failures ────────────
-  // The discovery-landing index pages render every descendant's title+intro.
-  // A descendant whose translated title/intro drops its `{% endif %}` throws,
-  // 500s `/api/article`, and the index "fails to scrape" (github/docs-engineering#6608).
-  // The earlier 6604 attempts matched the RAW file text (block-scalar trailing
-  // newline / YAML quote), but the corrector runs on the PARSED value, so they
-  // never fired at render time. These assert the parsed values are corrected.
   describe('SCRAPE-6608 per-file fixes', () => {
     test('ja: enabling-github-advanced-security-for-your-enterprise title closes ghas-products', () => {
-      // Parsed `|2-` block-scalar title (trailing newline stripped).
       const broken =
         '{% data variables.product.prodname_GHAS %}\n{% ifversion ghas-products %}製品をあなたの企業のために有効にする'
       const out = fix(broken, 'ja')
@@ -2666,11 +2514,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
-  // ─── SCRAPE-6642: search-scrape failures ─────────────────────────────
-  // Six translated title/intro corruptions from the June 10 batch broke the
-  // admin and code-security index scrapes (github/docs-engineering#6642).
-  // The corrector runs on the PARSED title/intro value, so the title fixes
-  // must match the unquoted substring (no surrounding YAML quote).
   describe('SCRAPE-6642 per-file fixes', () => {
     test('es: configuring-scim-provisioning-with-okta title closes ghec conditional', () => {
       const broken =
@@ -2719,11 +2562,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
-  // ─── SCRAPE-6732: search-scrape failures ─────────────────────────────
-  // The ru admin landing page failed to scrape with `tag "else" not found`
-  // because the intro of viewing-and-managing-a-users-saml-access-to-your-enterprise.md
-  // had an orphaned `{% else %}` before any opening `{% ifversion %}`
-  // (github/docs-engineering#6732). The corrector runs on the PARSED intro value.
   describe('SCRAPE-6732 per-file fixes', () => {
     test('ru: viewing-and-managing-a-users-saml-access intro reorders orphaned else', () => {
       const broken =
@@ -2731,20 +2569,10 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const fixed =
         'Вы можете просматривать и отзывать {% ifversion ghec %}связанную личность, активные сессии и авторизованные учетные данные{% else %}активные сессии SAML{% endif %} участника предприятия.'
       expect(fix(broken, 'ru')).toBe(fixed)
-      // idempotent: the fix only matches the broken form
       expect(fix(fixed, 'ru')).toBe(fixed)
     })
   })
 
-  // ─── SCRAPE-6781: search-scrape failures ─────────────────────────────
-  // The pt codespaces and ko organizations landing pages failed to scrape
-  // (github/docs-engineering#6781). Neither landing page is itself corrupt:
-  // `discovery-landing` pages render their descendants' intros via
-  // getAllTocItems, so a corrupt child intro takes the whole landing page
-  // down. In both cases the translator reordered the inline Liquid tags to
-  // match target-language word order, leaving `{% else %}`/`{% endif %}`
-  // ahead of the `{% ifversion %}` that opens the block. The corrector runs
-  // on the PARSED intro value.
   describe('SCRAPE-6781 per-file fixes', () => {
     test('pt: enabling-or-disabling-github-codespaces-for-your-organization intro reorders tags', () => {
       const broken =
@@ -2752,7 +2580,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const fixed =
         'Você pode controlar quais usuários podem usar {% data variables.product.prodname_github_codespaces %} nos repositórios privados {% ifversion ghec %}e internos {% endif %}da sua organização.'
       expect(fix(broken, 'pt')).toBe(fixed)
-      // idempotent: the fix only matches the broken form
       expect(fix(fixed, 'pt')).toBe(fixed)
     })
 
@@ -2762,12 +2589,9 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const fixed =
         '{% ifversion fpt or ghec %}이전 조직 구성원을 초대하여{% else %}조직에 이전 멤버를{% endif %} 다시 추가하고 해당 사용자의 이전 역할, 액세스 권한, 포크 및 설정을 복원할지 여부를 선택할 수 있습니다.'
       expect(fix(broken, 'ko')).toBe(fixed)
-      // idempotent: the fix only matches the broken form
       expect(fix(fixed, 'ko')).toBe(fixed)
     })
   })
-
-  // ─── New patterns ───────────────────────────────────────────────────
 
   describe('es: you-can-fork.md per-file fix', () => {
     test('replaces leading elsif with ifversion', () => {
@@ -2779,7 +2603,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
         skipOrphanStripping: true,
       }
       expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
-      // already correct input is unchanged
       expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
     })
 
@@ -2812,7 +2635,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const broken = '{% reusable (fr) classroom.vous-pouvez-créer-une-pull-request-pour-retour %}'
       const fixed = '{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}'
       expect(fix(broken, 'fr')).toBe(fixed)
-      // already correct is unchanged
       expect(fix(fixed, 'fr')).toBe(fixed)
     })
   })
@@ -2827,7 +2649,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
         skipOrphanStripping: true,
       }
       expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
-      // already correct is unchanged
       expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
     })
 
@@ -2836,12 +2657,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(fix(other, 'ko')).toBe(other)
     })
   })
-
-  // ─── Translation quality agent: 2025 corruption-scan patterns ────────
-  // These per-file fixes were found by scanning all 8 translation repos for
-  // corruption patterns not yet caught by the corrector. Each is a Liquid
-  // conditional block whose tags were reordered or dropped by the
-  // translator, breaking the tag-matching parser.
 
   describe('ja: audit-log-search-by-repo.md per-file fix', () => {
     test('restores trim dash and missing endif', () => {
@@ -3183,13 +2998,10 @@ Para más información, consulta "[AUTOTITLE](/path)".
         skipOrphanStripping: true,
       }
       expect(correctTranslatedContentStrings(broken, '', ctx)).toBe(fixed)
-      // already correct input is unchanged
       expect(correctTranslatedContentStrings(fixed, '', ctx)).toBe(fixed)
     })
 
     test('restores the missing endif when scoped by dottedPath', () => {
-      // Production reusable rendering passes `dottedPath`, not `relativePath`
-      // (src/data-directory/lib/get-data.ts).
       const broken =
         '「シークレット スキャン アラート」のリポジトリのアクセス許可を参照してください。 |'
       const fixed =
@@ -3432,11 +3244,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
-  // ─── filtering-and-searching-issues-and-pull-requests.md per-file fix ──
-  // The translator dropped the `{% endif %}` closing the
-  // `{% ifversion ghes < 3.18 %}` that wraps the "qualifiers within
-  // parentheses" sentence, leaving the outer `{% webui %}...{% endwebui %}`
-  // block unterminated (`tag "endwebui" not found`).
   describe('zh: filtering-and-searching-issues-and-pull-requests.md per-file fix', () => {
     test('restores the endif dropped before endwebui', () => {
       const broken =
@@ -3444,16 +3251,10 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const fixed =
         '你可以使用圆括号嵌套筛选器，最多可达五层深度。{% ifversion ghes < 3.18 %} 目前无法在括号中包含`repo`、`org`或`user`限定符。{% endif %}\n\n{% endwebui %}'
       expect(fix(broken, 'zh')).toBe(fixed)
-      // idempotent: the fix only matches the broken form
       expect(fix(fixed, 'zh')).toBe(fixed)
     })
   })
 
-  // ─── pull-request-alert-metrics.md per-file fix ─────────────────────
-  // The translator moved `{% endif %}` right after the
-  // `{% data variables.copilot.copilot_autofix_short %}` mention, ahead of
-  // the `{% ifversion code-scanning-autofix %}` opener that should wrap it
-  // (`tag "endif" not found`).
   describe('ko: pull-request-alert-metrics.md per-file fix', () => {
     test('moves the ifversion opener back before its content', () => {
       const broken =
@@ -3461,15 +3262,10 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const fixed =
         '{% ifversion code-scanning-autofix %} {% data variables.copilot.copilot_autofix_short %} 제안 사용 여부에 따라{% endif %} 수정된 경고 수, 해결되지 않은 상태로 병합된 수'
       expect(fix(broken, 'ko')).toBe(fixed)
-      // idempotent: the fix only matches the broken form
       expect(fix(fixed, 'ko')).toBe(fixed)
     })
   })
 
-  // ─── dependabot-custom-auto-triage-rules.md per-file fix ────────────
-  // The translator duplicated the opening `{%- ifversion fpt %}` block in
-  // place of the `{%- elsif ghec %}` that should follow it, leaving the
-  // tag never closed and the `ghes` branch unreachable.
   describe('es: dependabot-custom-auto-triage-rules.md per-file fix', () => {
     const context = {
       relativePath: 'data/reusables/gated-features/dependabot-custom-auto-triage-rules.md',
@@ -3482,7 +3278,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const fixed =
         '{%- ifversion fpt %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles en repositorios públicos y en cualquier repositorio propiedad de una organización en {% data variables.product.prodname_team %} con [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) habilitado.\n\n{%- elsif ghec %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles en repositorios públicos y en cualquier repositorio propiedad de una organización en {% data variables.product.prodname_team %} o {% data variables.product.prodname_enterprise %} con [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) habilitado.\n\n{%- elsif ghes %} {% data variables.dependabot.custom_rules_caps %} para {% data variables.product.prodname_dependabot_alerts %} están disponibles para los repositorios propiedad de la organización con [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) habilitado.\n\n{% endif %}'
       expect(correctTranslatedContentStrings(broken, '', context)).toBe(fixed)
-      // idempotent: the fix only matches the broken form
       expect(correctTranslatedContentStrings(fixed, '', context)).toBe(fixed)
     })
 
@@ -3496,9 +3291,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
-  // ─── service-container-host-runner.md per-file fix ──────────────────
-  // The translator dropped the `{%- endif %}` that closes the
-  // `{% ifversion not ghes %}` conditional.
   describe('es: service-container-host-runner.md per-file fix', () => {
     const context = {
       relativePath: 'data/reusables/actions/service-container-host-runner.md',
@@ -3511,7 +3303,6 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const fixed =
         'En el ejemplo se usa el ejecutor hospedado en {% data variables.product.prodname_dotcom %} `ubuntu-latest` {% ifversion not ghes %} {%- endif %} como host de Docker.'
       expect(correctTranslatedContentStrings(broken, '', context)).toBe(fixed)
-      // idempotent: the fix only matches the broken form
       expect(correctTranslatedContentStrings(fixed, '', context)).toBe(fixed)
     })
 
