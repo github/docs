@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { ArrowRightIcon } from '@primer/octicons-react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { Link } from '@/frame/components/Link'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML'

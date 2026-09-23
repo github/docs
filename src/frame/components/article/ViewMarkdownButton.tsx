@@ -14,7 +14,7 @@ import { MARKDOWN_SOURCE_MENU_EVENT_GROUP } from '@/events/components/event-grou
 import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { useTranslation } from '@/languages/components/useTranslation'
-import cx from 'classnames'
+import cx from 'clsx'
 import styles from './ViewMarkdownButton.module.scss'
 
 interface CopyMarkdownMenuProps {

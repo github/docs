@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { SidebarNav } from '@/frame/components/sidebar/SidebarNav'
 import { Header } from '@/frame/components/page-header/Header'

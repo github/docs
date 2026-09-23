@@ -1,5 +1,5 @@
 import { Heading, NavList } from '@primer/react-brand'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
 import { useTranslation } from '@/languages/components/useTranslation'

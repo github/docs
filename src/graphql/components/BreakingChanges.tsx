@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'

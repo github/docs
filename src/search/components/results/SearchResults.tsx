@@ -2,7 +2,7 @@ import { Heading, Pagination, Text, Token } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { Link } from '@/frame/components/Link'

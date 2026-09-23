@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import { useTranslation } from '@/languages/components/useTranslation'

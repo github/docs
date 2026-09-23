@@ -2,7 +2,7 @@ import type { EnterpriseDeprecation } from '@/frame/components/context/MainConte
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { useVersion } from '@/versions/components/useVersion'
 import { Flash } from '@primer/react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import styles from './DeprecationBanner.module.scss'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'

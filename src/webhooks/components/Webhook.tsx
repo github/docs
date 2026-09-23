@@ -2,7 +2,7 @@ import { ActionList, ActionMenu, Flash } from '@primer/react'
 import { useState, useEffect, useCallback } from 'react'
 import useSWR from 'swr'
 import { slug } from 'github-slugger'
-import cx from 'classnames'
+import cx from 'clsx'
 import { announce } from '@primer/live-region-element'
 
 import { useVersion } from '@/versions/components/useVersion'

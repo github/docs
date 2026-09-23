@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { NavList } from '@primer/react-brand'
-import cx from 'classnames'
+import cx from 'clsx'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'

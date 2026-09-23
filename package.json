@@ -197,7 +197,6 @@
     "azure-kusto-data": "^7.0.4",
     "chalk": "^5.0.1",
     "cheerio": "^1.2.0",
-    "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "cookie-parser": "^1.4.7",
     "cuss": "2.2.0",

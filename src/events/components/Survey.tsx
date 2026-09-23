@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { useRouter } from 'next/router'
 
 import { useTranslation } from '@/languages/components/useTranslation'

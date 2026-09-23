@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import cx from 'classnames'
+import cx from 'clsx'
 import { slug as githubSlug } from 'github-slugger'
 import { CheckIcon, XIcon } from '@primer/octicons-react'
 

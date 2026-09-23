@@ -6,7 +6,7 @@ import { createLowlight } from 'lowlight'
 import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
 import hljsCurl from 'highlightjs-curl'
-import cx from 'classnames'
+import cx from 'clsx'
 
 // React-native replacement for the imperative ClientSideHighlightJS enhancer
 // (#6619). The old enhancer scanned the document for `[data-highlight] code` and

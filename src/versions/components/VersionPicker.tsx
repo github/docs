@@ -4,7 +4,7 @@ import type { KeyboardEvent } from 'react'
 import { ActionMenu, ActionList } from '@primer/react'
 import { ActionMenu as BrandActionMenu } from '@primer/react-brand'
 import { ArrowRightIcon, DotFillIcon, InfoIcon, TriangleDownIcon } from '@primer/octicons-react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import Cookies from '@/frame/components/lib/cookies'
 import { USER_VERSION_COOKIE_NAME } from '@/frame/lib/constants'

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import type { JSX } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import styles from './Lead.module.scss'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML'
 

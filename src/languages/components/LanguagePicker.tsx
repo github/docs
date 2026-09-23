@@ -2,7 +2,7 @@ import { DotFillIcon, GlobeIcon, TriangleDownIcon } from '@primer/octicons-react
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import type { KeyboardEvent } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { useLanguages } from '@/languages/components/LanguagesContext'
 import { useUserLanguage } from '@/languages/components/useUserLanguage'

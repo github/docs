@@ -4,7 +4,7 @@ import { ActionMenu, ActionList } from '@primer/react'
 import { Card, Pagination, TextInput, Token } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ChildTocItem, TocItem } from '@/landings/types'

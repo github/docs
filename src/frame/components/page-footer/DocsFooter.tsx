@@ -1,7 +1,7 @@
 import { type MouseEvent } from 'react'
 import { useRouter } from 'next/router'
 import { MinimalFooter, Text } from '@primer/react-brand'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { FooterDivider } from '@/frame/components/page-footer/FooterDivider'
 import { SupportSection } from '@/frame/components/page-footer/SupportSection'

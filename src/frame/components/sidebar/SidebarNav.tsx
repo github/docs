@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import cx from 'clsx'
 import { useRouter } from 'next/router'
 
 import { useMainContext } from '@/frame/components/context/MainContext'

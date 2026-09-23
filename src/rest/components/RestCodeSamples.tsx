@@ -3,7 +3,7 @@ import { FormControl, IconButton, Select, SegmentedControl } from '@primer/react
 import { CheckIcon, CopyIcon, InfoIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import Cookies from '@/frame/components/lib/cookies'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { generateExampleOptions } from '@/rest/lib/code-example-utils'
 

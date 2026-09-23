@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { Survey } from '@/events/components/Survey'
 import { Contribution } from '@/frame/components/page-footer/Contribution'

@@ -1,6 +1,6 @@
 import { type MouseEvent, useCallback } from 'react'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
+import cx from 'clsx'
 import { Breadcrumbs as BrandBreadcrumbs } from '@primer/react-brand'
 
 import { useMainContext } from '../context/MainContext'
