@@ -42,9 +42,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   const req = context.req as unknown as ExtendedRequest
   const res = context.res as unknown as Response
 
-  // The `req.context.allVersion[X]` entries contains more keys (and values)
-  // than we need so only pick out the keys that are actually needed
-  // explicitly in the components served from these props.
+  // `allVersions[X]` carries more than the components need,
+  // so pick only the keys they use.
   const currentVersion = pick(req.context!.allVersions?.[req.context!.currentVersion!] || {}, [
     'plan',
     'planTitle',

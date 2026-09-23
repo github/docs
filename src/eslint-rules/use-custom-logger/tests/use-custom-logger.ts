@@ -442,8 +442,7 @@ const logger = createLogger(import.meta.url);
   })
 
   it('should handle logger variable with destructuring pattern', () => {
-    // This test ensures the rule recognizes logger variables from destructuring patterns
-    // and doesn't create a duplicate declaration
+    // A destructured logger already exists, so the fix must not redeclare it.
     ruleTester.run('use-custom-logger', rule, {
       valid: [],
       invalid: [

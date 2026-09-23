@@ -1,2 +1,2 @@
-// Re-export all types from types.ts for backward compatibility
+// Kept so existing `@/types` imports keep working.
 export * from './types'

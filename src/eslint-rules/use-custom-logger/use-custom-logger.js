@@ -7,11 +7,10 @@ module.exports = {
       recommended: false,
     },
     fixable: "code",
-    schema: [], // no options
+    schema: [],
   },
   create(context) {
     const sourceCode = context.getSourceCode();
-    // flag to ensure we add the logger setup only once per file
     let setupInserted = false;
 
     // Check if the logger import is already present.

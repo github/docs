@@ -1,15 +1,10 @@
 declare module 'http-status-code' {
-  /**
-   * HTTP status code definitions
-   */
   const httpStatusCodes: {
-    // 1xx Informational
     CONTINUE: 100
     SWITCHING_PROTOCOLS: 101
     PROCESSING: 102
     EARLY_HINTS: 103
 
-    // 2xx Success
     OK: 200
     CREATED: 201
     ACCEPTED: 202
@@ -21,7 +16,6 @@ declare module 'http-status-code' {
     ALREADY_REPORTED: 208
     IM_USED: 226
 
-    // 3xx Redirection
     MULTIPLE_CHOICES: 300
     MOVED_PERMANENTLY: 301
     FOUND: 302
@@ -31,7 +25,6 @@ declare module 'http-status-code' {
     TEMPORARY_REDIRECT: 307
     PERMANENT_REDIRECT: 308
 
-    // 4xx Client Error
     BAD_REQUEST: 400
     UNAUTHORIZED: 401
     PAYMENT_REQUIRED: 402
@@ -62,7 +55,6 @@ declare module 'http-status-code' {
     REQUEST_HEADER_FIELDS_TOO_LARGE: 431
     UNAVAILABLE_FOR_LEGAL_REASONS: 451
 
-    // 5xx Server Error
     INTERNAL_SERVER_ERROR: 500
     NOT_IMPLEMENTED: 501
     BAD_GATEWAY: 502
@@ -75,10 +67,8 @@ declare module 'http-status-code' {
     NOT_EXTENDED: 510
     NETWORK_AUTHENTICATION_REQUIRED: 511
 
-    // Methods
     getMessage(statusCode: number, protocol?: string): string
 
-    // Allow numeric access
     [statusCode: number]: number | ((statusCode: number, protocol?: string) => string)
   }
 
