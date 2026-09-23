@@ -206,7 +206,6 @@
     "cookie-parser": "^1.4.7",
     "cuss": "2.2.0",
     "dayjs": "^1.11.19",
-    "dereference-json-schema": "^0.2.1",
     "dotenv": "^17.3.1",
     "escape-string-regexp": "5.0.0",
     "express": "^5.2.1",
@@ -249,7 +248,6 @@
     "quick-lru": "7.0.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "react-is": "^19.2.4",
     "react-markdown": "^10.1.0",
     "rehype-highlight": "^7.0.2",
     "rehype-raw": "^7.0.0",
@@ -369,9 +367,6 @@
     },
     "sharp": "$sharp",
     "fast-uri": "^3.1.7"
-  },
-  "optionalDependencies": {
-    "esm": "^3.2.25"
   },
   "engines": {
     "node": "^24 || ^26"
