@@ -59,7 +59,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes extra Spanish word inserted around "de datos" and "de variables"', () => {
-      // `{% WORD de datos variables.` — leading translator word
+      // `{% WORD de datos variables.`: leading translator word
       expect(fix('{% uso de datos variables.product.github %}', 'es')).toBe(
         '{% data variables.product.github %}',
       )
@@ -71,12 +71,12 @@ describe('correctTranslatedContentStrings', () => {
         '{%- data reusables.foo.bar %}',
       )
 
-      // `{% de datos WORD variables.` — adjective inserted after "de datos"
+      // `{% de datos WORD variables.`: adjective inserted after "de datos"
       expect(fix('{% de datos específico variables.product.github %}', 'es')).toBe(
         '{% data variables.product.github %}',
       )
 
-      // `{% WORD de variables.` — missing "datos" keyword
+      // `{% WORD de variables.`: missing "datos" keyword
       expect(fix('{% alerta de variables.product.github %}', 'es')).toBe(
         '{% data variables.product.github %}',
       )
@@ -347,7 +347,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes garbled endif with percent placed after keyword', () => {
-      // `{ endif% %}` — percent appears after "endif" instead of after the opening brace
+      // `{ endif% %}`: percent appears after "endif" instead of after the opening brace
       expect(fix('some content\n{ endif% %}\nmore', 'ja')).toBe('some content\n{% endif %}\nmore')
     })
 
@@ -433,7 +433,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes en-dash in trim modifier', () => {
-      // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
+      // `{%–`: en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
       expect(fix('{%– ifversion projects-v1 %}', 'pt')).toBe('{%- ifversion projects-v1 %}')
       expect(fix('{%– endif %}', 'pt')).toBe('{%- endif %}')
     })
@@ -445,14 +445,14 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes datavariables / dadosvariables (no space)', () => {
-      // `{% datavariables` — no space between "data" and "variables" (post-translation)
+      // `{% datavariables`: no space between "data" and "variables" (post-translation)
       expect(fix('{% datavariables.product.github %}', 'pt')).toBe(
         '{% data variables.product.github %}',
       )
       expect(fix('{%- datavariables.product.github %}', 'pt')).toBe(
         '{%- data variables.product.github %}',
       )
-      // `{% dadosvariables` — Portuguese "dados" fused with "variables"
+      // `{% dadosvariables`: Portuguese "dados" fused with "variables"
       expect(fix('{% dadosvariables.product.github %}', 'pt')).toBe(
         '{% data variables.product.github %}',
       )
@@ -498,7 +498,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes multi-plan word-order swap with ou (ghes ifversion ou ghec)', () => {
-      // `{% ghes ifversion ou ghec %}` — word-order swap + Portuguese "ou" for "or"
+      // `{% ghes ifversion ou ghec %}`: word-order swap + Portuguese "ou" for "or"
       expect(fix('{% ghes ifversion ou ghec %}', 'pt')).toBe('{% ifversion ghes or ghec %}')
       expect(fix('{%- ghes ifversion ou ghec %}', 'pt')).toBe('{%- ifversion ghes or ghec %}')
       expect(fix('{% fpt ifversion ou ghec %}', 'pt')).toBe('{% ifversion fpt or ghec %}')
@@ -1024,7 +1024,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes doubled plan name before ifversion (ghes ghes ifversion → ifversion ghes)', () => {
-      // `{% ghes ghes ifversion %}` — plan name appears twice before `ifversion`;
+      // `{% ghes ghes ifversion %}`: plan name appears twice before `ifversion`;
       // collapses the duplicate and swaps to canonical `{% ifversion PLAN %}`.
       expect(fix('{% ghes ghes ifversion %}', 'ru')).toBe('{% ifversion ghes %}')
       expect(fix('{%- ghec ghec ifversion %}', 'ru')).toBe('{%- ifversion ghec %}')
@@ -1047,15 +1047,15 @@ describe('correctTranslatedContentStrings', () => {
         '{% data variables.product.github %}',
       )
       expect(fix('{% données reusables.foo %}', 'fr')).toBe('{% data reusables.foo %}')
-      // `{% de données variables.` — preposition "de" prepended
+      // `{% de données variables.`: preposition "de" prepended
       expect(fix('{% de données variables.product.github %}', 'fr')).toBe(
         '{% data variables.product.github %}',
       )
-      // `{% de data variables.` — partially-corrected form
+      // `{% de data variables.`: partially-corrected form
       expect(fix('{% de data variables.product.github %}', 'fr')).toBe(
         '{% data variables.product.github %}',
       )
-      // `{% données.variables.X %}` — dot instead of space after "données"
+      // `{% données.variables.X %}`: dot instead of space after "données"
       expect(fix('{% données.variables.copilot.copilot_chat_short %}', 'fr')).toBe(
         '{% data variables.copilot.copilot_chat_short %}',
       )
@@ -1179,7 +1179,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes flux de travail variables → data variables', () => {
-      // `{% flux de travail variables.` — French "flux de travail" (workflow) mistakenly
+      // `{% flux de travail variables.`: French "flux de travail" (workflow) mistakenly
       // used as the Liquid tag name instead of "data".
       expect(fix('{% flux de travail variables.product.prodname_actions %}', 'fr')).toBe(
         '{% data variables.product.prodname_actions %}',
@@ -1381,7 +1381,7 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% Daten reusables.foo %}', 'de')).toBe('{% data reusables.foo %}')
       expect(fix('{%- Daten reusables.foo %}', 'de')).toBe('{%- data reusables.foo %}')
-      // `{% Datenseite variables.` — "Datenseite" (data page) compound = data
+      // `{% Datenseite variables.`: "Datenseite" (data page) compound = data
       expect(fix('{% Datenseite variables.product.prodname_github_app %}', 'de')).toBe(
         '{% data variables.product.prodname_github_app %}',
       )
@@ -1636,7 +1636,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes Datenauflistung → data', () => {
-      // `{% Datenauflistung variables.X %}` — "data listing" compound = data
+      // `{% Datenauflistung variables.X %}`: "data listing" compound = data
       expect(fix('{% Datenauflistung variables.product.github %}', 'de')).toBe(
         '{% data variables.product.github %}',
       )
@@ -1735,7 +1735,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes leading dot in {% data paths', () => {
-      // `{% data .variables.X %}` — translator inserted a stray dot
+      // `{% data .variables.X %}`: translator inserted a stray dot
       expect(fix('{% data .variables.product.prodname_ghe_server %}', 'ja')).toBe(
         '{% data variables.product.prodname_ghe_server %}',
       )
@@ -2438,7 +2438,7 @@ Para más información, consulta "[AUTOTITLE](/path)".
 
     test('split-based raw→endraw does not backtrack on large content', () => {
       // Before the fix, `[^]*?` regex caused ~20s backtracking on this.
-      // Split-based approach is O(n) — should be <50ms.
+      // Split-based approach is O(n): should be <50ms.
       const prefix = `{% raw %}${'a'.repeat(50000)}`
       const suffix = `{% конец %}{% raw %}${'b'.repeat(25000)}`
       const content = prefix + suffix
