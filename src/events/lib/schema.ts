@@ -230,7 +230,7 @@ const context = {
       description: 'The variation this user we bucketed in is in, such as control or treatment.',
     },
 
-    // Event Grouping. The comination of key + id should be unique
+    // Event grouping. The combination of key + id should be unique.
     event_group_key: {
       type: 'string',
       description: 'A enum indentifier (e.g. "ask-ai") used to put events into a specific group.',

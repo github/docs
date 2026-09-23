@@ -9,7 +9,6 @@ import {
   oldestSupported,
 } from '@/versions/lib/enterprise-server-releases'
 
-// Test helper type for mocking contexts
 type TestContext = {
   [key: string]: unknown
   pages: Record<string, unknown>

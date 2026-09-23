@@ -39,9 +39,8 @@ export const Survey = () => {
   const [token, setToken] = useState('')
 
   useEffect(() => {
-    // Always reset the form if navigating to a new page because what
-    // you might have said or started to say belongs exclusively to
-    // to the page you started on.
+    // Send the reader back to the vote prompt on every navigation,
+    // because a rating belongs to the page it was given on.
     setState(ViewState.START)
     setVoteState(null)
   }, [asPath])
@@ -247,7 +246,6 @@ export const Survey = () => {
 }
 
 function trackEvent(eventData: EventData) {
-  // Nota bene: convert empty strings to undefined
   return sendEvent({
     type: EventType.survey,
     survey_token: eventData.token || undefined, // Honeypot

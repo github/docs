@@ -1,14 +1,10 @@
-/**
- * This script can be used to debug and test our signals.
- * Example use:
- *
- *    npm run analyze-comment -- "I love this site\!" --verbose
- *
- * or, using stdin:
- *
- *    cat naught-comment.txt | npm run analyze-comment
- *
- */
+// Debugs and tests our comment signals.
+//
+//    npm run analyze-comment -- "I love this site\!" --verbose
+//
+// or, using stdin:
+//
+//    cat naughty-comment.txt | npm run analyze-comment
 
 import fs from 'node:fs'
 import util from 'node:util'
@@ -42,7 +38,7 @@ async function main(comment?: string, options?: Options) {
   }
 
   console.log(chalk.grey('Comment:'), chalk.bold(util.inspect(comment)))
-  console.log('') // whitespace
+  console.log()
 
   const language = options?.language || 'en'
 
@@ -68,7 +64,8 @@ async function main(comment?: string, options?: Options) {
       console.log(chalk.green(`Not triggered on ${chalk.bold(name)}`))
     }
   }
-  console.log('') // whitespace
+
+  console.log()
   if (!broke) {
     console.log(chalk.whiteBright(`Final rating: ${chalk.bold(rating.toFixed(1))}`))
   }

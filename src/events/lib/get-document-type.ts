@@ -1,13 +1,8 @@
-/**
- * Document types used by the system
- */
 type DocumentType = 'homepage' | 'product' | 'category' | 'subcategory' | 'article' | 'early-access'
 
-/**
- * This function derives the document type from the *relative path* segment length,
- * where a relative path refers to the content path starting with the product dir.
- * For example: actions/index.md or github/getting-started-with-github/quickstart.md.
- */
+// Derives the document type from the number of segments in the relative path,
+// meaning the content path starting at the product directory.
+// For example: actions/index.md or github/getting-started-with-github/quickstart.md
 export default function getDocumentType(relativePath: string): DocumentType {
   // A non-index file is ALWAYS considered an article in this approach,
   // even if it's at the category level (like actions/quickstart.md)

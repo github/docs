@@ -1,10 +1,6 @@
-/**
- * This script is used to analyze posted survey comments in a CSV file.
- * The CSV file is expected to have come from the Azure Data Explorer
- * after having queries the `docs_v0_survey_event` table.
- *
- *
- */
+// Analyzes posted survey comments in a CSV file.
+// The CSV is expected to come from the Azure Data Explorer, after querying the
+// `docs_v0_survey_event` table.
 
 import fs from 'node:fs'
 import util from 'node:util'

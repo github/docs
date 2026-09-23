@@ -20,7 +20,6 @@ export async function precompileRedirects(pageList: Page[]): Promise<Redirects> 
   ) as Redirects
   Object.assign(allRedirects, externalRedirects)
 
-  // CURRENT PAGES PERMALINKS AND FRONTMATTER
   // create backwards-compatible old paths for page permalinks and frontmatter redirects
   for (const page of pageList.filter((xpage) => xpage.languageCode === 'en')) {
     Object.assign(allRedirects, page.buildRedirects())
@@ -61,9 +60,7 @@ export async function precompileRedirects(pageList: Page[]): Promise<Redirects> 
     // it we need to rewrite that now.
     // We never want to redirect to that as the final URL (in the 301 response)
     // but it might make sense for it to be in the `developer.json`
-    // file since that it static.
-    //
-    //
+    // file since that is static.
     if (toURI.includes('/enterprise-server@latest')) {
       allRedirects[fromURI] = toURI.replace(
         '/enterprise-server@latest',
