@@ -43,11 +43,9 @@ export function ParameterTable({
 
       {headers.length > 0 && (
         <>
-          {/* <h4 id="headers-table-heading">{t('headers')}</h4> */}
           <table
             className={cx(styles.parameterTable)}
             summary="Column one describes the parameter. The first line includes the name, type, and whether the parameter is required. The second line is a description of the parameter."
-            aria-labelledby="headers-table-heading"
           >
             <caption className="mt-3 mb-3 h5 float-left">{t('headers')}</caption>
             <thead className="visually-hidden">
@@ -71,11 +69,9 @@ export function ParameterTable({
 
       {pathParams.length > 0 && (
         <>
-          {/* <h4 id="path-table-heading">{t('path')}</h4> */}
           <table
             className={cx(styles.parameterTable)}
             summary="Column one describes the parameter. The first line includes the name, type, and whether the parameter is required. The second line is a description of the parameter."
-            aria-labelledby="path-table-heading"
           >
             <caption className="mt-3 mb-3 h5 float-left">{t('path')}</caption>
             <thead className="visually-hidden">
@@ -107,11 +103,9 @@ export function ParameterTable({
 
       {queryParams.length > 0 && (
         <>
-          {/* <h4 id="query-table-heading">{t('query')}</h4> */}
           <table
             className={cx(styles.parameterTable)}
             summary="Column one describes the parameter. The first line includes the name, type, and whether the parameter is required. The second line is a description of the parameter."
-            aria-labelledby="query-table-heading"
           >
             <caption className="mt-3 mb-3 h5 float-left">{t('query')}</caption>
             <thead className="visually-hidden">
@@ -143,11 +137,9 @@ export function ParameterTable({
 
       {bodyParameters.length > 0 && (
         <>
-          {/* <h4 id="body-table-heading">{variant === 'rest' ? t('body') : t('webhook-body')}</h4> */}
           <table
             className={cx(styles.parameterTable)}
             summary="Column one describes the parameter. The first line includes the name, type, and whether the parameter is required. The second line is a description of the parameter."
-            aria-labelledby="body-table-heading"
           >
             <caption className="mt-3 mb-3 h5 float-left">
               {variant === 'rest' ? t('body') : t('webhook-body')}
