@@ -46,19 +46,16 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
   test('converts circular links to plain text', async () => {
     const result = await convertContentToDocs(testContent, {}, 'bqrs-interpret.md')
 
-    // Should not contain circular link
     expect(result.content).not.toContain(
       `[codeql bqrs interpret](${RELATIVE_LINK_PATH}/bqrs-interpret)`,
     )
 
-    // Should contain plain text instead
     expect(result.content).toContain('codeql bqrs interpret')
   })
 
   test('preserves non-circular links', async () => {
     const result = await convertContentToDocs(testContent, {}, 'bqrs-interpret.md')
 
-    // Should preserve valid cross-reference link
     expect(result.content).toContain(
       `[codeql database analyze](${RELATIVE_LINK_PATH}/database-analyze)`,
     )
@@ -67,12 +64,10 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
   test('converts aka.ms links', async () => {
     const result = await convertContentToDocs(testContent, {}, 'bqrs-interpret.md')
 
-    // Should convert aka.ms link to redirect
     expect(result.content).toContain(
       '[AUTOTITLE](/enterprise-server@latest/code-security/reference/code-scanning/sarif-files/sarif-support)',
     )
 
-    // Should not still contain aka.ms link
     expect(result.content).not.toContain('https://aka.ms/')
   })
 
@@ -89,7 +84,6 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
 
     const result = await convertContentToDocs(testContent, {}, 'bqrs-interpret.md')
 
-    // Should strip language prefix from aka.ms redirect link
     expect(result.content).toContain(
       '[AUTOTITLE](/enterprise-server@latest/code-security/reference/code-scanning/sarif-files/sarif-support)',
     )
@@ -98,7 +92,6 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
   test('handles edge case: no filename provided', async () => {
     const result = await convertContentToDocs(testContent, {}, '')
 
-    // Should preserve link when no filename is provided
     expect(result.content).toContain(
       `[codeql bqrs interpret](${RELATIVE_LINK_PATH}/bqrs-interpret)`,
     )
@@ -107,7 +100,6 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
   test('handles edge case: different filename', async () => {
     const result = await convertContentToDocs(testContent, {}, 'different-file.md')
 
-    // Should preserve link when filename is different
     expect(result.content).toContain(
       `[codeql bqrs interpret](${RELATIVE_LINK_PATH}/bqrs-interpret)`,
     )
@@ -116,17 +108,14 @@ For more information, see \`codeql database analyze<database-analyze>\`{.interpr
   test('processes both circular and non-circular links correctly in same content', async () => {
     const result = await convertContentToDocs(testContent, {}, 'bqrs-interpret.md')
 
-    // Circular link should be plain text
     expect(result.content).not.toContain(
       `[codeql bqrs interpret](${RELATIVE_LINK_PATH}/bqrs-interpret)`,
     )
 
-    // Non-circular link should be preserved
     expect(result.content).toContain(
       `[codeql database analyze](${RELATIVE_LINK_PATH}/database-analyze)`,
     )
 
-    // Both should have their text content present
     expect(result.content).toContain('codeql bqrs interpret')
     expect(result.content).toContain('codeql database analyze')
   })
