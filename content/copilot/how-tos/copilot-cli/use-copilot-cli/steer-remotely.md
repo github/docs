@@ -128,7 +128,7 @@ A {% data variables.copilot.copilot_cli_short %} session is available in {% data
 ### Use a QR code to quickly open a session on your phone
 
 1. In an interactive session, enter the `/remote` slash command to redisplay the remote session details.
-1. Press <kbd>Ctrl</kbd>+<kbd>E</kbd> to toggle on/off display of a QR code.
+1. Press <kbd>Ctrl</kbd>+<kbd>O</kbd> (letter O) to toggle on/off display of a QR code.
 
    > [!NOTE]
    > This keyboard shortcut expands/collapses all details in the session conversation, not just the QR code. It only works if the input field is currently empty.
