@@ -171,3 +171,4 @@ Try the [Expand your team with {% data variables.copilot.copilot_cloud_agent %}]
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent) how-to articles
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents)
 * [AUTOTITLE](/copilot/responsible-use/agents)
+* [AUTOTITLE](/copilot/concepts/agents/about-github-agentic-workflows) for recurring repository automation that you want to version with your code and run in {% data variables.product.prodname_actions %}
