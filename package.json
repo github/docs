@@ -200,6 +200,7 @@
     "azure-kusto-data": "^7.0.4",
     "bottleneck": "2.19.5",
     "boxen": "8.0.1",
+    "chalk": "^5.0.1",
     "cheerio": "^1.2.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
@@ -270,6 +271,7 @@
     "unified": "^11.0.5",
     "unist-util-find": "^3.0.0",
     "unist-util-visit": "^5.1.0",
+    "unist-util-visit-parents": "6.0.1",
     "url-template": "^3.1.1",
     "walk-sync": "^4.0.1"
   },
@@ -301,7 +303,6 @@
     "@types/website-scraper": "^1.2.11",
     "@typescript-eslint/eslint-plugin": "^8.33.1",
     "@typescript-eslint/parser": "^8.33.1",
-    "chalk": "^5.0.1",
     "change-case": "^5.4.4",
     "commander": "^15.0.0",
     "cross-env": "^10.1.0",
@@ -340,7 +341,6 @@
     "sass": "^1.97.3",
     "start-server-and-test": "^3.0.0",
     "unist-util-remove": "^4.0.0",
-    "unist-util-visit-parents": "6.0.1",
     "vitest": "^5.0.0",
     "website-scraper": "^5.3.1"
   },
