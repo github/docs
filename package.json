@@ -205,7 +205,6 @@
     "express": "^5.2.1",
     "fastest-levenshtein": "1.0.16",
     "github-slugger": "^2.0.0",
-    "glob": "13.0.2",
     "hast-util-from-html": "^2.0.3",
     "hast-util-from-parse5": "^8.0.3",
     "hast-util-to-jsx-runtime": "^2.3.6",

@@ -1,7 +1,6 @@
 #!/usr/bin/env tsx
 
-import { readFileSync } from 'fs'
-import { glob } from 'glob'
+import { readFileSync, promises as fsp } from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -44,12 +43,29 @@ async function discoverWriterTools(): Promise<WriterToolsCollection> {
   const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
   const tools: WriterToolsCollection = { ...MANUAL_ENTRIES } // Start with manual entries
 
-  // First get all files
-  const allFiles = await glob('src/**/*', {
-    cwd: path.join(__dirname, '..', '..'),
-    absolute: true,
-    ignore: ['**/node_modules/**', '**/tests/**', '**/test/**', '**/.*'],
-  })
+  // First get all files. node:fs has no `absolute` option, and its `exclude`
+  // patterns skip directory contents without skipping the directory entry, so
+  // the bare directory names are listed too. Neither library guarantees an
+  // order, so sort to keep the printed listing stable.
+  const repoRoot = path.join(__dirname, '..', '..')
+  const allFiles = (
+    await Array.fromAsync(
+      fsp.glob('src/**/*', {
+        cwd: repoRoot,
+        exclude: [
+          '**/node_modules/**',
+          '**/node_modules',
+          '**/tests/**',
+          '**/tests',
+          '**/test/**',
+          '**/test',
+          '**/.*',
+        ],
+      }),
+    )
+  )
+    .map((file) => path.resolve(repoRoot, file))
+    .sort()
 
   // Then filter for .ts, .js, .sh scripts
   const scriptFiles = allFiles.filter((file) => {
