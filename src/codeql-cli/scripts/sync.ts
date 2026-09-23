@@ -1,11 +1,9 @@
-import { readFile, writeFile, copyFile } from 'fs/promises'
+import { mkdir, rm, readFile, writeFile, copyFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import walk from 'walk-sync'
-import { mkdirp } from 'mkdirp'
 import { execFileSync, execSync } from 'child_process'
 import path from 'path'
 import matter from '@gr2m/gray-matter'
-import { rimraf } from 'rimraf'
 
 import { updateContentDirectory } from '../../automated-pipelines/lib/update-markdown'
 import { convertContentToDocs } from './convert-markdown-for-docs'
@@ -72,8 +70,8 @@ async function setupEnvironment() {
     )
   }
 
-  await rimraf(TEMP_DIRECTORY)
-  await mkdirp(TEMP_DIRECTORY)
+  await rm(TEMP_DIRECTORY, { recursive: true, force: true })
+  await mkdir(TEMP_DIRECTORY, { recursive: true })
 }
 
 async function rstToMarkdown(rstSourceDirectory: string) {

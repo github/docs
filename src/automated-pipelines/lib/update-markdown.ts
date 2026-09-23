@@ -1,10 +1,8 @@
 import walk from 'walk-sync'
 import { existsSync, lstatSync, unlinkSync } from 'fs'
 import path from 'path'
-import { readFile, writeFile, readdir } from 'fs/promises'
+import { mkdir, rm, readFile, writeFile, readdir } from 'fs/promises'
 import matter from '@gr2m/gray-matter'
-import { rimraf } from 'rimraf'
-import { mkdirp } from 'mkdirp'
 import { difference, isEqual } from 'lodash-es'
 
 import { allVersions } from '@/versions/lib/all-versions'
@@ -212,7 +210,7 @@ async function updateDirectory(
   const initialDirectoryListing = await getDirectoryInfo(directory)
   if (initialDirectoryListing.directoryContents.length === 0 && !rootDirectoryOnly) {
     logger.info('Removing empty directory', { directory })
-    await rimraf(directory)
+    await rm(directory, { recursive: true, force: true })
     return
   }
 
@@ -526,7 +524,7 @@ function isRootIndexFile(indexFile: string): boolean {
 
 async function createDirectory(targetDirectory: string): Promise<void> {
   if (!existsSync(targetDirectory)) {
-    await mkdirp(targetDirectory)
+    await mkdir(targetDirectory, { recursive: true })
   }
 }
 

@@ -1,7 +1,6 @@
-import { readFile, writeFile, readdir, unlink } from 'fs/promises'
+import { mkdir, readFile, writeFile, readdir, unlink } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
-import { mkdirp } from 'mkdirp'
 
 import { updateRestFiles } from './update-markdown'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -73,7 +72,7 @@ export async function syncRestData(
         )
       }
       if (!existsSync(targetDirectoryPath)) {
-        await mkdirp(targetDirectoryPath)
+        await mkdir(targetDirectoryPath, { recursive: true })
       }
 
       const writtenFiles = new Set<string>()

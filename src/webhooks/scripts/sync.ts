@@ -1,7 +1,6 @@
-import { readFile, writeFile, unlink } from 'fs/promises'
+import { mkdir, readFile, writeFile, unlink } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
-import { mkdirp } from 'mkdirp'
 
 import { WEBHOOK_DATA_DIR } from '../lib/index'
 import Webhook, { WebhookSchema } from '@/webhooks/scripts/webhook'
@@ -49,7 +48,7 @@ export async function syncWebhookData(
       const targetDirectory = path.join(WEBHOOK_DATA_DIR, versionName)
 
       if (!existsSync(targetDirectory)) {
-        await mkdirp(targetDirectory)
+        await mkdir(targetDirectory, { recursive: true })
       }
 
       // Write one JSON file per webhook category (e.g. check_run.json) instead

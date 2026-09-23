@@ -1,7 +1,6 @@
 import fs from 'fs/promises'
 import { appendFileSync } from 'fs'
 import path from 'path'
-import { mkdirp } from 'mkdirp'
 import { load } from 'js-yaml'
 import { execSync } from 'child_process'
 import { getContents, hasMatchingRef } from '@/workflows/git-utils'
@@ -293,7 +292,7 @@ function getVersionName(graphqlVersion: string) {
 
 async function updateFile(filepath: string, content: string) {
   console.log(`Updating file ${filepath}`)
-  await mkdirp(path.dirname(filepath))
+  await fs.mkdir(path.dirname(filepath), { recursive: true })
   return fs.writeFile(filepath, content, 'utf8')
 }
 

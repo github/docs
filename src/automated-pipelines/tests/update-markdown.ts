@@ -1,10 +1,9 @@
 import { tmpdir } from 'os'
 import { cp, rm, readFile } from 'fs/promises'
-import { existsSync } from 'fs'
+import { existsSync, mkdirSync } from 'fs'
 import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
-import { mkdirp } from 'mkdirp'
 import matter from '@gr2m/gray-matter'
 import type { FrontmatterVersions } from '@/types'
 
@@ -77,7 +76,7 @@ describe('automated content directory updates', () => {
   // structure and contents after running updateContentDirectory.
   beforeAll(async () => {
     process.env.TEST_OS_ROOT_DIR = tempDirectory
-    mkdirp.sync(`${tempContentDirectory}`)
+    mkdirSync(`${tempContentDirectory}`, { recursive: true })
     await cp('src/automated-pipelines/tests/fixtures/content', tempContentDirectory, {
       recursive: true,
     })

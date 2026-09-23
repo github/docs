@@ -1,6 +1,5 @@
 import { existsSync } from 'fs'
-import { writeFile } from 'fs/promises'
-import { mkdirp } from 'mkdirp'
+import { mkdir, writeFile } from 'fs/promises'
 import path from 'path'
 
 import type {
@@ -79,7 +78,7 @@ export async function writeDeduplicatedAuditLogData(
 
   const sharedDir = path.join(AUDIT_LOG_DATA_DIR, 'shared')
   if (!existsSync(sharedDir)) {
-    await mkdirp(sharedDir)
+    await mkdir(sharedDir, { recursive: true })
   }
 
   await writeFile(path.join(sharedDir, 'entries.json'), JSON.stringify(entriesPool))

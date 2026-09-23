@@ -3,8 +3,7 @@
 //
 // Requires GITHUB_TOKEN.
 import { existsSync } from 'fs'
-import { readFile, writeFile } from 'fs/promises'
-import { mkdirp } from 'mkdirp'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import path from 'path'
 
 import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index'
@@ -190,7 +189,7 @@ async function main() {
     const auditLogVersionDirPath = path.join(AUDIT_LOG_DATA_DIR, version)
 
     if (!existsSync(auditLogVersionDirPath)) {
-      await mkdirp(auditLogVersionDirPath)
+      await mkdir(auditLogVersionDirPath, { recursive: true })
     }
 
     for (const page of Object.values(AUDIT_LOG_PAGES)) {
