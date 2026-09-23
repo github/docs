@@ -3,7 +3,6 @@
  * @description Create or destroy symlinks to your local docs-early-access checkout
  */
 
-import { rimraf } from 'rimraf'
 import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'
@@ -68,7 +67,7 @@ const destinationDirsMap: Record<string, string> = destinationDirNames.reduce(
 // Remove all existing early access directories from this repo
 for (const dirName of destinationDirNames) {
   const destDir = destinationDirsMap[dirName]
-  rimraf.sync(destDir)
+  fs.rmSync(destDir, { recursive: true, force: true })
   console.log(`- Removed symlink for early access directory '${dirName}' from this repo`)
 }
 

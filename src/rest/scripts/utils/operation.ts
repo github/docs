@@ -2,8 +2,8 @@ import { STATUS_CODES } from 'node:http'
 
 import { get, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
-import mergeAllOf from 'json-schema-merge-allof'
 
+import { mergeAllOf } from '@/rest/scripts/utils/merge-all-of'
 import { renderContent } from './render-content'
 import getCodeSamples from './create-rest-examples'
 import operationSchema from './operation-schema'
@@ -188,7 +188,7 @@ export default class Operation {
     // Operation Id: markdown/render-raw
     const contentType = Object.keys(this.#operation.requestBody.content)[0]
     const schema = get(this.#operation, `requestBody.content.${contentType}.schema`, {})
-    const mergedAllofSchema = mergeAllOf(schema as Parameters<typeof mergeAllOf>[0])
+    const mergedAllofSchema = mergeAllOf(schema)
     try {
       this.bodyParameters = isPlainObject(schema)
         ? await getBodyParams(mergedAllofSchema as Parameters<typeof getBodyParams>[0], true)

@@ -28,7 +28,6 @@ import { execFileSync } from 'child_process'
 import { program } from 'commander'
 import chalk from 'chalk'
 import walk from 'walk-sync'
-import escapeStringRegexp from 'escape-string-regexp'
 
 import fm from '@/frame/lib/frontmatter'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
@@ -587,7 +586,7 @@ function changeHomepageLinks(oldHref: string, newHref: string, verbose: boolean)
   // Homepage childGroup links do not have a leading '/', so we need to remove that.
   const homepageOldHref = oldHref.replace('/', '')
   const homepageNewHref = newHref.replace('/', '')
-  const escapedHomepageOldHref = escapeStringRegexp(homepageOldHref)
+  const escapedHomepageOldHref = RegExp.escape(homepageOldHref)
   const regex = new RegExp(`- ${escapedHomepageOldHref}$`, 'gm')
   const homepage = path.join(CONTENT_ROOT, 'index.md')
   const oldContent = fs.readFileSync(homepage, 'utf-8')
@@ -605,7 +604,7 @@ function changeFeaturedLinks(oldHref: string, newHref: string): void {
     directories: false,
   }).filter((file) => !file.includes('README.md'))
 
-  const regex = new RegExp(`(^|%} )${escapeStringRegexp(oldHref)}($| {%)`)
+  const regex = new RegExp(`(^|%} )${RegExp.escape(oldHref)}($| {%)`)
 
   for (const file of allFiles) {
     let changed = false

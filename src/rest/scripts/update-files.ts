@@ -5,12 +5,10 @@
 //
 // [end-readme]
 
-import { readdir, copyFile, readFile, writeFile, rename } from 'fs/promises'
+import { mkdir, rm, readdir, copyFile, readFile, writeFile, rename } from 'fs/promises'
 import path from 'path'
 import { program, Option } from 'commander'
 import { execSync } from 'child_process'
-import { rimraf } from 'rimraf'
-import { mkdirp } from 'mkdirp'
 import { fileURLToPath } from 'url'
 import walk from 'walk-sync'
 import { existsSync } from 'fs'
@@ -76,8 +74,8 @@ main()
 async function main() {
   const pipelines = Array.isArray(output) ? output : [output]
   await validateInputParameters()
-  await rimraf(TEMP_OPENAPI_DIR)
-  await mkdirp(TEMP_OPENAPI_DIR)
+  await rm(TEMP_OPENAPI_DIR, { recursive: true, force: true })
+  await mkdir(TEMP_OPENAPI_DIR, { recursive: true })
 
   // If the source repo is github, this is the local development workflow
   // and the files in github must be bundled and dereferenced first.
@@ -106,7 +104,7 @@ async function main() {
     await copyFile(file, path.join(TEMP_OPENAPI_DIR, baseName))
   }
 
-  await rimraf(TEMP_BUNDLED_OPENAPI_DIR)
+  await rm(TEMP_BUNDLED_OPENAPI_DIR, { recursive: true, force: true })
   await normalizeDataVersionNames(TEMP_OPENAPI_DIR)
 
   // The REST_API_DESCRIPTION_ROOT repo contains all current and
@@ -119,7 +117,7 @@ async function main() {
     for (const schema of derefDir) {
       // if the schema does not start with a current version name, delete it
       if (!currentOpenApiVersions.find((version) => schema.startsWith(version))) {
-        await rimraf(path.join(TEMP_OPENAPI_DIR, schema))
+        await rm(path.join(TEMP_OPENAPI_DIR, schema), { recursive: true, force: true })
       }
     }
   }
@@ -185,8 +183,8 @@ async function getBundledFiles(): Promise<void> {
     execSync('git pull', { cwd: GITHUB_REP_DIR })
   }
 
-  await rimraf(TEMP_OPENAPI_DIR)
-  await mkdirp(TEMP_BUNDLED_OPENAPI_DIR)
+  await rm(TEMP_OPENAPI_DIR, { recursive: true, force: true })
+  await mkdir(TEMP_BUNDLED_OPENAPI_DIR, { recursive: true })
 
   console.log(
     `\n🏃‍♀️🏃🏃‍♀️Running \`bin/openapi bundle\` in branch '${githubBranch}' of your github/github checkout to generate the dereferenced OpenAPI schema files.\n`,

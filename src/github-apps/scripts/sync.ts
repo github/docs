@@ -1,6 +1,5 @@
 import fs, { existsSync } from 'fs'
-import { mkdirp } from 'mkdirp'
-import { readFile, writeFile } from 'fs/promises'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import path from 'path'
 import { slug } from 'github-slugger'
 import { load } from 'js-yaml'
@@ -278,7 +277,7 @@ export async function syncGitHubAppsData(
 
     // When a new version is added, we need to create the directory for it
     if (!existsSync(targetDirectory)) {
-      await mkdirp(targetDirectory)
+      await mkdir(targetDirectory, { recursive: true })
     }
 
     for (const pageType of Object.keys(githubAppsData)) {
@@ -377,7 +376,7 @@ async function writeDeduplicatedAppsFormat() {
 
   const sharedDir = path.join(ENABLED_APPS_DIR, 'shared')
   if (!existsSync(sharedDir)) {
-    await mkdirp(sharedDir)
+    await mkdir(sharedDir, { recursive: true })
   }
 
   await writeFile(path.join(sharedDir, 'entries.json'), JSON.stringify(entriesPool))

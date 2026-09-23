@@ -1,6 +1,5 @@
 import fs from 'fs/promises'
 import path from 'path'
-import { mkdirp } from 'mkdirp'
 import {
   ALL_KIND_KEYS,
   CATEGORIES,
@@ -108,7 +107,7 @@ export function bucketSchemaByCategory(
 // for this version get an empty file so the loader has a deterministic file
 // to consume (rather than relying on filesystem stat).
 export async function writeCategoryFiles(dir: string, buckets: CategoryBuckets): Promise<void> {
-  await mkdirp(dir)
+  await fs.mkdir(dir, { recursive: true })
   // First, delete any stale schema-*.json files so a category that becomes
   // empty in a new sync doesn't leave behind a stale file.
   let existing: string[] = []

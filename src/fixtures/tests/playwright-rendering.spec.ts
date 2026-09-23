@@ -1992,7 +1992,7 @@ test.describe('LandingArticleGridWithFilter component', () => {
     await firstCardLink.focus()
     await page.keyboard.press('Enter')
 
-    await expect(page).toHaveURL(new RegExp(href!.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
+    await expect(page).toHaveURL(new RegExp(RegExp.escape(href!)))
     const stillClientSide = await page.evaluate(
       () => (window as unknown as { __spaMarker?: boolean }).__spaMarker === true,
     )

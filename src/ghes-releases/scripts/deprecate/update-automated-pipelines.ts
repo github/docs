@@ -9,11 +9,9 @@
 //
 // [end-readme]
 
-import { existsSync } from 'fs'
-import { readFile, readdir, writeFile, cp } from 'fs/promises'
-import { rimrafSync } from 'rimraf'
+import { existsSync, rmSync } from 'fs'
+import { mkdir, readFile, readdir, writeFile, cp } from 'fs/promises'
 import { difference, intersection } from 'lodash-es'
-import { mkdirp } from 'mkdirp'
 
 import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
 
@@ -120,7 +118,7 @@ export async function updateAutomatedPipelines() {
     const removeFiles = difference(existingDataDir, expectedDirectory)
     for (const directory of removeFiles) {
       console.log(`Removing src/${pipeline}/data/${directory}`)
-      rimrafSync(`src/${pipeline}/data/${directory}`)
+      rmSync(`src/${pipeline}/data/${directory}`, { recursive: true, force: true })
     }
 
     // Get a list of data directories to create (release) and create them
@@ -175,11 +173,11 @@ export async function updateAutomatedPipelines() {
   const removeRelNoteDirs = intersection(deprecatedHyphenated, ghesReleaseNotesDirs)
   for (const directory of removeRelNoteDirs) {
     console.log(`Removing data/release-notes/enterprise-server/${directory}`)
-    rimrafSync(`data/release-notes/enterprise-server/${directory}`)
+    rmSync(`data/release-notes/enterprise-server/${directory}`, { recursive: true, force: true })
   }
   for (const directory of addRelNoteDirs) {
     console.log(`Create new directory data/release-notes/enterprise-server/${directory}`)
-    await mkdirp(`data/release-notes/enterprise-server/${directory}`)
+    await mkdir(`data/release-notes/enterprise-server/${directory}`, { recursive: true })
     await cp(
       `data/release-notes/PLACEHOLDER-TEMPLATE.yml`,
       `data/release-notes/enterprise-server/${directory}/PLACEHOLDER.yml`,

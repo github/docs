@@ -10,7 +10,6 @@ import path from 'path'
 import fs from 'fs'
 import scrape from 'website-scraper'
 import { program } from 'commander'
-import { rimraf } from 'rimraf'
 import http from 'http'
 
 import createApp from '@/frame/lib/app'
@@ -58,6 +57,10 @@ const localDev = program.opts().localDev
 const tmpArchivalDirectory = output
   ? path.join(process.cwd(), output)
   : path.join(process.cwd(), `tmpArchivalDir_${version}`)
+// rimraf refused to remove a filesystem root. fs.rm does not.
+if (path.resolve(tmpArchivalDirectory) === path.parse(path.resolve(tmpArchivalDirectory)).root) {
+  throw new Error(`Refusing to remove filesystem root: ${tmpArchivalDirectory}`)
+}
 
 main()
 async function main() {
@@ -88,7 +91,7 @@ async function main() {
   }
 
   // remove temp directory
-  await rimraf(tmpArchivalDirectory)
+  await fs.promises.rm(tmpArchivalDirectory, { recursive: true, force: true })
 
   const app = createApp()
   const server = http.createServer(app)

@@ -63,13 +63,11 @@ function extractTemplateBlock(): string {
 // Headings containing the placeholder get a pattern that matches any text in
 // place of the placeholder. Fixed headings get an exact match.
 function headingToPattern(text: string): RegExp {
-  if (text.includes(PLACEHOLDER)) {
-    const escaped = text
-      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-      .replace(new RegExp(PLACEHOLDER.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), '.+')
-    return new RegExp(`^${escaped}$`, 'i')
-  }
-  return new RegExp(`^${text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i')
+  const pattern = text
+    .split(PLACEHOLDER)
+    .map((part) => RegExp.escape(part))
+    .join('.+')
+  return new RegExp(`^${pattern}$`, 'i')
 }
 
 // Replaces the placeholder with "..." to keep error messages concise.

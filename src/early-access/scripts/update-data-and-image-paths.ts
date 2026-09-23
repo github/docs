@@ -7,7 +7,6 @@ import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'
 import walkFiles from '@/workflows/walk-files'
-import { escapeRegExp } from 'lodash-es'
 import patterns from '@/frame/lib/patterns'
 
 interface ProgramOptions {
@@ -114,7 +113,7 @@ for (const file of selectedFiles) {
 
   let newContents = oldContents
   for (const [oldRef, newRef] of Object.entries(replacements)) {
-    newContents = newContents.replace(new RegExp(escapeRegExp(oldRef), 'g'), newRef)
+    newContents = newContents.replace(new RegExp(RegExp.escape(oldRef), 'g'), newRef)
   }
 
   fs.writeFileSync(file, newContents)
