@@ -51,7 +51,7 @@ function getFaviconHref(stagingName?: string) {
   // surrogate key so a production deploy does not purge it.
   // If you edit these images on disk, change the numbers.
   if (stagingName) {
-    return `/assets/cb-345/images/site/evergreens/${stagingName}.png`
+    return `/assets/cb-346/images/site/evergreens/${stagingName}.png`
   }
   return '/assets/cb-345/images/site/favicon.png'
 }
