@@ -52,7 +52,7 @@ export const codeAnnotationCommentSpacing = {
             if (restOfLine.startsWith(' ') && restOfLine.length > 1 && restOfLine[1] === ' ') {
               const lineNumber: number = token.lineNumber + index + 1
               const fixedLine: string = line.replace(
-                new RegExp(`^(\\s*${commentChar.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\s+`),
+                new RegExp(`^(\\s*${RegExp.escape(commentChar)})\\s+`),
                 `$1 `,
               )
 

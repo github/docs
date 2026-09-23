@@ -1,11 +1,10 @@
 import path from 'path'
-import { escapeRegExp } from 'lodash-es'
 
-const leadingPathSeparator = new RegExp(`^${escapeRegExp(path.sep)}`)
+const leadingPathSeparator = new RegExp(`^${RegExp.escape(path.sep)}`)
 const windowsLeadingPathSeparator = new RegExp('^/')
 
 // all slashes in the filename. path.sep is OS agnostic (windows, mac, etc)
-const pathSeparator = new RegExp(escapeRegExp(path.sep), 'g')
+const pathSeparator = new RegExp(RegExp.escape(path.sep), 'g')
 const windowsPathSeparator = new RegExp('/', 'g')
 
 // handle MS Windows style double-backslashed filenames
@@ -13,7 +12,7 @@ const windowsDoubleSlashSeparator = new RegExp('\\\\', 'g')
 
 // derive `foo.bar.baz` object key from `foo/bar/baz.yml` filename
 export default function filenameToKey(filename: string): string {
-  const extension = new RegExp(`${escapeRegExp(path.extname(filename))}$`)
+  const extension = new RegExp(`${RegExp.escape(path.extname(filename))}$`)
   const key = filename
     .replace(extension, '')
     .replace(leadingPathSeparator, '')

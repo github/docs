@@ -1,7 +1,6 @@
 import fs from 'fs'
 import walk from 'walk-sync'
 import path from 'path'
-import { escapeRegExp } from 'lodash-es'
 import { Tokenizer, TypeGuards, type TopLevelToken, type TagToken } from 'liquidjs'
 import frontmatter from '@/frame/lib/read-frontmatter'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -147,7 +146,7 @@ function removeInputProps(arrayOfObjects: TopLevelToken[]): TopLevelToken[] {
 function makeLiquidReplacements(replacementsObj: ReplacementsMap, text: string): string {
   let newText = text
   for (const [oldCond, newCond] of Object.entries(replacementsObj)) {
-    const oldCondRegex = new RegExp(`({%-?)\\s*?${escapeRegExp(oldCond)}\\s*?(-?%})`, 'g')
+    const oldCondRegex = new RegExp(`({%-?)\\s*?${RegExp.escape(oldCond)}\\s*?(-?%})`, 'g')
     newText = newText
       .replace(oldCondRegex, `$1 ${newCond} $2`)
       // Content files use an old-school hack to ensure our old regex deprecation script DTRT, for example:
