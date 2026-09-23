@@ -12,14 +12,12 @@ interface AppsConfig {
   pages: Record<string, unknown>
 }
 
-// Per-page apps data shapes vary (enabled lists, permissions, etc.), so callers
-// are expected to provide the concrete shape via the generic parameter.
+// Apps data shapes vary by page, so callers narrow this through the generic
+// parameter on getAppsData.
 type AppsData = Record<string, unknown>
 
 // Deduplicated on-disk format types.
-// A leaf entry in the shared pool — an operation or permission object. Kept
-// loose because consumers expect different shapes, but typed enough to convey
-// intent and replace bare `unknown`.
+// A leaf entry in the shared pool: an operation or permission object.
 type SharedAppsEntry = Record<string, unknown>
 
 // Per-page index for permission pages: permName → metadata + indices into the pool.
@@ -45,7 +43,7 @@ const logger = createLogger(import.meta.url)
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const githubAppsData = new Map<string, Map<string, AppsData>>()
 
-// Shared dedup data — loaded once, shared across all versions
+// Shared dedup data, loaded once and shared across all versions.
 let sharedEntries: SharedAppsEntry[] | null = null
 let sharedVersionIndex: AppsVersionIndex | null = null
 let sharedFormatAvailable: boolean | null = null
@@ -75,10 +73,10 @@ function loadSharedAppsFormat(): boolean {
     sharedFormatAvailable = true
   } catch (err) {
     if (isFileNotFoundError(err)) {
-      // Shared files don't exist — fall back to per-version files silently.
+      // Shared files don't exist, so fall back to per-version files silently.
       sharedFormatAvailable = false
     } else {
-      // Corrupt JSON, schema mismatch, etc. — surface this instead of hiding it.
+      // Corrupt JSON, schema mismatch, and so on. Surface it instead of hiding it.
       logger.error('Failed to load shared GitHub Apps dedup format (corrupt data?)', {
         error: err instanceof Error ? err : new Error(String(err)),
       })
@@ -159,13 +157,12 @@ export async function getAppsData<T extends AppsData = AppsData>(
   const filename = `${pageType}.json`
   const openApiVersion = getOpenApiVersion(docsVersion) + (apiVersion ? `-${apiVersion}` : '')
   if (!pageTypeMap.has(openApiVersion)) {
-    // Try shared deduplicated format first
     const data = reconstructAppsFromSharedFormat(pageType, openApiVersion)
     if (data) {
       pageTypeMap.set(openApiVersion, data)
     } else {
-      // Fall back to per-version JSON file. The `readCompressedJsonFileFallback()`
-      // function will check for both a .br and .json extension.
+      // Fall back to per-version JSON.
+      // readCompressedJsonFileFallback checks for both a .br and a .json extension.
       const appDataPath = path.join(ENABLED_APPS_DIR, openApiVersion, filename)
       pageTypeMap.set(openApiVersion, readCompressedJsonFileFallback(appDataPath) as AppsData)
     }
@@ -197,14 +194,13 @@ export async function getAppsServerSideProps(
     : allVersions[currentVersion].latestApiVersion
 
   const appsItems: AppsData = await getAppsData(pageType, currentVersion, apiVersion)
-  // Create minitoc
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
   const titles: string[] = useDisplayTitle
     ? Object.values(appsItems).map((item) => (item as AppsItemWithDisplayTitle).displayTitle!)
     : Object.keys(appsItems)
-  // Note: getAutomatedPageMiniTocItems expects a `Context`, but this code path
-  // historically passed Next.js's GetServerSidePropsContext at runtime. Keep
-  // that runtime behavior but document the divergence via the assertion below.
+  // getAutomatedPageMiniTocItems expects a `Context`, but this code path has
+  // always passed Next.js's GetServerSidePropsContext at runtime.
+  // Hence the double assertion.
   const appMiniToc = await getAutomatedPageMiniTocItems(titles, context as unknown as Context)
   if (appMiniToc) {
     miniTocItems.push(...appMiniToc)

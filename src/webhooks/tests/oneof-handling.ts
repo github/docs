@@ -7,8 +7,8 @@ import {
 
 describe('oneOf handling in webhook parameters', () => {
   test('should handle oneOf fields correctly for secret_scanning_alert_location details', async () => {
-    // Mock schema representing the secret_scanning_alert_location details field
-    // This simulates the structure found in the actual OpenAPI schema
+    // Mirrors the secret_scanning_alert_location details field in the real
+    // OpenAPI schema.
     const mockSchema = {
       type: 'object',
       properties: {
@@ -128,25 +128,21 @@ describe('oneOf handling in webhook parameters', () => {
 
     const result: TransformedParam[] = await getBodyParams(mockSchema as unknown as Schema, true)
 
-    // Find the location parameter
     const locationParam: TransformedParam | undefined = result.find(
       (param) => param.name === 'location',
     )
     expect(locationParam).toBeDefined()
     expect(locationParam?.childParamsGroups).toBeDefined()
 
-    // Find the details parameter within location
     const detailsParam: TransformedParam | undefined = locationParam?.childParamsGroups?.find(
       (param) => param.name === 'details',
     )
     expect(detailsParam).toBeDefined()
     expect(detailsParam?.type).toBe('object')
 
-    // Verify that oneOf handling created multiple child param groups
     expect(detailsParam?.childParamsGroups).toBeDefined()
     expect(detailsParam?.childParamsGroups?.length).toBeGreaterThan(1)
 
-    // Check that we have the expected oneOf objects
     const childParams: TransformedParam[] = detailsParam?.childParamsGroups || []
     const commitParam: TransformedParam | undefined = childParams.find(
       (param) => param.name === 'commit',
@@ -174,7 +170,6 @@ describe('oneOf handling in webhook parameters', () => {
     expect(issueCommentParam).toBeDefined()
     expect(issueCommentParam?.description).toContain("issue_comment' secret scanning location type")
 
-    // Verify that the oneOfObject flag is set
     expect(detailsParam?.oneOfObject).toBe(true)
   })
 

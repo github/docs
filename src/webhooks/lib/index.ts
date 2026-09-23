@@ -58,8 +58,7 @@ interface InitialWebhook {
   data: WebhookActionData
 }
 
-// return the webhoook data as described for `initialWebhooksCache` for the given
-// version
+// Returns the data described above for initialWebhooksCache.
 export async function getInitialPageWebhooks(version: string): Promise<InitialWebhook[]> {
   if (initialWebhooksCache.has(version)) {
     return initialWebhooksCache.get(version) || []
@@ -80,10 +79,9 @@ export async function getInitialPageWebhooks(version: string): Promise<InitialWe
       data: defaultAction ? webhook[defaultAction] : {},
     }
 
-    // The base category files no longer contain childParamsGroups (they are
-    // split into separate .child-params.json files at sync time), so no
-    // stripping is needed here.
-
+    // Sync writes the base category files with childParamsGroups already empty
+    // and puts the real values in separate .child-params.json files, so there is
+    // nothing to strip here.
     initialWebhooks.push(initialWebhook)
   }
   initialWebhooksCache.set(version, initialWebhooks)
@@ -134,7 +132,7 @@ export async function getWebhook(
   if (!slimData || !includeChildParams) return slimData
 
   // Merge childParamsGroups from the separate file for drill-down requests.
-  // This data is not cached — it's large and only needed per-request.
+  // This data is not cached because it is large and only needed per request.
   const childParamsPath = path.join(
     WEBHOOK_DATA_DIR,
     openApiVersion,
@@ -147,8 +145,8 @@ export async function getWebhook(
 }
 
 // returns all the webhook data for the given version by loading each category
-// file in parallel. Does NOT include childParamsGroups — this is used for
-// the landing page. Use getWebhook() for drill-down with full nested params.
+// file in parallel. Does NOT include childParamsGroups, because this feeds the
+// landing page. Use getWebhook() for drill-down with full nested params.
 export async function getWebhooks(version: string): Promise<WebhookData> {
   const categories = getWebhookCategories(version)
   const entries = await Promise.all(
@@ -244,7 +242,7 @@ async function loadWebhookFile(basePath: string): Promise<WebhookCategory> {
     const decompressed = await brotliDecompressAsync(compressed)
     return JSON.parse(decompressed.toString()) as WebhookCategory
   } catch {
-    // .br missing or unreadable — fall back to plain JSON
+    // .br missing or unreadable, so fall back to plain JSON.
     const raw = await fsPromises.readFile(basePath, 'utf-8')
     return JSON.parse(raw) as WebhookCategory
   }

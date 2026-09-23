@@ -42,7 +42,7 @@ export default function WebhooksEventsAndPayloads({
 
   // When someone clicks on a minitoc hash anchor link on this page, we want to
   // remove the type query parameter from the URL because the type won't make
-  // sense anymore (e.g. ?actionTtype=closed#issues and you click on the fork minitoc
+  // sense anymore (e.g. ?actionType=closed#issues and you click on the fork minitoc
   // we don't want the URL to be ?actionType=closed#fork).
   useEffect(() => {
     const hashChangeHandler = () => {

@@ -80,11 +80,9 @@ describe('getProgAccessData', () => {
 
     const result = await processProgAccessDataMock(mockProgAccessDataRaw, mockProgActorResources)
 
-    // Both operation IDs should exist
     expect(result.progAccessData).toHaveProperty('teams/remove-repo-in-org')
     expect(result.progAccessData).toHaveProperty('teams/remove-repo-legacy')
 
-    // Both should have identical data
     const expectedData = {
       userToServerRest: true,
       serverToServer: true,
@@ -123,12 +121,10 @@ describe('getProgAccessData', () => {
 
     const result = await processProgAccessDataMock(mockProgAccessDataRaw, mockProgActorResources)
 
-    // All three operation IDs should exist
     expect(result.progAccessData).toHaveProperty('operation1')
     expect(result.progAccessData).toHaveProperty('operation2')
     expect(result.progAccessData).toHaveProperty('operation3')
 
-    // All should have identical data
     const expectedData = {
       userToServerRest: false,
       serverToServer: true,
@@ -210,13 +206,11 @@ describe('getProgAccessData', () => {
 
     const result = await processProgAccessDataMock(mockProgAccessDataRaw, mockProgActorResources)
 
-    // Should have 3 total entries
     expect(Object.keys(result.progAccessData)).toHaveLength(3)
     expect(result.progAccessData).toHaveProperty('single-operation')
     expect(result.progAccessData).toHaveProperty('comma-op1')
     expect(result.progAccessData).toHaveProperty('comma-op2')
 
-    // Single operation should have its own data
     expect(result.progAccessData['single-operation']).toEqual({
       userToServerRest: true,
       serverToServer: true,
@@ -227,7 +221,6 @@ describe('getProgAccessData', () => {
       basicAuth: false,
     })
 
-    // Comma-separated operations should have identical data
     const expectedCommaData = {
       userToServerRest: true,
       serverToServer: false,

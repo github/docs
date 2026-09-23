@@ -59,7 +59,7 @@ describe('webhooks events and payloads', () => {
     expect($lead.length).toBe(1)
   })
 
-  // All webhook types don't yet have examples in the schema.
+  // Not all webhook types have examples in the schema yet.
   describe.skip('rendering', () => {
     test('every webhook event has at least one payload example', async () => {
       const versions = Object.values(allVersions).map((value) => value.version)
