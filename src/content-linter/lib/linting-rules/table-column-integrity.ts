@@ -4,28 +4,24 @@ import frontmatter from '@/frame/lib/read-frontmatter'
 
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
-// Regex to detect table rows (must start with |, contain at least one more |, and end with optional whitespace)
+// After optional leading whitespace, a candidate table row opens and closes
+// with a pipe.
 const TABLE_ROW_REGEX = /^\s*\|.*\|\s*$/
-// Regex to detect table separator rows (contains only |, :, -, and whitespace)
+// Between the boundary pipes, a candidate separator holds only pipes, colons,
+// hyphens, and whitespace.
 const TABLE_SEPARATOR_REGEX = /^\s*\|[\s\-:|\s]*\|\s*$/
-// Regex to detect Liquid-only cells (whitespace, liquid tag, whitespace)
+// A Liquid-only cell is whitespace, a Liquid tag, then whitespace.
 const LIQUID_ONLY_CELL_REGEX = /^\s*{%\s*(ifversion|else|endif|elsif|for|endfor).*%}\s*$/
-// Regex to use for splitting on non-escaped pipes only
+// Escaped pipes (\|) are cell content, not separators.
 const NON_ESCAPED_PIPE_REGEX = /(?<!\\)\|/
-/**
- * Counts the number of columns in a table row by splitting on | and handling edge cases
- */
 function countColumns(row: string): number {
-  // Remove leading and trailing whitespace
   const trimmed = row.trim()
 
-  // Handle empty rows
   if (!trimmed || !trimmed.includes('|')) {
     return 0
   }
 
   // Split by '|' (but ignore escaped '\|' as these are not true separators)
-  // Filter out empty cells at start/end (from leading/trailing |)
   const cells = trimmed.split(NON_ESCAPED_PIPE_REGEX)
 
   // Remove first and last elements if they're empty (from leading/trailing |)
@@ -39,9 +35,6 @@ function countColumns(row: string): number {
   return cells.length
 }
 
-/**
- * Checks if a table row contains only Liquid conditionals
- */
 function isLiquidOnlyRow(row: string): boolean {
   const trimmed = row.trim()
   if (!trimmed.includes('|')) return false
@@ -54,7 +47,6 @@ function isLiquidOnlyRow(row: string): boolean {
     return true
   })
 
-  // Check if all cells contain only Liquid tags
   return (
     filteredCells.length > 0 && filteredCells.every((cell) => LIQUID_ONLY_CELL_REGEX.test(cell))
   )
@@ -79,7 +71,6 @@ export const tableColumnIntegrity = {
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i]
 
-      // Toggle code fence state
       if (line.trim().startsWith('```')) {
         inCodeFence = !inCodeFence
         continue
@@ -92,7 +83,6 @@ export const tableColumnIntegrity = {
       const isTableRow = TABLE_ROW_REGEX.test(line)
       const isSeparatorRow = TABLE_SEPARATOR_REGEX.test(line)
 
-      // Check if we're starting a new table
       if (!inTable && isTableRow) {
         // Look ahead to see if next line is a separator (confirming this is a table)
         const nextLine = lines[i + 1]
@@ -103,14 +93,12 @@ export const tableColumnIntegrity = {
         }
       }
 
-      // Check if we're ending a table
       if (inTable && !isTableRow) {
         inTable = false
         expectedColumnCount = null
         continue
       }
 
-      // If we're in a table, validate column count
       if (inTable && isTableRow && !isSeparatorRow) {
         // Skip Liquid-only rows as they're allowed to have different column counts
         if (isLiquidOnlyRow(line)) {
@@ -135,7 +123,7 @@ export const tableColumnIntegrity = {
             errorMessage,
             line,
             range,
-            null, // No auto-fix available due to complexity
+            null, // No fix possible
           )
         }
       }

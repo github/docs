@@ -44,7 +44,6 @@ if (!fs.existsSync(auditDir)) {
   process.exit(1)
 }
 
-// Get dates object in format { endDate, startDate, friendlyRange }
 const dates: DateRange = getDates(options.range)
 
 const files = walkFiles(auditDir, ['.md'])
@@ -63,8 +62,8 @@ async function main(): Promise<void> {
   let csvString = `title,path,versions,${options.range}d views,${options.range}d users\n`
   console.log(`Assembling data for these CSV columns: ${csvString}`)
 
-  // Get the title, path, and versions from the filesystem
-  // Get the views and users from the Kusto API
+  // Title, path, and versions come from the filesystem.
+  // Views and users come from Kusto.
   const results: string[] = []
   for (const file of files) {
     const contents = await fs.promises.readFile(file)
@@ -72,9 +71,8 @@ async function main(): Promise<void> {
     const { data } = readFrontmatter(contents.toString())
     const versionString = JSON.stringify(data?.versions || {}).replaceAll('"', "'")
     const pathToQuery = getPathToQuery(file)
-    // Pass null to get all versions (the default if no version is provided)
+    // null means all versions.
     const version = null
-    // Only pass true for verbose on the first iteration
     const isFirst = results.length === 0
     const views = await getViews(pathToQuery, client, dates, version, options.verbose && isFirst)
     const users = await getUsers(pathToQuery, client, dates, version, options.verbose && isFirst)

@@ -7,7 +7,7 @@ module.exports = {
       category: "Possible Errors",
       recommended: false,
     },
-    schema: [], // no options
+    schema: [],
     messages: {
       noDanger:
         "Do not use dangerouslySetInnerHTML. Render trusted HTML with the RenderedHTML component (or renderHTMLString), or pass a hast tree to MarkdownContent. See github/docs-engineering#6619.",

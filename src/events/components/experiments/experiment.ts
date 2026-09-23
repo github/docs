@@ -25,27 +25,23 @@ export function shouldShowExperiment(
     experimentKey = experimentKey.key
   }
 
-  // Determine if user is in treatment group. If they are, show the experiment
   const experiments = getActiveExperiments('all')
   for (const experiment of experiments) {
     if (experiment.key === experimentKey) {
       // Respect isActive so flipping it to false actually stops the experiment
       if (!experiment.isActive) return false
-      // If there is an override for the current session, use that
       if (controlGroupOverride[experiment.key]) {
         const controlGroup = getExperimentControlGroupFromSession(
           experimentKey,
           experiment.percentOfUsersToGetExperiment,
         )
         return controlGroup === TREATMENT_VARIATION
-        // Otherwise determine if the user is in the treatment group
       } else if (
         (experiment.limitToLanguages?.length
           ? experiment.limitToLanguages.includes(locale)
           : true) &&
         (experiment.limitToVersions?.length ? experiment.limitToVersions.includes(version) : true)
       ) {
-        // If the user has staffonly cookie, and staff override is true, show the experiment
         if (experiment.alwaysShowForStaff) {
           if (isStaff) {
             userIsStaff = true
@@ -83,7 +79,6 @@ if (typeof window !== 'undefined') {
     controlGroup: 'treatment' | 'control',
   ): string => {
     const activeExperiments = getActiveExperiments('all')
-    // Make sure key is valid
     if (activeExperiments.some((experiment) => experiment.key === experimentKey)) {
       controlGroupOverride[experimentKey] = controlGroup
       const event = new Event('controlGroupOverrideChanged')
@@ -97,7 +92,6 @@ if (typeof window !== 'undefined') {
   }
 }
 
-// Determine if the user is in the treatment or control group for a given experiment
 export function getExperimentControlGroupFromSession(
   experimentKey: ExperimentNames,
   percentToGetExperiment = 50,
@@ -119,7 +113,8 @@ export function getExperimentVariationForContext(locale: string, version: string
   const experiments = getActiveExperiments(locale, version)
   for (const experiment of experiments) {
     if (experiment.includeVariationInContext) {
-      // If the user is using the URL param to view the experiment, include the variation in the context
+      // A query string containing `feature=<turnOnWithURLParam>`, or a staff
+      // reader when alwaysShowForStaff is set, forces the treatment variation.
       if (
         (experiment.turnOnWithURLParam &&
           window.location?.search
@@ -176,7 +171,6 @@ export function initializeExperiments(
   let numberOfExperimentsUsingContext = 0
   for (const experiment of experiments) {
     if (experiment.includeVariationInContext) {
-      // Validate the experiments object
       numberOfExperimentsUsingContext++
       if (numberOfExperimentsUsingContext > 1) {
         throw new Error(
@@ -209,7 +203,6 @@ export function initializeForwardFeatureUrlParam(router: NextRouter, currentVers
   try {
     const searchParams = new URLSearchParams(window.location.search)
     const featureValue = searchParams.get('feature')
-    // If the user's URL doesn't include `feature`, we don't need to forward it
     if (!featureValue) return
 
     const updateAnchorHref = (anchor: HTMLAnchorElement): void => {
@@ -227,7 +220,6 @@ export function initializeForwardFeatureUrlParam(router: NextRouter, currentVers
       if (!(event.target instanceof Element)) return
       const anchor = event.target.closest('a')
       if (anchor) {
-        // If we found that the target is an anchor, we need to update and manually navigate to it
         event.preventDefault()
         updateAnchorHref(anchor)
       }
@@ -238,7 +230,6 @@ export function initializeForwardFeatureUrlParam(router: NextRouter, currentVers
       if (!(event.target instanceof Element)) return
       const anchor = event.target.closest('a')
       if (anchor) {
-        // If we found that the target is an anchor, we need to update and manually navigate to it
         event.preventDefault()
         updateAnchorHref(anchor)
       }

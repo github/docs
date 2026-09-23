@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import cx from 'clsx'
 import { useRouter } from 'next/router'
 import { IconButton } from '@primer/react'
 import { SidebarCollapseIcon, SidebarExpandIcon } from '@primer/octicons-react'

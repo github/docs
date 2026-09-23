@@ -1,5 +1,5 @@
 import React, { useState, useRef, RefObject, useEffect, useMemo } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { useRouter } from 'next/router'
 import { ActionList, IconButton, Overlay, Stack, TextInput, Banner } from '@primer/react'
 import { SearchIcon, XCircleFillIcon, CopilotIcon, ArrowLeftIcon } from '@primer/octicons-react'

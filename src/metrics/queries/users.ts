@@ -21,7 +21,6 @@ export async function getUsers(
   }
 
   const data = JSON.parse(results.primaryResults[0].toString()).data[0]
-  // Extract Users
   const users = data.Users
   return users.toLocaleString()
 }

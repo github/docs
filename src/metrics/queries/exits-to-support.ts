@@ -21,7 +21,6 @@ export async function getExitsToSupport(
   }
 
   const data = JSON.parse(results.primaryResults[0].toString()).data[0]
-  // Extract Column1
   const exitsToSupport = data.Column1
   return exitsToSupport
 }

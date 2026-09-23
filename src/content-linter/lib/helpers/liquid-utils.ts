@@ -3,10 +3,8 @@ import type { TopLevelToken, TagToken } from 'liquidjs'
 
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
-// Cache for liquid tokens to improve performance
 const liquidTokenCache = new Map<string, TopLevelToken[]>()
 
-// Returns TopLevelToken array from liquidjs which is a union of TagToken, OutputToken, and HTMLToken
 export function getLiquidTokens(
   content: string,
   { noCache = false }: { noCache?: boolean } = {},
@@ -33,7 +31,6 @@ export const OUTPUT_CLOSE = '%}'
 
 export const conditionalTags = ['if', 'elseif', 'unless', 'case', 'ifversion']
 
-// Token parameter uses TopLevelToken which has begin and end properties
 export function getPositionData(
   token: TopLevelToken,
   lines: string[],
@@ -69,7 +66,6 @@ export function getPositionData(
  * by Markdownlint:
  * [ { lineNumber: 1, column: 1, deleteCount: 3, }]
  */
-// Token parameter uses TopLevelToken from liquidjs
 export function getContentDeleteData(
   token: TopLevelToken,
   tokenEnd: number,

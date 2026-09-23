@@ -33,7 +33,7 @@ export const TocLanding = () => {
     <DefaultLayout>
       <UtmPreserver />
       {router.route === '/[versionId]/rest/[category]' && <RestRedirect />}
-      {/* Doesn't matter *where* this is included because it will
+      {/* Position does not matter, because it will
       never render anything. It always just return null. */}
       <ClientSideRedirects />
 

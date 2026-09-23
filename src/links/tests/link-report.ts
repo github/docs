@@ -377,7 +377,7 @@ describe('generatePRComment', () => {
 
     const comment = generatePRComment(links)
 
-    // Redirects now show a compact summary with info icon
+    // Redirects get a compact summary with an info icon.
     expect(comment).toContain('redirect')
     expect(comment).toContain('ℹ️')
   })
@@ -483,17 +483,14 @@ describe('generateSampleReports', () => {
   test('generates valid sample reports', () => {
     const samples = generateSampleReports()
 
-    // Internal report
     expect(samples.internal.report.groups.length).toBeGreaterThan(0)
     expect(samples.internal.markdown).toContain('Internal Link Check')
     expect(samples.internal.markdown).toContain('/old/broken/path')
 
-    // External report
     expect(samples.external.report.groups.length).toBeGreaterThan(0)
     expect(samples.external.markdown).toContain('External Link Check')
     expect(samples.external.markdown).toContain('example.com')
 
-    // PR comment
     expect(samples.prComment).toContain('Link Check Results')
     expect(samples.prComment).toContain('link-checker-pr-comment')
   })

@@ -163,8 +163,7 @@ function setLiquidErrors(condTagItems: CondTagItem[], onError: RuleErrorCallback
     const itemErrorName = tagNameNoCond ? item.name : `${item.name} ${item.cond}`
 
     if (item.action?.type === 'delete') {
-      // There is no next stack item, the endif tag is alway the
-      // last in a conditional
+      // There is no next stack item; the endif tag is always last in a conditional.
       const nextStackItem = item.name === 'endif' ? condTagItems[i].end : condTagItems[i + 1].begin
       const deleteItems = getContentDeleteData(
         condTagItems[i] as unknown as TopLevelToken,
@@ -189,7 +188,7 @@ function setLiquidErrors(condTagItems: CondTagItem[], onError: RuleErrorCallback
     }
 
     if (item.action?.type === 'all') {
-      // position is just the tag
+      // Position is just the tag.
       const { lineNumber, column, length } = getPositionData(
         {
           begin: item.begin,
@@ -214,7 +213,7 @@ function setLiquidErrors(condTagItems: CondTagItem[], onError: RuleErrorCallback
     }
 
     if (item.action?.type === 'change') {
-      // position is just the inside of tag
+      // Position is just the inside of the tag.
       const { lineNumber, column, length } = getPositionData(
         {
           begin: item.contentrange[0],
@@ -246,8 +245,8 @@ async function getApplicableVersionFromLiquidTag(conditionStr: string): Promise<
   const condition = conditionStr.replace('not ', '')
   const liquidTagVersions = condition.split(' or ').map((item) => item.trim())
   for (const ver of liquidTagVersions) {
-    // When the version is not a release e.g. fpt or ghec or
-    // or a feature version
+    // When the version is not a release, e.g. fpt or ghec, or is a
+    // feature version.
     if (ver.split(' ').length === 1) {
       // handle feature versions (only supports a single feature version)
       if (ver !== 'fpt' && ver !== 'ghec' && ver !== 'ghes') {
@@ -346,15 +345,9 @@ async function initTagObject(
   return condTagItem
 }
 
-/*
-  Rather than filtering out noVersion items, populate
-  each item with content, newContent, action (delete, update, etc)
-  cond would be empty if the conditional is removed.
-  content would be empty if the content is to be deleted.
-  decorate with line number, length, and column.
-  Then create flaws per stack item.
-  newCond
-  */
+// Rather than filtering out items with no versions, give every item a blank
+// action and let updateConditionals decide which ones become delete or change.
+// setLiquidErrors turns the resulting actions into flaws later on.
 function decorateCondTagItems(condTagItems: CondTagItem[]) {
   for (const item of condTagItems) {
     item.action = {
@@ -384,8 +377,8 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     // the liquid should always be removed regardless
     // of whether it's a feature version or a nested
     // condition.
-    // NOTE: Original code referenced `item.versionObj` (no `s`), which was always
-    // undefined; preserved as-is to avoid changing runtime behavior in this PR.
+    // `item.versionObj` (no `s`) is not a property of CondTagItem, so the
+    // fallback is always undefined and could be dropped.
     if (
       isAllVersions(
         item.featureVersionsObj ||
@@ -396,7 +389,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
       break
     }
 
-    /** START check feature versions **/
+    // START feature versions
 
     // Feature versions that have all versions were removed above
     // Deprecatable features are those that are either available
@@ -440,7 +433,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     )
       continue
 
-    /** END Feature versions we DON'T want to remove **/
+    // END feature versions
 
     // Check if a nested condition has all versions
     // compared to it's parent.
@@ -467,8 +460,8 @@ function updateConditionals(condTagItems: CondTagItem[]) {
       continue
     }
 
-    // If the else condition hasn't already been marked as available
-    //  in all veresions or delete, then there are no other changes possible.
+    // If the else condition hasn't already been marked as available in all
+    // versions or as a delete, then there are no other changes possible.
     if (item.name === 'else') continue
 
     // Does the condition contain any versions not defined in the frontmatter

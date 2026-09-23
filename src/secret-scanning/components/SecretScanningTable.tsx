@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { DataTable, Table } from '@primer/react/experimental'
 import { TextInput, ActionMenu, ActionList } from '@primer/react'
 import { Pagination, Button } from '@primer/react-brand'
-import debounce from 'lodash/debounce'
+import { debounce } from 'lodash-es'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
@@ -114,15 +114,14 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
     filters.base64 !== 'all' ||
     sortColumn !== undefined
 
-  // Add stable IDs once based on original data order
+  // Stable IDs from the original order, so filtering doesn't renumber rows.
   const dataWithIds: SecretScanningRow[] = useMemo(() => {
     return data.map((entry, i) => ({ ...entry, id: `${entry.secretType}-${i}` }))
   }, [data])
 
-  // Client-side filtering — fast because data is ~200-400 entries
+  // Client-side filtering is fine at 200-400 entries.
   const filtered: SecretScanningRow[] = useMemo(() => {
     return dataWithIds.filter((entry) => {
-      // Text search across provider + secret type
       if (filters.search) {
         const q = filters.search.toLowerCase()
         const match =
@@ -132,7 +131,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
         if (!match) return false
       }
 
-      // Boolean filters
       if (filters.pushProtection === 'yes' && !entry.hasPushProtection) return false
       if (filters.pushProtection === 'no' && entry.hasPushProtection) return false
       if (filters.validityCheck === 'yes' && !entry.hasValidityCheck) return false
@@ -148,7 +146,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
     })
   }, [dataWithIds, filters])
 
-  // Sort the full filtered dataset
   const sorted: SecretScanningRow[] = useMemo(() => {
     if (!sortColumn) return filtered
     return [...filtered].sort((a, b) => {
@@ -159,13 +156,12 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
     })
   }, [filtered, sortColumn, sortDirection])
 
-  // Paginate (Pagination component uses 1-indexed pages)
+  // The Pagination component is 1-indexed.
   const pageCount = Math.ceil(sorted.length / PAGE_SIZE)
   const pageData = sorted.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
 
   return (
     <div>
-      {/* Filter bar */}
       <div
         role="search"
         aria-label={t('filter_aria_label')}
@@ -222,7 +218,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
         />
       </div>
 
-      {/* Results count */}
       <p
         aria-live="polite"
         aria-atomic="true"
@@ -233,7 +228,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
           .replace('{total}', String(data.length))}
       </p>
 
-      {/* Data table */}
       <div style={{ overflowX: 'auto' }}>
         <Table.Container>
           <Table.Title as="h2" id="secret-scanning-table-title">
@@ -360,7 +354,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
         </Table.Container>
       </div>
 
-      {/* Pagination */}
       {pageCount > 1 && (
         <Pagination
           aria-label={t('pagination_label')}
@@ -376,7 +369,6 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
   )
 }
 
-// Simple ✓/✗ icon with a11y labels
 function BoolIcon({
   value,
   label,
@@ -395,7 +387,6 @@ function BoolIcon({
   )
 }
 
-// Reusable filter dropdown (all / yes / no)
 function FilterDropdown({
   label,
   value,

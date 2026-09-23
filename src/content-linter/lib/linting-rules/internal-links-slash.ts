@@ -19,7 +19,6 @@ export const internalLinksSlash: Rule = {
         //  ['href', '/get-started'], ['target', '_blank'],
         //  ['rel', 'canonical'],
         // ]
-        // Attribute arrays are tuples of [attributeName, attributeValue] from markdownit parser
         if (!child.attrs) continue
         const hrefsMissingSlashes = child.attrs
           // The attribute could also be `target` or `rel`
@@ -33,10 +32,8 @@ export const internalLinksSlash: Rule = {
           )
           // We can ignore empty links because MD042 from markdownlint catches empty links
           .filter((attr: [string, string]) => attr[1] !== '')
-          // Get the link path from the attribute
           .map((attr: [string, string]) => attr[1])
 
-        // Create errors for each link path that doesn't start with a /
         for (const linkPath of hrefsMissingSlashes) {
           const range = getRange(child.line, linkPath)
           addFixErrorDetail(onError, child.lineNumber, `/${linkPath}`, linkPath, range, {

@@ -1,4 +1,5 @@
-import httpStatusCodes from 'http-status-code'
+import { STATUS_CODES } from 'node:http'
+
 import { get, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
 import mergeAllOf from 'json-schema-merge-allof'
@@ -131,7 +132,7 @@ export default class Operation {
         responseKeys.map(async (responseCode) => {
           const response = responses[responseCode]
           const httpStatusCode = responseCode
-          const httpStatusMessage = httpStatusCodes.getMessage(Number(responseCode), 'HTTP/2')
+          const httpStatusMessage = STATUS_CODES[Number(responseCode)] || 'Unknown'
           // The OpenAPI should be updated to provide better descriptions, but
           // until then, we can catch some known generic descriptions and replace
           // them with the default http status message.

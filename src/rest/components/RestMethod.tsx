@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import cx from 'clsx'
 
 import styles from './RestCodeSamples.module.scss'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'

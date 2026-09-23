@@ -16,7 +16,8 @@ describe('secret scanning article body api', () => {
     expect(res.body).toContain('# Supported secret scanning patterns')
     expect(res.body).toContain('## Supported secrets')
 
-    expect(res.body).not.toMatch(/<!--.*?-->/)
+    // A substring check also catches multiline, empty, and unterminated comments.
+    expect(res.body).not.toContain('<!--')
 
     // The icon spans are replaced with plain ✓/✗ characters.
     expect(res.body).not.toMatch(/<span[^>]*aria-label="Supported"/)

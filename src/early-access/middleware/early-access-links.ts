@@ -29,7 +29,7 @@ export default function earlyAccessContext(
 
   if (!req.context || !req.context.pages) throw new Error('request not contextualized')
 
-  // Get a list of all hidden pages per version
+  // Hidden early access pages don't appear in normal navigation, so list them here.
   const earlyAccessPageLinks = uniq(
     Object.values(req.context.pages)
       .filter(
@@ -41,14 +41,11 @@ export default function earlyAccessContext(
       .map((page) => page.permalinks)
       .flat(),
   )
-    // Get links for the current version
     .filter((permalink) => req.context!.currentVersion === permalink.pageVersion)
     .sort()
-    // Create Markdown links
     .map((permalink) => `- [${permalink.title}](${permalink.href})`)
 
-  // Add to the rendering context
-  // This is only used in the separate EA repo on local development
+  // Only read by the separate EA repo, in local development.
   req.context.earlyAccessPageLinks = earlyAccessPageLinks.length
     ? earlyAccessPageLinks.join('\n')
     : '_None for this version!_'

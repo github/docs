@@ -31,7 +31,7 @@ export const frontmatterHiddenDocs = {
         ', ',
       )}`,
       hiddenLine,
-      [1, hiddenLine.length], // No range applicable
+      [1, hiddenLine.length],
       null, // No fix possible
     )
   },

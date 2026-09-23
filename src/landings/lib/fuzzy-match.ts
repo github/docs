@@ -8,10 +8,9 @@ const BIGRAM_COVERAGE_THRESHOLD = 0.7
 // Require exact substring match for terms with 4 or fewer non-space characters.
 const SHORT_TERM_MAX_LENGTH = 4
 
-// Memoization cache for bigram computation
 const bigramCache = new Map<string, Set<string>>()
 
-// Extract character bigrams from a string (e.g., "agent" → ["ag", "ge", "en", "nt"])
+// Extract character bigrams from a string, e.g. "agent" -> ["ag", "ge", "en", "nt"].
 const getBigrams = (str: string): Set<string> => {
   const key = str.toLowerCase()
   if (bigramCache.has(key)) {
@@ -45,20 +44,18 @@ export const fuzzyMatchScore = (text: string, searchTerm: string): number => {
   const lowerText = text.toLowerCase()
   const lowerSearch = searchTerm.toLowerCase()
 
-  // Exact substring match gets highest score
   if (lowerText.includes(lowerSearch)) return 1
 
   // Short search terms (e.g., "mcp", "pr", "test") produce too few bigrams
   // for reliable fuzzy matching, so require exact substring only.
   if (lowerSearch.replace(/\s+/g, '').length <= SHORT_TERM_MAX_LENGTH) return -1
 
-  // Bigram coverage: what % of search bigrams appear in text
-  // This works better than Jaccard when text is much longer than search
+  // Bigram coverage works better than Jaccard when the text is much longer than
+  // the search term.
   const score = bigramCoverage(text, searchTerm)
   return score >= BIGRAM_COVERAGE_THRESHOLD ? score : -1
 }
 
-// Check if searchTerm matches text (for filtering)
 export const fuzzyMatch = (text: string, searchTerm: string): boolean => {
   return fuzzyMatchScore(text, searchTerm) >= 0
 }

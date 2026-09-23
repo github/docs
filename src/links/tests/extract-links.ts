@@ -136,9 +136,8 @@ Also [versioned](/enterprise-server@{{ currentVersion }}/admin).
 `
     const result = extractLinksFromMarkdown(content)
 
-    // The second link has a valid /path pattern even with Liquid syntax inside
-    // The extraction is regex-based and will pick up patterns it can match
-    // This is expected behavior - Liquid rendering happens separately
+    // Extraction is regex-based, so the second link matches even with Liquid syntax
+    // inside it. Liquid rendering happens separately.
     expect(result.internalLinks.length).toBeGreaterThanOrEqual(0)
   })
 
@@ -303,7 +302,6 @@ Also [generating keys][gen-keys].
     expect(result.internalLinks[0].href).toBe(
       '/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding',
     )
-    // Anchor fragment should be stripped from the href
     expect(result.internalLinks[1].href).toBe(
       '/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent',
     )
@@ -749,7 +747,6 @@ describe('isAssetLink', () => {
 
 describe('checkAssetLink', () => {
   test('returns true for existing asset files', () => {
-    // Use a known existing asset file
     expect(checkAssetLink('/assets/images/help/writing/headings-rendered.png')).toBe(true)
   })
 

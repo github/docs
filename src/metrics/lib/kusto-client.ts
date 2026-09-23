@@ -39,7 +39,6 @@ export async function runQuery(
   queryType: string,
   verbose: boolean = false,
 ): Promise<KustoQueryResult | null> {
-  // Display query if verbose mode is on
   if (verbose) {
     console.log(`\n--- EXECUTING QUERY FOR "${queryType.toUpperCase()}" ---`)
     console.log(query)

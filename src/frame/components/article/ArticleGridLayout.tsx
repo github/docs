@@ -1,5 +1,5 @@
 import React from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { SupportPortalVaIframe, SupportPortalVaIframeProps } from './SupportPortalVaIframe'
 import { useSidebarCollapsed } from '@/frame/components/sidebar/SidebarCollapseContext'
 

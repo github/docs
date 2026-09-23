@@ -5,6 +5,7 @@ import path from 'path'
 import { liquid } from '@/content-render/index'
 import { allVersions } from '@/versions/lib/all-versions'
 import { loadTemplate } from '@/article-api/lib/load-template'
+import { stripHtmlComments } from '@/article-api/lib/strip-html-comments'
 import { getSecretScanningData } from '@/secret-scanning/lib/get-secret-scanning-data'
 
 /**
@@ -101,7 +102,7 @@ export class SecretScanningTransformer implements PageTransformer {
       content += table
     }
 
-    content = content.replace(/<!--.*?-->/gs, '')
+    content = stripHtmlComments(content)
 
     content = content.replace(/<span[^>]*aria-label="Supported"[^>]*>[^<]*<\/span>/g, '✓')
     content = content.replace(/<span[^>]*aria-label="Unsupported"[^>]*>[^<]*<\/span>/g, '✗')

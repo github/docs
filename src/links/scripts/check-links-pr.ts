@@ -350,8 +350,8 @@ async function main() {
 
   if (options.all) {
     // For testing: check all content files (limited)
-    const glob = await import('glob')
-    files = glob.sync('content/**/*.md').slice(0, 50)
+    const { globSync } = await import('node:fs')
+    files = globSync('content/**/*.md').sort().slice(0, 50)
     console.log(`Checking ${files.length} files (--all mode, limited to 50)`)
   } else if (files.length === 0) {
     console.log('No files to check. Exiting.')

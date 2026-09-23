@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { ChevronUpIcon } from '@primer/octicons-react'
 
 import styles from './ScrollButton.module.scss'

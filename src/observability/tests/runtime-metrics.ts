@@ -33,11 +33,10 @@ describe('startRuntimeMetrics', () => {
     expect(statsd.gauge).not.toHaveBeenCalled()
   })
 
-  it('is idempotent — second call does nothing extra', () => {
+  it('is idempotent: second call does nothing extra', () => {
     vi.stubEnv('MODA_PROD_SERVICE_ENV', 'true')
     vi.stubEnv('NODE_ENV', 'production')
     startRuntimeMetrics()
-    // Second call without reset — should be a no-op
     startRuntimeMetrics()
     vi.advanceTimersByTime(INTERVAL_MS + 1)
     const callCount = (statsd.gauge as ReturnType<typeof vi.fn>).mock.calls.length
@@ -45,7 +44,7 @@ describe('startRuntimeMetrics', () => {
     vi.clearAllMocks()
     vi.advanceTimersByTime(INTERVAL_MS)
     const secondTickCount = (statsd.gauge as ReturnType<typeof vi.fn>).mock.calls.length
-    // Same number of calls each tick — no duplicate timers registered
+    // Same number of calls each tick, so no duplicate timers registered.
     expect(secondTickCount).toBe(callCount)
   })
 

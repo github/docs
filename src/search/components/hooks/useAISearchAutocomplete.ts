@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
-import debounce from 'lodash/debounce'
+import { debounce } from 'lodash-es'
 import { NextRouter } from 'next/router'
 import { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
 import { executeCombinedSearch } from '@/search/components/helpers/execute-search-actions'

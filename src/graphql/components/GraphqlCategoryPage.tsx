@@ -1,5 +1,5 @@
 import { type JSX } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { Enum } from './Enum'
 import { InputObject } from './InputObject'

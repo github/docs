@@ -83,7 +83,7 @@ export default class Webhook implements WebhookInterface {
   async process(): Promise<void> {
     await Promise.all([this.renderDescription(), this.renderBodyParameterDescriptions()])
 
-    const isValid = validate(this as WebhookInterface) // Add type assertion here
+    const isValid = validate(this as WebhookInterface)
     if (!isValid) {
       console.error(JSON.stringify(validate.errors, null, 2))
       throw new Error(`Invalid OpenAPI webhook found: ${this.category}`)

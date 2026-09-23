@@ -5,11 +5,11 @@ import GithubSlugger from 'github-slugger'
  * Matches what hast-util-to-string produces on a heading node after remark parsing.
  *
  * Key design decisions:
- * - Inline code spans (backtick) are extracted verbatim so that `<job_id>` inside them
+ * - Inline code spans are extracted verbatim so that `<job_id>` inside them
  *   is not incorrectly stripped by the HTML-tag regex (which is needed for octicon SVGs).
  * - HTML stripping only removes valid HTML element names (no underscores) to avoid stripping
  *   angle-bracket placeholders like <job_id> that appear in code-span heading text.
- * - No final .trim() — trailing whitespace from stripped SVGs becomes trailing hyphens via
+ * - No final .trim(). Trailing whitespace from stripped SVGs becomes trailing hyphens via
  *   github-slugger, reproducing the live site's heading IDs (e.g. `allow--`).
  */
 export function headingTextToPlain(text: string): string {
@@ -35,7 +35,7 @@ export function headingTextToPlain(text: string): string {
         inTag = true
       } else if (inTag && s[i] === '>') {
         inTag = false
-        // Don't emit a replacement space — surrounding whitespace in the source markdown
+        // Don't emit a replacement space. Surrounding whitespace in the source markdown
         // already provides the correct spacing for github-slugger (e.g. `allow ` from
         // the space before an octicon tag).
       } else if (!inTag) {
@@ -45,7 +45,6 @@ export function headingTextToPlain(text: string): string {
     return out
   }
 
-  // Process non-code portions: strip HTML and inline formatting markup.
   function processNonCode(s: string): string {
     return stripHtmlTags(s)
       .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1') // images: ![alt](url) → alt
@@ -69,7 +68,7 @@ export function headingTextToPlain(text: string): string {
     if (open > 0) parts.push(processNonCode(remaining.slice(0, open)))
     const close = remaining.indexOf('`', open + 1)
     if (close === -1) {
-      // Unclosed backtick — treat remainder as non-code
+      // Unclosed backtick: treat the remainder as non-code.
       parts.push(processNonCode(remaining.slice(open)))
       break
     }
@@ -77,7 +76,7 @@ export function headingTextToPlain(text: string): string {
     remaining = remaining.slice(close + 1)
   }
   return parts.join('')
-  // Note: no .trim() — see comment above.
+  // No .trim(), for the reason given above.
 }
 
 /**

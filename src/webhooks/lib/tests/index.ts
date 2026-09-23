@@ -5,9 +5,8 @@ import { getInitialPageWebhooks, getWebhook, getWebhooks } from '../index'
 // Use a version that's guaranteed to exist in the data directory.
 const VERSION = 'free-pro-team@latest'
 
-// Pick a webhook category whose data file has body parameters with
-// non-empty childParamsGroups so we can verify they survive the
-// initial-page stripping.
+// Pick a webhook category that has a .child-params.json sidecar, so getWebhook
+// returns non-empty childParamsGroups to compare against.
 const CATEGORY = 'projects_v2_item'
 
 describe('getInitialPageWebhooks does not corrupt the getWebhook cache', () => {
@@ -38,10 +37,11 @@ describe('getInitialPageWebhooks does not corrupt the getWebhook cache', () => {
     }
     expect(Object.keys(originalLengths).length).toBeGreaterThan(0)
 
-    // This intentionally empties childParamsGroups for the initial page render.
+    // The initial-page data has empty childParamsGroups. It must not reach back
+    // into the objects getWebhook already cached.
     await getInitialPageWebhooks(VERSION)
 
-    // getWebhook returns cached data — it must NOT have been mutated.
+    // getWebhook returns cached data, which must NOT have been mutated.
     const after = await getWebhook(VERSION, CATEGORY)
     expect(after).toBeDefined()
 
@@ -79,7 +79,6 @@ describe('childParamsGroups deferred loading', () => {
     const webhook = await getWebhook(VERSION, CATEGORY)
     expect(webhook).toBeDefined()
 
-    // At least one body param across all actions should have non-empty childParamsGroups
     let foundNonEmpty = false
     for (const [, actionData] of Object.entries(webhook!)) {
       for (const bp of actionData.bodyParameters ?? []) {

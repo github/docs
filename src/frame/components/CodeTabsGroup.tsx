@@ -16,7 +16,7 @@ import {
 } from 'react'
 import { useRouter } from 'next/router'
 import { UnderlineNav } from '@primer/react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import Cookies from '@/frame/components/lib/cookies'
 import { CODE_SAMPLE_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'

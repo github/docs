@@ -59,9 +59,10 @@ type JourneyPage = {
   }>
 }
 
-// Cache for journey pages so we only filter all pages once
+// All computed once, on first use.
+// Guide hrefs containing Liquid can't be resolved ahead of time,
+// so they're absent from cachedGuidePaths and set hasDynamicGuides instead.
 let cachedJourneyPages: JourneyPage[] | null = null
-// Cache for guide paths to quickly check if a page is part of any journey
 let cachedGuidePaths: Set<string> | null = null
 let hasDynamicGuides = false
 
@@ -100,22 +101,16 @@ function getGuidePaths(pages: Record<string, Page>): Set<string> {
 }
 
 function normalizeGuidePath(path: string): string {
-  // First ensure we have a leading slash for consistent processing
   const pathWithSlash = path.startsWith('/') ? path : `/${path}`
 
-  // Use the same normalization pattern as other middleware
   const withoutVersion = getPathWithoutVersion(pathWithSlash)
   const withoutLanguage = getPathWithoutLanguage(withoutVersion)
 
-  // Ensure we always return a path with leading slash for consistent comparison
   return withoutLanguage && withoutLanguage.startsWith('/')
     ? withoutLanguage
     : `/${withoutLanguage || path}`
 }
 
-/**
- * Helper function to fetch guide data (href and title) for a given path
- */
 async function fetchGuideData(
   guidePath: string,
   context: Context,
@@ -140,11 +135,7 @@ async function fetchGuideData(
 }
 
 /**
- * Resolves the journey context for a given article path.
- *
- * The journey context includes information about the journey track, the current
- * guide's position within that track, and links to the previous and next
- * guides if they exist.
+ * Returns null if the article isn't a guide in any journey track.
  */
 export async function resolveJourneyContext(
   articlePath: string,
@@ -154,32 +145,26 @@ export async function resolveJourneyContext(
 ): Promise<JourneyContext | null> {
   const normalizedPath = normalizeGuidePath(articlePath)
 
-  // Optimization: Fast path check
-  // If we are not forcing a specific journey page, check our global cache
   if (!currentJourneyPage) {
     const guidePaths = getGuidePaths(pages)
-    // If we have no dynamic guides and this path isn't in our known guides, return null early.
     if (!hasDynamicGuides && !guidePaths.has(normalizedPath)) {
       return null
     }
   }
 
-  // Use the current journey page if provided, otherwise find all journey pages
   const journeyPages = currentJourneyPage ? [currentJourneyPage] : getJourneyPages(pages)
 
   let result: JourneyContext | null = null
 
-  // Search through all journey pages
   for (const journeyPage of journeyPages) {
     if (!journeyPage.journeyTracks) continue
 
-    // Check version compatibility - only show journey navigation if the current version
-    // is compatible with the journey landing page's versions (journey track articles
-    // currently inherit the journey landing page's versions)
+    // Track articles inherit the landing page's versions,
+    // so a journey that doesn't apply to the current version has no navigation to show.
     if (journeyPage.versions) {
       const journeyVersions = getApplicableVersions(journeyPage.versions)
       if (!journeyVersions.includes(context.currentVersion || '')) {
-        continue // Skip this journey if current version is not supported
+        continue
       }
     }
 
@@ -188,14 +173,12 @@ export async function resolveJourneyContext(
     for (const track of journeyPage.journeyTracks) {
       if (!track.guides || !Array.isArray(track.guides)) continue
 
-      // Find if current article is in this track
       let guideIndex = -1
 
       for (let i = 0; i < track.guides.length; i++) {
         const guidePath = track.guides[i].href
         let renderedGuidePath = guidePath
 
-        // Handle Liquid conditionals in guide paths
         if (needsRendering(guidePath)) {
           try {
             renderedGuidePath = await executeWithFallback(
@@ -204,7 +187,8 @@ export async function resolveJourneyContext(
               () => guidePath,
             )
           } catch {
-            // If rendering fails, use the original path rather than erroring
+            // executeWithFallback rethrows errors it can't fall back from,
+            // such as any error in English.
             renderedGuidePath = guidePath
           }
         }
@@ -221,7 +205,7 @@ export async function resolveJourneyContext(
         const alternativeNextStep = track.guides[guideIndex].alternativeNextStep || ''
         let renderedAlternativeNextStep = alternativeNextStep
 
-        // Handle Liquid conditionals in branching text which likely has links
+        // Rendered with links intact, unlike the hrefs above which use textOnly.
         if (needsRendering(alternativeNextStep)) {
           try {
             renderedAlternativeNextStep = await executeWithFallback(
@@ -230,14 +214,12 @@ export async function resolveJourneyContext(
               () => alternativeNextStep,
             )
           } catch {
-            // If rendering fails, use the original branching text rather than erroring
             renderedAlternativeNextStep = alternativeNextStep
           }
         }
 
-        // Build the list of guides available for the current version.
-        // fetchGuideData returns null for guides that don't exist in the current version,
-        // so this filters out unavailable guides for correct counts and navigation.
+        // fetchGuideData returns null for guides missing in the current version.
+        // Dropping them keeps the counts and prev/next links correct.
         const availableGuides = (
           await Promise.all(
             track.guides.map(async (guide, i) => {
@@ -262,19 +244,16 @@ export async function resolveJourneyContext(
           alternativeNextStep: renderedAlternativeNextStep,
         }
 
-        // Set up previous guide using the version-filtered list
         if (filteredIndex > 0) {
           const prev = availableGuides[filteredIndex - 1]
           result.prevGuide = { href: prev.href, title: prev.title }
         }
 
-        // Set up next guide using the version-filtered list
         if (filteredIndex >= 0 && filteredIndex < filteredCount - 1) {
           const next = availableGuides[filteredIndex + 1]
           result.nextGuide = { href: next.href, title: next.title }
         }
 
-        // Only populate nextTrackFirstGuide when on the last guide of the filtered track
         if (filteredIndex === filteredCount - 1) {
           foundTrackIndex = trackIndex
 
@@ -294,22 +273,20 @@ export async function resolveJourneyContext(
           }
         }
 
-        break // Found the track, stop searching
+        break
       }
 
       trackIndex++
     }
 
-    if (result) break // Found the journey, stop searching
+    if (result) break
   }
 
   return result
 }
 
 /**
- * Resolves journey tracks data from frontmatter, including rendering any Liquid.
- *
- * Returns an array of JourneyTrack objects with titles, descriptions, and guide links.
+ * Reads journey tracks from frontmatter, rendering any Liquid they contain.
  */
 export async function resolveJourneyTracks(
   journeyTracks: JourneyPage['journeyTracks'],
@@ -321,7 +298,6 @@ export async function resolveJourneyTracks(
 
   const result = await Promise.all(
     journeyTracks.map(async (track) => {
-      // Render Liquid templates in title and description
       const renderedTitle = needsRendering(track.title)
         ? await renderContent(track.title, context, { textOnly: true })
         : track.title

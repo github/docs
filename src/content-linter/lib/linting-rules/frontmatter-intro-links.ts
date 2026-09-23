@@ -18,7 +18,6 @@ function getValidIntroLinksKeys(): string[] {
       return []
     }
 
-    // Get all keys from product_landing in ui.yml
     return Object.keys(ui.product_landing)
   } catch (error) {
     console.error('Error loading ui.yml data:', error)
@@ -43,10 +42,8 @@ export const frontmatterIntroLinks: Rule = {
       return
     }
 
-    // Check each key in introLinks
     for (const key of Object.keys(introLinks)) {
       if (!validKeys.includes(key)) {
-        // Find the line with this key
         const line = params.lines.find((ln: string) => {
           const trimmed = ln.trim()
           return trimmed.startsWith(`${key}:`) && !trimmed.startsWith('introLinks:')

@@ -30,22 +30,22 @@ describe('fuzzyMatch', () => {
   })
 
   test('short terms (<=4 chars) require exact substring match', () => {
-    // "test" is 4 chars — exact substring only
+    // "test" is 4 chars, so exact substring only.
     expect(fuzzyMatch('Writing tests', 'test')).toBe(true)
     expect(fuzzyMatch('Generating tables', 'test')).toBe(false)
     // "mcp" is 3 chars
     expect(fuzzyMatch('Using the GitHub MCP Server', 'mcp')).toBe(true)
     expect(fuzzyMatch('Coding agents', 'mcp')).toBe(false)
-    // "pr" is 2 chars — exact substring only
+    // "pr" is 2 chars, so exact substring only.
     expect(fuzzyMatch('Writing PR descriptions', 'pr')).toBe(true)
     // "pr" is a substring of "enterprise", so this still matches (exact match)
     expect(fuzzyMatch('Enterprise setup', 'pr')).toBe(true)
   })
 
-  test('rejects false positives from similar-looking words at 75% threshold', () => {
-    // "billing" vs "installing" shared bigrams ll,li,in,ng = 4/6 = 67% (below 75%)
+  test('rejects false positives from similar-looking words at the 70% threshold', () => {
+    // "billing" vs "installing" shared bigrams ll,li,in,ng = 4/6 = 67%, below 70%.
     expect(fuzzyMatch('Installing extensions', 'billing')).toBe(false)
-    // "pricing" vs "writing pr" shared bigrams pr,ri,in,ng = 4/6 = 67% (below 75%)
+    // "pricing" vs "writing pr" shared bigrams pr,ri,in,ng = 4/6 = 67%, below 70%.
     expect(fuzzyMatch('Writing PR descriptions', 'pricing')).toBe(false)
   })
 
@@ -59,15 +59,12 @@ describe('fuzzyMatch', () => {
   })
 
   test('handles edge cases gracefully', () => {
-    // Empty strings
     expect(fuzzyMatch('GitHub Copilot', '')).toBe(true) // empty search matches anything
     expect(fuzzyMatch('', 'copilot')).toBe(false)
     expect(fuzzyMatch('', '')).toBe(true)
 
-    // Whitespace-only queries
     expect(fuzzyMatch('GitHub Copilot', '   ')).toBe(false)
 
-    // Multiple consecutive spaces in query
     expect(fuzzyMatch('GitHub Copilot agent', 'copilot   agent')).toBe(true)
   })
 })

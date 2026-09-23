@@ -56,7 +56,6 @@ function runScript(
 }
 
 function cookieFor(value: object) {
-  // The real cookie value is URL-encoded JSON, like the browser stores it.
   return `color_mode=${encodeURIComponent(JSON.stringify(value))}`
 }
 

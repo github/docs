@@ -20,7 +20,6 @@
 import { program } from 'commander'
 import chalk from 'chalk'
 import fs from 'fs'
-import { glob } from 'glob'
 import { JSONFilePreset } from 'lowdb/node'
 
 import { extractLinksFromMarkdown } from '@/links/lib/extract-links'
@@ -297,7 +296,9 @@ async function checkGithubRepoUrl(
 async function extractAllExternalLinks(): Promise<Map<string, LinkOccurrence[]>> {
   const links = new Map<string, LinkOccurrence[]>()
 
-  const files = await glob('content/**/*.md', { ignore: '**/README.md' })
+  const files = await Array.fromAsync(
+    fs.promises.glob('content/**/*.md', { exclude: ['**/README.md'] }),
+  )
   console.log(`Found ${files.length} Markdown files to scan`)
 
   const extractStart = Date.now()

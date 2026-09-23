@@ -26,8 +26,7 @@ import { RedirectedFragmentValidator } from '@/links/lib/validate-redirected-fra
 
 const logger = createLogger(import.meta.url)
 
-// That magical string that can be turned into the actual title when
-// we, at runtime, render out the links
+// Placeholder link text that the renderer swaps for the destination page title.
 const AUTOTITLE = 'AUTOTITLE'
 
 export type LinkContext = {
@@ -138,9 +137,8 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
   content = content || ''
 
   // Since this function can process both `.md` and `.yml` files,
-  // when treating a `.md` file, the `data` from `frontmatter(rawContent)`
-  // is easy. But when dealing a `.yml` file,
-  // the `frontmatter(rawContent).data` always becomes `{}`.
+  // `frontmatter(rawContent).data` gives what we need for a `.md` file, but always
+  // returns `{}` for a `.yml` file.
   // And since the Yaml file might contain arrays of internal linked
   // pathnames, we have to re-read it fully.
   const isYaml = file.endsWith('.yml')
@@ -202,8 +200,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
   const ANY = Symbol('any')
   const IS_ARRAY = Symbol('is array')
 
-  // This configuration determines which nested things to bother looking
-  // into.
+  // Which frontmatter keys hold links, and which of their sub-keys to descend into.
   const HAS_LINKS: Record<string, string[] | symbol> = {
     featuredLinks: ['gettingStarted', 'startHere', 'guideCards', 'popular'],
     introLinks: ANY,
@@ -290,12 +287,9 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
       //
       //    [This *is* cool](/articles/link)
       //
-      // In that case, for this link node, the title is the combined
-      // serialization of `node.children`. But `toMarkdown()` always appends
-      // `\n` to the serialized output.
-      // Now the title of the above-mentioned example becomes 'This *is* cool'
-      // which is unlikely to attempt to be the document's title, that
-      // it links to.
+      // The title is the combined serialization of `node.children`, and `toMarkdown()`
+      // always appends `\n`, hence the slice. The example above yields `This *is* cool`,
+      // which still carries its emphasis markers and so won't match a page title.
       const title = node.children.map((child: Nodes) => toMarkdown(child).slice(0, -1)).join('')
 
       let newTitle = title
@@ -309,7 +303,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
       if (opts.setAutotitle) {
         if (hasQuotesAroundLink) {
           /**
-           * Note! A lot of internal links are bullet points like:
+           * A lot of internal links are bullet points like:
            *
            *     - [Creating a repository](/articles/create-a-repo)
            *     - [Forking a repository](/articles/fork-a-repo)
@@ -386,7 +380,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
     }
   })
 
-  // Resolve any carried-over fragments (async — renders the destination page), then apply
+  // Resolve any carried-over fragments, which renders the destination page, then apply
   // every replacement to `newContent` in document order.
   for (const item of pending) {
     let finalHref = item.baseHref
@@ -405,7 +399,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
         } else {
           // Drop the fragment: leave `finalHref` as the fragment-less base href.
           warnings.push({
-            warning: `Removed stale anchor '${hash}' — not found on the redirected destination page in any applicable version`,
+            warning: `Removed stale anchor '${hash}': not found on the redirected destination page in any applicable version`,
             asMarkdown: item.asMarkdown,
             line: item.line,
             column: item.column,
@@ -428,7 +422,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
           column: item.column,
         })
       } else {
-        // 'keep' — the anchor exists on the destination in every applicable version.
+        // 'keep': the anchor exists on the destination in every applicable version.
         finalHref = item.baseHref + hash
       }
     }
@@ -622,8 +616,7 @@ function getNewFrontmatterLinkList(
 }
 
 // Try to return the line in the raw content that entry was on.
-// It's hard to know exactly because the `entry` is the result of parsing
-// the YAML, most likely, from the front
+// Only approximate: `entry` comes out of the parsed YAML, so its original text is gone.
 function findLineNumber(entry: string, rawContent: string) {
   let number = 0
   for (const line of rawContent.split(/\n/g)) {
@@ -695,10 +688,8 @@ function getNewHref(
   const newHrefWithLanguage = getPathWithLanguage(withoutLanguage, language)
   const redirected = getRedirect(newHrefWithLanguage, context)
 
-  // If it comes back as `undefined` it means it didn't need to be
-  // redirected, specifically.
-  // Optionally, we could skip this whole step of checking for completely
-  // broken internal links because other tools will later check that.
+  // `undefined` means the link didn't need redirecting. The broken-link check below is
+  // belt and braces: the link checkers cover it too.
   if (redirected === undefined) {
     if (!context.pages[newHrefWithLanguage]) {
       // If this happens, it's very possible that it's a broken link
@@ -727,15 +718,12 @@ function getNewHref(
     // (at the time of writing) which is good when you're actually clicking
     // the link but not good when we're trying to update the source
     // content.
-    // The `getPathWithoutVersion` function doesn't change the input if
-    // the URL passed doesn't appear to have a valid version in it already.
-    // I.e. `getPathWithLanguage('/get-started') === '/get-started``
-    // but `getPathWithLanguage('/enterprise-server@3.8/get-started') === '/get-started``
-    // But hang on, in some rare cases the content deliberately linked to
-    // a specific version. If that's the case, leave it like that.
-    // There's another exception! Some links have the `/free-pro-team@latest/`
-    // prefix. The `getRedirect()` will always remove that. If that's the case
-    // we always want respect that and put it back in.
+    // `getPathWithoutVersion` strips a supported version prefix and leaves everything
+    // else alone, so `/enterprise-server@3.22/get-started` becomes `/get-started` while
+    // `/get-started` is returned unchanged.
+    // Two exceptions: content sometimes links to a specific version deliberately, which
+    // must be left alone, and `getRedirect()` always strips a `/free-pro-team@latest/`
+    // prefix, which has to be put back.
     if (withoutLanguage.includes(`/${nonEnterpriseDefaultVersion}/`)) {
       newHref = `/${nonEnterpriseDefaultVersion}${redirectedWithoutLanguage}`
     } else if (withoutLanguage.startsWith('/enterprise-server/')) {

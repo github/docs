@@ -22,12 +22,10 @@ const LOCAL_STORAGE_KEY = 'dotcomCookies'
 async function fetchCookies(): Promise<DotcomCookies> {
   if (isHeadless()) return { isStaff: false }
 
-  // Return the cached object if we have it in memory.
   if (cachedCookies) {
     return cachedCookies
   }
 
-  // Try to load from local storage.
   const storedCookies = localStorage.getItem(LOCAL_STORAGE_KEY)
   if (storedCookies) {
     try {
@@ -39,12 +37,10 @@ async function fetchCookies(): Promise<DotcomCookies> {
     }
   }
 
-  // If a request is already in progress, reuse it.
   if (inFlightPromise) {
     return inFlightPromise
   }
 
-  // Make a single fetch request to the backend.
   inFlightPromise = (async () => {
     try {
       const response = await fetch(GET_COOKIES_ENDPOINT)
@@ -53,7 +49,6 @@ async function fetchCookies(): Promise<DotcomCookies> {
       }
       const data = (await response.json()) as DotcomCookies
       cachedCookies = data
-      // Store the fetched cookies in local storage for future use.
       try {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data))
       } catch (e) {
@@ -62,14 +57,12 @@ async function fetchCookies(): Promise<DotcomCookies> {
       return data
     } catch (err) {
       console.error('Error fetching cookies:', err)
-      // On failure, return default values.
       const defaultCookies: DotcomCookies = {
         isStaff: false,
       }
       cachedCookies = defaultCookies
       return defaultCookies
     } finally {
-      // Clear the in-flight promise regardless of success or failure.
       inFlightPromise = null
     }
   })()

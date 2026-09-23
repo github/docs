@@ -19,39 +19,26 @@ function Error() {
 }
 
 Error.getInitialProps = async (ctx: NextPageContext) => {
-  // If this getInitialProps() is called in client-side rendering,
-  // you won't have a `.res` object. It's only present when it's
-  // rendered Node (SSR). That's our clue to know that, we should
-  // send this error to Failbot.
-  // In client-side, it's undefined. In server, it's a ServerResponse object.
+  // `.res` only exists during SSR,
+  // so its presence is how we know to send this error to Failbot.
   const { err, req, res } = ctx
   let statusCode = 500
   if (res?.statusCode) {
     statusCode = res.statusCode
   }
 
-  // 'err' will by falsy if it's a 404
-  // But note, at the time of writing this comment, we have a dedicated
-  // `pages/404.tsx` which takes care of 404 messages.
+  // `err` is falsy for a 404, which `pages/404.tsx` handles instead.
   if (err && res && req) {
-    // This is a (necessary) hack!
-    // You can't import `../lib/failbot.ts` here in this
-    // file because it gets imported by webpack to be used in the
-    // client-side JS bundle. It *could* be solved by overriding
-    // the webpack configuration in our `next.config.ts` but this is prone
-    // to be fragile since ignoring code can be hard to get right
-    // and the more we override there, the harder it will become to
-    // upgrade NextJS in the future because of moving parts.
-    // So the solution is to essentially do what the contextualizers
-    // do which mutate the Express request object by attaching
-    // callables to it. This way it's only ever present in SSR executed
-    // code and doesn't need any custom webpack configuration.
+    // We can't import `@/observability/lib/failbot` here,
+    // because webpack pulls this file into the client bundle.
+    // Excluding it in next.config.ts would work but makes future Next.js upgrades harder.
+    // Instead the contextualizers attach FailBot to the Express request,
+    // so it exists only in SSR.
     const expressRequest = req as unknown as ExpressRequestExtensions
     const FailBot = expressRequest.FailBot
     if (FailBot) {
       try {
-        // An inclusion-list of headers we're OK with sending because
-        // they don't contain an PII.
+        // Allowlist: these headers carry no PII.
         const OK_HEADER_KEYS = ['user-agent', 'referer', 'accept-encoding', 'accept-language']
         const reported = FailBot.report(err, {
           path: req.url || '',
@@ -73,10 +60,8 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
           ),
         })
 
-        // Within FailBot.report() (which is our wrapper for Failbot in
-        // the `@github/failbot` package), it might exit only because
-        // it has no configured backends to send to. I.e. it returns undefined.
-        // Otherwise, it should return `Array<Promise<Response | void>>`.
+        // `FailBot.report()` returns undefined when no backends are configured,
+        // otherwise an array of promises.
         if (!reported) {
           console.warn(
             'The FailBot.report() returned undefined which means the error was NOT sent to Failbot.',
@@ -86,11 +71,8 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
           reported.length &&
           reported.every((thing) => thing instanceof Promise)
         ) {
-          // Make sure we await the promises even though we don't care
-          // about the results. This makes the code cleaner rather than
-          // letting the eventloop take care of it which could result
-          // in cryptic error messages if the await does fail for some
-          // reason.
+          // Await even though we ignore the results.
+          // Leaving these to the event loop produces cryptic errors when one rejects.
           try {
             await Promise.all(reported)
           } catch (error) {
@@ -98,13 +80,8 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
           }
         }
       } catch (error) {
-        // This does not necessarily mean FailBot failed to send. It's
-        // most likely that we failed to *send to* FailBot before it
-        // even has a chance to use the network. This is because
-        // `FailBot.report` returns an array of Promises which themselves
-        // could go wrong, but that's a story for another try/catch.
-        // Basically, this catch it just to avoid other errors that
-        // might prevent the pretty error page to render at all.
+        // This catch exists so a FailBot problem can't stop the error page from rendering.
+        // It doesn't mean the report failed to send.
         console.warn('Failed to send error to FailBot.', error)
       }
     }

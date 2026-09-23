@@ -5,7 +5,8 @@ import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '../helpers/utils'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
-// Yoink path validation approach from frontmatter-landing-carousels
+// Same two-strategy path resolution as isValidArticlePath in
+// frontmatter-landing-carousels.ts.
 function isValidGuidePath(guidePath: string, currentFilePath: string): boolean {
   const ROOT = process.env.ROOT || '.'
 
@@ -13,13 +14,12 @@ function isValidGuidePath(guidePath: string, currentFilePath: string): boolean {
   const contentDir = path.join(ROOT, 'content')
   const normalizedPath = guidePath.startsWith('/') ? guidePath.substring(1) : guidePath
 
-  // Check for direct .md file
   const absolutePath = path.join(contentDir, `${normalizedPath}.md`)
   if (fs.existsSync(absolutePath) && fs.statSync(absolutePath).isFile()) {
     return true
   }
 
-  // Check for index.md file in directory (for landing pages)
+  // A directory with an index.md in it is a landing page.
   const indexPath = path.join(contentDir, normalizedPath, 'index.md')
   if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) {
     return true
@@ -28,7 +28,6 @@ function isValidGuidePath(guidePath: string, currentFilePath: string): boolean {
   // Strategy 2: Fall back to relative path from current file's directory
   const currentDir = path.dirname(currentFilePath)
 
-  // Check for relative .md file
   const relativePath = path.join(currentDir, `${normalizedPath}.md`)
   try {
     if (fs.existsSync(relativePath) && fs.statSync(relativePath).isFile()) {
@@ -38,7 +37,6 @@ function isValidGuidePath(guidePath: string, currentFilePath: string): boolean {
     // Continue to next strategy
   }
 
-  // Check for relative index.md file
   const relativeIndexPath = path.join(currentDir, normalizedPath, 'index.md')
   try {
     return fs.existsSync(relativeIndexPath) && fs.statSync(relativeIndexPath).isFile()
@@ -73,10 +71,8 @@ export const journeyTracksGuidePathExists = {
         for (let guideIndex = 0; guideIndex < trackObj.guides.length; guideIndex++) {
           const guideObj = trackObj.guides[guideIndex]
 
-          // Validate guide is an object with expected properties
           if (!guideObj || typeof guideObj !== 'object') continue
 
-          // Validate href property
           if ('href' in guideObj && typeof guideObj.href === 'string') {
             if (!isValidGuidePath(guideObj.href, params.name)) {
               addError(

@@ -7,7 +7,7 @@ import { getFrontmatter } from '../helpers/utils'
 import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
 
 // ---------------------------------------------------------------------------
-// Template parser — derives all validation data from templates.md
+// Template parser: derives all validation data from templates.md
 // ---------------------------------------------------------------------------
 
 const TEMPLATES_PATH = path.resolve('content/contributing/writing-for-github-docs/templates.md')
@@ -34,11 +34,8 @@ export interface ParsedTemplate {
   reusables: string[]
 }
 
-/**
- * Extract the RAI card template code block from templates.md.
- * Finds the sentinel HTML comment, then captures the next fenced code block.
- * Strips {% raw %} / {% endraw %} and {% comment %}...{% endcomment %} blocks.
- */
+// Finds the sentinel HTML comment, then captures the first fenced yaml block
+// after it. Strips {% raw %} / {% endraw %} and {% comment %} blocks.
 function extractTemplateBlock(): string {
   const content = fs.readFileSync(TEMPLATES_PATH, 'utf-8')
   const sentinelIndex = content.indexOf(SENTINEL)
@@ -63,11 +60,8 @@ function extractTemplateBlock(): string {
     .replace(/\{%\s*comment\s*%\}[\s\S]*?\{%\s*endcomment\s*%\}/g, '')
 }
 
-/**
- * Build a regex pattern from a template heading text.
- * Headings containing the placeholder get a pattern that matches any text
- * in place of the placeholder. Fixed headings get an exact match.
- */
+// Headings containing the placeholder get a pattern that matches any text in
+// place of the placeholder. Fixed headings get an exact match.
 function headingToPattern(text: string): RegExp {
   if (text.includes(PLACEHOLDER)) {
     const escaped = text
@@ -78,20 +72,15 @@ function headingToPattern(text: string): RegExp {
   return new RegExp(`^${text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i')
 }
 
-/**
- * Build a human-readable label for error messages.
- * Replaces the placeholder with "..." to keep messages concise.
- */
+// Replaces the placeholder with "..." to keep error messages concise.
 function headingLabel(level: number, text: string): string {
   const prefix = '#'.repeat(level)
   const label = text.includes(PLACEHOLDER) ? text.replace(PLACEHOLDER, '...') : text
   return `${prefix} ${label}`
 }
 
-/**
- * Parse the RAI template into structured heading and reusable data.
- * This is the single source of truth for validation — no hardcoded constants.
- */
+// Heading text and required reusable paths all come from the template rather
+// than from constants in this file.
 function parseTemplate(): ParsedTemplate {
   const block = extractTemplateBlock()
   const lines = block.split('\n')
@@ -140,7 +129,6 @@ function parseTemplate(): ParsedTemplate {
       continue
     }
 
-    // Parse reusable references
     const reusableMatches = line.matchAll(/\{%\s*data\s+([\w.-]+)\s*%\}/g)
     for (const m of reusableMatches) {
       if (!reusables.includes(m[1])) {
@@ -157,7 +145,7 @@ function parseTemplate(): ParsedTemplate {
   return { h2s, h3s, reusables }
 }
 
-// Lazy singleton — parsed once on first use
+// Lazy singleton: parsed once on first use.
 let _parsed: ParsedTemplate | null = null
 
 export function getTemplate(): ParsedTemplate {
@@ -194,9 +182,7 @@ function extractHeadings(lines: string[]): Heading[] {
 // Validators
 // ---------------------------------------------------------------------------
 
-/**
- * Validate required H2 sections exist and appear in the correct order.
- */
+// Validate that the required H2 sections exist and appear in the correct order.
 function validateH2Sections(
   headings: Heading[],
   template: ParsedTemplate,
@@ -232,10 +218,8 @@ function validateH2Sections(
   }
 }
 
-/**
- * Validate H3 subsections in a single pass: required ones must exist,
- * and all H3s under structured parents must match a known template heading.
- */
+// Required H3s must exist, and every H3 under a structured parent must match a
+// known template heading.
 function validateH3Subsections(
   headings: Heading[],
   template: ParsedTemplate,
@@ -256,14 +240,12 @@ function validateH3Subsections(
     const parentIndex = headings.findIndex((h) => h.level === 2 && parentPattern.test(h.text))
     if (parentIndex === -1) continue // Missing parent caught by validateH2Sections
 
-    // Collect actual H3s under this parent
     const childH3s: Heading[] = []
     for (let i = parentIndex + 1; i < headings.length; i++) {
       if (headings[i].level <= 2) break
       if (headings[i].level === 3) childH3s.push(headings[i])
     }
 
-    // Check required H3s exist
     for (const required of templateH3s) {
       if (required.optional) continue
       const found = childH3s.some((h) => required.pattern.test(h.text))
@@ -279,7 +261,6 @@ function validateH3Subsections(
       }
     }
 
-    // Check all actual H3s match a known template heading
     for (const child of childH3s) {
       const matchesKnown = templateH3s.some((t) => t.pattern.test(child.text))
       if (!matchesKnown) {
@@ -296,9 +277,7 @@ function validateH3Subsections(
   }
 }
 
-/**
- * Validate that all required boilerplate reusable references are present.
- */
+// Validate that all required boilerplate reusable references are present.
 function validateReusables(
   lines: string[],
   template: ParsedTemplate,

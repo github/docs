@@ -44,7 +44,6 @@ export default async function featuredLinks(
   req.context.featuredLinks = {}
   for (const key in req.context.page.featuredLinks) {
     const pageFeaturedLink = req.context.page.featuredLinks[key]
-    // Handle different types of featuredLinks by converting to string array
     const stringLinks = Array.isArray(pageFeaturedLink)
       ? pageFeaturedLink.map((item) => (typeof item === 'string' ? item : item.href))
       : []

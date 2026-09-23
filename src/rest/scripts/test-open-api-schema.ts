@@ -5,7 +5,7 @@
 // [end-readme]
 import fs from 'fs'
 import path from 'path'
-import _ from 'lodash'
+import { isEqual } from 'lodash-es'
 
 import frontmatter from '@/frame/lib/read-frontmatter'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
@@ -155,7 +155,7 @@ function difference(obj1: Record<string, string[]>, obj2: Record<string, string[
   const diff = Object.keys(obj1).reduce((result, key) => {
     if (!Object.prototype.hasOwnProperty.call(obj2, key)) {
       result.push(key)
-    } else if (_.isEqual(obj1[key], obj2[key])) {
+    } else if (isEqual(obj1[key], obj2[key])) {
       const resultKeyIndex = result.indexOf(key)
       result.splice(resultKeyIndex, 1)
     }

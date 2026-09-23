@@ -1,6 +1,5 @@
 import type { DateRange } from '@/metrics/lib/dates'
 
-// SHARED QUERY CONSTANTS
 export const SHARED_DECLARATIONS = (
   path: string | string[],
   dates: DateRange,

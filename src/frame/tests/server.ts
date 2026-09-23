@@ -1,5 +1,3 @@
-// csp-parse doesn't have TypeScript types
-import CspParse from 'csp-parse'
 import { beforeAll, describe, expect, test, vi } from 'vitest'
 
 import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
@@ -15,6 +13,21 @@ import {
 interface Category {
   name: string
   published_articles: string[]
+}
+
+// Parses a Content-Security-Policy header into its directives. Mirrors the
+// behavior of the unmaintained `csp-parse` package it replaces: the policy is
+// lowercased, split on `;`, and each directive's values are returned as a
+// space-joined string, or an empty string when the directive is absent.
+function parseCsp(policy: string) {
+  const directives = new Map<string, string>()
+  for (const part of (policy || '').toLowerCase().split(';')) {
+    const [name, ...values] = part.trim().split(/\s+/)
+    if (name) directives.set(name, values.join(' '))
+  }
+  return {
+    get: (directive: string) => directives.get(directive) || '',
+  }
 }
 
 describe('server', () => {
@@ -50,7 +63,7 @@ describe('server', () => {
     expect(res.statusCode).toBe(200)
     expect('content-security-policy' in res.headers).toBe(true)
 
-    const csp = new CspParse(res.headers['content-security-policy'])
+    const csp = parseCsp(res.headers['content-security-policy'])
     expect(csp.get('default-src')).toBe("'none'")
 
     expect(csp.get('font-src').includes("'self'")).toBe(true)

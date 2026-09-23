@@ -9,8 +9,6 @@ describe('FailBot', () => {
   beforeEach(() => {
     delete process.env.HAYSTACK_URL
 
-    // Always reset the array to an empty one between tests
-    // so it doesn't interfere across tests.
     requestBodiesSent.length = 0
 
     nock('https://haystack.example.com')
@@ -36,21 +34,16 @@ describe('FailBot', () => {
       process.env.HAYSTACK_URL = 'https://haystack.example.com'
       const err = new Error('Kaboom')
       const backendPromises = FailBot.report(err, { foo: 'bar' })
-      // Note! You don't need to await the promises it returns to be
-      // able to use `FailBot.report()`. It will send.
-      // But here in the context of vitest, we need to await *now*
-      // so we can assert that it did make the relevant post requests.
-      // Once we've done this, we can immediate check what it did.
+      // Production code doesn't need to await what `FailBot.report()` returns.
+      // In vitest we await now,
+      // so we can assert the POST requests happened.
       if (backendPromises) {
         await Promise.all(await backendPromises)
       }
 
-      // It's not interesting or relevant what the `.report()` static
-      // method returns. All that matters is that it did a POST
-      // request.
+      // What `.report()` returns doesn't matter, only that it POSTed.
       expect(requestBodiesSent.length).toBe(1)
 
-      // Verify what was sent in that POST request.
       expect(requestBodiesSent[0]).toMatchObject({
         app: 'docs',
         backtrace: expect.stringContaining('Error: Kaboom'),

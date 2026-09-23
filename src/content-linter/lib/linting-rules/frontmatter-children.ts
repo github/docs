@@ -23,7 +23,7 @@ function isValidChildPath(childPath: string, currentFilePath: string): boolean {
   let resolvedPath: string
 
   if (childPath.startsWith('/content/')) {
-    // Absolute path from content root - strip /content/ prefix
+    // Absolute path from the content root: strip the /content/ prefix.
     const absoluteChildPath = childPath.slice('/content/'.length)
     resolvedPath = path.resolve(contentDir, absoluteChildPath)
   } else {
@@ -39,13 +39,11 @@ function isValidChildPath(childPath: string, currentFilePath: string): boolean {
     return false
   }
 
-  // Check for direct .md file
   const mdPath = `${resolvedPath}.md`
   if (fs.existsSync(mdPath) && fs.statSync(mdPath).isFile()) {
     return true
   }
 
-  // Check for index.md file in directory
   const indexPath = path.join(resolvedPath, 'index.md')
   if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) {
     return true

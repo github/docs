@@ -2,6 +2,7 @@ import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
+import { stripHtmlCommentsAndNormalizeWhitespace } from '@/article-api/lib/strip-html-comments'
 import matter from '@gr2m/gray-matter'
 
 const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
@@ -133,10 +134,7 @@ export class GithubAppsTransformer implements PageTransformer {
           markdownRequested: true,
         })
 
-        manualContent = manualContent
-          .replace(/<!--.*?-->/gs, '')
-          .replace(/\n{3,}/g, '\n\n')
-          .trim()
+        manualContent = stripHtmlCommentsAndNormalizeWhitespace(manualContent)
       }
     }
 

@@ -57,7 +57,7 @@ export async function syncWebhookData(
       // the requested webhook on demand rather than the entire version schema.
       //
       // childParamsGroups are split into a separate file ({category}.child-params.json)
-      // so the landing page never loads them — they're only fetched on drill-down.
+      // so the landing page never loads them. They are fetched on drill-down only.
       await Promise.all(
         Object.entries(data).map(async ([category, categoryData]) => {
           const childParams: Record<string, Record<string, unknown[]>> = {}

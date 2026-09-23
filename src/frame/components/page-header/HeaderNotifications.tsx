@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
+import cx from 'clsx'
 import { XIcon } from '@primer/octicons-react'
 
 import { useLanguages } from '@/languages/components/LanguagesContext'

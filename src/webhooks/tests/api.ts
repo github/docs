@@ -73,7 +73,6 @@ describe('webhooks v1 middleware', () => {
     const actionTypes = Object.keys(results)
     expect(actionTypes.length).toBeGreaterThan(0)
 
-    // At least one body parameter should have non-empty childParamsGroups
     let foundNonEmpty = false
     for (const action of actionTypes) {
       for (const bp of results[action].bodyParameters ?? []) {

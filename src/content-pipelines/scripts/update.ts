@@ -1,7 +1,7 @@
 // [start-readme]
 //
 // This script clones an external source repository, detects whether its docs
-// have changed since the last processed commit, and — if so — runs the
+// have changed since the last processed commit, and if so runs the
 // content-pipeline-update Copilot agent to update our reference articles.
 //
 // The workflow (.github/workflows/content-pipelines.yml) calls this script in CI.
@@ -22,10 +22,6 @@ import path from 'path'
 import { load } from 'js-yaml'
 import { program } from 'commander'
 
-// ---------------------------------------------------------------------------
-// Config
-// ---------------------------------------------------------------------------
-
 type ContentPipelineConfig = {
   name?: string
   'source-repo': string
@@ -42,10 +38,6 @@ function loadConfig(id: string): ContentPipelineConfig | null {
   const raw = load(fs.readFileSync(CONFIG_FILE, 'utf-8')) as Record<string, ContentPipelineConfig>
   return raw[id] ?? null
 }
-
-// ---------------------------------------------------------------------------
-// CLI
-// ---------------------------------------------------------------------------
 
 program
   .description(
@@ -82,7 +74,6 @@ const opts = program.opts<{
   fullScan?: boolean
 }>()
 
-// Load config defaults, then layer CLI overrides on top
 const config = loadConfig(opts.id)
 
 const ID = opts.id
@@ -132,10 +123,6 @@ const STATE_DIR = path.join(process.cwd(), 'src/content-pipelines/state')
 const SHA_FILE = path.join(STATE_DIR, `${ID}.sha`)
 const DIFF_FILE = path.join(STATE_DIR, `${ID}.diff`)
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
 function run(cmd: string, options?: { cwd?: string; silent?: boolean }): string {
   try {
     return execSync(cmd, {
@@ -149,12 +136,7 @@ function run(cmd: string, options?: { cwd?: string; silent?: boolean }): string 
   }
 }
 
-// ---------------------------------------------------------------------------
-// Main
-// ---------------------------------------------------------------------------
-
 async function main(): Promise<void> {
-  // ---- Clone source repo ----
   const sourceDir = path.join('/tmp', `content-pipeline-source-${ID}`)
 
   if (fs.existsSync(sourceDir)) {
@@ -167,8 +149,8 @@ async function main(): Promise<void> {
     const repoUrl = `https://github.com/${SOURCE_REPO}.git`
 
     try {
-      // Use execFileSync so we can pass the token via env/header instead of
-      // embedding it in the URL, which would leak in error messages or logs.
+      // execFileSync passes the token as an argument instead of embedding it in the URL,
+      // where it would leak into error messages and logs.
       const args = ['clone']
       if (token) {
         args.push(
@@ -186,24 +168,21 @@ async function main(): Promise<void> {
   const currentSha = run('git rev-parse HEAD', { cwd: sourceDir, silent: true })
   console.log(`Source repo HEAD: ${currentSha}`)
 
-  // ---- Read stored SHA ----
   let storedSha = ''
   if (!FULL_SCAN && fs.existsSync(SHA_FILE)) {
     storedSha = fs.readFileSync(SHA_FILE, 'utf-8').trim()
     console.log(`Stored SHA: ${storedSha}`)
   } else if (FULL_SCAN) {
-    console.log('Full scan requested — ignoring stored SHA')
+    console.log('Full scan requested, ignoring stored SHA')
   } else {
     console.log('No stored SHA found (first run)')
   }
 
-  // ---- Check for changes ----
   if (currentSha === storedSha) {
     console.log('No changes detected. Nothing to do.')
     return
   }
 
-  // ---- Generate diff ----
   fs.mkdirSync(STATE_DIR, { recursive: true })
 
   let diffContent: string
@@ -217,11 +196,13 @@ async function main(): Promise<void> {
       })
       diff = run(`git diff ${storedSha} HEAD -- ${SOURCE_PATH}`, { cwd: sourceDir, silent: true })
     } catch {
-      nameStatus = '(unable to diff — stored SHA may have been force-pushed away)'
+      nameStatus = '(unable to diff: stored SHA may have been force-pushed away)'
       diff = '(diff unavailable)'
     }
 
-    // No source doc files changed — skip the agent.
+    // Empty means no doc files changed.
+    // A leading "(" means the diff itself failed,
+    // so fall through and run the agent anyway.
     if (!nameStatus.startsWith('(') && !nameStatus.trim()) {
       console.log(
         `No changes in ${SOURCE_PATH} between ${storedSha.slice(0, 7)} and ${currentSha.slice(0, 7)}. Skipping agent run.`,
@@ -241,9 +222,8 @@ async function main(): Promise<void> {
       diff,
     ].join('\n')
   } else {
-    // Initial run or full scan — list all source doc files so the agent
-    // has a concrete inventory (mirrors what git diff --name-status provides
-    // for incremental runs).
+    // Initial run or full scan, so list every source doc.
+    // Incremental runs get this inventory from git diff --name-status instead.
     const sourceDocs = path.join(sourceDir, SOURCE_PATH)
     let fileList: string
     try {
@@ -253,7 +233,7 @@ async function main(): Promise<void> {
     }
 
     diffContent = [
-      '# Source docs (full scan — no previous SHA)',
+      '# Source docs (full scan, no previous SHA)',
       '',
       'No previous SHA stored. Perform a full scan of all source docs.',
       '',
@@ -270,17 +250,15 @@ async function main(): Promise<void> {
 
   if (DRY_RUN) {
     console.log('\n--- Diff preview ---')
-    // Show first 80 lines of the diff to keep output manageable
     const lines = diffContent.split('\n')
     const preview = lines.slice(0, 80).join('\n')
     console.log(preview)
     if (lines.length > 80) {
       console.log(`\n... (${lines.length - 80} more lines, see ${DIFF_FILE})`)
     }
-    console.log('\nDry run — agent will run but SHA will not be saved.\n')
+    console.log('\nDry run: agent will run but SHA will not be saved.\n')
   }
 
-  // ---- Run the agent ----
   const sourceDocs = path.join(sourceDir, SOURCE_PATH)
 
   const prompt = [
@@ -322,9 +300,8 @@ async function main(): Promise<void> {
     },
   )
 
-  // ---- Update stored SHA ----
   if (DRY_RUN) {
-    console.log(`\nDry run — skipping SHA update (${SHA_FILE} not modified).`)
+    console.log(`\nDry run: skipping SHA update (${SHA_FILE} not modified).`)
   } else {
     fs.writeFileSync(SHA_FILE, `${currentSha}\n`)
     console.log(`\nUpdated ${SHA_FILE} to ${currentSha}`)

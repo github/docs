@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Button, Checkbox, CheckboxGroup, FormControl, Heading } from '@primer/react-brand'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 

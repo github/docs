@@ -1,9 +1,6 @@
-/**
- * This function is meant to be used by the code that runs the linter,
- * but only within Actions workflows. That means, if it works, it
- * posts all the annotations as inline comments on the PR.
- *
- */
+// Meant to be used by the code that runs the linter, but only within Actions
+// workflows. When it works, it posts all the annotations as inline comments
+// on the pull request.
 
 interface LintFlaw {
   ruleNames: string[]
@@ -58,7 +55,7 @@ export function printAnnotationResults(
       }
 
       // Why console.log and not `core.error()` (from @actions/core)?
-      // Because, this way you can debug this more easily on you own
+      // Because, this way you can debug this more easily on your own
       // terminal.
       console.log(annotation)
     }

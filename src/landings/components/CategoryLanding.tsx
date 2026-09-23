@@ -87,7 +87,6 @@ export const CategoryLanding = () => {
     setSelectedComplexity('All')
   }
 
-  // Helper function to find article data from tocItems
   const findArticleData = (articlePath: string) => {
     const cleanPath = articlePath.startsWith('/') ? articlePath.slice(1) : articlePath
     return onlyFlatItems.find(
@@ -97,7 +96,6 @@ export const CategoryLanding = () => {
     )
   }
 
-  // Process spotlight items to get complete data
   const processedSpotlight =
     spotlight?.map((spotlightItem) => {
       const articleData = findArticleData(spotlightItem.article)
@@ -114,7 +112,7 @@ export const CategoryLanding = () => {
     <DefaultLayout>
       <UtmPreserver />
       {router.route === '/[versionId]/rest/[category]' && <RestRedirect />}
-      {/* Doesn't matter *where* this is included because it will
+      {/* Position does not matter, because it will
       never render anything. It always just return null. */}
       <ClientSideRedirects />
 

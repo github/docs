@@ -43,9 +43,7 @@ describe('archived release notes', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeAll(async () => {
-    // The first page load takes a long time so let's get it out of the way in
-    // advance to call out that problem specifically rather than misleadingly
-    // attributing it to the first test
+    // Warm up, so the slow first page load isn't blamed on the first test.
     await get('/')
 
     nock('https://github.github.com')

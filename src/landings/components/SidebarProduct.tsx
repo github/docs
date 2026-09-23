@@ -71,11 +71,11 @@ function handleNavClick(router: Router, event: MouseEvent<HTMLElement>, href: st
 // navigate/prefetch callbacks, instead of every item calling useRouter itself.
 type SidebarNavValue = {
   // The real loaded route. Drives aria-current (the semantic "current page") and the
-  // auto-expanded active ancestor chain — both must reflect the page actually loaded.
+  // auto-expanded active ancestor chain. Both must reflect the page actually loaded.
   routePath: string
   // The in-flight click target, or null. Drives a VISUAL-ONLY optimistic accent bar
   // (via data-pending) so the click feels acknowledged before the slow
-  // getServerSideProps page loads — without lying to assistive tech about the current
+  // getServerSideProps page loads, without lying to assistive tech about the current
   // page. Once navigation completes, the keyed remount clears it and routePath catches up.
   pendingHref: string | null
   navigate: (event: MouseEvent<HTMLElement>, href: string) => void
@@ -146,7 +146,7 @@ export const SidebarProduct = () => {
   // page is still loading. This SidebarProduct instance persists during the pending
   // fetch (SidebarNav keys it on asPath, which only changes once navigation completes),
   // so the state survives the wait and is discarded by the keyed remount when the new
-  // route lands. aria-current is NOT derived from this — it stays on the loaded route.
+  // route lands. aria-current is NOT derived from this: it stays on the loaded route.
   const [pendingHref, setPendingHref] = useState<string | null>(null)
 
   const prefetchHref = usePrefetchOnInteraction()
@@ -169,7 +169,7 @@ export const SidebarProduct = () => {
 
   useEffect(() => {
     // Clear the optimistic highlight if a navigation genuinely fails, so it doesn't
-    // stick on a page that never loaded. Skip cancellations (err.cancelled) — those
+    // stick on a page that never loaded. Skip cancellations (err.cancelled): those
     // fire when a second click supersedes the first, and pendingHref already points at
     // that newer target, which we want to keep highlighted.
     const clearPending = (err: { cancelled?: boolean }) => {
@@ -303,7 +303,7 @@ function ExpandableItem({
 // NavList.Item. Brand's NavList.Item forwards style/aria-hidden to its inner <button>,
 // NOT the outer <li>, so a NavList.Item sentinel would leave a visible, focusable 40px
 // container (and trip the sibling-separator styles) at the top of every sidebar. A
-// hidden native <li> keeps the whole sentinel — container included — out of layout and
+// hidden native <li> keeps the whole sentinel, container included, out of layout and
 // the a11y tree. It MUST be spread inline (returned by this factory), not rendered as a
 // <Component/>: brand's detector never renders function components, so a wrapper would
 // stay invisible to it.
@@ -415,8 +415,8 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
   const { asPath, query } = useRestNav()
   const [visibleAnchor, setVisibleAnchor] = useState('')
   // Read the automated-page context unconditionally so hook order is stable across route
-  // changes. It is null on conceptual REST pages (no provider), which is fine — those pages
-  // use `[]` anyway.
+  // changes. It is null on conceptual REST pages (no provider), which is fine, since those
+  // pages use `[]` anyway.
   const automatedPage = useAutomatedPageContextOptional()
   const miniTocItems =
     query.productId === 'rest' ||

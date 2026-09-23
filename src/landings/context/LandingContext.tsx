@@ -56,9 +56,6 @@ export const useLandingContext = (): LandingContextT => {
   return context
 }
 
-/**
- * Server-side function to create LandingContext data from a request.
- */
 export const getLandingContextFromRequest = async (
   req: ExtendedRequest,
   landingType: LandingType,
@@ -73,7 +70,6 @@ export const getLandingContextFromRequest = async (
     throw new Error('"getLandingContextFromRequest" requires req.context.page')
   }
 
-  // Get resolved carousels from the page after middleware processing
   const carousels =
     landingType !== 'discovery' && landingType !== 'bespoke'
       ? {}

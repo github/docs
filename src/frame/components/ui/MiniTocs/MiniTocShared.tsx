@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { NavList } from '@primer/react-brand'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
 import { ArticleContext } from '@/frame/components/context/ArticleContext'

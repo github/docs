@@ -30,19 +30,16 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   // such as /api/pageinfo redirects to /api/pageinfo/v1
   if (req.path.startsWith('/api/')) return next()
 
-  // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
     languageAndVersionCacheControl(res)
 
-    // Build redirect path, optionally including user's preferred version
     let redirectPath = `/${language}`
     const userVersion = req.userVersion
     if (userVersion && userVersion !== 'free-pro-team@latest') {
       redirectPath += `/${userVersion}`
     }
 
-    // Forward query params to the new URL
     let queryParams = new URLSearchParams(req?.query as URLSearchParamsTypes).toString()
     if (queryParams) {
       queryParams = `?${queryParams}`
@@ -50,7 +47,6 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     return res.safeRedirect(302, redirectPath + queryParams)
   }
 
-  // begin redirect handling
   let redirect = req.path
   let queryParams = req.originalUrl.includes('?') ? req.originalUrl.split('?')[1] : null
 
@@ -175,7 +171,6 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
   }
 
-  // do not redirect a path to itself
   if (redirect === req.originalUrl) {
     return next()
   }

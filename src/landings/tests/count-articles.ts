@@ -3,7 +3,6 @@ import { describe, expect, test } from 'vitest'
 import { countArticles } from '@/landings/lib/count-articles'
 import type { ProductTreeNode } from '@/frame/components/context/MainContext'
 
-// Helper to create a minimal ProductTreeNode for testing
 const createNode = (childPages: ProductTreeNode[] = []): ProductTreeNode => ({
   title: 'Test',
   href: '/test',

@@ -109,12 +109,10 @@ program
 
 const options = program.opts<CliOptions>()
 
-// Auto-enable quiet mode when JSON output is requested
 if (options.json) {
   options.quiet = true
 }
 
-// If specific options are not provided, default to all
 options.defaultToAll = !(
   options.views ||
   options.users ||
@@ -124,7 +122,6 @@ options.defaultToAll = !(
   options.exits
 )
 
-// If defaulting to all, set all options to true
 if (options.defaultToAll) {
   options.views = true
   options.users = true
@@ -134,27 +131,22 @@ if (options.defaultToAll) {
   options.exits = true
 }
 
-// Get the path to query
-// Given input: https://docs.github.com/en/copilot/managing-copilot/
-// Use: copilot/managing-copilot
 const providedPath = program.args[0]
 let cleanPath = getCleanPath(providedPath)
 
-// Get the version
 let version: string | null = getVersion(cleanPath)
 const usingFptOnly = !!options.fptOnly
 
-// If the URL does not specify a version, default to all versions unless --fptOnly is passed
+// getVersion() returns FREE_PRO_TEAM when the URL names no version,
+// so this branch is really "no version given".
 if (version === FREE_PRO_TEAM) {
   if (usingFptOnly) {
-    // User explicitly wants only free-pro-team@latest
     if (!options.quiet) {
       console.log(
         '\nFetching data for free-pro-team@latest only. To get all versions, omit the --fptOnly flag.\n',
       )
     }
   } else {
-    // Default: all versions
     version = null
     if (!options.quiet) {
       console.log(
@@ -163,7 +155,6 @@ if (version === FREE_PRO_TEAM) {
     }
   }
 } else {
-  // Version is specified in the URL (e.g. enterprise-server@)
   if (!options.quiet) {
     console.log(
       `\nFetching data for version "${version}" as specified in the URL. To get data for all versions, remove the version segment from the URL.\n`,
@@ -176,22 +167,17 @@ if (version === FREE_PRO_TEAM) {
       )
     }
   }
-  // Always use the version from the URL
 }
 
-// Get the version-specific Docs API path
 const VERSIONED_DOCS_API_PATH = path.join(DOCS_API_PATH, version || FREE_PRO_TEAM)
-// Remove the version from the path for queries
 cleanPath = removeVersionSegment(cleanPath, version || FREE_PRO_TEAM)
-// Validate the path against the Docs API pagelist
 if (!options.skipValidation) await validatePath(cleanPath, version || FREE_PRO_TEAM)
 
 if (options.allVersions) version = null
 
-// Get the path for the overall docset
 const docsetPath = cleanPath.split('/')[0]
 
-// Get redirect_from frontmatter and include those paths in the queries
+// Queries cover the page's old paths too, so traffic isn't undercounted.
 let redirects: string[] = []
 if (options.redirects) {
   let contentPath = path.join('content', cleanPath)
@@ -199,13 +185,11 @@ if (options.redirects) {
     ? path.join(contentPath, 'index.md')
     : `${contentPath}.md`
   const { data } = frontmatter(fs.readFileSync(contentPath, 'utf8'))
-  // If redirect_from paths exists, they'll be in this format: /foo/bar
   redirects = (data?.redirect_from || []).map((oldPath: string) => oldPath.replace('/', '')) // remove leading '/'
 }
 
 const queryPaths = [cleanPath].concat(redirects)
 
-// Get dates object in format { endDate, startDate, friendlyRange }
 const dates: DateRange = getDates(options.range)
 
 async function main(): Promise<void> {
@@ -222,13 +206,11 @@ async function main(): Promise<void> {
 
     if (spinner) spinner.text = 'Connected! Querying Kusto...'
 
-    // Only show docset stats if option is passed AND if the given path is not already a docset.
     options.showDocset = !(cleanPath === docsetPath) && options.compare
     if (options.compare && cleanPath === docsetPath && !options.quiet) {
       console.log(`\n\nSkipping comparison, since '${cleanPath}' is already a docset.\n`)
     }
 
-    // Execute all queries in parallel and destructure results
     const [
       views,
       viewsDocset,
@@ -290,7 +272,6 @@ async function main(): Promise<void> {
 
     if (spinner) spinner.succeed('Data retrieved successfully!\n')
 
-    // Output JSON and exit
     if (options.json) {
       const jsonOutput: JsonOutput = {
         daysRange: options.range || '30',
@@ -303,7 +284,6 @@ async function main(): Promise<void> {
         },
       }
 
-      // Add requested data points
       if (options.views) {
         jsonOutput.data.views = views
       }
@@ -323,7 +303,6 @@ async function main(): Promise<void> {
         jsonOutput.data.exits = exits
       }
 
-      // Add docset comparison if requested
       if (options.showDocset) {
         jsonOutput.docset = {
           path: docsetPath,
@@ -351,7 +330,7 @@ async function main(): Promise<void> {
       }
 
       console.log(JSON.stringify(jsonOutput, null, 2))
-      return // Exit early
+      return
     }
 
     console.log(white(`Last ${options.range || '30'} days:`), blue(dates.friendlyRange))
@@ -418,7 +397,6 @@ async function main(): Promise<void> {
     if (spinner) spinner.fail('Error getting data')
 
     if (options.json) {
-      // Output error in JSON format for consistent parsing
       console.log(
         JSON.stringify(
           {
@@ -441,7 +419,6 @@ try {
   await main()
 } catch (error) {
   if (options.json) {
-    // Output error in JSON format for consistent parsing
     console.log(
       JSON.stringify(
         {
@@ -459,8 +436,6 @@ try {
   }
   process.exit(1)
 }
-
-/* -------- UTILITY FUNCTIONS -------- */
 
 // Given input: https://docs.github.com/en/copilot/managing-copilot/
 // Use: copilot/managing-copilot

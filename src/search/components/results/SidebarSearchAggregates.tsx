@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { FilterIcon, XIcon } from '@primer/octicons-react'
 
 import { useTranslation } from '@/languages/components/useTranslation'

@@ -1,10 +1,3 @@
-/**
- * Link extraction utilities for the link checker system.
- *
- * This module provides functions to extract internal and external links
- * from Markdown content, with support for Liquid template rendering.
- */
-
 import fs from 'fs'
 import path from 'path'
 
@@ -19,7 +12,6 @@ import type { Context, Page } from '@/types'
 
 const logger = createLogger(import.meta.url)
 
-// Link patterns for Markdown
 const INTERNAL_LINK_PATTERN = /\]\((\/[^()\s]+(?:\([^()]*\)[^()\s]*)*)\)/g
 const AUTOTITLE_LINK_PATTERN = /\[AUTOTITLE\]\(([^)\s]+)\)/g
 // Handles one level of balanced parentheses in URLs (e.g., Wikipedia links).
@@ -27,7 +19,6 @@ const AUTOTITLE_LINK_PATTERN = /\[AUTOTITLE\]\(([^)\s]+)\)/g
 const EXTERNAL_LINK_PATTERN = /\]\((https?:\/\/[^()\s]*(?:\([^()]*\)[^()\s]*)*)\)/g
 const IMAGE_LINK_PATTERN = /!\[[^\]]*\]\(([^)]+)\)/g
 
-// Anchor link patterns (for same-page links)
 const ANCHOR_LINK_PATTERN = /\]\(#[^)]+\)/g
 
 // Reference-style link definitions: [id]: /path or [id]: /path "title"
@@ -100,24 +91,16 @@ function getLineAndColumn(
   return { line: lo + 1, column: matchIndex - lineOffsets[lo] + 1 }
 }
 
-/**
- * Extract the link text before a Markdown link
- * For `[link text](/path)`, matchIndex points to the `]` in `](/path)`
- */
 function extractLinkText(content: string, matchIndex: number): string | undefined {
-  // matchIndex points to ](/...), so we need to find the opening [
-  // Scan backwards to find the matching [
+  // matchIndex points to the `]` in `](/...)`, so scan back for the opening `[`.
+  // Nested brackets in link text are rare and handled approximately.
   let start = matchIndex - 1
 
-  // Simple scan back to find opening bracket
-  // (nested brackets in link text are rare and handled approximately)
   while (start >= 0 && content[start] !== '[') {
     start--
   }
 
   if (start >= 0 && content[start] === '[') {
-    // Extract text between [ and ]
-    // matchIndex points to the start of ](, so the ] is at matchIndex
     const text = content.substring(start + 1, matchIndex)
     return text.length > 0 ? text : undefined
   }
@@ -175,7 +158,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   let match
   while ((match = AUTOTITLE_LINK_PATTERN.exec(strippedContent)) !== null) {
     const { line, column } = getLineAndColumn(lineOffsets, match.index)
-    const { href, fragment } = splitFragment(match[1]) // Split off anchor if present
+    const { href, fragment } = splitFragment(match[1])
     if (href.startsWith('/')) {
       internalLinks.push({
         href,
@@ -188,10 +171,9 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
     }
   }
 
-  // Reset regex
+  // These patterns are module-level and global, so lastIndex survives between calls.
   AUTOTITLE_LINK_PATTERN.lastIndex = 0
 
-  // Extract regular internal links
   while ((match = INTERNAL_LINK_PATTERN.exec(strippedContent)) !== null) {
     // Skip if this is an AUTOTITLE link (already captured)
     if (strippedContent.substring(match.index - 10, match.index).includes('AUTOTITLE')) {
@@ -214,10 +196,8 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
     })
   }
 
-  // Reset regex
   INTERNAL_LINK_PATTERN.lastIndex = 0
 
-  // Extract external links
   while ((match = EXTERNAL_LINK_PATTERN.exec(strippedContent)) !== null) {
     const { line, column } = getLineAndColumn(lineOffsets, match.index)
     const href = match[1]
@@ -231,10 +211,8 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
     })
   }
 
-  // Reset regex
   EXTERNAL_LINK_PATTERN.lastIndex = 0
 
-  // Extract anchor links
   while ((match = ANCHOR_LINK_PATTERN.exec(strippedContent)) !== null) {
     const { line, column } = getLineAndColumn(lineOffsets, match.index)
     const href = match[0].substring(2, match[0].length - 1)
@@ -247,15 +225,12 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
     })
   }
 
-  // Reset regex
   ANCHOR_LINK_PATTERN.lastIndex = 0
 
-  // Extract image links
   while ((match = IMAGE_LINK_PATTERN.exec(strippedContent)) !== null) {
     const { line, column } = getLineAndColumn(lineOffsets, match.index)
     const href = match[1]
 
-    // Only include internal images (starting with /)
     if (href.startsWith('/')) {
       imageLinks.push({
         href,
@@ -266,11 +241,9 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
     }
   }
 
-  // Reset regex
   IMAGE_LINK_PATTERN.lastIndex = 0
 
-  // Extract reference-style link definitions ([id]: /path)
-  // These are distinct from inline links but point to the same targets that need validating.
+  // Reference-style definitions point to the same targets that inline links do.
   while ((match = LINK_DEFINITION_PATTERN.exec(strippedContent)) !== null) {
     const { line, column } = getLineAndColumn(lineOffsets, match.index)
     const { href, fragment } = splitFragment(match[1])
@@ -283,10 +256,8 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
     })
   }
 
-  // Reset regex
   LINK_DEFINITION_PATTERN.lastIndex = 0
 
-  // Extract links whose href starts with a Liquid tag
   while ((match = LIQUID_HREF_PATTERN.exec(strippedContent)) !== null) {
     const { line, column } = getLineAndColumn(lineOffsets, match.index)
     liquidPrefixedLinks.push({
@@ -296,7 +267,6 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
     })
   }
 
-  // Reset regex
   LIQUID_HREF_PATTERN.lastIndex = 0
 
   return {
@@ -308,9 +278,6 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   }
 }
 
-/**
- * Create a minimal context for Liquid rendering
- */
 export function createLiquidContext(
   version: string = 'free-pro-team@latest',
   language: string = 'en',
@@ -320,26 +287,24 @@ export function createLiquidContext(
     throw new Error(`Unknown version: ${version}`)
   }
 
-  // Load data for the language
   const siteData = getDataByLanguage('variables', language)
 
   return {
     currentVersion: version,
     currentLanguage: language,
     currentVersionObj: versionObj,
-    // Feature flags and version checks
     enterpriseServerVersions: Object.values(allVersions)
       .filter((v) => v.plan === 'enterprise-server')
       .map((v) => v.currentRelease),
-    // Site data for variable interpolation
     site: siteData,
-    // Empty pages/redirects - not needed for link extraction
+    // The Liquid renderer never reads these, and link extraction does no redirect
+    // resolution, so empty is fine.
     pages: {},
     redirects: {},
   } as Context
 }
 
-// Cached reference to renderLiquid — avoids repeated dynamic-import overhead on every call.
+// Cached reference to renderLiquid, to avoid dynamic-import overhead on every call.
 // A dynamic import is still used (not a top-level import) to prevent circular dependency issues.
 type RenderLiquidModule = (template: string, context: Context) => Promise<string>
 let _renderLiquid: RenderLiquidModule | null = null
@@ -356,7 +321,7 @@ async function getCachedRenderLiquid(): Promise<RenderLiquidModule> {
  *
  * Unlike `extractLinksWithLiquid` and `renderAndExtractLinks`, a render failure is NOT
  * swallowed: it propagates to the caller. Use this when falling back to the raw, unrendered
- * markdown would be worse than no result at all — for example when the rendered headings
+ * markdown would be worse than no result at all, for example when the rendered headings
  * drive a destructive edit, where unrendered `{% data %}` in a heading would silently
  * produce the wrong anchor IDs.
  */
@@ -366,24 +331,20 @@ export async function renderMarkdownLiquid(content: string, context: Context): P
 }
 
 /**
- * Render Liquid templates in content and extract links
- *
- * This renders the Liquid tags (like {% ifversion %}) to get the actual
- * content that would appear for a given version, then extracts links.
+ * Render Liquid and extract links from the result, so the links reflect what a given
+ * version actually shows. A render failure falls back to extracting from the raw
+ * markdown, which is why the result can contain unrendered Liquid.
  */
 export async function extractLinksWithLiquid(
   content: string,
   context: Context,
 ): Promise<LinkExtractionResult> {
   try {
-    // Dynamic import to avoid circular dependency issues (cached after first load)
     const renderLiquid = await getCachedRenderLiquid()
-    // Render Liquid to expand conditionals
     const rendered = await renderLiquid(content, context)
     return extractLinksFromMarkdown(rendered)
   } catch (error) {
-    // If Liquid rendering fails, fall back to raw extraction
-    // This can happen with malformed templates
+    // Malformed templates are the usual cause.
     logger.warn('Liquid rendering failed, falling back to raw extraction', { error })
     return extractLinksFromMarkdown(content)
   }
@@ -407,9 +368,6 @@ export async function renderAndExtractLinks(
   }
 }
 
-/**
- * Get relative path from content root
- */
 export function getRelativePath(filePath: string): string {
   const contentRoot = path.resolve('content')
   const dataRoot = path.resolve('data')
@@ -433,18 +391,14 @@ export function getRelativePath(filePath: string): string {
  * - Ensures leading slash
  */
 export function normalizeLinkPath(href: string): string {
-  // Remove query string
   let normalized = href.split('?')[0]
 
-  // Remove anchor
   normalized = normalized.split('#')[0]
 
-  // Remove trailing slash
   if (normalized.endsWith('/') && normalized.length > 1) {
     normalized = normalized.slice(0, -1)
   }
 
-  // Ensure leading slash
   if (!normalized.startsWith('/')) {
     normalized = `/${normalized}`
   }
@@ -552,7 +506,6 @@ export function checkInternalLink(
       ? normalized.replace(latestPrefix, stablePrefix)
       : normalized
 
-  // Check if it's a direct page
   if (pageMap[resolved]) {
     return { exists: true, isRedirect: false }
   }
@@ -583,7 +536,6 @@ export function checkInternalLink(
     }
   }
 
-  // Check if it's a redirect
   if (redirects[resolved]) {
     return {
       exists: true,
@@ -667,20 +619,15 @@ export function checkInternalLink(
   return { exists: false, isRedirect: false }
 }
 
-/**
- * Check if an asset link points to an existing file on disk
- */
+// Unlike `isAssetLink`, this also checks that the file exists on disk.
 export function checkAssetLink(href: string): boolean {
   if (!href.startsWith('/assets/')) {
-    return false // Not an asset link
+    return false
   }
-  const assetPath = path.resolve(href.slice(1)) // Remove leading /
+  const assetPath = path.resolve(href.slice(1))
   return fs.existsSync(assetPath)
 }
 
-/**
- * Check if a link is an asset link (starts with /assets/)
- */
 export function isAssetLink(href: string): boolean {
   return href.startsWith('/assets/')
 }

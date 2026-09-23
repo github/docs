@@ -20,7 +20,6 @@ assert(oldPath, 'must provide old dotcom path like "foo" or "articles/foo"')
 
 let filename: string = oldPath
 
-// get last part of path
 if (filename.includes('/')) filename = last(filename.split('/')) as string
 
 // first check whether name is a category
@@ -34,7 +33,6 @@ if (fs.existsSync(categoryDir)) {
 // otherwise add extension and check whether it's a file
 if (!filename.endsWith(markdownExtension)) filename = filename + markdownExtension
 
-// run find command
 const newPath: string = execSync(`find ${newDotcomDir} -name ${filename}`).toString()
 
 if (!newPath) {

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { ArrowLeftIcon } from '@primer/octicons-react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'

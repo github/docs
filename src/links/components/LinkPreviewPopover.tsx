@@ -5,9 +5,9 @@ import { HOVERCARDS_ENABLED } from '@/frame/lib/constants'
 // hover over the link. Perhaps they just dragged the mouse over on their
 // way to something else.
 const DELAY_SHOW = 300
-// The reason the hiding doesn't happens instantly is when the mouse is
+// The reason the hiding doesn't happen instantly is when the mouse is
 // first hovering over the link, then over the popover itself and then
-// back to the link. Because there's a slight cap between the popover
+// back to the link. Because there's a slight gap between the popover
 // and the link we want to introduce a slight delay so it doesn't flicker.
 const DELAY_HIDE = 200
 
@@ -74,7 +74,7 @@ function getOrCreatePopoverGlobal() {
 
     const inner = document.createElement('div')
     // Note that this is lacking the 'Popover-message--bottom-left'
-    // or 'Popover-message--top-right`. These get set later when we
+    // or `Popover-message--top-right`. These get set later when we
     // know where the popover message should appear on the screen.
     inner.classList.add(
       ...'Popover-message Popover-message--large p-3 Box color-shadow-large'.split(/\s+/g),
