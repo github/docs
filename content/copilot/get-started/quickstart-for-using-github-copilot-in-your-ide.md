@@ -28,7 +28,7 @@ This quickstart shows you how to use these capabilities. It takes about ten minu
 
 ## Prerequisites
 
-* **An active {% data variables.product.prodname_copilot_short %} plan.** See [AUTOTITLE](/copilot/get-started/what-is-github-copilot#get-access).
+* **An active {% data variables.product.prodname_copilot_short %} plan.** See [AUTOTITLE](/copilot/get-started/about-github-copilot#get-access).
 * **The {% data variables.product.prodname_copilot_short %} extension for your IDE.** See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
 * **Signed in to {% data variables.product.company_short %} in your IDE.** If you have authentication problems, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues).
 

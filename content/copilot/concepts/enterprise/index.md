@@ -6,7 +6,7 @@ versions:
   feature: copilot
 children:
   - /policies
-  - /default-model-availability
+  - /default-availability
   - /fedramp-models
   - /learning-about-new-features-and-models
   - /agent-management

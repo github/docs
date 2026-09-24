@@ -81,7 +81,7 @@ Organization permissions do not grant read, write, or administrator access to an
 | View {% data variables.product.prodname_dependabot %} alert dismissal requests | View {% data variables.product.prodname_dependabot %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/enable-delegated-alert-dismissal) |
 | {% endif %}                                                                                      |
 | {% ifversion copilot %}                                  |
-| View organization {% data variables.product.prodname_copilot_short %} metrics                    | View {% data variables.product.prodname_copilot_short %} usage metrics for your organization. | [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics) |
+| View organization {% data variables.product.prodname_copilot_short %} metrics                    | View {% data variables.product.prodname_copilot_short %} usage metrics for your organization. | [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics) |
 | {% endif %}                                                                                    |
 
 {% endrowheaders %}

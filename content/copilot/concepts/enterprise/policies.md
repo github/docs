@@ -40,6 +40,12 @@ A user's individual plan is cancelled when they are added to a {% data variables
 
 To see details for each policy, see [AUTOTITLE](/copilot/reference/enterprise-administrators/policy-conflicts).
 
+## What is the default status of policies?
+
+{% data reusables.copilot.default-availability-policies %}
+
+For more information, see [AUTOTITLE](/copilot/concepts/enterprise/default-availability).
+
 ## Where do policies apply?
 
 Policies can apply to any surface where users authenticate to {% data variables.product.prodname_copilot_short %}, including IDEs, the {% data variables.product.github %} website, and {% data variables.copilot.copilot_cli_short %}.

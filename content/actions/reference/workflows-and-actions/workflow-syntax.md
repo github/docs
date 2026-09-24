@@ -415,12 +415,12 @@ Access is enforced with scoped cache tokens, so a job cannot restore or save cac
 | `write-only` | No | Yes |
 | `none` | No | No |
 
-If you omit `cache-mode`, a `read` or `write` default is used based on the trigger type. For trigger-dependent effective defaults, see [AUTOTITLE](/actions/reference/dependency-caching-reference#defaults).
+If you omit `cache-mode`, a `read` or `write` default is used based on the trigger type. For trigger-dependent effective defaults, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#defaults).
 
 > [!WARNING]
-> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/dependency-caching-reference#bypassing-the-default-untrusted-trigger-cache-restriction).
+> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#bypassing-the-default-untrusted-trigger-cache-restriction).
 
-When a cache operation is not permitted by the effective mode, the cache step logs an informational message and continues. The job and workflow do not fail. A skipped restore is treated as a cache miss; a skipped save is simply not performed. For more information, see [AUTOTITLE](/actions/reference/dependency-caching-reference#controlling-cache-access-with-cache-mode).
+When a cache operation is not permitted by the effective mode, the cache step logs an informational message and continues. The job and workflow do not fail. A skipped restore is treated as a cache miss; a skipped save is simply not performed. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#controlling-cache-access-with-cache-mode).
 
 ### Example of `cache-mode`
 
@@ -516,10 +516,10 @@ jobs:
 
 Use `jobs.<job_id>.cache-mode` to set the level of {% data variables.product.prodname_actions %} cache access for a single job. A value set here overrides any workflow-level [`cache-mode`](#cache-mode) for this job only.
 
-The accepted values are `read`, `write`, `write-only`, and `none`, with the same meanings as the top-level key. If neither the job nor the workflow sets `cache-mode`, a trigger-based default applies. For more information about each value, see [`cache-mode`](#cache-mode) and [AUTOTITLE](/actions/reference/dependency-caching-reference#defaults).
+The accepted values are `read`, `write`, `write-only`, and `none`, with the same meanings as the top-level key. If neither the job nor the workflow sets `cache-mode`, a trigger-based default applies. For more information about each value, see [`cache-mode`](#cache-mode) and [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#defaults).
 
 > [!WARNING]
-> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/dependency-caching-reference#bypassing-the-default-untrusted-trigger-cache-restriction).
+> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#bypassing-the-default-untrusted-trigger-cache-restriction).
 
 You can also set `cache-mode` on a job that calls a reusable workflow to limit the cache access granted to the called workflow. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/reusing-workflow-configurations#supported-keywords-for-jobs-that-call-a-reusable-workflow) and [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows#controlling-cache-access-in-reusable-workflows).
 
