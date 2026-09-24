@@ -13,6 +13,7 @@ contentType: how-tos
 children:
   - /agent-loop
   - /citations
+  - /client-info
   - /cloud-sessions
   - /context-management
   - /custom-agents
