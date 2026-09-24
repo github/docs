@@ -19,7 +19,7 @@ While {% data variables.product.prodname_codeql %} provides high-precision stati
 
 During the {% data variables.release-phases.public_preview %}, AI Scan requires a {% data variables.product.prodname_GHAS %} license and a {% data variables.product.prodname_copilot %} license.
 
-Usage consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing).
+Usage consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 ## How AI Scan works
 
