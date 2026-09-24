@@ -67,6 +67,9 @@ To import one of the prebuilt rulesets by {% data variables.product.prodname_dot
 {% data reusables.repositories.rulesets-bypass-step %}
 {% data reusables.repositories.rulesets-branch-tag-bypass-optional-step %}
 
+> [!NOTE]
+> If a bypass actor is used to satisfy a pull request rule, the bypass is not currently honored when auto-merge completes the merge. Use a direct merge request instead of enabling auto-merge when relying on that actor.
+
 ### Choosing which branches or tags to target
 
 {% data reusables.repositories.rulesets-target-branches %}
