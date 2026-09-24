@@ -6,6 +6,7 @@ versions:
   ghec: '*'
   ghes: '*'
 children:
+  - /configuring-proof-of-presence
   - /configuring-tls
   - /configuring-tls-and-ssh-ciphers
   - /troubleshooting-tls-errors
