@@ -892,10 +892,15 @@ export function correctTranslatedContentStrings(
       '{%$1 ifversion command-palette $2%}',
     )
     // Run before the конец fallback. Split, not regex, to avoid catastrophic backtracking.
+    // Only rewrite конец to endraw inside a raw block that isn't already closed by a
+    // real {% endraw %}; otherwise an unrelated конец later in the document (closing an
+    // ifversion, say) would be wrongly consumed as this block's closer.
     if (content.includes('{% конец %}') && content.includes('{% raw %}')) {
       const parts = content.split('{% raw %}')
       for (let i = 1; i < parts.length; i++) {
-        parts[i] = parts[i].replace('{% конец %}', '{% endraw %}')
+        if (!parts[i].includes('{% endraw %}')) {
+          parts[i] = parts[i].replace('{% конец %}', '{% endraw %}')
+        }
       }
       content = parts.join('{% raw %}')
     }
