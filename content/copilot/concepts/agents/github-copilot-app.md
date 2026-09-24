@@ -14,9 +14,9 @@ category:
 
 ## Introduction
 
-The {% data variables.copilot.github_copilot_app %} is a desktop application purpose-built for agent-driven development. It gives you a single place to direct AI agents across parallel workstreams, work with {% data variables.product.github %} issues and pull requests, and manage the full development lifecycle—without context-switching between terminals, IDEs, and browser tabs.
+The {% data variables.copilot.github_copilot_app %} is a desktop application for agent-driven development. It gives you one place to manage multiple AI-assisted workstreams at the same time, each in an isolated workspace with a dedicated branch.
 
-The app is built on {% data variables.copilot.copilot_cli %} and integrates natively with {% data variables.product.github %}, so your repositories, branches, and CI pipelines work out of the box. It's designed for workflows where you want to run multiple agents in parallel and stay focused on directing work rather than doing it all yourself.
+The app is built on {% data variables.copilot.copilot_cli %} and integrates natively with {% data variables.product.github %}, so your repositories, branches, issues, pull requests, and CI checks work without additional setup.
 
 ## Availability
 
@@ -40,15 +40,15 @@ The {% data variables.copilot.github_copilot_app %} supports the following opera
 
 ## What can I do with the {% data variables.copilot.github_copilot_app %}?
 
-* **Parallel workspaces:** Run multiple isolated agent sessions simultaneously, each with a dedicated git worktree and branch. You can run a session in a cloud sandbox, or configure a local sandbox to restrict the resources available to agent-run tools on your machine. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#using-cloud-and-local-sandboxes).
-* **Session modes:** Choose how you work with agents: Interactive (collaborative), Plan (agent plans, you approve), or Autopilot (fully autonomous). You can also select from multiple LLMs and adjust reasoning effort for each session.
+* **Parallel workspaces:** Run multiple isolated agent sessions at the same time, each with its own git worktree and branch. This lets you work on several tasks without blocking on a single long-running job.
+* **Session modes:** Choose how you work with agents: Interactive, Plan, or Autopilot. You can also select the model and adjust reasoning effort for each session.
 * **Model selection:** Select from multiple LLMs, including models from your own provider using bring your own key (BYOK), and adjust reasoning effort for each session.
-* **{% data variables.product.github %} integration:** Browse and find issues, start sessions from them, create and close pull requests, review pull requests, view CI check results, and search across your repositories—all within the app.
+* **{% data variables.product.github %} integration:** Browse issues, start sessions from them, create and close pull requests, review changes, check CI results, and search across your repositories without leaving the app.
 * **Customizations:** Configure and use global instructions, MCP servers, and agent skills.
 * **Automations:** Save recurring agent tasks and run them on a schedule or on demand.
-* **Chats:** Brainstorm in a conversation mode without creating a dedicated branch or workspace.
-* **Session history:** Use `/chronicle` to get insights from previous sessions, including work you started in the app.
-* **Canvases:** Open custom, agent-driven artifacts and interfaces where people and agents can collaborate.
+* **Chats:** Start a lightweight conversation to clarify requirements before opening a full session.
+* **Session history:** Use `/chronicle` to review previous sessions and get insights from earlier work.
+* **Canvases:** Create shared, agent-driven work surfaces where people and agents can collaborate on artifacts and tasks.
 
 ## {% data variables.copilot.github_copilot_app %} workflow
 
