@@ -1,6 +1,6 @@
 <!--Note: When making updates to this reusable, please make sure any changes are also reflected in `content/code-security/dependabot/dependabot-options-reference.md`, under the `package-ecosystem` section.-->
 
-Package manager | YAML value      | Supported versions | Version updates | Security updates | Private repositories | Private registries | Vendoring |
+Package manager | YAML value      | Supported versions | Version updates | Security updates | Private Git repositories | Private registries | Vendoring |
 ---------------|------------------|------------------|:---:|:---:|:---:|:---:|:---:|
 | {% ifversion dependabot-bazel-support %} |
 Bazel | `bazel`         | v7, v8, v9              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |

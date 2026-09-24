@@ -23,6 +23,9 @@ This article provides reference information about the package ecosystems and rep
 
 You can configure updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see [`vendor`](/code-security/reference/supply-chain-security/dependabot-options-reference#vendor--).
 {% data variables.product.prodname_dependabot %} also supports dependencies in private registries. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries).
+
+The **Private Git repositories** column refers to repositories that contain dependencies, while the **Private registries** column refers to registries that host packages. Both are forms of private dependencies, and support for one does not imply support for the other.
+
 {% ifversion ghes %}
 
 > [!NOTE]
