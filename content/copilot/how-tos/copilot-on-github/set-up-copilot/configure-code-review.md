@@ -20,19 +20,37 @@ category:
 
 ## Introduction
 
-You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/agents/code-review#automatic-pull-request-reviews).
+You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically, and you can set your {% data variables.product.prodname_copilot_short %} review effort. For an overview, see [AUTOTITLE](/copilot/concepts/agents/code-review#automatic-pull-request-reviews).
 
 ## Configuring automatic code review for your own pull requests
 
+You can set {% data variables.copilot.copilot_code-review_short %} to review the pull requests you create, in any repository where {% data variables.copilot.copilot_code-review_short %} is available to you.
+
 > [!NOTE]
-> This is only available if you are on the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plans.
+> Configuring automatic code review is available on the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} plans, and with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} license. It is not available for {% data variables.enterprise.prodname_managed_users %}.
 
-{% data reusables.copilot.your-copilot %}
-1. Locate the **Automatic {% data variables.copilot.copilot_code-review_short %}** option and click the dropdown button.
+{% data reusables.user-settings.copilot-settings %}
+{% data reusables.copilot.code-review.user-settings-sidebar %}
+1. Enable **Automatic {% data variables.copilot.copilot_code-review_short %}**.
+1. Optionally, to review each new push to a pull request that {% data variables.product.prodname_copilot_short %} is already reviewing, enable **Review new pushes**.
+1. Optionally, to review pull requests while they are still marked as drafts, enable **Review draft pull requests**.
 
-   ![Screenshot of the "Automatic {% data variables.copilot.copilot_code-review_short %}" setting with the dropdown menu displayed.](/assets/images/help/copilot/code-review/automatic-code-review-personal.png)
+A pull request can qualify for automatic review from several independent sources: your user settings, repository rulesets, or organization rulesets. These sources are evaluated separately. If more than one source applies, {% data variables.product.prodname_copilot_short %} still posts a single review. Your user settings cannot disable push or draft reviews that a ruleset has enabled. For more information, see [AUTOTITLE](/copilot/concepts/agents/code-review#automatic-pull-request-reviews).
 
-1. In the dropdown menu, select **Enabled**.
+## Configuring your {% data variables.product.prodname_copilot_short %} review effort
+
+You can choose the {% data variables.product.prodname_copilot_short %} review effort that {% data variables.copilot.copilot_code-review_short %} uses for the reviews you request. Your choice applies to automatic reviews and to reviews you request manually. For an overview of the levels and how {% data variables.product.prodname_copilot_short %} decides which to use, see [AUTOTITLE](/copilot/concepts/agents/code-review#review-effort-level).
+
+{% data reusables.user-settings.copilot-settings %}
+{% data reusables.copilot.code-review.user-settings-sidebar %}
+1. Next to "Review effort level," select the {% data variables.product.prodname_copilot_short %} review effort for reviews you request.
+   * **Lite**: Standard review.
+   * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
+   * **Max**: Most thorough review. This option appears with a **Coming soon** label and is not available yet.
+
+To return to the built-in default, select the **Default** option at the top of the menu. Until you choose a specific level, the control shows the built-in default that applies to you, either **Default (Lite)** or **Default (Balanced)**.
+
+Your {% data variables.product.prodname_copilot_short %} review effort is independent of **Automatic {% data variables.copilot.copilot_code-review_short %}**. Turning automatic review off does not clear your {% data variables.product.prodname_copilot_short %} review effort or stop it from applying to reviews you request manually.
 
 ## Configuring automatic code review for a repository
 
