@@ -447,7 +447,7 @@
                 },
                 "has_next_page": {
                   "type": "boolean",
-                  "description": "Indicates if there are more pages of results available (maps to hasNextPage from billing platform)"
+                  "description": "Indicates if there are more pages of results available"
                 },
                 "total_count": {
                   "type": "integer",
@@ -650,7 +650,7 @@
                 },
                 "has_next_page": {
                   "type": "boolean",
-                  "description": "Indicates if there are more pages of results available (maps to hasNextPage from billing platform)"
+                  "description": "Indicates if there are more pages of results available"
                 },
                 "total_count": {
                   "type": "integer",
@@ -1203,43 +1203,9 @@
           ]
         },
         {
-          "type": "string",
-          "name": "budget_scope",
-          "description": "<p>The scope of the budget.</p>\n<ul>\n<li><code>enterprise</code>: Apply the budget to the entire enterprise.</li>\n<li><code>organization</code>: Apply the budget to a specific organization in the enterprise.</li>\n<li><code>repository</code>: Apply the budget to a specific repository.</li>\n<li><code>cost_center</code>: Apply the budget to a specific cost center.</li>\n<li><code>multi_user_customer</code>: Apply a universal budget to all users in the enterprise.</li>\n<li><code>multi_user_cost_center</code>: Apply a universal budget to all users in a cost center.</li>\n<li><code>user</code>: Apply the budget to a single user.</li>\n</ul>",
-          "enum": [
-            "enterprise",
-            "organization",
-            "repository",
-            "cost_center",
-            "multi_user_customer",
-            "multi_user_cost_center",
-            "user"
-          ]
-        },
-        {
-          "type": "string",
-          "name": "budget_entity_name",
-          "description": "<p>The name of the entity to apply the budget to</p>"
-        },
-        {
-          "type": "string",
-          "name": "budget_type",
-          "description": "<p>The type of pricing model used by the budget. Determines how <code>budget_product_sku</code> is interpreted.</p>\n<ul>\n<li><code>BundlePricing</code>: Covers all AI credit SKUs. Set <code>budget_product_sku</code> to <code>ai_credits</code>.</li>\n<li><code>ProductPricing</code>: Covers all SKUs that belong to a product. Set <code>budget_product_sku</code> to a product such as <code>actions</code> or <code>packages</code>.</li>\n<li><code>SkuPricing</code>: Covers a single, specific SKU. Set <code>budget_product_sku</code> to a SKU such as <code>actions_linux</code>.</li>\n</ul>"
-        },
-        {
-          "type": "string",
-          "name": "budget_product_sku",
-          "description": "<p>A single product or SKU that will be covered in the budget</p>"
-        },
-        {
-          "type": "string",
-          "name": "user",
-          "description": "<p>The username of the user for <code>user</code> scope budgets.</p>"
-        },
-        {
           "type": "string or null or integer",
           "name": "expires_at",
-          "description": "<p>The date the budget will expire in <code>YYYY-MM-DD</code> format. Only dates in the future are accepted.\nIf not set, the budget will not expire. Setting to <code>null</code> or <code>0</code> will remove the expiration date from a budget if set.</p>\n<p>Only supported for budgets with <code>budget_scope</code> of <code>user</code></p>"
+          "description": "<p>The date the budget will expire in <code>YYYY-MM-DD</code> format. Only dates in the future are accepted.\nIf not set, the budget will not expire. Setting to <code>null</code> or <code>0</code> will remove the expiration date from a budget if set.</p>\n<p>Only supported for existing user-scoped budgets.</p>"
         }
       ],
       "descriptionHTML": "<p>Updates an existing budget for an enterprise. Enterprise owners and billing managers can update budgets scoped to the enterprise, all users in the enterprise, or any organization in it. Organization administrators can update budgets for their organizations, and repository-scoped budgets require administration of the repository's owning organization. A custom role holder with fine-grained write access to enterprise billing can update budgets scoped to a single user or a cost center, including all users in a cost center, without an additional administrator role; the role requirements above still apply to the other scopes. An installation access token for a GitHub App installed on the enterprise with write access to enterprise billing can update any budget in the enterprise.</p>",
@@ -4142,7 +4108,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all usage report exports for an enterprise. The authenticated user must be an enterprise admin or billing manager, or a custom role holder with fine-grained read access to enterprise billing. An installation access token for a GitHub App installed on the enterprise with write access to enterprise administration, or with read access to enterprise billing, can also list usage report exports.</p>",
+      "descriptionHTML": "<p>Lists all usage report exports for an enterprise. Completed and failed report exports are available for 31 days after completion or failure. This retention period applies only to generated report records. New reports can include eligible usage data from up to 24 months ago, subject to the enterprise's creation or migration date and the report type's date-range limits. The authenticated user must be an enterprise admin or billing manager, or a custom role holder with fine-grained read access to enterprise billing. An installation access token for a GitHub App installed on the enterprise with write access to enterprise administration, or with read access to enterprise billing, can also list usage report exports.</p>",
       "codeExamples": [
         {
           "request": {
@@ -4527,7 +4493,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the status and details of a usage report export by ID. The authenticated user must be an enterprise admin or billing manager, or a custom role holder with fine-grained read access to enterprise billing. An installation access token for a GitHub App installed on the enterprise with write access to enterprise administration, or with read access to enterprise billing, can also get a usage report export.</p>",
+      "descriptionHTML": "<p>Gets the status and details of a usage report export by ID. Completed and failed report exports are available for 31 days after completion or failure. This retention period applies only to generated report records. New reports can include eligible usage data from up to 24 months ago, subject to the enterprise's creation or migration date and the report type's date-range limits. The authenticated user must be an enterprise admin or billing manager, or a custom role holder with fine-grained read access to enterprise billing. An installation access token for a GitHub App installed on the enterprise with write access to enterprise administration, or with read access to enterprise billing, can also get a usage report export.</p>",
       "codeExamples": [
         {
           "request": {
