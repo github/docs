@@ -85,7 +85,7 @@ With review effort levels, you can choose the level of thoroughness of {% data v
 * **Lite**: Cost-efficient review that provides targeted feedback on glaring issues such as bugs, security vulnerabilities, and style inconsistencies.
 * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes, using a higher-reasoning model.
 
-You can select the review effort level in the pull request before you request a review from {% data variables.product.prodname_copilot_short %}, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. Organization owners and repository administrators can also set a default effort level for automatic reviews.
+You can select {% data variables.product.prodname_copilot_short %} review effort in the pull request before you request a review from {% data variables.product.prodname_copilot_short %}, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. You can also set a default {% data variables.product.prodname_copilot_short %} review effort in your settings. Organization owners and repository administrators can set a default {% data variables.product.prodname_copilot_short %} review effort for automatic reviews.
 
 For more information, see [AUTOTITLE](/copilot/concepts/agents/code-review#review-effort-level).
 

@@ -79,10 +79,10 @@ function isDeepEqual(a: unknown, b: unknown): boolean {
  * precedence over later ones.
  *
  * Only the cases the GitHub OpenAPI descriptions actually use are merged:
- * identical values, `properties`, `required`, and annotations. Anything else
- * throws rather than guessing, so a future description that needs real
- * conflict resolution fails the build loudly instead of quietly publishing the
- * wrong request body parameters.
+ * identical values, `properties`, `required`, `type`, and annotations.
+ * Anything else throws rather than guessing, so a future description that
+ * needs real conflict resolution fails the build loudly instead of quietly
+ * publishing the wrong request body parameters.
  */
 function mergeInto(target: Schema, source: Schema, path: string): void {
   for (const [key, value] of Object.entries(source)) {
@@ -114,6 +114,22 @@ function mergeInto(target: Schema, source: Schema, path: string): void {
 
     if (key === 'required' && Array.isArray(existing) && Array.isArray(value)) {
       target[key] = [...new Set([...existing, ...value])]
+      continue
+    }
+
+    // `type` may be a single type name or an array of allowed type names, and
+    // different `allOf` members can spell the same constraint differently
+    // (e.g. `"object"` vs `["object", "null"]`, or the same array in a
+    // different order). Per JSON Schema, `allOf` members combine as an
+    // intersection, so the merged type is whichever names both sides allow.
+    if (key === 'type') {
+      const existingTypes = Array.isArray(existing) ? existing : [existing]
+      const valueTypes = Array.isArray(value) ? value : [value]
+      const intersection = existingTypes.filter((type) => valueTypes.includes(type))
+      if (intersection.length === 0) {
+        throw new Error(`Cannot merge allOf: conflicting "type" keyword at ${path}.`)
+      }
+      target[key] = intersection.length === 1 ? intersection[0] : intersection
       continue
     }
 

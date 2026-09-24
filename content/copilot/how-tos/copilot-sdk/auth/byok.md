@@ -234,8 +234,8 @@ Anthropic models always use the Anthropic Messages API regardless of this settin
 
 **Azure (`type: "azure"`)**
 * Use for native Azure OpenAI endpoints
-* `baseUrl` should be just the host (e.g., `https://my-resource.openai.azure.com`)
-* Do NOT include `/openai/v1` in the URL—the SDK handles path construction
+* `baseUrl` / `base_url` accepts a resource host or a full project URL, such as `https://<host>/api/projects/hosted-agents-ncus`, with or without a trailing slash.
+* The runtime preserves the project prefix when constructing Azure API paths. For `wireApi: "responses"` with `azure.apiVersion` omitted, the project URL above produces `https://<host>/api/projects/hosted-agents-ncus/openai/v1/responses`. Project URLs require an updated Copilot CLI runtime.
 
 **Anthropic (`type: "anthropic"`)**
 * For direct Anthropic API access
@@ -260,7 +260,7 @@ Use `type: "azure"` for endpoints at `*.openai.azure.com`:
 ```typescript
 provider: {
     type: "azure",
-    baseUrl: "https://my-resource.openai.azure.com",  // Just the host
+    baseUrl: "https://my-resource.openai.azure.com",  // Resource host or full project URL
     apiKey: process.env.AZURE_OPENAI_KEY,
     azure: {
         apiVersion: "2024-10-21",

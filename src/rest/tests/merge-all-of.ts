@@ -165,6 +165,15 @@ describe('mergeAllOf', () => {
     ).toEqual({ type: 'object', enum: ['a'] })
   })
 
+  test('intersects "type" when allOf members allow different but overlapping types', () => {
+    expect(mergeAllOf({ allOf: [{ type: 'object' }, { type: ['object', 'null'] }] })).toEqual({
+      type: 'object',
+    })
+    expect(
+      mergeAllOf({ allOf: [{ type: ['object', 'null'] }, { type: ['null', 'object'] }] }),
+    ).toEqual({ type: ['object', 'null'] })
+  })
+
   test('throws on a conflicting keyword rather than guessing', () => {
     expect(() => mergeAllOf({ allOf: [{ type: 'string' }, { type: 'number' }] })).toThrow(
       /conflicting "type" keyword/,

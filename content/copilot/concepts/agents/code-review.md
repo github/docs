@@ -132,9 +132,11 @@ When {% data variables.copilot.copilot_code-review_short %} is enabled for these
 
 By default, {% data variables.product.prodname_copilot_short %} only reviews a pull request if you assign it to the pull request. However, you can configure automatic reviews.
 
-* **Individual users** on the {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests they create.
+* **Users** can configure {% data variables.product.prodname_copilot_short %} to automatically review the pull requests they create. This is available on the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} plans, and with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} license. It is not available for {% data variables.enterprise.prodname_managed_users %}.
 * **Repository owners** can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in the repository that are created by people with access to {% data variables.product.prodname_copilot_short %}.
 * **Organization owners** can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in some or all of the repositories in the organization where the pull request is created by a {% data variables.product.prodname_copilot_short %} user.
+
+{% data variables.product.prodname_copilot_short %} evaluates pull requests against two separate configurations: a user's settings and any applicable ruleset. These configurations are not hierarchical; neither inherits from or overrides the other. A pull request is reviewed automatically when at least one configuration is enabled. If both configurations are enabled on a pull request, {% data variables.product.prodname_copilot_short %} still posts only one review.
 
 If your organization has enabled {% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license, automatic reviews also apply to pull requests created by organization members without a license. This applies to repositories covered by a policy where automatic reviews are enabled. For more information, see [{% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license](#copilot-code-review-without-a-copilot-license).
 
@@ -151,6 +153,8 @@ The triggers for automatic code review depend on the configuration settings.
 * Review draft pull requests:
   * Pull requests are automatically reviewed while they are still drafts, before you switch them to "Open".
 
+When a pull request qualifies for automatic review, **Review new pushes** and **Review draft pull requests** apply if either the author's settings or an applicable ruleset turns them on. You cannot use your own settings to turn off push or draft reviews that a ruleset has turned on.
+
 For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
 
 > [!NOTE]
@@ -158,16 +162,27 @@ For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up
 
 ## Review effort level
 
-{% data variables.copilot.copilot_code-review_short %} supports multiple review effort levels, so you can choose the level of thoroughness that matches the criticality of your code.
+{% data variables.copilot.copilot_code-review_short %} supports multiple {% data variables.product.prodname_copilot_short %} review effort levels, so you can choose the level of thoroughness that matches the criticality of your code.
 
 * **Lite**: Standard review. Provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies (default).
 * **Balanced**: Routes pull requests to a higher-reasoning model for longer analysis of complex logic, security-sensitive code, and cross-service changes. Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes, than Lite reviews.
 
 Use Balanced for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. Use Lite for routine changes where fast feedback is more important than exhaustive analysis.
 
-You can select the review effort level when requesting a review in the pull request, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. Organization owners can set a default review effort level for automatic code reviews in their organization. Repository administrators can override the organization default for a specific repository.
+You can select {% data variables.product.prodname_copilot_short %} review effort when requesting a review in the pull request, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. You can also set a default {% data variables.product.prodname_copilot_short %} review effort in your {% data variables.copilot.copilot_code-review_short %} settings. Organization owners can set a default {% data variables.product.prodname_copilot_short %} review effort for automatic code reviews in their organization. Repository administrators can override the organization default for a specific repository.
+
+When {% data variables.product.prodname_copilot_short %} determines which review effort to use, it checks the following options in order and uses the first one that applies:
+
+1. A {% data variables.product.prodname_copilot_short %} review effort chosen when the review is requested
+1. A {% data variables.product.prodname_copilot_short %} review effort previously used on this pull request
+1. The requestor's {% data variables.product.prodname_copilot_short %} review effort. For a new pull request, the requestor is the author. When someone marks a draft ready for review, that person is the requestor.
+1. A {% data variables.product.prodname_copilot_short %} review effort set for the repository
+1. A {% data variables.product.prodname_copilot_short %} review effort set for the organization, or the repository owner's {% data variables.product.prodname_copilot_short %} review effort on a user-owned repository
+1. {% data variables.product.github %}'s built-in default, which is Lite. Some owners have Balanced as the built-in default.
 
 After {% data variables.copilot.copilot_code-review_short %} reviews a pull request, the pull request overview comment shows the effort level used for each review run.
+
+For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
 
 ## {% data variables.product.prodname_copilot_short %} approvals
 

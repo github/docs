@@ -160,6 +160,34 @@ let client = Client::start(
 
 > The example above uses an stdio runtime connection — the default when the SDK bundles the CLI. If you connect to an external runtime via a URL (`forUri` / `ForUri`), pass `--plugin-dir` to the long-running CLI server when you start it; the SDK does not forward `--plugin-dir` to runtimes it didn't spawn.
 
+## Per-session plugin directories
+
+`--plugin-dir` is a launch argument, so it fixes one plugin set for the CLI process and every session created against it. When sessions need different plugin sets, or when the SDK is connected to a runtime it did not spawn, pass the directories on the session config instead. They travel in the `session.create` and `session.resume` payloads over JSON-RPC rather than as process arguments, so they reach an external runtime the same way the startup option does.
+
+```typescript
+import { CopilotClient } from "@github/copilot-sdk";
+
+const client = new CopilotClient();
+await client.start();
+
+const session = await client.createSession({
+  pluginDirectories: ["./plugins/code-reviewer"],
+});
+```
+
+Relative paths resolve against `workingDirectory`, or the runtime working directory when that is unset, so absolute paths are recommended. Entries that do not resolve are logged and skipped rather than failing session creation. The option is an explicit opt-in, which means plugin agents and rules load even when `enableConfigDiscovery` is false. Assets loaded this way sit between project sources and personal or home sources in the session-wide precedence order.
+
+The equivalent option in each SDK is:
+
+| SDK | Session option |
+|---|---|
+| Node.js / TypeScript | `pluginDirectories: string[]` |
+| Python | `plugin_directories=[...]` |
+| Go | `PluginDirectories: []string{...}` |
+| .NET | `PluginDirectories = [...]` |
+| Java | `.setPluginDirectories(List.of(...))` |
+| Rust | `.with_plugin_directories([...])` |
+
 ## Trusted host-bundled plugin directories
 
 Applications that ship their own trusted plugins can register them as a client startup option. The SDK sends the complete ordered set after connecting and verifying the protocol, before `start` returns or any session can be created. Paths must be absolute; leaving the option unset or empty makes no RPC call.

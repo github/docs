@@ -20,8 +20,6 @@ contentType: how-tos
 * Track session metrics and analytics
 * Configure session behavior dynamically
 
-<a id="session-start"></a>
-
 ## Session start hook
 
 The `onSessionStart` hook is called when a session begins (new or resumed).
@@ -201,8 +199,6 @@ const session = await client.createSession({
   },
 });
 ```
-
-<a id="session-end"></a>
 
 ## Session end hook
 
@@ -448,8 +444,6 @@ Session Summary:
   },
 });
 ```
-
-<a id="agent-stop"></a>
 
 ## Agent stop hook
 

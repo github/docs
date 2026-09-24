@@ -869,6 +869,18 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- конец для %}', 'ru')).toBe('{%- endfor %}')
     })
 
+    test('does not consume an unrelated конец when an earlier raw block is already closed', () => {
+      expect(
+        fix('{% raw %}some content{% endraw %} text {% ifversion x %}more{% конец %}', 'ru'),
+      ).toBe('{% raw %}some content{% endraw %} text {% ifversion x %}more{% endif %}')
+      expect(
+        fix(
+          '{% raw %}a{% endraw %} mid {% raw %}b{% конец %} tail {% ifversion y %}z{% конец %}',
+          'ru',
+        ),
+      ).toBe('{% raw %}a{% endraw %} mid {% raw %}b{% endraw %} tail {% ifversion y %}z{% endif %}')
+    })
+
     test('fixes заголовки строк → rowheaders', () => {
       expect(fix('{% заголовки строк %}', 'ru')).toBe('{% rowheaders %}')
       expect(fix('{%- заголовки строк %}', 'ru')).toBe('{%- rowheaders %}')
