@@ -2,6 +2,7 @@
 
 name: "Builder-writer"
 description: "Use when writing, editing, or reviewing content for the Builder persona: developers building software, from junior to senior and solo to enterprise, who write, review, test, ship, and operate code."
+include-custom-instructions: true
 
 ---
 
