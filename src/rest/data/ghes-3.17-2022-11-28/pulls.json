@@ -24196,6 +24196,10 @@
         {
           "httpStatusCode": "422",
           "description": "<p>Unprocessable Entity if user is not a collaborator</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
         }
       ],
       "previews": [],

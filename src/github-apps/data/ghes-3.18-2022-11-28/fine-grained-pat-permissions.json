@@ -2370,7 +2370,7 @@
         "subcategory": "repos",
         "verb": "post",
         "requestPath": "/orgs/{org}/repos",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -3288,7 +3288,7 @@
         "subcategory": "repos",
         "verb": "post",
         "requestPath": "/user/repos",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -4090,6 +4090,15 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/zipball/{ref}",
         "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-using-a-template",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -5728,6 +5737,39 @@
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch",
         "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
+  "repository_creation": {
+    "title": "Repository creation",
+    "displayTitle": "Repository permissions for \"Repository creation\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-an-organization-repository",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/repos",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-using-a-template",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-for-the-authenticated-user",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/user/repos",
+        "additional-permissions": true,
         "access": "write"
       }
     ]
