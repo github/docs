@@ -60,10 +60,6 @@ You can find information about the models available and upcoming models in the f
 * **Model comparison**: To compare model capabilities side by side, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 * **Changelog**: Model updates are announced in the [{% data variables.product.prodname_copilot_short %} changelog](https://github.blog/changelog/label/copilot/).
 
-#### Default enablement
-
-{% data reusables.copilot.model-autoenablement %}
-
 #### Special categories
 
 {% data variables.product.company_short %} categorizes certain types of model, allowing you to plan for model transitions and set user expectations.
@@ -79,6 +75,12 @@ You can find information about the models available and upcoming models in the f
 {% endrowheaders %}
 
 For more information, see [AUTOTITLE](/copilot/concepts/models/utility-models) and [AUTOTITLE](/copilot/concepts/models/fallback-and-lts-models).
+
+### Default enablement
+
+{% data reusables.copilot.default-availability-policies %}
+
+For more information, see [AUTOTITLE](/copilot/concepts/enterprise/default-availability).
 
 ## Considering different release stages
 
