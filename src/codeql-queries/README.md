@@ -54,7 +54,7 @@ accDescr: A flow chart describing how the automation generates documentation for
     class security-markdown,quality-markdown,security-suites,quality-suites,codeql-cli file;
 ```
 
-A [workflow](../../.github/workflows/generate-codeql-query-lists.yml) is used to trigger the automation of the CodeQL query tables documentation. The workflow is manually triggered by a member of the GitHub Docs team approximately every two weeks to align to releases of the CodeQL CLI. The workflow takes an input parameter that specifies the branch to pull the source files from in the codeql repo. If the branch input is omitted, the workflow will default to the `main` branch.
+A [workflow](../../.github/workflows/generate-code-scanning-query-lists.yml) is used to trigger the automation of the CodeQL query tables documentation. The workflow is manually triggered by a member of the GitHub Docs team approximately every two weeks to align to releases of the CodeQL CLI. The workflow takes an input parameter that specifies the branch to pull the source files from in the codeql repo. If the branch input is omitted, the workflow will default to the `main` branch.
 
 The workflow runs two scripts in parallel:
 - `npm run generate-code-scanning-query-list` - generates security query tables under `data/reusables/code-scanning/codeql-query-tables/`

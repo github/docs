@@ -119,7 +119,7 @@ In content/actions/using-workflows/reusing-workflows.md on:
 
 Some reusables might not make sense to "reuse" everywhere they could be reused. For instance, at the time of writing there is a reusable that is just the number "30" which shows up in certain files, but doesn't make sense to be replaced with a reusable.
 
-In these cases you can skip these reusables from being checked by the `find potential-uses` command by adding their paths to the array in [src/content-render/scripts/reusables-cli/ignore-reusables.ts](./ignore-unused-reusables.ts)
+In these cases you can skip these reusables from being checked by the `find potential-uses` command by adding their paths to the array in [src/content-render/scripts/reusables-cli/ignore-reusables.ts](./ignore-reusables.ts)
 
 #### Similarity search
 
