@@ -26,6 +26,9 @@ For more information on creating rulesets and bypass permissions, see {% ifversi
 
 If selected, only users with bypass permissions can create branches or tags whose name matches the pattern you specify.
 
+> [!NOTE]
+> If you use a merge queue and enable **Restrict creations** for a ruleset that targets all branches, or for a pattern that matches the merge queue's temporary branches, add the **GitHub Merge Queue** app to the bypass list. The merge queue creates temporary branches, and without this bypass it cannot create them. For more information, see [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests/merging-a-pull-request-with-a-merge-queue).
+
 ## Restrict updates
 
 If selected, only users with bypass permissions can push to branches or tags whose name matches the pattern you specify.
