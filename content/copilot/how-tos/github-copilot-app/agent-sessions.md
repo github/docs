@@ -91,9 +91,6 @@ The rubber duck agent is a built-in agent that acts as a constructive critic, re
 
 When rubber duck is enabled, {% data variables.product.prodname_copilot_short %} can consult it automatically at key points while it works. The main session agent passes work to the rubber duck agent, receives the critique, then decides how to apply that feedback before continuing.
 
-> [!NOTE]
-> The rubber duck agent is currently only available if the main agent is using a Claude or GPT large language model.
-
 You can also manually ask {% data variables.product.prodname_copilot_short %} to get a review from the rubber duck agent.
 
 1. Open an active session.

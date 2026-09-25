@@ -20,9 +20,6 @@ Rubber duck is a built-in agent in {% data variables.copilot.copilot_cli %} that
 
 The rubber duck agent is designed to review proposed changes, not to make file changes itself. The main agent for the session decides what to do with the feedback.
 
-> [!NOTE]
-> The rubber duck agent is currently only available if the main agent is using a Claude or GPT large language model.
-
 ## Why "rubber duck"?
 
 The name comes from a long-standing technique in software engineering called **rubber ducking** in which you explain your code, or proposed solution, to an inanimate object—traditionally a rubber duck. The idea is that by articulating your thinking, you often uncover mistakes, misunderstandings, or logical flaws.
