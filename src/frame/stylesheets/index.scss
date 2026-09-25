@@ -101,6 +101,20 @@ html[data-color-mode] body {
   html[data-color-mode="auto"][data-dark-theme*="dark"] {
     --brand-color-canvas-default: var(--base-color-scale-black-0);
     --brand-color-text-default: var(--base-color-scale-white-0);
+    // A literal, not `var(--base-color-scale-gray-7)`: brand declares its light
+    // scale on `:root, [data-color-mode="light"]`, and `:root` IS this same
+    // <html> — so routing through the scale here just resolves the LIGHT gray-7
+    // (#58635b) straight back. The two tokens above are safe only because
+    // black-0/white-0 carry the same value in both of brand's blocks.
+    //
+    // #191f1b is brand's dark `border/muted`. Note this is a root-level token
+    // with ~30 consumers across the app, not a chip-local fix: it also flips the
+    // article header-box rule (ArticleGridLayout `.heroIntro::after`) and the
+    // drawer rules to their dark values in this fallback. The case that
+    // motivated it is the ordered-list number chip, which otherwise keeps its
+    // light fill (#e4ebe6) while the digit is already patched to white by the
+    // line above — 1.2:1, i.e. invisible.
+    --brand-color-border-muted: #191f1b;
   }
 }
 

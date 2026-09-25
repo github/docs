@@ -3,11 +3,26 @@
   // from the Figma prose spec (node 795:41593), applied via CSS on the existing
   // markup. We can't use the brand OrderedList/UnorderedList components — their
   // ListItem span-wraps children, which breaks nested <ul>/<p>/code inside an
-  // <li> (see github/docs-engineering#6694).
+  // <li> (see github/docs-engineering#6694). The measurements below come from
+  // the "Prose" frame of that spec (node 389:95780).
 
   // Ordered lists: each number sits in a filled rounded "label" chip (muted
   // background, monospace medium, 4px radius) with a 16px gap to the item text.
+  //
+  // Scoped to lists that are top level IN THE PROSE — a direct child of the
+  // article body, plus the container <div>s content-render wraps around a list
+  // on its way here: {% tool %} blocks (which nest, e.g. {% vscode %} inside
+  // {% vscode %}), [!NOTE]-style callouts (src/content-render/unified/alerts.ts
+  // rewrites the blockquote to a .ghd-alert div) and GraphQL reference
+  // descriptions. Without these carve-outs those lists fall through to
+  // @primer/css's plain decimal markers, so a single article ends up showing
+  // two different numbering styles. Lists BELOW top level are handled by the
+  // nesting rules at the end of this block.
+  > :global(.ghd-tool) > :global(.ghd-tool) > ol:not(:global(.no-styling)),
+  > :global(.ghd-tool) > :global(.ghd-alert) > ol:not(:global(.no-styling)),
   > :global(.ghd-tool) > ol:not(:global(.no-styling)),
+  > :global(.ghd-alert) > ol:not(:global(.no-styling)),
+  :global(.graphql-item-description) > ol:not(:global(.no-styling)),
   > ol:not(:global(.no-styling)) {
     list-style: none;
     counter-reset: markdown-ordered-list;
@@ -18,8 +33,20 @@
       counter-increment: markdown-ordered-list;
       // Reserve the chip column: 25px chip + 16px gap to the text (Figma).
       padding-left: 41px;
-      // Consistent spacing regardless of `li > p` or `li > [text]`.
-      margin-bottom: 16px;
+    }
+
+    // 32px between steps (Figma: the item frames sit exactly 32px apart) against
+    // 16px between the blocks INSIDE a step. That two-level rhythm is what makes
+    // a step read as one unit; at a flat 16px a step's own sub-blocks looked no
+    // more attached to it than the next step did.
+    //
+    // This is margin-TOP on `li + li`, not margin-bottom on `li`: the <ol> has
+    // no bottom padding or border, so a bottom margin on the last item collapses
+    // straight out of the list and silently becomes the gap to the next block.
+    // Margins still collapse through the li, so one declaration covers both
+    // `li > p` (loose lists) and bare `li > [text]` (tight lists).
+    > li + li {
+      margin-top: 32px;
     }
 
     > li::before {
@@ -38,8 +65,15 @@
       // tall, dropping its centre ~5px below the first line of text.
       min-width: 25px;
       height: 24px;
-      padding: 0 0.5rem; // 8px, per the Figma label
-      // Brand label chip: monospace medium number on a subtle fill.
+      // 4px, not the Figma label's 8px: `min-width` already pins a single-digit
+      // chip to 25px, so the side padding only ever decides how wide a
+      // MULTI-digit chip grows. At 8px a two-digit counter measured 33.6px and
+      // ate the 16px gutter down to ~7px from step 10 on (36 articles have a
+      // list that reaches 10, the longest is 35). At 4px a two-digit chip is
+      // 25.6px, so steps 1 and 10 look identical and the body text stays on one
+      // straight line. Single-digit rendering is unchanged.
+      padding: 0 0.25rem;
+      // Brand label chip: monospace medium number on a muted fill.
       font-family: var(--brand-fontStack-monospace);
       font-size: 0.875rem; // 14px
       font-weight: var(--brand-text-weight-medium, 500);
@@ -47,9 +81,15 @@
       letter-spacing: 0.15px;
       text-align: center;
       color: var(--brand-color-text-default, var(--color-fg-default));
+      // Figma fills the label with `border/muted` (#e4ebe6), not
+      // `canvas/subtle`. Canvas-subtle is one step paler in both modes and
+      // barely separates from the article canvas (#f2f5f3 on white, #0f1511 on
+      // brand's #000000), so the number read as a wash rather than a chip.
+      // Both properties fall back to the legacy @primer/css token rather than a
+      // hex, so the fallback stays mode-aware if brand's CSS fails to load.
       background-color: var(
-        --brand-color-canvas-subtle,
-        var(--color-canvas-subtle)
+        --brand-color-border-muted,
+        var(--color-border-muted)
       );
       border-radius: var(--brand-borderRadius-small, 4px);
     }
@@ -58,16 +98,67 @@
     ol {
       list-style-type: lower-alpha;
     }
+
+    // Figma draws nested bullets as filled discs; @primer/css inherits the UA's
+    // depth-based markers, which switch to a hollow circle at level two.
+    ul {
+      list-style-type: disc;
+    }
+
+    // Nested lists sit in the step's own text column. @primer/css puts 2em of
+    // padding on every ul/ol, which here stacks on top of the 41px chip column
+    // and pushed sub-items ~17px right of the design. 16px lands the nested
+    // item's text 57px from the item's left edge, with its marker flush against
+    // the parent's 41px text column. Padding only — the nested list's zero
+    // margins are what keep the 16px gap below the step's paragraph.
+    ul,
+    ol {
+      padding-left: 16px;
+    }
   }
 
   // Unordered lists: keep the native bullet but adopt brand item spacing
   // (--base-size-8 = 0.5rem gap between items) + brand body color.
+  //
+  // This selector group MUST mirror the ordered-list one above. The two share a
+  // text column, so any container the ol group reaches but this one doesn't is a
+  // container where the ol indents to 41px while its sibling ul stays at
+  // @primer/css's 2em — reproducing, inside one block, the exact 9px jog the
+  // padding-left below exists to remove. All three extra shapes have real
+  // content: a {% tool %} nested in a {% tool %} holding both list types, a
+  // bullet list inside an alert inside a tool block, and GraphQL descriptions
+  // whose top level is a <ul> rather than an <ol>.
+  > :global(.ghd-tool) > :global(.ghd-tool) > ul:not(:global(.no-styling)),
+  > :global(.ghd-tool) > :global(.ghd-alert) > ul:not(:global(.no-styling)),
   > :global(.ghd-tool) > ul:not(:global(.no-styling)),
+  > :global(.ghd-alert) > ul:not(:global(.no-styling)),
+  :global(.graphql-item-description) > ul:not(:global(.no-styling)),
   > ul:not(:global(.no-styling)) {
     color: var(--brand-color-text-default, var(--color-fg-default));
+    // Share the ordered list's 41px text column. @primer/css leaves uls at
+    // 2em/32px, so once the chip rule above moved numbered items to 41px the
+    // prose left edge jogged 9px every time an article alternated bullets and
+    // steps.
+    padding-left: 41px;
 
     > li {
       margin-bottom: 0.5rem;
+    }
+
+    // An ordered list under a bullet is below top level too, so it takes the
+    // same plain letters, disc bullets and inset as one nested inside a
+    // numbered step. Without this it fell through to @primer/css's decimals.
+    ol {
+      list-style-type: lower-alpha;
+    }
+
+    ul {
+      list-style-type: disc;
+    }
+
+    ul,
+    ol {
+      padding-left: 16px;
     }
   }
 }
