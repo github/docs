@@ -106,9 +106,6 @@ See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-depe
 
 OIDC (OpenID Connect) authentication allows {% data variables.product.prodname_dependabot %} to use short-lived credentials from your cloud identity provider to access private registries, eliminating the need to store long-lived secrets. With OIDC, credentials are generated dynamically for each {% data variables.product.prodname_dependabot %} update job. You must configure a trust relationship between your cloud provider and {% data variables.product.github %} before {% data variables.product.prodname_dependabot %} can authenticate.
 
-> [!NOTE]
-> OIDC authentication for organization-level private registries is currently supported by {% data variables.product.prodname_dependabot %}. It is not supported by {% data variables.product.prodname_code_scanning %} default setup.
-
 When you select **OIDC** as the authentication method for a private registry, choose one of the supported providers and fill in the required fields:
 
 * **Azure**: Enter the **Tenant ID** (Azure AD tenant ID) and **Client ID** (Azure AD application client ID). You must configure a federated credential in Azure AD that trusts {% data variables.product.github %}'s OIDC provider.
