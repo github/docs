@@ -662,6 +662,8 @@ The following example shows a repository-level report from an NDJSON file downlo
 
 Both enterprise- and organization-scoped rows include `organization_id`, which identifies the organization that owns the repository. Enterprise-scoped rows also include `enterprise_id`. Organization-scoped rows include `enterprise_id` only when an enterprise owns the organization.
 
+The `pull_request_review_times` array is empty when the repository merged no qualifying pull requests that day. For which pull requests are counted, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#pull-request-review-time-fields).
+
 For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#repository-level-fields-api-only).
 
 ```json copy
@@ -690,7 +692,8 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
       "total_merged_reviewed_by_copilot": 1,
       "median_minutes_to_merge_copilot_reviewed": 372.62,
       "copilot_suggestions_by_comment_type": []
-    }
+    },
+    "pull_request_review_times": []
   },
   {
     "day": "2026-07-14",
@@ -721,7 +724,8 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
           "total_copilot_applied_suggestions": 1
         }
       ]
-    }
+    },
+    "pull_request_review_times": []
   },
   {
     "day": "2026-07-14",
@@ -758,7 +762,45 @@ For the field reference, see [AUTOTITLE](/copilot/reference/copilot-usage-metric
           "total_copilot_applied_suggestions": 1
         }
       ]
-    }
+    },
+    "pull_request_review_times": []
+  },
+  {
+    "day": "2026-07-14",
+    "enterprise_id": "1001",
+    "organization_id": "2002",
+    "repo_id": 900000020,
+    "repo_owner_name": "octodemo-metrics",
+    "repo_name": "example-service-epsilon",
+    "repo_visibility": "INTERNAL",
+    "pull_requests": {
+      "total_reviewed": 1,
+      "total_created": 1,
+      "total_created_by_copilot": 0,
+      "total_reviewed_by_copilot": 0,
+      "total_merged": 2,
+      "median_minutes_to_merge": 1368.26,
+      "total_suggestions": 0,
+      "total_applied_suggestions": 0,
+      "total_merged_created_by_copilot": 0,
+      "total_copilot_suggestions": 0,
+      "total_copilot_applied_suggestions": 0,
+      "total_merged_reviewed_by_copilot": 0,
+      "copilot_suggestions_by_comment_type": []
+    },
+    "pull_request_review_times": [
+      {
+        "authored_by": "human",
+        "reviewed_by": "human",
+        "total_merged": 2,
+        "median_minutes_ready_to_first_review": 693.31,
+        "p90_minutes_ready_to_first_review": 1244.14,
+        "median_minutes_first_to_final_review": 0,
+        "p90_minutes_first_to_final_review": 0,
+        "median_minutes_final_review_to_merge": 674.95,
+        "p90_minutes_final_review_to_merge": 1213.66
+      }
+    ]
   }
 ]
 ```
