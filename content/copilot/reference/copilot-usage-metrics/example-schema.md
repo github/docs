@@ -174,10 +174,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
   "used_vscode_agent": true,
   "user_id": 1,
   "user_login": "login1",
-  "user_initiated_interaction_count": 1,
-  "etl_id": "green",
-  "day_partition": "2025-10-01",
-  "entity_id_partition": 1
+  "user_initiated_interaction_count": 1
 }]
 ```
 
@@ -420,10 +417,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     } ]
   },
   "report_end_day" : "2025-10-01",
-  "report_start_day" : "2025-09-04",
-  "etl_id" : "green",
-  "day_partition" : "2025-10-01",
-  "entity_id_partition" : 1
+  "report_start_day" : "2025-09-04"
 }, {
   "day_totals" : [ {
     "code_acceptance_activity_count" : 2,
@@ -585,10 +579,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     } ]
   },
   "report_end_day" : "2025-10-01",
-  "report_start_day" : "2025-09-04",
-  "etl_id" : "green",
-  "day_partition" : "2025-10-01",
-  "entity_id_partition" : 2
+  "report_start_day" : "2025-09-04"
 } ]
 ```
 

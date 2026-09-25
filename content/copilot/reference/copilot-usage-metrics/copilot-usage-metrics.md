@@ -90,17 +90,15 @@ Organization-scope reports also include `organization_id` alongside `enterprise_
 
 The **Type** column uses JSON Schema types: `string`, `integer`, `number`, `boolean`, `array`, and `object`. The **Nullable** column indicates whether a field's value can be `null` or absent from a record where it would otherwise apply. Activity breakdown arrays are always present but can be empty (`[]`). Optional arrays are marked as nullable and can be absent.
 
-### Report identification and partition fields
+### Report identification fields
 
-These fields identify the scope, date, and (for exports) partition of each record. The exact set present depends on the report shape.
+These fields identify the scope and date of each record. The exact set present depends on the report shape.
 
 | Field | Type | Nullable | Description |
 |:--|:--|:--|:--|
 | `day` | `string` | No | Calendar day this record represents, in `YYYY-MM-DD` format. In 28-day reports, `day` appears within each `day_totals` entry rather than at the top level. |
 | `enterprise_id` | `string` | No | Unique ID of the enterprise. Included in both enterprise- and organization-scope reports. |
 | `organization_id` | `string` | Yes | Unique ID of the organization. Included in organization-scope reports only; omitted from enterprise-scope reports. |
-| `etl_id` / `day_partition` | `string` | No | Partition fields used for housekeeping. Included in exported NDJSON files and returned by the usage metrics APIs. |
-| `entity_id_partition` | `integer` | No | Entity partition used for housekeeping. Included in exported NDJSON files and returned by the usage metrics APIs. |
 
 ### Per-user report fields
 
