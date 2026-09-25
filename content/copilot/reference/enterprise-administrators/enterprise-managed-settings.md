@@ -144,6 +144,25 @@ The following source types are supported:
 
 See [AUTOTITLE](/copilot/concepts/enterprise/plugin-standards).
 
+For server-managed enterprise team overrides, wrap the complete marketplace map in `overridable`:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "overridable": {
+      "enterprise-plugins": {
+        "source": {
+          "source": "github",
+          "repo": "OWNER/REPO"
+        }
+      }
+    }
+  }
+}
+```
+
+A team file can then provide a regular marketplace map to replace this default. Include any default marketplaces that the team should retain. If the team omits the key, the enterprise default remains.
+
 ## strictKnownMarketplaces
 
 Restricts plugin installation to only the marketplaces explicitly defined by the enterprise. An empty array means complete lockdown. Each entry is a marketplace object with a `source` property indicating the source type. The following source types are supported:
@@ -156,6 +175,20 @@ Restricts plugin installation to only the marketplaces explicitly defined by the
 * `"directory"` — requires `path`
 * `"hostPattern"` — requires `hostPattern` (regex matching marketplace hosts)
 * `"pathPattern"` — requires `pathPattern` (regex matching marketplace paths)
+
+This key is overridable for enterprise teams. Wrap the complete allowlist in `overridable` at the enterprise level:
+
+```json
+{
+  "strictKnownMarketplaces": {
+    "overridable": [
+      { "source": "github", "repo": "OWNER/REPO" }
+    ]
+  }
+}
+```
+
+Use a regular array in the team file to replace the default allowlist. Omitting the key retains the enterprise default. An explicit empty array, `[]`, means complete lockdown, not an unmanaged policy.
 
 ## model
 
@@ -287,6 +320,21 @@ The following sub-properties are supported:
 * `ghAuth`: `false` prevents the runtime from injecting a {% data variables.product.github %} token for {% data variables.product.prodname_cli %} in the sandbox.
 * `allowDevToolAccess`: `false` prevents automatic access to development-tool configuration, caches, registries, and toolchains. These locations can contain package registry credentials or tokens. Disabling access can cause package restoration, authenticated registry operations, or builds that use shared caches to fail unless you explicitly grant the required paths.
 * `userPolicy`: An object that configures filesystem, network, and macOS-specific Seatbelt restrictions. The supported properties are described in the following sections.
+
+For server-managed enterprise team overrides, wrap the entire sandbox object in `overridable`:
+
+```json
+{
+  "sandbox": {
+    "overridable": {
+      "enabled": true,
+      "allowBypass": false
+    }
+  }
+}
+```
+
+The wrapper must be the only property directly inside `sandbox`. Individual sub-properties, such as `sandbox.enabled`, cannot use their own `overridable` wrappers. A team file's regular sandbox object replaces the entire wrapped default, so include every restriction that should remain. Omitting `sandbox` retains the enterprise default.
 
 ### `sandbox.userPolicy.filesystem`
 
