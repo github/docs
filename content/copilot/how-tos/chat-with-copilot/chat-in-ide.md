@@ -441,7 +441,7 @@ By default, {% data variables.copilot.copilot_chat_short %} will reference the f
 
 Use {% data variables.copilot.copilot_edits_short %} to make changes across multiple files directly from a single {% data variables.copilot.copilot_chat_short %} prompt. {% data variables.copilot.copilot_edits_short %} has the following modes:
 
-* [Edit mode](#edit-mode-1) lets {% data variables.product.prodname_copilot_short %} make controlled edits to multiple files.
+* [Edit mode](#edit-mode) lets {% data variables.product.prodname_copilot_short %} make controlled edits to multiple files.
 * [Agent mode](#agent-mode-1) lets {% data variables.product.prodname_copilot_short %} autonomously accomplish a set task.
 
 ### Edit mode
