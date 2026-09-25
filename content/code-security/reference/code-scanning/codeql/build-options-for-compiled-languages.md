@@ -2,7 +2,7 @@
 title: CodeQL build options and steps for compiled languages
 shortTitle: Build options for compiled languages
 intro: Learn how {% data variables.product.prodname_codeql %} builds compiled languages, including available build modes and language-specific autobuild behavior for C/C++, C#, Go, Java, Kotlin, Rust, and Swift.
-permissions: '{% data reusables.permissions.code-scanning-all-alerts %} if [advanced setup](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning) is already enabled'
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %} if [advanced setup](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning) is already enabled'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
