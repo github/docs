@@ -227,6 +227,10 @@ You can click any result to see full details of the relevant query and the line 
 
 | Qualifier | Description |
 | -------- | -------- |
+|`autofilter`|Display only alerts that appear to be in application code (`autofilter:true`).|
+|{% ifversion code-scanning-autofix %}|
+|`autofix`|Display only alerts for rules supported by {% data variables.copilot.copilot_autofix %} (`autofix:supported`). When agentic autofix is enabled for your organization or enterprise, this filter is unavailable and does not affect results.|
+|{% endif %}|
 |`is`|Display {% data variables.product.prodname_code_scanning %} alerts that are open (`open`) or closed (`closed`).|
 |`resolution`| Display {% data variables.product.prodname_code_scanning %} alerts closed as "false positive" (`false-positive`), "fixed" (`fixed`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
 |`rule`|Display {% data variables.product.prodname_code_scanning %} alerts identified by the specified rule.|

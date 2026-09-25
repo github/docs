@@ -56,6 +56,18 @@
   cli: true
   app: true
 
+- name: GPT-6 Luna
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
+- name: GPT-6 Sol
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
 # Anthropic
 - name: Claude Haiku 4.5
   cloud_agent: true
@@ -70,6 +82,12 @@
   app: true
 
 - name: Claude Opus 5
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
+- name: Claude Opus 5.5
   cloud_agent: true
   chat: true
   cli: true
