@@ -126,6 +126,7 @@ Per-user reports contain one record per user for the reporting period. The 28-da
 | `used_copilot_cloud_agent` | `boolean` | No | Whether the user used {% data variables.copilot.copilot_cloud_agent %} that day. Carries the same value as `used_copilot_coding_agent`; both names are retained for backward compatibility. |
 | `used_copilot_code_review_active` | `boolean` | Yes | Whether the user actively engaged with {% data variables.copilot.copilot_code-review_short %} that day. A user is considered active if they manually requested a {% data variables.product.prodname_copilot_short %} review, or applied a {% data variables.product.prodname_copilot_short %} review suggestion. Null when there is no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. |
 | `used_copilot_code_review_passive` | `boolean` | Yes | Whether the user had {% data variables.product.prodname_copilot_short %} automatically assigned to review their pull request that day, without actively engaging with the review. Null when there is no {% data variables.copilot.copilot_code-review_short %} signal for the user that day. |
+| `used_vscode_agent` | `boolean` | Yes | Whether the user used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window during the reporting period. Omitted when no dedicated Agents-window data is available for the user. |
 | `ai_adoption_phase` | `object` | No | The user's AI adoption phase for the day. Always present; defaults to the "No Cohort" phase. See [AI adoption phase fields](#ai-adoption-phase-fields). |
 | `distinct_skill_use_count` | `integer` | Yes | Number of different skill identifiers with recorded activity for the user. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
 | `distinct_custom_agent_use_count` | `integer` | Yes | Number of different custom agent identifiers with recorded activity for the user. See [{% data variables.copilot.copilot_cli_short %} customization fields](#copilot-cli-customization-fields-api-only). |
@@ -140,6 +141,7 @@ Per-user reports contain one record per user for the reporting period. The 28-da
 | `totals_by_cli` | `object` | Yes | CLI-specific metrics for the user. Omitted when the user had no {% data variables.copilot.copilot_cli_short %} usage that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
 | `totals_by_copilot_app` | `object` | Yes | {% data variables.copilot.github_copilot_app_short %} metrics for the user. Omitted when the user had no {% data variables.copilot.github_copilot_app_short %} usage that day. See [{% data variables.copilot.github_copilot_app_short %} metrics fields](#copilot-app-metrics-fields). |
 | `totals_by_3rd_party_agent` | `array` | Yes | Per-agent usage metrics for recognized {% data variables.copilot.agent_apps %}. Omitted when the user had no recognized {% data variables.copilot.agent_app %} activity during the reporting period. See [{% data variables.copilot.agent_apps_caps %} metrics fields](#agent-apps-metrics-fields). |
+| `totals_by_vscode_agent` | `object` | Yes | Dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window metrics for the user. Omitted when both required counts are not available. See [{% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields](#vs-code-agents-window-metrics-fields). |
 | `totals_by_ide` | `array` | No | Per-IDE breakdown of the user's activity. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_feature` | `array` | No | Per-feature breakdown of the user's activity. See [Activity breakdown objects](#activity-breakdown-objects). |
 | `totals_by_language_feature` | `array` | No | Breakdown combining language and feature dimensions. See [Activity breakdown objects](#activity-breakdown-objects). |
@@ -156,7 +158,9 @@ Active-user counts:
 |:--|:--|:--|:--|
 | `daily_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} on a given day. |
 | `weekly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing seven-day window. |
+| `weekly_active_vscode_agent_users` | `integer` | Yes | Number of unique users who used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window from Sunday through the report day, inclusive. This calendar-to-date count is not a trailing seven-day window. |
 | `monthly_active_users` | `integer` | No | Number of unique users who used {% data variables.product.prodname_copilot_short %} during a trailing 28-day window. |
+| `monthly_active_vscode_agent_users` | `integer` | Yes | Number of unique users who used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window from the first day of the calendar month through the report day, inclusive. This calendar-to-date count is not a trailing 28-day window. |
 | `monthly_active_chat_users` | `integer` | No | Number of unique users who used chat during a trailing 28-day window. |
 | `monthly_active_agent_users` | `integer` | No | Number of unique users who used agent mode during a trailing 28-day window. |
 | `daily_active_copilot_cloud_agent_users` | `integer` | No | Number of unique users who used {% data variables.copilot.copilot_cloud_agent %} on a given day. |
@@ -170,6 +174,7 @@ Active-user counts:
 | `monthly_passive_copilot_code_review_users` | `integer` | No | Number of unique users who had {% data variables.copilot.copilot_code-review_short %} automatically assigned to review their pull request during a trailing 28-day window, with no active engagement. |
 | `daily_active_cli_users` | `integer` | Yes | Number of unique users who used {% data variables.copilot.copilot_cli_short %} on a given day. This count is **independent** of IDE active-user counts and is **not** included in IDE-based active-user definitions. Omitted for enterprises or organizations with no CLI usage that day. |
 | `daily_active_copilot_app_users` | `integer` | Yes | Number of unique users who used the {% data variables.copilot.github_copilot_app_short %} on a given day. Null when the enterprise or organization has no {% data variables.copilot.github_copilot_app_short %} activity that day. |
+| `daily_active_vscode_agent_users` | `integer` | Yes | Number of unique users who used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window on a given day. Omitted when no dedicated Agents-window data is available for the enterprise or organization. |
 
 Activity totals and breakdowns:
 
@@ -200,6 +205,7 @@ Activity totals and breakdowns:
 | `totals_by_cli` | `object` | Yes | Aggregated {% data variables.copilot.copilot_cli_short %} metrics for the day. Omitted when there is no CLI usage that day. Unlike the per-user form, it does not include `last_known_cli_version`. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields). |
 | `totals_by_copilot_app` | `object` | Yes | Aggregated {% data variables.copilot.github_copilot_app_short %} metrics for the day. Null when the enterprise or organization has no {% data variables.copilot.github_copilot_app_short %} activity that day. See [{% data variables.copilot.github_copilot_app_short %} metrics fields](#copilot-app-metrics-fields). |
 | `totals_by_3rd_party_agent` | `array` | Yes | Aggregated per-agent usage metrics for recognized {% data variables.copilot.agent_apps %}. Omitted when the enterprise or organization had no recognized {% data variables.copilot.agent_app %} activity that day. See [{% data variables.copilot.agent_apps_caps %} metrics fields](#agent-apps-metrics-fields). |
+| `totals_by_vscode_agent` | `object` | Yes | Aggregated dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window metrics for the day. Omitted when both required counts are not available. See [{% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields](#vs-code-agents-window-metrics-fields). |
 | `totals_by_ai_adoption_phase` | `array` | Yes | Per-phase aggregates of users and their average activity. Omitted when no adoption-phase data is available. See [AI adoption phase fields](#ai-adoption-phase-fields). |
 | `pull_requests` | `object` | No | Daily pull request activity for the enterprise or organization. See [Pull request activity fields](#pull-request-activity-fields). |
 
@@ -352,6 +358,24 @@ The `totals_by_copilot_app` object contains the following nested fields when {% 
 | `totals_by_copilot_app.token_usage.output_tokens_sum` | `integer` | No | Total output tokens generated across all {% data variables.copilot.github_copilot_app_short %} requests on this day. |
 | `totals_by_copilot_app.token_usage.prompt_tokens_sum` | `integer` | No | Total prompt tokens sent across all {% data variables.copilot.github_copilot_app_short %} requests on this day. |
 | `totals_by_copilot_app.token_usage.avg_tokens_per_request` | `number` | Yes | Average of output and prompt tokens per {% data variables.copilot.github_copilot_app_short %} request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`. Null when there were no requests that day. |
+
+### {% data variables.product.prodname_vscode_shortname %} Agents-window metrics fields
+
+The dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window fields appear in enterprise, organization, enterprise-user, and organization-user 1-day and 28-day reports. In aggregated 28-day reports, they appear within each applicable `day_totals` entry, and weekly and monthly counts are calculated relative to the `day` of each entry. In per-user 28-day reports, they appear at the top level of each user record.
+
+These fields are distinct from editor-window agent mode, including `used_agent`, `monthly_active_agent_users`, and the `chat_panel_agent_mode` and `agent_edit` feature values. Dedicated Agents-window activity is not included in generic top-level activity totals or dimensional breakdowns such as `totals_by_feature`, `totals_by_model_feature`, or `totals_by_ai_adoption_phase`.
+
+The daily count and per-user fields can be omitted when no dedicated Agents-window data is available. The weekly and monthly fields are both omitted when there is no qualifying activity in either period. If one period has qualifying activity and the other does not, the inactive period has a value of `0`. The `totals_by_vscode_agent` object appears only when both nested counts are available, including when both counts are zero.
+
+| Field | Type | Nullable | Description |
+|:--|:--|:--|:--|
+| `daily_active_vscode_agent_users` | `integer` | Yes | Number of unique users who used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window on the day. Aggregated enterprise and organization reports only. |
+| `weekly_active_vscode_agent_users` | `integer` | Yes | Number of unique users who used the dedicated Agents window from Sunday through the report day, inclusive. Aggregated enterprise and organization reports only. |
+| `monthly_active_vscode_agent_users` | `integer` | Yes | Number of unique users who used the dedicated Agents window from the first day of the calendar month through the report day, inclusive. Aggregated enterprise and organization reports only. |
+| `used_vscode_agent` | `boolean` | Yes | Whether the user used the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window during the reporting period. Enterprise-user and organization-user reports only. |
+| `totals_by_vscode_agent` | `object` | Yes | Session and user-message totals for the dedicated {% data variables.product.prodname_vscode_shortname %} Agents window. |
+| `totals_by_vscode_agent.session_count` | `integer` | No | Number of distinct Agents-window sessions represented in the record. Required when `totals_by_vscode_agent` is present. |
+| `totals_by_vscode_agent.total_user_messages` | `integer` | No | Number of user messages sent in the Agents window represented in the record. Required when `totals_by_vscode_agent` is present. |
 
 ### {% data variables.copilot.agent_apps_caps %} metrics fields
 

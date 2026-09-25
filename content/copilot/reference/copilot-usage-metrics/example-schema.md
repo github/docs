@@ -144,6 +144,10 @@ The following examples show schemas for user-, enterprise-, and repository-level
     "mcp": "other"
   }],
   "totals_by_model_feature": [],
+  "totals_by_vscode_agent": {
+    "session_count": 1,
+    "total_user_messages": 1
+  },
   "totals_by_plugin": [{
     "interaction_count": 2,
     "plugin": "other"
@@ -167,6 +171,7 @@ The following examples show schemas for user-, enterprise-, and repository-level
   "used_copilot_code_review_active": null,
   "used_copilot_code_review_passive": null,
   "used_copilot_coding_agent": false,
+  "used_vscode_agent": true,
   "user_id": 1,
   "user_login": "login1",
   "user_initiated_interaction_count": 1,
@@ -176,7 +181,9 @@ The following examples show schemas for user-, enterprise-, and repository-level
 }]
 ```
 
-Organization per-user reports use the same `totals_by_3rd_party_agent` entry fields and also include `organization_id`. In per-user reports, entries in `totals_by_3rd_party_agent` do not include `session_count`.
+Organization per-user reports use the same `totals_by_3rd_party_agent` entry fields and also include `organization_id`. The per-user `totals_by_3rd_party_agent` entries omit `session_count`.
+
+In both enterprise and organization per-user reports, `used_vscode_agent` and `totals_by_vscode_agent` provide dedicated metrics for the {% data variables.product.prodname_vscode_shortname %} Agents window. These fields appear at the top level in both 1-day and 28-day reports. They are omitted when no dedicated {% data variables.product.prodname_vscode_shortname %} Agents-window data is available, and `totals_by_vscode_agent` is omitted unless both of its counts are available.
 
 The {% data variables.copilot.copilot_cli_short %} customization fields shown in this example appear in both 1-day and 28-day per-user reports.
 
@@ -194,6 +201,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "daily_active_copilot_cloud_agent_users" : 1,
     "daily_active_copilot_code_review_users" : 1,
     "daily_active_users" : 2,
+    "daily_active_vscode_agent_users" : 2,
     "daily_passive_copilot_code_review_users" : 0,
     "day" : "2025-10-01",
     "distinct_custom_agent_use_count" : 2,
@@ -211,6 +219,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "monthly_active_copilot_cloud_agent_users" : 1,
     "monthly_active_copilot_code_review_users" : 1,
     "monthly_active_users" : 2,
+    "monthly_active_vscode_agent_users" : 2,
     "monthly_passive_copilot_code_review_users" : 0,
     "pull_requests" : {
       "median_minutes_to_merge" : 2.5,
@@ -358,6 +367,10 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
       "mcp" : "other"
     } ],
     "totals_by_model_feature" : [ ],
+    "totals_by_vscode_agent" : {
+      "session_count" : 2,
+      "total_user_messages" : 2
+    },
     "totals_by_plugin" : [ {
       "interaction_count" : 4,
       "plugin" : "other"
@@ -377,6 +390,7 @@ In this example, `used_copilot_code_review_active` and `used_copilot_code_review
     "weekly_active_copilot_cloud_agent_users" : 1,
     "weekly_active_copilot_code_review_users" : 1,
     "weekly_active_users" : 2,
+    "weekly_active_vscode_agent_users" : 2,
     "weekly_passive_copilot_code_review_users" : 0
   } ],
   "enterprise_id" : "1",
