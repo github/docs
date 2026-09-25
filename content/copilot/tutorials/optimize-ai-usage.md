@@ -43,7 +43,7 @@ See [AUTOTITLE](/copilot/reference/ai-models/supported-models#models-with-extend
 
 A small router looks at your prompt and sends it to the model that can **handle it most efficiently**, reserving expensive reasoning models for complex problems. It also avoids models that burn through a token budget quickly.
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} also **protects your cache**. It only changes models at natural cache boundaries, when a new session starts or after you run `/compact`, never mid-task. To understand more about why this matters, see [4. Preserve the cache](#4-preserve-the-cache).
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} also **protects your cache**. It changes models at natural cache boundaries, when a new session starts or after you run `/compact`. As conversations evolve, it will re-route at points where quality improvements outweigh cache loss. To understand more about why this matters, see [4. Preserve the cache](#4-preserve-the-cache).
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} also routes around degraded or busy models, so you hit fewer rate limits and errors.
 

@@ -49,7 +49,7 @@ The following third-party agents are supported on {% data variables.product.gith
 
 When starting a task with a third-party agent, you can select the AI model used by the agent. You may find that different models perform better, or provide more useful responses, depending on the type of task. For help deciding which model to use, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
-You can also select **Auto**, which allows {% data variables.copilot.copilot_auto_model_selection %} to choose the best available model on your behalf. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+You can also select **Auto**, which chooses between the supported models below. Choosing **Auto** with third-party agents does **not** leverage {% data variables.copilot.copilot_auto_model_selection %}. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
 
 The following models are available for each agent:
 
