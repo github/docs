@@ -251,7 +251,7 @@ sections:
     - |
       Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
-      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a scheduled job that runs on the first Saturday of each month.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
     - |
       An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
     - |
