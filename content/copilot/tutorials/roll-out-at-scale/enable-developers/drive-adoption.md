@@ -16,6 +16,8 @@ category:
   - Manage Copilot for a team
 ---
 
+Use this guide for an initial organization-wide rollout: granting licenses, helping developers set up their environments, and providing broad training and support. For a focused rollout of agentic tools to an established team, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/drive-team-agentic-adoption).
+
 An effective enablement process is essential to drive adoption of {% data variables.product.prodname_copilot_short %} in your organization. This process should be tailored to your organization's needs and goals, and should be designed to help your teams understand how to use {% data variables.product.prodname_copilot_short %} effectively.
 
 Your enablement process may evolve based on feedback and results. You should regularly review and update the process to ensure it continues to meet your organization's needs.

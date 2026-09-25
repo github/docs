@@ -8,6 +8,7 @@ children:
   - /drive-adoption
   - /copilot-app-for-teams
   - /integrate-ai-agents
+  - /drive-team-agentic-adoption
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/enabling-developers
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/enabling-developers
