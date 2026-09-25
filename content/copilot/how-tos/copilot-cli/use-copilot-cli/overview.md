@@ -34,7 +34,7 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
 1. Choose one of the options:
 
-   **1. Yes, proceed**:
+   **1. Yes**:
 
    {% data variables.product.prodname_copilot_short %} can work with the files in this location for this session only.
 
@@ -42,7 +42,7 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    You trust the files in this folder for this and future sessions. You won't be asked again when you start {% data variables.copilot.copilot_cli_short %} from this folder. Only choose this option if you are sure that it will always be safe for {% data variables.product.prodname_copilot_short %} to work with files in this location.
 
-   **3. No, exit (Esc)**:
+   **3. No (Esc)**:
 
    End your {% data variables.copilot.copilot_cli_short %} session.
 
