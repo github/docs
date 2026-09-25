@@ -44,6 +44,9 @@ sections:
     - |
       Administrators can configure multiple WireGuard tunnels for high-availability deployments by setting `wireguard.num-tunnels`. Multiple tunnels distribute inter-node traffic across network queues and CPU cores, improving performance during high-volume traffic. The default configuration remains unchanged. See [Mitigating single-core softirq saturation](/admin/monitoring-and-managing-your-instance/additional-nodes/configuring-additional-nodes#mitigating-single-core-softirq-saturation).
   known_issues:
+    # https://github.com/github/ghes/issues/19970
+    - |
+      On appliances with 84 GB or more of RAM, MySQL could consume most available memory after an upgrade because the default InnoDB buffer pool scales with available RAM. Before adding RAM to increase memory headroom, contact GitHub Support about setting an appropriate `mysql.max-memory` limit. [Updated: 2026-09-24]
     - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
     - |

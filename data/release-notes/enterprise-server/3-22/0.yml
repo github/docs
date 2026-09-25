@@ -197,6 +197,9 @@ sections:
 
   known_issues:
     # Known issues from "GHES Release Note Tracking" project
+    # https://github.com/github/ghes/issues/19970
+    - |
+      On appliances with 84 GB or more of RAM, MySQL could consume most available memory after an upgrade because the default InnoDB buffer pool scales with available RAM. Before adding RAM to increase memory headroom, contact GitHub Support about setting an appropriate `mysql.max-memory` limit. [Updated: 2026-09-24]
     - |
       During an upgrade of {% data variables.product.prodname_ghe_server %}, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
     - |
