@@ -23,7 +23,7 @@ contentType: how-tos
 
 ## About your personal account on {% data variables.product.github %}
 
-To get started with {% data variables.product.prodname_dotcom_the_website %}, you need to a personal account and a verified email address.
+To get started with {% data variables.product.prodname_dotcom_the_website %}, you need to have a personal account and a verified email address.
 
 When creating a free account on {% data variables.product.prodname_dotcom_the_website %}, you can also authenticate with Google or Apple - which are the supported social login providers.
 For iOS users, even if you have enabled the setting "Hide My Email addresses" for your Apple account, using social login will result in creating a new {% data variables.product.github %} account.
