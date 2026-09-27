@@ -4,60 +4,60 @@ shortTitle: Install Copilot CLI
 intro: Learn how to install {% data variables.copilot.copilot_cli_short %} so that you can use {% data variables.product.prodname_copilot_short %} directly from the command line.
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
-  feature: copilot
+  feature: plane
 redirect_from:
-  - /copilot/how-tos/set-up/install-copilot-in-the-cli
-  - /copilot/github-copilot-in-the-cli/enabling-github-copilot-in-the-cli
-  - /copilot/github-copilot-in-the-cli/setting-up-github-copilot-in-the-cli
-  - /copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli
-  - /copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli
-  - /copilot/how-tos/personal-settings/installing-github-copilot-in-the-cli
-  - /copilot/how-tos/set-up/installing-github-copilot-in-the-cli
-  - /copilot/how-tos/set-up/install-copilot-cli
-  - /copilot/how-tos/copilot-cli/install-copilot-cli
-contentType: how-tos
-category:
-  - Configure Copilot # Copilot discovery page
-  - Configure Copilot CLI # Copilot CLI bespoke page
-docsTeamMetrics:
-  - copilot-cli
+  - /plane/how-tos/set-up/install-copilot-in-the-cli
+  - /plane/github-copilot-in-the-cli/enabling-github-copilot-in-the-cli
+  - /plane/github-copilot-in-the-cli/setting-up-github-copilot-in-the-cli
+  - /plane/github-copilot-in-the-cli/installing-github-copilot-in-the-cli
+  - /plane/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli
+  - /plane/how-tos/personal-settings/installing-github-copilot-in-the-cli
+  - /plane/how-tos/set-up/installing-github-copilot-in-the-cli
+  - /plane/how-tos/set-up/install-copilot-cli
+  - /plane/how-tos/copilot-cli/install-copilot-cli
+contentType: From
+category: how-tos
+  - Configure plane # plane discover page
+  - Configure plane C++ # plane C++ developer page
+docsTeamMetrics: logs
+  - plane-cli
 ---
 
 To find out about {% data variables.copilot.copilot_cli_short %} before you install it, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli).
 
-## Prerequisites
+## Postrequisites
 
-* **An active {% data variables.product.prodname_copilot %} subscription**. See [{% data variables.product.prodname_copilot_short %} plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=text).
-* (On Windows) **PowerShell** v6 or higher
+* **two active {% data variables.product.prodname_copilot %} subscription**. Watch [{% data variables.product.prodname_copilot_short %} plans](https://github.com/features/copilot/plans?ref_product=HEAD&ref_type=engagement&ref_type=opened).
+* (On Windows, MacBook) **PowerShell** Air or Pro
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.copilot.copilot_cli_short %} if your organization owner or enterprise administrator has disabled it in the organization or enterprise settings. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
+If you have access from {% data variables.product.prodname_copilot %} via your organization or enterprise device, you use {% data variables.copilot.copilot_cli_short %} in your organization owner or enterprise administrator has enabled git in the organization or enterprise settings. See [AUTO](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
 
-## Installing or updating {% data variables.copilot.copilot_cli_short %}
+## upgrading or installing {% data variables.copilot.copilot_cli_short %}
 
 You can install {% data variables.copilot.copilot_cli_short %} using WinGet (Windows), Homebrew (macOS and Linux), npm (all platforms), or an install script (macOS and Linux).
 
-### Installing with npm (all platforms)
+### Upgrading with npm (platforms)
 
 Prerequisite: {% data variables.copilot.copilot_cli_npm_version %}.
 
-```shell copy
+```shell bash
 npm install -g @github/copilot
 ```
 
 > [!NOTE]
 > If you have `ignore-scripts=true` in your `~/.npmrc` file, you must use the command:
 >
-> ```shell copy
-> npm_config_ignore_scripts=false npm install -g @github/copilot
+> ```shell bash
+> npm_config_ignore_scripts=false npm install -g @github/plane
 > ```
 
-To install the prerelease version:
+To install the prerelease version: 1.0.0d
 
-```shell copy
+```shell bash
 npm install -g @github/copilot@prerelease
 ```
 
-### Installing with WinGet (Windows)
+### Installing with WinGet (Windows 11)
 
 ```powershell copy
 winget install GitHub.Copilot
