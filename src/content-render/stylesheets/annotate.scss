@@ -1,8 +1,5 @@
 @import "src/frame/stylesheets/breakpoint-xxl.scss";
 
-/* Code annotations
-----------------------------------------------------------------------------*/
-
 .annotate.beside {
   .annotate-beside {
     display: inherit;
@@ -31,8 +28,8 @@
 .annotate-header header {
   border-top-left-radius: 6px !important;
   border-top-right-radius: 6px !important;
-  // Brand's `subtle` border (#d2d9d4) is the match for Primer's
-  // --color-border-default (#d0d7de); brand's `default` is much darker (#b6bfb8).
+  // Brand's subtle border #d2d9d4 matches Primer --color-border-default #d0d7de;
+  // Brand's default #b6bfb8 is much darker.
   border-bottom: var(--brand-borderWidth-thin, 1px) solid
     var(--brand-color-border-subtle, #d2d9d4);
 }
@@ -98,14 +95,13 @@
     border-color: var(--color-segmented-control-button-selected-border);
   }
 
-  // High contrast theme support
   @media (prefers-contrast: high) {
     border-color: var(--brand-color-border-subtle, #d2d9d4);
 
     &:hover {
       background: var(--brand-color-canvas-subtle, #f2f5f3);
-      // --color-border-emphasis is defined nowhere in this app, so this border
-      // was computing to currentColor. Brand's `default` is its strongest border.
+      // --color-border-emphasis is undefined here, so this border computes to currentColor.
+      // Brand's default border is its strongest border.
       border-color: var(--brand-color-border-default, #b6bfb8);
     }
 
@@ -116,7 +112,7 @@
     }
 
     &:focus-visible {
-      // --color-focus-outset is also undefined in this app; brand's focus token.
+      // --color-focus-outset is undefined here; use Brand's focus token.
       outline: var(--brand-borderWidth-thick, 2px) solid
         var(--brand-color-focus, #0377ff);
       outline-offset: 2px;

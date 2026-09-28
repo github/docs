@@ -1,7 +1,5 @@
-// Largely identical styling from the monolith,
-// but the color names match the Primer variables
-// and we had to directly state a few props instead of using variables
-// that are only in the monolith.
+// This mirrors monolith styling, but color names match Primer variables.
+// Direct properties replace variables that exist only in the monolith.
 
 $colors:
   "default", "muted", "subtle", "accent", "success", "attention", "severe",
@@ -9,9 +7,8 @@ $colors:
 
 .ghd-alert {
   padding: var(--base-size-8, 0.5rem) var(--base-size-16, 1rem);
-  // Docs 2026: brand-align the callout container — rounded corners + brand
-  // border-radius token. The colored left border is set per-type below; the
-  // callout *system* redesign (Note/Warning/Tip/Pro tip) is tracked separately.
+  // Brand callout work changes the container only: rounded corners and the Brand token.
+  // Per-type colors stay on the left border; Note, Warning, Tip, and Pro tip changes are separate.
   border-left: 0.25em solid
     var(--brand-color-border-default, var(--color-border-default));
   border-radius: var(--brand-borderRadius-medium, 0.5rem);
