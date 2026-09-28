@@ -27,8 +27,7 @@ async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   if (!page) throw new Error('page not set in context')
   const path = req.pagePath || req.path
 
-  // Set up collection array for the collect-mini-toc rehype plugin only when
-  // the page actually needs a mini-TOC, avoiding unnecessary work.
+  // Collect mini-TOC headings only for pages that show one, so other renders avoid plugin work.
   if (page.showMiniToc) {
     const collectMiniToc: CollectedHeading[] = []
     context.collectMiniToc = collectMiniToc
@@ -41,16 +40,10 @@ async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   return (await pageRenderTimed(context)) as string
 }
 
-// Spike for #6619: produce the article body as a serializable hast (HTML AST)
-// tree alongside the legacy HTML string.
-//
-// Must run AFTER buildRenderedPage, which calls page.render and populates the
-// context fields the pipeline reads (englishHeadings, alertTitles). We render
-// the same raw `page.markdown`, but with a context clone that omits
-// `collectMiniToc` so the mini-TOC isn't collected a second time.
-//
-// Wrapped so a hast failure can never break the page. The React layer falls
-// back to the string path when this is undefined.
+// buildRenderedPageHast returns a serializable HTML AST alongside renderedPage.
+// It runs after buildRenderedPage because page.render populates englishHeadings and alertTitles.
+// It disables collectMiniToc so mini-TOC collection does not repeat.
+// Failures return undefined, and the React layer falls back to renderedPage.
 async function buildRenderedPageHast(req: ExtendedRequest) {
   const { context } = req
   if (!context) throw new Error('request not contextualized')
@@ -76,12 +69,11 @@ function buildMiniTocItems(req: ExtendedRequest) {
   if (!context) throw new Error('request not contextualized')
   const { page } = context
 
-  // get mini TOC items on articles
   if (!page || !page.showMiniToc) {
     return
   }
 
-  // Use headings collected during rendering via the collect-mini-toc rehype plugin.
+  // Collected headings avoid rendering article content a second time.
   const collected = context.collectMiniToc as CollectedHeading[] | undefined
   if (collected) {
     return buildMiniTocFromCollected(collected, 2)
@@ -91,15 +83,13 @@ function buildMiniTocItems(req: ExtendedRequest) {
 export default async function renderPage(req: ExtendedRequest, res: Response) {
   const { context } = req
 
-  // `Error.getInitialProps`, which NextJS runs on errors, reads this off the
-  // request so it can send the error to Failbot.
+  // Next.js Error.getInitialProps reads req.FailBot so it can report errors to Failbot.
   req.FailBot = FailBot as Failbot
 
   if (!context) throw new Error('request not contextualized')
   const { page } = context
   const path = req.pagePath || req.path
 
-  // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {
       logger.error('Tried to redirect to a page that was not found', {
@@ -107,27 +97,23 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
       })
     }
 
-    // send minimal 404 at this point since we ran into hydration issues trying to pass
-    // these along to AppRouter 404 handling
+    // Passing this context to App Router 404 handling causes hydration failures.
     defaultCacheControl(res)
     return res.status(404).type('html').send(minimumNotFoundHtml)
   }
 
-  // Just finish fast without all the details like Content-Length
+  // HEAD skips page rendering but still lets Express send Content-Length: 0.
   if (req.method === 'HEAD') {
     return res.status(200).send('')
   }
 
-  // Updating the Last-Modified header for substantive changes on a page for engineering
-  // Docs Engineering Issue #945
+  // effectiveDate marks substantive page changes for clients that watch Last-Modified.
   if (page.effectiveDate) {
-    // The frontmatter schema only checks that this is a string. An unparseable
-    // date gets caught later, in ArticleContext, and ends up as a 500.
+    // ArticleContext turns unparseable effectiveDate strings into a 500.
     res.setHeader('Last-Modified', new Date(page.effectiveDate).toUTCString())
   }
 
-  // Content negotiation: serve markdown when the client prefers it over HTML.
-  // Agents like Claude Code send Accept headers that omit text/html.
+  // Serve markdown when the client prefers it over HTML; agents can omit text/html.
   if (req.accepts(['text/html', 'text/markdown']) === 'text/markdown') {
     context.markdownRequested = true
   }
@@ -137,10 +123,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
   if (context.markdownRequested) {
     const transformer = transformerRegistry.findTransformer(page)
     if (!transformer) throw new Error(`No transformer found for page: ${req.pagePath}`)
-    // Pass context without markdownRequested, because transformers set it
-    // themselves when rendering templates. Having it set during prepareTemplateData()
-    // causes renderTitle/renderProp to output markdown instead of HTML,
-    // which breaks the cheerio-based unwrap logic.
+    // Clear markdownRequested so renderTitle and renderProp output HTML for stripOuterTag.
     const transformerContext = { ...context, markdownRequested: false }
     req.context.renderedPage = normalizeRenderedMarkdown(
       await transformer.transform(page, path, transformerContext),
@@ -153,7 +136,6 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
 
   page.fullTitle = page.title
 
-  // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
   if (!patterns.homepagePath.test(path)) {
     if (
       req.context.currentVersion === 'free-pro-team@latest' ||
@@ -163,9 +145,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     } else {
       const { versionTitle } = allVersions[req.context.currentVersion!]
       page.fullTitle += ' - '
-      // Some plans don't have the word "GitHub" in them.
-      // E.g. "Enterprise Server 3.5"
-      // In those cases manually prefix the word "GitHub" before it.
+      // Prefix version titles that omit GitHub.
       if (!versionTitle.includes('GitHub')) {
         page.fullTitle += 'GitHub '
       }
@@ -178,15 +158,15 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
   if (isRequestingJsonForDebugging) {
     const json = req.query.json
     if (Array.isArray(json)) {
-      // e.g. ?json=page.permalinks&json=currentPath
+      // Example: ?json=page.permalinks&json=currentPath.
       throw new Error("'json' query string can only be 1")
     }
 
     if (json) {
-      // deep reference: ?json=page.permalinks
+      // Example deep reference: ?json=page.permalinks.
       return res.json(get(context, req.query.json as string))
     } else {
-      // dump all the keys: ?json
+      // Example full key dump: ?json.
       return res.json({
         message:
           'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',

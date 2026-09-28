@@ -14,18 +14,14 @@ class AbortError extends Error {
 }
 
 export default function abort(req: ExtendedRequest, res: Response, next: NextFunction) {
-  // If the client aborts the connection, send an error
   req.once('aborted', () => {
-    // ignore aborts from next, usually has to do with webpack-hmr
+    // Ignore _next aborts, which usually come from webpack HMR.
     if (req.path.startsWith('/_next')) {
       return
     }
-    // NOTE: Node.js will also automatically set `req.aborted = true`
 
     const incrementTags = []
-    // Be careful with depending on attributes set on the `req` because
-    // under certain conditions the contextualizers might not yet have
-    // had a chance to run.
+    // Request contextualizers might not run before an abort, so guard optional request fields.
     if (req.pagePath) {
       incrementTags.push(`path:${req.pagePath}`)
     }
