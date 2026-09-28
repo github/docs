@@ -5,11 +5,27 @@
 @import "./stylesheets/images.scss";
 
 .markdownBody {
+  // Docs 2026: article body prose adopts the brand body font (Mona Sans, via
+  // --brand-body-fontFamily from @primer/react-brand). Base size stays 16px
+  // (@primer/css $h4-size); line-height matches the brand/Figma body spec.
+  font-family: var(--brand-body-fontFamily);
+  line-height: 1.6;
+
   :not(h1, h2, h3, h4, h5, h6, [role="tablist"]) {
     > a {
       text-decoration: underline;
       text-underline-offset: 25%;
     }
+  }
+
+  // Docs 2026: plain blockquotes (not converted to the .ghd-alert callout
+  // system by content-render/unified/alerts.ts) get a brand-aligned left rule
+  // + muted text. Kept visually distinct from .ghd-alert (which uses a colored
+  // 0.25em border + Octicon title).
+  blockquote {
+    border-left: var(--brand-borderWidth-thick, 2px) solid
+      var(--brand-color-border-default, #b6bfb8);
+    color: var(--brand-color-text-muted, #58635b);
   }
 
   summary {
@@ -58,7 +74,9 @@
 
   :global(.ghd-codetab-fallback-label) {
     margin-bottom: 0.75rem;
-    color: var(--fgColor-muted, #59636e);
+    // --fgColor-muted is undefined here, so this was a frozen #59636e in dark
+    // mode too. Brand's muted text is the counterpart (#656d76 -> #58635b).
+    color: var(--brand-color-text-muted, #58635b);
     font-size: 0.875rem;
     font-weight: 600;
   }

@@ -416,10 +416,11 @@
               "name": "Justice League",
               "description": "A great team.",
               "slug": "justice-league",
-              "url": "https://api.github.com/enterprises/dc/teams/justice-league",
+              "url": "https://api.github.com/enterprises/dc/teams/1",
               "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
               "html_url": "https://github.com/enterprises/dc/teams/justice-league",
-              "members_url": "https://api.github.com/enterprises/dc/teams/justice-league/members{/member}",
+              "members_url": "https://api.github.com/enterprises/dc/teams/1/memberships{/member}",
+              "members_count": 3,
               "created_at": "2019-01-26T19:01:12Z",
               "updated_at": "2019-01-26T19:14:43Z"
             },
@@ -472,6 +473,10 @@
                 "members_url": {
                   "type": "string"
                 },
+                "members_count": {
+                  "type": "integer",
+                  "description": "The number of members in the enterprise team."
+                },
                 "created_at": {
                   "type": "string",
                   "format": "date-time"
@@ -493,6 +498,7 @@
                 "id",
                 "url",
                 "members_url",
+                "members_count",
                 "name",
                 "html_url",
                 "slug",
@@ -805,6 +811,195 @@
     }
   ],
   "enterprise-team-members": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/members/{username}/teams",
+      "title": "List enterprise teams for a user",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-members",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "username",
+          "description": "<p>The handle for the GitHub user account.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists all enterprise teams that a user is a member of. This endpoint is available only for\nenterprises using the new enterprise teams experience.</p>\n<p>The authenticated user must be an enterprise owner or have the <code>enterprise_teams:read</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "username": "USERNAME"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "id": 1,
+                "name": "Justice League",
+                "description": "A great team.",
+                "slug": "justice-league",
+                "url": "https://api.github.com/enterprises/dc/teams/justice-league",
+                "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
+                "html_url": "https://github.com/enterprises/dc/teams/justice-league",
+                "members_url": "https://api.github.com/enterprises/dc/teams/justice-league/members{/member}",
+                "created_at": "2019-01-26T19:01:12Z",
+                "updated_at": "2019-01-26T19:14:43Z"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Enterprise Team",
+                "description": "Group of enterprise owners and/or members",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "slug": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "sync_to_organizations": {
+                    "type": "string",
+                    "description": "Retired: this field will not be returned with GHEC enterprise teams."
+                  },
+                  "organization_selection_type": {
+                    "type": "string"
+                  },
+                  "group_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "group_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Retired: this field will not be returned with GHEC enterprise teams."
+                  },
+                  "html_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "members_url": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "notification_setting": {
+                    "type": "string",
+                    "description": "Whether team members will receive notifications when the team is mentioned.",
+                    "enum": [
+                      "notifications_enabled",
+                      "notifications_disabled"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "url",
+                  "members_url",
+                  "name",
+                  "html_url",
+                  "slug",
+                  "created_at",
+                  "updated_at",
+                  "group_id"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",

@@ -29,3 +29,20 @@ After changing your password, you should perform these actions to make sure that
 * Make sure that no new deploy keys were created. This could enable outside servers access to your projects. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys).
 * Review recent commits made to your repositories.
 * Review the list of collaborators for each repository.
+
+{% ifversion fpt or ghec %}
+## Troubleshooting
+
+### Account is restricted after suspected compromise
+
+If {% data variables.product.github %} detects suspicious activity, your personal account may be temporarily restricted while you can still sign in. During this time, your profile URL, contribution graph, search visibility, or sensitive account actions may be unavailable. Alternatively, we may suspend the account for security reasons. If you’re unable to access your account at all, please contact {% data variables.contact.github_support %}.
+
+If you see restrictions on your account, complete the following steps to secure your account:
+
+1. Change your {% data variables.product.github %} password. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials#changing-an-existing-password).
+1. Review your security settings and remove unfamiliar apps, keys, and other credentials.
+1. Secure the email account associated with {% data variables.product.github %} and make sure you can access it.
+1. Check your inbox (and spam folder) for security emails from {% data variables.product.github %} and follow any instructions.
+
+If restrictions remain after you secure your account, contact {% data variables.contact.github_support %}.
+{% endif %}

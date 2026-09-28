@@ -91,7 +91,7 @@ For information on configuring the {% data variables.product.github %} MCP serve
 
     ![Screenshot of MCP server configuration in {% data variables.product.prodname_vscode %}. The "Start" button is outlined in dark orange. ](/assets/images/help/copilot/mcp-start-server-button.png)
 
-1. Open {% data variables.copilot.copilot_chat_short %} by clicking the {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} icon in the title bar of {% data variables.product.prodname_vscode %}.
+1. Open {% data variables.copilot.copilot_chat_short %} by clicking the chat icon in the title bar of {% data variables.product.prodname_vscode %}.
 1. In the {% data variables.copilot.copilot_chat_short %} box, select **Agent** from the popup menu.
 
     ![Screenshot of the {% data variables.copilot.copilot_chat_short %} box in {% data variables.product.prodname_vscode %}. The "Agent" option is outlined in dark orange.](/assets/images/help/copilot/copilot-chat-agent-option.png)

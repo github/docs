@@ -1,7 +1,6 @@
 import { decode } from 'html-entities'
 
 // Strip all HTML tags, leaving only text content.
-// Handles nested tags like `<p>text with <code>code</code></p>`.
 const TAG_RE = /<[^>]+>/g
 
 // Given a piece of HTML return it without HTML. E.g.

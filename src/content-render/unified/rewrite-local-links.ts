@@ -278,13 +278,11 @@ function getNewHref(node: LinkNode, languageCode: string, version: string): stri
     // start clean with no language (TOC pages already include the lang codes via lib/liquid-tags/link.ts)
     const hrefWithoutLang = getPathWithoutLanguage(url)
 
-    // normalize any legacy links so they conform to new link structure
     newHref = path.posix.join('/', languageCode, getNewVersionedPath(hrefWithoutLang))
 
-    // get the current version from the link
     const versionFromHref = getVersionStringFromPath(newHref)
 
-    // ------ BEGIN ONE-OFF OVERRIDES ------//
+    // One-off overrides:
     // desktop links always point to dotcom
     if (patterns.desktop.test(hrefWithoutLang)) {
       version = nonEnterpriseDefaultVersion
@@ -294,9 +292,7 @@ function getNewHref(node: LinkNode, languageCode: string, version: string): stri
     if (patterns.adminProduct.test(hrefWithoutLang) && version === nonEnterpriseDefaultVersion) {
       version = 'enterprise-cloud@latest'
     }
-    // ------ END ONE-OFF OVERRIDES ------//
 
-    // update the version in the link
     newHref = newHref.replace(versionFromHref, version)
   }
   newHref = removeFPTFromPath(newHref)

@@ -4,14 +4,12 @@ import { analyzeComment, getGuessedLanguage } from '../lib/analyze-comment'
 
 describe('analyzeComment', () => {
   test('email only', async () => {
-    // Yes
     {
       const { signals, rating } = await analyzeComment(' foo@example.com \n')
       expect(signals.includes('email-only')).toBeTruthy()
       expect(rating).toBeLessThan(1.0)
     }
 
-    // No
     {
       const { signals } = await analyzeComment('one@example.com\ntwo@example.com')
       expect(signals.includes('email-only')).toBeFalsy()
@@ -29,7 +27,6 @@ describe('analyzeComment', () => {
   })
 
   test('url only', async () => {
-    // Yes
     {
       const { signals, rating } = await analyzeComment(' https://github.com ')
       expect(signals.includes('url-only')).toBeTruthy()
@@ -43,7 +40,6 @@ describe('analyzeComment', () => {
       expect(rating).toBeLessThan(1.0)
     }
 
-    // No
     {
       const { signals } = await analyzeComment('https://example.com but more text')
       expect(signals.includes('url-only')).toBeFalsy()
@@ -55,7 +51,6 @@ describe('analyzeComment', () => {
   })
 
   test('numbers only', async () => {
-    // Yes
     {
       const { signals, rating } = await analyzeComment(' 1234 ')
       expect(signals.includes('numbers-only')).toBeTruthy()
@@ -67,7 +62,6 @@ describe('analyzeComment', () => {
       expect(rating).toBeLessThan(1.0)
     }
 
-    // No
     {
       const { signals } = await analyzeComment('123 fake street')
       expect(signals.includes('numbers-only')).toBeFalsy()
@@ -79,7 +73,6 @@ describe('analyzeComment', () => {
   })
 
   test('all uppercase', async () => {
-    // Yes
     {
       const { signals, rating } = await analyzeComment(' SHOUTING ')
       expect(signals.includes('all-uppercase')).toBeTruthy()
@@ -91,7 +84,6 @@ describe('analyzeComment', () => {
       expect(rating).toBeLessThan(1.0)
     }
 
-    // No
     {
       const { signals } = await analyzeComment('Not All Uppercase')
       expect(signals.includes('all-uppercase')).toBeFalsy()
@@ -99,7 +91,6 @@ describe('analyzeComment', () => {
   })
 
   test('too-short', async () => {
-    // Yes
     {
       const { signals, rating } = await analyzeComment('Oneword ')
       expect(signals.includes('too-short')).toBeTruthy()
@@ -121,7 +112,6 @@ describe('analyzeComment', () => {
       expect(rating).toBeLessThan(1.0)
     }
 
-    // No
     {
       const { signals } = await analyzeComment('A\nB\nC\nD')
       expect(signals.includes('too-short')).toBeFalsy()
@@ -133,7 +123,6 @@ describe('analyzeComment', () => {
   })
 
   test('single-word', async () => {
-    // Yes
     {
       const { signals, rating } = await analyzeComment('  Word ')
       expect(signals.includes('single-word')).toBeTruthy()
@@ -150,7 +139,6 @@ describe('analyzeComment', () => {
       expect(rating).toBeLessThan(1.0)
     }
 
-    // No
     {
       const { signals } = await analyzeComment('One two')
       expect(signals.includes('single-word')).toBeFalsy()
@@ -162,7 +150,6 @@ describe('analyzeComment', () => {
   })
 
   test('not-language', async () => {
-    // Yes
     {
       const { signals, rating } = await analyzeComment('Garçon')
       expect(signals.includes('not-language')).toBeTruthy()
@@ -175,7 +162,6 @@ describe('analyzeComment', () => {
       expect(rating).toBeLessThan(1.0)
     }
 
-    // No
     {
       const { signals } = await analyzeComment('english words longer sentence this time')
       expect(signals.includes('not-language')).toBeFalsy()
@@ -205,7 +191,6 @@ describe('analyzeComment', () => {
   })
 
   test('mostly-emoji', async () => {
-    // Yes
     {
       const { signals, rating } = await analyzeComment('Hello World\n 😆 😆 😆 😆 😆 😆\n')
       expect(signals.includes('mostly-emoji')).toBeTruthy()
@@ -217,7 +202,6 @@ describe('analyzeComment', () => {
       expect(rating).toBeLessThan(1.0)
     }
 
-    // No
     {
       const { signals } = await analyzeComment('Great 👍')
       expect(signals.includes('mostly-emoji')).toBeFalsy()
@@ -225,7 +209,6 @@ describe('analyzeComment', () => {
   })
 
   test('spammy-words', async () => {
-    // Yes
     {
       const { signals, rating } = await analyzeComment('Roblox free roblux')
       expect(signals.includes('spammy-words')).toBeTruthy()
@@ -237,7 +220,6 @@ describe('analyzeComment', () => {
       expect(rating).toBeLessThan(1.0)
     }
 
-    // No
     {
       const { signals } = await analyzeComment('GitHub is great!')
       expect(signals.includes('spammy-words')).toBeFalsy()
@@ -250,7 +232,6 @@ describe('analyzeComment', () => {
   })
 
   test('guessed-language', async () => {
-    // Yes
     {
       const guessedLanguage = await getGuessedLanguage('Garçon des la voituré')
       expect(guessedLanguage).toBe('fr')

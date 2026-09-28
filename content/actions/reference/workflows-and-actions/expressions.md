@@ -275,6 +275,8 @@ Creates a hash for all `.rb` files in the `lib` directory at root level, includi
 
 `hashFiles('/lib/**/*.rb', '!/lib/foo/*.rb')`
 
+{% ifversion fpt or ghec %}
+
 ### case
 
 `case( pred1, val1, pred2, val2, ..., default )`
@@ -312,6 +314,8 @@ env:
 {% endraw %}
 
 Sets `MY_ENV_VAR` based on the branch: `production` for `main`, `staging` for `staging`, `development` for branches starting with `feature/`, or `unknown` for all other branches.
+
+{% endif %}
 
 ## Status check functions
 
@@ -408,18 +412,18 @@ You may also use the `*` syntax on an object. For example, suppose you have an o
   "scallions":
   {
     "colors": ["green", "white", "red"],
-    "ediblePortions": ["roots", "stalks"],
+    "ediblePortions": ["roots", "stalks"]
   },
   "beets":
   {
     "colors": ["purple", "red", "gold", "white", "pink"],
-    "ediblePortions": ["roots", "stems", "leaves"],
+    "ediblePortions": ["roots", "stems", "leaves"]
   },
   "artichokes":
   {
     "colors": ["green", "purple", "red", "black"],
-    "ediblePortions": ["hearts", "stems", "leaves"],
-  },
+    "ediblePortions": ["hearts", "stems", "leaves"]
+  }
 }
 ```
 
@@ -430,7 +434,7 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 [
   ["roots", "stalks"],
   ["hearts", "stems", "leaves"],
-  ["roots", "stems", "leaves"],
+  ["roots", "stems", "leaves"]
 ]
 ```
 

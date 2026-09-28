@@ -75,8 +75,7 @@ async function getTopLevelOneOfProperty(
   return { properties, required }
 }
 
-// Gets the body parameters for a given schema recursively.
-// Helper function to handle oneOf fields where all items are objects
+// Handles a oneOf whose items are all objects. Returns [] for anything else.
 async function handleObjectOnlyOneOf(
   param: Schema,
   paramType: string[],
@@ -89,6 +88,7 @@ async function handleObjectOnlyOneOf(
   return []
 }
 
+// Gets the body parameters for a schema, recursively.
 export async function getBodyParams(schema: Schema, topLevel = false): Promise<TransformedParam[]> {
   const bodyParametersParsed: TransformedParam[] = []
   const schemaObject = schema.oneOf && topLevel ? await getTopLevelOneOfProperty(schema) : schema
@@ -133,15 +133,13 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
       : []
     const childParamsGroups: TransformedParam[] = []
 
-    // If the parameter is an array or object there may be child params
-    // If the parameter has oneOf or additionalProperties, they need to be
-    // recursively read too.
-
-    // There are a couple operations with additionalProperties, which allows
-    // the api to define input parameters with the type dictionary. These are the only
-    // two operations (at the time of adding this code) that use additionalProperties
-    // Create a snapshot of dependencies for a repository
-    // Update a gist
+    // An array or object parameter may have child params. Object-valued
+    // additionalProperties and object-only oneOf alternatives are read
+    // recursively; a mixed oneOf only contributes its types and descriptions.
+    //
+    // additionalProperties lets the API define a dictionary-typed input. When
+    // this was written only two operations used it: "Create a snapshot of
+    // dependencies for a repository" and "Update a gist".
     if (param.additionalProperties && additionalPropertiesType.includes('object')) {
       const keyParam: TransformedParam = {
         type: 'object',
@@ -188,12 +186,10 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
         childParamsGroups.push(...(await getBodyParams(param, false)))
       }
     } else if (param.oneOf) {
-      // Check if all oneOf items are objects - if so, treat this as a oneOfObject case
       const oneOfChildren = await handleObjectOnlyOneOf(param as Schema, paramType)
       if (oneOfChildren.length > 0) {
         childParamsGroups.push(...oneOfChildren)
       } else {
-        // Handle mixed types or non-object oneOf cases
         const descriptions: { type: string; description: string }[] = []
         for (const childParam of param.oneOf) {
           paramType.push(
@@ -287,8 +283,8 @@ async function getTransformedParam(
     paramDecorated.isRequired = true
   }
   if (childParamsGroups && childParamsGroups.length > 0 && !param.oneOfObject) {
-    // Since the allOf properties can have multiple duplicate properties we want to get rid of the duplicates with the same name, but keep the
-    // the one that has isRequired set to true.
+    // allOf can contribute the same property more than once. Drop the
+    // duplicates by name, keeping whichever one has isRequired set.
     const mergedChildParamsGroups = Array.from(
       childParamsGroups
         .reduce((childParam, obj) => {

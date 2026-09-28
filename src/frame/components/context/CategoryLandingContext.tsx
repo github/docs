@@ -32,7 +32,7 @@ export const useCategoryLandingContext = (): CategoryLandingContextT => {
   return context
 }
 
-// Request type for context extraction — uses Record<string, unknown> for the page
+// Request type for context extraction. Uses Record<string, unknown> for the page
 // because the Page type doesn't include all runtime-computed properties.
 interface ContextRequest {
   context: {

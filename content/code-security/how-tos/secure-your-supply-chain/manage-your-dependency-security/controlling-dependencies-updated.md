@@ -122,7 +122,7 @@ For pull requests for grouped updates, you can also use `@dependabot unignore` c
 * Un-ignore a specific dependency
 * Un-ignore all ignore conditions for all dependencies in a {% data variables.product.prodname_dependabot %} pull request
 
-For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/manage-dependabot-prs#managing-dependabot-pull-requests-for-grouped-updates-with-comment-commands).
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/manage-dependabot-prs#managing-dependabot-pull-requests-with-comment-commands).
 
 ## Allowing specific dependencies to be updated
 
@@ -212,7 +212,7 @@ Here are some examples showing how `update-types` can be used with `allow`.
          - dependency-type: "development"
            update-types:
              - "version-update:semver-minor"
-             - "version-update:semver-patch
+             - "version-update:semver-patch"
    ```
 
   In this example, production dependencies will only receive patch updates, while development dependencies will receive both minor and patch updates.
@@ -307,7 +307,6 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 20
-  rebase-strategy: "disabled"
   # Increase the version requirements for pip
   # only when required
   versioning-strategy: increase-if-necessary

@@ -55,7 +55,7 @@ const PagePathToVaFlowMapping: Record<string, string> = {
     'pages_ssl_check',
 }
 
-// Request type for context extraction — uses Record<string, unknown> for the page
+// Request type for context extraction. Uses Record<string, unknown> for the page
 // because the Page type doesn't include all runtime-computed properties.
 interface ContextRequest {
   context: {

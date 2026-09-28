@@ -1,6 +1,6 @@
 name: Check for Spammy Issues
 
-# **What it does**: This action closes low value pull requests in the open-source repository.
+# **What it does**: This action closes low value issues in the open-source repository.
 # **Why we have it**: We get lots of spam in the open-source repository.
 # **Who does it impact**: Open-source contributors.
 
@@ -17,16 +17,9 @@ jobs:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
 
             const issue = context.payload.issue
@@ -35,6 +28,9 @@ jobs:
 
             const titleWordCount = issue.title.trim().split(' ').length
             const titleWordCountMin = 3
+            const urlRegex = /https?:\/\/\S+/i
+            const titleHasUrl = urlRegex.test(issue.title)
+            const titleHasDollarSign = issue.title.includes('$')
 
             try {
               await github.rest.teams.getMembershipForUserInOrg({
@@ -50,7 +46,7 @@ jobs:
               // An error will be thrown if the user is not a GitHub employee
               // If a user is not a GitHub employee, we should check to see if title has at least the minimum required number of words in it and if it does, we can exit the workflow
 
-              if (titleWordCount >= titleWordCountMin) {
+              if (titleWordCount >= titleWordCountMin && !titleHasUrl && !titleHasDollarSign) {
                 return
               }
             }
@@ -74,7 +70,7 @@ jobs:
               owner: owner,
               repo: repo,
               issue_number: issue.number,
-              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title!`
+              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title! Make sure not to include full URLs in your issue titles, and use paths instead.`
             });
 
             // Add the issue to the Done column on the triage board

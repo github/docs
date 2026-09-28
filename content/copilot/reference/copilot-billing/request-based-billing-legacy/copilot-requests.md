@@ -45,7 +45,6 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 | [{% data variables.product.prodname_copilot_short %} code review](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review) | Each time {% data variables.product.prodname_copilot_short %} reviews a pull request (when assigned as a reviewer) or reviews code in your IDE, **13 premium requests** are consumed. | {% data variables.product.prodname_copilot_short %} premium requests |
 | [{% data variables.copilot.copilot_cloud_agent %}](/copilot/concepts/agents/cloud-agent/about-cloud-agent) | {% data variables.copilot.copilot_cloud_agent %} uses **one premium request** per session, multiplied by the model's rate. A session begins when you prompt {% data variables.product.prodname_copilot_short %} to undertake a task. In addition, each real-time steering comment made during an active session uses **one premium request** per session, multiplied by the model's rate. | {% data variables.copilot.copilot_cloud_agent %} premium requests |
 | [{% data variables.copilot.copilot_spaces %}](/copilot/concepts/context/spaces) | {% data variables.copilot.copilot_spaces %} uses **one premium request** per user prompt, multiplied by the model's rate. | {% data variables.product.prodname_copilot_short %} premium requests |
-| [{% data variables.product.prodname_spark_short %}](/copilot/tutorials/spark/build-apps-with-spark) | Each prompt to {% data variables.product.prodname_spark_short %} uses a fixed rate of **four premium requests**. | {% data variables.product.prodname_spark_short %} premium requests |
 | [{% data variables.product.prodname_openai_codex %} {% data variables.product.prodname_vscode %} integration](/copilot/concepts/agents/openai-codex) | While in preview, each prompt to {% data variables.product.prodname_openai_codex %} uses **one premium request** multiplied by the model multiplier rates. | {% data variables.product.prodname_copilot_short %} premium requests |
 | [Third-party coding agents](/free-pro-team@latest/copilot/concepts/agents/about-third-party-coding-agents) | While in preview, each prompt to a third-party coding agent uses **one premium request**, multiplied by the model's rate. | {% data variables.product.prodname_copilot_short %} premium requests |
 
@@ -62,7 +61,7 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 > [!NOTE]
 > Billing for premium requests began on June 18, 2025, for all paid {% data variables.product.prodname_copilot_short %} plans on {% data variables.product.prodname_dotcom_the_website %}, and on August 1, 2025, on {% data variables.enterprise.data_residency_site %}. The request counters were only set to zero for paid plans.
 
-If you're on a **paid plan**, you get unlimited inline suggestions. Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/usage-limits).
+If you're on a **paid plan**, you get unlimited inline suggestions. Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/billing-and-usage/individuals/usage-limits).
 
 Paid plans also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, inline suggestions using premium models, and other premium features.
 
@@ -87,7 +86,7 @@ Unused requests for the previous month do not carry over to the following month.
 >
 > * Users who subscribe, or have subscribed, to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} through {% data variables.product.prodname_mobile %} on iOS or Android.
 
-If you use all of your premium requests, you can still use {% data variables.product.prodname_copilot_short %} with one of the included models for the rest of the month. This is subject to change. Response times for the included models may vary during periods of high usage. Requests to the included models may be subject to rate limiting. See [AUTOTITLE](/copilot/concepts/usage-limits).
+If you use all of your premium requests, you can still use {% data variables.product.prodname_copilot_short %} with one of the included models for the rest of the month. This is subject to change. Response times for the included models may vary during periods of high usage. Requests to the included models may be subject to rate limiting. See [AUTOTITLE](/copilot/concepts/billing-and-usage/individuals/usage-limits).
 
 If you need more premium requests beyond your monthly allowance set a budget for additional premium requests or upgrade to a higher plan. See [AUTOTITLE](/billing/how-tos/set-up-budgets).
 

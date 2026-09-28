@@ -14,8 +14,7 @@ type WarmServerResult = {
   pageMap: Awaited<ReturnType<typeof loadPageMap>>
 }
 
-// Instrument these functions so that
-// it's wrapped in a timer that reports to Datadog
+// Wrap these functions in timers that report to Datadog.
 const dog = {
   loadUnversionedTree: statsd.asyncTimer(
     adaptForTimer(loadUnversionedTree),
@@ -28,7 +27,6 @@ const dog = {
   warmServer: statsd.asyncTimer(adaptForTimer(warmServer), 'warm_server'),
 }
 
-// For multiple-triggered Promise sharing
 let promisedWarmServer: Promise<WarmServerResult> | undefined
 
 async function warmServer(languagesOnly: string[] = []): Promise<WarmServerResult> {
@@ -93,10 +91,6 @@ async function warmServer(languagesOnly: string[] = []): Promise<WarmServerResul
     pageMap,
   }
 }
-
-// Instrument the `warmServer` function so that
-// it's wrapped in a timer that reports to Datadog
-// dog.warmServer = statsd.asyncTimer(warmServer, 'warm_server') as typeof warmServer
 
 // We only want statistics if the priming needs to occur, so let's wrap the
 // real method and return early [without statistics] whenever possible

@@ -16,7 +16,7 @@ category:
 
 ## About unexpected license usage
 
-If the number of consumed licenses for your enterprise is unexpected, you can review your consumed license report to audit your license usage across all your enterprise deployments and subscriptions. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage) and [AUTOTITLE](/billing/reference/enterprise-license-troubleshooting).
+If the number of consumed licenses for your enterprise is unexpected, you can review your consumed license report to audit your license usage across all your enterprise deployments and subscriptions. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage) and [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/reference/enterprise-license-troubleshooting).
 
 > [!NOTE] For privacy reasons, enterprise owners cannot directly access the details of user accounts unless you use {% data variables.product.prodname_emus %}.
 
@@ -33,7 +33,7 @@ To ensure that each user is only consuming a single {% ifversion enterprise-lice
    > [!NOTE]
    > To make troubleshooting easier, we recommend using verified domains with your enterprise account on {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).
 
-1. After you identify users who are consuming multiple {% ifversion enterprise-licensing-language %}licenses{% else %}seats{% endif %}, make sure that the same email address is associated with all of the user's accounts. For more information about which email addresses must match, see [AUTOTITLE](/billing/reference/enterprise-license-troubleshooting).
-1. If an email address was recently updated or verified to correct a mismatch, view the timestamp of the last license sync job. If a job hasn't run since the correction was made, manually trigger a new job. For more information, see [AUTOTITLE](/billing/how-tos/manage-server-licenses/sync-license-usage).
+1. After you identify users who are consuming multiple {% ifversion enterprise-licensing-language %}licenses{% else %}seats{% endif %}, make sure that the same email address is associated with all of the user's accounts. For more information about which email addresses must match, see [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/reference/enterprise-license-troubleshooting).
+1. If an email address was recently updated or verified to correct a mismatch, view the timestamp of the last license sync job. If a job hasn't run since the correction was made, manually trigger a new job. For more information, see [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/how-tos/manage-server-licenses/sync-license-usage).
 
 If you still have questions about your consumed licenses after reviewing the troubleshooting information above, you can contact {% data variables.contact.github_support %} through the {% data variables.contact.contact_enterprise_portal %}.

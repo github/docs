@@ -2,7 +2,7 @@ import chalk from 'chalk'
 import { readFile } from 'fs/promises'
 import { allVersions } from '@/versions/lib/all-versions'
 
-// Translate the docs versioning nomenclature back to the OpenAPI names
+// Map docs version names back to OpenAPI names.
 const invertedVersionMapping = JSON.parse(
   await readFile('src/rest/lib/config.json', 'utf8'),
 ).versionMapping

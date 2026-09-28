@@ -1,5 +1,5 @@
 import { createElement, ReactNode } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import styles from './Alert.module.scss'
 import { InfoIcon, ReportIcon, AlertIcon, LightBulbIcon, StopIcon } from '@primer/octicons-react'
 import { useTranslation } from '@/languages/components/useTranslation'

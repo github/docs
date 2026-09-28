@@ -9,6 +9,8 @@ redirect_from:
 category:
   - Track assignment progress
 ---
+{% data reusables.classroom.closing-down-notice %}
+
 ## About autograding
 
 Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.location.product_location %}.
@@ -27,4 +29,4 @@ You can click a specific test run to review log output, like compilation errors 
 
 ## Further reading
 
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)
+* [AUTOTITLE](/pull-requests/reference/status-checks)

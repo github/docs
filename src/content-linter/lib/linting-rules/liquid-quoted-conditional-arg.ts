@@ -8,7 +8,7 @@ import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
 
 /*
   Checks for instances where a Liquid conditional tag's argument is
-   quoted because it will always evaluate to true.
+  quoted because it will always evaluate to true.
 
   For example, the following would be flagged:
   {% if "foo" %}

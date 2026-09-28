@@ -44,7 +44,7 @@ In order to use grouped security updates, you must first enable the following fe
 
 * **Dependency graph**. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/enable-dependency-graph).
 * **{% data variables.product.prodname_dependabot_alerts %}**. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-dependabot-alerts).
-* **{% data variables.product.prodname_dependabot_security_updates %}**. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates#managing-for-your-repositories).
+* **{% data variables.product.prodname_dependabot_security_updates %}**. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configure-security-updates#managing-dependabot-security-updates-for-your-repositories).
 
 > [!NOTE]
 > When grouped security updates are first enabled, {% data variables.product.prodname_dependabot %} will immediately try to create grouped pull requests. You may notice {% data variables.product.prodname_dependabot %} closing old pull requests and opening new ones.

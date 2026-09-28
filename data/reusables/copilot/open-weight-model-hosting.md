@@ -1,1 +1,1 @@
-These models are hosted on US-based Azure AI Foundry infrastructure managed by {% data variables.product.github %} and Microsoft. Customer prompts and responses are not sent to the original model developers.
+Hosting differs by model and is described in the sections below. Customer prompts and responses are not sent to the original model developers.

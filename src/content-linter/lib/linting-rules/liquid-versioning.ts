@@ -22,7 +22,7 @@ type AllFeatures = Record<string, Feature>
 const allShortnames: string[] = Object.keys(allVersionShortnames)
 const getAllPossibleVersionNames = memoize((): Set<string> => {
   // This function might appear "slow" but it's wrapped in a memoizer
-  // so it's only every executed once for all files that the
+  // so it's only ever executed once for all files that the
   // Liquid linting rule functions on.
   // The third argument passed to getDeepDataByLanguage() is only
   // there for the sake of being able to write a unit test on these
@@ -109,7 +109,7 @@ export const liquidIfVersionTags = {
           lineNumber,
           ifVersionErrors.join('. '),
           token.content,
-          null, // getRange(token.content, args),
+          null,
           null, // No fix possible
         )
       }
@@ -122,7 +122,8 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
 
   const errors: string[] = []
 
-  // Where `cond` is an array of strings, where each string may have one of the following space-separated formats:
+  // `cond` is a string of conditions joined by ` or ` / ` and `. Each condition
+  // has one of the following space-separated formats:
   // * Length 1: `<version>` (example: `fpt`)
   // * Length 2: `not <version>` (example: `not ghae`)
   // * Length 3: `<version> <operator> <release>` (example: `ghes > 3.0`)
@@ -176,10 +177,9 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
         )
       }
       // Check that the versions in conditionals are supported
-      // versions of GHES or the first deprecated version. Allowing
-      // the first deprecated version to exist in code ensures
-      // allows us to deprecate the version before removing
-      // the old liquid content.
+      // versions of GHES or the first deprecated version. Allowing the first
+      // deprecated version to exist in code lets us deprecate a version before
+      // removing the old Liquid content.
       if (
         !(
           supported.includes(release) ||

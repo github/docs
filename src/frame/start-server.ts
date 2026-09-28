@@ -33,7 +33,6 @@ export async function main() {
 }
 
 async function checkPortAvailability() {
-  // Check that the development server is not already running
   const portInUse = await tcpPortUsed.check(port)
   if (portInUse) {
     logger.error('Port is not available. You may already have a server running.', { port })

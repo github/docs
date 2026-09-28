@@ -1,6 +1,5 @@
 import { existsSync } from 'fs'
-import { writeFile } from 'fs/promises'
-import { mkdirp } from 'mkdirp'
+import { mkdir, writeFile } from 'fs/promises'
 import path from 'path'
 
 import type {
@@ -14,21 +13,15 @@ import type {
 // this write-path module doesn't pull in the request-path lib/index.ts.
 const AUDIT_LOG_DATA_DIR = 'src/audit-logs/data'
 
-// Builds the deduplicated "shared" format (entries pool + fields pool +
-// version index) from in-memory audit log data and writes it to disk.
-//
-// Output is deterministic: versions and pages are iterated in sorted order so
-// that the same input always produces byte-identical files. This lets the sync
-// pipeline (sync.ts) and the standalone rebuild script (rebuild-dedup.ts)
-// produce the exact same files, so the two can never drift apart.
+// Sort versions and pages so sync.ts and rebuild-dedup.ts write byte-identical
+// shared files from the same audit log data.
 export async function writeDeduplicatedAuditLogData(
   auditLogData: VersionedAuditLogData,
 ): Promise<void> {
   console.log(`\n▶️  Writing deduplicated audit log data...\n`)
 
-  // Build fields pool: unique fields arrays
   const fieldsPool: string[][] = []
-  const fieldsMap = new Map<string, number>() // JSON key → index
+  const fieldsMap = new Map<string, number>()
 
   function getFieldsIndex(fields: string[] | undefined): number | undefined {
     if (!fields || fields.length === 0) return undefined
@@ -40,9 +33,8 @@ export async function writeDeduplicatedAuditLogData(
     return index
   }
 
-  // Build entries pool: unique events (with fields replaced by index)
   const entriesPool: DeduplicatedAuditLogEntry[] = []
-  const entriesMap = new Map<string, number>() // JSON key → index
+  const entriesMap = new Map<string, number>()
 
   function getEntryIndex(event: AuditLogEventT): number {
     const fieldsIndex = getFieldsIndex(event.fields)
@@ -62,8 +54,6 @@ export async function writeDeduplicatedAuditLogData(
     return index
   }
 
-  // Build version index. Iterate versions and pages in sorted order so the
-  // output is deterministic regardless of the input's insertion order.
   const versionIndex: AuditLogVersionIndex = {}
   let totalEntries = 0
 
@@ -77,10 +67,9 @@ export async function writeDeduplicatedAuditLogData(
     }
   }
 
-  // Write shared files
   const sharedDir = path.join(AUDIT_LOG_DATA_DIR, 'shared')
   if (!existsSync(sharedDir)) {
-    await mkdirp(sharedDir)
+    await mkdir(sharedDir, { recursive: true })
   }
 
   await writeFile(path.join(sharedDir, 'entries.json'), JSON.stringify(entriesPool))

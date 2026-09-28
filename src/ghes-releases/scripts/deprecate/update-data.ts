@@ -36,7 +36,6 @@ export function updateDataFiles() {
 function updateReusableData() {
   const deletedDataFiles = []
 
-  // Remove empty reusables
   for (const file of dataReusables) {
     const oldContents = fs.readFileSync(file, 'utf8').trim()
     if (oldContents === '') {
@@ -71,10 +70,9 @@ function updateReusableData() {
   }
 }
 
-// Removes deprecated data/feature files and outputs a list
-// of data/features available in all versions - this list
-// is currently only used used for reviewing purposes when
-// deprecating a GHES release
+// Removes deprecated data/feature files and outputs a list of data/features
+// available in all versions. That list is only used for review during a GHES
+// deprecation.
 function updateFeatureData() {
   const allFeatureFiles = new Set()
 

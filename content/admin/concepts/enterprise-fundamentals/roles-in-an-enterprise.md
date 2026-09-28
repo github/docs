@@ -38,7 +38,3 @@ To follow the principle of least privilege access, we recommend using custom rol
 Enterprise owners can create custom enterprise roles and assign enterprise roles to users and teams. They can also create custom organization roles to be used across organizations, but these roles can only be assigned by organization owners.
 
 Organization owners can grant organization roles and create custom organization roles, but cannot edit roles or change role assignments that are defined at the enterprise level.
-
-## Next steps
-
-Now that you understand roles, plan which roles will be required for your teams to do their jobs on {% data variables.product.github %}. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements).

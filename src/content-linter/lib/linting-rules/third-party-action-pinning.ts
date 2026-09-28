@@ -9,7 +9,6 @@ import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '@/conte
 const actionRegex = /[\w-]+\/[\w-]+@[\w-]+/
 // Detects a full-length commit SHA (40 hexadecimal characters)
 const shaRegex = /[\w-]+\/[\w-]+@[0-9a-fA-F]{40}/
-// Detects first-party actions
 const firstPartyPrefixes = ['actions/', './.github/actions/', 'github/', 'octo-org/', 'OWNER/']
 
 interface WorkflowStep {

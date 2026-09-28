@@ -69,7 +69,7 @@ This error indicates that a {% data variables.product.pat_generic %} you provide
 Failures that include a `401` status code usually indicate that the {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} does not have the required scopes. Verify the scopes on the {% data variables.product.pat_generic %}s you provided. For more information about required scopes, see the appropriate article for your migration path.
 
    {% ifversion fpt or ghec %}
-   * [AUTOTITLE](/migrations/ado/manage-access#required-scopes-for-personal-access-tokens)
+   * [AUTOTITLE](/migrations/ado/manage-access)
    {% endif %}
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)
@@ -86,7 +86,7 @@ First, try excluding releases from the migration by using the `--skip-releases` 
 
 If that doesn't work, we'd recommend upgrading to {% data variables.product.prodname_ghe_server %} 3.8.0 or later. If you're unable to upgrade, another option is to generate your repository archives manually using `ghe-migrator`:
 
-1. Generate a migration archive for your repository. You must only export one repository at a time. For instructions, see [Exporting migration data from your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest{% endif %}/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+1. Generate a migration archive for your repository. You must only export one repository at a time. For instructions, see [Exporting migration data from your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest{% endif %}/migrations/using-ghe-migrator/exporting-migration-data-from-github-enterprise-server){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 1. Upload your migration archive to your choice of blob storage provider.
 1. Generate a short-lived URL for your migration archive which is accessible to {% data variables.product.prodname_dotcom %}, such as an AWS S3 pre-signed URL or Azure Blob Storage SAS URL.
 1. Call the `migrate-repo` command with the `--git-archive-url` and `--metadata-archive-url` flags both set to the URL of your archive from the previous step.
@@ -131,7 +131,7 @@ You can temporarily disable your rulesets during your migration, or you can use 
 
 ### `Your push would publish a private email address` error
 
-If you receive a `Git source migration failed` error with `GH007: Your push would publish a private email address`, the Git source you're trying to migrate includes commits authored by an email address that you have blocked from being pushed to {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE]({% ifversion not fpt or ghec %}/enterprise-cloud@latest{% endif %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address){% ifversion fpt or ghec %}.{% else %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+If you receive a `Git source migration failed` error with `GH007: Your push would publish a private email address`, the Git source you're trying to migrate includes commits authored by an email address that you have blocked from being pushed to {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE]({% ifversion not fpt or ghec %}/enterprise-cloud@latest{% endif %}/account-and-profile/how-tos/email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address){% ifversion fpt or ghec %}.{% else %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 To resolve this error, you can either rewrite the Git history to remove the email address, or you can disable the "Block command line pushes that expose my email" setting.
 
@@ -192,7 +192,7 @@ After a migration, you may find that your source or destination repositories are
 
 The process for unlocking a repository depends on the {% data variables.product.prodname_dotcom %} product where the repository is stored.
 
-* If the locked repository is on {% data variables.product.prodname_ghe_server %}, a site administrator can unlock the repository using the site admin dashboard. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+* If the locked repository is on {% data variables.product.prodname_ghe_server %}, a site administrator can unlock the repository using the site admin dashboard. For more information, see [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}.{% else %} in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 * If the locked repository is on {% data variables.product.prodname_dotcom_the_website %}, you can contact {% data variables.contact.contact_support %} to unlock the repository.
 
 > [!NOTE]

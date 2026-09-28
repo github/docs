@@ -28,6 +28,12 @@ Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file ex
 
 You must store workflow files in the `.github/workflows` directory of your repository.
 
+{% ifversion copilot %}
+
+> [!TIP]
+> Unlike traditional {% data variables.product.prodname_actions %} workflows that require you to script every decision as YAML job steps, {% data variables.copilot.github_agentic_workflows %} use YAML frontmatter for triggers and configuration, but let you describe what you want in natural-language Markdown—so you don't need to anticipate and encode every scenario in advance. For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
 ## `name`
 
 {% data reusables.actions.workflows.workflow-syntax-name %}
@@ -71,6 +77,68 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 ### Example: Including and excluding branches
 
 {% data reusables.actions.workflows.triggering-workflow-branches4 %}
+
+## `on.merge_group.<branches|branches-ignore>`
+
+When using the `merge_group` event, you can configure a workflow to run only for merge groups that target specific branches.
+
+Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch name patterns. Use `branches-ignore` when you only want to exclude branch name patterns. You cannot use both `branches` and `branches-ignore` for the same event in a workflow.
+
+The `branches` and `branches-ignore` filters accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to escape each of these special characters with `\`. For more information about glob patterns, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
+
+### Example: Including branches
+
+The patterns defined in `branches` are evaluated against the target branch's name. For example, the following workflow will run whenever there is a `merge_group` event for a merge group that targets:
+
+* A branch named `main`
+* A branch whose name starts with `releases/`
+
+```yaml
+on:
+  merge_group:
+    types: [checks_requested]
+    branches:
+      - main
+      - 'releases/**'
+```
+
+### Example: Excluding branches
+
+When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches-ignore` are evaluated against the target branch's name. For example, the following workflow will run whenever there is a `merge_group` event unless the merge group targets:
+
+* A branch named `canary`
+* A branch whose name matches `releases/**-alpha`, like `releases/beta/3-alpha` <!-- markdownlint-disable-line outdated-release-phase-terminology -->
+
+```yaml
+on:
+  merge_group:
+    types: [checks_requested]
+    branches-ignore:
+      - canary
+      - 'releases/**-alpha'
+```
+
+### Example: Including and excluding branches
+
+You cannot use `branches` and `branches-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+
+If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead.
+
+The order that you define patterns matters.
+
+* A matching negative pattern (prefixed with `!`) after a positive match will exclude the branch.
+* A matching positive pattern after a negative match will include the branch again.
+
+The following workflow will run on `merge_group` events for merge groups that target `releases/10` or `releases/beta/mona`, but not for merge groups that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern. <!-- markdownlint-disable-line outdated-release-phase-terminology -->
+
+```yaml
+on:
+  merge_group:
+    types: [checks_requested]
+    branches:
+      - 'releases/**'
+      - '!releases/**-alpha'
+```
 
 ## `on.push.<branches|tags|branches-ignore|tags-ignore>`
 
@@ -277,7 +345,7 @@ The value of this parameter is a string specifying the data type of the input. T
 
 {% data reusables.actions.forked-write-permission %}
 
-## How permissions are calculated for a workflow job
+### How permissions are calculated for a workflow job
 
 The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request event other than `pull_request_target` from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
 
@@ -291,7 +359,7 @@ You can specify `permissions` at the top level of a workflow, so that the settin
 
 ### Using the `permissions` key for forked repositories
 
-You can use the `permissions` key to add and remove `read` permissions for forked repositories, but typically you can't grant `write` access. The exception to this behavior is where an admin user has selected the **Send write tokens to workflows from pull requests** option in the {% data variables.product.prodname_actions %} settings. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks).
+You can use the `permissions` key to add and remove `read` permissions for forked repositories, but typically you can't grant `write` access. The exception to this behavior is where an admin user has selected the **Send write tokens to workflows from pull requests** option in the {% data variables.product.prodname_actions %} settings. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories).
 
 ### Permissions for workflow runs triggered by {% data variables.product.prodname_dependabot %}
 
@@ -331,6 +399,46 @@ env:
 ## `concurrency`
 
 {% data reusables.actions.jobs.section-using-concurrency %}
+
+{% ifversion actions-cache-mode %}
+
+## `cache-mode`
+
+Use `cache-mode` to control the level of {% data variables.product.prodname_actions %} cache access that jobs in the workflow are granted. Setting `cache-mode` at the top level applies to every job in the workflow, unless a job overrides it with [`jobs.<job_id>.cache-mode`](#jobsjob_idcache-mode).
+
+Access is enforced with scoped cache tokens, so a job cannot restore or save caches beyond the mode it is granted. `cache-mode` accepts the following values.
+
+| Value | Restore caches | Save caches |
+| ----- | -------------- | ----------- |
+| `read` | Yes | No |
+| `write` | Yes | Yes |
+| `write-only` | No | Yes |
+| `none` | No | No |
+
+If you omit `cache-mode`, a `read` or `write` default is used based on the trigger type. For trigger-dependent effective defaults, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#defaults).
+
+> [!WARNING]
+> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#bypassing-the-default-untrusted-trigger-cache-restriction).
+
+When a cache operation is not permitted by the effective mode, the cache step logs an informational message and continues. The job and workflow do not fail. A skipped restore is treated as a cache miss; a skipped save is simply not performed. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#controlling-cache-access-with-cache-mode).
+
+### Example of `cache-mode`
+
+```yaml
+cache-mode: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-cache %}
+        with:
+          path: ~/.npm
+          key: {% raw %}npm-${{ hashFiles('**/package-lock.json') }}{% endraw %}
+```
+
+{% endif %}
 
 ## `jobs`
 
@@ -401,6 +509,33 @@ env:
 ## `jobs.<job_id>.concurrency`
 
 {% data reusables.actions.jobs.section-using-concurrency-jobs %}
+
+{% ifversion actions-cache-mode %}
+
+## `jobs.<job_id>.cache-mode`
+
+Use `jobs.<job_id>.cache-mode` to set the level of {% data variables.product.prodname_actions %} cache access for a single job. A value set here overrides any workflow-level [`cache-mode`](#cache-mode) for this job only.
+
+The accepted values are `read`, `write`, `write-only`, and `none`, with the same meanings as the top-level key. If neither the job nor the workflow sets `cache-mode`, a trigger-based default applies. For more information about each value, see [`cache-mode`](#cache-mode) and [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#defaults).
+
+> [!WARNING]
+> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#bypassing-the-default-untrusted-trigger-cache-restriction).
+
+You can also set `cache-mode` on a job that calls a reusable workflow to limit the cache access granted to the called workflow. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/reusing-workflow-configurations#supported-keywords-for-jobs-that-call-a-reusable-workflow) and [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows#controlling-cache-access-in-reusable-workflows).
+
+### Example of `jobs.<job_id>.cache-mode`
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    cache-mode: write
+  test:
+    runs-on: ubuntu-latest
+    cache-mode: read
+```
+
+{% endif %}
 
 ## `jobs.<job_id>.outputs`
 
@@ -549,7 +684,7 @@ We strongly recommend that you include the version of the action you are using b
 
 Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
-Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
+Actions can be JavaScript, composite, or Docker container actions. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
 
 ### Example: Using versioned actions
 
@@ -597,11 +732,42 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
+### Example: Using an action in the same repository as the workflow at the running commit (recommended)
+
+`$/path/to/action`
+
+The `$/` prefix is the self repository reference. It references an action stored in the same repository as the workflow or action that is currently running, and resolves to that repository at the running commit (the same SHA as the running workflow or action). You do not need to check out the repository first, so it is the recommended way to reference an action within its own repository.
+
+The `$/` syntax is not available in {% data variables.product.prodname_ghe_server %}.
+
+A `$/` reference must not include an `@{ref}` suffix. The ref is always the commit the running workflow or action is using, so a reference such as `$/actions/my-action@v1` is invalid.
+
+`$/` always resolves against the repository of the file it appears in, not the repository that called it. For example, if a reusable workflow in one repository is called by a workflow in another repository, a `$/` reference in the called workflow resolves to the called workflow's repository, not the calling workflow's repository. This makes `$/` reliable for action composition, where a relative `./` path would instead resolve against whatever is checked out in the caller's workspace. For using `$/` in a composite action's steps, see [AUTOTITLE](/actions/reference/workflows-and-actions/metadata-syntax#runsstepsuses).
+
+The following table compares the ways to reference an action.
+
+| Syntax | Resolves to | Recommended for |
+| ------ | ----------- | --------------- |
+| `$/path/to/action` | The same repository as the running workflow or action, at the running commit | Actions in the same repository |
+| `{owner}/{repo}@{ref}` | The specified repository at the specified ref | Actions in another repository |
+| `./path/to/action` | A path in the runner's checked-out workspace, relative to the default working directory (`{% raw %}${{ github.workspace }}{% endraw %}`) | Edge cases only |
+
+```yaml
+on: [push]
+
+jobs:
+  my_first_job:
+    runs-on: ubuntu-latest
+    steps:
+      # References an action in the same repository at the running commit
+      - uses: $/.github/actions/hello-world-action
+```
+
 ### Example: Using an action in the same repository as the workflow
 
 `./path/to/dir`
 
-The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action.
+The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action, and the `./` path resolves against the runner's workspace rather than the repository of the running workflow. For most cases, use the `$/` syntax shown above instead.
 
 {% data reusables.actions.workflows.section-referencing-an-action-from-the-same-repository %}
 
@@ -653,7 +819,7 @@ jobs:
 
 ### Example: Using an action inside a different private repository than the workflow
 
-If the action is in an internal repository, or in a private repository configured to allow access from your workflow's repository, you can reference the action directly. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
+If the action is in an internal repository, or in a private repository configured to allow access from your workflow's repository, you can reference the action directly. For more information, see {% ifversion ghes or ghec %}[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% else %}[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository){% endif %} and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
 
 If the action isn't in a repository configured to allow access, you need to check out the repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. The following example shows this method for referencing an action. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
@@ -1059,7 +1225,7 @@ The group above is equivalent to declaring each step with `background: true` fol
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
 
-If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see [AUTOTITLE](/actions/concepts/billing-and-usage#usage-limits) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/reference/limits) for self-hosted runner usage limits.
+If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see [AUTOTITLE](/actions/concepts/billing-and-usage#usage-limits-and-policy) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/reference/limits) for self-hosted runner usage limits.
 
 > [!NOTE]
 > {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token).
@@ -1075,6 +1241,8 @@ Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configur
 A matrix will generate a maximum of 256 jobs per workflow run. This limit applies to both {% data variables.product.github %}-hosted and self-hosted runners.
 
 The variables that you define become properties in the `matrix` context, and you can reference the property in other areas of your workflow file. In this example, you can use `matrix.version` and `matrix.os` to access the current value of `version` and `os` that the job is using. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts).
+
+{% data reusables.actions.workflows.matrix-keys-are-case-insensitive %}
 
 By default, {% data variables.product.github %} will maximize the number of jobs run in parallel depending on runner availability. The order of the variables in the matrix determines the order in which the jobs are created. The first variable you define will be the first job that is created in your workflow run.
 

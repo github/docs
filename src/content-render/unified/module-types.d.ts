@@ -1,13 +1,3 @@
-/**
- * Type declarations for modules without TypeScript definitions
- */
-
-declare module 'remark-gemoji-to-emoji' {
-  import type { Plugin } from 'unified'
-  const plugin: Plugin
-  export default plugin
-}
-
 declare module 'remark-remove-comments' {
   import type { Plugin } from 'unified'
   const plugin: Plugin

@@ -58,13 +58,13 @@ For help determining the correct upgrade path, use the [{% data variables.enterp
 For instances configured with high availability or clustering, the key must be rotated on every node.
 
 1. Connect to any node in your HA or cluster installation via SSH.
-1. Download the rotation script provided by {% data variables.product.company_short %}.
+1. Download the rotation script provided by {% data variables.product.company_short %} on every node.
 
    ```shell
-   curl -fsSL https://enterprise.github.com/security/2026-05-24/rotate-gpg.sh -o rotate-gpg.sh
+   ghe-cluster-each -- "curl -fsSL https://enterprise.github.com/security/2026-05-24/rotate-gpg.sh -o rotate-gpg.sh"
    ```
 
-1. Run the following commands. The `ghe-cluster-each` command copies the script to all nodes and runs it on all nodes.
+1. Run the script twice on every node, once as the `admin` user and once with `sudo`.
 
    ```shell
    ghe-cluster-each -- chmod ug+x ./rotate-gpg.sh

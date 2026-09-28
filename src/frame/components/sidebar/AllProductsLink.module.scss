@@ -1,0 +1,7 @@
+// The "back to home" link. Replaces primer/css's `Link--primary` and
+// `color-fg-default`, which both paint Primer's #e6edf3 in dark mode rather than
+// brand's #ffffff; both carry `!important`, so the classes have to go rather than be
+// overridden.
+.allProductsLink {
+  color: var(--brand-color-text-default);
+}

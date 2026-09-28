@@ -1,3 +1,78 @@
-.groupIcon {
-  height: 22px;
+// A single "All Docs" grid cell: category heading at the top, product links
+// top-aligned directly beneath it. Internal dividers come from the cell's left
+// border, skipped on the first column of each row, plus bottom row dividers.
+// Each breakpoint re-applies the left border and clears its first column.
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2.25rem;
+  padding: 2rem;
+  border-bottom: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-muted);
+
+  border-left: 0;
+
+  @media (min-width: 34rem) {
+    border-left: var(--brand-borderWidth-thin, 1px) solid
+      var(--brand-color-border-muted);
+
+    &:nth-child(2n + 1) {
+      border-left: 0;
+    }
+  }
+
+  @media (min-width: 63.25rem) {
+    &:nth-child(n) {
+      border-left: var(--brand-borderWidth-thin, 1px) solid
+        var(--brand-color-border-muted);
+    }
+
+    &:nth-child(3n + 1) {
+      border-left: 0;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    &:nth-child(n) {
+      border-left: var(--brand-borderWidth-thin, 1px) solid
+        var(--brand-color-border-muted);
+    }
+
+    &:nth-child(4n + 1) {
+      border-left: 0;
+    }
+  }
+}
+
+.groupName {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--brand-color-text-default);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.linkList li {
+  min-height: 1rem;
+}
+
+.link {
+  display: block;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

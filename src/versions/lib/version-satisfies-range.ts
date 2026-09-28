@@ -1,21 +1,15 @@
 import semver from 'semver'
 
-// Where "release" is a release number, like `3.1` for Enterprise Server,
-// and "range" is a semver range operator with another number, like `<=3.2`.
+// Release is a GHES release such as 3.1; range is a semver range such as <=3.2.
 export default function versionSatisfiesRange(release: string | undefined, range: string): boolean {
-  // Handle undefined release
   if (!release) {
     return false
   }
 
-  // workaround for Enterprise Server 11.10.340 because we can't use semver to
-  // compare it to 2.x like we can with 2.0+
+  // Enterprise Server 11.10.340 predates semver-compatible 2.x, so only less-than ranges match.
   if (release === '11.10.340') return range.startsWith('<')
 
-  // If the release is '*', we want it to evaluate to false against the range 'next'
-  // but to true against itself ('*'). Unfortunately by default it will evaluate to
-  // true against 'next'. So we have to do a hack here and replace it with a
-  // dummy value of '1.0', which will get the results we want.
+  // Treat wildcard as 1.0 so it matches wildcard ranges and not next.
   if (release === '*') {
     release = '1.0'
   }

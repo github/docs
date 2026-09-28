@@ -21,7 +21,6 @@ export async function getViews(
   }
 
   const data = JSON.parse(results.primaryResults[0].toString()).data[0]
-  // Extract Views
   const views = data.Views
   return views.toLocaleString()
 }

@@ -41,20 +41,16 @@ async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   return (await pageRenderTimed(context)) as string
 }
 
-/**
- * Spike for #6619 (remove dangerouslySetInnerHTML): produce the article body as
- * a serializable hast (HTML AST) tree alongside the legacy HTML string.
- *
- * Must run AFTER buildRenderedPage, which calls page.render and populates the
- * context fields the pipeline reads (englishHeadings, alertTitles). We render
- * the same raw `page.markdown`, but with a context clone that omits
- * `collectMiniToc` so the mini-TOC isn't collected a second time.
- *
- * Wrapped so a hast failure can never break the page: the React layer falls
- * back to the string path when this is undefined. NOTE: this currently renders
- * the body pipeline twice; the production design (see #6619 plan) should produce
- * hast once and derive the string from it.
- */
+// Spike for #6619: produce the article body as a serializable hast (HTML AST)
+// tree alongside the legacy HTML string.
+//
+// Must run AFTER buildRenderedPage, which calls page.render and populates the
+// context fields the pipeline reads (englishHeadings, alertTitles). We render
+// the same raw `page.markdown`, but with a context clone that omits
+// `collectMiniToc` so the mini-TOC isn't collected a second time.
+//
+// Wrapped so a hast failure can never break the page. The React layer falls
+// back to the string path when this is undefined.
 async function buildRenderedPageHast(req: ExtendedRequest) {
   const { context } = req
   if (!context) throw new Error('request not contextualized')
@@ -95,10 +91,8 @@ function buildMiniTocItems(req: ExtendedRequest) {
 export default async function renderPage(req: ExtendedRequest, res: Response) {
   const { context } = req
 
-  // This is a contextualizing the request so that when this `req` is
-  // ultimately passed into the `Error.getInitialProps` function,
-  // which NextJS executes at runtime on errors, so that we can
-  // from there send the error to Failbot.
+  // `Error.getInitialProps`, which NextJS runs on errors, reads this off the
+  // request so it can send the error to Failbot.
   req.FailBot = FailBot as Failbot
 
   if (!context) throw new Error('request not contextualized')
@@ -127,9 +121,8 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
   // Updating the Last-Modified header for substantive changes on a page for engineering
   // Docs Engineering Issue #945
   if (page.effectiveDate) {
-    // Note that if a page has an invalidate `effectiveDate` string value,
-    // it would be caught prior to this usage and ultimately lead to
-    // 500 error.
+    // The frontmatter schema only checks that this is a string. An unparseable
+    // date gets caught later, in ArticleContext, and ends up as a 500.
     res.setHeader('Last-Modified', new Date(page.effectiveDate).toUTCString())
   }
 
@@ -144,8 +137,8 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
   if (context.markdownRequested) {
     const transformer = transformerRegistry.findTransformer(page)
     if (!transformer) throw new Error(`No transformer found for page: ${req.pagePath}`)
-    // Pass context without markdownRequested — transformers set it themselves
-    // when rendering templates. Having it set during prepareTemplateData()
+    // Pass context without markdownRequested, because transformers set it
+    // themselves when rendering templates. Having it set during prepareTemplateData()
     // causes renderTitle/renderProp to output markdown instead of HTML,
     // which breaks the cheerio-based unwrap logic.
     const transformerContext = { ...context, markdownRequested: false }
@@ -158,7 +151,6 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     req.context.miniTocItems = buildMiniTocItems(req)
   }
 
-  // Create string for <title> tag
   page.fullTitle = page.title
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
@@ -181,10 +173,8 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     }
   }
 
-  // Is the request for JSON debugging info?
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
 
-  // `?json` query param for debugging request context
   if (isRequestingJsonForDebugging) {
     const json = req.query.json
     if (Array.isArray(json)) {
@@ -207,10 +197,10 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
 
   if (context.markdownRequested) {
     if (context.markdownViaUrl) {
-      // .md URL suffix always returns markdown — Vary: accept would be misleading
+      // A .md URL suffix always returns markdown, so Vary: accept would mislead.
       defaultCacheControl(res)
     } else {
-      // Accept header determines the representation — Vary: accept is correct
+      // The Accept header picks the representation, so Vary: accept is correct.
       contentTypeCacheControl(res)
     }
     return res.type('text/markdown').send(req.context.renderedPage)

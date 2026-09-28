@@ -8,6 +8,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/set-up-copilot-sdk/scaling
 contentType: how-tos
 ---
 
@@ -222,7 +224,7 @@ app.post("/chat", async (req, res) => {
 
     const session = await client.createSession({
         sessionId: `user-${req.user.id}-chat`,
-        model: "gpt-4.1",
+        model: "gpt-5.4",
     });
 
     const response = await session.sendAndWait({ prompt: req.body.message });
@@ -272,7 +274,7 @@ class SessionManager {
         // Create or resume
         const session = await client.createSession({
             sessionId,
-            model: "gpt-4.1",
+            model: "gpt-5.4",
         });
 
         this.activeSessions.set(sessionId, session);
@@ -300,7 +302,7 @@ For stateless API endpoints where each request is independent:
 ```typescript
 app.post("/api/analyze", async (req, res) => {
     const session = await client.createSession({
-        model: "gpt-4.1",
+        model: "gpt-5.4",
     });
 
     try {
@@ -325,7 +327,7 @@ app.post("/api/chat/start", async (req, res) => {
 
     const session = await client.createSession({
         sessionId,
-        model: "gpt-4.1",
+        model: "gpt-5.4",
         infiniteSessions: {
             enabled: true,
             backgroundCompactionThreshold: 0.80,
@@ -442,7 +444,7 @@ volumes:
 | **No built-in session locking** | Implement application-level locking for concurrent access |
 | **No built-in load balancing** | Use external LB or service mesh |
 | **Session state is file-based** | Requires shared filesystem for multi-server setups |
-| **30-minute idle timeout** | Sessions without activity are auto-cleaned by the CLI |
+| **No idle timeout by default** | Pass `--session-idle-timeout <seconds>` to the CLI server to automatically clean up inactive sessions |
 | **CLI is single-process** | Scale by adding more CLI server instances, not threads |
 
 ## Next steps

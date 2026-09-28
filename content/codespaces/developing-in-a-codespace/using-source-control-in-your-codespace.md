@@ -70,7 +70,7 @@ When you have made some changes, you can push them to a feature branch of your f
 git push origin my-feature-branch
 ```
 
-For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
+For more information, see [AUTOTITLE](/pull-requests/reference/forks).
 
 {% webui %}
 

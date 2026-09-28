@@ -21,7 +21,7 @@ Before you start, make sure you know:
 * Enterprise name your client would like to use
 * Email address for receipts
 * Number of seats your client needs in the enterprise
-* Enterprise account type required by your client, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type)
+* Enterprise account type required by your client, see [AUTOTITLE](/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type)
 
 ## Step 1: Create your personal account on {% data variables.product.prodname_dotcom %}
 

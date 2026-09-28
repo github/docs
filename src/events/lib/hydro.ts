@@ -85,7 +85,6 @@ async function _publish(
         body,
         requestBody,
       })
-      // Report the error to Failbot
       report(error, { statusCode, body, requestBody })
     } else {
       throw error

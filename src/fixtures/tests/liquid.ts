@@ -5,36 +5,6 @@ import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import { getDOM } from '@/tests/helpers/e2etest'
 import { supported } from '@/versions/lib/enterprise-server-releases'
 
-describe('spotlight', () => {
-  test('renders styled warnings', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/warnings')
-    const nodes = $('.ghd-spotlight-attention')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('This is inside the warning.')).toBe(true)
-  })
-
-  test('renders styled danger', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/danger')
-    const nodes = $('.ghd-spotlight-danger')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('Danger, Will Robinson.')).toBe(true)
-  })
-
-  test('renders styled tips', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/tips')
-    const nodes = $('.ghd-spotlight-success')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('This is inside the tip.')).toBe(true)
-  })
-
-  test('renders styled notes', async () => {
-    const $: CheerioAPI = await getDOM('/get-started/liquid/notes')
-    const nodes = $('.ghd-spotlight-accent')
-    expect(nodes.length).toBe(1)
-    expect(nodes.text().includes('This is inside the note.')).toBe(true)
-  })
-})
-
 describe('raw', () => {
   test('renders raw', async () => {
     const $: CheerioAPI = await getDOM('/get-started/liquid/raw')
@@ -86,70 +56,44 @@ describe('post', () => {
     expect(html).toMatch('<li>HubGit</li>')
     expect(html).toMatch('CramFPTped')
 
-    // Test what happens to `Cram{% ifversion fpt %}FPT{% endif %}ped.`
-    // when it's not free-pro-team.
+    // Cram{% ifversion fpt %}FPT{% endif %}ped renders as Cramped outside free-pro-team.
     {
       const $inner: CheerioAPI = await getDOM(
         '/enterprise-server@latest/get-started/liquid/whitespace',
       )
       const innerHtml = $inner('#article-contents').html()
-      // Assures that there's not whitespace left when the `{% ifversion %}`
-      // yields an empty string.
+      // Empty ifversion output must not leave extra whitespace.
       expect(innerHtml).toMatch('Cramped')
     }
   })
 })
 
 describe('rowheaders', () => {
+  // The first fixture table rewrites the first cell in each of two tbody rows to th,
+  // leaving three td cells per row.
+  // The second fixture table has three tbody rows with three td cells each.
+  // Axe's scope-attr-valid rule requires col scope on thead th and row scope on tbody th.
+  // https://dequeuniversity.com/rules/axe/4.1/scope-attr-valid?application=RuleDescription
   test('rowheaders', async () => {
     const $: CheerioAPI = await getDOM('/get-started/liquid/table-row-headers')
     const tables = $('#article-contents table')
     expect(tables.length).toBe(2)
 
-    // The first table should have this structure:
-    //
-    //   table
-    //     tbody
-    //       tr
-    //         th
-    //         td
-    //         td
-    //         td
-    //
-    // (and there are 2 of these <tr> rows)
-    //
-    // That's because a Liquid + Markdown solution rewrites the
-    // *first* `tbody td` to become a `th` instead.
     const firstTable = tables.filter((i: number) => i === 0)
     expect($('tbody tr th', firstTable).length).toBe(2)
     expect($('tbody tr td', firstTable).length).toBe(2 * 3)
 
-    // The second table should have this structure:
-    //
-    //   table
-    //     tbody
-    //       tr
-    //         td
-    //         td
-    //         td
-    //
-    // (and there are 3 of these <tr> rows)
     const secondTable = tables.filter((i: number) => i === 1)
     expect($('tbody tr th', secondTable).length).toBe(0)
     expect($('tbody tr td', secondTable).length).toBe(3 * 3)
 
-    // More specifically, the <th> tags should have the appropriate
-    // `scope` attribute.
-    // See "Scope attribute should be used correctly on tables"
-    // https://dequeuniversity.com/rules/axe/4.1/scope-attr-valid?application=RuleDescription
     $('thead th', firstTable).each((i, element) => {
       expect($(element).attr('scope')).toBe('col')
     })
     $('tbody th', firstTable).each((i, element) => {
       expect($(element).attr('scope')).toBe('row')
     })
-    // The 5 here is the other `expect(...)` that happens before these
-    // two, just above, `expect(...)` inside the `.each(...)` loops.
+    // Start with the five fixed assertions before counting each loop assertion.
     let totalAssertions = 5
     totalAssertions += $('thead th', firstTable).length
     totalAssertions += $('tbody th', firstTable).length
@@ -158,9 +102,7 @@ describe('rowheaders', () => {
 })
 
 describe('ifversion', () => {
-  // the matchesPerVersion object contains a list of conditions that
-  // should match per version tested, but we also operate against it
-  // to find out versions that shouldn't match
+  // matchesPerVersion lists expected conditions and also defines the inverse set per version.
   const ghesLast = `enterprise-server@${supported[supported.length - 1]}`
   const ghesPenultimate = `enterprise-server@${supported[supported.length - 2]}`
   const matchesPerVersion: Record<string, string[]> = {
@@ -204,12 +146,10 @@ describe('ifversion', () => {
 
       const allConditions = Object.values(matchesPerVersion).flat()
 
-      // this is all conditions that should match for this rendered version
       const wantedConditions = allConditions.filter((condition: string) => {
         return matchesPerVersion[version].includes(condition)
       })
 
-      // this is the inverse of the above, conditions that shouldn't match for this rendered version
       const unwantedConditions = allConditions.filter((condition: string) => {
         return !matchesPerVersion[version].includes(condition)
       })
@@ -227,7 +167,6 @@ describe('ifversion', () => {
 describe('misc Liquid', () => {
   test('links with liquid from data', async () => {
     const $: CheerioAPI = await getDOM('/get-started/liquid/links-with-liquid')
-    // The URL comes from variables.product.pricing_url
     const url = getDataByLanguage('variables.product.pricing_url', 'en')
     if (!url) throw new Error('variable could not be found')
     const links = $(`#article-contents a[href="${url}"]`)
@@ -242,10 +181,7 @@ describe('misc Liquid', () => {
   })
 
   test('page with tool Liquid tag followed by Markdown', async () => {
-    // This test tests Markdown being correctly rendered when the
-    // Markdown directly follows a tool tag like `{% linux %}...{% endlinux %}`.
-    // The next line immediately after the `{% endlinux %}` should not
-    // leave the Markdown unrendered
+    // Markdown must render when it immediately follows a {% linux %}...{% endlinux %} tag.
     const $: CheerioAPI = await getDOM('/get-started/liquid/tool-platform-switcher')
     const innerHTML = $('#article-contents').html()
     expect(innerHTML).not.toMatch('On *this* line is `Markdown` too.')
@@ -257,62 +193,33 @@ describe('data tag', () => {
   test('injects data reusables with the right whitespace', async () => {
     const $: CheerioAPI = await getDOM('/get-started/liquid/data')
 
-    // This proves that the two injected reusables tables work.
-    // CommonMark is finicky if the indentation isn't perfect, so
-    // if you don't get exactly 2 tables, something is wrong, and if it's
-    // wrong it's most likely because of the leading whitespaces.
+    // Incorrect reusable indentation can break CommonMark parsing, so expect exactly two tables.
     expect($('#article-contents table').length).toBe(2)
 
-    // To truly understand this test, you have to see
-    // http://localhost:4000/en/get-started/liquid/data to understand it.
-    // The page uses `{% data ... %}` within the bodies of bullet points.
-    // If the whitespace isn't correct and working, the bullet points
-    // would get confused and think the bullet point "body" is a new
-    // bullet point on its own.
+    // Data tags inside ordered-list items must not split item bodies into new list items.
     expect($('#article-contents ol').length).toBe(3)
     expect($('#article-contents ol li').length).toBe(2 + 1 + 2)
 
-    // In the very first bullet point we inject something that multiple
-    // linebreaks in it. The source looks like this:
-    //
-    //    1. Bullet point
-    //
-    //       {% data reusables.injectables.multiple_numbers %}
-    //
-    // (The code comment itself here has 3 spaces of manual indentation)
-    // What's important is that all the expected lines of that reusables
-    // stick inside this `ul li` block.
+    // The indented {% data reusables.injectables.multiple_numbers %} call keeps every line in the first list item.
     const liText = $('#article-contents ol li').first().text()
     expect(liText).toMatch(/Bullet point\nOne\nTwo\nThree\nFour/)
 
-    // The code block uses `{% data ... %}` and it should be indented
-    // so that it aligns perfectly with the code block itself.
-    // One of the injected data reusables contains multiple lines.
-    // It's important that each line from that starts at the far
-    // left. No more or less whitespace.
+    // Multi-line code-block reusables start at the far left, with no extra indentation.
     const codeBlock = $('#article-contents li pre').text()
     expect(codeBlock).toMatch(/^One\n/)
     expect(codeBlock).toMatch(/^One\nTwo\n/)
     expect(codeBlock).toMatch(/^One\nTwo\nThree\n/)
 
-    // The code block also a reusables that is just one line.
+    // The code block also receives one single-line reusable.
     expect(codeBlock).toMatch(/One Two Three Four\n/)
 
-    // On its own, if you look at
-    // src/fixtures/fixtures/data/reusables/injectables/paragraphs.md, you'll
-    // see each line is NOT prefixed with whitespace indentation.
-    // But because `{% data reusables.injectables.paragraphs %}` is
-    // inserted with some indentation, that's replicated on every line.
+    // src/fixtures/fixtures/data/reusables/injectables/paragraphs.md inherits indentation from its data call.
     const li = $('#article-contents li')
       .filter((_, element) => {
         return $(element).text().trim().startsWith('Point 1')
       })
       .eq(0)
-    // You can't really test the exact whitespace with cheerio,
-    // of the original HTML, but it doesn't actually matter. What
-    // matters is that within the bullet point, that starts with "Point 1",
-    // it *contains* all the paragraphs
-    // from src/fixtures/fixtures/data/reusables/injectables/paragraphs.md.
+    // Cheerio cannot test original HTML whitespace, so the bullet text checks every paragraph.
     expect(li.text()).toMatch(/Paragraph one/)
     expect(li.text()).toMatch(/Paragraph two/)
     expect(li.text()).toMatch(/Paragraph three/)

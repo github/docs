@@ -11,4 +11,6 @@ children:
   - /getting-permanent-links-to-files
   - /downloading-source-code-archives
   - /working-with-non-code-files
+  - /downloading-files-from-github
 ---
+

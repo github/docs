@@ -5,22 +5,16 @@
 import fs from 'fs'
 import { load } from 'js-yaml'
 
-// ─── Types ───────────────────────────────────────────────────────────────────
-
 export interface NoteEntry {
   heading: string
   notes: string[]
   sourceUrl: string
 }
 
-// ─── extractYaml ─────────────────────────────────────────────────────────────
-
 /**
- * Extract YAML content from agent output.
  * Looks for ```yaml ... ``` blocks, or falls back to lines starting with "- heading:"
  */
 export function extractYaml(agentOutput: string): string | null {
-  // Try to extract from fenced YAML code block
   const fenced = agentOutput.match(/```ya?ml\s*\n([\s\S]*?)```/)
   if (fenced) return fenced[1].trim()
 
@@ -43,21 +37,11 @@ export function extractYaml(agentOutput: string): string | null {
   return yamlLines.length > 0 ? yamlLines.join('\n').trim() : null
 }
 
-// ─── extractSkipReason ───────────────────────────────────────────────────────
-
-/**
- * Extract a skip reason from YAML that contains `# SKIP: <reason>` followed by `[]`.
- */
 export function extractSkipReason(yamlStr: string): string | null {
   const match = yamlStr.match(/^#\s*SKIP:\s*(.+)/m)
   return match ? match[1].trim() : null
 }
 
-// ─── parseNoteEntries ────────────────────────────────────────────────────────
-
-/**
- * Parse extracted YAML into structured note entries
- */
 export function parseNoteEntries(yamlStr: string, sourceUrl: string): NoteEntry[] {
   const entries: NoteEntry[] = []
 
@@ -82,13 +66,11 @@ export function parseNoteEntries(yamlStr: string, sourceUrl: string): NoteEntry[
       }
     }
   } catch {
-    // YAML parse failed
+    // Malformed YAML returns no entries rather than throwing.
   }
 
   return entries
 }
-
-// ─── loadExistingEntries ─────────────────────────────────────────────────────
 
 /**
  * Parse an existing release notes YAML file and extract NoteEntry[] from it,
@@ -107,7 +89,7 @@ export function loadExistingEntries(yamlPath: string): {
 
 /**
  * Parse release notes YAML content (as a string) and extract NoteEntry[] from it.
- * This is the testable core — no file I/O.
+ * This is the testable core, with no file I/O.
  *
  * Note: This uses manual line-by-line parsing instead of js-yaml because we need
  * to preserve the `# https://github.com/.../issues/NNN` source URL comments that
@@ -168,7 +150,7 @@ export function loadExistingEntriesFromString(content: string): {
       if (currentSection === 'changes') currentHeading = 'Changes'
       else if (currentSection === 'closing_down') currentHeading = 'Closing down'
       else if (currentSection === 'retired') currentHeading = 'Retired'
-      else currentHeading = null // known_issues — skip
+      else currentHeading = null // known_issues: skip
       continue
     }
 
@@ -231,8 +213,6 @@ export function loadExistingEntriesFromString(content: string): {
   return { entries, coveredUrls }
 }
 
-// ─── buildReleaseNotesYaml ───────────────────────────────────────────────────
-
 /**
  * Append YAML lines for a list of note entries at a given indentation level.
  * Handles the `# sourceUrl`, `- |`, and multi-line note content pattern.
@@ -249,9 +229,6 @@ export function appendNoteLines(lines: string[], noteEntries: NoteEntry[], inden
   }
 }
 
-/**
- * Build the final release notes YAML string from note entries.
- */
 export function buildReleaseNotesYaml(
   noteEntries: NoteEntry[],
   releaseCandidate: boolean,
@@ -286,7 +263,7 @@ export function buildReleaseNotesYaml(
 
   lines.push('sections:')
 
-  // ── Features (grouped by heading) ──
+  // Features (grouped by heading).
   const featureEntries = noteEntries.filter((e) => featureHeadings.includes(e.heading))
   const otherEntries = noteEntries.filter((e) => !featureHeadings.includes(e.heading))
 
@@ -294,7 +271,6 @@ export function buildReleaseNotesYaml(
   lines.push('  features:')
 
   if (featureEntries.length > 0) {
-    // Group by heading, preserving template order
     const byHeading = new Map<string, NoteEntry[]>()
     for (const entry of featureEntries) {
       const existing = byHeading.get(entry.heading) || []
@@ -315,7 +291,7 @@ export function buildReleaseNotesYaml(
     lines.push('    # TODO: Add feature notes')
   }
 
-  // ── Changes ──
+  // Changes.
   const changeEntries = otherEntries.filter((e) => !['Closing down', 'Retired'].includes(e.heading))
   if (changeEntries.length > 0) {
     lines.push('')
@@ -323,14 +299,14 @@ export function buildReleaseNotesYaml(
     appendNoteLines(lines, changeEntries, '    ')
   }
 
-  // ── Known issues ──
+  // Known issues.
   lines.push('')
   lines.push('  known_issues:')
   lines.push('    # TODO: Add known issues from "GHES Release Note Tracking" project')
   lines.push('    - |')
   lines.push('      ...')
 
-  // ── Closing down ──
+  // Closing down.
   const closingEntries = otherEntries.filter((e) => e.heading === 'Closing down')
   if (closingEntries.length > 0) {
     lines.push('')
@@ -338,7 +314,7 @@ export function buildReleaseNotesYaml(
     appendNoteLines(lines, closingEntries, '    ')
   }
 
-  // ── Retired ──
+  // Retired.
   const retiredEntries = otherEntries.filter((e) => e.heading === 'Retired')
   if (retiredEntries.length > 0) {
     lines.push('')

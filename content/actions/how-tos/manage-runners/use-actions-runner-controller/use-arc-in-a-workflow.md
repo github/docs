@@ -47,7 +47,7 @@ jobs:
 
 Runner scale set names are unique within the runner group they belong to. To deploy multiple runner scale sets with the same name, they must belong to different runner groups. For more information about specifying runner scale set names, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/deploy-runner-scale-sets).
 
-{% data reusables.actions.actions-runner-controller-labels %} For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/deploy-runner-scale-sets#scaling-runners).
+{% data reusables.actions.actions-runner-controller-labels %} For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/use-actions-runner-controller/deploy-runner-scale-sets).
 
 ## Using labels to target runner scale sets
 

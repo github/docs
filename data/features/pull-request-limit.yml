@@ -1,0 +1,4 @@
+# Reference: github/releases#10090 and #8830
+versions:
+  fpt: '*'
+  ghec: '*'

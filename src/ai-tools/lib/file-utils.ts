@@ -6,9 +6,6 @@ import { schema } from '@/frame/lib/frontmatter'
 
 const MAX_DIRECTORY_DEPTH = 20
 
-/**
- * Enhanced recursive markdown file finder with symlink, depth, and root path checks
- */
 export function findMarkdownFiles(
   dir: string,
   rootDir: string,
@@ -33,7 +30,6 @@ export function findMarkdownFiles(
     return []
   }
   visited.add(realDir)
-  // Prevent excessive depth
   if (depth > maxDepth) {
     return []
   }
@@ -71,9 +67,8 @@ interface FrontmatterProperties {
 }
 
 /**
- * Function to merge new frontmatter properties into existing file while preserving formatting.
- * Uses surgical replacement to only modify the specific field(s) being updated,
- * preserving all original YAML formatting for unchanged fields.
+ * Replaces only the fields being updated, so the original YAML formatting
+ * of every other field survives.
  */
 export function mergeFrontmatterProperties(filePath: string, newPropertiesYaml: string): string {
   const content = fs.readFileSync(filePath, 'utf8')
@@ -90,7 +85,7 @@ export function mergeFrontmatterProperties(filePath: string, newPropertiesYaml: 
   }
 
   try {
-    // Clean up the AI response - remove markdown code blocks if present
+    // The model often wraps its output in a code fence.
     let cleanedYaml = newPropertiesYaml.trim()
     cleanedYaml = cleanedYaml.replace(/^```ya?ml\s*\n/i, '')
     cleanedYaml = cleanedYaml.replace(/\n```\s*$/i, '')
@@ -111,12 +106,10 @@ export function mergeFrontmatterProperties(filePath: string, newPropertiesYaml: 
       }),
     )
 
-    // Split content into lines for surgical replacement
     const lines = content.split('\n')
     let inFrontmatter = false
     let frontmatterEndIndex = -1
 
-    // Find frontmatter boundaries
     for (let i = 0; i < lines.length; i++) {
       if (lines[i].trim() === '---') {
         if (!inFrontmatter) {
@@ -128,17 +121,14 @@ export function mergeFrontmatterProperties(filePath: string, newPropertiesYaml: 
       }
     }
 
-    // Replace each field value while preserving everything else
     for (const [key, value] of Object.entries(sanitizedProperties)) {
       const formattedValue = typeof value === 'string' ? `'${value.replace(/'/g, "''")}'` : value
 
-      // Find the line with this field
       let foundField = false
       for (let i = 1; i < frontmatterEndIndex; i++) {
         const line = lines[i]
         if (line.startsWith(`${key}:`)) {
           foundField = true
-          // Simple replacement: keep the field name and spacing, replace the value
           const colonIndex = line.indexOf(':')
           const leadingSpace = line.substring(colonIndex + 1, colonIndex + 2) // Usually a space
           lines[i] = `${key}:${leadingSpace}${formattedValue}`
@@ -153,7 +143,6 @@ export function mergeFrontmatterProperties(filePath: string, newPropertiesYaml: 
         }
       }
 
-      // If field doesn't exist, add it before the closing ---
       if (!foundField && frontmatterEndIndex > 0) {
         lines.splice(frontmatterEndIndex, 0, `${key}: ${formattedValue}`)
         frontmatterEndIndex++

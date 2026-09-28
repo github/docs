@@ -35,7 +35,6 @@ export default async function findPage(
     return next()
   }
 
-  // Using any for page because it's dynamically assigned properties (like version) that aren't in the Page type
   let page = req.context.pages[req.pagePath] as Page | undefined
   if (page && isDev && englishPrefixRegex.test(req.pagePath)) {
     // The .applicableVersions and .permalinks properties are computed
@@ -79,14 +78,12 @@ export default async function findPage(
 
   if (page && req.context) {
     req.context.page = page
-    // Note: Page doesn't have a version property, this might be setting it dynamically
     ;(req.context.page as Page & { version: string }).version = req.context.currentVersion || ''
 
     // We can't depend on `page.hidden` because the dedicated search
     // results page is a hidden page but it needs to offer all possible
     // languages.
     if (page.relativePath.startsWith('early-access') && req.context?.languages?.en) {
-      // Override the languages to be only English
       req.context.languages = {
         en: req.context.languages.en,
       }

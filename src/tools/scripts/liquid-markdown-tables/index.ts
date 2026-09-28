@@ -56,7 +56,6 @@ program
   .command('convert')
   .description('Clean up Markdown tables that use Liquid `ifversion` tags the old/wrong way')
   .option('--dry-run', "Don't actually write changes to disk", false)
-  //   .arguments('[files-or-directories...]', '')
   .arguments('[files...]')
   .action(convert)
 

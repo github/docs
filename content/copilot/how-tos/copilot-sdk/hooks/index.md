@@ -14,6 +14,7 @@ children:
   - /pre-tool-use
   - /session-lifecycle
   - /user-prompt-submitted
+  - /user-prompt-transformed
 ---
 
 <!-- markdownlint-disable GHD046 GHD005 -->

@@ -10,6 +10,10 @@ category:
   - Set up GitHub Classroom
 ---
 
+> [!WARNING]
+> **Closing down:** This `gh` extension is closing down. The {% data variables.product.prodname_classroom %} application will be retired on August 28, 2026.
+> For more information, see the [{% data variables.product.prodname_classroom %} closing down notice](https://gh.io/classroom-sunset).
+
 ## About {% data variables.product.prodname_classroom %} CLI <!-- omit in toc -->
 
 {% data reusables.cli.about-cli %} For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
@@ -96,7 +100,7 @@ Displays assignment information.
 gh classroom clone starter-repo
 ```
 
-Clones starter code repo used by an assignment. By default, the starter code is cloned into the current directory. To clone into a different directory, use the `--directory` flag. If the directory does not exists, it will be created.
+Clones starter code repo used by an assignment. By default, the starter code is cloned into the current directory. To clone into a different directory, use the `--directory` flag. If the directory does not exist, it will be created.
 
 ### Clone a student’s assignment repository
 
@@ -104,6 +108,6 @@ Clones starter code repo used by an assignment. By default, the starter code is 
 gh classroom clone student-repos
 ```
 
-Clones student repositories from a given assignment. By default, the student repositories are cloned into the current directory a directory named after the assignment slug. To clone into a different directory, use the `--directory` flag. If the directory does not exists, it will be created.
+Clones student repositories from a given assignment. By default, the student repositories are cloned into the current directory in a directory named after the assignment slug. To clone into a different directory, use the `--directory` flag. If the directory does not exist, it will be created.
 
 By default, all student repositories are cloned. To get a different number of repositories, use the `--page NUMBER` and `--per-page NUMBER` flags.

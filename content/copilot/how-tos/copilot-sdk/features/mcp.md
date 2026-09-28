@@ -169,6 +169,35 @@ await using var session = await client.CreateSessionAsync(new SessionConfig
 });
 ```
 
+## Disabling configured servers per session
+
+Set `disabledMcpServers` to exact MCP server names that must not run in a session.
+The setting is scoped to the individual create or resume request; it does not
+modify global MCP settings or the server configuration.
+
+```typescript
+const session = await client.createSession({
+    mcpServers: {
+        filesystem: { type: "local", command: "npx", args: ["-y", "@modelcontextprotocol/server-filesystem", "."] },
+        github: { type: "http", url: "https://api.githubcopilot.com/mcp/" },
+    },
+    disabledMcpServers: ["github"],
+});
+```
+
+| SDK | Configuration property |
+| --- | --- |
+| Node.js | `disabledMcpServers` |
+| Python | `disabled_mcp_servers` |
+| Go | `DisabledMCPServers` |
+| .NET | `DisabledMcpServers` |
+| Java | `setDisabledMcpServers(...)` |
+| Rust | `with_disabled_mcp_servers(...)` |
+
+On session creation and a **cold** resume, disabled servers are not started and
+the runtime does not initiate their authentication. A resident resume cannot
+undo a server that the runtime has already spawned. Names are matched exactly.
+
 ## Tool configuration
 
 You can control which tools are available to an MCP server using the `tools` field.
@@ -311,7 +340,7 @@ For detailed debugging guidance, see the **[AUTOTITLE](/copilot/how-tos/copilot-
 * [Model Context Protocol Specification](https://modelcontextprotocol.io/)
 * [MCP Servers Directory](https://github.com/modelcontextprotocol/servers) - Community MCP servers
 * [GitHub MCP Server](https://github.com/github/github-mcp-server) - Official GitHub MCP server
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started) - SDK basics and custom tools
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart) - SDK basics and custom tools
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/troubleshooting/debugging) - SDK-wide debugging
 
 ## See also

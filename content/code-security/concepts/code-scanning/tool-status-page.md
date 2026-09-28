@@ -60,7 +60,7 @@ In addition to the information listed above, the {% data variables.code-scanning
 
 ### Compiled languages
 
-The {% data variables.code-scanning.tool_status_page %} reports files present before running autobuild or manual build steps. Files generated during the build process are not shown. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#about-autobuild-for-codeql).
+The {% data variables.code-scanning.tool_status_page %} reports files present before running autobuild or manual build steps. Files generated during the build process are not shown. See [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#use-autobuild-for-codeql).
 
 ### Coverage calculation
 
@@ -72,7 +72,7 @@ Use file coverage percentages to debug and improve your analysis:
 
 * **High percentage**: {% data variables.product.prodname_code_scanning_caps %} is working as expected for that language
 * **Low percentage**: Investigate diagnostic output. See [AUTOTITLE](/code-security/reference/code-scanning/troubleshoot-analysis-errors/fewer-lines-scanned-than-expected)
-* **Zero percentage**: You may have code in languages not currently being analyzed. Update your setup to include these languages. See [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options#changing-the-languages-that-are-analyzed)
+* **Zero percentage**: You may have code in languages not currently being analyzed. Update your setup to include these languages. See [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options)
 
 > [!NOTE]
 > If you set up both advanced setup and default setup, the {% data variables.code-scanning.tool_status_page %} only shows default setup.

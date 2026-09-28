@@ -9,6 +9,7 @@ redirect_from:
 category:
   - Integrate GitHub Classroom with an IDE
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 > [!NOTE]
 > The [{% data variables.product.prodname_classroom %} extension for {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/classroom-vscode-ext) is no longer in active development. The **Open in {% data variables.product.prodname_vscode_shortname %}** badge in student repositories still works, but other features of the extension may not function as expected.

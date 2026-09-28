@@ -1,12 +1,14 @@
 ---
 title: Adding organizations to your enterprise
-intro: Learn how to add organizations to your enterprise using three different methods.
+intro: Add organizations to your enterprise using three different methods.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /articles/adding-organizations-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
+  - /enterprise-onboarding/setting-up-organizations-and-teams/setting-up-an-organization
+  - /enterprise-onboarding/setting-up-organizations-and-teams/managing-your-organizations
 versions:
   ghec: '*'
 shortTitle: Add organizations
@@ -58,17 +60,8 @@ After you add an existing organization to your enterprise, the organization's re
   * If your enterprise is billed via invoice, contact the app vendor and pay directly.
   * If your enterprise is billed via credit card or PayPal, billing continues automatically.
   To transfer an existing organization with billed apps between enterprise accounts, first remove the billed apps and then re-add the apps after the transfer is complete.
-* **Sponsorships:** Any sponsorships by the organization will be canceled.
+* **Sponsorships:** Any sponsorships by the organization will be canceled. Additionally, if your enterprise uses Azure metered billing, you will need to create a separate "shell" organization to continue using {% data variables.product.prodname_sponsors %}. See [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes#github-sponsors-when-adding-an-organization-to-an-enterprise).
 * **Coupons:** Any coupons will be removed from the organization. To reapply the coupon, [contact our sales team](https://github.com/enterprise/contact).
-
-## Handling {% data variables.product.prodname_sponsors %} with Azure billing
-
-If your organization is added to an enterprise account with Azure metered billing, any active {% data variables.product.prodname_sponsors %} sponsorships will be canceled. While your organization remains under enterprise billing through Azure, you will not be able to reactivate these sponsorships, as sponsoring is not currently supported for organizations billed through Azure.
-
-To continue using {% data variables.product.prodname_sponsors %}, create a new, separate "shell" organization that is not linked to your enterprise account or Azure billing. You can use this shell organization to manage sponsorships independently.
-
-> [!NOTE]
-> After you create a shell organization, update any public references or documentation to point sponsors to the new organization.
 
 ## Creating a new organization
 

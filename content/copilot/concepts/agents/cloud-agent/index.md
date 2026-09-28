@@ -10,9 +10,8 @@ children:
   - /agent-management
   - /about-custom-agents
   - /about-automations
-  - /access-management
+  - /about-automation-rationale-and-approvals
   - /mcp-and-cloud-agent
-  - /risks-and-mitigations
 contentType: concepts
 redirect_from:
   - /copilot/concepts/agents/coding-agent

@@ -86,6 +86,6 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 
 ## Next steps
 
-Get started with our [AUTOTITLE](/enterprise-cloud@latest/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
+Get started with our [AUTOTITLE](/enterprise-cloud@latest/admin/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
 
 {% endif %}

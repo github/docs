@@ -15,12 +15,12 @@ You can schedule reminders for pending pull request reviews in Microsoft Teams c
 
 ## Scheduling reminders in a channel
 
-1. In a Teams channel, run `@GitHub Notifications schedule ORGANIZATION`.
+1. In a Teams channel, run `@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %} schedule ORGANIZATION`.
 1. Select **Create new reminder**.
 1. Configure the days, times, timezone, and repository or team filters for the reminder.
 1. Save the reminder.
 
-To edit or remove reminders for the organization, run `@GitHub Notifications schedule ORGANIZATION` again. To list all reminders configured in the channel, run `@GitHub Notifications schedule list`.
+To edit or remove reminders for the organization, run `@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %} schedule ORGANIZATION` again. To list all reminders configured in the channel, run `@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %} schedule list`.
 
 ## Scheduling reminders in the personal app
 

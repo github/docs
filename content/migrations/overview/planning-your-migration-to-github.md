@@ -1,13 +1,17 @@
 ---
 title: Planning your migration to GitHub
 shortTitle: Plan your migration
-intro: 'Learn how to plan and execute a successful migration to {% data variables.product.company_short %} or between {% data variables.product.company_short %} products.'
+intro: 'Plan and execute a successful migration to {% data variables.product.company_short %} or between {% data variables.product.company_short %} products.'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 category:
   - Plan your migration
+redirect_from:
+  - /enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud
+docsTeamMetrics:
+  - enterprise-onboarding  
 ---
 
 ## About migrations
@@ -67,7 +71,13 @@ If you’re migrating from Azure DevOps, we recommend the `inventory-report` com
 
 If you’re migrating from Bitbucket Server or Bitbucket Data Center, we recommend the `inventory-report` command in the {% data variables.product.prodname_bbs2gh_cli %}. The `inventory-report` command will use your Bitbucket instance's API to build a simple CSV. For more information about how to install the {% data variables.product.prodname_bbs2gh_cli %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud).
 
-For other migration origins, create your migration inventory yourself. You could build the spreadsheet using the origin’s reporting tools, if available, or API, or you could create the inventory manually.
+Depending on your migration path, there are various tools you can use to collect this data:
+
+* If your source is another {% data variables.product.github %} product, the third-party `gh-repo-stats` extension for the {% data variables.product.prodname_cli %}.
+* If your source is Azure DevOps, GitLab, or Bitbucket, the `inventory-report` command for {% data variables.product.prodname_importer_proper_name %}.
+* For other migration origins, you could build the spreadsheet using the origin’s reporting tools or API, or you could create the inventory manually.
+
+You will find detailed information on using these tools in our documentation for the specific migration path.
 
 Whatever approach you choose for your migration inventory, make a note of the process you followed or commands you ran. It’s very likely that you’ll want to re-run your inventory as you continue to plan your migration.
 
@@ -144,14 +154,6 @@ To learn more about expert-led migrations, contact your account representative o
 
 {% data reusables.migrations.about-migration-paths %} For more information, see [AUTOTITLE](/migrations/overview/migration-paths-to-github).
 
-## Designing your organization structure for the migration destination
-
-In {% data variables.product.prodname_dotcom %}, each repository belongs to an organization. {% data reusables.organizations.short-summary %} For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations).
-
-Whether you’re adopting {% data variables.product.prodname_dotcom %} for the first time or already using {% data variables.product.prodname_dotcom %}, pause to consider the most effective structure for your organizations and repositories after your migration. The design you choose can maximize collaboration and discovery and minimize administrative burden, or it can create unnecessary silos and administrative overhead.
-
-We recommend that you minimize the number of organizations and structure them according to one of five archetypes. For detailed guidance, see [AUTOTITLE](/admin/concepts/enterprise-best-practices/organize-work).
-
 ## Performing a dry run migration for every repository
 
 Before you continue planning, perform a dry run migration including all of your repositories. Comprehensive dry runs allow you to:
@@ -208,11 +210,3 @@ The way that attribution works differs between tools:
 
 * If you’re using `ghe-migrator`, `gl-exporter`, or `bbs-exporter`, you will decide how you want to attribute data ahead of time and include a mapping file when you import your data.
 * If you’re using {% data variables.product.prodname_importer_proper_name %} or {% data variables.product.prodname_elm %}, data will be linked to placeholder identities called “mannequins”, and you can assign this history to real users after your data is migrated. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer).
-
-### Managing teams and permissions
-
-Most customers use teams to manage access to repositories. With teams, instead of giving Mona access to a repository directly, you can add Mona to the Engineering team, and give everyone in the Engineering team access to the repository. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
-
-You can create your teams and add team members before you migrate your repositories. You may want to manage your members through your identity provider (IdP) by linking your teams to IdP groups. For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
-
-However, you can’t attach your teams to repositories until after you've migrated the repositories.

@@ -88,7 +88,7 @@ If a security vulnerability is released for `B` versions `<2.0.0` and a patch is
 
 ### Can't close pull request for an update that's already been applied
 
-**Error message:** `{% data variables.product.prodname_dependabot %} fails to close a open pull request for an update that has already been applied on the default branch`
+**Error message:** `{% data variables.product.prodname_dependabot %} fails to close an open pull request for an update that has already been applied on the default branch`
 
 {% data variables.product.prodname_dependabot %} will close pull requests for dependency updates, once it detects these updates have been committed to the default branch. However, in rare circumstances, the pull request may remain open.
 
@@ -147,6 +147,14 @@ There are separate limits for security and version update pull requests, so that
 **Error message:** `{% data variables.product.prodname_dependabot %} timed out during its update`
 
 {% data variables.product.prodname_dependabot %} took longer than the maximum time allowed to assess the update required and prepare a pull request. This error is usually seen only for large repositories with many manifest files, for example, npm or yarn monorepo projects with hundreds of _package.json_ files. Updates to the Composer ecosystem also take longer to assess and may time out.
+
+{% ifversion fpt or ghec %} 
+
+{% data variables.product.prodname_dependabot %} update jobs that run on {% data variables.product.prodname_dotcom %}-hosted runners time out after 55 minutes. You cannot increase this time limit.
+
+A job's run time increases with the number of updates it must prepare. Repositories with many outdated dependencies can exceed the limit in a single job. If jobs time out consistently, consider manually updating some dependencies to reduce the workload for future jobs.
+
+{% endif %}
 
 **Resolution for version updates:** Specify the most important dependencies to update using the `allow` parameter or, alternatively, use the `ignore` parameter to exclude some dependencies from updates. Updating your configuration might allow {% data variables.product.prodname_dependabot %} to review the version update and generate the pull request in the time available.
 

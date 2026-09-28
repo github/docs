@@ -8,4 +8,5 @@ contentType: concepts
 children:
   - /code-quality
   - /enablement-at-scale
+  - /automatic-code-coverage-setup
 ---

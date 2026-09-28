@@ -17,13 +17,9 @@ export default function useEnglishHeadings({ englishHeadings }: UseEnglishHeadin
     visit(tree, 'element', (node: Element) => {
       if (!['h2', 'h3', 'h4'].includes(node.tagName)) return
       slugger.reset()
-      // Get the plain text content of the heading node
       const text: string = toString(node)
-      // find English heading in the collection
       const englishHeading: string = englishHeadings[encode(text)]
-      // get English slug
       const englishSlug: string = slugger.slug(englishHeading)
-      // use English slug for heading ID and link
       if (englishSlug) {
         // only use English slug if there is one, otherwise we'll end up with
         // empty IDs

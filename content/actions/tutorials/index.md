@@ -18,6 +18,7 @@ children:
   - /use-containerized-services
   - /migrate-to-github-actions
   - /use-actions-runner-controller
+  - /develop-agentic-workflows-in-github-actions
 redirect_from:
   - /actions/guides
   - /actions/how-tos/use-cases-and-examples
@@ -27,4 +28,3 @@ redirect_from:
   - /actions/use-cases-and-examples
 contentType: tutorials
 ---
-

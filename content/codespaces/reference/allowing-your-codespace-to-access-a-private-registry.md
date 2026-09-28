@@ -36,17 +36,17 @@ By default, the package inherits the access setting of the repository from which
 
 This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to a registry using a {% data variables.product.pat_generic %}.
 
-If the **Inherit access from repo** option was not selected when the package was published, you can manually add the repository to the published package's access controls. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository).
+If the **Inherit access from repo** option was not selected when the package was published, you can manually add the repository to the published package's access controls. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility).
 
 ### Accessing a package published to the organization a codespace will be launched in
 
 If you want a package to be accessible to all codespaces in an organization, we recommend that you publish the package with internal visibility. This will automatically make the package visible to all codespaces within the organization, unless the repository the codespace is launched from is public.
 
-If the codespace is being launched from a public repository referencing an internal or private package, you must manually allow the public repository access to the internal package. This prevents the internal package from being accidentally leaked publicly. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package).
+If the codespace is being launched from a public repository referencing an internal or private package, you must manually allow the public repository access to the internal package. This prevents the internal package from being accidentally leaked publicly. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-github-codespaces-access-to-your-package).
 
 ### Accessing a private package from a subset of repositories in an organization
 
-If you want to allow a subset of an organization's repositories to access a package, or allow an internal or private package to be accessed from a codespace launched in a public repository, you can manually add repositories to a package's access settings. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package).
+If you want to allow a subset of an organization's repositories to access a package, or allow an internal or private package to be accessed from a codespace launched in a public repository, you can manually add repositories to a package's access settings. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-github-codespaces-access-to-your-package).
 
 ### Publishing a package from a codespace
 

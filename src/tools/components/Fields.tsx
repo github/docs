@@ -1,6 +1,6 @@
 import { ActionList } from '@primer/react'
 import React, { ReactNode } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { PickerItem } from './Picker'
 

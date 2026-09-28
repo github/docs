@@ -22,7 +22,9 @@ This eliminates the need to:
  
 ## How automatic access works
  
-{% data variables.product.prodname_dependabot %} uses its `GITHUB_TOKEN` to request `packages: read` permission when pulling from `*.pkg.github.com` and {% data variables.product.prodname_container_registry_namespace %}. Any package that has granted your repository access through "Manage Actions access" accepts this token, the same way it would for a regular {% data variables.product.prodname_actions %} workflow. See [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package).git s
+{% data variables.product.prodname_dependabot %} uses its `GITHUB_TOKEN` to request `packages: read` permission when pulling from `*.pkg.github.com` and {% data variables.product.prodname_container_registry_namespace %}. Any package that has granted your repository access through "Manage Actions access" accepts this token, the same way it would for a regular {% data variables.product.prodname_actions %} workflow.
+
+Automatic {% data variables.product.prodname_registry %} credentials are used only as fallback authentication. Explicit registry credentials and normal registry routing take precedence.
  
 This works for every {% data variables.product.prodname_registry %} ecosystem that {% data variables.product.prodname_dependabot %} supports.
  

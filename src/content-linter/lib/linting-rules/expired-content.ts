@@ -54,11 +54,8 @@ export const DAYS_TO_WARN_BEFORE_EXPIRED = 14
 // days. The rule looks for opening and closing HTML comment tags that
 // contain an expiration date in the format:
 //
-// This is content <!-- expires yyyy-mm-dd --> that is
-// expired <!-- end expires yyyy-mm-dd --> that does not expire.
-//
-// The `end expires` closing tag closes the content that is expired
-// and must be removed.
+// This is content <!-- expires yyyy-mm-dd --> that is scheduled
+// to expire <!-- end expires yyyy-mm-dd --> that does not expire.
 export const expiringSoon: Rule = {
   names: ['GHD039', 'expiring-soon'],
   description: 'Content that expires soon should be proactively addressed.',

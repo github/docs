@@ -125,7 +125,7 @@ For accounts on {% ifversion fpt or ghec %}{% data variables.product.prodname_te
 These features are available for all repository types. {% ifversion fpt or ghec %}Some of these features are available for public repositories free of charge, meaning that you don't need to purchase {% data variables.product.prodname_GH_secret_protection %} to enable the feature on a public repository.{% endif %}
 
 <!--Hiding information on setting up a trial for now, as there is no available link for fpt yet. Needs versioning for fpt, ghec and ghes.
-For information about how you can try {% data variables.product.prodname_GH_secret_protection %} for free, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security).
+For information about how you can try {% data variables.product.prodname_GH_secret_protection %} for free, see [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/trial-advanced-security).
 -->
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
@@ -138,7 +138,7 @@ Automatically detect hardcoded credentials that have been checked into a reposit
 
 ### {% data variables.secret-scanning.ai-detected-secrets-caps %}
 
-{% data variables.secret-scanning.ai-detected-secrets-caps %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert. For more information, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).
+{% data variables.secret-scanning.ai-detected-secrets-caps %}'s generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that identifies unstructured secrets (passwords) in your source code and then generates an alert.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/code-security/responsible-use/security-and-quality-ai-features).{% endif %}
 
 {% endif %}
 
@@ -177,7 +177,7 @@ These features are available for all repository types. {% ifversion fpt or ghec 
 
 <!--Hiding information on setting up a trial for now, as there is no available link for fpt yet. Needs versioning for fpt, ghec & ghes.
 
-For information about how you can try {% data variables.product.prodname_GH_code_security %} for free, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security).
+For information about how you can try {% data variables.product.prodname_GH_code_security %} for free, see [AUTOTITLE](/code-security/tutorials/trialing-github-advanced-security/trial-advanced-security).
 
 -->
 
@@ -205,7 +205,7 @@ Get automatically generated fixes for {% data variables.product.prodname_code_sc
 
 {% ifversion ai-powered-security-detections %}
 
-### AI-powered security detections
+### AI Scan
 
 Find vulnerabilities in languages and frameworks not covered by {% data variables.product.prodname_codeql %} with an AI-based scanning engine that runs during pull request review. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
 

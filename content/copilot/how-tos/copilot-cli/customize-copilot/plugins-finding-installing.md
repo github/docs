@@ -79,6 +79,8 @@ Alternatively, in an interactive session, enter:
 copilot plugin list                    # View installed plugins
 copilot plugin update PLUGIN-NAME      # Update plugin to latest version
 copilot plugin uninstall PLUGIN-NAME   # Remove plugin completely
+copilot plugin disable PLUGIN-NAME     # Disable a plugin without uninstalling it
+copilot plugin enable PLUGIN-NAME      # Re-enable a previously disabled plugin
 ```
 
 ## Adding plugin marketplaces

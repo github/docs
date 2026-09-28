@@ -34,6 +34,13 @@ You can configure your CD workflow to run when an event occurs (for example, whe
 
 {% data variables.product.prodname_actions %} provides features that give you more control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. You can use concurrency to limit your CD pipeline to a maximum of one in-progress deployment{% ifversion actions-nga %}{% else %} and one pending deployment{% endif %}. For more information about these features, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/control-deployments) and [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
 
+{% ifversion copilot %}
+
+> [!TIP]
+> You can use {% data variables.copilot.agentic_workflows_short %} for deployment preparation, such as release notes, change analysis, and rollout summaries, while keeping production deployments in deterministic {% data variables.product.prodname_actions %} workflows. For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
+
 ## Workflow templates and third-party actions
 
 {% data reusables.actions.cd-templates-actions %}

@@ -24,12 +24,12 @@ This article explains how to access and view these metrics for your organization
 {% data reusables.organizations.security-overview %}
 1. In the sidebar, under "Insights", click **{% octicon "dependabot" aria-hidden="true" aria-label="dependabot" %} {% data variables.product.prodname_dependabot %} dashboard**.
 1. Optionally, use the filters at your disposal, or build your own filters. {% data reusables.security-overview.dependabot-filters-link %}
-1. Optionally, click on a number on the x-axis of the chart to filter the alert list by the relevant criteria (for example `has:patch severity:critical,high epss_percentage:>=0.01`).
+1. Optionally, click on a number on the x-axis of the chart to filter the alert list by the relevant criteria (for example `has:patch severity:critical,high epss-percentage:>=0.01`).
 1. Optionally, click on an individual repository to see the associated {% data variables.product.prodname_dependabot_alerts %}.
 
 ## Configuring funnel categories
 
-The default funnel order is `has:patch, severity:critical,high, epss_percentage>=0.01`. By tailoring the funnel’s order, you and your teams can focus on the vulnerabilities that matter most to your organization, environments, or regulatory obligations, making remediation efforts more effective and aligned with your specific needs.
+The default funnel order is `has:patch, severity:critical,high, epss-percentage:>=0.01`. By tailoring the funnel’s order, you and your teams can focus on the vulnerabilities that matter most to your organization, environments, or regulatory obligations, making remediation efforts more effective and aligned with your specific needs.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}

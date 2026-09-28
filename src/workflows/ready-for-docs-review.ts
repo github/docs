@@ -13,45 +13,34 @@ import {
   type ItemData,
 } from './projects'
 
-/**
- * Determines if a PR is authored by Copilot and extracts the human assignee
- * @param data GraphQL response data containing PR information
- * @returns Object with isCopilotAuthor boolean and copilotAssignee string
- */
+// Whether copilot-swe-agent authored the PR, and its first other assignee.
 function getCopilotAuthorInfo(data: ItemData): {
   isCopilotAuthor: boolean
   copilotAssignee: string
 } {
   const item = data.item
 
-  // Check if this is a Copilot-authored PR
   const isCopilotAuthor = !!(
     item.__typename === 'PullRequest' &&
     item.author &&
     item.author.login === 'copilot-swe-agent'
   )
 
-  // For Copilot PRs, find the appropriate assignee (excluding Copilot itself)
+  // copilot-swe-agent is usually an assignee too, so skip it.
   let copilotAssignee = ''
   if (isCopilotAuthor && item.assignees && item.assignees.nodes) {
     const assigneeLogins = item.assignees.nodes
       .map((assignee) => assignee.login)
       .filter((login) => login !== 'copilot-swe-agent')
 
-    // Use the first non-Copilot assignee
     copilotAssignee = assigneeLogins.length > 0 ? assigneeLogins[0] : ''
   }
 
   return { isCopilotAuthor, copilotAssignee: copilotAssignee || '' }
 }
 
-/**
- * Determines the appropriate author field value based on contributor type
- * @param isCopilotAuthor Whether the PR is authored by Copilot
- * @param copilotAssignee The human assignee for Copilot PRs (empty string if none)
- * @param firstTimeContributor Whether this is a first-time contributor
- * @returns The formatted author field value
- */
+// The value for the board's "Contributor" field, which depends on whether
+// Copilot authored the PR and whether the author is a first-time contributor.
 function getAuthorFieldValue(
   isCopilotAuthor: boolean,
   copilotAssignee: string,
@@ -69,7 +58,6 @@ function getAuthorFieldValue(
 }
 
 async function run() {
-  // Get info about the docs-content review board project
   const data = (await graphql(
     `
       query ($organization: String!, $projectNumber: Int!, $id: ID!) {
@@ -126,10 +114,8 @@ async function run() {
     },
   )) as ProjectV2Data & ItemData
 
-  // Get the project ID
   const projectID = data.organization.projectV2.id
 
-  // Get the ID of the fields that we want to populate
   const datePostedID = findFieldID('Date posted', data)
   const reviewDueDateID = findFieldID('Review due date', data)
   const statusID = findFieldID('Status', data)
@@ -138,16 +124,13 @@ async function run() {
   const sizeTypeID = findFieldID('Size', data)
   const authorID = findFieldID('Contributor', data)
 
-  // Get the ID of the single select values that we want to set
   const readyForReviewID = findSingleSelectID('Ready for review', 'Status', data)
   const hubberTypeID = findSingleSelectID('Hubber or partner', 'Contributor type', data)
   const docsMemberTypeID = findSingleSelectID('Docs team', 'Contributor type', data)
   const osContributorTypeID = findSingleSelectID('OS contributor', 'Contributor type', data)
 
-  // Add the PR to the project
   const newItemID = await addItemToProject(process.env.ITEM_NODE_ID || '', projectID)
 
-  // Determine the feature and size
   const feature = getFeature(data)
   const size = getSize(data)
   const sizeType = findSingleSelectID(size, 'Size', data)
@@ -225,17 +208,14 @@ async function run() {
   }
   const turnaround = process.env.REPO === 'github/docs' ? 3 : 2
 
-  // Check if this is a Copilot-authored PR and get the human assignee
   const { isCopilotAuthor, copilotAssignee } = getCopilotAuthorInfo(data)
 
-  // Determine the author field value
   const authorFieldValue = getAuthorFieldValue(
     isCopilotAuthor,
     copilotAssignee,
     firstTimeContributor,
   )
 
-  // Generate a mutation to populate fields for the new project item
   const updateProjectV2ItemMutation = generateUpdateProjectV2ItemFieldMutation({
     item: newItemID,
     author: authorFieldValue,
@@ -243,7 +223,6 @@ async function run() {
     feature,
   })
 
-  // Determine which variable to use for the contributor type
   let contributorType
   if (isCopilotAuthor || isBotAuthor) {
     // Treat Copilot and bot-authored PRs (e.g. dependabot[bot]) as Docs team

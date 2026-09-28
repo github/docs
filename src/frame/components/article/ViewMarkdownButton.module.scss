@@ -1,27 +1,144 @@
+// The copy-markdown control: a pill-shaped text button with a small rounded
+// chevron button beside it, both on a subtle grey wash with no visible border.
+//
+// Every token below is one that actually resolves in this app. Several obvious
+// candidates (--borderRadius-full, --bgColor-neutral-muted, --control-*) live in
+// @primer/primitives files this app never imports, so they would silently fall
+// back to their literals and stop responding to colour mode. The --brand-* ones
+// come from @primer/react-brand's main.css, which src/frame/stylesheets/index.scss
+// does import, and flip correctly under [data-color-mode="dark"].
+
+// One pill. The chevron is the pill's right-hand end rather than a control
+// sitting beside it, so there is no gap: the two halves share a background and
+// meet seamlessly. They stay separate buttons because they do separate things —
+// the label copies in one click, the chevron opens the menu — and each half
+// darkens on its own hover, which is what shows where the split is.
+.controls {
+  display: inline-flex;
+  align-items: center;
+}
+
+// Shared box for both controls.
+//
+// The pair is assembled from two different libraries — the label is a
+// @primer/react-brand Button, the chevron a @primer/react ActionMenu.Button — so
+// several rules here exist purely to make them agree. Where a doubled class or
+// !important appears, it is beating a library rule; the specificity that forced
+// it is noted.
 .button {
-  font-size: 12px;
-  padding: 4px 8px;
-  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--brand-control-small-size, 2rem);
+  min-height: var(--brand-control-small-size, 2rem);
+  // The label otherwise inherits the document's system stack, which reads as a
+  // different typeface from the Mona Sans title and lede just above it.
+  font-family: var(--brand-fontStack-sansSerif, "Mona Sans", sans-serif);
+  font-size: var(--brand-text-size-100, 0.875rem);
+  font-weight: var(--base-text-weight-medium, 500);
+  color: var(--brand-color-text-default, #000);
+  border: 0;
+  // @primer/react's ButtonBase leaves a drop shadow on the chevron that the
+  // brand Button does not have, so at rest the two looked subtly different.
+  box-shadow: none !important;
   cursor: pointer;
 }
 
+// Backgrounds need !important: brand's hover rule is a 7-class selector
+// (`.Button--secondary:not(.Button[disabled]):not(…):not([aria-expanded='true']):hover`)
+// that outranks anything reasonable here. It also outranked brand's OWN :active
+// rule, which is why the label had no pressed state at all. :active is declared
+// after :hover so it still wins when both match.
+.button.button {
+  background-color: var(
+    --brand-button-secondary-bgColor-rest,
+    rgba(0, 0, 0, 0.06)
+  ) !important;
+
+  &:hover {
+    background-color: var(
+      --brand-button-secondary-bgColor-hover,
+      rgba(0, 0, 0, 0.1164)
+    ) !important;
+  }
+
+  &:active {
+    background-color: var(
+      --brand-button-secondary-bgColor-active,
+      rgba(0, 0, 0, 0.2104)
+    ) !important;
+  }
+
+  // One focus ring for both. Brand draws 4px OUTSIDE, @primer/react 2px INSIDE,
+  // in different blues, so tabbing across the pair jumped from an outer halo to
+  // an inner hairline — and brand's outer ring came within 2px of the chevron.
+  &:focus-visible {
+    outline: 2px solid var(--brand-color-focus, #0377ff) !important;
+    outline-offset: 2px !important;
+  }
+}
+
+// The pill's left end: rounded outside, square where it meets the chevron. The
+// radius token is 624.9375rem rather than a 9999px-style value, which is fine —
+// nothing clips it.
 .copyButton {
-  // Brand Button defaults to a 12px gap, a 16px leading-visual icon, and lets
-  // the label wrap. The narrow TOC column can't fit that, so tighten the
-  // icon/text spacing, shrink the icon back to the pre-migration 12px, and keep
-  // the label on a single line. Scoped to the copy button so the sibling
-  // dropdown's 16px triangle icon is left untouched.
-  gap: 4px;
+  border-radius: var(--brand-borderRadius-full, 624.9375rem) 0 0
+    var(--brand-borderRadius-full, 624.9375rem);
+  // Less padding on the seam side so the label sits closer to the chevron than
+  // to the pill's outer edge.
+  padding: 0 8px 0 16px;
+  gap: 8px;
   white-space: nowrap;
 
   svg {
-    height: 12px;
-    width: 12px;
+    height: 16px;
+    width: 16px;
   }
+}
 
-  // The brand Button renders its label through an internal Text component fixed
-  // at 14px; drop it to 12px to match the compact pre-migration button.
-  [class*="Button--label"] {
-    font-size: 12px;
+// The pill's right end: square at the seam, rounded outside. Width matches the
+// height for an even chevron target.
+.dropdownButton {
+  border-radius: 0 var(--brand-borderRadius-full, 624.9375rem)
+    var(--brand-borderRadius-full, 624.9375rem) 0;
+  width: 28px;
+  padding: 0 4px 0 0;
+}
+
+// The control's placement below the article lede. The margin sets the gap from
+// the lede — the Lead's own `mb-3` collapses into it, so this value wins — while
+// the header's bottom padding provides the space down to the rule beneath.
+//
+// Both gaps are spelled as Primer's step-4 spacer rather than a bare `1.5rem`.
+// The bottom one has to be: the inline layout sets the same gap from TSX with
+// `mt-4`, which compiles to exactly this `var(--base-size-24, 24px)`, and
+// `1.5rem` and `mt-4` grep as nothing in common. The top one follows so that
+// "match the gap above" below stays literally true. This is the one token here
+// that is not `--brand-*`, and it still resolves: brand's main.css defines the
+// whole `--base-size-*` scale at `:root` (@primer/primitives' size.css, its
+// other home, is one of the files this app never imports).
+.belowIntroPlacement {
+  margin-top: var(--base-size-24, 24px);
+
+  // ...but the header's bottom padding only reaches the control when the
+  // control is the last thing in the header. On pages that also render intro
+  // callouts — the "Who can use this feature?" box, or the platform/tool
+  // pickers — those are siblings that follow it, and the control sat flush
+  // against the box's top border with no gap at all. Match the gap above, so
+  // the control is evenly spaced between the lede and whatever follows.
+  //
+  // `:not(:last-child)` keeps this off the pages where nothing follows, which
+  // already get their spacing from the header padding and would otherwise gain
+  // a second 24px.
+  //
+  // This rule only ever fires in the GRID layout, where ArticlePage hands the
+  // control and the callouts to `intro` as siblings. The inline layout puts
+  // them in two separate wrappers, so the control is the last child of its own
+  // and this selector cannot reach across — ArticleInlineLayout.tsx sets the
+  // identical gap by hand with `mt-4` there instead. The two are one visual gap
+  // and have to stay equal; nothing enforces that but this note and the shared
+  // token spelling, so change both or neither.
+  &:not(:last-child) {
+    margin-bottom: var(--base-size-24, 24px);
   }
 }

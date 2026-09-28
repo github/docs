@@ -258,7 +258,7 @@ For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/w
 
 Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to run workflows at a specific interval. In GitLab CI/CD, pipeline schedules are configured with the UI, while in {% data variables.product.prodname_actions %} you can trigger a workflow on a scheduled interval with the "on" key.
 
-For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#scheduled-events).
+For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
 ## Variables and secrets
 

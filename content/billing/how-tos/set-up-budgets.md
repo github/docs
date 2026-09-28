@@ -39,7 +39,7 @@ In this example, the organization has set a budget of $50 for the "Actions" prod
 
 We recommend that you avoid creating overlapping budgets for the use of a product and a SKU, or an organization and a repository, so that users are not unexpectedly blocked from using a feature that they rely on. Alternatively, you may prefer to monitor use without blocking users by disabling the "Stop usage when budget limit is reached" option.
 
-For {% data variables.product.prodname_copilot_short %} under usage-based billing, user-level budgets add another layer to consider. A user-level budget can block a user even when the enterprise or cost center budget still has capacity. It is the first check in the evaluation sequence. When planning your budget configuration, account for how user-level budgets, cost center budgets, and the enterprise spending limit interact. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#how-billing-flows-through-budgets).
+For {% data variables.product.prodname_copilot_short %} under usage-based billing, user-level budgets add another layer to consider. A user-level budget can block a user even when the enterprise or cost center budget still has capacity. It is the first check in the evaluation sequence. When planning your budget configuration, account for how user-level budgets, cost center budgets, and the enterprise spending limit interact. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#how-billing-flows-through-budgets).
 
 ## Managing budgets for your personal account
 
@@ -79,7 +79,7 @@ To edit or delete a budget, on the "Budget and alerts" page, click **Edit** or *
 ## Managing budgets for your organization or enterprise
 
 > [!IMPORTANT]
-> {% data variables.product.prodname_copilot_short %} usage is now measured in {% data variables.product.prodname_ai_credits_short %} under usage-based billing. Existing premium request budgets have been automatically converted to {% data variables.product.prodname_ai_credit_singular %} budgets. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+> {% data variables.product.prodname_copilot_short %} usage is now measured in {% data variables.product.prodname_ai_credits_short %} under usage-based billing. Existing premium request budgets have been automatically converted to {% data variables.product.prodname_ai_credit_singular %} budgets. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 You can set budgets and receive alerts when your usage of a product or license type reaches 75%, 90%, or 100% of a defined budget. For budgets that control metered use of a product, you can also block further use when the budget is exhausted. Each budget has a scope.
 
@@ -120,6 +120,14 @@ As the owner of an enterprise or organization account, or as a billing manager, 
      * Select a cost center to create a user-level budget that applies to every user in that cost center. This sets one per-user amount for all current and future members, and overrides the universal budget for them.
      * Select a specific user to create an individual budget that overrides both the universal budget and any cost center user-level budget for that user.
 
+1. If you selected a specific user, optionally set an expiration date for the individual budget under "Expiration".
+
+   * **No expiration**: The budget applies until you edit or delete it. This is the default.
+   * **End of current billing cycle**: {% data variables.product.github %} removes the budget when the current billing cycle ends.
+   * **Specific date**: {% data variables.product.github %} removes the budget on the date you choose.
+
+   When an individual budget expires, {% data variables.product.github %} removes it and the user falls back to the next budget that applies to them: their cost center user-level budget, if they have one, or otherwise the universal user-level budget. If neither budget is configured, no user-level budget applies. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#expiration-dates-for-individual-user-level-budgets).
+
 1. Under "Budget", set a budget amount or license count.
 
    To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached** or **Limit usage when budget limit is reached**, if available. **This option is available for metered products and for {% data variables.product.prodname_AS %} SKU-level budgets**. For {% data variables.product.prodname_AS %}, this option prevents new enablement on additional repositories. It doesn't disable {% data variables.product.prodname_AS %} on repositories where it is already active. See [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#hard-budgets-for-github-advanced-security-skus).
@@ -145,15 +153,21 @@ As the owner of an enterprise or organization account, or as a billing manager, 
 
 You can edit or delete a budget at any time, but you cannot change the scope of a budget after creating it.
 
+For an individual user-level budget, you can also change or clear the expiration date at any time.
+
 1. Navigate to the "Budgets and alerts" view. See [Viewing budgets](#viewing-budgets).
 1. In the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
 1. Follow the prompts.
 
+### Managing requests for additional budget
+
+When a member exhausts a {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %} budget, they can ask you to increase it. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-budget-requests).
+
 ### Controlling included usage for a cost center
 
-Budgets cap metered charges after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted. To cap how much of the pool a cost center can use **before** the metered phase, use an included usage control. {% data variables.product.github %} sets the cap automatically based on the licenses assigned to the cost center, and you choose whether members are blocked or roll into paid overage when the cap is reached. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#included-usage-controls-for-cost-centers) and [AUTOTITLE](/billing/concepts/cost-centers).
+Budgets cap metered charges after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted. To cap how much of the pool a cost center can use **before** the metered phase, use an included usage control. {% data variables.product.github %} sets the cap automatically based on the licenses assigned to the cost center, and you choose whether members are blocked or roll into paid overage when the cap is reached. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#included-usage-controls-for-cost-centers) and [AUTOTITLE](/billing/concepts/cost-centers).
 > [!NOTE]
 > Enabling included usage controls does not retroactively redistribute the shared {% data variables.product.prodname_ai_credits_short %} enterprise pool. After the setting is enabled, users in the cost center share only the included {% data variables.product.prodname_ai_credits_short %} funded by licenses attributed to that cost center. When the setting is disabled, users in the cost center can continue drawing from the shared enterprise pool.
 ## Next steps
 
-For {% data variables.product.prodname_copilot_short %}-specific budget guidance under usage-based billing, including user-level budgets and configuration scenarios, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing) and [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
+For {% data variables.product.prodname_copilot_short %}-specific budget guidance under usage-based billing, including user-level budgets and configuration scenarios, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets) and [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).

@@ -118,5 +118,5 @@ For detailed internal documentation, see:
 - Passed securely to Docker build via `--secret` flag
 
 ### Rollback procedures
-Rollback procedures are documented in the internal Docs Engineering repository. Contact @docs-engineering or #deploy-support assistance.
+Rollback procedures are documented in [`engineering/rollbacks.md`](https://github.com/github/technical-content/blob/main/engineering/rollbacks.md). Contact @docs-engineering or #deploy-support for assistance.
 

@@ -121,7 +121,6 @@ class Page {
   public allToolsParsed: typeof allTools = allTools
   public introPlainText?: string
 
-  // Bound method
   public render: (context: Context) => Promise<string>
 
   static async init(opts: PageInitOptions): Promise<Page | undefined> {
@@ -212,7 +211,6 @@ class Page {
       )
     }
 
-    // Remove frontmatter errors before assignment
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { frontmatterErrors: _, ...cleanOpts } = opts
     Object.assign(this, cleanOpts)
@@ -229,7 +227,6 @@ class Page {
     // Is this the Homepage or a Product, Category, Topic, or Article?
     this.documentType = getDocumentType(this.relativePath)
 
-    // Get array of versions that the page is available in for fast lookup
     this.applicableVersions = getApplicableVersions(this.versions, this.fullPath)
 
     // Only check the parent product ID for English because if a top-level
@@ -251,7 +248,6 @@ class Page {
       }
     }
 
-    // derive array of Permalink objects
     this.permalinks = Permalink.derive(
       this.languageCode,
       this.relativePath,
@@ -268,7 +264,6 @@ class Page {
       }
     }
 
-    // if this is an article and it doesn't have showMiniToc = false, set mini TOC to true
     if (!this.relativePath.endsWith('index.md')) {
       this.showMiniToc = this.showMiniToc === false ? this.showMiniToc : true
     }
@@ -285,7 +280,6 @@ class Page {
     >
   }
 
-  // Infer the parent product ID from the page's relative file path
   get parentProductId(): string | null {
     // Each page's top-level content directory matches its product ID
     const id = this.relativePath.split('/')[0]
@@ -293,7 +287,6 @@ class Page {
     // ignore top-level content/index.md
     if (id === 'index.md') return null
 
-    // make sure the ID is valid
     if (process.env.NODE_ENV !== 'test') {
       assert(productMapKeysAsSet.has(id), `page ${this.fullPath} has an invalid product ID: ${id}`)
     }
@@ -322,7 +315,6 @@ class Page {
       context.englishHeadings = englishHeadings
     }
 
-    // pull translations for alerts
     context.alertTitles = await getAlertTitles(this)
 
     this.intro = await renderContentWithFallback(this, 'rawIntro', context)
@@ -420,7 +412,6 @@ class Page {
 
     if (!opts.unwrap) return html
 
-    // The unwrap option removes surrounding tags from a string, preserving any inner HTML
     return stripOuterTag(html)
   }
 

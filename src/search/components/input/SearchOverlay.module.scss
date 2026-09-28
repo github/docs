@@ -15,11 +15,13 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
     --overlay-backdrop-bgColor,
     var(--color-primer-fg-canvas-backdrop, rgba(31, 35, 40, 0.5))
   );
-  z-index: 1000; /* Ensure it's above other content other than overlay */
+  // Keep the backdrop above page content and below the overlay.
+  z-index: 1000;
 }
 
 .overlayContainer {
-  z-index: 1001; /* Above the backdrop */
+  // Place the overlay above the backdrop.
+  z-index: 1001;
   top: 0;
   left: 0;
   width: searchVariables.$smSearchOverlayWidth !important;
@@ -46,7 +48,7 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   }
 
   @include breakpoint(lg) {
-    // Using header padding: 8px (p-2 padding) x2
+    // Offset by twice the header's 8px p-2 padding.
     top: 16px !important;
     left: calc(50vw - searchVariables.$lgSearchOverlayWidth / 2) !important;
     width: searchVariables.$lgSearchOverlayWidth !important;

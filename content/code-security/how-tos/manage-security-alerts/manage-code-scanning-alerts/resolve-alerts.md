@@ -27,7 +27,7 @@ category:
 
 ## Asking {% data variables.copilot.copilot_chat %} about {% data variables.product.prodname_code_scanning %} alerts
 
-With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/get-started-with-chat-in-your-ide#ask-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
@@ -36,7 +36,7 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 ## Fixing alerts with {% data variables.product.prodname_copilot_short %}
 
 > [!NOTE]
-> This feature is in {% data variables.release-phases.public_preview %} and subject to change. {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_autofix_short %} must be available in the repository.
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change. {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_autofix_short %} must be available in the repository. {% data reusables.copilot.preview-features-policy %}
 
 You can assign a {% data variables.product.prodname_code_scanning %} alert to {% data variables.product.prodname_copilot_short %} to have it fix the alert for you. Assigning the alert starts an agent session: {% data variables.copilot.copilot_cloud_agent %} explores your codebase, generates a fix, validates it, and opens a pull request.
 
@@ -83,7 +83,7 @@ You can also use the Autofix API for historical alerts endpoints to generate, ge
 * [Get the status of an autofix for a code scanning alert](/rest/code-scanning/code-scanning#get-the-status-of-an-autofix-for-a-code-scanning-alert)
 * [Commit an autofix for a code scanning alert](/rest/code-scanning/code-scanning#commit-an-autofix-for-a-code-scanning-alert)
 
-{% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %} alerts won't be able to generate a fix for every alert in every situation. The feature operates on a best-effort basis and is not guaranteed to succeed 100% of the time. For information about the limitations of automatically generated fixes, see [Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#limitations-of-suggestions).
+{% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %} alerts won't be able to generate a fix for every alert in every situation. The feature operates on a best-effort basis and is not guaranteed to succeed 100% of the time. For information about the limitations of automatically generated fixes, see [Limitations of suggestions](/{% ifversion ghes %}enterprise-cloud@latest/{% endif %}code-security/responsible-use/security-and-quality-ai-features#7-limitations).
 
 {% endif %}
 
@@ -156,7 +156,7 @@ You may have multiple {% data variables.product.prodname_code_scanning %} config
 
 1. Once you have removed any unwanted configurations and confirmed the expected configurations are displayed, click **Save changes**.
 
-   If you save your changes after accidentally deleting a configuration, re-run the configuration to update the alert. For more information on re-running configurations that use {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs#re-running-all-the-jobs-in-a-workflow).
+   If you save your changes after accidentally deleting a configuration, re-run the configuration to update the alert. For more information on re-running configurations that use {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs#re-running-all-the-jobs-in-a-workflow).
 
 > [!NOTE]
 > * If you remove all {% data variables.product.prodname_code_scanning %} configurations for the default branch of your repository, the default branch will remain in the "Affected branches" sidebar, but it will not be analyzed by any configurations.
@@ -165,5 +165,5 @@ You may have multiple {% data variables.product.prodname_code_scanning %} config
 ## Further reading
 
 * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests)
-* [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)
-* [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)
+* [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning)
+* [AUTOTITLE](/code-security/concepts/code-scanning/integration-with-code-scanning)

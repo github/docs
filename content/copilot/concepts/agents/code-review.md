@@ -59,22 +59,10 @@ The second policy has these characteristics:
 
 When both policies are enabled, users without a {% data variables.product.prodname_copilot_short %} license can request a review from {% data variables.copilot.copilot_code-review_short %} on their pull requests in the organization's repositories.
 
-In repositories where automatic code review is enabled, {% data variables.product.prodname_copilot_short %} automatically reviews all pull requests. This happens regardless of whether the author has a {% data variables.product.prodname_copilot_short %} license. For more information about how to configure automatic code review, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
+In repositories where automatic code review is enabled, {% data variables.product.prodname_copilot_short %} automatically reviews all pull requests. This happens regardless of whether the author has a {% data variables.product.prodname_copilot_short %} license. For more information about how to configure automatic code review, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
 
 
 {% data variables.copilot.copilot_code-review_short %} for users without a license is not available in IDEs.
-
-## Excluded files
-
-Some file types are excluded from {% data variables.copilot.copilot_code-review_short %}:
-
-* Dependency management files, such as package.json and Gemfile.lock
-* Log files
-* SVG files
-
-If you include these file types in a pull request, {% data variables.copilot.copilot_code-review_short %} will not review the file.
-
-For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 
 ## Agentic capabilities for {% data variables.copilot.copilot_code-review_short %}
 
@@ -83,7 +71,7 @@ For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 * **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes.
 * **The ability to pass suggestions to {% data variables.copilot.copilot_cloud_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_cloud_agent %} is in public preview and subject to change.
 
-These capabilities are enabled automatically for all plans that include {% data variables.copilot.copilot_code-review_short %}. See [Review effort level](#review-effort-level) later in this article for information about choosing between Low and Medium analysis levels.
+These capabilities are enabled automatically for all plans that include {% data variables.copilot.copilot_code-review_short %}. See [Review effort level](#review-effort-level) later in this article for information about choosing between Lite and Balanced analysis levels.
 
 If {% data variables.product.prodname_actions %} is unavailable or if Actions workflows used by {% data variables.copilot.copilot_code-review_short %} fail, reviews will still be generated. However, they will not include the additional features provided by the agentic capabilities.
 
@@ -100,22 +88,15 @@ If your organization has disabled {% data variables.product.prodname_dotcom %}-h
 
 For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
 
-You can view the {% data variables.product.prodname_actions %} minutes associated with {% data variables.copilot.copilot_code-review_short %} runs. For more information, see [{% data variables.product.prodname_actions %} minutes for code review](/copilot/reference/copilot-billing/models-and-pricing#github-actions-minutes-for-code-review).
+You can view the {% data variables.product.prodname_actions %} minutes associated with {% data variables.copilot.copilot_code-review_short %} runs. For more information, see [{% data variables.product.prodname_actions %} minutes for code review](/copilot/reference/copilot-billing/models-and-pricing#pricing-and-usage-cost-considerations-for-copilot-code-review).
 
-## Review effort level
+### Estimated consumption
 
-> [!NOTE]
-> Medium review effort is in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of preview features.
+A review typically consumes an estimated $0.05 USD to $1 USD worth of {% data variables.product.prodname_ai_credits_short %} with "Lite" effort, and $0.25 USD to $5 USD worth of {% data variables.product.prodname_ai_credits_short %} with "Balanced" effort.
 
-{% data variables.copilot.copilot_code-review_short %} supports multiple review effort levels, so you can choose the level of thoroughness that matches the criticality of your code.
+Consumption generally increases with pull request size and repository custom instructions, and the ranges may change as models evolve. These estimates do not include {% data variables.product.prodname_actions %} minutes.
 
-* **Low**: Standard review. Provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies (default).
-* **Medium**: Routes pull requests to a higher-reasoning model for longer analysis of complex logic, security-sensitive code, and cross-service changes. Medium reviews use more {% data variables.product.prodname_ai_credits_short %} and {% data variables.product.prodname_actions %} minutes than Low reviews. For better performance with Medium reviews, consider configuring larger or self-hosted runners. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
-
-Use Medium for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. Use Low for routine changes where fast feedback is more important than exhaustive analysis.
-
-
-Repository administrators can set the default review effort level for automatic code reviews. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
+Repository and organization administrators can set the default review effort level for automatic code reviews. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#customizing-copilot-code-review-1).
 
 ## Code review usage
 
@@ -125,14 +106,13 @@ Code reviews have two cost components: {% data variables.product.prodname_ai_cre
 
 If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the {% data variables.product.prodname_ai_credits_short %} consumption is attributed to the pull request author. If a review is manually requested by another user, the consumption is attributed to that user instead.
 
-If a pull request is created by {% data variables.product.prodname_actions %} or by a bot, the usage will apply to:
+For pull requests authored by {% data variables.copilot.copilot_cloud_agent %}, usage is attributed first to the human co-author associated with the change. If the co-author cannot be billed, usage is billed directly to the organization.
 
-* The user who triggered the workflow, if that user can be identified.
-* A designated billing owner.
+For pull requests authored by other bots, or when a bot requests the review, usage is billed directly to the organization. These pull requests are eligible for agentic review.
 
 ### What happens when a budget is reached
 
-For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, code review access is governed by budget controls. If a user reaches their user-level budget, or if the enterprise or cost center spending limit is exhausted, code reviews are blocked along with other {% data variables.product.prodname_ai_credits_short %}-consuming features. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#what-happens-when-a-user-is-blocked).
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, code review access is governed by budget controls. If a user reaches their user-level budget, or if the enterprise or cost center spending limit is exhausted, code reviews are blocked along with other {% data variables.product.prodname_ai_credits_short %}-consuming features. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#what-happens-when-a-user-is-blocked).
 
 ### Users without a {% data variables.product.prodname_copilot_short %} license or plan that includes {% data variables.copilot.copilot_code-review_short %}
 
@@ -148,9 +128,72 @@ When {% data variables.copilot.copilot_code-review_short %} is enabled for these
 
 {% data reusables.copilot.ccr-model-settings %}
 
-## MCP servers and agent skills for code review
+## Automatic pull request reviews
 
-{% data reusables.copilot.code-review.skills-and-mcp-preview-note %}
+By default, {% data variables.product.prodname_copilot_short %} only reviews a pull request if you assign it to the pull request. However, you can configure automatic reviews.
+
+* **Users** can configure {% data variables.product.prodname_copilot_short %} to automatically review the pull requests they create. This is available on the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} plans, and with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} license. It is not available for {% data variables.enterprise.prodname_managed_users %}.
+* **Repository owners** can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in the repository that are created by people with access to {% data variables.product.prodname_copilot_short %}.
+* **Organization owners** can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in some or all of the repositories in the organization where the pull request is created by a {% data variables.product.prodname_copilot_short %} user.
+
+{% data variables.product.prodname_copilot_short %} evaluates pull requests against two separate configurations: a user's settings and any applicable ruleset. These configurations are not hierarchical; neither inherits from or overrides the other. A pull request is reviewed automatically when at least one configuration is enabled. If both configurations are enabled on a pull request, {% data variables.product.prodname_copilot_short %} still posts only one review.
+
+If your organization has enabled {% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license, automatic reviews also apply to pull requests created by organization members without a license. This applies to repositories covered by a policy where automatic reviews are enabled. For more information, see [{% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license](#copilot-code-review-without-a-copilot-license).
+
+
+### Triggering an automatic pull request review
+
+The triggers for automatic code review depend on the configuration settings.
+
+* Basic setting:
+  * When you create a pull request as an "Open" pull request.
+  * The first time you switch a "Draft" pull request to "Open".
+* Review new pushes:
+  * Every time you push a new commit to the pull request.
+* Review draft pull requests:
+  * Pull requests are automatically reviewed while they are still drafts, before you switch them to "Open".
+
+When a pull request qualifies for automatic review, **Review new pushes** and **Review draft pull requests** apply if either the author's settings or an applicable ruleset turns them on. You cannot use your own settings to turn off push or draft reviews that a ruleset has turned on.
+
+For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
+
+> [!NOTE]
+> Unless {% data variables.product.prodname_copilot_short %} has been configured to review each push to a pull request, it will only review a pull request once. If you make changes to the pull request after it has been automatically reviewed and you want {% data variables.product.prodname_copilot_short %} to re-review it, you can request this manually. Click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu.
+
+## Review effort level
+
+{% data variables.copilot.copilot_code-review_short %} supports multiple {% data variables.product.prodname_copilot_short %} review effort levels, so you can choose the level of thoroughness that matches the criticality of your code.
+
+* **Lite**: Standard review. Provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies (default).
+* **Balanced**: Routes pull requests to a higher-reasoning model for longer analysis of complex logic, security-sensitive code, and cross-service changes. Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes, than Lite reviews.
+
+Use Balanced for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. Use Lite for routine changes where fast feedback is more important than exhaustive analysis.
+
+You can select {% data variables.product.prodname_copilot_short %} review effort when requesting a review in the pull request, under the **Reviewers** section where {% data variables.product.prodname_copilot_short %} appears as a reviewer. You can also set a default {% data variables.product.prodname_copilot_short %} review effort in your {% data variables.copilot.copilot_code-review_short %} settings. Organization owners can set a default {% data variables.product.prodname_copilot_short %} review effort for automatic code reviews in their organization. Repository administrators can override the organization default for a specific repository.
+
+When {% data variables.product.prodname_copilot_short %} determines which review effort to use, it checks the following options in order and uses the first one that applies:
+
+1. A {% data variables.product.prodname_copilot_short %} review effort chosen when the review is requested
+1. A {% data variables.product.prodname_copilot_short %} review effort previously used on this pull request
+1. The requestor's {% data variables.product.prodname_copilot_short %} review effort. For a new pull request, the requestor is the author. When someone marks a draft ready for review, that person is the requestor.
+1. A {% data variables.product.prodname_copilot_short %} review effort set for the repository
+1. A {% data variables.product.prodname_copilot_short %} review effort set for the organization, or the repository owner's {% data variables.product.prodname_copilot_short %} review effort on a user-owned repository
+1. {% data variables.product.github %}'s built-in default, which is Lite. Some owners have Balanced as the built-in default.
+
+After {% data variables.copilot.copilot_code-review_short %} reviews a pull request, the pull request overview comment shows the effort level used for each review run.
+
+For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review).
+
+## {% data variables.product.prodname_copilot_short %} approvals
+
+> [!NOTE]
+> {% data reusables.copilot.automatic-approvals-public-preview %}
+
+Every {% data variables.copilot.copilot_code-review_short %} includes an approval assessment in the overview comment, indicating whether {% data variables.product.prodname_copilot_short %} has determined the pull request ready to approve after reviewing it. By default, {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required approvals for the pull request.
+
+When {% data variables.product.prodname_copilot_short %} approvals are enabled in repository, organization, and enterprise settings, {% data variables.product.prodname_copilot_short %} can submit an approving review that satisfies your repository's required-approval rule the same way a teammate's approval would. If new commits are pushed after {% data variables.product.prodname_copilot_short %} approves, the approval is dismissed, and you can re-request a review.
+
+## MCP servers and agent skills for code review
 
 {% data variables.copilot.copilot_code-review_short %} can use repository-level agent skills and MCP servers when they are relevant to the review.
 
@@ -174,11 +217,17 @@ You can configure MCP servers in your repository settings. Repository MCP config
 
 {% data reusables.copilot.code-review.mcp-tools-setting %}
 
-## Validating {% data variables.product.prodname_copilot_short %} code reviews
+## Excluded files
 
-{% data variables.product.prodname_copilot_short %} is not guaranteed to spot all problems or issues in a pull request. Sometimes it will make mistakes. Always validate {% data variables.product.prodname_copilot_short %}'s feedback carefully. Supplement {% data variables.product.prodname_copilot_short %}'s feedback with a human review.
+Some file types are excluded from {% data variables.copilot.copilot_code-review_short %}:
 
-For more information, see [AUTOTITLE](/copilot/responsible-use/agents).
+* Dependency management files, such as package.json and Gemfile.lock
+* Log files
+* SVG files
+
+If you include these file types in a pull request, {% data variables.copilot.copilot_code-review_short %} will not review the file.
+
+For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 
 ## Enhancing {% data variables.product.prodname_copilot_short %}'s knowledge of a repository
 
@@ -201,36 +250,11 @@ These are short, natural-language statements that you write and store as one or 
 | Scope | Repository-wide and {% data variables.product.prodname_copilot_short %}-specific | Repository sub-paths and {% data variables.product.prodname_copilot_short %}-specific | Cross-tool / agent-agnostic | Invoked per task |
 | Rule | "{% data variables.product.prodname_copilot_short %}, always know this for this repository" | "{% data variables.product.prodname_copilot_short %}, always know this when working in these paths" | "Any agent, always know this" | "Do this when needed" |
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) and [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions).
 
 ### {% data variables.copilot.copilot_memory %} ({% data variables.release-phases.public_preview %})
 
 If you have a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has learned about a repository. {% data variables.product.prodname_copilot_short %} can then use this information when it reviews pull requests in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
-
-## About automatic pull request reviews
-
-By default, {% data variables.product.prodname_copilot_short %} only reviews a pull request if you assign it to the pull request. However, you can configure automatic reviews.
-
-* **Individual users** on the {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests they create.
-* **Repository owners** can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in the repository that are created by people with access to {% data variables.product.prodname_copilot_short %}.
-* **Organization owners** can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in some or all of the repositories in the organization where the pull request is created by a {% data variables.product.prodname_copilot_short %} user.
-
-### Triggering an automatic pull request review
-
-The triggers for automatic code review depend on the configuration settings.
-
-* Basic setting:
-  * When you create a pull request as an "Open" pull request.
-  * The first time you switch a "Draft" pull request to "Open".
-* Review new pushes:
-  * Every time you push a new commit to the pull request.
-* Review draft pull requests:
-  * Pull requests are automatically reviewed while they are still drafts, before you switch them to "Open".
-
-For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
-
-> [!NOTE]
-> Unless {% data variables.product.prodname_copilot_short %} has been configured to review each push to a pull request, it will only review a pull request once. If you make changes to the pull request after it has been automatically reviewed and you want {% data variables.product.prodname_copilot_short %} to re-review it, you can request this manually. Click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu.
 
 ## Getting detailed code quality feedback across your repository
 
@@ -238,13 +262,20 @@ For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up
 
 {% data variables.product.prodname_code_quality %} complements {% data variables.copilot.copilot_code-review_short %} by adding:
 
-* **Hybrid detection** that combines rules-based {% data variables.product.prodname_codeql %} analysis with AI-powered analysis, on pull requests and on your default branch.
+* **Rules-based  {% data variables.product.prodname_codeql %}-powered analysis** on pull requests and on your default branch.
 * **Test-coverage metrics** on pull requests, so you can see whether a change maintains or reduces coverage.
 * **One-click, {% data variables.product.prodname_copilot_short %}-powered fixes**, including delegating remediation to {% data variables.copilot.copilot_cloud_agent %}.
 * **Optional merge gating** with rulesets, so pull requests with unresolved rules-based findings (or that miss a coverage threshold) can be blocked from merging.
 
 For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-quality).
 
-## Further reading
+## Validating {% data variables.product.prodname_copilot_short %} code reviews
+
+{% data variables.product.prodname_copilot_short %} is not guaranteed to spot all problems or issues in a pull request. Sometimes it will make mistakes. Always validate {% data variables.product.prodname_copilot_short %}'s feedback carefully. Supplement {% data variables.product.prodname_copilot_short %}'s feedback with a human review.
+
+For more information, see [AUTOTITLE](/copilot/responsible-use/agents).
+
+## Next steps
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review)

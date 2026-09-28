@@ -21,7 +21,6 @@ export async function getViewDuration(
   }
 
   const data = JSON.parse(results.primaryResults[0].toString()).data[0]
-  // Extract avg_VisitDuration
   const viewDuration = data.avg_VisitDuration
   return `${viewDuration} seconds`
 }

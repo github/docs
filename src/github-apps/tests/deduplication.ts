@@ -47,20 +47,17 @@ describe('GitHub Apps deduplication', () => {
         fs.readFileSync(path.join(ENABLED_APPS_DIR, 'version-index.json'), 'utf8'),
       )
 
-      // Test a non-permissions page type
       for (const [version, pageTypes] of Object.entries(
         index as Record<string, Record<string, unknown>>,
       )) {
         for (const [pageType, pageData] of Object.entries(pageTypes as Record<string, unknown>)) {
           if (pageType.includes('permissions')) continue
 
-          // Reconstruct
           const reconstructed: Record<string, unknown[]> = {}
           for (const [category, indices] of Object.entries(pageData as Record<string, number[]>)) {
             reconstructed[category] = indices.map((idx: number) => entries[idx])
           }
 
-          // Compare with original
           const originalPath = path.join(ENABLED_APPS_DIR, version, `${pageType}.json`)
           if (!fs.existsSync(originalPath)) continue
           const original = JSON.parse(fs.readFileSync(originalPath, 'utf8'))
@@ -89,7 +86,6 @@ describe('GitHub Apps deduplication', () => {
         for (const [pageType, pageData] of Object.entries(pageTypes as Record<string, unknown>)) {
           if (!pageType.includes('permissions')) continue
 
-          // Reconstruct
           const reconstructed: Record<
             string,
             { title: string; displayTitle: string; permissions: unknown[] }
@@ -104,7 +100,6 @@ describe('GitHub Apps deduplication', () => {
             }
           }
 
-          // Compare with original
           const originalPath = path.join(ENABLED_APPS_DIR, version, `${pageType}.json`)
           if (!fs.existsSync(originalPath)) continue
           const original = JSON.parse(fs.readFileSync(originalPath, 'utf8'))

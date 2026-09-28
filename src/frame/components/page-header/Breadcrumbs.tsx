@@ -1,11 +1,12 @@
-import type { MouseEvent } from 'react'
+import { type MouseEvent, useCallback } from 'react'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
+import cx from 'clsx'
 import { Breadcrumbs as BrandBreadcrumbs } from '@primer/react-brand'
 
 import { useMainContext } from '../context/MainContext'
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { usePrefetchOnInteraction } from '@/frame/components/lib/prefetch'
 
 type Props = {
   inHeader?: boolean
@@ -26,6 +27,11 @@ export const Breadcrumbs = ({ inHeader, variant }: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { t } = useTranslation('header')
+  const prefetchHref = usePrefetchOnInteraction()
+
+  // Warm a breadcrumb destination on hover/focus. BrandBreadcrumbs.Item renders a
+  // plain <a> navigated via router.push, so Next.js won't prefetch it otherwise.
+  const prefetch = useCallback((href: string) => prefetchHref(router, href), [router, prefetchHref])
 
   const placement = variant ?? (inHeader ? 'header' : 'in-article')
   // Only the in-article placement hides the current (last) crumb; the header and
@@ -74,6 +80,8 @@ export const Breadcrumbs = ({ inHeader, variant }: Props) => {
           href={homeHref}
           title={t('go_home')}
           onClick={(event) => handleClick(event, homeHref)}
+          onMouseEnter={() => prefetch(homeHref)}
+          onFocus={() => prefetch(homeHref)}
         >
           {t('go_home')}
         </BrandBreadcrumbs.Item>
@@ -89,17 +97,30 @@ export const Breadcrumbs = ({ inHeader, variant }: Props) => {
               </li>
             )
           }
+          // The last crumb is the page being viewed, so it isn't a link to
+          // itself: brand's `selected` renders it as static text carrying
+          // aria-current="page" (and pointer-events: none) instead of an <a>.
+          const isCurrent = i === arr.length - 1
           return (
             <BrandBreadcrumbs.Item
-              data-testid="breadcrumb-link"
+              data-testid={isCurrent ? 'breadcrumb-current' : 'breadcrumb-link'}
               key={title}
               href={breadcrumb.href}
               title={title}
-              onClick={(event) => handleClick(event, breadcrumb.href!)}
+              selected={isCurrent}
+              // No navigation or prefetch for the page you're already on.
+              {...(isCurrent
+                ? {}
+                : {
+                    onClick: (event: MouseEvent<HTMLAnchorElement>) =>
+                      handleClick(event, breadcrumb.href!),
+                    onMouseEnter: () => prefetch(breadcrumb.href!),
+                    onFocus: () => prefetch(breadcrumb.href!),
+                  })}
               className={cx(
                 // Show the last breadcrumb if it's in the header/bar, but not if it's in the article.
                 // If there's only 1 breadcrumb, show it.
-                hideLastCrumb && i === arr.length - 1 && arr.length !== 1 && 'd-none',
+                hideLastCrumb && isCurrent && arr.length !== 1 && 'd-none',
               )}
             >
               {breadcrumb.title}

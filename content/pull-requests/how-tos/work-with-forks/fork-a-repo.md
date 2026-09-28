@@ -47,7 +47,7 @@ You might fork a project to propose changes to the upstream repository. In this 
 1. Click **Create fork**.
 
 > [!NOTE]
-> If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. See [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/creating-and-deleting-branches-within-your-repository).
+> If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. See [AUTOTITLE](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository).
 
 {% endwebui %}
 
@@ -186,7 +186,7 @@ gh repo fork REPOSITORY --remote-name "main-remote-repo"
 
 You can make any changes to a fork, including:
 
-* **Creating branches:** [_Branches_](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) allow you to build new features or test out ideas without putting your main project at risk.
+* **Creating branches:** [_Branches_](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository) allow you to build new features or test out ideas without putting your main project at risk.
 * **Opening pull requests:** If you want to contribute back to the upstream repository, you can submit a pull request to ask the original author to pull your fork into their repository. See [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/creating-a-pull-request-from-a-fork).
 
 ## Find another repository to fork

@@ -45,7 +45,6 @@ export default function handleOldNextDataPaths(
 
 let _buildId: string
 function getCurrentBuildID() {
-  // Simple memoization
   if (!_buildId) {
     _buildId = fs.readFileSync('.next/BUILD_ID', 'utf-8').trim()
   }

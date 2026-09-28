@@ -46,6 +46,7 @@ export function setLanguageFastlySurrogateKey(
     langCode: req.language,
     productId: productSurrogateId(context?.page),
     versionKey: versionSurrogateKey(context?.currentVersionObj),
+    relativePath: context?.page?.relativePath,
   })
   res.set(KEY, keys.join(' '))
   return next()
@@ -58,29 +59,26 @@ export function makeLanguageSurrogateKey(langCode?: string) {
   return `language:${langCode}`
 }
 
-// Build the fine-grained surrogate keys for a content response (docs-engineering#6719).
-// A content page is exactly one of each axis, so ~4 keys per page, well under
+// Build the fine-grained surrogate keys for a content response.
+// A content page is exactly one of each axis, so ~5 keys per page, well under
 // Fastly's 16 KB Surrogate-Key header limit:
 //
 //   language:<code>              (also emitted for non-content responses)
 //   product:<top-level dir>      e.g. product:actions      (~36)
 //   version:<short release slug> e.g. version:ghes-3.14     (~7-8)
 //   product:<x>,language:<y>     compound, for targeted translation purges
+//   language:<code>,path:<path>  compound, one key per source page, all versions
 //
-// These keys are inert: nothing purges the new keys yet. docs-engineering#6720
-// will use them to target the tightest key that covers a deploy instead of
-// soft-purging a whole language. Space is the Fastly delimiter; colons and
-// commas are fine (we already ship `language:en` and `api-search:en`). The
-// language key stays first so anything that only reads the first token (e.g.
-// the caching-headers test helper) keeps working.
 export function makeContentSurrogateKeys({
   langCode,
   productId,
   versionKey,
+  relativePath,
 }: {
   langCode?: string
   productId?: string
   versionKey?: string
+  relativePath?: string
 }): string[] {
   const keys = [makeLanguageSurrogateKey(langCode)]
   if (productId) {
@@ -92,7 +90,21 @@ export function makeContentSurrogateKeys({
   if (versionKey) {
     keys.push(`version:${versionKey}`)
   }
+  const pageKey = makePageSurrogateKey(langCode, relativePath)
+  if (pageKey) {
+    keys.push(pageKey)
+  }
   return keys
+}
+
+// One surrogate key per source page, e.g. `language:en,path:actions/foo.md`,
+// covering every version-URL of the page. A pure function of language and
+// relativePath so the purge job can rebuild the same key from a changed file's
+// path. Language-scoped so an English deploy doesn't evict translations. Returns
+// undefined for non-content responses.
+export function makePageSurrogateKey(langCode?: string, relativePath?: string): string | undefined {
+  if (!langCode || !relativePath) return undefined
+  return `language:${langCode},path:${relativePath}`
 }
 
 // Derive the product id for the `product:` surrogate key from a content page's

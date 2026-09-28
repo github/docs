@@ -46,7 +46,7 @@ For more information, see the following articles.
 * [AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership)
 * [AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account)
 * [AUTOTITLE](/account-and-profile/how-tos/organization-membership/removing-yourself-from-an-organization)
-* [AUTOTITLE](/account-and-profile/reference/personal-account-reference#account-deletion)
+* [AUTOTITLE](/account-and-profile/reference/personal-account-reference#side-effects-of-account-deletion)
 
 To delete your personal account, see [AUTOTITLE](/account-and-profile/how-tos/account-management/deleting-your-personal-account).
 
@@ -71,7 +71,7 @@ In some cases, you may need to use multiple accounts on {% data variables.produc
 
 To learn how to manage multiple accounts, see [AUTOTITLE](/free-pro-team@latest/account-and-profile/how-tos/account-management/managing-multiple-accounts).
 
-You cannot use a {% data variables.enterprise.prodname_managed_user %} to contribute to public projects on {% data variables.location.product_location %}, so you must contribute to those resources using your personal account. For more information, see [About {% data variables.product.prodname_emus %}]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}.{% endif %}
+You cannot use a {% data variables.enterprise.prodname_managed_user %} to contribute to public projects on {% data variables.location.product_location %}, so you must contribute to those resources using your personal account. For more information, see [About {% data variables.product.prodname_emus %}]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}.{% endif %}
 
 If you need to use multiple accounts, you can stay signed in to your accounts and switch between them. For example, switching between a personal account and a service account. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts).
 

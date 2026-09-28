@@ -56,7 +56,7 @@ After configuring your Azure resources, you can use an Azure Virtual Network (VN
 
 ## Enabling {% data variables.product.prodname_dependabot %} for the organization
 
-You now need to enable {% data variables.product.prodname_dependabot %} on _self-hosted runners_ for your organization in order to enable {% data variables.product.prodname_dependabot %} on large runners. See [Enabling or disabling {% data variables.product.prodname_dependabot %} on larger runners](/code-security/concepts/supply-chain-security/dependabot-on-actions#enabling-or-disabling-dependabot-on-larger-runners).
+You now need to enable {% data variables.product.prodname_dependabot %} on _self-hosted runners_ for your organization in order to enable {% data variables.product.prodname_dependabot %} on large runners. See [Enabling or disabling {% data variables.product.prodname_dependabot %} on larger runners](/code-security/concepts/supply-chain-security/dependabot-on-actions).
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
@@ -77,7 +77,7 @@ Now that you've set up private networking with VNET, you can start a {% data var
 
   ![Example of log for a "Dependabot in vnet" workflow. The Dependabot job is highlighted with an orange outline. ](/assets/images/help/dependabot/dependabot-vnet-logs.png)
 
-* You can view the active jobs in the page containing informatuon about the runner. To access that page, click the **Policies** tab for the enterprise, select **Actions** on the left sidebar, click the **Runner group** tab, and select your runner.
+* You can view the active jobs in the page containing information about the runner. To access that page, click the **Policies** tab for the enterprise, select **Actions** on the left sidebar, click the **Runner group** tab, and select your runner.
 
   ![Screenshot showing a Dependabot runner's active jobs.](/assets/images/help/dependabot/dependabot-vnet-active-jobs.png)
 

@@ -10,13 +10,61 @@ inputs:
     default: CG5MJHMB2 # docs-alerts
     required: false
   message:
-    description: The message to send to Slack
-    default: The last '${{ github.workflow }}' run failed. See ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    description: >-
+      Optional message override. When set, it is sent verbatim. When empty (the
+      default), a standard multi-line failure message is built from the run
+      context, plus a link to the failure issue if issue_url is provided.
+    default: ''
+    required: false
+  issue_url:
+    description: >-
+      Optional link to the tracking failure issue (e.g. the output of the
+      create-workflow-failure-issue action). Appended to the default message.
+      Ignored when a custom message is provided.
+    default: ''
     required: false
 
 runs:
   using: composite
   steps:
+    # Build the Slack text here so the default message can be multi-line (real
+    # newlines) and conditionally include the issue link. A caller-supplied
+    # message is passed through verbatim for backward compatibility.
+    - name: Build Slack message
+      id: build
+      shell: bash
+      env:
+        MESSAGE: ${{ inputs.message }}
+        ISSUE_URL: ${{ inputs.issue_url }}
+        SOURCE_REPO: ${{ github.repository }}
+        WORKFLOW_NAME: ${{ github.workflow }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        EVENT_NAME: ${{ github.event_name }}
+        GIT_REF: ${{ github.ref }}
+        ACTOR: ${{ github.actor }}
+      run: |
+        # Escape Slack mrkdwn control chars in interpolated context fields so a
+        # crafted branch/ref (e.g. containing <!channel>) can't inject mentions.
+        esc() { printf '%s' "$1" | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g'; }
+        # Unique heredoc delimiter so a custom message can't collide with it.
+        delim="SLACK_EOF_${RANDOM}${RANDOM}"
+        {
+          printf 'text<<%s\n' "$delim"
+          if [ -n "$MESSAGE" ]; then
+            printf '%s\n' "$MESSAGE"
+          else
+            printf ':actions: *Workflow failure* in %s: %s\n' "$(esc "$SOURCE_REPO")" "$(esc "$WORKFLOW_NAME")"
+            printf 'on %s · %s · by %s\n' "$(esc "$EVENT_NAME")" "$(esc "$GIT_REF")" "$(esc "$ACTOR")"
+            printf 'Run: %s\n' "$RUN_URL"
+            if [ -n "$ISSUE_URL" ]; then
+              printf 'Issue: %s\n' "$ISSUE_URL"
+            else
+              printf ':warning: No issue created\n'
+            fi
+          fi
+          printf '%s\n' "$delim"
+        } >> "$GITHUB_OUTPUT"
+
     - name: Send Slack notification if workflow fails
       uses: slackapi/slack-github-action@45a88b9581bfab2566dc881e2cd66d334e621e2c # v3.0.3
       with:
@@ -25,4 +73,4 @@ runs:
         errors: true
         payload: |
           channel: ${{ toJSON(inputs.slack_channel_id) }}
-          text: ${{ toJSON(inputs.message) }}
+          text: ${{ toJSON(steps.build.outputs.text) }}

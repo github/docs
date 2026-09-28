@@ -21,8 +21,8 @@ export default async function createTree(
   let filepath: string
   let mtime: number
   // This kills two birds with one stone. We (attempt to) read it as a file,
-  // to find out if it's a directory or a file and whence we know that
-  // we also collect it's modification time.
+  // to find out if it's a directory or a file, and while we're there we also
+  // collect its modification time.
   try {
     filepath = `${originalPath}.md`
     mtime = await getMtime(filepath)
@@ -44,8 +44,8 @@ export default async function createTree(
       }
       // Throw an error if we can't find a content file associated with the children: entry.
       // But don't throw an error if the user is running the site locally and hasn't cloned the Early Access repo.
-      // Also don't throw for missing children *within* early-access content — a broken
-      // early-access article should not block every docs-internal PR from merging.
+      // Also don't throw for missing children *within* early-access content.
+      // A broken early-access article should not block every docs-internal PR.
       const msg = `Cannot find a content file at ${originalPath}. Check the 'children' frontmatter in the parent index.md.`
 
       if (
@@ -85,7 +85,6 @@ export default async function createTree(
     page = newPage as unknown as Page
   }
 
-  // Create the root tree object on the first run, and create children recursively.
   const item: UnversionedTree = {
     page,
     // This is only here for the sake of reloading the tree later which
@@ -98,12 +97,10 @@ export default async function createTree(
     // this value now will be different from what it was before.
     // It's not enough to rely on *length* of the array before and after
     // because the change could have been to remove one and add another.
-    // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
     children: page.children || [],
     childPages: [],
   }
 
-  // Process frontmatter children recursively.
   if (page.children) {
     assertUniqueChildren(page)
     item.childPages = (
@@ -122,12 +119,11 @@ export default async function createTree(
             }
           }
 
-          // Handle absolute /content/ paths - allows cross-product directory inclusion
-          // e.g., /content/actions/workflows will include the entire actions/workflows tree
+          // Absolute /content/ paths pull in a whole subtree resolved from the
+          // content root, which may or may not be the current product.
+          // For example, /content/actions/workflows includes all of actions/workflows.
           let childPath: string
           if (child.startsWith('/content/')) {
-            // Absolute content path - resolve from the content root
-            // Strip '/content/' prefix and join with the base content directory
             const absoluteChildPath = child.slice('/content/'.length)
             childPath = path.posix.join(basePath, absoluteChildPath)
 

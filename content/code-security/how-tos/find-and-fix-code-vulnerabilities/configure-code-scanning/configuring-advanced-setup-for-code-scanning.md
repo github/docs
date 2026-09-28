@@ -51,12 +51,10 @@ You can customize your {% data variables.product.prodname_codeql %} analysis by 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Scroll down to "{% data variables.product.UI_code_security_scanning %}", in the "{% data variables.product.prodname_codeql %} analysis" row select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Advanced**.
+1. In the "{% data variables.product.prodname_codeql %} analysis" row, select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Advanced**.
 
    > [!NOTE]
    > If you are switching from default setup to advanced setup, in the "{% data variables.product.prodname_codeql %} analysis" row, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "workflow" aria-hidden="true" aria-label="workflow" %} Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
-
-   ![Screenshot of the "{% data variables.product.UI_code_security_scanning %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Advanced setup" button is highlighted with an orange outline.](/assets/images/help/security/advanced-code-scanning-setup-ghas.png)
 
 1. To customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow.
 
@@ -102,7 +100,7 @@ For information on bulk enablement, see [AUTOTITLE](/code-security/how-tos/secur
 
 1. When you have finished defining your configuration, add the new workflow to your default branch.
 
-   For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/use-workflow-templates#choosing-and-using-a-starter-workflow) and [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options).
+   For more information, see [AUTOTITLE](/actions/how-tos/write-workflows/use-workflow-templates#choosing-and-using-a-workflow-template) and [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options).
 
 {% endif %}
 
@@ -110,13 +108,13 @@ For information on bulk enablement, see [AUTOTITLE](/code-security/how-tos/secur
 
 After your workflow runs successfully at least once, you are ready to start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning-alerts) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/assess-alerts).
 
-Learn how {% data variables.product.prodname_code_scanning %} runs behave as checks on pull requests, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests#about-code-scanning-as-a-pull-request-check).
+Learn how {% data variables.product.prodname_code_scanning %} runs behave as checks on pull requests, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests).
 
 You can find detailed information about your {% data variables.product.prodname_code_scanning %} configuration, including timestamps for each scan and the percentage of files scanned, on the tool status page. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning).
 
 ### Further reading
 
 * [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests).
-* [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#github-actions-notification-options).
+* [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-github-actions-notifications).
 * [AUTOTITLE](/code-security/reference/code-scanning/workflow-configuration-options).
 * [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/view-code-scanning-logs).

@@ -48,7 +48,7 @@ In addition:
 * You may need to configure the firewall in PingFederate to allow outbound connections to {% ifversion ghes %}the `https://HOSTNAME/api/v3/scim/v2` endpoint on your {% data variables.product.prodname_ghe_server %} instance.{% else %}the SCIM endpoints on {% data variables.product.github %}:
   * For **{% data variables.product.prodname_dotcom_the_website %}**: `https://api.github.com/scim/v2/enterprises/ENTERPRISE`
   * For **{% data variables.enterprise.data_residency_site %}**: `https://api.SUBDOMAIN.ghe.com/scim/v2/enterprises/SUBDOMAIN`{% endif %}
-* PingFederate's "provisioner mode" must be set to a value that allows SCIM provisioning. See the "Before you begin" section in PingIdentity's [Configuring outbound provisioning settings](https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/help_protocolsettingstasklet_saasglobalprovisioningsettingsstate.html) guide.
+* PingFederate's "provisioner mode" must be set to a value that allows SCIM provisioning. See the "Before you begin" section in PingIdentity's [Configuring outbound provisioning settings](https://docs.pingidentity.com/pingfederate/13.1/administrators_reference_guide/pf_configuring_outbound_provisioning_settings.html) guide.
 * During this procedure, you will need to upload an X509 certificate to PingFederate. You may want to create and store the certificate before proceeding. You will also need the challenge password for the certificate. See the [Example of creating an X509 certificate](#example-of-creating-an-x509-certificate) section later in this article.
 {%- ifversion ghec %}
 * During this procedure, you will need to upload a SAML metadata file to PingFederate. If you're setting up an enterprise that uses **{% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %}**, it is easiest to create this file before you start. See [Creating a SAML metadata file for {% data variables.enterprise.data_residency_site %}](#creating-a-saml-metadata-file-for-ghecom).
@@ -287,7 +287,7 @@ PingFederate provisioning handles users and groups independently. Users must be 
 
 {% ifversion ghes %}
 
-When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings).
+When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-update-settings).
 
 {% endif %}
 

@@ -1,5 +1,5 @@
 // See also languages-schema.ts
-// Nota bene: If you are adding a new language,
+// Note: if you are adding a new language,
 // change accept-language handling in CDN config as well.
 
 /**

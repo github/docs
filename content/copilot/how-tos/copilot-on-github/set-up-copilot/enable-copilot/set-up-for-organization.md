@@ -20,11 +20,9 @@ category:
   - Configure Copilot
 ---
 
-## Enable {% data variables.product.prodname_copilot %} for your organization through an enterprise account
+## Enable {% data variables.product.prodname_copilot %}
 
-To enable {% data variables.copilot.copilot_business_short %} for your organization, your organization needs to be part of an enterprise account with a {% data variables.product.prodname_copilot_short %} subscription. If you don't already have an enterprise account, you can create one specifically for managing {% data variables.copilot.copilot_business_short %} licenses. See [AUTOTITLE](/copilot/concepts/about-enterprise-accounts-for-copilot-business).
-
-If your organization already belongs to an enterprise with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan, your enterprise owner can enable {% data variables.product.prodname_copilot_short %} for your organization. Request access from your enterprise owner at [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot?ref_product=copilot&ref_type=engagement&ref_style=text), under "Get Copilot from an organization."
+{% data reusables.copilot.plans.subscribe-for-org %}
 
 ## Set policies
 
@@ -34,7 +32,7 @@ Control which {% data variables.product.prodname_copilot_short %} features are a
 
 If your organization members connect through an HTTP proxy server or firewall, add the required URLs to the allowlist. See [AUTOTITLE](/copilot/reference/copilot-allowlist-reference).
 
-If your environment uses custom SSL certificates, install them on your members' machines. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings#-installing-custom-certificates).
+If your environment uses custom SSL certificates, install them on your members' machines. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings#installing-custom-certificates).
 
 ## Grant access to members
 

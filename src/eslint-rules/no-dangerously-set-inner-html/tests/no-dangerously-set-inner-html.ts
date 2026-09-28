@@ -48,7 +48,6 @@ describe('no-dangerously-set-inner-html', () => {
           code: `const childProps = { dangerouslySetInnerHTML: { __html: children } }`,
           errors: [{ messageId: 'noDanger' }],
         },
-        // String-literal key form must also be flagged.
         {
           code: `const childProps = { 'dangerouslySetInnerHTML': { __html: children } }`,
           errors: [{ messageId: 'noDanger' }],

@@ -13,7 +13,6 @@ export const journeyTracksLiquid = {
     if (!fm || !fm.journeyTracks || !Array.isArray(fm.journeyTracks)) return
     if (!fm.layout || fm.layout !== 'journey-landing') return
 
-    // Find the base journeyTracks line
     const journeyTracksLine: string | undefined = params.lines.find((line: string) =>
       line.trim().startsWith('journeyTracks:'),
     )
@@ -24,7 +23,7 @@ export const journeyTracksLiquid = {
     for (let trackIndex = 0; trackIndex < fm.journeyTracks.length; trackIndex++) {
       const track = (fm.journeyTracks as Array<Record<string, unknown>>)[trackIndex]
       // Try to find the line number for this specific journey track so we can use that for the error
-      // line number.  Getting the exact line number is probably more work than it's worth for this
+      // line number. Getting the exact line number is probably more work than it's worth for this
       // particular rule.
 
       // Look for the track by finding the nth occurrence of track-like patterns after journeyTracks
@@ -51,7 +50,7 @@ export const journeyTracksLiquid = {
         }
       }
 
-      // Simple validation - just check if liquid can parse each string property
+      // The only check is that Liquid can parse each string property.
       const properties = [
         { name: 'title', value: track.title },
         { name: 'description', value: track.description },
@@ -76,10 +75,8 @@ export const journeyTracksLiquid = {
         for (let guideIndex = 0; guideIndex < track.guides.length; guideIndex++) {
           const guideObj = track.guides[guideIndex]
 
-          // Validate guide is an object with expected properties
           if (!guideObj || typeof guideObj !== 'object') continue
 
-          // Validate href property
           if ('href' in guideObj && typeof guideObj.href === 'string') {
             try {
               liquid.parse(guideObj.href)
@@ -93,7 +90,6 @@ export const journeyTracksLiquid = {
             }
           }
 
-          // Validate alternativeNextStep property if present
           if (
             'alternativeNextStep' in guideObj &&
             typeof guideObj.alternativeNextStep === 'string'

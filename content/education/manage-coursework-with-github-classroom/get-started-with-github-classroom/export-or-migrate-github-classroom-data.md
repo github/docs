@@ -4,6 +4,7 @@ intro: 'Export your GitHub Classroom data to local files or migrate your data to
 versions:
   fpt: '*'
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 Use the GitHub command line interface to export your Classroom data or migrate to a partner platform.
 

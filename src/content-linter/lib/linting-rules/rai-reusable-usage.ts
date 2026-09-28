@@ -39,7 +39,7 @@ export const raiReusableUsage: Rule = {
       .filter((token: LiquidToken) => !token.args.startsWith('variables'))
 
     for (const token of tokens) {
-      // if token is 'data  foo.bar` or `indented_data_reference foo.bar  depth=3`
+      // If the token is `data foo.bar` or `indented_data_reference foo.bar spaces=3`,
       // we only want the `foo.bar` part.
       const dataDirectoryReference = token.args.split(/\s+/)[0]
       if (dataDirectoryReference.startsWith('reusables.rai')) continue

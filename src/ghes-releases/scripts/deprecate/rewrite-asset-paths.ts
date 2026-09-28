@@ -28,13 +28,10 @@ export class RewriteAssetPathsPlugin {
     registerAction: (event: string, callback: (args: ResourceSavedArgs) => Promise<void>) => void,
   ) {
     registerAction('onResourceSaved', async ({ resource }: ResourceSavedArgs) => {
-      // Show some activity
       process.stdout.write('.')
 
-      // Only operate on HTML files
       if (!resource.isHtml() && !resource.isCss()) return
 
-      // Get the text contents of the resource
       const text = resource.getText()
       let newBody = text
 
@@ -51,7 +48,6 @@ export class RewriteAssetPathsPlugin {
         newBody = newBody.replace(/<link href=".*manifest.json".*?>/g, '')
 
         if (!this.localDev) {
-          // Rewrite asset paths
           newBody = newBody.replace(
             /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/cb-\d+\/images|node_modules)/g,
             (match: string, attribute: string, basepath: string) => {

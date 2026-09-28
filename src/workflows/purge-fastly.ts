@@ -1,5 +1,3 @@
-import { execFileSync } from 'node:child_process'
-
 import { program } from 'commander'
 
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
@@ -14,19 +12,12 @@ import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogat
 // - otherwise               -> double-purge `no-language` + each `language:<code>`
 //                              key, the routine post-deploy / manual purge.
 //
-// --wait-for-build polls production until it serves this commit before purging,
-// so an automatic post-deploy purge doesn't revalidate against a still-rolling-
-// out instance. --hard forces a hard purge; --everything ignores it and is
-// always hard.
+// --hard forces a hard purge; --everything ignores it and is always hard.
 
 const { FASTLY_TOKEN, FASTLY_SERVICE_ID } = process.env
 
 const DELAY_BETWEEN_KEYS = 10 * 1000
 const DELAY_BEFORE_SECOND_PURGE = 20 * 1000
-
-const BUILD_WAIT_REQUIRED_MATCHES = 5
-const BUILD_WAIT_INTERVAL = 15 * 1000
-const BUILD_WAIT_TIMEOUT = 1200 * 1000
 
 // The pipelining in purgeKeys only lines up if the second-purge delay is a whole
 // number of key slots; otherwise second purges would drift off the cadence.
@@ -46,7 +37,6 @@ program
     'Purges Fastly after a deploy and on demand. Soft purge by default; can hard ' +
       'purge specific languages, or hard purge the entire cache.',
   )
-  .option('--wait-for-build', 'Wait until production serves the current commit before purging')
   .option(
     '--languages <languages>',
     "Comma separated languages to purge, e.g. 'en,es,ja'. Blank/omitted = all languages.",
@@ -57,7 +47,6 @@ program
   .parse(process.argv)
 
 type Options = {
-  waitForBuild?: boolean
   languages?: string
   surrogateKey?: string
   hard?: boolean
@@ -72,10 +61,6 @@ async function main(options: Options) {
   }
   if (!FASTLY_SERVICE_ID) {
     throw new Error('FASTLY_SERVICE_ID not detected; refusing to purge')
-  }
-
-  if (options.waitForBuild) {
-    await waitForBuild()
   }
 
   if (options.everything) {
@@ -97,61 +82,6 @@ async function main(options: Options) {
     ? [options.surrogateKey]
     : languageSurrogateKeys(options.languages)
   await purgeKeys(surrogateKeys, soft)
-}
-
-// Poll production until it serves the build commit. A single /_build match only
-// proves one Moda instance has the new build; others may still be mid-rollout,
-// and a soft purge could then revalidate against a lagging instance and re-cache
-// old content for a full TTL. So require several consecutive matches first.
-async function waitForBuild() {
-  const needs = execFileSync('git', ['rev-parse', 'HEAD']).toString().trim()
-  const startTime = Date.now()
-  let consecutive = 0
-
-  while (consecutive < BUILD_WAIT_REQUIRED_MATCHES) {
-    if (Date.now() - startTime > BUILD_WAIT_TIMEOUT) {
-      throw new Error(
-        `Production did not reach ${BUILD_WAIT_REQUIRED_MATCHES} consecutive build matches within ${BUILD_WAIT_TIMEOUT / 1000} seconds`,
-      )
-    }
-
-    let current = ''
-    try {
-      const response = await fetchWithRetry(
-        'https://docs.github.com/_build',
-        {},
-        { retries: 5, timeout: 30_000, throwHttpErrors: false },
-      )
-      if (response.ok) {
-        current = (await response.text()).trim()
-      }
-    } catch {
-      // Treat a fetch failure like a non-match: reset and keep polling.
-      current = ''
-    }
-
-    if (current && current === needs) {
-      consecutive += 1
-      console.log(
-        `Production matches the build commit (${consecutive}/${BUILD_WAIT_REQUIRED_MATCHES})`,
-      )
-    } else {
-      if (consecutive > 0) {
-        console.log('Production stopped matching the build commit; resetting consecutive count')
-      } else {
-        console.log('Production is not up to date with the build commit')
-      }
-      consecutive = 0
-    }
-
-    if (consecutive < BUILD_WAIT_REQUIRED_MATCHES) {
-      await sleep(BUILD_WAIT_INTERVAL)
-    }
-  }
-  console.log(
-    `Production is up to date with the build commit.`,
-    `${BUILD_WAIT_REQUIRED_MATCHES} consecutive matches.`,
-  )
 }
 
 function languageSurrogateKeys(languagesInput?: string): string[] {

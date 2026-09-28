@@ -21,7 +21,7 @@ When you install the {% data variables.product.github %} app in your Teams works
 |----------------|--------------|
 |Access private conversations between you and the App | To message you with instructions.  |
 |Add link previews to {% data variables.product.prodname_dotcom %} to messages| To render rich links to `github.com`.|
-|Add {% data variables.product.github %} commands| To add the `@GitHub Notifications` command to your Teams channels. |
+|Add {% data variables.product.github %} commands| To add the `@{% data variables.product.github %}{% ifversion ghes %} Notifications{% endif %}` command to your Teams channels. |
 |View the workspace or organization's name, email domain, and icon| To store subscriptions you set up.|
 |Post messages as the app| To notify you of activity that happens on {% data variables.product.github %}, in Teams.|
 
@@ -35,7 +35,7 @@ When you connect your {% data variables.product.github %} account to the {% data
 |Read access to code| To render code snippets in Teams.|
 |Write access to actions, issues, and pull requests | To take action from Teams with cards and commands.|
 
-{% ifversion fpt or ghec %}
+{% ifversion copilot %}
 
 ## Additional permissions for {% data variables.copilot.copilot_cloud_agent %}
 

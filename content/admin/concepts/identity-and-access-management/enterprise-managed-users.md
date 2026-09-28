@@ -35,7 +35,7 @@ With {% data variables.product.prodname_emus %}, you manage the lifecycle and au
 * If your enterprise uses OIDC SSO, {% data variables.product.prodname_dotcom %} will validate access to your enterprise and its resources using your IdP's **Conditional Access Policy (CAP)**. See [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/about-support-for-your-idps-conditional-access-policy).
 * {% data variables.enterprise.prodname_managed_users_caps %} **cannot create public content** or collaborate outside your enterprise. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
 
-> [!NOTE] {% data variables.product.prodname_emus %} is not the best solution for every customer. To determine whether it's right for your enterprise, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/choose-an-enterprise-type).
+> [!NOTE] {% data variables.product.prodname_emus %} is not the best solution for every customer. To determine whether it's right for your enterprise, see [AUTOTITLE](/admin/concepts/enterprise-fundamentals/choose-an-enterprise-type).
 
 ## How does EMUs integrate with identity management systems?
 

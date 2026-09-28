@@ -39,7 +39,7 @@ You suspect a token or key has been stolen or exploited, received a {% data vari
 | Tool | Purpose |
 | --- | --- |
 | [Audit log](/code-security/reference/security-incident-response/investigation-tools#audit-logs) | Trace token usage |
-| [Security overview](/code-security/reference/security-incident-response/investigation-tools#security-overview) | View organization- or enterprise-level security alerts and activity, particularly {% data variables.product.prodname_secret_scanning %} alerts |
+| [Security overview](/code-security/reference/security-incident-response/investigation-tools#security-overview-and-security-alerts) | View organization- or enterprise-level security alerts and activity, particularly {% data variables.product.prodname_secret_scanning %} alerts |
 | [{% data variables.product.github %} code search](/code-security/reference/security-incident-response/investigation-tools#github-code-search) | Search for exposed credentials in code |
 
 ### Key resources
@@ -162,7 +162,7 @@ You received a malware or dependency alert, suspect a malicious package, or noti
 | [{% data variables.product.prodname_dependabot %} alerts](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts) | Review for alerts relating to vulnerable dependencies |
 | [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories)| Search for `type:malware` |
 | [Activity view](/code-security/reference/security-incident-response/investigation-tools#activity-view) | Review recent pushes to repositories |
-| [Security overview](/code-security/reference/security-incident-response/investigation-tools#security-overview) | Review recent security alerts across an organization or enterprise |
+| [Security overview](/code-security/reference/security-incident-response/investigation-tools#security-overview-and-security-alerts) | Review recent security alerts across an organization or enterprise |
 
 ### Key resources
 

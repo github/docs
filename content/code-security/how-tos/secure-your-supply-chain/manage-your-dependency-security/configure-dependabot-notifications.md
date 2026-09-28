@@ -17,7 +17,7 @@ category:
   - Secure your dependencies
 ---
 
-By default, {% data variables.product.github %} sends notifications about new alerts by email to people with write, maintain, or admin permissions to a repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts#notifications-for-alerts).
+By default, {% data variables.product.github %} sends notifications about new alerts by email to people with write, maintain, or admin permissions to a repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts#how-alert-notifications-work).
 
 ## Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}
 
@@ -30,11 +30,11 @@ You can configure notification settings for yourself or your organization from t
 ![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}.](/assets/images/help/enterprises/dependabot-alerts-options-no-ui.png){% endif %}
 
 > [!NOTE]
-> You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot_alerts %}. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#dependabot-custom-filters).
+> You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot_alerts %}. For more information, see [AUTOTITLE](/subscriptions-and-notifications/reference/inbox-filters#dependabot-custom-filters).
 
-{% data reusables.repositories.security-alerts-x-github-severity %} For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#filtering-email-notifications).
+{% data reusables.repositories.security-alerts-x-github-severity %} For more information, see [AUTOTITLE](/subscriptions-and-notifications/reference/email-notification-headers).
 
 ## Further reading
 
 * [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications)
-* [AUTOTITLE](/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#supported-is-queries)
+* [AUTOTITLE](/subscriptions-and-notifications/reference/inbox-filters#supported-is-queries)

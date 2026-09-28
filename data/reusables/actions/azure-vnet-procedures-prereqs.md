@@ -46,7 +46,7 @@ If you control outbound access using IP addresses during the transition period, 
 
   The `.bicep` file we provide contains the minimal set of rules to use {% data variables.product.company_short %}-hosted runners with Azure VNET. You may need to add rules for your specific use case.
 
-  If you use {% data variables.enterprise.data_residency %}, in the `AllowOutBoundGitHub` section, you must also include the ingress IP ranges for {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/admin/data-residency/network-details-for-ghecom#ranges-for-ingress-traffic).
+  If you use {% data variables.enterprise.data_residency %}, in the `AllowOutBoundGitHub` section, you must also include the ingress IP ranges for {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/admin/data-residency/network-details-for-ghecom#githubs-ip-addresses).
 
   ```bicep copy
   @description('NSG for outbound rules')

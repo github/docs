@@ -38,9 +38,15 @@ There are a number of command-line options that are particularly useful when run
 | `--allow-all-urls`            | Allow access to all URLs without explicit permission for each URL. |
 | `--allow-tool=TOOL ...`       | Selectively grant permission for a specific tool. For multiple tools, use a quoted, comma-separated list. |
 | `--allow-url=URL ...`         | Allow the agent to fetch a specific URL or domain. Useful when a workflow needs web access to known endpoints. For multiple URLs, use a quoted, comma-separated list. |
+| `--attachment=PATH ...`       | Attach a file (image or native document) to the initial prompt. Only valid in non-interactive mode. Can be used multiple times to attach multiple files. |
+| `--available-tools=TOOL ...`  | Restrict the model to only the tools you list; all other tools are unavailable. Useful for tightly scoping what the agent can do in an automated workflow. For multiple tools, use a quoted, comma-separated list. |
 | `--deny-tool=TOOL ...`        | Deny a specific tool. Useful for restricting what the agent can do in a locked-down workflow. For multiple tools, use a quoted, comma-separated list. |
-| `--model=MODEL`               | Choose the AI model (for example, `gpt-5.2` or `claude-sonnet-4.6`). Useful for pinning a model in reproducible workflows. See [Choosing a model](#choosing-a-model) below. |
+| `--deny-url=URL ...`          | Deny access to a specific URL or domain. Takes precedence over `--allow-url`. For multiple URLs, use a quoted, comma-separated list. |
+| `--excluded-tools=TOOL ...`   | Remove specific tools from those available to the model. For multiple tools, use a quoted, comma-separated list. |
+| `--fleet`                     | Run the prompt in fleet mode, so {% data variables.product.prodname_copilot_short %} uses parallel subagents to work on separate parts of the task. Combine with `-p` for non-interactive automation, `-i` for an interactive session, or a piped prompt. Not supported in ACP server mode. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion). |
+| `--model=MODEL`               | Choose the AI model (for example, `gpt-5.4` or `claude-haiku-4.5`). Useful for pinning a model in reproducible workflows. See [Choosing a model](#choosing-a-model) below. |
 | `--no-ask-user`               | Prevent the agent from pausing to seek additional user input. |
+| `--output-format=FORMAT`      | Set the output format: `text` (the default) or `json`. With `json`, the CLI emits JSONL (one JSON object per line), which is convenient for parsing the agent's output in scripts. |
 | `--secret-env-vars=VAR ...`   | An environment variable whose value you want redacted in output. For multiple variables, use a quoted, comma-separated list. Essential for preventing secrets being exposed in logs. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted by default. |
 | `--share=PATH`                | Export the session transcript to a markdown file after non-interactive completion (defaults to `./copilot-session-<ID>.md`). Useful for auditing or archiving what the agent did. Note that session transcripts may contain sensitive information. |
 | `--share-gist`                | Publish the session transcript as a secret GitHub gist after completion. Convenient for sharing results from CI. Note that session transcripts may contain sensitive information. |
@@ -86,8 +92,9 @@ You can use environment variables to configure various aspects of the CLI's beha
 | Variable              | Description   |
 | --------------------- | ------------- |
 | `COPILOT_ALLOW_ALL`   | Set to `true` for full permissions |
-| `COPILOT_MODEL`       | Set the model (for example, `gpt-5.2`, `claude-sonnet-4.5`) |
+| `COPILOT_MODEL`       | Set the model (for example, `gpt-5.4`, `claude-haiku-4.5`) |
 | `COPILOT_HOME`        | Set the directory for the CLI configuration file (`~/.copilot` by default) |
+| `COPILOT_AUTO_UPDATE` | Set to `false` to disable automatic updates. Useful in CI and other automated environments where you want to pin the CLI version. |
 | `COPILOT_GITHUB_TOKEN`| Authentication token (highest precedence) |
 | `GH_TOKEN`            | Authentication token (second precedence) |
 | `GITHUB_TOKEN`        | Authentication token (third precedence) |
@@ -115,7 +122,7 @@ copilot -p "Fix the race condition in the worker pool" \
 ```
 
 > [!NOTE]
-> You can find the model strings for all available models in the description of the `--model` option when you enter `copilot help` in your terminal.
+> To see the model strings for all available models, run the `/model` command in an interactive {% data variables.copilot.copilot_cli_short %} session. For the full list of models and the clients that support them, see [AUTOTITLE](/copilot/reference/ai-models/supported-models).
 
 Alternatively, you can set the `COPILOT_MODEL` environment variable to specify a model for the duration of the shell session.
 

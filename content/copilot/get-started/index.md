@@ -5,10 +5,14 @@ intro: 'Learn how to sign up for and use {% data variables.product.prodname_copi
 versions:
   feature: copilot
 children:
-  - /quickstart
-  - /what-is-github-copilot
+  - /about-github-copilot
+  - /where-to-use-github-copilot
+  - /quickstart-for-using-github-copilot-on-github-com
+  - /quickstart-for-using-github-copilot-in-your-ide
+  - /cli-quickstart
+  - /quickstart-copilot-app
+  - /sdk-quickstart
   - /plans
-  - /features
   - /best-practices
   - /enterprise-ai-governance
 redirect_from:

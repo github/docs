@@ -115,3 +115,9 @@ end
 
 Note that this API call will retrieve single line comments, as well as comments made
 on the entire commit.
+
+{% ifversion ghes > 3.21 %}
+
+Creating commit comments can be enabled or disabled for a repository. Organization owners can configure the default setting for repositories in their organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-commit-comments-for-your-organization).
+
+{% endif %}

@@ -17,7 +17,6 @@ children:
   - /searching-issues-and-pull-requests
   - /searching-discussions
   - /searching-github-marketplace
-  - /searching-github-models
   - /searching-users
   - /searching-for-packages
   - /searching-wikis

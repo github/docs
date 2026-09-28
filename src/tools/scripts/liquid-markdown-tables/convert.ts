@@ -1,6 +1,4 @@
-/**
- * See docstring in index.ts for more information about how to use this script.
- */
+// See the comment at the top of index.ts for how to use this script.
 import fs from 'fs'
 
 import chalk from 'chalk'

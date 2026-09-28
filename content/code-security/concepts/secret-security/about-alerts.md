@@ -55,7 +55,7 @@ Push protection scans pushes for supported secrets. If push protection detects a
 > [!NOTE]
 > {% ifversion secret-scanning-push-protection-for-users %}You can also enable push protection for your personal account, called "push protection for users", which prevents you from accidentally pushing supported secrets to _any_ public repository. Alerts are _not_ created if you choose to bypass your user-based push protection only. Alerts are only created if the repository itself has push protection enabled. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/manage-user-push-protection).{% endif %}
 >
-> {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see [AUTOTITLE](/code-security/reference/secret-security/secret-scanning-scope#push-protection-and-pattern-versions).
+> {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see [AUTOTITLE](/code-security/reference/secret-security/secret-scanning-scope).
 
 {% ifversion fpt or ghec %}
 

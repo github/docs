@@ -1,0 +1,6 @@
+# Reference: docs-content#23257
+# Convert a repository's branch protections to rulesets
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.23'

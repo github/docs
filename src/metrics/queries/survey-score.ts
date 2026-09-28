@@ -21,7 +21,6 @@ export async function getScore(
   }
 
   const data = JSON.parse(results.primaryResults[0].toString()).data[0]
-  // Extract Score
   const score = data.Score
   return score
 }

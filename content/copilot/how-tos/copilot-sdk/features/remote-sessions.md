@@ -1,11 +1,7 @@
 ---
 title: Remote sessions
 shortTitle: Remote Sessions
-intro: >-
-  Remote sessions let users access their Copilot session from GitHub web and
-  mobile via [Mission Control](https://github.com). When enabled, the SDK
-  connects each session to Mission Control, producing a URL that can be shared
-  as a link or QR code.
+intro: 'Remote sessions sync to {% data variables.product.github %} so users can access locally running {% data variables.product.prodname_copilot_short %} sessions from the agents panel or on mobile. When enabled, the SDK produces a URL to the session log that can be shared as a link or QR code.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -28,7 +24,7 @@ For running sessions on GitHub-hosted compute, see [AUTOTITLE](/copilot/how-tos/
 
 ### Always-on (client-level)
 
-Set `remote: true` when creating the client. Every session in a GitHub repo automatically gets a remote URL.
+Set `enableRemoteSessions: true` when creating the client. Every session in a GitHub repo automatically gets a remote URL.
 
 <!-- tabs:start -->
 
@@ -39,7 +35,7 @@ Set `remote: true` when creating the client. Every session in a GitHub repo auto
 ```typescript
 import { CopilotClient } from "@github/copilot-sdk";
 
-const client = new CopilotClient({ remote: true });
+const client = new CopilotClient({ enableRemoteSessions: true });
 const session = await client.createSession({
   workingDirectory: "/path/to/github-repo",
   onPermissionRequest: async () => ({ allowed: true }),
@@ -77,7 +73,7 @@ session.on(on_event)
 <!-- docs-validate: skip -->
 
 ```golang
-client, _ := copilot.NewClient(&copilot.ClientOptions{Remote: true})
+client := copilot.NewClient(&copilot.ClientOptions{EnableRemoteSessions: true})
 session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
     WorkingDirectory: "/path/to/github-repo",
     OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
@@ -97,7 +93,7 @@ session.On(func(event copilot.SessionEvent) {
 <!-- docs-validate: skip -->
 
 ```csharp
-var client = new CopilotClient(new CopilotClientOptions { Remote = true });
+var client = new CopilotClient(new CopilotClientOptions { EnableRemoteSessions = true });
 var session = await client.CreateSessionAsync(new SessionConfig
 {
     WorkingDirectory = "/path/to/github-repo",
@@ -226,6 +222,6 @@ The remote URL can be rendered as a QR code for easy mobile access. The SDK prov
 
 ## Notes
 
-* The `remote` client option only applies when the SDK spawns the CLI process. It is ignored when connecting to an external server via `cliUrl`.
+* The `enableRemoteSessions` client option applies when the SDK starts the runtime, either as a child process or as an in-process host. It is ignored when connecting to an already-running runtime.
 * If the working directory is not a GitHub repository, remote setup is silently skipped (always-on mode) or returns an error (on-demand mode).
 * Remote sessions require authentication. Ensure `gitHubToken` or `useLoggedInUser` is configured.

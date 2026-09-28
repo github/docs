@@ -1,8 +1,22 @@
 .markdownBody {
+  // Docs 2026: code adopts the brand monospace font (Mona Sans Mono, via
+  // --brand-fontStack-monospace from @primer/react-brand). Sizing/spacing stay
+  // on the existing @primer/css markdown scale.
+  code,
+  kbd,
+  pre,
+  samp,
+  tt {
+    font-family: var(--brand-fontStack-monospace);
+  }
+
   [class~="highlight"] pre,
   pre {
     margin-top: 0.5rem;
-    border: 1px var(--color-border-default) solid;
+    // border-*subtle*, not *default*: brand's default (#b6bfb8 light / #353d37
+    // dark) is much heavier than Primer's #d0d7de/#30363d this used to paint,
+    // and would make every code block's outline the strongest line on the page.
+    border: 1px var(--brand-color-border-subtle) solid;
   }
 
   [class~="height-constrained-code-block"] pre {
@@ -12,14 +26,47 @@
   [class~="code-example"] {
     margin-top: 1.5rem;
 
+    // The language/copy bar that code-header.ts emits above the block. It is
+    // built from primer/css's `border-top`/`border-left`/`border-right`
+    // utilities and a `.btn`, all of which paint Primer's border palette
+    // (#3d444d in dark) — a different grey from the brand-subtle outline the
+    // `pre` below draws, so the one box would be framed in two colours.
+    //
+    // The utilities carry `!important`, hence the override. The button reads
+    // `var(--button-default-borderColor-rest, var(--color-btn-border))`, so the
+    // MODERN name is the one that takes effect now that index.scss imports the
+    // Primer Primitives functional themes — setting only `--color-btn-*` here
+    // would silently do nothing (see the same note in DocsFooter.module.scss).
+    --button-default-borderColor-rest: var(--brand-color-border-subtle);
+    --button-default-fgColor-rest: var(--brand-color-text-muted);
+    --color-btn-border: var(--brand-color-border-subtle);
+    --color-btn-text: var(--brand-color-text-muted);
+
+    > header {
+      border-color: var(--brand-color-border-subtle) !important;
+
+      // @primer/css colours button octicons directly —
+      // `.btn .octicon { color: var(--fgColor-muted, …) }` — which bypasses the
+      // button's own fgColor token above, so the copy glyph needs its own rule.
+      // Attribute selector, not `.octicon`: this is a CSS module, so a bare
+      // class would be hashed and never match the real `octicon` class (the
+      // same reason `[class~="code-example"]` is written that way).
+      [class~="octicon"] {
+        color: var(--brand-color-text-muted);
+      }
+    }
+
     pre,
     div {
       margin-top: 0 !important;
       border-top-left-radius: 0 !important;
       border-top-right-radius: 0 !important;
-      border-left: 1px var(--color-border-default) solid !important;
-      border-bottom: 1px var(--color-border-default) solid !important;
-      border-right: 1px var(--color-border-default) solid !important;
+      // All three edges are one visual outline with the `pre` border above, so
+      // they use the same brand token — splitting them would leave the block
+      // outlined in two different greys.
+      border-left: 1px var(--brand-color-border-subtle) solid !important;
+      border-bottom: 1px var(--brand-color-border-subtle) solid !important;
+      border-right: 1px var(--brand-color-border-subtle) solid !important;
     }
   }
 

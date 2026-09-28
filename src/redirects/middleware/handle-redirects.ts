@@ -4,6 +4,7 @@ import patterns from '@/frame/lib/patterns'
 import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
 import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases'
 import getRedirect from '../lib/get-redirect'
+import { getVersionPreference } from '../lib/version-preference'
 import { applyGraphqlCategoryRedirect } from '../lib/graphql-category-redirect'
 import {
   defaultCacheControl,
@@ -29,19 +30,16 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   // such as /api/pageinfo redirects to /api/pageinfo/v1
   if (req.path.startsWith('/api/')) return next()
 
-  // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
     languageAndVersionCacheControl(res)
 
-    // Build redirect path, optionally including user's preferred version
     let redirectPath = `/${language}`
     const userVersion = req.userVersion
     if (userVersion && userVersion !== 'free-pro-team@latest') {
       redirectPath += `/${userVersion}`
     }
 
-    // Forward query params to the new URL
     let queryParams = new URLSearchParams(req?.query as URLSearchParamsTypes).toString()
     if (queryParams) {
       queryParams = `?${queryParams}`
@@ -49,7 +47,6 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     return res.safeRedirect(302, redirectPath + queryParams)
   }
 
-  // begin redirect handling
   let redirect = req.path
   let queryParams = req.originalUrl.includes('?') ? req.originalUrl.split('?')[1] : null
 
@@ -134,12 +131,49 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
   }
 
-  // do not redirect a path to itself
+  if (!req.context.pages) throw new Error('req.context.pages not yet set')
+
+  // Honor the reader's version preference on a URL that does not name a version.
+  //
+  // Without this, the cookie is only ever consulted on the bare homepage, so a deep link
+  // from search, the product UI, or a bookmark silently serves Free/Pro/Team. See
+  // github/technical-content#7227 for the measurements.
+  //
+  // This is deliberately its own branch rather than a tweak to `redirect` below, because
+  // the ordinary path would emit a 301 for a language-prefixed URL. A redirect that
+  // depends on a cookie has to stay a 302, or a browser caches one reader's preference
+  // forever.
+  if (!redirect.includes('://')) {
+    const preference = getVersionPreference(
+      req.path,
+      removeQueryParams(redirect),
+      req.userVersion,
+      req.context.pages,
+    )
+    if (preference.vary && !preference.redirectTo) {
+      // Only needed when we do not redirect. The redirect below calls
+      // `languageAndVersionCacheControl`, which already lists `x-user-version`.
+      //
+      // We set it even though this response is not a redirect, because it still depends
+      // on the cookie: a cached copy without this header would be served to readers whose
+      // preference we should have honored.
+      //
+      // `append`, not `set`, so this survives the cache-control call that whatever
+      // handles the request downstream makes. Those all append too, so nothing clobbers
+      // it. The `varies on the cookie even for readers who have not set one` test in
+      // `src/versions/tests/version-cookie.ts` asserts the served 200 really does carry
+      // the header, so this holds even if that stops being true.
+      res.append('vary', 'x-user-version')
+    }
+    if (preference.redirectTo) {
+      languageAndVersionCacheControl(res)
+      return res.safeRedirect(302, preference.redirectTo + (queryParams || ''))
+    }
+  }
+
   if (redirect === req.originalUrl) {
     return next()
   }
-
-  if (!req.context.pages) throw new Error('req.context.pages not yet set')
 
   // do not redirect if the redirected page can't be found
   if (

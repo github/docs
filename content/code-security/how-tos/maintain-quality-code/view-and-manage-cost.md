@@ -21,7 +21,7 @@ Knowing what {% data variables.product.prodname_code_quality_short %} costs, and
 
 * **License usage**, based on the number of unique, active committers to repositories where {% data variables.product.prodname_code_quality_short %} is enabled.
 * **{% data variables.product.prodname_actions %} minutes**, consumed each time a scan runs (unless you use self-hosted runners).
-* **{% data variables.product.prodname_ai_credits %}**, consumed by {% data variables.product.prodname_code_quality_short %}'s AI features: the fixes it generates for findings, and the AI detections scans if you turn that page on.
+* **{% data variables.product.prodname_ai_credits %}**, consumed by {% data variables.product.prodname_code_quality_short %}'s AI features: the fixes it generates for findings, and the scans on the **{% data variables.code-quality.recent_suggestions %}** page if you turn it on.
 
 For exactly how each cost is measured, see [AUTOTITLE](/billing/concepts/product-billing/github-code-quality?utm_campaign=code-quality-ga-july-2026&utm_medium=docs&utm_source=docs-view-manage-cost-billing).
 
@@ -37,7 +37,7 @@ It's important to understand how {% data variables.product.prodname_code_quality
 {% data variables.product.prodname_code_quality_short %} usage appears in the **same billing and usage views as your other products**, not in a separate {% data variables.product.prodname_code_quality_short %} meter. Where you look depends on how granular a breakdown you need:
 
 * **For a repository- or organization-level breakdown, download the billing usage report** from the "Billing and licensing" tab. This is the only place you can attribute {% data variables.product.prodname_code_quality_short %} spend, including {% data variables.product.prodname_actions %} minutes, down to a specific repository or organization. There's no equivalent view in the UI. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
-* **For {% data variables.product.prodname_code_quality_short %}'s {% data variables.product.prodname_ai_credits_short %} usage over time, use the AI usage page** and group it by **Product** using the dropdown at the top right. This separates {% data variables.product.prodname_code_quality_short %} from your other AI products, like {% data variables.product.prodname_copilot_short %}, so you can track its share of the pool. To monitor the pool as a whole instead, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+* **For {% data variables.product.prodname_code_quality_short %}'s {% data variables.product.prodname_ai_credits_short %} usage over time, use the AI usage page** and group it by **Product** using the dropdown at the top right. This separates {% data variables.product.prodname_code_quality_short %} from your other AI products, like {% data variables.product.prodname_copilot_short %}, so you can track its share of the pool. To monitor the pool as a whole instead, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 ## Monitoring your spend
 
@@ -51,11 +51,9 @@ Once {% data variables.product.prodname_code_quality_short %} is running, watch 
 You have several levers to keep spend in check. In rough order of impact:
 
 * **Enable selectively.** Turn {% data variables.product.prodname_code_quality_short %} on where it adds value rather than across every repository at once. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
-* **Disable low-value repositories.** Disabling {% data variables.product.prodname_code_quality_short %} on a repository frees the licenses for committers unique to it, and stops its scans and AI usage. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/disable-code-quality).
+* **Disable low-value repositories.** Disabling {% data variables.product.prodname_code_quality_short %} on a repository stops its scans and AI usage immediately. It can free licenses for committers unique to that repository for the next billing period, but it doesn't reduce the charge for the current period. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/disable-code-quality).
 * **Set a budget.** A budget for {% data variables.product.prodname_code_quality_short %} stops your spending automatically once you hit your limit, because the hard stop is mandatory (see below).
-* **Keep the AI detections page off.** This page is **off by default** and stays in {% data variables.release-phases.public_preview %}, so it only draws down {% data variables.product.prodname_ai_credits_short %} if you turn it on. Repositories that enabled it during the preview keep it on, so turn it off there if you don't want the usage.
-
-<!-- VERIFY before GA: exact path to turn off the AI detections page for a repo that enabled it during preview. (Default-off-at-GA confirmed in github/security-products#2357.) -->
+* **Keep the {% data variables.code-quality.recent_suggestions %} page off.** This page is **off by default** and stays in {% data variables.release-phases.public_preview %}, so it only draws down {% data variables.product.prodname_ai_credits_short %} if you turn it on. Repositories that enabled it during the preview keep it on. To turn it off for a repository, disable **{% data variables.code-quality.recent_suggestions %}** on the repository's **{% data variables.code-quality.code_quality_ui %}** settings page.
 
 ### Setting a budget
 
@@ -76,8 +74,3 @@ Be aware of two limits so there are no surprises:
 
 * **You can't pre-estimate spend** before you enable {% data variables.product.prodname_code_quality_short %}. Usage depends on your committers, scan frequency, and findings, so plan to watch actuals after you turn it on rather than forecast them precisely.
 * **You can't turn off the in-pull-request AI features.** {% data variables.product.prodname_code_quality_short %} generates a fix for every detected finding, so {% data variables.product.prodname_ai_credits_short %} usage is inherent to running it. To stop that usage entirely, disable {% data variables.product.prodname_code_quality_short %} on the repository.
-
-## Next steps
-
-* **Roll out across your organization.** See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/roll-out-at-scale).
-* **Assess health across your organization.** See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/explore-code-quality).

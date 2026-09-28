@@ -19,6 +19,7 @@ jobs:
         github.repository == 'github/docs' &&
         github.event.pull_request.user.login != 'docs-bot' &&
         github.event.pull_request.user.login != 'dependabot[bot]'
+        && !contains(github.event.pull_request.labels.*.name, 'skip-unallowed-check')
       }}
     runs-on: ubuntu-latest
     steps:
@@ -40,13 +41,13 @@ jobs:
           filters: 'src/workflows/unallowed-contribution-filters.yml'
 
       - name: Set up Node and dependencies
-        if: ${{ steps.filter.outputs.notAllowed || steps.filter.outputs.contentTypes}}
+        if: ${{ steps.filter.outputs.notAllowed == 'true' || steps.filter.outputs.contentTypes == 'true' }}
         uses: ./.github/actions/node-npm-setup
 
       # When there are changes to files we can't accept, leave a comment
-      # explaining this to the PR author
+      # explaining this to the PR author, and why their PR will close
       - name: "Comment about changes we can't accept"
-        if: ${{ steps.filter.outputs.notAllowed || steps.filter.outputs.contentTypes}}
+        if: ${{ steps.filter.outputs.notAllowed == 'true' || steps.filter.outputs.contentTypes == 'true' }}
         run: npm run unallowed-contributions
         env:
           REPO_OWNER_AND_NAME: ${{ github.repository }}
@@ -54,4 +55,4 @@ jobs:
           FILE_PATHS_NOT_ALLOWED: ${{ steps.filter.outputs.notAllowed_files }}
           CHANGED_FILE_PATHS: ${{ steps.filter.outputs.contentTypes_files }}
           ADDED_CONTENT_FILES: ${{ steps.filter.outputs.added_files }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}

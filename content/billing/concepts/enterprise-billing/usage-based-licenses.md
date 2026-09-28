@@ -38,7 +38,7 @@ For how billing cycles work and how mid-cycle changes (such as adding or removin
 
 Although you can sync licenses with {% data variables.product.prodname_ghe_server %}, usage-based licensing is a cloud-first license model where users must first be added to an organization on {% data variables.product.prodname_ghe_cloud %}.
 
-For a detailed comparison between usage-based and volume licensing models, see [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use#about-licensing-models).
+For a detailed comparison between usage-based and volume licensing models, see [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use#usage-based-and-volume-licensing).
 
 ## Can I use a {% data variables.product.prodname_vs %} bundle?
 

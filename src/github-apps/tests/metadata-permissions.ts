@@ -31,7 +31,6 @@ interface MetadataPermission {
 }
 
 describe('metadata permissions filtering', () => {
-  // Mock data structure representing operations with metadata permissions
   const mockOperationsWithMetadata: Operation[] = [
     {
       operationId: 'repos/enable-automated-security-fixes',
@@ -51,7 +50,6 @@ describe('metadata permissions filtering', () => {
     },
   ]
 
-  // Mock programmatic access data
   const mockProgAccessData: Record<string, ProgAccessData> = {
     'repos/enable-automated-security-fixes': {
       userToServerRest: true,
@@ -75,7 +73,6 @@ describe('metadata permissions filtering', () => {
     },
   }
 
-  // Mock actor resources
   const mockProgActorResources: Record<string, ActorResource> = {
     metadata: {
       title: 'Metadata',
@@ -96,29 +93,22 @@ describe('metadata permissions filtering', () => {
   }
 
   test('calculateAdditionalPermissions works correctly', () => {
-    // Single permission set with multiple permissions
     expect(calculateAdditionalPermissions([{ metadata: 'read', admin: 'write' }])).toBe(true)
 
-    // Single permission set with single permission
     expect(calculateAdditionalPermissions([{ metadata: 'read' }])).toBe(false)
 
-    // Multiple permission sets
     expect(calculateAdditionalPermissions([{ metadata: 'read' }, { admin: 'write' }])).toBe(true)
 
-    // Empty permission sets
     expect(calculateAdditionalPermissions([])).toBe(false)
   })
 
   test('identifies metadata with additional permissions correctly', () => {
-    // Case 1: metadata + administration (should be filtered)
     const metadataWithAdmin = [{ metadata: 'read', administration: 'write' }]
     expect(shouldFilterMetadataPermission('metadata', metadataWithAdmin)).toBe(true)
 
-    // Case 2: metadata only (should NOT be filtered)
     const metadataOnly = [{ metadata: 'read' }]
     expect(shouldFilterMetadataPermission('metadata', metadataOnly)).toBe(false)
 
-    // Case 3: non-metadata permission (should NOT be filtered)
     const nonMetadata = [{ contents: 'read' }]
     expect(shouldFilterMetadataPermission('contents', nonMetadata)).toBe(false)
   })
@@ -136,9 +126,7 @@ describe('metadata permissions filtering', () => {
 
           const additionalPermissions = calculateAdditionalPermissions(progData.permissions)
 
-          // Apply metadata filtering logic
           if (shouldFilterMetadataPermission(permissionName, progData.permissions)) {
-            // Skip this metadata permission as it has additional permissions
             continue
           }
 
@@ -163,7 +151,6 @@ describe('metadata permissions filtering', () => {
     expect(metadataPermissions[0].operationId).toBe('repos/get-readme')
     expect(metadataPermissions[0].additionalPermissions).toBe(false)
 
-    // Should have other permissions from operations with additional permissions
     const adminPermission = filteredOperations.find((op) => op.permission === 'administration')
     expect(adminPermission).toBeDefined()
     expect(adminPermission!.operationId).toBe('repos/enable-automated-security-fixes')
@@ -186,23 +173,22 @@ describe('metadata permissions filtering', () => {
     expect(nonMetadataOperations).toHaveLength(1)
     expect(nonMetadataOperations[0].operationId).toBe('repos/get-content')
 
-    // Verify contents permission would be preserved
     const contentsPermissionSet = mockProgAccessData['repos/get-content'].permissions[0]
     expect('contents' in contentsPermissionSet).toBe(true)
     expect('metadata' in contentsPermissionSet).toBe(false)
   })
 
   test('handles edge cases in permission sets', () => {
-    // Empty permission set
     expect(shouldFilterMetadataPermission('metadata', [])).toBe(false)
 
-    // Permission set with empty object (edge case)
-    const edgeCase1: Record<string, string>[] = [{ metadata: 'read' }, {}]
-    expect(shouldFilterMetadataPermission('metadata', edgeCase1)).toBe(true)
+    const metadataWithEmptySet: Record<string, string>[] = [{ metadata: 'read' }, {}]
+    expect(shouldFilterMetadataPermission('metadata', metadataWithEmptySet)).toBe(true)
 
-    // Multiple permission sets with metadata in different sets
-    const edgeCase2: Record<string, string>[] = [{ metadata: 'read' }, { admin: 'write' }]
-    expect(shouldFilterMetadataPermission('metadata', edgeCase2)).toBe(true)
+    const metadataInSeparateSet: Record<string, string>[] = [
+      { metadata: 'read' },
+      { admin: 'write' },
+    ]
+    expect(shouldFilterMetadataPermission('metadata', metadataInSeparateSet)).toBe(true)
   })
 
   test('filters metadata permissions that match the GitHub issue examples', () => {
@@ -213,11 +199,9 @@ describe('metadata permissions filtering', () => {
     // DELETE /orgs/{org}/actions/permissions/repositories/{repository_id}
     const deleteActionsPermissions = [{ metadata: 'read', organization_administration: 'write' }]
 
-    // These should be filtered out because they have metadata + additional permissions
     expect(shouldFilterMetadataPermission('metadata', putActionsPermissions)).toBe(true)
     expect(shouldFilterMetadataPermission('metadata', deleteActionsPermissions)).toBe(true)
 
-    // But the organization_administration permissions should NOT be filtered
     expect(
       shouldFilterMetadataPermission('organization_administration', putActionsPermissions),
     ).toBe(false)
@@ -227,28 +211,23 @@ describe('metadata permissions filtering', () => {
   })
 
   test('preserves metadata permissions that are standalone', () => {
-    // Example of a metadata-only permission that should be preserved
     const metadataOnlyPermissions = [{ metadata: 'read' }]
 
-    // This should NOT be filtered out
     expect(shouldFilterMetadataPermission('metadata', metadataOnlyPermissions)).toBe(false)
   })
 
   test('handles complex permission structures from real data', () => {
-    // Multiple permission sets (should filter metadata)
     const multiplePermissionSets: Record<string, string>[] = [
       { metadata: 'read' },
       { administration: 'write' },
     ]
     expect(shouldFilterMetadataPermission('metadata', multiplePermissionSets)).toBe(true)
 
-    // Single permission set with multiple permissions (should filter metadata)
     const multiplePermissionsInSet: Record<string, string>[] = [
       { metadata: 'read', contents: 'write', pull_requests: 'write' },
     ]
     expect(shouldFilterMetadataPermission('metadata', multiplePermissionsInSet)).toBe(true)
 
-    // Multiple permission sets where metadata is not in the first set
     const metadataInSecondSet: Record<string, string>[] = [
       { administration: 'write' },
       { metadata: 'read' },
@@ -257,24 +236,16 @@ describe('metadata permissions filtering', () => {
   })
 
   test('validates filtering logic against known problematic endpoints', () => {
-    // Based on the issue description, these types of operations should have
-    // their metadata permissions filtered out:
-
-    // Runner group operations
     const runnerGroupPermissions = [{ metadata: 'read', organization_administration: 'write' }]
 
-    // Organization secrets operations
     const orgSecretsPermissions = [{ metadata: 'read', organization_secrets: 'write' }]
 
-    // Repository operations with admin permissions
     const repoAdminPermissions = [{ metadata: 'read', administration: 'write' }]
 
-    // All of these should filter out metadata
     expect(shouldFilterMetadataPermission('metadata', runnerGroupPermissions)).toBe(true)
     expect(shouldFilterMetadataPermission('metadata', orgSecretsPermissions)).toBe(true)
     expect(shouldFilterMetadataPermission('metadata', repoAdminPermissions)).toBe(true)
 
-    // But should preserve the actual required permissions
     expect(
       shouldFilterMetadataPermission('organization_administration', runnerGroupPermissions),
     ).toBe(false)
@@ -286,16 +257,12 @@ describe('metadata permissions filtering', () => {
 
   test('verifies consistency with additional-permissions flag calculation', () => {
     const testCases: Array<{ permissionSets: Record<string, string>[]; expected: boolean }> = [
-      // Single permission, single set - no additional permissions
       { permissionSets: [{ metadata: 'read' }], expected: false },
 
-      // Multiple permissions, single set - has additional permissions
       { permissionSets: [{ metadata: 'read', admin: 'write' }], expected: true },
 
-      // Single permission, multiple sets - has additional permissions
       { permissionSets: [{ metadata: 'read' }, { admin: 'write' }], expected: true },
 
-      // Multiple permissions, multiple sets - has additional permissions
       {
         permissionSets: [{ metadata: 'read', contents: 'read' }, { admin: 'write' }],
         expected: true,
@@ -306,7 +273,6 @@ describe('metadata permissions filtering', () => {
       const additionalPermissions = calculateAdditionalPermissions(testCase.permissionSets)
       const shouldFilter = shouldFilterMetadataPermission('metadata', testCase.permissionSets)
 
-      // The filtering logic should match the additional permissions calculation
       expect(shouldFilter).toBe(additionalPermissions)
       expect(additionalPermissions).toBe(testCase.expected)
     }
@@ -324,15 +290,12 @@ describe('metadata permissions filtering', () => {
       permissions: [{ metadata: 'read', organization_administration: 'write' }],
     }
 
-    // This should be filtered out from metadata permissions
     expect(shouldFilterMetadataPermission('metadata', progData.permissions)).toBe(true)
 
-    // But organization_administration permission should still be included
     expect(
       shouldFilterMetadataPermission('organization_administration', progData.permissions),
     ).toBe(false)
 
-    // Verify additional permissions flag is set correctly
     expect(calculateAdditionalPermissions(progData.permissions)).toBe(true)
   })
 })

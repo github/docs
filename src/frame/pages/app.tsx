@@ -3,9 +3,9 @@ import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
-import { ThemeProvider as BrandThemeProvider } from '@primer/react-brand'
 import { useRouter } from 'next/router'
 
+import { BrandThemeProvider } from '@/color-schemes/components/BrandThemeProvider'
 import { initializeEvents } from '@/events/components/events'
 import {
   initializeExperiments,
@@ -46,14 +46,12 @@ const stagingNames = new Set([
 ])
 
 function getFaviconHref(stagingName?: string) {
-  /* The value in these "/cb-xxxxx" prefixes aren't important. They
-      just need to be present. They help the CDN cache the asset
-      for infinity.
-      Just remember, if you edit these images on disk, remember to
-      change these numbers
-   */
+  // The number in these "/cb-xxxxx" prefixes does not matter, it just has to be
+  // present. It marks the URL as checksummed, which gets it a manual Fastly
+  // surrogate key so a production deploy does not purge it.
+  // If you edit these images on disk, change the numbers.
   if (stagingName) {
-    return `/assets/cb-345/images/site/evergreens/${stagingName}.png`
+    return `/assets/cb-346/images/site/evergreens/${stagingName}.png`
   }
   return '/assets/cb-345/images/site/favicon.png'
 }
@@ -117,10 +115,8 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
           components receive brand theme context during the Docs 2026 migration
           (github/docs-engineering#5879). Runs alongside the @primer/react
           ThemeProvider above while the component-by-component swap is in progress.
-          Brand expects a CSS color mode ('auto' | 'light' | 'dark'), so pass
-          theme.css.colorMode rather than the component ('auto' | 'day' | 'night') mode.
         */}
-        <BrandThemeProvider colorMode={theme.css.colorMode}>
+        <BrandThemeProvider>
           <LanguagesContext.Provider value={languagesContext}>
             <SharedUIContextProvider>
               <ClientSideHashFocus />

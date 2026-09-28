@@ -91,4 +91,14 @@ When enabled, instances of the {% data variables.actions.hosted_runner %} will r
 > [!NOTE]
 > If runners are unused for more than 90 days, their IP address ranges are automatically removed and cannot be recovered.
 
+## Communication requirements for {% data variables.actions.hosted_runner %}s
+
+A {% data variables.actions.hosted_runner %} must establish connections to {% data variables.product.github %}-owned endpoints to perform essential communication operations. In addition, your runner may require access to additional networks that you specify or utilize within an action.
+
+To ensure proper communications for {% data variables.actions.hosted_runner %}s between networks within your configuration, ensure that the following communications are allowed.
+
+{% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
+
+{% data reusables.actions.runner-essential-communications %}
+
 {% endif %}

@@ -3,7 +3,7 @@ When you use {% data variables.product.prodname_codeql %} to scan code, the {% d
 > [!TIP]
 > You can also specify the queries you want to exclude from analysis, or include in the analysis. This requires the use of a custom configuration file. For more information, see [Custom configuration files](#custom-configuration-files) and [Excluding specific queries from analysis](#excluding-specific-queries-from-analysis) below.
 
-You can run extra queries if they are part of a {% data variables.product.prodname_codeql %} pack published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} or a {% data variables.product.prodname_codeql %} pack stored in a repository. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-code-scanning#about-codeql-queries).
+You can run extra queries if they are part of a {% data variables.product.prodname_codeql %} pack published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} or a {% data variables.product.prodname_codeql %} pack stored in a repository. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-code-scanning#running-additional-queries).
 
 The options available to specify the additional queries you want to run are:
 

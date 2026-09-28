@@ -6,7 +6,6 @@
 
 import fs from 'fs'
 import path from 'path'
-import { globSync } from 'glob'
 import { program } from 'commander'
 import { createOperations, processOperations, type SchemaInput } from './utils/get-operations'
 
@@ -24,7 +23,7 @@ program
 
 const filenames: string[] = (program.opts() as ProgramOptions).files
 
-const filesToCheck: string[] = filenames.flatMap((filename: string) => globSync(filename))
+const filesToCheck: string[] = filenames.flatMap((filename: string) => fs.globSync(filename))
 
 if (filesToCheck.length) {
   check(filesToCheck)
@@ -42,16 +41,14 @@ async function check(files: string[]): Promise<void> {
 
   for (const [filename, schema] of documents as [string, unknown][]) {
     try {
-      // munge OpenAPI definitions object in an array of operations objects
       const operations = await createOperations(schema as SchemaInput)
-      // process each operation, asynchronously rendering markdown and stuff
       await processOperations(operations, {})
 
       console.log(`Successfully could decorate OpenAPI operations for document ${filename}`)
     } catch (error: unknown) {
       console.error(error)
       console.log(
-        `🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema in file ${filename}. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.`,
+        `🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema in file ${filename}. A recent change may not yet be supported by the decorator. Please reach out in the #technical-content slack channel for help.`,
       )
       process.exit(1)
     }

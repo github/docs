@@ -22,9 +22,7 @@ export function getHighlightConfiguration(
   const fields = {} as HighlightFields
   if (highlightsFields.includes('title')) {
     fields.title = {
-      // Fast Vector Highlighter
-      // Using this requires that you first index these fields
-      // with {term_vector: 'with_positions_offsets'}
+      // fvh requires the field to be indexed with {term_vector: 'with_positions_offsets'}.
       type: 'fvh',
       fragment_size: 200,
       number_of_fragments: 1,
@@ -32,9 +30,7 @@ export function getHighlightConfiguration(
   }
   if (highlightsFields.includes('content')) {
     fields.content = {
-      // Fast Vector Highlighter
-      // Using this requires that you first index these fields
-      // with {term_vector: 'with_positions_offsets'}
+      // fvh requires the field to be indexed with {term_vector: 'with_positions_offsets'}.
       type: 'fvh',
       fragment_size: 150,
       number_of_fragments: 1,
@@ -50,9 +46,7 @@ export function getHighlightConfiguration(
       },
     }
     fields.content_explicit = {
-      // Fast Vector Highlighter
-      // Using this requires that you first index these fields
-      // with {term_vector: 'with_positions_offsets'}
+      // fvh requires the field to be indexed with {term_vector: 'with_positions_offsets'}.
       type: 'fvh',
       fragment_size: 150,
       number_of_fragments: 1,
@@ -69,9 +63,7 @@ export function getHighlightConfiguration(
   }
   if (highlightsFields.includes('term')) {
     fields.term = {
-      // Fast Vector Highlighter
-      // Using this requires that you first index these fields
-      // with {term_vector: 'with_positions_offsets'}
+      // fvh requires the field to be indexed with {term_vector: 'with_positions_offsets'}.
       type: 'fvh',
     }
   }

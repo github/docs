@@ -33,7 +33,6 @@ export function getPathWithoutLanguage(href: string | undefined): string {
   return slash(href.replace(patterns.hasLanguageCode, '/'))
 }
 
-// Remove the version segment from the path
 export function getPathWithoutVersion(href: string | undefined): string {
   if (!href) return '/'
   const versionFromPath = getVersionStringFromPath(href)
@@ -44,7 +43,6 @@ export function getPathWithoutVersion(href: string | undefined): string {
     : href
 }
 
-// Return the version segment in a path
 export function getVersionStringFromPath(
   href: string | undefined,
   supportedOnly: true,
@@ -63,7 +61,6 @@ export function getVersionStringFromPath(
     return nonEnterpriseDefaultVersion
   }
 
-  // Get the first segment
   const versionFromPath = href.split('/')[1]
 
   // If the first segment is a supported product, assume this is FPT
@@ -102,15 +99,12 @@ export function getVersionStringFromPath(
   return versionFromPath
 }
 
-// Return the corresponding object for the version segment in a path
 export function getVersionObjectFromPath(href: string | undefined) {
   const versionFromPath = getVersionStringFromPath(href, false)
 
   return allVersions[versionFromPath]
 }
 
-// Return the product segment from the path
-// Extracts the product identifier from various URL patterns including versioned paths
 export function getProductStringFromPath(href: string | undefined): string {
   // Handle empty or undefined paths
   if (!href) return 'homepage'

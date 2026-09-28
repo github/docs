@@ -134,17 +134,13 @@ function createAnnotatedNode(node: ElementNode, context: Context): Element {
   const lang = node.children[0].properties!.className![0].replace('language-', '')
   const code = node.children[0].children![0].value as string
 
-  // Check the code is parse-able
   validate(lang, code)
 
-  // Group into code and notes
   const lines = code.split('\n').filter(hasChar)
   const groups = chunkBy(lines, matchComment(lang))
 
-  // Group groups into rows
   const rows = chunk(groups, 2)
 
-  // Check the rows are formatted correctly
   for (const [note, codeBlock] of rows) {
     if (note === undefined || codeBlock === undefined) {
       throw new Error(
@@ -153,7 +149,6 @@ function createAnnotatedNode(node: ElementNode, context: Context): Element {
     }
   }
 
-  // Render the HTML
   return template({ lang, code, rows, context })
 }
 
@@ -278,20 +273,16 @@ function template({
 function mdToHast(text: string, context: Context): Nodes {
   const mdast: Root = fromMarkdown(text)
 
-  // Process AUTOTITLE links
   processAutotitleInMdast(mdast, context)
 
   return toHast(mdast)
 }
 
-// Helper method to process AUTOTITLE links in MDAST
-// This can be reused for other MDAST processing that needs AUTOTITLE support
 function processAutotitleInMdast(mdast: Root, context: Context): void {
   visit(mdast, 'link', (node) => {
     if (node.url && node.url.startsWith('/')) {
       for (const child of node.children) {
         if (child.type === 'text' && /^\s*AUTOTITLE\s*$/.test(child.value)) {
-          // Find the page and get its title
           const page = findPage(node.url, context.pages, context.redirects)
           if (page) {
             try {

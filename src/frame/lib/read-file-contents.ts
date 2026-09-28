@@ -7,9 +7,6 @@ import fm from './frontmatter'
 const fmCache =
   process.env.NODE_ENV === 'production' ? new Map<string, ReturnType<typeof fm>>() : null
 
-/**
- * Read only the frontmatter from  file
- */
 export default async function fmfromf(filepath: string): Promise<ReturnType<typeof fm>> {
   const cached = fmCache?.get(filepath)
   if (cached) return cached

@@ -6,14 +6,13 @@ import {
   getLocalizedGroupNames,
 } from '@/products/lib/get-product-groups'
 
-// Mock data interface for tests - uses required name to match library expectations
+// `name` is required here to match what the library expects.
 interface MockProductGroupData {
   name: string
   octicon?: string
   children: string[]
 }
 
-// Mock data for testing edge cases with optional fields
 interface PartialProductGroupData {
   name?: string
   octicon?: string
@@ -40,12 +39,12 @@ describe('get-product-groups helper functions', () => {
     test('handles missing octicon or name gracefully', () => {
       const mockChildGroups: PartialProductGroupData[] = [
         { name: 'Valid Group', octicon: 'RocketIcon', children: [] },
-        { octicon: 'MissingNameIcon', children: [] }, // missing name
-        { name: 'Missing Octicon', children: [] }, // missing octicon
-        { name: '', octicon: 'EmptyNameIcon', children: [] }, // empty name
+        { octicon: 'MissingNameIcon', children: [] },
+        { name: 'Missing Octicon', children: [] },
+        { name: '', octicon: 'EmptyNameIcon', children: [] },
       ]
 
-      // Using unknown cast to test edge cases with partial/missing fields that wouldn't normally pass strict typing
+      // Cast through unknown so the deliberately malformed groups type-check.
       const octiconToName: { [key: string]: string } = createOcticonToNameMap(
         mockChildGroups as unknown as Parameters<typeof createOcticonToNameMap>[0],
       )
@@ -123,7 +122,6 @@ describe('get-product-groups helper functions', () => {
         localizedByOcticon,
       )
 
-      // Should correctly map regardless of order
       expect(nameMap['Get started']).toBe('Empezar')
       expect(nameMap['Security']).toBe('Seguridad')
     })
@@ -134,42 +132,10 @@ describe('get-product-groups helper functions', () => {
       const result: { [key: string]: string } = await getLocalizedGroupNames('en')
       expect(result).toEqual({})
     })
-
-    test('returns empty object when no translation root available', () => {
-      // Test the fallback when translation root is not found
-      const lang = 'unknown-lang'
-      const languages: { [key: string]: { dir: string } } = {
-        en: { dir: '/en' },
-        es: { dir: '/es' },
-      }
-
-      const translationRoot: string | undefined = languages[lang]?.dir
-      const result: { [key: string]: string } = translationRoot
-        ? {
-            /* would proceed */
-          }
-        : {}
-
-      expect(result).toEqual({})
-    })
-
-    test('handles file read errors gracefully', () => {
-      // Test the try/catch behavior when file read fails
-      let result: { [key: string]: string }
-      try {
-        // Simulate file read error
-        throw new Error('File not found')
-      } catch {
-        result = {}
-      }
-
-      expect(result).toEqual({})
-    })
   })
 
   describe('full translation pipeline', () => {
     test('complete flow from English groups to localized names', () => {
-      // Simulate the complete flow
       const englishChildGroups: MockProductGroupData[] = [
         { name: 'Get started', octicon: 'RocketIcon', children: ['get-started'] },
         { name: 'Security', octicon: 'ShieldLockIcon', children: ['code-security'] },
@@ -183,17 +149,14 @@ describe('get-product-groups helper functions', () => {
         { name: 'GitHub Copilot', octicon: 'CopilotIcon', children: ['copilot'] },
       ]
 
-      // Step 1: Create octicon -> localized name mapping
       const localizedByOcticon: { [key: string]: string } =
         createOcticonToNameMap(mockLocalizedChildGroups)
 
-      // Step 2: Map English names to localized names
       const localizedNames: { [key: string]: string } = mapEnglishToLocalizedNames(
         englishChildGroups,
         localizedByOcticon,
       )
 
-      // Step 3: Use in final mapping
       const finalResult = englishChildGroups.map((group: MockProductGroupData) => {
         const localizedName: string = localizedNames[group.name] || group.name
         return {

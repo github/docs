@@ -1,9 +1,9 @@
 ---
-title: Enterprise Server {{ release-number }} deprecation steps
+title: "[{{ deprecation-date }}] Enterprise Server {{ release-number }} deprecation steps"
 labels:
   - enterprise deprecation
-  - priority-1
-  - time sensitive
+  - engineering
+  - priority-2
   - workflow-generated
 ---
 
@@ -80,7 +80,7 @@ If the date in the [release date list](https://github.com/github/enterprise-rele
 
 ## Step 7: Dry-run the scrape
 
-Update your translation clones to the latest `main`. Then hide the search components so they don't get scraped into the static archive: in `src/search/components/input/SearchBarButton.tsx`, wrap the returned content in a `<div className="visually-hidden">`, and do the same for the `SearchOverlay` in `src/search/components/input/SearchOverlayContainer.tsx`.
+Update your translation clones to the latest `main`. Then hide the search components so they don't get scraped into the static archive: in `src/frame/components/page-header/Header.tsx`, temporarily set the `SubdomainNavBar.Search` component's `className` to `"visually-hidden"`. Also wrap the `SearchOverlay` in `src/search/components/input/SearchOverlayContainer.tsx` in a `<div className="visually-hidden">`.
 
 Build, then scrape a few pages locally:
 
@@ -108,7 +108,7 @@ npm run deprecate-ghes-archive
 Revert the search component edits:
 
 ```shell
-git checkout src/search/components/input/SearchBarButton.tsx src/search/components/input/SearchOverlayContainer.tsx
+git checkout src/frame/components/page-header/Header.tsx src/search/components/input/SearchOverlayContainer.tsx
 ```
 
 ## Step 9: Publish the archive

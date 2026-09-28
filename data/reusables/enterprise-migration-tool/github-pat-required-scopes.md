@@ -6,6 +6,6 @@ The scopes that are required for your {% data variables.product.prodname_dotcom 
 Task | Organization owner | Migrator
 ---- | -------- | ----- |
 Assigning the migrator role for repository migrations | `admin:org` | {% octicon "dash" aria-label="Not applicable" %}
-Running a repository migration (destination organization) | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
-Downloading a migration log | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
-Reclaiming mannequins | `admin:org` | {% octicon "dash" aria-label="Not applicable" %}
+Running a repository migration (destination organization) | `repo`, `workflow`, `admin:org` | `repo`, `workflow`, `read:org`
+Downloading a migration log | `repo`, `workflow`, `admin:org` | `repo`, `workflow`, `read:org`
+Reclaiming mannequins | `repo`, `workflow`, `admin:org` | {% octicon "dash" aria-label="Not applicable" %}

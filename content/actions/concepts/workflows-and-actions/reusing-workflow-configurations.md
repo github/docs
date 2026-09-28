@@ -20,6 +20,12 @@ contentType: concepts
 
 Rather than copying and pasting from one workflow to another, you can make workflows reusable. You and anyone with access to the reusable workflow can then call the reusable workflow from another workflow.
 
+{% ifversion copilot %}
+
+Reusable workflows also complement {% data variables.copilot.agentic_workflows_short %}: an agentic workflow can call approved, deterministic reusable workflows rather than duplicating logic. For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
+
 Reusing workflows avoids duplication. This makes workflows easier to maintain and allows you to create new workflows more quickly by building on the work of others, just as you do with actions. Workflow reuse also promotes best practice by helping you to use workflows that are well designed, have already been tested, and have been proven to be effective. Your organization can build up a library of reusable workflows that can be centrally maintained.
 
 The diagram below shows an in-progress workflow run that uses a reusable workflow.
@@ -47,7 +53,7 @@ Let's compare some aspects of each solution:
 * **Workflow jobs** - Composite actions contain a series of steps that are run as a single step within the caller workflow. Unlike reusable workflows, they cannot contain jobs.
 * **Logging** - When a composite action runs, the log will show just the step in the caller workflow that ran the composite action, not the individual steps within the composite action. With reusable workflows, every job and step is logged separately.
 * **Specifying runners** - Reusable workflows contain one or more jobs. As with all workflow jobs, the jobs in a reusable workflow specify the type of machine on which the job will run. Therefore, if the steps must be run on a type of machine that might be different from the machine chosen for the calling workflow job, then you should use a reusable workflow, not a composite action.
-* **Passing output to steps** - A composite action is run as a step within a workflow job, and you can have multiple steps before or after the step that runs the composite action. Reusable workflows are called directly within a job, and not from within a job step. You can't add steps to a job after calling a reusable workflow, so you can't use `GITHUB_ENV` to pass values to subsequent job steps in the caller workflow.
+* **Passing output to steps** - A composite action is run as a step within a workflow job, and you can have multiple steps before or after the step that runs the composite action. Reusable workflows are called directly within a job, and not from within a job step. You can't add steps to a job after calling a reusable workflow, but reusable workflows now support outputs that can be referenced in subsequent jobs in the caller workflow.
 
 ### Key differences between reusable workflows and composite actions
 
@@ -76,6 +82,12 @@ If you use a commit SHA when referencing the reusable workflow, you can ensure t
 {% data reusables.actions.workflow-templates-repo-link %}
 
 For more information, see [AUTOTITLE](/actions/how-tos/reuse-automations/create-workflow-templates).
+
+{% ifversion copilot %}
+
+Organizations can also share and govern approved {% data variables.copilot.agentic_workflows_short %} templates alongside shared actions and reusable workflows. To create templates with {% data variables.copilot.github_agentic_workflows %}, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 

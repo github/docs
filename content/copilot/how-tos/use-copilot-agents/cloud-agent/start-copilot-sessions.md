@@ -35,11 +35,11 @@ You can start {% data variables.copilot.copilot_cloud_agent %} from several clie
 * [REST API](/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-via-the-api)
 * [{% data variables.product.prodname_cli %}](/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-from-cli)
 * [{% data variables.product.github %} MCP Server](/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-with-mcp)
-* [Jira](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-jira)
-* [Slack](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack)
-* [Microsoft Teams](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams)
-* [Azure Boards](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-azure-boards)
-* [Linear](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-linear)
+* [Jira](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-jira)
+* [Slack](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-slack)
+* [Microsoft Teams](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-teams)
+* [Azure Boards](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-azure-boards)
+* [Linear](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-linear)
 * [Raycast](/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-from-raycast)
 
 You can also start sessions automatically, on a schedule or in response to events such as an issue being opened, by setting up an {% data variables.copilot.copilot_automation %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations).

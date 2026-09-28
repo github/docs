@@ -30,9 +30,14 @@ For more information about other changes you can make to your project through th
 
 You may also want to use the **actions/add-to-project** workflow, which is maintained by {% data variables.product.company_short %} and will add the current issue or pull request to the project specified. For more information, see the [actions/add-to-project](https://github.com/actions/add-to-project) repository and README.
 
+{% ifversion copilot %}
+
+For project management tasks that require understanding repository context—such as triaging new issues, summarizing backlogs, classifying issues by type or priority, and recommending field values—{% data variables.copilot.agentic_workflows_short %} are a better fit than traditional {% data variables.product.prodname_actions %} workflows. Unlike fixed workflow steps, {% data variables.copilot.agentic_workflows_short %} let you describe what you want in natural language, and an AI coding agent handles the reasoning and decision-making.  For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
+
 > [!NOTE]
 > `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a {% data variables.product.pat_generic %} (recommended for user projects). Workflow examples for both approaches are shown below.
-
 ## Example workflow authenticating with a {% data variables.product.prodname_github_app %}
 
 For more information about authenticating in a {% data variables.product.prodname_actions %} workflow with a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow).
@@ -43,7 +48,7 @@ For more information about authenticating in a {% data variables.product.prodnam
    > [!NOTE]
    > You can control your app's permission to organization projects and to repository projects. You must give permission to read and write organization projects; permission to read and write repository projects will not be sufficient.
 
-1. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see [AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app#installing-your-private-github-app-on-your-repository).
+1. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see [AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app).
 1. Store your {% data variables.product.prodname_github_app %}'s client ID as a configuration variable in your repository or organization. In the following workflow, replace `APP_CLIENT_ID` with the name of the configuration variable. You can find your client ID on the settings page for your app or through the App API. For more information, see [AUTOTITLE](/rest/apps#get-an-app). For more information about configuration variables, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#defining-configuration-variables-for-multiple-workflows).
 1. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PRIVATE_KEY` with the name of the secret. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). For more information about storing secrets, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 1. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5. In order for this specific example to work, your project must also have a "Date posted" date field.
@@ -318,3 +323,5 @@ jobs:
             }' -f project=$PROJECT_ID -f item=$ITEM_ID -f status_field=$STATUS_FIELD_ID -f status_value={% raw %}${{ env.TODO_OPTION_ID }}{% endraw %} -f date_field=$DATE_FIELD_ID -f date_value=$DATE --silent
 
 ```
+
+

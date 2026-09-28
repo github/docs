@@ -18,12 +18,12 @@ category:
 
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:
 
-* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 inline suggestion requests and limited chat and agent usage-no paid plan required. See [AUTOTITLE](/copilot/concepts/billing/individual-plans).
+* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 inline suggestion requests and limited chat and agent usage-no paid plan required. See [AUTOTITLE](/copilot/get-started/plans).
 
 * **Sign up for a paid plan**. You can subscribe to one of these plans:
 
   * **{% data variables.copilot.copilot_pro_short %}**, which includes access to premium models and a monthly allowance of {% data variables.product.prodname_ai_credits_short %}. [Subscribe to {% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
-  * **{% data variables.copilot.copilot_pro_plus_short %}**, which includes a higher monthly allowance of {% data variables.product.prodname_ai_credits_short %} and access to all available models. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
+  * **{% data variables.copilot.copilot_pro_plus_short %}**, which includes a higher monthly allowance of {% data variables.product.prodname_ai_credits_short %} and access to all available models. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro-plus).
   * **{% data variables.copilot.copilot_max_short %}**, which includes advanced AI models and our highest individual monthly allowance of {% data variables.product.prodname_ai_credits_short %}. [Subscribe to {% data variables.copilot.copilot_max_short %}](https://github.com/settings/billing/licensing?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=max).
 
 * **Use {% data variables.product.prodname_copilot_short %} through your organization or enterprise**. If you're part of an organization or enterprise with a {% data variables.product.prodname_copilot_short %} plan, you can request access at [https://github.com/settings/copilot](https://github.com/settings/copilot) under "Get {% data variables.product.prodname_copilot_short %} from an organization."
@@ -42,7 +42,7 @@ If you want to use {% data variables.product.prodname_copilot_short %} in the co
 
 ## 4. Use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}
 
-If you want to chat with {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}, connect {% data variables.product.prodname_copilot_short %} with Terminal Chat in {% data variables.product.prodname_windows_terminal %} Canary. See [AUTOTITLE](/copilot/get-started/quickstart?tool=windowsterminal).
+If you want to chat with {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}, connect {% data variables.product.prodname_copilot_short %} with Terminal Chat in {% data variables.product.prodname_windows_terminal %} Canary. See [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide).
 
 ## 5. Set up networking (if necessary)
 
@@ -63,5 +63,7 @@ If you have your own {% data variables.product.prodname_copilot_short %} plan (i
 ## 7. Start using {% data variables.product.prodname_copilot_short %}
 
 Start using {% data variables.product.prodname_copilot_short %} to help you write code faster and more efficiently. For all the ways you can use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/how-tos). {% data variables.product.prodname_copilot_short %} code suggestions, {% data variables.copilot.copilot_chat_dotcom_short %}, and {% data variables.copilot.copilot_chat_short %} in your IDE are a great place to start.
+
+To get started with agent-driven development in the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/get-started/quickstart-copilot-app).
 
 To learn how to best use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/get-started/best-practices) and [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering).

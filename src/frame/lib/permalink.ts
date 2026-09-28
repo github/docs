@@ -29,7 +29,7 @@ page.permalinks is an array of objects that looks like this:
 */
 // String interning pool: deduplicates low-cardinality, highly-repeated values (languageCode, pageVersion)
 // across ~975K Permalink instances (~9 languages × ~9 versions × ~65K pages). Because these fields have
-// few distinct values (~81 total), the pool stays bounded — do not use intern() for high-cardinality
+// few distinct values (~81 total), the pool stays bounded. Do not use intern() for high-cardinality
 // fields like relativePath or title, where the pool would grow unbounded and leak memory.
 const stringPool = new Map<string, string>()
 

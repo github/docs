@@ -1,14 +1,9 @@
-/**
- * We entirely removed GHAE but we have to support legacy links.
- * We have some unit tests for this that tests the `getRedirect()` function.
- * These tests here are more end-to-end tests that spans middleware
- * (which internally uses `getRedirect()`).
- *
- * These tests are important to have because we intend (not done at the
- * time of authoring this test suite) entirely remove ghae from
- * the `allVersions` config object. When we do, we want to be certain that
- * legacy redirects still work.
- */
+// We entirely removed GHAE but we still have to support legacy links.
+// The unit tests cover `getRedirect()` directly. These are end-to-end tests
+// that span the middleware, which uses `getRedirect()` internally.
+//
+// They matter because ghae is gone from the `allVersions` config object, so
+// these redirects are all that is left of it.
 
 import { describe, expect, test } from 'vitest'
 

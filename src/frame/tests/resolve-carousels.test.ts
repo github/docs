@@ -4,12 +4,10 @@ import type { ExtendedRequest, Page, ResolvedArticle } from '@/types'
 import findPage from '@/frame/lib/find-page'
 import resolveCarousels from '../middleware/resolve-carousels'
 
-// Mock the findPage function
 vi.mock('@/frame/lib/find-page', () => ({
   default: vi.fn(),
 }))
 
-// Mock the renderContent function
 vi.mock('@/content-render/index', () => ({
   renderContent: vi.fn((content, _context, options) => {
     // When textOnly is true, return plain text (no HTML wrapper)
@@ -337,7 +335,6 @@ describe('resolveCarousels middleware', () => {
   })
 
   test('should filter out articles not available in current version', async () => {
-    // Create a test page that is only available in fpt, not ghec
     const fptOnlyPage: Partial<import('@/types').Page> = {
       title: 'FPT Only Article',
       intro: 'This article is only for FPT',
@@ -347,7 +344,6 @@ describe('resolveCarousels middleware', () => {
 
     mockFindPage.mockReturnValue(fptOnlyPage as unknown as Page)
 
-    // Create a request context where we're viewing the GHEC version
     const req = createMockRequest(
       { rawCarousels: { recommended: ['/test/fpt-only'] } },
       {

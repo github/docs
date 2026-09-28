@@ -14,7 +14,6 @@ export const ctasSchema: Rule = {
   tags: ['ctas', 'schema', 'urls'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     // Find all URLs in the content that might be CTAs
-    // Updated regex to properly handle URLs in quotes and other contexts
     const urlRegex = /https?:\/\/[^\s)\]{}'">]+/g
     const content = params.lines.join('\n')
 
@@ -22,7 +21,7 @@ export const ctasSchema: Rule = {
     while ((match = urlRegex.exec(content)) !== null) {
       const url = match[0]
 
-      // Check if this URL has ref_ parameters and is on a GitHub domain (indicating it's a CTA URL)
+      // A ref_ parameter is what marks a URL as a CTA.
       if (!url.includes('ref_')) continue
 
       // Only validate CTA URLs on GitHub domains
@@ -56,7 +55,6 @@ export const ctasSchema: Rule = {
 
         if (!hasRefParams) continue
 
-        // Collect all ref_ parameters
         for (const [key, value] of searchParams.entries()) {
           if (key.startsWith('ref_')) {
             refParams[key] = value
@@ -70,7 +68,6 @@ export const ctasSchema: Rule = {
         if (hasOldParams) {
           const result = convertOldCTAUrl(url)
           if (result && result.newUrl !== url) {
-            // Find the line and create fix info
             const lineIndex = params.lines.findIndex((line) => line.includes(url))
             const lineNumber = lineIndex >= 0 ? lineIndex + 1 : 1
             const line = lineIndex >= 0 ? params.lines[lineIndex] : ''
@@ -92,7 +89,6 @@ export const ctasSchema: Rule = {
             )
           }
         } else {
-          // Validate new format URLs against schema
           const isValid = validateCTASchema(refParams)
 
           if (!isValid) {
@@ -100,7 +96,6 @@ export const ctasSchema: Rule = {
             const lineNumber = lineIndex >= 0 ? lineIndex + 1 : 1
             const line = lineIndex >= 0 ? params.lines[lineIndex] : ''
 
-            // Process AJV errors manually for CTA URLs
             const errors = validateCTASchema.errors || []
             for (const error of errors) {
               let message = ''
@@ -108,7 +103,6 @@ export const ctasSchema: Rule = {
                 message = `Missing required parameter: ${(error.params as { missingProperty?: string })?.missingProperty}`
               } else if (error.keyword === 'enum') {
                 const paramName = error.instancePath.substring(1)
-                // Get the actual invalid value from refParams and allowed values from params
                 const invalidValue = refParams[paramName]
                 const allowedValues =
                   (error.params as { allowedValues?: unknown[] })?.allowedValues || []

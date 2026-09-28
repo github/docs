@@ -54,7 +54,6 @@ describe('pages module', () => {
         .map((page) => pick(page, ['redirect_from', 'applicableVersions', 'fullPath']))
         .value()
 
-      // Map from redirect path to Set of file paths
       const redirectToFiles = new Map<string, Set<string>>()
       const versionedRedirects: Array<{ path: string; file: string }> = []
 
@@ -78,7 +77,6 @@ describe('pages module', () => {
         .filter(([, files]) => files.size > 1)
         .map(([redirectPath]) => redirectPath)
 
-      // Build a detailed message with sources for each duplicate
       const message = `Found ${duplicates.length} duplicate redirect_from path${duplicates.length === 1 ? '' : 's'}.
         Ensure that you don't define the same path more than once in the redirect_from property in a single file and across all English files.
         You may also receive this error if you have defined the same children property more than once.\n${duplicates
@@ -128,7 +126,6 @@ describe('pages module', () => {
 
     test('every page has valid frontmatter', async () => {
       const frontmatterErrors = chain(pages)
-        // .filter(page => page.languageCode === 'en')
         // Page class has dynamic error properties like 'frontmatterErrors' not in type definition
         .map((page) => (page as Record<string, unknown>).frontmatterErrors)
         .filter(Boolean)

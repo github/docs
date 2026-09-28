@@ -21,7 +21,6 @@ export async function getBounces(
   }
 
   const data = JSON.parse(results.primaryResults[0].toString()).data[0]
-  // Extract Bounces
   const bounces = data.Bounces
   return bounces
 }

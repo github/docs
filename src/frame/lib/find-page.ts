@@ -15,12 +15,10 @@ export default function findPage(
 
   const redirectsContext: Context = { redirects: redirects || {}, pages }
 
-  // find the page
   const redirectedHref = getRedirect(href, redirectsContext)
   const page = pages[href] || (redirectedHref ? pages[redirectedHref] : undefined)
   if (page) return page
 
-  // get the current language
   const languageMatch = href.match(getLanguageCode)
   const currentLang = getLanguageCode.test(href) && languageMatch ? languageMatch[1] : 'en'
 

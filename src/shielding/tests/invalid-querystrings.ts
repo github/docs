@@ -28,7 +28,7 @@ describe('invalid query strings', () => {
 
   test('302 redirect for many unrecognized query strings', async () => {
     // This test depends on knowing exactly the number
-    // of unrecognized query strings that will trigger a 400.
+    // of unrecognized query strings that will trigger a redirect.
     const sp = new URLSearchParams()
     for (const letter of alphabet.slice(0, MAX_UNFAMILIAR_KEYS_REDIRECT)) {
       sp.set(letter, '1')

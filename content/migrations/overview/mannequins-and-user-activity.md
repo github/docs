@@ -23,7 +23,7 @@ Reclaiming is optional and can happen any time after a migration is finished. Fo
 
 ## How can I reclaim mannequins?
 
-{% data reusables.enterprise-migration-tool.how-to-reclaim %} For instructions, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer).
+{% data reusables.enterprise-migration-tool.how-to-reclaim %} For instructions, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer) or [AUTOTITLE](/migrations/elm/complete-your-migration#reattribute-activity-to-users).
 
 By default, reclaiming a mannequin will send an attribution invitation to the target user. The target user can choose to accept or reject the invitation.
 

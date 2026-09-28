@@ -7,9 +7,8 @@ interface ProgAccessData {
 
 export type SchemaInput = OpenApiSchema
 
-// The module accepts a JSON schema object as input
-// and returns an array of its operation objects with their
-// HTTP verb and requestPath attached as properties
+// Runs `process` on every operation with the programmatic access data, then
+// returns the same array.
 export async function processOperations(
   operations: Operation[],
   progAccessData: ProgAccessData,

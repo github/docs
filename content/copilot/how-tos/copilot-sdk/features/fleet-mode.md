@@ -80,38 +80,6 @@ if result.started:
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	"fmt"
-
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-	session, err := client.CreateSession(ctx, &copilot.SessionConfig{})
-	if err != nil {
-		return
-	}
-
-	prompt := "Update each package independently, then report validation results."
-	result, err := session.RPC.Fleet.Start(ctx, &rpc.FleetStartRequest{
-		Prompt: &prompt,
-	})
-	if err != nil {
-		return
-	}
-	if result.Started {
-		fmt.Println("Fleet mode started")
-	}
-}
-```
-
-```golang
 prompt := "Update each package independently, then report validation results."
 result, err := session.RPC.Fleet.Start(ctx, &rpc.FleetStartRequest{
     Prompt: &prompt,
@@ -126,21 +94,6 @@ if result.Started {
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-
-await using var client = new CopilotClient();
-await using var session = await client.CreateSessionAsync(new SessionConfig());
-
-var result = await session.Rpc.Fleet.StartAsync(
-    "Audit each project independently, then summarize the findings.");
-
-if (result.Started)
-{
-    Console.WriteLine("Fleet mode started");
-}
-```
 
 ```csharp
 var result = await session.Rpc.Fleet.StartAsync(
@@ -181,7 +134,7 @@ Native typed bindings for fleet mode were verified in Node.js/TypeScript, Python
 Plan-mode UIs can start fleet deployment by returning the `autopilot_fleet` exit action. The generated session event types describe it as:
 
 ```typescript
-type PlanModeExitAction =
+type ExitPlanModeAction =
   | "exit_only"
   | "interactive"
   | "autopilot"
@@ -267,29 +220,6 @@ session.on((event) => {
 
 {% endcodetab %}
 {% codetab python %}
-
-```python
-import asyncio
-from copilot import CopilotClient
-from copilot.session import PermissionHandler
-
-async def main():
-    client = CopilotClient()
-    await client.start()
-    session = await client.create_session(
-        on_permission_request=PermissionHandler.approve_all,
-    )
-
-    def handle_event(event):
-        if event.type == "subagent.started":
-            print(f"Started {event.data.agent_display_name}")
-        elif event.type == "subagent.completed":
-            print(f"Completed {event.data.agent_display_name}")
-
-    unsubscribe = session.on(handle_event)
-
-asyncio.run(main())
-```
 
 ```python
 def handle_event(event):

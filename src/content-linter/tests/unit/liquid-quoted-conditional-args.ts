@@ -119,7 +119,6 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
     ].join('\n')
     const result = await runRule(liquidQuotedConditionalArg, { strings: { markdown } })
     const errors = result.markdown
-    // Only the standalone quoted arg (line 9) should be flagged
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(9)
   })

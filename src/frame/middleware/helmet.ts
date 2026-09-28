@@ -57,7 +57,8 @@ const DEFAULT_OPTIONS = {
       frameSrc: [
         ...GITHUB_DOMAINS,
         isDev && 'http://localhost:3000',
-        // This URL is also set in ArticleContext.tsx. We don't rely on importing a constant as we may run into an import conflict where the env variable is not yet set.
+        // ArticleContext.tsx sets this URL too. We don't import a shared
+        // constant because the env var may not be set yet at import time.
         process.env.NODE_ENV === 'production'
           ? 'https://support.github.com'
           : // Assume that a developer is not testing the VA iframe locally if this env var is not set

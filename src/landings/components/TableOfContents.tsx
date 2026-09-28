@@ -1,6 +1,9 @@
 import { Link } from '@/frame/components/Link'
 import type { TocItem } from '@/landings/types'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
+import { clsx } from 'clsx'
+
+import styles from './TableOfContents.module.scss'
 
 type Props = {
   items: Array<TocItem>
@@ -22,11 +25,13 @@ export const TableOfContents = (props: Props) => {
               className="pt-4 pb-3 f4 d-list-item width-full list-style-none border-bottom"
             >
               <h2 className="py-1 h4">
-                <Link href={href} className="color-fg-accent">
+                <Link href={href} className={styles.linkAccent}>
                   {title}
                 </Link>
               </h2>
-              {intro && <RenderedHTML as="div" className="f4 color-fg-muted" html={intro} />}
+              {intro && (
+                <RenderedHTML as="div" className={clsx('f4', styles.textMuted)} html={intro} />
+              )}
             </div>
           )
         })}

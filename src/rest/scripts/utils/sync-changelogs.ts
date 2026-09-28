@@ -111,7 +111,6 @@ export function parseVersionSections(markdown: string): VersionSection[] {
     // Skip intro paragraph lines before the first ## Version heading
     const versionMatch = line.match(/^## Version (\d{4}-\d{2}-\d{2})/)
     if (versionMatch) {
-      // Save previous section if any
       if (currentVersion) {
         sections.push({
           version: currentVersion,
@@ -129,7 +128,6 @@ export function parseVersionSections(markdown: string): VersionSection[] {
     }
   }
 
-  // Save last section
   if (currentVersion) {
     sections.push({
       version: currentVersion,

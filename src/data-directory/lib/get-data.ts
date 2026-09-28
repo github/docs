@@ -28,7 +28,10 @@ const DEBUG_JIT_DATA_READS = Boolean(JSON.parse(process.env.DEBUG_JIT_DATA_READS
 // English for.
 // Having this is safer than trying to wrangle the translations to NOT
 // have them translated.
-const ALWAYS_ENGLISH_YAML_FILES = new Set(['data/variables/product.yml'])
+const ALWAYS_ENGLISH_YAML_FILES = new Set([
+  'data/variables/product.yml',
+  'data/variables/copilot.yml',
+])
 const ALWAYS_ENGLISH_MD_FILES = new Set([
   'data/reusables/ssh/fingerprints.md',
   'data/reusables/ssh/known_hosts.md',

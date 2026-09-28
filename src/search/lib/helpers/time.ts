@@ -34,16 +34,7 @@ export function utcTimestamp() {
   )
 }
 
-/**
- * Converts a given number of seconds into a formatted time string "HH:mm:ss".
- *
- * @param {number} seconds - The total number of seconds to format.
- * @returns {string} A string representing the time in "hours:minutes:seconds" format.
- *
- * @example
- * // returns "01:30:45"
- * formatSeconds(5445);
- */
+// Formats seconds as "HH:mm:ss". 5445 becomes "01:30:45". Wraps at 24 hours.
 export function formatSecondsToHHMMSS(seconds: number): string {
   return new Date(seconds * 1000).toISOString().substr(11, 8)
 }

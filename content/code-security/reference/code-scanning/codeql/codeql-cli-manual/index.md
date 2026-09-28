@@ -2,7 +2,7 @@
 title: CodeQL CLI commands manual
 shortTitle: CodeQL CLI manual
 allowTitleToDifferFromFilename: true
-intro: Reference information for the commands available in the most recent release of {% data variables.product.prodname_codeql_cli %}.
+intro: Reference information for the commands available in the most recent release of   {% data variables.product.prodname_codeql_cli %}.
 versions:
   fpt: '*'
   ghec: '*'
@@ -76,6 +76,7 @@ children:
   - /resolve-files
   - /resolve-languages
   - /resolve-library-path
+  - /resolve-library-paths
   - /resolve-metadata
   - /resolve-ml-models
   - /resolve-packs

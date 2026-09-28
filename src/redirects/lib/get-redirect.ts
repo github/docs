@@ -29,7 +29,6 @@ export function splitPathByLanguage(uri: string, userLanguage?: string): [string
   return [language, withoutLanguage]
 }
 
-// Return the new URI if there is one, otherwise return undefined.
 export default function getRedirect(uri: string, context: Context): string | undefined {
   const { redirects, userLanguage } = context
 

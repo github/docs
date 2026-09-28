@@ -35,11 +35,11 @@ For cost centers that contain {% data variables.product.prodname_copilot_short %
 
 {% data reusables.billing.included-usage-controls %}
 
-This is separate from a cost center budget, which caps metered charges only after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted. For more information, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#included-usage-controls-for-cost-centers).
+This is separate from a cost center budget, which caps metered charges only after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted. For more information, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#included-usage-controls-for-cost-centers).
 
 ## Cost center limitations
 
-* The maximum number of active cost centers per enterprise is 500.
+* The maximum number of active cost centers per enterprise is 1,000.
 * The maximum number of resources per cost center is 25,000.
 * A maximum of 50 resources can be added to or removed from a cost center at a time.
 * Azure subscriptions can only be added to or removed from cost centers through the UI.

@@ -87,7 +87,7 @@ In the tutorial, you will first make a workflow file that uses the {% data varia
     ```
 
 1. Customize the parameters in your workflow file:
-   * Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every Monday at 7:20 UTC. For more information about scheduled workflows, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#scheduled-events).
+   * Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every Monday at 7:20 UTC. For more information about scheduled workflows, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
    * Change the value for `ASSIGNEES` to the list of {% data variables.product.prodname_dotcom %} usernames that you want to assign to the issue.
    * Change the value for `LABELS` to the list of labels that you want to apply to the issue.
    * Change the value for `TITLE` to the title that you want the issue to have.

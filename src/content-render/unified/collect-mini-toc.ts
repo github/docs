@@ -64,7 +64,6 @@ const collectMiniToc: Plugin<[CollectMiniTocOptions], Root> = ({ collectInto }) 
 
       const title = textChildren.map((child) => toString(child)).join('')
 
-      // Detect platform from ghd-tool ancestor
       let platform = ''
       for (const anc of ancestors) {
         if (anc.type === 'element' && hasClassName(anc as Element, 'ghd-tool')) {

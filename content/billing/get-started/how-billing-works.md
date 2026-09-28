@@ -72,7 +72,7 @@ You may see an authorization hold on your provided payment method upon initiatin
 
 Authorization holds are temporary and released as quickly as possible. If the authorization hold persists for longer than 10 business days, we suggest reaching out to your bank or card issuer.
 
-If the authorization is unsuccessful, the chosen service will not be activated and the account may be locked. For more more information, see [AUTOTITLE](/billing/how-tos/troubleshooting/locked-account#unlocking-an-accounts-features-due-to-a-failed-authorization-hold).
+If the authorization is unsuccessful, the chosen service will not be activated and the account may be locked. For more information, see [AUTOTITLE](/billing/how-tos/troubleshooting/locked-account#unlocking-an-accounts-features-due-to-a-failed-authorization-hold).
 
 ## How do I see what I'm billed for?
 

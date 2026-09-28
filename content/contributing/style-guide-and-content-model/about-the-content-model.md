@@ -77,7 +77,7 @@ Categories are organized around a feature or a discrete set of tasks within a to
 * Category titles must be 67 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 27 characters.
 * Examples
   * [AUTOTITLE](/account-and-profile/how-tos)
-  * [AUTOTITLE](/pull-requests/committing-changes-to-your-project)
+  * [AUTOTITLE](/pull-requests/how-tos/commit-changes)
 
 ### Intros for categories
 

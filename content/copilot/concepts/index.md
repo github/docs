@@ -8,20 +8,12 @@ children:
   - /completions
   - /chat
   - /agents
-  - /about-cloud-and-local-sandboxes
-  - /spark
-  - /copilot-usage-metrics
   - /prompting
   - /context
   - /tools
   - /models
-  - /usage-limits
-  - /billing
-  - /about-enterprise-accounts-for-copilot-business
-  - /policies
-  - /mcp-management
-  - /network-settings
-  - /preparing-for-new-features-and-models
+  - /billing-and-usage
+  - /security-governance-and-network-settings
+  - /enterprise
 contentType: concepts
 ---
-

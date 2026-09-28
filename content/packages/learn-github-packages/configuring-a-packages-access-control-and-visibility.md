@@ -124,7 +124,7 @@ Granting a repository access here also allows {% data variables.product.prodname
 
 > [!NOTE]
 > * Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
-> * You can choose to limit permissions to workflow jobs using the `permissions` key and `packages` scope. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-githubtoken).
+> * You can choose to limit permissions to workflow jobs using the `permissions` key and `packages` scope. For more information, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token).
 > * {% data reusables.package_registry.public-forks-private-packages %}
 
 ### {% data variables.product.prodname_actions %} access for packages scoped to personal accounts

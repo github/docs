@@ -89,7 +89,6 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      // set version to the latest enterprise version
       const context: TestContext = {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',
@@ -139,7 +138,6 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
-      // set version to 3.0
       const context: TestContext = {
         currentVersion: 'enterprise-server@3.0',
         currentLanguage: 'en',
@@ -436,7 +434,9 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
+    await expect(getPage).rejects.toThrowError(
+      /`versions` frontmatter.*? product is not available in/,
+    )
   })
 
   describe('versioning optional attributes', () => {

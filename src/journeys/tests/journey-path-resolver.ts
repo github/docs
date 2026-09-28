@@ -185,8 +185,6 @@ describe('journey-path-resolver', () => {
     })
 
     test('normalizes article paths without leading slash', async () => {
-      // The resolver should handle paths without leading slashes
-      // by normalizing them to match the guide paths in the data
       const result = await resolveJourneyContext(
         'enterprise-onboarding/config',
         mockPages,
@@ -250,7 +248,7 @@ describe('journey-path-resolver', () => {
       mockRenderContent.mockClear()
       const result = await resolveJourneyTracks(mockJourneyTracks, mockContext)
 
-      // Liquid value passes through the (passthrough) renderer; plain string is unchanged
+      // The mock renderer passes content through, so the Liquid is unchanged.
       expect(result[0].timeCommitment).toBe('{% data variables.product.company_short %} 2-4 hours')
       expect(result[1].timeCommitment).toBe('4-6 hours')
 
@@ -311,7 +309,6 @@ describe('journey-path-resolver', () => {
 
   describe('resolveJourneyContext with version-filtered guides', () => {
     afterEach(() => {
-      // Restore the default implementation after each test in this block
       mockGetLinkData.mockImplementation(async (rawLinks: string | string[] | undefined) => {
         const path = Array.isArray(rawLinks) ? rawLinks[0] : rawLinks
         if (!path) return undefined

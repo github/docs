@@ -40,10 +40,7 @@ export default function GraphqlReferencePage({
   allObjects,
   categorySlug,
 }: Props) {
-  // Key the schema content by category slug. Without this, client-side
-  // navigation between category pages reuses the same React tree and
-  // dangerouslySetInnerHTML descriptions from a previous category can stick
-  // around in the DOM. Keying forces a clean unmount/remount on route change.
+  // Keying by categorySlug prevents navigation from reusing stale dangerouslySetInnerHTML content.
   const content = <GraphqlCategoryPage key={categorySlug} schema={schema} allObjects={allObjects} />
   return (
     <MainContext.Provider value={mainContext}>
@@ -74,12 +71,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const schema = getGraphqlSchema(currentVersion, page) as CategorySchema
   const allObjects = getAllGraphqlObjects(currentVersion) as ObjectT[]
 
-  // If a category has no types in the current version, 404 the page rather
-  // than render an empty document. Empty buckets typically happen when a
-  // category exists in fpt/ghec but not in GHES (or vice versa). The content
-  // .md files for categories that are empty in every version are removed
-  // from `content/graphql/reference/`, but the dynamic [page].tsx route would
-  // still serve them otherwise. This guard makes the response a real 404.
+  // Return 404 when a version has no types because the route can serve categories without files.
   const hasAnyTypes = ALL_KIND_KEYS.some((kind) => {
     const items = (schema as Record<string, unknown[] | undefined>)[kind]
     return Array.isArray(items) && items.length > 0
@@ -88,12 +80,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     return { notFound: true }
   }
 
-  // Build a two-level mini-TOC mirroring the page's kind sections. Top-level
-  // entries are kind labels (e.g. "Objects") pointing at the matching section
-  // heading; nested entries are the items inside each section. The mini-TOC
-  // React component (`MiniTocs`) renders `item.items` recursively, so pushing
-  // a nested structure here yields a two-level sidebar even though the
-  // default heading-collection path is capped at one level globally.
+  // Build nested kind entries because MiniTocs recurses and default collection stops at one level.
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
   for (const kind of ALL_KIND_KEYS) {
     const kindItems = (schema as Record<string, Array<{ name: string }>>)[kind]

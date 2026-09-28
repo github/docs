@@ -74,7 +74,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Return the available discussion categories defined within this repository. Each repository may have up to 25 categories. For more information about discussion categories, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions).
+Return the available discussion categories defined within this repository. Each repository may have up to 25 categories. For more information about discussion categories, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#about-categories-for-discussions).
 
 _Signature:_
 

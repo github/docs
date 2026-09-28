@@ -26,7 +26,7 @@ Each {% data variables.product.prodname_codeql %} pack requires a `qlpack.yml` f
 * Dependencies on other {% data variables.product.prodname_codeql %} packs and libraries
 * Query suite definitions
 
-For more information about `qlpack.yml` properties, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/customize-analysis#codeqlpack-yml-properties).
+For more information about `qlpack.yml` properties, see [AUTOTITLE](/code-security/tutorials/customize-code-scanning/customize-analysis).
 
 Additionally, a {% data variables.product.prodname_codeql %} pack can contain:
 

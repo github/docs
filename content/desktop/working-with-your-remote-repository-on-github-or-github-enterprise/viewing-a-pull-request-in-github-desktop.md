@@ -17,7 +17,7 @@ category:
 
 ## About pull requests in {% data variables.product.prodname_desktop %}
 
-Pull requests let you propose changes to projects, provide feedback and reviews, and merge changes into projects. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+Pull requests let you propose changes to projects, provide feedback and reviews, and merge changes into projects. For more information, see [AUTOTITLE](/pull-requests/reference/pull-requests).
 
 When someone creates a pull request, they make changes on a "head branch" and suggest these changes to a "base branch," such as `main`. In {% data variables.product.prodname_desktop %}, you can open (or "check out") the head branch of a pull request to view the changes a contributor is suggesting. For example, you can see a history of the commits that the contributor has made, and see which files the commits modified, added, or deleted.
 
@@ -25,7 +25,7 @@ Checking out the head branch can be useful if you want to make changes to the br
 
 Alternatively, you might just want to view information such as commit history and status checks in an environment you're familiar with, without needing to navigate to the pull request on {% data variables.product.prodname_dotcom %}. If checks have been enabled in your repository, {% data variables.product.prodname_desktop %} will show the status of the checks on the pull request and allow you to re-run checks. For more information, see [Working with a pull request in {% data variables.product.prodname_desktop %}](#working-with-a-pull-request-in-github-desktop).
 
-You cannot comment on a pull request from {% data variables.product.prodname_desktop %}. After reviewing changes in a pull request, you can give feedback on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) and [Viewing a pull request on {% data variables.product.prodname_dotcom %}](#viewing-a-pull-request-on-github).
+You cannot comment on a pull request from {% data variables.product.prodname_desktop %}. After reviewing changes in a pull request, you can give feedback on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/pull-requests/reference/pull-request-reviews) and [Viewing a pull request on {% data variables.product.prodname_dotcom %}](#viewing-a-pull-request-on-github).
 
 ## Opening a pull request branch in {% data variables.product.prodname_desktop %}
 

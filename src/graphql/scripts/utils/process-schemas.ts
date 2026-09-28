@@ -4,13 +4,16 @@ import type {
   DocumentNode,
   ObjectTypeDefinitionNode,
   InputObjectTypeDefinitionNode,
+  EnumTypeDefinitionNode,
+  UnionTypeDefinitionNode,
   FieldDefinitionNode,
   InputValueDefinitionNode,
   ConstDirectiveNode,
   DefinitionNode,
   TypeNode,
 } from 'graphql/language'
-import helpers from './schema-helpers'
+import baseHelpers, { createSchemaHelpers } from '@/graphql/scripts/utils/schema-helpers'
+import type { Context } from '@/types/types'
 import { OTHER_CATEGORY, isValidCategory } from '@/graphql/lib/categories'
 import fs from 'fs/promises'
 import path from 'path'
@@ -19,7 +22,6 @@ interface PreviewInfo {
   toggled_by: string[]
 }
 
-// Interface for arguments returned by helpers.getArguments()
 interface FieldArgumentInfo {
   name: string
   // GraphQL scalar default values come through the AST as a string or boolean.
@@ -204,22 +206,17 @@ interface ProcessedSchemaData {
   scalars: ScalarInfo[]
 }
 
-// All processed items get an optional `category` field once the schema has
-// been categorized. Using `& { category: string }` at the type level would
-// require touching every interface, so we keep it loose here and rely on the
-// runtime guarantee that every emitted item has a category.
-
+// Category stays loose on emitted items to avoid duplicating it across every output interface.
 const externalScalarsJSON: Array<{ name: string; description: string }> = JSON.parse(
   await fs.readFile(path.join(process.cwd(), './src/graphql/lib/non-schema-scalars.json'), 'utf-8'),
 )
 const externalScalars: ScalarInfo[] = await Promise.all(
   externalScalarsJSON.map(async (scalar): Promise<ScalarInfo> => {
-    const description = await helpers.getDescription(scalar.description)
-    const id = helpers.getId(scalar.name)
-    // External scalars (e.g. Date, URI) are not annotated upstream and live
-    // in the "other" bucket. Emit the legacy href; bucket-by-category will
-    // rewrite it to the category-aware form for per-category files.
-    const href = helpers.getFullLink('scalars', id)
+    // Local non-schema scalars have external links and need no docs version context.
+    const description = await baseHelpers.getDescription(scalar.description)
+    const id = baseHelpers.getId(scalar.name)
+    // External scalars like Date and URI start in other with hrefs for bucket rewriting.
+    const href = baseHelpers.getFullLink('scalars', id)
     return {
       name: scalar.name,
       description,
@@ -230,35 +227,40 @@ const externalScalars: ScalarInfo[] = await Promise.all(
   }),
 )
 
-// select and format all the data from the schema that we need for the docs
-// used in the build step
-// Shape of the per-version `category-map.json` used both at runtime by the
-// redirect middleware and (here) at build time as a fallback source of
-// categories when a schema lacks `@docsCategory` directives.
+// category-map.json supplies runtime redirects and build-time fallback.
+// The fallback covers schemas without @docsCategory.
 type CategoryMapFallback = Partial<Record<string, Record<string, string>>>
 
+// processSchemas assigns GraphQL categories before rendering. Explicit @docsCategory wins.
+// category-map.json fills GHES schemas without directives. Mutation inputs inherit their owning
+// mutation. Connection and Edge types come from graphql-ruby Relay pagination and inherit from
+// node, nodes, or edges. Unannotated enum, union, and input object targets inherit only when
+// every referrer resolves to one category. Interfaces do not contribute because they are
+// cross-cutting. Input object candidates propagate through nested inputs.
+// Examples include IssueTimelineItemsItemType, PullRequestTimelineItemsItemType,
+// RepositoryRuleType, RuleParameters, and RuleParametersInput. Candidate sets make derivation
+// order-independent and retain later conflicting referrers.
+// Input-suffixed objects stay included because docs pages exist outside the v4 sidebar.
+// https://developer.github.com/v4/input_object/acceptenterpriseadministratorinvitationinput/
+// Categories missing from CATEGORIES in src/graphql/lib/categories.ts normalize to other.
 export default async function processSchemas(
   idl: Buffer | string,
   previewsPerVersion: PreviewInfo[],
-  // Optional fallback used when the IDL itself has no `@docsCategory`
-  // directives (e.g. GHES branches cut before the upstream DSL existed).
-  // Lookups for type-level categories use the type id; mutations look up
-  // by mutation field name under the `mutations` key.
+  // Optional fallback for schemas without @docsCategory.
+  // Type ids are keys, and the mutations map uses field names.
   fallbackCategoryMap?: CategoryMapFallback,
+  // Context carries the docs version key so schema description links get a version segment.
+  context: Context = {},
 ): Promise<ProcessedSchemaData> {
+  const helpers = createSchemaHelpers(context)
   const schemaAST: DocumentNode = parse(idl.toString())
   const schema: GraphQLSchema = buildASTSchema(schemaAST)
 
-  // list of objects is used when processing mutations
   const objectsInSchema = schemaAST.definitions.filter(
     (def): def is ObjectTypeDefinitionNode => def.kind === 'ObjectTypeDefinition',
   )
 
-  // PASS 1: Build a typeId -> category map by reading the @docsCategory
-  // directive on every categorizable definition. Queries derive their
-  // category from the return type's category; mutations are annotated on
-  // each Mutation root field rather than on a type, so we collect those
-  // separately.
+  // Read @docsCategory before deriving fallback categories.
   const typeCategoryMap = new Map<string, string>()
   const mutationFieldCategoryMap = new Map<string, string>()
 
@@ -287,51 +289,32 @@ export default async function processSchemas(
     }
   }
 
-  // Build a flat fallback id -> cat map across every type-level kind. (We
-  // exclude queries: query categories are derived from the return type.
-  // Mutations are kept separately since they're keyed by field name.)
+  // Fallback type categories skip queries and keep mutations keyed by field name.
   const fallbackTypeMap: Record<string, string> = {}
   if (fallbackCategoryMap) {
     for (const kind of Object.keys(fallbackCategoryMap)) {
       if (kind === 'queries' || kind === 'mutations') continue
       const sub = fallbackCategoryMap[kind] || {}
       for (const id of Object.keys(sub)) {
-        // First write wins; in practice ids don't collide across kinds.
+        // First write wins; ids do not collide across kinds in practice.
         if (!(id in fallbackTypeMap)) fallbackTypeMap[id] = sub[id]
       }
     }
   }
   const fallbackMutationMap = fallbackCategoryMap?.mutations || {}
 
-  // PASS 1.5: derive categories for types that github/github cannot annotate
-  // directly. Two rules apply, both run before fallback / OTHER assignment so
-  // they take effect for fpt and ghec (where the IDL has the annotations) and
-  // also propagate into the per-version category-map.json that GHES <3.22
-  // consumes as its fallback.
-  //
-  //   (a) Input objects inherit from their owning mutation. The DSL can mark
-  //       a mutation field with @docsCategory but the generated *Input type
-  //       isn't annotated; we copy the mutation's category onto each input
-  //       argument's named type.
-  //   (b) Connection / Edge types inherit from their underlying type. These
-  //       are emitted by graphql-ruby's Relay pagination and never get a
-  //       hand-written docs_category. We walk `node`/`nodes`/`edges` to the
-  //       referenced object type and copy its category.
-  //
-  // Explicit annotations always win; derivation only fills gaps.
+  // Derive missing categories before fallback and other assignment so GHES fallback inherits them.
   const lookupCat = (id: string): string | undefined =>
     typeCategoryMap.get(id) ?? fallbackTypeMap[id]
   const getMutationCat = (mutFieldName: string): string | undefined =>
     mutationFieldCategoryMap.get(mutFieldName) ?? fallbackMutationMap[mutFieldName.toLowerCase()]
 
-  // Walk through a TypeNode chain (NonNull/List wrappers) to the NamedType.
   const namedTypeName = (typeNode: TypeNode): string | undefined => {
     let t: TypeNode = typeNode
     while ('type' in t) t = t.type
     return t.kind === 'NamedType' ? t.name.value : undefined
   }
 
-  // (a) input objects from mutation field args
   const mutationDef = schemaAST.definitions.find(
     (def): def is ObjectTypeDefinitionNode =>
       def.kind === 'ObjectTypeDefinition' && def.name.value === 'Mutation',
@@ -354,9 +337,7 @@ export default async function processSchemas(
     }
   }
 
-  // (b) Connection / Edge types from their underlying type. Run multiple
-  // passes so an XConnection that points at XEdge can still resolve after
-  // XEdge itself has been derived (Connection -> Edge -> object).
+  // Multiple passes let Connection to Edge to object chains inherit the object category.
   const objectDefs = schemaAST.definitions.filter(
     (def): def is ObjectTypeDefinitionNode => def.kind === 'ObjectTypeDefinition',
   )
@@ -370,7 +351,7 @@ export default async function processSchemas(
       if (!isEdge && !isConn) continue
       const id = helpers.getId(name)
       if (lookupCat(id)) continue
-      // Edge: walk `node`. Connection: prefer `nodes` (direct), else `edges`.
+      // Edge types use node; Connection types prefer nodes, then edges.
       const fields = def.fields || []
       let underlyingName: string | undefined
       if (isEdge) {
@@ -394,26 +375,93 @@ export default async function processSchemas(
     if (!changed) break
   }
 
-  // Normalize unknown categories (e.g. `:checks`, `:search`, `:packages`,
-  // `:security_advisories`) to `other`. The upstream gh/gh allowlist permits
-  // many categories that docs-internal hasn't yet built per-category landing
-  // pages for; without this fallback those types would be silently dropped
-  // by `writeCategoryFiles` (which only emits files for slugs in CATEGORIES)
-  // and their redirects would 404. Once a page exists for a category, add it
-  // to CATEGORIES in src/graphql/lib/categories.ts and types will move out
-  // of `other` on the next sync.
-  // Resolver used to populate the top-level `.category` field on every
-  // processed item. The bucketer reads `.category` to split the schema into
-  // per-category files and to rewrite cross-reference hrefs.
+  // Reference-based inheritance assigns a category only when referrers resolve to one category.
+  const derivableTargets = schemaAST.definitions.filter(
+    (
+      def,
+    ): def is EnumTypeDefinitionNode | UnionTypeDefinitionNode | InputObjectTypeDefinitionNode =>
+      def.kind === 'EnumTypeDefinition' ||
+      def.kind === 'UnionTypeDefinition' ||
+      def.kind === 'InputObjectTypeDefinition',
+  )
+  const inputDefs = schemaAST.definitions.filter(
+    (def): def is InputObjectTypeDefinitionNode => def.kind === 'InputObjectTypeDefinition',
+  )
+
+  const targetIds = new Set<string>()
+  for (const def of derivableTargets) {
+    const id = helpers.getId(def.name.value)
+    if (!lookupCat(id)) targetIds.add(id)
+  }
+
+  if (targetIds.size > 0) {
+    const candidates = new Map<string, Set<string>>()
+    for (const id of targetIds) candidates.set(id, new Set())
+
+    // Uncommitted input object referrers contribute candidate sets so ambiguity propagates.
+    const contribution = (referrerId: string): Iterable<string> => {
+      const explicit = lookupCat(referrerId)
+      if (explicit) return [explicit]
+      return candidates.get(referrerId) ?? []
+    }
+    const addRef = (targetName: string | undefined, cats: Iterable<string>): boolean => {
+      if (!targetName) return false
+      const id = helpers.getId(targetName)
+      const set = candidates.get(id)
+      if (!set) return false
+      let grew = false
+      for (const c of cats) {
+        if (!set.has(c)) {
+          set.add(c)
+          grew = true
+        }
+      }
+      return grew
+    }
+
+    // Each pass only adds candidates, so maxPasses bounds the propagation depth.
+    const maxPasses = targetIds.size + 2
+    for (let pass = 0; pass < maxPasses; pass++) {
+      let changed = false
+
+      for (const def of objectDefs) {
+        const name = def.name.value
+        if (name === 'Query') continue
+        const isMutation = name === 'Mutation'
+        for (const field of def.fields || []) {
+          // Mutation categories apply to args; payload return types already carry categories.
+          const fieldCats: Iterable<string> = isMutation
+            ? ((c) => (c ? [c] : []))(getMutationCat(field.name.value))
+            : contribution(helpers.getId(name))
+          if (!isMutation && addRef(namedTypeName(field.type), fieldCats)) changed = true
+          for (const arg of field.arguments || []) {
+            if (addRef(namedTypeName(arg.type), fieldCats)) changed = true
+          }
+        }
+      }
+
+      for (const def of inputDefs) {
+        const ownerCats = contribution(helpers.getId(def.name.value))
+        for (const field of def.fields || []) {
+          if (addRef(namedTypeName(field.type), ownerCats)) changed = true
+        }
+      }
+
+      if (!changed) break
+    }
+
+    for (const [id, cats] of candidates) {
+      if (cats.size === 1) typeCategoryMap.set(id, [...cats][0])
+    }
+  }
+
+  // Unknown categories normalize to other so writeCategoryFiles does not drop types or redirects.
   const resolveCategory = (typeId: string): string => {
     const cat = typeCategoryMap.get(typeId) ?? fallbackTypeMap[typeId] ?? OTHER_CATEGORY
     return isValidCategory(cat) ? cat : OTHER_CATEGORY
   }
 
-  // process-schemas emits legacy `/graphql/reference/<urlKind>#<id>` hrefs
-  // throughout so the monolithic `schema.json` stays compatible with the
-  // existing runtime loader. The bucketer rewrites these to the
-  // category-aware form when emitting per-category schema files.
+  // linkTo emits reference hrefs; bucket-by-category rewrites only per-category schema files.
   const linkTo = (urlKind: string, id: string): string => helpers.getFullLink(urlKind, id)
 
   const data: ProcessedSchemaData = {
@@ -429,7 +477,6 @@ export default async function processSchemas(
 
   await Promise.all(
     schemaAST.definitions.map(async (def: DefinitionNode) => {
-      // QUERIES
       if (def.kind === 'ObjectTypeDefinition' && def.name.value === 'Query') {
         await Promise.all(
           (def.fields || []).map(async (field: FieldDefinitionNode) => {
@@ -500,7 +547,6 @@ export default async function processSchemas(
         return
       }
 
-      // MUTATIONS
       if (def.kind === 'ObjectTypeDefinition' && def.name.value === 'Mutation') {
         await Promise.all(
           (def.fields || []).map(async (field: FieldDefinitionNode) => {
@@ -510,10 +556,7 @@ export default async function processSchemas(
 
             mutation.name = field.name.value
             mutation.id = helpers.getId(mutation.name)
-            // Mutation fields carry @docsCategory at the field level on the
-            // Mutation root, not on the payload type, so use the field map.
-            // Normalize via isValidCategory so an upstream-only category
-            // doesn't produce hrefs/buckets we don't ship pages for.
+            // Mutation fields carry @docsCategory on the field, not the payload type.
             const rawMutationCategory =
               mutationFieldCategoryMap.get(mutation.name) ??
               fallbackMutationMap[mutation.name.toLowerCase()] ??
@@ -536,7 +579,7 @@ export default async function processSchemas(
               previewsPerVersion,
             )
 
-            // there is only ever one input field argument, but loop anyway
+            // Mutation fields have one input argument in practice, but the schema exposes an array.
             await Promise.all(
               (field.arguments || []).map(async (arg: InputValueDefinitionNode) => {
                 const inputField: Partial<InputFieldInfo> = {}
@@ -554,8 +597,7 @@ export default async function processSchemas(
 
             mutation.inputFields = sortBy(inputFields, 'name')
 
-            // get return fields
-            // first get the payload, then find payload object's fields. these are the mutation's return fields.
+            // Mutation return fields come from the payload object's fields.
             const returnType = helpers.getType(field)
             if (!returnType) return
             const mutationReturnFields = objectsInSchema.find(
@@ -605,10 +647,8 @@ export default async function processSchemas(
         return
       }
 
-      // OBJECTS
       if (def.kind === 'ObjectTypeDefinition') {
-        // objects ending with 'Payload' are only used to derive mutation values
-        // they are not included in the objects docs
+        // Payload objects provide mutation return fields and stay out of the object docs.
         if (def.name.value.endsWith('Payload')) return
 
         const object: Partial<ObjectInfo> = {}
@@ -632,8 +672,7 @@ export default async function processSchemas(
           previewsPerVersion,
         )
 
-        // an object's interfaces render in the `Implements` section
-        // interfaces do not have directives so they cannot be under preview/deprecated
+        // Implements links carry only name, id, and href, without preview or deprecation data.
         if (def.interfaces && def.interfaces.length) {
           await Promise.all(
             def.interfaces.map(async (graphqlInterface) => {
@@ -647,7 +686,7 @@ export default async function processSchemas(
           )
         }
 
-        // an object's fields render in the `Fields` section
+        // Object fields render under Fields.
         if (def.fields && def.fields.length) {
           await Promise.all(
             def.fields.map(async (field: FieldDefinitionNode) => {
@@ -690,7 +729,6 @@ export default async function processSchemas(
         return
       }
 
-      // INTERFACES
       if (def.kind === 'InterfaceTypeDefinition') {
         const graphqlInterface: Partial<GraphQLInterfaceInfo> = {}
         const interfaceFields: FieldInfo[] = []
@@ -712,7 +750,7 @@ export default async function processSchemas(
           previewsPerVersion,
         )
 
-        // an interface's fields render in the "Fields" section
+        // Interface fields render under Fields.
         if (def.fields && def.fields.length) {
           await Promise.all(
             def.fields.map(async (field: FieldDefinitionNode) => {
@@ -755,7 +793,6 @@ export default async function processSchemas(
         return
       }
 
-      // ENUMS
       if (def.kind === 'EnumTypeDefinition') {
         const graphqlEnum: Partial<EnumInfo> = {}
         const enumValues: EnumValueInfo[] = []
@@ -795,7 +832,6 @@ export default async function processSchemas(
         return
       }
 
-      // UNIONS
       if (def.kind === 'UnionTypeDefinition') {
         const union: Partial<UnionInfo> = {}
         const possibleTypes: PossibleTypeInfo[] = []
@@ -817,7 +853,7 @@ export default async function processSchemas(
           previewsPerVersion,
         )
 
-        // union types do not have directives so cannot be under preview/deprecated
+        // Union member links carry no preview or deprecation state.
         await Promise.all(
           (def.types || []).map(async (type) => {
             const possibleType: PossibleTypeInfo = {
@@ -835,10 +871,7 @@ export default async function processSchemas(
         return
       }
 
-      // INPUT OBJECTS
-      // NOTE: input objects ending with `Input` are NOT included in the v4 input objects sidebar
-      // but they are still present in the docs (e.g., https://developer.github.com/v4/input_object/acceptenterpriseadministratorinvitationinput/)
-      // so we will include them here
+      // Include Input-suffixed objects; docs pages exist outside the v4 sidebar.
       if (def.kind === 'InputObjectTypeDefinition') {
         const inputObject: Partial<InputObjectInfo> = {}
         const inputFields: InputFieldDetailInfo[] = []
@@ -900,7 +933,6 @@ export default async function processSchemas(
         return
       }
 
-      // SCALARS
       if (def.kind === 'ScalarTypeDefinition') {
         const scalar: ScalarInfo = {
           name: def.name.value,
@@ -928,10 +960,8 @@ export default async function processSchemas(
     }),
   )
 
-  // add non-schema scalars and sort all scalars alphabetically
   data.scalars = sortBy(data.scalars.concat(externalScalars), 'name')
 
-  // sort all the types alphabetically
   data.queries = sortBy(data.queries, 'name')
   data.mutations = sortBy(data.mutations, 'name')
   data.objects = sortBy(data.objects, 'name')

@@ -12,6 +12,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
   - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
   - /account-and-profile/get-started/personalizing-your-profile
+  - /get-started/quickstart/setting-up-your-profile
+  - /get-started/start-your-journey/setting-up-your-profile
 versions:
   fpt: '*'
   ghes: '*'
@@ -23,7 +25,7 @@ category:
 ---
 
 > [!NOTE]
-> Your profile name for your is {% data variables.product.github %} account is **required**. All other profile information described in this article is **optional**.
+> Your profile name for your {% data variables.product.github %} account is **required**. All other profile information described in this article is **optional**.
 
 ## Changing your profile picture
 
@@ -124,8 +126,7 @@ You can set a status to display information about your current availability.
 
 ## Next steps
 
+* Use the [Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/) and [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/) to experiment with additional formatting.
 * To learn more about GitHub profiles, see [AUTOTITLE](/account-and-profile/concepts/personal-profile).
-
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/profile-reference).
-
 * For more detailed profile customizations, see [AUTOTITLE](/account-and-profile/how-tos).

@@ -41,7 +41,6 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
 
   const errors = []
 
-  // Validate request body
   if (!query) {
     errors.push({ message: `Missing required key 'query' in request body` })
   } else if (typeof query !== 'string') {
@@ -74,7 +73,6 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
     return
   }
 
-  // Handle search analytics and client_name validation
   const analyticsError = await handleExternalSearchAnalytics(req, 'ai-search')
   if (analyticsError) {
     res.status(analyticsError.status).json({
@@ -135,11 +133,9 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
       return
     }
 
-    // Set response headers
     res.setHeader('Content-Type', 'application/x-ndjson')
     res.flushHeaders()
 
-    // Stream the response body
     if (!response.body) {
       res.status(500).json({ errors: [{ message: 'No response body' }] })
       return
@@ -156,15 +152,12 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
           break
         }
 
-        // Decode chunk and count characters
         const chunk = decoder.decode(value, { stream: true })
         totalChars += chunk.length
 
-        // Write chunk to response
         res.write(chunk)
       }
 
-      // Calculate metrics on stream end
       const totalResponseTime = Date.now() - startTime // in ms
       const charPerMsRatio = totalResponseTime > 0 ? totalChars / totalResponseTime : 0 // chars per ms
 
@@ -180,7 +173,6 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
       if (!res.headersSent) {
         res.status(500).json({ errors: [{ message: 'Internal server error' }] })
       } else {
-        // Send error message via the stream
         const errorMessage = `${JSON.stringify({ errors: [{ message: 'Internal server error' }] })}\n`
         res.write(errorMessage)
         res.end()

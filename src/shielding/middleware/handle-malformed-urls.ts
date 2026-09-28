@@ -4,23 +4,19 @@ import { defaultCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest } from '@/types'
 
 /**
- * Middleware to handle malformed UTF-8 sequences in URLs that cause
- * decodeURIComponent to fail. This prevents crashes from malicious
- * requests containing invalid URL-encoded sequences like %FF.
+ * Malformed UTF-8 in a URL, like `%FF`, makes decodeURIComponent throw.
+ * Express does not catch that while parsing, so without this the crash
+ * happens later at the router level.
  */
 export default function handleMalformedUrls(
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ) {
-  // Check URL for malformed UTF-8 sequences
-  // Express/router doesn't catch these during initial parsing - they cause
-  // crashes later when decodeURIComponent is called at the router level
   const url = req.originalUrl || req.url
   try {
     decodeURIComponent(url)
   } catch {
-    // If any decoding fails, this is a malformed URL
     defaultCacheControl(res)
     res.status(400).type('text').send('Bad Request: Malformed URL')
     return

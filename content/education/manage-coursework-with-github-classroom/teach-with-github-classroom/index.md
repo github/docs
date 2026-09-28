@@ -24,3 +24,4 @@ children:
   - /connect-a-learning-management-system-course-to-a-classroom
 shortTitle: Teach
 ---
+{% data reusables.classroom.closing-down-notice %}

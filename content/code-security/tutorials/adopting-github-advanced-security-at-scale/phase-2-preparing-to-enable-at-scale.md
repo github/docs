@@ -48,7 +48,7 @@ Before you can proceed with pilot programs and rolling out {% data variables.pro
 > [!NOTE]
 > When a secret is detected in a repository that has enabled {% data variables.product.prodname_secret_scanning %}, {% data variables.product.github %} alerts all users with access to security alerts for the repository. {% ifversion ghec %}
 >
-> Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.github %}. For details about the supported partner patterns, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-secrets).{% endif %}
+> Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.github %}. For details about the supported partner patterns, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).{% endif %}
 
 If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.github %} repositories for secrets and alert you or block the push containing the secret. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning).
 
@@ -78,7 +78,7 @@ As you audit your repositories and speak to security and developer teams, build 
 
 ### Push protection for {% data variables.product.prodname_secret_scanning %}
 
-Push protection for organizations and repositories instructs {% data variables.product.prodname_secret_scanning %} to check pushes for supported secrets _before_ secrets are committed to the codebase. For information on which secrets are supported, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-secrets).
+Push protection for organizations and repositories instructs {% data variables.product.prodname_secret_scanning %} to check pushes for supported secrets _before_ secrets are committed to the codebase. For information on which secrets are supported, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).
 
 If a secret is detected in a push, that push is blocked. {% data variables.product.prodname_secret_scanning_caps %} lists any secrets it detects so the author can review the secrets and remove them or, if needed, allow those secrets to be pushed. {% data reusables.secret-scanning.push-protection-custom-pattern %}
 

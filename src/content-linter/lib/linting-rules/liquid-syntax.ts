@@ -42,8 +42,8 @@ export const frontmatterLiquidSyntax = {
         if (!isLiquidError(error)) throw error
         const { errorDescription, columnNumber } = getErrorMessageInfo((error as Error).message)
         const lineNumber = params.lines.findIndex((line) => line.trim().startsWith(`${key}:`)) + 1
-        // Add the key length plus 3 to the column number to account colon and
-        // for the  space after the key and column number starting at 1.
+        // Add the key length plus 3 to the column number to account for the colon,
+        // the space after the key, and column numbers starting at 1.
         // If there is no space after the colon, a YAMLException will be thrown.
         const startRange = columnNumber + key.length + 3
         // If the range is greater than the length of the line, we need to adjust the range to the end of the line

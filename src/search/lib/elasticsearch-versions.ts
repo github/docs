@@ -1,20 +1,17 @@
-/*
- * Source of truth for versioning in the context of Elasticsearch
- * We have a unique index for each version of the docs
- * so consistency is important for creating/accessing ES Indexes.
- *
- * Example versions (these may not be up to date):
- *
- * 1. free-pro-team@latest. Previously known as "dotcom". This is the default version of the docs.
- *   - short name: fpt
- * 2. enterprise-cloud@latest
- *   - short name: ghec
- * 3. enterprise-server@X: This is the source of versioning complexity since the version is dynamic
- *   - short name: ghes-X
- *
- * However, for (3) someone might enter `&version=3.5` as the version in the request query string.
- * This would map to `ghes-3.5`
- */
+// The source of truth for versioning in the context of Elasticsearch. It maps
+// every accepted version identifier to the version segment of an index name.
+// Several identifiers can share one segment.
+//
+// Example versions (these may not be up to date):
+//
+// 1. free-pro-team@latest, previously known as "dotcom", the default version.
+//    Short name: fpt
+// 2. enterprise-cloud@latest. Short name: ghec
+// 3. enterprise-server@X, the source of the complexity because the version is
+//    dynamic. Short name: ghes-X
+//
+// For (3) someone might pass `&version=3.5` in the request query string, which
+// maps to `ghes-3.5`.
 
 import { allVersions } from '@/versions/lib/all-versions'
 
@@ -74,7 +71,6 @@ for (const version of Object.values(allVersions)) {
     allVersionPlans.push(version.plan)
   }
 }
-// Remove duplicates
 export const supportedAutocompletePlanVersions = Array.from(new Set(allVersionPlans))
 
 // Returns the plan name for the given version

@@ -160,7 +160,6 @@ async function translateTree(
     }
 
     const read = await readFileContents(fullPath)
-    // If it worked, great!
     content = read.content
     data = read.data as Record<string, unknown>
 
@@ -225,7 +224,7 @@ async function translateTree(
           ? `Unable to parse YAML frontmatter in ${fullPath}, falling back to English. Details: ${error.message}`
           : `Unable to initialize ${fullPath} because translation content file does not exist.`
       if (error instanceof FrontmatterParsingError && error.isYmlError) {
-        // YAML parse failures are always logged — they indicate a translation file is corrupt
+        // Always log YAML parse failures. They mean a translation file is corrupt
         // and will silently serve English until the translation repo is fixed.
         logger.warn(message, { path: relativePath })
       } else if (DEBUG_TRANSLATION_FALLBACKS) {
@@ -299,7 +298,6 @@ async function translateTree(
     ) as unknown as ConstructorParameters<typeof Page>[0],
   ) as unknown as UnversionedTree['page']
 
-  // Preserve the crossProductChild flag from the English tree
   if (enTree.crossProductChild) {
     ;(item as UnversionedTree).crossProductChild = true
   }
@@ -321,18 +319,20 @@ async function translateTree(
   return item as UnversionedTree
 }
 
-/**
- * The siteTree is a nested object with pages for every language and version, useful for nav because it
- * contains parent, child, and sibling relationships:
- *
- * siteTree[languageCode][version].childPages[<array of pages>].childPages[<array of pages>] (etc...)
-
-* Given an unversioned tree of all pages per language, we can walk it for each version and do a couple operations:
- * 1. Add a versioned href to every item, where the href is the relevant permalink for the current version.
- * 2. Drop any child pages that are not available in the current version.
- *
- * Order of languages and versions doesn't matter, but order of child page arrays DOES matter (for navigation).
-*/
+// The siteTree is a nested object with pages for every language and version.
+// It is useful for nav because it carries parent, child, and sibling
+// relationships:
+//
+//    siteTree[languageCode][version].childPages[].childPages[] (etc...)
+//
+// Given an unversioned tree of all pages per language, we walk it once per
+// version and do two things:
+//
+//    1. Add a versioned href to every item, the permalink for that version.
+//    2. Drop any child pages not available in that version.
+//
+// Order of languages and versions doesn't matter, but order of child page
+// arrays DOES matter, because navigation reads it.
 export async function loadSiteTree(
   unversionedTree?: UnversionLanguageTree,
   languagesOnly: string[] = [],
@@ -341,17 +341,14 @@ export async function loadSiteTree(
   const siteTree: SiteTree = {}
 
   const langCodes = (languagesOnly.length && languagesOnly) || Object.keys(languages)
-  // For every language...
   await Promise.all(
     langCodes.map(async (langCode) => {
       if (!(langCode in rawTree)) {
         throw new Error(`No tree for language ${langCode}`)
       }
       const treePerVersion: { [version: string]: Tree } = {}
-      // in every version...
       await Promise.all(
         versions.map(async (version) => {
-          // "version" the pages.
           treePerVersion[version] = await versionPages(
             Object.assign({}, rawTree[langCode]),
             version,
@@ -389,9 +386,7 @@ export async function versionPages(
   if (!tree.childPages) return tree
   const versionedChildPages = await Promise.all(
     tree.childPages
-      // Drop child pages that do not apply to the current version
       .filter((childPage) => childPage.page.applicableVersions.includes(version))
-      // Version the child pages recursively.
       .map((childPage) =>
         versionPages(Object.assign({}, childPage) as unknown as UnversionedTree, version, langCode),
       ),
@@ -432,7 +427,7 @@ export async function loadPageList(
       item.childPages
         // Cross-product children are pages included from other parts of the
         // tree via absolute `/content/` paths in a bespoke landing page's
-        // children list.  They already exist in their original location, so
+        // children list. They already exist in their original location, so
         // including them again would create duplicate entries in the flat
         // page list which breaks search-index uniqueness constraints.
         .filter((childPage: UnversionedTree) => !childPage.crossProductChild)

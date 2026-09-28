@@ -13,7 +13,7 @@ category:
   - Review product and program terms
 ---
 
-Version Effective Date: April 27, 2026
+Version Effective Date: August 27, 2026
 
 When you use GitHub, you may be given access to lots of additional products and features ("Additional Products and Features"). Because many of the Additional Products and Features offer different functionality, your Agreement with us (the "Agreement") includes the specific terms for that product or feature combined with your main agreement — the GitHub Terms of Service or GitHub Customer Agreement, or the GitHub Corporate Terms of Service or other legacy GitHub contract, or a Microsoft volume licensing agreement. Below, we've listed those products and features, along with the corresponding additional terms that apply to your use of them.
 
@@ -100,7 +100,9 @@ With GitHub Connect, you can share certain features and data between your GitHub
 
 ## GitHub Copilot
 
-For GitHub Copilot Business and Copilot Enterprise license holders, your use of GitHub Copilot is governed by the [GitHub Copilot Product Specific Terms](https://github.com/customer-terms/github-copilot-product-specific-terms).
+For GitHub Copilot Business and Copilot Enterprise license holders who purchase directly from GitHub, your use of GitHub Copilot is governed by the [GitHub Generative AI Services Terms](https://github.com/customer-terms/github-generative-ai-services-terms).
+
+If you purchase through Microsoft, your use of GitHub Copilot is governed by [Microsoft's Product Terms](https://www.microsoft.com/licensing/terms).
 
 For all other GitHub Copilot users, your use of GitHub Copilot is governed by [Section J (AI Features) of the GitHub Terms of Service](/site-policy/github-terms/github-terms-of-service#j-ai-features-training-and-your-data).
 
@@ -147,9 +149,3 @@ GitHub Sponsors allows the developer community to financially support the people
 ## SQL Server Images
 
 You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
-
-## GitHub Models
-
-GitHub Models is a feature that allows you to learn, try, and test artificial intelligence models on GitHub.com. You can access GitHub Models via the [GitHub Marketplace](https://github.com/marketplace). Learn more about GitHub Models by visiting [Prototyping with AI models](/github-models/use-github-models/prototyping-with-ai-models).
-
-Your use of this feature is subject to the terms of the company hosting the model and the model license.

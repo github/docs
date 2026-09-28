@@ -73,8 +73,8 @@ export const frontmatterEarlyAccessReferences: Rule = {
     if (filepath === 'content/index.md' || filepath.includes('fixtures/content/index.md'))
       delete fm.children
 
-    // Convert updated frontmatter back to a string
-    // to search for 'early-access'.'
+    // Convert the updated frontmatter back to a string so we can search it
+    // for 'early-access'.
     const fmStrings = dump(fm).split('\n')
 
     for (const line of fmStrings) {

@@ -1,0 +1,53 @@
+{
+  "default": {
+    "descriptionHtml": "",
+    "summaryHtml": "<p>This event occurs when you create a new webhook. The ping event is a confirmation from GitHub that you configured the webhook correctly.</p>",
+    "bodyParameters": [
+      {
+        "type": "object",
+        "name": "hook",
+        "description": "<p>The webhook that is being pinged</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "hook_id",
+        "description": "<p>The ID of the webhook that triggered the ping.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "zen",
+        "description": "<p>Random string of GitHub zen.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app",
+      "business",
+      "marketplace"
+    ],
+    "action": "default",
+    "category": "ping"
+  }
+}

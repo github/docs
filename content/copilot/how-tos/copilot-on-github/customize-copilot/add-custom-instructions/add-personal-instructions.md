@@ -49,13 +49,13 @@ To add personal custom instructions on {% data variables.product.github %}:
 
 Your instructions are now active and remain active until you change or remove them.
 
-{% note %}
+<div class="border rounded-2 p-3">
 
 Did you successfully add personal custom instructions?
 
 <a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
 
-{% endnote %}
+</div>
 
 ## Further reading
 

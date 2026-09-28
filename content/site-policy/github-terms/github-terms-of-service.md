@@ -188,9 +188,9 @@ You may choose to enable additional access to your private repositories. For exa
 * You may enable various GitHub services or features that require additional rights to Your Content in private repositories. These rights may vary depending on the service or feature, but GitHub will continue to treat your private repository Content as confidential. If those services or features require rights in addition to those we need to provide the GitHub Service, we will provide an explanation of those rights.
 * If you provide your private repository content as Input to AI Features, we may use that Input to provide, develop, train, and improve the Service, including AI Features. Your ability to opt out under [Section J.3](#3-development-and-improvement-using-your-input-and-output) applies to this use of private repository content. We will not otherwise use your private repository contents to develop or improve the Service.
 
-Additionally, we may be [compelled by law](/site-policy/privacy-policies/github-general-privacy-statement#for-legal-disclosure) to disclose the contents of your private repositories.
+Additionally, we may be [compelled by law](/site-policy/privacy-policies/github-general-privacy-statement#sharing-of-personal-data) to disclose the contents of your private repositories.
 
-GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/site-policy/privacy-policies/github-general-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/site-policy/privacy-policies/github-general-privacy-statement), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
 
 ## F. Copyright Infringement and DMCA Policy
 

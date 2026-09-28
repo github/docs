@@ -76,8 +76,8 @@ export default function handleInvalidPaths(
   next: NextFunction,
 ) {
   if (isJunkPath(req.path)) {
-    // We can all the CDN to cache these responses because they're
-    // they're not going to suddenly work in the next deployment.
+    // We can let the CDN cache these responses because they are not going
+    // to suddenly work in the next deployment.
     defaultCacheControl(res)
     res.status(404).type('text').send('Not found')
     return

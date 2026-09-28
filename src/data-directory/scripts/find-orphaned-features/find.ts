@@ -156,7 +156,7 @@ function searchAndRemove(features: Set<string>, pages: Page[], verbose = false) 
   // them in, we'll need the English equivalent content to be able to
   // use the correctTranslatedContentStrings function.
 
-  // Check variables files
+  // Check the English variable files.
   for (const filePath of getVariableFiles(path.join(languages.en.dir, 'data', 'variables'))) {
     const fileContent = fs.readFileSync(filePath, 'utf-8')
     checkString(fileContent, features, { filePath, verbose, languageCode: 'en' })

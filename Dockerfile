@@ -10,7 +10,7 @@
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20260720-202540-g0ac3959ef@sha256:48e1461c14c217a7dbaa9d08ccfe726772d356f40a070f8c6a34e37a8fcf2f18 AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20260914-014148-gb620b63bf@sha256:fe199dcd96e01f53c42d077dee87f428e8341379aab0987721e16b32462feb05 AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos
@@ -63,25 +63,22 @@ RUN --mount=type=secret,id=DOCS_BOT_PAT_BASE,mode=0444 \
   . ./build-scripts/fetch-repos.sh
 
 # ------------------------------------------------
-# PROD_DEPS STAGE: Install production dependencies
+# ALL_DEPS STAGE: Install all dependencies
 # ------------------------------------------------
-FROM base AS prod_deps
+FROM base AS all_deps
 USER node:node
 WORKDIR $APP_HOME
 
-# Copy what is needed to run npm ci
 COPY --chown=node:node package.json package-lock.json ./
-
-# Install only production dependencies (skip scripts to avoid husky)
-RUN npm ci --omit=dev --ignore-scripts --registry https://registry.npmjs.org/
-
-# ------------------------------------------------------------
-# ALL_DEPS STAGE: Install all dependencies on top of prod deps
-# ------------------------------------------------------------
-FROM prod_deps AS all_deps
-
-# Install dev dependencies on top of production ones
+COPY --chown=node:node patches patches/
 RUN npm ci --registry https://registry.npmjs.org/
+
+# ------------------------------------------------------------
+# PROD_DEPS STAGE: Strip dev dependencies back out
+# ------------------------------------------------------------
+FROM all_deps AS prod_deps
+
+RUN npm prune --omit=dev --ignore-scripts
 
 # ----------------------------------
 # BUILD STAGE: Build the application

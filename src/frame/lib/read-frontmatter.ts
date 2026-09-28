@@ -56,7 +56,7 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   // return:
   //   property: 'versions.ftp'
   //
-  // The purpose is to help users understand that the error is on the `fpt` key within the `versions` object.
+  // The purpose is to help users understand that the error is on the `ftp` key within the `versions` object.
   // Note if the error is on a top-level FM property like `title`, the `instancePath` will be empty.
   const cleanPropertyPath = (
     params: Record<string, unknown>,

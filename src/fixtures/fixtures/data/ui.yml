@@ -3,6 +3,8 @@ meta:
 
 header:
   github_docs: GitHub Docs
+  docs_title: Docs
+  close_menu_label: Close menu
   contact: Contact
   notices:
     release_candidate:
@@ -17,7 +19,6 @@ header:
     ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
   sign_up_cta: Sign up
   menu: Menu
-  open_menu_label: Open menu
   go_home: Home
   collapse_sidebar: Collapse sidebar
   expand_sidebar: Expand sidebar
@@ -25,7 +26,8 @@ header:
   scroll_breadcrumbs_right: Scroll breadcrumbs right
 
 picker:
-  language_picker_label: Language
+  version_picker_label: 'Select your version:'
+  plan_picker_label: 'Select your plan:'
   product_picker_default_text: All products
   version_picker_default_text: Choose a version
 
@@ -56,7 +58,7 @@ search:
     no_results_found: No results found
     no_results_found_announcement: 'Search Docs: No results found'
     search_docs_with_query: Search docs for "{{query}}"
-    privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy"><u>GitHub Privacy Statement</u></a> to review how GitHub collects and uses your data.
+    privacy_disclaimer: For product and service improvement purposes, GitHub will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy"><u>GitHub Privacy Statement</u></a> to review how GitHub collects and uses your data.
   ai:
     disclaimer: <a href="https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom">Copilot</a> uses AI. Check for mistakes.
     references: Copilot Sources
@@ -93,12 +95,17 @@ search_results:
   n_results: '{n} results'
   search_validation_error: Validation error with search query
   filter: Filter
-  clear_filter: Clear
+  clear_all_filters: Clear all
+  show_filters: Show filters
+  hide_filters: Hide filters
+  filter_search_results: Filter search results
 
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
   description: Help for wherever you are on your GitHub journey.
+  search_placeholder: Search for anything...
+  all_docs: All docs
 
 toc:
   getting_started: Getting started
@@ -113,7 +120,7 @@ pages:
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
   permissions_callout_title: Who can use this feature?
-  copy_as_markdown: Copy as Markdown
+  copy_as_markdown: Copy markdown
   copy_as_markdown_desc: Use with any LLM
   view_as_markdown: View as Markdown
   view_as_markdown_desc: Open page in another tab
@@ -129,7 +136,7 @@ support:
   ask_community: Ask the GitHub community
 
 survey:
-  able_to_find: Did you find what you needed?
+  able_to_find: Was this Doc helpful?
   yes: Yes
   no: No
   cancel: Cancel
@@ -145,8 +152,8 @@ survey:
   server_error: Unable to process comment at the moment. Please try again.
 
 contribution_cta:
-  title: Help us make these docs great!
-  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+  title: Help us make GitHub Docs great!
+  body: All Docs are open source. See something that's wrong or unclear? Submit a pull request.
   button: Make a contribution
   to_guidelines: Learn how to contribute
 
@@ -312,6 +319,7 @@ webhooks:
 footer:
   support_heading: Help and support
   legal_heading: Legal
+  back_to_top: Back to top
   imprint: Imprint
   terms: Terms
   privacy: Privacy
@@ -367,9 +375,6 @@ product_landing:
   all_content: 'View all {{ title }} content'
 
 journey_track_nav:
-  next_article: Next
-  more_articles: More articles →
-  current_progress: 'Article {i} of {n}'
   up_next: Up next
   up_next_progress: 'Step {i} of {n} in {track}'
 

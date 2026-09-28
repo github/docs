@@ -11,6 +11,8 @@ contentType: tutorials
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /copilot/tutorials/roll-out-at-scale/govern-for-adoption
+docsTeamMetrics:
+  - ai-governance
 ---
 
 Getting the most from {% data variables.product.prodname_copilot %} means finding the right balance between governance and developer access. Too restrictive, and developers can't use the features that make them productive. Too permissive, and you may not meet your compliance requirements.
@@ -31,9 +33,12 @@ Developers get the most value from {% data variables.product.prodname_copilot_sh
 
 Consider enabling vetted capabilities promptly, rather than disabling features by default and enabling them only after review:
 
-* **Enable new features and models as they become available**, unless you have a specific compliance reason not to. {% data variables.product.github %} vets all features and models before release.
+* **Enable new features as they become available**, unless you have a specific compliance reason not to. {% data variables.product.github %} vets all features and models before release.
+* **Enable new models automatically**. By default, most new generally available models are enabled automatically.
 * **Only set enterprise-level defaults to disabled for non-negotiables**, such as compliance-critical controls or features that conflict with regulatory requirements.
 * **Scope restrictions to sensitive organizations**. Rather than blocking features enterprise-wide, disable them only in organizations with stricter compliance requirements. This lets other organizations move faster.
+
+We recommend keeping the default availability policies enabled for both features and models, and only explicitly disabling individual features and models that you do not want to be available. See [AUTOTITLE](/copilot/concepts/enterprise/default-availability).
 
 ### Spend management and policy posture
 
@@ -53,4 +58,4 @@ This approach offers several advantages:
 * **Cost management**: Align with existing payment methods, contracts, credits, or negotiated rates.
 * **Visibility and control**: Monitor usage through your provider's existing dashboards and billing.
 
-For setup instructions, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
+For setup instructions, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models).

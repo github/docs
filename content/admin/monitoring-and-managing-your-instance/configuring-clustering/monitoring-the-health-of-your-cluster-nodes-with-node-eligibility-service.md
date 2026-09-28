@@ -14,6 +14,13 @@ category:
   - Scale your instance
 ---
 
+{% ifversion ghes > 3.21 %}
+
+> [!IMPORTANT]
+> {% data variables.product.prodname_nes %} is closing down and will be removed in {% data variables.product.prodname_ghe_server %} 3.23. There is no replacement. If you have enabled {% data variables.product.prodname_nes %}, you can disable it at any time by running `ghe-config app.nes.enabled false`, followed by `ghe-config-apply`.
+
+{% endif %}
+
 ## About {% data variables.product.prodname_nes %}
 
 In a {% data variables.product.prodname_ghe_server %} cluster, an individual node may become unreachable by other nodes due to a hardware or software failure. After time, even if you restore the node's health, the subsequent synchronization of data can negatively impact your instance's performance.

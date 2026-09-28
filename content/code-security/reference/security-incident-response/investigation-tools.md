@@ -67,7 +67,9 @@ Read access to the repository.
   * Audit log streaming to an external SIEM or log management system requires prior configuration. See [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
    * Without audit log streaming, you won't be able to run more complex queries, such as correlating events across organizations or repositories, or pivoting from a specific token to all related events.
    * Git events data are included in the stream.
+{% ifversion audit-log-streaming-for-api %}
 * We recommend streaming **API request events**; this requires prior configuration. See [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests).
+{% endif %}
 * For enterprises on {% data variables.product.prodname_ghe_cloud %}, we recommend displaying **IP addresses** in the audit logs; this requires prior configuration. See [AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise).
 * Different {% data variables.product.github %} plans have different data availability and data retention offerings:
    * {% data variables.product.prodname_free_team %} and {% data variables.product.prodname_team %} plans can't view API activity or Git events at all.
@@ -144,7 +146,7 @@ Read access to the repository.
 ### Key resources
 
 * [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview)
-* [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights#viewing-the-security-overview-dashboard-for-your-organization)
+* [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights)
 
 ### Notes and limitations
 

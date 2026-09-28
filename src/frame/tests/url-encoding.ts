@@ -14,7 +14,6 @@ describe('URL encoding for version paths', () => {
     expect([200, 301, 302]).toContain(res.statusCode)
 
     if (res.statusCode === 301 || res.statusCode === 302) {
-      // If it redirects, it should redirect to the decoded version
       expect(res.headers.location).toBe('/en/enterprise-cloud@latest/copilot/concepts/chat')
     }
   })
@@ -34,17 +33,14 @@ describe('URL encoding for version paths', () => {
   })
 
   test('handles URL-encoded @ symbol in second path segment', async () => {
-    // When no language prefix is present
     const encodedUrl = '/enterprise-cloud%40latest/copilot/concepts/chat'
     const res = await get(encodedUrl)
 
-    // Should redirect to add language prefix and decode
     expect([301, 302]).toContain(res.statusCode)
     expect(res.headers.location).toBe('/en/enterprise-cloud@latest/copilot/concepts/chat')
   })
 
   test('normal @ symbol paths continue to work', async () => {
-    // Ensure we don't break existing functionality
     const normalUrl = '/en/enterprise-cloud@latest/copilot/concepts/chat'
     const res = await get(normalUrl)
 

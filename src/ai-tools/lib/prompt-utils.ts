@@ -17,17 +17,11 @@ export interface PromptData {
   max_tokens?: number
 }
 
-/**
- * Get the prompts directory path
- */
 export function getPromptsDir(): string {
   const __dirname = path.dirname(fileURLToPath(import.meta.url))
   return path.join(__dirname, '../prompts')
 }
 
-/**
- * Dynamically discover available editor types from prompt files
- */
 export function getAvailableEditorTypes(promptDir: string): string[] {
   const editorTypes: string[] = []
 
@@ -46,16 +40,10 @@ export function getAvailableEditorTypes(promptDir: string): string[] {
   return editorTypes
 }
 
-/**
- * Get formatted description of available refinement types
- */
 export function getRefinementDescriptions(editorTypes: string[]): string {
   return editorTypes.join(', ')
 }
 
-/**
- * Enrich context for intro prompt on index.md files
- */
 export function enrichIndexContext(filePath: string, content: string): string {
   if (!filePath.endsWith('index.md')) return content
 
@@ -72,7 +60,6 @@ export function enrichIndexContext(filePath: string, content: string): string {
           .join(' ')
       : ''
 
-    // Get child article titles
     const titles: string[] = []
     if (data.children && Array.isArray(data.children)) {
       const dir = path.dirname(filePath)
@@ -94,7 +81,6 @@ export function enrichIndexContext(filePath: string, content: string): string {
       }
     }
 
-    // Build context note
     const parts: string[] = []
     if (productName) parts.push(`Product: ${productName}`)
     if (titles.length > 0) parts.push(`Child articles: ${titles.join(', ')}`)
@@ -114,24 +100,19 @@ export function enrichIndexContext(filePath: string, content: string): string {
   return content
 }
 
-/**
- * Call an editor with the given content and options
- */
 export async function callEditor(
   editorType: string,
   content: string,
   promptDir: string,
   writeMode: boolean,
   verbose = false,
-  promptContent?: string, // Optional: use this instead of reading from file
+  promptContent?: string, // Use this instead of reading a prompt file
 ): Promise<string> {
   let markdownPrompt: string
 
   if (promptContent) {
-    // Use provided prompt content (e.g., from Copilot Space)
     markdownPrompt = promptContent
   } else {
-    // Read from file
     const markdownPromptPath = path.join(promptDir, `${editorType}.md`)
 
     if (!fs.existsSync(markdownPromptPath)) {
@@ -144,7 +125,6 @@ export async function callEditor(
 
   const prompt = load(fs.readFileSync(promptTemplatePath, 'utf8')) as PromptData
 
-  // Validate the prompt template has required properties
   if (!prompt.messages || !Array.isArray(prompt.messages)) {
     throw new Error('Invalid prompt template: missing or invalid messages array')
   }
@@ -152,7 +132,8 @@ export async function callEditor(
   for (const msg of prompt.messages) {
     msg.content = msg.content.replace('{{markdownPrompt}}', markdownPrompt)
     msg.content = msg.content.replace('{{input}}', content)
-    // Replace writeMode template variable with simple string replacement
+    // Resolve the write-mode markers, then strip whatever they marked
+    // for removal.
     msg.content = msg.content.replace(
       /<!-- IF_WRITE_MODE -->/g,
       writeMode ? '' : '<!-- REMOVE_START -->',
@@ -166,7 +147,6 @@ export async function callEditor(
       writeMode ? '' : '<!-- REMOVE_END -->',
     )
 
-    // Remove sections marked for removal
     msg.content = msg.content.replace(/<!-- REMOVE_START -->[\s\S]*?<!-- REMOVE_END -->/g, '')
   }
 

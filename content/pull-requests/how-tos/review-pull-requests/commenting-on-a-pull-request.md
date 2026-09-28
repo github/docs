@@ -48,11 +48,11 @@ To reply to an existing line or file comment, navigate to the comment on either 
 {% data reusables.repositories.start-file-comment %}
 1. When you're done:
 
-   * If you only want to add this **one comment**, click **Add single comment**.
+   * If you only want to add this **one comment**, click {% ifversion fpt or ghec %}**Comment**{% elsif ghes %}**Add single comment**{% endif %}.
 
    * If you want to add **multiple comments**, click **Start a review**, then continue adding comments.
 
-     When you're finished, click **Finish your review**, leave a summary of your review, and click **Submit review**.
+     When you're finished, click {% ifversion fpt or ghec %}**Submit review**{% elsif ghes %}**Finish your review**{% endif %}, leave a summary of your review, and click **Submit review**.
 
 Anyone watching the pull request or repository will receive a notification of your comments. Batching your comments avoids sending multiple notifications.
 

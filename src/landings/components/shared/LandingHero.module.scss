@@ -1,64 +1,103 @@
-// Lightweight docs page-header (Docs 2026, #6681). A left-aligned bordered
-// band — brand Heading + muted Text intro + a Button group — over the classic
-// right-anchored hero banner art. The bottom border (brand border-subtle, which
-// adapts gray-2 light / gray-6 dark) frames it against the section below,
-// matching the Figma "framed sections" treatment. Horizontal inset comes from
-// the wrapping container-xl so the header aligns with the sections below at
-// every width.
+// The landing hero uses Figma node 341:117125. Desktop anchors the isometric
+// banner art on the right; mobile moves the art below the content as a full-width band.
+// The wrapping LandingSection draws the framing borders.
 .landingHero {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 2rem 0 2.5rem;
   width: 100%;
-  border-bottom: 1px solid var(--brand-color-border-subtle);
-  // Hero banner art is right-anchored isometric artwork on a transparent
-  // field. `auto 100%` scales it to the band's own (content-driven) height so
-  // the header keeps its lighter Docs 2026 proportions instead of growing to
-  // fit the art; pinned to the right edge, leaving the left clear for the
-  // heading/intro/actions stacked on top.
+
+  // Desktop anchors banner art behind the content column. auto 100%
+  // scales it to the band's own (content-driven) height; pinned to the right
+  // border box so the right-side text gutter insets only the text, not the art.
   background-size: auto 100%;
   background-position: center right;
   background-repeat: no-repeat;
-  // Anchor the art to the true right edge (the border box) so the right-side
-  // text gutter added below insets only the heading/intro, not the artwork.
   background-origin: border-box;
 }
 
-// Brand `Heading size="2"` owns the type scale (40px desktop, per Figma);
-// this only adds an optical max-width so long titles wrap before the edge.
+// The content column owns only vertical padding; the wrapping LandingSection
+// horizontal inset comes from the wrapping LandingSection frame so the hero
+// content aligns with the other sections' headers/cards.
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-block: 2rem;
+  width: 100%;
+}
+
+// Brand Heading size 2 owns the type scale; this only adds an optical
+// max-width so long titles wrap before the edge.
 .heroHeading {
   margin: 0;
   max-width: 48rem;
 }
 
-// Wraps the RenderedHTML intro (kept as raw HTML rather than a Text `as="p"`,
-// which can't hold block-level intro markup). Brand `Text size="200" muted`
-// owns the type/color (16px, per Figma); this only bounds the line length.
+// RenderedHTML keeps raw block-level intro markup that Text as p cannot hold.
+// Brand Text size 200 muted owns the 16px Figma type and color; this bounds line length.
 .heroDescription {
   margin: 0;
   max-width: 48rem;
 }
 
+// Figma buttons plus text spacing needs a small top gap above the actions.
+.heroButtons {
+  margin-top: 0.25rem;
+}
+
 @media (max-width: 865px) {
+  // Drop the right-anchored background art; show the image as a band instead.
   .landingHero {
-    padding: 1.5rem 0 2rem;
-    // Drop the banner art on narrow viewports where it would collide with the
-    // text; the header falls back to the plain bordered band.
     background-image: none !important;
+  }
+
+  .heroContent {
+    padding-block: 1.5rem;
+  }
+
+  // Figma mobile stacks calls to action full-width. Brand ButtonGroup renders
+  // a section laying children in a row; force a full-width column and
+  // make each Button fill it.
+  .heroButtons {
+    width: 100%;
+
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    a,
+    button {
+      width: 100%;
+    }
   }
 }
 
-// Where the art IS shown, reserve a right-side gutter so the text column wraps
-// before it reaches the artwork. Without this, the 48rem text block overlaps
-// the right-anchored isometric art in the ~866–1130px band, dropping the muted
-// intro to ~1.2:1 over the orange/pink fill (WCAG 1.4.3 AA fail). The art is
-// pinned to the border box (background-origin above), so this padding insets
-// only the text, not the artwork. 22rem clears the opaque art (~300px) plus a
-// gap at every width in the band.
+// Where the art is shown, the intro can extend far enough right to overlap the
+// right-anchored isometric art (the heading is short enough that it never
+// does). Instead of reserving a right gutter that shrinks the text column, put
+// a frosted-glass panel behind the intro so it stays readable over the art,
+// matching the homepage hero treatment in HomePageHero.module.scss.
+// Guarded to >=866px because the art is hidden below that, so no panel is
+// needed on mobile.
 @media (min-width: 866px) {
-  .landingHero {
-    padding-right: 22rem;
+  .heroIntroScrim {
+    display: inline-block;
+    backdrop-filter: blur(1rem);
+    // A 70% wash of the page canvas keeps the intro readable over the
+    // isometric art without reading as a panel of its own. Brand's canvas is
+    // what body paints in src/frame/stylesheets/index.scss, so mixing Brand's
+    // token keeps this invisible except where it overlays art.
+    background-color: color-mix(
+      in srgb,
+      var(--brand-color-canvas-default) 70%,
+      transparent
+    );
+    border-radius: var(--brand-borderRadius-medium, 0.75rem);
+    padding: 0.5rem 0.75rem;
+    margin: -0.5rem -0.75rem;
   }
 }

@@ -122,9 +122,9 @@ git fetch upstream
 ```
 
 When you're done making local changes, you can push your local branch to GitHub
-and [initiate a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+and [initiate a pull request](/pull-requests/reference/pull-requests).
 
-For more information on working with forks, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork).
+For more information on working with forks, see [AUTOTITLE](/pull-requests/how-tos/work-with-forks/syncing-a-fork).
 
 ## Further reading
 

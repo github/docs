@@ -27,8 +27,18 @@ export const formatAjvErrors = (errors: ErrorObject[] = []): string => {
         additionalProperties = `: additional property is '${errorObj.params.additionalProperty}'`
       }
 
+      // ajv's enum message is "must be equal to one of the allowed values" but
+      // does not name them, which is not actionable when the schema lives in a
+      // different file than the data being validated
+      let allowedValues = ''
+
+      if (errorObj.keyword === 'enum' && Array.isArray(errorObj.params.allowedValues)) {
+        const values = errorObj.params.allowedValues.map((value) => `'${value}'`).join(', ')
+        allowedValues = `: allowed values are ${values}`
+      }
+
       if (split.length === 0) {
-        return `at '/' (top-level): ${errorObj.message}${additionalProperties}`
+        return `at '/' (top-level): ${errorObj.message}${additionalProperties}${allowedValues}`
       }
 
       const schemaErrorPath = split
@@ -41,7 +51,7 @@ export const formatAjvErrors = (errors: ErrorObject[] = []): string => {
         })
         .join(' > ')
 
-      return `at '${schemaErrorPath}': ${errorObj.message}${additionalProperties}`
+      return `at '${schemaErrorPath}': ${errorObj.message}${additionalProperties}${allowedValues}`
     })
     .join('\n  ')
 }

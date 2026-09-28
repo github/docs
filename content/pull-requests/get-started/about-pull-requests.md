@@ -26,6 +26,7 @@ Pull requests turn a set of code changes into a conversation. Instead of merging
 Pull requests make your changes easy to review and validate. With a pull request, you can:
 
 * Propose changes from a branch or a fork.
+{% ifversion pr-stacks %}* {% data reusables.pull_requests.pr-stack-invitation %}{% endif %}
 * Discuss and review the proposed changes, line by line.
 * Run automated checks, such as tests, builds, and code scanning, against the changes.
 * Respond to feedback and update the pull request as it evolves.

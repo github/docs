@@ -21,3 +21,9 @@ With the {% data variables.product.github %} integration in Slack, you can creat
     >[!NOTE] By default, the last used repository in the channel will be selected. To change the repository, click the **Change repo** dropdown and select a different repository.
 
 1. Click **Open** to create the issue.
+
+{% ifversion copilot %}
+
+Alternatively, you can ask {% data variables.product.prodname_copilot %} to create an issue by @mentioning `@{% data variables.product.github %}` in your channel or in a direct message.
+
+{% endif %}

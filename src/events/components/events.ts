@@ -162,7 +162,7 @@ export function sendEvent<T extends EventType>({
 
   queueEvent(body)
 
-  // Send events to hydro-analytics-client for cross-subdomain tracking
+  // Hydro handles cross-subdomain tracking.
   sendHydroAnalyticsEvent(body)
 
   if (type === EventType.exit) {
@@ -210,7 +210,11 @@ function getColorModePreference() {
   // color mode is set as attributes on <html>, we'll use that information
   // along with media query checking rather than parsing the cookie value
   // set by github.com
-  let color_mode_preference = document.querySelector('html')?.dataset.colorMode
+  //
+  // `data-color-mode` is the resolved mode; the preference attribute is what
+  // keeps `auto` reportable.
+  const html = document.querySelector('html')
+  let color_mode_preference = html?.dataset.colorModePreference || html?.dataset.colorMode
 
   if (color_mode_preference === 'auto') {
     if (window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -246,18 +250,14 @@ function trackScroll() {
     pauseScrolling = false
   }, 200)
 
-  // Calculate where we are on the page
   const scrollPixels = window.scrollY + window.innerHeight
   const newScrollPosition = scrollPixels / document.documentElement.scrollHeight
 
-  // Count scroll flips
   const newScrollDirection = Math.sign(newScrollPosition - scrollPosition)
   if (newScrollDirection !== scrollDirection) scrollFlipCount++
 
-  // Update maximum scroll position reached
   if (newScrollPosition > maxScrollY) maxScrollY = newScrollPosition
 
-  // Update before the next event
   scrollDirection = newScrollDirection
   scrollPosition = newScrollPosition
 }
@@ -287,7 +287,7 @@ function sendExit() {
 }
 
 function initPageAndExitEvent() {
-  sendPage() // Initial page hit
+  sendPage()
 
   // Regular page exits
   window.addEventListener('scroll', trackScroll)
@@ -396,7 +396,7 @@ function initLinkEvent() {
   document.documentElement.addEventListener('click', (evt) => {
     const target = evt.target as HTMLElement
     if (!target.closest('.ghd-scroll-to-top')) return
-    const url = window.location.href.split('#')[0] // Remove hash
+    const url = window.location.href.split('#')[0]
     sendEvent({
       type: EventType.link,
       link_url: `${url}#scroll-to-top`,

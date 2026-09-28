@@ -1,0 +1,51 @@
+// Docs 2026 article-body link colour, overriding @primer/css's base `a` rule.
+//
+// @primer/css/base/base.scss sets
+//   a { color: var(--fgColor-accent, var(--color-accent-fg)); }
+// `--fgColor-accent` is defined nowhere in this app except inside a
+// `forced-colors` block, so every link falls through to `--color-accent-fg` and
+// paints Primer's accent blue — #0969da light / #58a6ff dark. That is still the
+// OLD design system's accent; brand ships its own link blue, and the article
+// body is the most visible place the difference shows.
+//
+// Scoped to `#article-contents[data-article-body] .markdown-body`, matching the
+// scope src/content-render/stylesheets/article-section-framing.scss uses for the
+// article body. All three parts are load-bearing: this stylesheet is global, so
+// a bare `a` rule would repaint the header, sidebar, landings, search and footer
+// as well; `.markdown-body` on its own would still catch the REST / GraphQL /
+// webhook pages that reuse the class; and the id on its own is not enough
+// either, because AutomatedPage renders the same `#article-contents` wrapper for
+// the GraphQL, webhook, audit-log and github-apps pages. The data attribute is
+// set only by ArticlePage and TocLanding.
+#article-contents[data-article-body] .markdown-body {
+  // `--brand-color-text-link-*` are the semantic tokens that brand's own
+  // InlineLink component aliases into `--brand-InlineLink-color-*`. Using the
+  // semantic pair keeps this independent of any ancestor that re-maps the
+  // component token — breadcrumbs-overrides.scss does exactly that.
+  //
+  // Three exclusions, all because this selector outweighs the rules that
+  // currently keep those anchors uncoloured:
+  //   - `[href]` — @primer/css holds `.markdown-body a:not([href])` at
+  //     `color: inherit`, for the bare named anchors markdown emits.
+  //   - `:not(.heading-link)` — heading anchors wrap the entire heading text,
+  //     and headings.scss holds them at `color: unset`.
+  //   - `:not(.btn)` — CTA buttons in content are plain anchors carrying
+  //     @primer/css's button classes (`<a class="btn btn-primary">`), so they
+  //     match this rule too. `.btn-primary`'s own `color` is only (0,1,0)
+  //     against this selector's (1,4,1), so without the exclusion the label
+  //     painted brand link-blue on the green button — #005dd5 on #1f883d is
+  //     1.31:1, well under the 4.5:1 WCAG AA floor
+  //     (github/technical-content#7679). Excluding `.btn`
+  //     hands every button variant back to its own Primer colour tokens.
+  a[href]:not(.heading-link):not(.btn) {
+    // Fallback literals are brand's LIGHT values, not Primer's.
+    color: var(--brand-color-text-link-rest, #005dd5);
+
+    // Pressed is brand's only other link colour state. It defines no `:visited`
+    // colour, and InlineLink's hover thickens the underline rather than changing
+    // colour, so @primer/css's hover underline is left alone.
+    &:active {
+      color: var(--brand-color-text-link-pressed, #002f7a);
+    }
+  }
+}

@@ -36,7 +36,7 @@ To configure self-hosted runners for {% data variables.copilot.copilot_code-revi
     * `api.githubcopilot.com`
     * `uploads.github.com`
     * `user-images.githubusercontent.com`
-1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to your ARC-managed scale set name. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment#preinstalling-tools-or-dependencies-in-copilots-environment).
+1. In your repository's `.github/workflows/copilot-code-review.yml` file, set the `runs-on` attribute to your ARC-managed scale set name.
 
    ```yaml
    # ...
@@ -46,6 +46,9 @@ To configure self-hosted runners for {% data variables.copilot.copilot_code-revi
        runs-on: arc-scale-set-name
        # ...
    ```
+
+> [!NOTE]
+> If your repository does not have a `copilot-code-review.yml` file, {% data variables.copilot.copilot_code-review_short %} will use the `copilot-setup-steps.yml` file instead. For more information about `copilot-setup-steps.yml`, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment#preinstalling-tools-or-dependencies-in-copilots-environment).
 
 ## Upgrade to larger {% data variables.product.prodname_dotcom %}-hosted {% data variables.product.prodname_actions %} runners
 
@@ -61,7 +64,7 @@ By default, {% data variables.copilot.copilot_code-review_short %} runs on a sta
     * `uploads.github.com`
     * `user-images.githubusercontent.com`
 
-1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to the label for the larger runners you want {% data variables.copilot.copilot_code-review_short %} to use. See [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-larger-runners).
+1. In your repository's `copilot-code-review.yml` file, set the `runs-on` attribute to the label for the larger runners you want {% data variables.copilot.copilot_code-review_short %} to use. See [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-larger-runners).
 
    ```yaml
    # ...
@@ -72,12 +75,15 @@ By default, {% data variables.copilot.copilot_code-review_short %} runs on a sta
        # ...
    ```
 
+   > [!NOTE]
+   > If your repository does not have a `copilot-code-review.yml` file, {% data variables.copilot.copilot_code-review_short %} will use the `copilot-setup-steps.yml` file instead.
+
 ## Configure runners at the organization level
 
 Organization owners can set a default runner type for {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} across all repositories in the organization, and control whether individual repositories can override this default.
 
 > [!NOTE]
-> The organization-level runner type applies to both {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %}. Repositories can still override the organization default using `copilot-setup-steps.yml` unless you disable **Allow repositories to customize the runner type**. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent#preventing-repositories-from-customizing-the-runner-type).
+> The organization-level runner type applies to both {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %}. Repositories can still override the organization default for code review using `copilot-code-review.yml` (or `copilot-setup-steps.yml`) unless you disable **Allow repositories to customize the runner type**. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent#preventing-repositories-from-customizing-the-runner-type).
 
 This is useful if your organization requires all code reviews and {% data variables.copilot.copilot_cloud_agent_short %} tasks to run on specific runners, for example, to use larger runners for better performance or self-hosted runners that have access to internal resources.
 
@@ -88,4 +94,4 @@ This is useful if your organization requires all code reviews and {% data variab
 1. In the "Edit runner type" dialog, select the runner type to use by default across your organization, then click **Save runner selection**.
    * **Standard {% data variables.product.prodname_dotcom %} runner**: {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} will use the standard {% data variables.product.prodname_dotcom %}-hosted runner.
    * **Labeled runner**: {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} will use a runner matching the label you specify.
-1. Optionally, to prevent individual repositories from overriding the organization-level runner configuration using their `copilot-setup-steps.yml` file, disable **Allow repositories to customize the runner type**.
+1. Optionally, to prevent individual repositories from overriding the organization-level runner configuration using their `copilot-code-review.yml` or `copilot-setup-steps.yml` file, disable **Allow repositories to customize the runner type**.

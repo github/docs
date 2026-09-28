@@ -52,13 +52,13 @@ Push protection is a paid feature which is available with {% data variables.prod
    * **Time saved**: Total hours saved by preventing these secrets, based on your input.
    * **Potential savings with push protection**: The total estimated labor cost avoided.
 
-{% note %}
+<div class="border rounded-2 p-3">
 
 Did you successfully use the {% data variables.secret-scanning.roi-calculator %} to estimate the cost savings of using push protection on your organization?
 
 <a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
 
-{% endnote %}
+</div>
 
 ## Understanding your results
 

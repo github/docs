@@ -9,6 +9,23 @@ redirect_from:
   - /copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
   - /copilot/concepts/prompt-engineering-for-copilot-chat
   - /copilot/concepts/prompt-engineering
+  - /copilot/tutorials/copilot-cookbook/document-code
+  - /copilot/example-prompts-for-github-copilot-chat/documenting-code
+  - /copilot/copilot-chat-cookbook/documenting-code
+  - /copilot/tutorials/copilot-chat-cookbook/documenting-code
+  - /copilot/tutorials/copilot-chat-cookbook/document-code
+  - /copilot/tutorials/copilot-cookbook/document-code/document-legacy-code
+  - /copilot/example-prompts-for-github-copilot-chat/documenting-code/documenting-legacy-code
+  - /copilot/copilot-chat-cookbook/documenting-code/documenting-legacy-code
+  - /copilot/tutorials/copilot-chat-cookbook/documenting-code/documenting-legacy-code
+  - /copilot/tutorials/copilot-chat-cookbook/documenting-code/document-legacy-code
+  - /copilot/tutorials/copilot-chat-cookbook/document-code/document-legacy-code
+  - /copilot/tutorials/copilot-cookbook/document-code/sync-documentation
+  - /copilot/example-prompts-for-github-copilot-chat/documenting-code/syncing-documentation-with-code-changes
+  - /copilot/copilot-chat-cookbook/documenting-code/syncing-documentation-with-code-changes
+  - /copilot/tutorials/copilot-chat-cookbook/documenting-code/syncing-documentation-with-code-changes
+  - /copilot/tutorials/copilot-chat-cookbook/documenting-code/sync-documentation
+  - /copilot/tutorials/copilot-chat-cookbook/document-code/sync-documentation
 contentType: concepts
 category:
   - Configure Copilot

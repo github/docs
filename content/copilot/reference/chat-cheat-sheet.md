@@ -25,6 +25,7 @@ For information about how to get started with {% data variables.copilot.copilot_
 ## Mentions
 
 Use `@` mentions in to attach relevant context directly to your conversations. Type `@` in the chat prompt box to display a list of items you can attach, such as:
+
 * Discussions
 * Extensions
 * Files
@@ -116,7 +117,6 @@ Below is a list of some of the most common chat participants for using {% data v
 | `@github`    | Allows you to use {% data variables.product.github %}-specific {% data variables.product.prodname_copilot_short %} skills. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide#using-github-skills-for-copilot). |
 | `@terminal`  | Has context about the {% data variables.product.prodname_vscode %} terminal shell and its contents. Use `@terminal` when you want help creating or debugging terminal commands. |
 | `@vscode`    | Has context about {% data variables.product.prodname_vscode %} commands and features. Use `@vscode` when you want help with {% data variables.product.prodname_vscode %}. |
-| `@workspace` | Has context about the code in your workspace. Use `@workspace` when you want {% data variables.product.prodname_copilot_short %} to consider the structure of your project, how different parts of your code interact, or design patterns in your project. |
 
 {% endvscode %}
 

@@ -15,7 +15,7 @@ redirect_from:
   - /articles/incorporating-changes-from-a-pull-request
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request
 shortTitle: Merge and close
-intro: 'Merge, revert, and close pull requests, resolve merge conflicts, and troubleshoot status checks effectively on {% data variables.product.github %}.'
+intro: 'Resolve merge conflicts, and troubleshoot effectively before merging. Then merge, revert, or close pull requests  on {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,9 +24,12 @@ children:
   - /resolving-a-merge-conflict-on-github
   - /resolving-a-merge-conflict-using-the-command-line
   - /troubleshooting-required-status-checks
+  - /troubleshooting-stacked-pull-requests
   - /merging-a-pull-request
   - /merging-a-pull-request-with-a-merge-queue
   - /automatically-merging-a-pull-request
+  - /merging-stacked-pull-requests
+  - /optimizing-ci-for-stacked-pull-requests
   - /reverting-a-pull-request
   - /closing-a-pull-request
 contentType: how-tos

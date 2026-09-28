@@ -24,13 +24,266 @@
   }
 }
 
+// `tocBreakpoint="xxl"` variant: the right rail only appears at 1400+, because
+// between 1012–1400 the collapsed "In this article" control lives in the
+// secondary bar instead. So override the 1012 two-column split back to a single
+// column, and re-apply the two-column grid at xxl (1400px).
+.containerBoxXxl {
+  @media (min-width: 1012px) and (max-width: 1399.98px) {
+    max-width: 720px;
+    // Center the 720px content column in the space between the left rail and the
+    // viewport edge (the right drawer is hidden in this range). Without this the
+    // box left-aligns against the rail, leaving a large gap on the right — which
+    // the section-box borders make visibly off-center.
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0;
+    grid-template-rows: none;
+    grid-template-columns: minmax(0, 1fr);
+    // The drawer cell is display:none here (see .sidebarColumnXxl), so leave
+    // `sidebar` out of the areas — the stacked layout is just topper/intro/content.
+    grid-template-areas:
+      "topper"
+      "intro"
+      "content";
+    column-gap: 0;
+    row-gap: 8px;
+  }
+
+  @media (min-width: 1400px) {
+    max-width: none;
+    padding-top: 24px;
+    // Cancel the article wrapper's horizontal padding (px-md-6 = 40px) so the grid
+    // spans symmetrically between the two 326px rails. The left rail is a
+    // full-bleed flex sibling OUTSIDE this grid while the drawer is a column
+    // INSIDE it; without this, the wrapper's left padding lands between the rail
+    // and content (but not between content and drawer), skewing the content right
+    // of center. Negative margins pull the grid back out to the rail edges.
+    margin-left: -40px;
+    margin-right: -40px;
+    grid-template-rows: auto 1fr;
+    // Fixed-width drawer (326px, matching the left rail) pinned right. The content
+    // column is centered between the two rails via equal flexible gaps. Its 785px
+    // max is the Figma prose measure (the 1440+ frame's 849px column less its
+    // 32px inset either side) — a little wider than before, which the removal of
+    // the vertical side rules and their 2rem padding makes room for.
+    grid-template-columns:
+      minmax(24px, 1fr) minmax(500px, 785px) minmax(24px, 1fr)
+      326px;
+    column-gap: 0;
+    grid-template-areas:
+      ". topper . sidebar"
+      ". intro . sidebar"
+      ". content . sidebar";
+    row-gap: 0;
+  }
+}
+
+// Docs 2026 header/hero: the topper (the title) and intro (lede, then the
+// copy-markdown control) are separated from the body by a single rule below the
+// lede. There is no top rule — the header opens directly under the secondary
+// bar — and no vertical sides at any width; the article is divided by horizontal
+// rules alone. That rule spans the width of the article body, matching the
+// section rules below it.
+.heroTopper,
+.heroIntro {
+  position: relative;
+}
+
+// Only applies below the drawer breakpoints — at/above them the -48px pull-ups
+// further down replace this padding. The article wrapper's own `mt-4` already
+// puts 24px between the title and the bar above it; any padding on top of that
+// made the header look top-heavy.
+.heroTopper {
+  padding-top: 0;
+}
+
+// Line the article title up with what the column beside it opens with — the
+// rail's product title, which starts ~19px below the secondary bar. The grid's
+// own top offset (24px padding-top + 24px wrapper my-4) would put the title at
+// 48px, so pull the topper up by that and re-add half of it. The 24px lands the
+// title's glyphs at 19px, since its 40px/48px line box overflows ~5px above its
+// content box. (It was 48px when the copy-markdown button still led the hero.)
+.containerBoxXxl .heroTopper {
+  @media (min-width: 1400px) {
+    margin-top: -48px;
+    padding-top: 24px;
+  }
+}
+
+// Same treatment for the collapsed-rail variant, which brings the drawer layout
+// in earlier (~1074px).
+.containerBoxXxlCollapsed .heroTopper {
+  @media (min-width: 1074px) {
+    margin-top: -48px;
+    padding-top: 24px;
+  }
+}
+
+// Bottom rule of the header box (below the lede).
+.heroIntro {
+  padding-bottom: 2rem;
+}
+
+.heroIntro::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom: var(--brand-borderWidth-thin, max(1px, 0.0625rem)) solid
+    var(--brand-color-border-muted, #e4ebe6);
+  pointer-events: none;
+}
+
+// `tocBreakpoint="xxl"` + left rail collapsed: the freed ~326px of rail width
+// leaves room to bring the two-column drawer layout in earlier (~1074px) instead
+// of waiting for xxl. Single column below 1074, two columns at/above it.
+.containerBoxXxlCollapsed {
+  @media (min-width: 1012px) and (max-width: 1073.98px) {
+    max-width: 720px;
+    // Center the 720px content column between the rail and viewport edge (see
+    // .containerBoxXxl) — the drawer is hidden in this narrow collapsed range.
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0;
+    grid-template-rows: none;
+    grid-template-columns: minmax(0, 1fr);
+    // The drawer cell is display:none here (see .sidebarColumnXxlCollapsed), so
+    // leave `sidebar` out — the stacked layout is just topper/intro/content.
+    grid-template-areas:
+      "topper"
+      "intro"
+      "content";
+    column-gap: 0;
+    row-gap: 8px;
+  }
+
+  @media (min-width: 1074px) {
+    max-width: none;
+    padding-top: 24px;
+    grid-template-rows: auto 1fr;
+    // Cancel the article wrapper's 40px horizontal padding so the grid spans
+    // symmetrically to the rail edges (see .containerBoxXxl).
+    margin-left: -40px;
+    margin-right: -40px;
+    // Fixed 326px drawer pinned right, content centered via equal flexible gaps
+    // (see .containerBoxXxl).
+    grid-template-columns:
+      minmax(24px, 1fr) minmax(500px, 785px) minmax(24px, 1fr)
+      326px;
+    column-gap: 0;
+    grid-template-areas:
+      ". topper . sidebar"
+      ". intro . sidebar"
+      ". content . sidebar";
+    row-gap: 0;
+  }
+}
+
+// Outer sidebar cell. Below lg it stacks above the article with a bottom rule.
+// At lg+ it stretches the full height of the grid row track (topper→content) and
+// carries the vertical drawer rule, so the border runs the whole article height
+// rather than only as tall as the sticky panel content.
+.sidebarColumn {
+  // --borderColor-default is defined nowhere in this app, so this always painted
+  // the literal #d1d9e0 — a bright light-grey rule that stayed light-mode in dark
+  // mode. Brand's *muted* (not *default*) is the right swap: it is the token the
+  // hero rule above and the h2/closing section rules in article-section-framing
+  // already use, and the drawer is the same weight of divider as those. Brand's
+  // border-default (#b6bfb8) is far darker than the #d1d9e0 this was painting and
+  // would read as a heavier line than every other rule on the page.
+  border-bottom: var(--brand-borderWidth-thin, max(1px, 0.0625rem)) solid
+    var(--brand-color-border-muted, #e4ebe6);
+
+  @media (min-width: 1012px) {
+    // Drawer treatment (Docs 2026): a full-height vertical rule separating the
+    // rail from the article body. The border sits at the toc column's left edge
+    // (the flexible gap column supplies the space on either side), so the two
+    // gutters stay symmetric and the content is centered between the rails.
+    border-bottom: 0;
+    // Same token as the stacked bottom rule above, for the same reason.
+    border-left: var(--brand-borderWidth-thin, max(1px, 0.0625rem)) solid
+      var(--brand-color-border-muted, #e4ebe6);
+    // The 24px inset from the rail to the panel content lives on .sidebarBox
+    // (padding-left) rather than here, so the scroll box spans flush to the rail
+    // and the "Up next" separator can reach the rail's border without being
+    // clipped by the box's overflow.
+    // Opaque canvas background + stacking context: the panel sits over anything
+    // that reaches it from the article column. (It used to cap the section
+    // rules' right overshoot; those now stop at the body column's edge.)
+    position: relative;
+    z-index: 1;
+    // Brand's canvas, matching the page. This was held back on Primer's token
+    // while `body` was still painted #0d1117 by @primer/css; that moved to
+    // --brand-color-canvas-default in src/frame/stylesheets/index.scss, so the
+    // holdback's own release condition ("change together in one commit") is met.
+    background-color: var(--brand-color-canvas-default);
+    // Extend the border up to the bottom of the secondary bar (like the left
+    // rail's divider). The grid's 24px padding-top + the article wrapper's 24px
+    // top margin (`my-4`) otherwise leave the border starting ~48px below the
+    // bar, so pull the cell up by that 48px. We deliberately do NOT re-add it as
+    // padding: the sticky panel pins flush under the bar (see `.sidebarBox`), so
+    // keeping the resting position flush too means clicking a section (which
+    // engages the sticky) doesn't jump the list up by 48px.
+    margin-top: -48px;
+  }
+}
+
+// `tocBreakpoint="xxl"` variant: the drawer (and its border/inset) only applies
+// at 1400+. Below 1400 the sidebar cell is empty (MiniTocs renders nothing
+// there — its content shows only at xxl), so drop the border/inset (including the
+// base mobile bottom rule) to avoid a stray rule and empty spacer beside/above
+// empty space. The 'pb-4 mb-5' utilities are also withheld in the TSX for xxl.
+.sidebarColumnXxl {
+  @media (max-width: 1399.98px) {
+    // Drawer content is display:none below xxl, so hide the empty cell entirely.
+    // This removes it from the grid (no implicit row) and zeroes the sticky/padding
+    // height from .sidebarBox, avoiding a gap between the intro and the content.
+    display: none;
+    border-bottom: 0;
+    border-left: 0;
+    padding-left: 0;
+    margin-left: 0;
+  }
+}
+
+// Collapsed variant: the drawer border/inset only applies at >=1074 (where the
+// drawer content appears). Below 1074 the sidebar cell is empty, so drop the
+// border/inset (including the base mobile bottom rule) to avoid a stray rule and
+// empty spacer beside/above empty space.
+.sidebarColumnXxlCollapsed {
+  @media (max-width: 1073.98px) {
+    // Hide the empty cell entirely below the collapsed drawer breakpoint (see
+    // .sidebarColumnXxl) so it contributes no row or height.
+    display: none;
+    border-bottom: 0;
+    border-left: 0;
+    padding-left: 0;
+    margin-left: 0;
+  }
+}
+
+// Inner panel. Sticky so the "In this article" list follows the reader while the
+// outer column (and its border) spans the whole article height.
 .sidebarBox {
   @media (min-width: 1012px) {
     position: sticky;
-    padding-top: 24px;
-    top: 5em;
-    max-height: calc(100vh - 5em);
+    // Stick below the sticky main header + Docs 2026 secondary bar (45px) so the
+    // "In this article" heading isn't slid under the bar on scroll, with a little
+    // breathing room above the heading. The header half comes from
+    // --docs-header-height rather than a literal 65px, since the Brand header is
+    // 3.5rem below 48rem and 4rem above.
+    top: calc(var(--docs-header-height) + 45px);
+    padding-top: 16px;
+    // 24px inset from the rail to the panel content (moved here from
+    // .sidebarColumn so the box spans flush to the rail — see there).
+    padding-left: 24px;
+    // Right padding so panel content (TOC items, Up next title) doesn't run up
+    // against the page's right edge.
+    padding-right: 24px;
+    max-height: calc(100vh - var(--docs-header-height) - 45px);
     overflow-y: auto;
-    padding-bottom: 40px !important;
+    padding-bottom: 40px;
   }
 }

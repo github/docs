@@ -19,6 +19,20 @@ This article relates to **repository custom properties.**
 
 The **visibility** of custom properties matches the visibility of the repository. Custom properties on public repositories can be viewed by anyone, while custom properties on internal or private repositories can be viewed by accounts with `read` permissions to the repository.
 
+{% ifversion fpt or ghec %}
+
+## About custom property suggestions
+
+> [!NOTE]
+> {% data reusables.organizations.custom-property-suggestions-public-preview %}
+
+When you create a single select or multi select property, {% data variables.product.prodname_copilot_short %} can suggest allowed values for the property definition. Select a suggestion to add it to the list of allowed values.
+
+This feature is available with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}. Organization owners can configure availability with the **Repository custom property suggestions** policy. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
+
+{% ifversion ghec %}If your organization is part of an enterprise, the enterprise policy determines whether the organization can manage this setting. Enterprise owners can enable or disable suggestions for every organization. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).{% endif %}
+{% endif %}
+
 ## Allowed characters
 
 {% data reusables.repositories.custom-property-allowed-characters %}
@@ -35,7 +49,10 @@ You can add custom properties to your organization and set values for those prop
 1. To add a new custom property, click **New property** in the upper right corner.
 1. In the "Name" field, type the name you'd like to use for your custom property. The name can't contain spaces, and cannot exceed 75 characters in length.
 1. Optionally, in the "Description" field, fill in a description of your custom property.
-1. Under "Type", select the type of property you'd like to add. This can either be a text string, a single select field, a multi select field, {% ifversion ghes > 3.20 %}a URL, {% endif %}or a true/false boolean.
+1. Under "Type", select the type of property you'd like to add. This can either be a text string, a single select field, a multi select field, {% ifversion ghes > 3.20 %}a URL, {% endif %}or a true/false boolean.{% ifversion fpt or ghec %}
+
+   If you selected a single select or multi select type, {% data variables.product.prodname_copilot_short %} can suggest allowed values for the property definition. Select **{% octicon "check" aria-label="Accept suggestion" %} Accept suggestion** to add it to the list of allowed values.{% endif %}
+
 1. Optionally, you can select **Allow repository actors to set this property**. When enabled, repository users and apps with the repository-level "custom properties" fine-grained permission will be able to set and update the property value for their repository.
 1. Optionally, you can select **Require this property for all repositories** and add a default value. This means that you require that all repositories in your organization have a value for this property. Repositories that don’t have an explicit value for this property will inherit the default value.
 {% data reusables.organizations.custom-properties-required-values %}
@@ -74,4 +91,3 @@ You can search for repositories in your organization by custom properties values
 {% data reusables.user-settings.access_org %}
 1. Under your organization name, click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repositories**.
 1. In the search bar, type `prop` to see a list of all custom properties in your organization, and select the property you'd like to search by.
-

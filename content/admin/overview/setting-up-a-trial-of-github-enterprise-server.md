@@ -21,7 +21,7 @@ You can request a 45-day trial to evaluate {% data variables.product.prodname_gh
 
 {% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}Security{% endif %} alerts and {% data variables.product.prodname_github_connect %} are not currently available in trials of {% data variables.product.prodname_ghe_server %}. For a demonstration of these features, contact {% data variables.contact.contact_enterprise_sales %}. For more information about these features, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts) and [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom).
 
-Trials are also available for {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
+Trials are also available for {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
 
 {% data reusables.products.which-product-to-use %}
 
@@ -64,4 +64,4 @@ If you haven't upgraded by the last day of your trial, you'll receive an email n
 
 ## Further reading
 
-* [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)
+* [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)

@@ -8,11 +8,10 @@ const OPEN_API_RELEASES_DIR = '../github/app/api/description/config/releases'
 const configData: { versionMapping: Record<string, string> } = JSON.parse(
   await readFile('src/rest/lib/config.json', 'utf8'),
 )
-// Gets the full list of unpublished + active, deprecated + active,
-// or active schemas from the github/github repo
-// `openApiReleaseDir` is the path to the `app/api/description/config/releases`
-// directory in `github/github`
-// You can also specify getting specific versions of schemas.
+// Reads the release YAML files in `directory`, which points at
+// app/api/description/config/releases in github/github, and returns the
+// generated schema filenames split into currentReleases, unpublished and
+// deprecated.
 export async function getSchemas(
   directory: string = OPEN_API_RELEASES_DIR,
 ): Promise<{ currentReleases: string[]; unpublished: string[]; deprecated: string[] }> {
@@ -68,13 +67,12 @@ export async function getSchemas(
 
 export async function validateVersionsOptions(versions: string[]): Promise<void> {
   const schemas = await getSchemas()
-  // Validate individual versions provided
   for (const version of versions) {
     if (
       schemas.deprecated.includes(`${version}.deref.json`) ||
       schemas.unpublished.includes(`${version}.deref.json`)
     ) {
-      const errorMsg = `🛑 This script doesn't support generating individual deprecated or unpublished schemas. Please reach out to #docs-engineering if this is a use case that you need.`
+      const errorMsg = `🛑 This script doesn't support generating individual deprecated or unpublished schemas. Please reach out to #technical-content if this is a use case that you need.`
       throw new Error(errorMsg)
     } else if (!schemas.currentReleases.includes(`${version}.deref.json`)) {
       throw new Error(`🛑 The version (${version}) you specified is not valid.`)

@@ -1,7 +1,6 @@
-import { readFile, writeFile, readdir, unlink } from 'fs/promises'
+import { mkdir, readFile, writeFile, readdir, unlink } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
-import { mkdirp } from 'mkdirp'
 
 import { updateRestFiles } from './update-markdown'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -51,7 +50,7 @@ export async function syncRestData(
         operations.push(...newOperations)
       } catch (error) {
         throw new Error(
-          `${error}\n\n🐛 Whoops! It looks like the script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.`,
+          `${error}\n\n🐛 Whoops! It looks like the script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #technical-content slack channel for help.`,
         )
       }
       try {
@@ -59,7 +58,7 @@ export async function syncRestData(
         await processOperations(operations, progAccessData)
       } catch (error) {
         throw new Error(
-          `${error}\n\n🐛 Whoops! It looks like some Markdown in the dereferenced schema wasn't able to be rendered. Please reach out in the #docs-engineering slack channel for help.`,
+          `${error}\n\n🐛 Whoops! It looks like some Markdown in the dereferenced schema wasn't able to be rendered. Please reach out in the #technical-content slack channel for help.`,
         )
       }
 
@@ -73,7 +72,7 @@ export async function syncRestData(
         )
       }
       if (!existsSync(targetDirectoryPath)) {
-        await mkdirp(targetDirectoryPath)
+        await mkdir(targetDirectoryPath, { recursive: true })
       }
 
       const writtenFiles = new Set<string>()
@@ -99,10 +98,9 @@ export async function syncRestData(
   await updateRestConfigData(restSchemas)
 }
 
-// After syncing, remove any .json category files on disk that were not
-// written during this run. This handles the case where an entire API
-// category is removed upstream — without this cleanup, stale data files
-// would persist and continue to generate docs pages.
+// After syncing, removes every .json file in each version directory that this
+// run didn't write. Without it, a category removed upstream would leave stale
+// data files behind that keep generating docs pages.
 export async function removeStaleRestDataFiles(
   writtenFilesByVersion: Map<string, Set<string>>,
 ): Promise<void> {
@@ -152,14 +150,12 @@ async function formatRestData(operations: Operation[]): Promise<OperationsByCate
   return operationsByCategory
 }
 
-// Every time we update the REST data files, we'll want to make sure the
-// config.json file is updated with the latest api versions.
-// This function rebuilds each version's date array from the schemas that were
-// actually synced, so deprecated calendar-date versions are automatically
-// removed. Only version keys that appear in the incoming schemas are touched —
-// keys absent from this sync run (e.g. during a partial --versions run) are
-// left unchanged. We never remove an entire version key (e.g. "ghes-3.14");
-// that is handled separately by the GHES deprecation process.
+// Keeps config.json in step with the API versions in the REST data files.
+// Rebuilds each version's date array from the calendar-date schemas actually
+// synced, so deprecated dates drop out on their own. Only version keys with at
+// least one such schema are touched, so a partial --versions run leaves the
+// rest alone. An entire version key such as "ghes-3.14" is never
+// removed here; the GHES deprecation process handles that.
 async function updateRestConfigData(schemas: string[]): Promise<void> {
   const restConfigFilename = 'src/rest/lib/config.json'
   const restConfigData = JSON.parse(await readFile(restConfigFilename, 'utf8')) as Record<
@@ -168,9 +164,9 @@ async function updateRestConfigData(schemas: string[]): Promise<void> {
   >
   const restApiVersionData = (restConfigData['api-versions'] as Record<string, string[]>) || {}
 
-  // Phase 1: Collect the dates present in the incoming schemas, keyed by
-  // OpenAPI version name. Only calendar-date schemas contribute — those that
-  // don't exactly match a base OPENAPI_VERSION_NAMES entry but do start with one.
+  // Phase 1: collect the dates in the incoming schemas, keyed by OpenAPI
+  // version name. Only calendar-date schemas count, meaning the ones that start
+  // with an OPENAPI_VERSION_NAMES entry without exactly matching it.
   const incomingDates: Record<string, Set<string>> = {}
 
   for (const schema of schemas) {

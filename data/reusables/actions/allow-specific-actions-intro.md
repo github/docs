@@ -3,7 +3,7 @@
 
 ### Allowing select actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to run
 
-When you choose {% data reusables.actions.policy-label-for-select-actions-workflows %}, local actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} are allowed, and there are additional options for allowing other specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:
+When you choose {% data reusables.actions.policy-label-for-select-actions-workflows %}, local actions (`./` and `$/`){% ifversion actions-workflow-policy %} and reusable workflows{% endif %} are allowed, and there are additional options for allowing other specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:
 
 {% data reusables.repositories.settings-permissions-org-policy-note %}
 

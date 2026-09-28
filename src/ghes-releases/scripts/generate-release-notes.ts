@@ -32,7 +32,6 @@ import {
   parseIssueState,
 } from '@/ghes-releases/lib/release-issues'
 
-// ─── Ctrl+C handling ─────────────────────────────────────────────────────────
 // Copilot CLI puts the terminal in raw mode, so we catch Ctrl+C (0x03) manually.
 
 let activeChild: ChildProcess | null = null
@@ -55,8 +54,6 @@ if (process.stdin.isTTY) {
     process.exit(130)
   })
 }
-
-// ─── Types ───────────────────────────────────────────────────────────────────
 
 interface ReleaseIssue {
   number: number
@@ -83,8 +80,6 @@ function loadFeatureHeadings(): string[] {
   return _featureHeadingsCache
 }
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-
 /**
  * Run `gh` CLI commands with native auth (no GITHUB_TOKEN interference)
  */
@@ -99,9 +94,6 @@ function gh(args: string[]): string {
   })
 }
 
-/**
- * Fetch release issues labeled "GHES <version>" using the selected issue state.
- */
 function fetchReleaseIssues(version: string, issueState: IssueState): ReleaseIssue[] {
   const output = gh(buildReleaseIssueListArgs(version, issueState))
   const issues = JSON.parse(output) as ReleaseIssue[]
@@ -123,9 +115,6 @@ function extractChangelogPrUrl(issueBody: string): string | null {
   return match ? match[0] : null
 }
 
-/**
- * Fetch the body of a changelog PR by URL.
- */
 function fetchChangelogPrBody(prUrl: string): string | null {
   try {
     const output = gh(['pr', 'view', prUrl, '--json', 'body'])
@@ -176,7 +165,7 @@ function searchChangelogPr(issueNumber: number): ChangelogInfo | null {
       }
     }
   } catch {
-    // Search failed — fall back to no changelog
+    // Search failed, so fall back to no changelog.
   }
   return null
 }
@@ -195,23 +184,20 @@ function findChangelogPr(issue: ReleaseIssue): ChangelogInfo | null {
 }
 
 /**
- * Resolve the Copilot CLI path. Checks common locations.
+ * Resolve the Copilot CLI path.
  * Result is cached after first call.
  */
 let _copilotCliPath: string | null = null
 function findCopilotCli(): string {
   if (_copilotCliPath) return _copilotCliPath
 
-  // Check if `copilot` is on PATH
   try {
     const result = execFileSync('which', ['copilot'], { encoding: 'utf8' }).trim()
     if (result) {
       _copilotCliPath = result
       return result
     }
-  } catch {
-    // not on PATH
-  }
+  } catch {}
 
   // Fallback: check VS Code extension storage locations.
   // These paths are macOS-only. On Linux/Windows the `which` check above should
@@ -227,7 +213,6 @@ function findCopilotCli(): string {
     return vsCodePath
   }
 
-  // Check VS Code stable location (macOS)
   const vsCodeStablePath = path.join(
     homeDir,
     'Library/Application Support/Code/User/globalStorage/github.copilot-chat/copilotCli/copilot',
@@ -382,9 +367,6 @@ function runAgent(ctx: AgentContext): Promise<string> {
   })
 }
 
-/**
- * Sleep for the given number of milliseconds (non-blocking).
- */
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
@@ -401,7 +383,7 @@ interface AgentResult {
  * Run the agent with retry logic. Retries up to `maxRetries` times on failure.
  * Validates that extracted YAML parses into non-empty entries before accepting.
  * If the agent tries to skip (returns `# SKIP: reason` + `[]`), treats it as a
- * failed attempt and retries — issues that matched the GHES label filter should
+ * failed attempt and retries, because issues that matched the GHES label filter should
  * always get a release note. If all attempts result in skips, the last skip
  * reason is attached as a warning.
  */
@@ -425,9 +407,7 @@ async function runAgentWithRetry(ctx: AgentContext, maxRetries = 2): Promise<Age
         if (skipReason) {
           lastSkipReason = skipReason
           lastError = new Error(`Agent tried to skip: ${skipReason}`)
-          // Fall through to retry
         } else {
-          // Validate that the YAML actually contains usable entries
           const testEntries = parseNoteEntries(yamlStr, ctx.issueUrl)
           if (testEntries.length > 0) {
             return {
@@ -438,7 +418,7 @@ async function runAgentWithRetry(ctx: AgentContext, maxRetries = 2): Promise<Age
               skipWarning: lastSkipReason ?? undefined,
             }
           }
-          // YAML was extracted but empty/unparseable — retry
+          // YAML was extracted but is empty or unparseable, so retry.
           lastError = new Error(
             `Agent returned YAML but it contained no valid entries (got: ${yamlStr.substring(0, 80)})`,
           )
@@ -449,18 +429,14 @@ async function runAgentWithRetry(ctx: AgentContext, maxRetries = 2): Promise<Age
     } catch (error) {
       lastError = error as Error
     }
-    // Brief delay before retry
     if (attempt <= maxRetries) {
       await sleep(3000)
     }
   }
-  // Attach raw output to the error for debugging
   const err = lastError || new Error('Agent failed after retries')
   ;(err as Error & { rawOutput?: string }).rawOutput = lastRawOutput
   throw err
 }
-
-// ─── CLI ─────────────────────────────────────────────────────────────────────
 
 const program = new Command()
 
@@ -520,7 +496,7 @@ program
         process.exit(1)
       }
 
-      // ── Prerequisite checks ──
+      // Prerequisite checks.
       try {
         execFileSync('gh', ['--version'], { stdio: 'ignore' })
       } catch {
@@ -541,7 +517,6 @@ program
         process.exit(1)
       }
 
-      // Validate release version format
       if (!/^\d+\.\d+$/.test(release)) {
         console.error(
           `Error: Invalid release version format "${release}". Expected: X.Y (e.g., 3.20)`,
@@ -549,11 +524,11 @@ program
         process.exit(1)
       }
 
-      // ── Step 1: Fetch release issues ──
+      // Step 1: Fetch release issues.
       let issues: ReleaseIssue[]
 
       if (singleIssue) {
-        // For a single issue, fetch it directly — no need to list all issues
+        // For a single issue, fetch it directly rather than listing all issues.
         spinner.start(`Fetching issue #${singleIssue}...`)
         try {
           const output = gh([
@@ -595,11 +570,10 @@ program
           process.exit(0)
         }
 
-        // Filter out GA meta-issues (e.g., "GHES 3.20 GA [GA]") — these are tracking issues, not features
+        // GA meta-issues (e.g. "GHES 3.20 GA [GA]") are tracking issues, not features.
         const originalCount = issues.length
         issues = issues.filter((issue) => {
           const title = issue.title.trim()
-          // Strip all trailing label tags like [GA], [Public Preview], etc.
           const stripped = title.replace(/\s*\[[^\]]*\]/g, '').trim()
           // Skip issues whose title is just "GHES X.Y GA" or "GHES X.Y release"
           if (/^ghes\s+\d+\.\d+\s+ga$/i.test(stripped)) return false
@@ -611,7 +585,7 @@ program
           console.log(`  Filtered out ${filteredCount} meta-issue(s) (GA/release tracking)`)
         }
 
-        // Filter out [Private Preview] issues — these never get release notes
+        // [Private Preview] issues never get release notes.
         const beforePrivateFilter = issues.length
         issues = issues.filter((issue) => {
           return !/\[Private Preview\]/i.test(issue.title)
@@ -623,7 +597,7 @@ program
           )
         }
 
-        // Filter out issues labeled "internal release" — these are internal-only and don't get release notes
+        // "internal release" issues are internal-only and get no release notes.
         const beforeInternalFilter = issues.length
         issues = issues.filter((issue) => {
           return !issue.labels.some((l) => l.name.toLowerCase() === 'internal release')
@@ -634,13 +608,12 @@ program
         }
       }
 
-      // Compute output path upfront so we can check for existing file
       const dirName = release.replace('.', '-')
       const fileName = rc ? '0-rc1.yml' : '0.yml'
       const outputDir = path.join(process.cwd(), 'data/release-notes/enterprise-server', dirName)
       const outputPath = path.join(outputDir, fileName)
 
-      // ── Incremental mode: load existing entries ──
+      // Incremental mode: load existing entries.
       const allEntries: NoteEntry[] = []
       let existingCoveredUrls = new Set<string>()
 
@@ -679,7 +652,7 @@ program
         }
       }
 
-      // ── Step 2: Find changelog PRs ──
+      // Step 2: Find changelog PRs.
       spinner.start('Finding changelog PRs...')
       const issueChangelogMap = new Map<number, ChangelogInfo | null>()
       let changelogFound = 0
@@ -691,11 +664,11 @@ program
       }
       spinner.succeed(`Found changelog PRs for ${changelogFound}/${issues.length} issues`)
 
-      // ── Step 3: Run agent on each issue ──
+      // Step 3: Run agent on each issue.
       const failures: { issue: ReleaseIssue; error: string }[] = []
       const existingEntryCount = allEntries.length
 
-      // Load valid headings once (cached, but clearer when hoisted)
+      // Hoisted for clarity. The underlying load is already cached.
       const featureHeadings = loadFeatureHeadings()
 
       // Helper to write current entries to file (called after each success and on Ctrl+C)
@@ -712,7 +685,6 @@ program
         }
       }
 
-      // Register so Ctrl+C saves progress
       flushBeforeExit = writeCurrentOutput
 
       for (let i = 0; i < issues.length; i++) {
@@ -779,7 +751,6 @@ program
           spinner.suffixText = ''
           spinner.succeed(`${label}${retryNote}`)
 
-          // Write incrementally so progress is saved
           writeCurrentOutput()
         } catch (error) {
           const err = error as Error & { rawOutput?: string }
@@ -788,7 +759,7 @@ program
           failures.push({ issue, error: msg })
           spinner.suffixText = ''
           if (isSkipFailure) {
-            // Clean output for skip failures — no raw agent dump
+            // Skip failures get clean output, with no raw agent dump.
             const skipReason = msg.replace('Agent tried to skip: ', '')
             spinner.warn(`${label} — skipped by agent`)
             console.log(`    Reason: ${skipReason}`)
@@ -808,7 +779,7 @@ program
         }
       }
 
-      // ── Step 4: Final summary ──
+      // Step 4: Final summary.
       flushBeforeExit = null
       const newCount = allEntries.length - existingEntryCount
       if (existingEntryCount > 0) {
@@ -827,7 +798,7 @@ program
 
       if (stdout) {
         if (failures.length > 0 && allEntries.length === 0) {
-          // All issues failed — don't print empty template
+          // All issues failed, so don't print an empty template.
           process.exit(1)
         }
         if (singleIssue) {

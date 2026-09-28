@@ -1,19 +1,9 @@
 .carousel {
-  margin-top: 3rem;
-  padding-bottom: 3rem;
-  // Frame the section against the one below it (Docs 2026 "framed sections",
-  // #6681). Matches the hero band's divider — brand border-subtle adapts
-  // gray-2 light / gray-6 dark.
-  border-bottom: 1px solid var(--brand-color-border-subtle);
+  padding-top: 3rem;
   --carousel-transition-duration: 0.1s;
-
-  // Subsequent carousels with headings get reduced margin
-  & + & {
-    margin-top: 1rem;
-  }
 }
 
-// Remove top margin for carousels without headings that come after another carousel
+// Adjacent carousels without headings share the previous carousel's spacing.
 .carousel.noHeading {
   margin-top: 0;
 
@@ -31,17 +21,18 @@
   align-items: center;
 }
 
-// When header only contains navigation (no heading), add top margin to separate from previous carousel
+// Navigation-only headers need top spacing between adjacent carousels.
 .header:has(.navigation):not(:has(.heading)) {
   margin-top: 1rem;
   justify-content: flex-end;
 }
 
 .heading {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
+  line-height: 2rem;
   margin: 0;
-  color: var(--fgColor-default);
+  color: var(--brand-color-text-default);
 }
 
 .navigation {
@@ -54,30 +45,84 @@
   }
 }
 
+// Prev and next controls use plain 16px arrows in 32px hit targets.
 .navButton {
-  min-width: 32px !important;
-  padding: 6px !important;
-  border-radius: 6px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--brand-color-text-muted);
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    color: var(--brand-color-text-default);
+    background-color: var(--brand-color-canvas-subtle);
+  }
 
   &:disabled {
-    cursor: not-allowed !important;
-    opacity: 0.5 !important;
+    cursor: not-allowed;
+    opacity: 0.4;
   }
 }
 
 .itemsGrid {
   display: grid;
-  gap: 1.5rem;
   grid-template-columns: 1fr;
   transition: opacity var(--carousel-transition-duration) ease-in-out;
   opacity: 1;
+  // Cancel the frame padding so card dividers meet its vertical border rules.
+  // Each card's 32px padding re-insets text to align with the section header.
+  margin-inline: -16px;
+
+  @media (min-width: 768px) {
+    margin-inline: -32px;
+  }
+
+  // Match the Articles grid with shared 1px top and left borders. Remove the first
+  // row's top and first column's left border per breakpoint.
+  > * {
+    border-top: 1px solid var(--brand-color-border-default);
+  }
+
+  > *:first-child {
+    border-top: none;
+  }
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+
+    > * {
+      border-left: 1px solid var(--brand-color-border-default);
+    }
+
+    > *:nth-child(2n + 1) {
+      border-left: none;
+    }
+
+    > *:nth-child(-n + 2) {
+      border-top: none;
+    }
   }
 
   @media (min-width: 1012px) {
     grid-template-columns: repeat(3, 1fr);
+
+    > *:nth-child(2n + 1) {
+      border-left: 1px solid var(--brand-color-border-default);
+    }
+
+    > *:nth-child(3n + 1) {
+      border-left: none;
+    }
+
+    > *:nth-child(-n + 3) {
+      border-top: none;
+    }
   }
 
   &.animating {
@@ -85,45 +130,40 @@
   }
 }
 
-.articleCard {
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  min-height: 120px; /* Ensures consistent card heights */
-  box-shadow:
-    0px 1px 3px 0px rgba(31, 35, 40, 0.08),
-    0px 1px 0px 0px rgba(31, 35, 40, 0.06);
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  text-decoration: none !important;
-  color: inherit;
+// Landing cards use a seamless collapsed-border grid, not separate cards.
+// Flatten Brand Card chrome and use auto rows so cards hug content instead of
+// ballooning to about 365px.
+.card {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 32px !important;
+  --Card-grid-template-rows: auto auto auto auto auto auto auto auto !important;
+  // Top-align the card content so tags and titles share a consistent baseline
+  // across cards regardless of description length (brand Card otherwise
+  // distributes rows down the full cell height).
+  align-content: start !important;
+  // box-shadow overlays the green hover bar on the grid divider without shifting layout.
+  transition: box-shadow 0.1s ease-in-out;
 
   &:hover {
-    box-shadow:
-      0 0.25rem 0.5rem 0 rgba(31, 35, 40, 0.12),
-      0 0.125rem 0.25rem 0 rgba(31, 35, 40, 0.08);
-    transform: translateY(-2px);
-    background-color: var(--bgColor-muted, var(--color-canvas-subtle));
-    text-decoration: none !important;
+    box-shadow: inset 0 2px 0 0 var(--brand-color-accent-primary) !important;
   }
-}
 
-.articleTitle {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
-}
+  // Compress Brand Card row margins so cards hug the roughly 150px Figma content height.
+  :global([class*="Card__heading"]) {
+    margin-block-end: 8px !important;
+    // Figma Subheading Medium uses 16px and 550 weight, not Brand Card's 22px default.
+    font-size: 1rem !important;
+    font-weight: 550 !important;
+    line-height: 1.5 !important;
+  }
 
-.articleLink {
-  color: var(--fgColor-accent);
-  text-decoration: none;
-}
-
-.articleDescription {
-  margin: 0;
-  color: var(--fgColor-muted);
-  font-size: 0.9rem;
-  line-height: 1.4;
-  text-decoration: none !important;
+  :global([class*="Card__description"]) {
+    margin-block-end: 0 !important;
+    // Figma Body/Small intro uses 14px, not Brand Card's 16px default.
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+  }
 }
 
 .pagination {
@@ -131,5 +171,5 @@
   justify-content: center;
   margin-top: 1rem;
   font-size: 0.8rem;
-  color: var(--fgColor-muted);
+  color: var(--brand-color-text-muted);
 }

@@ -26,7 +26,7 @@ You can use the {% data variables.dependency-submission-api.name %} in a {% data
 
 {% data reusables.dependency-submission.premade-action-table %}
 
-For more information about these actions, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems#package-ecosystems-supported-via-dependency-submission-actions).
+For more information about these actions, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 
 ### Creating your own action
 

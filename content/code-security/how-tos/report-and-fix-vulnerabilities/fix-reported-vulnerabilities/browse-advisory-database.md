@@ -72,11 +72,11 @@ You can search the database, and use qualifiers to narrow your search. For examp
 | `created:YYYY-MM-DD`| [`created:2021-01-13`](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) will show only advisories created on this date. |
 | `updated:YYYY-MM-DD`| [`updated:2021-01-13`](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) will show only advisories updated on this date. |
 
-A `GHSA-ID` qualifier is a unique ID that we at {% data variables.product.prodname_dotcom %} automatically assign to every advisory in the {% data variables.product.prodname_advisory_database %}. For more information about these identifiers, see [About the {% data variables.product.prodname_advisory_database %}](/code-security/concepts/vulnerability-reporting-and-management/github-advisory-database#about-ghsa-ids).
+A `GHSA-ID` qualifier is a unique ID that we at {% data variables.product.prodname_dotcom %} automatically assign to every advisory in the {% data variables.product.prodname_advisory_database %}. For more information about these identifiers, see [About the {% data variables.product.prodname_advisory_database %}](/code-security/concepts/vulnerability-reporting-and-management/github-advisory-database#ghsa-ids).
 
 ## Viewing your vulnerable repositories
 
-For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability or malware. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts#access-to-dependabot-alerts).
+For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability or malware. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts).
 
 1. Navigate to [https://github.com/advisories](https://github.com/advisories?ref_product=security-advisories&ref_type=engagement&ref_style=text).
 1. Click an advisory.
@@ -107,7 +107,7 @@ You can also suggest improvements to any advisory directly from your local advis
 
 {% data reusables.repositories.enable-security-alerts %}
 
-In the local advisory database, you can see which repositories are affected by each security vulnerability or malware. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts#access-to-dependabot-alerts).
+In the local advisory database, you can see which repositories are affected by each security vulnerability or malware. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-alerts).
 
 1. Navigate to `https://HOSTNAME/advisories`.
 1. Click an advisory.

@@ -81,5 +81,5 @@ If someone accepts credit, the person's username appears in the "Credits" sectio
 * Comment on the draft security advisory to discuss the vulnerability with your team.
 * Add collaborators to the security advisory. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/add-collaborators).
 * Privately collaborate to fix the vulnerability in a temporary private fork. For more information, see [AUTOTITLE](/code-security/tutorials/fix-reported-vulnerabilities/collaborate-in-a-fork).
-* Add individuals who should receive credit for contributing to the security advisory. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/edit-repository-advisories#about-credits-for-security-advisories).
+* Add individuals who should receive credit for contributing to the security advisory. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/edit-repository-advisories).
 * Publish the security advisory to notify your community of the security vulnerability. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/publish-repository-advisory).

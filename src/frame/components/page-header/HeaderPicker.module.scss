@@ -1,0 +1,293 @@
+/*
+ * Shared styling for the two Docs 2026 header pickers: the plan/version picker
+ * (VersionPicker, `variant="header"`) and the language picker (LanguagePicker,
+ * `variant="header"`). Both are Primer Brand ActionMenus rendered inside
+ * SubdomainNavBar, so the menu surface, the rows and the parts of the trigger
+ * that are common live here — a single source of truth the two pickers cannot
+ * drift apart from.
+ *
+ * Only the trigger's own treatment differs: the plan control is the design's
+ * filled pill (`.headerPillButton`), while Figma draws the language control as
+ * a flat, transparent control (`.headerFlatButton`).
+ */
+
+.headerPicker {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--base-size-8, 0.5rem) + var(--base-size-2, 0.125rem));
+  min-width: 0;
+  max-width: 100%;
+}
+
+/*
+ * Trigger, shared
+ */
+
+.headerPicker .headerButton {
+  min-width: 0;
+  max-width: 100%;
+  // Brand's size="small" button sets a 32px min-height. Both triggers size
+  // themselves from their own padding and min-height instead.
+  height: auto;
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100, 0.875rem);
+  line-height: 1.2;
+}
+
+// Brand caps the trigger label at 200px, and its own Text wrapper sits between the
+// button and the value, so both spans have to shrink for the trigger to ellipsize
+// with the header. Found through the value's own class rather than Brand's hashed
+// names.
+.headerPicker .headerButton span:has(.headerValue) {
+  display: block;
+  min-width: 0;
+  max-width: none;
+  overflow: hidden;
+}
+
+.headerPicker .headerButton [data-testid="Button-leading-visual"],
+.headerPicker .headerButton [data-testid="Button-trailing-visual"] {
+  flex: none;
+  color: inherit;
+}
+
+.headerValue {
+  display: block;
+  overflow: hidden;
+  // Brand's Text wrapper sets size, weight and line height on the element between
+  // the button and this one, so none of these can be inherited from the trigger.
+  font-size: var(--brand-text-size-100, 0.875rem);
+  // 14px x 1.2 = the 16.8px line box the pill's height is built on.
+  line-height: 1.2;
+  // Brand centres its button label; a truncated value should stay left aligned.
+  text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*
+ * Trigger: the plan picker's pill
+ */
+
+.headerPicker .headerPillButton {
+  // Brand's Button variants paint themselves through these custom properties, and the
+  // rules that read them (rest, :hover, :active, [aria-expanded='true']) carry five
+  // class-level selectors — more than anything scoped to this module can outrank. Set
+  // the properties instead of fighting the rules, so the pill keeps the single stable
+  // fill the design draws in every state.
+  --brand-button-secondary-bgColor-rest: var(--brand-color-canvas-subtle);
+  --brand-button-secondary-bgColor-hover: var(--brand-color-canvas-subtle);
+  --brand-button-secondary-bgColor-active: var(--brand-color-canvas-subtle);
+  --brand-button-secondary-borderColor-rest: transparent;
+  --brand-button-secondary-borderColor-hover: transparent;
+  --brand-button-secondary-borderColor-active: transparent;
+  --brand-button-secondary-fgColor-rest: var(--brand-color-text-default);
+
+  // The design's padding around a 16.8px line box makes the pill 34.8px, so the
+  // padding has to win over Brand's 32px floor.
+  min-height: 0;
+  padding-block: calc(
+    var(--base-size-8, 0.5rem) + var(--brand-borderWidth-thin, 1px)
+  );
+  padding-inline: var(--base-size-12, 0.75rem);
+  // Design: 12px between the value and the caret.
+  gap: var(--base-size-12, 0.75rem);
+  color: var(--brand-color-text-default);
+  background-color: var(--brand-color-canvas-subtle);
+  border: 0;
+  border-radius: var(--brand-borderRadius-full, 999px);
+  font-weight: var(--base-text-weight-bold, 700);
+}
+
+.headerPicker .headerPillButton .headerValue {
+  color: var(--brand-color-text-default);
+  font-weight: var(--base-text-weight-bold, 700);
+}
+
+/*
+ * Trigger: the language picker's flat control
+ *
+ * Figma (node 471:69020) draws this one as a flat control rather than a pill: a
+ * globe, the language name in muted 14px regular, then the same caret. The fill
+ * only appears on hover and while the menu is open, which Brand's own rules
+ * apply from these custom properties — setting `background-color` here as well
+ * would tie with Brand's `[aria-expanded='true']` rule on specificity.
+ */
+
+.headerPicker .headerFlatButton {
+  --brand-button-secondary-bgColor-rest: transparent;
+  --brand-button-secondary-bgColor-hover: var(--brand-color-canvas-subtle);
+  --brand-button-secondary-bgColor-active: var(--brand-color-canvas-subtle);
+  --brand-button-secondary-borderColor-rest: transparent;
+  --brand-button-secondary-borderColor-hover: transparent;
+  --brand-button-secondary-borderColor-active: transparent;
+  --brand-button-secondary-fgColor-rest: var(--brand-color-text-muted);
+
+  min-height: var(--base-size-32, 2rem);
+  padding-block: 0;
+  padding-inline: var(--base-size-8, 0.5rem);
+  gap: var(--base-size-8, 0.5rem);
+  color: var(--brand-color-text-muted);
+  border: 0;
+  // Brand's ActionMenu remaps --brand-borderRadius-medium to the full radius on
+  // its own trigger, so the flat control has to name the 6px value itself.
+  border-radius: var(--base-size-6, 0.375rem);
+  font-weight: var(--base-text-weight-normal, 400);
+  // The secondary variant blurs whatever sits behind it; there is nothing behind
+  // a transparent control in a flat header bar.
+  backdrop-filter: none;
+}
+
+.headerPicker .headerFlatButton .headerValue {
+  color: var(--brand-color-text-muted);
+  font-weight: var(--base-text-weight-normal, 400);
+}
+
+/*
+ * Label (the plan picker's "Select your plan:")
+ */
+
+.headerLabel {
+  color: var(--brand-color-text-muted);
+  font-family: var(--brand-body-fontFamily);
+  font-size: var(--brand-text-size-100, 0.875rem);
+  font-weight: var(--base-text-weight-normal, 400);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/*
+ * Dropdown menu
+ */
+
+// Brand's menu is not portalled — it renders inside this wrapper — so the surface can
+// be styled from here instead of through Brand's hashed module class names.
+.headerPicker [role="menu"] {
+  // The design's menu is 256px. Long titles such as "Enterprise Server 3.22" grow it
+  // past that rather than clipping.
+  min-width: 16rem;
+  // Matches Brand's size="small" default; restated so the design's 8px does not hinge
+  // on the size prop.
+  padding: var(--base-size-8, 0.5rem);
+  // Brand defaults to border-muted and a 16px (borderRadius-large) corner.
+  border-color: var(--brand-color-border-subtle);
+  border-radius: var(--base-size-6, 0.375rem);
+}
+
+// Below Brand's 1012px breakpoint the pickers move inside SubdomainNavBar's narrow
+// menu, which is a scrolling panel capped at the viewport height. Brand's menu is
+// absolutely positioned and, unlike the @primer/react one it replaced, is not
+// portalled — so there it renders outside the panel's box and is cut off mid-list.
+// Letting it flow inline under the trigger makes the panel itself the scroll surface,
+// which keeps every row reachable. Brand writes the anchored offsets as inline
+// styles, so only `inset` needs `!important` to be overridden.
+@media not all and (min-width: 63.25rem) {
+  .headerPicker {
+    align-items: flex-start;
+  }
+
+  // The menu now adds height below the trigger, so centring would drag the label down
+  // with it. This keeps it on the trigger's own text baseline.
+  .headerPicker .headerLabel {
+    padding-block: calc(
+      var(--base-size-8, 0.5rem) + var(--brand-borderWidth-thin, 1px)
+    );
+  }
+
+  // Only once the menu is open, give its column the panel's full width, so a menu
+  // sized to its longest row cannot run past the viewport's right edge. The closed
+  // row keeps the label beside the trigger.
+  .headerPicker:has([role="menu"]) {
+    flex-wrap: wrap;
+  }
+
+  .headerPicker > div:has([role="menu"]) {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .headerPicker [role="menu"] {
+    position: static;
+    inset: auto !important;
+    width: 100%;
+    min-width: 0;
+    // The panel scrolls instead, so the menu does not need its own scroll area.
+    max-height: none;
+    margin-block-start: var(--base-size-8, 0.5rem);
+  }
+}
+
+.headerPicker .headerMenuItem {
+  // Anchor for the trailing selected dot.
+  position: relative;
+  grid-template-columns: 1fr;
+  grid-template-areas: "text";
+  align-items: center;
+  min-height: var(--base-size-32, 2rem);
+  padding-block: 0;
+  padding-inline: var(--base-size-12, 0.75rem);
+  // Reserve the indicator column: a 12px inset, the 16px dot, and a 12px gap before
+  // the label. This also replaces the 48px right padding Brand adds to the rows of a
+  // single-selection menu.
+  padding-inline-end: calc(
+    var(--base-size-12, 0.75rem) * 2 + var(--base-size-16, 1rem)
+  );
+  border-radius: var(--base-size-6, 0.375rem);
+}
+
+// Brand renders a leading check-icon slot on every row of a single-selection menu; the
+// design marks the selected row with a trailing dot instead. The slot is the row's
+// first span and exists only when a text span follows it, which keeps this structural
+// rather than dependent on Brand's hashed class names.
+.headerPicker .headerMenuItem > span:first-child:not(:last-child) {
+  display: none;
+}
+
+// Brand's hover token resolves to the same grey the design uses for the *selected*
+// row, so hover is repointed at canvas-subtle and the selected row keeps its own fill
+// while hovered. Both selectors clear the five class-level units in Brand's own
+// `:hover:not(...)` rule.
+.headerPicker
+  .headerMenuItem:hover:not(.headerMenuItemSelected):not(
+    [aria-disabled="true"]
+  ) {
+  background-color: var(--brand-color-canvas-subtle);
+}
+
+.headerPicker .headerMenuItem.headerMenuItemSelected,
+.headerPicker
+  .headerMenuItem.headerMenuItemSelected:hover:not([aria-disabled="true"]) {
+  background-color: var(--brand-color-border-muted);
+}
+
+.headerMenuItemLabel {
+  display: inline-flex;
+  align-items: center;
+  color: var(--brand-color-text-default);
+  font-size: var(--brand-text-size-100, 0.875rem);
+  font-weight: var(--base-text-weight-medium, 500);
+  // Design: 0.14px at 14px. Brand's --brand-text-letterSpacing-100 is 0.21px.
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.headerMenuItemDot {
+  position: absolute;
+  inset-inline-end: var(--base-size-12, 0.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  // Octicons fill with currentColor. green-6 in light, green-3 in dark.
+  color: var(--brand-color-success-fg);
+}
+
+// Brand has no divider child, so the plan menu draws the rule that separates the
+// versions from the two navigation rows itself. A plain <li> (no
+// `.ActionMenu__item`) is a block box, so the border spans the menu's inner width.
+.headerPicker .headerMenuSeparator {
+  height: 0;
+  margin-block: var(--base-size-8, 0.5rem);
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--brand-borderWidth-thin, 1px) solid
+    var(--brand-color-border-subtle);
+}

@@ -41,8 +41,17 @@ Primer React uses slightly different terminology than the underlying CSS or the 
 
 Key properties:
 - **Cache-safe**: The script is identical for every request, so the HTML stays shared-cacheable in the CDN. The theme is never server-rendered from the cookie (that would vary per user and poison the cache).
+- **`auto` is resolved**: `data-color-mode` is always a concrete `light` or `dark`, kept in step by a `matchMedia` listener; the raw preference stays on `data-color-mode-preference` for analytics.
 - **No drift**: Its validation allowlists and defaults are derived from the same `CssColorMode`, `SupportedTheme`, and `defaultCSSTheme` exports used by `useTheme`. A test in `tests/color-mode-script.ts` runs the script against a fake `document` and asserts parity with `getCssTheme`.
 - **CSP**: Because the script is inline, `src/frame/middleware/helmet.ts` adds its `sha256` hash to the `script-src` directive. The hash is computed from the exact script string at startup, so it never needs manual maintenance, and a hash (not a nonce) keeps the response cacheable.
+
+### Why `auto` is resolved before paint
+
+`@primer/react-brand` has no `auto` color mode: it declares its palette on `:root, [data-color-mode="light"]` and `[data-color-mode="dark"]`, with no `prefers-color-scheme` at-rules (`@primer/primitives` has them, so it is unaffected). That makes `<html data-color-mode="auto">` a _light_ root, and a nested wrapper in a different mode re-declares the whole palette for its subtree. Resolving once, at the root, avoids both: `BrandThemeProvider` mirrors `<html>` and declares no mode of its own.
+
+The resolved mode comes from the **effective theme**, not the raw `color_mode`, because github.com's day and night themes are chosen independently — `light` mode can itself be a dark theme.
+
+This is a workaround for a gap in Brand and belongs upstream; until it lands, every consumer has to hand Brand a concrete mode.
 
 ## Setup & Usage
 
@@ -71,7 +80,7 @@ This hook is primarily used at the root of the application (e.g., in `src/frame/
 
 ## Ownership
 
-- **Team**: `@github/docs-engineering`
+- `#technical-content`
 
 ## Current State & Known Issues
 

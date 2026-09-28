@@ -16,11 +16,11 @@ children:
   - /autopilot
   - /fleet
   - /research
-  - /chronicle
   - /rubber-duck
   - /lsp-servers
   - /about-cli-extensions
   - /tool-search
+  - /understanding-local-sandboxing
 contentType: concepts
 docsTeamMetrics:
   - copilot-cli

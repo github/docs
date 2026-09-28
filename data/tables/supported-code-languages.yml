@@ -41,7 +41,7 @@ features:
 languages:
   C:
     copilot: 'supported'
-    codeNavigation: 'not-supported'
+    codeNavigation: 'supported'
     codeScanning: 'supported'
     depGraph: 'not-supported'
     depUpdates: 'not-supported'
@@ -49,7 +49,7 @@ languages:
     packages: 'not-supported'
   C++:
     copilot: 'supported'
-    codeNavigation: 'not-supported'
+    codeNavigation: 'supported'
     codeScanning: 'supported'
     depGraph: 'not-supported'
     depUpdates: 'not-supported'
@@ -129,7 +129,7 @@ languages:
     packages: 'not-supported'
   Scala:
     copilot: 'supported'
-    codeNavigation: 'not-supported'
+    codeNavigation: 'supported'
     codeScanning: 'third-party [^1]'
     depGraph: 'Maven'
     depUpdates: 'Maven, Gradle'

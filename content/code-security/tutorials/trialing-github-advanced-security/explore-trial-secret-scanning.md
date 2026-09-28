@@ -26,7 +26,7 @@ This guide assumes that you have planned and started a trial of {% data variable
 * Enable validity checks for exposed tokens.{% ifversion security-campaigns-secrets %}
 * Create security campaigns where security specialists and developers can collaborate to effectively reduce technical debt.{% endif %}
 
-To find out how to run a free secret risk assessment, see [Generating an initial secret risk assessment](/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/viewing-your-security-risk-assessment-reports#generating-an-initial-secret-risk-assessment){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+To find out how to run a free secret risk assessment, see [Generating an initial secret risk assessment](/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk#generating-an-initial-secret-risk-assessment){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 If you have already scanned the code in your organization for leaked secrets using the free secret risk assessment, you will also want to explore that data more completely using the additional views on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the organization.
 

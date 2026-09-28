@@ -7,8 +7,7 @@ import { getWebhooks } from '../lib/index'
 describe('webhooks events and payloads', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
-  // This test ensures that the page component and the Markdown file are
-  // in sync. It also checks that all expected items are present.
+  // Keeps the page component, Markdown, and generated webhook data in sync.
   test('loads webhook schema data for all versions', async () => {
     for (const version in allVersions) {
       const webhooks = await getWebhooks(version)
@@ -27,8 +26,6 @@ describe('webhooks events and payloads', () => {
   })
 
   test('Non-GHES versions do not load GHES only webhook', async () => {
-    // available since 3.4, only in GHES (technically also GHAE which is based
-    // off of GHES)
     const ghesOnlyWebhook = 'cache_sync'
 
     for (const version in allVersions) {
@@ -52,24 +49,18 @@ describe('webhooks events and payloads', () => {
     const $root = $(rootSelector)
     expect($root.length).toBe(1)
 
-    // on the webhooks page the lead is separate from the article body (unlike
-    // the REST pages for example)
+    // Webhooks pages render the lead outside the article body for search extraction.
     const leadSelector = '[data-search=lead] p'
     const $lead = $(leadSelector)
     expect($lead.length).toBe(1)
   })
 
-  // All webhook types don't yet have examples in the schema.
+  // Not all webhook types have examples in the schema yet.
   describe.skip('rendering', () => {
     test('every webhook event has at least one payload example', async () => {
       const versions = Object.values(allVersions).map((value) => value.version)
 
-      // For all versions, check that the webhook events and payloads page
-      // has at least one payload example for each event. Payload examples
-      // start with the id `webhook-payload-example` and have a sibling div
-      // with the class `height-constrained-code-block`. The sibling is
-      // usually but not always the next sibling element, which is why
-      // `nextUntil` is used.
+      // nextUntil finds payload code blocks in later siblings, not only the next one.
       for (const version of versions) {
         const page = `/${version}/webhooks-and-events/webhooks/webhook-events-and-payloads`
         const $ = await getDOM(page)

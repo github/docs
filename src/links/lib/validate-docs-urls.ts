@@ -31,9 +31,9 @@ export type Check = {
   fragment: string | undefined
   fragmentFound?: boolean
   fragmentCandidates?: string[]
-  // If the URL lead to a redirect, this is its URL (starting with /en/...)
+  // If the URL led to a redirect, this is its URL (starting with /en/...)
   redirectPageURL?: string
-  // If the URL lead to a redirect, this is what the new URL should be
+  // If the URL led to a redirect, this is what the new URL should be
   // (for example /the/new/pathname#my-fragment)
   redirect?: string
 }
@@ -109,7 +109,7 @@ export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = fal
 
 function isEnterpriseCloudRedirectOnly(originalUrl: string, redirectUrl: string) {
   // A lot of URLs don't work in free-pro-team so all they do is redirect
-  // from {OLD-URL} to "/enterprise-count@latest/{OLD-URL}"
+  // from {OLD-URL} to "/enterprise-cloud@latest/{OLD-URL}"
   return redirectUrl.replace('/enterprise-cloud@latest', '') === originalUrl
 }
 

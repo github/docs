@@ -16,8 +16,13 @@ contentType: reference
 
 ## Reusable workflows
 
-Reference information for reusable workflows.
+This article provides reference information for reusable workflows and workflow templates, including access rules, limitations, supported keywords, and runner behavior.
 
+{% ifversion copilot %}
+
+You can centralize deterministic, repeatable logic in reusable workflows, and use {% data variables.copilot.agentic_workflows_short %} for tasks that require contextual judgment about your repository's content such as analysis, summaries, and recommendations. For more information, see [AUTOTITLE](/copilot/how-tos/github-agentic-workflows/creating-github-agentic-workflows).
+
+{% endif %}
 ### Access to reusable workflows
 
 A reusable workflow can be used by another workflow if any of the following is true:
@@ -76,6 +81,9 @@ When you call a reusable workflow, you can only use the following keywords in th
 * [`jobs.<job_id>.if`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idif)
 * [`jobs.<job_id>.concurrency`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idconcurrency)
 * [`jobs.<job_id>.permissions`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idpermissions)
+{%- ifversion actions-cache-mode %}
+* [`jobs.<job_id>.cache-mode`](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idcache-mode)
+{%- endif %}
 
   > [!NOTE]
   >
@@ -244,3 +252,4 @@ jobs:
 ```
 
 {% endif %}
+

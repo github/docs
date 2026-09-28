@@ -339,6 +339,8 @@ runs:
     - uses: actions/checkout@main
     # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA
     - uses: actions/aws/ec2@main
+    # References an action in the same repository at the running commit
+    - uses: $/.github/actions/my-action
     # References a local action
     - uses: ./.github/actions/my-action
     # References a docker public registry action
@@ -346,6 +348,10 @@ runs:
     # Reference a docker image published on docker hub
     - uses: docker://alpine:3.8
 ```
+
+To reference an action stored in the same repository as your composite action, use the `$/` self repository reference, as shown in the `$/.github/actions/my-action` example above. It resolves to that repository at the running commit, so you do not need to check out the repository first, and it must not include an `@{ref}` suffix. The `$/` syntax is not available in {% data variables.product.prodname_ghe_server %}.
+
+For a comparison of `$/`, `{owner}/{repo}@{ref}`, and `./`, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#example-using-an-action-in-the-same-repository-as-the-workflow-at-the-running-commit-recommended).
 
 #### `runs.steps[*].with`
 
@@ -393,7 +399,7 @@ runs:
 
 ### `runs.pre-entrypoint`
 
-**Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if-for-docker-container-actions).
 
 The runtime specified with the [`using`](#runsusing-for-docker-container-actions) syntax will execute this file.
 
@@ -406,6 +412,21 @@ runs:
   args:
     - 'bzz'
   pre-entrypoint: 'setup.sh'
+  entrypoint: 'main.sh'
+```
+
+### `runs.pre-if` for Docker container actions
+
+**Optional** Allows you to define conditions for the `pre-entrypoint:` action execution. The `pre-entrypoint:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`.
+
+In this example, the `pre-entrypoint:` action runs only on Linux-based runners:
+
+```yaml
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  pre-entrypoint: 'setup.sh'
+  pre-if: runner.os == 'linux'
   entrypoint: 'main.sh'
 ```
 

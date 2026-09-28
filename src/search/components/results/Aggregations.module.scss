@@ -1,3 +1,100 @@
-.aggregations label {
-  font-weight: var(--base-text-weight-semibold, 600);
+@import "@primer/react-brand/lib/design-tokens/scss/tokens/functional/size/breakpoints.scss";
+
+// Below Brand medium this is the Show filters disclosure body. Side and bottom borders
+// with no top border make it read as one box with the disclosure bar above it.
+// From medium up, the rail's divider is the single border, and this panel bounds its
+// height so the option list scrolls while the heading and Clear all stay pinned.
+.aggregations {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background-color: var(--brand-color-canvas-default);
+  border: var(--brand-borderWidth-thin) solid var(--brand-color-border-subtle);
+  border-top: 0;
+
+  @media (min-width: $brand-breakpoint-medium) {
+    border: 0;
+    // min-height: 0 lets this shrink inside the rail column so the list can scroll.
+    min-height: 0;
+    overflow: hidden;
+  }
+}
+
+.heading {
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: var(--base-text-weight-medium);
+  line-height: 1.4;
+  color: var(--brand-color-text-default);
+}
+
+.group {
+  // Brand ControlGroup stacks children with an 8px gap, but the design uses 12px.
+  // This class and ControlGroup__container share the fieldset, so descendant selectors miss.
+  gap: 12px !important;
+
+  // From medium up, the option list scrolls while the card heading and Clear all stay pinned.
+  // overflow-y makes overflow-x compute to auto, clipping the checkbox focus ring.
+  // Negative inline margin moves the clip edge out while padding keeps content in place.
+  padding-inline: 4px;
+  margin-inline: -4px;
+
+  @media (min-width: $brand-breakpoint-medium) {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
+
+.option {
+  // FormControl lays a checkbox out as auto 1fr with an 8px gap, but the design uses 12px.
+  gap: 12px !important;
+
+  // Center the box against its label. The label's line box is taller than the text
+  // itself, so without this the checkbox settles low and the row reads as misaligned.
+  align-items: center !important;
+
+  // The design treats each option as one button, so the row and checkbox need pointer cursors.
+  // Brand leaves the input and wrapper on the default cursor even though clicking works.
+  cursor: pointer;
+
+  input,
+  :global([class*="Checkbox-wrapper"]) {
+    cursor: pointer;
+  }
+}
+
+.optionLabel {
+  // Figma Action/Large: 16px Medium, line-height 16px, letter-spacing 0.16px.
+  // Brand checkbox labels use 14px text, 24px line-height, and 0.21px tracking.
+  // Size, leading, and tracking need pinning to the design.
+  font-size: 1rem !important;
+  line-height: 16px !important;
+  letter-spacing: 0.16px !important;
+  color: var(--brand-color-text-muted) !important;
+}
+
+// Selected facets use the default text color, matching result-title search matches.
+.optionLabelSelected {
+  color: var(--brand-color-text-default) !important;
+}
+
+.count {
+  // Figma: 10px Medium, line-height 1.5. The design count sits beside the checkbox
+  // and label group in an items-start row, so it rides at the top of the line.
+  // This markup keeps the count inline for the accessible name, like Account and profile (2).
+  // super on a 10px run lifts it without growing the 16px line box.
+  margin-left: 2px;
+  font-size: 10px;
+  font-weight: var(--base-text-weight-medium);
+  line-height: 1;
+  letter-spacing: normal;
+  vertical-align: super;
+  color: var(--brand-color-text-muted);
+}
+
+.clear {
+  align-self: flex-start;
 }

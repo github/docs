@@ -3,7 +3,7 @@ import type { JSX } from 'react'
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime'
 import { toJsxRuntime } from 'hast-util-to-jsx-runtime'
 import type { Root as HastRoot } from 'hast'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { markdownComponents } from './markdownComponents'
 import { renderHTMLString } from '@/frame/components/ui/RenderedHTML/render-html-string'

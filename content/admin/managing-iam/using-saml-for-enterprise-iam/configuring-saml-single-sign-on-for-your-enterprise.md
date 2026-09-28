@@ -148,6 +148,14 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 
 {% endif %}
 
+{% ifversion proof-of-presence %}
+
+## Enabling Proof of Presence
+
+After you configure SAML SSO, your enterprise can use Proof of Presence to require reauthentication through your IdP before high-impact actions. {% data reusables.enterprise-accounts.proof-of-presence-supported-idps %} For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-proof-of-presence).
+
+{% endif %}
+
 ## Further reading
 
 {%- ifversion ghec %}

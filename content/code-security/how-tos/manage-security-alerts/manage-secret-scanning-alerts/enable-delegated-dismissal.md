@@ -16,7 +16,10 @@ category:
   - Protect your secrets
 ---
 
-{% data reusables.security.delegated-alert-dismissal-capacity %}
+>[!NOTE]
+> {% data reusables.security.delegated-alert-dismissal-capacity %}
+> 
+> Alert dismissal requests expire after 1 week. After this, dismissal requests must be resubmitted.
 
 ## Configuring delegated dismissal for a repository
 

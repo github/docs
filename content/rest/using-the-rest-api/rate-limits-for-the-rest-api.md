@@ -96,7 +96,9 @@ Header name | Description
 `x-ratelimit-reset` | The time at which the current rate limit window resets, in UTC epoch seconds
 `x-ratelimit-resource` | The rate limit resource that the request counted against. For more information about the different resources, see [AUTOTITLE](/rest/rate-limit/rate-limit#get-rate-limit-status-for-the-authenticated-user).
 
-You can also call the `GET /rate_limit` endpoint to check your rate limit. Calling this endpoint does not count against your primary rate limit, but it can count against your secondary rate limit. See [AUTOTITLE](/rest/rate-limit/rate-limit). When possible, you should use the rate limit response headers instead of calling the API to check your rate limit.
+You can also call the `GET /rate_limit` endpoint to check your rate limit. Calling this endpoint does not count against your primary rate limit, but it can count against your secondary rate limit. See [AUTOTITLE](/rest/rate-limit/rate-limit).
+
+The `x-ratelimit-*` response headers are the authoritative source for your current rate limit status. Use them to pace and back off your requests. Use `GET /rate_limit` for a periodic overview of all resource families for the authenticated user, and treat the response headers as authoritative if the two disagree.
 
 There is not a way to check the status of your secondary rate limit.
 

@@ -49,7 +49,7 @@ As a first step, you want to make a complete inventory of your dependencies. The
 
 ### Automatic detection of vulnerabilities in pull requests
 
-The {% data variables.dependency-review.action_name %} enforces a dependency review on your pull requests, making it easy for you to see if a pull request will introduce a vulnerable version of a dependency to your repository. When a vulnerability is detected, the {% data variables.dependency-review.action_name %} can block the pull request from merging. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review#the-dependency-review-action).
+The {% data variables.dependency-review.action_name %} enforces a dependency review on your pull requests, making it easy for you to see if a pull request will introduce a vulnerable version of a dependency to your repository. When a vulnerability is detected, the {% data variables.dependency-review.action_name %} can block the pull request from merging. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-review#about-the-dependency-review-action).
 
 ### Assessment of exposure to risk from a vulnerable dependency
 

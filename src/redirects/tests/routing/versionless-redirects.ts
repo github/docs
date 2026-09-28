@@ -29,22 +29,17 @@ describe('versioned redirects', () => {
         `/enterprise-server@${latest}`,
       )}`
 
-      // Since we're using mock URLs, we test the redirect mapping logic
-      // rather than making actual HTTP requests that could fail when content moves
       expect(newPath).toBeDefined()
       expect(newPath).not.toBe(oldPath)
       expect(expectedRedirectPath).toMatch(/^\/en\//)
 
-      // Verify the path transformation logic works correctly
       if (newPath.includes('/enterprise-server@latest')) {
         expect(expectedRedirectPath).toContain(`/enterprise-server@${latest}`)
         expect(expectedRedirectPath).not.toContain('/enterprise-server@latest')
       }
 
-      // Ensure old paths are properly formatted (should not start with /en/)
       expect(oldPath).not.toMatch(/^\/en\//)
 
-      // Ensure new paths follow expected versioning patterns
       expect(newPath).toMatch(
         /^\/(enterprise-cloud@latest|enterprise-server@latest|admin|github|articles|billing|code-security|actions|packages|copilot|rest|webhooks|developers)/,
       )
@@ -54,16 +49,13 @@ describe('versioned redirects', () => {
   test('fixture file contains expected structure', () => {
     const redirectKeys = Object.keys(versionlessRedirects)
 
-    // Ensure we have some test data
     expect(redirectKeys.length).toBeGreaterThan(0)
 
-    // Verify all old paths are properly formatted
     for (const oldPath of redirectKeys) {
       expect(oldPath).toMatch(/^\/[a-z0-9-/]+$/)
       expect(oldPath).not.toMatch(/^\/en\//)
     }
 
-    // Verify all new paths have proper versioning
     for (const newPath of Object.values(versionlessRedirects)) {
       expect(newPath).toMatch(
         /^\/(enterprise-cloud@latest|enterprise-server@latest|admin|github|articles|billing|code-security|actions|packages|copilot|rest|webhooks|developers)/,

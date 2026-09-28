@@ -28,12 +28,18 @@ To add a billing manager, see:
 * [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization#inviting-a-billing-manager)
 * [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)
 
+{% ifversion enterprise-billing-github-app %}
+
+Enterprise owners can also grant a {% data variables.product.prodname_github_app %} the enterprise billing permission, so that an app can access enterprise billing data through the REST API without using a token that belongs to an individual. For more information, see [AUTOTITLE](/billing/tutorials/automate-usage-reporting).
+{% endif %}
+
 ## Organization owners
 
 You have full administrative access to your organization. You can:
 
 * View metered usage and budgets for your organization and its repositories.
 * Set budgets for the organization and its repositories.
+* Review requests from members for additional {% data variables.product.prodname_copilot_short %} budget.
 * Download CSV usage reports.
 * View promotions and discounts.
 * View spending for pre-purchased user licenses for {% data variables.product.prodname_AS %} based on your usage.
@@ -52,6 +58,7 @@ You can:
 * See enterprise usage, including costs for organizations and repositories.
 * Download CSV usage reports for products your enterprise is using.
 * Set budgets for your enterprise.
+* Review requests from members for additional {% data variables.product.prodname_copilot_short %} budget.
 * Create cost centers for all organizations within your enterprise.
 * View and manage user licenses.
 * Manage other billing settings, such as payment methods and billing contacts.

@@ -89,6 +89,12 @@ The `/pr` slash command has several subcommands that you can use to perform diff
 <td align="center">No</td>
 <td align="center">Yes</td>
 </tr>
+<tr>
+<td><code>/pr automerge</code></td>
+<td>Do the same as <code>/pr auto</code>, then merge the pull request once it is green. <a href="#automatically-merging-the-pull-request">Find out more</a></td>
+<td align="center">No</td>
+<td align="center">Yes</td>
+</tr>
 </tbody>
 </table>
 
@@ -141,6 +147,8 @@ To have {% data variables.product.prodname_copilot_short %} read and address rev
 ```
 
 {% data variables.product.prodname_copilot_short %} fetches all review comment threads on the pull request, determines what changes are requested, applies the changes to your codebase, and commits and pushes the fixes. Actionable code change requests are prioritized over conversational comments.
+
+For each thread it addresses, {% data variables.product.prodname_copilot_short %} replies within the thread on {% data variables.product.prodname_dotcom_the_website %} to explain the change, then marks the thread as resolved. Threads that need your input are answered but left unresolved.
 
 ## Resolving merge conflicts
 
@@ -201,13 +209,27 @@ To have {% data variables.product.prodname_copilot_short %} manage the entire pu
 /pr auto
 ```
 
-If no pull request exists for the current branch, {% data variables.product.prodname_copilot_short %} creates one first. It then loops through the fix phases—review feedback, conflicts, and CI—repeating until there are no more review comments, no conflicts, and all CI checks pass.
+If no pull request exists for the current branch, {% data variables.product.prodname_copilot_short %} creates one first. It then loops through the fix phases—review feedback, conflicts, and CI—repeating until there are no more review comments, no conflicts, and all CI checks pass. It does not merge the pull request.
+
+The loop runs as a self-paced schedule rather than as a single, continuous turn, doing one pass of work each time it runs and pausing between passes while CI settles. Use the `/every` slash command to check on the loop, or to stop it.
 
 You can append instructions to guide the pull request creation. For example:
 
 ```copilot copy
 /pr auto include migration notes in the description
 ```
+
+### Automatically merging the pull request
+
+`/pr auto` deliberately stops when the pull request is green. If you also want {% data variables.product.prodname_copilot_short %} to merge the pull request, enter:
+
+```copilot copy
+/pr automerge
+```
+
+This runs the same loop as `/pr auto`. Once the pull request is no longer a draft, has no unresolved requests for changes, and all required checks are passing, {% data variables.product.prodname_copilot_short %} enables auto-merge rather than merging the pull request itself. {% data variables.product.prodname_dotcom %} then completes the merge as soon as every remaining requirement is satisfied, including any required approvals and merge queue. {% data variables.product.prodname_copilot_short %} keeps the loop running—handling any further review feedback or check failures—until the pull request is merged or closed.
+
+You can use `/pr agentmerge` as an alias for `/pr automerge`.
 
 ## Further reading
 

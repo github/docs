@@ -54,7 +54,6 @@ export default function getEnglishHeadings(
   const englishHeadings = getHeadings(englishPage.markdown)
   if (!englishHeadings.length) return
 
-  // return a map from translation:English
   const headingMap: Record<string, string> = {}
   for (let i = 0; i < translatedHeadings.length; i++) {
     const k = translatedHeadings[i]

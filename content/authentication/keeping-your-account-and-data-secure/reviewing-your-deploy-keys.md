@@ -22,4 +22,4 @@ For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-
 
 ## Further reading
 
-* [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#organization-alerts-notification-options)
+* [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications)

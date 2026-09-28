@@ -6,12 +6,13 @@ redirect_from:
   - /github/copilot
   - /copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request
 introLinks:
-  overview: /copilot/get-started/what-is-github-copilot
-  quickstart: /copilot/get-started/quickstart
+  overview: /copilot/get-started/about-github-copilot
+  quickstart: /copilot/get-started/quickstart-for-using-github-copilot-on-github-com
 layout: discovery-landing
 heroImage: /assets/images/banner-images/hero-6
 versions:
   feature: copilot
+  ghes: '*'
 children:
   - /get-started
   - /concepts
@@ -19,6 +20,7 @@ children:
   - /reference
   - /tutorials
   - /responsible-use
+  - /copilot-on-ghes
 contentType: landing
 includedCategories:
   - Learn about Copilot

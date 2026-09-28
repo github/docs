@@ -56,14 +56,11 @@ export function createTranslationFallbackComment(error: Error, property: string)
   const errorType = error.name || 'UnknownError'
   const errorDetails: string[] = []
 
-  // Add basic error information
   errorDetails.push(`TRANSLATION_FALLBACK`)
   errorDetails.push(`prop=${property}`)
   errorDetails.push(`type=${errorType}`)
 
-  // Extract detailed error information based on error type
   if (isLiquidError(error)) {
-    // For Liquid errors, we can extract rich debugging information
     if (error.token) {
       if (error.token.file) {
         errorDetails.push(`file=${error.token.file}`)
@@ -75,13 +72,10 @@ export function createTranslationFallbackComment(error: Error, property: string)
       }
     }
 
-    // Include the original error message if available
     const originalMessage = error.originalError?.message || error.message
     if (originalMessage) {
-      // Clean up the message but keep useful information
       let cleanMessage = originalMessage.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim()
 
-      // Limit message length to keep comment manageable
       if (cleanMessage.length > 200) {
         cleanMessage = `${cleanMessage.substring(0, 200)}...`
       }
@@ -89,7 +83,6 @@ export function createTranslationFallbackComment(error: Error, property: string)
       errorDetails.push(`msg="${cleanMessage.replace(/"/g, "'")}"`)
     }
   } else if (isAutotitleError(error)) {
-    // For AUTOTITLE errors, include the error message
     if (error.message) {
       const cleanMessage = error.message
         .replace(/\n/g, ' ')
@@ -99,7 +92,6 @@ export function createTranslationFallbackComment(error: Error, property: string)
       errorDetails.push(`msg="${cleanMessage.replace(/"/g, "'")}"`)
     }
   } else if (isEmptyTitleError(error)) {
-    // For empty title errors, include the property info
     errorDetails.push(`msg="Content became empty after rendering"`)
   }
 
@@ -148,7 +140,6 @@ export async function renderContentWithFallback(
       // like `data.ts` that uses `environment.scope.currentLanguage`
       const enContext = Object.assign({}, context, { currentLanguage: 'en' })
 
-      // Render the English fallback content
       const fallbackContent = await renderContent(englishTemplate, enContext, options)
 
       // Add HTML comment with error details for non-English languages

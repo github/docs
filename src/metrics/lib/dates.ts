@@ -10,13 +10,11 @@ export interface DateRange {
   friendlyRange: string
 }
 
-// Default to 30 days ago if a range option is not provided
+// `range` is a number of days.
 export function getDates(range: string | number = '30'): DateRange {
-  // Get current datetime in ISO format
   const today = new Date()
   const todayISO = today.toISOString()
 
-  // Get datetime from N days ago in ISO format
   const daysAgo = getDaysAgo(Number(range))
   const daysAgoISO = daysAgo.toISOString()
 

@@ -48,7 +48,7 @@ If you're interested in creating an app for {% data variables.product.prodname_m
 
 When you have finished creating your app, you can share it with other users by publishing it to {% data variables.product.prodname_marketplace %}. In summary, the process is:
 
-1. Review your app carefully to ensure that it will behave as expected in other repositories and that it follows best practice guidelines. For more information, see [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps-on-github-marketplace) and [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app#best-practice-for-customer-experience).
+1. Review your app carefully to ensure that it will behave as expected in other repositories and that it follows best practice guidelines. For more information, see [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps-on-github-marketplace) and [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app).
 
 1. Add webhook events to the app to track user billing requests. For more information about the {% data variables.product.prodname_marketplace %} API, webhook events, and billing requests, see [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app).
 

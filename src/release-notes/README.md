@@ -60,7 +60,7 @@ The files in `data/release-notes` are the destination for this external data.
 
 ## Ownership
 
-- **Team**: `@github/docs-engineering`
+- `#technical-content`
 - **Content Owners**: The Writers and Release Managers responsible for the GHES release process.
 
 ## Current State & Known Issues

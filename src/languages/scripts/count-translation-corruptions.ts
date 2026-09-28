@@ -206,7 +206,7 @@ async function run(
   // version it surfaced under (rather than N near-duplicate entries).
   const byKey = new Map<string, CorruptionEntry & { versionSet: Set<string> }>()
 
-  // Suppress console.warn during rendering — the {% data %} tag warns
+  // Suppress console.warn during rendering. The {% data %} tag warns
   // when it can't find translated data, which is expected noise.
   const originalWarn = console.warn
   console.warn = () => {}
@@ -242,9 +242,9 @@ async function run(
     for (const page of site.pageList) {
       if (page.languageCode !== languageCode) continue
 
-      // Only render under versions the page is actually served in (intersected
-      // with the requested set) — a page is never scraped under a version it
-      // doesn't apply to, so corruptions there can't break indexing.
+      // Only render under versions the page is actually served in, intersected
+      // with the requested set. A page is never scraped under a version it does
+      // not apply to, so corruptions there cannot break indexing.
       const pageVersions = versions.filter((v) => page.applicableVersions.includes(v))
       if (!pageVersions.length) continue
 
@@ -280,8 +280,8 @@ async function run(
           relativePath,
         })
       } catch (error) {
-        // A missing translated file (ENOENT) just means this language hasn't
-        // translated this reusable yet — skip it silently. Any other error (e.g.
+        // A missing translated file (ENOENT) just means this language has not
+        // translated this reusable yet, so skip it silently. Any other error (e.g.
         // a malformed reusable that breaks correctTranslatedContentStrings) is a
         // real corruption: record it and keep going rather than crashing the run.
         if (error instanceof Error) {

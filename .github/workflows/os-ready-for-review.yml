@@ -22,23 +22,18 @@ jobs:
       - name: Check out repo content
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-
       - name: Check if this run was triggered by a member of the docs team
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: triggered-by-member
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
+            // Team is addressed by numeric ID (org github = 9919, team docs = 325922)
+            // because IDs survive team renames and slugs do not.
             const teamMembers = await github.request(
-              `/orgs/github/teams/docs/members?per_page=100`
+              `/organizations/9919/team/325922/members?per_page=100`
             )
             const logins = teamMembers.data.map(member => member.login)
             if (logins.includes(triggerer_login)) {
@@ -54,20 +49,14 @@ jobs:
           echo Aborting. This workflow must be triggered by a member of the docs team.
           exit 1
 
-      - name: Setup Node.js
-        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
-        with:
-          node-version-file: 'package.json'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - name: Set up Node and dependencies
+        uses: ./.github/actions/node-npm-setup
 
       - name: Run script
         run: |
           npm run ready-for-docs-review
         env:
-          TOKEN: ${{ steps.app-token.outputs.token }}
+          TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           ITEM_NODE_ID: ${{ github.event.pull_request.node_id || github.event.issue.node_id }}

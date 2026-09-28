@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { allVersions } from '@/versions/lib/all-versions'
 import { resolveRequestedVersions } from '@/languages/scripts/count-translation-corruptions'
 
-// Pick a real GHES key at runtime rather than hard-coding one — allVersions
+// Pick a real GHES key at runtime rather than hard-coding one. allVersions
 // only contains currently-supported releases, so a literal like
 // `enterprise-server@3.16` would start failing once it rolls off support.
 const someGhesVersion = Object.keys(allVersions).find((v) => v.startsWith('enterprise-server@'))!
@@ -28,7 +28,7 @@ describe('resolveRequestedVersions', () => {
   })
 
   test('rejects versions that are not real allVersions keys', () => {
-    // `enterprise-server@latest` is a common mistake — it is not a real key.
+    // `enterprise-server@latest` is a common mistake. It is not a real key.
     expect(() => resolveRequestedVersions('enterprise-server@latest')).toThrow(
       /Invalid version\(s\): enterprise-server@latest/,
     )

@@ -1,8 +1,9 @@
-import httpStatusCodes from 'http-status-code'
+import { STATUS_CODES } from 'node:http'
+
 import { get, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
-import mergeAllOf from 'json-schema-merge-allof'
 
+import { mergeAllOf } from '@/rest/scripts/utils/merge-all-of'
 import { renderContent } from './render-content'
 import getCodeSamples from './create-rest-examples'
 import operationSchema from './operation-schema'
@@ -131,7 +132,7 @@ export default class Operation {
         responseKeys.map(async (responseCode) => {
           const response = responses[responseCode]
           const httpStatusCode = responseCode
-          const httpStatusMessage = httpStatusCodes.getMessage(Number(responseCode), 'HTTP/2')
+          const httpStatusMessage = STATUS_CODES[Number(responseCode)] || 'Unknown'
           // The OpenAPI should be updated to provide better descriptions, but
           // until then, we can catch some known generic descriptions and replace
           // them with the default http status message.
@@ -187,8 +188,7 @@ export default class Operation {
     // Operation Id: markdown/render-raw
     const contentType = Object.keys(this.#operation.requestBody.content)[0]
     const schema = get(this.#operation, `requestBody.content.${contentType}.schema`, {})
-    // Merges any instances of allOf in the schema using a deep merge
-    const mergedAllofSchema = mergeAllOf(schema as Parameters<typeof mergeAllOf>[0])
+    const mergedAllofSchema = mergeAllOf(schema)
     try {
       this.bodyParameters = isPlainObject(schema)
         ? await getBodyParams(mergedAllofSchema as Parameters<typeof getBodyParams>[0], true)

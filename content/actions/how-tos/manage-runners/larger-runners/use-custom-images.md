@@ -39,7 +39,7 @@ To create a custom image, you must first set up an image-generation runner. When
 
 1. Create a {% data variables.actions.hosted_runner %}:
    * For organizations, see [Adding a larger runner to an organization](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-organization).
-   * For enterprises, see [Adding a larger runner to an enterprise](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-enterprise).
+   * For enterprises, see [Adding a larger runner to an enterprise](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-enterprise).
 1. When configuring the runner, select the following configurations for your image-generation runner:
    * **Platform**: Select a supported platform that matches the platform of the image you plan to create (Linux x64, Linux ARM64, or Windows x64).
    * **Image**: Select an image to build on, then enable the checkbox **Enable this runner to generate custom images**.
@@ -168,7 +168,7 @@ Once your custom image is ready, you can install it on a new {% data variables.a
 
 1. Follow the steps for creating a {% data variables.actions.hosted_runner %}:
    * For organizations, see [Adding a larger runner to an organization](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-organization).
-   * For enterprises, see [Adding a larger runner to an enterprise](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-enterprise).
+   * For enterprises, see [Adding a larger runner to an enterprise](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}actions/how-tos/manage-runners/larger-runners/manage-larger-runners#adding-a-larger-runner-to-an-enterprise).
 1. When configuring the runner:
    * **Platform**: Select the same platform that you used to generate the image (Linux x64, Linux ARM64, or Windows x64).
    * **Image**: Select the **Custom** tab, then choose your custom image from the list.

@@ -7,8 +7,6 @@ import {
 } from '@/ghes-releases/scripts/notify-release-pms'
 import type { SourceNote } from '@/ghes-releases/scripts/notify-release-pms'
 
-// ─── parseSourceNotes ────────────────────────────────────────────────────────
-
 describe('parseSourceNotes', () => {
   test('extracts issue URLs from YAML comments', () => {
     const content = `date: '2026-04-01'
@@ -67,8 +65,6 @@ sections:
   })
 })
 
-// ─── buildMarker ─────────────────────────────────────────────────────────────
-
 describe('buildMarker', () => {
   test('produces a stable HTML comment marker for RC', () => {
     expect(buildMarker('3.21', 'rc')).toBe('<!-- ghes-release-note-review: 3.21-rc -->')
@@ -82,8 +78,6 @@ describe('buildMarker', () => {
     expect(buildMarker('3.21', 'rc')).not.toBe(buildMarker('3.21', 'ga'))
   })
 })
-
-// ─── buildCommentBody ────────────────────────────────────────────────────────
 
 describe('buildCommentBody', () => {
   test('includes the marker in the comment body', () => {
@@ -104,8 +98,6 @@ describe('buildCommentBody', () => {
     expect(body).toContain('https://github.com/github/docs-internal/pull/12345/files')
   })
 })
-
-// ─── Duplicate-prevention logic ──────────────────────────────────────────────
 
 describe('duplicate-prevention filtering', () => {
   // This tests the core filtering logic used in the CLI action:

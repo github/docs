@@ -1,0 +1,5 @@
+# Allows the CodeQL Action to use the `github-codeql-config-file` property.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.23'

@@ -6,7 +6,7 @@ redirect_from:
   - /articles/working-with-forks
   - /github/collaborating-with-pull-requests/working-with-forks
 shortTitle: Work with forks
-intro: 'Fork repositories, sync changes, and manage pull request branches effectively using forks.'
+intro: 'Fork repositories, sync changes, and manage pull requests effectively when using forks.'
 versions:
   fpt: '*'
   ghes: '*'

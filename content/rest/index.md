@@ -85,7 +85,6 @@ children:
   - /meta
   - /metrics
   - /migrations
-  - /models
   - /oauth-authorizations
   - /orgs
   - /packages

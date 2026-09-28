@@ -12,9 +12,8 @@ sidebarLink:
   href: /copilot/how-tos/copilot-cli
 introLinks:
   overview: /copilot/concepts/agents/copilot-cli/about-copilot-cli
-  quickstart: /copilot/how-tos/copilot-cli/cli-getting-started
+  quickstart: /copilot/get-started/cli-quickstart
 children:
-  - /cli-getting-started
   - /cli-best-practices
   - /set-up-copilot-cli
   - /use-copilot-cli
@@ -33,7 +32,6 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/about-remote-control
   - /content/copilot/concepts/agents/copilot-cli/autopilot
   - /content/copilot/concepts/agents/copilot-cli/cancel-and-roll-back
-  - /content/copilot/concepts/agents/copilot-cli/chronicle
   - /content/copilot/concepts/agents/copilot-cli/comparing-cli-features
   - /content/copilot/concepts/agents/copilot-cli/context-management
   - /content/copilot/concepts/agents/copilot-cli/tool-search
@@ -46,6 +44,7 @@ children:
   - /content/copilot/reference/copilot-cli-reference/cli-command-reference
   - /content/copilot/reference/copilot-cli-reference/cli-plugin-reference
   - /content/copilot/reference/copilot-cli-reference/cli-programmatic-reference
+  - /content/copilot/concepts/security-governance-and-network-settings/session-data
   - /content/copilot/reference/hooks-reference
   - /content/copilot/responsible-use/agents
   - /content/copilot/tutorials/copilot-cli-hooks

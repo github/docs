@@ -101,10 +101,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 
 * **Scope:** Source, history, and metadata
 * **Tooling:** {% data variables.product.prodname_importer_proper_name %}
-* **More information:** [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
-* **Caveats:**
-  * If you want to migrate GitLab repositories to GitHub using {% data variables.product.prodname_importer_proper_name %}, please contact our {% data variables.product.prodname_expert_services %} team.
-  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-githubcom %}
+* **More information:** [AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer/migrate-from-gitlab)
 
 ### Any Git repository to {% data variables.product.prodname_dotcom_the_website %}
 
@@ -233,10 +230,8 @@ Follow a link below to review the scope and tooling for your migration to {% dat
 ### GitLab to {% data variables.enterprise.data_residency_site %}
 
 * **Scope:** Source, history, and metadata
-* **Tooling:** Contact {% data variables.product.prodname_expert_services %}
-* **More information:** [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
-* **Caveats:**
-  * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghecom %}
+* **Tooling:** {% data variables.product.prodname_importer_proper_name %}
+* **More information:** [AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer/migrate-from-gitlab)
 
 ### Any Git repository to {% data variables.enterprise.data_residency_site %}
 

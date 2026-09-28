@@ -61,7 +61,6 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
 
     updateShouldShow()
 
-    // Event listener to update when controlGroupOverride is called
     window.addEventListener('controlGroupOverrideChanged', updateShouldShow)
 
     return () => {

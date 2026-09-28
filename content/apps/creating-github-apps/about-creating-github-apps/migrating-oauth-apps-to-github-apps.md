@@ -25,7 +25,7 @@ category:
 * Scalable rate limits
 * Built-in webhooks
 
-For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps#using-a-github-app-instead-of-an-oauth-app).
+For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps).
 
 ## Converting an {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}
 

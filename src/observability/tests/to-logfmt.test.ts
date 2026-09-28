@@ -199,7 +199,6 @@ describe('toLogfmt', () => {
 
     it('should handle nested object with empty nested object', () => {
       const data = { config: {} }
-      // Empty nested objects should not produce any keys
       expect(toLogfmt(data)).toBe('')
     })
 
@@ -207,7 +206,6 @@ describe('toLogfmt', () => {
       const obj: Record<string, unknown> = { name: 'test' }
       obj.self = obj
 
-      // The circular reference should be converted to a string representation
       const result = toLogfmt(obj)
       expect(result).toContain('name=test')
       expect(result).toContain('self=[Circular]') // Our implementation marks circular refs

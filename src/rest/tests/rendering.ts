@@ -9,9 +9,7 @@ import getRest from '@/rest/lib/index'
 describe('REST references docs', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
-  // This test ensures that the page component and the Markdown file are
-  // in sync. It checks that every version of the /rest/checks
-  // page has every operation defined in the openapi schema.
+  // This keeps the /rest/checks/runs page, Markdown, and OpenAPI runs subcategory in sync.
   test('loads schema data for all versions', async () => {
     for (const version of Object.keys(allVersions)) {
       const calendarDate = allVersions[version].latestApiVersion
@@ -26,7 +24,7 @@ describe('REST references docs', () => {
     }
   })
 
-  // These tests exists because of issue #1960
+  // Legacy free-pro-team@latest REST reference URLs redirect to the current REST URL shape.
   test('rest subcategory with fpt in URL', async () => {
     const categories = [
       'migrations',
@@ -59,7 +57,6 @@ describe('REST references docs', () => {
       'users',
     ]
     for (const category of categories) {
-      // Without language prefix
       {
         const res = await get(`/free-pro-team@latest/rest/reference/${category}`)
         expect(res.statusCode).toBe(302)
@@ -68,7 +65,6 @@ describe('REST references docs', () => {
             res.headers.location === `/en/rest/${category}/${category}`,
         )
       }
-      // With language prefix
       {
         const res = await get(`/en/free-pro-team@latest/rest/reference/${category}`)
         expect(res.statusCode).toBe(301)
@@ -87,14 +83,11 @@ describe('REST references docs', () => {
   })
 
   test('REST reference pages have DOM markers needed for extracting search content', async () => {
-    // Pick an arbitrary REST reference page that is build from React
     const $ = await getDOM('/en/rest/actions/artifacts')
     const rootSelector = '[data-search=article-body]'
     const $root = $(rootSelector)
     expect($root.length).toBe(1)
-    // Within that, should expect a "lead" text.
-    // Note! Not all REST references pages have a lead. The one in this
-    // test does.
+    // Not all REST references have lead text; this page does.
     const leadSelector = '[data-search=lead] p'
     const $lead = $root.find(leadSelector)
     expect($lead.length).toBe(1)
@@ -122,40 +115,31 @@ describe('REST references docs', () => {
   })
 
   test('markdown/raw endpoint shows request content types in example selector', async () => {
-    // Test the specific endpoint that has multiple examples with different request content types
+    // This endpoint has several examples with differing request content types.
     const $ = await getDOM('/en/rest/markdown/markdown?apiVersion=2022-11-28')
 
-    // Find the render raw mode operation section by its specific ID
     const rawModeSection = $('#render-a-markdown-document-in-raw-mode--code-samples').parent()
     expect(rawModeSection.length).toBeGreaterThan(0)
 
-    // Should have an example selector dropdown since there are multiple examples
     const exampleSelector = rawModeSection.find('select[aria-labelledby], select').first()
     expect(exampleSelector.length).toBe(1)
 
-    // Get the option texts from the dropdown
     const optionTexts = exampleSelector
       .find('option')
       .map((i, option) => $(option).text().trim())
       .get()
       .filter((text) => text.length > 0)
 
-    // Should show request content types since they differ between examples
+    // Differing content types appear in selector labels.
     expect(optionTexts).toEqual(['Example (text/plain)', 'Rendering markdown (text/x-markdown)'])
   })
 
+  // All five /rest/meta permissionless operations support every fine-grained token type,
+  // so noFineGrainedAccess is false and the RestAuth null guard never fires.
   test('RestAuth component hides auth section for permissionless endpoints', async () => {
-    // Regression test: When an endpoint has allowPermissionlessAccess true and
-    // no fine-grained token types are supported (all false), the RestAuth
-    // component should return null to avoid rendering an empty auth section.
-    // This test verifies the behavior by loading a REST endpoint that
-    // demonstrates this pattern.
     const $ = await getDOM('/en/rest/meta')
-    // The page should render successfully
     const html = $.html()
     expect(html.length).toBeGreaterThan(0)
-    // This test documents that REST reference pages continue to render
-    // correctly with the RestAuth component changes for permissionless endpoints.
   })
 })
 
@@ -179,6 +163,6 @@ If you have made changes to the categories or subcategories in the content/rest 
 
 If you come across this error in an Update OpenAPI Descriptions PR it's likely that a category/subcategory has been added or removed and our content/rest directory no longer in sync with our OpenAPI Descriptions. First, please check for an open docs-internal PR that updates the content/rest directory. If you find one, merge that PR into the Update OpenAPI Descriptions PR to fix this failure. Otherwise, follow the link in the Update OpenAPI Descriptions PR body to find the author of the PR that introduced this change. Verify that the new operations are ready to be published. If yes, ask them to follow these instructions to open a docs-internal PR: https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/#adding-or-changing-category-or-subcategory. If no, ask them to open a github/github PR to unpublish the operations.
 
-If you have any questions contact #docs-engineering, #docs-content, or #docs-apis-and-events if you need help.`
+If you have any questions contact #technical-content, #docs-content, or #docs-apis-and-events if you need help.`
   return errorMessage
 }

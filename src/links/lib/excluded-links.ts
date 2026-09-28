@@ -1,6 +1,6 @@
 /**
- * Linkinator relies
- * on this in `src/links/scripts/rendered-content-link-checker-cli.ts` when we encounter external
+ * The external and internal link checkers rely on this
+ * (`src/links/scripts/check-links-external.ts` and `check-links-internal.ts`) when we encounter
  * links that we *specifically ignore*. That means, that URLs or patterns
  * mentioned in the corresponding YAML file might appear within our content but we don't
  * bother checking that they actually work.

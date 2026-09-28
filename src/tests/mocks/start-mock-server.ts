@@ -24,35 +24,27 @@ import express from 'express'
 import type { Server } from 'http'
 import { CSE_COPILOT_PREFIX, cseCopilotPostAnswersMock } from './cse-copilot-mock'
 
-// Define the default port for the mock server
 const MOCK_SERVER_PORT = 3012
 
-// Construct the server URL using the defined port
 const serverUrl = `http://localhost:${MOCK_SERVER_PORT}`
 
-// Variable to hold the server instance
 let server: Server | null = null
 
-// Override environment variables for testing purposes
 export function overrideEnvForTesting() {
   process.env.CSE_COPILOT_ENDPOINT = `${serverUrl}/${CSE_COPILOT_PREFIX}`
 }
 
-// Function to start the mock server
 export function startMockServer(port = MOCK_SERVER_PORT) {
   const app = express()
   app.use(express.json())
 
-  // Define your mock routes here
   app.post(`/${CSE_COPILOT_PREFIX}/answers`, cseCopilotPostAnswersMock)
 
-  // Start the server and store the server instance
   server = app.listen(port, () => {
     console.log(`Mock server is running on port ${port}`)
   })
 }
 
-// Function to stop the mock server
 export function stopMockServer(): Promise<void> {
   return new Promise((resolve, reject) => {
     if (server) {

@@ -19,18 +19,11 @@ jobs:
       github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          app-id: ${{ secrets.DOCS_BOT_APP_ID }}
-          private-key: ${{ secrets.DOCS_BOT_APP_PRIVATE_KEY }}
-
       - uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Before merging, please remember to change the title of this PR to a description of its changes that is suitable for public viewing on github/site-policy.
 
-            <@github/site-policy-admins>, when these changes are ready to be synced to the site policy repo for the 24-hour or 30-day [review window](https://github.com/github/site-policy#whats-the-process), run the [site policy sync action](https://github.com/github/docs-internal/actions/workflows/site-policy-sync.yml) from this PR's branch. When these changes are ready to be merged in `docs-internal`, let the Docs team know on Slack in #docs-content and a writer will merge this PR.
+            <@github/site-policy-admins>, when these changes are ready to be synced to the site policy repo for the 24-hour or 30-day [review window](https://github.com/github/site-policy#whats-the-process), run the [site policy sync action](https://github.com/github/docs-internal/actions/workflows/site-policy-sync.yml) from this PR's branch. When these changes are ready to be merged in `docs-internal`, let the Technical Content team know on Slack in #docs-content and a writer will merge this PR.

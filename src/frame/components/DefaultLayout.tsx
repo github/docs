@@ -1,18 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { SidebarNav } from '@/frame/components/sidebar/SidebarNav'
 import { Header } from '@/frame/components/page-header/Header'
-import { DocsSecondaryBar } from '@/frame/components/page-header/DocsSecondaryBar'
+import { DocsSecondaryBar, OverviewSubBar } from '@/frame/components/page-header/DocsSecondaryBar'
 import {
   SidebarCollapseProvider,
   useSidebarCollapsed,
 } from '@/frame/components/sidebar/SidebarCollapseContext'
-import { LegalFooter } from '@/frame/components/page-footer/LegalFooter'
-import { ScrollButton } from '@/frame/components/ui/ScrollButton'
-import { SupportSection } from '@/frame/components/page-footer/SupportSection'
+import { DocsFooter } from '@/frame/components/page-footer/DocsFooter'
 import { DeprecationBanner } from '@/versions/components/DeprecationBanner'
 import { RestBanner } from '@/rest/components/RestBanner'
 import { useMainContext } from '@/frame/components/context/MainContext'
@@ -21,12 +19,20 @@ import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { useLanguages } from '@/languages/components/LanguagesContext'
 import { ClientSideLanguageRedirect } from './ClientSideLanguageRedirect'
 import { SearchOverlayContextProvider } from '@/search/components/context/SearchOverlayContext'
+import { SelectionProvider } from '@/tools/components/SelectionContext'
+import { ActiveSectionProvider, useMiniTocItems } from '@/frame/components/ui/MiniTocs'
 
 import styles from './DefaultLayout.module.scss'
 
 const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false'))
 
-type Props = { children?: React.ReactNode }
+type Props = {
+  children?: React.ReactNode
+  // Whether this page renders the right-rail "In this article" drawer (article +
+  // automated pages do; REST reference pages do not). Controls whether the
+  // secondary bar's collapsed Overview menu yields to the drawer at xxl.
+  hasDrawer?: boolean
+}
 export const DefaultLayout = (props: Props) => {
   const mainContext = useMainContext()
   const {
@@ -41,9 +47,10 @@ export const DefaultLayout = (props: Props) => {
   } = mainContext
   const xHost = mainContext.xHost
   const page = mainContext.page!
-  const { t } = useTranslation(['meta', 'scroll_button'])
+  const { t } = useTranslation('meta')
   const router = useRouter()
   const { languages } = useLanguages()
+  const [isNarrowMenuOpen, setIsNarrowMenuOpen] = useState(false)
 
   // This is only true when we do search indexing which renders every page
   // just to be able to `cheerio` load the main body (and the meta
@@ -119,9 +126,7 @@ export const DefaultLayout = (props: Props) => {
     return getCategoryImageUrl('default')
   }
 
-  // Helper function to build API article URLs with proper query parameter handling
   function buildApiArticleUrl(apiPath: string): string {
-    // Parse router.asPath to separate pathname and query parameters
     const [pathname, queryString] = router.asPath.split('?')
     const fullPathname = `/${router.locale}${pathname}`
     const queryParams = queryString ? `&${queryString}` : ''
@@ -218,38 +223,41 @@ export const DefaultLayout = (props: Props) => {
       {/* a11y */}
       <a
         href="#main-content"
-        className="visually-hidden skip-button color-bg-accent-emphasis color-fg-on-emphasis"
+        className={cx('visually-hidden skip-button', styles.skipButton)}
+        inert={isNarrowMenuOpen}
+        aria-hidden={isNarrowMenuOpen || undefined}
       >
         Skip to main content
       </a>
       <SidebarCollapseProvider initialCollapsed={mainContext.sidebarCollapsed}>
-        <Header />
-        <ClientSideLanguageRedirect />
-        {isHomepageVersion ? (
-          <div className="d-lg-flex">
-            <div className="flex-column flex-1 min-width-0">
-              <main id="main-content" className={styles.mainContent}>
-                <DeprecationBanner />
-                <RestBanner />
+        <Header isNarrowMenuOpen={isNarrowMenuOpen} onNarrowMenuToggle={setIsNarrowMenuOpen} />
+        <div inert={isNarrowMenuOpen} aria-hidden={isNarrowMenuOpen || undefined}>
+          <ClientSideLanguageRedirect />
+          {isHomepageVersion ? (
+            <div className="d-lg-flex">
+              <div className="flex-column flex-1 min-width-0">
+                <main id="main-content" className={styles.mainContent}>
+                  <DeprecationBanner />
+                  <RestBanner />
 
-                {props.children}
-              </main>
-              <footer data-container="footer">
-                <SupportSection />
-                <LegalFooter />
-                <ScrollButton
-                  className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
-                  ariaLabel={t('scroll_to_top')}
-                />
-              </footer>
+                  {props.children}
+                </main>
+                <DocsFooter />
+              </div>
             </div>
-          </div>
-        ) : (
-          <>
-            <DocsSecondaryBar />
-            <LayoutBody scrollToTopLabel={t('scroll_to_top')}>{props.children}</LayoutBody>
-          </>
-        )}
+          ) : (
+            // SelectionProvider wraps both the secondary bar and the content so the
+            // bar's collapsed "In this article" menu (OverviewMenu) sees the same
+            // platform/tool selection as the article body and filters its headings
+            // accordingly.
+            <SelectionProvider>
+              <ActiveSectionProvider>
+                <DocsSecondaryBar />
+                <LayoutBody hasDrawer={props.hasDrawer}>{props.children}</LayoutBody>
+              </ActiveSectionProvider>
+            </SelectionProvider>
+          )}
+        </div>
       </SidebarCollapseProvider>
     </SearchOverlayContextProvider>
   )
@@ -260,34 +268,71 @@ export const DefaultLayout = (props: Props) => {
 // collapsed; on mobile it shows inline (in the page flow, like desktop) only
 // when the nav is opened from the secondary bar. The content column (flex-1)
 // fills the row when the rail is absent.
-type LayoutBodyProps = { children?: React.ReactNode; scrollToTopLabel: string }
-const LayoutBody = ({ children, scrollToTopLabel }: LayoutBodyProps) => {
+type LayoutBodyProps = {
+  children?: React.ReactNode
+  hasDrawer?: boolean
+}
+const LayoutBody = ({ children, hasDrawer }: LayoutBodyProps) => {
   const { collapsed, mobileNavOpen } = useSidebarCollapsed()
+  const { currentProduct } = useMainContext()
+  // Matches SidebarNav's own gate rather than testing router.route. There are two search
+  // pages, src/pages/search.tsx and src/pages/[versionId]/search.tsx, so a route test
+  // for '/search' misses every versioned search URL, and this check would then disagree
+  // with SidebarNav about whether the rail is a facet rail.
+  const isSearchResultsPage = currentProduct?.id === 'search'
+  // Mirrors OverviewSubBar's own render gate (it returns null at <= 1 item), so
+  // the sticky-stack classes below describe the bar that actually renders.
+  const miniTocItems = useMiniTocItems()
+  const hasSubBar = miniTocItems.length > 1
   return (
-    <div className="d-lg-flex">
-      {collapsed ? null : <SidebarNav mobileOpen={mobileNavOpen} />}
+    // `d-lg-flex` only goes side-by-side at 1012px. The search page's facet rail
+    // is meant to sit beside the results from brand's `medium` breakpoint, so it
+    // gets an earlier split of its own. Route-gated, so no other page moves.
+    <div className={cx('d-lg-flex', isSearchResultsPage && styles.searchColumns)}>
+      {/* `collapsed` is the desktop rail-collapse state (persisted). The inline
+        mobile nav is independent, so still render the sidebar when it's open.
+        Otherwise opening the mobile nav while the desktop rail is collapsed
+        hides the content column (contentHiddenForNav) with no drawer to show,
+        so the open nav displays a blank area instead of the doc tree.
+
+        Search is exempt: the cookie is shared with the doc-tree rail, but the
+        search page has no toggle to undo it (DocsSecondaryBar returns null
+        there), so honouring it would strand the filters with no way back. */}
+      {collapsed && !mobileNavOpen && !isSearchResultsPage ? null : (
+        <SidebarNav mobileOpen={mobileNavOpen} />
+      )}
       {/* Need to set an explicit height for sticky elements since we also
         set overflow to auto */}
       <div
         className={cx(
           'flex-column flex-1 min-width-0',
+          // Publish the sticky-stack height to everything in the column (article
+          // table headers read it). Driven by the same values as OverviewSubBar's
+          // visibility modifier just below, so the offset and the bar agree.
+          styles.stickyStack,
+          hasSubBar && styles.stickyStackWithSubBar,
+          hasSubBar &&
+            hasDrawer &&
+            (collapsed ? styles.stickyStackYieldsWhenCollapsed : styles.stickyStackYieldsAtXxl),
           mobileNavOpen && styles.contentHiddenForNav,
         )}
       >
         <main id="main-content" className={styles.mainContent}>
+          {/* Inside <main>, not before it: as a preceding sibling the "Skip to
+              main content" link jumped the reader straight past the page's only
+              in-article navigation. Still within the content column, so on
+              desktop it starts at the doc-tree drawer's right edge and runs to
+              the screen edge, sharing that band with the drawer rather than
+              cutting across above it. (.mainContent uses `overflow-x: clip`,
+              which creates no scroll container, so sticky still resolves against
+              the viewport.) */}
+          <OverviewSubBar hasDrawer={hasDrawer} />
           <DeprecationBanner />
           <RestBanner />
 
           {children}
         </main>
-        <footer data-container="footer">
-          <SupportSection />
-          <LegalFooter />
-          <ScrollButton
-            className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
-            ariaLabel={scrollToTopLabel}
-          />
-        </footer>
+        <DocsFooter />
       </div>
     </div>
   )

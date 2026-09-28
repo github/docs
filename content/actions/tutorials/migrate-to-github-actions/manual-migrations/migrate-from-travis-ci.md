@@ -29,7 +29,7 @@ This guide helps you migrate from Travis CI to {% data variables.product.prodnam
 Before starting your migration to {% data variables.product.prodname_actions %}, it would be useful to become familiar with how it works:
 
 * For a quick example that demonstrates a {% data variables.product.prodname_actions %} job, see [AUTOTITLE](/actions/get-started/quickstart).
-* To learn the essential {% data variables.product.prodname_actions %} concepts, see [AUTOTITLE](/actions/get-started/understand-github-actions).
+* To learn the essential {% data variables.product.prodname_actions %} concepts, see [AUTOTITLE](/actions/tutorials/store-and-share-data#passing-data-between-jobs-in-a-workflow).
 
 ## Comparing job execution
 
@@ -53,7 +53,7 @@ Travis CI and {% data variables.product.prodname_actions %} both include default
 
 ### Parallel job processing
 
-Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjobidneeds).
+Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idneeds).
 
 ### Status badges
 
@@ -167,7 +167,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 ### Sharing files between jobs and workflows
 
-{% data variables.product.prodname_actions %} includes integrated support for artifact storage, allowing you to share files between jobs in a workflow. You can also save the resulting files and share them with other workflows. For more information, see [AUTOTITLE](/actions/get-started/understand-github-actions#sharing-data-between-jobs).
+{% data variables.product.prodname_actions %} includes integrated support for artifact storage, allowing you to share files between jobs in a workflow. You can also save the resulting files and share them with other workflows. For more information, see [AUTOTITLE](/actions/get-started/understand-github-actions).
 
 ### Hosting your own runners
 

@@ -218,4 +218,4 @@ If your server needs to access multiple repositories, you can create a new accou
 ## Further reading
 
 * [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/github-credential-types)
-* [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#organization-alerts-notification-options)
+* [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications)

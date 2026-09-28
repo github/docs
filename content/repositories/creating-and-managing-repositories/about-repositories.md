@@ -54,7 +54,7 @@ In either case, access to repositories is managed by permissions. For more infor
 You can use repositories to manage your work and collaborate with others.
 * You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues).{% ifversion fpt or ghec %}
 * {% data reusables.discussions.you-can-use-discussions %}{% endif %}
-* You can use pull requests to propose changes to a repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+* You can use pull requests to propose changes to a repository. For more information, see [AUTOTITLE](/pull-requests/reference/pull-requests).
 * You can use {% data variables.product.prodname_projects_v2 %} to organize and prioritize your issues and pull requests. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 {% ifversion fpt or ghec %}
@@ -109,7 +109,7 @@ People with admin permissions for a repository can change an existing repository
 
 {% endif %}
 
-Organization members have read permissions to all internal repositories in an enterprise, including those in organizations they are not a member of. Internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles#enterprise-members) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
+Organization members have read permissions to all internal repositories in an enterprise, including those in organizations they are not a member of. Internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
 {% data reusables.repositories.internal-repo-default %}
 
@@ -123,5 +123,5 @@ Here are some helpful resources for taking your next steps with repositories.
 
 * [AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories): Learn how to use repositories most effectively.
 * [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository): Create a new repository.
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository): Learn how to create and delete branches within your repository.
-* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request): Create a pull request to propose and collaborate on changes to a repository.
+* [AUTOTITLE](/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository): Learn how to create and delete branches within your repository.
+* [AUTOTITLE](/pull-requests/how-tos/create-pull-requests/creating-a-pull-request): Create a pull request to propose and collaborate on changes to a repository.

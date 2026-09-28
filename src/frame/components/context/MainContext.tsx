@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import pick from 'lodash/pick'
+import { pick } from 'lodash-es'
 import type { Response } from 'express'
 
 import type { BreadcrumbT } from '@/frame/components/page-header/Breadcrumbs'

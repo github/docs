@@ -1,0 +1,11 @@
+// Docs 2026: article title matches the Figma hero spec (node 795:41412) —
+// Mona Sans 40px, weight 460, line-height 1.2. Mona Sans is a variable font,
+// so the 460 weight renders precisely.
+.title {
+  font-family: var(--brand-heading-fontFamily);
+  font-size: 2.5rem; // 40px
+  font-weight: 460;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--brand-color-text-default, var(--color-fg-default));
+}

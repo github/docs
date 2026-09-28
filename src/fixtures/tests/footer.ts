@@ -14,7 +14,7 @@ describe('footer', () => {
     })
 
     test('renders minimal 404 page', async () => {
-      // 404 pages now render a minimal HTML response without the full layout
+      // Minimal 404 responses omit the full layout.
       const $ = await getDOM('/en/delicious-snacks/donuts.php', { allow404: true })
       expect($('p').text()).toContain('Page not found.')
     })

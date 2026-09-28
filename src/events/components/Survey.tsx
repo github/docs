@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { useRouter } from 'next/router'
-import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { Link } from '@/frame/components/Link'
@@ -40,9 +39,8 @@ export const Survey = () => {
   const [token, setToken] = useState('')
 
   useEffect(() => {
-    // Always reset the form if navigating to a new page because what
-    // you might have said or started to say belongs exclusively to
-    // to the page you started on.
+    // Send the reader back to the vote prompt on every navigation,
+    // because a rating belongs to the page it was given on.
     setState(ViewState.START)
     setVoteState(null)
   }, [asPath])
@@ -111,7 +109,7 @@ export const Survey = () => {
       data-testid="survey-form"
       aria-live="polite"
     >
-      <h3 id="survey-title" className="f4 mb-3">{t`able_to_find`}</h3>
+      <h3 id="survey-title">{t`able_to_find`}</h3>
 
       {/* Honeypot: token isn't a real field */}
       <input
@@ -141,10 +139,6 @@ export const Survey = () => {
             )}
             htmlFor="survey-yes"
           >
-            <ThumbsupIcon
-              size={16}
-              className={voteState === VoteState.YES ? 'color-fg-on-emphasis' : 'color-fg-muted'}
-            />{' '}
             {t`yes`}
           </label>
           <input
@@ -164,10 +158,6 @@ export const Survey = () => {
             )}
             htmlFor="survey-no"
           >
-            <ThumbsdownIcon
-              size={16}
-              className={voteState === VoteState.NO ? 'color-fg-on-emphasis' : 'color-fg-muted'}
-            />{' '}
             {t`no`}
           </label>
         </div>
@@ -242,19 +232,20 @@ export const Survey = () => {
         <p role="status" className="color-fg-muted f6" data-testid="survey-end">{t`feedback`}</p>
       )}
 
-      <Link
-        className="f6"
-        href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
-        target="_blank"
-      >
-        {t`privacy_policy`}
-      </Link>
+      {(voteState || state === ViewState.END) && (
+        <Link
+          className="f6"
+          href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
+          target="_blank"
+        >
+          {t`privacy_policy`}
+        </Link>
+      )}
     </form>
   )
 }
 
 function trackEvent(eventData: EventData) {
-  // Nota bene: convert empty strings to undefined
   return sendEvent({
     type: EventType.survey,
     survey_token: eventData.token || undefined, // Honeypot

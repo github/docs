@@ -29,7 +29,7 @@ If your {% data variables.product.prodname_codeql %} analysis scans fewer lines 
 ## Change to a `manual` build process
 
 Replace the `autobuild` process with the same build commands you would use in production. This makes sure that {% data variables.product.prodname_codeql %} knows exactly how to compile all of the source files you want to scan.
-For more information about defining build steps, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#using-build-mode-manual-and-specifying-build-steps).
+For more information about defining build steps, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/manage-your-configuration/codeql-for-compiled-languages#specify-build-steps-manually).
 
 ## Inspect the copy of the source files in the {% data variables.product.prodname_codeql %} database
 

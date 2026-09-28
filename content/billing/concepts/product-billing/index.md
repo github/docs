@@ -13,11 +13,9 @@ children:
   - /github-code-quality
   - /github-copilot-billing
   - /github-copilot-licenses
-  - /github-models
   - /github-packages
   - /cloud-and-local-sandboxes
   - /git-lfs
-  - /github-spark
 contentType: concepts
 ---
 

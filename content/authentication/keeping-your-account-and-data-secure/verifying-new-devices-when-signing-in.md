@@ -30,7 +30,7 @@ If you do not receive the verification code, make sure that you are checking the
 
 If you cannot provide the verification code because you don’t have access to your email address, you will not be able to verify your new device. You can access your {% data variables.product.prodname_dotcom %} account by using a device you’ve used before and, from there, you should add an email address that you can access to your account. See [AUTOTITLE](/account-and-profile/how-tos/email-preferences/verifying-your-email-address).
 
-If you cannot provide the verification code and do not have another active session on a device you’ve used before, you may be able to contact the provider of your email address account to determine your account recovery options. If your email address is completely inaccessible, you can create a new {% data variables.product.prodname_dotcom %} account with a different username and email address. See [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).
+If you cannot provide the verification code and do not have another active session on a device you’ve used before, you may be able to contact the provider of your email address account to determine your account recovery options. If your email address is completely inaccessible, you can create a new {% data variables.product.prodname_dotcom %} account with a different username and email address. See [AUTOTITLE](/account-and-profile/how-tos/account-management/creating-an-account-on-github).
 
 ## Receiving an unexpected device verification email
 

@@ -20,4 +20,5 @@ children:
   - /code-snippet-with-hashbang
   - /journey-test-article
   - /broken-frontmatter-translation
+  - /anchor-scrolling
 ---

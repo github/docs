@@ -38,7 +38,7 @@ import { CopilotClient } from "@github/copilot-sdk";
 
 const client = new CopilotClient();
 const session = await client.createSession({
-    model: "gpt-4.1",
+    model: "gpt-5.4",
     skillDirectories: [
         "./skills/code-review",
         "./skills/documentation",
@@ -62,7 +62,7 @@ async def main():
 
     session = await client.create_session(
         on_permission_request=lambda req, inv: PermissionDecisionApproveOnce(),
-        model="gpt-4.1",
+        model="gpt-5.4",
         skill_directories=[
             "./skills/code-review",
             "./skills/documentation",
@@ -97,7 +97,7 @@ func main() {
     defer client.Stop()
 
     session, err := client.CreateSession(ctx, &copilot.SessionConfig{
-        Model: "gpt-4.1",
+        Model: "gpt-5.4",
         SkillDirectories: []string{
             "./skills/code-review",
             "./skills/documentation",
@@ -130,7 +130,7 @@ using GitHub.Copilot.Rpc;
 await using var client = new CopilotClient();
 await using var session = await client.CreateSessionAsync(new SessionConfig
 {
-    Model = "gpt-4.1",
+    Model = "gpt-5.4",
     SkillDirectories = new List<string>
     {
         "./skills/code-review",
@@ -160,7 +160,7 @@ try (var client = new CopilotClient()) {
 
     var session = client.createSession(
         new SessionConfig()
-            .setModel("gpt-4.1")
+            .setModel("gpt-5.4")
             .setSkillDirectories(List.of(
                 "./skills/code-review",
                 "./skills/documentation"
@@ -209,30 +209,6 @@ session = await client.create_session(
 {% codetab go %}
 
 ```golang
-package main
-
-import (
-	"context"
-	copilot "github.com/github/copilot-sdk/go"
-	"github.com/github/copilot-sdk/go/rpc"
-)
-
-func main() {
-	ctx := context.Background()
-	client := copilot.NewClient(nil)
-
-	session, _ := client.CreateSession(ctx, &copilot.SessionConfig{
-		SkillDirectories: []string{"./skills"},
-		DisabledSkills:   []string{"experimental-feature", "deprecated-tool"},
-		OnPermissionRequest: func(req copilot.PermissionRequest, inv copilot.PermissionInvocation) (rpc.PermissionDecision, error) {
-			return &rpc.PermissionDecisionApproveOnce{}, nil
-		},
-	})
-	_ = session
-}
-```
-
-```golang
 session, _ := client.CreateSession(context.Background(), &copilot.SessionConfig{
     SkillDirectories: []string{"./skills"},
     DisabledSkills:   []string{"experimental-feature", "deprecated-tool"},
@@ -241,27 +217,6 @@ session, _ := client.CreateSession(context.Background(), &copilot.SessionConfig{
 
 {% endcodetab %}
 {% codetab dotnet %}
-
-```csharp
-using GitHub.Copilot;
-using GitHub.Copilot.Rpc;
-
-public static class SkillsExample
-{
-    public static async Task Main()
-    {
-        await using var client = new CopilotClient();
-
-        var session = await client.CreateSessionAsync(new SessionConfig
-        {
-            SkillDirectories = new List<string> { "./skills" },
-            DisabledSkills = new List<string> { "experimental-feature", "deprecated-tool" },
-            OnPermissionRequest = (req, inv) =>
-                Task.FromResult(PermissionDecision.ApproveOnce()),
-        });
-    }
-}
-```
 
 ```csharp
 var session = await client.CreateSessionAsync(new SessionConfig
@@ -348,6 +303,22 @@ The markdown body contains the instructions that are injected into the session c
 | .NET | `SkillDirectories` | `List<string>` | Directories to load skills from |
 | .NET | `DisabledSkills` | `List<string>` | Skills to disable |
 
+### Built-in skills and `mode: "empty"`
+
+The runtime ships with a set of bundled **built-in** skills that are eligible by
+default. When you run the client in `mode: "empty"` (the recommended baseline for
+[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy)), the SDK excludes every
+runtime-bundled built-in skill: it sends an empty `includedBuiltinSkills` list on
+the post-create and post-resume options patch, alongside the empty
+`installedPlugins` list.
+
+This exclusion is the default, not a permanent restriction. To allow selected
+runtime-bundled skills, set `includedBuiltinSkills` (or the language-specific
+casing) to their names. You can also opt into your **own** custom skills under
+`mode: "empty"`—enable skills and pass your own `skillDirectories`—and those
+remain fully usable, including a custom skill that shares a name with a built-in.
+Under `mode: "copilot-cli"` the field is omitted unless you set the option.
+
 ## Best practices
 
 1. **Organize by domain** - Group related skills together (e.g., `skills/security/`, `skills/testing/`)
@@ -418,6 +389,6 @@ If multiple skills provide conflicting instructions:
 
 ## See also
 
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started#create-custom-agents) - Define specialized AI personas
-* [AUTOTITLE](/copilot/how-tos/copilot-sdk/getting-started#step-4-add-a-custom-tool) - Build your own tools
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart#create-custom-agents) - Define specialized AI personas
+* [AUTOTITLE](/copilot/get-started/sdk-quickstart#step-4-add-a-custom-tool) - Build your own tools
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/mcp) - Connect external tool providers

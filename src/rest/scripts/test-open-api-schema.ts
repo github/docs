@@ -5,7 +5,7 @@
 // [end-readme]
 import fs from 'fs'
 import path from 'path'
-import _ from 'lodash'
+import { isEqual } from 'lodash-es'
 
 import frontmatter from '@/frame/lib/read-frontmatter'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
@@ -23,13 +23,12 @@ type ErrorMessages = Record<string, Record<string, { contentDir: string[]; openA
 
 export async function getDiffOpenAPIContentRest(): Promise<ErrorMessages> {
   const contentFiles = getAutomatedMarkdownFiles('content/rest')
-  // Creating the categories/subcategories based on the current content directory
   const checkContentDir = await createCheckContentDirectory(contentFiles)
 
-  // Create categories/subcategories from OpenAPI Schemas
   const openAPISchemaCheck = await createOpenAPISchemasCheck()
 
-  // Get Differences between categories/subcategories from dereferenced schemas and the content/rest directory frontmatter versions
+  // Compare the categories and subcategories in the dereferenced schemas
+  // against the versions in the content/rest frontmatter.
   const differences = getDifferences(openAPISchemaCheck, checkContentDir)
   const errorMessages: ErrorMessages = {}
 
@@ -156,7 +155,7 @@ function difference(obj1: Record<string, string[]>, obj2: Record<string, string[
   const diff = Object.keys(obj1).reduce((result, key) => {
     if (!Object.prototype.hasOwnProperty.call(obj2, key)) {
       result.push(key)
-    } else if (_.isEqual(obj1[key], obj2[key])) {
+    } else if (isEqual(obj1[key], obj2[key])) {
       const resultKeyIndex = result.indexOf(key)
       result.splice(resultKeyIndex, 1)
     }

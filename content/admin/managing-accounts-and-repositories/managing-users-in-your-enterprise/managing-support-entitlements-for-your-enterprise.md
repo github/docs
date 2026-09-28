@@ -25,6 +25,8 @@ Enterprise owners and billing managers automatically have a support entitlement.
 > * If the user does not have a support entitlement, their ticket will still be addressed by our Enterprise Support team, but without Premium Support features such as priority selection and guaranteed Premium SLAs.
 >
 > If a user is unsure of their entitlement status, they can contact their organization's Enterprise Support administrator.
+>
+Support entitlements do not provide a user with rights above those granted by the role of their account in the enterprise. Additional approval from an enterprise owner will still be required where the user's enterprise role does not permit the sharing of information in a support ticket.
 
 ## Adding a support entitlement to an enterprise member
 

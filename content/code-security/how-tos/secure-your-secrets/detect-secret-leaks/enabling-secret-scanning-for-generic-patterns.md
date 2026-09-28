@@ -33,4 +33,4 @@ For more information about generic patterns, see "{% ifversion fpt or ghec %}[AU
 
 ### Enabling detection of generic patterns for an organization
 
-You can enable scanning for generic patterns at the organization level by applying a custom security configuration. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
+You can enable scanning for generic patterns at the organization level by applying a custom security configuration. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration).

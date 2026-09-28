@@ -7,10 +7,7 @@ import { createLogger } from '@/observability/logger'
 
 const logger = createLogger('article-api/liquid-renderers/rest-tags')
 
-/**
- * Custom Liquid tag for rendering REST API parameters
- * Usage: {% rest_parameter param %}
- */
+// Templates render REST parameters with {% rest_parameter param %}.
 export class RestParameter {
   private paramName: string
 
@@ -20,7 +17,6 @@ export class RestParameter {
     liquid: Liquid,
     private liquidContext?: LiquidContext,
   ) {
-    // The tag receives the parameter object from the template context
     this.paramName = token.args.trim()
   }
 
@@ -56,10 +52,7 @@ export class RestParameter {
   }
 }
 
-/**
- * Custom Liquid tag for rendering REST API body parameters
- * Usage: {% rest_body_parameter param indent %}
- */
+// Templates render REST body parameters with {% rest_body_parameter param indent %}.
 export class RestBodyParameter {
   constructor(
     token: TagToken,
@@ -67,7 +60,6 @@ export class RestBodyParameter {
     liquid: Liquid,
     private liquidContext?: LiquidContext,
   ) {
-    // Parse arguments - param name and optional indent level
     const args = token.args.trim().split(/\s+/)
     this.param = args[0]
     this.indent = args[1] ? parseInt(args[1]) : 0
@@ -106,7 +98,6 @@ export class RestBodyParameter {
       lines.push(`${prefix}  Can be one of: ${param.enum.map((v) => `\`${v}\``).join(', ')}`)
     }
 
-    // Handle nested parameters
     if (param.childParamsGroups && param.childParamsGroups.length > 0) {
       for (const childGroup of param.childParamsGroups) {
         lines.push(await renderChildParameter(childGroup, context, indent + 1))
@@ -117,10 +108,7 @@ export class RestBodyParameter {
   }
 }
 
-/**
- * Custom Liquid tag for rendering REST API status codes
- * Usage: {% rest_status_code statusCode %}
- */
+// Templates render REST status codes with {% rest_status_code statusCode %}.
 export class RestStatusCode {
   private statusCodeName: string
 
@@ -158,9 +146,6 @@ export class RestStatusCode {
   }
 }
 
-/**
- * Helper function to render child parameters recursively
- */
 async function renderChildParameter(
   param: ChildParameter,
   context: Context,
@@ -186,7 +171,6 @@ async function renderChildParameter(
     lines.push(`${prefix}  Can be one of: ${param.enum.map((v: string) => `\`${v}\``).join(', ')}`)
   }
 
-  // Recursively handle nested parameters
   if (param.childParamsGroups && param.childParamsGroups.length > 0) {
     for (const child of param.childParamsGroups) {
       lines.push(await renderChildParameter(child, context, indent + 1))
@@ -196,9 +180,6 @@ async function renderChildParameter(
   return lines.join('\n')
 }
 
-/**
- * Helper function to convert HTML to markdown
- */
 async function htmlToMarkdown(html: string, context: Context): Promise<string> {
   if (!html) return ''
 
@@ -208,19 +189,17 @@ async function htmlToMarkdown(html: string, context: Context): Promise<string> {
   } catch (error) {
     logger.error('Failed to render HTML content to markdown in REST tag', {
       error,
-      html: html.substring(0, 100), // First 100 chars for context
+      html: html.substring(0, 100), // Log 100 characters for rendering context.
       contextInfo: context && context.page ? { page: context.page.relativePath } : undefined,
     })
-    // In non-production, re-throw to aid debugging
+    // Re-throw outside production to expose rendering failures during development.
     if (process.env.NODE_ENV !== 'production') {
       throw error
     }
-    // Fallback to simple text extraction
     return fastTextOnly(html)
   }
 }
 
-// Export tag names for registration
 export const restTags = {
   rest_parameter: RestParameter,
   rest_body_parameter: RestBodyParameter,

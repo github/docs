@@ -14,10 +14,10 @@ When you're working with others on {% data variables.product.github %}, you typi
 
 Getting feedback on your pull request from others is an important part of the software development process. Pull request reviews improve the specific code you're working on, and also improves your coding and collaboration skills over time. Sometimes, especially when you're learning to code, you may not always have someone to ask for feedback. In those cases, you can get feedback and all its benefits from {% data variables.product.prodname_copilot %} instead.
 
-A pull request is a collaborative place where you can show other people the changes you're proposing and get feedback. When you request a review from Copilot, you'll be learning the same process that you'll use use when working with development teams. The only difference is you'll also be requesting reviews from human colleagues alongside Copilot.
+A pull request is a collaborative place where you can show other people the changes you're proposing and get feedback. When you request a review from Copilot, you'll be learning the same process that you'll use when working with development teams. The only difference is you'll also be requesting reviews from human colleagues alongside Copilot.
 
 > [!NOTE]
-> {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website is a premium feature, available with paid {% data variables.product.prodname_copilot_short %} plans. For more information about how using {% data variables.copilot.copilot_code-review_short %} affects your quotas, see [AUTOTITLE](/copilot/concepts/agents/code-review#code-review-monthly-quota). If you're a student, you may be able to access {% data variables.product.prodname_copilot_short %}'s premium features for free, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
+> {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website is a premium feature, available with paid {% data variables.product.prodname_copilot_short %} plans. For more information about how using {% data variables.copilot.copilot_code-review_short %} affects your quotas, see [AUTOTITLE](/copilot/concepts/agents/code-review). If you're a student, you may be able to access {% data variables.product.prodname_copilot_short %}'s premium features for free, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
 
 ## 1. Creating the practice repository
 

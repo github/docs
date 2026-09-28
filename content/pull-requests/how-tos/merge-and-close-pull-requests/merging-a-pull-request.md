@@ -53,12 +53,12 @@ If you don't want to merge the changes, you can [close the pull request](/pull-r
 
       ![Screenshot of the merge options for a pull request. The arrow to expand the dropdown is outlined in dark orange.](/assets/images/help/pull_requests/merge-pull-request-options.png)
 
-    * [Squash the commits into one commit](/pull-requests/reference/pull-request-merges#squash-and-merge-your-pull-request-commits) by clicking the merge dropdown menu, selecting **Squash and merge**, and then clicking **Squash and merge**.
+    * [Squash the commits into one commit](/pull-requests/reference/pull-request-merges#squash-and-merge-your-commits) by clicking the merge dropdown menu, selecting **Squash and merge**, and then clicking **Squash and merge**.
 
-    * [Rebase the commits individually onto the base branch](/pull-requests/reference/pull-request-merges#rebase-and-merge-your-pull-request-commits) by clicking the merge dropdown menu, selecting **Rebase and merge**, and then clicking **Rebase and merge**.
+    * [Rebase the commits individually onto the base branch](/pull-requests/reference/pull-request-merges#rebase-and-merge-your-commits) by clicking the merge dropdown menu, selecting **Rebase and merge**, and then clicking **Rebase and merge**.
 
     > [!NOTE]
-    > Rebase and merge will always update the committer information and create new commit SHAs. See [About pull request merges](/pull-requests/reference/pull-request-merges#rebase-and-merge-your-pull-request-commits).
+    > Rebase and merge will always update the committer information and create new commit SHAs. See [About pull request merges](/pull-requests/reference/pull-request-merges#rebase-and-merge-your-commits).
 
 1. If prompted, type a commit message, or accept the default message.
 

@@ -9,11 +9,9 @@ versions:
 contentType: concepts
 ---
 
-{% data reusables.elm.preview-note %}
-
 ## What is {% data variables.product.prodname_elm %}?
 
-{% data variables.product.prodname_elm %} ({% data variables.product.prodname_elm_short %}) is a service for migrating repositories from {% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency %} ({% data variables.enterprise.data_residency_site %}). It is operated using a command line tool on {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_elm %} ({% data variables.product.prodname_elm_short %}) is a service for migrating repositories from {% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency %} ({% data variables.enterprise.data_residency_site %}). It is operated using an extension of the {% data variables.product.prodname_cli %}.
 
 Migrations are "live" because users can continue using the source repository during most of the migration process. After the repository data is initially collected, webhooks check for changes to the repository, such as new commits or updates to settings. These changes are reported to {% data variables.product.prodname_elm_short %} and included in the migration.
 
@@ -35,7 +33,7 @@ You may want to use both tools over the course of a platform migration, prioriti
 
 ## Overview of a migration
 
-Typically, a site administrator runs a migration using the `elm` CLI tool, in a terminal session over SSH. The operator must provide {% data variables.product.pat_generic_plural %} with access to both {% data variables.product.prodname_ghe_server %} and the destination enterprise.
+A site administrator runs a migration using the {% data variables.product.prodname_cli %}. Before running the migration, the operator must configure the {% data variables.product.prodname_ghe_server %} instance and provide {% data variables.product.pat_generic_plural %} with access to both {% data variables.product.prodname_ghe_server %} and the destination enterprise.
 
 The high-level phases of a migration are:
 

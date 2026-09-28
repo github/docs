@@ -5,7 +5,6 @@
 export function stripOuterTag(html: string): string {
   if (!html) return ''
 
-  // Extract opening tag and tag name
   const openMatch = html.match(/^<([a-z][a-z0-9]*)\b[^>]*>/i)
   if (!openMatch) return html
 

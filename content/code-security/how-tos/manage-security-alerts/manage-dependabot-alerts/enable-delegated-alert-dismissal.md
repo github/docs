@@ -12,7 +12,7 @@ category:
   - Secure your dependencies
 ---
 
-{% data reusables.security.delegated-alert-dismissal-capacity %}
+>[!NOTE] {% data reusables.security.delegated-alert-dismissal-capacity %}
 
 ## Configuring delegated dismissal for a repository
 
@@ -27,7 +27,7 @@ category:
 
 You must configure delegated dismissal for your organization using a custom security configuration. You can then apply the security configuration to all (or selected) repositories in your organization.
 
-1. Start creating or editing a custom security configuration. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration#creating-a-custom-security-configuration).
+1. Start creating or editing a custom security configuration. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/create-custom-configuration).
 1. In the "Dependency scanning" section of your security configuration, set "Prevent direct alert dismissals" to **Enabled**.
 1. Click **Save configuration**.
 1. Apply the security configuration to repositories in your organization. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration).

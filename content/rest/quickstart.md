@@ -119,7 +119,7 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
    });
    ```
 
-1. Use `octokit.request` to execute your request. Send the HTTP method and path as the first argument. Specify any path, query, and body parameters in an object as the second argument. For more information about parameters, see [AUTOTITLE](/rest/using-the-rest-api/getting-started-with-the-rest-api#using-parameters).
+1. Use `octokit.request` to execute your request. Send the HTTP method and path as the first argument. Specify any path, query, and body parameters in an object as the second argument. For more information about parameters, see [AUTOTITLE](/rest/using-the-rest-api/getting-started-with-the-rest-api#parameters).
 
    For example, in the following request the HTTP method is `GET`, the path is `/repos/{owner}/{repo}/issues`, and the parameters are {% ifversion ghes %}`owner: "REPO-OWNER"` and `repo: "REPO-NAME"`{% else %}`owner: "octocat"` and `repo: "Spoon-Knife"`{% endif %}.{% ifversion ghes %} Replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% endif %}
 

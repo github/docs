@@ -56,10 +56,10 @@ The content writers can manually update frontmatter and introductory content in 
 
 ## How to get help
 
-Slack: `#docs-engineering`
-Repo: `github/docs-engineering`
+Slack: `#technical-content`
+Repo: `github/technical-content`
 
-If you have a question about the webhooks pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the webhooks pipeline, you can open an issue in the `github/docs-engineering` repository.
+If you have a question about the webhooks pipeline, you can ask in the `#technical-content` Slack channel. If you notice a problem with the webhooks pipeline, you can open an issue in the `github/technical-content` repository.
 
 ## Ownership & Escalation
 
@@ -68,9 +68,9 @@ If you have a question about the webhooks pipeline, you can ask in the `#docs-en
 - **Source data**: API Platform (github/rest-api-description)
 
 ### Escalation path
-1. **Pipeline failures** → #docs-engineering Slack
+1. **Pipeline failures** → #technical-content Slack
 2. **OpenAPI schema issues** → #api-platform Slack
-3. **Production incidents** → #docs-engineering
+3. **Production incidents** → #technical-content
 
 ### On-call procedures
 If the webhooks pipeline fails:

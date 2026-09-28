@@ -1,53 +1,72 @@
-@import "@primer/css/support/variables/layout.scss";
-@import "@primer/css/support/mixins/layout.scss";
-@import "src/frame/stylesheets/breakpoint-xxl.scss";
-
 .header {
-  display: unset;
+  // Let the navbar stick to the page, not a header-height containing block.
+  display: contents;
 }
 
-// Contains the logo and version picker and used when the smaller width search
-// input UI is closed.
-.logoWithClosedSearch {
-  display: flex;
-  align-items: center;
-  color: var(--color-bg-default);
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  // Sticky ladder, top to bottom: this header (3) > the Docs 2026 secondary bar
+  // (2, DocsSecondaryBar.module.scss) > sticky table headers (1, table.scss).
+  //
+  // 3 rather than 2 because Brand's ActionMenu is NOT portalled: the plan and
+  // language dropdowns render inside this container, and they are taller than
+  // the header, so they overlap the secondary bar. At an equal z-index the bar
+  // wins on DOM order and paints a 45px band straight through the open menu,
+  // swallowing clicks on the rows behind it.
+  //
+  // This also sets a stacking context, which is what keeps the search overlay's
+  // backdrop (z-index 1000) from escaping: the container composites as a whole
+  // at 3, so Primer's portalled dialog -- also 3, but appended to <body> after
+  // this -- still wins on DOM order and stays clickable above the backdrop.
+  z-index: 3;
 }
 
-// Contains the logo and version picker and used when the smaller width search
-// input UI is open (where we don't show the logo or version picker).  As the
-// width increases to md and above and search no longer takes up the whole header
-// width, we show the logo and version picker.
-.logoWithOpenSearch {
-  display: none;
+.searchTrigger {
+  min-width: 0;
+}
 
-  @include breakpoint(md) {
-    display: flex;
-    align-items: center;
-    color: var(--color-bg-default);
+@media (min-width: 63.25rem) {
+  // Give search the remaining space before shrinking the plan picker.
+  .stickyContainer :has(> .searchTrigger) {
+    flex-grow: 1;
+    justify-content: flex-end;
+    min-width: min-content;
+  }
+
+  .stickyContainer .searchTrigger {
+    // Brand's flex-basis still sets the preferred width; its min-width is the floor.
+    width: 0;
   }
 }
 
-// Prevent the ... menu from still showing if someone opens it and then widens
-// their browser to lg.
-.menuOverlay {
-  min-width: 20rem;
+// Brand's own stagger step: its narrow-menu links animate in at
+// `calc(var(--animation-order) * 80ms)`, one slot each.
+$narrow-menu-stagger-step: 80ms;
 
-  @include breakpoint(lg) {
+@media screen and (max-width: 48rem) {
+  // Brand hardcodes the narrow menu's CTA area to stagger slot 10 -- the moment
+  // ten `SubdomainNavBar.Link` children have finished cascading in. Docs passes
+  // zero links (its navigation is the sidebar doc tree), so that 800ms is spent
+  // waiting out a queue that does not exist: the plan and language pickers ride
+  // the panel's 500ms fade while "Sign up" lands nearly a second later. One slot
+  // keeps the CTA arriving deliberately after the pickers, without the dead time.
+  //
+  // Brand's class name is CSS-module-hashed and it exposes no test id for this
+  // element, so match the stable part of the name. An attribute selector is not
+  // rewritten inside a CSS module, so it passes through as authored; only
+  // `.stickyContainer` is hashed, and it is also what wins the specificity
+  // (two selectors vs. Brand's single class) without `!important`.
+  //
+  // Only the delay is overridden -- duration, fill mode, easing and the
+  // keyframes stay exactly as Brand ships them.
+  .stickyContainer [class*="SubdomainNavBar-button-area--visible"] {
+    animation-delay: calc(1 * #{$narrow-menu-stagger-step});
+  }
+}
+
+@media print {
+  .header > * {
     display: none;
   }
-}
-
-.displayOverLarge {
-  display: none;
-  visibility: none;
-
-  @include breakpoint(lg) {
-    display: flex !important;
-    visibility: visible !important;
-  }
-}
-
-.headerContainer {
-  row-gap: 1rem;
 }

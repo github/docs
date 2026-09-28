@@ -18,10 +18,6 @@ import { SearchPageTransformer } from './search-page-transformer'
 import { ReleaseNotesTransformer } from './release-notes-transformer'
 import { ArticleTransformer } from './article-transformer'
 
-/**
- * Global transformer registry
- * Registers all available page-to-markdown transformers
- */
 export const transformerRegistry = new TransformerRegistry()
 
 transformerRegistry.register(new RestTransformer())
@@ -41,7 +37,7 @@ transformerRegistry.register(new CategoryLandingTransformer())
 transformerRegistry.register(new DiscoveryLandingTransformer())
 transformerRegistry.register(new SearchPageTransformer())
 transformerRegistry.register(new ReleaseNotesTransformer())
-// ArticleTransformer is the catch-all — must be registered last.
+// Register ArticleTransformer last because it catches every non-null page.
 transformerRegistry.register(new ArticleTransformer())
 
 export { TransformerRegistry } from './types'

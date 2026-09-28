@@ -105,7 +105,6 @@ async function getAllOpenPRs() {
 }
 
 async function run() {
-  // Get info about open github/github PRs
   const prData = await getAllOpenPRs()
 
   // Get the PRs that are:
@@ -136,7 +135,6 @@ async function run() {
   const prAuthors = prs.map((pr) => pr.author.login)
   console.log(`PRs found: ${prIDs}`)
 
-  // Get info about the docs-content review board project
   const projectData = await graphql<ProjectQueryResponse>(
     `
       query ($organization: String!, $projectNumber: Int!) {
@@ -177,7 +175,6 @@ async function run() {
     },
   )
 
-  // Get the project ID
   const projectID = projectData.organization.projectV2.id
 
   // Get the IDs of the last 100 items on the board.
@@ -188,7 +185,6 @@ async function run() {
     (node: { id: string }) => node.id,
   )
 
-  // Get the ID of the fields that we want to populate
   const datePostedID = findFieldID('Date posted', projectData)
   const reviewDueDateID = findFieldID('Review due date', projectData)
   const statusID = findFieldID('Status', projectData)
@@ -197,13 +193,11 @@ async function run() {
   const sizeTypeID = findFieldID('Size', projectData)
   const authorID = findFieldID('Contributor', projectData)
 
-  // Get the ID of the single select values that we want to set
   const readyForReviewID = findSingleSelectID('Ready for review', 'Status', projectData)
   const hubberTypeID = findSingleSelectID('Hubber or partner', 'Contributor type', projectData)
   const docsMemberTypeID = findSingleSelectID('Docs team', 'Contributor type', projectData)
   const sizeMediumID = findSingleSelectID('M', 'Size', projectData)
 
-  // Add the PRs to the project
   const itemIDs = await addItemsToProject(prIDs, projectID)
 
   // If an item already existed on the project, the existing ID will be returned.
@@ -225,8 +219,7 @@ async function run() {
     return
   }
 
-  // Populate fields for the new project items
-  // (Using for...of instead of forEach since the function uses await)
+  // for...of rather than forEach because the body awaits.
   for (const [index, itemID] of newItemIDs.entries()) {
     const updateProjectV2ItemMutation = generateUpdateProjectV2ItemFieldMutation({
       item: itemID,

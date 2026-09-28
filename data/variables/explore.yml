@@ -1,5 +1,5 @@
 explore_github: >-
-  {% ifversion fpt or ghec %}[Explore GitHub](https://github.com/explore){% else %}Explore GitHub (`https://[hostname]/explore`){% endif %}
+  {% ifversion fpt or ghec %}[Explore GitHub](https://github.com/explore?ref_product=github&ref_type=engagement&ref_style=text){% else %}Explore GitHub (`https://[hostname]/explore`){% endif %}
 
 your_stars_page: >-
-  {% ifversion fpt or ghec %}[stars page](https://github.com/stars){% else %}stars page (`https://[hostname]/stars`){% endif %}
+  {% ifversion fpt or ghec %}[stars page](https://github.com/stars?ref_product=github&ref_type=engagement&ref_style=text){% else %}stars page (`https://[hostname]/stars`){% endif %}

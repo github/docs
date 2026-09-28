@@ -8,6 +8,7 @@ permissions: 'Organization owners who are admins for a classroom can create and 
 category:
   - Track assignment progress
 ---
+{% data reusables.classroom.closing-down-notice %}
 
 ## About the assignment overview page
 

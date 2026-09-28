@@ -15,7 +15,7 @@ category:
   - Understand product costs
 ---
 
-Usage of {% data variables.product.prodname_copilot %} is measured through a combination of licenses and {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+Usage of {% data variables.product.prodname_copilot %} is measured through a combination of licenses and {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing-and-usage/individuals/billing) and [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 ## Licenses for {% data variables.product.prodname_copilot_short %}
 
@@ -55,7 +55,7 @@ Usage of {% data variables.product.prodname_copilot_short %} licenses is measure
 * Downgrades take effect at the start of the next billing cycle and are generally not prorated.
 * Canceling a monthly plan keeps access until the end of the current billing cycle, with no proration.
 
-For details on billing and proration, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals).
+For details on billing and proration, see [AUTOTITLE](/copilot/concepts/billing-and-usage/individuals/billing).
 
 ### Organizations and enterprises
 

@@ -13,20 +13,15 @@ export type SearchIndex = {
   type: string
 }
 
-/* Elasticsearch uses indexes to group categories of data
-
-  We currently have 2 top-level categories of indexes:
-    1. General search: This is populated using data from all of our Docs pages
-    2. AI autocomplete: This is populated with human-readable questions using a GPT query in docs-internal-data
-
-  This file is intended to be the source of truth for Docs Elasticsearch indexes.
-
-  Indexes are in the form:
-    <test_prefix><prefix>-<type>-<version>-<language>
-    e.g. github-docs-general-search-fpt-en
-
-  <test-prefix> might be "tests_" for tests
-*/
+// The source of truth for Docs Elasticsearch indexes.
+//
+// There are two top-level categories:
+//   1. General search, populated from all of our Docs pages.
+//   2. AI autocomplete, populated with human-readable questions from a GPT
+//      query in docs-internal-data.
+//
+// Index names take the form <test_prefix><prefix>_<type>_<version>_<language>,
+// e.g. github-docs_general-search_fpt_en. <test_prefix> is "tests_" in tests.
 const prefix = 'github-docs'
 const indexes: SearchIndexes = {
   generalSearch: {
@@ -54,14 +49,12 @@ export function getElasticSearchIndex(
   }
   const index = indexes[type] as SearchIndex
 
-  // Validate language
   if (!(language in languages)) {
     throw new Error(
       `Language ${language} not found in languages for getElasticSearchIndex function.`,
     )
   }
 
-  // Validate version
   if (!allIndexVersionKeys.includes(version)) {
     throw new Error(
       `Version '${version}' does not map to a valid version for getElasticSearchIndex function.`,
@@ -81,7 +74,6 @@ export function getElasticSearchIndex(
   // In the index-test-fixtures.sh script, we use the tests_ prefix index for testing
   const testPrefix = process.env.NODE_ENV === 'test' ? 'tests_' : ''
 
-  // If a manual prefix is provided, append an underscore to it
   if (manualPrefix && !manualPrefix.endsWith('_')) {
     manualPrefix += '_'
   }

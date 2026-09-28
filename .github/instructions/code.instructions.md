@@ -4,7 +4,7 @@ applyTo: "src/**,.github/**,config/**,.devcontainer/**,**Dockerfile,package*.jso
 
 # Copilot code instructions for docs.github.com
 
-For code reviews and for creating or updating pull requests, follow the Guidelines, Tests, and Validate sections below.
+For code reviews and for creating or updating pull requests, follow the guidelines in the sections below.
 
 ## Guidelines
 
@@ -50,7 +50,6 @@ Some test suites depend on fixture content or external services. These suites ha
 
 ```shell
 npm run test:article-api
-npm run test:changelogs
 npm run test:fixtures
 npm run test:landings
 npm run test:languages    # requires Elasticsearch running
@@ -102,3 +101,27 @@ logger.error("Failure", { error });
 - Never log secrets, tokens, or PII.
 - Create loggers once at module scope, not inside functions.
 - Do not use the logger in scripts (locally-run code); `console.log` is fine there.
+
+## Code comments
+
+- Comments explain _why_ and not _what_. Use variables, names, types, and structure to convey _what_ the code does. If the code doesn't need a _why_, don't write a comment.
+- Document constraints, workarounds, unexpected dependencies, domain rules, user-visible consequences, security, ordering, and performance issues.
+- Be concise. Keep the comment to a glance.
+- Use active voice and active, specific verbs. Avoid phrases like "there is", "should", or vague "uses". Prefer "does x" over "is x". Do not hedge. If needed, write the action then the reason, such as "do X, so Y".
+- Do not narrate, restate, or summarize the code.
+- Avoid jargon, or define jargon if you must use it.
+- Describe the current state. Avoid framing such as "now" or "recently". Do not include the previous state.
+- In TypeScript and JavaScript, prefer `//` over `/*` comments. Only use `/*` if `//` makes the formatting too awkward or in JSX. Do not use JSDoc or TSDoc style comments.
+- Do not use comments to add headings, dividers, steps, or other structures.
+- Comments that need more than one line: break at sentence ends and clauses. Prettier does not reflow comment format.
+- Avoid excessive formatting. Only use parentheses to refer to literal syntax. Do not use markdown-style formatting. Do not use emdashes. You may use uppercase to emphasize words, rarely.
+- Keep comments inside a function body to a single line. Place multiline comments above the function.
+- Do not reference issues, pull requests, or discussions in the `github` organization, such as numbers or URLs. Include the context directly in the comment or in a nearby markdown file. You may use a full URL to an issue in an external open source project.
+- Do not reference line numbers or line counts. Do not reference specific versions unless a future version requires action.
+- Do not leave TODO, FIXME, or HACK comments.
+- Do not keep commented out code.
+- You may label deliberately absent fields.
+- You may write a simple input and output example for regular expressions. Use realistic data and not garbage like foo/bar or Alice/Bob.
+- You may use internal cross-reference identifiers in comments, such as unique error codes.
+- You may use tool directives such as `@ts-expect-error` or `eslint-disable` in rare cases.
+- You may add legally required comments like license and copyright.

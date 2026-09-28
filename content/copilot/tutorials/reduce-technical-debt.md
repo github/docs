@@ -4,6 +4,12 @@ shortTitle: Reduce technical debt
 intro: 'Use {% data variables.product.prodname_copilot_short %} to automate refactoring and maintenance tasks, freeing your team to focus on feature development.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/tutorials/modernize-java-applications
+  - /copilot/tutorials/upgrade-projects
+  - /copilot/using-github-copilot/guides-on-using-github-copilot/upgrading-java-projects-with-github-copilot
+  - /copilot/tutorials/upgrading-java-projects-with-github-copilot
+  - /copilot/tutorials/upgrading-projects-with-github-copilot
 contentType: tutorials
 category:
   - Burn down tech debt
@@ -166,7 +172,7 @@ Examples include:
 1. Iterate in this way until the work is completed correctly.
 1. Approve and merge the pull request.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions#assigning-an-issue-to-copilot) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output).
+For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output).
 
 ### Safety guardrails
 
@@ -356,13 +362,13 @@ By automating routine refactoring and maintenance tasks, {% data variables.produ
 
 ### Quick survey
 
-{% note %}
+<div class="border rounded-2 p-3">
 
 After reading this tutorial, do you feel confident you can use {% data variables.product.prodname_copilot_short %} to reduce the technical debt in a codebase?
 
 <a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
 
-{% endnote %}
+</div>
 
 ## Next steps
 
@@ -374,6 +380,6 @@ After reading this tutorial, do you feel confident you can use {% data variables
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent)
-* [AUTOTITLE](/copilot/tutorials/refactor-code)
+* [AUTOTITLE](/copilot/tutorials/copilot-cookbook/refactor-code)
 * [How to use GitHub Copilot in your IDE: Tips, tricks, and best practices](https://github.blog/developer-skills/github/how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/) in the {% data variables.product.company_short %} blog
-* [5 ways to integrate GitHub {% data variables.copilot.copilot_cloud_agent %} into your workflow](https://github.blog/ai-and-ml/github-copilot/5-ways-to-integrate-github-copilot-cloud-agent-into-your-workflow/) in the {% data variables.product.company_short %} blog
+* [5 ways to integrate GitHub {% data variables.copilot.copilot_cloud_agent %} into your workflow](https://github.blog/ai-and-ml/github-copilot/5-ways-to-integrate-github-copilot-coding-agent-into-your-workflow/) in the {% data variables.product.company_short %} blog

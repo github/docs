@@ -76,7 +76,7 @@ To publish a paid app (or an app that offers a paid plan), you must also meet th
 When you are ready to publish the app on {% data variables.product.prodname_marketplace %} you must request verification for the app listing.
 
 > [!NOTE]
-> {% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to transfer an app to an organization, see: [AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit).
+> {% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to transfer an app to an organization, see: [AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization).
 
 ## Billing requirements for paid apps
 

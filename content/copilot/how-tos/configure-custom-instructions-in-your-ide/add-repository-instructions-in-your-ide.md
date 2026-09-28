@@ -134,7 +134,7 @@ This version of this article is for using repository custom instructions and pro
 
 ## Creating custom instructions
 
-{% data variables.product.prodname_vs %} supports two types of custom instructions. For details of which {% data variables.product.prodname_copilot %} features support these types of instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=visualstudio#support-for-repository-custom-instructions-2).
+{% data variables.product.prodname_vs %} supports two types of custom instructions. For details of which {% data variables.product.prodname_copilot %} features support these types of instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=visualstudio).
 
 * **Repository-wide custom instructions**, which apply to all requests made in the context of a repository.
 

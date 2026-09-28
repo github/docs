@@ -49,7 +49,7 @@ export default async function currentProductTree(
     req.context,
   )
   // Now make an even slimmer version that excludes all hidden pages.
-  // This is i used for sidebars.
+  // This is used for sidebars.
   req.context.currentProductTreeTitlesExcludeHidden = excludeHidden(
     req.context.currentProductTreeTitles,
   )

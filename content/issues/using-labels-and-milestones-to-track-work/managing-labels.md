@@ -38,6 +38,7 @@ You can manage your work on {% data variables.product.github %} by creating labe
 
 Label | Description
 ---  | ---
+`accessibility` | Indicates a barrier affecting people with disabilities
 `bug` | Indicates an unexpected problem or unintended behavior
 `documentation` | Indicates a need for improvements or additions to documentation
 `duplicate` | Indicates similar {% ifversion fpt or ghec %}issues, pull requests, or discussions{% else %}issues or pull requests{% endif %}
@@ -103,4 +104,4 @@ Deleting a label will remove the label from issues and pull requests.
 * [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests)
 * [AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization){% ifversion fpt or ghec %}
 * [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels){% endif %}
-* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emojis)

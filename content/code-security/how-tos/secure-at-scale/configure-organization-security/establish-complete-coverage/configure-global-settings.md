@@ -107,7 +107,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 * [Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql)
 {%- endif %}
 {%- ifversion ai-powered-security-detections %}
-* [Enabling AI-powered security detections](#enabling-ai-powered-security-detections)
+* [Enabling AI Scan](#enabling-ai-scan)
 {%- endif %}
 * [Expanding {% data variables.product.prodname_codeql %} analysis](#expanding-codeql-analysis)
 {%- ifversion code-scanning-inactive-repos %}
@@ -130,9 +130,9 @@ You can select **{% data variables.copilot.copilot_autofix_short %}** to enable 
 
 {% ifversion ai-powered-security-detections %}
 
-### Enabling AI-powered security detections
+### Enabling AI Scan
 
-You can select **AI-powered security detections** to enable AI-powered security detections for all repositories in your organization that use {% data variables.product.prodname_codeql %} default setup. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
+You can select **AI Scan** to enable AI Scan for eligible repositories in your organization where {% data variables.product.prodname_code_scanning %} is enabled. Repositories inherit the organization setting, but repository administrators can opt out for individual repositories. See [AUTOTITLE](/code-security/concepts/code-scanning/ai-powered-security-detections).
 
 {% endif %}
 

@@ -1,6 +1,6 @@
 ---
 title: Taking a snapshot
-intro: To save your {% data variables.product.prodname_ghe_server %} data before upgrading, take a virtual machine snapshot.
+intro: To save your {% data variables.product.prodname_ghe_server %} data before upgrading, take a VM or disk snapshot.
 redirect_from:
   - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot
   - /enterprise/admin/installation/upgrading-github-enterprise-server#taking-a-snapshot
@@ -14,7 +14,7 @@ category:
 
 ## About snapshots
 
-A snapshot stores the state of a virtual machine (VM) at a point in time. {% data variables.product.company_short %} highly recommends taking a hypervisor level snapshot before upgrading your VM so that if an upgrade fails, you can revert your VM back to the snapshot.
+A snapshot stores the state of a virtual machine (VM) at a point in time. {% data variables.product.company_short %} highly recommends taking a VM or disk snapshot before upgrading your VM so that if an upgrade fails, you can restore your instance from the snapshot.
 
 ## Types of snapshots
 
@@ -39,3 +39,10 @@ The type of snapshot you can take depends on the platform you use.
 | Hyper-V | VM | [Enable or disable checkpoints in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v) in Microsoft Learn
 | Google Compute Engine | Disk | [Create and manage disk snapshots](https://cloud.google.com/compute/docs/disks/create-snapshots) in the Google Cloud documentation
 | VMware | VM | [Taking Snapshots of a Virtual Machine](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html) in VMware Docs
+
+## Restoring from a snapshot
+
+If an upgrade fails, you can restore your instance from the snapshot you took before upgrading.
+
+* If you took a VM snapshot, revert the VM to the snapshot.
+* If you took disk snapshots, deploy a new instance running the same release as the snapshots, then attach volumes created from those snapshots. See [AUTOTITLE](/admin/installing-your-enterprise-server).

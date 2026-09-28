@@ -3,11 +3,9 @@ import type { Node, Parent } from 'unist'
 import type { Element, Text } from 'hast'
 
 /**
- * A rehype plugin that automatically adds aria-labelledby attributes to tables
- * based on their preceding headings for accessibility.
- *
- * This plugin improves table accessibility by ensuring screen readers can
- * announce table names when users navigate with the 'T' shortcut key.
+ * Adds aria-labelledby to tables, pointing at the nearest preceding heading,
+ * so screen readers announce a table name when users navigate with the 'T'
+ * shortcut key.
  *
  * Transforms this structure:
  *
@@ -24,12 +22,6 @@ import type { Element, Text } from 'hast'
  *     <thead>...</thead>
  *     <tbody>...</tbody>
  *   </table>
- *
- * The plugin works by:
- * 1. Finding table elements in the HTML AST
- * 2. Looking backwards for the nearest preceding heading with an id
- * 3. Adding aria-labelledby attribute pointing to that heading's id
- * 4. Skipping tables that already have accessibility attributes
  */
 
 interface HeadingInfo {
@@ -67,12 +59,10 @@ function hasExistingCaption(tableNode: Element): boolean {
 function findPrecedingHeading(parent: Parent, tableIndex: number): HeadingInfo | null {
   if (!parent.children || tableIndex === 0) return null
 
-  // Look backwards from the table position for the nearest heading
   for (let i = tableIndex - 1; i >= 0; i--) {
     const node = parent.children[i]
 
     if (isHeadingElement(node)) {
-      // Check if the heading has an id attribute
       const headingId = node.properties?.id
       if (headingId) {
         return {
@@ -122,13 +112,11 @@ export default function addTableAccessibilityLabels() {
         return
       }
 
-      // Find the preceding heading
       const precedingHeading = findPrecedingHeading(parent, index)
       if (!precedingHeading) {
         return
       }
 
-      // Add aria-labelledby attribute to the table
       if (!node.properties) {
         node.properties = {}
       }

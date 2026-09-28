@@ -1,4 +1,4 @@
-{% data variables.actions.hosted_runner_caps %}s are managed virtual machines with more resources than [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/concepts/runners/github-hosted-runners#supported-runners-and-hardware-resources). They offer the following advanced features:
+{% data variables.actions.hosted_runner_caps %}s are managed virtual machines with more resources than [standard {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/runners/github-hosted-runners#supported-runners-and-hardware-resources). They offer the following advanced features:
 
 * More RAM, CPU, and disk space
 * Static IP addresses

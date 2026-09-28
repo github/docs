@@ -10,7 +10,6 @@ import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-
 import Page from '@/frame/lib/page'
 
 describe('Translation Error Comments', () => {
-  // Mock renderContent for integration tests
   let mockRenderContent: MockedFunction<
     (template: string, context: Record<string, unknown>) => string
   >
@@ -179,7 +178,7 @@ describe('Translation Error Comments', () => {
       })
 
       test('truncates very long error messages', () => {
-        const longMessage = 'A'.repeat(300) // Very long error message
+        const longMessage = 'A'.repeat(300)
         const error = new LiquidError(longMessage, 'ParseError')
 
         const result = createTranslationFallbackComment(error, 'rawTitle')
@@ -223,7 +222,6 @@ describe('Translation Error Comments', () => {
 
         expect(result).toContain('type=ParseError')
         expect(result).toContain('prop=title')
-        // Should handle gracefully, might not have msg or have empty msg
       })
 
       test('cleans up multiline messages', () => {
@@ -246,11 +244,9 @@ describe('Translation Error Comments', () => {
 
         const result = createTranslationFallbackComment(error, 'rawTitle')
 
-        // Should be a proper HTML comment
         expect(result.startsWith('<!-- TRANSLATION_FALLBACK')).toBe(true)
         expect(result.endsWith('-->')).toBe(true)
 
-        // Should be on a single line
         expect(result).not.toContain('\n')
       })
 
@@ -281,7 +277,6 @@ describe('Translation Error Comments', () => {
 
         const result = createTranslationFallbackComment(error, 'title')
 
-        // Should follow the expected structure with all required fields
         expect(result.startsWith('<!-- TRANSLATION_FALLBACK')).toBe(true)
         expect(result).toContain('prop=title')
         expect(result).toContain('type=ParseError')
