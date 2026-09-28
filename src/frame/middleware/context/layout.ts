@@ -9,7 +9,7 @@ export default function layoutContext(req: ExtendedRequest, res: Response, next:
   let layoutName = 'default'
   if (req.context.page.layout) {
     if (typeof req.context.page.layout === 'boolean') {
-      // A `layout: false` value means use no layout.
+      // Only layout: true reaches here and clears the layout name. layout: false gets the default.
       layoutName = ''
     } else if (typeof req.context.page.layout === 'string') {
       layoutName = req.context.page.layout
