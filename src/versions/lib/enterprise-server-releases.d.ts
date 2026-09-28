@@ -1,11 +1,13 @@
 type Dates = {
   [key: string]: {
-    releaseDate: string // For backward compatibility - will be RC date initially, then GA date once available
+    // Templates read releaseDate as the display date: RC date until the GA date exists.
+    releaseDate: string
     deprecationDate: string
-    releaseCandidateDate?: string // Release Candidate date
-    generalAvailabilityDate?: string // General Availability date
-    displayCandidateDate?: string | null // Computed: RC date if in past, null if future
-    displayReleaseDate?: string | null // Computed: GA date if in past, null if future
+    releaseCandidateDate?: string
+    generalAvailabilityDate?: string
+    // Templates hide release dates until each date has passed.
+    displayCandidateDate?: string | null
+    displayReleaseDate?: string | null
   }
 }
 

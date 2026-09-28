@@ -24,18 +24,18 @@ const rawDates: RawDatesData = JSON.parse(
   fs.readFileSync('src/ghes-releases/lib/enterprise-dates.json', 'utf8'),
 )
 
-// Upcoming GHES release numbers (used in frontmatter and release planning)
+// Frontmatter and release planning use the next two GHES release numbers.
 export const next = '3.23'
 export const nextNext = '3.24'
 
-// Currently supported GHES versions (in descending order, latest first)
+// Keep supported GHES versions in descending order, latest first.
 export const supported = ['3.22', '3.21', '3.20', '3.19', '3.18', '3.17']
 
-// Set to version number when in RC phase, null when no RC is active
+// Use the release number during an active RC; use null outside RC.
 export const releaseCandidate = null
 
-// Deprecated versions with functional redirect handling (3.0+)
-// When archiving a new version, add it here and update the archival process
+// Deprecated releases from 3.0 onward use functional redirects.
+// Add a newly archived release here and update the archival process.
 export const deprecatedWithFunctionalRedirects = [
   '3.16',
   '3.15',
@@ -56,7 +56,7 @@ export const deprecatedWithFunctionalRedirects = [
   '3.0',
 ]
 
-// All deprecated versions (combines functional + legacy redirect handling)
+// The deprecated list combines functional redirects with legacy redirect handling.
 export const deprecated = [
   ...deprecatedWithFunctionalRedirects,
   '2.22',
@@ -85,13 +85,13 @@ export const deprecated = [
   '11.10.340',
 ]
 
-// Versions with legacy asset handling (stored in separate repos before blob storage)
+// Legacy asset releases store assets in separate repos instead of blob storage.
 export const legacyAssetVersions = ['3.0', '2.22', '2.21']
 
 export const firstReleaseStoredInBlobStorage = '3.2'
 export const firstVersionDeprecatedOnNewSite = '2.13'
 export const lastVersionWithoutArchivedRedirectsFile = '2.17'
-export const lastReleaseWithLegacyFormat = '2.18' // Last to use /enterprise/<release>/... paths
+export const lastReleaseWithLegacyFormat = '2.18' // Last release with /enterprise/<release>/... paths.
 export const firstReleaseNote = '2.20'
 export const firstRestoredAdminGuides = '2.21'
 
@@ -101,7 +101,7 @@ export const latest = supported[0]
 export const latestStable = releaseCandidate ? supported[1] : latest
 export const oldestSupported = supported[supported.length - 1]
 
-// Enhanced dates object with computed display values for templates
+// Templates read these computed display dates to hide future release dates.
 export const dates: Record<string, EnhancedVersionDateData> = Object.fromEntries(
   Object.entries(rawDates).map(([version, versionData]) => [
     version,
@@ -118,8 +118,7 @@ export const isOldestReleaseDeprecated = nextDeprecationDate
   ? new Date() > new Date(nextDeprecationDate)
   : false
 
-// Find any other releases that may share the oldest deprecation date
-// We'll want to display the deprecation banner on all of these releases (not just oldest)
+// Show the deprecation banner on every release that shares the oldest deprecation date.
 export const releasesWithOldestDeprecationDate = Object.entries(dates)
   .filter(([, versionData]) => versionData.deprecationDate === nextDeprecationDate)
   .map(([version]) => version)
@@ -140,8 +139,8 @@ export const deprecatedReleasesOnDeveloperSite = deprecated.filter((version) =>
   versionSatisfiesRange(version, '<=2.16'),
 )
 
-// Returns the date only once it has passed, so we never advertise a future
-// release date. An unparseable date gives NaN, which also returns null.
+// Return a date only after it has passed, so templates never advertise future releases.
+// Unparseable dates produce NaN, which also returns null.
 function processDateForDisplay(date: string | undefined): string | null {
   if (!date) return null
   const currentTimestamp = Math.floor(Date.now() / 1000)
