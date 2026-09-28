@@ -113,15 +113,15 @@ Some content without sections.
   })
 
   test('filters out non-English navigational headings across languages', () => {
-    // Chinese
+    // Chinese translations stay filtered.
     expect(extractHeadingsFromMarkdown('## 本文内容\n\n## 实际内容')).toBe('实际内容')
     expect(extractHeadingsFromMarkdown('## 延伸阅读\n\n## 实际内容')).toBe('实际内容')
 
-    // Korean
+    // Korean translations stay filtered.
     expect(extractHeadingsFromMarkdown('## 이 문서의 내용\n\n## 실제 내용')).toBe('실제 내용')
     expect(extractHeadingsFromMarkdown('## 추가 참고 자료\n\n## 실제 내용')).toBe('실제 내용')
 
-    // Spanish
+    // Spanish translations stay filtered.
     expect(extractHeadingsFromMarkdown('## En este artículo\n\n## Contenido real')).toBe(
       'Contenido real',
     )
@@ -129,13 +129,13 @@ Some content without sections.
       'Contenido real',
     )
 
-    // French
+    // French translations stay filtered.
     expect(extractHeadingsFromMarkdown('## Dans cet article\n\n## Contenu réel')).toBe(
       'Contenu réel',
     )
     expect(extractHeadingsFromMarkdown('## Prérequis\n\n## Contenu réel')).toBe('Contenu réel')
 
-    // German
+    // German translations stay filtered.
     expect(extractHeadingsFromMarkdown('## Voraussetzungen\n\n## Echter Inhalt')).toBe(
       'Echter Inhalt',
     )
@@ -191,7 +191,7 @@ More text.
 2. Make a request using the CLI.
 `
     const text = markdownToPlainText(markdown)
-    // "SSH." and "Make" must not merge into "SSH.Make"
+    // SSH. and Make must not merge into SSH.Make.
     expect(text).not.toMatch(/SSH\.Make/)
     expect(text).toMatch(/SSH\.\n/)
     expect(text).toContain('Make a request')
@@ -203,7 +203,7 @@ More text.
 > Second paragraph in blockquote.
 `
     const text = markdownToPlainText(markdown)
-    // Paragraphs within a blockquote should be separated
+    // Paragraphs within a blockquote stay separated.
     expect(text).not.toMatch(/blockquote\.Second/)
     expect(text).toContain('First paragraph in blockquote.')
     expect(text).toContain('Second paragraph in blockquote.')
@@ -231,7 +231,7 @@ More text.
     expect(text).not.toContain('[!WARNING]')
     expect(text).not.toContain('[!IMPORTANT]')
     expect(text).not.toContain('[!CAUTION]')
-    // The alert body text should still be present
+    // Alert body text stays searchable.
     expect(text).toContain('This is a note.')
     expect(text).toContain('This is a tip.')
     expect(text).toContain('This is a warning.')
@@ -280,10 +280,10 @@ More content.
 `
     const result = extractFromMarkdown(markdown)
 
-    // Headings should exclude "Further reading"
+    // Further reading stays out of headings.
     expect(result.headings).toBe('Section One\nSection Two')
 
-    // Content should include fenced code block text
+    // Fenced code block text stays searchable.
     expect(result.content).toContain('Some content')
     expect(result.content).toContain('More content')
     expect(result.content).toContain('"key"')
@@ -353,7 +353,7 @@ Here's how to begin.
         title: 'Archived Page',
         intro: 'This is archived.',
         product: 'Old product',
-        // No breadcrumbs - simulating archived page
+        // Archived pages can omit breadcrumbs.
       },
       body: '# Archived Page\n\nContent here.',
     }
@@ -378,7 +378,7 @@ Here's how to begin.
 
     const record = articleApiResponseToRecord('/en/get-started', response)
 
-    // For single breadcrumb, don't slice it off
+    // Single-breadcrumb product landing pages keep that breadcrumb.
     expect(record.breadcrumbs).toBe('Get started')
     expect(record.toplevel).toBe('Get started')
   })
@@ -413,7 +413,7 @@ Here's how to begin.
 
     const record = articleApiResponseToRecord('/en/test', response)
 
-    // Intro should appear only once
+    // The intro appears only once.
     const introCount = (record.content.match(/Same intro/g) || []).length
     expect(introCount).toBe(1)
   })
@@ -449,10 +449,10 @@ The \`name\` parameter is required.
 
     expect(record.content).toContain('Use the endpoint below')
     expect(record.content).toContain('parameter is required')
-    // Fenced code block content should be included for search
+    // Fenced code block content stays searchable.
     expect(record.content).toContain('ssh_url')
     expect(record.content).toContain('ssh://git@github.com')
-    // Inline code content should also be preserved
+    // Inline code content stays searchable.
     expect(record.content).toContain('name')
   })
 })
