@@ -11,24 +11,26 @@ import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
 
 type LandingCarouselProps = {
   heading?: string
-  carouselKey?: string // Optional key for translation lookup (e.g., "recommended")
+  // Optional key for translation lookup, such as "recommended".
+  carouselKey?: string
   carouselArticles?: ResolvedArticle[]
 }
 
 const useResponsiveItemsPerView = () => {
-  const [itemsPerView, setItemsPerView] = useState(3) // Default to desktop
+  // Default to the desktop 3-column carousel.
+  const [itemsPerView, setItemsPerView] = useState(3)
 
   useEffect(() => {
     const updateItemsPerView = () => {
       const width = window.innerWidth
       if (width < 768) {
-        // Mobile: 1 column
+        // Mobile shows one column.
         setItemsPerView(1)
       } else if (width < 1012) {
-        // Tablet: 2 columns
+        // Tablet shows two columns.
         setItemsPerView(2)
       } else {
-        // Desktop: 3 columns
+        // Desktop shows three columns.
         setItemsPerView(3)
       }
     }
@@ -66,7 +68,7 @@ export const LandingCarousel = ({
 
   const animationTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Reset to first page when itemsPerView changes (screen size changes)
+  // Viewport changes reset to the first page so the changed page count cannot strand the index.
   useEffect(() => {
     setCurrentPage(0)
   }, [itemsPerView])
