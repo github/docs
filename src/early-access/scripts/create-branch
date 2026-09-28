@@ -5,7 +5,6 @@
 
 set -e
 
-# Get current branch name
 currentBranch=$(git rev-parse --abbrev-ref HEAD)
 
 if [ $currentBranch == "main" ]; then
@@ -13,7 +12,6 @@ if [ $currentBranch == "main" ]; then
   exit 0
 fi
 
-# Go up a directory
 pushd .. > /dev/null
 
 if [ ! -d "docs-early-access" ]; then
@@ -22,17 +20,13 @@ if [ ! -d "docs-early-access" ]; then
   exit 0
 fi
 
-# Navigate to docs-early-access
 cd docs-early-access
 
-# Check out main and update
 git checkout main
 git pull origin main
 
-# Create a branch with the current docs-internal branch name
 git checkout -b $currentBranch
 
-# Go back to the previous working directory
 popd > /dev/null
 
 echo -e "\nDone! Created a branch called ${currentBranch}. Remember to commit your work in ../docs-early-access when you're ready."

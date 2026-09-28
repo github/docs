@@ -1,21 +1,19 @@
 import { COLOR_MODE_COOKIE_NAME } from '@/frame/lib/constants'
 import { CssColorMode, SupportedTheme, defaultCSSTheme } from '@/color-schemes/components/useTheme'
 
-// A tiny script that runs synchronously in the document <head>, before the
-// browser's first paint. It reads the `color_mode` cookie (set by github.com,
-// not HttpOnly) and writes the matching `data-color-mode`, `data-light-theme`,
-// and `data-dark-theme` attributes onto the <html> element. Without this, the
-// page first paints with the SSR default theme and only switches to the user's
-// real theme after the React bundle hydrates, causing a visible flash.
+// This script runs synchronously in the document head before first paint. It reads the
+// color_mode cookie from github.com, which is not HttpOnly, and writes data-color-mode,
+// data-light-theme, and data-dark-theme attributes on html. Without it, the page paints
+// with the SSR default theme before React hydrates and switches to the user's theme.
 //
-// `data-color-mode` is always concrete, never `auto` — @primer/react-brand has
-// no `auto` palette — and follows the effective theme, because a `light` mode
-// can carry a dark day theme. See src/color-schemes/README.md.
+// data-color-mode stays concrete, never auto, and follows the effective theme because
+// @primer/react-brand lacks an auto palette and light mode can carry a dark day theme.
+// See src/color-schemes/README.md.
 //
-// The output is identical for every request, so the HTML stays shared-cacheable
-// in our CDN. The validation allowlists and defaults are derived from the same
-// enums used by `useTheme`, so they can't drift, and `helmet.ts` hashes this
-// exact string for the CSP `script-src` allowance (no nonce, no unsafe-inline).
+// The generated output is identical across requests, so CDN caches can share the HTML.
+// useTheme supplies the validation allowlists and defaults so they cannot drift.
+// helmet.ts hashes this exact string for the CSP script-src allowance, with no nonce
+// and no unsafe-inline.
 const modes = JSON.stringify(Object.values(CssColorMode))
 const themes = JSON.stringify(Object.values(SupportedTheme))
 const defaults = JSON.stringify(defaultCSSTheme)
