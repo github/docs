@@ -1,47 +1,13 @@
-/**
- * This script helps you rewrite Markdown files that might contain
- * tables with Liquid `ifversion` tags the old/wrong way.
- * For example:
- *
- *    | Header | Header 2 |
- *    |--------|----------|
- *    | bla    | bla      |{% ifversion dependency-review-action-licenses %}
- *    | foo    | foo      |{% endif %}{% ifversion dependency-review-action-fail-on-scopes %}
- *    | bar    | bar      |{% endif %}
- *    | baz    | baz      |
- *    {%- ifversion dependency-review-action-licenses %}
- *    | qux    | qux      |{% endif %}
- *
- * Will become:
- *
- *   | Header | Header 2 |
- *   |--------|----------|
- *   | bla    | bla      |
- *   | {% ifversion dependency-review-action-licenses %} |
- *   | foo    | foo      |
- *   | {% endif %} |
- *   | {% ifversion dependency-review-action-fail-on-scopes %} |
- *   | bar    | bar      |
- *   | {% endif %} |
- *   | baz    | baz      |
- *   | {% ifversion dependency-review-action-licenses %} |
- *   | qux    | qux      |
- *   | {% endif %} |
- *
- * Run the script like this:
- *
- *   npm run liquid-markdown-tables -- convert content/path/to/article.md
- *   git diff
- *
- * To *find* files that you *can* convert, use:
- *
- *   npm run liquid-markdown-tables -- find
- *   # or
- *   npm run liquid-markdown-tables -- find --filter content/mydocset
- *
- * This will print out paths to files that most likely contain the old/wrong Liquid `ifversion` tags.
- *
- */
+// Finds and converts Markdown tables that place Liquid ifversion tags inside table rows.
+// Example input: | foo | bar |{% ifversion dependency-review-action-licenses %}
+// Example output:
+// | foo | bar |
+// | {% ifversion dependency-review-action-licenses %} |
+// Run convert: npm run liquid-markdown-tables -- convert content/path/to/article.md
+// Then run git diff to inspect changes.
+// Run find: npm run liquid-markdown-tables -- find
+// Run filtered find: npm run liquid-markdown-tables -- find --filter content/mydocset
+// Find prints paths that likely contain misplaced Liquid ifversion tags.
 
 import { program } from 'commander'
 

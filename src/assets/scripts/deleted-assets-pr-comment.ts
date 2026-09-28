@@ -8,7 +8,7 @@ if (!GITHUB_TOKEN) {
   throw new Error(`GITHUB_TOKEN environment variable not set`)
 }
 
-// When this file is invoked directly from action as opposed to being imported
+// Direct workflow execution writes the PR comment body to an action output.
 if (import.meta.url.endsWith(process.argv[1])) {
   const owner = context.repo.owner
   const repo = context.payload.repository?.name || ''
@@ -27,7 +27,6 @@ type MainArgs = {
 }
 async function main({ owner, repo, baseSHA, headSHA }: MainArgs) {
   const octokit = getOctokit(GITHUB_TOKEN as string)
-  // get the list of file changes from the PR
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,
     repo,
@@ -40,8 +39,7 @@ async function main({ owner, repo, baseSHA, headSHA }: MainArgs) {
     throw new Error('No files found in the PR')
   }
 
-  // Auto-generated asset directories managed by sync pipelines.
-  // These are deleted and recreated on each sync, so deletions are expected.
+  // Sync pipelines delete and recreate these auto-generated asset directories.
   const AUTO_GENERATED_ASSET_DIRS = ['assets/images/help/copilot/copilot-sdk/']
 
   const oldFilenames = []
@@ -50,10 +48,8 @@ async function main({ owner, repo, baseSHA, headSHA }: MainArgs) {
     if (!filename.startsWith('assets')) continue
     if (AUTO_GENERATED_ASSET_DIRS.some((dir) => filename.startsWith(dir))) continue
     if (status === 'removed') {
-      // Bad
       oldFilenames.push(filename)
     } else if (status === 'renamed') {
-      // Also bad
       const previousFilename = file.previous_filename
       oldFilenames.push(previousFilename)
     }
