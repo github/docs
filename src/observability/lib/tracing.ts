@@ -1,18 +1,10 @@
-// OpenTelemetry distributed tracing setup for docs-internal,
-// following the same pattern as github/alloy and github/github-ui.
-//
-// The instrumentation list (HTTP, Express, Undici/fetch) is explicit
-// instead of `getNodeAutoInstrumentations()`.
-// The "auto" helper enables ~30 instrumentations,
-// including ones that patch Node core modules (`fs`, `net`, `dns`) on every server.
-// Several of these are known to cause performance and listener-leak issues,
-// and OTel itself recommends disabling `instrumentation-fs` in production.
-// We only have HTTP traffic and outbound fetch in this app,
-// so we wire those up explicitly.
-//
-// References:
-//   - https://thehub.github.com/epd/engineering/dev-practicals/observability/distributed-tracing/
-//   - https://thehub.github.com/epd/engineering/dev-practicals/observability/distributed-tracing/github-telemetry-js-user-guide/
+// Follows the github/alloy and github/github-ui tracing pattern.
+// Uses explicit HTTP, Express, and Undici instrumentation instead of getNodeAutoInstrumentations.
+// The auto helper enables about 30 instrumentations, including fs, net, and dns patches.
+// These can hurt performance or leak listeners; OTel recommends disabling instrumentation-fs in production.
+// This app only needs inbound HTTP and outbound fetch tracing.
+// See https://thehub.github.com/epd/engineering/dev-practicals/observability/distributed-tracing/
+// See https://thehub.github.com/epd/engineering/dev-practicals/observability/distributed-tracing/github-telemetry-js-user-guide/
 
 import {
   CompositePropagator,
@@ -51,7 +43,7 @@ if (process.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT) {
     })
   }
 
-  // Uses `once` to prevent duplicate shutdown if SIGTERM is delivered multiple times.
+  // once prevents duplicate shutdown when SIGTERM arrives more than once.
   process.once('SIGTERM', async () => {
     try {
       await sdk.shutdown()

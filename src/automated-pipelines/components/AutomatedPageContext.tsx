@@ -31,9 +31,8 @@ export const useAutomatedPageContext = (): AutomatedPageContextT => {
   return context
 }
 
-// Non-throwing variant: returns null when there is no provider. For components that render
-// both inside and outside an AutomatedPageContext.Provider (e.g. the product sidebar, shared
-// across automated REST reference pages and conceptual REST pages). Call it unconditionally.
+// Returns null outside a provider, so shared navigation can call the hook on REST
+// reference and conceptual pages.
 export const useAutomatedPageContextOptional = (): AutomatedPageContextT | null => {
   return useContext(AutomatedPageContext)
 }

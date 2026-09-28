@@ -1,13 +1,7 @@
-/**
- * Periodically emits Node.js runtime metrics to Datadog via StatsD.
- *
- * Covers three categories that are otherwise invisible:
- *  1. V8 heap: used vs limit, so we can spot memory pressure before OOMs.
- *  2. GC: pause duration, so we can correlate latency spikes with GC.
- *  3. Event-loop delay: p50/p99, so we can see when the loop is blocked.
- *
- * Only activates when StatsD is sending real metrics (MODA_PROD_SERVICE_ENV).
- */
+// Emits runtime metrics that StatsD does not capture elsewhere:
+// V8 heap usage and limit for memory pressure, GC pause duration for latency correlation,
+// and event-loop p50 and p99 delay for blocked-loop detection.
+// Starts only when StatsD sends real metrics through MODA_PROD_SERVICE_ENV.
 import v8 from 'node:v8'
 import { monitorEventLoopDelay, PerformanceObserver } from 'node:perf_hooks'
 
@@ -21,9 +15,7 @@ function isMetricsEnabled(): boolean {
   return process.env.MODA_PROD_SERVICE_ENV === 'true' && process.env.NODE_ENV !== 'test'
 }
 
-/**
- * Call once at server start. Safe to call multiple times (no-op after first).
- */
+// Safe to call from multiple server-start paths; calls after the first are no-ops.
 export function startRuntimeMetrics(): void {
   if (started) return
   started = true
@@ -43,8 +35,7 @@ export function startRuntimeMetrics(): void {
   const gcObserver = new PerformanceObserver((list) => {
     for (const entry of list.getEntries()) {
       const kind = (entry as unknown as { detail?: { kind?: number } }).detail?.kind
-      // kind: 1 = Scavenge (minor), 2 = Mark-Sweep-Compact (major),
-      // 4 = Incremental marking, 8 = Process weak callbacks, 15 = All
+      // perf_hooks GC kinds: 1 minor, 4 major, 8 incremental, 16 weak callbacks.
       const tag = kind === 1 ? 'minor' : kind === 2 ? 'major' : 'other'
       statsd.histogram('node.gc.pause', entry.duration, [`gc_type:${tag}`])
     }

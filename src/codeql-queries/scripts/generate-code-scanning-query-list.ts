@@ -1,59 +1,23 @@
-/**
- * This script generates a block of Markdown that can be saved as a reusable.
- * The reusable lists all the queries for one programming language, with CWEs, as a Markdown table.
- *
- * To be able to execute this script, you need to have the CodeQL CLI installed.
- * To do that, you need two things:
- *
- *     1. The directory where the github/codeql repo is clone
- *     2. The path to the executable `codeql` file.
- *
- * The directory where the github/codeql repo is cloned is needed because
- * that's how it looks up files. You can set it up like this:
- *
- *     cd /tmp
- *     git clone git@github.com:github/codeql.git
- *     cd codeql
- *     pwd
- *
- * To install the codeql executable, use `gh` like this:
- *
- *     gh extension install github/gh-codeql
- *     gh codeql set-channel nightly
- *     gh codeql version
- *
- * Note that when you run the `gh codeql version` command, it will tell you
- * where the executable is installed. For example:
- *
- *   /Users/peterbe/.local/share/gh/extensions/gh-codeql/dist/nightly/codeql-bundle-20231204/codeql
- *
- * Finally, you need to install `@github/cocofix`. This is a private package,
- * so you first need to get the `DOCS_BOT_PAT_BASE` PAT from the vault and
- * store it in the environment variable `DOCS_BOT_PAT_BASE`.
- * Then run the following command from the root of this repo:
- *
- * ```sh
- * npm i --no-save '--@github:registry=https://npm.pkg.github.com' '--//npm.pkg.github.com/:_authToken=${DOCS_BOT_PAT_BASE}' @github/cocofix
- * ```
- *
- * If you've git cloned github/codeql in /tmp/ now you can execute this script.
- * For example, to generate the Markdown
- * for Python:
- *
- *   npm run generate-code-scanning-query-list -- \
- *     --codeql-path ~/.local/share/gh/extensions/gh-codeql/dist/nightly/codeql-bundle-20231204/codeql \
- *     --codeql-dir /tmp/codeql python | tee /tmp/python.md
- *   less /tmp/python.md
- */
+// Generates reusable Markdown listing CodeQL code scanning queries for one language, with CWEs.
+// Requires a local github/codeql clone and a CodeQL CLI executable.
+// Set up the clone with git clone git@github.com:github/codeql.git /tmp/codeql.
+// Install the CLI with gh extension install github/gh-codeql, then gh codeql set-channel nightly.
+// Run gh codeql version to find the installed codeql path.
+// Also requires @github/cocofix, installed locally with DOCS_BOT_PAT_BASE from the vault:
+//   npm i --no-save '--@github:registry=https://npm.pkg.github.com' \
+//     '--//npm.pkg.github.com/:_authToken=${DOCS_BOT_PAT_BASE}' @github/cocofix
+// Example:
+//   npm run generate-code-scanning-query-list -- \
+//     --codeql-path ~/.local/share/gh/extensions/gh-codeql/dist/nightly/codeql-bundle-*/codeql \
+//     --codeql-dir /tmp/codeql python | tee /tmp/python.md
+// Inspect the generated Markdown with less /tmp/python.md.
 
 import fs from 'fs'
 import { execFileSync } from 'child_process'
 
 import chalk from 'chalk'
 import { program } from 'commander'
-// We don't want to introduce a global dependency on @github/cocofix, so we install it by hand
-// as described above and suppress the import warning.
-// eslint-disable-next-line import/no-unresolved -- @github/cocofix is installed manually
+// eslint-disable-next-line import/no-unresolved -- @github/cocofix stays manual to avoid a global dependency
 import { getSupportedQueries } from '@github/cocofix/dist/querySuites'
 import type { Language } from 'codeql-ts'
 
@@ -150,8 +114,7 @@ async function main(options: Options, language: string) {
           const url = getDocsLink(language, id)
           const autofixSupport = autofixSupportedQueryIds.includes(id) ? 'default' : 'none'
 
-          // Only include queries that have CWEs, since the other queries deal with code scanning
-          // metadata and metrics (e.g. counting lines of code or number of files) and have no docs link
+          // CWE-less queries cover metadata or metrics and have no docs link.
           if (cwes.length) {
             if (!(id in queries)) {
               queries[id] = { url, name, packs: [], cwes, autofixSupport }
@@ -178,8 +141,7 @@ async function main(options: Options, language: string) {
 
   const entries = Object.values(queries).map(decorate)
 
-  // Spec: "Queries that are both in Default and Extended should come first,
-  // in alphabetical order. Followed by the queries that are in Extended only."
+  // Default-and-Extended queries sort before Extended-only queries; each group sorts by name.
   entries.sort((a, b) => {
     if (a.inDefault && !b.inDefault) return -1
     else if (!a.inDefault && b.inDefault) return 1
@@ -196,7 +158,7 @@ async function main(options: Options, language: string) {
 function printQueries(options: Options, queries: QueryExtended[]) {
   const markdown: string[] = []
   markdown.push('{% rowheaders %}')
-  markdown.push('') // blank line
+  markdown.push('')
   const header = [
     'Query name',
     'Related CWEs',
@@ -218,9 +180,9 @@ function printQueries(options: Options, queries: QueryExtended[]) {
     const row = [markdownLink, query.cwes.join(', '), defaultIcon, extendedIcon, autofixIcon]
     markdown.push(`| ${row.join(' | ')} |`)
   }
-  markdown.push('') // blank line
+  markdown.push('')
   markdown.push('{% endrowheaders %}')
-  markdown.push('') // always end with a blank line
+  markdown.push('')
 
   if (options.outputFile === 'stdout') {
     console.log(markdown.join('\n'))
@@ -237,21 +199,13 @@ function getMetadata(options: Options, queryFile: string): QueryMetadata {
   return parsed
 }
 
-/**
- *
- * @param language 'cpp'
- * @param queryId 'external-entity-expansion'
- * @returns https://codeql.github.com/codeql-query-help/cpp/cpp-external-entity-expansion/
- */
+// Example: cpp and external-entity-expansion become
+// https://codeql.github.com/codeql-query-help/cpp/cpp-external-entity-expansion/
 function getDocsLink(language: string, queryId: string) {
   return `https://codeql.github.com/codeql-query-help/${language}/${queryId.replaceAll('/', '-')}/`
 }
 
-/**
- *
- * @param tags 'maintainability readability external/cwe/cwe-1078 external/cwe/cwe-670 security'
- * @returns ['1078', '670']
- */
+// Example tags with external/cwe/cwe-1078 and external/cwe/cwe-670 return 1078 and 670.
 function getCWEs(tags: string) {
   const cwes: string[] = []
   for (const tag of tags.split(/\s+/g)) {
