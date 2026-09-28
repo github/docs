@@ -32,8 +32,7 @@ type Props = {
 
 const responseSelectOptions = Object.values(ResponseKeys)
 
-// Map a REST code-sample language to the highlight language name passed to
-// <HighlightedCode>. Add cases as needed.
+// Map REST code-sample languages to syntax highlighter language names.
 function getLanguageHighlight(selectedLanguage: string) {
   return selectedLanguage === CodeSampleKeys.javascript ? 'javascript' : 'curl'
 }
@@ -42,7 +41,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const { t } = useTranslation(['rest_reference'])
   const { isEnterpriseServer, isEnterpriseCloud } = useVersion()
 
-  // Ref for resetting scroll position when switching response views.
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const { currentVersion } = useVersion()
@@ -59,13 +57,11 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
 
   const languageSelectOptions: CodeSampleKeys[] = [CodeSampleKeys.curl]
 
-  // Management Console and GHES Manage API operations are not supported
-  // by Octokit
+  // Management Console and GHES Manage API operations have no Octokit support.
   if (operation.subcategory !== 'management-console' && operation.subcategory !== 'manage-ghes') {
     languageSelectOptions.push(CodeSampleKeys.javascript)
 
-    // Not all examples support the GH CLI language option. If any of
-    // the examples don't support it, we don't show GH CLI as an option.
+    // Hide GitHub CLI when any example lacks GitHub CLI support.
     if (!languageExamples.some((example) => example.ghcli === undefined)) {
       languageSelectOptions.push(CodeSampleKeys.ghcli)
     }
@@ -94,8 +90,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   }
 
   useEffect(() => {
-    // If the user previously selected a language preference and the language
-    // is available in this component set it as the selected language
+    // Honor the saved language preference only when this operation supports that language.
     const cookieValue = Cookies.get(CODE_SAMPLE_LANGUAGE_COOKIE_NAME)
     const preferredCodeLanguage = languageSelectOptions.find((item) => item === cookieValue)
     if (cookieValue && preferredCodeLanguage) {
@@ -103,8 +98,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     }
   }, [])
 
-  // Reset scroll position to the top when switching between example response and
-  // response schema. Highlighting is handled React-natively by <HighlightedCode>.
+  // Reset scroll position when switching between the example response and response schema.
   useEffect(() => {
     const scrollElem = scrollRef.current
     if (scrollElem) {
@@ -156,7 +150,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
         </div>
       )}
 
-      {/* Request example section */}
       <div className="rounded-1 border">
         <div className="my-0 p-3">
           <RestMethod verb={operation.verb} requestPath={operation.requestPath} />
@@ -215,7 +208,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
         </div>
       </div>
 
-      {/* Response section */}
       <RenderedHTML
         as="h4"
         className="mt-5 mb-2 h5"

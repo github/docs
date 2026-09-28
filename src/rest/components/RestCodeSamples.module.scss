@@ -38,7 +38,7 @@
   margin-bottom: 0.5rem !important;
 
   li + li {
-    // Same as the Primer CSS selector for segmented control
+    // Match Primer's segmented-control sibling selector.
     margin-top: -1px !important;
   }
 }

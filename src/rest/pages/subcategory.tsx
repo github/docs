@@ -42,7 +42,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   const req = context.req as unknown as ExtendedRequest
   const res = context.res as unknown as ServerResponse
-  // e.g. the `activity` from `/en/rest/activity/events`
   const category = context.params!.category as string
   let subCategory = context.params!.subcategory as string
   const currentVersion = context.params!.versionId as string
@@ -52,8 +51,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const apiVersion = allVersions[currentVersion].apiVersions.includes(queryApiVersion)
     ? queryApiVersion
     : allVersions[currentVersion].latestApiVersion
-  // For pages with category level only operations like /rest/billing, we set
-  // the subcategory's value to be the category for the call to getRest()
+  // Category-only pages like /rest/billing use the category as the getRest subcategory.
   if (!subCategory) {
     subCategory = category
   }
@@ -61,13 +59,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const categoryData = await getRest(currentVersion, apiVersion, category)
   const restOperations = (categoryData && categoryData[subCategory]) || []
 
-  // Gets the miniTocItems in the article context. At this point it will only
-  // include miniTocItems generated from the Markdown pages in
-  // content/rest/*
+  // Article context starts with mini-TOC items from content/rest Markdown.
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
-  // Build mini-TOC items from the operation titles, using the request context
-  // for the language and version, and append them to the article's mini-TOC.
+  // Append operation title anchors to the article mini-TOC.
   if (restOperations) {
     const { restOperationsMiniTocItems } = (await getRestMiniTocItems(
       category,

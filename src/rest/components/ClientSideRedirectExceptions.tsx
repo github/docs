@@ -1,16 +1,13 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-// REST operations have moved around in the docs, so the URLs in the OpenAPI are
-// out of sync with where the pages now live. Until those are updated, this
-// catches links from elsewhere in the product, such as error-code URLs from the
-// APIs. A redirect can be one operation URL to another, or a heading on one page
-// to a different page, e.g. /rest/repos#statuses to /rest/commits/statuses.
+// OpenAPI URLs can lag REST doc page moves, so this catches product links such as
+// API error-code URLs. Redirects can target another operation URL or move a heading,
+// for example /rest/repos#statuses to /rest/commits/statuses.
 export default function ClientSideRedirectExceptions() {
   const router = useRouter()
   useEffect(() => {
-    // The fetch can resolve after the component unmounts and still call
-    // router.replace, so abort it during cleanup.
+    // Abort during cleanup because fetch can resolve after unmount and still call router.replace.
     const controller = new AbortController()
     const signal = controller.signal
 
@@ -29,8 +26,7 @@ export default function ClientSideRedirectExceptions() {
           signal,
         })
 
-        // A missing redirect is a 200 with an empty object, so only a
-        // successful response is worth parsing.
+        // Missing redirects return 200 with an empty object; parse only successful responses.
         if (response.ok) {
           const { to } = await response.json()
           if (to) {

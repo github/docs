@@ -36,8 +36,7 @@ const restRepoCategoryExceptionsTitles = {
 export const RestBanner = () => {
   const router = useRouter()
   const { t } = useTranslation('rest')
-  // A productId of 'rest' with no category is the product landing page, e.g.
-  // /en/rest?apiVersion=2022-08-09.
+  // The /en/rest?apiVersion=2022-08-09 page has productId=rest and no category.
   const isRestPage = router.query.productId === 'rest' || router.query.category
   const restPage = router.query.category as string
   const { currentVersion } = useVersion()
@@ -53,8 +52,7 @@ export const RestBanner = () => {
     versionWithApiVersion = currentVersion
   } else {
     if (currentVersionObj.isGHES) {
-      // If this is a GHES release with no REST versions,
-      // find out if any GHES releases contain REST versioning yet.
+      // GHES releases without REST versioning link to the first GHES release that has it.
       const firstGhesReleaseWithApiVersions = Object.values(allVersions)
         .reverse()
         .find((v) => {
@@ -72,7 +70,6 @@ export const RestBanner = () => {
       }
     }
   }
-  // Temporary banner for REST API Versioning
   if (isRestPage && bannerText !== '') {
     return (
       <div

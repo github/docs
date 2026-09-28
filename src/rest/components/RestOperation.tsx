@@ -19,7 +19,7 @@ type Props = {
   operation: Operation
 }
 
-// all REST operations have this accept header by default
+// Use this as the default Accept header for REST operations.
 const DEFAULT_ACCEPT_HEADER = {
   name: 'accept',
   type: 'string',
@@ -38,7 +38,7 @@ export function RestOperation({ operation }: Props) {
   const titleSlug = slug(operation.title)
   const { t } = useTranslation('rest_reference')
   const router = useRouter()
-  // omit the default header if ghes specific api
+  // Omit the default Accept header for Management Console and GHES Manage APIs.
   const headers =
     operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes'
       ? []
