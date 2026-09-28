@@ -12,7 +12,7 @@ describe('featuredLinks', () => {
 
   test('Enterprise get-started landing renders', async () => {
     const $ = await getDOM('/en/enterprise-server@latest/get-started')
-    // get-started uses discovery-landing, so it has hero/spotlight, not article-list.
+    // discovery-landing renders get-started hero and spotlight instead of article-list.
     expect($('h1').text()).toMatch(/Getting started/)
   })
 })
@@ -24,7 +24,7 @@ describe('homepage', () => {
     const $ = await getDOM('/en')
     const $search = $('[data-testid=homepage-search]')
     expect($search).toHaveLength(1)
-    // The redesigned homepage no longer renders the featured article lists.
+    // The homepage renders the product grid, not featured article lists.
     expect($('[data-testid=article-list]')).toHaveLength(0)
   })
 
@@ -32,7 +32,6 @@ describe('homepage', () => {
     const $ = await getDOM('/en')
     const $grid = $('[data-testid=product]')
     expect($grid).toHaveLength(1)
-    // Category group headings and their product links.
     expect($grid.find('h3').length).toBeGreaterThan(0)
     expect($grid.find('a').length).toBeGreaterThan(0)
   })

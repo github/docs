@@ -3,7 +3,7 @@ import os from 'node:os'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
 
-import { describe, expect, test, beforeAll, afterAll } from 'vitest'
+import { describe, expect, test, vi, beforeAll, afterAll } from 'vitest'
 
 import {
   contentPathToUrl,
@@ -258,6 +258,8 @@ describe('upsertRedirectBlock', () => {
  */
 describe('preserve-redirects end to end', () => {
   let repo: string
+  // Each test spawns npx tsx, and a cold start on a busy CI runner can exceed the 5s default.
+  vi.setConfig({ testTimeout: 30 * 1000 })
 
   const git = (...args: string[]) => execFileSync('git', args, { cwd: repo, encoding: 'utf8' })
 

@@ -19,16 +19,13 @@ export type LandingContextT = {
   renderedPage: string
   currentLayout: string
   heroImage?: string
-  // For landing pages with carousels
   carousels?: Record<
     string,
     Array<{ title: string; intro: string; href: string; category: string[] }>
   >
   introLinks?: Record<string, string> | null
-  // For journey landing pages
   journeyTracks?: JourneyTrack[]
   journeyArticlesHeading?: string | null
-  // For article grid category filtering
   includedCategories?: string[]
 }
 
@@ -77,8 +74,7 @@ export const getLandingContextFromRequest = async (
         ? (page.carousels as LandingContextT['carousels'])
         : {}
 
-  // Note: Journey tracks are resolved in middleware and added to the request
-  // context to avoid the error using server side apis client side
+  // Middleware resolves journey tracks because server-side APIs cannot run client-side.
   const journeyTracks: JourneyTrack[] = Array.isArray(context.journeyTracks)
     ? context.journeyTracks
     : Array.isArray(page.resolvedJourneyTracks)
