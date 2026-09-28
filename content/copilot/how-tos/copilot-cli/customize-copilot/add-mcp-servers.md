@@ -251,6 +251,20 @@ You can also manage MCP servers from the terminal without entering interactive m
 
   Removes the server from the user configuration.
 
+* **Disable a server:**
+
+  ```shell copy
+  copilot mcp disable SERVER-NAME
+  ```
+
+  A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %}. This setting persists across sessions.
+
+* **Enable a previously disabled server:**
+
+  ```shell copy
+  copilot mcp enable SERVER-NAME
+  ```
+
 ## Using MCP servers
 
 Once you have added an MCP server, {% data variables.product.prodname_copilot_short %} can automatically use the tools it provides when relevant to your prompt. You can also directly reference an MCP server and specific tools in a prompt to ensure they are used.
