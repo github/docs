@@ -9,35 +9,29 @@ import {
 } from '../../frame/lib/constants'
 
 const ARTICLE = '/en/get-started/foo/bar'
-// `find-page.ts` narrows `context.languages` to English alone for early-access
-// pages, which makes this the production route through the single-language
-// branch of the header's language slot.
+// find-page.ts narrows context.languages to English for early-access pages, so
+// this route exercises the single-language branch of the header's language slot.
 const ENGLISH_ONLY_ARTICLE = '/en/early-access/secrets/deeper/mariana-trench'
 const SEARCH_LABEL = 'Search or ask Copilot'
 const LANGUAGE_LABEL = 'Select language: current language is English'
 const PLAN_LABEL = 'Select your plan:'
 const VERSION_LABEL = 'Select your version:'
-// The pill's line-height is the Docs design's own decision, set in
-// HeaderPicker.module.scss -- Brand's --brand-text-lineHeight-100 is 1.5 -- so
-// unlike the sizes below it is not resolved from a token.
+// The pill's line-height comes from the Docs design, not Brand's
+// --brand-text-lineHeight-100 value of 1.5.
 const PILL_LINE_HEIGHT = 1.2
 const PLAN_TRIGGER_TESTID = 'version-picker-button'
 const LANGUAGE_TRIGGER_TESTID = 'language-picker-button'
-// Brand renders the trailing slot on `trailingComponent != null`, so the wrapper
-// survives a child that renders nothing. Its class name is CSS-module hashed, so
-// only the stable fragment can be matched -- and an absence assertion on a name
-// Brand might rename would pass vacuously, which is why the test below always
-// pairs it with a page where the same selector must still match.
+// Brand renders the trailing slot when trailingComponent != null, so the wrapper
+// survives a child that renders nothing.
+// The CSS module hash leaves only this stable fragment to match; the paired
+// presence test prevents a vacuous absence check after a Brand rename.
 const BRAND_TRAILING_SLOT = '[class*="SubdomainNavBar-trailing-component"]'
 
-/**
- * Resolve Brand custom properties in whatever theme the page is currently in,
- * instead of hardcoding light-mode RGB values. The probe is appended inside
- * `locator` on purpose: the plan menu renders inside its own nested Brand
- * ThemeProvider, so tokens have to be read from within that subtree to reflect
- * the color mode the menu actually paints with. The hidden probe only
- * normalizes CSS color syntax into rgb(); it never styles the UI.
- */
+// Resolve Brand custom properties in the page's current theme instead of
+// hardcoding light-mode RGB values.
+// Append the probe inside locator because the plan menu has its own nested Brand
+// ThemeProvider, so tokens must come from that subtree.
+// The hidden probe normalizes CSS color syntax into rgb() without styling the UI.
 async function resolveThemeTokens(locator: Locator, tokens: string[]) {
   return locator.evaluate((element, tokenNames: string[]) => {
     const probe = document.createElement('span')
@@ -59,12 +53,10 @@ async function resolveThemeTokens(locator: Locator, tokens: string[]) {
   }, tokens)
 }
 
-/**
- * Resolve Brand length tokens to pixels, so the pill's geometry can be checked
- * against the tokens it is built from instead of the numbers those tokens happen
- * to produce today. The probe is laid out (absolute + hidden rather than
- * `hidden`) so `width` resolves through calc()/max() to a used pixel value.
- */
+// Resolve Brand length tokens to pixels so the pill geometry stays tied to
+// tokens, not their current numeric values.
+// The absolute hidden probe stays laid out so width resolves through calc() and
+// max() to a used pixel value.
 async function resolveTokenPixels(locator: Locator, tokens: string[]) {
   return locator.evaluate((element, tokenNames: string[]) => {
     const probe = document.createElement('div')
@@ -92,7 +84,7 @@ async function resolveTokenPixels(locator: Locator, tokens: string[]) {
   }, tokens)
 }
 
-/** Read raw custom-property values (font weights resolve to plain numbers). */
+// Font weights resolve to plain numbers, so this reads raw custom-property values.
 async function resolveTokenValues(locator: Locator, tokens: string[]) {
   return locator.evaluate((element, tokenNames: string[]) => {
     const resolved: Record<string, string> = {}
@@ -122,10 +114,7 @@ async function expectHeaderPlanPicker(page: Page) {
   expect(valueId).toBeTruthy()
   await expect(button).toHaveAttribute('aria-labelledby', `${labelId} ${valueId}`)
 
-  // Every size below is arithmetic over Brand tokens, so resolve the tokens and
-  // derive the expectations rather than hardcoding today's pixels: a
-  // @primer/react-brand bump that moves --base-size-* then updates both sides at
-  // once, instead of failing CI with no user-visible regression.
+  // Resolve Brand tokens so expected sizes move with --base-size-* changes instead of failing.
   const sizes = await resolveTokenPixels(picker, [
     '--brand-text-size-100',
     '--base-size-2',
@@ -197,8 +186,7 @@ async function expectHeaderPlanPicker(page: Page) {
   expect(buttonBox.x - (labelBox.x + labelBox.width)).toBeCloseTo(labelGap, 0)
   expect(labelBox.y + labelBox.height / 2).toBeCloseTo(buttonBox.y + buttonBox.height / 2, 0)
   expect(buttonBox.height).toBeCloseTo(pillHeight, 0)
-  // The normal plan name must fit even with Signup visible at 1012px. Keep
-  // ellipsis available for unusually long labels, not this default English one.
+  // Default English plan name must fit with Signup at 1012px; ellipsis is for longer labels.
   await expect
     .poll(() => value.evaluate((element) => element.scrollWidth - element.clientWidth))
     .toBeLessThanOrEqual(0)
@@ -217,16 +205,12 @@ async function expectHeaderPlanPicker(page: Page) {
   await expectFilledTriangleCaret(button, colors.text)
 }
 
-/**
- * Both header triggers end in the same caret, so both are checked the same way.
- * The design's caret is a filled triangle. Brand's ActionMenu.Button hardcodes a
- * ChevronDownIcon and only loses to a caller-supplied trailingVisual because it
- * spreads rest props after that default -- a single shared cast (ActionMenuTrigger)
- * relies on that. A Brand upgrade that destructures trailingVisual would silently
- * restore the chevron on both controls at once, so assert the chevron is gone and
- * that the glyph really has the triangle's geometry: the triangle's path is
- * ~7.15 x 3.82 user units, where chevron-down's is ~9.56 x 5.31.
- */
+// Both header triggers use the same filled triangle caret, checked through one helper.
+// Brand's ActionMenu.Button defaults to ChevronDownIcon; the ActionMenuTrigger
+// cast relies on a caller-supplied trailingVisual overriding it.
+// A Brand change that destructures trailingVisual would restore chevrons on both controls.
+// Assert the chevron is gone and the triangle path is about 7.15 by 3.82 user
+// units, not chevron-down's 9.56 by 5.31.
 async function expectFilledTriangleCaret(trigger: Locator, color: string) {
   const caret = trigger.locator('svg.octicon-triangle-down')
   await expect(caret).toBeVisible()
@@ -244,13 +228,10 @@ async function expectFilledTriangleCaret(trigger: Locator, color: string) {
   expect(glyph.height).toBeLessThan(4.6)
 }
 
-/**
- * The language trigger deliberately does *not* match the plan pill: Figma draws
- * it as a flat control -- a 16px globe, the language in muted 14px regular, then
- * the same filled caret. Only the dropdown below it is shared, so this asserts
- * the trigger keeps its own treatment and never drifts into the pill (which is
- * exactly what reusing the shared pill class would do).
- */
+// The language trigger deliberately does not match the plan pill.
+// Figma specifies a flat control: 16px globe, muted 14px regular language text,
+// then the same filled caret.
+// Only the dropdown is shared, so this catches accidental reuse of the shared pill class.
 async function expectHeaderLanguageTrigger(page: Page) {
   const picker = page.getByTestId('desktop-header').getByTestId('language-picker')
   const trigger = picker.getByTestId(LANGUAGE_TRIGGER_TESTID)
@@ -272,10 +253,7 @@ async function expectHeaderLanguageTrigger(page: Page) {
   )
   expect(valueFontSize).toBeCloseTo(sizes['--brand-text-size-100'], 1)
 
-  // Flat, not a pill: no fill at rest, no border, and a small corner rather than
-  // the pill's full radius. The canvas-subtle comparison keeps this honest -- it
-  // is the fill the pill carries and the fill this control only takes on hover
-  // and while open.
+  // Flat trigger: no rest fill or border, a 6px corner, and canvas-subtle on hover or open.
   await expect(trigger).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
   expect(tokens['--brand-color-canvas-subtle']).not.toBe('rgba(0, 0, 0, 0)')
   for (const side of ['top', 'right', 'bottom', 'left']) {
@@ -285,9 +263,7 @@ async function expectHeaderLanguageTrigger(page: Page) {
     await expect(trigger).toHaveCSS(`border-${corner}-radius`, '6px')
   }
   const triggerBox = (await trigger.boundingBox())!
-  // Brand's ActionMenu remaps --brand-borderRadius-medium to the full radius on
-  // its own trigger, so a 6px corner is the difference between this control and
-  // a pill rather than a cosmetic detail.
+  // Brand's ActionMenu remaps --brand-borderRadius-medium to full radius; 6px prevents a pill.
   expect(triggerBox.height / 2).toBeGreaterThan(6)
 
   const globe = trigger.locator('svg.octicon-globe')
@@ -301,29 +277,25 @@ async function expectHeaderLanguageTrigger(page: Page) {
   await expectFilledTriangleCaret(trigger, tokens['--brand-color-text-muted'])
 }
 
-/**
- * The two header dropdowns are the same control with different content: both are
- * Brand ActionMenus whose surface and rows come entirely from the shared
- * HeaderPicker.module.scss. Every design assertion below therefore runs against
- * both -- that is what proves they are identical rather than merely similar --
- * so only the content is parameterized here.
- */
+// The two header dropdowns use the same Brand ActionMenu surface and row styles
+// from HeaderPicker.module.scss.
+// Running each design assertion against both menus proves shared styling, not similar styling.
 type HeaderDropdown = {
   name: string
   pickerTestId: string
   triggerTestId: string
-  /** The span each row wraps its label in. */
+  // The span each row wraps its label in.
   itemTestId: string
   expectTrigger: (page: Page) => Promise<void>
-  /** The row that opens already chosen: tinted, with the trailing green dot. */
+  // The row that opens already chosen: tinted, with the trailing green dot.
   selectedRow: string
-  /** Another selectable row: no tint, no dot. */
+  // Another selectable row: no tint, no dot.
   unselectedRow: string
-  /** Rows that navigate instead of selecting, so they stay plain menuitems. */
+  // Rows that navigate instead of selecting, so they stay plain menuitems.
   navigationRowCount: number
-  /** The plan menu keeps one rule between its versions and its navigation rows. */
+  // The plan menu keeps one rule between its versions and its navigation rows.
   separatorCount: number
-  /** The final row -- whatever a clipped menu loses first. */
+  // A clipped menu loses this final row first.
   lastRowRole: 'menuitem' | 'menuitemradio'
   lastRowName: RegExp
 }
@@ -358,11 +330,8 @@ const LANGUAGE_DROPDOWN: HeaderDropdown = {
   lastRowName: /日本語/,
 }
 
-/**
- * A Docs 2026 header dropdown, rebuilt on Brand's ActionMenu. Opens the menu,
- * checks the surface, rows, selection indicator and the absence of Brand's own
- * leading check slot, then closes it and confirms focus returns to the trigger.
- */
+// Docs 2026 rebuilds header dropdowns on Brand ActionMenu, so this helper checks
+// the shared menu contract end to end.
 async function expectHeaderDropdownDesign(
   page: Page,
   colorScheme: 'light' | 'dark',
@@ -374,7 +343,7 @@ async function expectHeaderDropdownDesign(
   await trigger.click()
   await expect(trigger).toHaveAttribute('aria-expanded', 'true')
 
-  // Brand's menu is not portalled -- it renders inside the picker wrapper.
+  // Brand's menu renders inside the picker wrapper, not a portal.
   const menu = picker.getByRole('menu')
   await expect(menu).toBeVisible()
 
@@ -385,8 +354,7 @@ async function expectHeaderDropdownDesign(
     '--brand-color-text-default',
     '--brand-color-success-fg',
   ])
-  // Proves the emulated scheme reached Brand's tokens: a dark run that silently
-  // stayed light would satisfy every assertion above on its own.
+  // A dark run that stays light would pass above, so verify Brand tokens changed.
   const luminance = relativeLuminance(tokens['--brand-color-canvas-default'])
   if (colorScheme === 'dark') {
     expect(luminance).toBeLessThan(0.2)
@@ -394,8 +362,7 @@ async function expectHeaderDropdownDesign(
     expect(luminance).toBeGreaterThan(0.8)
   }
 
-  // Menu surface: canvas-default fill, 1px subtle border, 6px radius, 8px pad.
-  // Brand's own defaults are a border-muted border and a 16px radius.
+  // Overrides Brand's border-muted border and 16px radius; assertions also pin fill and 8px pad.
   await expect(menu).toHaveCSS('background-color', tokens['--brand-color-canvas-default'])
   for (const side of ['top', 'right', 'bottom', 'left']) {
     await expect(menu).toHaveCSS(`border-${side}-width`, '1px')
@@ -406,13 +373,10 @@ async function expectHeaderDropdownDesign(
   for (const corner of ['top-left', 'top-right', 'bottom-left', 'bottom-right']) {
     await expect(menu).toHaveCSS(`border-${corner}-radius`, '6px')
   }
-  // The design's menu is 256px wide; a long row may grow it, never shrink it.
+  // The design sets a 256px minimum menu width; long rows can grow it, never shrink it.
   const menuBox = (await menu.boundingBox())!
   expect(menuBox.width).toBeGreaterThanOrEqual(256)
-  // Brand anchors with `allowOutOfBounds`, so nothing clamps a menu that would
-  // overhang -- which matters most for the language menu, the one control sitting
-  // at the header's right edge. `menuAlignment` is what keeps it on screen, so
-  // assert the result instead of trusting the prop.
+  // Brand allowOutOfBounds can overhang the right-edge menu; menuAlignment keeps it on screen.
   const viewportWidth = page.viewportSize()!.width
   expect(menuBox.x).toBeGreaterThanOrEqual(-1)
   expect(menuBox.x + menuBox.width).toBeLessThanOrEqual(viewportWidth + 1)
@@ -420,16 +384,10 @@ async function expectHeaderDropdownDesign(
   const selectableRows = menu.getByRole('menuitemradio')
   const navigationRows = menu.getByRole('menuitem')
   expect(await selectableRows.count()).toBeGreaterThanOrEqual(2)
-  // In the plan menu "All Enterprise Server releases" and "About versions"
-  // navigate rather than select, so they stay plain menuitems. The language menu
-  // has no such rows.
+  // In the plan menu, All Enterprise Server releases and About versions stay navigation menuitems.
   await expect(navigationRows).toHaveCount(dropdown.navigationRowCount)
 
-  // A single rule divides the versions from those two navigation rows. Brand has
-  // no divider child, so the picker renders the separator itself; it must not be
-  // focusable, and must be neither the first nor the last row, because Brand
-  // focuses the first <li> and wires its arrow-key wrap-around to the first and
-  // the last. The language menu divides nothing, so it carries no separator.
+  // Brand lacks a divider child; keep the separator unfocusable and outside arrow-key wrap ends.
   const separator = menu.locator('[role="separator"]')
   await expect(separator).toHaveCount(dropdown.separatorCount)
   if (dropdown.separatorCount > 0) {
@@ -462,8 +420,7 @@ async function expectHeaderDropdownDesign(
     expect(rule.previousRole).toBe('menuitemradio')
     expect(rule.nextRole).toBe('menuitem')
     expect(rule.nextText).toMatch(/All Enterprise Server releases/)
-    // A plain <li> is a block box, so the rule spans the menu's inner width
-    // rather than sitting inside a row's own 12px insets.
+    // A block li spans the menu's inner width instead of a row's 12px insets.
     expect(rule.width).toBeCloseTo(rule.innerWidth, 0)
     expect(rule.marginTop).toBeCloseTo(8, 0)
     expect(rule.marginBottom).toBeCloseTo(8, 0)
@@ -476,8 +433,7 @@ async function expectHeaderDropdownDesign(
     const row = rows.nth(index)
     expect((await row.boundingBox())!.height).toBeCloseTo(32, 0)
     await expect(row).toHaveCSS('padding-left', '12px')
-    // The reserved indicator column replaces Brand's 48px single-selection
-    // gutter: a 12px inset, the 16px dot, then a 12px gap before the label.
+    // The indicator column reserves 12px, a 16px dot and a 12px gap, replacing Brand's 48px gutter.
     await expect(row).toHaveCSS('padding-right', '40px')
     for (const corner of ['top-left', 'top-right', 'bottom-left', 'bottom-right']) {
       await expect(row).toHaveCSS(`border-${corner}-radius`, '6px')
@@ -509,10 +465,7 @@ async function expectHeaderDropdownDesign(
   expect(selectedBox.x + selectedBox.width - (dotBox.x + dotBox.width)).toBeCloseTo(12, 0)
   expect(dotBox.y + dotBox.height / 2).toBeCloseTo(selectedBox.y + selectedBox.height / 2, 0)
 
-  // Brand renders a leading check slot on every row of a single-selection menu;
-  // the design marks the current row with the trailing dot instead. Assert the
-  // rendered result rather than Brand's hashed class names: the selected row's
-  // only visible glyph is the dot.
+  // The selected row's only visible glyph must be the trailing dot, not Brand's leading check slot.
   await expect(selectedRow.locator('svg.octicon-check')).not.toBeVisible()
   const visibleGlyphs = await selectedRow
     .locator('svg')
@@ -521,8 +474,7 @@ async function expectHeaderDropdownDesign(
     )
   expect(visibleGlyphs).toHaveLength(1)
   expect(visibleGlyphs[0]).toContain('octicon-dot-fill')
-  // When Brand renders that slot it must be hidden outright. Written so a future
-  // Brand release that stops rendering it altogether does not fail the suite.
+  // Accept a missing leading slot so Brand can remove it without failing this suite.
   const leadingSlotDisplay = await selectedRow.evaluate((row) => {
     const first = row.firstElementChild
     return first && row.children.length > 1 ? getComputedStyle(first).display : null
@@ -543,8 +495,7 @@ async function expectHeaderDropdownDesign(
 
   for (let index = 0; index < dropdown.navigationRowCount; index++) {
     const extra = navigationRows.nth(index)
-    // axe rejects aria-checked on role=menuitem, so the extras must opt out of
-    // the selection semantics ActionMenu.Overlay injects into its children.
+    // axe rejects aria-checked on menuitem, so navigation rows opt out of selection semantics.
     await expect(extra).not.toHaveAttribute('aria-checked')
     await expect(extra.locator('svg.octicon-dot-fill')).toHaveCount(0)
   }
@@ -555,9 +506,8 @@ async function expectHeaderDropdownDesign(
   await expect(trigger).toBeFocused()
 }
 
-// The properties a shared stylesheet is supposed to fix identically for both
-// dropdowns. Content-dependent geometry (the menu's used width, a row's text) is
-// deliberately absent: only the styling has to match.
+// The shared stylesheet must fix these properties identically for both dropdowns.
+// Content-dependent geometry is absent; only styling has to match.
 const SURFACE_PROPERTIES = [
   'background-color',
   'min-width',
@@ -593,14 +543,11 @@ const LABEL_PROPERTIES = [
 ]
 const DOT_PROPERTIES = ['position', 'right', 'width', 'height', 'fill']
 
-/**
- * A style fingerprint of an open header dropdown: the surface, the selected row,
- * its label and its trailing dot. Two dropdowns whose styling really does come
- * from one shared module produce equal fingerprints -- which is a stronger claim
- * than each one separately matching the design, and it is the claim the user
- * actually made ("the language dropdown needs to look like the version
- * dropdown").
- */
+// An open header dropdown fingerprint covers the surface, selected row, label
+// and trailing dot.
+// Equal fingerprints prove the two menus share styling, not merely that each matches the design.
+// This tests the user-visible request: the language dropdown needs to look like
+// the version dropdown.
 async function dropdownStyleFingerprint(menu: Locator, dropdown: HeaderDropdown) {
   const selectedRow = menu.getByRole('menuitemradio', { name: dropdown.selectedRow, exact: true })
   const read = (locator: Locator, properties: string[]) =>
@@ -614,8 +561,7 @@ async function dropdownStyleFingerprint(menu: Locator, dropdown: HeaderDropdown)
     row: await read(selectedRow, ROW_PROPERTIES),
     label: await read(selectedRow.getByTestId(dropdown.itemTestId), LABEL_PROPERTIES),
     dot: await read(selectedRow.locator('svg.octicon-dot-fill'), DOT_PROPERTIES),
-    // Brand's leading check slot is hidden structurally, so it has to be hidden
-    // in both menus or one of them grows a check icon the other does not have.
+    // Structural hiding must match so one menu cannot grow a Brand check icon the other lacks.
     leadingSlotDisplay: await selectedRow.evaluate((row) => {
       const first = row.firstElementChild
       return first && row.children.length > 1 ? getComputedStyle(first).display : null
@@ -644,8 +590,7 @@ async function expectDesktopHeaderSections(page: Page, signupVisible: boolean) {
       const search = element.querySelector<HTMLElement>('[data-testid="toggle-search"]')!
       const language = element.querySelector<HTMLElement>('[data-testid="language-picker"]')!
       const signup = element.querySelector<HTMLElement>('[data-testid="header-signup"]')
-      // Find the native section wrappers from stable Docs control anchors, not
-      // Brand's private CSS class names or a hardcoded number of parent hops.
+      // Find section wrappers from stable Docs anchors, not Brand CSS hashes or parent-hop counts.
       let sectionRow = search.parentElement!
       while (!sectionRow.contains(language)) sectionRow = sectionRow.parentElement!
       const sectionFor = (control: HTMLElement) => {
@@ -720,8 +665,7 @@ async function expectDesktopHeaderSections(page: Page, signupVisible: boolean) {
       expect(section.rect.top).toBeCloseTo(layout.header.top, 0)
       expect(section.rect.bottom).toBeCloseTo(layout.contentBottom, 0)
     }
-    // Search owns the full-height divider before Language. Language must not
-    // double that border; Signup owns its own separate full-height left divider.
+    // Search owns the divider before Language; Signup owns its own left divider.
     expect(layout.search.borderEnd).toBe('1px')
     expect(layout.search.borderEndStyle).toBe('solid')
     expect(layout.search.borderEndColor).not.toBe('rgba(0, 0, 0, 0)')
@@ -744,23 +688,21 @@ async function expectDocsSearchOpen(page: Page) {
   await searchInput.click()
   await expect(searchInput).toBeFocused()
   await expect(page.getByRole('dialog')).toHaveCount(1)
-  // Brand mounts its native dialog even while closed. Only the existing Docs
-  // dialog may become modal; opening both would leave competing focus traps.
+  // Only Docs search may become modal; opening Brand's closed native dialog would add a focus trap.
   const brandDialog = page.getByTestId('desktop-header').locator('dialog')
   await expect(brandDialog).toHaveCount(1)
   await expect(brandDialog).toHaveJSProperty('open', false)
   await expect(page).toHaveURL((url) => url.searchParams.get('search-overlay-open') === 'true')
 }
 
+// expectBackgroundIsolated includes Brand's skip link because it sits outside
+// the inert wrapper as a sibling before header, yet still targets #main-content
+// while the menu is open.
+// CSS avoids getByText strict-mode matches from the wrapped label and getByRole
+// misses after aria-hidden.
 async function expectBackgroundIsolated(page: Page, isolated: boolean) {
   for (const locator of [
     page.getByText('Skip to main content', { exact: true }),
-    // Brand's own skip link sits outside the inert wrapper (it renders as a
-    // sibling before <header>) yet still targets #main-content, which is inert
-    // while the menu is open. Matched by CSS rather than text or role: Brand
-    // wraps the label in a span, so getByText resolves to both the <a> and that
-    // span -- a strict mode violation -- and aria-hidden removes it from the
-    // accessibility tree that getByRole searches once isolated.
     page.locator('[data-container="header"] a[href="#main-content"]'),
     page.locator('#main-content'),
     page.getByTestId('sidebar-mobile-toggle'),
@@ -777,8 +719,7 @@ async function expectBackgroundIsolated(page: Page, isolated: boolean) {
 
 test.describe('Brand header', () => {
   test.beforeEach(async ({ page }) => {
-    // These regressions cover header coordination, not remote search quality.
-    // Return empty suggestions so they also run without Elasticsearch or Copilot.
+    // Empty suggestions keep header coordination tests independent of Elasticsearch and Copilot.
     await page.route('**/api/search/combined-search/v1?**', (route) =>
       route.fulfill({
         json: {
@@ -810,32 +751,18 @@ test.describe('Brand header', () => {
           await page.reload()
         }
 
-        // Wait for account detection/desktop slots before measuring the pill:
-        // Signup mounting must not shrink a name that only fit before hydration.
+        // Wait for account detection; Signup can mount after hydration and shrink the plan name.
         await expectDesktopHeaderSections(page, !hasAccount)
         await expectHeaderPlanPicker(page)
-        // 1012px is where the two triggers compete for room with Signup, so it is
-        // also where the flat language control is most likely to be "fixed" by
-        // giving it the pill's class.
+        // At 1012px, Signup pressure exposes accidental pill styling on the language trigger.
         await expectHeaderLanguageTrigger(page)
       })
     }
   }
 
-  /**
-   * Brand renders its trailing slot whenever `trailingComponent` is not null,
-   * so a `LanguagePicker` that returned `null` from inside the slot would still
-   * leave the wrapper behind: an empty divided cell at the header's right edge
-   * on desktop, and a full-width 16px-padded block in the narrow menu. Header.tsx
-   * therefore withholds the prop itself rather than letting the picker opt out,
-   * and that decision is invisible to every other test here -- they all run on
-   * multi-language pages, where the slot is supposed to be present.
-   *
-   * Each absence is paired with the same assertion on a multi-language page.
-   * Brand's class name is hashed, so `BRAND_TRAILING_SLOT` on its own would keep
-   * passing the day Brand renames it; proving the selector still matches
-   * something is what stops this from becoming a test of nothing.
-   */
+  // Header.tsx omits trailingComponent because Brand keeps wrapper if LanguagePicker returns null.
+
+  // The multi-language assertion keeps BRAND_TRAILING_SLOT from passing after a Brand class rename.
   test('the language slot is omitted, not left empty, when only English is available', async ({
     page,
   }) => {
@@ -849,15 +776,12 @@ test.describe('Brand header', () => {
     await page.goto(ENGLISH_ONLY_ARTICLE)
     await turnOffExperimentsInPage(page)
     const header = page.getByTestId('desktop-header')
-    // The plan picker still renders here, so an empty header would fail this
-    // rather than passing as a trivially absent language control.
+    // Assert the plan picker first so an empty header cannot pass the absence checks below.
     await expect(header.getByRole('button', { name: PLAN_LABEL, exact: false })).toBeVisible()
     await expect(page.getByTestId('language-picker')).toHaveCount(0)
     await expect(header.locator(BRAND_TRAILING_SLOT)).toHaveCount(0)
 
-    // Independently of Brand's class names: every divided cell in the header's
-    // section row still holds a control. An empty slot is exactly a cell that
-    // does not, and it would carry its own gridline and margin.
+    // Every divided header cell must hold a control; an empty slot would add a gridline and margin.
     await page.evaluate(() => document.fonts.ready)
     await expect(async () => {
       const sections = await header.evaluate((element) => {
@@ -882,8 +806,7 @@ test.describe('Brand header', () => {
       expect(sections.lastReachesEdge).toBe(true)
     }).toPass()
 
-    // The narrow menu is where the leftover wrapper would be most visible: a
-    // full-width padded block above Sign up rather than a thin cell.
+    // The narrow menu exposes a leftover wrapper as a full-width padded block above Sign up.
     await page.setViewportSize({ width: 390, height: 800 })
     await page.getByRole('button', { name: 'Menu', exact: true }).click()
     await expect(page.getByTestId('header-signup')).toBeVisible()
@@ -897,38 +820,21 @@ test.describe('Brand header', () => {
         page,
       }) => {
         await page.setViewportSize({ width: 1440, height: 800 })
-        // No color_mode cookie, so colorModeScript resolves `auto` from this
-        // emulation. Set before navigating so the first paint already uses it.
+        // Emulate color before navigation so colorModeScript resolves auto without a cookie.
         await page.emulateMedia({ colorScheme })
         await page.goto(ARTICLE)
         await turnOffExperimentsInPage(page)
 
-        // Each trigger resolves every color through tokens, so both are worth
-        // re-checking in dark mode rather than only in the light-mode loop above.
-        // The two triggers are intentionally different -- a filled pill for the
-        // plan, a flat control for the language -- which is why only the dropdown
-        // below them is shared.
+        // Recheck both token-based triggers in dark mode; only the dropdown below them is shared.
         await dropdown.expectTrigger(page)
         await expectHeaderDropdownDesign(page, colorScheme, dropdown)
       })
     }
   }
 
-  /**
-   * The sticky ladder: header > Docs 2026 secondary bar > sticky table headers.
-   *
-   * Brand's ActionMenu is not portalled, so the plan and language dropdowns
-   * render inside the header's stacking context and hang well below it, across
-   * the secondary bar. The bar is sticky at every width and sits above sticky
-   * table headers, so if the header does not outrank the bar, the bar paints a
-   * band straight through the open menu and eats the clicks behind it -- which
-   * is invisible to every other test here, because the menu still has the right
-   * geometry, styling and roles while being covered.
-   *
-   * Asserted by hit-testing rather than by comparing z-index values: equal
-   * z-index is resolved by DOM order, so the numbers alone do not say which
-   * element a reader actually reaches.
-   */
+  // The unportalled ActionMenu overlaps the sticky secondary bar, so the header must outrank it.
+
+  // Hit test overlap because DOM-order z-index ties and blocked clicks do not change geometry.
   test('an open dropdown stays clickable where the secondary bar crosses it', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 800 })
     await page.emulateMedia({ colorScheme: 'light' })
@@ -946,7 +852,6 @@ test.describe('Brand header', () => {
       const b = bar.getBoundingClientRect()
       const m = menuEl.getBoundingClientRect()
       const crosses = m.bottom > b.top && m.top < b.bottom
-      // Sample the full height of the band the two share.
       const x = m.left + m.width / 2
       const top = Math.max(m.top, b.top) + 2
       const bottom = Math.min(m.bottom, b.bottom) - 2
@@ -955,7 +860,7 @@ test.describe('Brand header', () => {
         const el = document.elementFromPoint(x, y)
         if (!el || !el.closest('[role="menu"]')) covered.push(Math.round(y))
       }
-      // A row the bar crosses must receive its own clicks, not just paint above.
+      // A crossed row must receive clicks, not merely paint above the bar.
       const row = [
         ...document.querySelectorAll('[data-testid="version-picker"] [role="menuitemradio"]'),
       ].find((candidate) => {
@@ -979,8 +884,7 @@ test.describe('Brand header', () => {
       }
     })
 
-    // If the menu stopped overlapping the bar, this test would pass while
-    // asserting nothing, so require the overlap it exists to check.
+    // Require actual overlap so this cannot pass after the menu stops crossing the bar.
     expect(overlap.barFound).toBe(true)
     expect(overlap.crosses).toBe(true)
     expect(overlap.covered).toEqual([])
@@ -994,8 +898,7 @@ test.describe('Brand header', () => {
     await page.goto(ARTICLE)
     await turnOffExperimentsInPage(page)
 
-    // Opened one at a time: Brand closes a menu as soon as the other trigger is
-    // clicked, and both menus read their tokens from the same page and theme.
+    // Open one menu at a time because Brand closes the first; both read the same page theme.
     const fingerprints: Record<string, unknown> = {}
     for (const dropdown of [PLAN_DROPDOWN, LANGUAGE_DROPDOWN]) {
       const picker = page.getByTestId('desktop-header').getByTestId(dropdown.pickerTestId)
@@ -1009,13 +912,11 @@ test.describe('Brand header', () => {
     expect(fingerprints[LANGUAGE_DROPDOWN.name]).toEqual(fingerprints[PLAN_DROPDOWN.name])
   })
 
-  // Below 1012px both pickers move inside SubdomainNavBar's narrow menu, which is a
-  // scrolling panel. Brand's ActionMenu is absolutely positioned and — unlike the
-  // @primer/react menu it replaced — is not portalled, so it regresses easily into
-  // rendering outside that panel: cut off mid-list, or running past the viewport's
-  // right edge. Both of those still satisfy toBeVisible(), so assert geometry. The
-  // inline-flow rule that fixes it now lives in the shared module, so a change to it
-  // moves both dropdowns at once and both are covered here.
+  // Below 1012px, SubdomainNavBar's scrolling narrow menu contains both pickers.
+
+  // Geometry catches an unportalled ActionMenu outside the panel while toBeVisible still passes.
+
+  // The shared module owns the inline-flow rule, so both dropdowns must prove the geometry.
   for (const dropdown of [PLAN_DROPDOWN, LANGUAGE_DROPDOWN]) {
     for (const width of [390, 1000]) {
       test(`the ${dropdown.name} dropdown stays inside the narrow menu at ${width}px`, async ({
@@ -1033,7 +934,7 @@ test.describe('Brand header', () => {
         await expect(page.getByRole('menu')).toBeVisible()
 
         const layout = await page.getByRole('menu').evaluate((element) => {
-          // The panel is found by its scrolling, not by Brand's hashed class name.
+          // Find the panel by scrolling behavior, not Brand's hashed class name.
           let panel = element.parentElement
           while (panel) {
             const { overflowX, overflowY } = getComputedStyle(panel)
@@ -1053,11 +954,11 @@ test.describe('Brand header', () => {
         })
 
         expect(layout.panel).not.toBeNull()
-        // Inside the panel, so no row is cut off...
+        // The menu stays inside the panel so no row gets cut off.
         expect(layout.menu.bottom).toBeLessThanOrEqual(layout.panel.bottom + 1)
         expect(layout.menu.right).toBeLessThanOrEqual(layout.panel.right + 1)
         expect(layout.lastRowBottom).toBeLessThanOrEqual(layout.panel.bottom + 1)
-        // ...and inside the viewport, so no row is sliced by the screen edge.
+        // The menu stays inside the viewport so no row is sliced by the screen edge.
         expect(layout.menu.left).toBeGreaterThanOrEqual(-1)
         expect(layout.menu.right).toBeLessThanOrEqual(layout.viewportWidth + 1)
         expect(layout.scrollsHorizontally).toBe(false)
@@ -1075,13 +976,9 @@ test.describe('Brand header', () => {
     }
   }
 
-  // Brand staggers the narrow menu's items in at 80ms per slot and hardcodes the
-  // signup CTA's wrapper to slot 10 -- the moment ten `SubdomainNavBar.Link`
-  // children would have finished cascading in. Docs passes zero links, so the
-  // shipped 800ms is a dead second: the pickers ride the panel's fade and
-  // "Sign up" trails them. Header.module.scss cuts it to a single slot, so assert
-  // the computed delay rather than a wall clock, and assert that only the delay
-  // moved -- duration and fill mode still have to be Brand's.
+  // Brand assigns signup to stagger slot 10, but Docs passes zero SubdomainNavBar.Link children.
+
+  // Header.module.scss cuts the 800ms delay to one 80ms slot; duration and fill mode stay Brand's.
   test('signup follows the narrow menu pickers by one stagger step, not ten', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 800 })
     await page.goto(ARTICLE)
@@ -1090,9 +987,7 @@ test.describe('Brand header', () => {
     const signup = page.getByTestId('header-signup')
     await expect(signup).toBeVisible()
     const animation = await signup.evaluate((element) => {
-      // Brand hashes this class and exposes no test id for it, so match the
-      // stable part of the name -- the same anchor the override in
-      // Header.module.scss uses.
+      // Brand hashes class names, so match the stable SubdomainNavBar-button-area--visible part.
       const area = element.closest<HTMLElement>('[class*="SubdomainNavBar-button-area--visible"]')
       if (!area) throw new Error('Signup is not inside the narrow-menu button area')
       const { animationDelay, animationDuration, animationFillMode } = getComputedStyle(area)
@@ -1103,7 +998,7 @@ test.describe('Brand header', () => {
       }
     })
 
-    // Brand's untouched default is calc(10 * 80ms).
+    // Brand's untouched default delay equals 10 * 80ms.
     expect(animation.delay).not.toBeCloseTo(0.8, 3)
     // Still staggered after the pickers, but by one 80ms slot rather than ten.
     expect(animation.delay).toBeGreaterThan(0)
@@ -1186,8 +1081,7 @@ test.describe('Brand header', () => {
       'open',
       false,
     )
-    // PRC restores focus during mousedown capture; the browser then transfers it
-    // to the clicked backdrop. Persistent return focus is an Escape contract only.
+    // PRC restores focus on mousedown, but backdrop click moves it; Escape owns return focus.
     await expect(searchTrigger).toBeVisible()
     await expect(searchTrigger).toBeEnabled()
   })
@@ -1197,7 +1091,7 @@ test.describe('Brand header', () => {
   }) => {
     await page.goto(ARTICLE)
     await expect(page.getByTestId('toggle-search')).toBeVisible()
-    // Use real DOM fields without depending on survey or search results data.
+    // Real DOM fields avoid survey or search-results data dependencies.
     await page.locator('#main-content').evaluate((main) => {
       const fields = document.createElement('div')
       fields.innerHTML = `
@@ -1471,8 +1365,7 @@ test.describe('Brand header', () => {
     const picker = page.getByTestId('desktop-header').getByTestId('version-picker')
     const button = picker.getByRole('button')
     const value = (await button.getByTestId('field').textContent())!
-    // versionTitle is `${planTitle} ${release}` for a numbered release, so the
-    // plan label would announce "Select your plan: Enterprise Server 3.19".
+    // A numbered release uses the version label instead of the plan label.
     expect(value).toMatch(/^Enterprise Server [\d.]+$/)
     await expect(picker.getByText(VERSION_LABEL, { exact: true })).toBeVisible()
     await expect(button).toHaveAccessibleName(`${VERSION_LABEL} ${value}`)
