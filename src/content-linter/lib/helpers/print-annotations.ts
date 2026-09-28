@@ -1,6 +1,4 @@
-// Meant to be used by the code that runs the linter, but only within Actions
-// workflows. When it works, it posts all the annotations as inline comments
-// on the pull request.
+// GitHub Actions workflows parse these strings into pull request annotations.
 
 interface LintFlaw {
   ruleNames: string[]
@@ -12,6 +10,8 @@ interface LintFlaw {
   [key: string]: unknown
 }
 
+// Annotations also accept endLine to group one error across consecutive lines:
+// https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message
 export function printAnnotationResults(
   results: Record<string, LintFlaw[]>,
   {
@@ -32,10 +32,6 @@ export function printAnnotationResults(
       const bits = [`file=${file}`]
       if (flaw.lineNumber) {
         bits.push(`line=${flaw.lineNumber}`)
-        // Note: it's possible to use a endLine property
-        // if you can "lump" together the same error description on
-        // consecutive lines.
-        // See https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message
       }
 
       if (flaw.ruleDescription) {
@@ -54,9 +50,7 @@ export function printAnnotationResults(
         annotation += ` ${flaw.context}`
       }
 
-      // Why console.log and not `core.error()` (from @actions/core)?
-      // Because, this way you can debug this more easily on your own
-      // terminal.
+      // Logging the annotation string keeps local debugging independent of @actions/core.
       console.log(annotation)
     }
   }
