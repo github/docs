@@ -1,7 +1,5 @@
-/**
- * @purpose Writer tool
- * @description Update content filenames to match short titles
- */
+// @purpose Writer tool
+// @description Update content filenames to match short titles
 
 import fs from 'fs'
 import path from 'path'
@@ -53,11 +51,12 @@ const estimateScriptMinutes = (numberOfFiles: number): string => {
   return estNum === 0 ? '<1' : estNum.toString()
 }
 
+// main processes files sequentially because move-content must move files before directories,
+// and deepest directories before parents.
+// Async does not shorten this work because each path move depends on the ordered result.
 async function main(): Promise<void> {
   const slugger = new GithubSlugger()
   const contentDir: string = path.join(process.cwd(), 'content')
-  // Filter to get all the content files we want to read in.
-  // Then sort them from longest > shortest so we can do the file moves in order.
   const filesToProcess: string[] = sortFiles(filterFiles(contentDir, options))
 
   if (filesToProcess.length === 0) {
@@ -71,11 +70,6 @@ async function main(): Promise<void> {
     console.log(`Estimated time: ${estimate} min\n`)
   }
 
-  // Process files sequentially to maintain the correct order of operations.
-  // Files must be moved before directories, and directories must be moved
-  // from deepest to shallowest to avoid path conflicts during the move operations.
-  // The result is rather slow, but an asynchronous approach that ensures
-  // sequential processing would not be faster.
   for (const file of filesToProcess) {
     try {
       slugger.reset()
@@ -110,24 +104,16 @@ async function processFile(
     stringToSlugify = await renderContent(stringToSlugify, context, { textOnly: true })
   }
 
-  // Slugify the short title of each article.
-  // Where: shortTitle = Foo bar
-  // Returns: slug = foo-bar
-  // Fall back to title if shortTitle doesn't exist.
+  // Slug shortTitle, or title when shortTitle is absent, to get the target basename.
   const slug: string = slugger.slug(decode(stringToSlugify))
 
   let basename: string
   if (isDirectory) {
-    // Where: content location = content/foobar/index.md
-    // Returns: basename = foobar
     basename = path.basename(path.dirname(file))
   } else {
-    // Where: content location = content/foobar.md
-    // Returns: basename = foobar
     basename = path.basename(file, '.md')
   }
 
-  // If slug and basename already match, all set here. Return early.
   if (slug === basename) return null
 
   const newPath = isDirectory
@@ -153,7 +139,7 @@ function moveFile(result: string[], scriptOptions: ScriptOptions): void {
     return
   }
 
-  // Call out to well-tested move-content script for the moving and redirect adding functions.
+  // move-content handles file moves, redirects, and children updates.
   const stdout = execFileSync(
     'tsx',
     [
@@ -166,7 +152,7 @@ function moveFile(result: string[], scriptOptions: ScriptOptions): void {
     { encoding: 'utf8' },
   )
 
-  // Grab just the "Moving..." and "Renamed..." output from stdout; otherwise output is too noisy.
+  // Print only Moving or Renamed lines unless verbose; full move-content output is noisy.
   const moveMsg = stdout.split('\n').find((l) => l.startsWith('Moving') || l.startsWith('Renamed'))
   if (moveMsg && !options.verbose) {
     console.log(moveMsg, '\n')
@@ -176,11 +162,7 @@ function moveFile(result: string[], scriptOptions: ScriptOptions): void {
 }
 
 function sortFiles(filesArray: string[]): string[] {
-  // The order of operations is important.
-  // We need to return an array so that the moving operations happens in this order:
-  // 1. Filepaths
-  // 2. Deepest subdirectory path
-  // 3. Shallowest subdirectory path (up to category level, e.g., content/product/category)
+  // Move files before directories, then deepest directories before parents.
   return filesArray.toSorted((a, b) => {
     if (!isDirectoryCheck(a) && isDirectoryCheck(b)) {
       return -1
@@ -194,7 +176,7 @@ function sortFiles(filesArray: string[]): string[] {
     if (isDirectoryCheck(a) && isDirectoryCheck(b)) {
       const aDepth = a.split(path.sep).length
       const bDepth = b.split(path.sep).length
-      return bDepth - aDepth // Deeper paths first
+      return bDepth - aDepth
     }
 
     return 0
@@ -203,21 +185,19 @@ function sortFiles(filesArray: string[]): string[] {
 
 function filterFiles(contentDir: string, scriptOptions: ScriptOptions) {
   return walkFiles(contentDir, ['.md']).filter((file: string) => {
-    // Never move readmes
+    // Keep README paths unchanged.
     if (file.endsWith('README.md')) return false
-    // Never move early access files
+    // Keep early access paths unchanged.
     if (file.includes('early-access')) return false
-    // Never move the homepage (content/index.md)
+    // Keep the homepage path unchanged.
     if (path.relative(contentDir, file) === 'index.md') return false
-    // Never move product landings (content/foo/index.md)
+    // Keep product landing paths unchanged.
     if (path.relative(contentDir, file).split(path.sep)[1] === 'index.md') return false
 
-    // If no specific paths are passed, we are done filtering.
     if (!scriptOptions.paths) return true
 
     return scriptOptions.paths.some((p: string) => {
-      // Allow either a full content path like "content/foo/bar.md"
-      // or a top-level directory name like "copilot"
+      // Accept full content paths like content/foo/bar.md or top-level dirs like copilot.
       if (!p.startsWith('content')) {
         p = path.join('content', p)
       }
@@ -236,7 +216,7 @@ function determineProcessStatus(
   isDirectory: boolean,
   scriptOptions: ScriptOptions,
 ): boolean {
-  // A directory is never processed when dirs are excluded, whatever else is set.
+  // exclude-dirs prevents directory moves even when force is set.
   if (isDirectory && scriptOptions.excludeDirs) {
     return false
   }
