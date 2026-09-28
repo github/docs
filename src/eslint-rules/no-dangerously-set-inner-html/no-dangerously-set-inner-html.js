@@ -15,17 +15,12 @@ module.exports = {
   },
   create(context) {
     return {
-      // Flag the JSX attribute form: <div dangerouslySetInnerHTML={...} />
       JSXAttribute(node) {
         if (node.name && node.name.name === "dangerouslySetInnerHTML") {
           context.report({ node, messageId: "noDanger" });
         }
       },
-      // Flag the object-property form used when spreading props, e.g.
-      // { dangerouslySetInnerHTML: { __html: html } }. Only object *expressions*
-      // (constructing props) are unsafe; skip object *patterns* (destructuring
-      // like `const { dangerouslySetInnerHTML, ...rest } = props`), which strip
-      // the prop and are safe.
+      // Object expressions can build JSX-spread dangerouslySetInnerHTML; patterns only read props.
       Property(node) {
         if (!node.parent || node.parent.type !== "ObjectExpression") return;
         const key = node.key;
@@ -38,9 +33,7 @@ module.exports = {
           context.report({ node, messageId: "noDanger" });
         }
       },
-      // Flag the assignment form, including the computed string-key bypass:
-      //   props.dangerouslySetInnerHTML = { __html: html }
-      //   props['dangerouslySetInnerHTML'] = { __html: html }
+      // Direct and computed assignments bypass JSX-attribute checks, so flag both forms.
       AssignmentExpression(node) {
         const left = node.left;
         if (!left || left.type !== "MemberExpression") return;

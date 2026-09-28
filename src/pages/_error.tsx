@@ -18,27 +18,24 @@ function Error() {
   return <GenericError />
 }
 
+// Importing @/observability/lib/failbot here would pull it into the client bundle.
+// renderPage middleware attaches FailBot to SSR requests.
+// Excluding it in next.config.ts complicates Next.js upgrades.
 Error.getInitialProps = async (ctx: NextPageContext) => {
-  // `.res` only exists during SSR,
-  // so its presence is how we know to send this error to Failbot.
+  // ctx.res only exists during SSR, so it gates FailBot reporting.
   const { err, req, res } = ctx
   let statusCode = 500
   if (res?.statusCode) {
     statusCode = res.statusCode
   }
 
-  // `err` is falsy for a 404, which `pages/404.tsx` handles instead.
+  // Missing pages become 404 responses in render-page, so this only reports real errors.
   if (err && res && req) {
-    // We can't import `@/observability/lib/failbot` here,
-    // because webpack pulls this file into the client bundle.
-    // Excluding it in next.config.ts would work but makes future Next.js upgrades harder.
-    // Instead the contextualizers attach FailBot to the Express request,
-    // so it exists only in SSR.
     const expressRequest = req as unknown as ExpressRequestExtensions
     const FailBot = expressRequest.FailBot
     if (FailBot) {
       try {
-        // Allowlist: these headers carry no PII.
+        // Report only the request headers listed in OK_HEADER_KEYS.
         const OK_HEADER_KEYS = ['user-agent', 'referer', 'accept-encoding', 'accept-language']
         const reported = FailBot.report(err, {
           path: req.url || '',
@@ -60,8 +57,7 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
           ),
         })
 
-        // `FailBot.report()` returns undefined when no backends are configured,
-        // otherwise an array of promises.
+        // FailBot.report returns undefined without backends, or an array of promises.
         if (!reported) {
           console.warn(
             'The FailBot.report() returned undefined which means the error was NOT sent to Failbot.',
@@ -71,8 +67,7 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
           reported.length &&
           reported.every((thing) => thing instanceof Promise)
         ) {
-          // Await even though we ignore the results.
-          // Leaving these to the event loop produces cryptic errors when one rejects.
+          // Await ignored results so rejected reports do not surface later as unclear errors.
           try {
             await Promise.all(reported)
           } catch (error) {
@@ -80,8 +75,7 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
           }
         }
       } catch (error) {
-        // This catch exists so a FailBot problem can't stop the error page from rendering.
-        // It doesn't mean the report failed to send.
+        // Keep FailBot problems from blocking rendering; the report may still have sent.
         console.warn('Failed to send error to FailBot.', error)
       }
     }

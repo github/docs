@@ -4,8 +4,7 @@ import { resolveJourneyContext, resolveJourneyTracks } from '../lib/journey-path
 import getLinkData from '@/journeys/lib/get-link-data'
 import type { Page } from '@/types'
 
-// Mock modules since we just want to test journey functions, not their dependencies or
-// against real content files
+// Mock dependencies so journey functions run without real content files.
 vi.mock('@/journeys/lib/get-link-data', () => ({
   default: vi.fn(async (rawLinks: string | string[] | undefined) => {
     const path = Array.isArray(rawLinks) ? rawLinks[0] : rawLinks
@@ -191,7 +190,6 @@ describe('journey-path-resolver', () => {
         mockContext,
       )
 
-      // This should find the same track as the version with leading slash
       expect(result?.trackId).toBe('getting_started')
       expect(result?.currentGuideIndex).toBe(1)
     })
@@ -235,7 +233,7 @@ describe('journey-path-resolver', () => {
     test('renders liquid templates in titles and descriptions', async () => {
       const result = await resolveJourneyTracks(mockJourneyTracks, mockContext)
 
-      // Should return the content as-is since our mock renderContent is a passthrough
+      // The mock renderContent returns input unchanged.
       expect(result[0].title).toBe(
         'Getting started with {% data variables.product.company_short %}',
       )
@@ -252,15 +250,14 @@ describe('journey-path-resolver', () => {
       expect(result[0].timeCommitment).toBe('{% data variables.product.company_short %} 2-4 hours')
       expect(result[1].timeCommitment).toBe('4-6 hours')
 
-      // The Liquid-bearing timeCommitment should be rendered with { textOnly: true },
-      // matching how title/description are rendered.
+      // Liquid timeCommitment renders with textOnly, matching titles and descriptions.
       const timeCommitmentCall = mockRenderContent.mock.calls.find(
         ([content]) => content === '{% data variables.product.company_short %} 2-4 hours',
       )
       expect(timeCommitmentCall).toBeDefined()
       expect(timeCommitmentCall?.[2]).toEqual({ textOnly: true })
 
-      // Plain (non-Liquid) timeCommitment should not be sent through renderContent
+      // Plain timeCommitment skips renderContent.
       const plainCall = mockRenderContent.mock.calls.find(([content]) => content === '4-6 hours')
       expect(plainCall).toBeUndefined()
     })
