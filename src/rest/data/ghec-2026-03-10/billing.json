@@ -1093,6 +1093,10 @@
                       "description": "Array of user login names who will receive alerts. Present but not applicable for user-scope as alerting is always disabled for them."
                     }
                   }
+                },
+                "consumed_amount": {
+                  "type": "number",
+                  "description": "The current usage amount counted toward the budget. How usage is calculated may vary by budget type."
                 }
               },
               "required": [
@@ -1567,7 +1571,7 @@
         },
         {
           "name": "threshold_lower_bound",
-          "description": "<p>Filter user states whose threshold percentage is at or above this value.</p>",
+          "description": "<p>Filter user states whose threshold percentage is at or above this value. This filter is calculated using each user's consumption against the universal budget amount, even when the user has a user-scoped budget override.</p>",
           "in": "query",
           "schema": {
             "type": "integer"
@@ -1575,7 +1579,7 @@
         },
         {
           "name": "threshold_upper_bound",
-          "description": "<p>Filter user states whose threshold percentage is at or below this value.</p>",
+          "description": "<p>Filter user states whose threshold percentage is at or below this value. This filter is calculated using each user's consumption against the universal budget amount, even when the user has a user-scoped budget override.</p>",
           "in": "query",
           "schema": {
             "type": "integer"

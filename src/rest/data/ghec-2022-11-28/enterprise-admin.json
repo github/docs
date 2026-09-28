@@ -1289,7 +1289,7 @@
           "oneOfObject": true
         }
       ],
-      "descriptionHTML": "<p>Creates an audit log streaming configuration for any of the supported streaming endpoints: Azure Blob Storage, Azure Event Hubs, Amazon S3, Splunk, Google Cloud Storage, Datadog.</p>\n<p>When using this endpoint, you must encrypt the credentials following the same encryption steps as outlined in the guide on encrypting secrets. See \"<a href=\"/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>",
+      "descriptionHTML": "<p>Creates an audit log streaming configuration for any of the supported streaming endpoints: Azure Blob Storage, Azure Event Hubs, Amazon S3, Splunk, Google Cloud Storage, Datadog.</p>\n<p>Microsoft Agent365 and Microsoft Purview streams require Microsoft Entra authorization and cannot be created with this endpoint. Configure those destinations from the enterprise audit log streaming settings.</p>\n<p>When using this endpoint, you must encrypt the credentials following the same encryption steps as outlined in the guide on encrypting secrets. See \"<a href=\"/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -1539,7 +1539,8 @@
             "Splunk",
             "HTTPS Event Collector",
             "Google Cloud Storage",
-            "Datadog"
+            "Datadog",
+            "Microsoft Agent365"
           ]
         },
         {
@@ -1821,12 +1822,18 @@
                   "isRequired": true
                 }
               ]
+            },
+            {
+              "type": "object",
+              "name": "MicrosoftAgent365Config",
+              "description": "<p>Empty configuration used when pausing or resuming a Microsoft Agent365 stream.</p>",
+              "childParamsGroups": []
             }
           ],
           "oneOfObject": true
         }
       ],
-      "descriptionHTML": "<p>Updates an existing audit log stream configuration for an enterprise.</p>\n<p>When using this endpoint, you must encrypt the credentials following the same encryption steps as outlined in the guide on encrypting secrets. See \"<a href=\"/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>",
+      "descriptionHTML": "<p>Updates an existing audit log stream configuration for an enterprise.</p>\n<p>Microsoft Agent365 streams are configured through Microsoft Entra authorization. For those streams, this endpoint can only pause or resume the stream. Authorization-managed fields cannot be updated; delete and recreate the stream to change its Entra tenant or authorization.</p>\n<p>When using this endpoint, you must encrypt the credentials following the same encryption steps as outlined in the guide on encrypting secrets. See \"<a href=\"/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
