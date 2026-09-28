@@ -38,7 +38,6 @@ describe('codeql cli article body api', () => {
 
   test('canTransform returns false for non-codeql-cli pages', async () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
-    // This should not be transformed by CodeQL CLI transformer
     expect(res.statusCode).toBe(200)
   })
 })

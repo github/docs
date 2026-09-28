@@ -2,7 +2,6 @@ import type { Context, Page } from '@/types'
 import { renderContent } from '@/content-render/index'
 import matter from '@gr2m/gray-matter'
 
-// Returns the part of the page markdown before the auto-generated marker.
 export async function extractManualContent(page: Page, context: Context): Promise<string> {
   if (!page.markdown) return ''
 

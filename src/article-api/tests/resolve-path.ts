@@ -90,11 +90,9 @@ describe('resolvePath', () => {
   describe('versioned keys (endsWith matching)', () => {
     test('finds versioned page using endsWith strategy', () => {
       const page = createMockPage('copilot/index.md')
-      // The key ends with the path portion after the version string
       const context = createContext({
         '/en/enterprise-cloud@latest/copilot': page,
       })
-      // When looking for /copilot, strategy 4 will find keys ending with /copilot
       const result = resolvePath('/copilot', 'en', '/en', context)
       expect(result).toBe(page)
     })

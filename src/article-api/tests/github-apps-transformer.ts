@@ -88,7 +88,6 @@ describe('GitHub Apps transformer', () => {
       expect(res.statusCode).toBe(200)
 
       expect(res.body).toMatch(/`GET \//)
-      // May also have POST, PUT, PATCH, DELETE depending on data
     })
 
     test('endpoints link to REST API documentation', async () => {
@@ -99,7 +98,6 @@ describe('GitHub Apps transformer', () => {
       )
       expect(res.statusCode).toBe(200)
 
-      // Links should point to /en/rest/ paths with anchors
       expect(res.body).toMatch(/\(\/en\/rest\/[^)]+#[^)]+\)/)
     })
   })
@@ -143,7 +141,6 @@ describe('GitHub Apps transformer', () => {
 
       expect(res.body).toMatch(/\| read \|/)
       expect(res.body).toMatch(/\| write \|/)
-      // May also have admin depending on data
     })
 
     test('table includes token types (IAT/UAT)', async () => {
@@ -187,7 +184,6 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
 
-      // The intro should be present (check frontmatter intro)
       expect(res.body).toMatch(/For each permission granted/)
     })
 
@@ -195,7 +191,6 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
 
-      // Liquid tags should be rendered (fixture might use simplified names)
       expect(res.body).not.toContain('{% data variables.product.prodname_github_app %}')
     })
 
@@ -233,7 +228,6 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
       expect(res.statusCode).toBe(200)
 
-      // Regular article pages should still work, they just won't use the GitHub Apps transformer
       expect(res.body).toContain('## Introduction')
     })
   })
