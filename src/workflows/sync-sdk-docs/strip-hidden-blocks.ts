@@ -1,41 +1,35 @@
-/**
- * Removes `docs-validate: hidden` ranges from Copilot SDK docs.
- *
- * The copilot-sdk repo wraps validation-only code samples in a marker pair:
- *
- *     <!-- docs-validate: hidden -->
- *     ```go
- *     package main
- *
- *     func main() { ... }
- *     ```
- *     <!-- /docs-validate: hidden -->
- *
- *     ```go
- *     client := copilot.NewClient(nil)
- *     ```
- *
- * The first sample is a complete, compilable program that exists so the SDK's
- * `docs-validate` workflow has something a compiler can accept. The second is
- * the trimmed fragment intended for readers. The SDK's extractor treats the
- * closing marker as "validate the hidden block instead of the next one", so the
- * contract is: compile the hidden sample, publish the visible one.
- *
- * Nothing enforced the publishing half of that contract. The markers are plain
- * HTML comments, and a Markdown parser treats each as a self-contained
- * single-line HTML block. The fence between them is a sibling node, not a
- * child, so it renders like any other code block. Without this step both
- * samples ship and readers see the same example twice.
- */
+// Removes docs-validate: hidden ranges from Copilot SDK docs.
+//
+// The copilot-sdk repo wraps validation-only samples in a marker pair:
+//
+//     <!-- docs-validate: hidden -->
+//     ```go
+//     package main
+//
+//     func main() { ... }
+//     ```
+//     <!-- /docs-validate: hidden -->
+//
+//     ```go
+//     client := copilot.NewClient(nil)
+//     ```
+//
+// The first sample gives the SDK docs-validate workflow a complete program the
+// compiler accepts. The second sample is the fragment readers see. The
+// SDK extractor treats the closing marker as "validate the hidden block instead
+// of the next one", so the contract is: compile the hidden sample, publish the
+// visible one.
+//
+// The markers are plain HTML comments. A Markdown parser treats each as a
+// self-contained single-line HTML block, and the fence between them renders as
+// any other code block. Removing the range keeps the hidden sample from publishing.
 
-// Markers are our own directive syntax, so match them permissively: a marker we
-// fail to recognize silently reintroduces the duplicate-sample bug. Trailing
-// content after `-->` is tolerated for the same reason.
+// Match markers permissively so unexpected spacing cannot republish duplicate samples.
+// Tolerate trailing content after --> for the same reason.
 const HIDDEN_OPEN = /^\s*<!--\s*docs-validate:\s*hidden\s*-->/i
 const HIDDEN_CLOSE = /^\s*<!--\s*\/\s*docs-validate:\s*hidden\s*-->/i
 
-// Fences are CommonMark structure, so match them exactly: an opener may be
-// indented at most 3 spaces, and the run of backticks or tildes may exceed 3.
+// CommonMark fences can indent at most 3 spaces and can use more than 3 markers.
 const FENCE = /^ {0,3}(`{3,}|~{3,})(.*)$/
 
 export interface OpenFence {
@@ -43,13 +37,9 @@ export interface OpenFence {
   length: number
 }
 
-/**
- * Apply a line to the fence state machine and return the new state.
- *
- * A closing fence must use the same character as its opener, be at least as
- * long, and carry no info string. Tracking the length matters because a
- * four-backtick fence can legally contain a three-backtick line as content.
- */
+// Track fence length because a four-backtick fence can contain a three-backtick line.
+// A closing fence must use the opener's character, be at least as long, and
+// carry no info string.
 export function nextFenceState(line: string, open: OpenFence | null): OpenFence | null {
   const match = FENCE.exec(line)
   if (!match) return open
@@ -59,7 +49,7 @@ export function nextFenceState(line: string, open: OpenFence | null): OpenFence 
   const length = marker.length
 
   if (open === null) {
-    // An info string on a backtick fence may not itself contain a backtick.
+    // Backtick fence info strings cannot contain backticks.
     if (char === '`' && info.includes('`')) return null
     return { char, length }
   }
@@ -70,17 +60,14 @@ export function nextFenceState(line: string, open: OpenFence | null): OpenFence 
 
 export interface StripHiddenBlocksResult {
   content: string
-  /** Number of complete marker ranges removed. */
+  // Complete marker ranges removed.
   removed: number
-  /** Number of opening markers with no matching close. */
+  // Opening markers with no matching close.
   unbalanced: number
 }
 
-/**
- * Find the closing marker for an opener, ignoring markers inside code fences.
- * Returns -1 when the range is malformed, which includes a second opener
- * appearing before any close.
- */
+// Ignore markers inside code fences. Return -1 for malformed ranges, including
+// a second opener before any close.
 function findClosingMarker(lines: string[], start: number): number {
   // The opener is only matched outside a fence, so the inner scan starts closed.
   let fence: OpenFence | null = null
@@ -102,14 +89,8 @@ function findClosingMarker(lines: string[], start: number): number {
   return -1
 }
 
-/**
- * Strip every `docs-validate: hidden` range, markers included.
- *
- * Markers inside a fenced code block are sample text rather than directives and
- * are left alone. An opener with no matching close is also left alone: dropping
- * to the end of the file would silently destroy content, so the caller is
- * warned instead.
- */
+// Markers inside fenced code are sample text, not directives. Leave unmatched
+// openers in place because dropping to the end of the file would destroy content.
 export function stripHiddenBlocks(content: string): StripHiddenBlocksResult {
   const lines = content.split('\n')
   const result: string[] = []
@@ -136,17 +117,15 @@ export function stripHiddenBlocks(content: string): StripHiddenBlocksResult {
 
       const previous = result[result.length - 1]
       const next = lines[i]
-      // Treat the start and end of the file as blank so the range never leaves
-      // a stray blank line at either edge.
+      // Treat file edges as blank so the removed range leaves no stray edge blank.
       const previousIsBlank = previous === undefined || previous.trim() === ''
       const nextIsBlank = next === undefined || next.trim() === ''
 
       if (previousIsBlank && nextIsBlank) {
-        // Both sides were blank and are now adjacent, so keep only one.
+        // Keep one blank when removal makes two blanks adjacent.
         i++
       } else if (!previousIsBlank && !nextIsBlank) {
-        // The range was the only thing separating two blocks. Without a blank
-        // line between them they would merge into a single paragraph.
+        // Preserve a paragraph boundary when the removed range separated text.
         result.push('')
       }
       continue

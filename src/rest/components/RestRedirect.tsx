@@ -6,8 +6,8 @@ import { useVersion } from '@/versions/components/useVersion'
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { API_VERSION_COOKIE_NAME } from '@/frame/lib/constants'
 
-// This component allows us to set the URL Param for the REST API Calendar Date version
-// We set a cookie as well to remember what calendar date version the user is on
+// RestRedirect adds a valid apiVersion to calendar-date versioned REST URLs.
+// It reads a saved version from the cookie and otherwise uses the latest version.
 export function RestRedirect() {
   const router = useRouter()
   const { currentVersion } = useVersion()

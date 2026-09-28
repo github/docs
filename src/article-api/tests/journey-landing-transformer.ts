@@ -7,7 +7,6 @@ const makeURL = (pathname: string): string =>
 
 describe('journey landing transformer', () => {
   test('renders a journey landing page in markdown', async () => {
-    // /en/get-started/test-journey is a journey landing page in the fixtures
     const res = await get(makeURL('/en/get-started/test-journey'))
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toContain('text/markdown')

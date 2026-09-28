@@ -19,6 +19,7 @@ jobs:
         github.repository == 'github/docs' &&
         github.event.pull_request.user.login != 'docs-bot' &&
         github.event.pull_request.user.login != 'dependabot[bot]'
+        && !contains(github.event.pull_request.labels.*.name, 'skip-unallowed-check')
       }}
     runs-on: ubuntu-latest
     steps:

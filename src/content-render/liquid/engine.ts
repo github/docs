@@ -38,33 +38,18 @@ for (const tag of codeTabTags) {
 
 engine.registerTag('prompt', promptTag)
 
-/**
- * Like the `size` filter, but specifically for
- * getting the number of keys in an object
- */
 engine.registerFilter('obj_size', (input: Record<string, unknown> | null | undefined): number => {
   if (!input) return 0
   return Object.keys(input).length
 })
 
-/**
- * Returns the version number of a GHES version string
- * ex: enterprise-server@2.22 => 2.22
- */
 engine.registerFilter('version_num', (input: string): string => {
   return input.split('@')[1]
 })
 
-/**
- * Render a string that itself contains Liquid.
- *
- * Values interpolated with `{{ }}` are not given a second Liquid pass, so
- * `{% data %}` or `{% ifversion %}` stored in a data file would otherwise be
- * printed literally. This filter lets data files keep using Liquid instead of
- * hardcoding product names or version logic.
- *
- * Usage: {{ row.action | render_liquid }}
- */
+// Values interpolated with {{ }} do not get a second Liquid pass.
+// Use render_liquid when data values contain {% data %} or {% ifversion %}.
+// Example: {{ row.action | render_liquid }}
 interface FilterScope {
   context: {
     environments: Record<string, unknown>

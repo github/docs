@@ -43,35 +43,28 @@ describe.skip('category pages', () => {
   const productIndices = walk(contentDir, walkOptions)
   const productNames = productIndices.map((index) => path.basename(path.dirname(index)))
 
-  // Combine those to fit vitest's `.each` usage
   const productTuples = zip(productNames, productIndices) as [string, string][]
 
-  // Use a regular for...of loop to generate the `describe(...)` blocks
-  // otherwise, if one of them has no categories, the tests will fail.
+  // describe.each fails when a product has no categories, so generate describes imperatively.
   for (const tuple of productTuples) {
     const [, productIndex] = tuple
 
     const productDir = path.dirname(productIndex)
 
-    // Get links included in product index page.
-    // Each link corresponds to a product subdirectory (category).
-    // Example: "getting-started-with-github"
-    // Note: We need to read this synchronously here because vitest's describe.each
-    // can't asynchronously define tests
+    // Vitest must define describe.each cases synchronously.
+    // Children include category slugs such as getting-started-with-github.
     const contents = fs.readFileSync(productIndex, 'utf8')
     const data = getFrontmatterData(contents)
 
     const children: string[] = data.children
     const categoryLinks = children
-      // Only include category directories, not standalone category files like content/actions/quickstart.md
+      // Skip standalone category files such as content/actions/quickstart.md.
       .filter((link) => fs.existsSync(getPath(productDir, link, 'index')))
 
     const categoryPaths = categoryLinks.map((link) => getPath(productDir, link, 'index'))
 
-    // Make them relative for nicer display in test names
     const categoryRelativePaths = categoryPaths.map((p) => path.relative(contentDir, p))
 
-    // Combine those to fit vitest's `.each` usage
     const categoryTuples = zip(categoryRelativePaths, categoryPaths, categoryLinks) as [
       string,
       string,
@@ -95,7 +88,6 @@ describe.skip('category pages', () => {
         beforeAll(async () => {
           const categoryDir = path.dirname(indexAbsPath)
 
-          // Get child article links included in each subdir's index page
           const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
           const parsed = matter(indexContents)
           if (!parsed.data) throw new Error('No frontmatter')
@@ -123,7 +115,6 @@ describe.skip('category pages', () => {
           const productIndexContents = await fs.promises.readFile(productIndex, 'utf8')
           const productIndexData = getFrontmatterData(productIndexContents)
 
-          // Save the index title for later testing
           indexTitle = productIndexData.title.includes('{')
             ? await renderContent(productIndexData.title, req.context, { textOnly: true })
             : productIndexData.title
@@ -143,7 +134,7 @@ describe.skip('category pages', () => {
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const articleData = getFrontmatterData(articleContents)
 
-                // Do not include subcategories nor hidden pages in list of published articles
+                // Published article lists omit subcategories and hidden pages.
                 if (articleData.subcategory || articleData.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
@@ -164,7 +155,7 @@ describe.skip('category pages', () => {
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const availableArticleData = getFrontmatterData(articleContents)
 
-                // Do not include subcategories nor hidden pages in list of available articles
+                // Available article lists omit subcategories and hidden pages.
                 if (availableArticleData.subcategory || availableArticleData.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
@@ -234,8 +225,7 @@ describe.skip('category pages', () => {
 })
 
 function getPath(productDir: string, link: string, filename: string) {
-  // Handle absolute /content/ paths for cross-product children
-  // The link parameter contains the child path from frontmatter
+  // Absolute /content/ links resolve from contentDir instead of productDir.
   if (link.startsWith('/content/')) {
     const absolutePath = link.slice('/content/'.length)
     if (filename === 'index') {

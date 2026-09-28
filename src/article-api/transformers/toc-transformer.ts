@@ -9,11 +9,7 @@ interface CategoryPage extends Page {
   children?: string[]
 }
 
-/**
- * Transformer for pages that have children but no specific layout: category,
- * subcategory, product and homepage. Lists each child with its title and intro.
- * Corresponds to the TocLanding component in the web UI.
- */
+// This mirrors the TocLanding web UI for child-listing pages without a specific layout.
 export class TocTransformer implements PageTransformer {
   templateName = 'landing-page.template.md'
 

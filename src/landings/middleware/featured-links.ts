@@ -3,32 +3,13 @@ import type { Response, NextFunction } from 'express'
 import type { ExtendedRequest, FeaturedLinkExpanded } from '@/types'
 import getLinkData from '@/frame/lib/get-link-data'
 
-/**
- * This is the max. number of featured links, by any category, that we
- * display on index landing pages (homepage and TOC landings).
- * The reason it's variable is that some featured links are conditional.
- * For example:
- *
- *     '/authentication/troubleshooting-ssh',
- *     '/authentication/connecting-to-github-with...',
- *     '/authentication/connecting-to-github-with-ssh/a...',
- *     '{% ifversion ghec %}/authentication/connecting-to-...{% endif %}',
- *     '/authentication/managing-commit-signature-verif...'
- *
- * In this case, if we'd "prematurely" sliced that list to the first 4,
- * the final result might be 3 items because that conditional one
- * would end up being blank and thus omitted.
- *
- * The reason we don't want to display too many is because it might
- * make the landing page columns that lists links far too
- * long ("high").
- */
+// getLinkData stops after MAX_FEATURED_LINKS resolved links, not frontmatter entries.
+// For example, "{% ifversion ghec %}/authentication/troubleshooting-ssh{% endif %}"
+// can render blank.
+// That keeps a conditional entry that renders blank from leaving a category short,
+// while still preventing landing-page columns from growing too tall.
 const MAX_FEATURED_LINKS = 4
 
-// This middleware resolves `featuredLinks` from the page's frontmatter into
-// a `req.context.featuredLinks` object consumed by the homepage and toc
-// landing renderers. It runs for any `index.md` page that defines
-// `featuredLinks` in frontmatter.
 export default async function featuredLinks(
   req: ExtendedRequest,
   res: Response,
@@ -54,8 +35,7 @@ export default async function featuredLinks(
       { title: true, intro: true, fullTitle: true },
       MAX_FEATURED_LINKS,
     )
-    // We need to use a type assertion here because the Page interfaces are incompatible
-    // between our local types and the global types, but the actual runtime objects are compatible
+    // Local and global Page interfaces differ, but the runtime featured-link objects match.
     req.context.featuredLinks[key] = (linkData || []) as unknown as FeaturedLinkExpanded[]
   }
 

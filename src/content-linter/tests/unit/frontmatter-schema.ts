@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { runRule } from '../../lib/init-test'
 import { frontmatterSchema } from '../../lib/linting-rules/frontmatter-schema'
 
-// Configure the test fixture to not split frontmatter and content
+// Disable frontMatter stripping so the rule can parse frontmatter itself.
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 
 describe(frontmatterSchema.names.join(' - '), () => {

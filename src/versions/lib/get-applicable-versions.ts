@@ -20,12 +20,14 @@ interface FeatureData {
   }
 }
 
-// Feature data is dynamically loaded from YAML files
+// Feature data loads lazily from YAML on first use.
 let featureData: FeatureData | null = null
 
 const allVersionKeys = Object.keys(allVersions)
 
-// return an array of versions that an article's product versions encompasses
+// Feature frontmatter can name one feature, feature: foo, or many, feature: [foo, bar].
+// Merge each feature's version rules before evaluation. Example: fpt: * with
+// feature: foo can add ghes: >=2.23 to the versions object.
 function getApplicableVersions(
   versionsObj: VersionsObject | string | undefined,
   filepath?: string,
@@ -35,7 +37,7 @@ function getApplicableVersions(
     throw new Error(`No \`versions\` frontmatter found in ${filepath || 'undefined'}`)
   }
 
-  // Catch an old frontmatter value that was used to indicate an article was available in all versions.
+  // versions: * is invalid legacy frontmatter; use plan keys or feature-based frontmatter.
   if (versionsObj === '*') {
     throw new Error(
       `${filepath || 'undefined'} contains the invalid versions frontmatter: *. Please explicitly list out all the versions that apply to this article.`,
@@ -46,16 +48,6 @@ function getApplicableVersions(
     featureData = getDeepDataByLanguage('features', 'en') as FeatureData
   }
 
-  // Check for frontmatter that includes a feature name, like:
-  //    fpt: '*'
-  //    feature: 'foo'
-  // or multiple feature names, like:
-  //    fpt: '*'
-  //    feature: ['foo', 'bar']
-  // and add the versions affiliated with the feature (e.g., foo) to the frontmatter versions object:
-  //    fpt: '*'
-  //    ghes: '>=2.23'
-  // where the feature is bringing the ghes versions into the mix.
   const featureVersionsObj: VersionsObject =
     typeof versionsObj === 'string'
       ? {}
@@ -90,7 +82,7 @@ function getApplicableVersions(
     )
   }
 
-  // Sort them by the order in lib/all-versions.
+  // Return versions in the same order as src/versions/lib/all-versions.ts.
   let sortedVersions = sortBy(applicableVersions, (v) => {
     return allVersionKeys.indexOf(v)
   })
@@ -104,36 +96,27 @@ function getApplicableVersions(
   return sortedVersions
 }
 
+// evaluateVersions accepts short names such as ghes: >=2.19 and expands them to full version keys.
 function evaluateVersions(versionsObj: VersionsObject): string[] {
-  // get an array like: [ 'free-pro-team@latest', 'enterprise-server@2.21', 'enterprise-cloud@latest' ]
   const versions: string[] = []
 
-  // where versions obj is something like:
-  //   fpt: '*'
-  //   ghes: '>=2.19'
-  //   ghec: '*'
-  // ^ where each key corresponds to a plan's short name (defined in lib/all-versions.ts)
   for (const [plan, planValue] of Object.entries(versionsObj)) {
     if (typeof planValue !== 'string') continue
 
-    // For each available plan (e.g., `ghes`), get the matching versions from allVersions.
-    // This will be an array of one or more version objects.
+    // Short and full plan names both match version objects.
     const matchingVersionObjs: Version[] = Object.values(allVersions).filter(
       (relevantVersionObj: Version) =>
         relevantVersionObj.plan === plan || relevantVersionObj.shortName === plan,
     )
 
-    // For each matching version found above, compare it to the provided planValue.
-    // E.g., compare `enterprise-server@2.19` to `ghes: >=2.19`.
     for (const relevantVersionObj of matchingVersionObjs) {
-      // If the version doesn't require any semantic comparison, we can assume it applies.
+      // Non-numbered plans always match because only numbered releases use ranges.
       if (!relevantVersionObj.hasNumberedReleases) {
         versions.push(relevantVersionObj.version)
         continue
       }
 
-      // Special handling for a plan value that evaluates to the next GHES release number or a hardcoded `next`.
-      // Note these will not be included in the final array unless the `includeNextVersion` option is provided.
+      // Include future GHES releases only when includeNextVersion keeps them in the returned array.
       if (versionSatisfiesRange(next, planValue) || planValue === 'next') {
         versions.push(`${relevantVersionObj.plan}@${next}`)
       }
@@ -141,7 +124,6 @@ function evaluateVersions(versionsObj: VersionsObject): string[] {
         versions.push(`${relevantVersionObj.plan}@${nextNext}`)
       }
 
-      // Determine which release to use for semantic comparison.
       const releaseToCompare: string = relevantVersionObj.currentRelease
 
       if (releaseToCompare && versionSatisfiesRange(releaseToCompare, planValue)) {

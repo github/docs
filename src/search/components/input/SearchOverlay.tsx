@@ -51,7 +51,6 @@ type Props = {
   ) => void
 }
 
-// Upon clicking the SearchInput component this overlay will be displayed
 export function SearchOverlay({
   searchOverlayOpen,
   parentRef,
@@ -69,7 +68,7 @@ export function SearchOverlay({
 
   const inputRef = useRef<HTMLInputElement>(null)
   const suggestionsListHeightRef = useRef<HTMLUListElement>(null)
-  // We need an array of refs to the list elements so we can focus them when the user uses the arrow keys
+  // Keep list item refs so keyboard navigation can scroll the selected option into view.
   const listElementsRef = React.useRef<Array<HTMLLIElement | null>>([])
 
   const [selectedIndex, setSelectedIndex] = useState<number>(-1)
@@ -83,7 +82,7 @@ export function SearchOverlay({
 
   const { hasOpenHeaderNotifications } = useSharedUIContext()
 
-  // Group all events between open / close of the overlay together
+  // Group overlay selection and keyboard events that pass this session ID.
   const searchEventGroupId = useRef<string>('')
   const overlayRef = useRef<HTMLDivElement>(null)
 
@@ -96,10 +95,10 @@ export function SearchOverlay({
   useEffect(() => {
     searchEventGroupId.current = uuidv4()
   }, [searchOverlayOpen])
-  // Group all events within an "Ask AI" session together
+  // Each Ask AI session gets its own event group.
   const askAIEventGroupId = useRef<string>('')
 
-  // When there is a notification above the header, we need to adjust the top position of the overlay to account for it
+  // Header notifications push the fixed overlay down until the page scrolls past them.
   useEffect(() => {
     if (hasOpenHeaderNotifications) {
       const handleScroll = () => {
@@ -157,13 +156,11 @@ export function SearchOverlay({
     autoCompleteSearchError,
   ])
 
-  // Drop the option that duplicates what the user typed. It comes back below
-  // as a user-query option carrying isUserQuery: true.
+  // Drop the typed-query duplicate; userInputOptions adds it back with isUserQuery.
   const filteredAIOptions = aiAutocompleteOptions.filter(
     (option) => option.term !== urlSearchInputQuery,
   )
 
-  // Create new arrays that prepend the user input
   const userInputOptions =
     urlSearchInputQuery.trim() !== ''
       ? [
@@ -176,7 +173,6 @@ export function SearchOverlay({
         ]
       : []
 
-  // Combine options for key navigation
   const [combinedOptions, generalOptionsWithViewStatus, aiOptionsWithUserInput] = useMemo(() => {
     setAnnouncement('')
     let generalWithView = [...generalSearchResults]
@@ -208,18 +204,16 @@ export function SearchOverlay({
     } else {
       generalWithView = []
     }
-    // NOTE: Order of combinedOptions is important, since 'selectedIndex' is used to navigate the combinedOptions array
-    // Add general options _before_ AI options
+    // Keep general options before AI options because selectedIndex indexes this combined array.
     combined.push(...generalWithView.map((option) => ({ group: 'general', option })))
-    // On AI Error, don't include AI suggestions, only user input
+    // Add AI suggestions and user input only outside Ask AI and AI-error states.
     if (!aiSearchError && !isAskAIState) {
       combined.push(...aiWithUser.map((option) => ({ group: 'ai', option })))
     } else if (isAskAIState && !aiCouldNotAnswer) {
-      // When "ask ai" state is reached, we have references that are ActionList items.
-      // We want to navigate these items via the keyboard, so include them in the combinedOptions array
+      // Ask AI references become keyboard-navigable options after results replace suggestions.
       combined.push(
         ...aiReferences.map((option) => ({
-          group: 'reference', // The references are actually article URLs that we want to navigate to
+          group: 'reference',
           url: option.url,
           option: {
             term: option.title,
@@ -241,9 +235,7 @@ export function SearchOverlay({
     autoCompleteSearchError,
   ])
 
-  // Rather than use `initialFocusRef` to have our Primer <Overlay> component auto-focus our input
-  // We manually focus on open using a useEffect so we can focus _without_ scrolling since we don't want
-  // to scroll to the top of the page each time the SearchOverlay is opened
+  // Focus manually with preventScroll because Primer Overlay initialFocusRef scrolls to the top.
   useEffect(() => {
     if (searchOverlayOpen) {
       inputRef.current?.focus({
@@ -260,16 +252,13 @@ export function SearchOverlay({
       }
       updateAutocompleteResults(urlSearchInputQuery)
     } else {
-      // When opening the overlay via query params, we don't need to fetch autocomplete results
-      // However, on initial open, we need to clear the loading state
+      // Clear shared loading state so the next open does not inherit a spinner.
       setSearchLoading(false)
     }
     return () => {
       clearAutocompleteResults()
     }
-    // We need to update when isAskAIState changes, because we might start a session in the "Ask AI" state, and then switch to the "Search" state
-    // In this scenario we don't have pre-existing autocomplete results to show, so we need to fetch them
-    // Additionally, the query may change in the "Ask AI" state, so we need to update the results when we switch back to the "Search" state
+    // Refetch after Ask AI because Search may have no results and the query may have changed.
   }, [
     searchOverlayOpen,
     updateAutocompleteResults,
@@ -278,7 +267,7 @@ export function SearchOverlay({
     aiCouldNotAnswer,
   ])
 
-  // For keyboard controls, we need to use a ref for the list elements that updates when the options change
+  // Keyboard control refs must track the current option count.
   useEffect(() => {
     listElementsRef.current = listElementsRef.current.slice(
       0,
@@ -286,7 +275,7 @@ export function SearchOverlay({
     )
   }, [generalOptionsWithViewStatus, aiOptionsWithUserInput])
 
-  // When loading, capture the last height of the suggestions list so we can use it for the loading div
+  // Estimate loading space from result counts, or reserve 150px for two suggestions.
   const previousSuggestionsListHeight = useMemo(() => {
     if (generalSearchResults.length || aiAutocompleteOptions.length) {
       return `${7 * (generalSearchResults.length + aiAutocompleteOptions.length)}`
@@ -295,7 +284,6 @@ export function SearchOverlay({
     }
   }, [searchLoading])
 
-  // When the user types in the search input, update the local query and fetch autocomplete results
   const handleSearchQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault()
     const newQuery = event.target.value
@@ -315,7 +303,6 @@ export function SearchOverlay({
     }
   }
 
-  // When a general option is selected, open the article in the current window
   const generalSearchResultOnSelect = (selectedOption: GeneralSearchHit) => {
     sendEvent({
       type: EventType.search,
@@ -351,11 +338,11 @@ export function SearchOverlay({
     onClose()
   }
 
-  // When an AI option is selected, set the AI query and focus the input since ask AI results replace the suggestions
+  // AI results replace suggestions, so keep focus in the input after selection.
   const aiSearchOptionOnSelect = (selectedOption: AutocompleteSearchHit) => {
     if (selectedOption.term) {
       askAIEventGroupId.current = uuidv4()
-      // Fire event from onSelect instead of inside the API request function (executeAISearch), because the result could be cached and not trigger an event
+      // Send the event here because cached results skip executeAISearch.
       sendEvent({
         type: EventType.search,
         search_query: 'REDACTED',
@@ -379,7 +366,6 @@ export function SearchOverlay({
     onClose()
   }
 
-  // When a reference from an "Ask AI" result is selected, navigate to the reference
   const referenceOnSelect = (url: string) => {
     sendEvent({
       type: EventType.link,
@@ -404,7 +390,6 @@ export function SearchOverlay({
     window.open(`${url}?${searchParams.toString()}`, '_blank')
   }
 
-  // Handle keyboard navigation of suggestions
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     const optionsLength = listElementsRef.current?.length ?? 0
     if (event.key === 'ArrowDown') {
@@ -415,7 +400,7 @@ export function SearchOverlay({
           newIndex = 0
         } else {
           newIndex = (selectedIndex + 1) % optionsLength
-          // If we go "out of bounds" (i.e. the index is less than the selected index), unselect the item
+          // Wraparound after the last option clears the selection.
           if (newIndex < selectedIndex) {
             newIndex = -1
           }
@@ -443,7 +428,7 @@ export function SearchOverlay({
           newIndex = optionsLength - 1
         } else {
           newIndex = (selectedIndex - 1 + optionsLength) % optionsLength
-          // If we go "out of bounds" (i.e. the index is greater than the selected index), unselect the item
+          // Wraparound before the first option clears the selection.
           if (newIndex > selectedIndex) {
             newIndex = -1
           }
@@ -469,7 +454,7 @@ export function SearchOverlay({
       let pressedGroupId = searchEventGroupId
       let pressedOnContext = ''
 
-      // When enter is pressed and no option is manually selected (-1), perform an AI search with the user input
+      // Enter with no selected option asks AI with the typed query.
       if (selectedIndex === -1) {
         pressedOnContext = AI_SEARCH_CONTEXT
         pressedGroupKey = ASK_AI_EVENT_GROUP
@@ -485,7 +470,8 @@ export function SearchOverlay({
         if (!selectedItem) {
           return
         }
-        let action = () => {} // Execute the action after we send the event
+        // Send the event before running the action.
+        let action = () => {}
         if (selectedItem?.group === 'general') {
           if (
             (selectedItem.option as GeneralSearchHitWithOptions).isViewAllResults ||
@@ -501,7 +487,6 @@ export function SearchOverlay({
           pressedOnContext = 'ai-option'
           action = () => aiSearchOptionOnSelect(selectedItem.option as AutocompleteSearchHit)
         } else if (selectedItem?.group === 'reference') {
-          // On a reference select, we are in the Ask AI State / Screen
           pressedGroupKey = ASK_AI_EVENT_GROUP
           pressedGroupId = askAIEventGroupId
           pressedOnContext = 'reference-option'
@@ -512,7 +497,7 @@ export function SearchOverlay({
       }
     } else if (event.key === 'Escape') {
       event.preventDefault()
-      onClose() // Close the input overlay when Escape is pressed
+      onClose()
     }
   }
 
@@ -526,7 +511,6 @@ export function SearchOverlay({
     inputRef.current?.focus()
   }
 
-  // We render the AI Result in the searchGroups call, so we pass the props down via an object
   const askAIState = {
     isAskAIState,
     aiQuery,
@@ -565,11 +549,7 @@ export function SearchOverlay({
     previousSuggestionsListHeight,
   }
 
-  // We display different content in the overlay based:
-  // 1. If either search (autocomplete results or ask AI) has an error
-  // 2. The user has selected an AI query and we are showing the ask AI results
-  // 3. The search is loading
-  // 4. Otherwise, we show the autocomplete suggestions
+  // Choose error, Ask AI result, loading, or autocomplete content for the overlay body.
   let OverlayContents = null
   // We can still ask AI if there is an autocomplete search error
   const inErrorState = aiSearchError || (autoCompleteSearchError && !isAskAIState)
@@ -594,7 +574,7 @@ export function SearchOverlay({
                 : `${previousSuggestionsListHeight}px`,
           }}
         >
-          {/* Always show the AI Search UI error message when it is needed */}
+          {/* Show the AI Search UI error message whenever AI search fails. */}
           {aiSearchError && (
             <>
               <ActionList.Divider key="error-top-divider" />
@@ -621,7 +601,7 @@ export function SearchOverlay({
                   />
                 </div>
               </li>
-              {/* If there are general results, show bottom divider */}
+              {/* Show the bottom divider when general results follow the AI error. */}
               {generalOptionsWithViewStatus.length > 0 && (
                 <ActionList.Divider key="error-middle-divider" />
               )}
@@ -662,7 +642,7 @@ export function SearchOverlay({
         onClickOutside={onClose}
         anchorSide="inside-center"
         className={cx(styles.overlayContainer, 'position-fixed')}
-        // We need to override the top value of the overlay when there are header notifications
+        // Header notifications override the overlay top offset.
         style={
           hasOpenHeaderNotifications
             ? {
@@ -693,8 +673,7 @@ export function SearchOverlay({
             maxLength={MAX_QUERY_LENGTH}
             leadingVisual={<SearchIcon />}
             role="combobox"
-            // In Ask AI the input controls the results region instead of the
-            // suggestions list.
+            // In Ask AI the input controls the results region instead of the suggestions list.
             aria-controls={isAskAIState ? 'ask-ai-result-container' : 'search-suggestions-list'}
             aria-expanded={combinedOptions.length > 0}
             aria-label={t('search.overlay.input_aria_label')}

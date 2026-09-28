@@ -42,9 +42,7 @@ describe('data tag', () => {
       currentPath: '/en/liquid-tags/good-data-variable',
     }
     const rendered = await page!.render(context)
-    // The test fixture contains:
-    //   {% data variables.stuff.foo %}
-    // which we control the value of here in the test.
+    // good-data-variable.md uses {% data variables.stuff.foo %} from the test data directory.
     expect(rendered.includes('Foo')).toBeTruthy()
   })
   test('should throw if the data tag is used with something unrecognized', async () => {

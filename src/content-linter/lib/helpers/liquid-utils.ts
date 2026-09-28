@@ -35,13 +35,10 @@ export function getPositionData(
   token: TopLevelToken,
   lines: string[],
 ): { lineNumber: number; column: number; length: number } {
-  // Liquid indexes are 0-based, but we want to
-  // covert to the system used by Markdownlint
+  // Liquid offsets are 0-based, but markdownlint reports 1-based positions.
   const begin = token.begin + 1
   const end = token.end + 1
-  // Account for the newline character at the end
-  // of each line that is not represented in the
-  // `lines` array
+  // Add one character per newline because lines exclude newline characters.
   const lineLengths = lines.map((line) => line.length + 1)
 
   let count = begin
@@ -54,18 +51,9 @@ export function getPositionData(
   return { lineNumber, column: count, length: end - begin }
 }
 
-/* When looking for unused Liquid `ifversion` tags, there
- * are a few ways content can be updated to remove
- * deprecated conditional statements. This function is
- * specific to tags in a statement that are removed along
- * with the content in the statement. For example:
- *
- * {% ifversion < 1.0 %}This is removed{% endif %}
- *
- * Returns an array of error objects in the format expected
- * by Markdownlint:
- * [ { lineNumber: 1, column: 1, deleteCount: 3, }]
- */
+// ifversion statements whose tags and content are deleted together need markdownlint
+// delete ranges for each touched line.
+// Example: {% ifversion < 1.0 %}This is removed{% endif %}.
 export function getContentDeleteData(
   token: TopLevelToken,
   tokenEnd: number,
@@ -74,8 +62,7 @@ export function getContentDeleteData(
   const { lineNumber, column } = getPositionData(token, lines)
   const errorInfo: Array<{ lineNumber: number; column: number; deleteCount: number }> = []
   let begin = column - 1
-  // Subtract one from end of next token tag. The end of the
-  // current tag is one position before that.
+  // tokenEnd is the next tag's start, except an endif uses its own end.
   const length = tokenEnd - token.begin
 
   if (lines[lineNumber - 1].slice(begin).length >= length) {
@@ -106,14 +93,9 @@ export function getContentDeleteData(
   return errorInfo
 }
 
-// This function returns all ifversion conditional statement tags
-// and filters out any `if` conditional statements (including the
-// related elsif, else, and endif tags).
-// Docs doesn't use the standard `if` tag for versioning, instead the
-// `ifversion` tag is used.
-// Returns TagToken array since we filter to only Tag tokens
+// Docs versioning reads ifversion tags, so skip regular if subtrees and case statements.
 export function getLiquidIfVersionTokens(content: string): TagToken[] {
-  // Include 'case' and 'endcase' so we can filter out `else` tags that belong to case statements
+  // Include case and endcase so else tags inside case statements do not look like ifversion tags.
   const IFVERSION_TAG_NAMES = ['if', 'ifversion', 'elsif', 'else', 'endif', 'case', 'endcase']
   const tokens = getLiquidTokens(content)
     .filter((token): token is TagToken => token.kind === TokenKind.Tag)
@@ -123,13 +105,12 @@ export function getLiquidIfVersionTokens(content: string): TagToken[] {
   let inCaseStatement = false
   const ifVersionTokens: TagToken[] = []
   for (const token of tokens) {
-    // Filter out `if` statements and their related tags (supports nesting)
+    // Skip regular if statements and their related tags, including nested ones.
     if (token.name === 'if') {
       ifDepth++
       continue
     }
-    // While we're inside a regular if subtree, `endif` can close either
-    // `if` or `ifversion`, so count nested `ifversion` tags too.
+    // A regular if subtree can contain ifversion tags, and endif can close either one.
     if (ifDepth > 0 && token.name === 'ifversion') {
       ifDepth++
       continue
@@ -139,7 +120,7 @@ export function getLiquidIfVersionTokens(content: string): TagToken[] {
       continue
     }
     if (ifDepth > 0) continue
-    // Filter out `case` statements and their related tags (including `else`)
+    // Skip case statements and their related tags, including else.
     if (token.name === 'case') {
       inCaseStatement = true
       continue
@@ -155,24 +136,17 @@ export function getLiquidIfVersionTokens(content: string): TagToken[] {
 }
 
 export function getSimplifiedSemverRange(release: string): string {
-  // Liquid conditionals only use the format > or < but not
-  // >= or <=. Not sure exactly why.
-  // if startswith >, we'll check to see if the release number
-  // is in the deprecated list, meaning the > case can be removed
-  // or changed to '*'.
+  // Liquid conditionals use > and <, so only the lower bound needs deprecation checks.
   const releaseStrings = release.split(' ')
   const releaseToCheckIndex = releaseStrings.indexOf('>') + 1
   const releaseToCheck = releaseStrings[releaseToCheckIndex]
 
-  // If the release is not part of a range and the release number
-  // is deprecated, return '*' to indicate all ghes releases.
+  // A deprecated single lower bound covers all GHES releases, so return *.
   if (deprecated.includes(releaseToCheck) && releaseStrings.length === 2) {
     return '*'
   }
 
-  // When the release is a range and the lower range (e.g., `ghes > 3.12`)
-  // is now deprecated, return an empty string.
-  // Otherwise, return the release as-is.
+  // If the lower bound in a range, such as ghes > 3.12, is deprecated, remove it.
   const newRelease = deprecated.includes(releaseToCheck)
     ? release.replace(`> ${releaseToCheck}`, '')
     : release

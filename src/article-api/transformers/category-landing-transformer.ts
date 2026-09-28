@@ -10,10 +10,6 @@ interface CategoryPage extends Page {
   children?: string[]
 }
 
-/**
- * Transforms category-landing pages into markdown format.
- * Handles spotlight sections and recursively collects all descendant articles.
- */
 export class CategoryLandingTransformer implements PageTransformer {
   templateName = 'landing-page.template.md'
 
@@ -32,8 +28,7 @@ export class CategoryLandingTransformer implements PageTransformer {
     })
   }
 
-  // Walks the page tree from the given parent hrefs, collecting every non-index
-  // descendant. The visited set guards against circular references.
+  // Collect every non-index descendant; the visited set prevents circular references.
   private async getAllDescendantArticles(
     parentHrefs: string[],
     languageCode: string,
@@ -61,7 +56,7 @@ export class CategoryLandingTransformer implements PageTransformer {
 
       const children = parentPage.children
       if (children && Array.isArray(children) && children.length > 0) {
-        // Get the parent's permalink to use as the base path for resolving children
+        // Resolve child hrefs relative to the parent page, not the original landing page.
         const parentPermalink = parentPage.permalinks.find(
           (p) => p.languageCode === languageCode && p.pageVersion === context.currentVersion,
         )

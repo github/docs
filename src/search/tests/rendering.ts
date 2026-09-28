@@ -1,8 +1,6 @@
-// These tests need indexed fixtures and an Elasticsearch URL for the server:
-//
-//   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
-//
-// That writes `tests_`-prefixed indexes and leaves your regular ones alone.
+// These tests need indexed fixtures and ELASTICSEARCH_URL.
+// Run ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures.
+// The command writes tests_-prefixed indexes and leaves regular indexes alone.
 
 import { expect, test, vi } from 'vitest'
 
@@ -19,20 +17,17 @@ if (!process.env.ELASTICSEARCH_URL) {
 describeIfElasticsearchURL('search rendering page', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
+  // src/search/tests/fixtures/search-indexes/tests_github-docs_general-search_fpt_en-records.json has title "Foo".
   test('happy path', async () => {
-    // src/search/tests/fixtures/search-indexes/tests_github-docs_general-search_fpt_en-records.json
-    // has a record with the title "Foo".
     const { $ } = await getDOM('/en/search?query=foo')
     expect($('h1').text()).toMatch(/\d+ Search results for "foo"/)
 
-    // Note it testid being 'search-result', not 'search-results'
+    // Use search-result, not search-results, for individual result rows.
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBeGreaterThan(0)
     const result = results.first()
     expect($('h2', result).text()).toBe('Foo')
-    // The Docs 2026 result row replaced the breadcrumb line with a category chip fed by the
-    // hit's `toplevel`. Asserting on it also covers the `include=toplevel` plumbing in the
-    // search middleware.
+    // Result rows render the hit toplevel chip and cover include=toplevel plumbing.
     const toplevel = $('[data-testid="search-result-toplevel"]', result)
     expect(toplevel.text()).toBe('Fooing')
     const link = $('a', result)

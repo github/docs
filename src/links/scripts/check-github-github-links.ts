@@ -1,14 +1,6 @@
-// [start-readme]
-//
-// Run this script to get all broken docs.github.com links in github/github
-//
-// To run this locally, you'll generate a PAT and create an environment
-// variable called GITHUB_TOKEN.
-// Easiest is to create a *classic* Personal Access Token and make sure
-// it has all "repo" scopes. You also have to press the "Configure SSO"
-// for it.
-//
-// [end-readme]
+// Finds broken docs.github.com links in github/github.
+// Usage: npm run check-github-github-links [-- --check] [output-file].
+// Set GITHUB_TOKEN; a classic PAT with all repo scopes and SSO authorization is easiest.
 
 import fs from 'fs/promises'
 
@@ -34,25 +26,12 @@ program
 
 main(program.opts(), program.args)
 
-// The way `got` does retries:
-//
-//   sleep = 1000 * Math.pow(2, retry - 1) + Math.random() * 100
-//
-// So, it means:
-//
-//   1. ~1000ms
-//   2. ~2000ms
-//   3. ~4000ms
-//
-// ...if the limit we set is 3.
-// Our own timeout, in @/frame/middleware/timeout.ts defaults to 10 seconds.
-// So there's no point in trying more attempts than 3 because it would
-// just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
+// got waits 1000 * 2^(retry - 1) ms plus jitter between retries, so three retries add
+// about 7s of backoff on top of each 3s request timeout.
 const retryConfiguration = {
   limit: 3,
 }
-// Datadog puts the average time for the `archive_enterprise_proxy` metric at
-// around 70ms, excluding spikes, well under the 3s request timeout below.
+// Datadog averages archive_enterprise_proxy around 70ms outside spikes, below the 3s timeout.
 const timeoutConfiguration = {
   request: 3000,
 }
@@ -122,7 +101,7 @@ async function main(opts: MainOptions, args: string[]) {
         helpIndices.push(...getIndicesOf('GitHub.developer_help_url', contents))
         if (docsIndices.length > 0) {
           for (const numIndex of docsIndices) {
-            // Assuming we don't have links close to 500 characters long
+            // Read 500 characters because github/github docs links are not expected to be longer.
             const docsLink = contents.substring(numIndex, numIndex + 500).match(urlRegEx)
             if (!docsLink) return
             const linkURL = new URL(docsLink[0].toString().replace(/[^a-zA-Z0-9]*$|\\n$/g, ''))
@@ -133,13 +112,13 @@ async function main(opts: MainOptions, args: string[]) {
 
         if (helpIndices.length > 0) {
           for (const numIndex of helpIndices) {
-            // There are certain links like #{GitHub.help_url}#{learn_more_path} and #{GitHub.developer_help_url}#{learn_more_path} that we should skip
+            // Skip interpolated help URLs without static paths, including learn_more_path values.
             if (
               (contents.substring(numIndex, numIndex + 11) === 'GitHub.help' &&
                 contents.charAt(numIndex + 16) === '#') ||
               (contents.substring(numIndex, numIndex + 16) === 'GitHub.developer' &&
                 contents.charAt(numIndex + 26) === '#') ||
-              // See internal issue #2180
+              // Skip /github/#{...} interpolation because it does not resolve to a docs path.
               contents.slice(numIndex, numIndex + 'GitHub.help_url}/github/#{'.length) ===
                 'GitHub.help_url}/github/#{'
             ) {
@@ -147,9 +126,7 @@ async function main(opts: MainOptions, args: string[]) {
             }
 
             const startSearchIndex = contents.indexOf('/', numIndex)
-            // Looking for the closest '/' after GitHub.developer_help_url or GitHub.help_url
-            // There are certain links that don't start with `/` so we want to skip those.
-            // If there's no `/` within 30 characters of GitHub.help_url/GitHub.developer_help_url, skip
+            // Skip help_url values with no slash within 30 characters; those are not docs paths.
             if (startSearchIndex - numIndex < 30) {
               const linkPath = contents
                 .substring(
@@ -162,7 +139,6 @@ async function main(opts: MainOptions, args: string[]) {
                 )
                 .trim()
 
-              // Certain specific links can be ignored as well
               if (['/deprecation-1'].includes(linkPath)) {
                 return
               }
@@ -184,13 +160,11 @@ async function main(opts: MainOptions, args: string[]) {
     file: string
   }[] = []
 
-  // Break up the long list of URLs to test into batches
   for (const batch of [...Array(Math.floor(docsLinksFiles.length / BATCH_SIZE)).keys()]) {
     const slice = docsLinksFiles.slice(batch * BATCH_SIZE, batch * BATCH_SIZE + BATCH_SIZE)
     await Promise.all(
       slice.map(async ({ linkPath, file }) => {
-        // This isn't necessary but if it can't be constructed, it'll
-        // fail in quite a nice way and not "blame fetch".
+        // Constructing the URL here points URL failures at parsing instead of fetch.
         const url = new URL(BASE_URL + linkPath)
         try {
           await fetchWithRetry(

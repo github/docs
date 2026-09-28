@@ -127,7 +127,7 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Liquid tags should be rendered, not shown as raw tags (fixture uses 'HubGit Actions')
+    // The fixture renders prodname_actions as HubGit Actions.
     expect(res.body).toContain('HubGit Actions')
     expect(res.body).not.toContain('{% data variables.product.prodname_actions %}')
 
@@ -139,7 +139,6 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // The link should have the actual page title, not "AUTOTITLE"
     expect(res.body).toContain('[Storing workflow data as artifacts]')
     expect(res.body).toContain('(/en/actions/using-workflows/storing-workflow-data-as-artifacts)')
 
@@ -163,7 +162,6 @@ describe('REST transformer', () => {
 
     expect(res.body).toContain('**Response schema (Status: 200):**')
 
-    // Schema should be rendered as a markdown bullet list, not JSON
     expect(res.body).toContain('* `total_count`:')
     expect(res.body).toContain('* `artifacts`:')
 
@@ -174,15 +172,12 @@ describe('REST transformer', () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
 
-    // Regular article pages should still work, they just won't use the transformer
     expect(res.body).toContain('## Introduction')
   })
 
   test('Invalid apiVersion returns 400 error', async () => {
-    // An invalid API version should return a validation error with 400 status
     const res = await get(makeURL('/en/rest/actions/artifacts', 'invalid-version'))
 
-    // Returns 400 because the apiVersion is invalid (client error)
     expect(res.statusCode).toBe(400)
     const parsed = JSON.parse(res.body)
     expect(parsed.error).toContain("Invalid apiVersion 'invalid-version'")
@@ -191,7 +186,6 @@ describe('REST transformer', () => {
   })
 
   test('Multiple apiVersion query parameters returns 400 error', async () => {
-    // Multiple apiVersion parameters should be rejected
     const res = await get(
       '/api/article/body?pathname=/en/rest/actions/artifacts&apiVersion=2022-11-28&apiVersion=2023-01-01',
     )
@@ -202,7 +196,6 @@ describe('REST transformer', () => {
   })
 
   test('Valid apiVersion passes validation', async () => {
-    // A valid API version should work
     const res = await get(makeURL('/en/rest/actions/artifacts', '2022-11-28'))
 
     expect(res.statusCode).toBe(200)
@@ -210,7 +203,6 @@ describe('REST transformer', () => {
   })
 
   test('Missing apiVersion defaults to latest', async () => {
-    // When no apiVersion is provided, it should default to the latest version
     const res = await get(makeURL('/en/rest/actions/artifacts'))
 
     expect(res.statusCode).toBe(200)
@@ -229,48 +221,30 @@ describe('REST transformer', () => {
   test('Body parameters are formatted correctly for POST/PUT operations', async () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
-
-    // For operations with body parameters, check formatting
-    // (artifacts endpoint is mostly GET/DELETE, but structure should be there)
-    // The transformer handles body parameters when present
   })
 
   test('Content-type header is included for operations that need it', async () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
-
-    // Content-type header appears for operations that require it
-    // The REST transformer adds this based on the operation data
   })
 
   test('Non-English language paths work correctly', async () => {
-    // Note: This test may fail in dev mode with ENABLED_LANGUAGES=en
-    // but the transformer itself should handle any language path
+    // TRANSLATIONS_FIXTURE_ROOT enables /ja in tests; ENABLED_LANGUAGES=en alone disables it.
     const res = await get(makeURL('/ja/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // The transformer should work regardless of language prefix
-    // because it looks for 'rest' in the path and gets the category/subcategory after it
-    // e.g. /ja/rest/actions/artifacts should work the same as /en/rest/actions/artifacts
-
-    // REST data is not translated, so the operation content is English either way.
+    // The transformer finds rest after any language prefix, and REST data stays English.
     expect(res.body).toContain('## List artifacts for a repository')
     expect(res.body).toContain('GET /repos/{owner}/{repo}/actions/artifacts')
 
-    // Check what language is actually being served by examining the response
-    // If Japanese translations are loaded, the title will be in Japanese
-    // Otherwise, it falls back to English
     const hasJapaneseTitle = res.body.includes('# GitHub Actions アーティファクト')
     const hasEnglishTitle = res.body.includes('# GitHub Actions Artifacts')
 
-    // One of them must be present
     expect(hasJapaneseTitle || hasEnglishTitle).toBe(true)
 
     if (hasJapaneseTitle) {
-      // If Japanese is loaded, expect Japanese intro text
       expect(res.body).toContain('アーティファクト')
     } else {
-      // If Japanese is not loaded, expect English fallback
       expect(res.body).toContain('Use the REST API to interact with artifacts in HubGit Actions')
     }
   })

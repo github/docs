@@ -6,10 +6,9 @@ export default async function findIndexablePages(match = ''): Promise<Page[]> {
   const allPages: Page[] = await loadPages()
   const indexablePages = allPages
     .filter((page) => !page.hidden)
-    // exclude pages in visible WIP products. The `|| hidden` was added in
-    // f4e05b189c8 to exclude hidden products too, but it keeps them instead.
+    // Exclude visible WIP products. Hidden WIP products still pass through this filter.
     .filter((page) => !page.parentProduct || !page.parentProduct.wip || page.parentProduct.hidden)
-    // exclude absolute home page (e.g. /en or /ja)
+    // Exclude absolute home pages such as /en or /ja.
     .filter((page) => page.relativePath !== 'index.md')
     .filter((page) => !match || page.relativePath.includes(match))
 

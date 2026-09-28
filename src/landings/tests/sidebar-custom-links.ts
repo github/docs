@@ -12,7 +12,7 @@ describe('sidebar custom links', () => {
   })
 
   test('page without sidebarLink frontmatter does not show custom link', async () => {
-    // Using a page that's not in the get-started section to avoid seeing the foo sidebarLink
+    // The /actions page avoids the get-started section, which has fixture sidebarLink data.
     const $ = await getDOM('/actions')
 
     const customLinks = $('[data-testid="sidebar"] a:contains("All sidebar test items")')
@@ -22,7 +22,6 @@ describe('sidebar custom links', () => {
   test.skip('sidebarLink with custom text appears correctly', async () => {
     const $ = await getDOM('/get-started/sidebar-test')
 
-    // The fixture sidebar-test page should have "All sidebar test items" as custom text
     const customLink = $('[data-testid="sidebar"] a:contains("All sidebar test items")')
     expect(customLink.text().trim()).toBe('All sidebar test items')
   })
@@ -37,7 +36,7 @@ describe('sidebar custom links', () => {
     const testSection = customLink.closest('[role="group"], ul')
     const allLinks = testSection.find('a')
     const customLinkIndex = allLinks.index(customLink)
-    expect(customLinkIndex).toBe(0) // Should be the first link in the subnav
+    expect(customLinkIndex).toBe(0) // Custom sidebar links appear first in their subnav.
   })
 
   test.skip('sidebar custom link has correct aria attributes', async () => {
@@ -46,13 +45,12 @@ describe('sidebar custom links', () => {
     const customLink = $('[data-testid="sidebar"] a:contains("All sidebar test items")')
     expect(customLink.length).toBe(1)
 
-    // Verify the custom link has proper attributes (aria-current depends on current page logic)
     expect(customLink.attr('href')).toBeDefined()
     expect(customLink.text().trim()).toBe('All sidebar test items')
   })
 
   test('sidebar custom link does not appear on unrelated pages', async () => {
-    // Using actions page which is completely unrelated to get-started/foo
+    // The /actions page avoids the get-started section, which has fixture sidebarLink data.
     const $ = await getDOM('/actions')
 
     const customLink = $('[data-testid="sidebar"] a:contains("All sidebar test items")')

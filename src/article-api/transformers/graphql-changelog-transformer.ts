@@ -6,9 +6,6 @@ import { loadTemplate } from '@/article-api/lib/load-template'
 import { fastTextOnly } from '@/content-render/unified/text-only'
 import { extractManualContent } from '@/article-api/lib/graphql-helpers'
 
-/**
- * Renders the GraphQL changelog: schema changes, preview changes, and upcoming changes.
- */
 export class GraphQLChangelogTransformer implements PageTransformer {
   templateName = 'graphql-changelog.template.md'
 
@@ -32,7 +29,7 @@ export class GraphQLChangelogTransformer implements PageTransformer {
     if (year) {
       schema = getGraphqlChangelogByYear(currentVersion, year) as ChangelogItemT[]
     } else {
-      // Index page: show only the latest year
+      // The index page shows only the latest changelog year.
       const latestYear = years[0]
       schema = getGraphqlChangelogByYear(currentVersion, latestYear) as ChangelogItemT[]
     }

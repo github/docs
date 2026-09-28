@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
-// Renders each ```mermaid block in the SDK docs to a PNG with
+// Renders each mermaid code block in the SDK docs to a PNG with
 // @mermaid-js/mermaid-cli (mmdc), saves it under the assets directory, and
-// replaces the code block with an image reference. A block whose render fails
-// is left as it is.
+// replaces the source block with an image reference. Failed renders stay as source.
 //
 // Filenames come from the source file path and the block index, so re-running
 // produces stable results.
@@ -36,7 +35,7 @@ if (!fs.existsSync(SDK_DOCS_DIR)) {
   process.exit(1)
 }
 
-// Find the mmdc binary: global PATH first, then local node_modules.
+// Prefer mmdc from PATH, then fall back to the repo dependency.
 let MMDC_BIN: string
 try {
   MMDC_BIN = execSync('which mmdc', { encoding: 'utf8' }).trim()
@@ -50,7 +49,6 @@ try {
   }
 }
 
-// Recursively collect all .md files.
 function getAllMarkdownFiles(dir: string): string[] {
   const results: string[] = []
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -64,15 +62,13 @@ function getAllMarkdownFiles(dir: string): string[] {
   return results
 }
 
-// Generates a filename from the source file's relative path and the block
-// index, so it is stable across runs.
+// Deterministic filenames come from the source path and mermaid block index.
 function generateImageName(filePath: string, blockIndex: number): string {
   const rel = path.relative(SDK_DOCS_DIR, filePath).replace(/\.md$/, '').replace(/\//g, '-')
   return `${rel}-diagram-${blockIndex}.png`
 }
 
-// Builds generic alt text from the diagram type named on the first line. The
-// contents of the diagram are not used.
+// Generic alt text avoids inventing semantics from diagram source.
 function generateAltText(mermaidSource: string): string {
   const lines = mermaidSource.trim().split('\n')
   const firstLine = lines[0].trim()
@@ -106,7 +102,6 @@ function generateAltText(mermaidSource: string): string {
   return 'Diagram illustrating the described process.'
 }
 
-// Converts the mermaid blocks in one file and returns how many succeeded.
 function processFile(filePath: string, assetsUrlPath: string): number {
   const raw = fs.readFileSync(filePath, 'utf8')
 
@@ -118,7 +113,7 @@ function processFile(filePath: string, assetsUrlPath: string): number {
   let converted = 0
   let result = raw
 
-  // Process matches in reverse order to preserve string indices
+  // Process matches in reverse order to preserve string indices.
   for (let i = matches.length - 1; i >= 0; i--) {
     const match = matches[i]
     const mermaidSource = match[1]
@@ -169,9 +164,8 @@ console.log('--- Converting Mermaid diagrams to PNG ---\n')
 
 fs.mkdirSync(ASSETS_DIR, { recursive: true })
 
-// Compute the URL path for image references
-// The assets dir relative to the docs-internal root gives us the URL path
-// e.g. assets/images/help/copilot/sdk-docs → /assets/images/help/copilot/sdk-docs
+// Image references need the assets directory relative to the docs-internal root.
+// Example: assets/images/help/copilot/sdk-docs becomes /assets/images/help/copilot/sdk-docs.
 const assetsUrlPath = `/${path.relative(REPO_ROOT, ASSETS_DIR)}`
 
 const files = getAllMarkdownFiles(SDK_DOCS_DIR)

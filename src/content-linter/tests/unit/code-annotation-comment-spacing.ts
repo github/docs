@@ -50,7 +50,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(3)
 
-    // Check first error (JavaScript comment)
     expect(errors[0].lineNumber).toBe(5)
     expect(errors[0].errorDetail).toContain("Comment must have exactly one space after '//'")
     expect(errors[0].fixInfo).toEqual({
@@ -60,7 +59,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       insertText: '// This should fail the content linter',
     })
 
-    // Check second error (Python/Shell comment)
     expect(errors[1].lineNumber).toBe(8)
     expect(errors[1].errorDetail).toContain("Comment must have exactly one space after '#'")
     expect(errors[1].fixInfo).toEqual({
@@ -70,7 +68,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       insertText: '# This should also fail',
     })
 
-    // Check third error (SQL comment)
     expect(errors[2].lineNumber).toBe(11)
     expect(errors[2].errorDetail).toContain("Comment must have exactly one space after '--'")
     expect(errors[2].fixInfo).toEqual({
@@ -102,7 +99,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(3)
 
-    // Check first error (JavaScript comment)
     expect(errors[0].lineNumber).toBe(5)
     expect(errors[0].errorDetail).toContain(
       "Comment must have exactly one space after '//', found multiple spaces",
@@ -114,7 +110,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       insertText: '// This has too many spaces',
     })
 
-    // Check second error (Python/Shell comment)
     expect(errors[1].lineNumber).toBe(8)
     expect(errors[1].errorDetail).toContain(
       "Comment must have exactly one space after '#', found multiple spaces",
@@ -126,7 +121,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       insertText: '# This also has too many',
     })
 
-    // Check third error (SQL comment)
     expect(errors[2].lineNumber).toBe(11)
     expect(errors[2].errorDetail).toContain(
       "Comment must have exactly one space after '--', found multiple spaces",
@@ -159,7 +153,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(2)
 
-    // Check first error (indented JavaScript comment without space)
     expect(errors[0].lineNumber).toBe(6)
     expect(errors[0].errorDetail).toContain("Comment must have exactly one space after '//'")
     expect(errors[0].fixInfo).toEqual({
@@ -169,7 +162,6 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       insertText: '  // Missing space in indented comment',
     })
 
-    // Check second error (indented comment with multiple spaces)
     expect(errors[1].lineNumber).toBe(9)
     expect(errors[1].errorDetail).toContain(
       "Comment must have exactly one space after '#', found multiple spaces",

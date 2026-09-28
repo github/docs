@@ -1,4 +1,4 @@
-/* Multi-track journey: a vertical rail of numbered badges with a disclosure card per track. */
+// Multi-track journeys use numbered badges connected by a vertical rail.
 .tracks {
   display: flex;
   flex-direction: column;
@@ -7,8 +7,7 @@
   padding: 0;
 }
 
-/* Each track: a numbered badge sitting above the card, with a connector line
-   running through the gaps between cards (badge x is 12px inside the card edge). */
+// Each badge sits 12px inside the card edge, so connectors run through card gaps.
 .trackItem {
   display: flex;
   flex-direction: column;
@@ -30,7 +29,7 @@
   line-height: 1.5;
 }
 
-/* Connector segments are centered under the badge (badge is 24px wide → center at 12px). */
+// A 24px badge centers at 12px, so an 11px margin centers the 1px connector.
 .connectorAbove,
 .connectorBelow {
   width: 1px;
@@ -57,7 +56,7 @@
     box-shadow 0.2s ease-in-out,
     transform 0.2s ease-in-out;
 
-  // hover lift only while collapsed
+  // Hover lift applies only while collapsed.
   &:not([open]):hover {
     box-shadow:
       0 0.25rem 0.5rem 0 rgba(31, 35, 40, 0.12),
@@ -147,8 +146,7 @@
   padding: 6px 0;
 }
 
-/* Single-track pages render the list without a surrounding card, so it must sit
-   flush with the heading rather than inside the card's 24px inset. */
+// Single-track pages have no surrounding card, so the list sits flush with the heading.
 .trackGuidesFlush {
   padding: 0;
 }
@@ -180,7 +178,7 @@
   margin: 0 0 1rem 0;
 }
 
-/* Stack the title and its "N articles" pill on narrow viewports. */
+// Narrow viewports stack the title and article count pill.
 @media (max-width: 767px) {
   .trackTitleGroup {
     flex-direction: column;

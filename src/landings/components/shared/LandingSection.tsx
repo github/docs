@@ -8,7 +8,7 @@ type LandingSectionProps = {
   className?: string
 }
 
-// A Docs 2026 "framed section". The outer band spans the full content column
+// In framed sections, the outer band spans the full content column
 // and draws the horizontal rules; the inner frame is inset by a gutter and
 // draws the vertical side rules, so the horizontal rules always extend past the
 // vertical ones.

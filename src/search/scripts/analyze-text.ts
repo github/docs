@@ -1,9 +1,5 @@
-// See how a piece of text gets turned into tokens by the different analyzers.
-// Requires that the index exists in Elasticsearch.
-//
-// Example:
-//
-//  npm run analyze-text -- -V dotcom -l en "The name of the wind"
+// Shows how different analyzers tokenize text. Requires an Elasticsearch index.
+// Usage: npm run analyze-text -- -V dotcom -l en "The name of the wind"
 
 import { Client } from '@elastic/elasticsearch'
 import { Command, Option } from 'commander'
@@ -15,24 +11,10 @@ import { allVersions } from '@/versions/lib/all-versions'
 
 import type { estypes } from '@elastic/elasticsearch'
 
-// Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
+// Reads ELASTICSEARCH_URL from .env when the shell environment lacks it.
 dotenv.config()
 
-// Create an object that maps the "short name" of a version to
-// all information about it. E.g.
-//
-//   {
-//    'ghes-3.5': {
-//       hasNumberedReleases: true,
-//       currentRelease: '3.5',
-//       version: 'enterprise-server@3.5',
-//       miscBaseName: 'ghes-'
-//       ...
-//    },
-//    ...
-//
-// We need this later to be able to map CLI arguments to what the
-// records are called when found on disk.
+// Collects the supported short CLI version names so Commander can validate -V input.
 const shortNames: Record<string, (typeof allVersions)[keyof typeof allVersions]> =
   Object.fromEntries(
     Object.values(allVersions).map((info) => {
@@ -89,7 +71,7 @@ async function main(opts: Options, textArgs: string[]): Promise<void> {
   }
   let node = opts.elasticsearchUrl || process.env.ELASTICSEARCH_URL!
 
-  // Allow the user to lazily set it to `localhost:9200` for example.
+  // Add http:// to host:port inputs such as localhost:9200.
   if (!node.startsWith('http') && !node.startsWith('://') && node.split(':').length === 2) {
     node = `http://${node}`
   }
@@ -104,8 +86,6 @@ async function main(opts: Options, textArgs: string[]): Promise<void> {
 
   const { verbose, language, notLanguage } = opts
 
-  // The notLanguage is useful if you want to, for example, index all languages
-  // *except* English.
   if (language && notLanguage) {
     throw new Error("Can't combine --language and --not-language")
   }
@@ -116,7 +96,6 @@ async function main(opts: Options, textArgs: string[]): Promise<void> {
 
   const client = new Client({ node })
 
-  // This will throw if it can't ping
   await client.ping()
 
   const versionKey = opts.version || 'dotcom'

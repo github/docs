@@ -54,9 +54,6 @@ More content here.`
     } catch (error) {
       expect(error).toBeInstanceOf(TitleFromAutotitleError)
 
-      // The broken link is on line 10 in the original file
-      // (3 lines of frontmatter + 1 blank line + 1 title + 1 blank + 1 content + 1 blank + 1 link line)
-      // The error message should reference the correct line number
       expect((error as TitleFromAutotitleError).message).toContain('/nonexistent/page')
       expect((error as TitleFromAutotitleError).message).toContain('could not be resolved')
       expect((error as TitleFromAutotitleError).message).toContain('(Line: 10)')

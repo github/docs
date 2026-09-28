@@ -7,12 +7,9 @@ const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 const pages: { [key: string]: string } = {
   category: '/actions/category',
   codeAnnotations: '/get-started/markdown/code-annotations',
-  // The only fixture page that renders a CTA button. A `.btn-primary` anchor is the
-  // one shape the brand article-link override can drive under 4.5:1 — its label sits
-  // on a coloured fill rather than the page background — which is exactly what it did
-  // before `:not(.btn)` was added to
-  // src/frame/stylesheets/article-link-overrides.scss. Without this entry that
-  // exclusion has no test at all.
+  // This CTA fixture is the only page that covers the .btn-primary article-link override.
+  // Its filled label can fall below 4.5:1 without the :not(.btn) exclusion in
+  // src/frame/stylesheets/article-link-overrides.scss.
   ctaButton: '/get-started/foo/page-with-permissions-and-product-callout',
   homepage: '/',
   learningPath:
@@ -28,7 +25,6 @@ const pages: { [key: string]: string } = {
   tableWithHeaders: '/get-started/liquid/table-row-headers',
 }
 
-// create a test for each page, will eventually be separated into finer grain tests
 for (const pageName of Object.keys(pages)) {
   test.describe(`${pageName}`, () => {
     test('full page axe scan without experiments', async ({ page }) => {
@@ -55,14 +51,12 @@ for (const pageName of Object.keys(pages)) {
   })
 }
 
-// The search facet filters collapse behind a "Show filters" disclosure below
-// Primer Brand's `medium` breakpoint. The scans above run at the default desktop
-// viewport, where that disclosure is display:none, so the expanded panel would
+// The search facet filters collapse behind a Show filters disclosure below
+// Primer Brand's medium breakpoint. The scans above run at the default desktop
+// viewport, where that disclosure has display: none, so the expanded panel would
 // otherwise never be scanned.
 test.describe('search filters (narrow viewport)', () => {
-  // Without a local Elasticsearch the middleware proxies to production, so there are no
-  // aggregations, the disclosure never renders, and this would time out rather than
-  // skip. Matches the guard every search test in playwright-rendering.spec.ts uses.
+  // Without local Elasticsearch, the production proxy returns no aggregations, so the disclosure never renders.
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   test('expanded filter disclosure passes axe', async ({ page }) => {
@@ -76,8 +70,7 @@ test.describe('search filters (narrow viewport)', () => {
 
     await toggle.click()
     await expect(toggle).toHaveAttribute('aria-expanded', 'true')
-    // Scoped to the disclosure's own panel: a bare `fieldset` locator would hit strict
-    // mode the moment anything else on the page renders one.
+    // Scope to the panel, because other fieldsets would trigger Playwright strict mode.
     const panelId = await toggle.getAttribute('aria-controls')
     await expect(page.locator(`#${panelId} fieldset`)).toBeVisible()
 

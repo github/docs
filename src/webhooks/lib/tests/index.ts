@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import { getInitialPageWebhooks, getWebhook, getWebhooks } from '../index'
 
-// Use a version that's guaranteed to exist in the data directory.
+// free-pro-team@latest always exists in the data directory.
 const VERSION = 'free-pro-team@latest'
 
 // Pick a webhook category that has a .child-params.json sidecar, so getWebhook
@@ -23,7 +23,6 @@ describe('getInitialPageWebhooks does not corrupt the getWebhook cache', () => {
   })
 
   it('preserves childParamsGroups in the getWebhook cache after getInitialPageWebhooks runs', async () => {
-    // Seed the cache and record original childParamsGroups lengths.
     const before = await getWebhook(VERSION, CATEGORY)
     expect(before).toBeDefined()
 
@@ -37,11 +36,9 @@ describe('getInitialPageWebhooks does not corrupt the getWebhook cache', () => {
     }
     expect(Object.keys(originalLengths).length).toBeGreaterThan(0)
 
-    // The initial-page data has empty childParamsGroups. It must not reach back
-    // into the objects getWebhook already cached.
+    // Initial-page data must not mutate childParamsGroups already cached by getWebhook.
     await getInitialPageWebhooks(VERSION)
 
-    // getWebhook returns cached data, which must NOT have been mutated.
     const after = await getWebhook(VERSION, CATEGORY)
     expect(after).toBeDefined()
 
@@ -61,7 +58,6 @@ describe('getInitialPageWebhooks does not corrupt the getWebhook cache', () => {
 describe('childParamsGroups deferred loading', () => {
   it('getWebhooks() returns data without childParamsGroups (slim)', async () => {
     const allWebhooks = await getWebhooks(VERSION)
-    // Check a category known to have child params
     const webhook = allWebhooks[CATEGORY]
     expect(webhook).toBeDefined()
 

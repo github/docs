@@ -1,9 +1,6 @@
-// End-to-end tests for the lint-content script, run via npm and checked by
-// their output. They cover argument parsing, file discovery, rule filtering,
-// and exit codes.
-//
-// Test files are written to content/test-integration/ because the linter only
-// processes files under content/ or data/.
+// End-to-end lint-content tests run through npm, so they cover argument parsing,
+// file discovery, rule filtering, and exit codes.
+// Test files live under content/test-integration/ so these cases exercise content-root inputs.
 
 import { execSync } from 'child_process'
 import { beforeEach, afterEach, describe, test, expect } from 'vitest'
@@ -61,7 +58,7 @@ TODOCS This placeholder should definitely be detected.
 
       const { output, exitCode } = await runLinter(`--paths "${testFile}" --rules search-replace`)
 
-      // This MUST work - if it doesn't, the linter is completely broken
+      // This failure means lint-content did not detect the fixture error.
       expect(exitCode).toBe(1)
       expect(output).toContain('todocs-placeholder')
       expect(output).toContain('ERROR')
@@ -70,8 +67,7 @@ TODOCS This placeholder should definitely be detected.
 
   describe('Default linter behavior', () => {
     test('should verify default rule execution behavior', async () => {
-      // This test verifies that all rules run by default when no --rules are specified
-      // It serves as regression protection against the TODOCS bug where no rules would run
+      // Guards against the TODOCS regression where default runs skipped all rules.
       const testFile = path.join(testContentDir, 'default-behavior-test.md')
       const testContent = `---
 title: Test Article

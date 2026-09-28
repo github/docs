@@ -15,17 +15,12 @@ interface TocItem extends LinkData {
   childTocItems?: TocItem[]
 }
 
-/**
- * Recursively gathers all TOC items from a page and its descendants.
- * This mirrors the behavior of getTocItems() in the generic-toc middleware
- * but works with the page.children frontmatter property.
- */
+// Mirrors getTocItems() in src/frame/middleware/context/generic-toc.ts for frontmatter children.
 export async function getAllTocItems(
   page: Page,
   context: Context,
   options: {
-    /** Only recurse into children whose resolved path starts with this prefix.
-     *  Prevents cross-product traversal (e.g. /en/rest listing /enterprise-admin). */
+    // Prevents cross-product traversal, such as /en/rest listing /enterprise-admin.
     basePath?: string
   } = {},
 ): Promise<TocItem[]> {
@@ -41,8 +36,7 @@ export async function getAllTocItems(
   )
   const pathname = pagePermalink ? pagePermalink.href : `/${languageCode}`
 
-  // On the first call, set basePath to this page's path so recursion
-  // stays within the same product section.
+  // Keeps recursive children within the first page's product section.
   const basePath = options.basePath ?? pathname
 
   const resolvedChildren = pageWithChildren.children
@@ -69,7 +63,6 @@ export async function getAllTocItems(
 
       const category = childPage.category || []
 
-      // Only recurse if the child is within the same product section
       const withinSection = href.startsWith(basePath)
       const childTocItems =
         withinSection && childPage.children && childPage.children.length > 0
@@ -83,14 +76,10 @@ export async function getAllTocItems(
   return items
 }
 
-/**
- * Flattens nested TOC items into a single array.
- * Only includes leaf nodes (items without children) or all items based on options.
- */
 export function flattenTocItems(
   tocItems: TocItem[],
   options: {
-    excludeParents?: boolean // If true, only include items without children
+    excludeParents?: boolean
   } = {},
 ): LinkData[] {
   const { excludeParents = true } = options
@@ -101,9 +90,7 @@ export function flattenTocItems(
     for (const item of items) {
       const hasChildren = item.childTocItems && item.childTocItems.length > 0
 
-      // Include this item if it's a leaf or if we're including parents
-      // Deduplicate by href - needed when a page lists both individual
-      // articles and their parent group as children (e.g., bespoke landing pages)
+      // Bespoke landing pages can list both articles and their parent group.
       if (!hasChildren || !excludeParents) {
         if (!seen.has(item.href)) {
           seen.add(item.href)
@@ -125,13 +112,7 @@ export function flattenTocItems(
   return result
 }
 
-/**
- * Check whether a string contains markdown link syntax that would need
- * processing by the unified pipeline (e.g. link rewriting, AUTOTITLE).
- *
- * Use this to short-circuit expensive rendering when the text is
- * Liquid-only and contains no markdown that needs transformation.
- */
+// Liquid-only properties can skip the full unified pipeline.
 function hasMarkdownLinks(text: string): boolean {
   return text.includes('[') && text.includes('](/')
 }
@@ -141,11 +122,7 @@ const RAW_PROP_MAP = {
   intro: 'rawIntro',
 } as const
 
-/**
- * Fast-path rendering for page properties. Renders Liquid only, skipping
- * the full unified pipeline. Falls back to page.renderProp() when the
- * Liquid output contains markdown links that need rewriting.
- */
+// Falls back to page.renderProp() when Liquid output still has markdown links.
 async function renderPropFast(
   page: PageWithChildren,
   prop: keyof typeof RAW_PROP_MAP,

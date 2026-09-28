@@ -290,6 +290,18 @@ Each hook event delivers a JSON payload to the hook handler. Two payload formats
 }
 ```
 
+**Output:**
+
+```typescript
+{
+    additionalContext?: string;
+}
+```
+
+Only `additionalContext` is consumed for `sessionStart` (command and HTTP variants). Return `{}` or empty for no action.
+
+When multiple `sessionStart` hooks run, successful hooks that return a non-empty string `additionalContext` contribute in execution order, separated by exactly `"\n\n"`. An empty or whitespace-only string does not erase already-accumulated context; if every hook returns only empty or whitespace-only strings, the last one is kept. The combined string (including separators) is bounded by the same 10 MiB hook-output limit—a contribution that would cross it is dropped, the previously accumulated context is kept, and a size-only warning is logged and raised in the session.
+
 ### `sessionEnd` / `SessionEnd`
 
 > [!NOTE]
@@ -550,6 +562,20 @@ Tools with no Claude equivalent keep their runtime names.
     agentDescription?: string;
 }
 ```
+
+**Output:**
+
+```typescript
+{
+    additionalContext?: string;
+}
+```
+
+If `additionalContext` is returned, it is prepended to the subagent's first user message, giving hooks a way to inject project-specific context, policies, or instructions into every subagent invocation.
+
+When multiple `subagentStart` hooks run, they accumulate the same way as `sessionStart`: successful hooks with a non-empty string `additionalContext` contribute in execution order joined by `"\n\n"`, empty or whitespace-only strings don't erase already-accumulated context, and the combined string is bounded by the 10 MiB hook-output limit (an over-limit contribution is dropped, the prior context is kept, and a size-only warning is logged and raised in the session).
+
+**Matcher:** Supports an optional `matcher` field that filters by agent name. The value is treated as a regular expression wrapped as `^(?:matcher)$` and tested against `agentName`. The pattern must match the **entire** agent name, not just a substring. If the pattern is not a valid regular expression, the hook is skipped entirely (it will not fire for any agent).
 
 ### `subagentStop` / `SubagentStop`
 

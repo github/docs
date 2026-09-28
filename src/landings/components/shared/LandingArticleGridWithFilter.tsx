@@ -25,19 +25,20 @@ type ArticleGridProps = {
 const ALL_CATEGORIES = 'all_categories'
 
 const useResponsiveArticlesPerPage = () => {
-  const [articlesPerPage, setArticlesPerPage] = useState(9) // Default to desktop
+  // Default to the desktop 3 by 3 grid.
+  const [articlesPerPage, setArticlesPerPage] = useState(9)
 
   useEffect(() => {
     const updateArticlesPerPage = () => {
       const width = window.innerWidth
       if (width < 768) {
-        // Mobile: 1 column, show 8 articles per page
+        // Mobile shows 8 articles in one column.
         setArticlesPerPage(8)
       } else if (width < 1012) {
-        // Tablet: 2 columns, show 8 articles per page (4 rows × 2 columns)
+        // Tablet shows 8 articles as 4 rows by 2 columns.
         setArticlesPerPage(8)
       } else {
-        // Desktop: 3 columns, show 9 articles per page (3 rows × 3 columns)
+        // Desktop shows 9 articles as 3 rows by 3 columns.
         setArticlesPerPage(9)
       }
     }
@@ -50,6 +51,8 @@ const useResponsiveArticlesPerPage = () => {
   return articlesPerPage
 }
 
+// @primer/live-region-element mounts a shadow-DOM live region under document.body, so
+// nearby React updates do not make VoiceOver re-announce the focused input.
 export const ArticleGrid = ({
   tocItems,
   includedCategories,
@@ -72,12 +75,10 @@ export const ArticleGrid = ({
 
   const stopWords = useMemo(() => deriveStopWords(allArticles), [allArticles])
 
-  // Filter articles based on includedCategories for discovery landing pages
-  // For bespoke landing pages, show all articles regardless of includedCategories
+  // Discovery landings filter to included categories; bespoke landings show every article.
   const filteredArticlesByLandingType = useMemo(() => {
     if (landingType === 'discovery' && includedCategories && includedCategories.length > 0) {
-      // For discovery pages, keep articles that either have a matching category
-      // or have no category at all (uncategorized articles are still part of the content tree).
+      // Uncategorized discovery articles stay visible because they remain in the content tree.
       return allArticles.filter((article) => {
         if (!article.category || article.category.length === 0) return true
         return article.category.some((cat) =>
@@ -85,11 +86,11 @@ export const ArticleGrid = ({
         )
       })
     }
-    // For bespoke pages or when includedCategories is empty/undefined, return all articles
+    // Empty includedCategories means the landing page has no category filter.
     return allArticles
   }, [allArticles, includedCategories, landingType])
 
-  // Extract unique categories for dropdown from filtered articles (so all dropdown options have matching articles)
+  // Dropdown options come from filtered articles so every option has matching results.
   const categories: string[] = useMemo(
     () => [
       ALL_CATEGORIES,
@@ -98,7 +99,6 @@ export const ArticleGrid = ({
       )
         .filter((category: string) => {
           if (!includedCategories || includedCategories.length === 0) return true
-          // Case-insensitive comparison for dropdown filtering
           const lowerCategory = category.toLowerCase()
           return includedCategories.some((included) => included.toLowerCase() === lowerCategory)
         })
@@ -145,7 +145,7 @@ export const ArticleGrid = ({
   const paginatedResults = filteredResults.slice(startIndex, startIndex + articlesPerPage)
 
   const handleSearch = (query: string) => {
-    // Don't add to history for search filtering
+    // Search filtering updates the URL without adding browser history entries.
     updateParams({ 'articles-filter': query || '', 'articles-page': '' }, false)
   }
 
@@ -173,8 +173,7 @@ export const ArticleGrid = ({
     if (!hasMountedRef.current) {
       hasMountedRef.current = true
 
-      // Check if any VALID article grid query params are present on initial load
-      // Don't scroll if category is invalid (selectedCategoryIndex === 0 means invalid or "all")
+      // Initial loads scroll only for valid article-grid query params.
       const hasValidCategory = selectedCategory !== ALL_CATEGORIES && selectedCategoryIndex !== 0
       const hasQueryParams = searchQuery || hasValidCategory || currentPage > 1
 
@@ -182,7 +181,8 @@ export const ArticleGrid = ({
         setTimeout(() => {
           if (headingRef.current) {
             const elementPosition = headingRef.current.getBoundingClientRect().top + window.scrollY
-            const offsetPosition = elementPosition - 140 // 140px offset from top
+            // Keep the heading 140px below the viewport top.
+            const offsetPosition = elementPosition - 140
             window.scrollTo({
               top: offsetPosition,
               behavior: 'smooth',
@@ -191,37 +191,34 @@ export const ArticleGrid = ({
         }, 100)
       }
     }
-  }, []) // Only run on mount
+  }, [])
 
   useEffect(() => {
     const pageChanged = currentPage !== prevPageRef.current
     const isPaginationClick = pageChanged && prevPageRef.current !== 1
 
-    // Scroll if page changed via pagination (not from filter/category reset to page 1)
-    // This includes: going to page 2+, or going back to page 1 from a higher page
+    // Pagination scrolls for page 2 and later, or back to page 1 from a higher page.
     const shouldScroll = pageChanged && (currentPage > 1 || isPaginationClick)
 
     if (shouldScroll && headingRef.current) {
-      // Delay scroll slightly to let router finish and restore scroll position first
+      // Wait for router scroll restoration before moving the article grid.
       setTimeout(() => {
         if (headingRef.current) {
           const elementPosition = headingRef.current.getBoundingClientRect().top + window.scrollY
-          const offsetPosition = elementPosition - 140 // 140px offset from top
+          // Keep the heading 140px below the viewport top.
+          const offsetPosition = elementPosition - 140
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth',
           })
         }
-      }, 150) // Slightly longer than router debounce (100ms) + execution time
+      }, 150) // Exceed the router's 100ms debounce plus execution time.
     }
 
     prevPageRef.current = currentPage
   }, [currentPage])
 
-  // Scroll the article grid into view whenever the filter query params change
-  // (typing in search, choosing a category, or landing on the page with those
-  // params already set). Debounced so fast typing scrolls once, after the last
-  // keystroke, rather than on every character.
+  // Filter query changes debounce one grid scroll so typing does not scroll on every character.
   const prevFilterRef = useRef({ searchQuery, selectedCategory })
   const anchorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   useEffect(() => {
@@ -231,9 +228,7 @@ export const ArticleGrid = ({
     prevFilterRef.current = { searchQuery, selectedCategory }
     if (!filtersChanged) return
 
-    // Debounce: cancel any pending scroll from a prior change, schedule a fresh
-    // one. Do NOT clear on effect cleanup: cleanup runs on unrelated re-renders
-    // and would cancel the scroll before it fires.
+    // Keep the timer through unrelated effect cleanup so the scheduled scroll can fire.
     if (anchorTimeoutRef.current) clearTimeout(anchorTimeoutRef.current)
     anchorTimeoutRef.current = setTimeout(() => {
       anchorTimeoutRef.current = null
@@ -241,14 +236,9 @@ export const ArticleGrid = ({
       if (!heading) return
       const offsetPosition = heading.getBoundingClientRect().top + window.scrollY - 140
       window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'smooth' })
-    }, 250) // after the router debounce (100ms) + its scroll-restore
+    }, 250) // Run after the router's 100ms debounce and scroll restoration.
   }, [searchQuery, selectedCategory])
 
-  // Announce search/filter no-results to assistive technologies.
-  // Uses @primer/live-region-element which renders a <live-region> web component
-  // with a shadow DOM on document.body, completely isolated from React's component
-  // tree. This avoids VoiceOver re-announcing the focused input when React re-renders
-  // cause DOM mutations near the TextInput.
   const noArticlesFoundMessage = t('article_grid.no_articles_found')
   useEffect(() => {
     if (statusTimerRef.current) clearTimeout(statusTimerRef.current)
@@ -271,7 +261,7 @@ export const ArticleGrid = ({
         </h2>
 
         <div className={styles.controls}>
-          {/* Text-style control, matching the Docs 2026 "Sort by" pattern. */}
+          {/* Text-style control matches the Sort by pattern. */}
           <div className={styles.categoryDropdown}>
             <ActionMenu>
               <ActionMenu.Button>
@@ -376,18 +366,14 @@ const ArticleCard = ({ article, includedCategories }: ArticleCardProps) => {
         )
       : article.category
 
-  // Brand Card renders its own native anchor (no `as` prop), so intercept plain
-  // left-clicks to preserve client-side SPA navigation. Modified clicks
-  // (cmd/ctrl/shift/middle) fall through to the real href for new-tab/right-click.
   const handleClick = async (e: React.MouseEvent<HTMLDivElement>) => {
+    // Intercept Brand Card's anchor only for plain clicks; modified clicks keep browser behavior.
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
     e.preventDefault()
     try {
       await router.push(article.fullPath)
     } catch {
-      // If the client-side navigation is rejected/aborted, fall back to a hard
-      // navigation so the card never goes dead (we already suppressed the
-      // anchor's default). Matters most for keyboard users with no obvious retry.
+      // Hard navigation keeps the card usable after suppressing the native anchor click.
       window.location.href = article.fullPath
     }
   }

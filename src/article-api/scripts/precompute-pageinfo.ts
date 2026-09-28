@@ -1,28 +1,7 @@
-/**
- * This script gathers all English pages, computes each page's
- * 'title', 'intro' and 'product' properties. These things are then stored
- * in a JSON file (and gzipped) on disk. Then, the pageinfo middleware
- * can load in that JSON file to have a cache of pageinfo for all English
- * pages.
- * Now, when someone requests `/api/pageinfo?pathname=/en/foo/bar`, for the
- * backend, it just needs to read from a precomputed cache file instead
- * of having to do this computation on every request. Time saved, up front.
- *
- * Why cache?: Despite being a fast computation (3 Liquid + Markdown renders),
- * it still adds up. And it's safe and cheap to precompute in advance.
- *
- * Why only the English by default?: To make the file not too large.
- * Given how good these things compress, we might consider, in the
- * future, to do all languages.
- *
- * Why brotli?: Because the file gets included in the Docker container and
- * there every byte counts.
- *
- * When is this script run?: On every push to main, it gets computed
- * and uses actions/cache to store the result. Meaning, it's not run
- * during deployment. (During the deploy it only *downloads* from
- * actions/cache).
- */
+// Precomputes title, intro, and product for article metadata into a Brotli cache.
+// This avoids rendering three properties with Liquid and Markdown on every request.
+// Default English-only output keeps the cache small; Brotli keeps the Docker image smaller.
+// The main workflow computes the cache; deployment only restores it.
 
 import fs from 'fs'
 import { brotliCompressSync } from 'zlib'
@@ -72,8 +51,7 @@ async function main(options: Options) {
     console.warn(chalk.yellow(`Writing to ${outputFile} instead of ${CACHE_FILE_PATH}`))
   }
   if (languages.includes('all')) {
-    // This sets it to [], which when sent into loadUnversionedTree means
-    // it does all languages that it can find.
+    // loadUnversionedTree treats an empty language list as all languages.
     languages.length = 0
   }
 
@@ -98,11 +76,8 @@ async function main(options: Options) {
         console.error(`Error computing pageinfo for ${page.fullPath} (${pathname})`)
         throw error
       }
-      // By default, we only compute the first permalink href.
-      // But you can do more if you want.
       if (++countVersions >= maxVersions) {
-        // This means we're content with only doing the first permalink href.
-        // That's 99% the free-pro-team permalink pathname.
+        // The default keeps one permalink; 99% of first permalinks use the free-pro-team pathname.
         break
       }
     }

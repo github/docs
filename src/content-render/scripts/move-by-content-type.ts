@@ -1,7 +1,5 @@
-/**
- * @purpose Writer tool
- * @description Move files to the relevant directory based on `contentType` frontmatter
- */
+// @purpose Writer tool
+// @description Move files to the relevant directory based on `contentType` frontmatter
 
 import { program } from 'commander'
 import fs from 'fs/promises'
@@ -16,8 +14,7 @@ const CONTENT_TYPES = contentTypesEnum.filter(
   (type) => type !== 'homepage' && type !== 'other' && type !== 'landing',
 )
 
-// The number of path segments at the product level (e.g., "content/<product>/...").
-// Used when determining whether a target directory is a deeper subdirectory.
+// Three segments identify content/<product>/index.md and top-level content-type directories.
 const PRODUCT_LEVEL_PATH_SEGMENTS = 3
 
 const contentTypeToDir = (contentType: string): string => {
@@ -31,10 +28,10 @@ function shouldSkipIndexFile(filePath: string): boolean {
   const parts = relativePath.split(path.sep)
   const contentIndex = parts.indexOf('content')
 
-  // Skip product-level index.md: content/product/index.md
+  // Keep product-level index.md files in place.
   if (parts.length === contentIndex + PRODUCT_LEVEL_PATH_SEGMENTS) return true
 
-  // Skip content-type-level index.md that's already in place: content/product/content-type/index.md
+  // Keep content-type index.md files that already sit at content/product/content-type/index.md.
   if (parts.length === contentIndex + 4) {
     const parentDir = parts[parts.length - 2]
     if (validContentTypeDirs.has(parentDir)) return true
@@ -52,18 +49,16 @@ function calculateTarget(filePath: string, contentType: string, productDir: stri
   const targetContentType = contentTypeToDir(contentType)
 
   if (targetContentType === 'how-tos') {
-    // Preserve subdirectory structure for how-tos
+    // How-to pages keep their product subdirectory structure.
     const pathAfterProduct = parts.slice(contentIndex + 2, -1)
     if (pathAfterProduct[0] === 'how-tos') {
-      // Already in how-tos, no change
       return { targetDir: path.dirname(filePath), targetPath: filePath }
     } else {
-      // Move to how-tos preserving structure
       const targetDir = path.join(productDir, targetContentType, ...pathAfterProduct)
       return { targetDir, targetPath: path.join(targetDir, fileName) }
     }
   } else {
-    // Flatten to content-type directory
+    // Other content types flatten into their content-type directory.
     const targetDir = path.join(productDir, targetContentType)
     return { targetDir, targetPath: path.join(targetDir, fileName) }
   }
@@ -81,7 +76,6 @@ program
   .description('Reorganize content files into subdirectories based on their contentType property')
   .argument('[paths...]', 'Content paths to process')
   .action(async (paths: string[]) => {
-    // Gather files.
     const filesToProcess: string[] = []
     if (paths?.length > 0) {
       for (const p of paths) {
@@ -102,8 +96,8 @@ program
 
     const filesToMove: FileMove[] = []
     const skipped: Array<{ file: string; reason: string }> = []
-    const targetDirs = new Set<string>() // Relative paths of all target directories
-    const subdirTargets = new Set<string>() // Subdirectories receiving index.md files
+    const targetDirs = new Set<string>()
+    const subdirTargets = new Set<string>()
     const productDirs = new Set<string>()
     const productsWithRai = new Set<string>()
 
@@ -111,7 +105,6 @@ program
       const relativePath = path.relative(process.cwd(), filePath)
 
       try {
-        // Skip certain index.md files
         if (path.basename(filePath) === 'index.md' && shouldSkipIndexFile(filePath)) {
           continue
         }
@@ -129,7 +122,7 @@ program
         const parts = relativePath.split(path.sep)
         const contentIndex = parts.indexOf('content')
 
-        // Skip all landing pages - they should only be product-level index.md and don't move
+        // Landing pages belong at product-level index.md files; this script does not move them.
         if (contentType === 'landing') {
           console.log(chalk.gray(`→ Skipping ${relativePath}: landing pages don't move`))
           continue
@@ -166,7 +159,7 @@ program
           console.log(chalk.yellow(`⚠ Skipping ${relativePath}: Target file already exists`))
           continue
         } catch {
-          // Good, doesn't exist
+          // Missing target means the move can proceed.
         }
 
         filesToMove.push({ filePath, targetDir, targetPath, contentType })
@@ -174,7 +167,6 @@ program
         const relativeTargetDir = path.relative(process.cwd(), targetDir)
         targetDirs.add(relativeTargetDir)
 
-        // Track subdirectories that will receive index.md files
         if (
           path.basename(filePath) === 'index.md' &&
           relativeTargetDir.split(path.sep).length > PRODUCT_LEVEL_PATH_SEGMENTS
@@ -195,7 +187,6 @@ program
 
     console.log(chalk.white('Ensuring standard content-type directories exist...\n'))
 
-    // Add standard content-type directories for each affected product
     if (paths?.length > 0) {
       for (const p of paths) {
         const fullPath = path.resolve(process.cwd(), p)
@@ -237,10 +228,10 @@ program
         await fs.access(indexPath)
         console.log(chalk.gray(`- Skipping ${dirPath}/index.md (already exists)`))
       } catch {
-        // Only create placeholders for top-level content-type directories (not subdirectories)
+        // Create placeholders only for top-level content-type directories.
         if (dirPath.split(path.sep).length > PRODUCT_LEVEL_PATH_SEGMENTS) continue
 
-        // Skip if an index.md will be moved here
+        // Moved index.md files become the placeholder for their target directory.
         if (subdirTargets.has(dirPath)) {
           console.log(chalk.gray(`- Skipping ${dirPath}/index.md (will be moved)`))
           continue
@@ -249,8 +240,6 @@ program
         const contentTypeName = path.basename(dirPath)
         const title = titleMap[contentTypeName] || contentTypeName
 
-        // Determine the correct contentType for this placeholder
-        // Map directory name back to contentType enum value
         const placeholderContentType =
           contentTypeName === 'responsible-use' ? 'rai' : contentTypeName
 
@@ -316,7 +305,7 @@ contentType: ${placeholderContentType}
 
     const moved: Array<{ file: string; from: string; to: string }> = []
 
-    // Categorize files by type for correct move order
+    // Move regular files and index.md files in separate groups to avoid path conflicts.
     const regularFiles = filesToMove.filter((f) => path.basename(f.filePath) !== 'index.md')
     const topLevelIndexFiles = filesToMove.filter((f) => {
       if (path.basename(f.filePath) !== 'index.md') return false
@@ -333,7 +322,7 @@ contentType: ${placeholderContentType}
       )
     })
 
-    // Move subdirectory index files first (copy only, delete later)
+    // Copy subdirectory index.md files first; delete sources after regular files move.
     const indexFilesToDeleteLater: string[] = []
     for (const file of subdirIndexFiles) {
       try {
@@ -341,7 +330,7 @@ contentType: ${placeholderContentType}
 
         const content = await fs.readFile(file.filePath, 'utf-8')
         const { data, content: body } = readFrontmatter(content)
-        // Clear children array because paths will be invalid in the new content-type directory structure
+        // Clear children because the new content-type directory structure invalidates child paths.
         if (data?.children) data.children = []
 
         await fs.writeFile(
@@ -526,7 +515,7 @@ contentType: ${placeholderContentType}
 
         if (!data) continue
 
-        // For how-tos, build children from subdirectories
+        // how-tos children point to subdirectories.
         if (path.basename(dirPath) === 'how-tos') {
           const entries = await fs.readdir(absoluteDirPath, { withFileTypes: true })
           const subdirs = entries
@@ -544,7 +533,7 @@ contentType: ${placeholderContentType}
             )
           }
         }
-        // For others, sort with about-* first
+        // Other content types sort about-* pages first.
         else if (data.children && Array.isArray(data.children) && data.children.length > 0) {
           const sorted = [...data.children].sort((a, b) => {
             const aBasename = path.basename(a)

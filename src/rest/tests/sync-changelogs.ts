@@ -180,7 +180,7 @@ describe('syncChangelogs', () => {
     await rm(tmpDir, { recursive: true, force: true })
   })
 
-  // Helper to create a changelog file in the github repo layout:
+  // The github repo layout stores changelog files under:
   //   <githubDir>/app/api/description/changelogs/<releaseDir>/CHANGELOG.md
   async function createChangelog(githubDir: string, releaseDir: string, content: string) {
     const changelogDir = path.join(githubDir, 'app', 'api', 'description', 'changelogs', releaseDir)
@@ -245,7 +245,6 @@ No breaking changes.`,
 
   test('injects hardcoded initial version when no changelog file exists', async () => {
     const githubDir = path.join(tmpDir, 'github')
-    // Only create a changelog for fpt, not ghec or ghes
     await createChangelog(
       githubDir,
       'api.github.com',
@@ -260,7 +259,7 @@ No breaking changes.`,
 
     const output = await readFile(outputPath, 'utf-8')
     expect(output).toContain('{% ifversion fpt %}')
-    // ghec gets the hardcoded initial version even without a changelog file
+    // ghec gets the hardcoded initial version even without a changelog file.
     expect(output).toContain('{% ifversion ghec %}')
     expect(output).toContain(
       'first version of the GitHub Enterprise Cloud REST API after date-based versioning',
@@ -270,7 +269,6 @@ No breaking changes.`,
   test('injects hardcoded initial version when changelog has no version sections', async () => {
     const githubDir = path.join(tmpDir, 'github')
 
-    // fpt has valid sections
     await createChangelog(
       githubDir,
       'api.github.com',
@@ -281,8 +279,7 @@ No breaking changes.`,
 Content.`,
     )
 
-    // ghec has a changelog but no version sections, so it still gets the
-    // hardcoded initial version.
+    // ghec still gets the hardcoded initial version when its changelog lacks sections.
     await createChangelog(
       githubDir,
       'ghec',
@@ -307,7 +304,7 @@ This file has no version headings yet.`,
 
     await syncChangelogs(githubDir, versionNames, outputPath)
 
-    // fpt and ghec get hardcoded initial version entries even with no changelog files
+    // fpt and ghec get hardcoded initial version entries even with no changelog files.
     const output = await readFile(outputPath, 'utf-8')
     expect(output).toContain('{% ifversion fpt %}')
     expect(output).toContain('{% ifversion ghec %}')
@@ -340,7 +337,7 @@ No breaking changes.`,
 
     const output = await readFile(outputPath, 'utf-8')
 
-    // Extract only the fpt ifversion block to avoid counting the hardcoded ghec entry
+    // Extract only the fpt ifversion block to avoid counting the hardcoded ghec entry.
     const fptMatch = output.match(/\{%\s*ifversion fpt\s*%\}([\s\S]*?)\{%\s*ifversion /)?.[1] ?? ''
     const matches = fptMatch.match(/## Version 2022-11-28/g)
     expect(matches).toHaveLength(1)
@@ -380,9 +377,7 @@ No breaking changes.`,
     expect(output).toContain('{% ifversion fpt %}')
     expect(output).toContain('{% ifversion ghec %}')
 
-    // FPT should have two apiVersion blocks, GHEC should have one.
-    // Extract the fpt block: everything between {% ifversion fpt %} and the
-    // next {% ifversion (which starts the ghec block).
+    // Split out fpt before ghec; fpt has two apiVersion blocks and ghec has one.
     const afterFpt = output.split('{% ifversion fpt %}')[1]
     const fptBlock = afterFpt.split('{% ifversion ghec %}')[0]
     expect(fptBlock).toContain('"2026-03-10"')
@@ -415,7 +410,7 @@ Change A`,
 
     const output = await readFile(outputPath, 'utf-8')
 
-    // Versions should appear in the same order as the changelog (newest first)
+    // Versions appear in changelog order, newest first.
     const idx2026_06 = output.indexOf('"2026-06-10"')
     const idx2026_03 = output.indexOf('"2026-03-10"')
     const idx2022 = output.indexOf('"2022-11-28"')
