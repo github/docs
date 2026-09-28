@@ -121,7 +121,7 @@ To review configuration issues:
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. On the **Agents** tab, find the "Copilot settings validation" section.
-1. Review the errors and warnings. Each issue identifies the affected file and and JSON path.
+1. Review the errors and warnings. Each issue identifies the affected file and JSON path.
 1. To fix an issue, update the affected file and commit the change to the default branch of the `.github-private` repository. Then reload the **Agents** page to check the updated configuration.
 
 If the validator finds no issues, the "Copilot settings validation" section isn't displayed. If validation is temporarily unavailable, your existing settings continue to apply. Reload the **Agents** page later to check again.
