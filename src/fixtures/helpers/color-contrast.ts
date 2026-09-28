@@ -1,5 +1,5 @@
-// WCAG contrast for computed `rgb()`/`rgba()` colours. Keywords, hex and
-// translucent values throw rather than being coerced — `rgba(0, 0, 0, 0)` would
+// Computes WCAG contrast only for opaque computed rgb()/rgba() colours.
+// Reject keywords, hex, and translucent values, because rgba(0, 0, 0, 0) would
 // otherwise read as opaque black and yield a confident, wrong ratio.
 
 function parseComputedColor(color: string) {

@@ -6,15 +6,16 @@ import type { Element } from 'domhandler'
 import { get, head, getDOM } from '@/tests/helpers/e2etest'
 import { MAX_WIDTH } from '@/content-render/unified/rewrite-asset-img-tags'
 
-// `getDOM` parses with `xmlMode: true`, which is case-sensitive on attribute
-// names. The legacy string render path emits a lowercase `srcset`, but the
-// React render path (hast -> JSX) emits React 19's camelCase `srcSet`. Both are
-// valid HTML (attribute names are case-insensitive in browsers), so read either.
+// getDOM parses in xmlMode, so attribute names are case-sensitive.
+// The string render path emits srcset, and the React render path emits srcSet.
+// Browsers treat both as valid HTML, so read either spelling.
 function srcsetOf(el: Cheerio<Element>): string | undefined {
   return el.attr('srcset') ?? el.attr('srcSet')
 }
 
 describe('render Markdown image tags', () => {
+  // _fixtures/screenshot.png is 2000x1494 and wider than MAX_WIDTH, so picture
+  // sources include mw-XXXXX resizing and preserve aspect ratio at 1076px tall.
   test('page with a single image', async () => {
     const $: CheerioAPI = await getDOM('/get-started/images/single-image')
 
@@ -41,16 +42,9 @@ describe('render Markdown image tags', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toBe('image/webp')
 
-    // The fixture image `_fixtures/screenshot.png` is known to be very
-    // large. Larger than MAX_WIDTH pixels wide.
-    // When transformed as a source in a `<picture>` tag, it's automatically
-    // injected with the `mw-XXXXX` virtual indicator in the URL that
-    // resizes it on-the-fly.
     const image = sharp(Buffer.from(res.body as ArrayBuffer))
     const { width, height } = await image.metadata()
     expect(width).toBe(MAX_WIDTH)
-    // The `_fixtures/screenshot.png` is 2000x1494.
-    // So if 2000/1494==MAX_WIDTH/x, then x becomes 1494*MAX_WIDTH/2000=1076
     expect(height).toBe(Math.round((1494 * MAX_WIDTH) / 2000))
   })
 
@@ -63,9 +57,9 @@ describe('render Markdown image tags', () => {
     const sources = $('source', pictures)
     expect(sources.length).toBe(3)
 
-    expect(srcsetOf(sources.eq(0))).toContain('1x') // 0
-    expect(srcsetOf(sources.eq(1))).toContain('2x') // 1
-    expect(srcsetOf(sources.eq(2))).toContain('2x') // 2
+    expect(srcsetOf(sources.eq(0))).toContain('1x')
+    expect(srcsetOf(sources.eq(1))).toContain('2x')
+    expect(srcsetOf(sources.eq(2))).toContain('2x')
   })
 
   test('image inside a list keeps its span', async () => {
@@ -77,10 +71,10 @@ describe('render Markdown image tags', () => {
 
   test("links directly to images aren't rewritten", async () => {
     const $: CheerioAPI = await getDOM('/get-started/images/link-to-image')
-    // There is only 1 link inside that page
-    const links = $('#article-contents a[href^="/"]') // exclude header link
+    // The fixture has one article link; header links are out of scope.
+    const links = $('#article-contents a[href^="/"]')
     expect(links.length).toBe(1)
-    // This proves that the link didn't get rewritten to `/en/...`
+    // Asset links must stay under /assets instead of gaining a language prefix.
     expect(links.attr('href'), '/assets/images/_fixtures/screenshot.png')
     const res = await head(links.attr('href')!)
     expect(res.statusCode).toBe(200)
