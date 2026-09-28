@@ -6,7 +6,7 @@ name: Check for Spammy PRs
 
 on:
   pull_request_target:
-    types: [opened]
+    types: [opened, edited, reopened, synchronize]
 
 permissions:
   contents: read
