@@ -44,8 +44,6 @@ describe('excluded_actors filtering', () => {
     expect(isActorExcluded(['UserProgrammaticAccess'], 'fine_grained_pat', actorTypeMap)).toBe(true)
     expect(isActorExcluded(['github_app'], 'server_to_server', actorTypeMap)).toBe(true)
     expect(isActorExcluded(['user_access_token'], 'user_to_server', actorTypeMap)).toBe(true)
-
-    // Test fallback when no mapping exists
     expect(isActorExcluded(['some_unmapped_actor'], 'some_unmapped_actor')).toBe(true)
     expect(isActorExcluded(['some_unmapped_actor'], 'different_actor')).toBe(false)
   })
@@ -84,8 +82,6 @@ describe('excluded_actors filtering', () => {
     ).toBe(true)
     expect(isActorExcluded(['github_app'], 'server_to_server', actorTypeMap)).toBe(true)
     expect(isActorExcluded(['user_access_token'], 'user_to_server', actorTypeMap)).toBe(true)
-
-    // Test fallback when no mapping exists
     expect(isActorExcluded(['some_unmapped_actor'], 'some_unmapped_actor')).toBe(true)
     expect(isActorExcluded(['some_unmapped_actor'], 'different_actor')).toBe(false)
   })

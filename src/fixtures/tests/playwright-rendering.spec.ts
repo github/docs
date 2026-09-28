@@ -8,13 +8,7 @@ import {
   COLOR_MODE_COOKIE_NAME,
 } from '../../frame/lib/constants'
 
-// This exists for the benefit of local testing.
-// In GitHub Actions, we rely on setting the environment variable directly
-// but for convenience, for local development, engineers might have a
-// .env file that can set environment variable. E.g. ELASTICSEARCH_URL.
-// The `src/frame/start-server.ts` script uses dotenv too, but since Playwright
-// tests only interface with the server via HTTP, we too need to find
-// this out.
+// Local Playwright loads .env so tests read ELASTICSEARCH_URL independently of start-server.ts.
 dotenv.config({ quiet: true })
 
 const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
@@ -28,10 +22,9 @@ test.describe('Brand document canvas', () => {
   test('follows system color scheme changes in auto mode without a cookie', async ({ page }) => {
     await page.emulateMedia({ colorScheme: 'dark' })
     await page.goto('/get-started/foo/bar')
-    // `auto` is resolved before first paint, so the raw preference gets its own attribute.
+    // Preserve auto because data-color-mode resolves to light or dark before first paint.
     await expect(page.locator('html')).toHaveAttribute('data-color-mode-preference', 'auto')
 
-    // Check both the initial dark paint and live preference changes without reloading.
     for (const colorScheme of ['dark', 'light', 'dark'] as const) {
       await page.emulateMedia({ colorScheme })
       const backgroundColor = colorScheme === 'dark' ? 'rgb(0, 0, 0)' : 'rgb(255, 255, 255)'
@@ -71,14 +64,12 @@ test.describe('Brand document canvas', () => {
     })
   }
 
-  // A concrete [data-color-mode] below <html> re-declares brand's whole palette
-  // for that subtree.
+  // A data-color-mode below html re-declares Brand's whole palette for that subtree.
   const MISMATCHES = [
     { name: 'OS dark, explicit light mode', colorScheme: 'dark', cookie: { color_mode: 'light' } },
     { name: 'OS light, explicit dark mode', colorScheme: 'light', cookie: { color_mode: 'dark' } },
     {
-      // Day and night themes are picked independently on github.com, so `light`
-      // mode can itself resolve to a dark theme.
+      // GitHub.com picks day and night themes separately, so light can resolve to a dark theme.
       name: 'light mode whose day theme is itself dark',
       colorScheme: 'light',
       cookie: {
@@ -95,8 +86,7 @@ test.describe('Brand document canvas', () => {
       context,
       baseURL,
     }) => {
-      // A settled assertion cannot catch a wrapper that self-corrects within a
-      // macrotask, so record every data-color-mode below <html> from first paint on.
+      // Record modes from first paint to catch wrappers that self-correct within a macrotask.
       await page.addInitScript(() => {
         const seen: string[] = []
         ;(window as unknown as { __modes: string[] }).__modes = seen
@@ -135,13 +125,11 @@ test.describe('Brand document canvas', () => {
       const rootMode = await page.locator('html').getAttribute('data-color-mode')
       expect(rootMode).toMatch(/^(light|dark)$/)
 
-      // Brand's ActionMenu.Overlay wraps an open menu in its own ThemeProvider,
-      // which emits a data-color-mode from brand's context, and only while open.
+      // ActionMenu.Overlay emits data-color-mode from its own ThemeProvider only while open.
       await page.getByTestId('version-picker-button').first().click()
       await expect(page.getByRole('menu').first()).toBeVisible()
 
-      // `auto` is exempt: brand has no `auto` block, so such a wrapper declares
-      // nothing and inherits.
+      // Brand has no auto color block, so auto wrappers declare nothing and inherit.
       await expect(async () => {
         const offenders = await page
           .locator('body [data-color-mode]')
@@ -160,9 +148,7 @@ test.describe('Brand document canvas', () => {
       )
       expect(everSeen.filter((value) => value !== 'auto' && value !== rootMode)).toEqual([])
 
-      // heading-links.ts wraps every heading's text in an `<a class="heading-link">`
-      // held at heading color, so a bare `a[href]` here picks a heading. The
-      // exclusions mirror article-link-overrides.scss.
+      // Exclude a.heading-link and .btn; they match article-link-overrides.scss.
       const link = page
         .locator('#article-contents .markdown-body a[href]:not(.heading-link):not(.btn)')
         .first()
@@ -181,8 +167,7 @@ test.describe('Brand document canvas', () => {
           probe.remove()
         }
       })
-      // Equality alone passes if <html> is wrong; contrast alone passes if the
-      // selector drifts off brand links.
+      // Equality alone can pass with wrong html vars; contrast alone can pass with selector drift.
       expect(linkColor).toBe(expectedLinkColor)
       expect(contrastRatio(linkColor, canvas)).toBeGreaterThanOrEqual(4.5)
     })
@@ -192,7 +177,6 @@ test.describe('Brand document canvas', () => {
 test('logo link keeps current version', async ({ page }) => {
   await page.goto('/enterprise-cloud@latest')
   await turnOffExperimentsInPage(page)
-  // Basically clicking into any page that isn't the home page for this version.
   await page.getByTestId('product').getByRole('link', { name: 'Get started' }).click()
   await expect(page).toHaveURL(/\/en\/enterprise-cloud@latest\/get-started/)
   await page
@@ -206,7 +190,6 @@ test('view the for-playwright article', async ({ page }) => {
   await page.goto('/get-started/foo/for-playwright')
   await expect(page).toHaveTitle(/For Playwright - GitHub Docs/)
 
-  // This is the right-hand sidebar mini-toc link
   await page
     .getByTestId('minitoc')
     .getByRole('link', { name: 'Second heading', exact: true })
@@ -237,11 +220,7 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
 test('sidebar highlights the clicked item optimistically while navigation is pending', async ({
   page,
 }) => {
-  // Article pages are getServerSideProps routes, so router.asPath (and thus the real
-  // aria-current) only updates after the destination loads. The sidebar marks the
-  // clicked link with a visual-only `data-pending` accent so the click is acknowledged
-  // immediately. Throttle the client-side data fetch so the navigation stays pending
-  // long enough to observe that intermediate state.
+  // getServerSideProps delays router.asPath and aria-current; throttle _next/data for data-pending.
   await page.goto('/get-started')
   await page.getByTestId('product-sidebar').getByText('Start your journey').click()
 
@@ -249,7 +228,6 @@ test('sidebar highlights the clicked item optimistically while navigation is pen
   const helloWorld = sidebar.getByRole('link', { name: 'Hello World' })
   const linkRewriting = sidebar.getByRole('link', { name: 'Link rewriting' })
 
-  // Hold the next data request open until we release it, so navigation stays pending.
   let releaseNavigation = () => {}
   const navigationHeld = new Promise<void>((resolve) => {
     releaseNavigation = resolve
@@ -261,24 +239,16 @@ test('sidebar highlights the clicked item optimistically while navigation is pen
 
   await helloWorld.click()
 
-  // While pending: the clicked link carries the optimistic visual marker, but the URL
-  // and the semantic aria-current still reflect the (still-loaded) get-started page.
   await expect(helloWorld).toHaveAttribute('data-pending', '')
   await expect(helloWorld).not.toHaveAttribute('aria-current', 'page')
   await expect(page).not.toHaveURL(/hello-world/)
 
-  // Let the navigation finish: the marker gives way to a real aria-current.
   releaseNavigation()
   await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
   await expect(helloWorld).toHaveAttribute('aria-current', 'page')
   await expect(helloWorld).not.toHaveAttribute('data-pending', '')
 
-  // A modifier-click (open in new tab) must NOT move the optimistic selection.
-  // handleNavClick bails on modifier clicks, so pendingHref is never set: the current
-  // page keeps its URL, its aria-current, and the clicked link gets no data-pending.
-  // Use ControlOrMeta so the real "open in new tab" modifier is sent per-platform
-  // (Ctrl on Linux/Windows CI, Meta on macOS). The click opens a background tab we
-  // don't need to assert on; catch any popup so it doesn't leak.
+  // handleNavClick skips modifier clicks; ControlOrMeta must not set pendingHref. Close the popup.
   page.on('popup', (popup) => popup.close())
   await linkRewriting.click({ modifiers: ['ControlOrMeta'] })
   await expect(linkRewriting).not.toHaveAttribute('data-pending', '')
@@ -290,18 +260,15 @@ test('press "/" to open the search overlay', async ({ page }) => {
   await page.goto('/')
   await turnOffExperimentsInPage(page)
 
-  // Wait for the header search button to render, so the keydown listener is attached.
+  // The keydown listener attaches when the header search button renders.
   await page.getByTestId('toggle-search').waitFor()
 
   const searchInput = page.getByTestId('overlay-search-input')
-  // The overlay (and its input) is not in the DOM until it's opened.
   await expect(searchInput).toHaveCount(0)
 
-  // Pressing "/" anywhere on the page opens the overlay and focuses the input.
   await page.keyboard.press('/')
   await expect(searchInput).toBeFocused()
 
-  // Escape closes it again and returns focus to the same responsive trigger.
   await page.keyboard.press('Escape')
   await expect(searchInput).toHaveCount(0)
   await expect(page.getByTestId('toggle-search')).toBeFocused()
@@ -317,7 +284,7 @@ test('"/" typed inside the search input is a literal slash', async ({ page }) =>
   const searchInput = page.getByTestId('overlay-search-input')
   await expect(searchInput).toBeFocused()
 
-  // The "/" shortcut must not fire while typing in a field, so it is not swallowed.
+  // The slash shortcut must not fire while typing in a field.
   await page.keyboard.type('a/b')
   await expect(searchInput).toHaveValue('a/b')
 })
@@ -352,11 +319,8 @@ test('open search, and perform a general search', async ({ page }) => {
 
   await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('serve playwright')
-  // Wait for the results to load
-  // NOTE: In the UI we wait for results to load before allowing "enter", because we don't want
-  // to allow an unnecessary request when there are no search results. Easier to wait 1 second
+  // Wait 1 second for results to load, because the UI blocks submitting the query until then.
   await page.waitForTimeout(1000)
-  // Scroll down to "View all results" then press enter
   await page.getByText('View more results').click()
 
   await expect(page).toHaveURL(
@@ -364,7 +328,6 @@ test('open search, and perform a general search', async ({ page }) => {
   )
   await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
 
-  // The first result should be "For Playwright"
   await page.getByRole('link', { name: 'For Playwright' }).click()
 
   await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
@@ -379,13 +342,11 @@ test('open search, and select a general search article', async ({ page }) => {
   await page.getByTestId('toggle-search').click()
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
-  // Let new suggestions load
   const searchOverlay = page.getByTestId('general-autocomplete-suggestions')
   await expect(searchOverlay.getByText('For Playwright')).toBeVisible()
   await page.keyboard.press('ArrowDown')
   await page.keyboard.press('Enter')
 
-  // We should now be on the page for "For Playwright"
   await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
   await expect(page).toHaveTitle(/For Playwright/)
 })
@@ -403,7 +364,7 @@ test('open search, and get auto-complete results', async ({ page }) => {
   let listItems = listGroup.locator('li')
   await expect(listItems).toHaveCount(4)
 
-  // Top queries from queries.json fixture's 'topQueries'
+  // The first list mirrors queries.json fixture topQueries.
   let expectedTexts = [
     'What is GitHub and how do I get started?',
     'What is GitHub Copilot and how do I get started?',
@@ -422,7 +383,6 @@ test('open search, and get auto-complete results', async ({ page }) => {
   await searchInput.fill('rest')
   await page.waitForTimeout(1000)
 
-  // Ask AI suggestions
   listGroup = page.getByTestId('ai-autocomplete-suggestions')
   listItems = listGroup.locator('li')
   await expect(listItems).toHaveCount(3)
@@ -448,20 +408,14 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   await page.waitForTimeout(1000)
   await page.getByText('View more results').click()
 
-  // Now we're on the search results page, apply the filter
   await page.getByText('Fooing (1)').click()
   await page.getByRole('link', { name: 'Clear' }).click()
-
-  // At the moment this test isn't great because it's not proving that
-  // certain things cease to be visible, that was visible before. Room
-  // for improvement!
 })
 
 test('404 page renders correctly', async ({ page }) => {
   const response = await page.goto('/this-definitely-does-not-exist')
   expect(response?.status()).toBe(404)
 
-  // 404 pages now render a minimal HTML response
   await expect(page.getByText('Page not found.')).toBeVisible()
 })
 
@@ -507,7 +461,6 @@ test.describe('platform picker', () => {
     await turnOffExperimentsInPage(page)
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Windows' }).click()
 
-    // Return and now the cookie should start us off on Windows again
     await page.goto('/get-started/liquid/platform-specific')
     await expect(page.getByRole('heading', { name: /Windows 95/ })).toBeVisible()
     await expect(page.getByRole('heading', { name: /Macintosh/ })).not.toBeVisible()
@@ -534,7 +487,7 @@ test.describe('tool picker', () => {
   test('prefer default tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
 
-    // defaultTool is set in the fixture frontmatter to webui
+    // The fixture frontmatter defaults defaultTool to webui.
     await expect(page.getByText('This is webui content')).toBeVisible()
     await expect(page.getByText('This is desktop content')).not.toBeVisible()
     await expect(page.getByText('This is cli content')).not.toBeVisible()
@@ -545,7 +498,6 @@ test.describe('tool picker', () => {
     await turnOffExperimentsInPage(page)
     await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
 
-    // Return and now the cookie should start us off with Web UI content again
     await page.goto('/get-started/liquid/tool-specific')
     await expect(page.getByText('This is cli content')).not.toBeVisible()
     await expect(page.getByText('This is desktop content')).not.toBeVisible()
@@ -553,10 +505,9 @@ test.describe('tool picker', () => {
   })
 
   test('minitoc matches picker', async ({ page }) => {
-    // See the note on the platform-specific version of this test: don't sit on
-    // the drawer's exact reveal breakpoint.
+    // Avoid the drawer's exact reveal breakpoint.
     await page.setViewportSize({ width: 1440, height: 900 })
-    // default tool set to webui in fixture frontmatter
+    // The fixture frontmatter defaults defaultTool to webui.
     await page.goto('/get-started/liquid/tool-specific')
     await turnOffExperimentsInPage(page)
     await expect(
@@ -616,9 +567,7 @@ test.describe('code tabs', () => {
 test('navigate with side bar into article inside a subcategory inside a category', async ({
   page,
 }) => {
-  // Our TreeView sidebar only shows "2 levels". If you click and expand
-  // the category, you'll be able to see the subcategory and the article
-  // within.
+  // The TreeView sidebar shows two levels until the category expands.
   await page.goto('/actions')
   await page.getByTestId('sidebar').getByText('Category', { exact: true }).click()
   await page.getByTestId('sidebar').getByText('Subcategory').click()
@@ -645,7 +594,6 @@ test.describe('hover cards', () => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
 
-    // hover over a link and check for intro content from hovercard
     await page
       .locator('#article-contents')
       .getByRole('link', { name: 'Start your journey' })
@@ -656,8 +604,6 @@ test.describe('hover cards', () => {
       ),
     ).toBeVisible()
 
-    // now move the mouse away from hovering over the link, the hovercard should
-    // no longer be visible
     await page.mouse.move(0, 0)
     await expect(
       page.getByText(
@@ -665,38 +611,31 @@ test.describe('hover cards', () => {
       ),
     ).not.toBeVisible()
 
-    // external links don't have a hovercard
     await page.getByRole('link', { name: 'github.com/github/docs' }).hover()
     await expect(page.getByTestId('popover')).not.toBeVisible()
 
-    // links in the main navigation sidebar don't have a hovercard
     await page.getByTestId('sidebar').getByRole('link', { name: 'Quickstart' }).hover()
     await expect(page.getByTestId('popover')).not.toBeVisible()
 
-    // links in the secondary minitoc sidebar don't have a hovercard
     await page
       .getByTestId('minitoc')
       .getByRole('link', { name: 'Regular internal link', exact: true })
       .hover()
     await expect(page.getByTestId('popover')).not.toBeVisible()
 
-    // links in the article intro have a hovercard
     await page.locator('#article-intro').getByRole('link', { name: 'article intro link' }).hover()
     await expect(page.getByText('You can use HubGit Pages to showcase')).toBeVisible()
-    // this page's intro has two links; one in-page and one internal
     await page.locator('#article-intro').getByRole('link', { name: 'another link' }).hover()
     await expect(
       page.getByText('Follow this Hello World exercise to get started with HubGit.'),
     ).toBeVisible()
 
-    // same page anchor links have a hovercard
     await page
       .locator('#article-contents')
       .getByRole('link', { name: 'introduction', exact: true })
       .hover()
     await expect(page.getByText('You can use HubGit Pages to showcase')).toBeVisible()
 
-    // links with formatted text need to work too
     await page.locator('#article-contents').getByRole('link', { name: 'Bold is strong' }).hover()
     await expect(page.getByText('The most basic of fixture data for HubGit')).toBeVisible()
     await page.locator('#article-contents').getByRole('link', { name: 'bar' }).hover()
@@ -707,7 +646,6 @@ test.describe('hover cards', () => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
 
-    // Simply putting focus on the link should not open the hovercard
     await page
       .locator('#article-contents')
       .getByRole('link', { name: 'Start your journey' })
@@ -718,7 +656,6 @@ test.describe('hover cards', () => {
       ),
     ).not.toBeVisible()
 
-    // Once a link has got focus, you can use Alt+ArrowUp to open the hovercard
     await page.keyboard.press('Alt+ArrowUp')
     await expect(
       page.getByText(
@@ -738,7 +675,6 @@ test.describe('hover cards', () => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
 
-    // hover over a link and check for intro content from hovercard
     await page
       .locator('#article-contents')
       .getByRole('link', { name: 'Start your journey' })
@@ -766,9 +702,7 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
 
-    // The Docs 2026 secondary bar leads with a Home crumb, then the full trail
-    // 'Get started / Foo / Bar' (no hidden last crumb). The current page is
-    // static text rather than a link, so only the three ancestors are links.
+    // Breadcrumbs include Home and the full trail; only the three ancestors are links.
     expect(await page.getByTestId('breadcrumbs-bar').getByRole('link').all()).toHaveLength(3)
     await expect(page.getByTestId('breadcrumbs-bar').locator('[aria-current="page"]')).toHaveText(
       'Bar',
@@ -776,64 +710,51 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('breadcrumbs-bar').getByText('Foo')).toBeVisible()
     await expect(page.getByTestId('breadcrumbs-bar').getByText('Bar')).toBeVisible()
 
-    // breadcrumbs show up in rest reference pages
     await page.goto('/rest/actions/artifacts')
     await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
 
-    // breadcrumbs show up in one of the pages that use the AutomatedPage
-    // component (e.g. graphql, audit log). This one uses the webhooks
-    // reference page here
+    // Webhooks renders through an AutomatedPage reference page, which shows breadcrumbs.
     await page.goto('/webhooks/webhook-events-and-payloads')
     await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
   })
 
   test('mobile nav opens even when the desktop rail was collapsed', async ({ page }) => {
-    // Collapse the desktop rail with both drawers out (xxl) so the persisted
-    // `collapsed` state is set via the secondary-bar collapse toggle.
+    // At xxl with both drawers out, the secondary-bar collapse toggle persists collapsed.
     page.setViewportSize({
       width: 1400,
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
     await page.getByTestId('sidebar-collapse-toggle').click()
-    // With the rail collapsed the sidebar is not rendered on desktop.
     await expect(page.getByTestId('sidebar')).toHaveCount(0)
 
-    // Drop below lg (1012) where the inline mobile nav toggle lives (Docs 2026:
-    // the lg–xxl range keeps the desktop collapse toggle instead). `collapsed`
-    // persists across the resize.
+    // Below lg 1012px, the inline mobile nav toggle replaces the desktop collapse toggle.
     page.setViewportSize({
       width: 1000,
       height: 700,
     })
 
-    // Opening the mobile nav must still render the doc-tree drawer. Before the
-    // fix, `collapsed` short-circuited the sidebar to null while the open state
-    // hid the content column, leaving a blank area with no drawer.
+    // Mobile nav must render the doc-tree drawer even with persisted collapsed state.
     await page.getByTestId('sidebar-mobile-toggle').click()
     await expect(page.getByTestId('sidebar')).toBeVisible()
 
-    // Closing it restores the content column (main content visible again).
     await page.getByTestId('sidebar-mobile-toggle').click()
     await expect(page.locator('#main-content')).toBeVisible()
   })
 
   test('resizing from mobile to desktop closes the inline nav', async ({ page }) => {
-    // Start below the lg (1012px) breakpoint where the inline mobile nav lives.
+    // Below lg 1012px, the inline mobile nav lives in the secondary bar.
     await page.setViewportSize({
       width: 1000,
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
 
-    // Open the inline doc-tree nav from the secondary bar.
     await page.getByTestId('sidebar-mobile-toggle').click()
     const nav = page.locator('[data-container="nav"]')
     await expect(nav).toHaveAttribute('data-mobile-open', 'true')
 
-    // Resize up to the desktop breakpoint. The inline nav should close and the
-    // fixed desktop rail (326px) should take over rather than the full-width
-    // mobile markup persisting over the page.
+    // At 1400px, the desktop rail is 326px and replaces full-width mobile markup.
     await page.setViewportSize({
       width: 1400,
       height: 700,
@@ -849,7 +770,6 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
 
-    // Both complete pickers are visible directly in the wide header.
     await expect(
       page.getByTestId('version-picker').getByText('Select your plan:', { exact: true }),
     ).toBeVisible()
@@ -863,7 +783,6 @@ test.describe('test nav at different viewports', () => {
     await page.keyboard.press('Escape')
     await expect(planMenu).not.toBeVisible()
 
-    // The language picker is the same kind of nested dropdown as the plan one.
     const languageButton = page.getByRole('button', {
       name: 'Select language: current language is English',
     })
@@ -887,15 +806,10 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
 
-    // breadcrumbs show up in the secondary bar; for this page we should have
-    // a Home crumb plus 'Get started / Foo / Bar' — the last of which is the
-    // current page, rendered as static text rather than a link.
     await expect(page.getByTestId('breadcrumbs-bar')).toBeVisible()
     expect(await page.getByTestId('breadcrumbs-bar').getByRole('link').all()).toHaveLength(3)
 
-    // At lg+ (Docs 2026) the doc-tree rail is shown by default with the desktop
-    // collapse toggle; the mobile inline-nav toggle is hidden. Clicking the
-    // collapse toggle hides the rail.
+    // At lg+, the desktop rail shows and the inline-nav toggle hides.
     await expect(page.getByTestId('sidebar')).toBeVisible()
     await expect(page.getByTestId('sidebar-collapse-toggle')).toBeVisible()
     await expect(page.getByTestId('sidebar-mobile-toggle')).toBeHidden()
@@ -945,8 +859,7 @@ test.describe('test nav at different viewports', () => {
       await expect(languageMenu).not.toBeVisible()
       await expect(page.getByTestId('header-signup')).toBeVisible()
 
-      // The independent secondary-bar navigation is intentionally inert until the
-      // modal header menu closes, then still expands the doc tree inline.
+      // The secondary-bar nav stays inert until the modal header menu closes.
       await page.getByRole('button', { name: 'Close menu', exact: true }).click()
       await expect(page.getByTestId('sidebar-mobile-toggle')).toBeVisible()
       await page.getByTestId('sidebar-mobile-toggle').click()
@@ -998,13 +911,9 @@ test.describe('test nav at different viewports', () => {
 })
 
 test.describe('secondary-bar breadcrumb scroller', () => {
-  // The secondary bar (and its breadcrumb scroller) only renders at wide
-  // viewports, and the fixture trail is short enough to fit there, so we cap the
-  // scroller width to force a deterministic overflow independent of title
-  // lengths, then exercise the chevrons.
+  // Cap breadcrumb scroller width to force deterministic overflow.
   test('chevrons scroll one crumb at a time instead of jumping to the ends', async ({ page }) => {
-    // Smooth-scroll settle waits across several chevron clicks add up past the
-    // default 5s cap.
+    // Several smooth-scroll waits can exceed the default 5s test cap.
     test.setTimeout(20000)
     page.setViewportSize({ width: 1300, height: 700 })
     await page.goto('/get-started/foo/bar')
@@ -1015,11 +924,7 @@ test.describe('secondary-bar breadcrumb scroller', () => {
     const scrollArea = page.locator('[data-search="breadcrumbs"]')
     await expect(scrollArea).toBeVisible()
 
-    // Force a deterministic overflow independent of title lengths: cap the
-    // scroll region, drop the nav's min-width:100% (which otherwise stretches the
-    // short fixture trail to fill the container so it never overflows), and pad
-    // the crumbs so several are hidden at once — enough that a per-crumb nudge is
-    // distinguishable from a jump to the end.
+    // Cap scroll width, remove nav min-width:100%, and pad crumbs to detect nudges.
     await page.addStyleTag({
       content: `
         [data-search="breadcrumbs"] { max-width: 360px; }
@@ -1032,37 +937,28 @@ test.describe('secondary-bar breadcrumb scroller', () => {
     const maxScrollOf = () => scrollArea.evaluate((el) => el.scrollWidth - el.clientWidth)
     await expect.poll(maxScrollOf).toBeGreaterThan(0)
 
-    // Anchor to the right end explicitly so we start from a known state: fully
-    // scrolled right (current page visible), only the left chevron active.
+    // Start fully scrolled right so only the left chevron is active.
     await scrollArea.evaluate((el) => el.scrollTo({ left: el.scrollWidth, behavior: 'instant' }))
     const maxScroll = await maxScrollOf()
     await expect.poll(scrollLeftOf).toBe(maxScroll)
 
     const leftChevron = page.getByRole('button', { name: 'Scroll breadcrumbs left' })
     const rightChevron = page.getByRole('button', { name: 'Scroll breadcrumbs right' })
-    // At the right extreme the left chevron is active and the right one is hidden.
     await expect(leftChevron).toBeVisible()
     await expect(rightChevron).toBeHidden()
 
-    // One left click nudges toward the start by a single crumb — it must move,
-    // but must NOT jump all the way to 0 (the old behavior) while more than one
-    // crumb is still hidden to the left.
+    // One left click must move without jumping to 0 while crumbs stay hidden left.
     await leftChevron.click()
     await expect.poll(scrollLeftOf).toBeLessThan(maxScroll)
     const afterOneLeft = await scrollLeftOf()
     expect(afterOneLeft).toBeGreaterThan(0)
-    // The right chevron appears once we're no longer at the right extreme.
     await expect(rightChevron).toBeVisible()
 
-    // A right click walks back toward the current page by one crumb, not a full
-    // jump back to the right extreme.
+    // Right click returns by one crumb, not a jump to the right extreme.
     await rightChevron.click()
     await expect.poll(scrollLeftOf).toBeGreaterThan(afterOneLeft)
 
-    // Repeated left clicks eventually reach the start, which hides the left
-    // chevron (canScrollLeft flips false). Drive off the chevron's own visibility
-    // rather than an exact scrollLeft, since smooth scrolling can leave a
-    // sub-pixel remainder.
+    // Drive off chevron visibility because smooth scrolling can leave sub-pixel scrollLeft.
     for (let i = 0; i < 6 && (await leftChevron.isVisible()); i++) {
       await leftChevron.click()
       await page.waitForTimeout(200)
@@ -1073,16 +969,10 @@ test.describe('secondary-bar breadcrumb scroller', () => {
 })
 
 test.describe('anchor link scrolling', () => {
-  // The doc-tree rail only renders at the xxl breakpoint (1400px) and up. Its
-  // "centre the active item" effect used to call scrollIntoView, which scrolls
-  // every scrollable ancestor including the document, so it undid the browser's
-  // scroll to the #anchor and dumped the reader at the top of the article.
-  // These tests only mean anything with the rail on screen.
+  // At xxl, centering the active doc-tree item can undo browser anchor scrolling.
   const WIDE = { width: 1400, height: 720 }
 
-  // The heading is offset from the top of the viewport by `scroll-margin-top`
-  // (109px at xxl, see src/frame/stylesheets/scroll-top.scss). Allow slack for
-  // rounding and sticky-header tweaks, but stay well clear of "not scrolled".
+  // scroll-margin-top is 109px at xxl; allow rounding and sticky-header slack, but reject an unscrolled page.
   const expectScrolledToTarget = async (page: import('@playwright/test').Page) => {
     const heading = page.locator('#target-heading')
     await expect(heading).toBeVisible()
@@ -1096,10 +986,7 @@ test.describe('anchor link scrolling', () => {
     await expect(page.getByTestId('sidebar')).toBeVisible()
     await expectScrolledToTarget(page)
 
-    // Guard the setup: the regression only shows when the rail has actually
-    // scrolled its own container to centre the active item. If a fixture change
-    // ever makes the rail short enough that it doesn't need to scroll, these
-    // tests would keep passing while covering nothing — fail loudly instead.
+    // Fail if the fixture rail stops scrolling, because the test would cover nothing.
     const railScrollTop = await page
       .getByTestId('sidebar')
       .evaluate((el) => el.closest('[role="region"]')!.scrollTop)
@@ -1135,8 +1022,7 @@ test.describe('survey', () => {
 
     const surveyComment = 'This is a comment'
 
-    // Important to set this up *before* interacting with the page
-    // in case of possible race conditions.
+    // Install the route before interacting with the page to avoid event races.
     await page.route('**/api/events', (route, request) => {
       const postData = request.postData()
       if (postData) {
@@ -1160,10 +1046,7 @@ test.describe('survey', () => {
           }
         }
       }
-      // At the time of writing you can't get the posted payload
-      // when you use `navigator.sendBeacon(url, data)`.
-      // So we can't make assertions about the payload.
-      // See https://github.com/microsoft/playwright/issues/12231
+      // Chromium hides sendBeacon payloads from Playwright: https://github.com/microsoft/playwright/issues/12231
     })
 
     await page.addInitScript(() => {
@@ -1172,7 +1055,7 @@ test.describe('survey', () => {
 
     await page.goto('/get-started/foo/for-playwright')
 
-    // The label is visually an SVG. Finding it by its `for` value feels easier.
+    // The label renders as an SVG, so locate it by for=survey-yes.
     await page.locator('[for=survey-yes]').click()
     await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
@@ -1181,7 +1064,6 @@ test.describe('survey', () => {
     await page.locator('[name=survey-email]').click()
     await page.locator('[name=survey-email]').fill('test@example.com')
     await page.getByRole('button', { name: 'Send' }).click()
-    // simulate sending an exit event to trigger sending all queued events
     await page.evaluate(() => {
       Object.defineProperty(document, 'visibilityState', {
         configurable: true,
@@ -1193,11 +1075,7 @@ test.describe('survey', () => {
       return new Promise((resolve) => setTimeout(resolve, 100))
     })
 
-    // Events:
-    // 1. page view event when navigating to the page
-    // 2. Survey thumbs up event
-    // 3. Survey submit event
-    // 4. Exit event
+    // fulfilled counts page view, survey thumbs up, survey submit, and exit events.
     expect(fulfilled).toBe(1 + 1 + 1 + 1)
     expect(hasSurveyPressedEvent).toBe(true)
     expect(hasSurveySubmittedEvent).toBe(true)
@@ -1208,8 +1086,7 @@ test.describe('survey', () => {
     let fulfilled = 0
     let hasSurveyEvent = false
 
-    // Important to set this up *before* interacting with the page
-    // in case of possible race conditions.
+    // Install the route before interacting with the page to avoid event races.
     await page.route('**/api/events', (route, request) => {
       const postData = request.postData()
       if (postData) {
@@ -1223,10 +1100,7 @@ test.describe('survey', () => {
           }
         }
       }
-      // At the time of writing you can't get the posted payload
-      // when you use `navigator.sendBeacon(url, data)`.
-      // So we can't make assertions about the payload.
-      // See https://github.com/microsoft/playwright/issues/12231
+      // Chromium hides sendBeacon payloads from Playwright: https://github.com/microsoft/playwright/issues/12231
     })
 
     await page.addInitScript(() => {
@@ -1236,7 +1110,6 @@ test.describe('survey', () => {
     await page.goto('/get-started/foo/for-playwright')
 
     await page.locator('[for=survey-yes]').click()
-    // simulate sending an exit event to trigger sending all queued events
     await page.evaluate(() => {
       Object.defineProperty(document, 'visibilityState', {
         configurable: true,
@@ -1247,10 +1120,7 @@ test.describe('survey', () => {
       document.dispatchEvent(new Event('visibilitychange'))
       return new Promise((resolve) => setTimeout(resolve, 100))
     })
-    // Events:
-    // 1. page view event when navigating to the page
-    // 2. the thumbs up click
-    // 3. the exit event
+    // fulfilled counts page view, thumbs up, and exit events.
     expect(fulfilled).toBe(1 + 1 + 1)
     expect(hasSurveyEvent).toBe(true)
 
@@ -1259,8 +1129,7 @@ test.describe('survey', () => {
   })
 
   test('vote on one page, then go to another and it should reset', async ({ page }) => {
-    // Important to set this up *before* interacting with the page
-    // in case of possible race conditions.
+    // Install the route before interacting with the page to avoid event races.
     await page.route('**/api/events', (route) => {
       route.fulfill({})
     })
@@ -1284,12 +1153,10 @@ test.describe('survey', () => {
 test.describe('rest API reference pages', () => {
   test('REST actions', async ({ page }) => {
     await page.goto('/rest')
-    // Before using the sidebar, make sure the page has redirected to a
-    // URL that has that `?apiVersion=` query parameter.
+    // Redirect must add the apiVersion query before sidebar navigation.
     await expect(page).toHaveURL(/\/en\/rest\?apiVersion=/)
     await page.getByTestId('sidebar').getByText('Actions').click()
-    // Brand NavList renders leaf articles as <a> links (not the label-associated
-    // controls Primer used), so locate them by link role rather than getByLabel.
+    // Brand NavList renders leaf articles as links, not Primer's label-associated controls.
     await page.getByTestId('sidebar').getByRole('link', { name: 'Artifacts' }).click()
     await page
       .getByTestId('sidebar')
@@ -1313,7 +1180,6 @@ test.describe('translations', () => {
     await expect(page).toHaveURL('/ja')
     await expect(page.getByRole('heading', { name: '日本 GitHub Docs' })).toBeVisible()
 
-    // Having done this once, should now use a cookie to redirect back to Japanese
     await page.goto('/')
     await expect(page).toHaveURL('/ja')
   })
@@ -1326,16 +1192,11 @@ test.describe('translations', () => {
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
     await expect(page.getByRole('heading', { name: 'こんにちは World' })).toBeVisible()
 
-    // Having done this once, should now use a cookie to redirect
-    // back to Japanese.
-    // Playwright will cache this redirect, so we need to add something
-    // to "cache bust" the URL
+    // Bust the URL because Playwright caches the redirect back to Japanese.
     const cb = `?cb=${Math.random()}`
     await page.goto(`/get-started/start-your-journey/hello-world${cb}`)
     await expect(page).toHaveURL(`/ja/get-started/start-your-journey/hello-world${cb}`)
 
-    // If you go, with the Japanese cookie, to the English page directly,
-    // it will offer a link to the Japanese URL in a banner.
     await page.goto('/en/get-started/start-your-journey/hello-world')
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
   })
@@ -1344,9 +1205,7 @@ test.describe('translations', () => {
 test('open search, and ask Copilot (Ask AI) a question', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
-  // Mock the CSE Copilot endpoint
   await page.route('**/api/ai-search/v1', async (route) => {
-    // Simulate the streaming response from CSE Copilot
     const mockResponse = `{"chunkType":"SOURCES","sources":[{"title":"Creating a new repository","index":"/en/get-started","url":"http://localhost:4000/en/get-started"}]}
 
 {"chunkType":"MESSAGE_CHUNK","text":"Creating "}
@@ -1380,31 +1239,23 @@ test('open search, and ask Copilot (Ask AI) a question', async ({ page }) => {
 
   await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('How do I create a Repository?')
-  // Pressing enter should ask AI the question
   await page.keyboard.press('Enter')
 
-  // Wait for the AI response to appear
   await expect(page.getByText('Creating a repository on GitHub')).toBeVisible()
 
-  // Verify that sources are displayed
   await expect(page.getByText('Creating a new repository')).toBeVisible()
 
-  // Verify the full response appears
   await expect(page.getByText('something you should already know how to do')).toBeVisible()
 
-  // Open the "Creating new repository" source link list item
-  // Find the references section first
   const aiReferencesSection = page.getByTestId('ai-references')
   await expect(aiReferencesSection).toBeVisible()
 
-  // Wait for the reference list to be populated
   await expect(page.getByText('Creating a new repository')).toBeVisible()
 })
 
 test('open search, Ask AI returns 400 error and shows general search results', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
-  // Mock the CSE Copilot endpoint to return a 400 error
   await page.route('**/api/ai-search/v1', async (route) => {
     await route.fulfill({
       status: 400,
@@ -1422,21 +1273,16 @@ test('open search, Ask AI returns 400 error and shows general search results', a
 
   await page.getByTestId('toggle-search').click()
   await page.getByTestId('overlay-search-input').fill('foo')
-  // Pressing enter should trigger Ask AI, get 400 error, and show general search results
   await page.keyboard.press('Enter')
 
-  // Wait for the general search results to appear inside the overlay's suggestions
-  // group. These render as ActionList items (buttons), so scope the lookup to the
-  // group rather than matching page-level links of the same name.
+  // Search suggestions render as ActionList buttons, so scope Foo and Bar to the suggestion group.
   const generalSuggestions = page.getByTestId('general-autocomplete-suggestions')
   await expect(generalSuggestions.getByRole('button', { name: 'Foo' })).toBeVisible()
   await expect(generalSuggestions.getByRole('button', { name: 'Bar' })).toBeVisible()
 
-  // Wait for the AI error message to appear
-  // This is a canned response for the 400 error
-  await page.waitForTimeout(1000) // Wait for the AI error message to appear
+  // Wait for the canned 400 response before checking the paragraph.
+  await page.waitForTimeout(1000)
 
-  // Verify the AI error message appears (canned response for 400 error)
   await expect(
     page
       .getByRole('paragraph')
@@ -1445,7 +1291,6 @@ test('open search, Ask AI returns 400 error and shows general search results', a
       ),
   ).toBeVisible()
 
-  // Verify general search results appear above the AI section
   const searchResults = page.getByTestId('general-autocomplete-suggestions')
   const aiSection = page.locator('#ask-ai-result-container')
 
@@ -1460,13 +1305,11 @@ test.describe('LandingCarousel component', () => {
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
 
-    // Check that article cards are present. Brand Card renders each card's title
-    // as an <h3> (Card.Heading) wrapping a stretched <a>, so target the heading.
+    // Brand Card renders each card title as h3 Card.Heading around a stretched link.
     const items = page.locator('[data-testid="carousel-items"]')
     const cardHeadings = items.locator('h3')
     await expect(cardHeadings.first()).toBeVisible()
 
-    // Verify cards have real titles (not "Unknown Article" when article not found)
     await expect(cardHeadings.first()).not.toHaveText('Unknown Article')
   })
 
@@ -1477,15 +1320,13 @@ test.describe('LandingCarousel component', () => {
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
 
-    // Should show 3 cards on desktop
     const cards = carousel.locator('a')
     await expect(cards).toHaveCount(3)
 
-    // Check for navigation buttons if there are more than 3 articles
     const nextButton = carousel.getByRole('button', { name: 'Next articles' })
     if (await nextButton.isVisible()) {
       const prevButton = carousel.getByRole('button', { name: 'Previous articles' })
-      await expect(prevButton).toBeDisabled() // Should be disabled on first page
+      await expect(prevButton).toBeDisabled()
       await expect(nextButton).toBeEnabled()
     }
   })
@@ -1497,7 +1338,6 @@ test.describe('LandingCarousel component', () => {
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
 
-    // Should show 1 card on mobile
     const cards = carousel.locator('a')
     await expect(cards).toHaveCount(1)
   })
@@ -1507,36 +1347,32 @@ test.describe('Multi-carousel support', () => {
   test('displays multiple carousels from carousels frontmatter', async ({ page }) => {
     await page.goto('/get-started/multi-carousel')
 
-    // Should have multiple carousels rendered
     const carousels = page.locator('[data-testid="landing-carousel"]')
     const carouselCount = await carousels.count()
 
-    // We defined exactly 2 carousels in the frontmatter
+    // Frontmatter defines exactly two carousels.
     expect(carouselCount).toBe(2)
   })
 
   test('carousel with matching ui.yml key displays translated title', async ({ page }) => {
     await page.goto('/get-started/multi-carousel')
 
-    // The "recommended" carousel should show "Recommended" title from ui.yml
+    // The recommended carousel title comes from ui.yml.
     const carouselHeadings = page.locator('[data-testid="landing-carousel"] h2')
 
     const headingTexts = await carouselHeadings.allTextContents()
 
-    // Check that at least one heading has "Recommended"
     expect(headingTexts.some((text) => text.includes('Recommended'))).toBe(true)
   })
 
   test('carousel without matching ui.yml key renders without title', async ({ page }) => {
     await page.goto('/get-started/multi-carousel')
 
-    // The "titleTwoNoMatchingUiYml" carousel should not have a visible heading
-    // or the heading element should be empty/not exist for that carousel
+    // A carousel without a matching ui.yml key has no heading element.
     const carouselHeadings = page.locator('[data-testid="landing-carousel"] h2')
     const headingTexts = await carouselHeadings.allTextContents()
 
-    // The raw key "titleTwoNoMatchingUiYml" should NOT appear as a heading
-    // (the component should not show the key as fallback)
+    // titleTwoNoMatchingUiYml must not render as a fallback heading.
     expect(headingTexts.some((text) => text === 'titleTwoNoMatchingUiYml')).toBe(false)
   })
 
@@ -1546,10 +1382,8 @@ test.describe('Multi-carousel support', () => {
     const carousels = page.locator('[data-testid="landing-carousel"]')
     const count = await carousels.count()
 
-    // We have 2 carousels: "recommended" and "titleTwoNoMatchingUiYml"
     expect(count).toBe(2)
 
-    // Count carousels that have h2 elements
     let carouselsWithHeadings = 0
     for (let i = 0; i < count; i++) {
       const carousel = carousels.nth(i)
@@ -1559,11 +1393,9 @@ test.describe('Multi-carousel support', () => {
       }
     }
 
-    // Only 1 carousel should have a heading (recommended has ui.yml entry)
-    // titleTwoNoMatchingUiYml should NOT have an h2 element at all
+    // Only recommended has a ui.yml entry, so titleTwoNoMatchingUiYml must not render an h2.
     expect(carouselsWithHeadings).toBe(1)
 
-    // Verify the specific titles that should be visible
     const visibleHeadings = await carousels.locator('h2').allTextContents()
     expect(visibleHeadings).toContain('Recommended')
     expect(visibleHeadings).not.toContain('titleTwoNoMatchingUiYml')
@@ -1575,7 +1407,6 @@ test.describe('Multi-carousel support', () => {
     const carousels = page.locator('[data-testid="landing-carousel"]')
     const count = await carousels.count()
 
-    // Each carousel should have at least one article
     for (let i = 0; i < count; i++) {
       const carousel = carousels.nth(i)
       const articles = carousel.locator('[data-testid="carousel-items"] a')
@@ -1592,14 +1423,12 @@ test.describe('Journey Tracks', () => {
     const journeyTracks = page.locator('[data-testid="journey-tracks"]')
     await expect(journeyTracks).toBeVisible()
 
-    // Check that at least one track is displayed
     const tracks = page.locator('[data-testid="journey-track"]')
     await expect(tracks.first()).toBeVisible()
 
-    // Verify track has proper structure
     const firstTrack = tracks.first()
-    await expect(firstTrack.locator('h2')).toBeVisible() // Track title
-    await expect(firstTrack.locator('p')).toBeVisible() // Track description
+    await expect(firstTrack.locator('h2')).toBeVisible()
+    await expect(firstTrack.locator('p')).toBeVisible()
   })
 
   test('track expansion and collapse functionality', async ({ page }) => {
@@ -1608,7 +1437,6 @@ test.describe('Journey Tracks', () => {
     const firstTrack = page.locator('[data-testid="journey-track"]').first()
     const expandButton = firstTrack.locator('summary')
 
-    // Initially collapsed
     const articlesList = firstTrack.locator('[data-testid="journey-articles"]')
     await expect(articlesList).not.toBeVisible()
 
@@ -1630,7 +1458,6 @@ test.describe('Journey Tracks', () => {
 
     await expandButton.click()
 
-    // Click on first article
     const firstArticle = firstTrack.locator('[data-testid="journey-articles"] li a').first()
     await expect(firstArticle).toBeVisible()
 
@@ -1646,7 +1473,7 @@ test.describe('Journey Tracks', () => {
     const expandButton = firstTrack.locator('summary')
     await expandButton.click()
 
-    // article links should preserve the language and version
+    // Article links preserve language and version.
     const firstArticle = firstTrack.locator('[data-testid="journey-articles"] li a').first()
     const href = await firstArticle.getAttribute('href')
 
@@ -1659,7 +1486,6 @@ test.describe('Journey Tracks', () => {
 
     const tracks = page.locator('[data-testid="journey-track"]')
 
-    // Check that liquid templates are rendered (no raw template syntax visible)
     const trackContent = await tracks.first().textContent()
     expect(trackContent).not.toContain('{{')
     expect(trackContent).not.toContain('}}')
@@ -1670,21 +1496,18 @@ test.describe('Journey Tracks', () => {
   test('renders the single-track journey landing path', async ({ page }) => {
     await page.goto('/get-started/test-journey-single')
 
-    // single-track pages use the simplified heading + guide list, not the numbered cards
+    // Single-track pages render the simplified heading and guide list instead of numbered cards.
     const singleTrack = page.locator('[data-testid="journey-single-track"]')
     await expect(singleTrack).toBeVisible()
     await expect(page.locator('[data-testid="journey-tracks"]')).toHaveCount(0)
 
-    // heading is present
     await expect(singleTrack.locator('h2')).toBeVisible()
 
-    // guide list renders its article links
     const guides = singleTrack.locator('[data-testid="journey-articles"] li a')
     await expect(guides.first()).toBeVisible()
     expect(await guides.count()).toBeGreaterThan(0)
 
-    // without a surrounding card, the list must sit flush with the heading
-    // rather than picking up the card's inset
+    // Without a card, the guide list sits flush with the heading instead of inheriting inset.
     const listPaddingLeft = await singleTrack
       .locator('[data-testid="journey-articles"]')
       .evaluate((el) => getComputedStyle(el).paddingLeft)
@@ -1692,21 +1515,14 @@ test.describe('Journey Tracks', () => {
   })
 
   test('journey navigation components show on article pages', async ({ page }) => {
-    // go to an article that's part of a journey track
     await page.goto('/get-started/start-your-journey/hello-world')
 
-    // The journey footer "Up next" nav should be visible. (The Docs 2026 redesign
-    // removed the sidebar journey card; next-step info now lives in the bottom
-    // pager + the in-panel "Up next" section.)
+    // Journey next-step info shows in the bottom pager and the right-rail Up next section.
     const journeyNav = page.locator('[data-testid="journey-track-nav"]')
     await expect(journeyNav).toBeVisible()
   })
 
-  // Restores the coverage the Docs 2026 migration dropped along with the sidebar
-  // journey card: `alternativeNextStep` and its AUTOTITLE resolution now render
-  // in the right-rail "Up next" section instead. That section rides the drawer's
-  // reveal breakpoint, so it needs a viewport inside the drawer range and a
-  // fixture long enough to keep the bottom pager outside the viewport.
+  // A drawer-range viewport shows alternativeNextStep and AUTOTITLE in Up next; the long fixture hides the pager.
   test('up next displays branching text when present', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 })
     await page.goto('/get-started/foo/journey-test-article')
@@ -1716,7 +1532,7 @@ test.describe('Journey Tracks', () => {
     const upNext = page.getByTestId('up-next')
     await expect(upNext).toBeVisible()
 
-    // Branching text should be rendered with its markdown link resolved
+    // Branching text renders after resolving its markdown link.
     await expect(upNext).toContainText('Want to skip ahead?')
     await expect(upNext).not.toContainText('AUTOTITLE')
 
@@ -1758,7 +1574,6 @@ test.describe('Journey Tracks', () => {
     const journeyNav = page.locator('[data-testid="journey-track-nav"]')
     await expect(journeyNav).toBeVisible()
 
-    // Link should display the next track's title and go to its first article
     const nextTrackLink = journeyNav.locator('a').filter({ hasText: 'Advanced topics' })
     await expect(nextTrackLink).toBeVisible()
 
@@ -1768,9 +1583,7 @@ test.describe('Journey Tracks', () => {
 })
 
 test.describe('Docs 2026 in-article navigation', () => {
-  // Below the drawer's reveal breakpoint the right-rail "In this article" panel
-  // is hidden and the collapsed control in the secondary bar is the ONLY
-  // mini-TOC — the common case for most readers — so it needs its own coverage.
+  // Below the drawer breakpoint, the secondary-bar mini-TOC is the only in-page control.
   test('the collapsed "In this article" menu navigates below the drawer breakpoint', async ({
     page,
   }) => {
@@ -1780,7 +1593,6 @@ test.describe('Docs 2026 in-article navigation', () => {
 
     const subBar = page.getByTestId('overview-subbar')
     await expect(subBar).toBeVisible()
-    // The full drawer must not also be showing at this width.
     await expect(page.getByTestId('minitoc')).toBeHidden()
 
     await subBar.getByRole('button').click()
@@ -1794,11 +1606,7 @@ test.describe('Docs 2026 in-article navigation', () => {
     expect(page.url()).toContain(href)
   })
 
-  // Regression guard. Platform/tool-gated headings stay in the DOM with the
-  // `hidden` attribute, so they measure as an all-zero rect. Before
-  // useActiveSection filtered by the selection, such a heading always satisfied
-  // the "scrolled past" threshold, so the collapsed control could end up
-  // labelled with a section belonging to a platform the reader had not chosen.
+  // useActiveSection filters hidden platform/tool headings because they have zero rects.
   test('the collapsed menu is never labelled with a hidden platform section', async ({ page }) => {
     await page.setViewportSize({ width: 1100, height: 900 })
     await page.goto('/get-started/liquid/platform-specific?platform=windows')
@@ -1808,7 +1616,6 @@ test.describe('Docs 2026 in-article navigation', () => {
     await expect(trigger).toBeVisible()
     await expect(trigger).not.toContainText('Macintosh')
 
-    // Scroll past the first heading so an active section is actually resolved.
     await page.mouse.wheel(0, 2000)
     await expect(trigger).not.toContainText('Macintosh')
   })
@@ -1818,8 +1625,6 @@ test.describe('LandingArticleGridWithFilter component', () => {
   test('displays article grid with filter controls', async ({ page }) => {
     await page.goto('/get-started/article-grid-discovery')
 
-    // Check that the main components are visible, title, categories drop
-    // down, search input.
     const articleGrid = page.getByTestId('article-grid')
     await expect(articleGrid).toBeVisible()
 
@@ -1842,14 +1647,11 @@ test.describe('LandingArticleGridWithFilter component', () => {
     const articleGrid = page.getByTestId('article-grid')
     await expect(articleGrid).toBeVisible()
 
-    // Check that article cards are present and they have expected structure
-    // by checking the first card.
     const articleCards = articleGrid.getByTestId('article-card')
     await expect(articleCards.first()).toBeVisible()
 
     const firstCard = articleCards.first()
-    // Brand Card renders the title as an <h3> (Card.Heading) wrapping a
-    // stretched <a>, and the intro as a Card.Description <p>.
+    // Brand Card renders titles as h3 Card.Heading links and intros as Card.Description paragraphs.
     const titleLink = firstCard.locator('h3 a')
     await expect(titleLink).toBeVisible()
 
@@ -1858,8 +1660,6 @@ test.describe('LandingArticleGridWithFilter component', () => {
     const introText = await intro.textContent()
     expect(introText).toBeTruthy()
 
-    // Card should have categories, title, and intro, just check the card has
-    // some text
     const cardText = await firstCard.textContent()
     expect(cardText).toBeTruthy()
     expect(cardText!.length).toBeGreaterThan(0)
@@ -1868,27 +1668,23 @@ test.describe('LandingArticleGridWithFilter component', () => {
   test('category filtering works correctly', async ({ page }) => {
     await page.goto('/get-started/article-grid-discovery')
 
-    // Check that category dropdown button exists and is clickable
     const categoryDropdown = page.getByRole('button').filter({ hasText: 'All categories' })
     await expect(categoryDropdown).toBeVisible()
 
-    // Initially should show all articles (4 total in our fixtures)
+    // The fixture starts with four articles.
     const articleGrid = page.getByTestId('article-grid')
     await expect(articleGrid).toBeVisible()
     const allArticleCards = articleGrid.getByTestId('article-card')
     await expect(allArticleCards).toHaveCount(4)
 
-    // Click the dropdown and the 'Testing' category
     await categoryDropdown.click()
     const testingOption = page.getByText('Testing', { exact: true }).last()
     await expect(testingOption).toBeVisible()
     await testingOption.click()
 
-    // After filtering by Testing category, should show only 1 article based
-    // on our fixtures.
+    // Filtering by Testing leaves one fixture article.
     await expect(allArticleCards).toHaveCount(1)
 
-    // Verify the filtered article contains "Testing" somewhere in its markup
     const remainingCard = allArticleCards.first()
     await expect(remainingCard).toContainText('Testing')
   })
@@ -1899,18 +1695,17 @@ test.describe('LandingArticleGridWithFilter component', () => {
     const searchInput = page.getByPlaceholder('Search articles')
     await expect(searchInput).toBeVisible()
 
-    // Initially should show all articles (4 total in our fixtures)
+    // The fixture starts with four articles.
     const articleGrid = page.getByTestId('article-grid')
     await expect(articleGrid).toBeVisible()
 
     const articleCards = articleGrid.getByTestId('article-card')
     await expect(articleCards).toHaveCount(4)
 
-    // Search for "Grid" - based on our fixtures, multiple articles should have "Grid" in their names
+    // Multiple fixture article names contain Grid.
     await searchInput.fill('Grid')
     await expect(articleCards.first()).toBeVisible()
 
-    // Verify that the remaining articles contain "Grid" in their content
     const remainingCount = await articleCards.count()
     expect(remainingCount).toBeGreaterThan(0)
     for (let i = 0; i < remainingCount; i++) {
@@ -1925,44 +1720,33 @@ test.describe('LandingArticleGridWithFilter component', () => {
     const searchInput = page.getByPlaceholder('Search articles')
     await expect(searchInput).toBeVisible()
 
-    // Search for a term that definitely won't match any articles, should show
-    // no article cards
     await searchInput.fill('noSuchArticles')
     const articleGrid = page.getByTestId('article-grid')
     await expect(articleGrid).toBeVisible()
     const articleCards = articleGrid.getByTestId('article-card')
     await expect(articleCards).toHaveCount(0)
 
-    // Should show "no articles found" message as well
     const noResultsMessage = page.getByTestId('no-articles-message')
     await expect(noResultsMessage).toBeVisible()
     await expect(noResultsMessage).toHaveText('No articles found matching your criteria.')
   })
 
   test('responsive behavior on different screen sizes', async ({ page }) => {
-    // Super basic test, just make sure the article grid is visible on
-    // different viewports sizes
-
-    // Test desktop view (3 columns)
     await page.setViewportSize({ width: 1200, height: 800 })
     await page.goto('/get-started/article-grid-discovery')
     const articleGrid = page.getByTestId('article-grid')
     await expect(articleGrid).toBeVisible()
 
-    // Test tablet view (2 columns)
     await page.setViewportSize({ width: 768, height: 1024 })
-    await page.waitForTimeout(100) // Brief wait for responsive changes
+    await page.waitForTimeout(100)
     await expect(articleGrid).toBeVisible()
 
-    // Test mobile view (1 column)
     await page.setViewportSize({ width: 375, height: 667 })
-    await page.waitForTimeout(100) // Brief wait for responsive changes
+    await page.waitForTimeout(100)
     await expect(articleGrid).toBeVisible()
   })
 
   test('works with bespoke landing page', async ({ page }) => {
-    // Other grid tests use the discovery landing page, bespoke pages are
-    // similar so just do a quick check.
     await page.goto('/get-started/article-grid-bespoke')
 
     const articleGrid = page.getByTestId('article-grid')
@@ -1970,10 +1754,7 @@ test.describe('LandingArticleGridWithFilter component', () => {
   })
 
   test('card is keyboard-navigable via Enter (client-side)', async ({ page }) => {
-    // The brand Card renders a native stretched anchor; a synthetic click from
-    // pressing Enter on that anchor must bubble to the card's onClick handler so
-    // keyboard users get the same client-side SPA navigation as mouse users.
-    // Guards against a regression if the click-intercept logic is refactored.
+    // Brand Card's stretched anchor must bubble keyboard clicks for client-side navigation.
     await page.goto('/get-started/article-grid-discovery')
 
     const articleGrid = page.getByTestId('article-grid')
@@ -1983,8 +1764,7 @@ test.describe('LandingArticleGridWithFilter component', () => {
     const href = await firstCardLink.getAttribute('href')
     expect(href).toBeTruthy()
 
-    // Mark the current document so we can prove navigation was client-side
-    // (no full page reload): a hard navigation would wipe this window property.
+    // A hard navigation would clear this window marker; client-side navigation preserves it.
     await page.evaluate(() => {
       ;(window as unknown as { __spaMarker?: boolean }).__spaMarker = true
     })
@@ -2000,20 +1780,16 @@ test.describe('LandingArticleGridWithFilter component', () => {
   })
 
   test('bespoke landing page does not show duplicate articles', async ({ page }) => {
-    // The bespoke fixture lists individual articles AND their parent group
-    // as children, which would cause duplicates without deduplication.
+    // Bespoke fixtures list articles and their parent group, so deduplication prevents duplicates.
     await page.goto('/get-started/article-grid-bespoke')
 
     const articleGrid = page.getByTestId('article-grid')
     await expect(articleGrid).toBeVisible()
 
     const articleCards = articleGrid.getByTestId('article-card')
-    // There are 4 unique articles across grid-category-one (2) and grid-category-two (2).
-    // Even though grid-article-one and grid-article-two are listed both individually
-    // and as children of grid-category-one, they should appear only once each.
+    // Four unique articles remain after deduplicating grid-article-one and grid-article-two.
     await expect(articleCards).toHaveCount(4)
 
-    // Verify no duplicate titles by collecting all card titles
     const titles: string[] = []
     const count = await articleCards.count()
     for (let i = 0; i < count; i++) {
@@ -2027,19 +1803,16 @@ test.describe('LandingArticleGridWithFilter component', () => {
 
 test.describe('Non-child page resolution', () => {
   test('category page with local children renders properly', async ({ page }) => {
-    // The local-category has local children (local-article-one, local-article-two)
-    // and an external article reference via children frontmatter
+    // local-category mixes local-article-one, local-article-two, and an external frontmatter child.
     await page.goto('/get-started/non-child-resolution/local-category')
 
-    // Should have a title
     await expect(page).toHaveTitle(/Local category test/)
 
-    // The page should load without errors and have main content
     await expect(page.locator('main')).toBeVisible()
   })
 
   test('cross-product children page loads correctly', async ({ page }) => {
-    // The articles-only fixture now uses /content/ prefix in children for cross-product paths
+    // The articles-only fixture prefixes cross-product children with /content/.
     await page.goto('/get-started/non-child-resolution/articles-only')
 
     await expect(page).toHaveTitle(/Cross-product children test/)
@@ -2047,7 +1820,7 @@ test.describe('Non-child page resolution', () => {
   })
 
   test('children-only page with /content/ path loads correctly', async ({ page }) => {
-    // The children-only fixture uses /content/ prefix for cross-product paths
+    // The children-only fixture prefixes cross-product children with /content/.
     await page.goto('/get-started/non-child-resolution/children-only')
 
     await expect(page).toHaveTitle(/Children only test/)
@@ -2062,20 +1835,19 @@ test.describe('Non-child page resolution', () => {
   })
 
   test('versioned cross-product children - fpt shows only fpt article', async ({ page }) => {
-    // In fpt version, only the only-fpt article should be available
+    // In fpt, only only-fpt is available.
     await page.goto('/get-started/non-child-resolution/versioned-cross-product')
 
     await expect(page).toHaveTitle(/Versioned cross-product test/)
     await expect(page.locator('main')).toBeVisible()
 
-    // Check TOC has the fpt-only article
     const tocLinks = page.locator('[data-testid="table-of-contents"] a')
     await expect(tocLinks).toHaveCount(1)
     await expect(tocLinks.first()).toHaveAttribute('href', /only-fpt/)
   })
 
   test('versioned cross-product children - ghec shows ghec articles', async ({ page }) => {
-    // In ghec version, only-ghec and only-ghec-and-ghes should be available
+    // In ghec, only-ghec and only-ghec-and-ghes are available.
     await page.goto(
       '/enterprise-cloud@latest/get-started/non-child-resolution/versioned-cross-product',
     )
@@ -2083,58 +1855,46 @@ test.describe('Non-child page resolution', () => {
     await expect(page).toHaveTitle(/Versioned cross-product test/)
     await expect(page.locator('main')).toBeVisible()
 
-    // Check TOC has ghec articles (only-ghec and only-ghec-and-ghes)
     const tocLinks = page.locator('[data-testid="table-of-contents"] a')
     await expect(tocLinks).toHaveCount(2)
   })
 
   test('cross-product children excluded from sidebar in Japanese translation', async ({ page }) => {
-    // The Japanese translation should work with cross-product children
+    // Japanese translations work with cross-product children.
     await page.goto('/ja/get-started/non-child-resolution')
 
-    // Verify page loads correctly with Japanese site context
-    // Note: The title may not be fully translated in test fixtures, but the page should render
+    // Fixture titles can be partly untranslated, but Japanese site context must render.
     await expect(page).toHaveTitle(/GitHub Docs/)
     await expect(page.locator('main')).toBeVisible()
-
-    // Verify page loads correctly - the cross-product children don't prevent the page from working
-    // The detailed sidebar filtering is tested by the survey test which verifies no duplicate entries
   })
 })
 
 test.describe('copy as markdown button', () => {
-  // The article-body fetch backing this button is served for this fixture page
-  // (see src/fixtures/tests/api-article-body.ts), so the copy path succeeds.
+  // api-article-body.ts serves this fixture's article-body fetch, so the copy path succeeds.
   const articlePath = '/en/get-started/start-your-journey/api-article-body-test-page'
 
   test('shows a checkmark after a successful copy', async ({ page, context }) => {
-    // The click handler writes the article markdown to the clipboard.
     await context.grantPermissions(['clipboard-read', 'clipboard-write'])
 
     await page.goto(articlePath)
     await turnOffExperimentsInPage(page)
 
-    // `exact` matters: accessible-name matching is substring-based, so a bare
-    // 'Copy markdown' also matches the code-block copy buttons that articles
-    // with a ```markdown fence render ('Copy Markdown code to clipboard').
+    // Accessible-name matching treats names as substrings, so exact avoids code-block copy buttons.
     const copyButton = page.getByRole('button', { name: 'Copy markdown', exact: true })
     await expect(copyButton).toHaveCount(1)
     await expect(copyButton).toBeVisible()
 
-    // At rest the button is text-only — no icon at all. The checkmark below is
-    // purely the success state.
+    // At rest the button is text-only; the checkmark is only the success state.
     await expect(copyButton.locator('svg')).toHaveCount(0)
 
     await copyButton.click()
 
-    // After a successful copy, a checkmark appears...
     await expect(copyButton.locator('.octicon-check')).toBeVisible()
 
-    // ...and the article markdown lands on the clipboard.
     const clipboardText = await page.evaluate(() => navigator.clipboard.readText())
     expect(clipboardText).toContain('About GitHub')
 
-    // The checkmark is temporary and clears again (2s timeout).
+    // The success checkmark clears after the 2s timeout.
     await expect(copyButton.locator('.octicon-check')).toHaveCount(0, { timeout: 5000 })
   })
 })

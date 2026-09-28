@@ -1,7 +1,7 @@
 @import "breakpoint-xxl.scss";
 
 #__primerPortalRoot__ [class*="prc-Dialog-Backdrop"] {
-  /* Make sure the dialog backdrop is hidden on large screens */
+  /* The XXL breakpoint below hides the dialog backdrop on large screens. */
   display: flex;
   visibility: visible;
 
@@ -11,7 +11,7 @@
   }
 }
 
-// Fix z-index for ActionMenu overlays (version picker, etc.) to appear above site header
+// Keep ActionMenu overlays, including the version picker, above the site header.
 #__primerPortalRoot__ * {
   z-index: 3 !important;
 }

@@ -1,5 +1,3 @@
-// This schema enforces the structure in models-and-pricing.yml
-
 const modelsAndPricingSchema = {
   type: 'object',
   additionalProperties: false,

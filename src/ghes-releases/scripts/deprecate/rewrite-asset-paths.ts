@@ -24,6 +24,7 @@ export class RewriteAssetPathsPlugin {
     this.replaceUrl = replaceUrl
   }
 
+  // HTML and CSS asset paths must point at the archive site unless local-dev leaves them relative.
   apply(
     registerAction: (event: string, callback: (args: ResourceSavedArgs) => Promise<void>) => void,
   ) {
@@ -35,12 +36,8 @@ export class RewriteAssetPathsPlugin {
       const text = resource.getText()
       let newBody = text
 
-      // Rewrite HTML asset paths. Example:
-      // ../assets/images/foo/bar.png ->
-      // https://github.github.com/docs-ghes-3.10/assets/images/foo/bar.png
-
       if (resource.isHtml()) {
-        // Remove nextjs scripts and manifest.json link
+        // Next.js runtime files break static archives.
         newBody = newBody.replace(
           /<script\ssrc="(\.\.\/)*_next\/static\/[\w]+\/(_buildManifest|_ssgManifest).js?".*?><\/script>/g,
           '',
@@ -58,11 +55,6 @@ export class RewriteAssetPathsPlugin {
         }
       }
 
-      // Rewrite CSS asset paths. Example
-      // url("../assets/fonts/alliance/alliance-no-1-regular.woff") ->
-      // url("https://github.github.com/docs-ghes-3.10/assets/fonts/alliance/alliance-no-1-regular.woff")
-      // url(../../../assets/cb-303/images/octicons/search-24.svg) ->
-      // url(https://github.github.com/docs-ghes-3.10/assets/cb-303/images/octicons/search-24.svg)
       if (resource.isCss()) {
         if (!this.localDev) {
           newBody = newBody.replace(

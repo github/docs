@@ -1,12 +1,5 @@
-/**
- * @purpose Writer tool
- * @description Create or remove a release candidate banner for a GHES version
- */
-// [start-readme]
-//
-// This script creates or removes a release candidate banner for a specified version.
-//
-// [end-readme]
+// @purpose Writer tool
+// @description Create or remove a release candidate banner for a GHES version
 
 import fs from 'fs/promises'
 import { program } from 'commander'

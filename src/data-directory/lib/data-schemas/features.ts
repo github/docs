@@ -15,7 +15,6 @@ interface FeatureVersionsSchema {
   additionalProperties: false
 }
 
-// Copy the properties from the frontmatter schema.
 const featureVersions: FeatureVersionsSchema = {
   type: 'object',
   properties: {
@@ -24,8 +23,7 @@ const featureVersions: FeatureVersionsSchema = {
   additionalProperties: false,
 }
 
-// Remove the feature versions properties.
-// We don't want to allow features within features! We just want pure versioning.
+// Each data/features file allows version gates but not nested feature gates.
 delete (featureVersions.properties.versions.properties as Record<string, unknown> | undefined)
   ?.feature
 

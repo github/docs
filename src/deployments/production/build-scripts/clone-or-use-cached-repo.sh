@@ -1,11 +1,7 @@
 set -e
 
-# Reuses the repo cached by a previous Dockerfile build, or clones it fresh
-# and checks out the given branch/SHA.
-# Arguments:
-#   $1 - Repository name (for directory naming)
-#   $2 - Repository URL
-#   $3 - Branch to clone
+# Reuses a cached repo or clones it, then checks out the requested branch.
+# Arguments: $1 cache directory, $2 GitHub repo name under github, $3 branch.
 clone_or_use_cached_repo() {
   repo_name="$1"
   repo_url="$2"

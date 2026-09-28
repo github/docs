@@ -7,12 +7,8 @@ import {
   useSelection,
 } from '@/tools/components/SelectionContext'
 
-// Wraps a platform/tool-scoped element from the article body hast and toggles
-// its visibility from SelectionContext instead of the old imperative
-// `style.display` mutation (#6619). Renders the same element/props/children, but
-// sets `hidden` when the current platform/tool selection doesn't match. We keep
-// the node in the DOM (hidden) rather than returning null so anchors, IDs, and
-// screen-reader traversal behave like the previous `display:none` approach.
+// ToggleableContent keeps hidden article nodes in the DOM so anchors, IDs, and
+// screen-reader traversal match the previous display:none behavior.
 type ToggleableContentProps = {
   tag: 'div' | 'span'
   className?: string

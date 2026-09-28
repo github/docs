@@ -1,8 +1,5 @@
-/*
-The log level is controlled by the `LOG_LEVEL` environment variable, where lower
-log levels = more verbose. If log level is 'info', only 'info', 'warn', and
-'error' logs are output.
-*/
+// LOG_LEVEL controls verbosity. Lower numbers are higher priority.
+// For LOG_LEVEL=info, info, warn, and error logs are emitted.
 export const LOG_LEVELS = {
   error: 0,
   warn: 1,
@@ -17,10 +14,8 @@ function isValidLogLevel(level: string): level is LogLevel {
   return level in LOG_LEVELS
 }
 
-// Defaults when LOG_LEVEL isn't set:
-//   - 'info' in development
-//   - 'debug' in production
-//   - 'debug' in test, because `vitest` turns off logs unless --silent=false is passed
+// Default LOG_LEVEL is info in development and debug in production.
+// Tests default to debug because vitest suppresses logs unless --silent=false is passed.
 export function getLogLevelNumber(): LogLevelValue {
   let defaultLogLevel: LogLevel = 'info'
   if (

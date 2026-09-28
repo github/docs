@@ -1,5 +1,3 @@
-// This schema enforces the structure in model-deprecation-history.yml
-
 const modelDeprecationHistorySchema = {
   type: 'object',
   additionalProperties: false,

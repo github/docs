@@ -1811,6 +1811,8 @@ export function correctTranslatedContentStrings(
   content = content.replaceAll('<b></b>', '')
   content = content.replaceAll('<u></u>', '')
 
+  content = content.replace(/<\/?c\d+\s*\/?>/g, '')
+
   content = content.replace(/(\{%-? )ifversion-([a-z][\w-]*\s*%\})/g, '$1ifversion $2')
 
   content = content.replaceAll('["AUTOTITLE]', '"[AUTOTITLE]')

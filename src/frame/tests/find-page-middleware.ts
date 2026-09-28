@@ -127,8 +127,7 @@ describe('find page middleware', () => {
   })
 
   test("will 404 if the request version doesn't match the page", async () => {
-    // The 'versions:' frontmatter on 'page-with-redirects.md' does
-    // not include ghes. So this'll eventually 404.
+    // page-with-redirects.md excludes GHES, so enterprise-server@latest eventually 404s.
     const [req, res] = makeRequestResponse('/en/page-with-redirects', 'enterprise-server@latest')
     const page = await Page.init({
       relativePath: 'page-with-redirects.md',

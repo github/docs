@@ -1,13 +1,9 @@
 import fs from 'fs'
 import { execSync } from 'child_process'
 
-// Removing deprecated Liquid conditionals leaves behind extra blank lines.
-// The content team flags these every deprecation, and the MD012 linter rule
-// is off so nothing catches them automatically. This collapses any run of
-// two or more consecutive blank lines down to one, but only in the markdown
-// files the deprecation actually changed. Single blank lines are left alone:
-// removed Liquid can introduce one in a place where it doesn't belong, so a
-// human still reviews each removal site one at a time.
+// Deprecated Liquid conditionals leave extra blank lines that content reviewers flag.
+// MD012 does not catch them in this repo. Collapse runs of two or more blank lines only in
+// markdown files changed by deprecation. Single blank lines still need human review.
 
 function getChangedMarkdownFiles(): string[] {
   const commands = [
@@ -21,7 +17,7 @@ function getChangedMarkdownFiles(): string[] {
     try {
       output = execSync(command, { encoding: 'utf8' })
     } catch {
-      // origin/main may not be fetched locally; skip that source.
+      // Skip origin/main when it is not fetched locally.
       continue
     }
     for (const line of output.split('\n')) {
@@ -35,7 +31,6 @@ function getChangedMarkdownFiles(): string[] {
   return [...files].sort()
 }
 
-// Collapses any run of 2+ blank lines into a single blank line.
 function collapse(contents: string): string {
   const lines = contents.split('\n')
   const result: string[] = []

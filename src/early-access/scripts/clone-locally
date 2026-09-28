@@ -5,7 +5,6 @@
 
 set -e
 
-# Go up a directory
 pushd .. > /dev/null
 
 if [ -d "docs-early-access" ]; then
@@ -14,13 +13,10 @@ if [ -d "docs-early-access" ]; then
   exit 0
 fi
 
-# Clone the repo
 git clone https://github.com/github/docs-early-access.git
 
-# Go back to the previous working directory
 popd > /dev/null
 
-# Symlink the local docs-early-access repo into this repo
 npm run symlink-from-local-repo -- -p ../docs-early-access
 
 echo -e '\nDone!'

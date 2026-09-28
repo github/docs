@@ -68,7 +68,6 @@ export async function convertContentToDocs(
 
   visit(ast, 'heading', (rawNode) => {
     const node = rawNode as unknown as MdNode
-    // A level 1 heading is the article title.
     if (node.depth === 1) {
       frontmatter.title = node.children[0].value
     }
@@ -78,15 +77,12 @@ export async function convertContentToDocs(
       node.children[0].value = node.children[0].value.split('{#')[0].trim()
     }
 
-    // Works around secondary options sitting at the wrong heading level
-    // in the source rst files.
-    // Everything after the "Synopsis", "Description", and "Options"
-    // headings moves up one level, so h4 becomes h3.
+    // Headings after Primary options sit one level too deep in source rst, so shift them up.
     if (secondaryOptions) {
       node.depth = Math.max(1, Math.min(6, node.depth - 1))
     }
 
-    // This needs to be assigned after node.depth is modified above
+    // Capture depth after secondary options shift changes node.depth.
     depth = node.depth
     if (node.children[0].value === LAST_PRIMARY_HEADING && node.children[0].type === 'text') {
       secondaryOptions = true
@@ -98,8 +94,7 @@ export async function convertContentToDocs(
     const node = rawNode as unknown as MdNode
     if (node.type !== 'heading' && node.type !== 'paragraph') return false
 
-    // The first paragraph after the "Description" heading
-    // becomes the intro frontmatter.
+    // The first paragraph after Description becomes intro frontmatter.
     if (node.children[0]?.value === 'Description' && node.children[0]?.type === 'text') {
       currentNodeIsDescription = true
     }
@@ -125,10 +120,7 @@ export async function convertContentToDocs(
         node.meta = 'copy'
       }
 
-      // The start of a secondary options section, for example
-      // "Output format options."
-      // The rst file gives these no heading level, so nest them one level
-      // under `depth`, the last heading level seen by the walk above.
+      // Secondary labels "Output format options." lack depth; depth+1 nests under last heading.
       if (node.type === 'text' && node.value && node.value.includes(HEADING_BEGIN)) {
         node.value = node.value.replace(HEADING_BEGIN, '')
         // Ancestors run root first, so the last one is the parent.
@@ -136,8 +128,7 @@ export async function convertContentToDocs(
         ancestors[ancestors.length - 1].depth = Math.max(1, Math.min(6, depth + 1))
       }
 
-      // Keywords like [Plumbing] come from the source code comments
-      // and should not render in the docs.
+      // Source code keywords like [Plumbing] do not belong in docs output.
       if (node.type === 'text' && node.value) {
         for (const keyword of removeKeywords) {
           if (node.value.includes(keyword)) {
@@ -146,8 +137,7 @@ export async function convertContentToDocs(
         }
       }
 
-      // Subsections under the level 2 headings are commands
-      // starting with `-` or `<`, so render them as inline code.
+      // Level 2 command headings start with - or <, so render them as inline code.
       if (
         node.type === 'text' &&
         ancestors[ancestors.length - 1].type === 'heading' &&
@@ -161,13 +151,7 @@ export async function convertContentToDocs(
         node.value = node.value.replace(END_SECTION, '')
       }
 
-      // Links to other CodeQL CLI docs, which need to become Markdown links.
-      // Pandoc converts the rst links to this shape:
-      //   `codeql test run<test-run>`{.interpreted-text role="doc"}
-      // giving a link title of `codeql test run` and a relative path of
-      // `test-run`. The rest can be dropped.
-      // The inline code tag is one node and the {.interpreted-text} string
-      // is another.
+      // Pandoc emits "codeql test run<test-run>" as inline code plus role marker; convert to link.
       if (node.type === 'text' && node.value.includes('{.interpreted-text')) {
         const paragraph = ancestors[ancestors.length - 1].children
         const docRoleTagChild = paragraph.findIndex(
@@ -189,7 +173,7 @@ export async function convertContentToDocs(
 
         node.value = node.value.replace(/\n/g, ' ').replace('{.interpreted-text role="doc"}', '')
 
-        // A link to the file being converted would be circular.
+        // Links to the file being converted would be circular.
         const currentFileBaseName = currentFileName.replace('.md', '')
         if (currentFileBaseName && linkPath === currentFileBaseName) {
           link.type = 'text'
@@ -202,15 +186,12 @@ export async function convertContentToDocs(
         }
       }
 
-      // Collect aka.ms links to resolve after the tree walk.
+      // Resolve aka.ms redirects after the tree walk, because visit callbacks cannot await.
       if (node.type === 'link' && node.url.includes('aka.ms')) {
         akaMsLinkMatches.push(node)
       }
 
-      // Example links like https://containers.GHEHOSTNAME should not be
-      // checked by the link checker, so render them as inline code.
-      // The Java program that generates the rst files should do this instead.
-      // See https://github.com/syntax-tree/mdast#inlinecode
+      // Render https://containers.GHEHOSTNAME example links as inline code so the link checker skips them.
       if (node.type === 'link' && node.url.startsWith('https://containers')) {
         // Strip the double quotes from the nodes either side.
         const nodeBefore = ancestors[ancestors.length - 1].children[0]
@@ -237,12 +218,11 @@ export async function convertContentToDocs(
     },
   )
 
-  // Convert all aka.ms links to the docs.github.com relative path
+  // aka.ms redirects supply the docs.github.com relative path.
   await Promise.all(
     akaMsLinkMatches.map(async (node: MdNode) => {
       const url = await getRedirect(node.url)
-      // These are already Markdown links in the ast,
-      // so only the url and the link text need updating.
+      // Existing Markdown links only need AUTOTITLE text and the resolved URL.
       if (node.children[0]) {
         node.children[0].value = 'AUTOTITLE'
       }

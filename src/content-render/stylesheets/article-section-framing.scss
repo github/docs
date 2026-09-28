@@ -1,27 +1,22 @@
-// Docs 2026 article section framing: the article body renders as stacked
-// sections separated by single horizontal rules (Figma node 795:41405).
+// Article body sections stack with single horizontal rules, matching Figma node 795:41405.
 //
-// Scoped to `#article-contents[data-article-body]`. The id alone is NOT enough:
-// AutomatedPage renders the same `#article-contents` wrapper, and it backs the
-// GraphQL reference / changelog / breaking-changes / schema-previews pages,
-// webhook events and payloads, audit-log events and the github-apps lists — all
-// of which would pick up this framing. The attribute is set only by the pages
-// this treatment was drawn for (ArticlePage and TocLanding), so auto-generated
-// reference pages keep their own look.
+// Scope this to #article-contents[data-article-body]. The id alone also wraps
+// AutomatedPage, including GraphQL reference, changelog, breaking-changes,
+// schema-previews, webhook events and payloads, audit-log events, and github-apps
+// lists. ArticlePage and TocLanding set this attribute, so auto-generated reference
+// pages keep their own look.
 #article-contents[data-article-body] {
   .markdown-body {
     position: relative;
 
-    // Vertical padding gives the first/last section breathing room from the
-    // top/bottom rules. There are deliberately NO vertical side rules at any
-    // width — sections are separated by horizontal rules alone, and the flexible
-    // gap columns either side of the content keep the text off the rails.
+    // Vertical padding separates the first and last sections from the top and bottom rules.
+    // No width draws vertical side rules; horizontal rules separate sections, and flexible
+    // gap columns keep text off the rails.
     padding-top: 2rem;
     padding-bottom: 2rem;
 
-    // Closing rule below the last section — the h2 rules only draw the TOP of
-    // each section, so without this the article would end without a divider.
-    // Spans the body column, like those rules.
+    // The h2 rules draw only the top of each section, so this rule closes the article.
+    // It spans the body column like the h2 rules.
     &::after {
       content: "";
       position: absolute;
@@ -33,18 +28,17 @@
       pointer-events: none;
     }
 
-    // The Figma section headings have no underline — the section-box top rule is
-    // the only divider. Drop the @primer/css setext border under h2/h3.
+    // Figma section headings have no underline; the section-box top rule is the only divider.
+    // Drop the @primer/css setext border under h2 and h3.
     h2,
     h3 {
       border-bottom: 0;
     }
 
-    // Each top-level section (h2) is separated by a SINGLE horizontal rule with
-    // clear space either side of it: the 3.5rem heading margin is split by the
-    // rule into ~24px above and 2rem below. The rule spans the width of the
-    // article body and no further — it is not run out to the rails. The first
-    // h2's rule is suppressed — the hero divider already sits above it.
+    // Each top-level h2 has one horizontal rule with clear space on both sides.
+    // The 3.5rem heading margin splits into about 24px above the rule and 2rem below.
+    // The rule spans the article body only. The first h2 suppresses its rule because
+    // the hero divider already sits above it.
     h2 {
       position: relative;
       margin-top: 3.5rem;
@@ -55,8 +49,7 @@
       position: absolute;
       left: 0;
       right: 0;
-      // Sits 2rem above the heading, leaving that gap below the rule and the
-      // remainder of the heading margin above it.
+      // This leaves 2rem between the rule and heading, with the rest of the margin above.
       top: -2rem;
       border-bottom: var(--borderWidth-thin, 1px) solid
         var(--brand-color-border-muted, #e4ebe6);
@@ -72,11 +65,9 @@
     }
   }
 
-  // Journey-track pages render a full-width "Up next" band directly below the
-  // grid (ArticlePage drops the 24px wrapper/band margins on those pages so the
-  // band sits flush). The band carries its own full-width top border, which
-  // already closes the article, so suppress our own closing rule rather than
-  // stacking two lines.
+  // Journey-track pages render a full-width "Up next" band directly below the grid.
+  // ArticlePage removes the 24px wrapper and band margins there, so the band sits flush.
+  // The band's full-width top border already closes the article, so this avoids two lines.
   &[data-has-upnext] .markdown-body::after {
     display: none;
   }

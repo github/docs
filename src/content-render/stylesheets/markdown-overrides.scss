@@ -1,21 +1,7 @@
-// What might happens is that we have a DOM of
-//
-//   <div class="markdown-body">
-//     <div style="display: none">Note</div>
-//     <h2>Heading</h2>
-//     ...
-//
-// When this is the case, by default, that first <div> that is the first
-// gets the `margin-top: 0 !important` and not the first <h2>.
-// Generally, the reason this even exists is because <h2> (and <h3>) elements
-// are given extra margin-top so as to divide the article into sections
-// with some extra whitespace. That's fine, but we don't to start the
-// top of the page with too much whitespace. That's why @primer/css
-// has a solution for that. Just the problem that it fails then first
-// element isn't actually a heading.
-// Note we're also doing it for a possible <h3> being the first element.
+// Primer's markdown-body first-child reset can hit a hidden first child instead
+// of the first h2 or h3. Those headings carry section spacing, but the page top
+// must not start with it, so reset the first h2 or h3 directly.
 // See https://github.com/primer/css/issues/2303
-// See internal issue #2368
 .markdown-body {
   > h2:first-of-type,
   > h3:first-of-type {
@@ -23,9 +9,8 @@
   }
 }
 
-// Horizontal scroll gets flagged as an accessibility violation.
-// Updates all code examples to only allow vertical scroll, and
-// break aggressively.
+// Horizontal scroll gets flagged as an accessibility violation, so code examples wrap
+// aggressively and allow only vertical scrolling.
 .markdown-body {
   pre {
     overflow-x: hidden;
@@ -38,97 +23,71 @@
   }
 }
 
-// Fix for permissions icon collision with bulleted lists
-// When permissions/product statements contain lists that start immediately,
-// the list bullets can visually collide with the icons in the flex layout.
-// This adds proper spacing to prevent the collision while supporting RTL languages
-// and avoiding effects on nested lists.
-// See: https://github.com/github/docs-engineering/issues/5199
+// Lists that start immediately in permissions and product statements can collide with
+// the icon in the flex layout. Inline spacing preserves right-to-left layouts and avoids
+// changing nested lists.
 .permissions-statement,
 .product-statement {
   ul {
     margin-inline-start: 0;
-    padding-inline-start: 1rem; // Ensure proper spacing from icon (RTL-aware)
+    padding-inline-start: 1rem;
   }
 
   ul > li {
-    margin-inline-start: 0.5rem; // Additional spacing to prevent bullet collision (direct children only)
+    margin-inline-start: 0.5rem;
   }
 }
 
-// A CTA button written on its own line in markdown — `<a class="btn btn-primary
-// mt-3 …">` — becomes its own <p>, and that paragraph already carries the 16px
-// rhythm margin. The `mt-3` utility then stacks a second 16px inside it, so the
-// button ends up 32px below the preceding line but only 16px above the next one.
-// Drop the utility when the button is alone in its paragraph and let the
-// paragraph margin do the spacing, which puts the CTA on the same rhythm as
-// every other block. `!important` is required because Primer's spacing
-// utilities are themselves !important.
-//
-// `:only-child` is doing real work here — it is what keeps the two cases apart:
-//   - CTA callouts (`product:`/`permissions:` frontmatter) put the button after
-//     a <br> INSIDE the prose paragraph, so there is no paragraph margin above
-//     it and `mt-3` is the only thing separating it from the text.
-//   - The side-by-side Yes/No `.btn-outline` pairs are two buttons in one
-//     paragraph.
-// Neither is an only child, so both keep their margin.
+// A CTA button written alone in markdown, such as <a class="btn btn-primary mt-3 ...">,
+// becomes its own p. The p already has a 16px rhythm margin, and mt-3 adds another
+// 16px, leaving 32px below the preceding line but 16px above the next one.
+// Drop mt-3 only when the button is alone in its p; Primer spacing utilities use
+// !important too.
+// :only-child keeps CTA callouts and side-by-side Yes/No buttons unchanged. Frontmatter
+// product: and permissions: put the CTA after a br inside the prose p, so mt-3 supplies
+// its only top spacing. Yes/No .btn-outline pairs have two buttons in one p.
 .markdown-body p > a.btn:only-child {
   margin-top: 0 !important;
 }
 
-// @primer/css holds `.btn` at `white-space: nowrap`, which a button cannot
-// honour and still stay inside a narrow column. The longest CTA label — "Set up
-// a trial of GitHub Enterprise Cloud", 322px — is wider than the article column
-// below a ~420px viewport and wider than the callout's text column below ~390px,
-// so the button ran past the content edge and was clipped.
+// @primer/css sets .btn to white-space: nowrap, which makes long CTA labels overflow
+// narrow columns. The longest CTA label, "Set up a trial of GitHub Enterprise Cloud",
+// measures 322px, wider than the article column below about 420px and the callout text
+// column below about 390px, so it gets clipped.
 //
-// Letting the label wrap fixes it with no breakpoint to guess at. An
-// inline-block is shrink-to-fit — min(max-content, available) — so
-// `white-space: normal` changes nothing until max-content exceeds the space
-// available: at every width where the button already fits it still renders on
-// one line, byte-identical. That also makes it self-correcting for longer
-// translated labels and for the narrower column a callout gives the same button.
+// Let labels wrap instead of guessing a breakpoint. inline-block shrink-to-fit,
+// min(max-content, available), means white-space: normal changes nothing until
+// max-content exceeds the available space. Buttons that fit still render on one line,
+// and longer translations or narrower callout columns self-correct.
 .markdown-body a.btn,
 .permissions-statement a.btn,
 .product-statement a.btn {
   white-space: normal;
 
-  // Wrapping alone orphaned the trailing octicon on a line of its own: the
-  // space between the label <span> and the icon is a valid break point, and the
-  // label filled the first line exactly. Laying the button out as a flex row
-  // instead lets the label wrap within itself and keeps the icon beside it,
-  // vertically centred. At widths where nothing wraps the result is within a
-  // pixel of the inline-block it replaces: same 17px left inset, same 21px
-  // right inset, same 32px height, still one line. The `gap` below covers the
-  // one thing that does change.
+  // Wrapping alone can orphan the trailing octicon because the label/icon space can break.
+  // inline-flex lets the label wrap inside itself and keeps the icon beside it, centered.
+  // When nothing wraps, this stays within a pixel of inline-block: 17px left inset,
+  // 21px right inset, 32px height, and one line. The gap below covers the one change.
   display: inline-flex;
   align-items: center;
 
-  // Flex layout eats the one thing that was separating the label from the icon.
-  // The markup is `<span>Label</span> {% octicon "link-external" %}`, and that
-  // literal space does survive Liquid and the markdown pipeline as a real text
-  // node — but a whitespace-only text node between two flex items is not itself
-  // a flex item, so no box is generated for it and the label ends up touching
-  // the icon. `gap` puts the space back.
+  // Flex removes the literal space between the label and icon. In
+  // <span>Label</span> {% octicon "link-external" %}, Liquid and markdown preserve the
+  // space as a text node, but a whitespace-only text node between flex items creates no
+  // box, so the label touches the icon.
   //
-  // 4px rather than the measured width of that space glyph, because a space is
-  // font- and locale-dependent — it measures differently on two machines here —
-  // while 4px is the value Primer itself already uses between a button's icon
-  // and its label. The button ends up a fraction of a pixel wider than it was
-  // rather than most of a space narrower, on a number the design system owns.
+  // Use 4px instead of the measured space width because the space changes by font and
+  // locale. Primer already uses 4px between a button icon and label, so this
+  // design-system value makes the button slightly wider rather than most of a space narrower.
   //
-  // Only the label/icon gap is restored. Primer's `.btn .octicon` also carries
-  // `margin-right: 4px`, which assumes a LEADING icon and so lands outside the
-  // trailing icon on these CTAs, giving them 21px of inset on the right against
-  // 17px on the left. That asymmetry is what ships today, so it stays — zeroing
-  // it would restyle every CTA on the site, which is a different change from
-  // keeping a long label inside its column.
+  // Restore only the label/icon gap. Primer .btn .octicon also has margin-right: 4px
+  // for leading icons, which lands outside these trailing CTA icons and gives 21px right
+  // inset against 17px left. Keep that asymmetry; zeroing it would restyle every CTA.
   gap: 4px;
 
-  // The octicon is a flex item now, and flex items shrink before their container
-  // overflows. Once the label wraps, the icon is the only thing left to give, so
-  // the 16px glyph was rendering at 11px in a 240px callout column. It is a
-  // fixed-size icon; the label is what should absorb a narrow column.
+  // The octicon is a flex item, and flex items shrink before their container overflows.
+  // Once the label wraps, the icon is the only thing left to shrink, so the 16px glyph
+  // rendered at 11px in a 240px callout column. Keep the icon fixed and let the label absorb width.
   .octicon {
     flex-shrink: 0;
   }

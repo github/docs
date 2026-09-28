@@ -1,24 +1,7 @@
-/* When testing API routes via an integration test, e.g.
-
-const res = await post('/api/<some-route>', {
-  body: JSON.stringify(api_body),
-  headers: { 'Content-Type': 'application/json' },
-})
-
-expect(res.status).toBe(200)
-
-The `api/<route>` may call an external URL.
-
-We are unable to use `nock` in this circumstance since we run the server in a separate instance.
-
-Instead, we can use the `startMockServer` helper to start a mock server that will intercept the request and return a canned response.
-
-In order for this to work you MUST use a process.env variable for the URL you are calling, 
-
-e.g. `process.env.CSE_COPILOT_ENDPOINT`
-
-You should override the variable  in the overrideEnvForTesting function in this file.
-*/
+// Integration tests cannot use nock when API routes call external URLs from a separate server.
+// Example: post to /api/<some-route>, and let that route call the mock server.
+// Point the route at this mock server through an env var such as CSE_COPILOT_ENDPOINT.
+// Set that env var in overrideEnvForTesting.
 
 import express from 'express'
 import type { Server } from 'http'

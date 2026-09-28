@@ -1,11 +1,6 @@
 name: Test
 
-# **What it does**: Runs our tests.
-# **Why we have it**: We want our tests to pass before merging code.
-# **Who does it impact**: Docs engineering, open-source engineering contributors.
-#
-# For a catalog of what each suite covers and how risky it is to admin-merge
-# past it when red, see src/tests/SUITES.md.
+# Runs required test suites before merge. src/tests/SUITES.md explains coverage and merge risk.
 
 on:
   workflow_dispatch:
@@ -16,14 +11,13 @@ permissions:
   contents: read
   pull-requests: read
 
-# This allows a subsequently queued workflow run to interrupt previous runs
+# Cancel older test runs for the same ref so newer commits get the runner.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
 env:
-  # Setting this will activate the vitest tests that depend on actually
-  # sending real search queries to Elasticsearch
+  # ELASTICSEARCH_URL enables Vitest suites that send real search queries.
   ELASTICSEARCH_URL: http://localhost:9200/
 
 jobs:
@@ -35,11 +29,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Note that *if you add* to this, remember to also add that
-        # to the **required checks** in the branch protection rules.
+        # Add new matrix suites to branch protection required checks too.
         name:
-          # Every directory in src/ is listed here.
-          # A commented out entry has no test files of its own.
+          # Lists every src directory. Commented-out entries have no suite-specific tests.
           # - ai-tools
           # - app
           - archives
@@ -47,7 +39,7 @@ jobs:
           - assets
           - audit-logs
           - automated-pipelines
-          # - codeql-cli # enable once github/docs-internal#63239 removes the broken scratch test
+          # - codeql-cli # Enable when the broken scratch test is removed.
           # - codeql-queries
           - color-schemes
           - content-linter
@@ -85,7 +77,7 @@ jobs:
           - webhooks
           - workflows
 
-        # The languages suite only runs on docs-internal
+        # The languages suite only runs on docs-internal.
         isPrivateRepo:
           - ${{ github.repository == 'github/docs-internal' }}
         exclude:
@@ -93,8 +85,7 @@ jobs:
             isPrivateRepo: false
 
     steps:
-      # Each of these ifs needs to be repeated at each step to make sure the required check still runs
-      # Even if if doesn't do anything
+      # Repeat each if on its step so skipped work still leaves the required check present.
       - name: Check out repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
@@ -115,14 +106,12 @@ jobs:
         if: ${{ matrix.name == 'fixtures' }}
         run: npm run copy-fixture-data -- --check
 
-      # This keeps our fixture content/data in check
       - name: Check the test fixture content (if applicable)
         if: ${{ matrix.name == 'fixtures' }}
         env:
           ROOT: src/fixtures/fixtures
         run: |
-          # If either of these fail, it means our fixture content's internal
-          # links can and should be updated.
+          # A failure means fixture content has stale internal links the dry run can update.
           npm run update-internal-links -- --dry-run --check --strict \
             src/fixtures/fixtures/content \
             --exclude src/fixtures/fixtures/content/get-started/foo/typo-autotitling.md \
@@ -151,19 +140,17 @@ jobs:
         run: npm run build
 
       - uses: ./.github/actions/warmup-remotejson-cache
-        # Only the 'routing' tests include end-to-end tests about
-        # archived enterprise server URLs.
+        # Only routing tests cover archived enterprise server URLs.
         if: ${{ matrix.name == 'redirects' }}
 
       - uses: ./.github/actions/precompute-pageinfo
-        # Only the 'pageinfo' tests include end-to-end tests about this.
+        # Only pageinfo tests cover precomputed page info.
         if: ${{ matrix.name == 'article-api' }}
         env:
           ROOT: src/fixtures/fixtures
 
       - name: Index fixtures into the local Elasticsearch
-        # For the sake of saving time, only run this step if the group
-        # is one that will run tests against an Elasticsearch on localhost.
+        # Run indexing only for suites that query the local Elasticsearch service.
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
         run: npm run index-test-fixtures
 
@@ -171,14 +158,11 @@ jobs:
         env:
           DIFF_FILE: get_diff_files.txt
           CHANGELOG_CACHE_FILE_PATH: src/fixtures/fixtures/changelog-feed.json
-          # By default, when `process.env.NODE_ENV === 'test'` it forces the
-          # tests run only in English. The exception is the
-          # `languages` suite which needs all languages to be set up.
+          # NODE_ENV=test forces English-only tests; the languages suite needs every language.
           ENABLED_LANGUAGES: ${{ matrix.name == 'languages' && 'all' || '' }}
           ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'article-api' || matrix.name == 'landings' ) && 'src/fixtures/fixtures' || '' }}
           TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'article-api') && 'src/fixtures/fixtures/translations' || '' }}
-          # Enable debug logging when "Re-run jobs with debug logging" is used in GitHub Actions UI
-          # This will output additional timing and path information to help diagnose timeout issues
+          # RUNNER_DEBUG enables timing and path logs when Actions reruns jobs with debug logging.
           RUNNER_DEBUG: ${{ runner.debug }}
           VITEST_FLAGS: ${{ matrix.name == 'article-api' && '--no-file-parallelism --maxWorkers=1' || '' }}
         run: npm test -- $VITEST_FLAGS src/${{ matrix.name }}/tests/

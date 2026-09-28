@@ -1,9 +1,5 @@
-// We entirely removed GHAE but we still have to support legacy links.
-// The unit tests cover `getRedirect()` directly. These are end-to-end tests
-// that span the middleware, which uses `getRedirect()` internally.
-//
-// They matter because ghae is gone from the `allVersions` config object, so
-// these redirects are all that is left of it.
+// GitHub AE legacy links redirect through middleware; github-ae is absent from allVersions.
+// These end-to-end tests cover the middleware path; unit tests cover getRedirect directly.
 
 import { describe, expect, test } from 'vitest'
 
@@ -31,7 +27,7 @@ describe('ghae redirects', () => {
   test('ghae release notes', async () => {
     const res = await head('/en/github-ae@latest/admin/release-notes')
     expect(res.statusCode).toBe(301)
-    // There is not an "equivalent" release notes page for enterprise-cloud
+    // No enterprise-cloud release notes equivalent exists.
     expect(res.headers.location).toMatch('/en')
   })
 })

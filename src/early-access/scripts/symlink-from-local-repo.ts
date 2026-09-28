@@ -1,7 +1,5 @@
-/**
- * @purpose Writer tool
- * @description Create or destroy symlinks to your local docs-early-access checkout
- */
+// @purpose Writer tool
+// @description Create or destroy symlinks to your local docs-early-access checkout
 
 import fs from 'fs'
 import path from 'path'
@@ -64,7 +62,6 @@ const destinationDirsMap: Record<string, string> = destinationDirNames.reduce(
   {} as Record<string, string>,
 )
 
-// Remove all existing early access directories from this repo
 for (const dirName of destinationDirNames) {
   const destDir = destinationDirsMap[dirName]
   fs.rmSync(destDir, { recursive: true, force: true })
@@ -75,7 +72,6 @@ if (unlink) {
   process.exit(0)
 }
 
-// Symlink the latest early access source directories into this repo
 for (const dirName of destinationDirNames) {
   if (!earlyAccessLocalRepoDir) continue
 

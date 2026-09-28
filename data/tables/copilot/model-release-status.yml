@@ -105,6 +105,10 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
+- name: 'Claude Sonnet 5.5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 # Google models
 
 - name: 'Gemini 3.5 Flash'

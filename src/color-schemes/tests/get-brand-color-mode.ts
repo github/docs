@@ -21,7 +21,7 @@ describe('getBrandColorMode', () => {
   })
 
   test.each([
-    // Brand has no `auto` mode, so anything not `dark` has to render light.
+    // Brand has no auto mode, so anything not dark renders light.
     ['auto', 'light'],
     ['nonsense', 'light'],
     [null, 'light'],

@@ -6,7 +6,7 @@ import Permalink from '@/frame/lib/permalink'
 
 import { createLogger } from '@/observability/logger/index'
 
-// The Page class has rawCarousels and carousels properties that aren't on the Page type
+// Page adds rawCarousels and carousels at runtime, but the Page type omits them.
 interface PageCarouselProps {
   rawCarousels?: Record<string, string[]>
   carousels?: Record<string, ResolvedArticle[]>
@@ -20,6 +20,7 @@ function buildArticlePath(currentLanguage: string, articlePath: string, basePath
   return `${pathPrefix}${separator}${articlePath}`
 }
 
+// Resolve carousel paths as content-relative, then page-relative, then retry both with .md.
 function tryResolveArticlePath(
   rawPath: string,
   pageRelativePath: string | undefined,
@@ -32,7 +33,6 @@ function tryResolveArticlePath(
     return undefined
   }
 
-  // Strategy 1: Try content-relative path (add language prefix to raw path)
   const contentRelativePath = buildArticlePath(currentLanguage, rawPath)
   let foundPage = findPage(contentRelativePath, pages, redirects)
 
@@ -40,7 +40,6 @@ function tryResolveArticlePath(
     return foundPage
   }
 
-  // Strategy 2: Try page-relative path if page context is available
   if (pageRelativePath) {
     const pageDirPath = pageRelativePath.split('/').slice(0, -1).join('/')
     const pageRelativeFullPath = buildArticlePath(currentLanguage, rawPath, pageDirPath)
@@ -51,11 +50,9 @@ function tryResolveArticlePath(
     }
   }
 
-  // Strategy 3: Try with .md extension if not already present
   if (!rawPath.endsWith('.md')) {
     const pathWithExtension = `${rawPath}.md`
 
-    // Try Strategy 1 with .md extension
     const contentRelativePathWithExt = buildArticlePath(currentLanguage, pathWithExtension)
     foundPage = findPage(contentRelativePathWithExt, pages, redirects)
 
@@ -63,7 +60,6 @@ function tryResolveArticlePath(
       return foundPage
     }
 
-    // Try Strategy 2 with .md extension
     if (pageRelativePath) {
       const pageDirPath = pageRelativePath.split('/').slice(0, -1).join('/')
       const pageRelativeFullPathWithExt = buildArticlePath(
@@ -82,7 +78,6 @@ function tryResolveArticlePath(
   return foundPage
 }
 
-// Returns a page's path without the language or version prefix.
 function getPageHref(page: Page): string {
   if (page.relativePath) {
     return Permalink.relativePathToSuffix(page.relativePath)
@@ -137,7 +132,7 @@ async function resolveCarousels(
         }
 
         if (resolved.length > 0) {
-          // Prevent prototype pollution by rejecting __proto__ keys
+          // Reject unsafe object keys to prevent prototype pollution.
           if (
             carouselKey !== '__proto__' &&
             carouselKey !== 'constructor' &&

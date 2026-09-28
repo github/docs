@@ -1,12 +1,7 @@
 name: Sync llms.txt
 
-# **What it does**: Generates docs.github.com/llms.txt, github.com/llms.txt, and
-#   github.com/llms-full.txt from the page catalog and popularity data, then
-#   opens PRs to update them.
-# **Why we have it**: Agents discover docs through llms.txt; the page list keeps
-#   pace with what's actually popular without writers updating it by hand.
-# **Who does it impact**: Docs consumers via agents, and anyone landing on
-#   github.com/llms.txt, github.com/llms-full.txt, or docs.github.com/llms.txt.
+# Generates docs.github.com/llms.txt, github.com/llms.txt, and github.com/llms-full.txt.
+# Uses the page catalog and popularity data, then opens PRs to update them.
 
 on:
   workflow_dispatch:
@@ -59,8 +54,6 @@ jobs:
             --output /tmp/monolith-llms.txt
           echo "Generated monolith llms.txt ($(wc -l < /tmp/monolith-llms.txt) lines, $(wc -c < /tmp/monolith-llms.txt) bytes)"
 
-      # ---------- PR to docs-internal: update data/llms-txt/docs.md ----------
-
       - name: Diff docs llms.txt against committed copy
         id: diff_docs
         run: |
@@ -97,11 +90,8 @@ jobs:
           git config user.name "docs-bot"
           git config user.email "77750099+docs-bot@users.noreply.github.com"
           git add data/llms-txt/docs.md
-          # diff_docs compares against main, but the sync branch may already
-          # exist with this exact content (open PR from a prior run). In that
-          # case there is nothing new to stage, and `git commit` would exit 1
-          # and fail the whole workflow. Skip the commit and push when the
-          # branch is already up to date.
+          # diff_docs compares against main, but an open sync-branch PR can already hold this content.
+          # Skip commit and push because git commit exits 1 with nothing staged.
           if git diff --cached --quiet; then
             echo "Sync branch already has the latest generated docs.md; nothing to commit."
           else
@@ -134,8 +124,6 @@ jobs:
             --base main \
             --draft \
             --label "llm-generated"
-
-      # ---------- PR to github/github: update public/llms*.txt ----------
 
       - name: Fetch current public llms files from github/github
         id: fetch_monolith

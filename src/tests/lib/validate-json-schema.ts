@@ -10,12 +10,8 @@ addErrors(ajv)
 ajv.addKeyword({
   keyword: 'translatable',
 })
-// Schemas can contain the custom keyword `lintable` to define
-// a property as a Markdown string that can  be linted by the
-// content linter.
-// The custom keyword does not define a custom validator function.
-// This allows the custom keyword to be present in a schema but
-// doesn't perform additional validation other than type checking.
+// The lintable keyword marks Markdown strings that the content linter can check.
+// AJV still validates only the string type.
 ajv.addKeyword({
   keyword: 'lintable',
   type: 'string',
@@ -25,21 +21,13 @@ ajv.addFormat('semver', {
   validate: (x: string): boolean => semver.validRange(x) !== null,
 })
 
-// The ajv.validate function is supposed to cache
-// the compiled schema, but the documentation says
-// that the best performance is achieved by calling
-// the compile function and then calling validate.
-// So when the same schema is validated multiple times,
-// this is the best function to use. If the schema
-// changes from one call to the next, then the validateJson
-// function makes more sense to use.
+// Reuse compiled validators when one schema validates multiple payloads.
+// Use validateJson when each call may receive a different schema.
 export function getJsonValidator(schema: SchemaObject): ValidateFunction {
   return ajv.compile(schema)
 }
 
-// The next call to ajv.validate will overwrite
-// the ajv.errors property, so returning it here
-// ensures that it remains accessible.
+// Clone AJV errors before the next validate call overwrites ajv.errors.
 export function validateJson(
   schema: SchemaObject,
   data: unknown,

@@ -1,31 +1,21 @@
-// Docs 2026 breadcrumb treatment, overriding @primer/react-brand's Breadcrumbs.
+// Docs 2026 breadcrumbs invert @primer/react-brand default emphasis.
 //
-// Brand's `default` variant renders the ancestor crumbs at full strength and
-// MUTES the current page. The design wants the inverse: the pages you are not
-// viewing — and the "/" separators between them — recede, while the page you're
-// on reads at full strength.
+// Brand's default variant gives ancestor crumbs full strength and mutes the current page. The
+// design needs ancestor pages and "/" separators to recede while the current page stays full
+// strength.
 //
-// Keyed off the `data-container` attribute rather than a class because brand's
-// Breadcrumbs <nav> discards any className passed to it, so there is no class
-// hook on that element. The element selectors (`nav`, `li`) are here to out-
-// weigh brand's own rules, which are applied through the component's CSS module
-// and can load after this stylesheet — specificity, rather than source order,
-// is what keeps these overrides winning.
+// Use data-container because Brand Breadcrumbs nav drops className, so no class hook reaches that
+// element. The nav and li selectors raise specificity above Brand CSS modules that can load later.
 nav[data-container="breadcrumbs"] {
-  // Match the type of the SELECTED doc-tree nav item exactly. Brand already
-  // sizes crumbs at 14px/400 (text-size-100) but leaves letter-spacing unset,
-  // where the NavList item carries the 100-scale value.
+  // Match the selected doc-tree nav item type: 14px/400 plus 100-scale letter spacing.
   letter-spacing: var(--brand-text-letterSpacing-100);
 
-  // Ancestor crumbs (still links) and the separator rules recede. The separator
-  // is drawn as a rotated border on `li::after`, so it reads this token rather
-  // than `color`.
+  // Ancestor links and separators recede. li::after draws separators as a rotated border.
   --brand-InlineLink-color-rest: var(--brand-color-text-muted);
   --brand-InlineLink-color-pressed: var(--brand-color-text-muted);
   --brand-breadcrumbs-separator-borderColor: var(--brand-color-text-muted);
 
-  // The current page reads at full strength. Brand's default variant explicitly
-  // mutes this one, so this needs to outweigh a two-class selector.
+  // The current page needs more specificity than Brand's two-class selector.
   li [aria-current="page"] {
     color: var(--brand-color-text-default);
   }

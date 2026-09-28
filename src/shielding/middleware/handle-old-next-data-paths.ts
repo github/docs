@@ -1,24 +1,9 @@
-/**
- * This middleware looks at the URL if it's something like:
- *
- *   /_next/data/oOIffMZgfjR6sR9pa50O9/en/free-pro-team%40latest/pages.json?...
- *
- * And from that, it compares that oOIffMZgfjR6sR9pa50O9 with the content
- * of the .next/BUILD_ID file. If they don't match, then it's going to 404.
- * But instead of letting the nextApp.render404() handle it, we're going to
- * manually handle it here.
- * This makes sure the response is a short and fast plain text 404 response.
- * And we can force it to be served with a cache-control which allows
- * the CDN to cache it a bit.
- *
- * Note that when you start the local server with `npm run dev` and
- * do client-side navigation in the app, NextJS will send XHR requests for...
- *
- *   /_next/data/development/en/free-pro-team%40latest/pages.json?...
- *
- * Relying on that test is easier than to try to parse the
- * value of `process.env.NODE_ENV`.
- */
+// Next.js data routes include a build ID, for example:
+// /_next/data/oOIffMZgfjR6sR9pa50O9/en/free-pro-team%40latest/pages.json
+// When the build ID does not match .next/BUILD_ID, return a short cacheable 404
+// here instead of letting nextApp.render404 handle it.
+// Local npm run dev uses /_next/data/development/..., so that path stays unblocked
+// without depending on NODE_ENV parsing.
 
 import fs from 'fs'
 

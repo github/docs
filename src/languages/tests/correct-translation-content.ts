@@ -2998,6 +2998,32 @@ Para más información, consulta "[AUTOTITLE](/path)".
     })
   })
 
+  describe('universal: strips leftover CAT-tool <cN> placeholder tags', () => {
+    test('strips paired <c0>...</c0> tags around text', () => {
+      expect(fix('Use the <c0>Create an issue</c0> endpoint.', 'es')).toBe(
+        'Use the Create an issue endpoint.',
+      )
+    })
+
+    test('strips self-closing <c0/> and unmatched closing tags', () => {
+      expect(fix('See the note.<c0/> More text.</c1>', 'ja')).toBe('See the note. More text.')
+    })
+
+    test('strips nested and numbered <cN> tags', () => {
+      expect(
+        fix(
+          '<c1>repositorio especificado octocat/Spoon-Knife<c3>.<c4> Reemplace `REPO-NAME`',
+          'es',
+        ),
+      ).toBe('repositorio especificado octocat/Spoon-Knife. Reemplace `REPO-NAME`')
+    })
+
+    test('leaves content without <cN> tags unchanged', () => {
+      const correct = 'Use the Create an issue endpoint.'
+      expect(fix(correct, 'es')).toBe(correct)
+    })
+  })
+
   describe('ja: github-token-scope-descriptions.md per-file fix', () => {
     test('restores the missing endif in the security-events row', () => {
       const broken =

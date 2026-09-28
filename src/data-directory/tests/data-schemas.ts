@@ -64,7 +64,6 @@ describe('YAML-powered tables', () => {
         const schemaPath = join(schemasDir, `${name}.ts`)
         expect(existsSync(schemaPath)).toBe(true)
 
-        // Also verify it's registered in the dataSchemas
         const dataKey = `data/tables/${yamlFile}`
         expect(dataSchemas[dataKey]).toBeDefined()
       }

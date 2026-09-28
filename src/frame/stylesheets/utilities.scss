@@ -37,7 +37,7 @@
   width: 1px;
 }
 
-// For the screenreader
+// Screen readers and keyboard users need a visible skip link on focus.
 .skip-button {
   width: auto;
   height: auto;
@@ -56,7 +56,7 @@
   }
 }
 
-// used to help prevent overlapping main content and the minitoc sidebar
+// Avoid overlapping main content and the mini TOC sidebar at XXL widths.
 .d-xxl-block {
   @include breakpoint-xxl {
     display: block !important;

@@ -28,7 +28,7 @@ declare module '@primer/octicons' {
   const octicons: {
     [iconName: string]: Octicon
 
-    // Common icons (non-exhaustive list for better autocomplete)
+    // This non-exhaustive list improves autocomplete for common icons.
     alert: Octicon
     check: Octicon
     'check-circle': Octicon

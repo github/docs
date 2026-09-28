@@ -38,7 +38,6 @@
     <li title="{{productPage.renderedFullTitle}}" style="margin: 3px 0 0 30px;">
       <a title="{{ productPage.page.documentType }}" href="{{ docsRoot }}{{productPage.href}}">{{ productPage.renderedFullTitle }}</a>
 
-      {% comment %} Unified nested rendering with depth control {% endcomment %}
       {% if productPage.childPages and productPage.childPages.size > 0 %}
         <ul>
           {% for l1 in productPage.childPages %}

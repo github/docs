@@ -442,7 +442,7 @@ const logger = createLogger(import.meta.url);
   })
 
   it('should handle logger variable with destructuring pattern', () => {
-    // A destructured logger already exists, so the fix must not redeclare it.
+    // A destructured logger already exists, so the fixer must not redeclare it.
     ruleTester.run('use-custom-logger', rule, {
       valid: [],
       invalid: [
@@ -456,7 +456,7 @@ const logger = createLogger(import.meta.url);
               message: 'Please use our internal logger.info instead of console.log',
             },
           ],
-          // The auto-fix will add the import but not the declaration since logger exists via destructuring
+          // The fixer adds the import but skips the declaration because destructuring provides it.
           output: `import { createLogger } from '@/observability/logger';
 
             const { logger } = something;

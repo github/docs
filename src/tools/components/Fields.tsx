@@ -30,11 +30,7 @@ export const Fields = (fieldProps: {
               if (onSelect) onSelect(item)
               setOpen(!open)
             }}
-            // These extra links in the pickers are not a part of the selection variant
-            // in that they are generally external links, so we want to remove the selection
-            // variant span box in front of it. To date there isn't a possibility to have
-            // an ActionMenu in Primer that allow non-selection variant items with selection
-            // variant items
+            // Primer ActionMenu cannot mix selection items with external links, so extras hide the indicator.
             className={cx(
               (item.extra?.arrow || item.extra?.info) && styles.extrasDisplay,
               styles.linkItem,

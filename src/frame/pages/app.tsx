@@ -45,11 +45,9 @@ const stagingNames = new Set([
   'yew',
 ])
 
+// Cache-busting prefixes need any cb-number so Fastly assigns the manual surrogate key.
+// Change the cb number when the image changes, so browsers and the CDN miss the old URL.
 function getFaviconHref(stagingName?: string) {
-  // The number in these "/cb-xxxxx" prefixes does not matter, it just has to be
-  // present. It marks the URL as checksummed, which gets it a manual Fastly
-  // surrogate key so a production deploy does not purge it.
-  // If you edit these images on disk, change the numbers.
   if (stagingName) {
     return `/assets/cb-346/images/site/evergreens/${stagingName}.png`
   }
@@ -110,12 +108,7 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
         dayScheme={theme.component.dayScheme}
         nightScheme={theme.component.nightScheme}
       >
-        {/*
-          Primer Brand ThemeProvider, nested so migrated @primer/react-brand
-          components receive brand theme context during the Docs 2026 migration
-          (github/docs-engineering#5879). Runs alongside the @primer/react
-          ThemeProvider above while the component-by-component swap is in progress.
-        */}
+        {/* @primer/react-brand context lets Brand components coexist with @primer/react. */}
         <BrandThemeProvider>
           <LanguagesContext.Provider value={languagesContext}>
             <SharedUIContextProvider>
@@ -131,30 +124,22 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
 
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
-  // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
   const req = ctx.req as unknown as ExtendedRequest
 
-  // Have to define the type manually here because `req.context.languages`
-  // comes from Node JS and is not type-aware.
   const languagesContext: LanguagesContextT = {
     languages: {},
   }
 
-  // If we're rendering certain 404 error pages, the middleware might not
-  // yet have contextualized the `context.languages`. So omit this
-  // context mutation and live without it.
-  // Note, `req` will be undefined if this is the client-side rendering
-  // of a 500 page ("Ooops! It looks like something went wrong.")
+  // Some 404 renders lack req.context.languages.
   if (req?.context?.languages) {
     const languageEntries = Object.entries(req.context.languages as Record<string, LanguageItem>)
     for (const [langCode, langObj] of languageEntries) {
-      // Only pick out the keys we actually need
       languagesContext.languages[langCode] = {
         name: langObj.name,
         code: langObj.code,
       }
-      // The `hreflang` is used for the `<link rel="alternate">` tags.
+      // hreflang drives alternate-language link tags.
       if (langObj.hreflang && langObj.hreflang !== langObj.code) {
         languagesContext.languages[langCode].hreflang = langObj.hreflang
       }

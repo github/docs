@@ -46,6 +46,7 @@ Used for:
 * {% data variables.copilot.copilot_claude_haiku_45 %}
 * {% data variables.copilot.copilot_claude_sonnet_46 %}
 * {% data variables.copilot.copilot_claude_sonnet_5 %}
+* {% data variables.copilot.copilot_claude_sonnet_55 %}
 * {% data variables.copilot.copilot_claude_opus_47 %}
 * {% data variables.copilot.copilot_claude_opus_48 %}
 * {% data variables.copilot.copilot_claude_opus_48_fast %}
