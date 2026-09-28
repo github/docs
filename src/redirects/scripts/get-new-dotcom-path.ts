@@ -1,9 +1,5 @@
-// [start-readme]
-//
-// Pass this script any old dotcom path (e.g., `articles/foo` or `foo.md`) and it
-// will output the new path in the content/github directory.
-//
-// [end-readme]
+// Finds the content/github path for an old dotcom path.
+// content/github no longer exists, so this script currently fails.
 
 import assert from 'assert'
 import { last } from 'lodash-es'
@@ -22,7 +18,6 @@ let filename: string = oldPath
 
 if (filename.includes('/')) filename = last(filename.split('/')) as string
 
-// first check whether name is a category
 const categoryDir = `${newDotcomDir}/${filename.replace(markdownRegex, '')}`
 
 if (fs.existsSync(categoryDir)) {
@@ -30,7 +25,6 @@ if (fs.existsSync(categoryDir)) {
   process.exit(0)
 }
 
-// otherwise add extension and check whether it's a file
 if (!filename.endsWith(markdownExtension)) filename = filename + markdownExtension
 
 const newPath: string = execSync(`find ${newDotcomDir} -name ${filename}`).toString()
