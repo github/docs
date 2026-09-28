@@ -1,21 +1,10 @@
-/**
- * @purpose Writer tool
- * @description Notify PMs to review their GHES release notes on a PR
- *
- * Notify PMs about generated GHES release notes by posting a review comment
- * on each source release issue in github/releases.
- *
- * For each release issue URL found in the YAML file's `# https://...` comments,
- * this script posts a comment asking the PM to review the note in the PR and
- * react with 🚀 once satisfied.
- *
- * Usage:
- *   # Post comments via GitHub Actions (handles auth automatically):
- *   gh workflow run notify-release-pms.yml -f release=3.20 -f pr=12345
- *
- *   # Preview locally (dry run, no token needed):
- *   npm run notify-release-pms -- --release 3.20 --pr 12345 --dry-run
- */
+// @purpose Writer tool
+// @description Notify PMs to review their GHES release notes on a PR
+//
+// Posts docs-bot review comments on github/releases source issues from YAML source comments.
+// Product managers (PMs) review the PR and react with 🚀 when satisfied.
+// GitHub Actions usage: gh workflow run notify-release-pms.yml -f release=<release> -f pr=<pr>
+// Local preview: npm run notify-release-pms -- --release <release> --pr <pr> --dry-run
 import { Command } from 'commander'
 import { execFileSync } from 'child_process'
 import fs from 'fs'
@@ -27,11 +16,7 @@ export interface SourceNote {
   issueNumber: number
 }
 
-/**
- * Run read-only `gh` CLI commands.
- * Uses DOCS_BOT_PAT_BASE when available (CI), otherwise falls back to
- * the caller's native `gh` auth (local).
- */
+// DOCS_BOT_PAT_BASE authenticates CI reads; caller gh auth handles local reads.
 function ghRead(args: string[]): string {
   const env = { ...process.env }
   if (env.DOCS_BOT_PAT_BASE) {
@@ -46,10 +31,7 @@ function ghRead(args: string[]): string {
   })
 }
 
-/**
- * Run `gh` CLI commands authenticated as docs-bot (for posting comments).
- * Requires the DOCS_BOT_PAT_BASE environment variable to be set.
- */
+// Posting comments requires DOCS_BOT_PAT_BASE so they come from docs-bot.
 function ghWrite(args: string[]): string {
   const token = process.env.DOCS_BOT_PAT_BASE
   if (!token) {
@@ -62,7 +44,7 @@ function ghWrite(args: string[]): string {
     process.exit(1)
   }
   const env = { ...process.env, GH_TOKEN: token }
-  // Ensure GH_TOKEN takes precedence over any pre-existing GITHUB_TOKEN
+  // GH_TOKEN must take precedence over any pre-existing GITHUB_TOKEN.
   delete (env as Record<string, string | undefined>).GITHUB_TOKEN
   return execFileSync('gh', args, {
     encoding: 'utf8',
@@ -72,11 +54,7 @@ function ghWrite(args: string[]): string {
   })
 }
 
-/**
- * Parse release notes content and extract source issue URLs.
- * Each `# https://github.com/github/releases/issues/NNNN` comment
- * maps to the note(s) that follow it.
- */
+// Source issue URL comments attach each generated note to its github/releases issue.
 export function parseSourceNotes(content: string): SourceNote[] {
   const lines = content.split('\n')
   const notes: SourceNote[] = []
@@ -86,8 +64,7 @@ export function parseSourceNotes(content: string): SourceNote[] {
     const match = lines[i].match(/^\s*#\s*(https:\/\/github\.com\/github\/releases\/issues\/(\d+))/)
     if (match) {
       const issueNumber = parseInt(match[2], 10)
-      // Some issues appear multiple times (e.g. in features and changes). Keep the
-      // first occurrence so the link points to the primary note.
+      // Keep the first occurrence so duplicate issue links point to the primary note.
       if (!seen.has(issueNumber)) {
         seen.add(issueNumber)
         notes.push({
@@ -116,8 +93,7 @@ export function buildCommentBody(
   const prUrl = `https://github.com/github/docs-internal/pull/${prNumber}`
   const fileUrl = `${prUrl}/files`
 
-  // Use a marker so we can identify our comments later (for duplicate-prevention).
-  // Include releaseType so RC and GA comments are distinguishable.
+  // Mark comments for duplicate detection; releaseType keeps RC and GA distinct.
   const marker = buildMarker(version, releaseType.toLowerCase() as 'rc' | 'ga')
 
   const mentions = assignees.length > 0 ? `${assignees.map((a) => `@${a}`).join(' ')} ` : ''
@@ -222,7 +198,7 @@ program
           process.exit(1)
         }
       } else {
-        // Auto-detect: prefer GA if it exists, otherwise RC (consistent with generate-release-notes)
+        // Auto-detect prefers GA over RC to match generate-release-notes.
         if (fs.existsSync(gaPath)) {
           rc = false
           yamlPath = gaPath
@@ -239,7 +215,6 @@ program
 
       const relativeFilePath = path.relative(process.cwd(), yamlPath)
 
-      // Step 1: Extract source issue URLs.
       spinner.start('Parsing release notes file...')
       const sourceNotes = extractSourceNotes(yamlPath)
       spinner.succeed(`Found ${sourceNotes.length} unique release issue(s) in ${relativeFilePath}`)
@@ -249,7 +224,6 @@ program
         process.exit(0)
       }
 
-      // Step 2: Check for existing comments (avoid duplicates).
       const releaseType = rc ? 'rc' : 'ga'
       const marker = buildMarker(release, releaseType)
       const alreadyCommented = new Set<number>()
@@ -268,7 +242,7 @@ program
             alreadyCommented.add(note.issueNumber)
           }
         } catch {
-          // If we can't read comments, we'll try to post and handle errors then
+          // Post anyway when comment reads fail; posting reports permission errors.
         }
       }
       if (alreadyCommented.size > 0) {
@@ -282,7 +256,6 @@ program
         spinner.succeed('No existing notifications found')
       }
 
-      // Step 3: Post comments.
       const toNotify = sourceNotes.filter((n) => !alreadyCommented.has(n.issueNumber))
 
       if (toNotify.length === 0) {
@@ -295,18 +268,17 @@ program
 
       for (let i = 0; i < toNotify.length; i++) {
         const note = toNotify[i]
-        // Fetch assignees (or fall back to issue author) for the release issue
+        // Mention assignees, or the non-bot issue author when no assignee exists.
         let assignees: string[] = []
         try {
           const raw = ghRead(['api', `repos/github/releases/issues/${note.issueNumber}`])
           const issue = JSON.parse(raw)
           assignees = (issue.assignees || []).map((a: { login: string }) => a.login)
-          // Fall back to the issue author unless they're a bot
           if (assignees.length === 0 && issue.user?.login && issue.user.type !== 'Bot') {
             assignees = [issue.user.login]
           }
         } catch {
-          // If we can't fetch the issue, post without mentions
+          // Post without mentions when the issue fetch fails.
         }
 
         const commentBody = buildCommentBody(release, rc, prNumber, assignees)
@@ -342,7 +314,6 @@ program
         }
       }
 
-      // Summary.
       console.log(`\n${'─'.repeat(40)}`)
       console.log(`${dryRun ? '🔍 Dry run' : '✅ Done'}`)
       console.log(
@@ -356,7 +327,7 @@ program
     },
   )
 
-// Only run CLI when executed directly (not when imported in tests)
+// Tests import helpers without running the CLI.
 if (import.meta.url === `file://${process.argv[1]}`) {
   program.parse(process.argv)
 }

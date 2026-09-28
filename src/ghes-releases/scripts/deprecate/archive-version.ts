@@ -1,10 +1,5 @@
-// [start-readme]
-//
-// Run this script during the Enterprise deprecation process to download
-// static copies of all pages for the oldest supported Enterprise version.
-// See the Enterprise deprecation issue template for instructions.
-//
-// [end-readme]
+// Run during Enterprise deprecation to download static pages for the oldest supported version.
+// The Enterprise deprecation issue template owns the operational checklist.
 
 import path from 'path'
 import fs from 'fs'
@@ -90,7 +85,6 @@ async function main() {
     }
   }
 
-  // remove temp directory
   await fs.promises.rm(tmpArchivalDirectory, { recursive: true, force: true })
 
   const app = createApp()
@@ -103,8 +97,7 @@ async function main() {
         await scrape({
           urls,
           urlFilter: (url: string) => {
-            // Do not download assets from other hosts like S3 or octodex.github.com
-            // (this will keep them as remote references in the downloaded pages)
+            // Leave assets on other hosts as remote references in downloaded pages.
             return url.startsWith(`http://localhost:${port}/`)
           },
           directory: tmpArchivalDirectory,
@@ -126,7 +119,7 @@ async function main() {
 
       console.log(`\n\ndone scraping! added files to ${tmpArchivalDirectory}\n`)
       if (!singlePage) {
-        // create redirect html files to preserve frontmatter redirects
+        // Redirect files preserve frontmatter redirects after static scraping.
         await createRedirectsFile(pageList, path.join(tmpArchivalDirectory, version))
         console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.ts`)
       } else {
@@ -148,9 +141,9 @@ async function createRedirectsFile(pageList: PageList, outputDirectory: string) 
   const redirectEntries: Array<[string, string]> = Object.entries(redirects)
 
   for (let [oldPath, newPath] of redirectEntries) {
-    // remove any liquid variables that sneak in
+    // Redirect paths can include Liquid version variables.
     oldPath = oldPath.replace('/{{ page.version }}', '').replace('/{{ currentVersion }}', '')
-    // ignore any old paths that are not in this version
+    // Keep only redirects for the archived Enterprise version.
     if (
       !(
         oldPath.includes(`/enterprise-server@${version}`) ||

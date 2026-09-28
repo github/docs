@@ -1,13 +1,11 @@
-# This script creates a new repository for an archived version of GitHub Enterprise Server documentation.
-# Please update the version variable first.
-# You may wish to run this script a little bit at a time instead of all at once incase there are any errors.
+# Creates a repository for an archived GitHub Enterprise Server documentation version.
+# Pass the version as the first argument, and run sections one at a time when inspecting failures.
 
 version=$1
 cd ~/Documents/gh/github
 
-# Teams are addressed by numeric ID because IDs survive team renames and slugs do not.
-# Some APIs (repo creation, CODEOWNERS, custom properties) only accept slugs, so
-# resolve the current slug from the ID at runtime rather than hardcoding it.
+# Numeric team IDs survive team renames; slugs do not.
+# Repo creation, CODEOWNERS, and custom properties require slugs, so resolve current slugs.
 org_id=9919
 docs_team_id=325922
 docs_eng_team_id=3935808
