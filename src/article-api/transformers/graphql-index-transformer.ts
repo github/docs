@@ -4,9 +4,6 @@ import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { extractManualContent } from '@/article-api/lib/graphql-helpers'
 
-/**
- * Renders the GraphQL reference index page with links to its child pages.
- */
 export class GraphQLIndexTransformer implements PageTransformer {
   templateName = 'graphql-index.template.md'
 

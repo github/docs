@@ -7,9 +7,6 @@ import { fastTextOnly } from '@/content-render/unified/text-only'
 import { extractManualContent } from '@/article-api/lib/graphql-helpers'
 import GithubSlugger from 'github-slugger'
 
-/**
- * Renders the GraphQL breaking changes page, organized by date.
- */
 export class GraphQLBreakingChangesTransformer implements PageTransformer {
   templateName = 'graphql-breaking-changes.template.md'
 
