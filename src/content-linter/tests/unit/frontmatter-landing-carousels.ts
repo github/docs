@@ -19,7 +19,7 @@ const PRIORITY_VALIDATION =
 
 const ruleName = frontmatterLandingCarousels.names[1]
 
-// Configure the test fixture to not split frontmatter and content
+// Disable frontmatter stripping so the rule can parse frontmatter itself.
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 
 describe(ruleName, () => {
@@ -64,7 +64,7 @@ describe(ruleName, () => {
       files: [DUPLICATE_CAROUSELS],
       ...fmOptions,
     })
-    expect(result[DUPLICATE_CAROUSELS]).toHaveLength(1) // Only duplicate error since all paths are valid
+    expect(result[DUPLICATE_CAROUSELS]).toHaveLength(1)
     expect(result[DUPLICATE_CAROUSELS][0].errorDetail).toContain(
       "Found duplicate articles in carousel 'recommended': /article-one",
     )
@@ -91,10 +91,10 @@ describe(ruleName, () => {
     expect(result[VALID_LANDING]).toEqual([])
   })
 
+  // /article-one exists in src/fixtures/fixtures/content/article-one.md and
+  // src/content-linter/tests/fixtures/landing-carousels/article-one.md.
+  // Absolute resolution wins.
   test('absolute paths are prioritized over relative paths', async () => {
-    // /article-one exists both as src/fixtures/fixtures/content/article-one.md
-    // and as src/content-linter/tests/fixtures/landing-carousels/article-one.md.
-    // The absolute resolution wins.
     const result = await runRule(frontmatterLandingCarousels, {
       files: [ABSOLUTE_PRIORITY],
       ...fmOptions,
@@ -121,8 +121,7 @@ describe(ruleName, () => {
   })
 
   test('mixed valid and invalid absolute paths are handled correctly', async () => {
-    // This test has both a valid absolute path (/article-one) and an invalid one (/nonexistent-absolute)
-    // It should fail because of the invalid path, proving our absolute path resolution is working
+    // Include one valid absolute path so the error isolates /nonexistent-absolute.
     const result = await runRule(frontmatterLandingCarousels, {
       files: [PRIORITY_VALIDATION],
       ...fmOptions,

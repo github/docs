@@ -167,8 +167,7 @@ describe(tableColumnIntegrity.names.join(' - '), () => {
   })
 
   test('File paths with pipes are handled correctly (regression test)', async () => {
-    // This test catches the specific issue from content/actions/tutorials/build-and-test-code/python.md
-    // where the old regex /[^\\]\|/ was consuming characters before pipes and miscounting columns
+    // content/actions/tutorials/build-and-test-code/python.md exposed /[^\\]\|/ pipe miscounts.
     const markdown = [
       '| Directory | Ubuntu | macOS |',
       '|-----------|--------|-------|',
@@ -182,7 +181,6 @@ describe(tableColumnIntegrity.names.join(' - '), () => {
   })
 
   test('Complex file paths with multiple characters before pipes', async () => {
-    // Additional test to ensure the lookbehind regex works with various characters before pipes
     const markdown = [
       '| Pattern | Linux Path | Windows Path |',
       '|---------|------------|--------------|',
