@@ -4,6 +4,50 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>AddRelatesToInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>AddRelatesToInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>AddRelatesToInput</code></p>",
+          "<p>Input field <code>relatedIssueId</code> of type <code>ID!</code> was added to input object type <code>AddRelatesToInput</code></p>",
+          "<p>Type <code>AddRelatesToPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>AddRelatesToPayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>AddRelatesToPayload</code></p>",
+          "<p>Field <code>relatedIssue</code> was added to object type <code>AddRelatesToPayload</code></p>",
+          "<p>Type <code>IssueRelatesToOrder</code> was added</p>",
+          "<p>Input field <code>direction</code> of type <code>OrderDirection!</code> was added to input object type <code>IssueRelatesToOrder</code></p>",
+          "<p>Input field <code>field</code> of type <code>IssueRelatesToOrderField!</code> was added to input object type <code>IssueRelatesToOrder</code></p>",
+          "<p>Type <code>IssueRelatesToOrderField</code> was added</p>",
+          "<p>Enum value 'CREATED_AT<code>was added to enum</code>IssueRelatesToOrderField'</p>",
+          "<p>Enum value 'RELATES_TO_ADDED_AT<code>was added to enum</code>IssueRelatesToOrderField'</p>",
+          "<p>Type <code>RemoveRelatesToInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RemoveRelatesToInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>RemoveRelatesToInput</code></p>",
+          "<p>Input field <code>relatedIssueId</code> of type <code>ID!</code> was added to input object type <code>RemoveRelatesToInput</code></p>",
+          "<p>Type <code>RemoveRelatesToPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RemoveRelatesToPayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>RemoveRelatesToPayload</code></p>",
+          "<p>Field <code>relatedIssue</code> was added to object type <code>RemoveRelatesToPayload</code></p>",
+          "<p>Field <code>relatesTo</code> was added to object type <code>Issue</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Issue.relatesTo</code></p>",
+          "<p>Argument <code>orderBy: IssueRelatesToOrder</code> (with default value) added to field <code>Issue.relatesTo</code></p>",
+          "<p>Field <code>addRelatesTo</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: AddRelatesToInput!</code> added to field <code>Mutation.addRelatesTo</code></p>",
+          "<p>Field <code>removeRelatesTo</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RemoveRelatesToInput!</code> added to field <code>Mutation.removeRelatesTo</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-09-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>IssueEventRationale</code> was removed</p>",
           "<p>Type <code>IssueEventWithRationale</code> was removed</p>",
           "<p>Type <code>CodeCoverageParameters</code> was added</p>",
