@@ -9,6 +9,7 @@ notAllowed:
   - 'src/**'
   - 'patches/**'
   - 'content/actions/how-tos/secure-your-work/security-harden-deployments/**'
+  - 'content/README.md'
 contentTypes:
   - 'content/**'
 # allows getting a list of just added files from the dorny/paths-filter action
