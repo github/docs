@@ -105,7 +105,7 @@ You can opt out of the telemetry you see in the `log` mode described above using
 export GH_TELEMETRY=false
 ```
 
-Any falsy value works: `0`, `false`, `disabled`, or an empty string. You can also use the `DO_NOT_TRACK` convention:
+Set `GH_TELEMETRY` to `false` or `0` to disable telemetry. Alternatively, set `DO_NOT_TRACK` to `true` or `1`:
 
 ```shell
 export DO_NOT_TRACK=true
