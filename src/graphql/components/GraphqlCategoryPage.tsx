@@ -49,27 +49,16 @@ export type CategorySchema = Partial<{
 
 type Props = {
   schema: CategorySchema
-  // All objects across every category. Used by `Interface` to list
-  // implementers regardless of which category page is being rendered.
+  // Interface needs objects from every category to list implementers across category pages.
   allObjects: ObjectT[]
 }
 
-// Item-level heading level used when items render under a kind section
-// heading (`<h2>`). Kept in one place so the matching mini-TOC builder in
-// `pages/reference.tsx` can stay in sync with the on-page anchors.
+// Keep item headings in sync with the mini-TOC builder in src/graphql/pages/reference.tsx.
 const ITEM_HEADING_LEVEL = 3
 
+// src/graphql/pages/reference.tsx sends empty categories to 404, so this renders populated pages.
+// GraphqlItem keeps kind labels so deep-linked items remain self-describing outside the section.
 export function GraphqlCategoryPage({ schema, allObjects }: Props) {
-  // Render one section per kind, in the canonical `ALL_KIND_KEYS` order.
-  // Items inside each section are sorted case-insensitively by name. The
-  // per-kind label pill rendered by `GraphqlItem` is now somewhat redundant
-  // here (the kind is obvious from the section heading directly above), but
-  // we keep it for now so items stay visually self-describing if they're
-  // ever deep-linked or rendered outside the section context.
-  //
-  // Empty-category pages are short-circuited to a 404 in
-  // `pages/reference.tsx`, so this component is only ever rendered with at
-  // least one section.
   const sections = ALL_KIND_KEYS.flatMap((kind) => {
     const items = schema[kind]
     if (!items || items.length === 0) return []
@@ -123,6 +112,4 @@ function renderItem(kind: SchemaKindKey, item: AnySchemaItem, allObjects: Object
   }
 }
 
-// Re-export the kind label map for callers that want to render a label
-// outside of the page (e.g. mini-toc or breadcrumbs).
 export { KIND_LABELS }

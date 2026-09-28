@@ -28,10 +28,8 @@ type Props = {
 }
 
 export const GraphqlPage = ({ schema, pageName, objects }: Props) => {
-  const graphqlItems: JSX.Element[] = [] // In the case of the H2s for Queries
+  const graphqlItems: JSX.Element[] = []
 
-  // The queries page has two heading sections (connections and fields), so add
-  // the heading component and its children once per section.
   if (pageName === 'queries') {
     graphqlItems.push(
       ...(schema as QueryT[]).map((item) => <Query item={item} key={item.id + item.name} />),

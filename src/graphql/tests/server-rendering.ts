@@ -23,12 +23,9 @@ describe('server rendering certain GraphQL pages', () => {
     expect.assertions(hrefs.length + 1)
   })
 
+  // Request the changelog twice because github-slugger state can add suffixes on the second render.
+  // The mini-TOC hrefs must match those heading IDs.
   test('minitoc hrefs on changelog match and verify slugger behavior', async () => {
-    // Testing the minitoc links match the heading ids but also validating
-    // slugger behavior see docs-engineering/issues#5792.
-    // Little funky because we need to make 2 requests to the page to test
-    // the problem behavior where slugger state accumulates across
-    // requests, it won't fail the first time around.
     await getDOM('/graphql/overview/changelog')
     const $ = await getDOM('/graphql/overview/changelog')
     const links = $('[data-testid="minitoc"] a[href]')
