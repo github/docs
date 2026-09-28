@@ -191,12 +191,11 @@ describe('metadata permissions filtering', () => {
     expect(shouldFilterMetadataPermission('metadata', metadataInSeparateSet)).toBe(true)
   })
 
+  // PUT and DELETE /orgs/{org}/actions/permissions/repositories/{repository_id}
+  // pair metadata with organization_administration.
   test('filters metadata permissions that match the GitHub issue examples', () => {
-    // These are examples from the GitHub issue that should be filtered out
-    // PUT /orgs/{org}/actions/permissions/repositories/{repository_id}
     const putActionsPermissions = [{ metadata: 'read', organization_administration: 'write' }]
 
-    // DELETE /orgs/{org}/actions/permissions/repositories/{repository_id}
     const deleteActionsPermissions = [{ metadata: 'read', organization_administration: 'write' }]
 
     expect(shouldFilterMetadataPermission('metadata', putActionsPermissions)).toBe(true)
@@ -278,12 +277,9 @@ describe('metadata permissions filtering', () => {
     }
   })
 
+  // PUT and DELETE /orgs/{org}/actions/permissions/repositories/{repository_id}
+  // pair metadata with organization_administration.
   test('validates filtering logic matches expected behavior from issue', () => {
-    // Based on the GitHub issue, these operations should be filtered out from metadata:
-    // - PUT /orgs/{org}/actions/permissions/repositories/{repository_id}
-    // - DELETE /orgs/{org}/actions/permissions/repositories/{repository_id}
-    // Because they have metadata + organization_administration permissions
-
     const progData: ProgAccessData = {
       userToServerRest: true,
       serverToServer: true,
