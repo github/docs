@@ -1,5 +1,5 @@
-// The page wrapper is full-bleed now (see SearchPage.module.scss), so this state
-// supplies its own inset to line up with the hero band and result rows.
+// SearchPage.module.scss makes the page full-bleed, so this state uses a fixed
+// 48px horizontal inset.
 .heading {
   margin: 32px 48px 0;
   line-height: 1.2;

@@ -10,9 +10,8 @@ interface CacheIndexEntry {
   timestamp: number
 }
 
-// AI Search responses are cached as individual localStorage entries, with a
-// separate index tracking the keys. Updating the cache therefore doesn't mean
-// reading and parsing one large entry every time a key is accessed.
+// AI Search responses are individual localStorage entries with a separate key index.
+// Cache updates avoid reading and parsing one large entry on every access.
 //
 // Entries live under a prefix and expire after a fixed number of days.
 export function useAISearchLocalStorageCache<T = unknown>(
@@ -24,12 +23,13 @@ export function useAISearchLocalStorageCache<T = unknown>(
 
   const generateCacheKey = (query: string, version: string, language: string): string => {
     query = query.trim().toLowerCase()
-    // Simple hash function to generate a unique key from the query
+    // Hashing keeps cache keys short while version and language separate entries.
     let hash = 0
     for (let i = 0; i < query.length; i++) {
       const char = query.charCodeAt(i)
       hash = (hash << 5) - hash + char
-      hash |= 0 // Convert to 32bit integer
+      // Keep the hash in signed 32-bit range.
+      hash |= 0
     }
     return `${cacheKeyPrefix}-${Math.abs(hash)}-${version}-${language}`
   }
@@ -83,7 +83,7 @@ export function useAISearchLocalStorageCache<T = unknown>(
       index = index.filter((entry) => entry.key !== key)
       index.push({ key, timestamp: now })
 
-      // If cache exceeds max entries, remove oldest entries
+      // Keep the newest entries when the cache exceeds maxEntries.
       if (index.length > maxEntries) {
         index.sort((a, b) => a.timestamp - b.timestamp)
         const excess = index.length - maxEntries

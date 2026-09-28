@@ -4,12 +4,8 @@ type LinksJSON = Array<{
   product: string
 }>
 
-// We use this to generate a JSON string that includes all of the links:
-// 1. Included in the AI response (inline)
-// 2. Used to generate the AI response via an embedding (reference)
-//
-// We include the JSON string in our analytics events so we can see the
-// most popular sourced references, among other things.
+// Analytics records inline AI-response links and embedding reference links in one JSON payload.
+// The product field lets reports group the most popular sourced references.
 export function generateAISearchLinksJson(
   sourcesBuffer: Array<{ url: string }>,
   aiResponse: string,
@@ -37,7 +33,7 @@ export function generateAISearchLinksJson(
 }
 
 function extractMarkdownLinks(markdownResponse: string) {
-  // Matches markdown links of the form [text](url).
+  // Example: [Actions](https://docs.github.com/actions) yields the URL.
   const regex = /\[([^\]]+)\]\(([^)]+)\)/g
 
   const urls = []
@@ -67,8 +63,7 @@ function extractProductFromDocsUrl(url: string): string {
 
   const segments = pathname.split('/').filter((segment) => segment)
 
-  // If the first segment is a language code (2 characters), then product is the next segment.
-  // Otherwise, assume the first segment is the product.
+  // This heuristic treats only two-character locale prefixes as localized paths.
   if (segments.length === 0) {
     return ''
   }
@@ -77,7 +72,7 @@ function extractProductFromDocsUrl(url: string): string {
     if (segments.length < 2) {
       return ''
     }
-    // if second segment is a version, then product is the third segment
+    // Versioned paths put the product after the version segment.
     if (segments[1].includes('@')) {
       return segments[2] || ''
     }
