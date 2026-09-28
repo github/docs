@@ -28,15 +28,14 @@ export type AuditLogConfig = {
   categoryNotes?: CategoryNotes
 }
 
-// Deduplicated on-disk format types
-// An entry in the shared pool — fields is stored as an index into the fields pool
+// Shared entries store fields as indexes into fields-pool.json.
 export type DeduplicatedAuditLogEntry = {
   action: string
   description: string
   docs_reference_links?: string
   docs_reference_titles?: string
-  fieldsIndex?: number // index into the fields pool, undefined if no fields
+  fieldsIndex?: number
 }
 
-// version-index.json: maps version → page → array of indices into entries.json
+// version-index.json maps version and page names to entries.json indexes.
 export type AuditLogVersionIndex = Record<string, Record<string, number[]>>

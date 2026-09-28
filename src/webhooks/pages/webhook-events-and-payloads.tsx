@@ -40,16 +40,12 @@ export default function WebhooksEventsAndPayloads({
     )
   })
 
-  // When someone clicks on a minitoc hash anchor link on this page, we want to
-  // remove the type query parameter from the URL because the type won't make
-  // sense anymore (e.g. ?actionType=closed#issues and you click on the fork minitoc
-  // we don't want the URL to be ?actionType=closed#fork).
+  // Drop actionType on hash navigation, such as ?actionType=closed#issues to #fork; it no longer applies.
   useEffect(() => {
     const hashChangeHandler = () => {
       const { pathname, hash, search } = window.location
 
-      // carry over any other query parameters besides `actionType` for the webhook
-      // action type
+      // Preserve unrelated query parameters when removing actionType.
       const params = new URLSearchParams(search)
       params.delete('actionType')
 
@@ -87,13 +83,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   addUINamespaces(req, mainContext.data.ui, ['parameter_table', 'webhooks'])
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
-  // Get data for initial webhooks page (i.e. only 1 action type per webhook and
-  // no nested parameters)
+  // Landing-page webhooks include one action type per webhook and no nested parameters.
   const webhooks = (await getInitialPageWebhooks(currentVersion)) as unknown as WebhookAction[]
 
-  // Build the minitocs for the webhooks page which is based on the webhook
-  // categories in addition to the Markdown in the webhook-events-and-payloads.md
-  // content file
+  // Add webhook categories to the mini table of contents from webhook-events-and-payloads.md.
   const webhooksMiniTocs = await getAutomatedPageMiniTocItems(
     webhooks.map((webhook) => webhook.data.category),
     context,
