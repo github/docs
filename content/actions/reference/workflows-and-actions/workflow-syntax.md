@@ -684,7 +684,7 @@ We strongly recommend that you include the version of the action you are using b
 
 Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
-Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
+Actions can be JavaScript, composite, or Docker container actions. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
 
 ### Example: Using versioned actions
 
