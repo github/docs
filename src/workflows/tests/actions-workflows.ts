@@ -10,6 +10,8 @@ import { chain, get } from 'lodash-es'
 const githubOwnedActionsRegex =
   /^(actions\/(cache|checkout|download-artifact|upload-artifact)@v\d+(\.\d+)*)$/
 const actionHashRegexp = /^[A-Za-z0-9-/]+@[0-9a-f]{40}$/
+const internalReusableWorkflowRegexp =
+  /^github\/internal-actions\/\.github\/workflows\/[A-Za-z0-9_-]+\.ya?ml@main$/
 const checkoutRegexp = /^[actions/checkout]+@(v\d+(\.\d+)*|[0-9a-f]{40})$/
 const permissionsRegexp = /(read|write)/
 
@@ -125,7 +127,10 @@ describe('GitHub Actions workflows', () => {
   test.each(allUsedActions)('requires specific hash: %p', (actionName) => {
     const matchesGitHubOwnedActions = githubOwnedActionsRegex.test(actionName)
     const matchesActionHash = actionHashRegexp.test(actionName)
-    expect(matchesGitHubOwnedActions || matchesActionHash).toBe(true)
+    const matchesInternalReusableWorkflow = internalReusableWorkflowRegexp.test(actionName)
+    expect(matchesGitHubOwnedActions || matchesActionHash || matchesInternalReusableWorkflow).toBe(
+      true,
+    )
   })
 
   test.each(scheduledWorkflows)(
