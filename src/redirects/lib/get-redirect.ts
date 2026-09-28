@@ -39,13 +39,10 @@ export default function getRedirect(uri: string, context: Context): string | und
   const [language, withoutLanguage] = splitPathByLanguage(uri, userLanguage)
 
   if (withoutLanguage.startsWith('/github-ae@latest')) {
-    // It has a different business logic that the rest because it's a
-    // version that now will always redirect. Just a question of where to
-    // exactly.
+    // githubAERedirect maps GitHub AE URLs to a non-AE destination.
     const nonAERedirect = githubAERedirect(uri, context)
     if (nonAERedirect.includes('/github-ae@latest')) {
-      // If this happened some redirect in there didn't completely
-      // get away from github-ae.
+      // GitHub AE redirects must not point back to GitHub AE.
       throw new Error('Still going to github-ae@latest URL')
     }
     return nonAERedirect
@@ -53,15 +50,9 @@ export default function getRedirect(uri: string, context: Context): string | und
 
   let destination: string | undefined
 
-  // `redirects` is sourced from more than one thing. The primary use
-  // case is gathering up the `redirect_from` frontmatter key.
-  // But we also have `developer.json` which contains legacy redirects.
-  // For example, the `developer.json` will have entries such
-  // `/enterprise/v4/enum/auditlogorderfield` which clearly is using
-  // the old formatting of the version. So to leverage the redirects
-  // from `developer.json` we'll look at it right away.
+  // Check redirects first because developer.json has /enterprise/v4/enum/auditlogorderfield.
   if (withoutLanguage in redirects) {
-    // But only inject the language if it's NOT an external redirect
+    // External redirects already include their full destination.
     if (redirects[withoutLanguage].includes('://')) {
       return redirects[withoutLanguage]
     }
@@ -71,10 +62,10 @@ export default function getRedirect(uri: string, context: Context): string | und
   let basicCorrection: string | undefined
 
   if (withoutLanguage.startsWith(nonEnterpriseDefaultVersionPrefix)) {
-    // E.g. '/free-pro-team@latest/foo/bar' or '/free-pro-team@latest'
+    // Example: /free-pro-team@latest/actions or /free-pro-team@latest
     basicCorrection = `/${language}${withoutLanguage.replace(nonEnterpriseDefaultVersionPrefix, '')}`
   } else if (withoutLanguage.replace('/', '') in allVersions && !languagePrefixRegex.test(uri)) {
-    // E.g. just '/github-ae@latest' or '/enterprise-cloud@latest'
+    // Example: /enterprise-cloud@latest
     basicCorrection = `/${language}${withoutLanguage}`
     return basicCorrection
   }
@@ -83,23 +74,22 @@ export default function getRedirect(uri: string, context: Context): string | und
     withoutLanguage === '/enterprise-server' ||
     withoutLanguage.startsWith('/enterprise-server/')
   ) {
-    // E.g. '/enterprise-server' or '/enterprise-server/3.0/foo'
+    // Example: /enterprise-server or /enterprise-server/3.0/admin
     basicCorrection = `/${language}${withoutLanguage.replace(
       '/enterprise-server',
       `/enterprise-server@${latestStable}`,
     )}`
-    // If it's now just the version, without anything after, exit here
+    // Version home pages need no redirect lookup.
     if (withoutLanguage === '/enterprise-server') {
       return basicCorrection
     }
   } else if (withoutLanguage.startsWith('/enterprise-server@latest')) {
-    // E.g. '/enterprise-server@latest' or '/enterprise-server@latest/3.3/foo'
+    // Example: /enterprise-server@latest or /enterprise-server@latest/3.3/admin
     basicCorrection = `/${language}${withoutLanguage.replace(
       '/enterprise-server@latest',
       `/enterprise-server@${latestStable}`,
     )}`
-    // If it was *just* '/enterprise-server@latest' all that's needed is
-    // the language but with 'latest' replaced with the value of `latest`
+    // Version home pages need only the language and resolved latest version.
     if (withoutLanguage === '/enterprise-server@latest') {
       return basicCorrection
     }
@@ -107,14 +97,10 @@ export default function getRedirect(uri: string, context: Context): string | und
     withoutLanguage.startsWith('/enterprise/') &&
     supportedAndRecentlyDeprecated.includes(withoutLanguage.split('/')[2])
   ) {
-    // E.g. '/enterprise/3.3' or '/enterprise/3.3/foo' or '/enterprise/3.0/foo
-
-    // If the URL is without a language, and no redirect is necessary,
-    // but it has as version prefix, the language has to be there
-    // otherwise it will never be found in `req.context.pages`
+    // Example: /enterprise/3.3/admin needs a language prefix for req.context.pages lookup.
     const version = withoutLanguage.split('/')[2]
     if (withoutLanguage === `/enterprise/${version}`) {
-      // E.g. `/enterprise/3.0`
+      // Example: /enterprise/3.0
       basicCorrection = `/${language}${withoutLanguage.replace(
         `/enterprise/${version}`,
         `/enterprise-server@${version}`,
@@ -127,22 +113,19 @@ export default function getRedirect(uri: string, context: Context): string | und
       )}`
     }
   } else if (withoutLanguage === '/enterprise') {
-    // E.g. `/enterprise` exactly
+    // Example: /enterprise
     basicCorrection = `/${language}/enterprise-server@${latest}`
     return basicCorrection
   } else if (
     withoutLanguage.startsWith('/enterprise/') &&
     !supported.includes(withoutLanguage.split('/')[2])
   ) {
-    // E.g. '/en/enterprise/user/github/foo'
-    // If the URL is without a language, and no redirect is necessary,
-    // but it has as version prefix, the language has to be there
-    // otherwise it will never be found in `req.context.pages`
+    // Example after language removal: /enterprise/user/github/actions needs a language prefix.
     basicCorrection = `/${language}${withoutLanguage
       .replace(`/enterprise/`, `/enterprise-server@${latest}/`)
       .replace('/user/', '/')}`
   } else if (withoutLanguage.startsWith('/insights')) {
-    // E.g. '/insights/foo'
+    // Example: /insights/admin
     basicCorrection = uri.replace('/insights', `${language}/enterprise-server@${latest}/insights`)
   }
 
@@ -162,7 +145,7 @@ export default function getRedirect(uri: string, context: Context): string | und
     withoutLanguage.split('/')[1].includes('@') &&
     withoutLanguage.split('/')[1] in allVersions
   ) {
-    // E.g. '/enterprise-server@latest' or '/github-ae@latest'  or '/enterprise-server@3.3'
+    // The first segment is a known version, such as /enterprise-server@3.XX.
     const majorVersion = withoutLanguage.split('/')[1].split('@')[0]
     const split = withoutLanguage.split('/')
     const version = split[1].split('@')[1]
@@ -181,20 +164,20 @@ export default function getRedirect(uri: string, context: Context): string | und
         suffix = tryReplacements(prefix, suffix, context) || suffix
       }
     } else {
-      // If version is not supported, we still need to set these values
+      // Unsupported versions still need prefix and suffix values for the fallback lookup.
       prefix = `/${majorVersion}@${version}`
       suffix = `/${split.slice(2).join('/')}`
     }
 
     const newURL = prefix + suffix
     if (newURL !== withoutLanguage) {
-      // At least the prefix changed!
+      // Prefix changes can target either a redirect or a live URL.
       destination = redirects[newURL] || newURL
     } else {
       destination = redirects[newURL]
     }
   } else if (withoutLanguage.startsWith('/desktop/guides/')) {
-    // E.g. /desktop/guides/contributing-and-collaborat
+    // Example: /desktop/guides/contributing-and-collaboration
     const newURL = withoutLanguage.replace('/desktop/guides/', '/desktop/')
     destination = redirects[newURL] || newURL
   } else {
@@ -202,8 +185,7 @@ export default function getRedirect(uri: string, context: Context): string | und
   }
 
   if (destination !== undefined) {
-    // There's hope! Now we just need to attach the correct language
-    // to the destination URL.
+    // Redirect destinations need the resolved language prefix.
     return `/${language}${destination}`
   }
 
@@ -214,31 +196,26 @@ function githubAERedirect(uri: string, context: Context): string {
   const { redirects, userLanguage, pages } = context
 
   if (!redirects || !pages) {
-    // Fallback to home page if context is incomplete
+    // Incomplete context cannot choose an equivalent GitHub AE page.
     const [language] = splitPathByLanguage(uri, userLanguage)
     return `/${language}`
   }
 
   const [language, withoutLanguage] = splitPathByLanguage(uri, userLanguage)
 
-  // From now on, github-ae@latest redirects to enterprise-cloud or
-  // fpt or the home page.
+  // Try Enterprise Cloud and Free/Pro/Team equivalents before redirect and home-page fallbacks.
   const cloudEquivalent = uri.replace('/github-ae@latest', '/enterprise-cloud@latest')
   const fptEquivalent = uri.replace('/github-ae@latest', '')
   const withoutVersion = withoutLanguage.replace('/github-ae@latest', '')
   if (!withoutVersion) {
-    // That means the version home page.
-    // Don't even need to check if that exists.
-    // But if it was without language, inject the language as
-    // we go to the enterprise-cloud equivalent
+    // GitHub AE home redirects to Enterprise Cloud without checking pages.
     if (uri.startsWith('/github-ae@latest')) {
       return `/${language}${cloudEquivalent}`
     }
     return cloudEquivalent
   }
 
-  // What if the only missing thing is a language prefix, then
-  // it's easy too.
+  // Language-less GitHub AE URLs can still match a translated equivalent.
   if (uri.startsWith('/github-ae@latest')) {
     const languageCloudEquivalent = `/${language}${cloudEquivalent}`
     if (languageCloudEquivalent in pages) {
@@ -250,7 +227,7 @@ function githubAERedirect(uri: string, context: Context): string {
       return languageFptEquivalent
     }
   } else {
-    // If you're here it means the URL did start with a language.
+    // Language-prefixed GitHub AE URLs can check equivalent pages directly.
     if (cloudEquivalent in pages) {
       return cloudEquivalent
     }
@@ -259,8 +236,7 @@ function githubAERedirect(uri: string, context: Context): string {
     }
   }
 
-  // There are redirect exceptions the specifically spell out github-ae
-  // in the redirect.
+  // Exception redirects can point GitHub AE URLs to a non-AE destination.
   const legacyRedirect = redirects[withoutLanguage]
   if (legacyRedirect && !legacyRedirect.includes('/github-ae@latest')) {
     if (legacyRedirect.includes('://')) {
@@ -269,9 +245,7 @@ function githubAERedirect(uri: string, context: Context): string {
     return `/${language}${legacyRedirect}`
   }
 
-  // The `redirects` are "pure" and don't specific a specific version.
-  // For example `/articles/stuff` to `/get-started/new/name`
-  // We look for those and try enterprise-cloud in it.
+  // Versionless redirects can still land on Enterprise Cloud or Free/Pro/Team equivalents.
   if (redirects[withoutVersion]) {
     const cloudCandidate = `/${language}/enterprise-cloud@latest${redirects[withoutVersion]}`
     if (cloudCandidate in pages) {
@@ -279,8 +253,7 @@ function githubAERedirect(uri: string, context: Context): string {
     }
 
     const fptCandidate = `/${language}${redirects[withoutVersion]}`
-    // The lookup of redirects might yield a versioned URL, whose version
-    // might be github-ae or enterprise-server. Skip those.
+    // GitHub AE and Enterprise Server candidates would keep the reader on the wrong version.
     if (fptCandidate in pages) {
       const versionFromCandidate = getVersionStringFromPath(fptCandidate)
       if (
@@ -294,16 +267,11 @@ function githubAERedirect(uri: string, context: Context): string {
     }
   }
 
-  // Note that this includes completely unknown pages
+  // Unknown GitHub AE pages fall back to the localized home page.
   return `/${language}`
 }
 
-// Over time, we've developed multiple ambiguous patterns of URLs
-// You can't simply assume that all `/admin/guides` should become
-// `/admin` for example.
-// This function tries different string replacement on the suffix
-// (the pathname after the language and version part) until it
-// finds one string replacement that yields either a page or a redirect.
+// Ambiguous suffixes like /admin/guides need the first replacement that hits a page or redirect.
 function tryReplacements(prefix: string, suffix: string, context: Context): string | undefined {
   const { pages, redirects } = context
 
@@ -312,9 +280,7 @@ function tryReplacements(prefix: string, suffix: string, context: Context): stri
   }
 
   const test = (testSuffix: string): boolean => {
-    // This is a generally broad search and replace and this particular
-    // replacement has never been present in api documentation only enterprise
-    // admin documentation, so we're excluding the REST api pages
+    // REST API paths are outside the Enterprise Admin replacement patterns.
     if (testSuffix.includes('/rest')) {
       return false
     }
