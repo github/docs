@@ -60,10 +60,7 @@ interface IgnoredChangesSummary {
 
 let lastIgnoredChanges: Change[] = []
 
-/**
- * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
- * structure written to `targetPath`. (`changelogEntry` and that file are modified in place.)
- */
+// Add today's date to changelogEntry and prepend it to the JSON array at targetPath.
 export function prependDatedEntry(changelogEntry: ChangelogEntry, targetPath: string): void {
   const todayString = new Date().toISOString().slice(0, 10)
   changelogEntry.date = todayString
@@ -73,17 +70,13 @@ export function prependDatedEntry(changelogEntry: ChangelogEntry, targetPath: st
   previousChangelog.unshift(changelogEntry)
   fs.writeFileSync(targetPath, JSON.stringify(previousChangelog, null, 2))
 
-  // Ensure a content page exists for this entry's year
   const year = todayString.slice(0, 4)
   ensureYearPage(year)
 }
 
 const DEFAULT_CHANGELOG_CONTENT_DIR = nodePath.join('content', 'graphql', 'overview', 'changelog')
 
-/**
- * If a year-specific content page doesn't exist yet (e.g. 2027.md),
- * create it and prepend it to the children list in index.md.
- */
+// Create a missing year page and prepend it to the changelog index when its first entry arrives.
 export function ensureYearPage(
   year: string,
   contentDir: string = DEFAULT_CHANGELOG_CONTENT_DIR,
@@ -110,12 +103,6 @@ export function ensureYearPage(
   fs.writeFileSync(indexPath, updated)
 }
 
-/**
- * Compare `oldSchemaString` to `newSchemaString`, and if there are any
- * changes that warrant a changelog entry, return a changelog entry.
- * Based on the parsed `previews`, identify changes that are under a preview.
- * Otherwise, return null.
- */
 export async function createChangelogEntry(
   oldSchemaString: string,
   newSchemaString: string,
@@ -159,8 +146,7 @@ export async function createChangelogEntry(
   )
 
   const addedUpcomingChanges = newUpcomingChanges.filter(function (change): boolean {
-    // Manually check each of `newUpcomingChanges` for an equivalent entry
-    // in `oldUpcomingChanges`.
+    // Match upcoming changes by location, date, and description.
     return !oldUpcomingChanges.find(function (oldChange) {
       return (
         oldChange.location === change.location &&
@@ -189,7 +175,6 @@ export async function createChangelogEntry(
     )
     const schemaChange: ChangelogSchemaChange = {
       title: 'The GraphQL schema includes these changes:',
-      // Replace single quotes which wrap field/argument/type names with backticks
       changes: renderedScheamChanges,
     }
     changelogEntry.schemaChanges.push(schemaChange)
@@ -236,9 +221,7 @@ export async function createChangelogEntry(
   }
 }
 
-/**
- * Prepare the preview title from github/github source for the docs.
- */
+// github/github preview titles need docs-style wording before rendering.
 export function cleanPreviewTitle(title: string): string {
   if (title === 'UpdateRefsPreview') {
     title = 'Update refs preview'
@@ -250,10 +233,7 @@ export function cleanPreviewTitle(title: string): string {
   return title
 }
 
-/**
- * Turn the given title into an HTML-ready anchor.
- * (ported from graphql-docs/lib/graphql_docs/update_internal_developer/change_log.rb#L281)
- */
+// Anchor generation matches the changelog URL format.
 export function previewAnchor(previewTitle: string): string {
   return previewTitle
     .toLowerCase()
@@ -261,29 +241,18 @@ export function previewAnchor(previewTitle: string): string {
     .replace(/[^\w-]/g, '')
 }
 
-/**
- * Turn changes from graphql-inspector into messages for the HTML changelog.
- */
 export function cleanMessagesFromChanges(changes: Change[]): string[] {
   return changes.map(function (change): string {
-    // replace single quotes around graphql names with backticks,
-    // to match previous behavior from graphql-schema-comparator
+    // Wrap quoted GraphQL names in Markdown code spans for changelog rendering.
     return change.message.replace(/'([a-zA-Z. :!]+)'/g, '`$1`')
   })
 }
 
-/**
- * Split `changesToReport` into two parts,
- * one for changes in the main schema,
- * and another for changes that are under preview.
- * (Ported from /graphql-docs/lib/graphql_docs/update_internal_developer/change_log.rb#L230)
- */
+// Preview-toggled paths and their ancestors move changes out of the main schema section.
 export function segmentPreviewChanges(
   changesToReport: Change[],
   previews: Preview[],
 ): SegmentedChanges {
-  // Build a map of `{ path => previewTitle` }
-  // for easier lookup of change to preview
   const pathToPreview: Record<string, string> = {}
   for (const preview of previews) {
     for (const path of preview.toggled_on) {
@@ -294,8 +263,7 @@ export function segmentPreviewChanges(
   const changesByPreview: Record<string, PreviewChanges> = {}
 
   for (const change of changesToReport) {
-    // For each change, see if its path _or_ one of its ancestors
-    // is covered by a preview. If it is, mark this change as belonging to a preview
+    // Preview ownership applies when the change path or an ancestor path is toggled on.
     const pathParts = change.path?.split('.') || []
     let testPath: string | null = null
     let previewTitle: string | null = null
@@ -303,8 +271,6 @@ export function segmentPreviewChanges(
     while (pathParts.length > 0 && !previewTitle) {
       testPath = pathParts.join('.')
       previewTitle = pathToPreview[testPath]
-      // If that path didn't find a match, then we'll
-      // check the next ancestor.
       pathParts.pop()
     }
     if (previewTitle) {
@@ -322,11 +288,8 @@ export function segmentPreviewChanges(
   return { schemaChangesToReport: schemaChanges, previewChangesToReport: changesByPreview }
 }
 
-// We only want to report changes to schema structure.
-// Deprecations are covered by "upcoming changes."
-// By listing the changes explicitly here, we can make sure that,
-// if the library changes, we don't miss publishing anything that we mean to.
-// This was originally ported from graphql-docs/lib/graphql_docs/update_internal_developer/change_log.rb#L35-L103
+// Report only schema-structure changes; deprecations come from upcoming changes.
+// Unknown change types log for review instead of appearing in the changelog.
 const CHANGES_TO_REPORT = [
   ChangeType.FieldArgumentDefaultChanged,
   ChangeType.FieldArgumentTypeChanged,
@@ -353,9 +316,6 @@ const CHANGES_TO_REPORT = [
   ChangeType.SchemaSubscriptionTypeChanged,
   ChangeType.DirectiveUsageFieldDefinitionRemoved,
 ]
-
-// Anything not in CHANGES_TO_REPORT is logged as ignored rather than reported,
-// so a new change type added upstream cannot break this script.
 
 export function getLastIgnoredChanges(): Change[] {
   return lastIgnoredChanges
