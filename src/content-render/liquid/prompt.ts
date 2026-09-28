@@ -1,4 +1,4 @@
-// Defines {% prompt %}…{% endprompt %} to wrap its content in <code> and append the Copilot icon.
+// The prompt tag wraps content in code and appends Copilot links with responsive labels.
 
 import octicons from '@primer/octicons'
 import type { TagToken, TopLevelToken } from 'liquidjs'
@@ -32,9 +32,9 @@ export const Prompt: LiquidTag = {
 
     const promptParam: string = encodeURIComponent(contentString)
     const href: string = `https://github.com/copilot?prompt=${promptParam}`
-    // Use murmur hash for deterministic ID (avoids hydration mismatch)
+    // Deterministic IDs prevent hydration mismatches.
     const promptId: string = generatePromptId(contentString)
-    // Show long text on larger screens and short text on smaller screens (set via accessibility.scss)
+    // accessibility.scss shows the long label on large screens and short label on small screens.
     const promptLabelLong: string = 'Run this prompt in Copilot Chat'
     const promptLabelShort: string = 'Run prompt'
     return [

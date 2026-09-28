@@ -62,7 +62,7 @@ describe('collect-mini-toc rehype plugin', () => {
   })
 
   test('does not collect when collectMiniToc is not provided', async () => {
-    // Should not throw — plugin is a no-op without collectInto
+    // Without collectMiniToc, the plugin is a no-op.
     const result = await renderContent('## Heading')
     expect(result).toContain('Heading')
   })

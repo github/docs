@@ -124,7 +124,6 @@ on: [push]
 \`\`\`
 `
 
-    // Create a mock context with pages for AUTOTITLE resolution
     const mockPages: Record<string, { href: string; rawTitle: string }> = {
       '/get-started/start-your-journey/hello-world': {
         href: '/get-started/start-your-journey/hello-world',
@@ -141,7 +140,7 @@ on: [push]
       currentVersion: 'free-pro-team@latest',
       pages: mockPages,
       redirects: {},
-      // Mock test object doesn't need all Context properties, using 'as unknown as' to bypass strict type checking
+      // AUTOTITLE resolution reads only these Context fields.
     } as unknown as Context
 
     const res = await renderContent(autotitleExample, mockContext)
