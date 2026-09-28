@@ -2,6 +2,9 @@
 title: REST API endpoints for issue field values
 shortTitle: Issue field values
 intro: Use the REST API to view and manage issue field values for issues.
+redirect_from:
+  - /early-access/issue-fields
+  - /early-access/issue-fields/issue-field-values-rest-api
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
