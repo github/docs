@@ -1,5 +1,3 @@
-// This schema enforces the structure in data/tables/rest-api-versions.yml
-
 export default {
   type: 'object',
   additionalProperties: false,
