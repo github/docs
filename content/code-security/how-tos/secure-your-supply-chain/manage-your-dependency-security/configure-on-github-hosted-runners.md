@@ -25,7 +25,13 @@ If you restrict access to your organization's or repository's private resources,
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
+{% ifversion dependabot-repository-runner-settings %}
+1. Under "Dependency scanning", in the "{% data variables.product.prodname_dependabot %} version updates" section, next to "Runner type", click {% octicon "pencil" aria-label="Edit runner type" %}.
+1. From the "Runner type" dropdown menu, select **Standard {% data variables.product.github %} runner**.
+1. Click **Save runner selection**.
+{% else %}
 1. Under "Dependabot", to the right of "{% data variables.product.prodname_dependabot %} on Actions runners", click **Enable** to enable the feature or **Disable** to disable it.
+{% endif %}
 
     {% data reusables.dependabot.no-ubuntu-latest-label-self-hosted %}
 
