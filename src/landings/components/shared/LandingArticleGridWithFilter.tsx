@@ -10,6 +10,7 @@ import { ChildTocItem, TocItem } from '@/landings/types'
 import { LandingType } from '@/landings/context/LandingContext'
 import type { QueryParams } from '@/search/components/hooks/useMultiQueryParams'
 import { flattenArticles, deriveStopWords, searchArticles } from '@/landings/lib/article-search'
+import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
 
 import styles from './LandingArticleGridWithFilter.module.scss'
 
@@ -286,13 +287,7 @@ export const ArticleGrid = ({
                     key={category}
                     value={category}
                     selected={index === selectedCategoryIndex}
-                    onKeyDownCapture={(event: React.KeyboardEvent<HTMLLIElement>) => {
-                      if (event.key !== 'Enter' && event.key !== ' ') return
-                      // Brand handles Enter in both the overlay and item; use one click instead.
-                      event.preventDefault()
-                      event.stopPropagation()
-                      event.currentTarget.click()
-                    }}
+                    onKeyDownCapture={onActionMenuItemKeyDownCapture}
                   >
                     {category === ALL_CATEGORIES ? t('article_grid.all_categories') : category}
                   </ActionMenu.Item>
