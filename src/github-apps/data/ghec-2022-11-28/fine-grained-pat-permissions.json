@@ -4208,6 +4208,15 @@
       },
       {
         "category": "actions",
+        "slug": "download-step-logs-for-a-workflow-run-job",
+        "subcategory": "workflow-jobs",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/steps/{step_number}/logs",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
         "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
         "subcategory": "oidc",
         "verb": "get",

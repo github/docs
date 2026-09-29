@@ -1967,6 +1967,15 @@
                               "write"
                             ]
                           },
+                          "organization_external_properties_for_repos": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token for managing external custom properties for repositories in an organization.",
+                            "enum": [
+                              "read",
+                              "write",
+                              "admin"
+                            ]
+                          },
                           "organization_announcement_banners": {
                             "type": "string",
                             "description": "The level of permission to grant the access token to view and manage announcement banners for an organization.",
@@ -7981,6 +7990,618 @@
     }
   ],
   "custom-properties": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations",
+      "title": "Get registered app installations for external custom properties",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the registered GitHub App installations used to read and write external custom properties for an organization.</p>\n<p>A GitHub App installation token will only be able to see its own registration info, whereas an authenticated user will be able to see all registrations for the organization.</p>\n<p>To use this endpoint, the authenticated caller must have the <code>organization_external_properties_for_repos:admin</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "value": {
+                  "display_name": "Acme",
+                  "installation": {
+                    "id": 1
+                  }
+                }
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Organization External Custom Property Installation",
+                "description": "A GitHub App installation that has been registered to read and write an organization's external custom properties, together with the display name assigned to it.",
+                "type": "object",
+                "properties": {
+                  "display_name": {
+                    "type": "string",
+                    "description": "The display name assigned to the app installation's external custom properties in the organization."
+                  },
+                  "installation": {
+                    "type": "object",
+                    "description": "The GitHub App installation that was registered.",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "The unique identifier of the GitHub App installation."
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  }
+                },
+                "required": [
+                  "display_name",
+                  "installation"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "admin"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/properties/installations",
+      "title": "Register an app installation for external custom properties",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "integer",
+          "name": "installation_id",
+          "description": "<p>The unique identifier of the GitHub App installation to register for managing external custom properties. When authenticating as a GitHub App installation, this defaults to the authenticated installation and can be omitted. It is required for all other callers (users and fine-grained personal access tokens).</p>"
+        },
+        {
+          "type": "string",
+          "name": "display_name",
+          "description": "<p>The display name for this app installation's external custom properties in the organization. This can't be changed after the app installation is registered.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Registers a GitHub App installation so it can read and write external custom properties for an organization, and assigns it a display name.</p>\n<p>An app installation can only be registered once, and its display name can't be changed afterward. Calling with an app installation that has already been registered returns a <code>422</code> response with an <code>already_exists</code> error code.</p>\n<p>Uninstalling the GitHub App unregisters it, and removes the external custom properties it created.</p>\n<p>To use this endpoint, the authenticated caller must have the <code>organization_external_properties_for_repos:admin</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "installation_id": 67890,
+              "display_name": "Acme"
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "display_name": "Acme",
+              "installation": {
+                "id": 1
+              }
+            },
+            "schema": {
+              "title": "Organization External Custom Property Installation",
+              "description": "A GitHub App installation that has been registered to read and write an organization's external custom properties, together with the display name assigned to it.",
+              "type": "object",
+              "properties": {
+                "display_name": {
+                  "type": "string",
+                  "description": "The display name assigned to the app installation's external custom properties in the organization."
+                },
+                "installation": {
+                  "type": "object",
+                  "description": "The GitHub App installation that was registered.",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "The unique identifier of the GitHub App installation."
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              },
+              "required": [
+                "display_name",
+                "installation"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "admin"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations/schema",
+      "title": "Get all external custom properties for a GitHub App installation in an organization",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets all external custom properties defined for the authenticated GitHub App installation on an organization.</p>\n<p>To use this endpoint, the authenticated GitHub App must have the <code>organization_external_properties_for_repos:read</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "property_name": "environment"
+              },
+              {
+                "property_name": "business_unit"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "External Property",
+                "description": "External custom property defined for a GitHub App installation",
+                "type": "object",
+                "properties": {
+                  "property_name": {
+                    "type": "string",
+                    "description": "The name of the external property"
+                  }
+                },
+                "required": [
+                  "property_name"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/installations/values",
+      "title": "Create or update external custom property values for organization repositories",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "repository_names",
+          "description": "<p>The names of repositories that the external custom property values will be applied to.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "array of objects",
+          "name": "properties",
+          "description": "<p>List of external custom property names and associated values to apply to the repositories.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "property_name",
+              "description": "<p>The name of the property</p>",
+              "isRequired": true
+            },
+            {
+              "type": "null or string or array",
+              "name": "value",
+              "description": "<p>The value assigned to the property</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Create new or update existing external custom property values for repositories in a batch that belong to an organization.\nEach target repository will have its external custom property values updated to match the values provided in the request.</p>\n<p>A maximum of 30 repositories can be updated in a single request.</p>\n<p>Using a value of <code>null</code> for an external custom property will remove or 'unset' the property value from the repository.</p>\n<p>To use this endpoint, the authenticated GitHub App must have the <code>organization_external_properties_for_repos:write</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "repository_names": [
+                "Hello-World",
+                "octo-repo"
+              ],
+              "properties": [
+                {
+                  "property_name": "environment",
+                  "value": "production"
+                },
+                {
+                  "property_name": "service",
+                  "value": "web"
+                },
+                {
+                  "property_name": "team",
+                  "value": "octocat"
+                }
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>No Content when external custom property values are successfully created or updated</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content when external custom property values are successfully created or updated</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/installations/values/{property_name}",
+      "title": "Create or update external custom property values for a property across organization repositories",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "property_name",
+          "description": "<p>The name of the external custom property</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of objects",
+          "name": "repository_values",
+          "description": "<p>The names of repositories and the values that the named external custom property will be set to.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "repository_name",
+              "description": "<p>The name of the repository</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string or null",
+              "name": "value",
+              "description": "<p>The value assigned to the repository. Set to <code>null</code> to unset the value for this repository.</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Create new or update existing external custom property values for a single named property across repositories that belong to an organization.</p>\n<p>Up to 100 repository values can be updated in a single request. Repositories not included in the request are left unchanged.</p>\n<p>Using a value of <code>null</code> for a repository will remove or 'unset' the property value for that repository. A request that only contains <code>null</code> values for a property that does not yet exist is a no-op.</p>\n<p>To use this endpoint, the authenticated GitHub App must have the <code>organization_external_properties_for_repos:write</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "repository_values": [
+                {
+                  "repository_name": "Hello-World",
+                  "value": "production"
+                },
+                {
+                  "repository_name": "octo-repo",
+                  "value": null
+                }
+              ]
+            },
+            "parameters": {
+              "org": "ORG",
+              "property_name": "PROPERTY_NAME"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/properties/installations/values/{property_name}",
+      "title": "Remove all external custom property values for a property across all organization repositories",
+      "category": "orgs",
+      "subcategory": "custom-properties",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "property_name",
+          "description": "<p>The name of the external custom property</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Removes all external custom property values for a specified property name across all repositories that belong to an organization.</p>\n<p>To use this endpoint, the authenticated GitHub App must have the <code>organization_external_properties_for_repos:write</code> permission.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "property_name": "PROPERTY_NAME"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"External custom properties for repositories\" organization permissions": "write"
+          }
+        ]
+      }
+    },
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
