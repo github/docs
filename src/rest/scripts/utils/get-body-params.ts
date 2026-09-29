@@ -62,15 +62,16 @@ async function getTopLevelOneOfProperty(
   // need to display all of the parameters.
   // This merges all of the properties and required values.
   if (allOneOfAreObjects) {
-    for (const each of schema.oneOf.slice(1)) {
-      if (firstOneOfObject.properties && each.properties) {
-        Object.assign(firstOneOfObject.properties, each.properties)
+    required = []
+    properties = {}
+    for (const each of schema.oneOf) {
+      if (each.properties) {
+        Object.assign(properties, each.properties)
       }
-      if (firstOneOfObject.required && each.required) {
-        required = firstOneOfObject.required.concat(each.required)
+      if (each.required) {
+        required = required.concat(each.required)
       }
     }
-    properties = firstOneOfObject.properties || {}
   }
   return { properties, required }
 }

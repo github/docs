@@ -125,7 +125,7 @@ describe('contentFilesToPageKeys', () => {
       { filename: 'content/get-started/bar.md', status: 'added' },
       { filename: 'content/get-started/foo.md', status: 'modified' },
     ])
-    // One key per source page, deduped, covering every version-URL of the page.
+    // One surrogate key covers every version URL for a source page.
     expect(keys).toEqual([
       'language:en,path:get-started/foo.md',
       'language:en,path:get-started/bar.md',
@@ -154,10 +154,9 @@ describe('chunk', () => {
 })
 
 describe('hardPurgeSurrogateKeys', () => {
-  // Skips the between-pass delay so tests don't wait 20 real seconds.
+  // Tests skip the 20-second between-pass delay.
   const noSleep = async () => {}
 
-  // A minimal stand-in for a fetch Response, with a case-insensitive headers.get.
   function fakeResponse(
     status: number,
     { headers = {}, ok = false }: { headers?: Record<string, string>; ok?: boolean } = {},
@@ -191,7 +190,6 @@ describe('hardPurgeSurrogateKeys', () => {
     expect(JSON.parse(init.body)).toEqual({
       surrogate_keys: ['language:en,path:a.md', 'language:en,path:b.md'],
     })
-    // The second pass repeats the identical batch.
     expect(fetchWithRetry.mock.calls[1][1].body).toBe(init.body)
   })
 
@@ -257,7 +255,7 @@ describe('hardPurgeSurrogateKeys', () => {
       .mockResolvedValueOnce(fakeResponse(429, { headers: { 'retry-after': '0' } }))
       .mockResolvedValue(fakeResponse(200, { ok: true }))
     await hardPurgeSurrogateKeys(['language:en,path:a.md'], 'tok', 'svc', () => 0, noSleep)
-    // 429 + retry on the first pass, then one call for the second pass.
+    // The first pass gets a 429 and retries once; the second pass makes one call.
     expect(fetchWithRetry).toHaveBeenCalledTimes(3)
   })
 
@@ -266,7 +264,7 @@ describe('hardPurgeSurrogateKeys', () => {
     await expect(
       hardPurgeSurrogateKeys(['language:en,path:a.md'], 'tok', 'svc', () => 0, noSleep),
     ).rejects.toThrow(/2 of 2 batch purge\(s\) failed/)
-    // (Initial attempt + 5 retries) x 2 passes.
+    // Initial attempt plus 5 retries, times 2 passes.
     expect(fetchWithRetry).toHaveBeenCalledTimes(12)
   })
 })
@@ -309,8 +307,7 @@ describe('rateLimitDelayMs', () => {
   })
 
   test('adds jitter on top of a server hint to decorrelate workers', () => {
-    // Math.random -> 0.5 gives jitter = floor(0.5 * 150) = 75ms, added on top of
-    // the honored 5000ms hint so concurrent retries don't wake in lockstep.
+    // Math.random of 0.5 adds 75 ms to the 5000 ms hint, so retries do not wake together.
     vi.spyOn(Math, 'random').mockReturnValue(0.5)
     expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '5' }), 0)).toBe(5075)
   })
@@ -323,19 +320,18 @@ describe('rateLimitDelayMs', () => {
 
   test('clamps any delay to the maximum', () => {
     vi.spyOn(Math, 'random').mockReturnValue(0)
-    // 1000 * (40 + 1) would be 41,000ms; clamped to 30,000.
+    // 1000 * (40 + 1) would be 41,000 ms, so the 30,000 ms cap applies.
     expect(rateLimitDelayMs(fakeResponse({}), 40)).toBe(30_000)
-    // A far-future server hint is likewise capped.
+    // The 30,000 ms cap also applies to far-future server hints.
     expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '99999' }), 0)).toBe(30_000)
   })
 
   test('floors a stale or zero hint at the backoff instead of retrying instantly', () => {
     vi.spyOn(Math, 'random').mockReturnValue(0)
-    // A negative Retry-After and an already-elapsed reset both compute to <= 0,
-    // but must not collapse the retry to 0ms; they floor at the backoff.
+    // Negative Retry-After and elapsed reset hints floor at backoff, so retries never hit 0 ms.
     expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '-5' }), 0)).toBe(1000)
     expect(rateLimitDelayMs(fakeResponse({ 'fastly-ratelimit-reset': '1' }), 0)).toBe(1000)
-    // The floor grows with the attempt count, same as a hintless backoff.
+    // Hint floors use the same attempt-based backoff as missing hints.
     expect(rateLimitDelayMs(fakeResponse({ 'retry-after': '0' }), 2)).toBe(3000)
   })
 })

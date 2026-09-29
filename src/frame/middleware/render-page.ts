@@ -52,8 +52,9 @@ async function buildRenderedPageHast(req: ExtendedRequest) {
 
   try {
     const hastContext = { ...context, collectMiniToc: undefined }
-    const { hast } = await renderContentToHast(page.markdown, hastContext)
-    return hast || undefined
+    const { hast, html } = await renderContentToHast(page.markdown, hastContext)
+    // A whitespace-only body yields an empty root, which consumers would treat as content.
+    return hast && html.trim() ? hast : undefined
   } catch (error) {
     logger.error(
       'buildRenderedPageHast failed; falling back to string path',

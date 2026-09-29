@@ -133,10 +133,11 @@ describe('server', () => {
     expect(res.statusCode).toBe(404)
   })
 
-  // The skip predates the native-fetch helper, which sends this malformed path unchanged.
-  test.skip('renders a 400 for invalid paths', async () => {
-    const $ = await getDOM('/en/%7B%')
-    expect($.res.statusCode).toBe(400)
+  test('renders a 400 for invalid paths', async () => {
+    const res = await get('/en/%7B%')
+    expect(res.statusCode).toBe(400)
+    expect(res.headers['content-type']).toMatch('text/plain')
+    expect(res.body).toBe('Bad Request: Malformed URL')
   })
 
   test('renders a 500 page when errors are thrown', async () => {

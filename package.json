@@ -351,7 +351,7 @@
     "@opentelemetry/otlp-transformer": {
       "protobufjs": "^8.6.5"
     },
-    "undici": "^6.28.0",
+    "undici": "^6.29.0",
     "cheerio": {
       "undici": "^7.29.0"
     },

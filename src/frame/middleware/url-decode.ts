@@ -11,11 +11,7 @@ export default function urlDecode(req: ExtendedRequest, res: Response, next: Nex
     return next()
   }
 
-  try {
-    const decodedUrl = originalUrl.replace(/%40/g, '@')
-    req.url = decodedUrl
-    return next()
-  } catch {
-    return next()
-  }
+  const decodedUrl = originalUrl.replace(/%40/g, '@')
+  req.url = decodedUrl
+  return next()
 }

@@ -15,7 +15,8 @@ export default function handleInvalidNextPaths(
 ) {
   if (
     process.env.NODE_ENV !== 'development' &&
-    ((req.path.startsWith('/_next/') && !req.path.startsWith('/_next/data')) ||
+    ((req.path.startsWith('/_next/') &&
+      !(req.path.startsWith('/_next/data/') && req.path.endsWith('.json'))) ||
       req.query?.['__nextFallback'])
   ) {
     defaultCacheControl(res)

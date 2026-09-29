@@ -134,11 +134,12 @@
 // The category dropdown follows the Sort by pattern: muted label,
 // bold value, Action/Small type, and transparent background.
 .categoryDropdown {
-  // Mobile clips the control inside row 1 so long category values do not widen the row.
+  // Mobile: sit at the right end of row 1 (next to the title) and allow the
+  // control to shrink so a long category value ellipsises rather than pushing
+  // the row wider. Keep overflow visible for Brand's non-portaled overlay.
   justify-self: end;
   min-width: 0;
   max-width: 100%;
-  overflow: hidden;
 
   button {
     max-width: 100%;
@@ -149,31 +150,29 @@
     box-shadow: none !important;
     text-align: left !important;
 
-    // Primer ButtonBase sets min-width: max-content on the button and its
-    // inner content/label spans, preventing the label from shrinking. Force the
-    // whole track to shrink, and make the label a flex row so the value can
-    // take the remaining space and ellipsise.
-    span {
-      min-width: 0 !important;
-      max-width: 100%;
-      justify-content: start !important;
+    :global([class*="Button__text"]),
+    :global([class*="Button--label"]) {
+      min-width: 0;
     }
 
-    // The label span holds Category: plus the value, so flex lets the value ellipsise.
-    // Target by class substring because Primer's hashed class is version-specific.
-    :global([class*="Button-Label"]) {
-      display: flex;
-      align-items: baseline;
-      gap: 0.25rem;
-      overflow: hidden;
+    :global([class*="Button__trailing-visual"]) {
+      flex-shrink: 0;
     }
+  }
 
-    // Primer Button-Content uses label and visual tracks; shrink the label
-    // to keep the caret inside.
-    :global([class*="Button-Content"]) {
-      grid-template-columns: minmax(0, auto) auto;
-      overflow: hidden;
-    }
+  .categoryButtonLabel {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    overflow: hidden;
+  }
+
+  [role="menu"] {
+    border-color: var(--brand-color-border-default);
+  }
+
+  [role="menuitemradio"] {
+    padding-inline-end: var(--base-size-8);
   }
 
   @include breakpoint(md) {

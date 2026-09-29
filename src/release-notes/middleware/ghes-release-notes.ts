@@ -2,9 +2,8 @@ import type { NextFunction, Response } from 'express'
 
 import { formatReleases, renderPatchNotes } from '@/release-notes/lib/release-notes-utils'
 import { all, latestStable } from '@/versions/lib/enterprise-server-releases'
-import { executeWithFallback } from '@/languages/lib/render-with-fallback'
 import { getReleaseNotes } from './get-release-notes'
-import type { Context, ExtendedRequest } from '@/types'
+import type { ExtendedRequest } from '@/types'
 
 export default async function ghesReleaseNotesContext(
   req: ExtendedRequest,
@@ -42,19 +41,7 @@ export default async function ghesReleaseNotesContext(
   req.context.currentLanguage = 'en'
 
   try {
-    req.context.ghesReleaseNotes = await executeWithFallback(
-      req.context,
-      () => renderPatchNotes(currentReleaseNotes, req.context!),
-      (enContext: Context) => {
-        // Unreachable while currentLanguage is forced to en; rebuild props if that changes.
-        enContext.ghesReleases = formatReleases(ghesReleaseNotes)
-
-        const enMatchedNotes = enContext.ghesReleases!.find((r) => r.version === requestedRelease)
-        if (!enMatchedNotes) throw new Error('Release notes not found')
-        const enCurrentNotes = enMatchedNotes.patches
-        return renderPatchNotes(enCurrentNotes, enContext)
-      },
-    )
+    req.context.ghesReleaseNotes = await renderPatchNotes(currentReleaseNotes, req.context)
   } finally {
     req.context.currentLanguage = originalLanguage
   }

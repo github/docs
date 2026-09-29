@@ -124,30 +124,11 @@ describe('pages module', () => {
       expect(nonMatches.length, message).toBe(0)
     })
 
-    test('every page has valid frontmatter', async () => {
-      const frontmatterErrors = chain(pages)
-        // Loaded pages cannot expose frontmatterErrors because Page throws before construction.
-        .map((page) => (page as Record<string, unknown>).frontmatterErrors)
-        .filter(Boolean)
-        .flatten()
-        .value()
-
-      const failureMessage = `${JSON.stringify(frontmatterErrors, null, 2)}\n\n${chain(
-        frontmatterErrors,
-      )
-        .map('filepath')
-        .join('\n')
-        .value()}`
-
-      expect(frontmatterErrors.length, failureMessage).toBe(0)
-    })
-
     test('every page has valid Liquid templating', async () => {
       const liquidErrors: Array<{ filename: string; error: string }> = []
 
       for (const page of pages) {
-        // raw is not a Page property here, so this loop does not parse page markdown.
-        const markdown = (page as Record<string, unknown>).raw as string
+        const markdown = page.markdown
         if (!patterns.hasLiquid.test(markdown)) continue
         try {
           await liquid.parse(markdown)

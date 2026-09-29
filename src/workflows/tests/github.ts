@@ -5,11 +5,9 @@ import { RequestError } from '@octokit/request-error'
 
 import { isRequestError } from '@/workflows/github'
 
-// `@octokit/request` throws errors built from whichever copy of
-// `@octokit/request-error` resolves from its own location, which npm may or may
-// not hoist to the top level. Resolve it the same way Node would so this test
-// keeps working either way. When it is a separate copy, `instanceof` against the
-// top-level class fails, and that is the whole reason `isRequestError` exists.
+// @octokit/request throws errors from the @octokit/request-error copy that resolves from
+// its package path. Resolve that copy the way Node does, because instanceof against the
+// top-level class fails when npm installs a separate nested copy.
 const requireFromRequest = createRequire(createRequire(import.meta.url).resolve('@octokit/request'))
 const nested = await import(requireFromRequest.resolve('@octokit/request-error'))
 
@@ -23,8 +21,7 @@ function makeError(RequestErrorClass: typeof RequestError, status: number, messa
 describe('isRequestError', () => {
   test('matches an error thrown from the copy @octokit/request uses', () => {
     const err = makeError(nested.RequestError, 404, 'Not Found')
-    // When npm does not hoist to a single copy, this is the case a plain
-    // `instanceof RequestError` gets wrong.
+    // This nested-copy case is where plain instanceof RequestError fails.
     if (nested.RequestError !== RequestError) {
       expect(err instanceof RequestError).toBe(false)
     }

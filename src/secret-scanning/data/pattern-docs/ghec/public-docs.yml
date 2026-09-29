@@ -201,11 +201,31 @@
   base64Supported: true
   isduplicate: true
 - provider: Anthropic
+  supportedSecret: Anthropic Service Account API Key
+  secretType: anthropic_service_api_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Anthropic
   supportedSecret: Anthropic Session ID
   secretType: anthropic_session_id
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Anthropic
+  supportedSecret: Anthropic User API Key
+  secretType: anthropic_user_api_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3078,7 +3098,7 @@
   supportedSecret: Lovable API Key
   secretType: lovable_api_key
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -4064,6 +4084,26 @@
   hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
+- provider: Pydantic Services Inc.
+  supportedSecret: Logfire Token
+  secretType: logfire_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Pydantic Services Inc.
+  supportedSecret: Pydantic AI Gateway API Key
+  secretType: pydantic_ai_gateway_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: PyPI
   supportedSecret: PyPI API Token
   secretType: pypi_api_token
@@ -4718,7 +4758,7 @@
   supportedSecret: Supabase OAuth Access Token
   secretType: supabase_oauth_access_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -4738,7 +4778,7 @@
   supportedSecret: Supabase Personal Access Token (scoped)
   secretType: supabase_scoped_personal_access_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false

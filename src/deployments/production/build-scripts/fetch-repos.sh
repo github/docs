@@ -44,6 +44,10 @@ else
   echo "✅  All translations fetched."
 fi
 
+# The Dockerfile copies translations/ into the image, and each .git/config keeps
+# the token-bearing clone URL. Nothing reads translation git metadata at runtime.
+rm -rf ./*/.git
+
 # Return to the docs-internal root after cloning translations.
 cd ..
 

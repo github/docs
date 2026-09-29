@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 
-import { getBodyParams } from '../get-body-params'
+import { getBodyParams, type Schema } from '@/rest/scripts/utils/get-body-params'
 
 // Mock render-content so tests don't require the full content-render pipeline
 vi.mock('../render-content', () => ({
@@ -58,9 +58,8 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     expect(params[0].type).toBe('object or null')
   })
 
-  it('renders anyOf [{type:"null"},{type:"string"}] as "string" (no object found, falls back to first non-null via existing path)', async () => {
+  it('renders anyOf [{type:"string"},{type:"null"}] as "string" using the first option fallback', async () => {
     // When anyOf has no object, it uses the existing fallback: param.anyOf[0].type
-    // The null entry is at index 0, so this tests the non-null fallback path
     const schema = {
       type: 'object',
       properties: {
@@ -74,6 +73,40 @@ describe('getBodyParams — OAS 3.1 nullable handling', () => {
     expect(params[0].name).toBe('label')
     // No object found in anyOf → falls back to anyOf[0].type = 'string'
     expect(params[0].type).toBe('string')
+  })
+
+  it('preserves required fields from all object-only top-level oneOf alternatives', async () => {
+    const schema: Schema = {
+      oneOf: [
+        {
+          type: 'object',
+          properties: {
+            first: { type: 'string', description: 'First value' },
+          },
+          required: ['first'],
+        },
+        {
+          type: 'object',
+          properties: {
+            middle: { type: 'string', description: 'Middle value' },
+          },
+          required: ['middle'],
+        },
+        {
+          type: 'object',
+          properties: {
+            last: { type: 'string', description: 'Last value' },
+          },
+          required: ['last'],
+        },
+      ],
+    }
+    const params = await getBodyParams(schema, true)
+    expect(params.map(({ name, isRequired }) => [name, isRequired])).toEqual([
+      ['first', true],
+      ['middle', true],
+      ['last', true],
+    ])
   })
 
   // ── OAS 3.1 type: ["string", "null"] scalar ─────────────────────────────
