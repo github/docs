@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react'
 import { useRouter } from 'next/router'
-import { ActionMenu, ActionList } from '@primer/react'
-import { Card, Pagination, TextInput, Token } from '@primer/react-brand'
+import { ActionMenu, Card, Pagination, TextInput, Token } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import cx from 'clsx'
@@ -263,29 +262,41 @@ export const ArticleGrid = ({
         <div className={styles.controls}>
           {/* Text-style control matches the Sort by pattern. */}
           <div className={styles.categoryDropdown}>
-            <ActionMenu>
-              <ActionMenu.Button>
-                <span className={styles.categoryLabel}>
-                  {t('article_grid.filter_by_category')}:
-                </span>{' '}
-                <span className={styles.categoryValue}>
-                  {categories[selectedCategoryIndex] === ALL_CATEGORIES
-                    ? t('article_grid.all_categories')
-                    : categories[selectedCategoryIndex]}
+            <ActionMenu
+              selectionVariant="single"
+              size="small"
+              menuAlignment="start"
+              onSelect={handleFilter}
+            >
+              <ActionMenu.Button variant="subtle">
+                <span className={styles.categoryButtonLabel}>
+                  <span className={styles.categoryLabel}>
+                    {t('article_grid.filter_by_category')}:
+                  </span>{' '}
+                  <span className={styles.categoryValue}>
+                    {categories[selectedCategoryIndex] === ALL_CATEGORIES
+                      ? t('article_grid.all_categories')
+                      : categories[selectedCategoryIndex]}
+                  </span>
                 </span>
               </ActionMenu.Button>
-              <ActionMenu.Overlay width="auto">
-                <ActionList selectionVariant="single">
-                  {categories.map((category, index) => (
-                    <ActionList.Item
-                      key={index}
-                      selected={index === selectedCategoryIndex}
-                      onSelect={() => handleFilter(category)}
-                    >
-                      {category === ALL_CATEGORIES ? t('article_grid.all_categories') : category}
-                    </ActionList.Item>
-                  ))}
-                </ActionList>
+              <ActionMenu.Overlay aria-label={t('article_grid.filter_by_category')}>
+                {categories.map((category, index) => (
+                  <ActionMenu.Item
+                    key={category}
+                    value={category}
+                    selected={index === selectedCategoryIndex}
+                    onKeyDownCapture={(event: React.KeyboardEvent<HTMLLIElement>) => {
+                      if (event.key !== 'Enter' && event.key !== ' ') return
+                      // Brand handles Enter in both the overlay and item; use one click instead.
+                      event.preventDefault()
+                      event.stopPropagation()
+                      event.currentTarget.click()
+                    }}
+                  >
+                    {category === ALL_CATEGORIES ? t('article_grid.all_categories') : category}
+                  </ActionMenu.Item>
+                ))}
               </ActionMenu.Overlay>
             </ActionMenu>
           </div>
