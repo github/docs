@@ -115,7 +115,7 @@ async function getDataFrontmatter(dataDirectory: string): Promise<RestVersions> 
 //   {
 //     "actions": {
 //       "artifacts": {
-//         "versions": ["free-pro-team@latest", "enterprise-server@3.8", ...]
+//         "versions": ["free-pro-team@latest", "enterprise-server@3.22", ...]
 //       }
 //     }
 //   }
