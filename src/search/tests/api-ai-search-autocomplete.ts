@@ -1,6 +1,8 @@
-// These tests need indexed fixtures and ELASTICSEARCH_URL.
-// Run ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures.
-// The command writes tests_-prefixed indexes and leaves regular indexes alone.
+// These tests need indexed fixtures and an Elasticsearch URL for the server:
+//
+//   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
+//
+// That writes `tests_`-prefixed indexes and leaves your regular ones alone.
 
 import { expect, test, vi } from 'vitest'
 
@@ -25,7 +27,8 @@ describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => 
 
   test('perform a basic ai autocomplete search', async () => {
     const sp = new URLSearchParams()
-    // Fixture queries under src/search/tests/fixtures/data/ai include "How do I clone a repository?".
+    // To see why this will work,
+    // see src/search/tests/fixtures/data/ai/*
     sp.set('query', 'how do I')
     const res = await get(getSearchEndpointWithParams(sp))
     expect(res.statusCode).toBe(200)
@@ -42,7 +45,7 @@ describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => 
     expect(hit.highlights).toBeTruthy()
     expect(hit.highlights[0]).toBe('<mark>How do I</mark> clone a repository?')
 
-    // Search responses must be CDN-cacheable.
+    // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
@@ -103,17 +106,24 @@ describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => 
     expect(JSON.parse(res.body).error).toBeTruthy()
   })
 
-  test('fuzzy autocomplete search', async () => {
+  test('prefix autocomplete search for a two-character query', async () => {
     const sp = new URLSearchParams()
-    sp.set('query', 'cl') // Matches "clone".
+    sp.set('query', 'cl')
     const res = await get(getSearchEndpointWithParams(sp))
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.body) as AutocompleteSearchResponse
-    // cl matches "How do I clone a repository?".
     const hit = results.hits[0]
     expect(hit.term).toBe('How do I clone a repository?')
-    // Two-character queries use prefix matching, so cl highlights clone.
     expect(hit.highlights[0]).toBe('How do I <mark>clone</mark> a repository?')
+  })
+
+  test('fuzzy autocomplete search', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'clome')
+    const res = await get(getSearchEndpointWithParams(sp))
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body) as AutocompleteSearchResponse
+    expect(results.hits.map((result) => result.term)).toContain('How do I clone a repository?')
   })
 
   test('autocomplete term search', async () => {
@@ -130,12 +140,12 @@ describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => 
 
   test('support empty query', async () => {
     const sp = new URLSearchParams()
-    // Omit query entirely.
+    // No query at all
     {
       const res = await get(getSearchEndpointWithParams(sp))
       expect(res.statusCode).toBe(200)
     }
-    // Pass an empty query.
+    // Empty query
     {
       sp.set('query', '')
       const res = await get(getSearchEndpointWithParams(sp))
