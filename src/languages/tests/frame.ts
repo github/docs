@@ -56,13 +56,14 @@ describe('frame', () => {
     )
   })
 
-  // Docs Engineering issue: 2637
-  test.skip.each(langs)('loads the survey via site data in %s', async (lang) => {
+  test.each(langs)('loads the survey via site data in %s', async (lang) => {
     const $en = await getDOM(`/en`)
     const $ = await getDOM(`/${lang}`)
-    expect($('[data-testid="survey-form"] h2').text()).not.toEqual(
-      $en('[data-testid="survey-form"] h2').text(),
-    )
+    const heading = $('[data-testid="survey-form"] h3').text()
+    const enHeading = $en('[data-testid="survey-form"] h3').text()
+    expect(heading).toBeTruthy()
+    expect(enHeading).toBeTruthy()
+    expect(heading).not.toEqual(enHeading)
   })
 })
 
