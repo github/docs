@@ -355,7 +355,7 @@
     "cheerio": {
       "undici": "^7.29.0"
     },
-    "markdown-it": "^14.2.0",
+    "markdown-it": "^14.3.2",
     "minimatch@10": {
       "brace-expansion": "^5.0.8"
     },

@@ -1541,6 +1541,18 @@
       "subcategory": "installations",
       "verb": "delete",
       "requestPath": "/installation/token"
+    },
+    {
+      "slug": "add-a-repository-to-an-app-installation",
+      "subcategory": "installations",
+      "verb": "put",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-a-repository-from-an-app-installation",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
     }
   ],
   "billing": [
@@ -5603,6 +5615,12 @@
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repositories"
+    },
+    {
+      "slug": "create-a-repository-for-the-authenticated-user",
+      "subcategory": "repos",
+      "verb": "post",
+      "requestPath": "/user/repos"
     },
     {
       "slug": "list-repositories-for-a-user",

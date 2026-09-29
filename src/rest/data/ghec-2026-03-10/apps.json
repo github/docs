@@ -14273,10 +14273,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
-        "fineGrainedPat": false,
-        "permissions": []
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"GitHub App installation repository access\" repository permissions": "write"
+          }
+        ]
       }
     },
     {
@@ -14348,10 +14352,14 @@
       ],
       "previews": [],
       "progAccess": {
-        "userToServerRest": false,
-        "serverToServer": false,
-        "fineGrainedPat": false,
-        "permissions": []
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"GitHub App installation repository access\" repository permissions": "write"
+          }
+        ]
       }
     }
   ],

@@ -1573,6 +1573,18 @@
       "requestPath": "/user/installations/{installation_id}/repositories"
     },
     {
+      "slug": "add-a-repository-to-an-app-installation",
+      "subcategory": "installations",
+      "verb": "put",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-a-repository-from-an-app-installation",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    },
+    {
       "slug": "list-subscriptions-for-the-authenticated-user",
       "subcategory": "marketplace",
       "verb": "get",
