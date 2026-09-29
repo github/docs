@@ -56,11 +56,16 @@
 - name: GPT-6 Luna
   task_area: Fast help with simple or repetitive tasks
   excels_at: Quick, cost-efficient responses for smaller, faster tasks
-  further_reading: 'Coming soon'
+  further_reading: '[GPT-6 Luna model card](https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf)'
 
 - name: GPT-6 Sol
   task_area: Interactive and agentic coding
   excels_at: All-round development tasks that benefit from careful, multistep validation
+  further_reading: '[GPT-6 Sol model card](https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf)'
+
+- name: GPT-6.1 Sol
+  task_area: Complex coding tasks
+  excels_at: Advanced, efficient reasoning for complex coding tasks
   further_reading: 'Coming soon'
 
 # Anthropic
