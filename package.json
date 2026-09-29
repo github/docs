@@ -297,7 +297,7 @@
     "cross-env": "^10.1.0",
     "csv-parse": "7.0.0",
     "domhandler": "^6.0.1",
-    "eslint": "^9.39.3",
+    "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-custom-rules": "file:src/eslint-rules",
