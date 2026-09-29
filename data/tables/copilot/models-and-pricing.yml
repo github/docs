@@ -240,6 +240,28 @@
   output: $15.00
   cache_write: $5.00
 
+- model: GPT-6.1 Sol
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '≤ 272K'
+  tier: Default
+  input: $2.00
+  cached_input: $0.10
+  output: $10.00
+  cache_write: $2.50
+
+- model: GPT-6.1 Sol
+  provider: openai
+  release_status: GA
+  category: Powerful
+  threshold: '> 272K'
+  tier: 'Long context'
+  input: $4.00
+  cached_input: $0.20
+  output: $15.00
+  cache_write: $5.00
+
 # Anthropic
 - model: Claude Haiku 4.5
   provider: anthropic

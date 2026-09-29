@@ -1634,6 +1634,86 @@ test.describe('Docs 2026 in-article navigation', () => {
   })
 })
 
+test.describe('CookBookFilter component', () => {
+  const filters = [
+    { name: 'Category', value: 'Improve quality and maintainability' },
+    { name: 'Surface', value: 'Chat' },
+    { name: 'Complexity', value: 'Simple' },
+  ]
+
+  for (const { name, value } of filters) {
+    test(`${name} filters articles`, async ({ page }) => {
+      await page.goto('/get-started/cookbook')
+      await expect(page.getByRole('heading', { name: 'Explore 2 examples' })).toBeVisible()
+
+      const trigger = page.getByRole('button', { name: new RegExp(`^${name}:`) })
+      await trigger.click()
+      const menu = page.getByRole('menu', { name, exact: true })
+      await menu.getByRole('menuitemradio', { name: value, exact: true }).click()
+
+      await expect(page.getByRole('heading', { name: 'Explore 1 examples' })).toBeVisible()
+      await expect(trigger).toHaveText(`${name}: ${value}`)
+      await trigger.click()
+      await expect(menu.getByRole('menuitemradio', { checked: true })).toHaveText(value)
+    })
+  }
+
+  test('search combines with filters and reset clears both', async ({ page }) => {
+    await page.goto('/get-started/cookbook')
+    for (const { name, value } of filters) {
+      await page.getByRole('button', { name: `${name}: All`, exact: true }).click()
+      await page.getByRole('menuitemradio', { name: value, exact: true }).click()
+    }
+
+    const search = page.getByRole('textbox', { name: 'Search examples' })
+    await search.fill('workflow')
+    await expect(page.getByRole('heading', { name: 'Explore 0 examples' })).toBeVisible()
+    await search.fill('tests')
+    await expect(page.getByRole('heading', { name: 'Explore 1 examples' })).toBeVisible()
+
+    await page.getByRole('button', { name: 'Reset filters', exact: true }).click()
+    await expect(search).toHaveValue('')
+    await expect(page.getByRole('heading', { name: 'Explore 2 examples' })).toBeVisible()
+    for (const { name } of filters) {
+      await expect(page.getByRole('button', { name: `${name}: All`, exact: true })).toBeVisible()
+    }
+  })
+
+  for (const key of ['Enter', 'Space']) {
+    test(`category menu supports ${key} selection and Escape`, async ({ page }) => {
+      await page.goto('/get-started/cookbook')
+      const trigger = page.getByRole('button', { name: /^Category:/ })
+      await trigger.focus()
+      await page.keyboard.press(key)
+      const menu = page.getByRole('menu', { name: 'Category', exact: true })
+      await expect(menu.getByRole('menuitemradio', { name: 'All', exact: true })).toBeFocused()
+      await page.keyboard.press('ArrowDown')
+      await page.keyboard.press(key)
+
+      await expect(menu).toHaveCount(0)
+      await expect(trigger).toBeFocused()
+      await expect(trigger).toContainText('Improve quality and maintainability')
+      await expect(page.getByRole('heading', { name: 'Explore 1 examples' })).toBeVisible()
+      await trigger.click()
+      await page.keyboard.press('Escape')
+      await expect(menu).toHaveCount(0)
+      await expect(trigger).toBeFocused()
+    })
+  }
+
+  test('long category options fit within the mobile viewport', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 1000 })
+    await page.goto('/get-started/cookbook')
+    await page.getByRole('button', { name: 'Category: All', exact: true }).click()
+    const menu = page.getByRole('menu', { name: 'Category', exact: true })
+    await expect(menu).toBeVisible()
+    const bounds = await menu.boundingBox()
+    expect(bounds).not.toBeNull()
+    expect(bounds!.x).toBeGreaterThanOrEqual(0)
+    expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(320)
+  })
+})
+
 test.describe('LandingArticleGridWithFilter component', () => {
   test('category menu selects once via keyboard and preserves URL state', async ({ page }) => {
     await page.goto('/get-started/article-grid-discovery?articles-filter=Grid&articles-page=2')
