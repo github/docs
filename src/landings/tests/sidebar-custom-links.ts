@@ -39,13 +39,13 @@ describe('sidebar custom links', () => {
     expect(customLinkIndex).toBe(0) // Custom sidebar links appear first in their subnav.
   })
 
-  test.skip('sidebar custom link has correct aria attributes', async () => {
+  test('sidebar custom link has correct aria-current attribute', async () => {
     const $ = await getDOM('/get-started/sidebar-test')
 
     const customLink = $('[data-testid="sidebar"] a:contains("All sidebar test items")')
     expect(customLink.length).toBe(1)
 
-    expect(customLink.attr('href')).toBeDefined()
+    expect(customLink.attr('aria-current')).toBe('page')
     expect(customLink.text().trim()).toBe('All sidebar test items')
   })
 
