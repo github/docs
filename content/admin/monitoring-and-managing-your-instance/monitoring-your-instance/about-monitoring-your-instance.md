@@ -10,10 +10,10 @@ category:
 
 ## Metrics
 
-{% ifversion ghes-opentelemetry %}OpenTelemetry metrics were introduced in {% data variables.product.prodname_ghe_server %} 3.18 and are the future foundation for monitoring your {% data variables.product.prodname_ghe_server %} instance. {% endif %}
-Collectd metrics {% ifversion ghes-opentelemetry %}will continue to be gathered by default, but we expect collectd metrics to be discontinued in a future release.{% else %}provide monitoring capabilities for your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
+OpenTelemetry metrics were introduced in {% data variables.product.prodname_ghe_server %} 3.18 and are the future foundation for monitoring your {% data variables.product.prodname_ghe_server %} instance.
+Collectd metrics will continue to be gathered by default, but we expect collectd metrics to be discontinued in a future release.
 
-{% ifversion ghes-opentelemetry %}For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).{% endif %}
+For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
 
 For more information about Collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
 

@@ -21,7 +21,11 @@ contentType: how-tos
 
 Workflow runs triggered by a contributor's pull request from a fork may require manual approval from a maintainer with write access. You can configure workflow approval requirements for a [repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository{% ifversion ghes %}#enabling-workflows-for-forks-of-private-repositories{% else %}#controlling-changes-from-forks-to-workflows-in-public-repositories{% endif %}), [organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#{% ifversion ghes %}enabling-workflows-for-private-repository-forks{% else %}configuring-required-approval-for-workflows-from-public-forks{% endif %}), or [enterprise](/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#fork-pull-request-workflows-from-outside-collaborators).
 
+{% ifversion fpt or ghec %}
+Workflow runs that have been awaiting approval for more than 30 days expire and are marked as failed. An annotation explains that the approval expired.
+{% else %}
 Workflow runs that have been awaiting approval for more than 30 days are automatically deleted.
+{% endif %}
 
 ## Approving workflow runs on a pull request from a public fork
 

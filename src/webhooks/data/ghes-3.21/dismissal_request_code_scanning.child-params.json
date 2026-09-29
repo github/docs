@@ -7,9 +7,9 @@
         "description": "<p>The ID of the exemption request.</p>"
       },
       {
-        "type": "integer or null",
+        "type": "integer",
         "name": "number",
-        "description": "<p>The number uniquely identifying the exemption request within it's repository.</p>"
+        "description": "<p>The number uniquely identifying the exemption request within its repository.</p>"
       },
       {
         "type": "integer",
@@ -355,9 +355,9 @@
         "description": "<p>The ID of the exemption request.</p>"
       },
       {
-        "type": "integer or null",
+        "type": "integer",
         "name": "number",
-        "description": "<p>The number uniquely identifying the exemption request within it's repository.</p>"
+        "description": "<p>The number uniquely identifying the exemption request within its repository.</p>"
       },
       {
         "type": "integer",

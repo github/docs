@@ -64,15 +64,11 @@ For more information about how automatic access works, see [AUTOTITLE](/code-sec
 
 {% endif %}
 
-{% ifversion org-private-registry %}
-
 You can configure {% data variables.product.prodname_dependabot %}'s access to private registries at the org-level.
 {% ifversion org-private-registry-oidc %}
 Organization-level registries support **Token**, **Username and password**, and **OIDC** authentication.
 {% endif %}
 For more information about configuration, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries).
-
-{% endif %}
 
 You can also configure {% data variables.product.prodname_dependabot %}'s access to private registries in the `dependabot.yml` file.
 The top-level `registries` key is optional and specifies authentication details.
@@ -133,7 +129,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.dependabot.sidebar-secret %} {% ifversion org-private-registry %}Ignore the "Private Registries" option, this is used only by {% data variables.product.prodname_code_scanning %} default setup.{% endif %}
+{% data reusables.dependabot.sidebar-secret %} Ignore the "Private Registries" option, this is used only by {% data variables.product.prodname_code_scanning %} default setup.
 1. Click **New organization secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.
@@ -416,8 +412,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion dependabot-helm-support %}
-
 ### `helm-registry`
 
 The `helm-registry` type only supports HTTP Basic Auth and does not support OCI-compliant registries. If you need to access an OCI-compliant registry for Helm charts, configure a [`docker-registry`](#docker-registry) instead.
@@ -438,8 +432,6 @@ registries:
 ```
 
 {% endraw %}
-
-{% endif %}
 
 ### `hex-organization`
 

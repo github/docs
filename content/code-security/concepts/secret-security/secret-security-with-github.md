@@ -6,7 +6,9 @@ product: '{% data reusables.gated-features.secret-protection %}'
 permissions: Organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}
 contentType: concepts
 versions:
-  feature: secret-risk-assessment
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-security-with-github

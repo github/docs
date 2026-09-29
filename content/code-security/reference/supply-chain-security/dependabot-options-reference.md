@@ -491,8 +491,6 @@ Supported value: the numeric identifier of a milestone.
 >[!TIP]
 >If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress).
 
-{% ifversion dependabot-multi-ecosystem-support %}
-
 ## `multi-ecosystem-groups` {% octicon "versions" aria-label="Version updates" height="24" %}
 
 Define groups that span multiple package ecosystems to get a single {% data variables.product.prodname_dependabot %} pull request that updates all supported package ecosystems. This approach helps reduce the number of {% data variables.product.prodname_dependabot %} pull requests you receive and streamlines your dependency update workflow.
@@ -533,8 +531,6 @@ updates:
     patterns: ["aws"]
     multi-ecosystem-group: "infrastructure"
 ```
-
-{% endif %}
 
 ## `open-pull-requests-limit` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
@@ -577,9 +573,7 @@ Package manager | YAML value      | Supported versions |
 | Docker         | `docker`         | v1               |
 | Docker Compose | `docker-compose`         | v2, v3               |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
-| {% ifversion dependabot-helm-support %} |
 | Helm Charts            | `helm`            | v3               |
-| {% endif %} |
 | Hex            | `mix`            | v1               |
 | {% ifversion dependabot-julia-support %} |
 | Julia                  | `julia`           | >=v1.10               |
@@ -808,9 +802,7 @@ Reviewers must have at least read access to the repository.
 | [`interval`](#interval) | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
 | [`day`](#day) | Specify the day to run for a **weekly** interval. |
 | [`time`](#time) | Specify the time to run. |
-| {% ifversion dependabot-schedule-updates %} |
 | [`cronjob`](#cronjob) | Defines the cron expression if the interval type is `cron`. |
-| {% endif %} |
 | [`timezone`](#timezone) | Specify the timezone of the `time` value.  |
 
 ### `interval`
@@ -830,7 +822,7 @@ Each package manager **must** define a schedule interval.
 >[!NOTE]
 > The supported values `quarterly`, `semiannually`, and `yearly` are only available on {% data variables.product.prodname_ghe_server %} from version 3.19.
 
-By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  {% ifversion dependabot-schedule-updates %}If you use a `cron` interval, you can define the update time with a `cronjob` expression.{% endif %}
+By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals. If you use a `cron` interval, you can define the update time with a `cronjob` expression.
 
 ### `day`
 
@@ -843,8 +835,6 @@ Optionally, run **weekly** updates for a package manager on a specific day of th
 Format: `hh:mm`
 
 Optionally, run all updates for a package manager at a specific time of day. By default, times are interpreted as UTC.
-
-{% ifversion dependabot-schedule-updates %}
 
 ### `cronjob`
 
@@ -876,8 +866,6 @@ updates:
       interval: "cron"
       cronjob: "0 9 * * *"
 ```
-
-{% endif %}
 
 ### `timezone`
 

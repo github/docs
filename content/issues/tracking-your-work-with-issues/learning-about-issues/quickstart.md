@@ -16,7 +16,7 @@ category:
 
 ## Introduction
 
-This guide demonstrates how to use {% data variables.product.prodname_github_issues %} to plan and track a piece of work. In this guide, you will create a new issue{% ifversion sub-issues %} and break it down into sub-issues{% endif %}. You'll also learn how to add labels{% ifversion issue-types %}, issue types{% endif %}, milestones, assignees, and projects to communicate metadata about your issue.
+This guide demonstrates how to use {% data variables.product.prodname_github_issues %} to plan and track a piece of work. In this guide, you will create a new issue and break it down into sub-issues. You'll also learn how to add labels, issue types, milestones, assignees, and projects to communicate metadata about your issue.
 
 ## Prerequisites
 
@@ -41,8 +41,6 @@ You can use markdown to add formatting, links, emojis, and more. For more inform
 
 ![Screenshot of the new issue form, with a title and body filled in.](/assets/images/help/issues/issue-title-body.png)
 
-{% ifversion sub-issues %}
-
 ## Adding a task list
 
 You can also use plain text to track tasks that don't have a corresponding issue and convert them to issues later. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-tasklists).
@@ -63,15 +61,11 @@ You can use the default labels, or you can create a new label. For more informat
 
 ![Screenshot of the new issue form. In the right sidebar, the "Labels" section is outlined in dark orange.](/assets/images/help/issues/issue-with-label.png)
 
-{% ifversion issue-types %}
-
 ## Adding issue types
 
 You can add an issue type to classify work across the organization. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization).
 
 ![Screenshot of the new issue form. In the right sidebar, the "Type" section is outlined in dark orange.](/assets/images/help/issues/issue-type.png)
-
-{% endif %}
 
 ## Adding the issue to a project
 
@@ -95,8 +89,6 @@ Click **Submit new issue** to create your issue. You can edit any of the above f
 
    ![Screenshot of the sub-issues section below the issue description. The "View more sub-issue options" button is highlighted with an orange rectangle.](/assets/images/help/issues/sub-issue-drop-down.png)
 
-{% endif %}
-
 ## Adding issue dependencies
 
 You can define blocking relationships between issues using issue dependencies. Issue dependencies let you identify issues that are blocked by, or blocking, other work. See [AUTOTITLE](/free-pro-team@latest/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies).
@@ -116,11 +108,7 @@ You can use issues for a wide range of purposes. For example:
 * Planning tasks
 * Reporting bugs
 
-{% ifversion sub-issues %}
-
 To break your issue down into more manageable tasks, you can add multiple levels of sub-issues. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues).
-
-{% endif %}
 
 Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
 

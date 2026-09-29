@@ -39687,6 +39687,90 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/steps/{step_number}/logs",
+      "title": "Download step logs for a workflow run job",
+      "category": "actions",
+      "subcategory": "workflow-jobs",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "job_id",
+          "description": "<p>The unique identifier of the job.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "step_number",
+          "description": "<p>The zero-based position number of the step in the job.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a redirect URL to download a plain text file of logs for a specific step of a workflow job. This link expires after\n1 minute. Look for <code>Location:</code> in the response header to find the URL for the download.</p>\n<p>This endpoint is intended for selective retrieval of one step. To download complete job logs, use the\n<a href=\"https://docs.github.com/rest/actions/workflow-jobs#download-job-logs-for-a-workflow-run\">job logs endpoint</a>.</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>If the repository is private, OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "job_id": "JOB_ID",
+              "step_number": "STEP_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "302",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "302",
+          "description": "<p>Found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Actions\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/jobs",
       "title": "List jobs for a workflow run attempt",
       "category": "actions",

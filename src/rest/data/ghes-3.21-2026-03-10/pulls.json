@@ -15676,7 +15676,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Merges a pull request into the base branch.\nThis endpoint triggers <a href=\"https://docs.github.com/enterprise-server@3.21/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>",
+      "descriptionHTML": "<p>Merges a pull request into the base branch.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-server@3.21/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>.\nCreating content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>",
       "codeExamples": [
         {
           "request": {

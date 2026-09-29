@@ -901,6 +901,10 @@
                       "description": "Array of user login names who will receive alerts. Present but not applicable for user-scope as alerting is always disabled for them."
                     }
                   }
+                },
+                "consumed_amount": {
+                  "type": "number",
+                  "description": "The current usage amount counted toward the budget. How usage is calculated may vary by budget type."
                 }
               },
               "required": [

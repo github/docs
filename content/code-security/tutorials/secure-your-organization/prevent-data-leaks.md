@@ -83,10 +83,8 @@ There are two forms of {% data variables.product.prodname_secret_scanning %} ava
   * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_code_security %}{% endif %}
 {% endif %}
 
-{% ifversion secret-risk-assessment %}
-
 > [!TIP]
-> Regardless of the enablement status of {% data variables.product.prodname_secret_scanning %} and push protection, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. See [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github).{% endif %}
+> Regardless of the enablement status of {% data variables.product.prodname_secret_scanning %} and push protection, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. See [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github).
 
 {% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for your instance before you can use this feature. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configure-secret-scanning).{% endif %}
 

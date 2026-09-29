@@ -16380,7 +16380,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Merges a pull request into the base branch.\nThis endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\" and \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nWe recommend using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/pulls#merge-a-pull-request-asynchronously\">asynchronous merge API</a> instead. This endpoint does not support stacked pull requests or merging with a merge queue.</p>\n</div>\n<p>Merges a pull request into the base branch.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>.\nCreating content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\" and \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -16508,12 +16508,12 @@
         {
           "type": "string",
           "name": "commit_title",
-          "description": "<p>Title for the automatic commit message.</p>"
+          "description": "<p>Title for the automatic commit message. Only supported for direct merges.</p>"
         },
         {
           "type": "string",
           "name": "commit_message",
-          "description": "<p>Extra detail to append to automatic commit message.</p>"
+          "description": "<p>Extra detail to append to automatic commit message. Only supported for direct merges.</p>"
         },
         {
           "type": "string",
@@ -16523,7 +16523,7 @@
         {
           "type": "string",
           "name": "merge_method",
-          "description": "<p>The merge method to use.</p>",
+          "description": "<p>The merge method to use for a direct merge. Only supported for direct merges.</p>",
           "enum": [
             "merge",
             "squash",
@@ -16533,7 +16533,7 @@
         {
           "type": "string",
           "name": "merge_action",
-          "description": "<p>The action that will be taken to merge the pull request. <code>direct_merge</code> merges the pull request directly without using a merge queue; <code>merge_queue</code> adds the pull request to a merge queue; <code>default</code> selects the most appropriate option.</p>",
+          "description": "<p>The action that will be taken to merge the pull request. <code>direct_merge</code> merges the pull request directly without using a merge queue; <code>merge_queue</code> adds the pull request to a merge queue; <code>default</code> uses a merge queue if one is configured for the target branch, or merges directly otherwise. If omitted, defaults to <code>default</code>.</p>",
           "enum": [
             "default",
             "direct_merge",
@@ -16541,26 +16541,9 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Merges a pull request into the base branch in the background. Merging in this way allows certain types of errors to be retried, and avoids the risk of timeouts for particularly complex merges.</p>\n<p>This is the required method for merging stacked PRs, but also supports unstacked PRs. When using this endpoint to merge a stacked pull request, all pull requests in the stack up to and including the requested PR will be merged into the base branch.</p>\n<p>The response includes a UUID that can be used to fetch the result of the merge. If another asynchronous merge request has already been made for this pull request, the UUID of that request will be returned instead with a 409 response status to indicate that the merge options may be different from those that were requested. If there isn't an existing asynchronous merge request, a 202 response status is used.</p>\n<p>If the pull request is already merged, the merge commit OID will be returned immediately with a 200 status.</p>\n<p>If the pull request cannot be merged (e.g. because it is closed, or still a draft) this result will be returned immediately with a 400 response status. Branch protection rules and repository rules are not run at this stage, only basic pull request state checks are performed.</p>",
+      "descriptionHTML": "<p>Merges a pull request into the base branch in the background or adds it to a merge queue. Background processing allows certain types of errors to be retried and reduces the risk of timeouts for complex merges.</p>\n<p>This is the required API for merging stacked pull requests. For a stacked pull request, the operation includes all open downstack pull requests.</p>\n<p>A new asynchronous merge request returns a <code>202</code> response with a UUID that can be used to <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/pulls#get-the-result-of-an-asynchronous-merge\">fetch the result of the merge</a>. If another asynchronous merge request is already pending for this pull request, a <code>409</code> response returns that request's UUID and merge options instead.</p>\n<p>If the pull request is already merged or already in a merge queue, a <code>200</code> response is returned immediately. A <code>merged</code> result includes the merge commit OID. An <code>enqueued</code> result means the pull request was added to the merge queue, not that it has merged.</p>\n<p>If the pull request cannot be merged (e.g. because it is closed, or still a draft) this result will be returned immediately with a <code>400</code> response status. Branch protection rules and repository rules are not run at this stage, only basic pull request state checks are performed.</p>",
       "codeExamples": [
         {
-          "request": {
-            "contentType": "application/json",
-            "description": "Example 1: Status Code 200",
-            "acceptHeader": "application/vnd.github.v3+json",
-            "bodyParameters": {
-              "commit_title": "Fix race condition",
-              "commit_message": "Avoids a race by trying to read the file and handling the exception if it does not exist.",
-              "sha": "6358cd125586d9def8c3e5943f23506202da81cc",
-              "merge_method": "squash",
-              "merge_action": "default"
-            },
-            "parameters": {
-              "owner": "OWNER",
-              "repo": "REPO",
-              "pull_number": "PULL_NUMBER"
-            }
-          },
           "response": {
             "statusCode": "200",
             "contentType": "application/json",
@@ -16588,9 +16571,9 @@
                   ]
                 },
                 "details": {
-                  "oneOf": [
+                  "anyOf": [
                     {
-                      "description": "When an asynchronous merge request was created or already existed",
+                      "description": "When the asynchronous merge request is pending",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -16631,7 +16614,7 @@
                       ]
                     },
                     {
-                      "description": "When the pull request cannot be merged",
+                      "description": "When the pull request is in a merge queue",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -16644,7 +16627,20 @@
                       ]
                     },
                     {
-                      "description": "When the pull request is already merged",
+                      "description": "When the asynchronous merge request failed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request has been merged",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -16668,26 +16664,26 @@
                 "details"
               ]
             }
-          }
-        },
-        {
+          },
           "request": {
             "contentType": "application/json",
-            "description": "Example 2: Status Code 200",
+            "description": "Direct merge example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
               "commit_title": "Fix race condition",
               "commit_message": "Avoids a race by trying to read the file and handling the exception if it does not exist.",
               "sha": "6358cd125586d9def8c3e5943f23506202da81cc",
               "merge_method": "squash",
-              "merge_action": "default"
+              "merge_action": "direct_merge"
             },
             "parameters": {
               "owner": "OWNER",
               "repo": "REPO",
               "pull_number": "PULL_NUMBER"
             }
-          },
+          }
+        },
+        {
           "response": {
             "statusCode": "200",
             "contentType": "application/json",
@@ -16714,9 +16710,9 @@
                   ]
                 },
                 "details": {
-                  "oneOf": [
+                  "anyOf": [
                     {
-                      "description": "When an asynchronous merge request was created or already existed",
+                      "description": "When the asynchronous merge request is pending",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -16757,7 +16753,7 @@
                       ]
                     },
                     {
-                      "description": "When the pull request cannot be merged",
+                      "description": "When the pull request is in a merge queue",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -16770,7 +16766,20 @@
                       ]
                     },
                     {
-                      "description": "When the pull request is already merged",
+                      "description": "When the asynchronous merge request failed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request has been merged",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -16794,38 +16803,35 @@
                 "details"
               ]
             }
-          }
-        },
-        {
+          },
           "request": {
             "contentType": "application/json",
-            "description": "Example 3: Status Code 202",
+            "description": "Merge queue example 2: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
-              "commit_title": "Fix race condition",
-              "commit_message": "Avoids a race by trying to read the file and handling the exception if it does not exist.",
               "sha": "6358cd125586d9def8c3e5943f23506202da81cc",
-              "merge_method": "squash",
-              "merge_action": "default"
+              "merge_action": "merge_queue"
             },
             "parameters": {
               "owner": "OWNER",
               "repo": "REPO",
               "pull_number": "PULL_NUMBER"
             }
-          },
+          }
+        },
+        {
           "response": {
             "statusCode": "202",
             "contentType": "application/json",
-            "description": "<p>Request accepted</p>",
+            "description": "<p>Direct merge request accepted</p>",
             "example": {
               "status": "pending",
               "details": {
                 "message": "Merge request enqueued.",
                 "uuid": "630b9d5e-3f2a-4f7e-8b0c-2d5f9a8c1e42",
-                "merge_method": "merge",
-                "merge_action": "default",
-                "expected_head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+                "merge_method": "squash",
+                "merge_action": "direct_merge",
+                "expected_head_sha": "6358cd125586d9def8c3e5943f23506202da81cc"
               }
             },
             "schema": {
@@ -16844,9 +16850,9 @@
                   ]
                 },
                 "details": {
-                  "oneOf": [
+                  "anyOf": [
                     {
-                      "description": "When an asynchronous merge request was created or already existed",
+                      "description": "When the asynchronous merge request is pending",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -16887,7 +16893,7 @@
                       ]
                     },
                     {
-                      "description": "When the pull request cannot be merged",
+                      "description": "When the pull request is in a merge queue",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -16900,7 +16906,20 @@
                       ]
                     },
                     {
-                      "description": "When the pull request is already merged",
+                      "description": "When the asynchronous merge request failed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request has been merged",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -16923,6 +16942,163 @@
                 "status",
                 "details"
               ]
+            }
+          },
+          "request": {
+            "contentType": "application/json",
+            "description": "Direct merge example 3: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "commit_title": "Fix race condition",
+              "commit_message": "Avoids a race by trying to read the file and handling the exception if it does not exist.",
+              "sha": "6358cd125586d9def8c3e5943f23506202da81cc",
+              "merge_method": "squash",
+              "merge_action": "direct_merge"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER"
+            }
+          }
+        },
+        {
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Merge queue request accepted</p>",
+            "example": {
+              "status": "pending",
+              "details": {
+                "message": "Merge request enqueued.",
+                "uuid": "630b9d5e-3f2a-4f7e-8b0c-2d5f9a8c1e42",
+                "merge_method": "default",
+                "merge_action": "merge_queue",
+                "expected_head_sha": "6358cd125586d9def8c3e5943f23506202da81cc"
+              }
+            },
+            "schema": {
+              "title": "Pull Request Merge Async Result",
+              "description": "Pull Request Merge Async Result",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "merged",
+                    "enqueued",
+                    "failed"
+                  ]
+                },
+                "details": {
+                  "anyOf": [
+                    {
+                      "description": "When the asynchronous merge request is pending",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "merge_method": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge",
+                            "squash",
+                            "rebase"
+                          ]
+                        },
+                        "merge_action": {
+                          "type": "string",
+                          "enum": [
+                            "default",
+                            "merge_queue",
+                            "direct_merge"
+                          ]
+                        },
+                        "expected_head_sha": {
+                          "type": "string",
+                          "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "uuid",
+                        "merge_method",
+                        "merge_action",
+                        "expected_head_sha"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request is in a merge queue",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the asynchronous merge request failed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request has been merged",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        },
+                        "sha": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message",
+                        "sha"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "status",
+                "details"
+              ]
+            }
+          },
+          "request": {
+            "contentType": "application/json",
+            "description": "Merge queue example 4: Status Code 202",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "sha": "6358cd125586d9def8c3e5943f23506202da81cc",
+              "merge_action": "merge_queue"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER"
             }
           }
         }
@@ -17015,7 +17191,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Fetches the current result of an asynchronous merge request, identified by the UUID that was returned when the merge was requested.</p>\n<p>While the merge is still queued, the response includes the UUID, merge method, and expected head SHA of the request. Once the merge has completed, the response reports whether it was merged, including the merge commit OID on success or a message describing why it could not be merged on failure.</p>\n<p>The result of an asynchronous merge request is retained for 24 hours after its most recent update. After this window the request expires and this endpoint returns a <code>404</code> response for its UUID.</p>",
+      "descriptionHTML": "<p>Fetches the current result of an asynchronous merge request, identified by the UUID that was returned when the merge was requested.</p>\n<p>While the request's status is <code>pending</code>, the response includes the UUID, merge method, merge action, and expected head SHA of the request. Once the asynchronous request completes, its status is one of:</p>\n<ul>\n<li><code>merged</code>: The pull request was merged into the base branch. The response includes the merge commit OID.</li>\n<li><code>enqueued</code>: The pull request was added to a merge queue.</li>\n<li><code>failed</code>: The request failed. The response includes a message describing the failure.</li>\n</ul>\n<p>An <code>enqueued</code> result is final for the merge queue requests and does not mean the pull request has merged. This result does not change when the merge queue later merges the pull request. To get the eventual merge status, <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/pulls#check-if-a-pull-request-has-been-merged\">check if a pull request has been merged</a>.</p>\n<p>The result of an asynchronous merge request is retained for 24 hours after its most recent update. After this window the request expires and this endpoint returns a <code>404</code> response for its UUID.</p>",
       "codeExamples": [
         {
           "request": {
@@ -17058,9 +17234,9 @@
                   ]
                 },
                 "details": {
-                  "oneOf": [
+                  "anyOf": [
                     {
-                      "description": "When an asynchronous merge request was created or already existed",
+                      "description": "When the asynchronous merge request is pending",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17101,7 +17277,7 @@
                       ]
                     },
                     {
-                      "description": "When the pull request cannot be merged",
+                      "description": "When the pull request is in a merge queue",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17114,7 +17290,20 @@
                       ]
                     },
                     {
-                      "description": "When the pull request is already merged",
+                      "description": "When the asynchronous merge request failed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request has been merged",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17177,9 +17366,9 @@
                   ]
                 },
                 "details": {
-                  "oneOf": [
+                  "anyOf": [
                     {
-                      "description": "When an asynchronous merge request was created or already existed",
+                      "description": "When the asynchronous merge request is pending",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17220,7 +17409,7 @@
                       ]
                     },
                     {
-                      "description": "When the pull request cannot be merged",
+                      "description": "When the pull request is in a merge queue",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17233,7 +17422,20 @@
                       ]
                     },
                     {
-                      "description": "When the pull request is already merged",
+                      "description": "When the asynchronous merge request failed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request has been merged",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17297,9 +17499,9 @@
                   ]
                 },
                 "details": {
-                  "oneOf": [
+                  "anyOf": [
                     {
-                      "description": "When an asynchronous merge request was created or already existed",
+                      "description": "When the asynchronous merge request is pending",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17340,7 +17542,7 @@
                       ]
                     },
                     {
-                      "description": "When the pull request cannot be merged",
+                      "description": "When the pull request is in a merge queue",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17353,7 +17555,20 @@
                       ]
                     },
                     {
-                      "description": "When the pull request is already merged",
+                      "description": "When the asynchronous merge request failed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request has been merged",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17416,9 +17631,9 @@
                   ]
                 },
                 "details": {
-                  "oneOf": [
+                  "anyOf": [
                     {
-                      "description": "When an asynchronous merge request was created or already existed",
+                      "description": "When the asynchronous merge request is pending",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17459,7 +17674,7 @@
                       ]
                     },
                     {
-                      "description": "When the pull request cannot be merged",
+                      "description": "When the pull request is in a merge queue",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {
@@ -17472,7 +17687,20 @@
                       ]
                     },
                     {
-                      "description": "When the pull request is already merged",
+                      "description": "When the asynchronous merge request failed",
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    {
+                      "description": "When the pull request has been merged",
                       "type": "object",
                       "additionalProperties": false,
                       "properties": {

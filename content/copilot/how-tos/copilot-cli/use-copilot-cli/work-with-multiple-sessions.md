@@ -67,14 +67,17 @@ At the top of the sidebar are two header buttons: **←** (to close the sidebar)
 
 ### Reading session status at a glance
 
-Because the sidebar stays on screen while you work, it acts as a session status board. You can tell at a glance which sessions are:
+Because the sidebar stays on screen while you work, it acts as a session status board. Each session shows an indicator of its current state. At a glance you can tell which sessions are:
 
-* Currently running (a solid circle icon: `●`).
-* The current session displayed in the CLI's **Current** tab (highlighted).
-* Recently used, but not currently running (a hollow circle icon: `○`).
-* Busy processing a turn (a pulsing circle icon: `● ◉ ◎ ○`), or idle (a static icon).
+* Busy processing a turn (a pulsing circle: `● ◉ ◎ ○`).
+* Idle and waiting for your next prompt (a steady circle: `●`).
+* Finished a turn while you were in another session, and not opened since (a different colored steady circle: `●`).
 * Awaiting your attention (`!` for a permission prompt, `?` for a question).
-* In a particular mode (plan and autopilot modes use different colored text from the default mode).
+* Recently used, but not currently running (a hollow circle: `○`).
+* The current session displayed in the CLI's **Current** tab (highlighted).
+* In a particular mode (plan and autopilot modes tint some dots and the session name).
+
+The colors of these indicators depend on your terminal's color scheme and the theme you set with `/theme`. Because of this, the shape of the circle and the `!`, `?`, and `○` markers are the most reliable cues. For the full list of indicators and their default colors, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#session-status-indicators).
 
 ### Resizing and mouse control
 

@@ -64,10 +64,10 @@ The time required to failover depends on how long it takes to manually promote t
       cat /data/user/common/uuid
       ```
 
-    * On the new primary, remove the UUIDs using {% ifversion ghes > 3.17 %}`ghe-repl-decommission`{% else %}`ghe-repl-teardown`{% endif %}. Please replace `UUID` with the UUID you retrieved in the previous step.
+    * On the new primary, remove the UUIDs using `ghe-repl-decommission`. Please replace `UUID` with the UUID you retrieved in the previous step.
 
       ```shell
-      {% ifversion ghes > 3.17 %}ghe-repl-decommission UUID{% else %}ghe-repl-teardown -u UUID{% endif %}
+      ghe-repl-decommission UUID
       ```
 
    > [!WARNING]
