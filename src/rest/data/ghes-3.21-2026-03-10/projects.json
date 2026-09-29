@@ -3828,6 +3828,7 @@
           "type": "array of objects",
           "name": "single_select_options",
           "description": "<p>The options available for single select fields. At least one option must be provided when creating a single select field.</p>",
+          "isRequired": true,
           "childParamsGroups": [
             {
               "type": "string",
@@ -5946,6 +5947,7 @@
           "type": "array of objects",
           "name": "single_select_options",
           "description": "<p>The options available for single select fields. At least one option must be provided when creating a single select field.</p>",
+          "isRequired": true,
           "childParamsGroups": [
             {
               "type": "string",
