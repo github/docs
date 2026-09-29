@@ -408,7 +408,20 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   await page.waitForTimeout(1000)
   await page.getByText('View more results').click()
 
+  const matchingResult = page
+    .getByTestId('search-result')
+    .filter({ has: page.getByRole('link', { name: 'Foo', exact: true }) })
+  const nonMatchingResult = page
+    .getByTestId('search-result')
+    .filter({ has: page.getByRole('link', { name: 'Bar', exact: true }) })
+  await expect(matchingResult).toBeVisible()
+  await expect(nonMatchingResult).toBeVisible()
+  await expect(nonMatchingResult.getByTestId('search-result-toplevel')).toHaveText('Baring')
+
   await page.getByText('Fooing (1)').click()
+  await expect(page).toHaveURL(/toplevel=Fooing/)
+  await expect(matchingResult).toBeVisible()
+  await expect(nonMatchingResult).toHaveCount(0)
   await page.getByRole('link', { name: 'Clear' }).click()
 })
 
