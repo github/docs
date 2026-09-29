@@ -24506,7 +24506,7 @@
       "previews": [],
       "progAccess": {
         "userToServerRest": true,
-        "serverToServer": false,
+        "serverToServer": true,
         "fineGrainedPat": true,
         "permissions": [
           {

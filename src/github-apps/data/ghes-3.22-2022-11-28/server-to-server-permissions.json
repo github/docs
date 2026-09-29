@@ -5377,7 +5377,7 @@
         "requestPath": "/user/repos",
         "access": "write",
         "user-to-server": true,
-        "server-to-server": false,
+        "server-to-server": true,
         "additional-permissions": true
       },
       {
@@ -6958,6 +6958,34 @@
         "subcategory": "variables",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "installation_repositories": {
+    "title": "GitHub App installation repository access",
+    "displayTitle": "Repository permissions for \"GitHub App installation repository access\"",
+    "permissions": [
+      {
+        "category": "apps",
+        "slug": "add-a-repository-to-an-app-installation",
+        "subcategory": "installations",
+        "verb": "put",
+        "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "apps",
+        "slug": "remove-a-repository-from-an-app-installation",
+        "subcategory": "installations",
+        "verb": "delete",
+        "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -8717,7 +8745,7 @@
         "requestPath": "/user/repos",
         "access": "write",
         "user-to-server": true,
-        "server-to-server": false,
+        "server-to-server": true,
         "additional-permissions": true
       }
     ]

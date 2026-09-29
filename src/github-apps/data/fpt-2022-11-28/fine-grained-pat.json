@@ -1463,6 +1463,20 @@
       "requestPath": "/repos/{owner}/{repo}/agents/variables/{name}"
     }
   ],
+  "apps": [
+    {
+      "slug": "add-a-repository-to-an-app-installation",
+      "subcategory": "installations",
+      "verb": "put",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-a-repository-from-an-app-installation",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    }
+  ],
   "billing": [
     {
       "slug": "get-billing-ai-credit-usage-report-for-an-organization",
