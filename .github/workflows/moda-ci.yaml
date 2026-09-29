@@ -11,25 +11,30 @@ on:
   merge_group:
     types: [checks_requested]
 
+permissions: {}
+
 jobs:
   ##########################
   # Generate Vault keys
   ##########################
   set-vault-keys:
+    permissions: {}
     runs-on: ubuntu-latest
     outputs:
       modified_vault_keys: ${{ steps.modify_vault_keys.outputs.modified }}
     steps:
       - name: Set vault-keys output
         id: modify_vault_keys
+        env:
+          VAULT_KEYS: ${{ vars.VAULT_KEYS }}
         run: |
-          if [ -z "${{ vars.VAULT_KEYS }}" ]; then
+          if [ -z "$VAULT_KEYS" ]; then
             # We want to add the DOCS_BOT_PAT_BASE to the list of keys
             # so that builds fetch the secret from the docs-internal vault
             # where --environment is "ci"
-            echo "modified=DOCS_BOT_PAT_BASE" >> $GITHUB_OUTPUT
+            echo "modified=DOCS_BOT_PAT_BASE" >> "$GITHUB_OUTPUT"
           else
-            echo "modified=${{ vars.VAULT_KEYS }},DOCS_BOT_PAT_BASE" >> $GITHUB_OUTPUT
+            echo "modified=${VAULT_KEYS},DOCS_BOT_PAT_BASE" >> "$GITHUB_OUTPUT"
           fi
 
   #############
@@ -39,6 +44,13 @@ jobs:
     if: ${{ github.repository == 'github/docs-internal' }}
     name: ${{ matrix.ci_job.job }}
     needs: set-vault-keys
+    permissions:
+      actions: read
+      attestations: write
+      checks: read
+      contents: read
+      id-token: write
+      statuses: read
     strategy:
       fail-fast: false
       matrix:
@@ -58,6 +70,13 @@ jobs:
     if: ${{ github.repository == 'github/docs-internal' }}
     name: ${{ matrix.ci_job.job }}
     needs: set-vault-keys
+    permissions:
+      actions: read
+      attestations: write
+      checks: read
+      contents: read
+      id-token: write
+      statuses: read
     strategy:
       fail-fast: false
       matrix:
@@ -80,6 +99,12 @@ jobs:
     if: ${{ github.repository == 'github/docs-internal' }}
     name: ${{ matrix.ci_job.job }}
     needs: set-vault-keys
+    permissions:
+      actions: read
+      checks: read
+      contents: read
+      id-token: write
+      statuses: read
     strategy:
       fail-fast: false
       matrix:
@@ -93,11 +118,3 @@ jobs:
     secrets:
       dx-bot-token: ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
       datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
-
-permissions:
-  actions: read
-  checks: read
-  contents: read
-  statuses: read
-  id-token: write
-  attestations: write
