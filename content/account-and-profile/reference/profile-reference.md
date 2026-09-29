@@ -105,7 +105,8 @@ Achievements celebrate specific events and actions that happen on {% data variab
 To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/manage-visibility-settings-for-private-contributions-and-achievements).
 
 > [!NOTE]
-> This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+> * This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+> * Achievements are evaluated and awarded by an asynchronous background process. After qualifying criteria are met (such as a merged pull request or an accepted discussion answer in a public repository), it typically takes 24 to 48 hours for new badges and tier updates to appear on your profile.
 
 ## Profile name changes for {% data variables.enterprise.prodname_emu_enterprise %}
 
