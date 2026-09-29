@@ -210,14 +210,10 @@ For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-
 
 For more information on how to configure this setting, see {% ifversion ghes or ghec %}[AUTOTITLE](/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests),{% endif %} [Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests), and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests).
 
-{% ifversion code-scanning-actions-language %}
-
 ### Using {% data variables.product.prodname_code_scanning %} to secure workflows
 
 {% data variables.product.prodname_code_scanning_caps %} can automatically detect and suggest improvements for common vulnerable patterns used in {% data variables.product.prodname_actions %} workflows.
 For more information on how to enable {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning).
-
-{% endif %}
 
 ### Using OpenSSF Scorecards to secure workflow dependencies
 

@@ -160,25 +160,17 @@ You can also specify assignees, labels, milestones, and projects.
 gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION" --assignee @me,USERNAME --label "LABEL-1,LABEL-2" --project PROJECT-NAME --milestone "MILESTONE-NAME"
 ```
 
-{% ifversion issue-types %}
-
 To set the issue type, use the `--type` flag.
 
 ```shell
 gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION" --type "ISSUE-TYPE"
 ```
 
-{% endif %}
-
-{% ifversion sub-issues %}
-
 To create the issue as a sub-issue of an existing parent, use the `--parent` flag with an issue number or URL.
 
 ```shell
 gh issue create --title "TITLE" --body "ISSUE-DESCRIPTION" --parent PARENT-ISSUE-NUMBER
 ```
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 

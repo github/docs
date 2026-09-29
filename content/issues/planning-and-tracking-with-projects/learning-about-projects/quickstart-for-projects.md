@@ -110,7 +110,7 @@ Select visible fields for your view to communicate the priority and progress of 
 
    ![Screenshot of a project. The "Add field" button, indicated by a plus icon, is highlighted with an orange outline.](/assets/images/help/projects-v2/new-field-button.png)
 
-1. Under "Hidden fields," click {% ifversion issue-types %}**Type**, {% endif %}**Status**, {% ifversion sub-issues %}**Sub-issues progress**, {% endif %}**Assignees**, **Linked pull requests**, **Priority**, and **Estimate**.
+1. Under "Hidden fields," click **Type**, **Status**, **Sub-issues progress**, **Assignees**, **Linked pull requests**, **Priority**, and **Estimate**.
 
 Next, group all of the items in your project by priority to make it easier to focus on the high priority items.
 

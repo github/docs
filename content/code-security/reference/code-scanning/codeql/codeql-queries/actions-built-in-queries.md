@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.codeql %}'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
-  ghes: '>3.17'
+  ghes: '*'
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/actions-built-in-queries

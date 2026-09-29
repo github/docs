@@ -22,7 +22,7 @@ category:
 > [!IMPORTANT]
 > Tasklist blocks are {% data variables.release-phases.retired %}. You can read more about this on the [{% data variables.product.github %} Blog](https://github.blog/changelog/2025-02-18-github-issues-projects-february-18th-update/).
 >
-> {% ifversion sub-issues %} You can use sub-issues as the replacement for tasklist blocks. Sub-issues provide a dedicated section within each issue, making it easier to track related work without relying on Markdown. For more information about sub-issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues). {% endif %}
+> You can use sub-issues as the replacement for tasklist blocks. Sub-issues provide a dedicated section within each issue, making it easier to track related work without relying on Markdown. For more information about sub-issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues).
 
 A tasklist is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete.
 

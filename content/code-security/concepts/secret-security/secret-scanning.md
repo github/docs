@@ -22,14 +22,10 @@ category:
 
 When credentials like API keys and passwords are committed to repositories as hardcoded secrets, they become targets for unauthorized access. {% data variables.product.prodname_secret_scanning_caps %} automatically detects credential leaks so you can secure them before they're exploited.
 
-{% ifversion secret-risk-assessment %}
-
 > [!TIP]
 > At any time, you can run a free assessment of your organization's code for leaked secrets. 
 >
 > To generate a report, open {% data reusables.security-overview.navigate-to-risk-assessment %}.
-
-{% endif %}
 
 ## How secret scanning protects your code
 

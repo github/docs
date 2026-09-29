@@ -109,9 +109,7 @@ For more information about individual features, see [AUTOTITLE](/code-security/g
 
 Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run free security risk assessments to understand their exposure to security vulnerabilities:
 
-{% ifversion secret-risk-assessment %}
 * **Secret leaks**: Scan your organization for leaked secrets and see how many could have been prevented by {% data variables.product.prodname_GH_secret_protection %}. See [AUTOTITLE](/code-security/concepts/secret-security/secret-security-with-github#secret-risk-assessment).
-{% endif %}
 {% ifversion code-security-risk-assessment %}
 * **Code vulnerabilities**: Scan up to 20 of your most active repositories and see how many vulnerabilities could be automatically fixed with {% data variables.copilot.copilot_autofix_short %} if you enable {% data variables.product.prodname_GH_code_security %}. See [AUTOTITLE](/code-security/concepts/code-scanning/risk-assessment).
 {% endif %}
