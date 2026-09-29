@@ -1,8 +1,4 @@
-// [start-readme]
-//
-// Run this script to check if OpenAPI operations match versions in content/rest operations
-//
-// [end-readme]
+// Checks whether OpenAPI operations match content/rest version frontmatter.
 import fs from 'fs'
 import path from 'path'
 import { isEqual } from 'lodash-es'
@@ -27,8 +23,6 @@ export async function getDiffOpenAPIContentRest(): Promise<ErrorMessages> {
 
   const openAPISchemaCheck = await createOpenAPISchemasCheck()
 
-  // Compare the categories and subcategories in the dereferenced schemas
-  // against the versions in the content/rest frontmatter.
   const differences = getDifferences(openAPISchemaCheck, checkContentDir)
   const errorMessages: ErrorMessages = {}
 
@@ -53,7 +47,7 @@ async function createOpenAPISchemasCheck(): Promise<CheckObject> {
   const restDirectory = fs
     .readdirSync(REST_DATA_DIR)
     .filter((dir) => !dir.endsWith('.json'))
-    // Allow the most recent deprecation to exist on disk until fully deprecated
+    // Skip the most recently deprecated GitHub Enterprise Server data, which stays on disk until deprecation finishes.
     .filter((dir) => !dir.includes(deprecated[0]))
 
   for (const dir of restDirectory) {
@@ -65,7 +59,7 @@ async function createOpenAPISchemasCheck(): Promise<CheckObject> {
 
     for (const categoryFile of categoryFiles) {
       const category = categoryFile.replace('.json', '')
-      const categoryData = JSON.parse(fs.readFileSync(path.join(dirPath, categoryFile), 'utf8')) // categoryData is { [subcategory]: Operation[] }
+      const categoryData = JSON.parse(fs.readFileSync(path.join(dirPath, categoryFile), 'utf8'))
       const subcategories = Object.keys(categoryData) as string[]
 
       if (isApiVersioned(version)) {
@@ -91,7 +85,7 @@ async function createCheckContentDirectory(contentFiles: string[]): Promise<Chec
     const subCategory = splitPath[splitPath.length - 1].replace('.md', '')
     const category =
       splitPath[splitPath.length - 2] === 'rest' ? subCategory : splitPath[splitPath.length - 2]
-    // All versions with appended calendar date versions if it exists
+    // Expand each docs version to its calendar-date API versions when present.
     const allCompleteVersions = applicableVersions.flatMap((version) => {
       return isApiVersioned(version)
         ? allVersions[version].apiVersions.map(
