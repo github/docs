@@ -54,4 +54,4 @@ If the default SPN isn't correct for your proxy, you can override the SPN in {% 
 
 ## Next steps
 
-To learn how to configure network settings in your editor, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings).
+To learn how to configure network settings in your editor, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-network-settings).

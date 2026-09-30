@@ -19,7 +19,7 @@ category:
 
 * **{% data variables.copilot.next_edit_suggestions_caps %}**
 
-  Based on the edits you are making, {% data variables.product.prodname_copilot_short %} both predicts the location of the next edit you'll want to make and what that edit should be. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide#enabling-next-edit-suggestions).
+  Based on the edits you are making, {% data variables.product.prodname_copilot_short %} both predicts the location of the next edit you'll want to make and what that edit should be. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide#enabling-next-edit-suggestions).
 
 * **Ghost text suggestions**
 
@@ -51,7 +51,7 @@ category:
 
 * **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**
 
-  Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide#enabling-next-edit-suggestions).
+  Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide#enabling-next-edit-suggestions).
 
 {% data reusables.copilot.supported-languages %}
 
@@ -82,7 +82,7 @@ category:
 * **Ghost text suggestions**
    * {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
 * **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**
-   * Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span an entire line, or multiple lines, depending on the scope of the potential change. {% data variables.copilot.next_edit_suggestions_caps %} are enabled by default. To disable, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide?tool=xcode#enabling-next-edit-suggestions-2).
+   * Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span an entire line, or multiple lines, depending on the scope of the potential change. {% data variables.copilot.next_edit_suggestions_caps %} are enabled by default. To disable, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide?tool=xcode#enabling-next-edit-suggestions-2).
 
 {% endxcode %}
 
@@ -95,7 +95,7 @@ category:
 * **Ghost text suggestions**
    * {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
 * **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**
-   * Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide?tool=eclipse#enabling-next-edit-suggestions-2).
+   * Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change. To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide?tool=eclipse#enabling-next-edit-suggestions-2).
 
 {% data reusables.copilot.supported-languages %}
 
@@ -177,4 +177,4 @@ The following programming languages and technologies are included in the trainin
 
 ## Next steps
 
-* [AUTOTITLE](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/get-ide-code-suggestions)

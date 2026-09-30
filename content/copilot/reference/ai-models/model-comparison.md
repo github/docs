@@ -130,7 +130,7 @@ Use one of these models if you want to:
 * Understand front-end behavior from visual context.
 
 > [!TIP]
-> If you're using a model in a context that doesn’t support image input (like a code editor), you won’t see visual reasoning benefits. You may be able to use an MCP server to get access to visual input indirectly. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp).
+> If you're using a model in a context that doesn’t support image input (like a code editor), you won’t see visual reasoning benefits. You may be able to use an MCP server to get access to visual input indirectly. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp).
 
 ### When to use a different model
 
@@ -153,5 +153,5 @@ Some models have behaviors, limitations, or safeguards that are useful to unders
 Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_5_mini %}, then adjust based on your needs.
 
 * For detailed model specs and pricing, see [AUTOTITLE](/copilot/reference/ai-models/supported-models).
-* To switch between models, refer to [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model) or [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
+* To switch between models, refer to [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/change-the-chat-model) or [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/change-the-completion-model).
 * To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).

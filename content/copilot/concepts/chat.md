@@ -6,6 +6,7 @@ versions:
   feature: copilot
 redirect_from:
   - /copilot/concepts/about-github-copilot-chat
+  - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat
 contentType: concepts
 category:
   - Learn about Copilot
@@ -25,7 +26,7 @@ category:
 * {% data variables.copilot.copilot_cli %}
 * {% data variables.copilot.github_copilot_app %}
 
-Different environments may have different features and capabilities, but the core functionality remains consistent across platforms. To explore the functionality available in each environment, see the [AUTOTITLE](/copilot/how-tos/chat-with-copilot) how-to guides and the [AUTOTITLE](/copilot/tutorials).
+Different environments may have different features and capabilities, but the core functionality remains consistent across platforms. To explore the functionality available in each environment, see the [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot) how-to guides and the [AUTOTITLE](/copilot/tutorials).
 
 ## Limitations
 
@@ -63,10 +64,11 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customi
 
 MCP is an open standard that defines how applications share context with large language models (LLMs). MCP provides a standardized way to connect AI models to different data sources and tools, enabling them to work together more effectively.
 
-You can configure MCP servers to provide context to {% data variables.copilot.copilot_chat_short %} in various IDEs, such as {% data variables.product.prodname_vscode %} and JetBrains IDEs. For {% data variables.copilot.copilot_chat_dotcom_short %}, the {% data variables.product.github %} MCP server is automatically configured, enabling {% data variables.copilot.copilot_chat_short %} to perform a limited set of tasks, at your request, such as creating branches or merging pull requests. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp) and [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
+You can configure MCP servers to provide context to {% data variables.copilot.copilot_chat_short %} in various IDEs, such as {% data variables.product.prodname_vscode %} and JetBrains IDEs. For {% data variables.copilot.copilot_chat_dotcom_short %}, the {% data variables.product.github %} MCP server is automatically configured, enabling {% data variables.copilot.copilot_chat_short %} to perform a limited set of tasks, at your request, such as creating branches or merging pull requests. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp) and [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/use-the-github-mcp-server).
 
 ### Further reading
 
-* [AUTOTITLE](/copilot/how-tos/chat-with-copilot) how-to guides
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot) how-to guides
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot) how-to guides
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
 * [AUTOTITLE](/copilot/tutorials/copilot-cookbook)

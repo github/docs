@@ -3,6 +3,7 @@ import { stringify } from 'javascript-stringify'
 
 import type { CodeSample, Operation } from '@/rest/components/types'
 import { type VersionItem } from '@/frame/components/context/MainContext'
+import { getCurlBodyArguments, escapeShellValue } from '@/rest/lib/curl-body-arguments'
 
 function shouldOmitAuthentication(operation: Operation, currentVersion: string): boolean {
   // Only explicitly permissionless operations can omit auth.
@@ -17,22 +18,8 @@ function shouldOmitAuthentication(operation: Operation, currentVersion: string):
   return isDotcomVersion
 }
 
-// Escapes single quotes so a contraction like "there's" can't break out of the
-// surrounding shell quoting.
-function escapeShellValue(value: string): string {
-  return value.replace(/'/g, "'\\''")
-}
-
 type CodeExamples = Record<string, unknown>
 
-// Form-encoded shell examples use repeated --data-urlencode flags, such as
-// param1=value1 and param2=value2. For example:
-// https://docs.github.com/en/enterprise/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode
-const CURL_CONTENT_TYPE_MAPPING: { [key: string]: string } = {
-  'application/x-www-form-urlencoded': '--data-urlencode',
-  'multipart/form-data': '--form',
-  'application/octet-stream': '--data-binary',
-}
 export function getShellExample(
   operation: Operation,
   codeSample: CodeSample,
@@ -72,27 +59,10 @@ export function getShellExample(
 
   let requestBodyParams = ''
   if (codeSample?.request?.bodyParameters) {
-    requestBodyParams = `-d '${JSON.stringify(codeSample.request.bodyParameters).replace(
-      /'/g,
-      "'\\''",
-    )}'`
-
     const contentType = codeSample.request.contentType
-    if (contentType in CURL_CONTENT_TYPE_MAPPING) {
-      requestBodyParams = ''
-      // Mapped content types can pass a single scalar body instead of named parameters.
-      const { bodyParameters } = codeSample.request
-      if (bodyParameters && typeof bodyParameters === 'object' && !Array.isArray(bodyParameters)) {
-        const paramNames = Object.keys(bodyParameters)
-        for (const elem of paramNames) {
-          const escapedValue = escapeShellValue(String(bodyParameters[elem]))
-          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} '${elem}=${escapedValue}'`
-        }
-      } else {
-        const escapedValue = escapeShellValue(String(bodyParameters))
-        requestBodyParams = `${CURL_CONTENT_TYPE_MAPPING[contentType]} "${escapedValue}"`
-      }
-    }
+    requestBodyParams = getCurlBodyArguments(codeSample.request.bodyParameters, contentType).join(
+      ' ',
+    )
   }
 
   let authHeader = omitAuth ? '' : '-H "Authorization: Bearer <YOUR-TOKEN>"'

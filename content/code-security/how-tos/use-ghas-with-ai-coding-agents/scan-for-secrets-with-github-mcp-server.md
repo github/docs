@@ -22,7 +22,7 @@ This works with any MCP-compatible agent or IDE, including {% data variables.pro
 ## Prerequisites
 
 * **{% data variables.product.prodname_GH_secret_protection %}** is enabled for the repository.
-* **{% data variables.product.github %} MCP server** is connected in your IDE or agent. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server).
+* **{% data variables.product.github %} MCP server** is connected in your IDE or agent. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/set-up-the-github-mcp-server).
 * Your organization's **security configuration** determines which secret types are detected and whether push protection is enforced. The MCP tools respect your organization's push protection configuration (repository-level push protection settings are not used).
 
 ## Step 1:  Install and configure tools

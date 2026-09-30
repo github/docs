@@ -193,7 +193,7 @@ Creating issues manually can be repetitive and time-consuming. With {% data vari
 
 ## Creating an issue from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}
 
-You can also create an issue directly from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, using the Model Context Protocol (MCP). See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp).
+You can also create an issue directly from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, using the Model Context Protocol (MCP). See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp).
 
 {% endif %}
 

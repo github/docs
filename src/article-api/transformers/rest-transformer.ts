@@ -6,6 +6,10 @@ import { engine } from '@/content-render/liquid/engine'
 import { apiTransformerTags } from '@/article-api/liquid-renderers'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { summarizeSchema } from '@/article-api/lib/summarize-schema'
+import {
+  getCurlBodyArguments,
+  needsExplicitContentTypeHeader,
+} from '@/rest/lib/curl-body-arguments'
 import matter from '@gr2m/gray-matter'
 import { fastTextOnly } from '@/content-render/unified/text-only'
 import GithubSlugger from 'github-slugger'
@@ -23,7 +27,9 @@ type PreparedCodeExample = {
     description: string
     url: string
     acceptHeader?: string
-    bodyParameters: string | null
+    contentType?: string
+    needsContentTypeHeader: boolean
+    bodyParameters: string[]
   }
   response: {
     statusCode?: string
@@ -225,9 +231,13 @@ export class RestTransformer implements PageTransformer {
               : '',
             url,
             acceptHeader: example.request?.acceptHeader,
-            bodyParameters: example.request?.bodyParameters
-              ? JSON.stringify(example.request.bodyParameters, null, 2)
-              : null,
+            contentType: example.request?.contentType,
+            needsContentTypeHeader: needsExplicitContentTypeHeader(example.request?.contentType),
+            bodyParameters: getCurlBodyArguments(
+              example.request?.bodyParameters,
+              example.request?.contentType,
+              { jsonIndent: 2 },
+            ),
           },
           response: {
             statusCode: example.response?.statusCode,

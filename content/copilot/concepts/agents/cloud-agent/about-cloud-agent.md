@@ -64,7 +64,7 @@ When you start a {% data variables.copilot.copilot_cloud_agent %} session from {
 
 ## {% data variables.copilot.copilot_cloud_agent %} versus agent mode
 
-{% data variables.copilot.copilot_cloud_agent %} is distinct from the "agent mode" feature available in your IDE. {% data variables.copilot.copilot_cloud_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts. It can research a repository, create a plan, make code changes on a branch, and optionally open a pull request. In contrast, agent mode in your IDE makes autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+{% data variables.copilot.copilot_cloud_agent %} is distinct from the "agent mode" feature available in your IDE. {% data variables.copilot.copilot_cloud_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts. It can research a repository, create a plan, make code changes on a branch, and optionally open a pull request. In contrast, agent mode in your IDE makes autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 ## Streamlining software development with {% data variables.copilot.copilot_cloud_agent %}
 

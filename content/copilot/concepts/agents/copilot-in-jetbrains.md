@@ -34,7 +34,7 @@ There are three ways to use {% data variables.product.prodname_copilot %} in {% 
 
 The {% data variables.product.prodname_copilot %} plugin for {% data variables.product.prodname_jetbrains_ides %} is the most comprehensive way to use {% data variables.product.prodname_copilot_short %} and is the recommended choice. 
 
-The plugin is transitioning from its local agent harness to {% data variables.copilot.copilot_agent_short %} as the default agent harness, which brings faster feature parity and higher-quality results. For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension).
+The plugin is transitioning from its local agent harness to {% data variables.copilot.copilot_agent_short %} as the default agent harness, which brings faster feature parity and higher-quality results. For installation instructions, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/install-copilot-extension).
 
 The {% data variables.product.prodname_copilot %} plugin provides the following capabilities.
 
@@ -79,6 +79,6 @@ For more information about ACP, see the [ACP documentation](https://agentclientp
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide)
-* [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension)
-* [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/install-copilot-extension)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/change-the-chat-model)

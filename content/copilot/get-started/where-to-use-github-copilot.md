@@ -4,6 +4,14 @@ shortTitle: Where to use Copilot
 intro: 'Choose where to work with {% data variables.product.prodname_copilot %}, from understanding an issue to writing, reviewing, testing, and shipping code.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/setting-up-github-copilot
+  - /copilot/get-started/setting-up-github-copilot
+  - /copilot/how-tos/set-up
+  - /copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself
+  - /copilot/get-started/setting-up-github-copilot/setting-up-github-copilot-for-yourself
+  - /copilot/how-tos/set-up/setting-up-github-copilot-for-yourself
+  - /copilot/how-tos/set-up/set-up-for-self
 contentType: get-started
 category:
   - Learn about Copilot
