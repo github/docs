@@ -24,6 +24,9 @@ category:
 {% data variables.product.prodname_dependabot_version_updates %} keeps your dependencies up-to-date and {% data variables.product.prodname_dependabot_security_updates %} updates vulnerable dependencies. {% data variables.product.prodname_dependabot %} can access public registries. In addition, you can give {% data variables.product.prodname_dependabot %} access to private package registries and private {% data variables.product.github %} repositories so that you can keep your private and innersource dependencies as up-to-date and secure as your public dependencies.
 
 In most ecosystems, private dependencies are usually published to private package registries. These private registries are similar to their public equivalents, but they require authentication.
+{% ifversion dependabot-egress-allowlist %}
+Configuring a registry in `dependabot.yml` also allows {% data variables.product.prodname_dependabot %} to reach it over the network. Update jobs can connect only to hosts on an egress allowlist. Declare a registry under the top-level `registries` key even if it allows anonymous access, because defining it only in an ecosystem-native configuration file, such as `.npmrc` or `nuget.config`, does not allow its host. Add private registries to `dependabot.yml`, not to the shared defaults. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/resolve-a-blocked-host).
+{% endif %}
 
 For specific ecosystems, you can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/remove-access-to-public-registries).
 
