@@ -14236,7 +14236,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p>\n<p>This endpoint only works for PATs (classic) with the <code>repo</code> scope.</p>",
+      "descriptionHTML": "<p>Add a single repository to an installation. The authenticated user must have admin access to the repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -14311,7 +14311,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository. The installation must have the <code>repository_selection</code> of <code>selected</code>.</p>\n<p>This endpoint only works for PATs (classic) with the <code>repo</code> scope.</p>",
+      "descriptionHTML": "<p>Remove a single repository from an installation. The authenticated user must have admin access to the repository. The installation must have the <code>repository_selection</code> of <code>selected</code>.</p>\n<p>To use a PAT (classic) with this endpoint, the <code>repo</code> scope is required</p>",
       "codeExamples": [
         {
           "request": {

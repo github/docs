@@ -8069,11 +8069,11 @@
         {
           "type": "string",
           "name": "display_name",
-          "description": "<p>The display name for this app installation's external custom properties in the organization. This can't be changed after the app installation is registered.</p>",
+          "description": "<p>The display name for this app installation's external custom properties in the organization. Must be 1 to 15 characters and contain only letters and numbers. Capitalization is preserved as entered. This can't be changed after the app installation is registered.</p>",
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Registers a GitHub App installation so it can read and write external custom properties for an organization, and assigns it a display name.</p>\n<p>An app installation can only be registered once, and its display name can't be changed afterward. Calling with an app installation that has already been registered returns a <code>422</code> response with an <code>already_exists</code> error code.</p>\n<p>Uninstalling the GitHub App unregisters it, and removes the external custom properties it created.</p>\n<p>To use this endpoint, the authenticated caller must have the <code>organization_external_properties_for_repos:admin</code> permission.</p>",
+      "descriptionHTML": "<p>Registers a GitHub App installation so it can read and write external custom properties for an organization, and assigns it a display name.</p>\n<p>The display name must be 1 to 15 characters and contain only letters and numbers. Capitalization is preserved as entered.</p>\n<p>An app installation can only be registered once, and its display name can't be changed afterward. Calling with an app installation that has already been registered returns a <code>422</code> response with an <code>already_exists</code> error code for <code>installation_id</code>. If the display name is already in use by another app installation in the organization, the response is <code>422</code> with an <code>already_exists</code> error code for <code>display_name</code>. An invalid display name also returns <code>422</code>.</p>\n<p>The app installation being registered must have write or admin permission for organization external custom properties for repositories. If it doesn't, the response is <code>422</code>. This is the permission of the installation being registered, which isn't necessarily the caller.</p>\n<p>Uninstalling the GitHub App unregisters it, and removes the external custom properties it created.</p>\n<p>To use this endpoint, the authenticated caller must have the <code>organization_external_properties_for_repos:admin</code> permission.</p>",
       "codeExamples": [
         {
           "request": {
