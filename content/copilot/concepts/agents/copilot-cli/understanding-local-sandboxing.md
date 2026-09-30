@@ -68,7 +68,7 @@ To run a program such as `python` or `git`, the sandbox has to let the command s
 
 ### System and profile locations
 
-On macOS, standard system locations are granted read-only so that commands can load shared libraries and read system configuration without being able to change them. The application directories in your user profile are also granted read-only when **Allow dev tool access** is enabled, so that commands can read the tools you have installed there without being able to modify them.
+On macOS, standard system locations are granted read-only permission so that commands can load shared libraries and read system configuration without being able to change them. The application directories in your user profile (for example, the subdirectories of `%LOCALAPPDATA%\Programs` on Windows, or the `~/.local/bin` and `~/.local/lib` directories on macOS and Linux) are also granted read-only permission when **Allow dev tool access** is enabled, so that commands can read the tools you have installed there without being able to modify them.
 
 ### Package-manager caches
 
