@@ -28,6 +28,12 @@ describe('get-data', () => {
           },
         },
         variables: {
+          copilot: {
+            prodname_copilot: 'GitHub Copilot',
+          },
+          product: {
+            company_short: 'GitHub',
+          },
           stuff: {
             foo: 'Foo',
             bar: 'Bar',
@@ -36,6 +42,10 @@ describe('get-data', () => {
         reusables: {
           coolness: 'This is *Markdown*',
           otherness: '**Also** Markdown',
+          ssh: {
+            fingerprints: 'English fingerprints',
+            known_hosts: 'English known hosts',
+          },
         },
       },
     })
@@ -54,12 +64,22 @@ describe('get-data', () => {
             },
           },
           variables: {
+            copilot: {
+              prodname_copilot: 'Translated Copilot',
+            },
+            product: {
+              company_short: 'Translated GitHub',
+            },
             stuff: {
               foo: 'フー',
             },
           },
           reusables: {
             coolness: 'これがマークダウンです',
+            ssh: {
+              fingerprints: 'Translated fingerprints',
+              known_hosts: 'Translated known hosts',
+            },
           },
         },
       },
@@ -102,6 +122,17 @@ describe('get-data', () => {
     }
   })
 
+  test('getDataByLanguage always reads selected variable data from English', () => {
+    {
+      const result = getDataByLanguage('variables.product.company_short', 'ja')
+      expect(result).toBe('GitHub')
+    }
+    {
+      const result = getDataByLanguage('variables.copilot.prodname_copilot', 'ja')
+      expect(result).toBe('GitHub Copilot')
+    }
+  })
+
   test('getDataByLanguage variables failures', () => {
     {
       const result = getDataByLanguage('variables.stuff.key_non_existent', 'en')
@@ -115,6 +146,11 @@ describe('get-data', () => {
       const result = getDataByLanguage('variables.notpresent.whatever', 'en')
       expect(result).toBeUndefined()
     }
+  })
+
+  test('getDataByLanguage uses configured English root for always-English missing keys', () => {
+    const result = getDataByLanguage('variables.product.prodname_dotcom', 'ja')
+    expect(result).toBeUndefined()
   })
 
   test('getDataByLanguage reusables English', () => {
@@ -136,6 +172,17 @@ describe('get-data', () => {
     {
       const result = getDataByLanguage('reusables.otherness', 'ja')
       expect(result).toBe('**Also** Markdown')
+    }
+  })
+
+  test('getDataByLanguage always reads selected SSH reusables from English', () => {
+    {
+      const result = getDataByLanguage('reusables.ssh.fingerprints', 'ja')
+      expect(result).toBe('English fingerprints')
+    }
+    {
+      const result = getDataByLanguage('reusables.ssh.known_hosts', 'ja')
+      expect(result).toBe('English known hosts')
     }
   })
 
@@ -174,6 +221,16 @@ describe('get-data', () => {
       const result = getDeepDataByLanguage('reusables', 'en')
       expect(result['coolness.md']).toBe('This is *Markdown*')
     }
+  })
+
+  test('getDeepDataByLanguage uses configured English root for always-English files', () => {
+    const variables = getDeepDataByLanguage('variables', 'en')
+    expect((variables.product as Record<string, string>).prodname_dotcom).toBeUndefined()
+    expect((variables.copilot as Record<string, string>).prodname_copilot).toBe('GitHub Copilot')
+
+    const sshReusables = getDeepDataByLanguage('reusables.ssh', 'en')
+    expect(sshReusables['fingerprints.md']).toBe('English fingerprints')
+    expect(sshReusables['known_hosts.md']).toBe('English known hosts')
   })
 })
 
