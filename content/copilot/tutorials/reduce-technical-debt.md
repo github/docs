@@ -115,7 +115,7 @@ try {
 
 By adopting the in-the-moment fix approach, you help to ensure that substandard code does not get added to your codebase, and you avoid the creation of a backlog issue that may never be addressed.
 
-For more details on using {% data variables.product.prodname_copilot_short %} in your IDE, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+For more details on using {% data variables.product.prodname_copilot_short %} in your IDE, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 ## Using {% data variables.copilot.copilot_cloud_agent %} for large-scale refactoring
 

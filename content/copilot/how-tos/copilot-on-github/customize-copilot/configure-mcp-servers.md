@@ -422,7 +422,7 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
 
 1. If you see a firewall warning for `api.github.com` when using the {% data variables.product.github %} MCP server, add `api.github.com` to the custom allowlist. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-the-firewall).
 
-For information on using the {% data variables.product.github %} MCP server in other environments, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
+For information on using the {% data variables.product.github %} MCP server in other environments, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/use-the-github-mcp-server).
 
 ## Disabling MCP tools for code review
 
@@ -443,4 +443,4 @@ If you disable this setting, {% data variables.copilot.copilot_code-review_short
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment)
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp)

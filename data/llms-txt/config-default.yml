@@ -20,11 +20,11 @@ pinned_section_heading: |
   Building with GitHub, for coding agents and automation
 
 pinned_pages:
-  - copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp
-  - copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server
-  - copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server
+  - copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp
+  - copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/use-the-github-mcp-server
+  - copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/set-up-the-github-mcp-server
   - copilot/concepts/agents/cloud-agent/about-cloud-agent
-  - copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents-in-your-ide
+  - copilot/how-tos/copilot-in-your-ide/use-copilot-agents/use-custom-agents
   - github-cli/github-cli
   - github-cli/github-cli/quickstart
   - rest

@@ -108,7 +108,7 @@ Let tools handle the repetitive work.
 * Set up CI checks for style, linting, security, code quality and code coverage.
 * Use {% data variables.product.prodname_dependabot %} for dependency updates and alerts.
 * Apply {% data variables.product.prodname_codeql %} or similar scanners for static analysis.
-* [AUTOTITLE](/copilot/how-tos/get-code-suggestions/find-matching-code) shows how {% data variables.product.prodname_copilot_short %} can help track down code patterns and automate search tasks.
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/find-matching-code) shows how {% data variables.product.prodname_copilot_short %} can help track down code patterns and automate search tasks.
 * Consider if AI agents with reasoning capabilities can assist in automating parts of your review process. For example, build a self-reviewing agent that evaluates draft pull requests against your standards, checking for accuracy, appropriate tone, and business logic _before_ requesting human review.
 
 ## 8. Keep improving your workflow

@@ -117,7 +117,7 @@ The following table shows which models are available in each client.
 {% endrowheaders %}
 
 > [!NOTE]
-> In {% data variables.product.prodname_vscode %} you can add more models than those that are available by default with your {% data variables.product.prodname_copilot_short %} subscription. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode#adding-more-models).
+> In {% data variables.product.prodname_vscode %} you can add more models than those that are available by default with your {% data variables.product.prodname_copilot_short %} subscription. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/change-the-chat-model?tool=vscode#adding-more-models).
 
 ## Minimum IDE versions for recent models
 

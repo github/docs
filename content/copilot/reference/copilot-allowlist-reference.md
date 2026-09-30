@@ -16,7 +16,7 @@ contentType: reference
 
 If your company employs security measures like a firewall or proxy server, you should add the URLs in this article to an allowlist to ensure {% data variables.product.prodname_copilot_short %} works as expected. Users must be able to authenticate to {% data variables.product.github %} and access the {% data variables.product.prodname_copilot_short %} service on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}.
 
-Every user of the proxy server or firewall also needs to configure their own environment to connect to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings).
+Every user of the proxy server or firewall also needs to configure their own environment to connect to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-network-settings).
 
 ## {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}
 

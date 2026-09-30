@@ -39,8 +39,8 @@ Before getting started you must have the following:
 * A [{% data variables.product.prodname_copilot %} subscription plan](/copilot/get-started/plans).
 * One of these IDEs:
   * {% data variables.product.prodname_vscode %}
-  * Any JetBrains IDE that supports {% data variables.product.prodname_copilot_short %}, with the {% data variables.product.prodname_copilot %} extension for JetBrains installed. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=jetbrains).
-* Some experience of using {% data variables.copilot.copilot_chat_short %} in either {% data variables.product.prodname_vscode %} or JetBrains. If you've never used {% data variables.copilot.copilot_chat_short %} before, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+  * Any JetBrains IDE that supports {% data variables.product.prodname_copilot_short %}, with the {% data variables.product.prodname_copilot %} extension for JetBrains installed. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/install-copilot-extension?tool=jetbrains).
+* Some experience of using {% data variables.copilot.copilot_chat_short %} in either {% data variables.product.prodname_vscode %} or JetBrains. If you've never used {% data variables.copilot.copilot_chat_short %} before, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 ## Preparation
 

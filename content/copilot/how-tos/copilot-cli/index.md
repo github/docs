@@ -4,6 +4,18 @@ shortTitle: '{% data variables.copilot.copilot_cli_short %}'
 intro: Use {% data variables.product.prodname_copilot_short %} directly from your terminal to answer questions, write and debug code, and interact with {% data variables.product.github %}.
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/github-copilot-in-the-cli
+  - /copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli
+  - /copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli
+  - /copilot/using-github-copilot/using-github-copilot-in-the-cli
+  - /copilot/using-github-copilot/using-github-copilot-in-the-command-line
+  - /copilot/how-tos/github-flow
+  - /copilot/how-tos/github-flow/use-copilot-in-the-cli
+  - /copilot/how-tos/github-flow/using-github-copilot-in-the-command-line
+  - /copilot/how-tos/configure-personal-settings/customize-copilot-in-the-cli
+  - /copilot/how-tos/use-copilot-for-common-tasks
+  - /copilot/how-tos/use-copilot-for-common-tasks/use-copilot-in-the-cli
 contentType: how-tos
 layout: bespoke-landing
 heroImage: /assets/images/banner-images/hero-4

@@ -98,7 +98,7 @@ A well-maintained custom instructions file, such as an `AGENTS.md` or `.github/c
 
 Large tool sets (for example, a full MCP server's worth of tools) add to the context on every request. Where it fits your workflow, enable only the toolsets relevant to the task.
 
-See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/configure-toolsets).
+See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/configure-toolsets).
 
 ## 4. Preserve the cache
 

@@ -17,7 +17,7 @@ To retrieve full article content, page lists, or search results programmatically
 ## Building with GitHub, for coding agents and automation
 
 * [Extend Copilot Chat with MCP](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp): Connect MCP servers to Copilot Chat to share context from other applications.
-* [Use the GitHub MCP Server](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server): Learn how to use the GitHub Model Context Protocol (MCP) server to interact with repositories, issues, pull requests, and other GitHub features, directly from Copilot Chat in your IDE.
+* [Use the GitHub MCP Server](https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/use-the-github-mcp-server): Learn how to use the GitHub Model Context Protocol (MCP) server to interact with repositories, issues, pull requests, and other GitHub features, directly from Copilot Chat in your IDE.
 * [Set up the GitHub MCP Server](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server): Learn how to configure the GitHub Model Context Protocol (MCP) server.
 * [About cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent): Copilot can research a repository, create an implementation plan, and make code changes on a branch. You can review the diff, iterate, and create a pull request when you're ready.
 * [Create custom agents in your IDE](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents-in-your-ide): You can create specialized agents with tailored expertise for specific development tasks.
@@ -42,7 +42,7 @@ To retrieve full article content, page lists, or search results programmatically
 * [What is GitHub Copilot?](https://docs.github.com/en/copilot/get-started/what-is-github-copilot): Learn what Copilot is and what you can do with it.
 * [Install Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli): Learn how to install Copilot CLI so that you can use Copilot directly from the command line.
 * [Overview](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview): Learn how to use GitHub Copilot from the command line.
-* [Get IDE code suggestions](https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions): Use GitHub Copilot to get code suggestions in your editor.
+* [Get IDE code suggestions](https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/get-ide-code-suggestions): Use GitHub Copilot to get code suggestions in your editor.
 * [Manage policies](https://docs.github.com/en/copilot/how-tos/manage-your-account/manage-policies): Find out how to change your personal settings on GitHub to configure GitHub Copilot's behavior.
 * [Install Copilot extension](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-extension): To use Copilot in your preferred coding environment, follow the steps for your chosen IDE.
 * [Use code review](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review): Learn how to request a code review from GitHub Copilot.

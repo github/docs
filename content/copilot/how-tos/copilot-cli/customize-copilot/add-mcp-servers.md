@@ -272,5 +272,5 @@ Once you have added an MCP server, {% data variables.product.prodname_copilot_sh
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/context/mcp)
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)

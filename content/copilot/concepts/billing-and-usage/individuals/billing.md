@@ -132,7 +132,7 @@ For the best experience with usage-based billing, update your IDE, client, and {
 | Xcode (extension) | 0.50.0 |
 | {% data variables.copilot.copilot_cli_short %} | 1.0.48 |
 
-We recommend keeping your IDE, client, and {% data variables.product.prodname_copilot_short %} extensions on the latest available stable version. For information on configuring automatic updates, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide). To update {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
+We recommend keeping your IDE, client, and {% data variables.product.prodname_copilot_short %} extensions on the latest available stable version. For information on configuring automatic updates, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide). To update {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
 
 ## Further reading
 
