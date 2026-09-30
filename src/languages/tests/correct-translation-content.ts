@@ -451,6 +451,20 @@ describe('correctTranslatedContentStrings', () => {
       )
     })
 
+    test('fixes garbled "de ifversion" tags', () => {
+      expect(
+        fix(
+          '{% codeql-rust-available de ifversion %} A {% mais %} de codeql-rust-public-preview de ifversion B {% endif %}',
+          'pt',
+        ),
+      ).toBe(
+        '{% ifversion codeql-rust-available %} A {% elsif codeql-rust-public-preview %} B {% endif %}',
+      )
+      expect(fix('{% ifversion codeql-rust-available %} A {% endif %}', 'pt')).toBe(
+        '{% ifversion codeql-rust-available %} A {% endif %}',
+      )
+    })
+
     test('fixes translated else variants', () => {
       expect(fix('{% senão %}', 'pt')).toBe('{% else %}')
       expect(fix('{%- senão %}', 'pt')).toBe('{%- else %}')

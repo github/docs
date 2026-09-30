@@ -534,6 +534,14 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- senão %}', '{%- else %}')
     content = content.replaceAll('{% mais %}', '{% else %}')
     content = content.replaceAll('{%- mais %}', '{%- else %}')
+    content = content.replace(
+      /\{%(-?)\s*(?:else|mais)\s*-?%\}\s*de\s+([A-Za-z0-9_-]+)\s+de\s+ifversion(?:\s*(-?)%\})?/g,
+      '{%$1 elsif $2 $3%}',
+    )
+    content = content.replace(
+      /\{%(-?)\s*([A-Za-z0-9_-]+)\s+de\s+ifversion\s*(-?)%\}/g,
+      '{%$1 ifversion $2 $3%}',
+    )
     content = content.replaceAll('{% se ', '{% if ')
     content = content.replaceAll('{% atribuir ', '{% assign ')
     content = content.replaceAll('{%- atribuir ', '{%- assign ')
