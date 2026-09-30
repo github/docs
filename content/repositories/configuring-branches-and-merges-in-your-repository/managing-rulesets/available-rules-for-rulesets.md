@@ -254,6 +254,8 @@ For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-
 
 If your repository has {% data variables.product.prodname_code_quality %} enabled and code coverage data is being uploaded, you can use rulesets to prevent pull requests from being merged based on code coverage thresholds. For more information about uploading coverage data, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
 
+The rule evaluates only coverage data that has already been uploaded and does not wait for coverage uploads to complete. To ensure that all expected coverage results are evaluated before a pull request can be merged, make each status check associated with an expected coverage upload a required status check.
+
 This rule blocks a pull request from being merged when either of two code coverage thresholds is not met:
 
 * **Minimum line coverage percentage**: the aggregated line coverage for the pull request branch is below the configured percentage.

@@ -43,28 +43,34 @@ export const getDeepDataByLanguage = memoize(
     if (dir === null) {
       dir = languages[langCode].dir
     }
-    return getDeepDataByDir(dottedPath, dir)
+    const englishRoot = langCode === 'en' ? dir : languages.en.dir
+    return getDeepDataByDir(dottedPath, dir, englishRoot)
   },
 )
 
-// getDeepDataByLanguage caches each top-level path, so recursive reads need no extra cache.
-function getDeepDataByDir(dottedPath: string, dir: string): Record<string, unknown> {
+// Doesn't need to be memoized because it's used by getDataKeysByLanguage
+// which is already memoized.
+function getDeepDataByDir(
+  dottedPath: string,
+  dir: string,
+  englishRoot: string,
+): Record<string, unknown> {
   const fullPath = ['data']
   const split = dottedPath.split(/\./g)
   fullPath.push(...split)
 
   const things: Record<string, unknown> = {}
-  const relPath = fullPath.join(path.sep)
+  const relPath = path.posix.join(...fullPath)
   for (const dirent of getDirents(dir, relPath)) {
     if (dirent.name === 'README.md') continue
     // Release-note basenames like '3-5' and '0-rc2' stay intact.
     const key = dirent.isDirectory() ? dirent.name : dirent.name.replace(/\.yml$/, '')
     if (dirent.isDirectory()) {
-      things[key] = getDeepDataByDir(`${dottedPath}.${key}`, dir)
+      things[key] = getDeepDataByDir(`${dottedPath}.${key}`, dir, englishRoot)
     } else if (dirent.name.endsWith('.yml')) {
-      things[key] = getYamlContent(dir, path.join(relPath, dirent.name))
+      things[key] = getYamlContent(dir, path.posix.join(relPath, dirent.name), englishRoot)
     } else if (dirent.name.endsWith('.md')) {
-      things[key] = getMarkdownContent(dir, path.join(relPath, dirent.name))
+      things[key] = getMarkdownContent(dir, path.posix.join(relPath, dirent.name), englishRoot)
     } else {
       throw new Error(`don't know how to read '${dirent.name}'`)
     }
@@ -91,7 +97,7 @@ export const getUIDataMerged = memoize((langCode: string): UIStrings => {
 const getUIData = (langCode: string): Record<string, unknown> => {
   const fullPath = ['data', 'ui.yml']
   const { dir } = languages[langCode]
-  return getYamlContent(dir, fullPath.join(path.sep)) as Record<string, unknown>
+  return getYamlContent(dir, path.posix.join(...fullPath)) as Record<string, unknown>
 }
 
 // When translated data misses a dotted path, retry English.
@@ -105,7 +111,7 @@ export const getDataByLanguage = memoize((dottedPath: string, langCode: string):
     const value = getDataByDir(dottedPath, dir, languages.en.dir, langCode)
 
     if (value === undefined && langCode !== 'en') {
-      return getDataByDir(dottedPath, languages.en.dir)
+      return getDataByDir(dottedPath, languages.en.dir, languages.en.dir)
     }
     return value
   } catch (error) {
@@ -115,7 +121,8 @@ export const getDataByLanguage = memoize((dottedPath: string, langCode: string):
         if (DEBUG_JIT_DATA_READS) {
           logger.warn('Unable to parse Yaml in translation', { langCode, dottedPath, error })
         }
-        return getDataByDir(dottedPath, languages.en.dir)
+        // Give it one more chance, but use English this time
+        return getDataByDir(dottedPath, languages.en.dir, languages.en.dir)
       }
       // Throw English YAML errors so staff writers see corrupt source data early.
       throw error
@@ -152,9 +159,8 @@ function getDataByDir(
     const basename = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${basename}.yml`)
-    const allData = getYamlContent(dir, fullPath.join(path.sep), englishRoot) as
-      | Record<string, unknown>
-      | undefined
+    const relPath = path.posix.join(...fullPath)
+    const allData = getYamlContent(dir, relPath, englishRoot) as Record<string, unknown> | undefined
     if (allData && key) {
       const value = allData[key]
       if (value) {
@@ -162,11 +168,9 @@ function getDataByDir(
         if (dir !== englishRoot) {
           let englishContent = content
           try {
-            const englishData = getYamlContent(
-              englishRoot,
-              fullPath.join(path.sep),
-              englishRoot,
-            ) as Record<string, unknown> | undefined
+            const englishData = getYamlContent(englishRoot, relPath, englishRoot) as
+              | Record<string, unknown>
+              | undefined
             if (englishData?.[key]) {
               englishContent = matter(englishData[key] as string).content
             }
@@ -183,7 +187,7 @@ function getDataByDir(
         return content
       }
     } else {
-      logger.warn('Unable to find variables Yaml file', { filePath: fullPath.join(path.sep) })
+      logger.warn('Unable to find variables Yaml file', { filePath: relPath })
     }
     return undefined
   }
@@ -192,13 +196,14 @@ function getDataByDir(
     const nakedname = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${nakedname}.md`)
-    const markdown = getMarkdownContent(dir, fullPath.join(path.sep), englishRoot)
+    const relPath = path.posix.join(...fullPath)
+    const markdown = getMarkdownContent(dir, relPath, englishRoot)
     let { content } = matter(markdown)
     if (dir !== englishRoot) {
       // Translated reusables need English content to fix corruptions like [AUTOTITLE"을](/foo/bar).
       let englishContent = content
       try {
-        englishContent = getMarkdownContent(englishRoot, fullPath.join(path.sep), englishRoot)
+        englishContent = getMarkdownContent(englishRoot, relPath, englishRoot)
       } catch (error) {
         // Translated pages can reference reusables missing in English; other corrections still run.
         if ((error as FileSystemError).code !== 'ENOENT') {
@@ -217,7 +222,7 @@ function getDataByDir(
   if (first === 'ui') {
     const basename = split.shift()
     fullPath.push(`${basename}.yml`)
-    const allData = getYamlContent(dir, fullPath.join(path.sep), englishRoot)
+    const allData = getYamlContent(dir, path.posix.join(...fullPath), englishRoot)
     return get(allData, split.join('.'))
   }
 
@@ -225,7 +230,7 @@ function getDataByDir(
     const basename = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${basename}.yml`)
-    return getYamlContent(dir, fullPath.join(path.sep), englishRoot)
+    return getYamlContent(dir, path.posix.join(...fullPath), englishRoot)
   }
 
   throw new Error(`Can't find the key '${dottedPath}' in the scope.`)

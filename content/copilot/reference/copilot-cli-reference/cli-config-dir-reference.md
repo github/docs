@@ -102,7 +102,7 @@ By default, this file is located at `~/.copilot/providers.json`. Override its lo
 
 ### `agents/`
 
-Store personal custom agent definitions here as `.agent.md` files. Agents placed in this directory are available in all your sessions. Project-level agents (in `.github/agents/`) take precedence over personal agents if they share the same name.
+Store personal custom agent definitions here as `.agent.md` files. Agents placed in this directory are available in all your sessions. If a personal agent and a project-level agent have the same ID—for example, if both top-level files are named `reviewer.agent.md`—the personal agent takes precedence. The optional `name` frontmatter field does not control deduplication, so agents with the same `name` but different IDs both load.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli).
 
