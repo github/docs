@@ -15844,6 +15844,12 @@
             "direct_merge",
             "merge_queue"
           ]
+        },
+        {
+          "type": "boolean",
+          "name": "bypass_rules",
+          "description": "<p>Whether to bypass repository rules that the authenticated actor is permitted to bypass.</p>",
+          "default": false
         }
       ],
       "descriptionHTML": "<p>Merges a pull request into the base branch in the background or adds it to a merge queue. Background processing allows certain types of errors to be retried and reduces the risk of timeouts for complex merges.</p>\n<p>This is the required API for merging stacked pull requests. For a stacked pull request, the operation includes all open downstack pull requests.</p>\n<p>A new asynchronous merge request returns a <code>202</code> response with a UUID that can be used to <a href=\"https://docs.github.com/rest/pulls/pulls#get-the-result-of-an-asynchronous-merge\">fetch the result of the merge</a>. If another asynchronous merge request is already pending for this pull request, a <code>409</code> response returns that request's UUID and merge options instead.</p>\n<p>If the pull request is already merged or already in a merge queue, a <code>200</code> response is returned immediately. A <code>merged</code> result includes the merge commit OID. An <code>enqueued</code> result means the pull request was added to the merge queue, not that it has merged.</p>\n<p>If the pull request cannot be merged (e.g. because it is closed, or still a draft) this result will be returned immediately with a <code>400</code> response status. Branch protection rules and repository rules are not run at this stage, only basic pull request state checks are performed.</p>",
@@ -15908,6 +15914,11 @@
                         "expected_head_sha": {
                           "type": "string",
                           "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        },
+                        "bypass_rules": {
+                          "type": "boolean",
+                          "default": false,
+                          "description": "Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass."
                         }
                       },
                       "required": [
@@ -16047,6 +16058,11 @@
                         "expected_head_sha": {
                           "type": "string",
                           "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        },
+                        "bypass_rules": {
+                          "type": "boolean",
+                          "default": false,
+                          "description": "Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass."
                         }
                       },
                       "required": [
@@ -16187,6 +16203,11 @@
                         "expected_head_sha": {
                           "type": "string",
                           "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        },
+                        "bypass_rules": {
+                          "type": "boolean",
+                          "default": false,
+                          "description": "Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass."
                         }
                       },
                       "required": [
@@ -16330,6 +16351,11 @@
                         "expected_head_sha": {
                           "type": "string",
                           "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        },
+                        "bypass_rules": {
+                          "type": "boolean",
+                          "default": false,
+                          "description": "Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass."
                         }
                       },
                       "required": [
@@ -16520,7 +16546,8 @@
                 "uuid": "630b9d5e-3f2a-4f7e-8b0c-2d5f9a8c1e42",
                 "merge_method": "merge",
                 "merge_action": "default",
-                "expected_head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e"
+                "expected_head_sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+                "bypass_rules": false
               }
             },
             "schema": {
@@ -16571,6 +16598,11 @@
                         "expected_head_sha": {
                           "type": "string",
                           "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        },
+                        "bypass_rules": {
+                          "type": "boolean",
+                          "default": false,
+                          "description": "Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass."
                         }
                       },
                       "required": [
@@ -16703,6 +16735,11 @@
                         "expected_head_sha": {
                           "type": "string",
                           "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        },
+                        "bypass_rules": {
+                          "type": "boolean",
+                          "default": false,
+                          "description": "Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass."
                         }
                       },
                       "required": [
@@ -16836,6 +16873,11 @@
                         "expected_head_sha": {
                           "type": "string",
                           "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        },
+                        "bypass_rules": {
+                          "type": "boolean",
+                          "default": false,
+                          "description": "Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass."
                         }
                       },
                       "required": [
@@ -16968,6 +17010,11 @@
                         "expected_head_sha": {
                           "type": "string",
                           "description": "SHA that the pull request head must match for the enqueued merge to proceed."
+                        },
+                        "bypass_rules": {
+                          "type": "boolean",
+                          "default": false,
+                          "description": "Whether the asynchronous merge request will attempt to bypass repository rules that the authenticated actor is permitted to bypass."
                         }
                       },
                       "required": [
