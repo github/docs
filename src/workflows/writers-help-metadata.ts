@@ -175,7 +175,6 @@ function prioritizeOrder(tools: WriterToolsCollection) {
     'move-content': 1,
     'cta-builder': 2,
     'lint-content': 1,
-    docstat: 1,
     dev: 1,
   }
 
@@ -219,6 +218,16 @@ async function main(): Promise<void> {
     }
     console.log('')
   }
+
+  console.log('Moved to github/technical-content, in .github/scripts:')
+  for (const [name, description] of [
+    ['docstat', 'Page metrics for a docs URL'],
+    ['docsaudit', 'Metrics for a set of pages'],
+  ]) {
+    const padding = ' '.repeat(Math.max(0, 34 - name.length))
+    console.log(`  npm run ${name}${padding}# ${description}`)
+  }
+  console.log('Run "npm install" in that directory once before using them.\n')
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
