@@ -262,42 +262,19 @@ contentType: ${placeholderContentType}
       }
     }
 
-    if (newPlaceholders.length > 0) {
-      console.log(chalk.white('\nGenerating intros for placeholder files...\n'))
-
-      for (const placeholderPath of newPlaceholders) {
-        try {
-          const fileContent = await fs.readFile(placeholderPath, 'utf-8')
-          const { data } = readFrontmatter(fileContent)
-
-          if (data?.intro) continue
-
-          const relativePath = path.relative(process.cwd(), placeholderPath)
-          console.log(chalk.gray(`Generating intro for ${relativePath}...`))
-
-          execFileSync(
-            'npm',
-            ['run', 'ai-tools', '--', '--prompt', 'intro', '--files', relativePath, '--write'],
-            {
-              cwd: process.cwd(),
-              stdio: 'inherit',
-            },
-          )
-
-          console.log(chalk.green(`✓ Generated intro for ${relativePath}`))
-        } catch (error) {
-          if (error instanceof Error) {
-            console.error(
-              chalk.yellow(
-                `⚠ Could not generate intro for ${placeholderPath}: ${error.message}\n${error.stack}`,
-              ),
-            )
-          } else {
-            console.error(
-              chalk.yellow(`⚠ Could not generate intro for ${placeholderPath}: ${String(error)}`),
-            )
-          }
-        }
+    // This step used to shell out to `npm run ai-tools`. Those scripts now live
+    // in github/technical-content at .github/scripts/ai-tools, so the intros are
+    // generated as a separate step and the paths are reported here.
+    const placeholdersNeedingIntros: string[] = []
+    for (const placeholderPath of newPlaceholders) {
+      try {
+        const fileContent = await fs.readFile(placeholderPath, 'utf-8')
+        const { data } = readFrontmatter(fileContent)
+        if (data?.intro) continue
+        placeholdersNeedingIntros.push(path.relative(process.cwd(), placeholderPath))
+      } catch (error) {
+        const detail = error instanceof Error ? error.message : String(error)
+        console.error(chalk.yellow(`⚠ Could not read ${placeholderPath}: ${detail}`))
       }
     }
 
@@ -568,11 +545,23 @@ contentType: ${placeholderContentType}
 
     if (newPlaceholders.length > 0) {
       console.log(
-        chalk.cyan(
-          `\nNote: ${newPlaceholders.length} placeholder index.md files were created with`,
+        chalk.cyan(`\nNote: ${newPlaceholders.length} placeholder index.md files were created.`),
+      )
+    }
+
+    if (placeholdersNeedingIntros.length > 0) {
+      console.log(
+        chalk.cyan(`\n${placeholdersNeedingIntros.length} placeholder files still need an intro.`),
+      )
+      console.log(chalk.cyan('Generate them from a github/technical-content checkout:'))
+      console.log(
+        chalk.gray(
+          `\n  cd .github/scripts && npm run ai-tools -- --prompt intro --write \\\n` +
+            `    --docs-dir ${process.cwd()} \\\n` +
+            `    --files ${placeholdersNeedingIntros.join(' ')}\n`,
         ),
       )
-      console.log(chalk.cyan(`AI-generated intros. Please review before committing.`))
+      console.log(chalk.cyan('Review the generated intros before committing.'))
     }
 
     console.log(chalk.blue('='.repeat(60)))

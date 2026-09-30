@@ -1883,6 +1883,30 @@
       }
     ]
   },
+  "organization_external_properties_for_repos": {
+    "title": "External custom properties for repositories",
+    "displayTitle": "Organization permissions for \"External custom properties for repositories\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "get-registered-app-installations-for-external-custom-properties",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/installations",
+        "additional-permissions": false,
+        "access": "admin"
+      },
+      {
+        "category": "orgs",
+        "slug": "register-an-app-installation-for-external-custom-properties",
+        "subcategory": "custom-properties",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/properties/installations",
+        "additional-permissions": false,
+        "access": "admin"
+      }
+    ]
+  },
   "organization_copilot_seat_management": {
     "title": "GitHub Copilot Business",
     "displayTitle": "Organization permissions for \"GitHub Copilot Business\"",

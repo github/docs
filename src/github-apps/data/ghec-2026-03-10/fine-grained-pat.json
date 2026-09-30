@@ -4347,6 +4347,18 @@
       "requestPath": "/orgs/{org}/outside_collaborators/{username}"
     },
     {
+      "slug": "get-registered-app-installations-for-external-custom-properties",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations"
+    },
+    {
+      "slug": "register-an-app-installation-for-external-custom-properties",
+      "subcategory": "custom-properties",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/properties/installations"
+    },
+    {
       "slug": "get-all-custom-properties-for-an-organization",
       "subcategory": "custom-properties",
       "verb": "get",

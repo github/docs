@@ -188,7 +188,6 @@ export default [
   // Remove directories from this list as they are migrated
   {
     files: [
-      'src/ai-tools/**/*.{ts,js}',
       'src/article-api/**/*.{ts,js}',
       'src/audit-logs/**/*.{ts,js}',
       'src/color-schemes/**/*.{ts,js}',

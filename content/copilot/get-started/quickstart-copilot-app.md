@@ -41,7 +41,9 @@ In this quickstart, you will:
 ## Opening the {% data variables.copilot.github_copilot_app %} for the first time
 
 1. Open the {% data variables.copilot.github_copilot_app %}.
-1. Click **Sign in to {% data variables.product.github %}** and follow the prompts to authenticate. If you use {% data variables.product.prodname_ghe_server %}, choose **Use GitHub Enterprise** and enter your server address when prompted.
+1. Click **Sign in to {% data variables.product.github %}** and follow the prompts to authenticate. 
+
+   If you use {% data variables.product.prodname_ghe_cloud %} with data residency, choose **Use GitHub Enterprise** and enter your `*.ghe.com` hostname when prompted. {% data variables.product.prodname_ghe_server %} is not supported by the {% data variables.copilot.github_copilot_app %}.
 1. If you do not have a {% data variables.product.prodname_copilot_short %} plan, choose whether to sign up for a plan or continue with your own model provider.
     * If you choose to use your own model provider, select a provider, enter any required credentials, then click **Save and continue**.
 1. When prompted, select one or more repositories based on your recent {% data variables.product.github %} activity. You can also add a local folder or repository, or skip this step and add projects later.
