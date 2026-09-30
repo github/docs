@@ -36,7 +36,7 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
    * **User** (`~/.copilot/agents/`)
 
    > [!NOTE]
-   > If you have {% data variables.copilot.custom_agents_short %} with the same name in both locations, the one in your home directory will be used, rather than the one in the repository.
+   > If personal and repository {% data variables.copilot.custom_agents_short %} have the same ID, the personal agent is used. For an agent at the root of an `agents` directory, the ID is the file name without the `.agent.md` or `.md` extension. The optional `name` field does not affect deduplication. Agents with the same `name` but different IDs both load, but if an `--agent` value matches more than one ID or `name`, the CLI uses the highest-priority match.
 
 1. Choose whether to get {% data variables.product.prodname_copilot_short %} to create the {% data variables.copilot.copilot_custom_agent_short %} file, or create it yourself.
 
@@ -132,7 +132,7 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
   copilot --agent security-auditor --prompt "Check /src/app/validator.go"
   ```
 
-  Where `security-auditor` is the file name of the {% data variables.copilot.copilot_custom_agent_short %} profile, without the `.agent.md` extension. Typically, but not necessarily, this is the same as the `name` value in the agent profile.
+  In this example, `security-auditor` is the ID of the {% data variables.copilot.copilot_custom_agent_short %}. The ID is derived from the file name, without the `.md` or `.agent.md` extension. In this case, the path to the file is either `agents/security-auditor.md` or `agents/security-auditor.agent.md`. If the file is in a subdirectory of `agents`, the subdirectory name is included in the ID, with the directory separator replaced with `--`. So an agent file at `agents/security/security-auditor.agent.md` would have the ID `security--security-auditor`. Alternatively, you can use the value of the `name` field instead of the ID, enclosing it in quotes. For example, `--agent "Security Auditor"`.
 
 ## Applying your repository's custom instructions to a {% data variables.copilot.copilot_custom_agent_short %}
 

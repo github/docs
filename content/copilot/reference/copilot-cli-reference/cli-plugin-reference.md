@@ -406,8 +406,9 @@ The following diagram illustrates the loading order and precedence rules.
   │  3. <parents>/.github/agents/    (inherited, monorepo)              │
   │  4. <project>/.claude/agents/    (project)                          │
   │  5. <parents>/.claude/agents/    (inherited, monorepo)              │
-  │  6. PLUGIN: agents/ dirs         (plugin, by install order)         │
-  │  7. Remote org/enterprise agents (remote, via API)                  │
+  │  6. <add-dir>/.github/agents/    (added root, --add-dir)            │
+  │  7. PLUGIN: agents/ dirs         (plugin, by install order)         │
+  │  8. Remote org/enterprise agents (remote, via API)                  │
   └──────────────────────┬──────────────────────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────────────────────┐
