@@ -148,7 +148,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       }
     }
   }
-  const headerValue = req.headers['x-ong-external-url']
+  const headerValue = req?.headers['x-ong-external-url']
   const stagingName = (typeof headerValue === 'string' ? headerValue : headerValue?.[0])?.match(
     /staging-(\w+)\./,
   )?.[1]
