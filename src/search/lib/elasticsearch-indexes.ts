@@ -13,15 +13,13 @@ export type SearchIndex = {
   type: string
 }
 
-// The source of truth for Docs Elasticsearch indexes.
-//
-// There are two top-level categories:
-//   1. General search, populated from all of our Docs pages.
-//   2. AI autocomplete, populated with human-readable questions from a GPT
-//      query in docs-internal-data.
+// Docs Elasticsearch indexes have two categories: general search, populated
+// from all Docs pages, and AI autocomplete, populated with human-readable
+// questions from a GPT query in docs-internal-data.
 //
 // Index names take the form <test_prefix><prefix>_<type>_<version>_<language>,
-// e.g. github-docs_general-search_fpt_en. <test_prefix> is "tests_" in tests.
+// for example github-docs_general-search_fpt_en. Tests use tests_ as
+// <test_prefix>.
 const prefix = 'github-docs'
 const indexes: SearchIndexes = {
   generalSearch: {
@@ -34,7 +32,6 @@ const indexes: SearchIndexes = {
   },
 }
 
-// Source of truth for determining the index name for the Elastic Search index given a version and language
 export function getElasticSearchIndex(
   type: SearchTypes,
   version: string,
@@ -61,17 +58,15 @@ export function getElasticSearchIndex(
     )
   }
 
-  // e.g. free-pro-team becomes fpt for the index name
+  // free-pro-team maps to fpt in index names.
   let indexVersion = versionToIndexVersionMap[version]
 
-  // For AI Search autocomplete, we use the latest GHES version for all GHES versions.
-  // This provides AI search functionality across all supported GHES versions without
-  // requiring separate indexes for each version.
+  // AI autocomplete shares the latest GHES index across all supported GHES versions.
   if (type === 'aiSearchAutocomplete' && indexVersion.startsWith('ghes')) {
     indexVersion = versionToIndexVersionMap['enterprise-server']
   }
 
-  // In the index-test-fixtures.sh script, we use the tests_ prefix index for testing
+  // index-test-fixtures.sh expects the tests_ prefix.
   const testPrefix = process.env.NODE_ENV === 'test' ? 'tests_' : ''
 
   if (manualPrefix && !manualPrefix.endsWith('_')) {

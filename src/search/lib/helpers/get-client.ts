@@ -31,7 +31,7 @@ function getElasticsearchURL(overrideURL = ''): string {
   }
   let node = overrideURL || process.env.ELASTICSEARCH_URL || ''
 
-  // Allow the user to lazily set it to `localhost:9200` for example.
+  // Accept localhost:9200 as shorthand for http://localhost:9200.
   if (!node.startsWith('http') && !node.startsWith('://') && node.split(':').length === 2) {
     node = `http://${node}`
   }
