@@ -58,6 +58,9 @@ When you add seats, you will be billed pro rata for those seats for the rest of 
 
 When you remove seats, billing for those seats continues until the end of the current billing cycle.
 
+> [!IMPORTANT]
+> Users who are suspended or removed from your organization or enterprise lose access to {% data variables.product.prodname_copilot_short %} immediately, but their seats are still billed through the end of the current billing cycle.
+
 For more information, see [AUTOTITLE](/copilot/reference/copilot-billing/license-changes).
 
 ## Managing costs
