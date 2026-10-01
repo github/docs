@@ -92,7 +92,9 @@ export async function convertContentToDocs(
   let currentNodeIsDescription = false
   visit(ast, (rawNode) => {
     const node = rawNode as unknown as MdNode
-    if (node.type !== 'heading' && node.type !== 'paragraph') return false
+    // A bare return is CONTINUE. Returning false would mean EXIT,
+    // which stops the whole walk on the root node.
+    if (node.type !== 'heading' && node.type !== 'paragraph') return
 
     // The first paragraph after Description becomes intro frontmatter.
     if (node.children[0]?.value === 'Description' && node.children[0]?.type === 'text') {
