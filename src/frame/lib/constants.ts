@@ -3,15 +3,15 @@ export const TRANSLATIONS_ROOT = process.env.TRANSLATIONS_ROOT || 'translations'
 export const TRANSLATIONS_FIXTURE_ROOT = process.env.TRANSLATIONS_FIXTURE_ROOT
 
 const isDev = process.env.NODE_ENV === 'development'
-// Higher in development to account for JIT compilation on first page load.
+// Development gets extra time for JIT compilation on first page load.
 const DEFAULT_MAX_REQUEST_TIMEOUT = isDev ? 15_000 : 10_000
 export const MAX_REQUEST_TIMEOUT = process.env.REQUEST_TIMEOUT
   ? parseInt(process.env.REQUEST_TIMEOUT, 10)
   : DEFAULT_MAX_REQUEST_TIMEOUT
 
-// Docs cookies. We own these, so they use our snake_case naming.
-export const USER_LANGUAGE_COOKIE_NAME = 'user_language' // Also referenced in Fastly VCL
-export const USER_VERSION_COOKIE_NAME = 'user_version' // Also referenced in Fastly VCL
+// Docs cookies use snake_case because we own their names.
+export const USER_LANGUAGE_COOKIE_NAME = 'user_language' // Fastly VCL also reads this name.
+export const USER_VERSION_COOKIE_NAME = 'user_version' // Fastly VCL also reads this name.
 export const API_VERSION_COOKIE_NAME = 'api_version_preferred'
 export const ANNOTATE_MODE_COOKIE_NAME = 'annotate_mode'
 export const CODE_SAMPLE_LANGUAGE_COOKIE_NAME = 'code_sample_language_preferred'
@@ -32,7 +32,7 @@ export const STAFFONLY_COOKIE_NAME = 'staffonly'
 export const ANALYTICS_ENABLED = true
 export const HOVERCARDS_ENABLED = true
 
-// Minimum required HTML for 404: W3C valid, no external, legal.
+// The 404 fallback stays W3C-valid, self-contained, and legal.
 export const minimumNotFoundHtml = `
 <!doctype html>
 <html lang=en>
