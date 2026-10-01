@@ -1,4 +1,7 @@
-import { ActionList, ActionMenu, Flash } from '@primer/react'
+import { ActionMenu } from '@primer/react-brand'
+import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
+// Webhook keeps the error callout on Primer React because Brand lacks Flash, Banner, or Alert.
+import { Flash } from '@primer/react'
 import { useState, useEffect, useCallback } from 'react'
 import useSWR from 'swr'
 import { slug } from 'github-slugger'
@@ -162,23 +165,27 @@ export function Webhook({ webhook }: Props) {
         )}
         {webhook.actionTypes.length > 1 && (
           <div className="mb-4">
-            <div className="mb-3">
-              <ActionMenu>
+            <div className={`mb-3 ${styles.actionTypeMenu}`}>
+              <ActionMenu
+                selectionVariant="single"
+                onSelect={(value) =>
+                  handleActionTypeChange(webhook.actionTypes[Number(value)], Number(value))
+                }
+              >
                 <ActionMenu.Button className="text-normal">
                   {t('action_type')}: <span className="text-bold">{currentWebhookActionType}</span>
                 </ActionMenu.Button>
-                <ActionMenu.Overlay>
-                  <ActionList selectionVariant="single">
-                    {webhook.actionTypes.map((type, index) => (
-                      <ActionList.Item
-                        key={`${webhook.name}-${type}`}
-                        selected={index === selectedActionTypeIndex}
-                        onSelect={() => handleActionTypeChange(type, index)}
-                      >
-                        {type}
-                      </ActionList.Item>
-                    ))}
-                  </ActionList>
+                <ActionMenu.Overlay aria-label={t('action_type')}>
+                  {webhook.actionTypes.map((type, index) => (
+                    <ActionMenu.Item
+                      key={index}
+                      value={String(index)}
+                      selected={index === selectedActionTypeIndex}
+                      onKeyDownCapture={onActionMenuItemKeyDownCapture}
+                    >
+                      {type}
+                    </ActionMenu.Item>
+                  ))}
                 </ActionMenu.Overlay>
               </ActionMenu>
             </div>
