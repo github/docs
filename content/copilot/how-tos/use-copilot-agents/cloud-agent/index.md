@@ -1,6 +1,6 @@
 ---
 title: GitHub Copilot cloud agent
-shortTitle: '{% data variables.copilot.copilot_cloud_agent_short_cap_c %}'
+shortTitle: '{% data variables.copilot.copilot_cloud_agent %}'
 allowTitleToDifferFromFilename: true
 intro: Find out how {% data variables.product.prodname_copilot_short %} can research a repository, plan and make code changes, and create pull requests for you to review.
 versions:

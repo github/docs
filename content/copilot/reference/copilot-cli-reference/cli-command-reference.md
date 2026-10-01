@@ -31,7 +31,7 @@ docsTeamMetrics:
 | `copilot skill`        | Manage agent skills from the command line (list, add, remove, enable, and disable skills). See [Managing skills non-interactively](#managing-skills-non-interactively). |
 | `copilot update`       | Download and install the latest version.           |
 | `copilot version`      | Display version information and check for updates. |
-| `copilot workflow run NAME` | Run a registered dynamic workflow directly, without a parent agent turn. See [Using `copilot workflow run`](#using-copilot-workflow-run). |
+| `copilot workflow run WORKFLOW-NAME` | Run an existing dynamic workflow directly, without sending a chat prompt. Waits for the run to finish or stop. See [Using `copilot workflow run`](#using-copilot-workflow-run). |
 
 ### `copilot login` options
 
@@ -144,31 +144,28 @@ Custom agents and session-scoped hooks aren't covered by `copilot instruction`, 
 
 ### Using `copilot workflow run`
 
-Run `copilot workflow run NAME` to run a registered dynamic workflow directly, without a parent agent turn. Progress is written to output before the final result, unless `--silent` is set.
+Run a dynamic workflow provided by an extension, without opening an interactive session:
 
-```bash
-# Run a workflow without arguments
-copilot workflow run summarize
-
-# Pass inline JSON arguments
-copilot workflow run phased --args '{"tag":"demo"}'
-
-# Read arguments from a JSON file and write the result to another file
-copilot workflow run phased --args @input.json --result-file result.json
-
-# Emit one machine-readable result
-copilot workflow run echo --args '{"value":42}' --silent --output-format json
+```shell copy
+copilot workflow run WORKFLOW-NAME [OPTIONS]
 ```
 
-| Option                     | Description                                                               |
-|----------------------------|-----------------------------------------------------------------------------|
-| `NAME`                     | Registered dynamic workflow name (required). |
-| `--args=JSON`, `--args=@PATH` | Workflow arguments as inline JSON, or an `@`-prefixed path to a JSON file. |
-| `--result-file=PATH`       | Write only the workflow result to this JSON file. |
-| `--silent`, `-s`           | Suppress workflow progress output. |
-| `--output-format=FORMAT`   | Output format: `text` (default) or `json` (JSONL). |
+`WORKFLOW-NAME` is the name registered by the extension, not a path to an extension file. The command starts a run and waits for it to finish, pause, or otherwise stop.
 
-The command exits `0` when the workflow completes and `1` otherwise; an interrupt signal (<kbd>Ctrl</kbd>+<kbd>C</kbd>) exits `130`. `copilot workflow run` can't be combined with other root mode flags (for example `--prompt`, `--interactive`, `--fleet`, `--autopilot`, `--agent`, `--resume`, `--continue`, `--worktree`, or `--ui-server`)—it always runs headlessly.
+| Option | Description |
+| ------ | ----------- |
+| `--args JSON` or `--args @PATH` | Supply the workflow's inputs. Replace "JSON" here with inline JSON, or replace "PATH" with the path to a UTF-8 JSON file. Defaults to `{}` when omitted. The accepted inputs depend on the workflow. |
+| `--result-file PATH` | Write the returned value as JSON to a file instead of including it in standard output. Written only when the workflow completes and returns a result. An existing file is replaced only after the new result has been written successfully. |
+| `-s`, `--silent` | Suppress progress output. The final result is still emitted unless directed to a file. Error and status diagnostics may still appear on standard error. |
+| `--output-format FORMAT` | Set the standard output format to `text` (default) or `json` (JSONL, one JSON record per line). Combine `json` with `--silent` to receive only the final workflow record. Does not change the JSON format of `--result-file`. |
+
+Relative argument-file and result-file paths are resolved from the working directory. Without `--silent`, output includes phases and progress messages reported by the workflow.
+
+The command uses the CLI's authentication, model, permission, and sandbox settings. Permission options such as `--allow-tool` and `--allow-url` apply to the workflow's agents. It does not display permission approval prompts.
+
+Prompt and session-mode options cannot be combined with this command. Examples include `-p`, `-i`, `--agent`, `--fleet`, `--autopilot`, `--resume`, and `--continue`. Piped standard input is not used as a prompt or as workflow arguments.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-dynamic-workflows#running-a-dynamic-workflow-from-the-command-line) and [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference#running-dynamic-workflows).
 
 ## The sessions sidebar
 

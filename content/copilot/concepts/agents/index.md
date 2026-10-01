@@ -14,6 +14,7 @@ children:
   - /code-review
   - /about-github-agentic-workflows
   - /copilot-memory
+  - /dynamic-workflows
   - /hooks
   - /about-plugins
   - /about-third-party-coding-agents
