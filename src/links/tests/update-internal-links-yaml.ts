@@ -76,8 +76,7 @@ describe('serializeYaml', () => {
     expect(result).toContain('/new/path')
   })
 
-  // The text lives in `newContent` and the structured links live in `newData`, and there
-  // is no format-preserving way to merge them. Silently picking one loses the other.
+  // Text and structured link changes cannot merge format-preservingly, so picking one loses data.
   test('throws rather than silently dropping fixes when both changed', () => {
     expect(() =>
       serializeYaml(RELEASE_NOTE, { featuredLinks: { guide: '/new/path' } }, true, true),
@@ -114,7 +113,7 @@ describe('rewriting links in YAML', () => {
   }
 
   test('rewrites a link hidden by indentation, which reads as a code block', async () => {
-    // Ten spaces of indent makes mdast see a code block, not a paragraph with a link.
+    // Ten spaces of indent makes mdast read a code block, not a paragraph with a link.
     const yaml = `sections:
   bugs:
     - |
@@ -129,10 +128,9 @@ describe('rewriting links in YAML', () => {
     expect(result.replacements).toHaveLength(2)
   })
 
-  // A `#` comment reads as a Markdown heading, so a link inside one is a real link node
-  // and does get rewritten. That is a documented limit, not corruption: telling the two
-  // apart needs a YAML parse, and a stale link in a comment is worth fixing anyway. The
-  // cases that would be corruption, code examples, are covered below.
+  // YAML comments read as Markdown headings, so links inside them are real link nodes.
+  // Distinguishing them needs a YAML parse, and stale links in comments are worth fixing.
+  // Code-example corruption is tested below.
   test('rewrites a link in a comment, but only there', async () => {
     const yaml = `# TODO: drop [x](/admin/old-path) from the copy below
 sections:

@@ -108,7 +108,7 @@ Read [the docs](/docs/config) for more.
 `
     const result = extractLinksFromMarkdown(content)
 
-    // 3 internal links: AUTOTITLE link, the image link (starts with /), and docs/config
+    // Internal image hrefs that start with / count as internal links too.
     expect(result.internalLinks.length).toBeGreaterThanOrEqual(2)
     expect(result.externalLinks).toHaveLength(1)
     expect(result.imageLinks).toHaveLength(1)
@@ -136,8 +136,7 @@ Also [versioned](/enterprise-server@{{ currentVersion }}/admin).
 `
     const result = extractLinksFromMarkdown(content)
 
-    // Extraction is regex-based, so the second link matches even with Liquid syntax
-    // inside it. Liquid rendering happens separately.
+    // Regex extraction can match Liquid syntax because rendering happens separately.
     expect(result.internalLinks.length).toBeGreaterThanOrEqual(0)
   })
 
@@ -187,7 +186,7 @@ Line 6
 
     expect(result.internalLinks).toHaveLength(2)
     expect(result.internalLinks[0].line).toBe(2)
-    // Line numbers are preserved because code block content is replaced with spaces
+    // Code block content becomes spaces, preserving line numbers.
     expect(result.internalLinks[1].line).toBe(8)
   })
 
@@ -234,9 +233,7 @@ And [another real link](/another/real/path) here.
   })
 
   test('does not mask links when backtick runs are mismatched', () => {
-    // Per CommonMark, a code span needs equal-length, maximal backtick runs on
-    // both ends. These lines have mismatched runs, so they are NOT code spans
-    // and the links between the backticks are real and must be extracted.
+    // Mismatched backtick runs are not CommonMark code spans, so the links remain real.
     const content = [
       `A single-open, double-close: \`[one](/real/one)\`\``,
       `A double-open, triple-close: \`\`[two](/real/two)\`\`\``,
@@ -247,8 +244,7 @@ And [another real link](/another/real/path) here.
   })
 
   test('still masks links inside valid multi-backtick code spans', () => {
-    // A matched double-backtick run is a real code span, even when it wraps an
-    // inner single backtick, so the link inside must be ignored.
+    // A matched double-backtick run stays a code span even when it wraps a single backtick.
     const content = `Example: \`\` \`[skip](/placeholder)\` \`\` and see [the guide](/real/guide).`
     const result = extractLinksFromMarkdown(content)
 
@@ -273,8 +269,7 @@ Broken: [AUTOTITLE](/code-security/create-custom-configuration.
 `
     const result = extractLinksFromMarkdown(content)
 
-    // The unclosed link is not extracted, and it does not swallow the real link
-    // on the next line into a giant multi-line href.
+    // The unclosed link cannot swallow a real link on the next line.
     expect(result.internalLinks.map((l) => l.href)).toEqual(['/real/target'])
   })
 
@@ -484,7 +479,7 @@ describe('checkInternalLink', () => {
   })
 
   test('finds redirect after stripping language prefix', () => {
-    // Links from rendered HTML have /en/ prefix but redirects are stored without it
+    // Rendered HTML links have the /en prefix, but redirects are stored without it.
     const result = checkInternalLink(
       '/en/enterprise-server@3.19/actions/old-path',
       pageMap,
@@ -503,10 +498,7 @@ describe('checkInternalLink', () => {
   })
 
   describe('version-aware resolution', () => {
-    // A non-FPT page has no versionless permalink, so a versionless link to it only
-    // resolves once you know which version is being checked. The versionless form is
-    // also in the redirect table as a fallback, which is what made these look like
-    // redirects that needed updating.
+    // Non-FPT links need source-version context; the redirect fallback otherwise misreports them.
     const versionedPageMap = {
       '/en/enterprise-server@3.21/billing/set-up-payment': {} as unknown as Page,
       '/en/actions/fpt-only': {} as unknown as Page,
@@ -641,8 +633,7 @@ describe('checkInternalLink', () => {
   })
 
   test('treats archived Enterprise Server versions as valid', () => {
-    // Deprecated GHES versions are served by the archived enterprise versions
-    // system, which isn't loaded into pageMap. They must not be reported broken.
+    // Archived Enterprise Server versions are valid even when pageMap does not load them.
     const result = checkInternalLink(
       '/enterprise-server@3.7/admin/release-notes',
       pageMap,
@@ -663,8 +654,7 @@ describe('checkInternalLink', () => {
   })
 
   test('resolves free-pro-team@latest prefixed links via the redirect resolver', () => {
-    // The flat redirects map has no literal key for this; getRedirect computes
-    // the correction (strip the version prefix) the same way production does.
+    // getRedirect strips the version prefix because the flat redirects map has no literal key.
     const result = checkInternalLink('/free-pro-team@latest/actions/guides', pageMap, redirects)
     expect(result.exists).toBe(true)
     expect(result.isRedirect).toBe(true)
@@ -675,13 +665,11 @@ describe('checkInternalLink', () => {
     const result = checkInternalLink(`/enterprise-server/admin/overview`, pageMap, redirects)
     expect(result.exists).toBe(true)
     expect(result.isRedirect).toBe(true)
-    // Normalized to the latest stable Enterprise Server version.
     expect(result.redirectTarget).toBe(`/enterprise-server@${latestStable}/admin/overview`)
   })
 
   test('strips hyphenated locale prefixes without double-prefixing', () => {
-    // /pt-br/ is a hyphenated locale; it must be stripped (not turned into
-    // /en/pt-br/...) so the underlying path resolves against the redirects map.
+    // Hyphenated locales such as /pt-br/ must strip cleanly before redirect lookup.
     const result = checkInternalLink('/pt-br/actions/legacy-path', pageMap, redirects)
     expect(result.exists).toBe(true)
     expect(result.isRedirect).toBe(true)
@@ -689,8 +677,7 @@ describe('checkInternalLink', () => {
   })
 
   test('normalizes a bare language-root redirect target to /', () => {
-    // getRedirect collapses '/free-pro-team@latest' to the language root ('/en');
-    // after stripping the locale that would be empty, so it must normalize to '/'.
+    // getRedirect collapses /free-pro-team@latest to /en, which strips to empty.
     const result = checkInternalLink('/free-pro-team@latest', pageMap, redirects)
     expect(result.exists).toBe(true)
     expect(result.isRedirect).toBe(true)
