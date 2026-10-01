@@ -1,4 +1,3 @@
-// Validates the named environment variables and returns them as an object.
 export function getEnvInputs(options: string[]) {
   return Object.fromEntries(
     options.map((envVarName) => {
@@ -11,9 +10,7 @@ export function getEnvInputs(options: string[]) {
   )
 }
 
-// Reads an environment variable as a boolean. 'true' and '1' are true; '', '0'
-// and 'false' are false. Anything else throws, so a typo like
-// `export FOO=falsee` can't be read as truthy.
+// true and 1 are true; empty, 0, and false are false. Other values throw.
 export function boolEnvVar(key: string) {
   const value = process.env[key] || ''
   if (value === '' || value === 'false' || value === '0') return false

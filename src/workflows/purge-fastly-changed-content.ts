@@ -5,17 +5,13 @@ import { makePageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-ke
 import github from './github'
 import { getActionContext } from './action-context'
 
-// Purges the English content pages whose source changed in a production deploy, by surrogate key.
-// Each page has one `language:<lang>,path:<relativePath>` covering all versions.
-// Fastly's batch purge takes up to 256 keys per request.
-// Uses hard purge instead of soft for PR authors to see their changes more quickly.
-// `data/` changes and AUTOTITLE produce too many keys.
-// Translations only rebuild once per day.
+// Purges changed English content pages by surrogate key after production deploys.
+// Hard purge lets PR authors see changes quickly. Data changes and AUTOTITLE
+// produce too many keys, and translations rebuild daily.
 
 const CONTENT_PREFIX = 'content/'
 
-// We only purge English pages: content/*.md is the English source, and
-// translations lag behind it, so an English deploy shouldn't evict them.
+// Purge only English pages: content/*.md is the English source, and translations lag behind it.
 const PURGE_LANGUAGE = 'en'
 
 // Fastly's batch surrogate-key purge accepts at most 256 keys per request.
@@ -27,34 +23,28 @@ const MAX_KEYS_PER_PURGE = 256
 // everything rather than paginating through a huge change set.
 const COMPARE_FILE_LIMIT = 300
 
-// When Fastly rate-limits us (HTTP 429), retry the batch this many times before
-// giving up on it.
+// Retry rate-limited HTTP 429 batches this many times before giving up.
 const PURGE_MAX_RATE_LIMIT_RETRIES = 5
 
 // Every key is purged twice because of Fastly shielding. A purge doesn't reach
 // every POP at the same instant, so a request arriving in between can repopulate
 // an already-purged edge node from the not-yet-purged shield, leaving the edge
-// holding pre-deploy content again. The second pass evicts that copy. Same
-// reasoning as the double purge in purge-fastly.ts; see the "Race conditions"
-// section of
+// holding pre-deploy content again. The second pass evicts that copy.
 // https://www.fastly.com/documentation/guides/concepts/cache/purging#race-conditions
 const PURGE_PASSES = 2
 
-// How long to wait before the second pass. It has to be long enough that any
-// re-populated edge copy already exists, otherwise the second purge runs too
-// early and the re-population happens after it. purge-fastly.ts uses the same
-// 20s for the same reason: Fastly suggests ~2s, but that has been too short in
-// practice. Unlike purge-fastly.ts we don't stagger keys within a pass, because
-// that spacing exists to keep whole-language purges from stampeding the backend
-// and we only purge the handful of pages that actually changed.
+// The second pass waits long enough for repopulated edge copies to exist.
+// Otherwise the second purge runs too early, and re-population happens after it.
+// purge-fastly.ts uses the same 20s because Fastly's suggested 2s has been too
+// short in practice. This does not stagger keys within a pass because spacing
+// protects the backend during whole-language purges, and this only purges changed pages.
 const DELAY_BEFORE_SECOND_PURGE = 20 * 1000
 
-// Jitter ceiling (ms) added to each backoff so retries that saw the same reset
-// timestamp don't wake in lockstep and re-burst.
+// Jitter ceiling in ms keeps retries with the same reset timestamp from re-bursting.
 const PURGE_JITTER_MS = 150
 
-// Backoff bounds for retrying a rate-limited (429) purge. Additive (linear)
-// growth from BASE per attempt, capped at MAX. Fastly's rate-limit window resets
+// Backoff bounds for retrying rate-limited purges. Additive linear growth from
+// BASE per attempt is capped at MAX. Fastly's rate-limit window resets
 // on the order of a second, so a batch just needs to wait for the next window.
 // This backoff also floors any server-provided hint so a hint that resolves to
 // ~0 can't collapse the retry to 0ms, and MAX caps any server-provided delay so
@@ -66,7 +56,7 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-// How long to wait before retrying a rate-limited (429) purge. Prefers Fastly's
+// How long to wait before retrying a rate-limited purge. Prefers Fastly's
 // own hints (Retry-After in seconds or as an HTTP date; else Fastly-RateLimit-
 // Reset as a Unix timestamp), but floors that hint at the additive backoff so a
 // stale or current-second reset (which computes to <= 0) can't produce a 0ms
@@ -108,10 +98,9 @@ type ChangedFile = {
   status: string
 }
 
-// The most recent production deployment that was actually live before `headSha`.
-// We diff against this to find what changed in the current deploy. The merge
-// queue can batch several PRs into one deploy, so this range can span multiple
-// merge commits. That's intentional: we want every changed file in the batch.
+// The most recent production deployment that was live before headSha. Diff
+// against this to find the current deploy's changes. The merge queue can batch
+// several PRs into one deploy, so this range can span multiple merge commits.
 export async function resolvePreviousProductionSha(
   octokit: Octokit,
   owner: string,
@@ -133,11 +122,7 @@ export async function resolvePreviousProductionSha(
       deployment_id: deployment.id,
       per_page: 30,
     })
-    // Require evidence the sha was actually live: a `success` status. The
-    // previous live deploy keeps its `success` status in history even after a
-    // newer deploy marks it `inactive`, so this still finds it. We deliberately
-    // do NOT accept `inactive` alone, since a deploy that failed and was later
-    // auto-inactivated never served traffic and would give a wrong base.
+    // Require success because inactive alone can come from a failed deploy that never served.
     if (statuses.some((status) => status.state === 'success')) {
       return deployment.sha
     }
@@ -150,7 +135,7 @@ export async function resolvePreviousProductionSha(
 // by the redirect that replaces a removed/renamed page plus the short max-age,
 // so it isn't enumerated here.
 //
-// Note: compareCommitsWithBasehead uses three-dot (merge-base) semantics. For
+// compareCommitsWithBasehead uses three-dot merge-base semantics. For
 // normal forward-moving deploys that equals the tree diff. For a rollback (head
 // is an ancestor of, or diverged from, the previous live sha) it can miss the
 // reverted files; those simply fall back to the short max-age refresh, so it's
@@ -185,11 +170,11 @@ export async function getChangedContentFiles(
 }
 
 // Map changed content files to their per-page surrogate keys, deduped. One key
-// per source page, and that single key covers every version-URL of the page
-// (fpt, ghec, each ghes release), so a page that changed once is purged once
-// regardless of how many versions it fans out to. The key is derived purely from
-// the language and the path under content/, matching what the response
-// middleware emits, so we don't need to warm the server or resolve permalinks.
+// per source page, and that single key covers every version URL of the page,
+// including fpt, ghec, and each GHES release. A page that changed once is purged
+// once regardless of how many versions it fans out to. The key is derived purely
+// from the language and the path under content/, matching what the response
+// middleware emits, so the purge need not warm the server or resolve permalinks.
 export function contentFilesToPageKeys(
   changedFiles: ChangedFile[],
   langCode: string = PURGE_LANGUAGE,
@@ -203,7 +188,6 @@ export function contentFilesToPageKeys(
   return [...keys]
 }
 
-// Split a list into chunks of at most `size`.
 export function chunk<T>(items: T[], size: number): T[][] {
   const batches: T[][] = []
   for (let index = 0; index < items.length; index += size) {
@@ -212,7 +196,7 @@ export function chunk<T>(items: T[], size: number): T[][] {
   return batches
 }
 
-// Hard-purge one batch (<= 256) of surrogate keys. Fastly's batch endpoint is
+// Hard-purge one batch of at most 256 surrogate keys. Fastly's batch endpoint is
 // service-scoped; omitting the soft-purge header makes it a hard purge, so every
 // object tagged with any listed key is evicted and the next request is a fresh
 // miss. Retries on HTTP 429, honoring Fastly's rate-limit hint.
@@ -239,8 +223,7 @@ async function hardPurgeKeyBatch(
     )
     if (response.ok) return
 
-    // Fastly rate limit. fetchWithRetry doesn't retry 429 when throwHttpErrors
-    // is false, so back off and retry the batch ourselves, honoring Fastly's hint.
+    // fetchWithRetry does not retry 429 here, so retry the batch and honor Fastly's hint.
     if (response.status === 429 && attempt < PURGE_MAX_RATE_LIMIT_RETRIES) {
       const waitMs = rateLimitDelayFn(response, attempt)
       console.warn(
@@ -266,9 +249,9 @@ async function hardPurgeKeyBatch(
   }
 }
 
-// Hard-purge every key in batches of <= 256, one batch at a time, then do it all
-// again after a delay to clear anything the origin shield re-populated (see
-// PURGE_PASSES). Collects failures so one bad batch doesn't drop the rest, then
+// Hard-purge every key in batches of at most 256, one batch at a time, then do
+// it all again after a delay to clear anything the origin shield repopulated.
+// Collects failures so one bad batch doesn't drop the rest, then
 // throws at the end if any failed so the workflow's failure alerting fires.
 export async function hardPurgeSurrogateKeys(
   keys: string[],
@@ -299,8 +282,7 @@ export async function hardPurgeSurrogateKeys(
   }
 
   for (let pass = 1; pass <= PURGE_PASSES; pass++) {
-    // A failed first pass still gets a second one: the later attempt may well
-    // succeed, and giving up here would guarantee stale content.
+    // A failed first pass still gets a second one because giving up guarantees stale content.
     if (pass > 1) {
       console.log(`Waiting ${DELAY_BEFORE_SECOND_PURGE}ms before pass ${pass}...`)
       await sleepFn(DELAY_BEFORE_SECOND_PURGE)
@@ -334,8 +316,7 @@ async function main() {
 
   const baseSha = await resolvePreviousProductionSha(octokit, owner, repo, headSha)
   if (!baseSha) {
-    // First-ever deploy, or we couldn't find a prior production deploy. The short
-    // max-age still refreshes everything, so just no-op rather than fail.
+    // The short max-age refreshes everything when there is no prior production deploy.
     console.warn('No previous production deployment found; skipping targeted purge.')
     return
   }
