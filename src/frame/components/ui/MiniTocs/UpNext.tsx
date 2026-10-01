@@ -14,23 +14,18 @@ type Props = {
   journey: JourneyContext
 }
 
-// Optional "Up next" section inside the article right-rail panel. Shown only on
-// journey-track articles; points at the next guide in the track (or the first
-// guide of the next track when the current one ends). This is the in-panel
-// promo — distinct from the bottom-of-article JourneyTrackNav pager. Rides the
-// same drawer-visibility breakpoint as the mini-TOC (earlier when the left rail
-// is collapsed).
+// Optional Up next appears inside the article right-rail panel only on
+// journey-track articles. It points to the next guide, or the first guide of the
+// next track at track end, and stays separate from the bottom JourneyTrackNav
+// pager. It follows the mini-TOC drawer breakpoint, earlier when the left rail
+// is collapsed.
 export function UpNext({ journey }: Props) {
   const { t } = useTranslation('journey_track_nav')
   const { nextGuide, nextTrackFirstGuide, alternativeNextStep } = journey
   const { collapsed } = useSidebarCollapsed()
-  // Unique id so the section's accessible name comes from the heading via
-  // aria-labelledby (avoids the region + heading both announcing "Up next").
+  // aria-labelledby names the region from the heading without duplicate Up next announcements.
   const headingId = useId()
-  // Once the reader reaches the bottom-of-article "Up next" pager, this in-panel
-  // promo is redundant. It's removed from layout instantly (no animation) so the
-  // TOC list scrolls up into the freed space; when the reader scrolls back up it
-  // fades back in.
+  // Hide while the bottom Up next pager is visible, then fade in after it leaves.
   const [bottomPagerVisible, setBottomPagerVisible] = useState(false)
   const [fadeIn, setFadeIn] = useState(false)
   const wasHidden = useRef(false)
@@ -40,16 +35,14 @@ export function UpNext({ journey }: Props) {
     if (!pager) return
     const observer = new IntersectionObserver(
       ([entry]) => setBottomPagerVisible(entry.isIntersecting),
-      // Trigger once the bottom pager is meaningfully in view (its top edge ~25%
-      // up from the viewport bottom), not the instant its top first appears.
+      // Fire when the pager top reaches about 25% above the viewport bottom.
       { rootMargin: '0px 0px -25% 0px', threshold: 0 },
     )
     observer.observe(pager)
     return () => observer.disconnect()
   }, [])
 
-  // Play the fade-in only when re-appearing after having been hidden (scroll
-  // back up), not on first render.
+  // Skip first-render animation; fade only after the promo has been hidden once.
   useEffect(() => {
     if (bottomPagerVisible) {
       wasHidden.current = true

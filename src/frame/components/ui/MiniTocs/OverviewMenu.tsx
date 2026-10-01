@@ -14,10 +14,9 @@ type Props = {
   miniTocItems: MiniTocItem[]
 }
 
-// The collapsed "In this article" control that lives in the secondary bar below
-// xxl (<1400px): a button labeled with the current section that opens a dropdown
-// of the TOC links. The full drawer form is `MiniTocs`, shown on the right rail
-// at xxl+.
+// OverviewSubBar renders this control wherever the right-rail drawer is absent:
+// below xxl (1400px) when the rail is expanded, below ~1074px when collapsed,
+// and at every width on pages without a drawer.
 export function OverviewMenu({ miniTocItems }: Props) {
   const { t } = useTranslation('pages')
   const activeHref = useActiveSection()
@@ -25,18 +24,14 @@ export function OverviewMenu({ miniTocItems }: Props) {
   const rootRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
-  // Ties the trigger to its panel for assistive tech. Generated rather than a
-  // constant so two instances on one page could never collide on the id.
+  // Generate the panel id so duplicate controls on one page cannot collide.
   const panelId = useId()
 
-  // Before the reader scrolls into a section (activeHref ''), label the control
-  // "In this article" rather than the first heading; once a section is in view,
-  // show that section's title.
+  // At the top, label the control In this article; once a section is active, show that title.
   const atTop = activeHref === ''
   const label = atTop ? t('miniToc') : getActiveTitle(miniTocItems, activeHref)
 
-  // Close on outside click or Escape while open. Escape also returns focus to the
-  // disclosure button so keyboard users aren't dropped to the document body.
+  // Outside clicks close the panel; Escape also returns focus to the button.
   useEffect(() => {
     if (!open) return
     const onPointerDown = (e: MouseEvent) => {
@@ -56,9 +51,7 @@ export function OverviewMenu({ miniTocItems }: Props) {
     }
   }, [open])
 
-  // Move focus into the panel when it opens so keyboard and screen-reader users
-  // land on the list rather than having to find it behind the trigger. Escape
-  // (above) hands focus back to the button.
+  // Move focus into the opened panel so keyboard and screen-reader users land on the list.
   useEffect(() => {
     if (open) panelRef.current?.focus()
   }, [open])
@@ -70,16 +63,11 @@ export function OverviewMenu({ miniTocItems }: Props) {
         type="button"
         className={styles.toggle}
         aria-expanded={open}
-        // Set only while open: the panel is unmounted when closed, and
-        // aria-controls must not reference an id that isn't in the document.
+        // Set aria-controls only while the panel exists so it never references a missing id.
         aria-controls={open ? panelId : undefined}
         onClick={() => setOpen((v) => !v)}
       >
-        {/* Keep the "In this article" context in the accessible name without
-            overriding the visible label (WCAG 2.5.3 Label in Name): the visible
-            section title stays part of the name rather than being replaced by an
-            aria-label. When the label already reads "In this article" (top of
-            article), the hidden prefix would duplicate it, so skip it there. */}
+        {/* Keep visible titles in the name; add hidden In this article except at top. */}
         {!atTop && <span className="visually-hidden">{t('miniToc')}</span>}
         <span className={styles.label}>{label}</span>
         <ChevronDownIcon className={cx(styles.chevron, open && styles.chevronOpen)} />

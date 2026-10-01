@@ -31,7 +31,7 @@
     > li {
       position: relative;
       counter-increment: markdown-ordered-list;
-      // Reserve the chip column: 25px chip + 16px gap to the text (Figma).
+      // Reserve 25px for the Figma chip and 16px for the gap to item text.
       padding-left: 41px;
     }
 
@@ -57,12 +57,11 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      // 25x24 chip (Figma). The design gets that height by trimming the label's
-      // line box to the cap height (text-box-trim), which isn't broadly
-      // supported yet — so pin the height and centre the digit instead, which
-      // renders the same. Padding stays horizontal-only; adding the design's
-      // 7px vertical padding on an untrimmed 1.5 line box made the chip 35px
-      // tall, dropping its centre ~5px below the first line of text.
+      // Figma specifies a 25x24 chip. text-box-trim would trim the label line
+      // box to cap height, but browsers lack broad support, so pin the height
+      // and center the digit. Vertical padding on an untrimmed 1.5 line box
+      // made the chip 35px tall and pushed its center about 5px below the first
+      // text line.
       min-width: 25px;
       height: 24px;
       // 4px, not the Figma label's 8px: `min-width` already pins a single-digit
@@ -75,7 +74,7 @@
       padding: 0 0.25rem;
       // Brand label chip: monospace medium number on a muted fill.
       font-family: var(--brand-fontStack-monospace);
-      font-size: 0.875rem; // 14px
+      font-size: 0.875rem;
       font-weight: var(--brand-text-weight-medium, 500);
       line-height: 1;
       letter-spacing: 0.15px;
@@ -94,7 +93,6 @@
       border-radius: var(--brand-borderRadius-small, 4px);
     }
 
-    // Any list below top level uses plain letters
     ol {
       list-style-type: lower-alpha;
     }

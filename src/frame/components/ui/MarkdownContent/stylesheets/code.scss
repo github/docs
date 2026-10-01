@@ -1,7 +1,6 @@
 .markdownBody {
-  // Docs 2026: code adopts the brand monospace font (Mona Sans Mono, via
-  // --brand-fontStack-monospace from @primer/react-brand). Sizing/spacing stay
-  // on the existing @primer/css markdown scale.
+  // Code uses Mona Sans Mono from @primer/react-brand's monospace var. Sizing
+  // and spacing stay on the existing @primer/css markdown scale.
   code,
   kbd,
   pre,
@@ -13,9 +12,8 @@
   [class~="highlight"] pre,
   pre {
     margin-top: 0.5rem;
-    // border-*subtle*, not *default*: brand's default (#b6bfb8 light / #353d37
-    // dark) is much heavier than Primer's #d0d7de/#30363d this used to paint,
-    // and would make every code block's outline the strongest line on the page.
+    // Use brand subtle, not default: brand default is #b6bfb8 light and #353d37
+    // dark, heavier than Primer's #d0d7de and #30363d code block outline.
     border: 1px var(--brand-color-border-subtle) solid;
   }
 
@@ -26,17 +24,14 @@
   [class~="code-example"] {
     margin-top: 1.5rem;
 
-    // The language/copy bar that code-header.ts emits above the block. It is
-    // built from primer/css's `border-top`/`border-left`/`border-right`
-    // utilities and a `.btn`, all of which paint Primer's border palette
-    // (#3d444d in dark) — a different grey from the brand-subtle outline the
-    // `pre` below draws, so the one box would be framed in two colours.
-    //
-    // The utilities carry `!important`, hence the override. The button reads
-    // `var(--button-default-borderColor-rest, var(--color-btn-border))`, so the
-    // MODERN name is the one that takes effect now that index.scss imports the
-    // Primer Primitives functional themes — setting only `--color-btn-*` here
-    // would silently do nothing (see the same note in DocsFooter.module.scss).
+    // code-header.ts emits the language and copy bar above the block. Its
+    // primer/css border utilities and .btn paint Primer #3d444d in dark, while
+    // pre uses the brand subtle outline. Override !important borders so the
+    // whole block uses one gray.
+    // The button reads var(--button-default-borderColor-rest, var(--color-btn-border)).
+    // Because index.scss imports Primer Primitives functional themes, only the
+    // modern --button-default-* token works; --color-btn-* alone would do nothing.
+    // DocsFooter.module.scss has the same token trap.
     --button-default-borderColor-rest: var(--brand-color-border-subtle);
     --button-default-fgColor-rest: var(--brand-color-text-muted);
     --color-btn-border: var(--brand-color-border-subtle);
@@ -45,12 +40,10 @@
     > header {
       border-color: var(--brand-color-border-subtle) !important;
 
-      // @primer/css colours button octicons directly —
-      // `.btn .octicon { color: var(--fgColor-muted, …) }` — which bypasses the
-      // button's own fgColor token above, so the copy glyph needs its own rule.
-      // Attribute selector, not `.octicon`: this is a CSS module, so a bare
-      // class would be hashed and never match the real `octicon` class (the
-      // same reason `[class~="code-example"]` is written that way).
+      // @primer/css colors button octicons directly through .btn .octicon, which
+      // bypasses the button fgColor token above. The copy glyph needs its own rule.
+      // Use an attribute selector because this CSS module hashes a bare .octicon class.
+      // The same constraint explains [class~="code-example"] above.
       [class~="octicon"] {
         color: var(--brand-color-text-muted);
       }
@@ -61,22 +54,21 @@
       margin-top: 0 !important;
       border-top-left-radius: 0 !important;
       border-top-right-radius: 0 !important;
-      // All three edges are one visual outline with the `pre` border above, so
-      // they use the same brand token — splitting them would leave the block
-      // outlined in two different greys.
+      // These edges and the pre border form one outline, so they use the same
+      // brand token. Splitting them would outline the block in two grays.
       border-left: 1px var(--brand-color-border-subtle) solid !important;
       border-bottom: 1px var(--brand-color-border-subtle) solid !important;
       border-right: 1px var(--brand-color-border-subtle) solid !important;
     }
   }
 
-  // on graphql/overview/resource-limitations
+  // graphql/overview/resource-limitations uses these colored boxes in code examples.
   pre [class~="redbox"],
   pre [class~="greenbox"],
   pre [class~="bluebox"] {
     color: var(--color-fg-on-emphasis);
     padding: 0 0.25rem;
-    border-radius: 4px; // primer rounded-1
+    border-radius: 4px;
   }
 
   pre [class~="redbox"] {
