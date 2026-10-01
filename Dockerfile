@@ -30,8 +30,8 @@ RUN --mount=type=secret,id=apt-auth-conf,target=/etc/apt/auth.conf.d/apt_auth.co
   && apt-get install -y nodejs \
   && node --version
 
-# Create the node user and home directory
-ARG APP_HOME="/home/node/app" # Define in base so all child stages inherit it
+# Stages built FROM base inherit this ARG, so every later stage can use APP_HOME.
+ARG APP_HOME="/home/node/app"
 RUN useradd -ms /bin/bash node \
   && mkdir -p $APP_HOME && chown -R node:node $APP_HOME
 
