@@ -1,11 +1,7 @@
 name: Notify about production deployment
 
-# **What it does**: Posts a comment on every PR in the deploy that got into
-#                   production. The merge queue can batch several PRs into one
-#                   deploy, so it walks back from the deployed commit to find
-#                   all of them.
-# **Why we have it**: So that the PR author can be informed when their merged PR is in production.
-# **Who does it impact**: Writers
+# The merge queue can batch PRs into one deploy, so this workflow walks back
+# from the deployed commit and tells every PR author when their change reaches production.
 
 on:
   workflow_dispatch:
@@ -32,11 +28,8 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: ./.github/actions/node-npm-setup
 
-      # The "Purge Fastly" action takes about 6 minutes to purge all
-      # languages. First does the language agnostic URLs, then English,
-      # then all the other languages.
-      # So it takes about ~30 seconds until it has sent the purge for
-      # all English docs.
+      # The production purge targets changed English page keys.
+      # Give Fastly a short propagation window before finding built PRs.
       - name: Sleep a little to give Fastly Purge a chance
         run: sleep 30
 
