@@ -1,32 +1,4 @@
-/*
-Parses fenced code blocks with `annotate` in info string.
-Results in single line comments split out, output format is:
-
-.annotate
-  .annotate-row (n)
-    .annotate-code
-    .annotate-note
-
-Contributing rules:
-- You must include `annotate` in the info string
-- You must include a language on the starting ` ``` ` tag.
-- Notes must start with one of: `#`, `//`, `<!--`, `%%`. (comment tag)
-- The comment tag style must match the language on the code fence.
-- Multiline-style comments, such as `/*` are not supported.
-- You can include any number of spaces before the comment tag starts.
-- You can include any number of spaces after the comment tag ends.
-- You can leave after the comment tag blank to create a blank annotation.
-- You cannot create a blank code block however.
-- Anything after the comment tag will be parsed with Markdown.
-- You can use any inline Markdown tag in the comment; recommend against using block tags such as headings, blockquote, horizontal rules, tables, lists, or code fences.
-- Multiple lines in row with the comment tag will result in a single annotation.
-- Empty lines, or lines that contain only space characters, will be discarded.
-- You must start the code section with a single line comment, otherwise the two will be flipped.
-- For HTML style, you can include a line after your annotations such as `<!-- -->` to maintain syntax highlighting; this will not impact what renders.
-
-`parse-info-string.ts` plugin is required for this to work, and must come before `remark-rehype`.
-`annotate` must come before the `highlight` plugin.
-*/
+// Annotate fences split single-line comments into rendered notes beside code examples.
 
 import { load } from 'js-yaml'
 import fs from 'fs'
@@ -89,22 +61,7 @@ const languages = load(fs.readFileSync('./data/code-languages.yml', 'utf8')) as 
 >
 
 const commentRegexes = {
-  // Also known has hash or sharp; but the unicode name is "number sign".
-  // The reason this has 2 variants is because the hash is used, in bash
-  // for both hash-hang and for comments.
-  // For example:
-  //
-  //     #!/bin/bash
-  //
-  // ...is not a comment.
-  // But if you only look for `#` followed by anything-but `!` it will not
-  // match if the line is just `#`.
-  //
-  //    > /^\s*#[^!]\s*/.test('#')
-  //    false
-  //
-  // Which makes sense, because the `#` is not followed by anything.
-  // That's why we use the | operator to make an "exception" for that case.
+  // Keep shebang lines in code, but treat a line that only contains a number sign as a comment.
   number: /^\s*#[^!]\s*|^\s*#$/,
   slash: /^\s*\/\/\s*/,
   xml: /^\s*<!--\s*/,
@@ -286,10 +243,10 @@ function processAutotitleInMdast(mdast: Root, context: Context): void {
           const page = findPage(node.url, context.pages, context.redirects)
           if (page) {
             try {
-              // Use rawTitle for synchronous processing in annotations
+              // rawTitle avoids async title rendering while annotation notes convert to HAST.
               child.value = page.rawTitle || 'AUTOTITLE'
             } catch (error) {
-              // Keep AUTOTITLE if we can't get the title
+              // Keep AUTOTITLE when title lookup fails.
               logger.warn('Could not resolve AUTOTITLE', {
                 url: node.url,
                 error: error instanceof Error ? error.message : String(error),
@@ -308,7 +265,6 @@ function removeComment(lang: string): (line: string) => string {
 }
 
 function getPreMeta(node: ElementNode): { annotate?: boolean; [key: string]: unknown } {
-  // Here's why this monstrosity works:
-  // https://github.com/syntax-tree/mdast-util-to-hast/blob/c87cd606731c88a27dbce4bfeaab913a9589bf83/lib/handlers/code.js#L40-L42
+  // mdast-util-to-hast stores code-fence metadata on the code child.
   return node.children[0]?.data?.meta || {}
 }

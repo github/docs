@@ -22,9 +22,8 @@ function getClassString(el: Element): string {
   return ''
 }
 
-// Rehype plugin that collects heading data (href, title, level, platform)
-// during rendering, so callers don't need to re-parse the HTML.
-// Place this after heading-links in the processor chain.
+// Collect heading href, title, level, and platform during rendering, so callers
+// do not re-parse HTML. Run after heading-links so anchors exist.
 const collectMiniToc: Plugin<[CollectMiniTocOptions], Root> = ({ collectInto }) => {
   if (!collectInto) return
 
@@ -34,7 +33,7 @@ const collectMiniToc: Plugin<[CollectMiniTocOptions], Root> = ({ collectInto }) 
       if (!/^h[1-6]$/.test(el.tagName)) return
       if (!el.properties?.id) return
 
-      // Skip headings inside hidden ancestors
+      // Hidden headings must not appear in the mini TOC.
       for (const anc of ancestors) {
         if (anc.type === 'element') {
           const ancEl = anc as Element
@@ -44,7 +43,7 @@ const collectMiniToc: Plugin<[CollectMiniTocOptions], Root> = ({ collectInto }) 
 
       const headingLevel = parseInt(el.tagName.charAt(1), 10)
 
-      // Find the anchor child that heading-links.ts created
+      // heading-links.ts creates the anchor child that owns the rendered heading text.
       const anchor = el.children.find(
         (child): child is Element =>
           child.type === 'element' && child.tagName === 'a' && hasClassName(child, 'heading-link'),
@@ -54,9 +53,7 @@ const collectMiniToc: Plugin<[CollectMiniTocOptions], Root> = ({ collectInto }) 
       const href = anchor.properties?.href as string | undefined
       if (!href) return
 
-      // Filter out direct-child <span> elements (and their content).
-      // heading-links.ts always inserts the heading-link-symbol span as a
-      // direct child of the anchor, so filtering direct children is sufficient.
+      // heading-links.ts inserts heading-link-symbol directly, so direct filtering is enough.
       const textChildren = (anchor.children || []).filter(
         (child: ElementContent) =>
           !(child.type === 'element' && (child as Element).tagName === 'span'),

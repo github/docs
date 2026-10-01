@@ -10,7 +10,7 @@ interface UseEnglishHeadingsOptions {
   englishHeadings?: Record<string, string>
 }
 
-// replace translated IDs and links in headings with English
+// Translated pages keep English heading IDs so inbound anchors stay stable.
 export default function useEnglishHeadings({ englishHeadings }: UseEnglishHeadingsOptions) {
   if (!englishHeadings) return
   return (tree: Root) => {
@@ -21,8 +21,7 @@ export default function useEnglishHeadings({ englishHeadings }: UseEnglishHeadin
       const englishHeading: string = englishHeadings[encode(text)]
       const englishSlug: string = slugger.slug(englishHeading)
       if (englishSlug) {
-        // only use English slug if there is one, otherwise we'll end up with
-        // empty IDs
+        // Leave the existing ID when no English slug exists.
         node.properties.id = englishSlug
       }
     })
