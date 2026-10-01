@@ -47,6 +47,14 @@ You can create your ticket using the {% data variables.contact.landing_page_port
 
 After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see [AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets).
 
+{% ifversion ghec %}
+
+## Security incidents
+
+{% data reusables.support.security-incident-expectations %}
+
+{% endif %}
+
 {% ifversion ghec or ghes %}
 
 ## Prerequisites

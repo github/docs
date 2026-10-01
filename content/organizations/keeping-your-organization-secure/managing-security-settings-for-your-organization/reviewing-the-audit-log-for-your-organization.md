@@ -14,7 +14,27 @@ category:
   - Secure and monitor your organization
 ---
 
-## Accessing the audit log
+{% ifversion ghec %}
+
+There are several ways to access and retain audit log data for your organization:
+
+* **Web interface**: View recent activity in your organization settings. See [Accessing the organization's audit log via the web interface](#accessing-the-organizations-audit-log-via-the-web-interface).
+* **JSON/CSV exports**: Download a file of audit log activity. See [Exporting the audit log](#exporting-the-audit-log).
+* **REST API endpoint**: Query audit log events programmatically. See [Using the audit log API](#using-the-audit-log-api).
+
+Each method exposes a different subset of your audit log data. For the full list of events, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization).
+
+If your organization belongs to an enterprise, work with an enterprise owner to enable enterprise audit log streaming, API request event streaming, and source IP address disclosure. Without all three features enabled at the enterprise level, responders will have critical visibility gaps when investigating incidents affecting your organization. The enterprise owner should also set an appropriate retention period for the streamed logs and ensure incident responders can access them.
+
+For setup instructions, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise), [Enabling audit log streaming of API requests](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests), and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise).
+
+## Audit log data available by access method
+
+{% data reusables.audit_log.events-data-retention-organization %}
+
+{% endif %}
+
+## Accessing the organization's audit log via the web interface
 
 > [!NOTE]
 > {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
@@ -36,7 +56,7 @@ The audit log lists events triggered by activities that affect your organization
 To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped in different categories. For the full list of events in each category, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization).
 
 | Category name | Description
-|------------------|-------------------
+| ------------------ | -------------------
 | {% ifversion fpt or ghec %} |
 | `account` | Contains all activities related to your organization account.
 | `advisory_credit` | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/repository-security-advisories).
@@ -88,7 +108,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `payment_method` | Contains all activities related to how your organization pays for GitHub.
 | {% endif %} |
 | `personal_access_token` | Contains activities related to {% data variables.product.pat_v2 %}s in your organization. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
-| `profile_picture`| Contains all activities related to your organization's profile picture.
+| `profile_picture` | Contains all activities related to your organization's profile picture.
 | `project` | Contains all activities related to {% data variables.projects.projects_v2_and_v1 %}.
 | `protected_branch` | Contains all activities related to protected branches.
 | `repo` | Contains activities related to the repositories owned by your organization.
@@ -102,7 +122,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | {% endif %} |
 | `repository_secret_scanning_automatic_validity_checks` | Contains repository-level activities related to enabling and disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enable-secret-scanning).
 | `repository_secret_scanning_custom_pattern` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %} custom patterns. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns). |
-| `repository_secret_scanning_custom_pattern_push_protection`| Contains repository-level activities related to push protection of a custom pattern for {% data variables.product.prodname_secret_scanning %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns#defining-a-custom-pattern-for-a-repository).
+| `repository_secret_scanning_custom_pattern_push_protection` | Contains repository-level activities related to push protection of a custom pattern for {% data variables.product.prodname_secret_scanning %}. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/customize-leak-detection/define-custom-patterns#defining-a-custom-pattern-for-a-repository).
 | `repository_secret_scanning_push_protection` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %} push protection. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection).
 | `repository_vulnerability_alert` | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %}](/code-security/concepts/supply-chain-security/dependabot-alerts).
 | {% ifversion fpt or ghec %} |
@@ -116,8 +136,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `secret_scanning_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} for new repositories created in the organization.
 | {% endif %} |
 | {% ifversion fpt or ghec %} |
-| `restore_member` | Triggered when an organization owner reinstates a member. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).|
-| `sponsors`| Contains all events related to sponsor buttons (see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository))
+| `restore_member` | Triggered when an organization owner reinstates a member. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization). |
+| `sponsors` | Contains all events related to sponsor buttons (see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository))
 | {% endif %} |
 | `team` | Contains all activities related to teams in your organization.
 | `workflows` | Contains activities related to {% data variables.product.prodname_actions %} workflows.
