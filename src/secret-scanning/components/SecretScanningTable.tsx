@@ -1,13 +1,14 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { DataTable, Table } from '@primer/react/experimental'
-import { TextInput, ActionMenu, ActionList } from '@primer/react'
-import { Pagination, Button } from '@primer/react-brand'
+import { TextInput, ActionMenu, Pagination, Button } from '@primer/react-brand'
 import { debounce } from 'lodash-es'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
+import { onActionMenuItemKeyDownCapture } from '@/frame/components/lib/action-menu'
 import type { SecretScanningData } from '@/types'
+import styles from './SecretScanningTable.module.scss'
 
 const PAGE_SIZE = 25
 
@@ -203,6 +204,7 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
           )}
         </div>
         <TextInput
+          fullWidth
           aria-label={t('search_aria_label')}
           placeholder={t('search_placeholder')}
           value={filters.search}
@@ -394,21 +396,31 @@ function FilterDropdown({
   onChange: (v: 'all' | 'yes' | 'no') => void
 }) {
   const { t } = useTranslation('secret_scanning')
+  const selectedLabel =
+    value === 'all' ? t('filter_all') : value === 'yes' ? t('filter_yes') : t('filter_no')
   return (
-    <ActionMenu>
-      <ActionMenu.Button size="small">
-        {label}:{' '}
-        {value === 'all' ? t('filter_all') : value === 'yes' ? t('filter_yes') : t('filter_no')}
-      </ActionMenu.Button>
-      <ActionMenu.Overlay>
-        <ActionList selectionVariant="single">
+    <div className={styles.filterDropdown}>
+      <ActionMenu
+        selectionVariant="single"
+        size="small"
+        onSelect={(selectedValue) => onChange(selectedValue as 'all' | 'yes' | 'no')}
+      >
+        <ActionMenu.Button size="small">
+          {label}: {selectedLabel}
+        </ActionMenu.Button>
+        <ActionMenu.Overlay aria-label={label}>
           {(['all', 'yes', 'no'] as const).map((opt) => (
-            <ActionList.Item key={opt} selected={value === opt} onSelect={() => onChange(opt)}>
+            <ActionMenu.Item
+              key={opt}
+              value={opt}
+              selected={value === opt}
+              onKeyDownCapture={onActionMenuItemKeyDownCapture}
+            >
               {opt === 'all' ? t('filter_all') : opt === 'yes' ? t('filter_yes') : t('filter_no')}
-            </ActionList.Item>
+            </ActionMenu.Item>
           ))}
-        </ActionList>
-      </ActionMenu.Overlay>
-    </ActionMenu>
+        </ActionMenu.Overlay>
+      </ActionMenu>
+    </div>
   )
 }
