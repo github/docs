@@ -14,6 +14,8 @@ contentType: how-tos
 category:
   - Configure Copilot
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 With enterprise managed settings, you can centrally define and distribute configuration settings for {% data variables.product.prodname_copilot %} to supported clients. This ensures everyone works within the guardrails you define, with the option to specialize settings for different teams. For example, you can block agents from performing sensitive operations, install approved agent plugins, or ensure that sessions run in a sandbox.

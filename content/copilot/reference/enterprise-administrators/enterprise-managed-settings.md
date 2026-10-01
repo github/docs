@@ -25,6 +25,7 @@ For instructions on creating the file, see [AUTOTITLE](/copilot/how-tos/administ
 | `permissions.ask` | Requires a fresh human approval before specific operations can proceed | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `permissions.allow` | Permits specific operations to proceed without a prompt | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `model` | Sets your preferred model as the default for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| `autoTier` | Sets the default Auto routing tier for new conversations | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | `enabledPlugins` | Enables or disables specific plugins by key | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `extraKnownMarketplaces` | Adds plugin marketplaces that users can access | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | `strictKnownMarketplaces` | Restricts plugin installation to explicitly listed marketplaces | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -44,6 +45,7 @@ The following example shows these keys in one managed settings file.
 ```json
 {
   "model": "auto",
+  "autoTier": "intelligence",
   "permissions": {
     "disableBypassPermissionsMode": "disable",
     "deny": [
@@ -200,6 +202,23 @@ This key is overridable by enterprise team mapping. In your `{% data variables.c
 
 > [!NOTE]
 > `model` was originally documented as `permissions.model`. Clients still read the nested `permissions.model` value when the top-level `model` key is absent, but you should use the top-level `model` key in new configurations.
+
+## autoTier
+
+Sets the default routing tier for new conversations when the selected model is `"auto"`. Accepted values, from most restrictive to least restrictive, are `"efficiency"`, `"balance"`, `"intelligence"`, and `"unmanaged"`. This setting does not select the model itself.
+
+In {% data variables.copilot.copilot_cli_short %}, this setting requires version 1.0.87-0 or later. In {% data variables.product.prodname_vscode_shortname %}, it requires version 1.140.0 or later.
+
+Set `autoTier` to a string other than `"unmanaged"` to lock the tier against user and repository overrides. To provide a default that users, repositories, and enterprise teams can override, use `overridable`:
+
+```json
+{
+  "model": "auto",
+  "autoTier": { "overridable": "balance" }
+}
+```
+
+For example, a team settings file can set `"autoTier": "intelligence"`. If the team does not set `autoTier`, the enterprise default applies.
 
 ## permissions
 
