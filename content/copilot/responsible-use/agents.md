@@ -39,11 +39,11 @@ GitHub Copilot includes several agentic features that go beyond suggestion and c
 
 * **Copilot code review**: Reviews pull request diffs and metadata on GitHub.com, producing feedback comments and suggested changes.
 * **Copilot cloud agent**: An asynchronous agent on GitHub.com that can create branches, write code, and open pull requests in response to assigned issues. The cloud agent runs in an ephemeral, firewalled environment with automated security scanning.
-* **Copilot CLI**: A command-line tool that can create and modify files, execute commands, and perform multi-step tasks. All actions require explicit permission prompts and are scoped to the current directory.
+* **Copilot CLI**: A command-line tool that can create and modify files, execute commands, and perform multi-step tasks. By default, filesystem access is scoped to the directory where the CLI was started. Permission prompts depend on the active permission mode. When computer use is enabled, Copilot CLI can also interact with desktop applications outside that directory scope.
 * **Copilot SDK**: A programmatic library that allows developers to build custom AI-powered applications using Copilot. The SDK communicates with Copilot CLI over JSON-RPC and supports custom agents, MCP server integrations, lifecycle hooks, and session management.
-* **{% data variables.copilot.github_copilot_app %}**: A desktop application for directing agent sessions across local repositories, git worktrees, and cloud sandboxes. The app uses {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %} as its foundation and adds a user interface for parallel sessions, quick chats, {% data variables.product.github %} issue and pull request workflows, automations, and canvases.
+* **{% data variables.copilot.github_copilot_app %}**: A desktop application for directing agent sessions across local repositories, git worktrees, and cloud sandboxes. The app uses {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_sdk %} as its foundation and adds a user interface for parallel sessions, quick chats, {% data variables.product.github %} issue and pull request workflows, automations, and canvases. When computer use is enabled, the app can also interact with desktop applications.
 
-These features share common principles—human oversight, review of outputs, and responsible use—but differ in their execution environments, permissions, and data flows. The sections below describe each experience in context.
+These features share common principles—human oversight, review of outputs, and responsible use—but differ in their execution environments, permissions, and data flows. The sections below describe each in context.
 
 ## 2. Key terms
 
@@ -51,6 +51,7 @@ The following list provides a glossary of key terms related to GitHub Copilot Ag
 
 * **Code suggestion**: A specific code change proposed by Copilot code review as part of its feedback on a pull request. Code suggestions are presented as suggested changes that can be applied with a couple of clicks.
 * **Content filtering**: A safety system that scans prompts and responses to detect and block harmful, offensive, or insecure content before it is shown to the user.
+* **Computer use**: An optional capability in {% data variables.copilot.copilot_cli %} and {% data variables.copilot.github_copilot_app %} that allows an agent to interact with desktop applications. Its tools can read accessible application content and visual context through the operating system's accessibility tree or screenshots when visual context is needed, click controls, enter and edit text, press keys, scroll, drag, and navigate workflows across applications.
 * **Custom instructions**: Natural language descriptions of coding style and best practices that a repository maintainer can configure to guide Copilot code review's feedback. Custom instructions help Copilot understand the conventions and standards of a specific codebase.
 * **Hallucination**: A phenomenon where a language model generates output that sounds plausible but is factually incorrect, unsupported by the provided context, or entirely fabricated. In code review, hallucination can manifest as feedback that highlights problems that do not exist or are based on misunderstandings of the code.
 * **Large language model (LLM)**: A type of neural network trained on a large body of text data that can generate, analyze, and transform natural language and code. Copilot Agents use one or more LLMs to process context and produce responses.
@@ -73,7 +74,8 @@ The key features and capabilities outlined here describe what GitHub Copilot Age
 * **Ephemeral, firewalled execution**: While working on a task, the cloud agent has access to its own ephemeral development environment where it can make changes to code, execute automated tests, and run linters. A firewall is enabled by default to prevent data exfiltration.
 * **Automated security scanning**: During code generation, the cloud agent automatically analyzes newly generated code for security vulnerabilities using CodeQL, secret scanning, and dependency analysis, and attempts to resolve any issues before they are introduced.
 * **External integrations**: The cloud agent can receive information and context from MCP like workIQ and Microsoft 365, and external applications like Microsoft Teams, Linear, Slack, and Jira, enabling teams to assign tasks and track progress directly within their existing workflows.
-* **Local agentic execution (Copilot CLI)**: Copilot CLI provides a chat-like interface in the terminal that can autonomously create and modify files, execute commands, and perform multi-step tasks. All actions are scoped to the current directory and require explicit permission prompts before the agent modifies files or runs commands.
+* **Local agentic execution (Copilot CLI)**: Copilot CLI provides a chat-like interface in the terminal that can autonomously create and modify files, execute commands, and perform multi-step tasks. By default, filesystem access is scoped to the directory where the CLI was started. The active permission mode determines whether the CLI prompts before modifying files or running commands.
+* **Desktop application interaction (computer use)**: In local {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.github_copilot_app_short %} sessions, computer use can read accessible application content and visual context through the operating system's accessibility tree or screenshots when visual context is needed, click controls, enter and edit text, press keys, scroll, drag, and navigate workflows across applications.
 
 ## 4. Intended uses
 
@@ -85,6 +87,7 @@ GitHub Copilot Agents can be used in multiple scenarios across a variety of indu
 * **Prototyping new projects**: The cloud agent and Copilot CLI can greenfield new concepts, helping developers explore ideas quickly.
 * **Setting up your environment (CLI)**: Copilot CLI can run commands in your terminal to set up your local environment to work on existing projects.
 * **Finding the right command (CLI)**: Copilot CLI can suggest commands to perform tasks you're trying to complete, and explain unfamiliar commands in natural language.
+* **Working with legacy and GUI-only applications (computer use)**: Computer use can help with workflows in local desktop applications that do not provide an API, command-line interface, or MCP integration. Users should describe the outcome, applications, and important constraints, then review the actions and result.
 * **Building custom AI applications (SDK)**: The Copilot SDK enables developers to build applications that leverage Copilot for code generation, natural language interaction, and task automation in their own products and workflows.
 * **Multi-agent orchestration (SDK)**: Using custom agents and sub-agents, developers can build sophisticated workflows where multiple specialized agents collaborate on complex tasks, with automatic delegation based on user intent.
 * **Extending applications with external tools (SDK)**: The SDK's MCP server support allows developers to connect their applications to external data sources and services, expanding the range of tasks their agents can perform.
@@ -162,6 +165,11 @@ Understanding GitHub Copilot agentic features' limitations is crucial to determi
 * **Security risks (CLI)**: Copilot CLI generates code and natural language based on the context of your local environment, which can potentially expose sensitive information or vulnerabilities if not used carefully. You should review all outputs generated by the agent thoroughly.
 * **Public code matches (CLI)**: Copilot CLI may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block."
 * **Command execution risks (CLI)**: Additional caution is required when asking or allowing Copilot CLI to execute a command, particularly regarding the potential destructiveness of some suggested commands. You may encounter commands for file deletion or hard drive formatting, which can cause problems if used incorrectly. You are ultimately responsible for the commands executed by Copilot CLI.
+* **Interface interpretation (computer use)**: Computer use may select the wrong control, enter text in the wrong location, or have difficulty with non-standard or dynamic controls and complex workflows. Changes in timing or window state can produce different results, cause computer use to repeat an action, or prevent it from continuing.
+* **Unintended actions (computer use)**: Ambiguous instructions or unexpected on-screen content can cause computer use to take unintended actions. These actions may modify or expose data or affect connected accounts. Users should keep tasks narrow, specify important constraints, and monitor the active application.
+* **On-screen information (computer use)**: Application windows may display sensitive information or information about other people. Users should only enable computer use for applications and tasks whose visible content is appropriate to provide as context.
+* **Local and platform constraints (computer use)**: Computer use requires a local session and is available on macOS and Windows. On macOS, Accessibility and Screen Recording permissions are required. If the bundled plugin, helper, or MCP server is unavailable or disconnected, computer-use actions cannot run.
+* **Always allowed applications (computer use)**: An application that a user chooses to always allow can be controlled in later sessions without another application-level prompt. **Always allow** is not appropriate for every application, particularly applications that contain sensitive information or support high-impact actions.
 * **Inherited limitations (SDK)**: Because the Copilot SDK communicates with Copilot CLI, applications built with the SDK inherit the same model limitations, including limited scope for certain programming languages and the potential for inaccurate or insecure code generation.
 * **Custom agent complexity (SDK)**: Incorrectly configured custom agents, tools, or hooks may produce unexpected behavior. Developers are responsible for testing and validating the behavior of their custom agent configurations.
 * **MCP server trust (SDK)**: MCP servers connected through the SDK can expose tools and data from external sources. Developers must ensure that connected MCP servers are trustworthy, as malicious or misconfigured servers could introduce harmful behavior or expose sensitive data.
@@ -208,6 +216,17 @@ Copilot agentic features have been subject to RAI red teaming to identify and ad
 * **Permission prompts for command execution**: Copilot CLI asks for permission before executing commands that may be dangerous. You should review these commands carefully before giving permission to run.
 * **Configurable permissions**: You can grant Copilot CLI specific permissions, or all permissions, by using the various command line options: for example, `--allow-tool=[TOOLS...]`, `--allow-all-tools`, `--allow-all` (or its slash command equivalent `/allow-all` for use in an interactive session). For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options). Typically, when you use Copilot CLI in autopilot mode, you will grant it full permissions to allow it to complete a task autonomously, without requiring you to approve activity as it works on the task. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
 * **Security considerations**: For more information about security practices while using Copilot CLI, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli#security-considerations).
+
+### Computer use in {% data variables.copilot.copilot_cli %} and {% data variables.copilot.github_copilot_app %}
+
+Computer use is an optional local capability that allows an agent to interact with desktop applications on a user's behalf. Like other agentic features, computer use has limitations. Because it interprets visual interfaces, changing interfaces or unexpected on-screen content can lead to inconsistent results, stalled workflows, or unintended actions. The following controls help users limit and interrupt its access.
+
+* **Default-off activation**: The bundled computer-use plugin is disabled by default. Users must enable it before its tools are available to an agent.
+* **Managed policy**: Enterprise administrators can disable computer use through managed settings. Users cannot override the enterprise policy through local settings. For configuration details, see [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings#featurescomputeruse).
+* **Tool permission controls**: Computer-use application requests use the host permission system. Depending on the active permission mode, the host displays an approval prompt or approves the request automatically. Explicit deny rules take precedence, and a request fails closed if no permission handler accepts it.
+* **Operating system permissions**: On macOS, computer use guides users through granting Accessibility permission to interact with controls and Screen Recording permission to inspect windows when visual context is needed.
+* **Application approval management**: In {% data variables.copilot.github_copilot_app %}, users can review and remove saved application approvals. Removing an application deletes its saved approval for future sessions, but does not revoke access already granted in a running session. The host's permission settings determine whether later requests display a prompt or are approved automatically.
+* **Session interruption**: Users can interrupt an active local operation if computer use starts acting unexpectedly. In {% data variables.copilot.copilot_cli %}, pressing <kbd>Esc</kbd> twice interrupts the current operation. In {% data variables.copilot.github_copilot_app %}, clicking **Stop** or pressing <kbd>Esc</kbd> interrupts it.
 
 ### Copilot SDK
 
@@ -271,6 +290,9 @@ Responsible AI is a shared commitment between GitHub and its customers. While Gi
 * **Review commands before execution (CLI)**: Exercise particular caution when Copilot CLI suggests executing commands, especially those that modify or delete files. You are ultimately responsible for the commands you allow the agent to run.
 * **Keep CLI tasks well-scoped**: The more clear and well-scoped the prompt you provide, the better the results. Include a clear description of the problem, acceptance criteria, and hints on what files need to be changed.
 * **Provide feedback (CLI)**: If you encounter any issues or limitations with Copilot CLI, provide feedback using the `/feedback` command.
+* **Use direct tools when available (computer use)**: When an API, MCP server, terminal command, filesystem tool, or dedicated browser tool can complete a task, use that tool for more structured information and predictable results.
+* **Keep computer-use tasks narrow and observable**: Describe the outcome you want, the applications involved, and any important constraints. Review the active application and outcome.
+* **Limit always allowed applications**: Avoid choosing **Always allow** for applications that contain sensitive information or support high-impact actions. Review and remove saved approvals when they are no longer needed.
 * **Validate custom agent behavior (SDK)**: Thoroughly test custom agents, tools, and hooks before deploying applications built with the SDK to production. Ensure that tool configurations and system prompts produce safe, expected behavior.
 * **Audit MCP server connections (SDK)**: Only connect to MCP servers that you trust. Review the tools and data that each server exposes and ensure they align with your application's security requirements.
 * **Implement safety hooks (SDK)**: Use the SDK's lifecycle hooks to implement guardrails such as content filtering, audit logging, and tool approval workflows in your applications.
@@ -289,6 +311,7 @@ For additional guidance on the responsible use of Copilot agentic features, we r
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
 * [AUTOTITLE](/copilot/concepts/agents/github-copilot-app)
+* [AUTOTITLE](/copilot/concepts/agents/computer-use)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [Copilot Trust Center](https://copilot.github.trust.page/)
 

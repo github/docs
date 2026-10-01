@@ -9,6 +9,7 @@ children:
   - /cloud-agent
   - /copilot-cli
   - /github-copilot-app
+  - /computer-use
   - /copilot-in-jetbrains
   - /code-review
   - /about-github-agentic-workflows
@@ -22,4 +23,3 @@ children:
   - /about-agent-skills
 contentType: concepts
 ---
-
