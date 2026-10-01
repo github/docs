@@ -4,18 +4,16 @@ import github from './github'
 import { getActionContext } from './action-context'
 import { octoSecondaryRatelimitRetry } from './secondary-ratelimit-retry'
 
-// Marker used to dedupe the "gone to production" comment across reruns and
-// across the previous workflow that posted it as github-actions[bot].
+// This marker dedupes production comments even when another account posted them.
 export const GONE_TO_PRODUCTION_MARKER = '<!-- GONE_TO_PRODUCTION -->'
 
-// The merge queue can batch multiple PRs into a single deploy. We walk back
-// from the deployed HEAD commit through `main`'s (linear, squash-merged)
-// ancestry to find every PR in the batch. This is bounded by the deployed SHA,
-// so it can only ever include already-deployed PRs, never a later batch.
+// The merge queue can batch multiple PRs into a single deploy. Walk back from
+// the deployed HEAD commit through main's linear squash-merged ancestry to find
+// every PR in the batch. The deployed SHA bounds the search, so it cannot include
+// a later batch.
 //
-// Default to the merge queue's max batch size. Over-reaching into a previous,
-// already-notified batch is harmless: those PRs are genuinely in production and
-// the marker dedupe skips any that already have the comment.
+// Default to the merge queue's max batch size. Overshooting into an already
+// notified batch is harmless because marker dedupe skips existing comments.
 const BATCH_MAX_COMMITS = parseInt(process.env.DEPLOY_BATCH_MAX_COMMITS || '5', 10)
 
 export const COMMENT_BODY = `${GONE_TO_PRODUCTION_MARKER}
@@ -27,8 +25,7 @@ If you don't see updates when expected, try adding a random query string to the 
 If that shows the expected content, it would indicate that the CDN is "overly caching" the page still. It will eventually update, but it can take a while.
 `
 
-// GitHub appends "(#1234)" to the title of a squash-merge commit. Grab the last
-// such reference on the title line, which is the merged PR number.
+// GitHub appends the merged PR number to squash-merge commit titles. Grab the last one.
 export function extractPrNumber(commitMessage: string): number | null {
   const title = commitMessage.split('\n')[0]
   const matches = [...title.matchAll(/\(#(\d+)\)/g)]
@@ -39,7 +36,6 @@ export function extractPrNumber(commitMessage: string): number | null {
   return parseInt(last[1], 10)
 }
 
-// Returns the PR numbers in the deploy batch, newest first, deduplicated.
 export async function findBatchPrNumbers(
   octokit: Octokit,
   owner: string,
@@ -63,9 +59,8 @@ export async function findBatchPrNumbers(
 
 export type CommentResult = 'created' | 'exists' | 'locked'
 
-// Posts the production comment on a single PR, unless it is locked or already
-// has the comment (detected by the marker, regardless of which account authored
-// it). Idempotent: safe to call on every rerun.
+// Posts the production comment on unlocked PRs unless the marker already exists
+// under any author. Idempotent across reruns.
 export async function ensureProductionComment(
   octokit: Octokit,
   owner: string,

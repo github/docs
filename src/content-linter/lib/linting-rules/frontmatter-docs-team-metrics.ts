@@ -28,7 +28,7 @@ export const frontmatterDocsTeamMetrics = {
     const missingValues = expectedValues.filter((v) => !currentValues.includes(v))
     if (missingValues.length === 0) return
 
-    // Report on the first line of frontmatter (the opening ---)
+    // Missing docsTeamMetrics has no source line, so report at the frontmatter start.
     addError(
       onError,
       1,

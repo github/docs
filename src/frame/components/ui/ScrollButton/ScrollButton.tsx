@@ -16,8 +16,7 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   const [isTallEnough, setIsTallEnough] = useState(false)
 
   useEffect(() => {
-    // Show the button once the article h1 has scrolled out of view, and hide it
-    // again when the h1 comes back.
+    // The h1 boundary keeps the button hidden until readers leave the article title.
     const h1Element = document.getElementsByTagName('h1')[0]
     if (!h1Element) {
       if (process.env.NODE_ENV !== 'production') {
@@ -42,8 +41,7 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
     }
   }, [])
 
-  // If the window isn't tall enough, the scroll button will hide some of the content
-  // A11y issue 8822
+  // Short windows hide the button so it does not cover article content.
   useEffect(() => {
     function updateDocumentSize() {
       setIsTallEnough(document.documentElement.clientHeight > 400)
@@ -75,7 +73,7 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
         onClick={onClick}
         tabIndex={show ? 0 : -1}
         className={cx(
-          'ghd-scroll-to-top', // for data tracking, see events.ts
+          'ghd-scroll-to-top', // events.ts tracks this class.
           'tooltipped tooltipped-n tooltipped-no-delay btn circle border-1',
           'd-flex flex-items-center flex-justify-center',
           customFocus,

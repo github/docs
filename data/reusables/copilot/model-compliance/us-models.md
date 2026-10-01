@@ -6,5 +6,7 @@
 * GPT-5.3-Codex
 * Claude Haiku 4.5
 * Claude Sonnet 5
+* Claude Sonnet 5.5
 * Claude Opus 4.8
 * Claude Opus 5
+* Claude Opus 5.5

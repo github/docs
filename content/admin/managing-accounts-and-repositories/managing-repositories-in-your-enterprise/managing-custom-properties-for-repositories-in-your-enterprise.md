@@ -9,6 +9,8 @@ versions:
 shortTitle: Custom properties
 category:
   - Manage accounts and repositories
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties are private and can only be viewed by people with read permissions to the repository. An enterprise can have up to 100 property definitions. An allowed value list can have up to 200 items.

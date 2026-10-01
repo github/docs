@@ -40,7 +40,7 @@ export const UnrenderedMarkdownContent = ({
 
   const components = {} as Components
   if (codeBlocksCopyable) {
-    // Override the default code block to make multiline code blocks copyable
+    // Multiline code blocks need a custom renderer so the copy button can copy raw text.
     components.code = ({ ...props }) => {
       let text = String(props.children)
       if (!text.includes('\n')) {
@@ -49,7 +49,7 @@ export const UnrenderedMarkdownContent = ({
         text = text.replace(/\n$/, '')
       }
 
-      // Extract language from className for better accessibility
+      // The copy button announces the language when the code fence exposes one.
       const language = props.className?.startsWith('language-')
         ? props.className.replace('language-', '')
         : ''
@@ -92,7 +92,7 @@ export const UnrenderedMarkdownContent = ({
     }
   }
 
-  // Override the default anchor tag to open links in a new tab and include specific query parameters
+  // Custom anchors preserve feature query params and can force links into new tabs.
   components.a = ({ ...props }) => {
     let href = props.href || ''
     let existingAnchorParams = ''
@@ -117,7 +117,7 @@ export const UnrenderedMarkdownContent = ({
         target={openLinksInNewTab ? '_blank' : undefined}
         rel={openLinksInNewTab ? 'noopener noreferrer' : undefined}
         onClick={(e) => {
-          // For some reason we need to override the default onClick to get these links to open in a new tab
+          // Explicit window.open keeps new-tab links working when the default click path does not.
           if (openLinksInNewTab) {
             e.stopPropagation()
             e.preventDefault()

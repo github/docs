@@ -6997,6 +6997,13 @@
           "href": "/graphql/reference/other#scalar-int"
         },
         {
+          "name": "id",
+          "description": "<p>The ID of an existing iteration. Include this to preserve the iteration's identity during replacement updates.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
           "name": "startDate",
           "description": "<p>The start date for the iteration.</p>",
           "type": "Date!",

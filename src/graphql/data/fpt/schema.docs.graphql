@@ -42758,6 +42758,11 @@ input ProjectV2Iteration @docsCategory(name: "projects") {
   duration: Int!
 
   """
+  The ID of an existing iteration. Include this to preserve the iteration's identity during replacement updates.
+  """
+  id: String
+
+  """
   The start date for the iteration.
   """
   startDate: Date!

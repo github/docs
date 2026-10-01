@@ -1,17 +1,16 @@
 name: 'Orphaned features check'
 
-# **What it does**: Finds any data/features that are no longer used in the repo.
-# **Why we have it**: To avoid orphans into the repo.
-# **Who does it impact**: Docs content.
+# This workflow opens deletion PRs for unused data/features entries so stale entries
+# do not stay in the repo.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
   pull_request:
     paths:
       - .github/workflows/orphaned-features-check.yml
-      # In case any of the dependencies affect the script
+      # Dependency changes can break the orphaned-features script.
       - 'package*.json'
       - 'src/data-directory/scripts/find-orphaned-features/**'
       - .github/actions/clone-translations/action.yml
@@ -28,13 +27,10 @@ jobs:
       - name: Checkout English repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          # Using a PAT is necessary so that the new commit will trigger the
-          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          # A PAT triggers CI on the PR; GITHUB_TOKEN events do not start workflows.
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
-      # It's important because translations are often a bit behind.
-      # So if a translation is a bit behind, it might still be referencing
-      # a feature even though none of the English content does.
+      # Translations can lag English, so clone them before deciding that a feature is unused.
       - name: Clone all translations
         uses: ./.github/actions/clone-translations
         with:
@@ -44,7 +40,7 @@ jobs:
 
       - name: Check for orphaned features
         env:
-          # Needed for gh
+          # The gh CLI reads GITHUB_TOKEN.
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
@@ -64,14 +60,12 @@ jobs:
 
           git status
 
-          # When run on a pull_request, we're just testing the tooling.
-          # Exit before it actually pushes the possible changes.
+          # Pull request runs exercise the tooling without pushing deletion PRs.
           if [ "$DRY_RUN" = "true" ]; then
             echo "Dry-run mode when run in a pull request"
             exit 0
           fi
 
-          # Replicated from the translation pipeline PR-maker Action
           git config --global user.name "docs-bot"
           git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 

@@ -24,11 +24,7 @@ export type VersionItem = {
   latestApiVersion: string
 }
 
-// This reflects what gets exported from `all-versions.ts` in the
-// `allVersions` object.
-// It's necessary for TypeScript, but we don't need to write down
-// every possible key that might be present because we don't need it
-// for rendering.
+// allVersions includes shortName, but rendering only needs the VersionItem fields.
 type FullVersionItem = VersionItem & {
   shortName: string
 }
@@ -44,8 +40,7 @@ function minimalAllVersions(
       apiVersions: info.apiVersions,
       latestApiVersion: info.latestApiVersion,
     }
-    // Deal with keys that are optional. It's preferred to omit
-    // booleans if they're false anyway.
+    // Omit false booleans so the serialized context stays sparse.
     if (info.shortName === 'ghes') {
       all[plan].isGHES = true
     }
@@ -143,9 +138,8 @@ export type MainContextT = {
   xHost?: string
 }
 
-// Write down the namespaces from `data/ui.yml` that are used on all pages,
-// they will always be available and don't need to be manually added.
-// Order does not matter on these.
+// These data/ui.yml namespaces load on every page, so callers do not add them manually.
+// Order does not matter.
 const DEFAULT_UI_NAMESPACES = [
   'alerts',
   'header',
@@ -178,8 +172,7 @@ export function addUINamespaces(req: ExtendedRequest, ui: UIStrings, namespaces:
   }
 }
 
-// Parse the sidebar_expanded cookie (a JSON map of href -> bool) from the request.
-// Guarded so a malformed or absent cookie degrades to no overrides.
+// Guard cookie parsing so a malformed or absent sidebar_expanded value degrades to no overrides.
 function parseSidebarExpandedCookie(req: ExtendedRequest): Record<string, boolean> {
   const raw = req.cookies?.[SIDEBAR_EXPANDED_COOKIE_NAME]
   if (!raw) return {}
@@ -191,15 +184,13 @@ function parseSidebarExpandedCookie(req: ExtendedRequest): Record<string, boolea
   }
 }
 
+// Translations add unused ms.* properties such as ms.openlocfilehash and
+// ms.sourcegitcommit, so remove them before building UI namespaces.
 export const getMainContext = async (
   req: ExtendedRequest,
   res: Response,
 ): Promise<MainContextT> => {
   const context = req.context!
-  // Our current translation process adds 'ms.*' frontmatter properties to files
-  // it translates including when data/ui.yml is translated. We don't use these
-  // properties and their syntax (e.g. 'ms.openlocfilehash',
-  // 'ms.sourcegitcommit', etc.) causes problems so just delete them.
   if (context.site!.data.ui.ms) {
     delete context.site!.data.ui.ms
   }
@@ -213,21 +204,18 @@ export const getMainContext = async (
   if (context.currentJourneyTrack?.trackId) {
     addUINamespaces(req, ui, ['journey_track_nav'])
   }
-  // CodeTabs (rendered React-natively from the article body hast) needs its i18n
-  // strings shipped to the page; only articles can contain code tabs.
+  // Articles can contain React-rendered CodeTabs, so ship code_tabs strings only for articles.
   if (documentType === 'article') {
     addUINamespaces(req, ui, ['code_tabs'])
   }
 
-  // Product index pages (depth-2 index.md, e.g. actions/index.md) need the
-  // full product tree for landing rendering.
+  // Depth-2 product index pages, such as actions/index.md, need the full product tree.
   const includeFullProductTree = documentType === 'product'
   const includeSidebarTree = documentType !== 'homepage'
 
   const reusables: DataReusables = {}
 
-  // To know whether we need this key, we need to match this
-  // with the business logic in `DeprecationBanner.tsx` which is as follows:
+  // Match DeprecationBanner: oldest-deprecation releases receive enterprise_deprecation data.
   if (
     context.enterpriseServerReleases!.releasesWithOldestDeprecationDate.includes(
       context.currentRelease as string,
@@ -246,11 +234,9 @@ export const getMainContext = async (
     }
   }
 
-  // This is a number, like 3.13 or it's possibly null if there is no
-  // supported release candidate at the moment.
+  // releaseCandidate is a dotted version string such as 3.13, or null with no supported candidate.
   const { releaseCandidate } = context.enterpriseServerReleases!
-  // Combine the version number with the prefix so it can appear
-  // as a full version string if the release candidate is set.
+  // Prefix the release candidate so UI code can render a full enterprise-server@... value.
   const releaseCandidateVersion = releaseCandidate ? `enterprise-server@${releaseCandidate}` : null
 
   const pageInfo =
@@ -279,12 +265,7 @@ export const getMainContext = async (
     currentPathWithoutLanguage: context.currentPathWithoutLanguage!,
     currentProduct,
     currentProductName,
-    // This is a slimmed down version of `context.currentProductTree`
-    // that only has the minimal titles stuff needed for sidebars and
-    // any page that is hidden is omitted.
-    // However, it's not needed on most pages. For example, on article pages,
-    // you don't need it. It's similar to the minimal product tree but,
-    // has the full length titles and not just the short titles.
+    // Landings need full-length visible page titles; most pages skip that larger tree.
     currentProductTree:
       (includeFullProductTree && context.currentProductTreeTitlesExcludeHidden) || null,
     currentVersion: context.currentVersion,
@@ -307,13 +288,13 @@ export const getMainContext = async (
     enterpriseServerVersions: context.enterpriseServerVersions!,
     error: context.error ? context.error.toString() : '',
     featureFlags: {},
-    fullUrl: `${req.protocol}://${req.hostname}${req.originalUrl}`, // does not include port for localhost
+    // req.hostname does not include the localhost port.
+    fullUrl: `${req.protocol}://${req.hostname}${req.originalUrl}`,
     isHomepageVersion: context.page?.documentType === 'homepage',
     nonEnterpriseDefaultVersion: context.nonEnterpriseDefaultVersion!,
     page: pageInfo as MainContextT['page'],
     relativePath: context.page?.relativePath || null,
-    // The minimal product tree is needed on all pages that depend on
-    // the product sidebar or the rest sidebar.
+    // Sidebar and REST pages need the minimal product tree.
     sidebarTree: (includeSidebarTree && context.sidebarTree) || null,
     sidebarExpanded: includeSidebarTree ? parseSidebarExpandedCookie(req) : null,
     sidebarCollapsed: includeSidebarTree

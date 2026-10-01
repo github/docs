@@ -48,8 +48,7 @@ export const ArticlePage = () => {
   const introProp = (
     <>
       {intro && (
-        // Note the `_page-intro` is used by the popover preview cards
-        // when it needs this text for in-page links.
+        // _page-intro lets popover preview cards reuse this text for in-page links.
         <Lead variant="hero" data-testid="lead" data-search="lead" className="_page-intro">
           {intro}
         </Lead>
@@ -66,11 +65,7 @@ export const ArticlePage = () => {
     </>
   )
 
-  // An article with at most one heading and no journey track has nothing to put
-  // in the rail. Without this guard `toc` is a fragment wrapping two false
-  // conditionals — truthy — so ArticleGridLayout still renders the sidebar cell
-  // and paints its full-height border-left beside an empty 326px column at
-  // 1400px+. Mirrors AutomatedPage, which already guards this way.
+  // Guard the 1400px sidebar because a false-only fragment still paints an empty 326px rail.
   const hasTocContent = isJourneyTrack || miniTocItems.length > 1
   const toc = hasTocContent ? (
     <>
@@ -79,13 +74,9 @@ export const ArticlePage = () => {
     </>
   ) : undefined
 
-  // The title leads the column on its own; the copy-markdown control follows the
-  // lede below (see `introWithCopy`).
   const topper = <ArticleTitle>{title}</ArticleTitle>
 
-  // The copy-markdown control sits under the lede in ONE place — every width,
-  // both layouts. The two layouts differ only in where the intro callouts go:
-  // the grid takes them as part of `intro`, the inline layout as its own prop.
+  // Keep the copy-markdown control under the lede; layouts only place callouts differently.
   const introWithCopy = (
     <>
       {introProp}
@@ -101,14 +92,10 @@ export const ArticlePage = () => {
   )
 
   const articleContents = (
-    // `data-has-upnext` marks pages that render the full-width "Up next" band
-    // (journey tracks) so the section-box frame extends down 24px to meet it
-    // rather than stopping at the content bottom (see article-section-framing).
+    // data-has-upnext extends the section frame 24px to meet journey-track Up next bands.
     <div
       id="article-contents"
-      // Opts this page into the Docs 2026 article-body treatment (section
-      // framing + brand link colours). Auto-generated reference pages render the
-      // same #article-contents wrapper but deliberately do not carry this.
+      // data-article-body opts articles into section framing; generated references omit it.
       data-article-body
       data-has-upnext={isJourneyTrack ? '' : undefined}
     >
@@ -131,9 +118,6 @@ export const ArticlePage = () => {
 
   return (
     <DefaultLayout hasDrawer={currentLayout !== 'inline'}>
-      {/* SelectionProvider is provided by DefaultLayout (wrapping both the
-          secondary bar and this content) so the collapsed TOC menu shares the
-          same platform/tool selection. */}
       <CodeTabsProvider>
         <LinkPreviewPopover />
         <UtmPreserver />
@@ -157,10 +141,7 @@ export const ArticlePage = () => {
           </>
         ) : (
           <>
-            {/* On journey-track pages the "Up next" band below sits flush to the
-                article frame (no bottom margin here / no top margin on the band),
-                so the section-box side rails run down to meet the band's own top
-                border. Ordinary pages keep the standard my-4 bottom spacing. */}
+            {/* Journey pages remove bottom spacing so rails meet the Up next border. */}
             <div className={`px-3 px-md-6 mt-4 ${isJourneyTrack ? '' : 'mb-4'}`}>
               <ArticleGridLayout
                 supportPortalVaIframeProps={supportPortalVaIframeProps}

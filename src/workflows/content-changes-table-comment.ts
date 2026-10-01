@@ -1,6 +1,4 @@
-// To test this locally, outside of Actions, run
-// src/workflows/content-changes-table-comment-cli.ts. Its file header has the
-// instructions.
+// Run src/workflows/content-changes-table-comment-cli.ts to test this outside Actions.
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -21,15 +19,12 @@ import { inLiquid } from './lib/in-liquid'
 const { GITHUB_TOKEN, APP_URL, BASE_SHA, HEAD_SHA } = process.env
 const context = github.context
 
-// Max table size in characters. peter-evans/create-or-update-comment allows a
-// 2^16 character comment, but the table measures itself near the end of
-// rendering, before the key is added, so this stays at 2^15 for headroom. See
-// github/docs-engineering#1849 and peter-evans/create-or-update-comment#271.
+// peter-evans/create-or-update-comment allows 65,536-character comments. This
+// table measures itself before adding the key, so 32,768 leaves headroom.
 const MAX_COMMENT_SIZE = 32768
 
 const PROD_URL = 'https://docs.github.com'
 
-// When this file is invoked directly from action as opposed to being imported
 if (import.meta.url.endsWith(process.argv[1])) {
   const baseOwner = context.payload.pull_request!.base.repo.owner.login
   const baseRepo = context.payload.pull_request!.base.repo.name
@@ -51,7 +46,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
 
   const octokit = retryingGithub(GITHUB_TOKEN)
 
-  // The list of file changes, which works even for a head commit from a fork.
+  // Compare through the base repo so forked head commits work.
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,
     repo,
@@ -102,12 +97,11 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
       const fileName = file.filename.slice(pathPrefix.length)
       const fileUrl = fileName.replace('/index.md', '').replace(/\.md$/, '')
 
-      // this script is called from the main branch, so we need the API call to get the contents from the branch, instead
+      // The workflow runs from main, so request the file from the changed branch.
       const fileContents = await getContents(
         owner,
         repo,
-        // `getContents()` 404s on a file that no longer exists, so for a
-        // removed file read the base sha to get metadata about what it was.
+        // Removed files need the base SHA because getContents 404s at the head SHA.
         file.status === 'removed' ? baseSHA : headSHA,
         file.filename,
       )
@@ -199,33 +193,29 @@ function makeRow({
   contentCell += `[\`${fileName}\`](${sourceUrl})`
 
   try {
-    // getApplicableVersions() throws on missing, invalid or unsupported
-    // versions frontmatter. Remove the try/catch once
-    // github/docs-engineering#1821 is fixed.
+    // getApplicableVersions throws for missing, invalid, or unsupported versions frontmatter.
     const fileVersions: string[] = getApplicableVersions(data?.versions)
 
     for (const plan in allVersionShortnames) {
-      // `plan` is the short name, e.g. fpt, used as the link label.
-      // allVersionShortnames[plan] is the plan name, e.g. free-pro-team, used
-      // to pick the file's matching versions. Most plans link differently.
+      // Plan shortnames, for example fpt, label links; full names match versions.
       const versions = fileVersions.filter((fileVersion) =>
         fileVersion.includes(allVersionShortnames[plan]),
       )
 
       if (versions.length === 1) {
         if (versions.toString() === nonEnterpriseDefaultVersion) {
-          // omit version from fpt url
+          // Default free-pro-team URLs omit the version segment.
 
           reviewCell += `[${plan}](${APP_URL}/${fileUrl})<br>`
           prodCell += `[${plan}](${PROD_URL}/${fileUrl})<br>`
         } else {
-          // for non-versioned releases (ghec) use full url
+          // Other single-version releases use the full version URL.
 
           reviewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl})<br>`
           prodCell += `[${plan}](${PROD_URL}/${versions}/${fileUrl})<br>`
         }
       } else if (versions.length) {
-        // for ghes releases, link each version
+        // GHES releases link each matching version.
 
         reviewCell += `${plan}@ `
         prodCell += `${plan}@ `
@@ -246,8 +236,7 @@ function makeRow({
   let note = ''
   if (file.status === 'removed') {
     note = 'removed'
-    // If the file was removed, the `reviewCell` no longer makes sense
-    // since it was based on looking at the base sha.
+    // Removed files do not exist in the review environment, so review links do not apply.
     reviewCell = 'n/a'
   } else if (fromReusable) {
     note += 'from reusable'

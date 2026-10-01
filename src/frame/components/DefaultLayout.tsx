@@ -28,11 +28,12 @@ const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false')
 
 type Props = {
   children?: React.ReactNode
-  // Whether this page renders the right-rail "In this article" drawer (article +
-  // automated pages do; REST reference pages do not). Controls whether the
-  // secondary bar's collapsed Overview menu yields to the drawer at xxl.
+  // Article and automated pages render the right-rail drawer; REST pages do not.
+  // The secondary bar's collapsed Overview menu yields to that drawer at xxl.
   hasDrawer?: boolean
 }
+// The non-homepage branch wraps the secondary bar and article content in SelectionProvider
+// so the collapsed Overview menu and article body share platform/tool selection.
 export const DefaultLayout = (props: Props) => {
   const mainContext = useMainContext()
   const {
@@ -52,9 +53,7 @@ export const DefaultLayout = (props: Props) => {
   const { languages } = useLanguages()
   const [isNarrowMenuOpen, setIsNarrowMenuOpen] = useState(false)
 
-  // This is only true when we do search indexing which renders every page
-  // just to be able to `cheerio` load the main body (and the meta
-  // keywords tag).
+  // Search indexing renders every page so Cheerio can read the body and meta keywords.
   if (MINIMAL_RENDER) {
     return (
       <div>
@@ -62,7 +61,6 @@ export const DefaultLayout = (props: Props) => {
           <title>{page.fullTitle}</title>
         </Head>
 
-        {/* For local site search indexing */}
         <div className="d-none d-xl-block" data-search="breadcrumbs">
           <Breadcrumbs />
         </div>
@@ -143,7 +141,6 @@ export const DefaultLayout = (props: Props) => {
           <title>{page.fullTitle}</title>
         ) : null}
 
-        {/* For Google and Bots */}
         <meta name="description" content={metaDescription} />
         {page.hidden && <meta name="robots" content="noindex" />}
         {Object.values(languages)
@@ -161,7 +158,6 @@ export const DefaultLayout = (props: Props) => {
             )
           })}
 
-        {/* For analytics events */}
         {router.locale && <meta name="path-language" content={router.locale} />}
         {currentVersion && <meta name="path-version" content={currentVersion} />}
         {currentProduct && <meta name="path-product" content={currentProduct.id} />}
@@ -178,7 +174,6 @@ export const DefaultLayout = (props: Props) => {
         )}
         {status && <meta name="status" content={status.toString()} />}
 
-        {/* OpenGraph data */}
         {page.fullTitle && (
           <>
             <meta property="og:site_name" content="GitHub Docs" />
@@ -188,7 +183,6 @@ export const DefaultLayout = (props: Props) => {
             <meta property="og:image" content={getSocialCardImage()} />
           </>
         )}
-        {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary" />
         <meta property="twitter:domain" content={new URL(fullUrl).hostname} />
         <meta property="twitter:url" content={fullUrl} />
@@ -196,7 +190,6 @@ export const DefaultLayout = (props: Props) => {
         {page.introPlainText && <meta name="twitter:description" content={page.introPlainText} />}
         <meta name="twitter:image" content={getSocialCardImage()} />
 
-        {/* LLM-friendly alternate formats */}
         <link
           rel="alternate"
           type="text/markdown"
@@ -220,7 +213,6 @@ export const DefaultLayout = (props: Props) => {
         />
       </Head>
 
-      {/* a11y */}
       <a
         href="#main-content"
         className={cx('visually-hidden skip-button', styles.skipButton)}
@@ -246,10 +238,6 @@ export const DefaultLayout = (props: Props) => {
               </div>
             </div>
           ) : (
-            // SelectionProvider wraps both the secondary bar and the content so the
-            // bar's collapsed "In this article" menu (OverviewMenu) sees the same
-            // platform/tool selection as the article body and filters its headings
-            // accordingly.
             <SelectionProvider>
               <ActiveSectionProvider>
                 <DocsSecondaryBar />
@@ -263,11 +251,27 @@ export const DefaultLayout = (props: Props) => {
   )
 }
 
-// The doc-tree rail + content column, split out so it can read the collapse
-// context that DefaultLayout provides. On desktop the rail shows unless
-// collapsed; on mobile it shows inline (in the page flow, like desktop) only
-// when the nav is opened from the secondary bar. The content column (flex-1)
-// fills the row when the rail is absent.
+// LayoutBody reads SidebarCollapseContext after DefaultLayout provides it.
+// On mobile, the inline rail shows only when opened from the secondary bar.
+// LayoutBody matches SidebarNav's search-page gate instead of router.route
+// because src/pages/search.tsx and src/pages/[versionId]/search.tsx must agree
+// on the facet rail.
+// It mirrors OverviewSubBar's render gate so sticky-stack classes describe a bar
+// that renders.
+// Search results split the facet rail beside results at Brand's medium
+// breakpoint; route gating keeps other pages on d-lg-flex at 1012px.
+// The desktop rail-collapse cookie does not hide the open mobile nav. Otherwise
+// the content column hides with no drawer visible and shows a blank area instead
+// of the doc tree.
+// Search ignores the collapse cookie because it has no DocsSecondaryBar toggle
+// to restore filters.
+// Sticky elements need an explicit height because their scroll container sets
+// overflow:auto.
+// The sticky-stack class publishes the header and bar offset for descendants
+// such as article table headers.
+// Keeping OverviewSubBar inside main lets it start at the doc-tree drawer's
+// right edge and share that band with the drawer; mainContent uses overflow-x:clip,
+// so sticky still resolves against the viewport.
 type LayoutBodyProps = {
   children?: React.ReactNode
   hasDrawer?: boolean
@@ -275,40 +279,17 @@ type LayoutBodyProps = {
 const LayoutBody = ({ children, hasDrawer }: LayoutBodyProps) => {
   const { collapsed, mobileNavOpen } = useSidebarCollapsed()
   const { currentProduct } = useMainContext()
-  // Matches SidebarNav's own gate rather than testing router.route. There are two search
-  // pages, src/pages/search.tsx and src/pages/[versionId]/search.tsx, so a route test
-  // for '/search' misses every versioned search URL, and this check would then disagree
-  // with SidebarNav about whether the rail is a facet rail.
   const isSearchResultsPage = currentProduct?.id === 'search'
-  // Mirrors OverviewSubBar's own render gate (it returns null at <= 1 item), so
-  // the sticky-stack classes below describe the bar that actually renders.
   const miniTocItems = useMiniTocItems()
   const hasSubBar = miniTocItems.length > 1
   return (
-    // `d-lg-flex` only goes side-by-side at 1012px. The search page's facet rail
-    // is meant to sit beside the results from brand's `medium` breakpoint, so it
-    // gets an earlier split of its own. Route-gated, so no other page moves.
     <div className={cx('d-lg-flex', isSearchResultsPage && styles.searchColumns)}>
-      {/* `collapsed` is the desktop rail-collapse state (persisted). The inline
-        mobile nav is independent, so still render the sidebar when it's open.
-        Otherwise opening the mobile nav while the desktop rail is collapsed
-        hides the content column (contentHiddenForNav) with no drawer to show,
-        so the open nav displays a blank area instead of the doc tree.
-
-        Search is exempt: the cookie is shared with the doc-tree rail, but the
-        search page has no toggle to undo it (DocsSecondaryBar returns null
-        there), so honouring it would strand the filters with no way back. */}
       {collapsed && !mobileNavOpen && !isSearchResultsPage ? null : (
         <SidebarNav mobileOpen={mobileNavOpen} />
       )}
-      {/* Need to set an explicit height for sticky elements since we also
-        set overflow to auto */}
       <div
         className={cx(
           'flex-column flex-1 min-width-0',
-          // Publish the sticky-stack height to everything in the column (article
-          // table headers read it). Driven by the same values as OverviewSubBar's
-          // visibility modifier just below, so the offset and the bar agree.
           styles.stickyStack,
           hasSubBar && styles.stickyStackWithSubBar,
           hasSubBar &&
@@ -318,14 +299,6 @@ const LayoutBody = ({ children, hasDrawer }: LayoutBodyProps) => {
         )}
       >
         <main id="main-content" className={styles.mainContent}>
-          {/* Inside <main>, not before it: as a preceding sibling the "Skip to
-              main content" link jumped the reader straight past the page's only
-              in-article navigation. Still within the content column, so on
-              desktop it starts at the doc-tree drawer's right edge and runs to
-              the screen edge, sharing that band with the drawer rather than
-              cutting across above it. (.mainContent uses `overflow-x: clip`,
-              which creates no scroll container, so sticky still resolves against
-              the viewport.) */}
           <OverviewSubBar hasDrawer={hasDrawer} />
           <DeprecationBanner />
           <RestBanner />

@@ -33,7 +33,6 @@ export const journeyTracksUniqueIds = {
           }
           trackCount++
 
-          // Stop once we've found all the tracks we know exist
           if (Array.isArray(fmObj.journeyTracks) && trackCount >= fmObj.journeyTracks.length) {
             break
           }
@@ -42,7 +41,6 @@ export const journeyTracksUniqueIds = {
       return baseLineNumber
     }
 
-    // Track seen journey track IDs and line number for error reporting
     const seenIds = new Map<string, number>()
 
     for (let index = 0; index < fmObj.journeyTracks.length; index++) {

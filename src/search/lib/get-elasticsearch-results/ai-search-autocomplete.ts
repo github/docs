@@ -9,7 +9,6 @@ import type {
 } from '@/search/lib/get-elasticsearch-results/types'
 import type { estypes } from '@elastic/elasticsearch'
 
-// Query Elasticsearch for AI Search autocomplete results
 export async function getAISearchAutocompleteResults({
   indexName,
   query,
@@ -22,12 +21,12 @@ export async function getAISearchAutocompleteResults({
   const searchQuery: estypes.SearchRequest = {
     index: indexName,
     size,
-    // Send absolutely minimal from Elasticsearch to here. Less data => faster.
+    // Request only term values to keep autocomplete payloads small.
     _source_includes: ['term'],
   }
 
   const trimmedQuery = query.trim()
-  // When the query is empty, we want to return the top `size` most popular terms
+  // Empty queries return the most popular terms.
   if (trimmedQuery === '') {
     searchQuery.query = { match_all: {} }
     searchQuery.sort = [{ popularity: { order: 'desc' } }]
@@ -120,7 +119,6 @@ function getAISearchAutocompleteMatchQueries(
     },
   })
 
-  // Add fuzzy matching for typos and variations
   if (query.length > fuzzy.minLength && query.length < fuzzy.maxLength) {
     matchQueries.push({
       fuzzy: {

@@ -1,8 +1,7 @@
 name: Remove PRs from FR project v2 when FR label is removed
 
-# **What it does**: When the `docs-content-fr` label is removed from a pull request, this workflow removes the PR from the FR project v2 project.
-# **Why we have it**: Reduce busy work for the first responder.
-# **Who does it impact**: docs-content first responder.
+# Removing docs-content-fr archives the PR from the FR v2 project
+# so first responders do not do it manually.
 
 on:
   pull_request:

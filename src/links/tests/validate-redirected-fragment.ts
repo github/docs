@@ -4,8 +4,7 @@ import { RedirectedFragmentValidator } from '../lib/validate-redirected-fragment
 import { renderMarkdownLiquid } from '@/links/lib/extract-links'
 import type { Page } from '@/types'
 
-// headingIdsFor renders the destination page's Liquid and warms the server to do it. Stub
-// both so the render-failure path can be exercised without loading the site.
+// Stub rendering and warming so render-failure tests avoid loading the site.
 vi.mock('@/links/lib/extract-links', () => ({
   renderMarkdownLiquid: vi.fn(),
 }))
@@ -13,8 +12,7 @@ vi.mock('@/frame/lib/warm-server', () => ({
   default: vi.fn(async () => ({})),
 }))
 
-// A test double that overrides the (expensive, render-based) heading lookup with a fixed
-// map, so the keep/drop/mixed/unvalidatable decision logic can be exercised in isolation.
+// Fixed heading IDs isolate keep, drop, mixed, and unvalidatable decisions from rendering.
 class StubValidator extends RedirectedFragmentValidator {
   constructor(private idsByKey: Record<string, Set<string> | null>) {
     super({}, {}, 'en')
@@ -108,8 +106,7 @@ describe('RedirectedFragmentValidator.classify', () => {
   })
 
   test('keep: #top is always valid', async () => {
-    // Browsers scroll to the top of the document for `#top` when nothing carries that ID,
-    // so it never appears in computed heading IDs and must not be treated as stale.
+    // Browsers scroll to the top for #top, so computed heading IDs never include it.
     const page = fakePage({})
     const validator = new StubValidator({
       'free-pro-team@latest|content/foo.md': new Set(['intro']),
@@ -128,10 +125,7 @@ describe('RedirectedFragmentValidator.classify', () => {
 
 describe('RedirectedFragmentValidator.headingIdsFor render failures', () => {
   test('unvalidatable, not drop, when the destination fails to render', async () => {
-    // Regression guard: renderAndExtractLinks swallows Liquid failures and returns the raw
-    // markdown, so heading IDs would be computed from unrendered `{% data %}` expressions.
-    // Those never match a real anchor, so classify() would return 'drop' and destructively
-    // delete a valid fragment. headingIdsFor must use the throwing renderer instead.
+    // headingIdsFor must use renderMarkdownLiquid, not renderAndExtractLinks, to avoid false drops.
     vi.mocked(renderMarkdownLiquid).mockRejectedValueOnce(new Error('Liquid syntax error'))
 
     const page = fakePage({

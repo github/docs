@@ -3,34 +3,9 @@ import path from 'path'
 import patterns from './patterns'
 import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 
-/*
-This class creates the "permalinks" that power a page's different versions,
-where the source for the versions is a content file's frontmatter. The
-page.permalinks is an array of objects that looks like this:
-[
-  {
-    "languageCode": "en",
-    "pageVersion": "free-pro-team@latest",
-    "relativePath": "billing/managing-billing-for-your-github-account/index.md",
-    "title": "Managing billing for your GitHub account",
-    "hrefWithoutLanguage": "/billing/managing-billing-for-your-github-account",
-    "href": "/en/billing/managing-billing-for-your-github-account"
-  },
-  {
-    "languageCode": "en",
-    "pageVersion": "enterprise-cloud@latest",
-    "relativePath": "billing/managing-billing-for-your-github-account/index.md",
-    "title": "Managing billing for your GitHub account",
-    "hrefWithoutLanguage": "/enterprise-cloud@latest/billing/managing-billing-for-your-github-account",
-    "href": "/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account"
-  }
-  ... and so on for each of the content file's supported versions.
-]
-*/
-// String interning pool: deduplicates low-cardinality, highly-repeated values (languageCode, pageVersion)
-// across ~975K Permalink instances (~9 languages × ~9 versions × ~65K pages). Because these fields have
-// few distinct values (~81 total), the pool stays bounded. Do not use intern() for high-cardinality
-// fields like relativePath or title, where the pool would grow unbounded and leak memory.
+// Permalinks derive one language-scoped href for each supported content version.
+// Intern only low-cardinality fields across about 975K Permalink instances.
+// High-cardinality fields like relativePath and title would make the pool grow without bound.
 const stringPool = new Map<string, string>()
 
 function intern(s: string): string {
@@ -84,10 +59,7 @@ class Permalink {
 
   static relativePathToSuffix(relativePath: string): string {
     if (relativePath === 'index.md') return '/'
-    // When you turn `foo/bar.md`, which is a file path, into a URL pathname,
-    // you just need to chop off the `.md` suffix.
-    // For `foo/parent/index.md` you can't just chop off the `index.md`
-    // because it would leave a trailing `/`.
+    // index.md paths drop the whole suffix to avoid a trailing slash.
     return `/${relativePath.replace(indexmdSuffixRegex, '').replace(mdSuffixRegex, '')}`
   }
 }

@@ -1,16 +1,11 @@
-// Generates reusable Markdown listing CodeQL code scanning queries for one language, with CWEs.
-// Requires a local github/codeql clone and a CodeQL CLI executable.
-// Set up the clone with git clone git@github.com:github/codeql.git /tmp/codeql.
-// Install the CLI with gh extension install github/gh-codeql, then gh codeql set-channel nightly.
-// Run gh codeql version to find the installed codeql path.
-// Also requires @github/cocofix, installed locally with DOCS_BOT_PAT_BASE from the vault:
-//   npm i --no-save '--@github:registry=https://npm.pkg.github.com' \
-//     '--//npm.pkg.github.com/:_authToken=${DOCS_BOT_PAT_BASE}' @github/cocofix
-// Example:
-//   npm run generate-code-scanning-query-list -- \
-//     --codeql-path ~/.local/share/gh/extensions/gh-codeql/dist/nightly/codeql-bundle-*/codeql \
-//     --codeql-dir /tmp/codeql python | tee /tmp/python.md
-// Inspect the generated Markdown with less /tmp/python.md.
+/**
+ * Generates a Markdown table of the security queries for one language, with
+ * their CWEs, to be saved as a reusable.
+ *
+ * Running this locally needs the CodeQL CLI, a clone of github/codeql,
+ * and the private @github/cocofix package.
+ * See "Local development" in src/codeql-queries/README.md.
+ */
 
 import fs from 'fs'
 import { execFileSync } from 'child_process'
@@ -114,7 +109,9 @@ async function main(options: Options, language: string) {
           const url = getDocsLink(language, id)
           const autofixSupport = autofixSupportedQueryIds.includes(id) ? 'default' : 'none'
 
-          // CWE-less queries cover metadata or metrics and have no docs link.
+          // Queries without CWEs are metadata and metrics queries,
+          // like counting lines of code.
+          // They have no docs link, so skip them.
           if (cwes.length) {
             if (!(id in queries)) {
               queries[id] = { url, name, packs: [], cwes, autofixSupport }
@@ -199,13 +196,14 @@ function getMetadata(options: Options, queryFile: string): QueryMetadata {
   return parsed
 }
 
-// Example: cpp and external-entity-expansion become
+// getDocsLink('cpp', 'external-entity-expansion') returns
 // https://codeql.github.com/codeql-query-help/cpp/cpp-external-entity-expansion/
 function getDocsLink(language: string, queryId: string) {
   return `https://codeql.github.com/codeql-query-help/${language}/${queryId.replaceAll('/', '-')}/`
 }
 
-// Example tags with external/cwe/cwe-1078 and external/cwe/cwe-670 return 1078 and 670.
+// getCWEs('maintainability external/cwe/cwe-1078 external/cwe/cwe-670')
+// returns ['1078', '670']
 function getCWEs(tags: string) {
   const cwes: string[] = []
   for (const tag of tags.split(/\s+/g)) {

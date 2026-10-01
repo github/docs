@@ -8,16 +8,11 @@ if (!process.env.GITHUB_TOKEN) {
 
 const RetryingOctokit = Octokit.plugin(retry)
 
-// this module needs to work in development, production, and GitHub Actions
-//
-// GITHUB_TOKEN comes from one of the following sources:
-// 1. set in the .env file (development)
-// 2. set as a Heroku config var (staging and production)
-// 3. an installation token granted via GitHub Actions
+// GITHUB_TOKEN can come from .env, a Heroku config var, or a GitHub Actions
+// installation token, because this module runs in every environment.
 const apiToken = process.env.GITHUB_TOKEN
 
-// See https://github.com/octokit/rest.js/issues/1207
-// Pass `token` to authenticate as something other than GITHUB_TOKEN.
+// token overrides GITHUB_TOKEN for workflows that need a different installation token.
 export default function github(token?: string) {
   return new Octokit({
     auth: `token ${token || apiToken}`,
@@ -30,11 +25,8 @@ export function retryingGithub(token?: string) {
   })
 }
 
-// Duck-typing instead of `instanceof RequestError` on purpose.
-// `@octokit/request` throws a RequestError built from its own nested copy of
-// `@octokit/request-error`, which is a different module instance than the
-// top-level one. The two classes are not identical, so `instanceof` always
-// returns false across that boundary.
+// Duck-type instead of using instanceof because nested Octokit dependencies can
+// construct RequestError classes from different module instances.
 export function isRequestError(
   error: unknown,
   status?: number,

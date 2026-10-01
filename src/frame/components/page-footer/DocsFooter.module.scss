@@ -1,28 +1,15 @@
 .docsFooter {
-  // Brand defaults the footer to canvas-subtle (a grey panel); the design puts it on
-  // the page canvas so it reads as continuous with the article and the band above.
-  // Brand's canvas, not Primer's: every other painted element in here is brand, and
-  // `--bgColor-default` is undefined in this app so the old value fell through to
-  // Primer's blue-tinted #0d1117 in dark mode.
+  // The design keeps the footer on the page canvas so it reads as continuous with
+  // the article and band above. Use Brand's canvas token because --bgColor-default
+  // is undefined here and falls through to Primer's blue-tinted dark canvas.
   --brand-footer-bg-color: var(--brand-color-canvas-default);
 
-  // The design draws all four footer controls (Yes, No, Make a contribution and
-  // Back to top) on brand's subtle canvas with a subtle border (#f2f5f3 on #d2d9d4,
-  // which is exactly what these brand tokens resolve to).
-  //
-  // Yes/No and the contribution CTA are Primer `.btn`s, so set the variables they
-  // read rather than overriding the rules: the survey's selected states apply
-  // `color-bg-success-emphasis` / `color-bg-danger-emphasis`, which set
-  // background-color directly and must keep winning over the rest state.
-  //
-  // BOTH spellings are required. @primer/css declares the button like this:
-  //   border-color: var(--button-default-borderColor-rest, var(--color-btn-border));
-  // The legacy `--color-btn-*` names are only the FALLBACK. They used to win because
-  // the `--button-default-*` names were undefined in this app, but index.scss now
-  // imports the Primer Primitives functional themes, which define them — so setting
-  // only the legacy names would silently lose to Primer's palette (#3d444d borders
-  // in dark). Setting the modern names is what actually takes effect; the legacy
-  // ones are kept so this still works if the functional themes are ever dropped.
+  // The design gives every footer control Brand's subtle canvas and border.
+  // Yes/No and Contribution are Primer buttons, so set their variables instead of
+  // overriding rules. Survey selected states set background-color directly and must win.
+  // Primer's modern contract reads --button-default-borderColor-rest before
+  // --color-btn-border. Set both modern and legacy names so these controls match
+  // Brand under either button token contract.
   --button-default-bgColor-rest: var(--brand-color-canvas-subtle);
   --button-default-borderColor-rest: var(--brand-color-border-subtle);
   --button-default-fgColor-rest: var(--brand-color-text-default);
@@ -30,49 +17,40 @@
   --color-btn-border: var(--brand-color-border-subtle);
   --color-btn-text: var(--brand-color-text-default);
 
-  // Brand gives Back to top a near-transparent fill by default; the design gives it
-  // the same treatment as the other three. Its border already matches.
+  // Brand gives Back to top a near-transparent fill, but the design matches the other controls.
   --brand-footer-backToTop-bgColor-rest: var(--brand-color-canvas-subtle);
 
   // The band above supplies the visual break, and the design puts a 2px emphasized
-  // rule directly beneath it, on the footer's own top edge. Brand's default here is
-  // a much brighter green (scale-green-3), so this stays an explicit override.
+  // rule directly beneath it, on the footer's own top edge. Brand's default uses a
+  // much brighter scale-green-3, so this stays an explicit override.
   border-top: 2px solid var(--brand-color-text-emphasized);
 
-  // Brand's section padding is roughly double the design's. Targeted through markers
-  // we own rather than brand's hashed module classes, which change between releases.
-  //
-  // Top bar: 76px in the design, sized by the 44px back-to-top control plus 16px.
+  // The design uses smaller section padding than Brand. Target selectors we own
+  // because Brand's hashed module classes change between releases.
+  // The top bar reaches the 76px design height with 16px around the 44px Back to top control.
   > div:has(.backToTop) > section {
     padding-top: var(--base-size-16);
     padding-bottom: var(--base-size-16);
   }
 
-  // Help region: the columns own their padding, so the section adds none. Without
-  // this the columns sit 32px below the rule that introduces them, and because the
-  // rules between rows are column borders, those rules would stop short of the
-  // footer edges instead of spanning it as the design shows. The inline inset moves
-  // onto the columns in SupportSection.module.scss so content stays aligned with the
-  // top and bottom bars.
+  // The help columns in SupportSection.module.scss own the inline padding, so row
+  // rules can span edge to edge while content stays aligned.
   > div:has(.centerSlot) > section {
     padding: 0;
   }
 
-  // Bottom bar: 76px in the design around a single 18px line.
+  // The bottom bar reaches the 76px design height with 28px around one line.
   > div:has(.bottomRow) > section {
     padding-top: var(--base-size-28);
     padding-bottom: var(--base-size-28);
   }
 
-  // `copyrightStatement` renders inside a brand <Text as="p"> that is a flex item of
-  // the bottom row. Let it fill the row so the copyright and links can sit at
-  // opposite ends, and drop the uppercasing the component applies to the whole <p>
-  // (the design uppercases only the copyright, not the links).
+  // copyrightStatement renders inside Brand Text as p, a flex item of the bottom
+  // row. Let it fill the row, and remove the uppercasing Brand applies to the whole
+  // paragraph because the design uppercases only the copyright.
   p:has(> .bottomRow) {
     flex: 1;
-    // Inert while the bottom row is horizontal (flex-basis wins), but needed at
-    // narrow, where brand's bottom row turns into a column with align-items:
-    // flex-start and would otherwise shrink this to its content width.
+    // At narrow widths Brand stacks the bottom row, so force full width.
     width: 100%;
     min-width: 0;
     text-transform: none;
@@ -92,10 +70,8 @@
   text-transform: uppercase;
 }
 
-// Narrow: the design stacks the legal links above the copyright, and gives each its
-// own band separated by a rule that spans the footer. So the bottom section hands its
-// padding to the two rows, the same move the help region makes, which lets the rule
-// between them reach the edges while both rows stay inset and aligned with each other.
+// At narrow widths, each bottom row owns its padding so the separator spans the
+// footer while row content stays aligned.
 @media (max-width: 767px) {
   .docsFooter > div:has(.bottomRow) > section {
     padding-block: 0;
@@ -137,9 +113,7 @@
   font-size: 14px;
   font-weight: 500;
   text-transform: none;
-  // Brand's link token, not Primer's accent blue. There is no
-  // `--brand-color-text-link`; the real token is `-rest`, and naming it wrong meant
-  // this quietly fell back to Primer (#0969da) instead of brand (#0055d5).
+  // Use --brand-color-text-link-rest because --brand-color-text-link does not exist.
   color: var(--brand-color-text-link-rest);
 
   &:hover {
@@ -158,11 +132,10 @@
     background-color: var(--brand-color-border-subtle);
   }
 
-  // KO law requires the privacy statement link to be conspicuous.
+  // Korean law requires the privacy statement link to be conspicuous.
   &[data-conspicuous="true"] {
-    // Brand ships no attention token, so this chains to Primer's — but the old name
-    // is `--color-attention-fg`; spelled `--color-fg-attention` nothing in the chain
-    // resolved and the hardcoded light amber won in dark mode too.
+    // Brand ships no attention token, so chain to Primer's --color-attention-fg.
+    // The --color-fg-attention spelling does not exist.
     color: var(--fgColor-attention, var(--color-attention-fg));
     font-weight: 600;
   }

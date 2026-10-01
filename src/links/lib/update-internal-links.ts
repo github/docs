@@ -51,22 +51,19 @@ type Warning = {
   column?: number
 }
 
-// A fragment (`#anchor`) that was carried over when a redirect rewrote the link's path.
-// It needs validating against the destination page before we decide to keep or drop it.
+// Redirected paths can carry anchors to pages with different headings, so validate first.
 type CarriedFragment = {
   hash: string
   destPage?: Page
 }
 
 type NewHrefResult = {
-  // The rewritten href WITHOUT the fragment when `fragment` is set (the caller decides
-  // whether to re-append it); otherwise the full href including any fragment/search.
+  // href omits a carried fragment so the caller can decide whether to re-append it.
   href: string
   fragment?: CarriedFragment
 }
 
-// A link/definition replacement collected during the synchronous AST walk. Applying it is
-// deferred until after async fragment validation, so a carried-over anchor can be dropped.
+// Defer replacements until async fragment validation can drop stale carried anchors.
 type PendingReplacement = {
   asMarkdown: string
   line: number
@@ -74,11 +71,7 @@ type PendingReplacement = {
   baseHref: string
   makeMarkdown: (href: string) => string
   fragment?: CarriedFragment
-  /**
-   * Byte range of this link in the source, when the node's position could be mapped back
-   * and the slice matches `asMarkdown` exactly. Replacing by range instead of by string
-   * search keeps identical text elsewhere in the file untouched.
-   */
+  // Ranged replacements keep identical link text elsewhere in the file untouched.
   span?: [number, number]
 }
 
@@ -87,9 +80,7 @@ const Options = {
   fixHref: false,
   verbose: false,
   strict: false,
-  // When a redirect rewrites a link's path, the carried-over `#anchor` is validated
-  // against the destination page's real headings. If it exists in no applicable version
-  // it is dropped by default. Set this to keep such fragments (warn only).
+  // Keep stale carried anchors as warnings instead of dropping them after validation.
   keepStaleFragments: false,
 }
 
@@ -126,21 +117,14 @@ export async function updateInternalLinks(files: string[], options = {}) {
   return results
 }
 
-/**
- * Exported so tests can drive a single file with a hand-built context. Loading the real
- * page tree takes tens of seconds, which is too slow to cover the rewrite branches.
- */
+// A hand-built test context avoids loading the real page tree, which takes tens of seconds.
 export async function updateFile(file: string, context: LinkContext, opts: typeof Options) {
   const rawContent = fs.readFileSync(file, 'utf8')
   let { data, content } = frontmatter(rawContent)
   data = data || {}
   content = content || ''
 
-  // Since this function can process both `.md` and `.yml` files,
-  // `frontmatter(rawContent).data` gives what we need for a `.md` file, but always
-  // returns `{}` for a `.yml` file.
-  // And since the Yaml file might contain arrays of internal linked
-  // pathnames, we have to re-read it fully.
+  // frontmatter data is empty for .yml files, so read YAML files again for link arrays.
   const isYaml = file.endsWith('.yml')
   if (isYaml) {
     Object.assign(data, loadYaml(content))
@@ -151,20 +135,12 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
   // Captured so the closure below sees a non-reassignable string.
   const source = content
 
-  // A YAML file is parsed as Markdown to find its links, and that parse is
-  // indentation-sensitive: a value indented four or more spaces reads as a code block,
-  // so the AST holds fewer link nodes than the text has occurrences. Stripping the
-  // leading whitespace from every line exposes all of them. Line numbers are unaffected,
-  // and `sourceSpan` maps each node's columns back onto the original text so the
-  // rewrite still lands on the real bytes.
+  // Dedent YAML because values indented four or more spaces parse as code blocks; lines stay put.
   const parseSource = isYaml ? dedentLines(source) : source
   const lineStarts = buildLineStarts(source)
   const indents = isYaml ? source.split('\n').map((line) => /^[ \t]*/.exec(line)![0].length) : null
 
-  /**
-   * Column of a node in the original text. The YAML parse runs on dedented lines, so the
-   * indent has to go back on before the column is reported to a human.
-   */
+  // Report original columns by adding YAML indentation back onto the dedented parse.
   function sourceColumn(node: Nodes): number | undefined {
     const pos = node.position
     if (!pos?.start.column) return undefined
@@ -172,10 +148,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
     return pos.start.column + indent
   }
 
-  /**
-   * Byte range of a node in the source, or undefined when the range can't be trusted:
-   * a node spanning several lines, or a serialization that doesn't match the source.
-   */
+  // Trust a source range only when one line serializes back to the original text.
   function sourceSpan(node: Nodes, asMarkdown: string): [number, number] | undefined {
     const pos = node.position
     if (!pos?.start.line || !pos.end.line || pos.start.line !== pos.end.line) return undefined
@@ -200,7 +173,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
   const ANY = Symbol('any')
   const IS_ARRAY = Symbol('is array')
 
-  // Which frontmatter keys hold links, and which of their sub-keys to descend into.
+  // Only these frontmatter keys hold links this script rewrites.
   const HAS_LINKS: Record<string, string[] | symbol> = {
     featuredLinks: ['gettingStarted', 'startHere', 'guideCards', 'popular'],
     introLinks: ANY,
@@ -240,10 +213,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
         }
       }
     } catch (error) {
-      // When in strict mode, if it throws an error that stacktrace will
-      // bubble up to the CLI. And the CLI will mention which file it
-      // was processing when it failed. But we have a valuable piece of
-      // information here about which frontmatter key it was that failed.
+      // Include the failing frontmatter key because the CLI warning only names the file.
       logger.warn('Frontmatter key processing failed', { key })
       throw error
     }
@@ -251,19 +221,15 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
 
   const lineOffset = rawContent.replace(content, '').split(/\n/g).length - 1
 
-  // Replacements are collected here during the synchronous AST walk and applied after
-  // async fragment validation below, so a carried-over `#anchor` can be dropped when the
-  // redirected destination page doesn't actually have that heading.
+  // Apply replacements after async fragment validation so stale carried anchors can drop.
   const pending: PendingReplacement[] = []
 
   visit(ast, definitionMatcher as Test, (node: Nodes) => {
     const asMarkdown = toMarkdown(node).trim()
-    // E.g. `[foo]: /bar`
     if (opts.fixHref && content.includes(asMarkdown) && isDefinition(node)) {
       const { label } = node
       const result = getNewHref(node.url, context, opts, file)
-      // getNewHref() might return a deliberate `undefined` if the
-      // new href value could not be computed for some reason.
+      // getNewHref returns undefined when non-strict mode cannot resolve the link.
       const baseHref = result === undefined ? node.url : result.href
       const column = sourceColumn(node)
       const line = (node.position?.start.line ?? 0) + lineOffset
@@ -282,14 +248,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
   visit(ast, linkMatcher as Test, (node: Nodes) => {
     const asMarkdown = toMarkdown(node).trim()
     if (content.includes(asMarkdown) && isLink(node)) {
-      // The title part of the link might be more Markdown.
-      // For example...
-      //
-      //    [This *is* cool](/articles/link)
-      //
-      // The title is the combined serialization of `node.children`, and `toMarkdown()`
-      // always appends `\n`, hence the slice. The example above yields `This *is* cool`,
-      // which still carries its emphasis markers and so won't match a page title.
+      // Serializing children preserves Markdown markers, so [This *is* cool] stays unmatched.
       const title = node.children.map((child: Nodes) => toMarkdown(child).slice(0, -1)).join('')
 
       let newTitle = title
@@ -302,33 +261,10 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
 
       if (opts.setAutotitle) {
         if (hasQuotesAroundLink) {
-          /**
-           * A lot of internal links are bullet points like:
-           *
-           *     - [Creating a repository](/articles/create-a-repo)
-           *     - [Forking a repository](/articles/fork-a-repo)
-           * or
-           *     1. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
-           *     1. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
-           *
-           * Perhaps we could recognize them as such and consider them
-           * matches anyway. In particular if the title consists of
-           * a leading capital letter and most of the rest lower case.
-           */
-
           if (title !== AUTOTITLE) {
             newTitle = AUTOTITLE
           }
         } else {
-          /**
-           * The Markdown link sometimes is written like this:
-           *
-           *   ["This is the title](/foo/bar)."
-           *
-           * or...
-           *
-           *   ["This is the title"](/foo/bar).
-           */
           if (xValue) {
             if (singleStartingQuote(xValue)) {
               const column = sourceColumn(node)
@@ -354,8 +290,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
       }
       if (opts.fixHref) {
         const result = getNewHref(node.url, context, opts, file)
-        // getNewHref() might return a deliberate `undefined` if the
-        // new href value could not be computed for some reason.
+        // getNewHref returns undefined when non-strict mode cannot resolve the link.
         if (result !== undefined) {
           baseHref = result.href
           fragment = result.fragment
@@ -380,8 +315,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
     }
   })
 
-  // Resolve any carried-over fragments, which renders the destination page, then apply
-  // every replacement to `newContent` in document order.
+  // Validate carried fragments before applying replacements in document order.
   for (const item of pending) {
     let finalHref = item.baseHref
     if (item.fragment) {
@@ -397,7 +331,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
             column: item.column,
           })
         } else {
-          // Drop the fragment: leave `finalHref` as the fragment-less base href.
+          // Drop the stale fragment by leaving finalHref at the fragmentless base href.
           warnings.push({
             warning: `Removed stale anchor '${hash}': not found on the redirected destination page in any applicable version`,
             asMarkdown: item.asMarkdown,
@@ -422,7 +356,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
           column: item.column,
         })
       } else {
-        // 'keep': the anchor exists on the destination in every applicable version.
+        // keep means the anchor exists in every applicable destination version.
         finalHref = item.baseHref + hash
       }
     }
@@ -437,16 +371,13 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
       if (item.span) {
         spanEdits.push({ start: item.span[0], end: item.span[1], text: newAsMarkdown })
       } else {
-        // No trustworthy range for this node, so fall back to a string search. Left for
-        // the second pass, after the ranged edits, since a search can't be offset-aware.
+        // String-search fallback runs after ranged edits because it cannot adjust offsets.
         stringEdits.push({ find: item.asMarkdown, text: newAsMarkdown })
       }
     }
   }
 
-  // Ranged edits go in descending order so earlier offsets stay valid, and each one
-  // touches exactly the bytes the parser identified as a link. That's what keeps an
-  // identical string in a comment or a code example from being rewritten too.
+  // Descending ranged edits preserve offsets and keep identical text elsewhere untouched.
   spanEdits.sort((a, b) => b.start - a.start)
   for (const edit of spanEdits) {
     newContent = newContent.slice(0, edit.start) + edit.text + newContent.slice(edit.end)
@@ -468,7 +399,7 @@ export async function updateFile(file: string, context: LinkContext, opts: typeo
   }
 }
 
-/** Strip leading whitespace from every line, preserving the line count. */
+// Preserve line count while stripping leading whitespace from every line.
 function dedentLines(content: string): string {
   return content
     .split('\n')
@@ -476,7 +407,6 @@ function dedentLines(content: string): string {
     .join('\n')
 }
 
-/** Byte offset where each line begins, so a line/column pair can become an offset. */
 function buildLineStarts(content: string): number[] {
   const starts = [0]
   for (let i = 0; i < content.length; i++) {
@@ -506,23 +436,16 @@ function linkMatcher(node: Node) {
   if (isLink(node) && node.url) {
     const { url } = node
     if (url.startsWith('/') || url.startsWith('./')) {
-      // Sometimes there's a link to view the asset as a separate link.
-      // Skip these because they ultimately link to an actual Page.
+      // Asset and public paths serve static assets or generated schema files, not pageMap entries.
       if (url.startsWith('/assets') || url.startsWith('/public/')) {
         return false
       }
 
-      // If a link uses Liquid we can't process it. It would require full
-      // rendering which this script is not doing.
+      // Liquid links need full rendering, which this script does not do.
       if (url.includes('{{') || url.includes('{%')) {
         return false
       }
 
-      // Sometimes we link to archived enterprise-server versions. These
-      // can never be updated because although they appear to be internal,
-      // they are, in a sense external. For example:
-      // See "[This old thing](/enterprise-server@3.1/some/page)".
-      // Skip these
       const version = getVersionStringFromPath(url)
       if (
         version &&
@@ -532,9 +455,7 @@ function linkMatcher(node: Node) {
         return false
       }
 
-      // Really old versions like `/enterprise/2.1` don't need to be
-      // corrected because they're deliberately pointing to archived
-      // versions.
+      // Legacy enterprise paths deliberately point to archived content.
       if (patterns.getEnterpriseVersionNumber.test(url)) {
         return false
       }
@@ -557,19 +478,6 @@ function getNewFrontmatterLinkList(
   file: string,
   rawContent: string,
 ) {
-  /**
-   * The `list` is expected to all be strings. Sometimes they're like this:
-   *
-   *   /search-github/searching-on-github/searching-for-repositories
-   *
-   * Sometimes they're like this:
-   *
-   *   {% ifversion fpt or ghec or ghes > 3.4 %}/pages/getting-started-with-github-pages{% endif %}
-   *
-   * In the case of Liquid, we have to temporarily remove it to be able to
-   * test the path as a URL.
-   **/
-
   const better = []
   for (const entry of list) {
     if (/{%\s*else\s*%}/.test(entry)) {
@@ -601,7 +509,7 @@ function getNewFrontmatterLinkList(
         logger.warn(msg, { file, pure, lineNumber })
         better.push(entry)
       } else {
-        // Perhaps it just redirected to a specific version
+        // Keep links whose redirect only adds a supported version prefix.
         const redirectedWithoutLanguage = getPathWithoutLanguage(redirected)
         const asURLWithoutVersion = getPathWithoutVersion(redirectedWithoutLanguage)
         if (asURLWithoutVersion === pure) {
@@ -615,8 +523,7 @@ function getNewFrontmatterLinkList(
   return better
 }
 
-// Try to return the line in the raw content that entry was on.
-// Only approximate: `entry` comes out of the parsed YAML, so its original text is gone.
+// Find the raw line for a parsed YAML entry when the original text survives unchanged.
 function findLineNumber(entry: string, rawContent: string) {
   let number = 0
   for (const line of rawContent.split(/\n/g)) {
@@ -632,15 +539,6 @@ function findLineNumber(entry: string, rawContent: string) {
 const liquidStartRex = /^{%-?\s*ifversion .+?\s*%}/
 const liquidEndRex = /{%-?\s*endif\s*-?%}$/
 
-// Return
-//
-//    /foo/bar
-//
-// if the text input was
-//
-//   {% ifversion ghes%}/foo/bar{%endif %}
-//
-// And if no liquid, just return as is.
 function stripLiquid(text: string) {
   if (liquidStartRex.test(text) && liquidEndRex.test(text)) {
     return text.replace(liquidStartRex, '').replace(liquidEndRex, '').trim()
@@ -672,11 +570,10 @@ function getNewHref(
   const pure = parsed.pathname
   let newHref = pure.replace(patterns.trailingSlash, '$1')
 
-  // Before testing if it redirects somewhere, we temporarily
-  // pretend it's already prefixed for English (/en)
+  // Redirect checks need the English prefix even though source links omit it.
   const [language, withoutLanguage] = splitPathByLanguage(newHref, currentLanguage)
   if (withoutLanguage !== newHref) {
-    // It means the link already had a language in it
+    // Skip hardcoded-language links because source links stay language-neutral.
     const msg = `Unable to cope with internal links with hardcoded language '${newHref}' (file: ${file})`
     if (opts.strict) {
       throw new Error(msg)
@@ -688,11 +585,9 @@ function getNewHref(
   const newHrefWithLanguage = getPathWithLanguage(withoutLanguage, language)
   const redirected = getRedirect(newHrefWithLanguage, context)
 
-  // `undefined` means the link didn't need redirecting. The broken-link check below is
-  // belt and braces: the link checkers cover it too.
+  // A missing redirect plus no pageMap entry means the link is broken.
   if (redirected === undefined) {
     if (!context.pages[newHrefWithLanguage]) {
-      // If this happens, it's very possible that it's a broken link
       const msg = `A link appears to be broken. Neither redirect or a findable page '${href}' (${file})`
       if (opts.strict) {
         throw new Error(msg)
@@ -704,26 +599,8 @@ function getNewHref(
   }
 
   if (redirected) {
-    // The getRedirect() function will produce a final URL that the user
-    // can use, but that means it also injects the language in there.
-    // For updating the content statically, we don't want that.
-    // Note: It could be an idea to somehow tell getRedirect() to not
-    // bother but perhaps it adds unnecessarily complexity to a function that
-    // has to work perfectly for runtime.
+    // Static rewrites drop getRedirect's language prefix because source links stay neutral.
     const redirectedWithoutLanguage = getPathWithoutLanguage(redirected)
-    // Some paths can't be viewed in free-pro-team so the getRedirect()
-    // function will inject the version that you're supposed to go to.
-    // For example `/enterprise/admin/guides/installation/configuring-a-hostname`
-    // redirects to `/enterprise-server@3.7/admin/configuration/configuring-...`
-    // (at the time of writing) which is good when you're actually clicking
-    // the link but not good when we're trying to update the source
-    // content.
-    // `getPathWithoutVersion` strips a supported version prefix and leaves everything
-    // else alone, so `/enterprise-server@3.22/get-started` becomes `/get-started` while
-    // `/get-started` is returned unchanged.
-    // Two exceptions: content sometimes links to a specific version deliberately, which
-    // must be left alone, and `getRedirect()` always strips a `/free-pro-team@latest/`
-    // prefix, which has to be put back.
     if (withoutLanguage.includes(`/${nonEnterpriseDefaultVersion}/`)) {
       newHref = `/${nonEnterpriseDefaultVersion}${redirectedWithoutLanguage}`
     } else if (withoutLanguage.startsWith('/enterprise-server/')) {
@@ -737,9 +614,7 @@ function getNewHref(
         return
       }
     } else if (withoutLanguage.startsWith('/enterprise-server@latest')) {
-      // getRedirect() will always replace `enterprise-server@latest` with
-      // whatever the latest number is. E.g. `enterprise-server@3.9`.
-      // But we have to "undo" that.
+      // Preserve enterprise-server@latest because source content tracks the moving release.
       newHref = `/enterprise-server@latest${getPathWithoutVersion(redirectedWithoutLanguage)}`
     } else if (getPathWithoutVersion(withoutLanguage) !== withoutLanguage) {
       newHref = redirectedWithoutLanguage
@@ -750,27 +625,21 @@ function getNewHref(
 
   const base = search ? `${newHref}${search}` : newHref
 
-  // No fragment → nothing to validate; return the (possibly rewritten) path as-is.
   if (!hash) {
     return { href: base }
   }
 
-  // The path wasn't rewritten, so the original fragment still points at the same page and
-  // remains valid. Keep it appended, exactly as before.
+  // Unredirected paths keep fragments because they still point at the same page.
   if (!redirected) {
     return { href: base + hash }
   }
 
-  // The path WAS rewritten by a redirect, so the carried-over fragment may be stale on the
-  // destination page. Surface it (with the destination Page, if resolvable) so the caller
-  // can validate it against the destination's real headings and decide keep vs. drop.
+  // Redirected paths validate carried fragments against the destination page's headings.
   const destPage = resolveDestinationPage(context.pages, redirected)
   return { href: base, fragment: { hash, destPage } }
 }
 
-// Resolve the Page a redirect points at, so its headings can be validated. `redirected` is
-// a full permalink-style URL from getRedirect() (e.g. `/en/get-started/foo` or
-// `/en/enterprise-cloud@latest/get-started/foo`), which is how the page map is keyed.
+// getRedirect returns language-prefixed permalinks, matching the primary pageMap keys.
 function resolveDestinationPage(pages: Record<string, Page>, redirected: string): Page | undefined {
   return pages[redirected] || pages[getPathWithLanguage(getPathWithoutLanguage(redirected), 'en')]
 }
@@ -783,18 +652,9 @@ function isSimpleQuote(text: string) {
   return text.startsWith('"') && text.endsWith('"') && text.split('"').length === 3
 }
 
-/**
- * Write a YAML data file back out.
- *
- * For `.yml` files every link fix lands in `newContent`, the file's own text, because
- * `updateFile` finds Markdown links by parsing that text and rewrites them in place.
- * `newData` is only mutated for the structured link keys (`featuredLinks` and
- * `introLinks`), which no file under `data/` currently uses.
- *
- * Writing `dump(newData)` therefore threw away every fix and reserialized the untouched
- * data instead: pure churn, no change. Prefer the surgically edited text, and only fall
- * back to reserializing when the structured data genuinely changed.
- */
+// YAML link fixes choose newContent because updateFile rewrites parsed Markdown links
+// against the file's own text. newData changes only for structured link keys such as
+// featuredLinks and introLinks, which no data file uses. dump would reserialize untouched data.
 export function serializeYaml(
   newContent: string,
   newData: Record<string, unknown> | undefined,
@@ -803,9 +663,7 @@ export function serializeYaml(
 ): string {
   if (!differentData) return newContent
   if (differentContent) {
-    // The two kinds of change live in different representations and there is no
-    // format-preserving way to merge them, so `dump` would silently drop the text
-    // fixes. No file hits this today. Fail loudly rather than lose edits quietly.
+    // No format-preserving merge exists for simultaneous text and structured data edits.
     throw new Error(
       'Cannot serialize a YAML file that has both text and structured data changes ' +
         'without losing one of them. This needs a format-preserving merge.',
@@ -814,15 +672,9 @@ export function serializeYaml(
   return dump(newData || {})
 }
 
-/**
- * Write a Markdown page back out, preserving the original frontmatter text verbatim
- * whenever the frontmatter data itself didn't change.
- *
- * Round-tripping frontmatter through the YAML serializer reflows values that were
- * never touched: long `intro` strings become block scalars, `redirect_from` entries get
- * rewrapped, and quote styles change. That churn dwarfs the actual link fixes and makes
- * a bulk run unreviewable, which is why this only reserializes when it has to.
- */
+// Preserve original Markdown frontmatter when frontmatter data did not change. The YAML
+// serializer reflows untouched intro, redirect_from, and quoting, which hides link fixes
+// in bulk runs.
 export function serializeMarkdown(
   rawContent: string,
   content: string,
@@ -830,8 +682,7 @@ export function serializeMarkdown(
   newData: Record<string, unknown> | undefined,
   differentData: boolean,
 ): string {
-  // `content` is the tail of the file, so everything before it is the frontmatter
-  // block exactly as the author wrote it, delimiters and all.
+  // content is the file tail, so everything before it is the original frontmatter block.
   if (!differentData && rawContent.endsWith(content)) {
     return rawContent.slice(0, rawContent.length - content.length) + newContent
   }

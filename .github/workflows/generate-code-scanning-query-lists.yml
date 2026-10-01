@@ -1,11 +1,7 @@
 name: Generate code scanning query lists
 
-# **What it does**: This workflow is currently run manually approximately every two weeks as part
-#      of the release process for the CodeQL CLI. We hope to automate this in the future
-#   When run, this workflow generates updated query lists with data from the codeql
-#   repository, and creates a pull request if there are updates.
-# **Why we have it**: So we can automate CodeQL query tables and show code scanning users the built in queries.
-# **Who does it impact**: Anyone making CodeQL query suite changes in `github/codeql`, and wanting to get them published on the docs site.
+# Manual CodeQL CLI release runs, about every two weeks, generate query table reusables
+# from github/codeql and open a pull request when they change.
 
 on:
   workflow_dispatch:
@@ -53,16 +49,14 @@ jobs:
           echo "Copied files from github/codeql repo. Commit SHA: $OPENAPI_COMMIT_SHA"
 
       - name: Download CodeQL CLI
-        # Look under the `codeql` directory, as this is where we checked out the `github/codeql` repo
+        # fetch-codeql lives in the checked-out github/codeql repository.
         uses: ./codeql/.github/actions/fetch-codeql
 
       - name: Test CodeQL CLI Download
         shell: bash
         run: codeql --version
 
-      # "Server for running multiple commands while avoiding repeated JVM initialization."
-      # Having started this should speed up the execution of the various
-      # CLI calls of the executable.
+      # Start the CodeQL CLI server once so later CodeQL commands avoid repeated JVM initialization.
       - name: Start CodeQL CLI server in the background
         shell: bash
         run: |
@@ -72,10 +66,8 @@ jobs:
 
       - uses: ./.github/actions/install-cocofix
         with:
-          # The Docs Engineering Bot app cannot read the org-scoped
-          # @github/cocofix package (its Packages permission is repo-level
-          # only), so this step keeps using the PAT until the app is granted
-          # organization package read access.
+          # The Docs Engineering Bot app has repo-level Packages permission and cannot
+          # read org-scoped packages, so cocofix installation requires the PAT.
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Build code scanning security query lists
@@ -123,16 +115,14 @@ jobs:
           echo "Copied files from github/codeql repo. Commit SHA: $OPENAPI_COMMIT_SHA"
 
       - name: Download CodeQL CLI
-        # Look under the `codeql` directory, as this is where we checked out the `github/codeql` repo
+        # fetch-codeql lives in the checked-out github/codeql repository.
         uses: ./codeql/.github/actions/fetch-codeql
 
       - name: Test CodeQL CLI Download
         shell: bash
         run: codeql --version
 
-      # "Server for running multiple commands while avoiding repeated JVM initialization."
-      # Having started this should speed up the execution of the various
-      # CLI calls of the executable.
+      # Start the CodeQL CLI server once so later CodeQL commands avoid repeated JVM initialization.
       - name: Start CodeQL CLI server in the background
         shell: bash
         run: |
@@ -210,12 +200,10 @@ jobs:
         shell: bash
         run: |
 
-          # When we started, we downloaded the CodeQL CLI here in this workflow.
-          # We have no intention of checking that in but we also don't want
-          # `git status ...` to show it as an untracked file.
+          # Git status must only report generated query tables, so remove the
+          # checked-out CodeQL repository.
           rm -fr ./codeql
 
-          # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
           untracked=$(git status --untracked-files --short | wc -l)
           if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
@@ -228,12 +216,10 @@ jobs:
 
           branchname=codeql-query-tables-${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }}
 
-          # Exit if the branch already exists. Since the actions/checkout fetch-depth is 1,
-          # it doesn't "know" about branches locally, so we need to manually list them.
+          # Query the remote because actions/checkout with fetch-depth 1 omits other remote-tracking branches.
           branchExists=$(git ls-remote --heads origin refs/heads/$branchname | wc -l)
 
-          # When run on a pull_request, we're just testing the tooling.
-          # Exit before it actually pushes the possible changes.
+          # Pull request runs validate generated files without pushing branches.
           if [ "$DRY_RUN" = "true" ]; then
             echo "Dry-run mode when run in a pull request"
             echo "See the 'Insight into diff' step for the changes it would create PR about."
