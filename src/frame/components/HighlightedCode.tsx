@@ -8,22 +8,15 @@ import javascript from 'highlight.js/lib/languages/javascript'
 import hljsCurl from 'highlightjs-curl'
 import cx from 'clsx'
 
-// React-native replacement for the imperative ClientSideHighlightJS enhancer
-// (#6619). The old enhancer scanned the document for `[data-highlight] code` and
-// called `hljs.highlightElement`, which REPLACES the `<code>`'s innerHTML.
-// That is destructive on a React-owned node. Instead, components that render code
-// (RestCodeSamples, Webhook) use <HighlightedCode>, which highlights with
-// `lowlight` (the hast-based highlighter behind rehype-highlight) and renders the
-// tokens as real React elements via `toJsxRuntime`. No innerHTML, no DOM scan.
-//
-// Highlighting (the per-block compute) is deferred until the block scrolls into
-// view, preserving the old IntersectionObserver *compute* laziness so large REST
-// reference pages don't highlight every off-screen sample at once. Note: unlike
-// the old `dynamic(..., { ssr: false })` chunk, the highlighter libraries are now
-// statically bundled into these pages, so *load* laziness is not preserved. These
-// pages always contain code samples, so the chunk would have loaded anyway.
+// HighlightedCode avoids document scanning and innerHTML replacement so React
+// owns code sample nodes produced by RestCodeSamples and Webhook.
+// It renders lowlight hast tokens through toJsxRuntime, matching highlight.js
+// token classes.
+// Highlighting waits until a block scrolls into view so large REST reference
+// pages do not compute off-screen samples at once. The highlighter libraries
+// still load with pages that use this component, which always contain code samples.
 
-// Keep the language set tight: highlight.js can pull in everything, which is huge.
+// Keep the language set tight because highlight.js can pull in every language.
 const lowlight = createLowlight({ json, javascript, curl: hljsCurl })
 const SUPPORTED_LANGUAGES = new Set(['json', 'javascript', 'curl'])
 
@@ -32,6 +25,8 @@ function highlightToReact(language: string, code: string): ReactNode {
   return toJsxRuntime(tree, { Fragment, jsx, jsxs })
 }
 
+// lowlight emits the same hljs-* token classes as highlight.js.
+// The base hljs theme still applies.
 type HighlightedCodeProps = {
   language: string
   code: string
@@ -47,7 +42,7 @@ export function HighlightedCode({ language, code, className }: HighlightedCodePr
     if (!SUPPORTED_LANGUAGES.has(language)) return
 
     const element = ref.current
-    // No IntersectionObserver (or no element): just highlight right away.
+    // Without IntersectionObserver or an element, highlight immediately.
     if (!element || typeof window === 'undefined' || !window.IntersectionObserver) {
       setHighlighted(highlightToReact(language, code))
       return
@@ -66,8 +61,6 @@ export function HighlightedCode({ language, code, className }: HighlightedCodePr
     return () => observer.disconnect()
   }, [language, code])
 
-  // `hljs` provides the base theme; the same token classes (`hljs-*`) that
-  // highlight.js produced are emitted by lowlight, so styling is unchanged.
   return (
     <code ref={ref} className={cx('hljs', `language-${language}`, className)}>
       {highlighted ?? code}

@@ -2,19 +2,17 @@
   z-index: 3;
 }
 
-// Header rule under the simple error-page banner. Was primer/css
-// `border-bottom color-border-muted`; the utility emits the whole shorthand
-// with !important, so the replacement has to own the shorthand too.
+// The header border owns the full shorthand because primer/css sets it with !important.
 .headerBorder {
   border-bottom: 1px solid var(--brand-color-border-muted);
 }
 
-// Wordmark logo + "GitHub Docs" link. Was primer/css `color-fg-default`.
+// Brand text color for the wordmark logo and GitHub Docs link.
 .fgDefault {
   color: var(--brand-color-text-default);
 }
 
-// Footer copyright line. Was primer/css `color-fg-muted`.
+// Brand muted color for the footer copyright line.
 .fgMuted {
   color: var(--brand-color-text-muted);
 }
