@@ -10,7 +10,6 @@ interface Frontmatter {
   [key: string]: unknown
 }
 
-// Get the list of valid hero images (without extensions)
 function getValidHeroImages(): string[] {
   const ROOT = process.env.ROOT || '.'
   const heroImageDir = path.join(ROOT, 'assets/images/banner-images')
@@ -21,7 +20,6 @@ function getValidHeroImages(): string[] {
     }
 
     const files = fs.readdirSync(heroImageDir)
-    // Return absolute paths without extensions as they should appear in frontmatter
     return files.map((file) => {
       const baseName = path.basename(file, path.extname(file))
       return `/assets/images/banner-images/${baseName}`
@@ -70,7 +68,6 @@ export const frontmatterHeroImage: Rule = {
       return
     }
 
-    // Check if the path includes a file extension (which is not allowed)
     if (path.extname(heroImage)) {
       const line = params.lines.find((ln: string) => ln.trim().startsWith('heroImage:'))
       const lineNumber = line ? params.lines.indexOf(line) + 1 : 1

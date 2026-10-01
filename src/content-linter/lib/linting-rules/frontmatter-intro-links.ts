@@ -9,7 +9,6 @@ interface Frontmatter {
   [key: string]: unknown
 }
 
-// Get the valid introLinks keys from ui.yml
 function getValidIntroLinksKeys(): string[] {
   try {
     const ui = getUIDataMerged('en')
@@ -38,7 +37,6 @@ export const frontmatterIntroLinks: Rule = {
 
     const validKeys = getValidIntroLinksKeys()
     if (validKeys.length === 0) {
-      // If we can't load the valid keys, skip validation
       return
     }
 
