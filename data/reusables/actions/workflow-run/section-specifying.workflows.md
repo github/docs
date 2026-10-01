@@ -26,6 +26,6 @@ A workflow with the following trigger will only run when the workflow named `Bui
 ```yaml
 on:
   workflow_run:
-    workflows: ["Build C\+\+"]
+    workflows: ["Build C\\+\\+"]
     types: [completed]
 ```
