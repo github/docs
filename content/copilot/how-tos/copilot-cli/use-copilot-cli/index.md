@@ -10,6 +10,7 @@ children:
   - /overview
   - /allowing-tools
   - /voice-input
+  - /computer-use
   - /connecting-vs-code
   - /delegate-tasks-to-cca
   - /browse-issues-prs-gists

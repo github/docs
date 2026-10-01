@@ -1,6 +1,6 @@
 ---
 title: Using GitHub Copilot code review
-shortTitle: Use code review
+shortTitle: '{% data variables.copilot.copilot_code-review_short %}'
 intro: 'Learn how to request a code review from {% data variables.product.prodname_copilot %}.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-code-review/using-copilot-code-review
   - /copilot/how-tos/agents/copilot-code-review/use-code-review
   - /copilot/how-tos/agents/request-a-code-review/use-code-review
+  - /copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review
+  - /copilot/how-tos/use-copilot-agents/request-a-code-review
 contentType: how-tos
 category:
   - Author and optimize with Copilot

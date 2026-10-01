@@ -1140,6 +1140,18 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- sinon %}', 'fr')).toBe('{%- else %}')
     })
 
+    test('fixes sinon left behind by tag stripping', () => {
+      expect(fix('{% ifversion fpt %}A{% sinon {% product %}%}B{% endif %}', 'fr')).toBe(
+        '{% ifversion fpt %}A{% else %}B{% endif %}',
+      )
+      expect(fix('{% ifversion fpt %}A{%- sinon {% product %}%}B{% endif %}', 'fr')).toBe(
+        '{% ifversion fpt %}A{%- else %}B{% endif %}',
+      )
+      expect(fix('{% ifversion fpt %}A{% sinon {% référentiel %}%}B{% endif %}', 'fr')).toBe(
+        '{% ifversion fpt %}A{% else %}B{% endif %}',
+      )
+    })
+
     test('fixes note de fin → endnote', () => {
       expect(fix('{% note de fin %}', 'fr')).toBe('')
       expect(fix('{%- note de fin %}', 'fr')).toBe('')

@@ -51,6 +51,53 @@ There are a number of command-line options that are particularly useful when run
 | `--share=PATH`                | Export the session transcript to a markdown file after non-interactive completion (defaults to `./copilot-session-<ID>.md`). Useful for auditing or archiving what the agent did. Note that session transcripts may contain sensitive information. |
 | `--share-gist`                | Publish the session transcript as a secret GitHub gist after completion. Convenient for sharing results from CI. Note that session transcripts may contain sensitive information. |
 
+## Running dynamic workflows
+
+Use `copilot workflow run WORKFLOW-NAME` to run a dynamic workflow from a script. To find out about dynamic workflows, see [AUTOTITLE](/copilot/concepts/agents/dynamic-workflows).
+
+Use `--args` for inline JSON or an `@`-prefixed JSON file path. Arguments are not read from standard input.
+
+```shell copy
+copilot workflow run WORKFLOW-NAME \
+  --args @workflow-input.json \
+  --silent --output-format json
+```
+
+Configure authentication and grant the required tool permissions before running the command. Shared options such as `--model`, `--allow-tool`, `--allow-url`, and `--add-dir` apply. The command does not display permission approval prompts. Prompt and session-mode options such as `-p`, `-i`, `--agent`, `--fleet`, `--autopilot`, `--resume`, and `--continue` are not supported with `workflow run`.
+
+Project extensions are loaded only from trusted folders or with an explicit opt-in. In automation, `GITHUB_COPILOT_PROMPT_MODE_EXTENSIONS=true` permits loading project extensions for that invocation. Only enable this for repository code you trust. It does not grant tool permissions.
+
+For all workflow-specific options, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#using-copilot-workflow-run).
+
+### Workflow output
+
+With `--output-format json`, standard output uses JSONL. When the run finishes or stops, the final record has the following fields. Add `--silent` to suppress progress and other event records.
+
+| Field | Description |
+| ----- | ----------- |
+| `type` | Always `workflow.result`. |
+| `data.name` | The workflow name. |
+| `data.run.runId` | The run's identifier. |
+| `data.run.status` | The final run status: `completed`, `halted`, `paused`, `cancelled`, or `error`. |
+| `data.run.result` | The returned value, if any. Omitted when `--result-file` is supplied. |
+| `data.run.pauseInfo`, `data.run.reason`, `data.run.error`, `data.run.failure` | Additional details about why a run paused or stopped, when available. |
+| `data.resultFile` | The requested result-file path, included only after the result file has been written successfully. |
+
+With `--result-file PATH`, the file contains only the returned value, as JSON. A paused, failed, or interrupted run does not replace an existing result file. A completed run that returns no value does not write a result file.
+
+Errors and diagnostics for runs that do not complete are written to standard error, including in silent mode. An error before the workflow starts, or an interruption, can end the command without a final JSON record.
+
+### Workflow exit codes
+
+| Exit code | Meaning |
+| --------- | ------- |
+| `0` | The workflow completed successfully and any requested result file was written successfully. A workflow that returns no value can also complete successfully without creating a result file. |
+| `1` | The run did not complete, including a pause, a limit that stopped the run, cancellation, or failure. Also used for general command errors, such as invalid command-line syntax or a failure to save the result. |
+| `2` | The workflow was not found, or its arguments could not be read, parsed as JSON, or validated against the workflow's accepted inputs. |
+| `130` | The command was interrupted by `SIGINT` or `SIGTERM`, for example by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd>. |
+
+Check the exit code before consuming a result file. An earlier result file may still exist after an unsuccessful run. A final record with `data.run.status` set to `completed` does not guarantee the result file was saved successfully.
+
 ## Tools for the `--allow-tool` option
 
 You can specify various kinds of tools with the `--allow-tool` option.
@@ -98,6 +145,7 @@ You can use environment variables to configure various aspects of the CLI's beha
 | `COPILOT_GITHUB_TOKEN`| Authentication token (highest precedence) |
 | `GH_TOKEN`            | Authentication token (second precedence) |
 | `GITHUB_TOKEN`        | Authentication token (third precedence) |
+| `GITHUB_COPILOT_PROMPT_MODE_EXTENSIONS` | Set to `true` to allow project extensions to load for a prompt or direct workflow run. Only use this for repository code you trust. This does not grant tool permissions. |
 
 For full details of environment variables for {% data variables.copilot.copilot_cli_short %}, use the command `copilot help environment` in your terminal.
 

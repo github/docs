@@ -39,6 +39,7 @@ children:
   - /automate-copilot-cli/schedule-prompts
   - /content/copilot/concepts/agents/about-agent-skills
   - /content/copilot/concepts/agents/about-plugins
+  - /content/copilot/concepts/agents/dynamic-workflows
   - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
   - /content/copilot/concepts/agents/copilot-cli/about-custom-agents
   - /content/copilot/concepts/agents/copilot-cli/about-remote-control
@@ -52,6 +53,7 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/research
   - /content/copilot/concepts/agents/copilot-cli/rubber-duck
   - /content/copilot/concepts/agents/copilot-cli/about-cli-extensions
+  - /content/copilot/how-tos/use-copilot-agents/use-dynamic-workflows
   - /content/copilot/reference/copilot-cli-reference/acp-server
   - /content/copilot/reference/copilot-cli-reference/cli-command-reference
   - /content/copilot/reference/copilot-cli-reference/cli-plugin-reference

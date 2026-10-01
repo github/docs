@@ -120,6 +120,10 @@ The following sections provide examples of tasks you can complete with {% data v
 
   `You said: "The application is now running on http://localhost:3002 and is fully functional!" but when I browse to that URL I get "This site can't be reached"`
 
+### Computer use
+
+In local sessions on macOS and Windows, you can enable computer use to let {% data variables.product.prodname_copilot_short %} interact with desktop applications. This capability is useful for workflows in legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration. For more information, see [AUTOTITLE](/copilot/concepts/agents/computer-use).
+
 ### Tasks involving {% data variables.product.prodname_dotcom_the_website %}
 
 * Fetch and display details about your work from {% data variables.product.prodname_dotcom_the_website %}.
