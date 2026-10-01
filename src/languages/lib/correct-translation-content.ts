@@ -383,14 +383,8 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-?\s+(?:ifversion|elsif|if)\s+[^%]*?および[^%]*?-?%\}/g, (m) =>
       m.replace(/\s*および\s*/g, ' and '),
     )
-    content = content.replaceAll('{% 行ヘッダー %}', '{% rowheaders %}')
-    content = content.replaceAll('{%- 行ヘッダー %}', '{%- rowheaders %}')
     content = content.replaceAll('{% 終了行ヘッダー %}', '{% endrowheaders %}')
     content = content.replaceAll('{%- 終了行ヘッダー %}', '{%- endrowheaders %}')
-    content = content.replaceAll('{% ウィンドウ %}', '{% windows %}')
-    content = content.replaceAll('{%- ウィンドウ %}', '{%- windows %}')
-    content = content.replaceAll('{% ウィンドウズ %}', '{% windows %}')
-    content = content.replaceAll('{%- ウィンドウズ %}', '{%- windows %}')
     content = content.replaceAll('{% Windowsターミナル %}', '{% windows %}')
     content = content.replaceAll('{% Windows ターミナル %}', '{% windows %}')
     content = content.replace(/(\{%-?\s*indented_data_reference\s+)再利用可能\./g, '$1reusables.')
@@ -602,8 +596,6 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% de data reusables', '{% data reusables')
     content = content.replaceAll('{%- de data reusables', '{%- data reusables')
     content = content.replaceAll('{% de dados reusables', '{% data reusables')
-    content = content.replaceAll('{% datavariables', '{% data variables')
-    content = content.replaceAll('{%- datavariables', '{%- data variables')
     content = content.replaceAll('{% datas variables', '{% data variables')
     content = content.replaceAll('{%- datas variables', '{%- data variables')
     content = content.replaceAll('{% datas reusables', '{% data reusables')
@@ -636,8 +628,6 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-?\s+(?:ifversion|elsif|if)\s+[^%]*?\se\s[^%]*?-?%\}/g, (m) =>
       m.replace(/\se\s/g, ' and '),
     )
-    content = content.replaceAll('{% senão %}', '{% else %}')
-    content = content.replaceAll('{%- senão %}', '{%- else %}')
     content = content.replaceAll('{% Senão %}', '{% else %}')
     content = content.replaceAll('{% senao %}', '{% else %}')
     content = content.replaceAll('{%- senao %}', '{%- else %}')
@@ -648,8 +638,6 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- caso contrário %}', '{%- else %}')
     content = content.replaceAll('{% outra %}', '{% else %}')
     content = content.replaceAll('{%- outra %}', '{%- else %}')
-    content = content.replaceAll('{% observação %}', '{% note %}')
-    content = content.replaceAll('{%- observação %}', '{%- note %}')
 
     content = content.replaceAll(
       'você precisa instalá-lo em sua conta corporativa, {% ifversion enterprise-installed-apps %}organização ou conta pessoal.',
@@ -720,8 +708,6 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- 桌面 %}', '{%- desktop %}')
     content = content.replaceAll('{% 行标头 %}', '{% rowheaders %}')
     content = content.replaceAll('{%- 行标头 %}', '{%- rowheaders %}')
-    content = content.replaceAll('{% 行标题 %}', '{% rowheaders %}')
-    content = content.replaceAll('{%- 行标题 %}', '{%- rowheaders %}')
 
     content = content.replaceAll('{% ifversion 命令面板 %}', '{% ifversion command-palette %}')
     content = content.replaceAll('{%- ifversion 命令面板 %}', '{%- ifversion command-palette %}')
@@ -924,7 +910,6 @@ export function correctTranslatedContentStrings(
       'mandatory-2fa-contributors-2023',
     )
     content = content.replaceAll('{% ifversion не ', '{% ifversion not ')
-    content = content.replaceAll('{% переменных данных.', '{% data variables.')
     content = content.replaceAll('{% повторно используемых данных.', '{% data reusables.')
     content = content.replaceAll('{% примечание %}', '{% note %}')
     content = content.replaceAll('{%- примечание %}', '{%- note %}')
@@ -1046,10 +1031,6 @@ export function correctTranslatedContentStrings(
 
     content = content.replaceAll('{% остальных %}', '{% else %}')
     content = content.replaceAll('{%- остальных %}', '{%- else %}')
-    content = content.replaceAll('{% иначе %}', '{% else %}')
-    content = content.replaceAll('{%- иначе %}', '{%- else %}')
-    content = content.replaceAll('{% ещё %}', '{% else %}')
-    content = content.replaceAll('{%- ещё %}', '{%- else %}')
     content = content.replace(/\{%(-?)\s*иначе если\s+/g, '{%$1 elsif ')
     content = content.replace(/\{%-?\s+(?:ifversion|elsif|if)\s+[^%]*?или[^%]*?-?%\}/g, (m) =>
       m.replace(/\s*или\s*/g, ' or '),
@@ -1164,6 +1145,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% conseil %}', '{% tip %}')
     content = content.replaceAll('{%- conseil %}', '{%- tip %}')
     content = content.replaceAll('{%- conseil -%}', '{%- tip -%}')
+    // Repeat after tag stripping, which turns {% sinon {% product %}%} into {% sinon %}.
     content = content.replaceAll('{% sinon %}', '{% else %}')
     content = content.replaceAll('{%- sinon %}', '{%- else %}')
     content = content.replaceAll('{% note de fin %}', '{% endnote %}')
@@ -1328,8 +1310,6 @@ export function correctTranslatedContentStrings(
     )
     content = content.replaceAll('{% 그렇지 않으면 %}', '{% else %}')
     content = content.replaceAll('{%- 그렇지 않으면 %}', '{%- else %}')
-    content = content.replaceAll('{% 옥티콘 ', '{% octicon ')
-    content = content.replaceAll('{%- 옥티콘 ', '{%- octicon ')
 
     content = content.replaceAll('{% ifversion 명령 팔레트 %}', '{% ifversion command-palette %}')
     content = content.replaceAll('{%- ifversion 명령 팔레트 %}', '{%- ifversion command-palette %}')
@@ -1356,13 +1336,6 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- data Variables.', '{%- data variables.')
 
     content = content.replaceAll('{{ 용어집.term }}', '{{ glossary.term }}')
-    content = content.replaceAll('{% 데이터 재사용.', '{% data reusables.')
-    content = content.replaceAll('{% 행 머리글 %}', '{% rowheaders %}')
-    content = content.replaceAll('{%- 행 머리글 %}', '{%- rowheaders %}')
-    content = content.replaceAll('{% 윈도우즈 %}', '{% windows %}')
-    content = content.replaceAll('{%- 윈도우즈 %}', '{%- windows %}')
-    content = content.replaceAll('{% 엔드맥 %}', '{% endmac %}')
-    content = content.replaceAll('{%- 엔드맥 %}', '{%- endmac %}')
     content = content.replaceAll('{% 주석 끝 %}', '{% endnote %}')
     content = content.replaceAll('{%- 주석 끝 %}', '{%- endnote %}')
     content = content.replaceAll('{% 데이터.variables.', '{% data variables.')
@@ -1375,7 +1348,6 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- 재사용 가능 항목.', '{%- data reusables.')
     content = content.replaceAll('{% 재사용 가능.', '{% data reusables.')
     content = content.replaceAll('{%- 재사용 가능.', '{%- data reusables.')
-    content = content.replaceAll('{% 데이터 재사용 가능 항목.', '{% data reusables.')
     content = content.replaceAll('{%- 데이터 재사용 가능 항목.', '{%- data reusables.')
     content = content.replaceAll('{% 데이터 재사용 가능.', '{% data reusables.')
     content = content.replaceAll('{%- 데이터 재사용 가능.', '{%- data reusables.')
