@@ -27,26 +27,25 @@ export default function findPageInSiteTree(
       : findPageInSiteTree(foundPage, englishTree, originalPath)
   }
 
-  // Try again with the last path segment removed.
+  // Trim path segments until a parent tree node matches.
   modifiedPath = modifiedPath.replace(/\/[^/]+?$/, '')
 
-  // Error out or we'll just recurse forever until the stack size is exceeded.
+  // Stop before recursion exhausts the stack.
   if (!modifiedPath) {
     const matched = originalPath.match(getLanguageCode)
     if (!matched) throw new Error('language code not found in path')
     const langCode = matched[1]
 
-    // Fall back to English if this is a localized path.
+    // Localized paths fall back to English when their tree page is missing.
     if (langCode === 'en') {
       throw new Error(`can't find ${originalPath} in site tree`)
     } else {
-      // This isn't ideal because it will serve up English content at a localized path,
-      // including links with `/en` in them. But it seems like the only way to not throw errors.
+      // English fallback serves English links at a localized path instead of throwing.
       originalPath = originalPath.replace(`/${langCode}`, '/en')
       return findPageInSiteTree(englishTree, englishTree, originalPath)
     }
   }
 
-  // This will return a higher segment of the tree, so we can traverse down the tree until we find the original path.
+  // The matched parent lets callers traverse down toward the original path.
   return findPageInSiteTree(treePage, englishTree, originalPath, modifiedPath)
 }

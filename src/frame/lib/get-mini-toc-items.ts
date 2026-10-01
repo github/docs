@@ -27,11 +27,8 @@ interface FlatTocItem {
   items?: FlatTocItem[]
 }
 
-// Builds MiniTocItems from heading data the collect-mini-toc rehype plugin
-// gathered. This is the only path, because headings come straight off the AST
-// during rendering and never get re-parsed out of HTML.
-//
-// Keep maxHeadingLevel=2 for accessibility reasons. See docs-engineering#2701.
+// The collect-mini-toc rehype plugin is the only source because rendered HTML is not re-parsed.
+// Ordinary article mini TOCs pass maxHeadingLevel 2 for accessibility.
 export function buildMiniTocFromCollected(
   collected: CollectedHeading[],
   maxHeadingLevel = 2,
@@ -53,7 +50,7 @@ export function buildMiniTocFromCollected(
     }
   })
 
-  // Set indentation relative to the most important heading
+  // Indentation starts from the highest-priority collected heading.
   for (const item of flatToc) {
     item.indentationLevel = item.headingLevel - (mostImportantHeadingLevel ?? item.headingLevel)
   }
@@ -83,14 +80,13 @@ function buildNestedToc(allItems: FlatTocItem[], startIndex = 0): FlatTocItem[] 
       continue
     }
 
-    // these items were already handled via recursion
+    // Recursion already nested these items.
     if (curLevelIndentation < cursorItem.indentationLevel) {
       continue
     }
 
     if (curLevelIndentation > cursorItem.indentationLevel) {
-      // special scenario where the initial list started with "less important" headers
-      // so we need to reset our expectations of what level to judge the indentation on
+      // A later higher-priority heading resets the baseline indentation.
       if (startIndex === 0) {
         curLevelIndentation = cursorItem.indentationLevel
         currentLevel.push({
@@ -106,8 +102,7 @@ function buildNestedToc(allItems: FlatTocItem[], startIndex = 0): FlatTocItem[] 
   return currentLevel
 }
 
-// Strip the bits and pieces from each object in the array that are
-// not needed in the React component rendering.
+// Mini TOC rendering needs only contents, nested items, and platform.
 function minimalMiniToc(toc: FlatTocItem[]): MiniTocItem[] {
   return toc.map(({ platform, contents, items }) => {
     const minimal: MiniTocItem = { contents }
@@ -136,7 +131,7 @@ export async function getAutomatedPageMiniTocItems(
       })
       .join('')
 
-  // Collect headings during render via the rehype plugin
+  // Rendering with collectMiniToc runs the rehype collector.
   const collectMiniToc: CollectedHeading[] = []
   const renderContext = { ...context, collectMiniToc }
   await renderContent(titles, renderContext)
