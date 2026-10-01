@@ -1,13 +1,10 @@
-// Generates reusable Markdown listing code quality queries for one language, with categories.
-// Requires a local github/codeql clone and a CodeQL CLI executable.
-// Set up the clone with git clone git@github.com:github/codeql.git /tmp/codeql.
-// Install the CLI with gh extension install github/gh-codeql, then gh codeql set-channel nightly.
-// Run gh codeql version to find the installed codeql path.
-// Example:
-//   npm run generate-code-quality-query-list -- \
-//     --codeql-path ~/.local/share/gh/extensions/gh-codeql/dist/nightly/codeql-bundle-*/codeql \
-//     --codeql-dir /tmp/codeql python | tee /tmp/python.md
-// Inspect the generated Markdown with less /tmp/python.md.
+/**
+ * Generates a Markdown table of the code quality queries for one language,
+ * with their categories, to be saved as a reusable.
+ *
+ * Running this locally needs the CodeQL CLI and a clone of github/codeql.
+ * See "Local development" in src/codeql-queries/README.md.
+ */
 
 import fs from 'fs'
 import { execFileSync } from 'child_process'
@@ -94,7 +91,6 @@ async function main(options: Options, language: string) {
         const categories = getCategories(tags || '')
         const url = getDocsLink(language, id)
 
-        // Category-less queries have no code quality docs row.
         if (categories.length) {
           queries[id] = { url, name, categories, severity: severity || 'N/A' }
         } else {
@@ -107,7 +103,6 @@ async function main(options: Options, language: string) {
   }
 
   function decorate(query: Query): QueryExtended {
-    // Maintainability outranks reliability for table sorting.
     const primaryCategory = query.categories.includes('maintainability')
       ? 'maintainability'
       : query.categories.includes('reliability')
@@ -122,7 +117,7 @@ async function main(options: Options, language: string) {
 
   const entries = Object.values(queries).map(decorate)
 
-  // Sort by primary category, then alphabetically by name.
+  // Maintainability first, then alphabetical by name.
   entries.sort((a, b) => {
     if (a.primaryCategory === 'maintainability' && b.primaryCategory !== 'maintainability')
       return -1
@@ -172,7 +167,8 @@ function getMetadata(options: Options, queryFile: string): QueryMetadata {
   })
   const parsed = JSON.parse(metadataJson)
 
-  // CodeQL emits severity through several metadata shapes, depending on the query source.
+  // `codeql resolve metadata` reports @problem.severity in several different JSON shapes,
+  // so try each one.
   const severity =
     parsed.problem?.severity || // Nested: { problem: { severity: "error" } }
     parsed['@problem']?.severity || // Nested with @: { "@problem": { severity: "error" } }
@@ -182,7 +178,7 @@ function getMetadata(options: Options, queryFile: string): QueryMetadata {
     parsed['@severity'] // With @: { "@severity": "error" }
 
   if (options.verbose) {
-    // Verbose mode logs metadata keys once to avoid noisy output.
+    // Only dump the key list once.
     if (!getMetadata.shownKeys) {
       console.log(chalk.yellow('Available metadata keys:'), Object.keys(parsed))
       if (parsed.problem) {
@@ -209,13 +205,14 @@ function getMetadata(options: Options, queryFile: string): QueryMetadata {
 
 getMetadata.shownKeys = false
 
-// Example: cpp and external-entity-expansion become
+// getDocsLink('cpp', 'external-entity-expansion') returns
 // https://codeql.github.com/codeql-query-help/cpp/cpp-external-entity-expansion/
 function getDocsLink(language: string, queryId: string) {
   return `https://codeql.github.com/codeql-query-help/${language}/${queryId.replaceAll('/', '-')}/`
 }
 
-// Example tags with maintainability and reliability return those categories in source order.
+// getCategories('maintainability readability reliability external/cwe/cwe-1078')
+// returns ['maintainability', 'reliability']
 function getCategories(tags: string) {
   const categories: string[] = []
   for (const tag of tags.split(/\s+/g)) {
