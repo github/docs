@@ -61,6 +61,9 @@ You can create defaults in your organization or personal account for the followi
 
 | Community health file | Description |
 | --- | --- |
+| {% ifversion accessibility-pages %} |
+| _ACCESSIBILITY.md_ | An ACCESSIBILITY file describes a project's accessibility goals, known barriers, and reporting process. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-an-accessibility-page-to-your-repository). |
+| {% endif %} |
 | _CODE_OF_CONDUCT.md_ | A CODE_OF_CONDUCT file defines standards for how to engage in a community. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project). |
 | _CONTRIBUTING.md_ | A CONTRIBUTING file communicates how people should contribute to your project. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors). |
 | Discussion category forms | Discussion category forms customize the templates that are available for community members to use when they open new discussions in your repository. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/creating-discussion-category-forms). |
