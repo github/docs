@@ -10,6 +10,8 @@ redirect_from:
   - /enterprise-onboarding/setting-up-organizations-and-teams/identify-role-requirements
 category:
   - Manage accounts and repositories
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 Roles control people's access to settings and resources in your enterprise and organizations. For an introduction to roles, see [AUTOTITLE](/admin/concepts/enterprise-fundamentals/roles-in-an-enterprise).
