@@ -48,7 +48,7 @@ You can choose the {% data variables.product.prodname_copilot_short %} review ef
    * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
    * **Max**: Most thorough review. This option appears with a **Coming soon** label and is not available yet.
 
-To return to the built-in default, select the **Default** option at the top of the menu. Until you choose a specific level, the control shows the built-in default that applies to you, either **Default (Lite)** or **Default (Balanced)**.
+To return to the built-in default, select the **Default** option at the top of the menu. Until you choose a specific level, the control shows the built-in default, **Default (Balanced)**.
 
 Your {% data variables.product.prodname_copilot_short %} review effort is independent of **Automatic {% data variables.copilot.copilot_code-review_short %}**. Turning automatic review off does not clear your {% data variables.product.prodname_copilot_short %} review effort or stop it from applying to reviews you request manually.
 
