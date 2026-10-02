@@ -485,7 +485,7 @@ export function correctTranslatedContentStrings(
   }
 
   if (context.code === 'pt') {
-    // {%– uses an en dash (U+2013) instead of a hyphen.
+    // U+2013 appears where the Liquid trim hyphen belongs.
     content = content.replaceAll('{%–', '{%-')
 
     content = content.replaceAll('{% aviso %}', '{% warning %}')
@@ -546,7 +546,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% variáveis de dados.', '{% data variables.')
     content = content.replaceAll('{% variáveis de dados ', '{% data variables ')
     content = content.replaceAll('{% dados variáveis.', '{% data variables.')
-    // Match only inside data tags, so prose and URLs stay intact. Run after the dados variáveis fix.
+    // Match only data tags, so prose and URLs stay intact. Run after the dados variáveis fix.
     content = content.replace(
       /(\{%-?\s*data\s+)(?:variables|variáveis)\.produto\./g,
       '$1variables.product.',
@@ -957,7 +957,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{{ глоссарий.term }}', '{{ glossary.term }}')
     content = content.replaceAll('{{ глоссарий.description }}', '{{ glossary.description }}')
 
-    // Check includes first, since these regexes backtrack O(n²) on long word-character strings.
+    // Check includes first, since these regexes backtrack quadratically on long words.
     if (content.includes('%данн')) {
       content = content.replace(
         /([\w.-]+\.[\w.-]+\.[\w_]+) %данн\w*[^{]*\{%\s+\}/g,
@@ -999,7 +999,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% endекклипс %}', '{% endeclipse %}')
     content = content.replace(/(\{%-?\s*[a-z]+\s+)«([^»]*)»/g, '$1"$2"')
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?[<>=][^%]*?%\}/g, (match) => {
-      // Cyrillic 'о' (U+043E) often replaces ASCII '0' (U+0030)
+      // Cyrillic о, U+043E, often replaces ASCII 0, U+0030.
       return match.replace(/(\d)\s*о/g, '$10').replace(/о\s*(\d)/g, '0$1')
     })
 
@@ -1158,7 +1158,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- données_réutilisables.', '{%- data reusables.')
     content = content.replaceAll('{% composants réutilisables.', '{% data reusables.')
     content = content.replaceAll('{%- composants réutilisables.', '{%- data reusables.')
-    // Match both forms, since an earlier fix may have already changed données to data.
+    // Match both forms, since an earlier fix can already change données to data.
     content = content.replaceAll(
       '{% données réutilisables propriétés-personnalisées valeurs-requises %}',
       '{% data reusables.organizations.custom-properties-required-values %}',
@@ -1440,7 +1440,7 @@ export function correctTranslatedContentStrings(
   }
 
   if (context.code === 'de') {
-    // {%– uses an en dash (U+2013) instead of a hyphen.
+    // U+2013 appears where the Liquid trim hyphen belongs.
     content = content.replaceAll('{%–', '{%-')
 
     content = content.replaceAll('{% Daten variables', '{% data variables')
@@ -1870,8 +1870,7 @@ export function correctTranslatedContentStrings(
 
   content = content.replace(/\{ +%([^%]+?)% *\}/g, '{%$1%}')
 
-  // Run after the per-language fixes: any {% still followed by non-ASCII text is never a valid tag.
-  // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex -- Runs after per-language fixes; non-ASCII after {% is invalid.
   content = content.replace(/\{% (?=[^\x00-\x7F])/g, '')
 
   content = content.replace(/\{% \. /g, '')
@@ -1881,7 +1880,7 @@ export function correctTranslatedContentStrings(
   // eslint-disable-next-line no-control-regex
   content = content.replace(/({% data [\w.-]+) (?=[^\x00-\x7F])/g, '$1 %} ')
 
-  // Prebuild Sets to avoid O(tags × contentLength) includes scans.
+  // Prebuild Sets to avoid scanning the content once per tag.
   if (englishContent) {
     const englishLinebreaks = new Set<string>()
     const englishSpaces = new Set<string>()
@@ -1908,7 +1907,7 @@ export function correctTranslatedContentStrings(
 
   content = content.replaceAll(' | | ', ' |\n| ')
 
-  // Run after the specific fixes above, and swap only when no other tag sits between, so nesting survives.
+  // Run after specific fixes. Swap only when no tag sits between, so nesting survives.
   {
     const noTag = '(?:(?!\\{%)[\\s\\S])*?'
     const reorderRegex = new RegExp(
@@ -2014,7 +2013,8 @@ export function correctTranslatedContentStrings(
 // Rejoin markers that the translation pipeline split from their content, which breaks rendering.
 // Markers allow 0 to 3 leading spaces, matching CommonMark.
 // Continuations need 6+ spaces, so 4-space indented code stays untouched.
-// Standalone paragraphs need 9+ spaces: artifacts use 14, and list continuations in the corpus use at most 6.
+// Standalone paragraphs need 9+ spaces. Artifacts use 14, and list continuations
+// in the corpus use at most 6.
 // Fences match at any indent, so fences inside list items count.
 // Skip fenced code and frontmatter, and ignore fence markers inside frontmatter.
 function joinDanglingMarkers(content: string): string {
@@ -2131,8 +2131,9 @@ function joinDanglingMarkers(content: string): string {
   return out.join('\n')
 }
 
-// Remove note, warning, tip, and danger tags, which the renderer no longer supports.
-// Skip frontmatter, fenced code, multiline raw blocks, and inline code, where tags are literal examples.
+// Remove note, warning, tip, and danger tags because the renderer does not support them.
+// Skip frontmatter, fenced code, multiline raw blocks, and inline code, where
+// tags are literal examples.
 function stripLegacyAlertTags(content: string): string {
   const tagPattern = /\{%-?\s*(?:end)?(?:note|warning|tip|danger)\s*-?%\}[ \t]*/g
   const lines = content.split('\n')

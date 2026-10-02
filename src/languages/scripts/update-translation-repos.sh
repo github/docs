@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# NOTE: This script assumes you've got the translation repos created and named with the appropriate language codes.
-# The `git diff --exit-code` is a useful reminder if you had manually gone in to one of the repos to make some temporary changes, to test something, but forgot to undo your changes.
+# Assumes translation repos already exist under language-code directory names.
+# git diff --exit-code catches unstaged tracked edits before pulling.
 
 set -ex
 

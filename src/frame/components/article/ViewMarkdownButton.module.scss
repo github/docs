@@ -23,7 +23,11 @@
 // @primer/react ActionMenu.Button, so several rules here make them agree. Where
 // a doubled class or !important appears, it beats a library rule; the specificity
 // that forced it is noted.
-.button {
+//
+// The doubled classes beat @primer/react ButtonBase rules, which have one-class
+// specificity. Without them the winner depends on stylesheet load order, and a
+// dev hot reload or chunk reorder brings back the chevron's border and radius.
+.button.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -75,7 +79,7 @@
 
 // The pill's left end is rounded outside and square where it meets the chevron.
 // The radius token is 624.9375rem rather than 9999px, and nothing clips it.
-.copyButton {
+.copyButton.copyButton {
   border-radius: var(--brand-borderRadius-full, 624.9375rem) 0 0
     var(--brand-borderRadius-full, 624.9375rem);
   // Less padding on the seam side so the label sits closer to the chevron than
@@ -92,7 +96,7 @@
 
 // The pill's right end: square at the seam, rounded outside. Width matches the
 // height for an even chevron target.
-.dropdownButton {
+.dropdownButton.dropdownButton {
   border-radius: 0 var(--brand-borderRadius-full, 624.9375rem)
     var(--brand-borderRadius-full, 624.9375rem) 0;
   width: 28px;

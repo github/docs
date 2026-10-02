@@ -7,6 +7,8 @@ import { mkdir, readFile, readdir, writeFile, cp } from 'fs/promises'
 import { difference, intersection } from 'lodash-es'
 
 import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
+import { rebuildAuditLogDedup } from '@/audit-logs/lib/deduplicate'
+import { writeDeduplicatedAppsFormat } from '@/github-apps/scripts/sync'
 
 const [currentReleaseNumber, previousReleaseNumber] = supported
 const pipelines = JSON.parse(await readFile('src/automated-pipelines/lib/config.json', 'utf-8'))[
@@ -89,10 +91,18 @@ export async function updateAutomatedPipelines() {
 
     const expectedDirectory = isCalendarDateVersioned ? versionNamesCalDate : versionNames
 
-    const removeFiles = difference(existingDataDir, expectedDirectory)
+    const removeFiles = difference(existingDataDir, expectedDirectory).filter((directory) => {
+      // Some pipelines sync the next release before it's supported. Keep that data.
+      const release = directory.match(/^ghes-(\d+\.\d+)/)?.[1]
+      if (release && !supported.includes(release) && !deprecated.includes(release)) {
+        console.log(`Keeping ${directoryWithReleases}/${directory} for unreleased GHES ${release}`)
+        return false
+      }
+      return true
+    })
     for (const directory of removeFiles) {
-      console.log(`Removing src/${pipeline}/data/${directory}`)
-      rmSync(`src/${pipeline}/data/${directory}`, { recursive: true, force: true })
+      console.log(`Removing ${directoryWithReleases}/${directory}`)
+      rmSync(`${directoryWithReleases}/${directory}`, { recursive: true, force: true })
     }
 
     const addFiles = difference(expectedDirectory, existingDataDir)
@@ -116,19 +126,25 @@ export async function updateAutomatedPipelines() {
         if (!existingDataDir.includes(previousDirName)) {
           throw new Error(
             `Cannot find previous release directory '${previousDirName}' to copy from ` +
-              `when creating '${dirToAdd}' in src/${pipeline}/data/.`,
+              `when creating '${dirToAdd}' in ${directoryWithReleases}/.`,
           )
         }
 
         console.log(
-          `Copying src/${pipeline}/data/${previousDirName} to src/${pipeline}/data/${dirToAdd}`,
+          `Copying ${directoryWithReleases}/${previousDirName} to ${directoryWithReleases}/${dirToAdd}`,
         )
-        await cp(`src/${pipeline}/data/${previousDirName}`, `src/${pipeline}/data/${dirToAdd}`, {
-          recursive: true,
-        })
+        await cp(
+          `${directoryWithReleases}/${previousDirName}`,
+          `${directoryWithReleases}/${dirToAdd}`,
+          { recursive: true },
+        )
       }
     }
   }
+
+  // These pipelines also store a deduplicated copy of every version directory.
+  await rebuildAuditLogDedup()
+  await writeDeduplicatedAppsFormat()
 
   // GHES release notes stay in this path until an automation pipeline owns the same layout.
   const ghesReleaseNotesDirs = await readdir('data/release-notes/enterprise-server')

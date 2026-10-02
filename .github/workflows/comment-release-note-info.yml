@@ -1,6 +1,6 @@
-# This workflow provides information when a contributor edits a release note file
-
 name: Comment on release note changes
+
+# Prompts contributors to request technical review for release note changes.
 
 on:
   pull_request:
@@ -16,8 +16,7 @@ permissions:
 
 jobs:
   comment:
-    # Do not add this comment on PRs created by the bot during the standard patch release process
-    # or in the github/docs repository
+    # Skip release-controller patch PRs and public-repo PRs.
     if: github.event.pull_request.user.login != 'release-controller[bot]' && github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:

@@ -1,15 +1,8 @@
-/*
- * Shared styling for the two Docs 2026 header pickers: the plan/version picker
- * (VersionPicker, `variant="header"`) and the language picker (LanguagePicker,
- * `variant="header"`). Both are Primer Brand ActionMenus rendered inside
- * SubdomainNavBar, so the menu surface, the rows and the parts of the trigger
- * that are common live here — a single source of truth the two pickers cannot
- * drift apart from.
- *
- * Only the trigger's own treatment differs: the plan control is the design's
- * filled pill (`.headerPillButton`), while Figma draws the language control as
- * a flat, transparent control (`.headerFlatButton`).
- */
+// Shared styling keeps the Docs 2026 plan picker and language picker from drifting.
+// Both render Primer Brand ActionMenus inside SubdomainNavBar, so common menu,
+// row, and trigger parts live here. The plan control uses the filled
+// .headerPillButton treatment, while Figma draws the language control as the flat
+// .headerFlatButton treatment.
 
 .headerPicker {
   display: flex;
@@ -18,10 +11,6 @@
   min-width: 0;
   max-width: 100%;
 }
-
-/*
- * Trigger, shared
- */
 
 .headerPicker .headerButton {
   min-width: 0;
@@ -59,22 +48,17 @@
   font-size: var(--brand-text-size-100, 0.875rem);
   // 14px x 1.2 = the 16.8px line box the pill's height is built on.
   line-height: 1.2;
-  // Brand centres its button label; a truncated value should stay left aligned.
+  // Brand centres its button label; keep truncated values left aligned.
   text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/*
- * Trigger: the plan picker's pill
- */
-
 .headerPicker .headerPillButton {
-  // Brand's Button variants paint themselves through these custom properties, and the
-  // rules that read them (rest, :hover, :active, [aria-expanded='true']) carry five
-  // class-level selectors — more than anything scoped to this module can outrank. Set
-  // the properties instead of fighting the rules, so the pill keeps the single stable
-  // fill the design draws in every state.
+  // Brand Button variants read these custom properties in rest, hover, active, and
+  // [aria-expanded='true'] states. Those rules carry five class-level selectors, so
+  // module-scoped rules cannot outrank them. Set the properties instead, so the pill
+  // keeps the stable fill the design draws in every state.
   --brand-button-secondary-bgColor-rest: var(--brand-color-canvas-subtle);
   --brand-button-secondary-bgColor-hover: var(--brand-color-canvas-subtle);
   --brand-button-secondary-bgColor-active: var(--brand-color-canvas-subtle);
@@ -104,15 +88,10 @@
   font-weight: var(--base-text-weight-bold, 700);
 }
 
-/*
- * Trigger: the language picker's flat control
- *
- * Figma (node 471:69020) draws this one as a flat control rather than a pill: a
- * globe, the language name in muted 14px regular, then the same caret. The fill
- * only appears on hover and while the menu is open, which Brand's own rules
- * apply from these custom properties — setting `background-color` here as well
- * would tie with Brand's `[aria-expanded='true']` rule on specificity.
- */
+// Figma node 471:69020 draws the language picker as a flat control: globe, muted
+// 14px regular language name, then the same caret. Fill appears only on hover and
+// while the menu is open. Brand already applies those custom properties, so
+// background-color here would tie Brand's [aria-expanded='true'] rule.
 
 .headerPicker .headerFlatButton {
   --brand-button-secondary-bgColor-rest: transparent;
@@ -143,10 +122,6 @@
   font-weight: var(--base-text-weight-normal, 400);
 }
 
-/*
- * Label (the plan picker's "Select your plan:")
- */
-
 .headerLabel {
   color: var(--brand-color-text-muted);
   font-family: var(--brand-body-fontFamily);
@@ -156,12 +131,8 @@
   white-space: nowrap;
 }
 
-/*
- * Dropdown menu
- */
-
-// Brand's menu is not portalled — it renders inside this wrapper — so the surface can
-// be styled from here instead of through Brand's hashed module class names.
+// Brand's menu renders inside this wrapper, so style the surface here instead of
+// through hashed Brand module class names.
 .headerPicker [role="menu"] {
   // The design's menu is 256px. Long titles such as "Enterprise Server 3.22" grow it
   // past that rather than clipping.
@@ -174,20 +145,18 @@
   border-radius: var(--base-size-6, 0.375rem);
 }
 
-// Below Brand's 1012px breakpoint the pickers move inside SubdomainNavBar's narrow
-// menu, which is a scrolling panel capped at the viewport height. Brand's menu is
-// absolutely positioned and, unlike the @primer/react one it replaced, is not
-// portalled — so there it renders outside the panel's box and is cut off mid-list.
-// Letting it flow inline under the trigger makes the panel itself the scroll surface,
-// which keeps every row reachable. Brand writes the anchored offsets as inline
-// styles, so only `inset` needs `!important` to be overridden.
+// Below Brand's 1012px breakpoint, SubdomainNavBar moves the pickers into its
+// narrow menu: a scrolling panel capped at the viewport height. Brand's menu is
+// absolutely positioned and is not portalled, so it renders outside the panel and
+// gets cut off mid-list. Letting it flow inline under the trigger makes the panel
+// the scroll surface, keeping every row reachable. Brand writes anchored offsets
+// inline, so only inset needs !important.
 @media not all and (min-width: 63.25rem) {
   .headerPicker {
     align-items: flex-start;
   }
 
-  // The menu now adds height below the trigger, so centring would drag the label down
-  // with it. This keeps it on the trigger's own text baseline.
+  // The open menu adds height below the trigger, so keep the label on that baseline.
   .headerPicker .headerLabel {
     padding-block: calc(
       var(--base-size-8, 0.5rem) + var(--brand-borderWidth-thin, 1px)
@@ -243,10 +212,9 @@
   display: none;
 }
 
-// Brand's hover token resolves to the same grey the design uses for the *selected*
-// row, so hover is repointed at canvas-subtle and the selected row keeps its own fill
-// while hovered. Both selectors clear the five class-level units in Brand's own
-// `:hover:not(...)` rule.
+// Brand's hover token matches the selected-row grey, so hover uses canvas-subtle and
+// the selected row keeps its own fill while hovered. Both selectors beat the five
+// class-level units in Brand's :hover:not(...) rule.
 .headerPicker
   .headerMenuItem:hover:not(.headerMenuItemSelected):not(
     [aria-disabled="true"]
@@ -281,8 +249,8 @@
 }
 
 // Brand has no divider child, so the plan menu draws the rule that separates the
-// versions from the two navigation rows itself. A plain <li> (no
-// `.ActionMenu__item`) is a block box, so the border spans the menu's inner width.
+// versions from the two navigation rows itself. A plain li with no .ActionMenu__item
+// spans the menu's inner width.
 .headerPicker .headerMenuSeparator {
   height: 0;
   margin-block: var(--base-size-8, 0.5rem);

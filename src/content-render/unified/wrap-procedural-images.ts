@@ -18,15 +18,15 @@ function insideOlLi(ancestors: Parent[]): boolean {
   return false
 }
 
-// When a writer leaves a blank line before a list image, Markdown wraps it in a paragraph.
-// The visitor skips that branch because the paragraph already adds spacing, and div wrappers
-// inside paragraphs cause hydration mismatches.
+// When a writer leaves a blank line before a list image, Markdown wraps it in a paragraph,
+// possibly with a link in between. The visitor skips that branch because the paragraph
+// already adds spacing, and div wrappers inside paragraphs cause hydration mismatches.
 function visitor(node: Element, ancestors: Parent[]): void {
   if (!insideOlLi(ancestors)) return
   const parent = ancestors.at(-1)
   if (!parent || !parent.children) return
 
-  if ((parent as Element).tagName === 'p') return
+  if (ancestors.some((ancestor) => (ancestor as Element).tagName === 'p')) return
 
   const shallowClone: Element = Object.assign({}, node)
   shallowClone.tagName = 'div'

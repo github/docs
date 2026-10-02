@@ -1,8 +1,6 @@
 name: 'Content Lint Markdown'
 
-# **What it does**: Lints our content markdown to ensure the content matches the specified styleguide.
-# **Why we have it**: We want some level of consistency to our content markdown files.
-# **Who does it impact**: Docs content writers.
+# Runs content linting on changed content and data files so style issues stay visible.
 
 on:
   pull_request:
@@ -25,7 +23,7 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
+          # Fetch two commits so changed-files can diff without extra API calls.
           fetch-depth: 2
 
       - name: Set up Node and dependencies
@@ -43,9 +41,8 @@ jobs:
         if: steps.changed_files.outputs.any_modified == 'true'
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
-        # If there are errors, using `--print-annotations` will make it
-        # so it does *not* exit non-zero.
-        # This is so that all warnings and errors are printed.
+        # Print annotations first because that command exits zero when it reports errors.
+        # The next step fails the workflow with errors-only.
         run: npm run lint-content -- --print-annotations --paths $CHANGED_FILES
 
       - name: Run content linter if changed content/data files
@@ -53,3 +50,21 @@ jobs:
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
         run: npm run lint-content -- --errors-only --paths $CHANGED_FILES
+
+      # Journey landing pages reference other articles by path in their frontmatter.
+      # Moving or deleting one of those articles breaks the reference without touching
+      # the landing page, so it never appears in the diff and GHD059 never runs on it.
+      # The weekly full sweep catches it, but up to seven days late, and the article
+      # loses its next/previous journey navigation the whole time.
+      #
+      # Check the landing pages on every run instead. Scoped to that one rule so a PR
+      # can't be blocked by unrelated findings on pages it didn't touch, and left
+      # ungated because deleting an article is one of the ways this breaks.
+      - name: Check journey landing page guide paths
+        run: |
+          JOURNEY_PAGES=$(grep -rlE "^layout: *['\"]?journey-landing['\"]? *$" content/ || true)
+          if [ -z "$JOURNEY_PAGES" ]; then
+            echo "No journey landing pages found, nothing to check."
+            exit 0
+          fi
+          npm run lint-content -- --rules journey-tracks-guide-path-exists --paths $JOURNEY_PAGES

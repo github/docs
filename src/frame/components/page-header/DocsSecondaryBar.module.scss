@@ -1,7 +1,5 @@
-// Docs 2026 secondary bar: sits below the main header. On desktop the left
-// segment matches the 326px rail width (toggle cell + breadcrumbs) and carries
-// the rail's right divider; a bottom border separates the bar from the content
-// and nav below. On mobile the left segment spans the full width.
+// The Docs 2026 secondary bar sits below the main header. Its breadcrumb segment
+// spans the full bar; the nav toggle keeps its own divider.
 @import "@primer/css/support/variables/layout.scss";
 @import "@primer/css/support/mixins/layout.scss";
 @import "../../stylesheets/breakpoint-xxl.scss";
@@ -9,35 +7,27 @@
 .bar {
   display: flex;
   align-items: stretch;
-  // Brand tokens: the bar's rule matches the article's section rules
-  // (--brand-color-border-muted) and its surface is the brand canvas. The
-  // canvas token is shared with BreadcrumbsScroller, whose chevrons repaint it
-  // to mask crumbs scrolling underneath — keep the two in step.
+  // Match article section rules with --brand-color-border-muted and paint the
+  // surface on the brand canvas.
+  // BreadcrumbsScroller chevrons repaint this canvas; keep the two in step.
   border-bottom: 1px solid var(--brand-color-border-muted, #e4ebe6);
-  // Brand's canvas, matching the page. Held back on Primer's token while `body`
-  // was still painted #0d1117 by @primer/css; that moved to
-  // --brand-color-canvas-default in src/frame/stylesheets/index.scss, so the
-  // holdback's own release condition ("change together in one commit") is met.
-  // BreadcrumbsScroller's chevron masks repaint this exact value — keep in step.
+  // Use the brand canvas from src/frame/stylesheets/index.scss. BreadcrumbsScroller
+  // chevron masks repaint this exact value; keep them in step.
   background-color: var(--brand-color-canvas-default);
 
-  // Stick just below the sticky main header (sticky at every width) so the
-  // breadcrumbs + collapse toggle — and, below lg, the "In this article" sub-bar
-  // row that follows — stay in view while the content scrolls. z-index 2 keeps
-  // the bar (and its dropdown) above sticky table headers (z-index 1).
+  // Stick below the sticky main header so breadcrumbs, collapse toggle, and the
+  // below-lg In this article row stay visible. z-index 2 keeps this bar and its
+  // dropdown above sticky table headers at z-index 1.
   //
-  // `top` tracks the Brand header through --docs-header-height rather than a
-  // literal 65px: the header is 3.5rem below 48rem and 4rem above, so a fixed
-  // px offset would leave a gap or overlap at one of the two sizes.
+  // top tracks the Brand header through --docs-header-height. The header is 3.5rem
+  // below 48rem and 4rem above, so a fixed 65px offset leaves a gap or overlap.
   position: sticky;
   top: var(--docs-header-height);
   z-index: 2;
 }
 
-// The breadcrumb segment spans the whole bar at every width. It deliberately
-// does NOT match the 326px rail width / carry the rail's divider: the trail is
-// the bar's content, so cramming it into the rail's column truncated it early
-// while the rest of the bar sat empty.
+// The breadcrumb segment spans the whole bar. It must not use the 326px rail width
+// or divider, because that truncates the trail while the rest of the bar sits empty.
 .leftSegment {
   display: flex;
   align-items: stretch;
@@ -55,7 +45,7 @@
   border-right: 1px solid var(--brand-color-border-muted, #e4ebe6);
 }
 
-// The desktop rail-collapse toggle shows only at lg+ (where the rail exists);
+// The desktop rail-collapse toggle shows only at lg+, where the rail exists;
 // the mobile nav trigger shows only below it. The repo's d-lg-* utilities cover
 // block/none but not inline-flex, so gate these here.
 .desktopOnly {
@@ -74,39 +64,33 @@
   }
 }
 
-// The two sidebar-toggle icons. Replaces primer/css's `color-fg-muted`, which
-// paints Primer's grey (#9198a1 in dark, now that index.scss imports the Primer
-// Primitives functional themes) beside brand-painted breadcrumbs. `!important`
-// is carried over deliberately: the utility it replaces had it, and it is what
-// beats PRC's own `.prc-Button-*` colour on the invisible IconButton variant.
+// Override primer/css color-fg-muted, whose grey clashes with brand-painted breadcrumbs.
+// Keep !important because PRC's invisible IconButton variant uses .prc-Button-* rules
+// that otherwise win.
 .toggleIcon {
   color: var(--brand-color-text-muted) !important;
 }
 
-// The "In this article" control's row, directly beneath the breadcrumb bar.
-// Rendered inside the content column (see DefaultLayout), so on desktop it
-// begins at the doc-tree drawer's right edge and runs to the screen edge —
-// sharing that band with the drawer rather than cutting across above it. With
-// the drawer collapsed or hidden the column is full width, so the row is too.
-// The modifiers below hide it once the right-rail drawer takes over the mini-TOC.
+// The In this article row sits directly beneath the breadcrumb bar. DefaultLayout
+// renders it inside the content column, so on desktop it starts at the doc-tree
+// drawer's right edge instead of cutting across above it. With the drawer collapsed
+// or hidden, the column is full width. Modifiers hide it when the right-rail drawer
+// takes over the mini-TOC.
 .overviewSubBar {
   display: flex;
   align-items: center;
   width: 100%;
-  // Explicit so the sticky stack is a known constant: DefaultLayout.module.scss
-  // publishes the header + bar stack plus this height as `--docs-sticky-stack`,
-  // which table.scss reads to offset sticky table headers. Changing this height
-  // means changing the matching 40px in .stickyStackWithSubBar too.
+  // DefaultLayout.module.scss publishes the header, bar, and this height as
+  // --docs-sticky-stack, which table.scss uses for sticky table headers. If this
+  // height changes, also change the 40px in .stickyStackWithSubBar.
   min-height: 40px;
   border-bottom: 1px solid var(--brand-color-border-muted, #e4ebe6);
-  // Canvas — see the note on `.bar` above. These two sticky rows stack, so they
-  // must always paint the same token.
+  // Match .bar's canvas above because these sticky rows stack.
   background-color: var(--brand-color-canvas-default);
 
-  // Stick directly beneath the breadcrumb bar (header + 45px bar) so the "In
-  // this article" control stays pinned to the top while the article scrolls.
-  // z-index matches the bar to stay above sticky table headers. Composed from
-  // --docs-header-height for the same reason `.bar` above is.
+  // Stick beneath the breadcrumb bar, header plus 45px bar, so In this article
+  // stays pinned while the article scrolls. z-index matches .bar to stay above
+  // sticky table headers. Compose from --docs-header-height for the same reason.
   position: sticky;
   top: calc(var(--docs-header-height) + 45px);
   z-index: 2;

@@ -1,13 +1,11 @@
 import type { ComponentProps, ComponentType, ReactNode } from 'react'
 import { ActionMenu } from '@primer/react-brand'
 
-// Brand's ActionMenu.Button hardcodes `trailingVisual={<ChevronDownIcon />}` and its
-// props type does not declare `trailingVisual`. It spreads rest props *after* that
-// default, so a caller-supplied icon still wins at runtime, and Docs 2026 specifies a
-// filled triangle caret rather than a chevron. This cast is the single deliberate
-// divergence from the stock component's typed API, and it is shared by both header
-// pickers so there is only one line to fix. If a future @primer/react-brand release
-// destructures `trailingVisual` out of its rest props, this is the line that stops
+// Brand's ActionMenu.Button hardcodes trailingVisual={<ChevronDownIcon />}, and its
+// props omit trailingVisual. It spreads rest props after that default, so caller
+// icons still win at runtime. Docs 2026 needs a filled triangle caret, not a
+// chevron. This cast is the shared typed API divergence for both header pickers. If
+// @primer/react-brand destructures trailingVisual out of rest props, this line stops
 // working and the caret silently reverts to a chevron.
 type WithTrailingVisual = { trailingVisual?: ReactNode }
 

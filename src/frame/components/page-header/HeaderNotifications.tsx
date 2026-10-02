@@ -59,9 +59,7 @@ export const HeaderNotifications = () => {
           try {
             setUserLanguageCookie('en')
           } catch (err) {
-            // Setting a cookie can fail: some browser extensions disallow it
-            // entirely, and the `document.cookie` setter can throw. Swallow and
-            // move on.
+            // Some extensions reject document.cookie writes, so ignore cookie-set failures.
             console.warn('Unable to set cookie', err)
           }
         },
@@ -95,7 +93,7 @@ export const HeaderNotifications = () => {
   const allNotifications: Array<Notif> = [
     ...translationNotices,
     ...releaseNotices,
-    // ONEOFF EARLY ACCESS NOTICE
+    // Early-access pages use this separate banner unless frontmatter opts out.
     (relativePath || '').includes('early-access/') && !page.noEarlyAccessBanner
       ? {
           type: NotificationType.EARLY_ACCESS,

@@ -37,8 +37,7 @@ export const Header = ({ isNarrowMenuOpen, onNarrowMenuToggle }: Props) => {
   const router = useRouter()
   const { error } = useMainContext()
   const { languages } = useLanguages()
-  // This context already excludes unavailable languages, including early-access pages.
-  // Omit the slot itself so Brand does not render an empty divided language cell.
+  // useLanguages excludes unavailable languages, including early access; hide the slot under two.
   const languagePickerVisible = Object.keys(languages).length > 1
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header', 'search'])
