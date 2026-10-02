@@ -27,7 +27,7 @@ This article focuses on how those rules apply specifically to {% data variables.
 
 What you need to know about the following actions:
 
-* **Upgrading:** If you upgrade your plan (for example, from {% data variables.copilot.copilot_pro_short %} to {% data variables.copilot.copilot_pro_plus_short %}), the change is **immediate**. You are charged a prorated amount for the new plan.
+* **Upgrading:** If you upgrade your plan (for example, from {% data variables.copilot.copilot_pro_short %} to {% data variables.copilot.copilot_pro_plus_short %}), the change is **immediate**. You are charged the full price of the new plan, minus the amount you already paid for your current plan.
 * **Downgrading/canceling:** Access remains until the end of the current billing cycle. **No refund for unused time**.
 
 ### Included monthly allowance reset
@@ -88,7 +88,8 @@ Additionally:
 
 ## In summary
 
-* **Proration:** Applies when adding seats/licenses or upgrading plans. You pay only for the portion of the billing cycle remaining. Included {% data variables.product.prodname_ai_credits_short %} may also be prorated.
+* **Proration:** Applies when adding seats/licenses. You pay only for the portion of the billing cycle remaining. Included {% data variables.product.prodname_ai_credits_short %} may also be prorated.
+* **Upgrading a personal plan:** You are charged the full price of the new plan, minus the amount you already paid for your current plan.
 * **Access:** Assignments and upgrades are effective immediately for affected users. Downgrades take effect at the end of the billing cycle.
 * **Removing or canceling:** No refunds are issued for unused time; access continues until the end of the cycle paid for, unless a seat/license is revoked.
 
@@ -97,5 +98,5 @@ Additionally:
 | Add seat/license                 | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| Immediately             | Yes                  | Immediately              | N/A                     |
 | Remove seat/license              | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| End of cycle             | N/A                  | End of cycle (immediately if revoked) | No                      |
 | Cancel subscription              | All plans           | End of cycle            | N/A                  | End of cycle            | No                      |
-| Upgrade plan    | All plans           | Immediate                | Yes                  | Immediately              | N/A (proration instead) |
+| Upgrade plan    | {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %}           | Immediate                | No                  | Immediately              | N/A |
 | Downgrade plan  | All plans           | End of cycle                | No                  | End of cycle              | No |
