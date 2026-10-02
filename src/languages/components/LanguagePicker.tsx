@@ -33,11 +33,7 @@ export const LanguagePicker = ({ variant = 'default', onNavigate }: Props) => {
 
   const locale = router.locale || 'en'
 
-  // Remember, in this context `languages` is only the active ones
-  // that are available.
-  // Also, if the current context has a page and that page has own ideas
-  // about which languages it's available in (e.g. early-access)
-  // it would already have been pared down.
+  // languages already excludes inactive languages and page-level availability.
   const langs = Object.values(languages)
 
   if (langs.length < 2) {
@@ -47,10 +43,7 @@ export const LanguagePicker = ({ variant = 'default', onNavigate }: Props) => {
   const selectedLang = languages[locale]
   const triggerLabel = `Select language: current language is ${selectedLang.name}`
 
-  // The `router.asPath` will always be without a hash in SSR
-  // So to avoid a hydration failure on the client, we have to
-  // normalize it to be without the hash. That way the path is treated
-  // in a "denormalized" way.
+  // SSR paths never include the hash, so strip it to avoid a hydration mismatch.
   const routerPath = router.asPath.split('#')[0]
 
   const languageHref = (code: string) => `/${code}${routerPath}`
@@ -59,33 +52,29 @@ export const LanguagePicker = ({ variant = 'default', onNavigate }: Props) => {
     try {
       setUserLanguageCookie(code)
     } catch (err) {
-      // You can never be too careful because setting a cookie
-      // can fail. For example, some browser
-      // extensions disallow all setting of cookies and attempts
-      // at the `document.cookie` setter could throw. Just swallow
-      // and move on.
+      // Browser extensions can make document.cookie throw, so log and keep navigation working.
       console.warn('Unable to set preferred language cookie', err)
     }
   }
 
   if (isHeader) {
-    // Brand reports the chosen row by value, and the rows deliberately are not
-    // anchors: Brand's Overlay focuses the <li> and installs its own Enter handler
-    // that reads `data-value` and calls `onSelect`, so an `as="a"` row would close
-    // the menu on Enter without following the link (and Brand's anchor branch never
-    // sets aria-checked). Navigation happens here instead. The locale prefix is
-    // already in the path, so `locale: false` stops Next adding a second one — the
-    // same call the repo's own Link makes for locale-prefixed hrefs.
+    // Brand reports the chosen row by value, so navigation happens here. Rows stay
+    // list items: Brand's Overlay reads data-value on Enter and calls onSelect,
+    // while anchor rows close on Enter without following the link and never get
+    // aria-checked.
     const handleSelect = (code: string) => {
       if (!code) return
       rememberLanguage(code)
-      // Brand's ActionMenu closes itself once a row reports its value, so there is no
-      // `open` state to reset here; `onNavigate` is what closes the narrow menu the
-      // picker may be sitting inside.
+      // Brand owns open state; onNavigate closes the surrounding narrow menu.
       onNavigate?.()
+      // locale: false stops Next adding a second locale prefix, matching Link.
       router.push(languageHref(code), undefined, { locale: false })
     }
 
+    // Brand ActionMenu and SubdomainNavBar both listen for Escape on document and
+    // ignore defaultPrevented, so stop it in the capture phase to keep one Escape
+    // from closing both menus. Brand has no controlled open prop, so focus and
+    // click the trigger to close only the picker.
     const handleEscapeCapture = (event: KeyboardEvent<HTMLDivElement>) => {
       if (event.key !== 'Escape') return
 
@@ -94,13 +83,6 @@ export const LanguagePicker = ({ variant = 'default', onNavigate }: Props) => {
       )
       if (trigger?.getAttribute('aria-expanded') !== 'true') return
 
-      // Brand's ActionMenu and SubdomainNavBar both listen for Escape on `document`
-      // and neither honours defaultPrevented, so a single Escape would close this
-      // picker *and* the surrounding narrow menu. Stopping the event here — while it
-      // is still in its capture phase, before it reaches either listener — leaves the
-      // outer menu open. Brand has no controlled `open` prop, so the picker is closed
-      // through its own trigger: focus it first so focus stays put, then click it to
-      // let ActionMenu toggle itself shut.
       event.preventDefault()
       event.stopPropagation()
       trigger.focus()
@@ -116,9 +98,7 @@ export const LanguagePicker = ({ variant = 'default', onNavigate }: Props) => {
         <BrandActionMenu
           size="small"
           selectionVariant="single"
-          // The language control sits at the header's right edge, and Brand anchors
-          // with `allowOutOfBounds`, so the menu has to grow leftwards from the
-          // trigger's end edge to stay on screen.
+          // Grow left from the header's right edge because Brand anchors with allowOutOfBounds.
           menuAlignment="end"
           onSelect={handleSelect}
         >
@@ -148,8 +128,7 @@ export const LanguagePicker = ({ variant = 'default', onNavigate }: Props) => {
                 <span data-testid="language-picker-item" className={styles.headerMenuItemLabel}>
                   {lang.nativeName || lang.name}
                 </span>
-                {/* The design marks the current language with a trailing green dot
-                    instead of Brand's leading check icon, which the stylesheet hides. */}
+                {/* Brand's check icon is hidden; the design uses a trailing dot. */}
                 {lang === selectedLang && (
                   <DotFillIcon size={16} className={styles.headerMenuItemDot} />
                 )}
@@ -161,8 +140,7 @@ export const LanguagePicker = ({ variant = 'default', onNavigate }: Props) => {
     )
   }
 
-  // languageList is specifically ActionList items which are reused
-  // for menus that behave differently at the breakpoints.
+  // ActionList items support both breakpoint-specific menu behaviors.
   const languageList = langs.map((lang) => (
     <ActionList.LinkItem
       key={`/${lang.code}${routerPath}`}

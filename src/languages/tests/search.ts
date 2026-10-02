@@ -5,8 +5,8 @@ import { get } from '@/tests/helpers/e2etest'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')
 
-// Skipping for now, as we would need to download the indexes with LFS
-// in Actions to run these. Explore again after ES switch over.
+// Fixture indexing creates only English and Japanese indexes, so this suite cannot
+// run against every non-English language in CI.
 describe.skip('search', () => {
   test.each(langs)('search in %s', async (lang) => {
     const res = await get(`/search?language=${lang}&version=dotcom&query=pages`)

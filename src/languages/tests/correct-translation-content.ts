@@ -428,7 +428,7 @@ describe('correctTranslatedContentStrings', () => {
     })
 
     test('fixes en-dash in trim modifier', () => {
-      // {%– uses an en dash (U+2013) instead of a hyphen.
+      // U+2013 appears where the Liquid trim hyphen belongs.
       expect(fix('{%– ifversion projects-v1 %}', 'pt')).toBe('{%- ifversion projects-v1 %}')
       expect(fix('{%– endif %}', 'pt')).toBe('{%- endif %}')
     })
@@ -2308,7 +2308,7 @@ intro: |
       fix(content, 'es', english)
       const elapsed = performance.now() - start
 
-      // Generous threshold for CI; an O(n²) regression would be multi-second.
+      // Generous threshold for CI; a quadratic regression would take multiple seconds.
       expect(elapsed).toBeLessThan(500)
     })
 
@@ -2337,7 +2337,7 @@ Para más información, consulta "[AUTOTITLE](/path)".
       }
       const elapsed = performance.now() - start
 
-      // Generous threshold for CI; an O(n²) regression would be multi-second.
+      // Generous threshold for CI; a quadratic regression would take multiple seconds.
       expect(elapsed).toBeLessThan(2000)
     })
 
@@ -2351,7 +2351,7 @@ Para más información, consulta "[AUTOTITLE](/path)".
       const elapsed = performance.now() - start
 
       expect(result).toContain('{% endraw %}')
-      // Generous threshold for CI; catastrophic backtracking would be multi-second.
+      // Generous threshold for CI; catastrophic backtracking would take multiple seconds.
       expect(elapsed).toBeLessThan(2000)
     })
 
@@ -2362,7 +2362,7 @@ Para más información, consulta "[AUTOTITLE](/path)".
       fix(content, 'ru')
       const elapsed = performance.now() - start
 
-      // Generous threshold; regression would be multi-second.
+      // Generous threshold; regression would take multiple seconds.
       expect(elapsed).toBeLessThan(2000)
     })
   })
