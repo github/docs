@@ -1,4 +1,4 @@
-import { existsSync } from 'fs'
+import { existsSync, readdirSync, readFileSync, statSync } from 'fs'
 import { mkdir, writeFile } from 'fs/promises'
 import path from 'path'
 
@@ -82,4 +82,45 @@ export async function writeDeduplicatedAuditLogData(
   console.log(
     `✅ Deduplicated audit log data: ${totalEntries} total → ${uniqueEntries} unique entries (${dedupRate}% dedup), ${uniqueFields} unique field lists`,
   )
+}
+
+// Rebuilds the deduplicated files from per-version JSON already on disk.
+const NON_VERSION_DIRS = new Set(['shared'])
+
+function loadAuditLogDataFromDisk(): VersionedAuditLogData {
+  const auditLogData: VersionedAuditLogData = {}
+
+  for (const version of readdirSync(AUDIT_LOG_DATA_DIR)) {
+    if (NON_VERSION_DIRS.has(version)) continue
+    const versionDir = path.join(AUDIT_LOG_DATA_DIR, version)
+    if (!statSync(versionDir).isDirectory()) continue
+
+    const pages: Record<string, AuditLogEventT[]> = {}
+    for (const file of readdirSync(versionDir)) {
+      if (!file.endsWith('.json')) continue
+      const page = path.basename(file, '.json')
+      pages[page] = JSON.parse(readFileSync(path.join(versionDir, file), 'utf8'))
+    }
+
+    if (Object.keys(pages).length > 0) {
+      auditLogData[version] = pages
+    }
+  }
+
+  return auditLogData
+}
+
+export async function rebuildAuditLogDedup() {
+  if (!existsSync(AUDIT_LOG_DATA_DIR)) {
+    throw new Error(`Audit log data directory not found: ${AUDIT_LOG_DATA_DIR}`)
+  }
+
+  const auditLogData = loadAuditLogDataFromDisk()
+  const versionCount = Object.keys(auditLogData).length
+  if (versionCount === 0) {
+    throw new Error(`No per-version audit log data found in ${AUDIT_LOG_DATA_DIR}`)
+  }
+
+  console.log(`\n▶️  Rebuilding deduplicated format from ${versionCount} versions on disk...`)
+  await writeDeduplicatedAuditLogData(auditLogData)
 }

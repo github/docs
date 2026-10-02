@@ -292,7 +292,7 @@ export async function syncGitHubAppsData(
 
 // The deduplicated format stores repeated operation and permission objects once.
 // version-index.json maps each version and page to those shared entries.
-async function writeDeduplicatedAppsFormat() {
+export async function writeDeduplicatedAppsFormat() {
   console.log(`\n▶️  Writing deduplicated GitHub Apps data...\n`)
 
   const versions = fs.readdirSync(ENABLED_APPS_DIR).filter((f) => {

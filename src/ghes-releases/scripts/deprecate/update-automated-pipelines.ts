@@ -7,6 +7,8 @@ import { mkdir, readFile, readdir, writeFile, cp } from 'fs/promises'
 import { difference, intersection } from 'lodash-es'
 
 import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
+import { rebuildAuditLogDedup } from '@/audit-logs/lib/deduplicate'
+import { writeDeduplicatedAppsFormat } from '@/github-apps/scripts/sync'
 
 const [currentReleaseNumber, previousReleaseNumber] = supported
 const pipelines = JSON.parse(await readFile('src/automated-pipelines/lib/config.json', 'utf-8'))[
@@ -129,6 +131,10 @@ export async function updateAutomatedPipelines() {
       }
     }
   }
+
+  // These pipelines also store a deduplicated copy of every version directory.
+  await rebuildAuditLogDedup()
+  await writeDeduplicatedAppsFormat()
 
   // GHES release notes stay in this path until an automation pipeline owns the same layout.
   const ghesReleaseNotesDirs = await readdir('data/release-notes/enterprise-server')
