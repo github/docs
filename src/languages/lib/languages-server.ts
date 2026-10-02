@@ -13,6 +13,11 @@ import { languages as baseLanguages, type Language as BaseLanguage } from './lan
 
 dotenv.config({ quiet: true })
 
+// Read this after dotenv.config(). The TRANSLATIONS_ROOT constant is set when
+// constants.ts loads, which happens before this file calls dotenv.config(), so
+// the constant misses a value from .env.
+const translationsRoot = process.env.TRANSLATIONS_ROOT || TRANSLATIONS_ROOT
+
 export interface Language extends BaseLanguage {
   dir: string
 }
@@ -39,7 +44,7 @@ function getRoot(languageCode: string): string {
   }
 
   // Default
-  return path.join(TRANSLATIONS_ROOT, languageCode)
+  return path.join(translationsRoot, languageCode)
 }
 
 const allLanguagesWithDirs: Languages = {}
