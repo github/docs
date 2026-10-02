@@ -4644,6 +4644,16 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: SpaceX
+  supportedSecret: Starlink Public API V2 Client Secret
+  secretType: starlink_public_api_v2_secret
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Square
   supportedSecret: Square Access Token
   secretType: square_access_token
