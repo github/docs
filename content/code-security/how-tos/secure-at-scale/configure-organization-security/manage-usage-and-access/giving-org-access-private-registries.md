@@ -85,6 +85,13 @@ Any private registries used by the build must also be accessible to the workflow
 
 {% data variables.product.prodname_dependabot %} can use any of the org-level private registries, as well as uses any private registries defined in the `dependabot.yml` file in the repo.
 
+For each update job, {% data variables.product.prodname_dependabot %} supplies credentials only for organization-level private registry types that apply to the job's package ecosystem. Depending on the ecosystem, the applicable registry types can include Git source credentials in addition to credentials for the ecosystem's package registry.
+
+> [!NOTE]
+> The number of applicable organization-level private registry credentials provided to any single update job is capped at 100 for performance reasons.
+
+For a multi-ecosystem group, {% data variables.product.prodname_dependabot %} runs a separate update job for each ecosystem and combines the results into one pull request. Each ecosystem's update job has its own 100-registry limit, just as it would if the ecosystems were configured as separate updates.
+
 {% data variables.product.prodname_dependabot %} cannot check for security or version updates for code stored in a private registry unless it can access the registry. If you do not configure access to the private registry, then {% data variables.product.prodname_dependabot %} cannot raise pull requests to update any of the dependencies stored in the registry.
 
 When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-private-registries).
