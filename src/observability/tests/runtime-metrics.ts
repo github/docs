@@ -1,9 +1,11 @@
+import { constants } from 'node:perf_hooks'
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 
 import statsd from '@/observability/lib/statsd'
 import {
   startRuntimeMetrics,
   _resetForTesting,
+  getGcTypeTag,
   INTERVAL_MS,
 } from '@/observability/lib/runtime-metrics'
 
@@ -96,5 +98,13 @@ describe('startRuntimeMetrics', () => {
     expect(heapPctCall).toBeDefined()
     expect(heapPctCall![1]).toBeGreaterThan(0)
     expect(heapPctCall![1]).toBeLessThan(100)
+  })
+
+  it('maps GC kinds to Datadog gc_type tags using Node constants', () => {
+    expect(getGcTypeTag(constants.NODE_PERFORMANCE_GC_MINOR)).toBe('minor')
+    expect(getGcTypeTag(constants.NODE_PERFORMANCE_GC_MAJOR)).toBe('major')
+    expect(getGcTypeTag(constants.NODE_PERFORMANCE_GC_INCREMENTAL)).toBe('other')
+    expect(getGcTypeTag(constants.NODE_PERFORMANCE_GC_WEAKCB)).toBe('other')
+    expect(getGcTypeTag(2)).toBe('other')
   })
 })
