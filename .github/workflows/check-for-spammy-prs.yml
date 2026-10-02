@@ -1,8 +1,6 @@
 name: Check for Spammy PRs
 
-# **What it does**: This action closes low value pull requests and PRs that do not target main.
-# **Why we have it**: We get lots of spam in the open-source repository.
-# **Who does it impact**: Open-source contributors.
+# Flags low-value public PRs and closes PRs that target branches other than main.
 
 on:
   pull_request_target:
