@@ -541,7 +541,7 @@ Change the limit on the maximum number of pull requests for version updates open
 * If five pull requests with version updates are open, no further pull requests are raised until some of those open requests are merged or closed.
 
 > [!NOTE]
-> _Security update_ pull requests are not subject to this limit and do not count toward it. There is no limit on the number of open pull requests for security updates.
+> _Security update_ pull requests are not subject to this limit and do not count toward it. There is a limit of 10 open pull requests for security updates, which is not configurable using `open-pull-requests-limit`.
 
 When `open-pull-requests-limit` is defined:
 
