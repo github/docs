@@ -50,3 +50,21 @@ jobs:
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
         run: npm run lint-content -- --errors-only --paths $CHANGED_FILES
+
+      # Journey landing pages reference other articles by path in their frontmatter.
+      # Moving or deleting one of those articles breaks the reference without touching
+      # the landing page, so it never appears in the diff and GHD059 never runs on it.
+      # The weekly full sweep catches it, but up to seven days late, and the article
+      # loses its next/previous journey navigation the whole time.
+      #
+      # Check the landing pages on every run instead. Scoped to that one rule so a PR
+      # can't be blocked by unrelated findings on pages it didn't touch, and left
+      # ungated because deleting an article is one of the ways this breaks.
+      - name: Check journey landing page guide paths
+        run: |
+          JOURNEY_PAGES=$(grep -rlE "^layout: *['\"]?journey-landing['\"]? *$" content/ || true)
+          if [ -z "$JOURNEY_PAGES" ]; then
+            echo "No journey landing pages found, nothing to check."
+            exit 0
+          fi
+          npm run lint-content -- --rules journey-tracks-guide-path-exists --paths $JOURNEY_PAGES
