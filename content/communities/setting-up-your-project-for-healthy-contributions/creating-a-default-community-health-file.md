@@ -72,6 +72,9 @@ You can create defaults in your organization or personal account for the followi
 |  {% endif %} |
 | Issue and pull request templates and _config.yml_ | Issue and pull request templates customize and standardize the information you'd like contributors to include when they open issues and pull requests in your repository. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates).<br /><br />If an issue template sets a label, that label must be created in your `.github` repository and any repositories where the template will be used. |
 | _SECURITY.md_ | A SECURITY file gives instructions on how to report a security vulnerability in your project and description that hyperlinks the file. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/add-security-policy). |
+|  {% ifversion fpt or ghec %} |
+| _VULNERABILITY_REPORT.yml_ or _VULNERABILITY_REPORT.yaml_ | A vulnerability report form customizes the information that reporters must provide when they privately report a vulnerability. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configure-for-a-repository#customizing-the-vulnerability-reporting-form). |
+|  {% endif %} |
 | _SUPPORT.md_ | A SUPPORT file lets people know about ways to get help with your project. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-support-resources-to-your-project). |
 
 You cannot create a default license file. License files must be added to individual repositories so the file will be included when a project is cloned, packaged, or downloaded.
@@ -86,4 +89,10 @@ You cannot create a default license file. License files must be added to individ
 1. {% ifversion ghec %}If you are creating the repository for an {% data variables.enterprise.prodname_emu_org %}, set the repository status to **Internal**. For any other eligible account, set the status to **Public**.{% else %}Make sure the repository status is set to **Public**.{% endif %} A repository for default files cannot be private.
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
-1. In the repository, create one of the supported community health files. Discussion category forms must be in a folder called `.github/DISCUSSION_TEMPLATE`. Issue templates and their configuration file must be in a folder called `.github/ISSUE_TEMPLATE`. {% ifversion fpt or ghec %}A `FUNDING.yml` file must be in the `.github` folder. {% endif %}All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files).
+1. In the repository, create one of the supported community health files. Store the file in the required location:
+   * Store discussion category forms in `.github/DISCUSSION_TEMPLATE`.
+   * Store issue templates and their configuration file in `.github/ISSUE_TEMPLATE`.
+   {% ifversion fpt or ghec %}* Store `FUNDING.yml`, `VULNERABILITY_REPORT.yml`, and `VULNERABILITY_REPORT.yaml` in the `.github` folder.{% endif %}
+   * Store all other supported files in the root of the repository, the `.github` folder, or the `docs` folder.
+
+   For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files).
