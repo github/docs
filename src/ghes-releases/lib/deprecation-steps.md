@@ -193,7 +193,7 @@ This pull request deprecates GHES {{ release-number }} on docs.github.com.
 ````
 
 > [!NOTE]
-> The `dont-delete-features` check can fail when a deprecation removes more than one feature file. It guards against translations still referencing deleted features. This is expected on deprecations that fully remove features, and the docs-bot "Delete orphaned features" automation cleans them up. Don't block the pull request on it.
+> The `dont-delete-features` check fails when a deprecation deletes or renames any feature file. It guards against translations still referencing deleted features. This is expected on deprecations that fully remove features, and the docs-bot "Delete orphaned features" automation cleans them up. Don't block the pull request on it.
 
 Offer to open the pull request in the human's browser.
 

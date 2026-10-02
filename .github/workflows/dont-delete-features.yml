@@ -52,6 +52,6 @@ jobs:
       - name: Ultimately fail the workflow for attention
         if: ${{ steps.comment.outputs.markdown != '' }}
         run: |
-          echo "More than 1 feature was deleted as part of this PR."
-          echo "See posted PR commented about how to get them back."
+          echo "This PR deletes or renames one or more feature files."
+          echo "See the PR comment for how to get them back."
           exit 1
