@@ -34,6 +34,7 @@ Focus on the following instructions:
 
 You can define {% data variables.copilot.agent_profiles %} at different levels:
 
+* **User level**: Create `.copilot/agents/CUSTOM-AGENT-NAME.md` for user-level instructions that apply across repositories.
 * **Repository level**: Create `.github/agents/CUSTOM-AGENT-NAME.md` in your repository for project-specific agents.
 * **Organization level**: Create `/agents/CUSTOM-AGENT-NAME.md` in the organization's `.github` or `.github-private` repository for broader availability within the organization.
 * **Enterprise level**: Create `/agents/CUSTOM-AGENT-NAME.md` in the `.github-private` repository of an organization that an enterprise owner has designated in enterprise settings for availability across all repositories in the enterprise.
