@@ -22,7 +22,7 @@ You can authenticate {% data variables.product.prodname_actions_runner_controlle
 
 ## Authenticating ARC with a {% data variables.product.prodname_github_app %}
 
-1. Create a {% data variables.product.prodname_github_app %} that is owned by an organization. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app). Configure the {% data variables.product.prodname_github_app %} as follows.
+1. Create a {% data variables.product.prodname_github_app %}, for more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app). Configure the {% data variables.product.prodname_github_app %} as follows.
 
    1. For "Homepage URL," enter `https://github.com/actions/actions-runner-controller`.
 
@@ -39,11 +39,15 @@ You can authenticate {% data variables.product.prodname_actions_runner_controlle
 
 {% data reusables.actions.arc-app-post-install-steps %}
 
-1. In the menu at the top-left corner of the page, click **Install app**, and next to your organization, click **Install** to install the app on your organization.
+1. In the menu at the top-left corner of the page, click **Install app**, and next to your organization / personal account, click **Install** to install the app on your organization / personal account.
 
-1. After confirming the installation permissions on your organization, note the app installation ID. You will use it later. You can find the app installation ID on the app installation page, which has the following URL format:
+1. After confirming the installation permissions on your organization / personal account, note the app installation ID. You will use it later. You can find the app installation ID on the app installation page, which has the following URL format:
+- Organziation: 
 
-   `https://{% data variables.product.product_url %}/organizations/ORGANIZATION/settings/installations/INSTALLATION_ID`
+  `https://{% data variables.product.product_url %}/organizations/ORGANIZATION/settings/installations/INSTALLATION_ID`
+- Personal:
+
+  `https://{% data variables.product.product_url %}/settings/installations/INSTALLATION_ID`
 
 {% data reusables.actions.arc-app-post-install-set-secrets %}
 
