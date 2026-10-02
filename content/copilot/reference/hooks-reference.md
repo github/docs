@@ -59,7 +59,7 @@ Policy hooks are discovered from two sources:
 
 Policy hook files use the same hook configuration format as user and project hooks (`{ "version": 1, "hooks": { ... } }`). On POSIX systems, policy files must be owned by root and must not be group- or world-writable.
 
-Policy hooks are intended for use by enterprise IT administrators and require elevated privileges to install. End users cannot modify them.
+Policy hooks are intended for use by enterprise IT administrators and require elevated privileges to install. End users cannot modify them. Policy hooks always run on the host, even when the session sandbox is enabled—see [Sandboxed sessions](#sandboxed-sessions).
 
 ## Cloud agent execution environment
 
@@ -171,6 +171,17 @@ Progress messages are display-only and do not affect hook output or decision log
 * Each progress message must be on its own line and must be valid JSON on that single line. Multi-line / pretty-printed progress objects are not recognized as progress and will be left in the output stream, where they will likely cause the final `JSON.parse` to fail.
 * The final decision object, by contrast, may span multiple lines—only progress *recognition* is line-oriented; what remains after progress stripping is parsed as one JSON document, not as line-delimited JSON.
 * If the leftover output is empty, or fails to parse as JSON, the hook is treated as having produced no output and falls through to default behavior. Two or more non-progress JSON objects on stdout (for example, two `echo '{"permissionDecision": ...}'` calls) will therefore concatenate into invalid JSON and be ignored—emit exactly one final decision object.
+
+#### Sandboxed sessions
+
+> [!NOTE]
+> **{% data variables.copilot.copilot_cli_short %} only.**
+
+When the session sandbox is enabled, command hooks from the repository, your user settings, and plugins run inside it, with the same access as the agent's shell commands. A hook can also read the directory it was loaded from, so a plugin can run the scripts it ships, and a plugin hook can write to its data directory (`$COPILOT_PLUGIN_DATA`).
+
+A hook's `cwd` and `env` fields don't widen that access: a `cwd` outside the session's grants gives the hook no access there, and variables such as `TMPDIR` or `PATH` set in the hook's `env` grant nothing. When a hook fails in the sandbox, {% data variables.product.prodname_copilot_short %} shows a warning once per hook and session. To give a hook more access, add the required paths to `sandbox.userPolicy` in your settings. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#user-settings-copilotsettingsjson).
+
+Policy hooks always run on the host, outside the sandbox, even when the session sandbox is enabled. A policy hook should not run scripts from the workspace.
 
 ### HTTP hooks
 
