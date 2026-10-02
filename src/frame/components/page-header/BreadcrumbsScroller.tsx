@@ -9,20 +9,16 @@ import { Breadcrumbs } from './Breadcrumbs'
 
 import styles from './BreadcrumbsScroller.module.scss'
 
-// Padding past the ~28px chevron so a revealed crumb clears it rather than
-// landing half-hidden underneath.
+// Extra pad clears the ~28px chevron so revealed crumbs do not land underneath.
 const CHEVRON_PAD = 32
 
-// Wraps the secondary-bar breadcrumbs in a horizontal scroll region. When the
-// trail is too long to fit, the region scrolls, anchored to the RIGHT so the
-// current page is shown first, with a left chevron to reveal the leftmost
-// (ancestor) crumbs and a right chevron to return to the current page.
+// The secondary-bar breadcrumbs need horizontal scrolling because long trails
+// anchor right so the current page appears first. The left chevron reveals
+// ancestor crumbs, and the right chevron returns to the current page.
 //
-// Accessibility: the underlying <nav aria-label="Breadcrumb"><ol> is untouched,
-// so screen readers still announce the complete, ordered trail regardless of
-// visual scroll position. Tabbing to any crumb link natively scrolls it into
-// view. The chevrons are real buttons, labelled, and live OUTSIDE the <nav> so
-// they are not mistaken for crumbs.
+// Keep the nav and ol untouched so screen readers still announce the complete,
+// ordered trail. The focus handler scrolls crumb links into view. Chevrons are
+// labelled buttons outside the nav, so screen readers do not mistake them for crumbs.
 export const BreadcrumbsScroller = () => {
   const { t } = useTranslation('header')
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -38,14 +34,11 @@ export const BreadcrumbsScroller = () => {
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 1)
   }, [])
 
-  // Anchor the trail to its right edge so the current page shows first. Called
-  // on mount and when the available width changes, but NOT on every scroll, so
-  // it never fights the user (or keyboard focus) scrolling left.
+  // Anchor only on mount and real width changes, so user and keyboard scrolling can move left.
   const anchorRight = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
-    // Anchor instantly (not smoothly) so the mount/resize write doesn't animate
-    // and updateScrollState doesn't read a mid-animation scrollLeft.
+    // Instant anchoring prevents animated mount and resize writes from skewing scrollLeft reads.
     el.scrollTo({ left: el.scrollWidth, behavior: 'instant' })
     updateScrollState()
   }, [updateScrollState])
@@ -55,11 +48,7 @@ export const BreadcrumbsScroller = () => {
 
     const scroller = scrollerRef.current
     if (!scroller || typeof ResizeObserver === 'undefined') return
-    // Observe the OUTER scroller (not the scroll area). Its width is stable when
-    // the chevron shows/hides inside it, so re-anchoring only fires on genuine
-    // layout changes (rail collapse/expand, viewport resize), not the ~32px
-    // shift from the chevron toggling, which would otherwise create a feedback
-    // loop that snaps the scroll back to the right the moment you reach the start.
+    // Observe the outer scroller so rail and viewport resizes re-anchor without chevron loops.
     let lastWidth = scroller.clientWidth
     const observer = new ResizeObserver(() => {
       if (scroller.clientWidth !== lastWidth) {
@@ -71,10 +60,7 @@ export const BreadcrumbsScroller = () => {
     return () => observer.disconnect()
   }, [anchorRight])
 
-  // Reveal the previous crumb: align the crumb straddling the left edge to that
-  // edge. Targeting the boundary crumb (not stepping back from the first fully
-  // visible one) also covers a current crumb wider than the viewport. Falls back
-  // to the far left only when nothing is clipped left.
+  // Reveal the boundary crumb clipped at the left edge, including oversized crumbs.
   const scrollLeftClick = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
@@ -92,9 +78,7 @@ export const BreadcrumbsScroller = () => {
     el.scrollBy({ left: target.getBoundingClientRect().left - containerLeft })
   }, [])
 
-  // Reveal the next crumb toward the current page. Mirrors scrollLeftClick,
-  // including the oversized-crumb case. Falls back to the far right only when
-  // nothing is clipped right.
+  // Reveal the boundary crumb clipped at the right edge, including oversized crumbs.
   const scrollRightClick = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
@@ -109,11 +93,7 @@ export const BreadcrumbsScroller = () => {
     el.scrollBy({ left: target.getBoundingClientRect().right - containerRight })
   }, [])
 
-  // When a crumb link receives focus via keyboard (Tab), the browser does not
-  // reliably scroll it into view inside this overflow container (the brand
-  // Breadcrumbs nav is itself an overflow context, which confuses
-  // scrollIntoView), so compute and apply the scroll ourselves. Otherwise
-  // keyboard users can focus an off-screen link with no visible focus indicator.
+  // Brand's nested overflow defeats scrollIntoView, so compute scrolling to keep focus visible.
   const handleFocus = useCallback((event: FocusEvent<HTMLDivElement>) => {
     const container = scrollRef.current
     const link = event.target instanceof HTMLElement ? event.target.closest('a') : null
@@ -122,10 +102,9 @@ export const BreadcrumbsScroller = () => {
     const containerRect = container.getBoundingClientRect()
     const linkRect = link.getBoundingClientRect()
     const pad = 16
-    // Scroll instantly (not smoothly) on focus so the reveal keeps pace with
-    // Tab and the focus ring never trails off-screen.
+    // Instant focus scrolling keeps the reveal ahead of Tab and the focus ring on-screen.
     if (linkRect.left < containerRect.left + pad) {
-      // Off-screen (or clipped) to the left, so scroll left to reveal it.
+      // Clipped to the left, so scroll left to reveal it.
       container.scrollBy({ left: linkRect.left - (containerRect.left + pad), behavior: 'instant' })
     } else if (linkRect.right > containerRect.right - pad) {
       // Off-screen to the right, so scroll right to reveal it.
@@ -138,12 +117,7 @@ export const BreadcrumbsScroller = () => {
 
   return (
     <div ref={scrollerRef} className={styles.scroller}>
-      {/* Both chevrons are always rendered (toggled via visibility) and overlay
-          the scroll area's ends rather than sitting beside it, so their
-          show/hide never changes the scroll area's width; changing it would
-          shift the scrollable range and fight the scroll position. A hidden
-          chevron leaves no gap at that edge. Hidden chevrons are removed from
-          the tab order and the accessibility tree. */}
+      {/* Always render overlaid chevrons so visibility toggles never change scroll width. */}
       <IconButton
         className={cx(styles.leftChevron, !canScrollLeft && styles.chevronHidden)}
         variant="invisible"

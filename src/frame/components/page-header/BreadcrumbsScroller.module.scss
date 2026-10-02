@@ -1,7 +1,5 @@
-// Horizontal scroll wrapper for the secondary-bar breadcrumbs. When the trail
-// overflows, the scroll area is anchored to the right (current page visible)
-// and a left chevron reveals ancestor crumbs. A left-edge fade signals that
-// there is more content scrolled off to the left.
+// Overflowing secondary-bar trails anchor right so the current page stays visible.
+// A left chevron and fade reveal ancestor crumbs.
 
 .scroller {
   display: flex;
@@ -12,12 +10,9 @@
   position: relative;
 }
 
-// The chevrons overlay the ends of the scroll area (absolutely positioned)
-// rather than sitting in the flex flow. This keeps the scroll area full-width
-// and constant, so its scrollable range never shifts when a chevron toggles,
-// while a hidden chevron leaves NO reserved gap at that edge. Each chevron
-// carries the secondary bar's own background so a crumb scrolling underneath is
-// masked rather than showing through the icon.
+// Chevrons overlay the scroll area instead of sitting in flex flow, so the scroll
+// range stays stable when visibility changes. Hidden chevrons reserve no gap.
+// Their secondary-bar background masks crumbs as they pass underneath.
 .leftChevron {
   position: absolute;
   left: 0;
@@ -25,8 +20,7 @@
   transform: translateY(-50%);
   z-index: 1;
   color: var(--brand-color-text-muted, #58635b);
-  // Must stay whatever opaque token DocsSecondaryBar paints on `.bar`, or a crumb
-  // scrolling underneath shows through.
+  // Match DocsSecondaryBar .bar's opaque canvas, or passing crumbs show through.
   background-color: var(--brand-color-canvas-default);
 }
 
@@ -37,14 +31,13 @@
   transform: translateY(-50%);
   z-index: 1;
   color: var(--brand-color-text-muted, #58635b);
-  // Must match `.bar` — see .leftChevron.
+  // Keep this equal to .bar; see .leftChevron.
   background-color: var(--brand-color-canvas-default);
 }
 
-// On hover, keep the solid canvas background (Primer's invisible IconButton
-// otherwise swaps in a translucent tint, letting crumbs bleed through the
-// button) and instead signal interactivity by bolding the chevron: a
-// currentColor stroke thickens the fill-based octicon glyph.
+// Keep the solid canvas on hover because Primer's invisible IconButton uses a
+// translucent tint that lets crumbs bleed through. A currentColor stroke thickens
+// the fill-based octicon glyph for hover feedback.
 .leftChevron:hover,
 .rightChevron:hover {
   background-color: var(--brand-color-canvas-default) !important;
@@ -56,9 +49,8 @@
   }
 }
 
-// Hidden chevrons are removed from view and interaction (and from the tab
-// order / a11y tree in the component). Because they're absolutely positioned
-// they already occupy no layout space, so the scroll area is unaffected.
+// Hidden chevrons leave view, interaction, tab order, and the accessibility tree.
+// Absolute positioning already keeps them out of layout.
 .chevronHidden {
   visibility: hidden;
   pointer-events: none;
@@ -69,12 +61,9 @@
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  // Constant 16px on both ends: keeps a crumb off the border at the scroll
-  // extremes, and mid-scroll the chevron overlays the end of the trail (its
-  // solid background masks whatever passes underneath). Keeping this padding
-  // fixed, never toggled with the chevrons, means the scroll content's width
-  // never changes, so toggling a chevron can't reflow the trail or nudge the
-  // scroll position (no hop, no mount bounce, no click-lands-short).
+  // Fixed 16px end padding keeps crumbs clear at scroll extremes and gives
+  // overlaid chevrons room to mask mid-scroll crumbs. Never toggle it with
+  // chevron visibility, or content width changes and the trail position jumps.
   padding: 0 16px;
   scrollbar-width: none; // Firefox: hide the horizontal scrollbar
   -ms-overflow-style: none;
@@ -83,12 +72,11 @@
     display: none; // Chrome/Safari
   }
 
-  // Make the brand Breadcrumbs <nav> the single, full-content-width scroll
-  // child. Without this the brand nav fills only the visible width while its
-  // <ol> overflows it: a nested overflow context that freezes scrollLeft at
-  // its max so ancestor crumbs can never be revealed. Growing the nav to
-  // max-content removes the nesting so the scroll range spans the whole trail;
-  // min-width: 100% keeps short trails left-aligned and filling the container.
+  // The Brand Breadcrumbs nav must be the single full-content-width scroll child.
+  // Otherwise the nav fills the visible width while its ol overflows, creating a
+  // nested overflow context that freezes scrollLeft at its max and hides ancestors.
+  // max-content gives the scroll range the whole trail; min-width: 100% keeps short
+  // trails left-aligned and filling the container.
   :global(nav) {
     display: flex;
     flex: none;

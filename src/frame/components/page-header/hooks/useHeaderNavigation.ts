@@ -14,6 +14,15 @@ type Props = {
   onNarrowMenuToggle: (isOpen: boolean) => void
 }
 
+// useHeaderNavigation resolves searchButtonRef on every read because Brand owns the
+// search trigger subtree. If Brand recreates the trigger during the narrow menu's
+// --search-open animation, a mount-time node cache would make Escape restore focus
+// to a detached element.
+//
+// It also neutralizes Brand's skip link while the narrow menu is open. Brand renders
+// the link as a sibling before header, outside DefaultLayout's inert wrapper. Left
+// alone, it stays focusable and points at inert #main-content, so activation moves
+// focus nowhere. Mirror DefaultLayout's Docs skip-link handling.
 export function useHeaderNavigation({
   homeURL,
   searchTriggerClassName,
@@ -29,11 +38,6 @@ export function useHeaderNavigation({
     headerRef.current = header
   }, [])
 
-  // Resolved on every read rather than captured when the header mounts. This is
-  // the search overlay's `returnFocusRef`, and Brand owns that subtree: if a
-  // future version re-creates the trigger (opening the narrow menu, its
-  // `--search-open` animation), a node cached at mount would leave Escape
-  // restoring focus to a detached element, and the failure would be silent.
   const searchButtonRef = useMemo<RefObject<HTMLButtonElement | null>>(
     () => ({
       get current() {
@@ -48,19 +52,13 @@ export function useHeaderNavigation({
   )
 
   const closeNarrowMenu = useCallback(() => {
-    // Brand 0.75 has no close-menu API. Use its exported control hook rather
-    // than a private CSS selector, synthetic Escape, or remounting the navbar.
+    // Brand exposes no close-menu API; find its button by exported test ID and click it.
     const menuButton = headerRef.current?.querySelector<HTMLButtonElement>(
       `[data-testid="${SubdomainNavBar.testIds.menuButton}"]`,
     )
     if (menuButton?.getAttribute('aria-expanded') === 'true') menuButton.click()
   }, [])
 
-  // Brand renders its own skip link as a sibling *before* `<header>`, which puts
-  // it outside the inert wrapper DefaultLayout draws around the rest of the page.
-  // Left alone it stays focusable while the narrow menu is open and still points
-  // at #main-content — which is inert — so activating it would move focus
-  // nowhere. Mirror exactly what DefaultLayout does to the Docs skip link.
   useEffect(() => {
     const skipLink = document
       .querySelector('[data-container="header"]')
@@ -115,8 +113,7 @@ export function useHeaderNavigation({
     const trigger = event.target.closest<HTMLButtonElement>(`.${searchTriggerClassName} button`)
     if (!trigger || !event.currentTarget.contains(trigger)) return
 
-    // The compound Search overrides onSearchOpen and cannot host our Copilot
-    // dialog. Intercept only our trigger, keeping Brand's native dialog closed.
+    // Open the Docs Copilot dialog from our trigger and keep Brand's native dialog closed.
     event.preventDefault()
     event.stopPropagation()
     setIsSearchOpen(true)

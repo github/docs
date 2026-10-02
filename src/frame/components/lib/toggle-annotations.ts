@@ -8,7 +8,6 @@ enum annotationMode {
   Inline = 'inline',
 }
 
-// Returns the mode if it is 'beside' or 'inline', otherwise falls back to Beside.
 function validateMode(mode?: string) {
   if (mode === annotationMode.Beside || mode === annotationMode.Inline) return mode
   else return annotationMode.Beside
@@ -39,9 +38,6 @@ export default function toggleAnnotation() {
   }
 }
 
-// Sets aria-current on every button whose value matches the validated mode, and
-// clears it from the rest. Missing or invalid modes validate to Beside. Throws if
-// no button matches.
 function setActive(annotationButtons: Array<Element>, targetMode?: string) {
   const activeElements: Array<Element> = []
   targetMode = validateMode(targetMode)
