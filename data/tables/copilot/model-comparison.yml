@@ -84,11 +84,6 @@
   excels_at: Fast, reliable answers to lightweight coding questions
   further_reading: '[Claude Haiku 4.5 model card](https://assets.anthropic.com/m/99128ddd009bdcb/Claude-Haiku-4-5-System-Card.pdf)'
 
-- name: Claude Opus 4.7
-  task_area: Deep reasoning and debugging
-  excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: '[Claude Opus 4.7 model card](https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf)'
-
 - name: Claude Opus 4.8
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
@@ -125,16 +120,6 @@
   further_reading: 'Coming soon'
 
 # Google
-- name: Gemini 3.5 Flash
-  task_area: Fast help with simple or repetitive tasks
-  excels_at: Fast, reliable answers to lightweight coding questions
-  further_reading: '[Gemini 3.5 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf)'
-
-- name: Gemini 3.6 Flash
-  task_area: Fast help with simple or repetitive tasks
-  excels_at: Fast, reliable answers to lightweight coding questions
-  further_reading: '[Gemini 3.6 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-6-Flash-Model-Card.pdf)'
-
 - name: Gemini 3.7 Flash
   task_area: Fast help with simple or repetitive tasks
   excels_at: Fast, reliable answers to lightweight coding questions
@@ -174,11 +159,6 @@
   further_reading: '[Qwen2.5 model card](https://arxiv.org/pdf/2409.12186)'
 
 # Open-weight models
-- name: Kimi K2.7 Code
-  task_area: General-purpose coding and agent tasks
-  excels_at: Fast, reliable answers to lightweight coding questions
-  further_reading: '[Kimi K2.7 Code model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code)'
-
 - name: Kimi K3
   task_area: Agentic coding and long-context work
   excels_at: Multi-step agent tasks across large codebases

@@ -187,7 +187,6 @@ copilot_claude_opus_41: 'Claude Opus 4.1'
 copilot_claude_opus_45: 'Claude Opus 4.5'
 copilot_claude_opus_46: 'Claude Opus 4.6'
 copilot_claude_opus_46_fast: 'Claude Opus 4.6 (fast mode) (preview)'
-copilot_claude_opus_47: 'Claude Opus 4.7'
 copilot_claude_opus_48: 'Claude Opus 4.8'
 copilot_claude_opus_48_fast: 'Claude Opus 4.8 (fast mode) (preview)'
 copilot_claude_opus_5: 'Claude Opus 5'
@@ -209,8 +208,6 @@ copilot_gemini_3_flash: 'Gemini 3 Flash'
 copilot_gemini_25_pro: 'Gemini 2.5 Pro'
 copilot_gemini_3_pro: 'Gemini 3 Pro'
 copilot_gemini_31_pro: 'Gemini 3.1 Pro'
-copilot_gemini_35_flash: 'Gemini 3.5 Flash'
-copilot_gemini_36_flash: 'Gemini 3.6 Flash'
 copilot_gemini_37_flash: 'Gemini 3.7 Flash'
 copilot_gemini_38_flash: 'Gemini 3.8 Flash'
 # OpenAI GPT series:
@@ -253,7 +250,6 @@ copilot_mai_code_1_1_flash: 'MAI-Code-1.1-Flash'
 # Microsoft fine-tuned:
 copilot_raptor_mini: 'Raptor mini'
 # Open-weight models:
-copilot_kimi_k27_code: 'Kimi K2.7 Code'
 copilot_kimi_k3: 'Kimi K3'
 
 ## Next edit suggestions

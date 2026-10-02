@@ -106,12 +106,6 @@
   app: true
 
 # Google
-- name: Gemini 3.6 Flash
-  cloud_agent: true
-  chat: true
-  cli: true
-  app: true
-
 - name: Gemini 3.7 Flash
   cloud_agent: true
   chat: true

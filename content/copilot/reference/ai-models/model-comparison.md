@@ -95,7 +95,6 @@ These models are designed for tasks that require step-by-step reasoning, complex
 | {% data variables.copilot.copilot_gpt_55 %}           | Great at complex reasoning, code analysis, and technical decision-making.                                                                                       |
 | {% data variables.copilot.copilot_gpt_56_sol %}       | The highest reasoning ceiling in the GPT-5.6 family. Best for complex reasoning over large codebases and demanding, long-running agentic work. |
 | {% data variables.copilot.copilot_claude_sonnet_46 %} | Reliable completions and smarter reasoning under pressure.                                                                     |
-| {% data variables.copilot.copilot_claude_opus_47 %}   | Anthropic’s most powerful model. Strong at deep reasoning over large, complex codebases.                                                               |
 
 ### When to use these models
 

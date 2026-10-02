@@ -19,13 +19,6 @@
   business: true
   enterprise: true
 
-- name: Claude Opus 4.7
-  pro: false
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
 - name: Claude Opus 4.8
   pro: false
   pro_plus: true
@@ -83,20 +76,6 @@
   enterprise: true
 
 - name: Claude Sonnet 5.5
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 3.5 Flash
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 3.6 Flash
   pro: true
   pro_plus: true
   max: true
@@ -223,13 +202,6 @@
   enterprise: true
 
 - name: Grok 4.7
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Kimi K2.7 Code
   pro: true
   pro_plus: true
   max: true

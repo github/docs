@@ -164,8 +164,8 @@ For full instructions, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up
 
 {% data variables.copilot.copilot_code-review_short %} supports multiple {% data variables.product.prodname_copilot_short %} review effort levels, so you can choose the level of thoroughness that matches the criticality of your code.
 
-* **Lite**: Standard review. Provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies (default).
-* **Balanced**: Routes pull requests to a higher-reasoning model for longer analysis of complex logic, security-sensitive code, and cross-service changes. Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes, than Lite reviews.
+* **Lite**: Standard review. Provides fast, targeted feedback on common issues such as bugs, security vulnerabilities, and style inconsistencies.
+* **Balanced**: Routes pull requests to a higher-reasoning model for longer analysis of complex logic, security-sensitive code, and cross-service changes (default). Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes, than Lite reviews.
 
 Use Balanced for security-sensitive code, multi-service pull requests, or repositories with strict quality standards. Use Lite for routine changes where fast feedback is more important than exhaustive analysis.
 
@@ -178,7 +178,7 @@ When {% data variables.product.prodname_copilot_short %} determines which review
 1. The requestor's {% data variables.product.prodname_copilot_short %} review effort. For a new pull request, the requestor is the author. When someone marks a draft ready for review, that person is the requestor.
 1. A {% data variables.product.prodname_copilot_short %} review effort set for the repository
 1. A {% data variables.product.prodname_copilot_short %} review effort set for the organization, or the repository owner's {% data variables.product.prodname_copilot_short %} review effort on a user-owned repository
-1. {% data variables.product.github %}'s built-in default, which is Lite. Some owners have Balanced as the built-in default.
+1. {% data variables.product.github %}'s built-in default, which is Balanced.
 
 After {% data variables.copilot.copilot_code-review_short %} reviews a pull request, the pull request overview comment shows the effort level used for each review run.
 
