@@ -23,12 +23,13 @@ This guide walks you through how to respond to a security incident, outlining th
 
 ### Prerequisites
 
-Ideally, you have **audit log streaming** and **source IP address visibility** already enabled for the enterprise (streaming the data to a security information and event management (SIEM) system) and you have access to that data. See [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
+Investigating and responding to an incident is self-service. Before an incident occurs, enterprise owners should enable enterprise audit log streaming, API request event streaming, and source IP address disclosure. Without all three features enabled at the enterprise level, responders will have critical visibility gaps when investigating incidents affecting the enterprise or its organizations. Enterprise owners should also set an appropriate retention period for the streamed logs and ensure incident responders can access them. See [AUTOTITLE](/code-security/tutorials/secure-your-organization/prepare-for-a-security-incident#set-up-critical-tools-in-advance).
 
 ### Throughout your response
 
 As you progress through your response, make sure that you:
-* **Preserve evidence**: Take screenshots of suspicious activity, export logs or query results, and save copies of affected files or code before cleanup.
+
+* **Capture available evidence**: Take screenshots of suspicious activity, export logs or query results while they are available, and save copies of affected files or code before cleanup. Opening a support ticket does not preserve logs or extend their retention period. {% ifversion ghec %}For information about {% data variables.contact.github_support %}'s role, see [AUTOTITLE](/support/learning-about-github-support/understanding-how-github-support-can-help-during-a-security-incident).{% endif %}
 * **Keep a record**: Document your findings (for example, times, dates, Indicators of Compromise (IoCs), repositories affected) and record each decision you take.
 * **Communicate**: Notify relevant stakeholders (such as security leads and engineering managers, as well as legal and privacy teams if sensitive data is at risk) and keep them updated.
 
@@ -74,6 +75,7 @@ The following {% data variables.product.github %} tools and surfaces can help.
 For details on each tool, see [AUTOTITLE](/code-security/reference/security-incident-response/investigation-tools).
 
 The validation phase can be **quick**:
+
 * Aim to gather enough evidence to determine whether the signal is likely to be a **real** and **active** threat.
 * If you can't quickly rule out the signal as a false positive, assume it's real.
 * Deep investigation can be performed later.
@@ -120,6 +122,7 @@ For exposed or exploited credentials, the most immediate action you can take is 
   There are additional options for blocking credential access. For a full list by credential type, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/github-credential-types).
 
 {% ifversion single_user_cred_revocation %}
+
 * **Revoke or delete credentials for a specific user**
 
   If you've identified a specific compromised account, enterprise or organization owners on {% data variables.product.prodname_ghe_cloud %} can revoke SSO authorizations for that individual user. For enterprises with {% data variables.product.prodname_emus %}, you can also delete credentials entirely. This is less disruptive than bulk actions while still containing the threat. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-individual-members).
@@ -129,6 +132,7 @@ For exposed or exploited credentials, the most immediate action you can take is 
   If the incident is limited to one credential type, such as {% data variables.product.pat_v1_plural %}, enterprise or organization owners can revoke SSO authorizations or delete credentials of that type only, across all members, using the {% data variables.product.github %} UI{% ifversion ghec %} or REST API{% endif %}. This targets the affected credential type without disrupting other credentials. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents/revoke-authorizations-or-tokens#taking-action-against-a-specific-credential-type).
 
 {% endif %}
+
 * **Emergency actions (major incident)**
 
   Enterprise{% ifversion single_user_cred_revocation %} and organization{% endif %} owners on {% data variables.product.prodname_ghe_cloud %} can take bulk emergency actions to lock down access across their enterprise{% ifversion single_user_cred_revocation %} or organization{% endif %}. For enterprises with {% data variables.product.prodname_emus %}, this includes **deleting all user tokens and keys**. These are high-impact actions that will break automations and should be reserved for major incidents. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/respond-to-incidents).
@@ -162,9 +166,9 @@ To restrict access to the enterprise, organization or repository, there are seve
 * **Stop malicious workflow runs**
 
   If you suspect that a {% data variables.product.prodname_actions %} workflow or runner is being used as part of an active attack, you can take the following actions:
-   * Cancel in-progress workflow runs for an affected repository. See [AUTOTITLE](/actions/how-tos/manage-workflow-runs/cancel-a-workflow-run).
-   * Disable {% data variables.product.prodname_actions %} for an affected repository in an organization, or for a specific organization. See [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization) (organization owners) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise) (enterprise administrators).
-   * Remove self-hosted runners. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/remove-runners).
+  * Cancel in-progress workflow runs for an affected repository. See [AUTOTITLE](/actions/how-tos/manage-workflow-runs/cancel-a-workflow-run).
+  * Disable {% data variables.product.prodname_actions %} for an affected repository in an organization, or for a specific organization. See [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization) (organization owners) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise) (enterprise administrators).
+  * Remove self-hosted runners. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/remove-runners).
 
 * **Disable webhooks**
 
@@ -214,6 +218,7 @@ Even if you're not certain a credential was compromised, rotate it if there's an
 You will need to check for persistence mechanisms that the attacker may have established to maintain access even after your initial containment actions.
 
 This includes, but isn't limited to, checking for things like:
+
 * Suspicious or unfamiliar workflow files that may have been added or modified.
 * New webhooks pointing to unfamiliar domains.
 * New self-hosted runners.

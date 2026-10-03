@@ -10,6 +10,8 @@ redirect_from:
 contentType: how-tos
 category:
   - Manage accounts and repositories
+docsTeamMetrics:
+  - enterprise-onboarding
 ---
 
 To tailor access management to your company's needs, you can create custom roles for your{% ifversion enterprise-custom-roles %} enterprise account and{% endif %} organizations.

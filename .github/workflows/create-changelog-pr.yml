@@ -1,8 +1,6 @@
 name: Create a PR to add an entry to the CHANGELOG.md file in this repo
 
-# **What it does**: If a member of the github org posts a changelog comment, it creates a PR to update the CHANGELOG.md file.
-# **Why we have it**: This surfaces docs changelog details publicly.
-# **Who does it impact**: GitHub users and staff.
+# Surfaces docs changelog details publicly from authorized github-org comments.
 
 on:
   issue_comment:
@@ -56,7 +54,6 @@ jobs:
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
         run: |
-          # Get the first line of the comment and trim the leading/trailing whitespace:
           FIRST_LINE=$(printf "%s\n" "$COMMENT_BODY" | head -n1 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
           if [[ "$FIRST_LINE" != '## Changelog summary' ]]; then
             echo "FIRST_LINE=|$FIRST_LINE|"
@@ -92,11 +89,7 @@ jobs:
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
           git checkout -b "$BRANCH"
 
-          # Insert new changelog entry after the first heading, as follows:
-          # Print the first line of the existing CHANGELOG.md file into a `tmp` file, followed by an empty line.
-          # Then, print the contents of `changelog_entry.txt` into the `tmp` file.
-          # Then, print the rest of the existing CHANGELOG.md file into the `tmp` file.
-          # Finally, replace the existing CHANGELOG.md file with the `tmp` file.
+          # Insert after the first line because the changelog starts with its H1.
           awk 'NR==1{print; print ""; while ((getline line < "changelog_entry.txt") > 0) print line; next}1' CHANGELOG.md > tmp && mv tmp CHANGELOG.md
 
           git add CHANGELOG.md
@@ -126,7 +119,6 @@ jobs:
         if: env.CONTINUE_WORKFLOW == 'true'
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         env:
-          # Get the number of the PR that was just created:
           PULL_REQUEST_NUMBER: ${{ steps.create_pull_request.outputs.pull-request-number }}
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
@@ -142,7 +134,6 @@ jobs:
         if: env.CONTINUE_WORKFLOW == 'true'
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         env:
-          # Reuse the PR number captured earlier
           PULL_REQUEST_NUMBER: ${{ steps.create_pull_request.outputs.pull-request-number }}
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}

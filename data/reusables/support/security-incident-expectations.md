@@ -1,0 +1,1 @@
+**During a security incident**, {% data variables.contact.github_support %} can answer questions about features and available data, but does not investigate on your behalf or preserve logs for your investigation. For more information, see [AUTOTITLE](/support/learning-about-github-support/understanding-how-github-support-can-help-during-a-security-incident).

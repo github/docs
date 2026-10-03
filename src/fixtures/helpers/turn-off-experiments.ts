@@ -18,7 +18,7 @@ async function alterExperimentsInPage(
   variation: typeof TREATMENT_VARIATION | typeof CONTROL_VARIATION,
 ) {
   const experiments = getActiveExperiments('all')
-  // Include a page.evaluate call to simulate the same # of events as if an experiment were active
+  // When no experiments run, page.evaluate keeps the Playwright event count matching active runs.
   if (!experiments.length) {
     await page.evaluate(() => {
       console.log('No experiments to turn off, skipping')
@@ -28,7 +28,7 @@ async function alterExperimentsInPage(
   for (const experiment of getActiveExperiments('all')) {
     await page.evaluate(
       ({ experimentKey, variationType }) => {
-        // @ts-expect-error overrideControlGroup is a custom function added to the window object
+        // @ts-expect-error -- overrideControlGroup is a custom window helper for experiment tests.
         window.overrideControlGroup(experimentKey, variationType)
       },
       { experimentKey: experiment.key, variationType: variation },
@@ -36,8 +36,7 @@ async function alterExperimentsInPage(
   }
 }
 
-// Place Playwright tests in control group for every active experiment
-// To write a test for an experiment, explicitly turn that experiment on in the test
+// Playwright fixtures start in the control group; tests opt into treatments explicitly.
 export function turnOffExperimentsBeforeEach(test: typeof Test) {
   test.beforeEach(async ({ page }) => {
     await page.goto('/')

@@ -1,12 +1,11 @@
-// E.g. `{%- ifversion dependency-review-action-licenses %}\n`
+// Matches a standalone ifversion line, such as {%- ifversion dependency-review-action-licenses %}.
 const ifVersionRegex = /^{%-?\s*ifversion\s+([\w- ]+)\s*-?%}\n/
 const ifVersionEndRegex = /\|({%-?\s*ifversion\s+([\w- ]+)\s*-?%})\n/
-// E.g. `... |{% endif %}{% ifversion dependency-review-action-fail-on-scopes %}\n`
+// Matches a row ending in endif plus ifversion, such as |{% endif %}{% ifversion foo %}.
 const endifIfVersionRegex = /\|({%-?\s*endif\s*%})({%-?\sifversion\s+([\w- ]+)\s*-?%})\n/
 const endifRegex = /\|({%-?\s*endif\s*%})\n/
 const endifAloneRegex = /^({%-?\s*endif\s*%})\n/
 
-// Split a string by newlines while keeping the newlines
 function splitAndKeepNewlines(str: string) {
   const lines = str.split(/(\r\n|\r|\n)/)
   const result: string[] = []
@@ -41,7 +40,7 @@ export async function processFile(content: string) {
         inTable = false
       }
       if (inTable) {
-        // E.g. `{%- ifversion dependency-review-action-licenses %}\n`
+        // Standalone ifversion tags become their own table rows.
         if (ifVersionRegex.test(line)) {
           const better = line.replace('{%-', '{%').replace('-%}', '%}').trim()
           line = `| ${better} |\n`

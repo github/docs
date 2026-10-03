@@ -1,7 +1,5 @@
-/**
- * @purpose Writer tool
- * @description Auto-populate the `contentType` frontmatter property based on the directory location of the content file
- */
+// @purpose Writer tool
+// @description Auto-populate the `contentType` frontmatter property based on the directory location of the content file
 
 import fs from 'fs'
 import path from 'path'
@@ -54,8 +52,7 @@ async function main() {
     if (file.includes('early-access')) return false
     if (!options.paths) return true
     return options.paths.some((p: string) => {
-      // Allow either a full content path like "content/foo/bar.md"
-      // or a top-level directory name like "copilot"
+      // Accept full content paths like content/foo/bar.md or top-level dirs like copilot.
       if (!p.startsWith('content')) {
         p = path.join('content', p)
       }
@@ -107,7 +104,6 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
     return { processed: true, updated: false }
   }
 
-  // Check if we're actually changing an existing contentType
   const isChangingContentType = data.contentType && data.contentType !== newContentType
   const isAddingContentType = !data.contentType
 
@@ -119,7 +115,6 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
     console.log(`Adding contentType '${newContentType}' on ${relativePath}`)
   }
 
-  // Only update if there's actually a change needed
   if (isChangingContentType || isAddingContentType) {
     data.contentType = newContentType
   } else {
@@ -127,13 +122,12 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
     return { processed: true, updated: false }
   }
 
-  // Write the file back
   fs.writeFileSync(
     filePath,
     frontmatter.stringify(
       content,
       data,
-      // lineWidth is a js-yaml option passed through gray-matter, not in gray-matter's type definitions
+      // gray-matter passes lineWidth to js-yaml, but its types omit it.
       { lineWidth: -1 } as unknown as Parameters<typeof frontmatter.stringify>[2],
     ),
   )
@@ -147,43 +141,35 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
 }
 
 function determineContentType(relativePath: string): string {
-  // The split path array will be structured like:
-  // [ 'copilot', 'how-tos', 'troubleshoot', 'index.md' ]
-  // where the content type we want is in slot 1.
+  // For copilot/how-tos/troubleshoot/index.md, pathSegments[1] is the content type.
   const pathSegments = relativePath.split(path.sep)
 
   const topLevelDirectory = pathSegments[0]
   const derivedContentType = pathSegments[1]
 
-  // There is only one content/index.md, and it's the homepage.
+  // content/index.md is the only homepage.
   if (topLevelDirectory === 'index.md') return 'homepage'
 
-  // SPECIAL HANDLING FOR RAI
-  // If a directory name includes a responsible-use string, assume the 'rai' type.
+  // Responsible-use directories map to the rai content type.
   if (derivedContentType.includes(RESPONSIBLE_USE_STRING)) {
     return RAI_TYPE
   }
 
-  // Allow 'getting-started' as an alternative directory name for 'get-started'.
+  // getting-started directories map to get-started.
   if (derivedContentType === 'getting-started') {
     return 'get-started'
   }
 
-  // When the content directory matches any of the allowed
-  // content type values (such as 'get-started',
-  // 'concepts', 'how-tos', 'reference', and 'tutorials'),
-  // immediately return it. We're satisfied.
+  // Directories matching contentTypesEnum map to their content type.
   if (contentTypesEnum.includes(derivedContentType)) {
     return derivedContentType
   }
 
-  // There is only one content/<product>/index.md file per doc set.
-  // This index.md is always a landing page.
+  // Product index.md files are landing pages.
   if (derivedContentType === 'index.md') {
     return LANDING_TYPE
   }
 
-  // Classify anything else as 'other'.
   return OTHER_TYPE
 }
 

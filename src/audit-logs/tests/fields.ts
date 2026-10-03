@@ -5,18 +5,15 @@ import type { AuditLogEventT } from '../types'
 describe('Audit log fields functionality', () => {
   describe('getAuditLogEvents', () => {
     test('should return events with fields when available', () => {
-      // Test with GHEC version which should have fields after our changes
       const events = getAuditLogEvents('organization', 'enterprise-cloud@latest')
 
       expect(events).toBeDefined()
       expect(Array.isArray(events)).toBe(true)
       expect(events.length).toBeGreaterThan(0)
 
-      // Check that at least some events have fields
       const eventsWithFields = events.filter((event) => event.fields && event.fields.length > 0)
       expect(eventsWithFields.length).toBeGreaterThan(0)
 
-      // Check structure of an event with fields
       const eventWithFields = eventsWithFields[0]
       expect(eventWithFields).toHaveProperty('action')
       expect(eventWithFields).toHaveProperty('description')
@@ -39,13 +36,11 @@ describe('Audit log fields functionality', () => {
     })
 
     test('should handle events without fields gracefully', () => {
-      // Some events might not have fields, this should not break anything
       const events = getAuditLogEvents('organization', 'enterprise-cloud@latest')
 
       for (const event of events) {
         expect(event).toHaveProperty('action')
         expect(event).toHaveProperty('description')
-        // fields property is optional
         if (event.fields) {
           expect(Array.isArray(event.fields)).toBe(true)
         }
@@ -59,7 +54,6 @@ describe('Audit log fields functionality', () => {
       if (eventWithFields) {
         const fields = eventWithFields.fields!
 
-        // Common fields that should be present in most events
         const commonFields = ['@timestamp', 'action', 'actor']
         const hasCommonFields = commonFields.some((field) => fields.includes(field))
         expect(hasCommonFields).toBe(true)
@@ -77,11 +71,9 @@ describe('Audit log fields functionality', () => {
       expect(categorizedEvents).toBeDefined()
       expect(typeof categorizedEvents).toBe('object')
 
-      // Check that categories exist
       const categories = Object.keys(categorizedEvents)
       expect(categories.length).toBeGreaterThan(0)
 
-      // Check that events in categories have proper structure including fields
       for (const category of categories) {
         const events = categorizedEvents[category]
         expect(Array.isArray(events)).toBe(true)
@@ -89,7 +81,6 @@ describe('Audit log fields functionality', () => {
         for (const event of events as AuditLogEventT[]) {
           expect(event).toHaveProperty('action')
           expect(event).toHaveProperty('description')
-          // fields is optional but if present should be array
           if (event.fields) {
             expect(Array.isArray(event.fields)).toBe(true)
           }
@@ -103,7 +94,6 @@ describe('Audit log fields functionality', () => {
         'enterprise-cloud@latest',
       )
 
-      // Find an event with fields
       let eventWithFields: AuditLogEventT | null = null
       for (const category of Object.keys(categorizedEvents)) {
         const event = categorizedEvents[category].find(
@@ -141,13 +131,11 @@ describe('Audit log fields functionality', () => {
 
       if (eventWithFields) {
         for (const field of eventWithFields.fields!) {
-          // Field names should be reasonable strings
           expect(field).toBeTruthy()
           expect(typeof field).toBe('string')
           expect(field.length).toBeGreaterThan(0)
-          expect(field.length).toBeLessThan(100) // Reasonable max length
+          expect(field.length).toBeLessThan(100)
 
-          // Should not contain special characters that would break display
           expect(field).not.toMatch(/[<>'"&]/)
         }
       }
@@ -172,7 +160,7 @@ describe('Audit log fields functionality', () => {
             }
           }
         } catch (error) {
-          // Some page types might not exist for certain versions, that's ok
+          // Some page types do not exist for every version.
           console.log(`Skipping ${pageType} page type due to: ${error}`)
         }
       }
@@ -184,7 +172,6 @@ describe('Audit log fields functionality', () => {
       const events = getAuditLogEvents('organization', 'enterprise-cloud@latest')
       const event = events[0]
 
-      // These should compile without TypeScript errors
       const action: string = event.action
       const description: string = event.description
       const fields: string[] | undefined = event.fields

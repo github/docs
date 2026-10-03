@@ -104,7 +104,7 @@
       {
         "type": "integer",
         "name": "number",
-        "description": "",
+        "description": "<p>The pull request number.</p>",
         "isRequired": true,
         "childParamsGroups": []
       },
@@ -180,7 +180,7 @@
       {
         "type": "integer",
         "name": "number",
-        "description": "",
+        "description": "<p>The pull request number.</p>",
         "isRequired": true,
         "childParamsGroups": []
       },
@@ -386,6 +386,12 @@
       },
       {
         "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.19/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
         "name": "milestone",
         "description": "<p>A collection of related issues and pull requests.</p>",
         "childParamsGroups": []
@@ -421,6 +427,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       }
     ],
@@ -496,6 +503,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       }
     ],
@@ -673,6 +681,12 @@
       },
       {
         "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.19/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
         "name": "milestone",
         "description": "<p>A collection of related issues and pull requests.</p>",
         "childParamsGroups": []
@@ -708,6 +722,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       }
     ],
@@ -1238,6 +1253,7 @@
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       }
     ],

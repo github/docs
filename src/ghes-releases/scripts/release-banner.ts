@@ -1,12 +1,5 @@
-/**
- * @purpose Writer tool
- * @description Create or remove a release candidate banner for a GHES version
- */
-// [start-readme]
-//
-// This script creates or removes a release candidate banner for a specified version.
-//
-// [end-readme]
+// @purpose Writer tool
+// @description Create or remove a release candidate banner for a GHES version
 
 import fs from 'fs/promises'
 import { program } from 'commander'
@@ -41,7 +34,6 @@ if (!Object.keys(allVersions).includes(options.version)) {
   process.exit(1)
 }
 
-// Load the release candidate variable
 async function main(): Promise<void> {
   let jsCode = await fs.readFile(releaseCandidateJSFile, 'utf8')
   const lineRegex = /export const releaseCandidate = .*/
@@ -51,7 +43,6 @@ async function main(): Promise<void> {
     )
   }
 
-  // Create or remove the variable
   if (options.action === 'create') {
     jsCode = jsCode.replace(
       lineRegex,
@@ -61,10 +52,8 @@ async function main(): Promise<void> {
     jsCode = jsCode.replace(lineRegex, `export const releaseCandidate = null`)
   }
 
-  // Update the file
   await fs.writeFile(releaseCandidateJSFile, jsCode)
 
-  // Display next steps
   console.log(`\nDone! Commit the update to ${releaseCandidateJSFile}. This ${options.action}s the banner for ${options.version}.
 
 - To change the banner text, you can edit header.notices.release_candidate in data/ui.yml.

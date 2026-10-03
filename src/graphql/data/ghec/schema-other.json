@@ -21,6 +21,29 @@
   ],
   "objects": [
     {
+      "name": "CodeCoverageParameters",
+      "id": "codecoverageparameters",
+      "href": "/graphql/reference/other#object-codecoverageparameters",
+      "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured,\nuploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+      "fields": [
+        {
+          "name": "maxCoverageDrop",
+          "description": "<p>The maximum percentage points that line coverage may drop relative to the\ndefault branch. Pull requests that reduce line coverage by more than this\namount will be blocked.</p>",
+          "type": "Float",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float"
+        },
+        {
+          "name": "minimumCoverage",
+          "description": "<p>The absolute minimum line coverage percentage required. Pull requests with\nline coverage below this threshold will be blocked.</p>",
+          "type": "Float",
+          "id": "float",
+          "href": "/graphql/reference/other#scalar-float"
+        }
+      ],
+      "category": "other"
+    },
+    {
       "name": "PageInfo",
       "id": "pageinfo",
       "href": "/graphql/reference/other#object-pageinfo",

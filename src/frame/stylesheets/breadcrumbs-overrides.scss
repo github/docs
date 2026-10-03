@@ -1,0 +1,22 @@
+// Docs 2026 breadcrumbs invert @primer/react-brand default emphasis.
+//
+// Brand's default variant gives ancestor crumbs full strength and mutes the current page. The
+// design needs ancestor pages and "/" separators to recede while the current page stays full
+// strength.
+//
+// Use data-container because Brand Breadcrumbs nav drops className, so no class hook reaches that
+// element. The nav and li selectors raise specificity above Brand CSS modules that can load later.
+nav[data-container="breadcrumbs"] {
+  // Match the selected doc-tree nav item type: 14px/400 plus 100-scale letter spacing.
+  letter-spacing: var(--brand-text-letterSpacing-100);
+
+  // Ancestor links and separators recede. li::after draws separators as a rotated border.
+  --brand-InlineLink-color-rest: var(--brand-color-text-muted);
+  --brand-InlineLink-color-pressed: var(--brand-color-text-muted);
+  --brand-breadcrumbs-separator-borderColor: var(--brand-color-text-muted);
+
+  // The current page needs more specificity than Brand's two-class selector.
+  li [aria-current="page"] {
+    color: var(--brand-color-text-default);
+  }
+}

@@ -64,7 +64,7 @@ When you start a {% data variables.copilot.copilot_cloud_agent %} session from {
 
 ## {% data variables.copilot.copilot_cloud_agent %} versus agent mode
 
-{% data variables.copilot.copilot_cloud_agent %} is distinct from the "agent mode" feature available in your IDE. {% data variables.copilot.copilot_cloud_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts. It can research a repository, create a plan, make code changes on a branch, and optionally open a pull request. In contrast, agent mode in your IDE makes autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+{% data variables.copilot.copilot_cloud_agent %} is distinct from the "agent mode" feature available in your IDE. {% data variables.copilot.copilot_cloud_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts. It can research a repository, create a plan, make code changes on a branch, and optionally open a pull request. In contrast, agent mode in your IDE makes autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 ## Streamlining software development with {% data variables.copilot.copilot_cloud_agent %}
 
@@ -90,7 +90,7 @@ The {% data variables.product.prodname_copilot_short %} usage metrics APIs inclu
 * The number of pull requests created by {% data variables.copilot.copilot_cloud_agent %} that have been merged
 * Median time to merge for merged pull requests, including pull requests created by {% data variables.copilot.copilot_cloud_agent %}
 
-These metrics can help you track adoption of {% data variables.copilot.copilot_cloud_agent %} and monitor changes in pull request throughput and time to merge over time. See [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
+These metrics can help you track adoption of {% data variables.copilot.copilot_cloud_agent %} and monitor changes in pull request throughput and time to merge over time. See [AUTOTITLE](/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics).
 
 ## Integrating {% data variables.copilot.copilot_cloud_agent %} with third-party tools
 
@@ -108,7 +108,7 @@ If you are a {% data variables.copilot.copilot_for_business %} or {% data variab
 
 Repository owners can choose to opt out some or all repositories from {% data variables.copilot.copilot_cloud_agent %}.
 
-See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+See [AUTOTITLE](/copilot/concepts/enterprise/cloud-agent-access).
 
 ## AI models for {% data variables.copilot.copilot_cloud_agent %}
 
@@ -132,7 +132,7 @@ The more {% data variables.copilot.copilot_cloud_agent %} knows about the code i
 
 {% data variables.copilot.copilot_cloud_agent %} uses {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}. The {% data variables.product.prodname_ai_credits_short %} consumed depend on the model used and the number of tokens processed during the session.
 
-Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use {% data variables.copilot.copilot_cloud_agent %} without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
+Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use {% data variables.copilot.copilot_cloud_agent %} without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing).
 
 {% data variables.product.prodname_copilot_short %} code review also consumes {% data variables.product.prodname_actions %} minutes on private repositories. See [AUTOTITLE](/billing/concepts/product-billing/github-actions#copilot-code-review-and-github-actions-minutes).
 
@@ -171,3 +171,4 @@ Try the [Expand your team with {% data variables.copilot.copilot_cloud_agent %}]
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent) how-to articles
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents)
 * [AUTOTITLE](/copilot/responsible-use/agents)
+* [AUTOTITLE](/copilot/concepts/agents/about-github-agentic-workflows) for recurring repository automation that you want to version with your code and run in {% data variables.product.prodname_actions %}

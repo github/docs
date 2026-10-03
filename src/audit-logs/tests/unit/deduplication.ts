@@ -22,7 +22,6 @@ describe('audit log deduplication', () => {
       const fieldsPool = JSON.parse(fs.readFileSync(fieldsPath, 'utf8'))
       expect(Array.isArray(fieldsPool)).toBe(true)
       expect(fieldsPool.length).toBeGreaterThan(0)
-      // Each entry should be an array of strings
       for (const fields of fieldsPool) {
         expect(Array.isArray(fields)).toBe(true)
         for (const field of fields) {
@@ -36,10 +35,8 @@ describe('audit log deduplication', () => {
       expect(fs.existsSync(indexPath), `${indexPath} should exist`).toBe(true)
       const index: AuditLogVersionIndex = JSON.parse(fs.readFileSync(indexPath, 'utf8'))
       expect(typeof index).toBe('object')
-      // Should have at least one version
       const versions = Object.keys(index)
       expect(versions.length).toBeGreaterThan(0)
-      // Each version should map pages to arrays of indices
       for (const [version, pages] of Object.entries(index)) {
         expect(typeof pages).toBe('object')
         for (const [page, indices] of Object.entries(pages)) {
@@ -122,7 +119,6 @@ describe('audit log deduplication', () => {
 
       for (const [version, pages] of Object.entries(index)) {
         for (const [page, indices] of Object.entries(pages)) {
-          // Reconstruct from shared format
           const reconstructed: AuditLogEventT[] = indices.map((idx) => {
             const entry = entries[idx]
             const event: AuditLogEventT = {
@@ -136,7 +132,6 @@ describe('audit log deduplication', () => {
             return event
           })
 
-          // Load original per-version file
           const originalPath = path.join(AUDIT_LOG_DATA_DIR, version, `${page}.json`)
           if (!fs.existsSync(originalPath)) continue
           const original: AuditLogEventT[] = JSON.parse(fs.readFileSync(originalPath, 'utf8'))
@@ -173,7 +168,7 @@ describe('audit log deduplication', () => {
       }
 
       const uniqueEntries = entries.length
-      // We expect at least 80% dedup rate based on issue analysis (93.2% reported)
+      // Keep at least 80% deduplication; prior generated data measured 93.2%.
       const dedupRate = 1 - uniqueEntries / totalReferences
       expect(dedupRate).toBeGreaterThan(0.8)
     })

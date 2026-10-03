@@ -192,13 +192,11 @@ For more information about production context, see [AUTOTITLE](/code-security/tu
 |{% endif %}|
 |`ecosystem`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified ecosystem, for example: `ecosystem:Maven`.|
 |`epss-percentage`|Display {% data variables.product.prodname_dependabot_alerts %} whose EPSS score meets the defined criteria, for example: `epss-percentage:>=0.01`|
-|`has`|Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where either a secure version is already available (`patch`) or where at least one call from the repository to a vulnerable function is detected (`vulnerable-calls`). For more information, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/view-dependabot-alerts).|
+|`has`|Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where a secure version is already available (`patch`).|
 |`is`|Display {% data variables.product.prodname_dependabot_alerts %} that are open (`open`) or closed (`closed`).|
 |`package`|Display {% data variables.product.prodname_dependabot_alerts %} detected in the specified package, for example: `package:semver`.|
 |`props`|Display {% data variables.product.prodname_dependabot_alerts %} for repositories with a specific custom property set. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`.|
-|{% ifversion fpt or ghec or ghes > 3.17 %}|
 |`relationship`|Display {% data variables.product.prodname_dependabot_alerts %} detected in direct (`relationship:direct`) or indirect dependencies (`relationship:transitive`).|
-|{% endif %}|
 |`repo`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified repository, for example: `repo:octo-repository`.|
 |`resolution`|Display {% data variables.product.prodname_dependabot_alerts %} closed as "auto-dismissed" (`auto-dismissed`), "a fix has already been started" (`fix-started`), "fixed" (`fixed`), "this alert is inaccurate or incorrect" (`inaccurate`), "no bandwidth to fix this" (`no-bandwidth`), "vulnerable code is not actually used" (`not-used`), or "risk is tolerable to this project" (`tolerable-risk`).|
 |`scope`|Display {% data variables.product.prodname_dependabot_alerts %} from the development dependency (`development`) or from the runtime dependency (`runtime`).|
@@ -227,6 +225,10 @@ You can click any result to see full details of the relevant query and the line 
 
 | Qualifier | Description |
 | -------- | -------- |
+|`autofilter`|Display only alerts that appear to be in application code (`autofilter:true`).|
+|{% ifversion code-scanning-autofix %}|
+|`autofix`|Display only alerts for rules supported by {% data variables.copilot.copilot_autofix %} (`autofix:supported`). When agentic autofix is enabled for your organization or enterprise, this filter is unavailable and does not affect results.|
+|{% endif %}|
 |`is`|Display {% data variables.product.prodname_code_scanning %} alerts that are open (`open`) or closed (`closed`).|
 |`resolution`| Display {% data variables.product.prodname_code_scanning %} alerts closed as "false positive" (`false-positive`), "fixed" (`fixed`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
 |`rule`|Display {% data variables.product.prodname_code_scanning %} alerts identified by the specified rule.|

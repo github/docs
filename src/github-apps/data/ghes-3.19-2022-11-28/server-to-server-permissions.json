@@ -3605,7 +3605,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "teams",
@@ -4825,8 +4825,8 @@
         "requestPath": "/user/repos",
         "access": "write",
         "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": false
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "collaborators",
@@ -5995,6 +5995,17 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-using-a-template",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       }
     ]
   },
@@ -6373,6 +6384,34 @@
         "subcategory": "variables",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "installation_repositories": {
+    "title": "GitHub App installation repository access",
+    "displayTitle": "Repository permissions for \"GitHub App installation repository access\"",
+    "permissions": [
+      {
+        "category": "apps",
+        "slug": "add-a-repository-to-an-app-installation",
+        "subcategory": "installations",
+        "verb": "put",
+        "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "apps",
+        "slug": "remove-a-repository-from-an-app-installation",
+        "subcategory": "installations",
+        "verb": "delete",
+        "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -8073,6 +8112,45 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      }
+    ]
+  },
+  "repository_creation": {
+    "title": "Repository creation",
+    "displayTitle": "Repository permissions for \"Repository creation\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-an-organization-repository",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/repos",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-using-a-template",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-for-the-authenticated-user",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/user/repos",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       }
     ]
   },

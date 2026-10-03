@@ -27,6 +27,14 @@ Your enterprise's audit log contains an event for each action that a user or int
 
 ### Generating a SHA-256 hash value for a token
 
+{% ifversion enterprise-token-inventory %}
+
+If you do not have the token value, export your enterprise credential inventory. You can copy the `hashed_token` value from the CSV and use it in the same audit log search. The export also provides `credential_id` and SSH key `fingerprint` values that you can compare with authentication metadata in audit log events.
+
+For more information, see [AUTOTITLE](/admin/managing-iam/respond-to-incidents/reviewing-credentials-in-your-enterprise).
+
+{% endif %}
+
 {% data reusables.audit_log.generating-hash-for-a-token %}
 
 ### Searching on {% data variables.product.prodname_dotcom %}

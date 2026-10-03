@@ -96,9 +96,7 @@ With both methods, we use the `verified_signature?` to confirm if a commit has a
 
 {% endif %}
 
-You can always push local commits to the branch if the commits are signed and verified. {% ifversion fpt or ghec %}You can also merge signed and verified commits into the branch using a pull request. However, you cannot squash and merge a pull request into the branch on {% data variables.product.github %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.github %}.{% endif %} You can {% ifversion fpt or ghec %}squash and {% endif %}merge pull requests locally. For more information, see [AUTOTITLE](/pull-requests/how-tos/review-pull-requests/checking-out-pull-requests-locally).
-
-{% ifversion fpt or ghec %} For more information about merge methods, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).{% endif %}
+{% data reusables.repositories.required-signed-commits %}
 
 ## Require a pull request before merging
 
@@ -128,9 +126,7 @@ For complex pull requests that require many reviews, requiring an approval from 
 
 Optionally, you can require all comments on the pull request to be resolved before it can be merged to a branch. This ensures that all comments are addressed or acknowledged before merge.
 
-{% ifversion repo-rules-merge-type %}
 Optionally, you can require a merge type of merge, squash, or rebase. This means the targeted branches may only be merged based on the allowed type. Additionally if the repository has disabled a merge method and the ruleset required a different method, the merge will be blocked. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).
-{% endif %}
 
 {% ifversion repo-rules-copilot-extra-approval %}
 
@@ -213,6 +209,24 @@ Enabling force pushes will not override any other rules. For example, if a branc
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other branch or tag.{% endif %}
 
+{% ifversion secret-scanning-merge-protection %}
+
+## Require {% data variables.product.prodname_secret_scanning %} alerts are resolved
+
+> [!NOTE]
+> {% data reusables.secret-scanning.merge-protection-public-preview %}
+
+If your repositories use {% data variables.product.prodname_secret_scanning %}, you can prevent a pull request from merging when either of these conditions applies:
+
+* A {% data variables.product.prodname_secret_scanning %} scan has not completed for the head commit of the pull request.
+* A commit in the pull request introduced an open {% data variables.product.prodname_secret_scanning %} alert that matches a secret type selected in the ruleset.
+
+You can configure the rule for provider, custom, and generic patterns. AI-detected secrets are not supported.
+
+For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-secrets/prevent-future-leaks/block-merges-with-secrets).
+
+{% endif %}
+
 ## Require {% data variables.product.prodname_code_scanning %} results
 
 If your repositories are configured with {% data variables.product.prodname_code_scanning %}, you can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
@@ -239,6 +253,8 @@ For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-
 > This feature is in {% data variables.release-phases.public_preview %} and subject to change.
 
 If your repository has {% data variables.product.prodname_code_quality %} enabled and code coverage data is being uploaded, you can use rulesets to prevent pull requests from being merged based on code coverage thresholds. For more information about uploading coverage data, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
+
+The rule evaluates only coverage data that has already been uploaded and does not wait for coverage uploads to complete. To ensure that all expected coverage results are evaluated before a pull request can be merged, make each status check associated with an expected coverage upload a required status check.
 
 This rule blocks a pull request from being merged when either of two code coverage thresholds is not met:
 
@@ -315,7 +331,7 @@ When you add metadata restrictions to an existing branch or tag, the rules are e
 
 ## Restrict file paths
 
-Prevent commits that include changes in specified file paths from being pushed to the repository. {% ifversion available-rules-limit %}Limit is 200 entries and up to 200 characters in each entry.{% endif %}
+Prevent commits that include changes in specified file paths from being pushed to the repository. Limit is 200 entries and up to 200 characters in each entry.
 
 {% data reusables.repositories.rulesets-push-rules-path-example %}
 
@@ -333,7 +349,7 @@ Prevent commits that include file paths that exceed a specified character limit 
 
 ## Restrict file extensions
 
-Prevent commits that include files with specified file extensions from being pushed to the repository. {% ifversion available-rules-limit %}Limit is 200 entries and up to 200 characters in each entry.{% endif %}
+Prevent commits that include files with specified file extensions from being pushed to the repository. Limit is 200 entries and up to 200 characters in each entry.
 
 {% ifversion push-rule-allowed-exceptions %}
 

@@ -8,14 +8,11 @@ describe('invalid query string values', () => {
     if (key === 'platform') value = 'mac'
     else if (key === 'tool') value = 'curl'
     else throw new Error('unknown key')
-
-    // Valid value
     {
       const url = `/en/pages?${key}=${value}`
       const res = await get(url)
       expect(res.statusCode).toBe(200)
     }
-    // Invalid value
     {
       const url = `/en/pages?${key}=JUNK&other=thing`
       const res = await get(url)

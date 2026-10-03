@@ -1,0 +1,87 @@
+name: Check for non-English titles
+
+# **What it does**: Closes issues/PRs whose title contains non-Latin-script
+#   characters, which is a common pattern for spam/scam submissions (e.g.
+#   fake certificate/badge issues written in Arabic, Cyrillic, CJK, etc.)
+# **Why we have it**: We get spam in the open-source repo with titles in
+#   scripts our triage team can't read, making it hard to evaluate intent.
+# **Who does it impact**: Open-source contributors.
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  non-english-title-check:
+    name: Flag and close non-English titles
+    if: github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const isIssue = !!context.payload.issue
+            const item = context.payload.issue || context.payload.pull_request
+            const owner = 'github'
+            const repo = 'docs'
+            const title = item.title || ''
+
+            // Allow: basic Latin letters/digits/punctuation, common symbols,
+            // and emoji (surrogate pairs), so normal English titles pass.
+            // Flag titles containing letters from non-Latin scripts
+            // (Arabic, CJK, Cyrillic, Devanagari, Hebrew, Thai, etc.)
+            const nonLatinScriptRegex = /(?!\p{Script=Latin})\p{Letter}/u
+
+            if (!nonLatinScriptRegex.test(title)) {
+              return
+            }
+
+            try {
+              await github.rest.teams.getMembershipForUserInOrg({
+                org: 'github',
+                team_slug: 'employees',
+                username: context.payload.sender.login,
+              })
+              // Don't action GitHub employees
+              return
+            } catch (err) {
+              // Not an employee — continue
+            }
+
+            const commentBody =
+              `Thanks for your contribution! It looks like the title of this ${isIssue ? 'issue' : 'pull request'} contains non-English characters. ` +
+              `To help our team triage effectively, please resubmit with an English-language title describing the change or problem. ` +
+              `I'm closing this for now, but feel free to open a new one!`
+
+            if (isIssue) {
+              await github.rest.issues.update({
+                owner, repo,
+                issue_number: item.number,
+                labels: ['invalid'],
+                state: 'closed',
+              })
+              await github.rest.issues.createComment({
+                owner, repo,
+                issue_number: item.number,
+                body: commentBody,
+              })
+            } else {
+              await github.rest.pulls.update({
+                owner, repo,
+                pull_number: item.number,
+                state: 'closed',
+              })
+              await github.rest.issues.createComment({
+                owner, repo,
+                issue_number: item.number,
+                body: commentBody,
+              })
+            }

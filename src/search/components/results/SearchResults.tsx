@@ -1,8 +1,8 @@
-import { Pagination } from '@primer/react-brand'
+import { Heading, Pagination, Text, Token } from '@primer/react-brand'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { Link } from '@/frame/components/Link'
@@ -12,7 +12,7 @@ import { EventType } from '@/events/types'
 import styles from './SearchResults.module.scss'
 
 import type { SearchQueryContentT } from '@/search/components/types'
-import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from '@/search/types'
+import type { GeneralSearchHit, GeneralSearchResponse } from '@/search/types'
 import type { estypes } from '@elastic/elasticsearch'
 import { GENERAL_SEARCH_RESULTS } from '@/events/components/event-groups'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
@@ -48,7 +48,7 @@ function SearchResultHits({
   searchParams,
   eventGroupId,
 }: {
-  hits: GeneralSearchHitWithoutIncludes[]
+  hits: GeneralSearchHit[]
   searchParams: SearchQueryContentT
   eventGroupId: React.MutableRefObject<string>
 }) {
@@ -73,15 +73,17 @@ function SearchResultHits({
 function NoSearchResults() {
   const { t } = useTranslation('search_results')
   return (
-    <div className="d-flex flex-items-center flex-column my-6 border rounded-2">
-      <div className="d-flex flex-items-center flex-column p-4">
-        <SearchIcon size={24} />
-        <p className="f2 mt-3">{t('n_results').replace('{n}', '0')}</p>
-      </div>
+    <div className={styles.noResults}>
+      <SearchIcon size={24} />
+      <Text as="p" size="400" className={styles.noResultsText}>
+        {t('n_results').replace('{n}', '0')}
+      </Text>
     </div>
   )
 }
 
+// A hit carries one toplevel, so the design's +N chip needs a real topics array indexed first.
+// The chip stays a span because every anchor inside a result needs the versioned pathname.
 function SearchResultHit({
   hit,
   query,
@@ -90,7 +92,7 @@ function SearchResultHit({
   debug,
   eventGroupId,
 }: {
-  hit: GeneralSearchHitWithoutIncludes
+  hit: GeneralSearchHit
   query: string
   totalHits: number
   index: number
@@ -108,19 +110,11 @@ function SearchResultHit({
   }
 
   return (
-    <div className={cx('my-6', styles.search_result)} data-testid="search-result">
-      <p className={`text-normal f5 color-fg-muted ${styles.breadcrumb}`}>
-        {hit.breadcrumbs.length > 1 && (
-          <>
-            <strong>{hit.breadcrumbs.split('/')[0]}</strong>
-            {hit.breadcrumbs.replace(hit.breadcrumbs.split('/')[0], '')} /
-          </>
-        )}
-      </p>
-      <h2 className="f3">
+    <div className={cx(styles.searchResult, styles.search_result)} data-testid="search-result">
+      <Heading as="h2" size="subhead-medium" className={styles.resultTitle}>
         <Link
           href={hit.url}
-          className="color-fg-accent search-result-link"
+          className={cx('search-result-link', styles.resultTitleLink)}
           data-group-key={GENERAL_SEARCH_RESULTS}
           onClick={() => {
             sendEvent({
@@ -137,8 +131,24 @@ function SearchResultHit({
         >
           {renderHTMLString(title, markdownComponents)}
         </Link>
-      </h2>
-      {content && <RenderedHTML as="div" html={content} />}
+      </Heading>
+      {hit.toplevel && (
+        <Token
+          className={styles.resultTopic}
+          data-testid="search-result-toplevel"
+          variant="default"
+        >
+          {hit.toplevel}
+        </Token>
+      )}
+      {content && (
+        <RenderedHTML
+          as="div"
+          className={styles.resultSnippet}
+          data-testid="search-result-content"
+          html={content}
+        />
+      )}
       {debug && (
         <p className={styles.debugText}>
           score: <code className={styles.debugCode}>{hit.score}</code> popularity:{' '}

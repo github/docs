@@ -34,7 +34,7 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
 1. Choose one of the options:
 
-   **1. Yes, proceed**:
+   **1. Yes**:
 
    {% data variables.product.prodname_copilot_short %} can work with the files in this location for this session only.
 
@@ -42,7 +42,7 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    You trust the files in this folder for this and future sessions. You won't be asked again when you start {% data variables.copilot.copilot_cli_short %} from this folder. Only choose this option if you are sure that it will always be safe for {% data variables.product.prodname_copilot_short %} to work with files in this location.
 
-   **3. No, exit (Esc)**:
+   **3. No (Esc)**:
 
    End your {% data variables.copilot.copilot_cli_short %} session.
 
@@ -83,7 +83,7 @@ Optimize your experience with {% data variables.copilot.copilot_cli_short %} wit
 
 ### Stop a currently running operation
 
-If you enter a prompt and then decide you want to stop {% data variables.product.prodname_copilot_short %} from completing the task while it is still "Thinking," press <kbd>Esc</kbd>.
+If you enter a prompt and then decide you want to stop {% data variables.product.prodname_copilot_short %} from completing the task while it is still "Thinking," press <kbd>Esc</kbd> twice within half a second.
 
 ### Use plan mode
 
@@ -135,7 +135,7 @@ You can prepend your input with `!` to directly run shell commands, without maki
 
 ### Schedule prompts to run later
 
-You can schedule prompts to run in the future using the `/every` and `/after` slash commands. The `/every` command schedules a prompt to run repeatedly at a specified interval, while the `/after` command schedules a one-shot prompt to run once after a specified delay. For example:
+You can schedule prompts to run in the future using the `/every` and `/after` slash commands. The `/every` command schedules a prompt to run repeatedly, while the `/after` command schedules a one-shot prompt to run once after a specified delay. For example:
 
 ```shell
 /every 1h Run frontend tests and report any failures
@@ -305,7 +305,7 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 * `/context`: Provides a visual overview of your current token usage
 * `/compact`: Manually compresses your conversation history to free up context space
 
-{% data variables.copilot.copilot_cli %} automatically compresses your history in the background when your conversation approaches 95% of the token limit, without interrupting your workflow.
+{% data variables.copilot.copilot_cli %} automatically starts compressing your history in the background when your conversation approaches 80% of the token limit. This starting point is dynamic: when static context—your system messages and tool definitions—already uses a large share of the limit (roughly 75% or more), {% data variables.product.prodname_copilot_short %} waits until usage is closer to 90% before compacting, because compressing the conversation reclaims less space in that situation. If usage reaches approximately 95% before background compaction has finished, the CLI waits for it to complete before continuing.
 
 ### Enable all permissions
 

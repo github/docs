@@ -13,7 +13,8 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-{% data reusables.cli.public-preview-local-sandbox %}
+> [!NOTE]
+> {% data reusables.cli.public-preview-local-sandbox %}
 
 {% data reusables.cli.sandbox-on-windows %}
 
@@ -67,7 +68,7 @@ To run a program such as `python` or `git`, the sandbox has to let the command s
 
 ### System and profile locations
 
-On macOS, standard system locations are granted read-only so that commands can load shared libraries and read system configuration without being able to change them. The application directories in your user profile are also granted read-only when **Allow dev tool access** is enabled, so that commands can read the tools you have installed there without being able to modify them.
+On macOS, standard system locations are granted read-only permission so that commands can load shared libraries and read system configuration without being able to change them. The application directories in your user profile (for example, the subdirectories of `%LOCALAPPDATA%\Programs` on Windows, or the `~/.local/bin` and `~/.local/lib` directories on macOS and Linux) are also granted read-only permission when **Allow dev tool access** is enabled, so that commands can read the tools you have installed there without being able to modify them.
 
 ### Package-manager caches
 
@@ -111,7 +112,7 @@ You can grant extra read/write or read-only paths, deny paths, and change other 
 
 ## Enterprise-managed policies
 
-If you get {% data variables.product.prodname_copilot_short %} through an enterprise-owned organization, an administrator can enforce a filesystem policy through managed settings. Managed settings act as a baseline that you cannot loosen: they can require sandboxing, add denied paths, and limit which paths you are allowed to grant. Where a managed setting applies, the `/sandbox config` dialog shows it as a locked **(managed)** value, and `/sandbox policy` reflects it in the resolved policy.
+If you get {% data variables.product.prodname_copilot_short %} through an enterprise-owned organization, an administrator can enforce a filesystem policy through managed settings. Managed settings act as a restrictive baseline: they can require sandboxing, add denied paths, and limit which paths you are allowed to grant. Where a managed setting applies, the `/sandbox config` dialog shows it as a locked **(managed)** value, and `/sandbox policy` reflects it in the resolved policy. If the effective policy permits sandbox bypass, a user can explicitly disable sandboxing for the rest of the current session, either from an active bypass permission prompt or by running `/sandbox disable`. This session opt-out does not loosen the saved policy.
 
 Unlike most settings, where a single source wins, the sandbox policy is composed from every source in force at once. Managed settings can arrive through more than one channel simultaneously—server-managed, MDM, and file-based—and these combine with each other, and with your own settings, in the **most restrictive** direction rather than one source overriding another: a required toggle stays on, denied paths from all sources add up, and the paths you are allowed to grant can only be narrowed. For more information, see [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings#sandbox).
 

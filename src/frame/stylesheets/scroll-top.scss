@@ -1,11 +1,25 @@
 @import "src/frame/stylesheets/breakpoint-xxl.scss";
 
+// Brand SubdomainNavBar height uses rem, so the header portion of sticky offsets must use rem too.
+// Brand sets --base-size-64 at 4rem and subtracts --base-size-8, 0.5rem, below its medium
+// breakpoint of 47.99rem. A px value or px breakpoint drifts when readers change the browser
+// default font size.
+:root {
+  --docs-header-height: 3.5rem;
+
+  @media (min-width: 48rem) {
+    --docs-header-height: 4rem;
+  }
+}
+
 // https://tetralogical.com/blog/2023/06/08/focus-in-view/
 
 :target {
-  scroll-margin-top: 105px !important; // 88 + 8 + 8 + 1
+  scroll-margin-top: calc(var(--docs-header-height) + 40px) !important;
 
   @include breakpoint-xxl {
-    scroll-margin-top: 109px !important; // 48 + 8 + 8 + 1 header + 44 secondary bar
+    scroll-margin-top: calc(
+      var(--docs-header-height) + 44px
+    ) !important; // Include the secondary bar below the header.
   }
 }

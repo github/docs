@@ -5,16 +5,15 @@ import type { ExtendedRequest } from '@/types'
 
 const STATSD_KEY = 'middleware.handle_next_data_path'
 
+// Client route transitions request _next/data JSON paths; map them back to page paths.
+// Example: /_next/data/development/en/actions/foo.json becomes
+// /en/actions/foo.
 export default function handleNextDataPath(
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ) {
   if (req.path.startsWith('/_next/data/') && req.path.endsWith('.json')) {
-    // translate a nextjs data request to a page path that the server can use on context
-    // this is triggered via client-side route transitions
-    // example path:
-    // /_next/data/development/en/free-pro-team%40latest/github/setting-up-and-managing-your-github-user-account.json
     let decodedPath = ''
     try {
       decodedPath = decodeURIComponent(req.path)
@@ -26,7 +25,7 @@ export default function handleNextDataPath(
     }
 
     const parts = decodedPath.split('/').slice(4)
-    // free-pro-team@latest should not be included in the page path
+    // Drop free-pro-team@latest because page paths omit that default version.
     if (parts[1] === 'free-pro-team@latest') {
       parts.splice(1, 1)
     }

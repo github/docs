@@ -2,7 +2,6 @@ import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 import type { TagToken } from 'liquidjs'
 import { TokenKind } from 'liquidjs'
 
-// Type guard to check if a token is a TagToken
 function isTagToken(token: unknown): token is TagToken {
   return (
     token !== null &&

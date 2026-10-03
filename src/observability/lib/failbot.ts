@@ -4,13 +4,11 @@ import { getLoggerContext } from '@/observability/logger/lib/logger-context'
 
 const HAYSTACK_APP = 'docs'
 
+// Five attempts at a 3000ms timeout, with backoff delays of 1, 2, 4, and 8 seconds,
+// bound a failing report at roughly 30 seconds.
 async function retryingFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
   const url = typeof input === 'string' ? input : input.toString()
 
-  // Use fetchWithRetry with retry configuration matching got's behavior
-  // With the timeout at 3000 (milliseconds) and the retry.limit
-  // at 4 (times), the total worst-case is:
-  // 3000 * 4  + 1000 + 2000 + 3000 + 4000 + 8000 = 30 seconds
   const response = await fetchWithRetry(
     url,
     {
@@ -28,8 +26,9 @@ async function retryingFetch(input: RequestInfo | URL, init?: RequestInit): Prom
   return response
 }
 
+// Failbot additional_data only accepts flat string and number values, so keep requestUuid.
+// https://github.com/github/failbotg/blob/main/docs/api.md#additional-data
 export function report(error: Error, metadata?: Record<string, unknown>) {
-  // If there's no HAYSTACK_URL set, bail early
   if (!process.env.HAYSTACK_URL) {
     return
   }
@@ -45,9 +44,6 @@ export function report(error: Error, metadata?: Record<string, unknown>) {
     backends,
   })
 
-  // Add the request id from the logger context to the metadata
-  // Per https://github.com/github/failbotg/blob/main/docs/api.md#additional-data
-  // Metadata can only be a flat object with string & number values, so only add the requestUuid
   const loggerContext = getLoggerContext()
 
   return failbot.report(error, {
@@ -56,12 +52,7 @@ export function report(error: Error, metadata?: Record<string, unknown>) {
   })
 }
 
-// Kept for legacy so you can continue to do:
-//
-//  import FailBot from './lib/failbot'
-//  ...
-//  FailBot.report(myError)
-//
+// Preserves FailBot.report(error) for existing callers.
 export default {
   report,
 }

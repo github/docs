@@ -147,7 +147,7 @@ A pull request proposes your branch's changes for review before they merge into 
 
 ## Further reading
 
-* [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/copilot/concepts/billing/individual-plans)
+* [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/copilot/get-started/plans)
 * [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/copilot/concepts/billing/usage-based-billing-for-individuals)
 * [AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/copilot/how-tos/manage-and-track-spending/monitor-ai-usage){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
 

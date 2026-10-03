@@ -14,9 +14,6 @@ type ReqWithFeaturedLinks = {
   }
 }
 
-// Helper that reshapes the resolved featured-link data placed on the request
-// by the `featuredLinks` middleware into the FeaturedLink shape consumed by
-// landing page contexts (toc, category, discovery, journey, bespoke).
 export const getFeaturedLinksFromReq = (req: unknown): Record<string, Array<FeaturedLink>> => {
   const { context } = req as ReqWithFeaturedLinks
   return Object.fromEntries(

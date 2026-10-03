@@ -19,27 +19,6 @@
   business: true
   enterprise: true
 
-- name: Claude Opus 4.5
-  pro: false
-  pro_plus: false
-  max: false
-  business: true
-  enterprise: true
-
-- name: Claude Opus 4.6
-  pro: false
-  pro_plus: false
-  max: false
-  business: true
-  enterprise: true
-
-- name: Claude Opus 4.7
-  pro: false
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
 - name: Claude Opus 4.8
   pro: false
   pro_plus: true
@@ -61,6 +40,13 @@
   business: true
   enterprise: true
 
+- name: Claude Opus 5.5
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Claude Fable 5
   pro: false
   pro_plus: true
@@ -75,19 +61,12 @@
   business: true
   enterprise: true
 
-- name: Claude Sonnet 4.5
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
 - name: Claude Sonnet 4.6
   pro: true
   pro_plus: true
-  max: true
-  business: true
-  enterprise: true
+  max: false
+  business: false
+  enterprise: false
 
 - name: Claude Sonnet 5
   pro: true
@@ -96,21 +75,7 @@
   business: true
   enterprise: true
 
-- name: Gemini 3.1 Pro
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 3.5 Flash
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
-- name: Gemini 3.6 Flash
+- name: Claude Sonnet 5.5
   pro: true
   pro_plus: true
   max: true
@@ -194,6 +159,34 @@
   business: true
   enterprise: true
 
+- name: GPT-6 Astra
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-6 Luna
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-6 Sol
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: GPT-6.1 Sol
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Grok 4.5
   pro: true
   pro_plus: true
@@ -208,7 +201,7 @@
   business: true
   enterprise: true
 
-- name: Kimi K2.7 Code
+- name: Grok 4.7
   pro: true
   pro_plus: true
   max: true
@@ -222,23 +215,9 @@
   business: true
   enterprise: true
 
-- name: MAI-Code-1-Flash
-  pro: true
-  pro_plus: true
-  max: true
-  business: true
-  enterprise: true
-
 - name: MAI-Code-1.1-Flash
   pro: true
   pro_plus: true
   max: true
   business: true
   enterprise: true
-
-- name: Raptor mini
-  pro: true
-  pro_plus: true
-  max: true
-  business: false
-  enterprise: false

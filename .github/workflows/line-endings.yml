@@ -1,14 +1,7 @@
 name: Line endings
 
-# **What it does**: Fails if any committed file violates the repo's `.gitattributes`
-#   line-ending rules (for example, CRLF in a file declared `eol=lf`).
-# **Why we have it**: `.gitattributes` (`*.md text eol=lf`, `* text=auto`) only
-#   normalizes line endings during a local `git add`/checkout. A server-side
-#   squash-merge can commit CRLF blobs that bypass it. A file with mixed line endings
-#   then shows as permanently "modified" on Linux runners, which breaks PR-creating
-#   sync workflows that use peter-evans/create-pull-request. See
-#   github/docs-engineering#6657 and github/docs-engineering#6656.
-# **Who does it impact**: Docs engineering, open-source engineering contributors.
+# .gitattributes (*.md text eol=lf, * text=auto) normalizes local adds and checkouts,
+# but CRLF blobs from server-side squash merges look modified and break peter-evans/create-pull-request.
 
 on:
   workflow_dispatch:
@@ -18,7 +11,7 @@ on:
 permissions:
   contents: read
 
-# This allows a subsequently queued workflow run to interrupt previous runs
+# Cancel older runs for the same ref to save runner time.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
@@ -32,8 +25,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Check line endings
-        # Re-stage every file through the `.gitattributes` filters and fail if any
-        # committed blob disagrees with them (usually CRLF where LF is required).
+        # Re-stage through .gitattributes so git can detect blobs that check out differently.
         run: |
           git add --renormalize .
           if ! git diff --cached --quiet; then

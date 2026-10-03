@@ -1,9 +1,7 @@
 name: Index general search in Elasticsearch on PR
 
-# **What it does**: This does what `index-general-search-elasticsearch.yml` does but
-#                   with a localhost Elasticsearch and only for English.
-# **Why we have it**: To test that the script works and the popular pages json is valid.
-# **Who does it impact**: Docs engineering
+# Test general search indexing against local Elasticsearch and validate popular pages JSON
+# before merge.
 
 on:
   workflow_dispatch:
@@ -11,23 +9,22 @@ on:
     paths:
       - 'src/search/**'
       - 'package*.json'
-      # For debugging this workflow
+      # Debugging changes to this workflow need the same PR index test.
       - .github/workflows/index-general-search-pr.yml
-      # Make sure we run this if the composite action changes
+      # Setup changes can break the local Elasticsearch path this workflow tests.
       - .github/actions/setup-elasticsearch/action.yml
 
 permissions:
   contents: read
 
-# This allows a subsequently queued workflow run to interrupt previous runs
+# Cancel older runs for the same ref to save runner time.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
 env:
   ELASTICSEARCH_URL: http://localhost:9200
-  # Since we'll run in NDOE_ENV=production, we need to be explicit that
-  # we don't want Hydro configured.
+  # Empty Hydro credentials keep production-mode test runs from sending analytics.
   HYDRO_ENDPOINT: ''
   HYDRO_SECRET: ''
 
@@ -43,7 +40,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           repository: github/docs-internal-data
-          # This works because user `docs-bot` has read access to that private repo.
+          # docs-bot can read the private github/docs-internal-data repository.
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           path: docs-internal-data
 
@@ -62,7 +59,6 @@ jobs:
         run: |
           npm run general-search-scrape-server > /tmp/stdout.log 2> /tmp/stderr.log &
 
-          # first sleep to give it a chance to start
           sleep 6
           curl --retry-connrefused --retry 6 -I http://localhost:4002/
 
@@ -76,13 +72,9 @@ jobs:
 
       - name: Scrape records into a temp directory
         env:
-          # If a reusable, or anything in the `data/*` directory is deleted
-          # you might get a
-          #
-          #   RenderError: Can't find the key 'site.data.reusables...' in the scope
-          #
-          # But that'll get fixed in the next translation pipeline. For now,
-          # let's just accept an empty string instead.
+          # Deleting a reusable or data/* entry can leave translations pointing at missing
+          # site.data keys and trigger RenderError. Accept empty strings until the next
+          # translation pipeline removes those references.
           THROW_ON_EMPTY: false
 
           DOCS_INTERNAL_DATA: docs-internal-data

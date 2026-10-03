@@ -1,13 +1,11 @@
 name: Index autocomplete search in Elasticsearch
 
-# **What it does**: Indexes AI search autocomplete data into Elasticsearch.
-# **Why we have it**: So we can power the APIs for AI search autocomplete.
-# **Who does it impact**: docs-engineering
+# Keep Elasticsearch autocomplete data current for AI search APIs.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 1-5' # Run Mon-Fri at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1-5'
   pull_request:
     paths:
       - .github/workflows/index-autocomplete-search.yml

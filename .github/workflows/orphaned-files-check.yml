@@ -1,18 +1,17 @@
 name: 'Orphaned files check'
 
-# **What it does**: Checks that there are no files in ./assets/, ./data/reusables, or ./data/tables that aren't mentioned in any source file.
-# **Why we have it**: To avoid orphans into the repo.
-# **Who does it impact**: Docs content.
+# This workflow opens deletion PRs for unused assets, reusables, and tables
+# so orphaned files leave the repo.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
   pull_request:
     paths:
       - .github/workflows/orphaned-assets-check.yml
       - .github/workflows/orphaned-files-check.yml
-      # In case any of the dependencies affect the script
+      # Dependency changes can break the orphaned-files scripts.
       - 'package*.json'
       - src/assets/scripts/find-orphaned-assets.ts
       - src/content-render/scripts/reusables-cli/find/unused.ts
@@ -33,13 +32,10 @@ jobs:
       - name: Checkout English repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          # Using a PAT is necessary so that the new commit will trigger the
-          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          # A PAT triggers CI on the PR; GITHUB_TOKEN events do not start workflows.
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
-      # It's important because translations are often a bit behind.
-      # So if a translation is a bit behind, it might still be referencing
-      # an asset even though none of the English content does.
+      # Translations can lag English, so clone them before deciding that a file is unused.
       - name: Clone all translations
         uses: ./.github/actions/clone-translations
         with:
@@ -49,14 +45,13 @@ jobs:
 
       - name: Check for orphaned assets and reusables
         env:
-          # Needed for gh
+          # The gh CLI reads GITHUB_TOKEN.
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
           set -e
 
-          # The `-s` is to make npm run silent and not print verbose
-          # information about the npm script alias.
+          # The -s flag keeps npm script-alias noise out of the file lists.
           assetFilesToRemove=$(npm run -s find-orphaned-assets)
           reusableFilesToRemove=$(npm run -s reusables -- find unused | grep '^data/reusables' || true)
           tableFilesToRemove=$(npm run -s find-orphaned-tables)
@@ -74,17 +69,14 @@ jobs:
 
           git status
 
-          # If nothing to commit, exit now. It's fine. No orphans.
           git status -- ':!translations*' | grep 'nothing to commit' && exit 0
 
-          # When run on a pull_request, we're just testing the tooling.
-          # Exit before it actually pushes the possible changes.
+          # Pull request runs exercise the tooling without pushing deletion PRs.
           if [ "$DRY_RUN" = "true" ]; then
             echo "Dry-run mode when run in a pull request"
             exit 0
           fi
 
-          # Replicated from the translation pipeline PR-maker Action
           git config --global user.name "docs-bot"
           git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 

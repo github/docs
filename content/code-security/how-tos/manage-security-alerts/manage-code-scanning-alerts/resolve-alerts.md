@@ -27,7 +27,7 @@ category:
 
 ## Asking {% data variables.copilot.copilot_chat %} about {% data variables.product.prodname_code_scanning %} alerts
 
-With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. See [AUTOTITLE](/copilot/how-tos/chat-with-copilot/get-started-with-chat-in-your-ide#ask-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
@@ -36,7 +36,7 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 ## Fixing alerts with {% data variables.product.prodname_copilot_short %}
 
 > [!NOTE]
-> This feature is in {% data variables.release-phases.public_preview %} and subject to change. {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_autofix_short %} must be available in the repository.
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change. {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_autofix_short %} must be available in the repository. {% data reusables.copilot.preview-features-policy %}
 
 You can assign a {% data variables.product.prodname_code_scanning %} alert to {% data variables.product.prodname_copilot_short %} to have it fix the alert for you. Assigning the alert starts an agent session: {% data variables.copilot.copilot_cloud_agent %} explores your codebase, generates a fix, validates it, and opens a pull request.
 

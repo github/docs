@@ -16,8 +16,7 @@ export function JourneyTrackNav({ context }: Props) {
   const upNext = nextGuide ?? nextTrackFirstGuide
   if (!upNext) return null
 
-  // In-track: show the next article's title. Crossing into a new track: show the
-  // track's name so the reader knows they're moving on to a new track.
+  // Crossing tracks uses the track name so readers know they are moving to another track.
   const label = nextGuide ? nextGuide.title : nextTrackFirstGuide!.trackTitle
 
   const progress = t('up_next_progress')

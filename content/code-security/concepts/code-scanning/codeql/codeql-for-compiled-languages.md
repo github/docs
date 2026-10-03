@@ -2,7 +2,7 @@
 title: CodeQL code scanning for compiled languages
 shortTitle: CodeQL for compiled languages
 intro: Understand how {% data variables.product.prodname_codeql %} analyzes compiled languages, the build options available, and learn how you can customize the database generation process if you need to.
-permissions: '{% data reusables.permissions.code-scanning-all-alerts %} if [advanced setup](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning) is already enabled'
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %} if [advanced setup](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning) is already enabled'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'

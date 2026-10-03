@@ -11,7 +11,7 @@ export interface ComputedSearchQueryParams {
   size: number
   version: string
   language: string
-  // These are optional, so we need to use ComputedSearchQueryParamsMap in functions to get the exact types per Search Type
+  // ComputedSearchQueryParamsMap narrows optional fields for each search type.
   page?: number
   sort?: string
   highlights?: HighlightOptions[]

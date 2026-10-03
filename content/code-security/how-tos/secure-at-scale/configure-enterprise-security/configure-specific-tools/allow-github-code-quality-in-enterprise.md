@@ -17,7 +17,13 @@ category:
 ---
 
 > [!NOTE]
-> Previously, {% data variables.product.prodname_AS %} policies also controlled access to {% data variables.product.prodname_code_quality_short %}. Those existing policy settings are automatically applied to the standalone {% data variables.product.prodname_code_quality_short %} policies.
+> {% data variables.product.prodname_code_quality_short %} has its own standalone enterprise policies. Access was previously controlled by your {% data variables.product.prodname_AS %} policies, and those existing settings are automatically applied to the new {% data variables.product.prodname_code_quality_short %} policies.
+
+{% data reusables.code-quality.agentic-autofix-preview-note %}
+
+When you allow {% data variables.product.prodname_code_quality_short %} for an organization and set the repository admin policy to **Allowed**, repository administrators can enable {% data variables.product.prodname_code_quality_short %} scans and all associated capabilities, including bulk agentic remediation with {% data variables.product.prodname_copilot_short %}. There is no separate policy for agentic remediation.
+
+If you restrict {% data variables.product.prodname_code_quality_short %}, repository administrators cannot enable scans or use {% data variables.product.prodname_copilot_short %}-powered autofixes for code quality findings.
 
 1. Navigate to your enterprise. For example, from [https://github.com/settings/enterprises](https://github.com/settings/enterprises?ref_product=ghec&ref_type=engagement&ref_style=text).
 {% data reusables.enterprise-accounts.policies-tab %}

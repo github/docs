@@ -31,8 +31,8 @@ You'll find detailed guidance for the setup of the following package managers:
 * [Docker](#docker)
 * [Docker Compose](#docker-compose)
 * [Go](#go)
-* [Gradle](#gradle){% ifversion dependabot-helm-support %}
-* [Helm Charts](#helm-charts){% endif %}
+* [Gradle](#gradle)
+* [Helm Charts](#helm-charts)
 * [Maven](#maven)
 * [npm](#npm)
 * [NuGet](#nuget)
@@ -109,6 +109,12 @@ The snippet below shows a `dependabot.yml` file configuration that uses a token.
 
 Docker supports using a username and password for registries. For more information, see `docker-registry` in [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#docker-registry).
 
+{% ifversion org-automatic-registry-access %}
+
+For images stored in {% data variables.product.prodname_container_registry %}, you can grant your repository **Read** access in the package settings instead of configuring credentials in your `dependabot.yml` file. See [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#configuring-private-github-hosted-registries).
+
+{% endif %}
+
 Snippet of `dependabot.yml` file using a username and password.
 
 {% raw %}
@@ -156,8 +162,6 @@ registries:
 
 Docker Compose adheres to the same configuration guidelines as Docker. For more information, see [Docker](#docker).
 
-{% ifversion dependabot-helm-support %}
-
 ### Helm Charts
 
 Helm supports using a username and password for registries. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-access-to-private-registries#helm-registry).
@@ -191,8 +195,6 @@ When configuring {% data variables.product.prodname_dependabot %} for Helm chart
 * Images that have an array of versions in the YAML cannot be updated.
 * Image names may not always be detected in Helm files or YAML files.
 * For Helm v2 updates, use the [Docker ecosystem](#docker).
-
-{% endif %}
 
 ### Gradle
 

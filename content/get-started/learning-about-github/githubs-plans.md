@@ -88,6 +88,10 @@ In addition to the features available with {% data variables.product.prodname_fr
 
   For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
+{% ifversion fpt or ghec %}
+* The option to purchase {% data variables.product.prodname_code_quality %}, which helps teams find and fix code quality and coverage issues. For more information, see [AUTOTITLE](/code-security/concepts/code-quality/code-quality).
+{% endif %}
+
 * Advanced tools and insights in private repositories:
   * Required pull request reviewers
   * Multiple pull request reviewers

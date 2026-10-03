@@ -1,14 +1,6 @@
 name: Don't delete features
 
-# **What it does**:
-#   If the PR (against main) involves deletion of features, if any of
-#   them are deletions or renames, post a comment, and ultimately
-#   fail the check.
-# **Why we have it**:
-#    If you delete the reference to an image, the English content is fine
-#    because it no longer tries to use the feature that doesn't exist.
-#    But this is not the case for translations.
-# **Who does it impact**: Docs content.
+# Fails feature-deletion PRs because translations still use deleted English features.
 
 on:
   workflow_dispatch:
@@ -60,6 +52,6 @@ jobs:
       - name: Ultimately fail the workflow for attention
         if: ${{ steps.comment.outputs.markdown != '' }}
         run: |
-          echo "More than 1 feature was deleted as part of this PR."
-          echo "See posted PR commented about how to get them back."
+          echo "This PR deletes or renames one or more feature files."
+          echo "See the PR comment for how to get them back."
           exit 1

@@ -40,7 +40,7 @@ The {% data variables.copilot.github_copilot_app %} supports the following opera
 
 ## What can I do with the {% data variables.copilot.github_copilot_app %}?
 
-* **Parallel workspaces:** Run multiple isolated agent sessions simultaneously, each with a dedicated git worktree and branch. When you start a new agent session you can choose to run it in a cloud-based sandbox (public preview) hosted by {% data variables.product.github %}. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#starting-a-session).
+* **Parallel workspaces:** Run multiple isolated agent sessions simultaneously, each with a dedicated git worktree and branch. You can run a session in a cloud sandbox, or configure a local sandbox to restrict the resources available to agent-run tools on your machine. For more information, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/agent-sessions#using-cloud-and-local-sandboxes).
 * **Session modes:** Choose how you work with agents: Interactive (collaborative), Plan (agent plans, you approve), or Autopilot (fully autonomous). You can also select from multiple LLMs and adjust reasoning effort for each session.
 * **Model selection:** Select from multiple LLMs, including models from your own provider using bring your own key (BYOK), and adjust reasoning effort for each session.
 * **{% data variables.product.github %} integration:** Browse and find issues, start sessions from them, create and close pull requests, review pull requests, view CI check results, and search across your repositories—all within the app.
@@ -49,6 +49,7 @@ The {% data variables.copilot.github_copilot_app %} supports the following opera
 * **Chats:** Brainstorm in a conversation mode without creating a dedicated branch or workspace.
 * **Session history:** Use `/chronicle` to get insights from previous sessions, including work you started in the app.
 * **Canvases:** Open custom, agent-driven artifacts and interfaces where people and agents can collaborate.
+* **Computer use:** Allow local sessions on macOS and Windows to interact with desktop applications, including legacy and GUI-only software that do not provide an API, command-line interface, or MCP integration. For more information, see [AUTOTITLE](/copilot/concepts/agents/computer-use).
 
 ## {% data variables.copilot.github_copilot_app %} workflow
 
@@ -88,4 +89,4 @@ For {% data variables.copilot.copilot_business_short %} and {% data variables.co
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started)
+* [AUTOTITLE](/copilot/get-started/quickstart-copilot-app)

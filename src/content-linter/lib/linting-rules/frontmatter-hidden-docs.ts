@@ -12,10 +12,10 @@ export const frontmatterHiddenDocs = {
     const fm = getFrontmatter(params.lines)
     if (!fm || !fm.hidden) return
 
-    // If the article has an experimental alternative, it's allowed to be hidden
+    // Allow hidden on articles with experimental alternatives.
     if (fm.hasExperimentalAlternative) return
 
-    // Hidden docs can be located in these content directories:
+    // Allow hidden in these product paths.
     const allowedProductPaths = ['content/early-access', 'content/site-policy', 'content/search']
 
     if (allowedProductPaths.some((allowedPath) => params.name.includes(allowedPath))) return
@@ -31,7 +31,7 @@ export const frontmatterHiddenDocs = {
         ', ',
       )}`,
       hiddenLine,
-      [1, hiddenLine.length], // No range applicable
+      [1, hiddenLine.length],
       null, // No fix possible
     )
   },

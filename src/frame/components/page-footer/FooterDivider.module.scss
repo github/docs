@@ -1,0 +1,39 @@
+// The footer band uses a 2880x283 transparent raster for the 1600/157 design box.
+// Preserve that aspect ratio and crop as viewports narrow so the peaks stay flush
+// against the footer rule.
+.footerDivider {
+  width: 100%;
+  aspect-ratio: 1600 / 157;
+  background-image: image-set(
+    url("/assets/images/site/footer-divider.webp") type("image/webp"),
+    url("/assets/images/site/footer-divider.png") type("image/png")
+  );
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// The component adds .armed only after scripting confirms the band starts below the
+// fold, so the resting state stays visible otherwise. Opacity and transform avoid
+// layout reflow, and MinimalFooter positioning keeps the band sliding underneath.
+.armed {
+  opacity: 0;
+  transform: translateY(var(--base-size-24));
+  transition:
+    opacity 700ms ease-out,
+    transform 700ms ease-out;
+}
+
+.armed.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+// Reduced motion neutralizes reveal styles, including when the preference changes after mount.
+@media (prefers-reduced-motion: reduce) {
+  .armed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

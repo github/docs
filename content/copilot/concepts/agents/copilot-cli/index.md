@@ -16,7 +16,6 @@ children:
   - /autopilot
   - /fleet
   - /research
-  - /chronicle
   - /rubber-duck
   - /lsp-servers
   - /about-cli-extensions

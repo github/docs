@@ -1,18 +1,14 @@
 name: Stale check for no response from author
 
-# **What it does**: Runs only in the OS repository to close issues that don't have enough information to be
-#                   actionable.
-# **Why we have it**: To remove the need for maintainers to remember to check
-#                     back on issues periodically to see if contributors have
-#                     responded.
-# **Who does it impact**: Everyone that works in the docs repository.
+# Public issues and PRs with no author response close after stale reminders
+# so maintainers do not recheck them manually.
 
 on:
   issue_comment:
     types: [created]
 
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
 
 permissions:
   contents: read
@@ -22,11 +18,8 @@ permissions:
 jobs:
   noResponse:
     runs-on: ubuntu-latest
-    # Only run in the OS repository, and skip bot-authored events. On failure the
-    # create-workflow-failure-issue step below posts a comment (as a bot); that
-    # comment is itself an issue_comment event that would re-trigger this workflow.
-    # During a transient failure that loops, so guard against bot actors to keep
-    # one failure from producing a flood of runs and Slack alerts.
+    # Only run in the public repo, and skip automated comments.
+    # Bot-authored issue_comment events are workflow chatter, not author responses.
     if: >-
       github.repository == 'github/docs' &&
       github.actor != 'docs-bot' &&
@@ -39,9 +32,8 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           only-labels: 'more-information-needed'
 
-          # Define behavior for issues
           days-before-issue-stale: 21
-          days-before-issue-close: 1 # close after 1 day if the issue is not updated
+          days-before-issue-close: 1
           stale-issue-label: 'Waiting on contributor'
           close-issue-message: >
             This issue has been automatically closed because there has been no response
@@ -52,9 +44,8 @@ jobs:
             importance of repro steps](https://www.lee-dohm.com/2015/01/04/writing-good-bug-reports/)
             for more information about the kind of information that may be helpful.
 
-          # Define behavior for pull requests
           days-before-pr-stale: 21
-          days-before-pr-close: 1 # close after a day if no activity is detected
+          days-before-pr-close: 1
           stale-pr-label: 'Waiting on contributor'
           close-pr-message: >
             This PR has been automatically closed because there has been no response to

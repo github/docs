@@ -7,6 +7,18 @@ versions:
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-explore-a-codebase
   - /copilot/tutorials/using-copilot-to-explore-a-codebase
+  - /copilot/tutorials/copilot-cookbook/document-code/explain-complex-logic
+  - /copilot/example-prompts-for-github-copilot-chat/documenting-code/explaining-complex-algorithms-or-logic
+  - /copilot/copilot-chat-cookbook/documenting-code/explaining-complex-algorithms-or-logic
+  - /copilot/tutorials/copilot-chat-cookbook/documenting-code/explaining-complex-algorithms-or-logic
+  - /copilot/tutorials/copilot-chat-cookbook/documenting-code/explain-complex-logic
+  - /copilot/tutorials/copilot-chat-cookbook/document-code/explain-complex-logic
+  - /copilot/tutorials/copilot-cookbook/document-code/explain-legacy-code
+  - /copilot/example-prompts-for-github-copilot-chat/documenting-code/explaining-legacy-code
+  - /copilot/copilot-chat-cookbook/documenting-code/explaining-legacy-code
+  - /copilot/tutorials/copilot-chat-cookbook/documenting-code/explaining-legacy-code
+  - /copilot/tutorials/copilot-chat-cookbook/documenting-code/explain-legacy-code
+  - /copilot/tutorials/copilot-chat-cookbook/document-code/explain-legacy-code
 contentType: tutorials
 category:
   - Scale institutional knowledge

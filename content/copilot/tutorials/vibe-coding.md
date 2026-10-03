@@ -39,8 +39,8 @@ Before getting started you must have the following:
 * A [{% data variables.product.prodname_copilot %} subscription plan](/copilot/get-started/plans).
 * One of these IDEs:
   * {% data variables.product.prodname_vscode %}
-  * Any JetBrains IDE that supports {% data variables.product.prodname_copilot_short %}, with the {% data variables.product.prodname_copilot %} extension for JetBrains installed. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=jetbrains).
-* Some experience of using {% data variables.copilot.copilot_chat_short %} in either {% data variables.product.prodname_vscode %} or JetBrains. If you've never used {% data variables.copilot.copilot_chat_short %} before, see [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+  * Any JetBrains IDE that supports {% data variables.product.prodname_copilot_short %}, with the {% data variables.product.prodname_copilot %} extension for JetBrains installed. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/install-copilot-extension?tool=jetbrains).
+* Some experience of using {% data variables.copilot.copilot_chat_short %} in either {% data variables.product.prodname_vscode %} or JetBrains. If you've never used {% data variables.copilot.copilot_chat_short %} before, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 ## Preparation
 
@@ -71,9 +71,9 @@ We'll create a time-tracking app in a new {% data variables.product.github %} re
 1. Choose a model from the models dropdown.
 
    > [!NOTE]
-   > The responses referred to in this tutorial were received while using Claude Sonnet 4.5. Other models will respond differently, but you should get roughly similar results. Claude Sonnet 4.5 is a good choice, if it's available, as it provides useful commentary in the chat view, explaining what it is doing, and giving detailed summaries when it has finished coding.
+   > The responses referred to in this tutorial were received while using {% data variables.copilot.copilot_claude_sonnet_45 %}, which has since been retired. Other models will respond differently, but you should get roughly similar results.
    >
-   > If Claude Sonnet 4.5 is not available, set the model to **Auto** or select a model of your choice.
+   > Set the model to **Auto**, or select a model of your choice.
 
 1. Enter this prompt in the chat:
 

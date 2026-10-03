@@ -23,36 +23,36 @@ const RECOGNIZED_KEYS_BY_PREFIX = {
 }
 
 const RECOGNIZED_KEYS_BY_ANY = new Set([
-  // Learning track pages
+  // Learning track pages add these keys.
   'learn',
   'learnProduct',
-  // Platform picker
+  // The platform picker adds this key.
   'platform',
-  // Tool picker
+  // The tool picker adds this key.
   'tool',
-  // When apiVersion isn't the only one. E.g. ?apiVersion=XXX&tool=vscode
+  // API pages can combine apiVersion with picker keys such as tool.
   'apiVersion',
-  // Search results page
+  // Search results pages read this key.
   'query',
-  // Any page, Search Overlay
+  // The search overlay can add these keys on any page.
   'search-overlay-input',
   'search-overlay-open',
   'search-overlay-ask-ai',
-  // The drop-downs on "Webhook events and payloads"
+  // Webhook events pages use actionType for drop-down filtering.
   'actionType',
-  // Landing page article grid filters
+  // Landing page article grids use these filter keys.
   'articles-category',
   'articles-filter',
   'articles-page',
-  // Legacy domain tracking parameter (no longer processed but still recognized)
+  // Recognize the legacy ghdomain parameter even though Docs no longer processes it.
   'ghdomain',
-  // UTM campaign tracking
+  // UTM campaign links add these keys.
   'utm_source',
   'utm_medium',
   'utm_campaign',
-  // Used by experiments
+  // Experiments add this key.
   'feature',
-  // Used to track API requests from external sources
+  // External API request links add this key.
   'client_name',
 ])
 
@@ -65,9 +65,7 @@ export default function handleInvalidQuerystrings(
   if (method === 'GET' || method === 'HEAD') {
     const originalKeys = Object.keys(query)
 
-    // Check for invalid query string patterns (square brackets, etc.)
     const invalidKeys = originalKeys.filter((key) => {
-      // Check for square brackets which are invalid
       return key.includes('[') || key.includes(']')
     })
 
@@ -89,8 +87,7 @@ export default function handleInvalidQuerystrings(
 
     let keys = originalKeys.filter((key) => !RECOGNIZED_KEYS_BY_ANY.has(key))
     if (keys.length > 0) {
-      // Before we judge the number of query strings, strip out all the ones
-      // we're familiar with.
+      // Count only keys this middleware does not recognize for the current path.
       for (const [prefix, recognizedKeys] of Object.entries(RECOGNIZED_KEYS_BY_PREFIX)) {
         if (path.startsWith(prefix)) {
           keys = keys.filter((key) => !recognizedKeys.includes(key))
@@ -98,9 +95,7 @@ export default function handleInvalidQuerystrings(
       }
     }
 
-    // If you fill out the Survey form with all the fields and somehow
-    // don't attempt to make a POST request, you'll end up with a query
-    // string like this.
+    // GET and HEAD with hidden survey-token plus real survey-vote match this honeypot branch.
     const honeypotted = 'survey-token' in query && 'survey-vote' in query
 
     if (keys.length >= MAX_UNFAMILIAR_KEYS_BAD_REQUEST || honeypotted) {
@@ -120,21 +115,12 @@ export default function handleInvalidQuerystrings(
       return
     }
 
-    // This is a pattern we've observed in production and we're shielding
-    // against it happening again. The root home page is hit with a
-    // 8 character long query string that has no value.
+    // Production has sent the home page 8-character valueless query strings.
     const rootHomePage = path.split('/').length === 2
     const badKeylessQuery =
       rootHomePage && keys.length === 1 && keys[0].length === 8 && !query[keys[0]]
 
-    // It's still a mystery why these requests happen but we've seen large
-    // number of requests that have a very long URL-encoded query string
-    // that starts with 'tool' but doesn't have any value.
-    // For example
-    //   ?tool%25252525253Dvisualstudio%252525253D%2525252526tool%25252525...
-    //   ...3Dvscode%2525253D%25252526tool%2525253Dvscode%25253D%252526tool...
-    //   ...%25253Dvimneovim%253D%2526tool%253Djetbrains%3D%26tool%3Djetbrains=&
-    // Let's shield against those by removing them.
+    // Strip production keys like tool%25252525253Dvisualstudio...%26tool%3Djetbrains=.
     const badToolsQuery = keys.some((key) => key.startsWith('tool%') && !query[key])
 
     if (keys.length >= MAX_UNFAMILIAR_KEYS_REDIRECT || badKeylessQuery || badToolsQuery) {

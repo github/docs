@@ -43,7 +43,7 @@ When creating a security configuration, keep in mind that:
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "{% data variables.product.prodname_security_configurations_caps %}" page, name your configuration and create a description.
 1. Optionally, enable "{% data variables.product.prodname_secret_protection %}", a paid feature for private {% ifversion ghec %}and internal {% endif %} repositories. Enabling {% data variables.product.prodname_secret_protection %} enables alerts for {% data variables.product.prodname_secret_scanning %}. In addition, you can choose whether to enable, disable, or keep the existing settings for the following {% data variables.product.prodname_secret_scanning %} features:{% ifversion secret-scanning-validity-check-partner-patterns %}
     * **Validity checks**. To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#checking-a-secrets-validity).{% ifversion ghes > 3.19 %}
-       Your site administrator must enable validity checks before you can use this feature. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configure-secret-scanning).{% endif %}{% endif %}{% ifversion fpt or ghec %}
+       Your site administrator must enable validity checks before you can use this feature. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configure-secret-scanning).{% endif %}{% endif %}{% ifversion secret-scanning-extended-metadata-checks %}
     * **Extended metadata**. To learn more about extended metadata checks, see [About extended metadata checks](/code-security/concepts/secret-security/validity-checks#about-extended-metadata-checks) and [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#reviewing-extended-metadata-for-a-token).
     > [!NOTE]
     > You can only enable extended metadata checks if validity checks are enabled.{% endif %}
@@ -70,7 +70,7 @@ When creating a security configuration, keep in mind that:
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
    * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
-   * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
+   * **Enforce configuration**. {% ifversion security-configuration-enterprise-organization-enforcement %}{% data reusables.permissions.security-configuration-enterprise-enable %} can block repository owners only, or both repository and organization owners, from changing features that are enabled or disabled by the configuration. Features that are not set aren't enforced. Select **Don't enforce**, **Enforce for repository owners**, or **Enforce for repository and organization owners** from the dropdown menu.{% else %}Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.{% endif %}
 
     {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
@@ -111,8 +111,7 @@ When creating a security configuration, keep in mind that:
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
    * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
-   * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
-
+   * **Enforce configuration**. {% ifversion security-configuration-enterprise-organization-enforcement %}{% data reusables.permissions.security-configuration-enterprise-enable %} can block repository owners only, or both repository and organization owners, from changing features that are enabled or disabled by the configuration. Features that are not set aren't enforced. Select **Don't enforce**, **Enforce for repository owners**, or **Enforce for repository and organization owners** from the dropdown menu.{% else %}Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.{% endif %}
     {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
 {% data reusables.code-scanning.save-custom-configuration %}

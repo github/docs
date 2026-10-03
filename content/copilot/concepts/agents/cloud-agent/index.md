@@ -11,9 +11,7 @@ children:
   - /about-custom-agents
   - /about-automations
   - /about-automation-rationale-and-approvals
-  - /access-management
   - /mcp-and-cloud-agent
-  - /risks-and-mitigations
 contentType: concepts
 redirect_from:
   - /copilot/concepts/agents/coding-agent

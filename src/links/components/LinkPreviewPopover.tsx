@@ -1,41 +1,22 @@
 import { useEffect } from 'react'
 import { HOVERCARDS_ENABLED } from '@/frame/lib/constants'
 
-// We postpone the initial delay a bit in case the user didn't mean to
-// hover over the link. Perhaps they just dragged the mouse over on their
-// way to something else.
+// Delay first opens to avoid hovercards flashing while the pointer crosses a link.
 const DELAY_SHOW = 300
-// The reason the hiding doesn't happens instantly is when the mouse is
-// first hovering over the link, then over the popover itself and then
-// back to the link. Because there's a slight cap between the popover
-// and the link we want to introduce a slight delay so it doesn't flicker.
+// Delay closes so the pointer can cross the gap between the link and hovercard.
 const DELAY_HIDE = 200
 
-// A global that is used for a slow/delayed closing of the popovers.
-// It can be global because there's only 1 popover DOM node that gets
-// created the first time it's needed.
+// A single shared popover node makes global timers safe.
 let popoverCloseTimer: number | null = null
 let popoverStartTimer: number | null = null
 
-// A global for remembering which target was originated the initial opening
-// of the popover. It's important to know this when the onmouseover
-// of the link is triggered again. If you hover over the popover and back
-// to its link, we don't want to immediately open the popover.
-// If it's the first time, i.e. a different link, then we want to add a
-// slight initial delay.
+// Re-entering the source link for the open hovercard skips the first-open delay.
 let currentlyOpen: HTMLLinkElement | null = null
 
-// Number of pixels from the top of the page that implies that we should
-// display the popover *underneath* the link.
-// The number is based on the height of popovers when they are quite high.
-// We can't know the size of the popover on screen until after it's been
-// inserted into the visible DOM. So before that, as a `div` element,
-// its `offsetHeight` and `.getBoundingClientRect().height` are always 0.
-// We *could* "change our mind" and wait till it's been inserted and then
-// change according to the popover's true height. But this can cause a flicker.
+// Links within 300 px of the viewport top render below the link to avoid an after-render flip.
+// Hidden hovercards report height 0 until display, so this keeps placement stable.
 const BOUNDING_TOP_MARGIN = 300
 
-// used to identify the first focusable element in the hover card
 const FIRST_LINK_ID = '_hc_first_focusable'
 const TITLE_ID = '_hc_title'
 
@@ -57,25 +38,20 @@ function getOrCreatePopoverGlobal() {
     wrapper.style.outline = 'none'
     wrapper.style.zIndex = `100`
 
-    // Semantics for the hovercard so SR users are aware they're about to be
-    // focus trapped
+    // aria-modal warns screen readers of the focus trap; the bumpers below enforce it.
     wrapper.setAttribute('role', 'region')
     wrapper.setAttribute('aria-modal', 'true')
     wrapper.setAttribute('aria-label', 'user hovercard')
     wrapper.setAttribute('aria-labelledby', TITLE_ID)
 
-    // this extra element and its event listener are used to help us direct
-    // where focus should go when entering a hover card; see `bottomBumper` for
-    // its counterpart
+    // The top bumper catches focus entering the hovercard and sends it to a real link.
     const topBumper = document.createElement('span')
     topBumper.setAttribute('tabindex', '0')
     topBumper.setAttribute('aria-hidden', 'true')
     wrapper.appendChild(topBumper)
 
     const inner = document.createElement('div')
-    // Note that this is lacking the 'Popover-message--bottom-left'
-    // or 'Popover-message--top-right`. These get set later when we
-    // know where the popover message should appear on the screen.
+    // Add placement classes later, after measuring where the hovercard fits on screen.
     inner.classList.add(
       ...'Popover-message Popover-message--large p-3 Box color-shadow-large'.split(/\s+/g),
     )
@@ -89,8 +65,7 @@ function getOrCreatePopoverGlobal() {
     const headingLink = document.createElement('a')
     headingLink.style.textDecoration = 'underline'
     headingLink.href = ''
-    // the id is necessary since we're intercepting natural focus order,
-    // so when focus enters the topBumper, we'll manually move it to the link
+    // The top bumper needs this ID to move focus to the heading link.
     headingLink.id = FIRST_LINK_ID
     product.appendChild(headingLink)
 
@@ -122,9 +97,7 @@ function getOrCreatePopoverGlobal() {
 
     wrapper.appendChild(inner)
 
-    // this extra element and its event listener are used to help us direct
-    // where focus should go when reaching the end of a hover card;
-    // see `topBumper` for its counterpart
+    // The bottom bumper catches focus leaving the hovercard and loops it back inside.
     const bottomBumper = document.createElement('span')
     bottomBumper.setAttribute('aria-hidden', 'true')
     bottomBumper.setAttribute('tabindex', '0')
@@ -141,25 +114,19 @@ function getOrCreatePopoverGlobal() {
       popoverCloseTimer = window.setTimeout(() => {
         wrapper.style.display = 'none'
 
-        // If you started the popover by moving over the link, then
-        // moved the mouse out of the link and into the popover, then
-        // eventually you move out of the popover. Then, we want to
-        // reset.
+        // Leaving the hovercard resets the source link so the next hover gets the delay.
         currentlyOpen = null
       }, DELAY_HIDE)
     })
 
     popoverGlobal = wrapper
 
-    // The top bumper simply moves focus into either:
-    // (a) the first focusable element in the hover card, or
-    // (b) if traversing in reverse, the last focusable element
+    // The top bumper loops focus between the first and last hovercard links.
     topBumper.addEventListener('keyup', (event) => {
       if (event.key === 'Tab' && event.shiftKey) titleLink.focus()
       else if (event.key === 'Tab') headingLink.focus()
     })
 
-    // The bottom bumper is more complex and handled via handleBottomBumper()
     bottomBumper.addEventListener('keyup', (event) => {
       handleBottomBumper(titleLink, headingLink, event)
     })
@@ -168,17 +135,13 @@ function getOrCreatePopoverGlobal() {
     })
   }
 
-  // When the bottom bumper receives focus, it could be via one of two events:
-  // (a) a keyboard event, or (b) a focus event. This function essentially
-  // "de-bounces" the resulting behavior.
+  // Focus and keyboard events can both reach the bottom bumper, so this folds them together.
   function handleBottomBumper(
     primaryFocus: HTMLAnchorElement,
     loopAroundFocus?: HTMLAnchorElement,
     event?: KeyboardEvent,
   ) {
-    // If we got here via keyboard events, we just need to determine if we
-    // should loops around to the top of the hover card or traverse in reverse
-    // the final part of the conditional essentially defaults the focus
+    // Shift-Tab moves to the last link; Tab or focus loops to the first link.
     if (event && event.key === 'Tab' && event.shiftKey) {
       primaryFocus.focus()
     } else if (event && event.key === 'Tab' && loopAroundFocus) {
@@ -200,31 +163,22 @@ function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDi
   let intro = ''
   let anchor = ''
 
-  // Is it an in-page anchor link? If so, get the title, intro
-  // and product from within the DOM. But only if we can use the anchor
-  // destination to find a DOM node that has text.
+  // Same-page anchor previews reuse title, intro, and product text already in the DOM.
   if (
     element.href.includes('#') &&
     element.href.split('#')[1] &&
     element.href.startsWith(`${window.location.href.split('#')[0]}#`)
   ) {
     const domID = element.href.split('#')[1]
-    // The reason we're using `getElementById(...)` instead of
-    // `querySelector(#...)` is because `getElementById(...)` will not
-    // throw a DOMException if the ID starts with a number.
-    // For example, `document.getElementById('123-thing')` will work, but
-    // `document.querySelector('#123-thing')` will throw a DOMException.
+    // getElementById accepts IDs such as 123-thing that make querySelector throw.
     const domElement = document.getElementById(domID)
     if (domElement && domElement.textContent) {
       anchor = domElement.textContent
-      // Headings will have the `#` character to the right which is to
-      // indicate that it's a "permalink". It becomes part of the heading's
-      // text as a DOM element. Strip that.
+      // Heading permalink text adds a trailing " #"; strip it from the hovercard label.
       if (anchor.endsWith(' #')) {
         anchor = anchor.slice(0, -2)
       }
 
-      // Now we have to make up the product, intro, and title
       const domTitle = document.querySelector('h1')
       if (domTitle && domTitle.textContent) {
         title = domTitle.textContent
@@ -279,9 +233,7 @@ function fillPopover(
       if (productHeadLink) {
         productHeadLink.textContent = product
         const linkURL = new URL(element.href)
-        // All a.href attributes are always full absolute URLs, as a string.
-        // We assume that the "product landing page" is the first
-        // portion of all links.
+        // DOM href values are absolute, and the first path segments point at the product page.
         const regex = /^\/(?<lang>\w{2}\/)?(?<version>[\w-]+@[\w-.]+\/)?(?<product>[\w-]+\/)?/
         const match = regex.exec(linkURL.pathname)
         if (match?.groups) {
@@ -336,32 +288,20 @@ function fillPopover(
 
   const below = boundingTop < BOUNDING_TOP_MARGIN
   if (below) {
-    // The caret pointing upwards
     popoverMessageElement.classList.remove('Popover-message--bottom-left')
     popoverMessageElement.classList.add('Popover-message--top-left')
   } else {
-    // Default
     popoverMessageElement.classList.remove('Popover-message--top-left')
     popoverMessageElement.classList.add('Popover-message--bottom-left')
   }
 
-  // We can't know what the height of the popover element is when it's
-  // `display:none` so we guess offset to the offset and adjust it later.
+  // Hidden hovercards report height 0, so place it at the link and adjust after display.
   popover.style.top = `${top}px`
   popover.style.left = `${left}px`
   popover.style.display = 'block'
 
   if (below) {
-    // This moves the popover about the height of the <a> element down.
-    // You can't use element.getBoundingClientRect() because that could
-    // give a height that is twice that of a single line of text.
-    // For example:
-    //
-    //     <p>Bla bla <a href="...">Link</a> ble and <a href="...">Other
-    //     Link Text</a> yada yada</p>
-    //
-    // In this case the second `<a>` element will have a height that is
-    // twice of the first `<a>` because the second one spans two lines.
+    // Use a fixed single-line height because getBoundingClientRect can double for wrapped links.
     const approximateElementHeight = 33
     popover.style.top = `${top + approximateElementHeight}px`
   } else {
@@ -375,17 +315,7 @@ function fillPopover(
   }
 }
 
-// The top/left offset of an element is only relative to its parent.
-// So if you have...
-//
-//   <body>
-//     <div id="main">
-//       <div id="sub" style="position:relative">
-//         <a href="...">Link</a>
-//
-// The `<a>` element's offset is based on the `<div id="sub" style="position:relative">`
-// and not the body as the user sees it relative to the viewport.
-// So you have to traverse the offsets till you get to the root.
+// HTMLElement offsets are parent-relative, so add every offsetParent to get the page position.
 function getOffset(element: HTMLElement) {
   let top = element.offsetTop
   let left = element.offsetLeft
@@ -403,19 +333,12 @@ function getBoundingOffset(element: HTMLElement) {
   return [top, left]
 }
 
+// Hovering the source link for an open hovercard skips the delay while crossing the gap.
 function popoverShow(target: HTMLLinkElement, callback?: (popover: HTMLDivElement) => void) {
   if (popoverStartTimer) {
     window.clearTimeout(popoverStartTimer)
   }
 
-  // The mouse has been moved over a link. If this is the "first time",
-  // we want to delay showing the popover because it could be that the
-  // *intention* of the user was not to hover over, but they might have
-  // just moved the mouse over the link by "accident", or in a hurry
-  // on their way to something else.
-  // However, if they hover over the link because the popover is already
-  // open, which happens when you hover over the popover and back again
-  // to the link, then we don't want any delay.
   if (target === currentlyOpen) {
     popoverWrap(target, callback)
   } else {
@@ -427,10 +350,7 @@ function popoverShow(target: HTMLLinkElement, callback?: (popover: HTMLDivElemen
 }
 
 function popoverHide() {
-  // Important to use `window.setTimeout` instead of `setTimeout` so
-  // that TypeScript knows which kind of timeout we're talking about.
-  // If you use plain `setTimeout` TypeScript might think it's a
-  // Node eventloop kinda timer.
+  // window.setTimeout keeps the timer type in the browser API, not Node's timer type.
 
   if (popoverStartTimer) {
     window.clearTimeout(popoverStartTimer)
@@ -440,7 +360,7 @@ function popoverHide() {
     const popover = getOrCreatePopoverGlobal()
     popover.style.display = 'none'
 
-    // Reset because we're closing the popover, so we have to start from afresh.
+    // Closing resets the source link so the next hover gets the first-open delay.
     currentlyOpen = null
   }, DELAY_HIDE)
 }
@@ -448,8 +368,7 @@ function popoverHide() {
 let lastFocussedLink: HTMLLinkElement | null = null
 
 export function LinkPreviewPopover() {
-  // This is to track if the user entirely tabs out of the window.
-  // For example if they go to the address bar.
+  // Window blur hides the hovercard when focus moves to browser chrome.
   useEffect(() => {
     if (!HOVERCARDS_ENABLED) return
 
@@ -469,8 +388,7 @@ export function LinkPreviewPopover() {
       const target = event.currentTarget as HTMLLinkElement
       popoverShow(target)
 
-      // Just in case you *had* used the keyboard shortcut, but now
-      // hovered over something else, reset the last focussed link.
+      // Pointer hover clears keyboard-return focus from the previous shortcut-opened link.
       lastFocussedLink = null
     }
 
@@ -497,21 +415,14 @@ export function LinkPreviewPopover() {
       }
     }
 
-    // Note, this is attached, as an event listener, to the `document`
-    // meaning an Escape event here could be for anything.
-    // But the `popoverHide` function is cheap to call. If the popover
-    // was visible, it's hidden now. If it wasn't visible, nothing happens.
-    // Because we do other things on Escape, we have to make sure that
-    // this Escape was for closing a currently open popover.
+    // Escape can belong to other features; only open hovercards handle it.
     function escapeHandler(event: KeyboardEvent) {
       if (event.key === 'Escape') {
         const popover = getOrCreatePopoverGlobal()
         if (popover.style.display !== 'none') {
           popoverHide()
 
-          // If this is true, the keyboard shortcut was used to open
-          // the popover when the link (that can have a popover)
-          // was used. So upon, Escape go back to focussing on that link.
+          // Shortcut-opened hovercards return focus to their source link on Escape.
           if (lastFocussedLink) {
             lastFocussedLink.focus()
           }
@@ -524,39 +435,25 @@ export function LinkPreviewPopover() {
         '#article-contents a[href], #article-intro a[href]',
       ),
     ).filter((link) => {
-      // This filters out links that are not internal or in-page
-      // and the ones that are in-page anchor links next to the headings.
-      // Remember that `link.href` is always absolute because it comes
-      // from the DOM. So to test the pathname, we have to parse it
-      // and extract the pathname from the whole URL object.
+      // DOM href values are absolute, so URL parsing filters internal and in-page links.
       const { pathname } = new URL(link.href)
       return (
         link.href.startsWith(window.location.origin) &&
         !link.classList.contains('heading-link') &&
         !pathname.startsWith('/public/') &&
         !pathname.startsWith('/assets/') &&
-        // This skips those ToolPicker links with `data-tool="vscode"`
-        // attribute, for example.
+        // Skip ToolPicker links such as data-tool="vscode".
         !link.dataset.tool &&
         !link.dataset.platform
       )
     })
 
-    // Ideally, we'd have an event listener for the entire container and
-    // the filter, at "runtime", within by filtering for the target
-    // elements we're interested in. However, this is not possible
-    // because then when you hover over the text in
-    // a tag like <a href="..."><strong>Link</strong></a> the target
-    // element is that of the `STRONG` tag.
-    // The reason it would be better to have a single event listener and
-    // filter is because it would work even if the DOM changes by
-    // adding new `<a>` elements.
+    // Individual listeners avoid delegated mouseover targets such as strong inside a link.
     for (const link of links) {
       link.addEventListener('mouseover', showPopover)
       link.addEventListener('mouseout', hidePopover)
       link.addEventListener('keydown', keyboardHandler)
-      // Expose the keyboard shortcut to assistive technologies so screen
-      // reader users can discover how to open the link preview hovercard.
+      // aria-keyshortcuts exposes Alt+ArrowUp to screen readers.
       link.setAttribute('aria-keyshortcuts', 'Alt+ArrowUp')
     }
 
@@ -571,7 +468,7 @@ export function LinkPreviewPopover() {
       }
       document.removeEventListener('keydown', escapeHandler)
     }
-  }) // Note that this runs on every single mount
+  }) // Re-scan links after client-side page changes.
 
   return null
 }

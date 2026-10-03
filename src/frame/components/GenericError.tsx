@@ -40,7 +40,7 @@ export function GenericError() {
 export const SimpleHeader = () => {
   const router = useRouter()
   return (
-    <div className="border-bottom color-border-muted no-print">
+    <div className={`no-print ${styles.headerBorder}`}>
       <header
         className="container-xl p-responsive py-3 position-relative d-flex width-full"
         role="banner"
@@ -48,12 +48,12 @@ export const SimpleHeader = () => {
       >
         <div className={`d-flex flex-items-center ${styles.logoContainer}`} id="github-logo-mobile">
           <Link href={`/${router.locale}`} aria-hidden="true" tabIndex={-1}>
-            <MarkGithubIcon size={32} className="color-fg-default" />
+            <MarkGithubIcon size={32} className={styles.fgDefault} />
           </Link>
 
           <Link
             href={`/${router.locale}`}
-            className="no-underline h4 color-fg-default no-wrap pl-2"
+            className={`no-underline h4 no-wrap pl-2 ${styles.fgDefault}`}
           >
             GitHub Docs
           </Link>
@@ -68,7 +68,7 @@ export const SimpleFooter = () => {
     <footer className="py-6">
       <div className="container-xl px-3 px-md-6">
         <ul role="list" className="d-flex flex-wrap list-style-none">
-          <li role="listitem" className="d-flex mr-xl-3 color-fg-muted">
+          <li role="listitem" className={`d-flex mr-xl-3 ${styles.fgMuted}`}>
             <span>&copy; {new Date().getFullYear()} GitHub, Inc.</span>
           </li>
           <li role="listitem" className="ml-3">

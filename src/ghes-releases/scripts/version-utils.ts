@@ -4,15 +4,12 @@ import { supported } from '@/versions/lib/enterprise-server-releases'
 import getDataDirectory from '@/data-directory/lib/data-directory'
 import { FeatureData, FrontmatterVersions } from '@/types'
 
-// Return true if lowestSupportedVersion > semVerRange
 export function isGhesReleaseDeprecated(lowestSupportedVersion: string, semVerRange: string) {
   const lowestSemver = semver.coerce(lowestSupportedVersion)
   if (!lowestSemver) return false
   return semver.gtr(lowestSemver.version, semVerRange)
 }
 
-// Return true if the semver range is greater than the
-// lowest supported GHES version
 export function isInAllGhes(semverRange: string) {
   if (semverRange === '*') return true
   const regexGt = /(>|>=){1}\s?(\d+\.\d+)/g
@@ -27,11 +24,8 @@ export function isInAllGhes(semverRange: string) {
   return semver.lte(minVersion, oldestSupported)
 }
 
-// A feature is deprecated if it only contains
-// GHES releases and all releases are deprecated
-// or all releases are supported.
+// GHES-only features disappear when their GHES range is fully deprecated.
 export function isFeatureDeprecated(versions: FrontmatterVersions) {
-  // All GHES releases are deprecated
   return (
     !!versions.ghes &&
     !versions.fpt &&
@@ -40,8 +34,6 @@ export function isFeatureDeprecated(versions: FrontmatterVersions) {
   )
 }
 
-// Return true when the feature version is in all versions
-// and all GHES releases.
 export function isAllVersions(versions: FrontmatterVersions) {
   if (
     versions &&

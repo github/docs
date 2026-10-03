@@ -1,0 +1,5 @@
+# Reference: github/releases#9912
+# Enterprise security configuration enforcement for organization owners
+versions:
+  ghec: '*'
+  ghes: '>=3.24'

@@ -106,7 +106,7 @@ describe('POST /events', () => {
 
   test('should require a type', async () => {
     const { statusCode } = await checkEvent({ ...pageExample, type: undefined })
-    // should skip events with no type
+    // Events with no type are skipped, not rejected, so the batch still succeeds.
     expect(statusCode).toBe(200)
   })
 

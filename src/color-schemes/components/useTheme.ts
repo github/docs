@@ -62,7 +62,12 @@ function filterMode(mode = ''): CssColorMode | undefined {
   }
 }
 
-function filterTheme({ name = '', color_mode = '' } = {}): SupportedTheme | undefined {
+// Use ?? {} because a default parameter covers undefined, but the cookie can carry
+// explicit null, for example {"light_theme":null}.
+function filterTheme(
+  theme?: { name?: string; color_mode?: string } | null,
+): SupportedTheme | undefined {
+  const { name = '', color_mode = '' } = theme ?? {}
   if (Object.values<string>(SupportedTheme).includes(name)) {
     return name as SupportedTheme
   }
@@ -91,14 +96,14 @@ export function getCssTheme(cookieValue = ''): CssColorTheme {
 export function getComponentTheme(cookieValue = ''): ComponentColorTheme {
   const { colorMode, lightTheme, darkTheme } = getCssTheme(cookieValue)
   return {
-    // The cookie value is a primer/css color_mode.
-    // We need to convert that to a primer/react compatible version.
     colorMode: cssColorModeToComponentColorMode[colorMode],
     dayScheme: lightTheme,
     nightScheme: darkTheme,
   }
 }
 
+// setTimeout(0) defers cookie reads until after Primer React's effect, which otherwise
+// overrides the cookie color mode and reverts the page to auto.
 export function useTheme() {
   const [theme, setTheme] = useState<ColorModeThemes>({
     css: defaultCSSTheme,
@@ -106,18 +111,6 @@ export function useTheme() {
   })
 
   useEffect(() => {
-    // Using setTimeout with a default delay value of 0 interjects one
-    // additional event cycle, which works around a bug that is the
-    // result of a timing issue. Without the setTimeout function
-    // the page loads, then the docs site switches the color mode to
-    // match the user's GitHub color mode. Primer React has a useEffect
-    // call that overrides this change, causing the site to ignore the
-    // user's GitHub color mode and revert to auto.
-    // As a temporary workaround, this code that fetches the user's GitHub
-    // color mode will be called after Primer React's useEffect call.
-    // The long term solution to this theming issue is to migrate to CSS variables
-    // under the hood, which Primer is planning to do in the next couple quarters.
-    // Reference: https://github.com/primer/react/issues/2229
     setTimeout(() => {
       const cookieValue = Cookies.get(COLOR_MODE_COOKIE_NAME)
       const css = getCssTheme(cookieValue)

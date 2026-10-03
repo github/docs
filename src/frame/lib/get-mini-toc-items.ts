@@ -27,11 +27,8 @@ interface FlatTocItem {
   items?: FlatTocItem[]
 }
 
-// Build MiniTocItems from pre-collected heading data (from the collect-mini-toc
-// rehype plugin). This is the only path for generating mini-TOC items — headings
-// are collected directly from the AST during rendering, avoiding any HTML
-// re-parsing.
-// Keep maxHeadingLevel=2 for accessibility reasons, see docs-engineering#2701
+// The collect-mini-toc rehype plugin is the only source because rendered HTML is not re-parsed.
+// Ordinary article mini TOCs pass maxHeadingLevel 2 for accessibility.
 export function buildMiniTocFromCollected(
   collected: CollectedHeading[],
   maxHeadingLevel = 2,
@@ -53,7 +50,7 @@ export function buildMiniTocFromCollected(
     }
   })
 
-  // Set indentation relative to the most important heading
+  // Indentation starts from the highest-priority collected heading.
   for (const item of flatToc) {
     item.indentationLevel = item.headingLevel - (mostImportantHeadingLevel ?? item.headingLevel)
   }
@@ -62,7 +59,6 @@ export function buildMiniTocFromCollected(
   return minimalMiniToc(nestedToc)
 }
 
-// Recursively build a tree from the list of allItems
 function buildNestedToc(allItems: FlatTocItem[], startIndex = 0): FlatTocItem[] {
   const startItem = allItems[startIndex]
   if (!startItem) {
@@ -76,7 +72,6 @@ function buildNestedToc(allItems: FlatTocItem[], startIndex = 0): FlatTocItem[] 
     const nextItem = allItems[cursor + 1]
     const nextItemIsNested = nextItem && nextItem.indentationLevel! > cursorItem.indentationLevel!
 
-    // if it's the current indentation level, push it on and keep going
     if (curLevelIndentation === cursorItem.indentationLevel) {
       currentLevel.push({
         ...cursorItem,
@@ -85,15 +80,13 @@ function buildNestedToc(allItems: FlatTocItem[], startIndex = 0): FlatTocItem[] 
       continue
     }
 
-    // these items were already handled via recursion
+    // Recursion already nested these items.
     if (curLevelIndentation < cursorItem.indentationLevel) {
       continue
     }
 
-    // current root indentation is _greater_ than our current cursor item,
     if (curLevelIndentation > cursorItem.indentationLevel) {
-      // special scenario where the initial list started with "less important" headers
-      // so we need to reset our expectations of what level to judge the indentation on
+      // A later higher-priority heading resets the baseline indentation.
       if (startIndex === 0) {
         curLevelIndentation = cursorItem.indentationLevel
         currentLevel.push({
@@ -109,8 +102,7 @@ function buildNestedToc(allItems: FlatTocItem[], startIndex = 0): FlatTocItem[] 
   return currentLevel
 }
 
-// Strip the bits and pieces from each object in the array that are
-// not needed in the React component rendering.
+// Mini TOC rendering needs only contents, nested items, and platform.
 function minimalMiniToc(toc: FlatTocItem[]): MiniTocItem[] {
   return toc.map(({ platform, contents, items }) => {
     const minimal: MiniTocItem = { contents }
@@ -139,7 +131,7 @@ export async function getAutomatedPageMiniTocItems(
       })
       .join('')
 
-  // Collect headings during render via the rehype plugin
+  // Rendering with collectMiniToc runs the rehype collector.
   const collectMiniToc: CollectedHeading[] = []
   const renderContext = { ...context, collectMiniToc }
   await renderContent(titles, renderContext)

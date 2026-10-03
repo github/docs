@@ -21,13 +21,13 @@ export const EXPERIMENTS = {
   // Placeholder experiment to maintain type compatibility
   placeholder_experiment: {
     key: 'placeholder_experiment',
-    isActive: false, // Inactive placeholder
+    isActive: false,
     percentOfUsersToGetExperiment: 0,
     includeVariationInContext: false,
     limitToLanguages: [],
     limitToVersions: [],
     alwaysShowForStaff: false,
-    turnOnWithURLParam: 'placeholder', // Placeholder URL param
+    turnOnWithURLParam: 'placeholder',
   },
   readability_copilot: {
     key: 'readability_copilot',
@@ -68,12 +68,10 @@ export function getActiveExperiments(locale: string, version?: string): Experime
       include = false
     }
 
-    // Only include experiment if it's supported for the current language
     if (experiment.limitToLanguages?.length && !experiment.limitToLanguages.includes(locale)) {
       include = false
     }
 
-    // Only include experiment if it's supported for the current version
     if (experiment.limitToVersions?.length && !experiment.limitToVersions.includes(version || '')) {
       include = false
     }

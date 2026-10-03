@@ -2,7 +2,7 @@ import type { EnterpriseDeprecation } from '@/frame/components/context/MainConte
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { useVersion } from '@/versions/components/useVersion'
 import { Flash } from '@primer/react'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import styles from './DeprecationBanner.module.scss'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
@@ -16,10 +16,7 @@ export const DeprecationBanner = () => {
     return null
   }
 
-  // Have to "trick" TypeScript here because by default, this is an
-  // optional key. But because we're confident with the JS business
-  // logic in MainContext.tsx, we can safely assume that this key
-  // is present.
+  // MainContext supplies enterprise_deprecation before React renders this banner.
   const enterpriseDeprecation = data.reusables.enterprise_deprecation as EnterpriseDeprecation
   const message = enterpriseServerReleases.isOldestReleaseDeprecated
     ? enterpriseDeprecation.version_was_deprecated

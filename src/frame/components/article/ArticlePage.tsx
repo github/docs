@@ -11,14 +11,13 @@ import { ArticleGridLayout } from './ArticleGridLayout'
 import { ArticleInlineLayout } from './ArticleInlineLayout'
 import { PlatformPicker } from '@/tools/components/PlatformPicker'
 import { ToolPicker } from '@/tools/components/ToolPicker'
-import { MiniTocs } from '@/frame/components/ui/MiniTocs'
+import { MiniTocs, UpNext } from '@/frame/components/ui/MiniTocs'
 import { RestRedirect } from '@/rest/components/RestRedirect'
 import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
-import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
-import { CopyMarkdownMenu } from './ViewMarkdownButton'
+import { JourneyTrackNav } from '@/journeys/components'
+import { CopyMarkdownBelowIntro } from './ViewMarkdownButton'
 import { ExperimentContentSwap } from '@/events/components/experiments/ExperimentContentSwap'
-import { SelectionProvider } from '@/tools/components/SelectionContext'
 import { CodeTabsProvider } from '@/frame/components/CodeTabsGroup'
 
 const ClientSideRefresh = dynamic(() => import('@/frame/components/ClientSideRefresh'), {
@@ -49,9 +48,8 @@ export const ArticlePage = () => {
   const introProp = (
     <>
       {intro && (
-        // Note the `_page-intro` is used by the popover preview cards
-        // when it needs this text for in-page links.
-        <Lead data-testid="lead" data-search="lead" className="_page-intro">
+        // _page-intro lets popover preview cards reuse this text for in-page links.
+        <Lead variant="hero" data-testid="lead" data-search="lead" className="_page-intro">
           {intro}
         </Lead>
       )}
@@ -67,16 +65,40 @@ export const ArticlePage = () => {
     </>
   )
 
-  const toc = (
+  // Guard the 1400px sidebar because a false-only fragment still paints an empty 326px rail.
+  const hasTocContent = isJourneyTrack || miniTocItems.length > 1
+  const toc = hasTocContent ? (
     <>
-      <CopyMarkdownMenu currentPath={currentPath} />
-      {isJourneyTrack && <JourneyTrackCard journey={currentJourneyTrack} />}
       {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
+      {isJourneyTrack && currentJourneyTrack && <UpNext journey={currentJourneyTrack} />}
+    </>
+  ) : undefined
+
+  const topper = <ArticleTitle>{title}</ArticleTitle>
+
+  // Keep the copy-markdown control under the lede; layouts only place callouts differently.
+  const introWithCopy = (
+    <>
+      {introProp}
+      <CopyMarkdownBelowIntro currentPath={currentPath} />
+    </>
+  )
+
+  const gridIntro = (
+    <>
+      {introWithCopy}
+      {introCalloutsProp}
     </>
   )
 
   const articleContents = (
-    <div id="article-contents">
+    // data-has-upnext extends the section frame 24px to meet journey-track Up next bands.
+    <div
+      id="article-contents"
+      // data-article-body opts articles into section framing; generated references omit it.
+      data-article-body
+      data-has-upnext={isJourneyTrack ? '' : undefined}
+    >
       {renderedPageHast ? (
         <MarkdownContent hast={renderedPageHast} />
       ) : (
@@ -95,57 +117,51 @@ export const ArticlePage = () => {
   )
 
   return (
-    <DefaultLayout>
-      <SelectionProvider>
-        <CodeTabsProvider>
-          <LinkPreviewPopover />
-          <UtmPreserver />
-          {isDev && <ClientSideRefresh />}
-          {router.pathname.includes('/rest/') && <RestRedirect />}
-          {currentLayout === 'inline' ? (
-            <>
-              <ArticleInlineLayout
+    <DefaultLayout hasDrawer={currentLayout !== 'inline'}>
+      <CodeTabsProvider>
+        <LinkPreviewPopover />
+        <UtmPreserver />
+        {isDev && <ClientSideRefresh />}
+        {router.pathname.includes('/rest/') && <RestRedirect />}
+        {currentLayout === 'inline' ? (
+          <>
+            <ArticleInlineLayout
+              supportPortalVaIframeProps={supportPortalVaIframeProps}
+              topper={topper}
+              intro={introWithCopy}
+              introCallOuts={introCalloutsProp}
+            >
+              {articleContents}
+            </ArticleInlineLayout>
+            {isJourneyTrack ? (
+              <div className="width-full mt-4">
+                <JourneyTrackNav context={currentJourneyTrack} />
+              </div>
+            ) : null}
+          </>
+        ) : (
+          <>
+            {/* Journey pages remove bottom spacing so rails meet the Up next border. */}
+            <div className={`px-3 px-md-6 mt-4 ${isJourneyTrack ? '' : 'mb-4'}`}>
+              <ArticleGridLayout
                 supportPortalVaIframeProps={supportPortalVaIframeProps}
-                topper={<ArticleTitle>{title}</ArticleTitle>}
-                intro={introProp}
-                introCallOuts={introCalloutsProp}
+                topper={topper}
+                tocBreakpoint="xxl"
+                intro={gridIntro}
                 toc={toc}
               >
                 {articleContents}
-              </ArticleInlineLayout>
-              {isJourneyTrack ? (
-                <div className="width-full mt-4">
-                  <JourneyTrackNav context={currentJourneyTrack} />
-                </div>
-              ) : null}
-            </>
-          ) : (
-            <>
-              <div className="container-xl px-3 px-md-6 my-4">
-                <ArticleGridLayout
-                  supportPortalVaIframeProps={supportPortalVaIframeProps}
-                  topper={<ArticleTitle>{title}</ArticleTitle>}
-                  intro={
-                    <>
-                      {introProp}
-                      {introCalloutsProp}
-                    </>
-                  }
-                  toc={toc}
-                >
-                  {articleContents}
-                </ArticleGridLayout>
-              </div>
+              </ArticleGridLayout>
+            </div>
 
-              {isJourneyTrack ? (
-                <div className="width-full mt-4">
-                  <JourneyTrackNav context={currentJourneyTrack} />
-                </div>
-              ) : null}
-            </>
-          )}
-        </CodeTabsProvider>
-      </SelectionProvider>
+            {isJourneyTrack ? (
+              <div className="width-full">
+                <JourneyTrackNav context={currentJourneyTrack} />
+              </div>
+            ) : null}
+          </>
+        )}
+      </CodeTabsProvider>
     </DefaultLayout>
   )
 }

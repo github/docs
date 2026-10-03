@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { runRule } from '@/content-linter/lib/init-test'
 import { frontmatterVersionsWhitespace } from '@/content-linter/lib/linting-rules/frontmatter-versions-whitespace'
 
-// Configure the test fixture to not split frontmatter and content
+// Disable frontMatter stripping so the rule can parse frontmatter itself.
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 
 interface ValidTestCase {
@@ -18,7 +18,6 @@ interface InvalidTestCase {
   expectedMessage?: string
 }
 
-// Valid cases - should pass
 const validCases: ValidTestCase[] = [
   {
     name: 'valid-simple-versions',
@@ -63,7 +62,6 @@ This is a test.
   },
 ]
 
-// Invalid cases - should fail
 const invalidCases: InvalidTestCase[] = [
   {
     name: 'trailing-whitespace',

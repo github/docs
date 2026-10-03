@@ -1,5 +1,6 @@
 * View all metered usage for your organization and its repositories.
 * View organization-level budgets.
+* Review requests from members for additional {% data variables.product.prodname_copilot_short %} budget.
 * Download CSV usage reports.
 * View payment history and download receipts.
 * Add, update, or remove payment methods.

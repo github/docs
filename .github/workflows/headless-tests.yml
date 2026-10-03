@@ -1,10 +1,6 @@
 name: Headless Tests
 
-# **What it does**: This runs our browser tests to test things that depend
-#                   on client-side JavaScript.
-# **Why we have it**: Because most automated vitest tests only test static
-#                     input and outputs.
-# **Who does it impact**: Docs engineering, open-source engineering contributors.
+# Browser tests cover client-side JavaScript behavior that static Vitest tests miss.
 
 on:
   workflow_dispatch:
@@ -14,7 +10,7 @@ on:
 permissions:
   contents: read
 
-# This allows a subsequently queued workflow run to interrupt previous runs
+# Cancel older runs for the same ref to save runner time.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
@@ -27,8 +23,7 @@ jobs:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     strategy:
-      # When we're comfortable a11y tests aren't generating false positives and helping,
-      # let's remove the matrix and just run playwright in a single job.
+      # Keep Playwright variants as separate checks while a11y false-positive rates settle.
       matrix:
         node:
           - playwright-rendering
@@ -58,11 +53,9 @@ jobs:
       - name: Run Playwright tests
         env:
           PLAYWRIGHT_WORKERS: ${{ fromJSON('[1, 4]')[github.repository == 'github/docs-internal'] }}
-          # workaround for https://github.com/nodejs/node/issues/59364 as of 22.18.0
+          # Supported Node runtimes can hit https://github.com/nodejs/node/issues/59364 without this flag.
           NODE_OPTIONS: '--no-experimental-strip-types'
           PLAYWRIGHT_TIMEOUT: ${{ matrix.node == 'playwright-a11y' && '60000' || '' }}
 
-        # Run playwright rendering tests and a11y tests (axe scans) as distinct checks
-        # so that we can run them without blocking merges until we can be confident
-        # results for a11y tests are meaningul and scenarios we're testing are correct.
+        # Keep a11y scans in a distinct check so branch protection can leave them non-blocking.
         run: npm run playwright-test -- ${{ matrix.node }} --reporter list

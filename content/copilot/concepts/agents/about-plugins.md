@@ -25,19 +25,57 @@ Plugins provide a way to distribute custom {% data variables.product.prodname_co
 
 ## What plugins contain
 
-A plugin can contain some or all of the following components:
+A plugin can contain some or all of the following components. The locations of these components depend on the plugin format:
 
 * **Custom agents** — Specialized AI assistants (`*.agent.md` files in `agents/`)
 * **Skills** — Discrete callable capabilities (skills subdirectories in `skills/`, containing a `SKILL.md` file)
 * **Hooks** — Event handlers that intercept agent behavior (a `hooks.json` file in the plugin root, or in `hooks/`)
-* **MCP server configurations** — Model Context Protocol integrations (a `.mcp.json` file in the plugin root, or an `mcp.json` file in `.github/`)
+* **MCP server configurations** — Model Context Protocol integrations
 * **LSP server configurations** — Language Server Protocol integrations (an `lsp.json` file in the plugin root, or in `.github/`)
+
+## Plugin formats
+
+{% data variables.product.prodname_copilot_short %} supports two plugin formats:
+
+* **Agent Plugins 1.0** is a portable format for sharing skills and MCP server configurations across compatible clients. To use this format, set `$schema` in `plugin.json` to `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`. Skills are discovered from `skills/`, and MCP server configuration is discovered from `mcp.json` at the plugin root. These locations cannot be configured in the manifest. Choose Agent Plugins 1.0 when you want to make skills and MCP servers portable.
+* **Legacy {% data variables.product.prodname_copilot_short %} plugins** do not declare the Agent Plugins `$schema`. They use the existing manifest fields and component discovery behavior, including configurable component paths and MCP configuration in `.mcp.json`, `.github/mcp.json`, or the `mcpServers` manifest field. Choose the legacy format when you need configurable component paths or are maintaining an existing {% data variables.product.prodname_copilot_short %}-specific plugin.
+
+For a new plugin, use Agent Plugins 1.0 unless you require configurable component paths. Use the legacy format primarily for existing legacy plugins.
+
+Both formats are supported. Adding `$schema` changes how {% data variables.product.prodname_copilot_short %} interprets the manifest and discovers components. Plugins without `$schema` continue to load as legacy plugins.
 
 ## How plugins are structured
 
-A plugin is a directory with a specific structure. At minimum, it contains a `plugin.json` manifest file at the root of the directory. The manifest gives the plugin a name and points to the components the plugin provides. Alongside the manifest, the directory can contain any combination of agents, skills, hooks, MCP server configurations, and LSP server configurations.
+A plugin is a directory with a specific structure and a `plugin.json` manifest file. Agent Plugins 1.0 requires the manifest at the plugin root. Legacy plugins support additional manifest locations. The manifest gives the plugin a name and metadata. Depending on the format, it can also point to components. Alongside the manifest, the directory can contain agents, skills, hooks, MCP server configurations, and LSP server configurations.
 
-A typical plugin directory looks like this:
+### Agent Plugins 1.0 structure
+
+Agent Plugins 1.0 stores skills and MCP servers in standard locations so compatible clients can discover them. Other components, including agents, hooks, commands, and LSP servers, are client-specific. {% data variables.product.prodname_copilot_short %} reads these components from the `com.github.copilot` directory. Other clients ignore this directory, so the same plugin can combine shared skills and MCP servers with {% data variables.product.prodname_copilot_short %}-specific components.
+
+An Agent Plugins 1.0 directory can look like this:
+
+```text
+my-plugin/
+├── plugin.json               # Required manifest
+├── skills/                   # Skills (optional)
+│   └── deploy/
+│       └── SKILL.md
+├── mcp.json                  # MCP server config (optional)
+└── com.github.copilot/       # Copilot components (optional)
+    ├── agents/
+    │   └── helper.agent.md
+    ├── commands/
+    ├── rules/
+    ├── hooks/
+    │   └── hooks.json
+    └── lsp.json
+```
+
+The manifest must include the Agent Plugins 1.0 `$schema`. For supported top-level manifest fields, name requirements, and component locations, see [Agent Plugins 1.0 manifest fields](/copilot/reference/copilot-cli-reference/cli-plugin-reference#agent-plugins-10-manifest-fields).
+
+### Legacy plugin structure
+
+A legacy {% data variables.product.prodname_copilot_short %} plugin directory can look like this:
 
 ```text
 my-plugin/
@@ -86,7 +124,7 @@ How you install a plugin depends on which client you're using:
 * In {% data variables.copilot.copilot_cloud_agent %}, you install plugins declaratively by adding them to the `enabledPlugins` field of the repository's `.github/copilot/settings.json` file. To install plugins from a marketplace that isn't registered by default, you can also add the marketplace to the `extraKnownMarketplaces` field in the same file.
 * In the {% data variables.copilot.github_copilot_app %}, click **Customize**, then click **Plugins** to browse marketplaces and install plugins.
 
-Enterprise administrators can define plugin standards that apply to users on the enterprise's {% data variables.product.prodname_copilot_short %} plan, including specifying additional marketplaces and plugins that are automatically installed. See [AUTOTITLE](/copilot/concepts/agents/about-enterprise-plugin-standards).
+Enterprise administrators can define plugin standards that apply to users on the enterprise's {% data variables.product.prodname_copilot_short %} plan, including specifying additional marketplaces and plugins that are automatically installed. See [AUTOTITLE](/copilot/concepts/enterprise/plugin-standards).
 
 ## How plugin marketplaces work
 

@@ -3,10 +3,15 @@ notAllowed:
   - '.devcontainer/**'
   - '.github/**'
   - 'data/reusables/rai/**'
+  - '.vscode/**'
+  - 'config/**'
+  - 'contributing/**'
   - 'src/**'
+  - 'patches/**'
   - 'content/actions/how-tos/secure-your-work/security-harden-deployments/**'
+  - 'content/README.md'
 contentTypes:
   - 'content/**'
-# allows getting a list of just added files from the dorny/paths-filter action
+# Lets dorny/paths-filter return only added content files.
 added:
   - added: 'content/**'

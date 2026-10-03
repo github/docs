@@ -1,16 +1,14 @@
 # Skip GitHub search links.
-# E.g. https://github.com/search?foo=bar
+# Example: https://github.com/search?q=repo%3Agithub%2Fdocs
 - startsWith: https://github.com/search?
 - startsWith: https://github.com/github/gitignore/search?
 
-# https://github.com/contact always redirects to support.github.com that
-# is heavily protected by rate limiting.
+# https://github.com/contact redirects to support.github.com, which heavily rate-limits bots.
 - startsWith: https://github.com/contact
-# All support.github.com links are currently firewalled and you get a
-# "403 Forbidden" every time.
+# support.github.com firewalls link checkers and returns 403.
 - startsWith: https://support.github.com
 
-# GitHub Marketplace
+# GitHub Marketplace pages fail automated link checks.
 - startsWith: https://github.com/marketplace
 
 # These links require auth.
@@ -21,11 +19,11 @@
 - startsWith: https://classroom.github.com/videos
 - startsWith: https://developer.anthology.com/portal
 
-# Links to github.com/github-early-access that will 404 unless you are
-# an organization member. Should only be used on early-access docs.
+# github.com/github-early-access returns 404 unless the requester belongs to the org.
+# Use these links only on early-access docs.
 - startsWith: https://github.com/github-early-access
 
-# Oneoff links that link checkers think are broken but are not.
+# One-off links return false positives from link checkers.
 - is: https://haveibeenpwned.com/
 - is: https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:P029
 - is: https://www.justice.gov/sites/default/files/criminal-fraud/legacy/2015/01/16/guide.pdf
@@ -118,8 +116,8 @@
 # gist.github.com search can return transient 500 errors.
 - startsWith: https://gist.github.com/search
 
-# enterprise.github.com returns transient errors. Many paths are used
-# across docs (/contact, /download, /releases, /login, /license, /support, /trial).
+# enterprise.github.com returns transient errors across /contact, /download, /releases,
+# /login, /license, /support, and /trial.
 - startsWith: https://enterprise.github.com/releases
 - startsWith: https://enterprise.github.com/contact
 - startsWith: https://enterprise.github.com/download
@@ -179,8 +177,8 @@
 # registry.modelcontextprotocol.io blocks automated link checkers.
 - startsWith: https://registry.modelcontextprotocol.io/
 
-# marketplace.microsoft.com returns 403 from CI runners (bot-blocking).
+# marketplace.microsoft.com returns 403 from CI runners because of bot blocking.
 - startsWith: https://marketplace.microsoft.com/
 
-# dotnet.microsoft.com returns 403 from CI runners (bot-blocking).
+# dotnet.microsoft.com returns 403 from CI runners because of bot blocking.
 - startsWith: https://dotnet.microsoft.com/

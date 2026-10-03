@@ -37,7 +37,7 @@ You must sign in with a {% data variables.product.github %} account to use the a
 
 ## Prerequisites
 
-* The {% data variables.copilot.github_copilot_app %} is installed. For setup steps, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/getting-started).
+* The {% data variables.copilot.github_copilot_app %} is installed. For setup steps, see [AUTOTITLE](/copilot/get-started/quickstart-copilot-app).
 * You have any required credentials, such as API key, for your model provider.
 ## Set up a model provider
 

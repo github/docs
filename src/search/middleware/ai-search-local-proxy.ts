@@ -1,4 +1,4 @@
-// When in local development we want to proxy to the ai-search route at docs.github.com
+// Local development proxies AI search requests to docs.github.com.
 
 import { Router, Request, Response, NextFunction } from 'express'
 import { fetchStream } from '@/frame/lib/fetch-utils'
@@ -26,7 +26,6 @@ function filterRequestHeaders(src: Request['headers']) {
     if (!value) continue
     const k = key.toLowerCase()
     if (hopByHop.has(k) || k === 'cookie' || k === 'host') continue
-    // Convert array values to string
     out[key] = Array.isArray(value) ? value[0] : value
   }
   out['accept'] = 'application/x-ndjson'
@@ -50,20 +49,17 @@ router.post('/ai-search/v1', async (req: Request, res: Response, next: NextFunct
       },
     )
 
-    // Set status code
     res.status(response.status || 500)
 
-    // Forward response headers
     for (const [k, v] of response.headers.entries()) {
       if (!v) continue
       const key = k.toLowerCase()
-      // Never forward hop-by-hop; fetch already handles chunked → strip content-length
+      // Never forward hop-by-hop or content-length; fetch handles chunked responses.
       if (hopByHop.has(key) || key === 'content-length') continue
       res.setHeader(k, v)
     }
     res.flushHeaders?.()
 
-    // Convert fetch ReadableStream to Node.js Readable stream for pipeline
     if (!response.body) {
       if (!res.headersSent) res.status(502).end('Bad Gateway')
       return
@@ -99,7 +95,6 @@ router.post('/ai-search/v1', async (req: Request, res: Response, next: NextFunct
     logger.error('[ai-search proxy] request failed', { error: err })
     next(err)
   } finally {
-    // Ensure reader lock is always released
     if (reader) {
       reader.releaseLock()
     }

@@ -26,14 +26,13 @@ export function findUsed(reusablePath: string, { absolute }: { absolute: boolean
   const filesWithReusables: FilesWithLineNumbers = []
 
   for (const filePath of allFilePaths) {
-    // Skip the reusable file itself
+    // Do not report a reusable as a use of itself.
     if (filePath === reusableFilePath) continue
 
     const fileContents = fs.readFileSync(filePath, 'utf-8')
 
     const indices = getIndicesOfLiquidVariable(reusableLiquidVar, fileContents)
     if (indices.length > 0) {
-      // Find line numbers of each index in fileContents
       const lineNumbers = indices.map((index) => fileContents.slice(0, index).split('\n').length)
 
       filesWithReusables.push({

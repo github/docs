@@ -2766,7 +2766,7 @@
         "subcategory": "repos",
         "verb": "post",
         "requestPath": "/orgs/{org}/repos",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -3783,7 +3783,7 @@
         "subcategory": "repos",
         "verb": "post",
         "requestPath": "/user/repos",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -4622,6 +4622,15 @@
         "requestPath": "/repos/{template_owner}/{template_repo}/generate",
         "additional-permissions": true,
         "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-using-a-template",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
+        "additional-permissions": true,
+        "access": "read"
       }
     ]
   },
@@ -4947,6 +4956,30 @@
         "subcategory": "variables",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
+  "installation_repositories": {
+    "title": "GitHub App installation repository access",
+    "displayTitle": "Repository permissions for \"GitHub App installation repository access\"",
+    "permissions": [
+      {
+        "category": "apps",
+        "slug": "add-a-repository-to-an-app-installation",
+        "subcategory": "installations",
+        "verb": "put",
+        "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "apps",
+        "slug": "remove-a-repository-from-an-app-installation",
+        "subcategory": "installations",
+        "verb": "delete",
+        "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}",
         "additional-permissions": false,
         "access": "write"
       }
@@ -6331,6 +6364,39 @@
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch",
         "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
+  "repository_creation": {
+    "title": "Repository creation",
+    "displayTitle": "Repository permissions for \"Repository creation\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-an-organization-repository",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/repos",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-using-a-template",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-for-the-authenticated-user",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/user/repos",
+        "additional-permissions": true,
         "access": "write"
       }
     ]

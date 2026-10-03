@@ -35,7 +35,7 @@ For cost centers that contain {% data variables.product.prodname_copilot_short %
 
 {% data reusables.billing.included-usage-controls %}
 
-This is separate from a cost center budget, which caps metered charges only after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted. For more information, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#included-usage-controls-for-cost-centers).
+This is separate from a cost center budget, which caps metered charges only after the shared pool of {% data variables.product.prodname_ai_credits_short %} is exhausted. For more information, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#included-usage-controls-for-cost-centers).
 
 ## Cost center limitations
 

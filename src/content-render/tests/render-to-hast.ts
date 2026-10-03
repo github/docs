@@ -4,11 +4,8 @@ import { renderContentToHast } from '@/content-render/index'
 import { renderUnified, renderUnifiedToHast } from '@/content-render/unified/index'
 import type { Context } from '@/types'
 
-// A corpus that exercises the parts of the pipeline most likely to differ
-// between "stringify the processed vfile" (today) and "stringify the hast tree
-// we stopped at" (the new hast path): headings (slug + anchor links), code
-// blocks (highlight + code-header), tables (several rewrite plugins), alerts,
-// raw inline HTML (rehype-raw), and images.
+// This corpus covers pipeline stages where vfile HTML and hast-derived HTML can diverge:
+// headings, highlighted code, tables, alerts, raw inline HTML, images, and blockquotes.
 const fixtures: Array<{ name: string; template: string }> = [
   { name: 'paragraph', template: 'Hello **world**, this is a [link](https://github.com).' },
   {

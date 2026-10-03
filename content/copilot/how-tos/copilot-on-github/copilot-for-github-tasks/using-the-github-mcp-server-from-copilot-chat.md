@@ -32,7 +32,7 @@ For a full list of available skills, see [AUTOTITLE](/copilot/reference/chat-che
 
 The {% data variables.product.github %} MCP server in {% data variables.copilot.copilot_chat_dotcom_short %} supports a limited set of skills. If a requested action is not supported, {% data variables.copilot.copilot_chat_short %} provides guidance but cannot perform it directly.
 
-To access the full set of tools, set up the {% data variables.product.github %} MCP server in your IDE. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server).
+To access the full set of tools, set up the {% data variables.product.github %} MCP server in your IDE. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/use-the-github-mcp-server).
 
 You can also use the {% data variables.product.github %} MCP server with {% data variables.copilot.copilot_cloud_agent %}. It is enabled with read-only access by default and can be customized for wider access. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers#customizing-the-built-in-github-mcp-server).
 ## Further reading

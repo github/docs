@@ -1,12 +1,10 @@
 name: Stale check for issues or PRs with "needs SME" label
 
-# **What it does**: Runs only in the OS repository to provide stale checks on issues/PRs that need SME(subject matter expert) review.
-# **Why we have it**: In the open repo, we want we want to check on issues/PRs that are waiting on SME review.
-# **Who does it impact**: Anyone working in the open repo.
+# Public issues and PRs waiting on subject matter expert review get stale reminders without automatic closure.
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
 
 permissions:
   contents: read
@@ -23,13 +21,13 @@ jobs:
         id: stale
         with:
           only-labels: needs SME
-          days-before-stale: 28 # adds stale label if no activity for 7 days - temporarily changed to 28 days as we work through the backlog
+          days-before-stale: 28 # SME backlog volume needs a slower reminder cadence.
           stale-issue-message: 'This is a gentle reminder for the Technical Content team that this issue is waiting for technical review by a subject matter expert (SME).'
           stale-issue-label: 'Waiting on SME review'
-          days-before-issue-close: -1 # never close
+          days-before-issue-close: -1 # Keep issues open.
           stale-pr-message: 'This is a gentle reminder for the Technical Content team that this PR is waiting for technical review by a subject matter expert.'
           stale-pr-label: 'Waiting on SME review'
-          days-before-pr-close: -1 # never close
+          days-before-pr-close: -1 # Keep PRs open.
 
       - name: Print outputs
         env:

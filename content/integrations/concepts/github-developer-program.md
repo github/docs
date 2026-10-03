@@ -20,11 +20,11 @@ Building an application that integrates with {% data variables.product.github %}
 
 Build your own tools that seamlessly integrate with {% data variables.product.github %} APIs. For more information, see [AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api).
 
-## Have an integration that works with GitHub?
+## Have an integration that works with {% data variables.product.github %}?
 
 Awesome! Here’s how you can spread the word:
 
-* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with {% data variables.product.github %}.
+* Use the [Octocat or {% data variables.product.github %} logo](https://github.com/logos) to identify that your product works with {% data variables.product.github %}.
 * Post a video or a blog on your website about your integration.
 
 ## Ready to join the GitHub Developer Program?

@@ -1,13 +1,9 @@
-/**
- * @purpose Writer tool
- * @description Update enterprise release dates from github/enterprise-releases
- */
-// [start-readme]
+// @purpose Writer tool
+// @description Update enterprise release dates from github/enterprise-releases
 //
-// This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json
-// and updates `src/ghes-releases/lib/enterprise-dates.json`, which the site uses for various functionality.
-//
-// [end-readme]
+// Fetches https://github.com/github/enterprise-releases/blob/master/releases.json
+// and updates src/ghes-releases/lib/enterprise-dates.json.
+// enterprise-dates.json supplies site release date behavior.
 
 import { fileURLToPath } from 'url'
 import path from 'path'
@@ -17,10 +13,11 @@ import { getContents } from '@/workflows/git-utils'
 
 interface EnterpriseDates {
   [releaseNumber: string]: {
-    releaseDate: string // For backward compatibility - RC date initially, then GA date once available
+    // Keep releaseDate as the RC date until a GA date exists for backward compatibility.
+    releaseDate: string
     deprecationDate: string
-    releaseCandidateDate?: string // Release Candidate date
-    generalAvailabilityDate?: string // General Availability date
+    releaseCandidateDate?: string
+    generalAvailabilityDate?: string
   }
 }
 
@@ -36,7 +33,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseDatesFile = path.join(__dirname, '../lib/enterprise-dates.json')
 const enterpriseDatesString = await fs.readFile(enterpriseDatesFile, 'utf8')
 
-// check for required PAT
+// getContents requires GITHUB_TOKEN.
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
 }
@@ -44,7 +41,6 @@ if (!process.env.GITHUB_TOKEN) {
 main()
 
 async function main(): Promise<void> {
-  // send owner, repo, ref, path
   let rawDates: RawReleaseData = {}
   try {
     rawDates = JSON.parse(
@@ -60,7 +56,7 @@ async function main(): Promise<void> {
   const formattedDates: EnterpriseDates = {}
   for (const [releaseNumber, releaseObject] of Object.entries(rawDates)) {
     formattedDates[releaseNumber] = {
-      // For backward compatibility, keep releaseDate as RC date initially, then GA date once available
+      // Keep releaseDate as the RC date until a GA date exists for backward compatibility.
       releaseDate: releaseObject.release_candidate || releaseObject.start,
       deprecationDate: releaseObject.end,
       releaseCandidateDate: releaseObject.release_candidate,

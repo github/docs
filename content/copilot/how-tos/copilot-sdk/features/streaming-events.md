@@ -125,6 +125,48 @@ session.on(AssistantMessageDeltaEvent.class, event ->
 > [!TIP]
 > **(TypeScript)** The TypeScript SDK uses a discriminated union—when you match on `event.type`, the `data` payload is automatically narrowed to the correct shape.
 
+## Subscribing before a session starts
+
+A session can emit events before its create or resume call returns. The agent may already be working—especially on resume with `continuePendingWork`—and ephemeral events such as `session.idle` are never written to the session log, so `getMessages` cannot recover them afterwards. A subscription installed after the session handle exists misses that startup window.
+
+> [!TIP]
+> **(Rust)** `Client::prepare_session` and `Client::prepare_resume_session` return a `PreparedSession` that owns the session's event channel before any protocol activity happens. Subscribe first, then call `start()`.
+
+```rust
+use github_copilot_sdk::{Client, SessionConfig};
+
+async fn create_without_missing_startup_events(
+    client: &Client,
+) -> Result<(), github_copilot_sdk::Error> {
+    let prepared = client.prepare_session(
+        SessionConfig::default().with_event_buffer_capacity(2048),
+    )?;
+
+    // Installed before any wire activity: nothing is dropped for lack of a receiver.
+    let mut events = prepared.subscribe();
+    tokio::spawn(async move {
+        while let Ok(event) = events.recv().await {
+            println!("{}", event.event_type);
+        }
+    });
+
+    let session = prepared.start().await?;
+    let _ = session;
+    Ok(())
+}
+```
+
+`prepare_*` is synchronous and inert: it validates the buffer capacity, allocates a local channel, and does nothing else. No session is registered and nothing reaches the CLI until `start()` is first polled. Dropping a prepared session that was never started leaves no state behind and closes its subscriptions; dropping the `start()` future cancels the in-flight startup and unregisters the session, so a retry with the same session ID succeeds. Cleanup is scoped to the exact registration the abandoned startup owned, so it cannot evict a retry that has already taken over the same session ID.
+
+Startup buffering is worth planning for:
+
+* The event buffer is finite—512 events unless `event_buffer_capacity` overrides it. A capacity of `0` is rejected with an invalid-config error rather than clamped.
+* Slow subscribers observe a `Lagged` error reporting how many events were skipped. They never apply backpressure to the session's event loop.
+* Consumers that need a lossless view of a large startup burst must either configure a capacity that covers it or drain the subscription concurrently with `start()`.
+
+> [!NOTE]
+> For cloud sessions where the server assigns the session ID, the SDK cannot route notifications until the create response arrives and the ID is known. Events emitted before that point are not routable to any session. The guarantee is narrower: routed events are never dropped for lack of an installed receiver. Pin `session_id` on the config to get routing—and full pre-response coverage—from the first byte.
+
 ## Render only the parent agent response
 
 Sub-agent events share the parent session stream and include envelope-level `agentId`. Root/main agent events and session-level events omit `agentId`, so main-chat renderers can ignore assistant events where `agentId` is set and route those events to traces or progress UI instead.

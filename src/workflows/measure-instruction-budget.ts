@@ -1,22 +1,8 @@
-/**
- * @purpose Writer tool
- * @description Measure the always-on Copilot instruction budget for a content interaction.
- *
- * Scans `.github/instructions/*.instructions.md`, reads each file's `applyTo`
- * frontmatter, works out which files load for a representative content path,
- * and reports the combined budget against soft guardrails.
- *
- * The primary number is the discrete **rule count** (instruction-following
- * degrades with the number of discrete instructions). The **token count** is a
- * mechanical backstop. Both guardrails are soft: the script warns, it does not
- * fail, unless you pass `--strict`.
- *
- * Usage:
- *   npm run measure-instruction-budget
- *   npm run measure-instruction-budget -- --path content/get-started/foo.md
- *   npm run measure-instruction-budget -- --json
- *   npm run measure-instruction-budget -- --strict   # exit 1 if over budget
- */
+// @purpose Writer tool
+// @description Measure the always-on Copilot instruction budget for a content interaction.
+// Scans instruction files for a representative path and reports rule and token budgets.
+// Passing --strict turns budget warnings into failures.
+// Usage: npm run measure-instruction-budget -- [--path content/get-started/foo.md] [--json]
 import fs from 'fs'
 import path from 'path'
 
@@ -25,10 +11,10 @@ import { encode } from 'gpt-tokenizer/encoding/o200k_base'
 
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 
-// Single source of truth for the guardrails. Keep these in sync with the
-// instruction architecture doc (github/technical-content) and any future CI check.
-// Derived in github/technical-content#6829: frontier models stay near-perfect to
-// ~150 discrete instructions; ~45 tokens/rule puts the token backstop at ~6,500.
+// Single source of truth for guardrails. Keep these in sync with the instruction
+// architecture doc in github/technical-content and any future CI check. Frontier
+// models stay near-perfect near 150 discrete instructions, and 45 tokens per rule
+// sets the token backstop near 6,500.
 const RULE_BUDGET = 150
 const TOKEN_BUDGET = 6500
 
@@ -82,8 +68,7 @@ function main(options: Options): void {
     process.exit(2)
   }
 
-  // Normalize to POSIX separators so backslash paths (e.g. on Windows) still
-  // match the forward-slash applyTo globs.
+  // Normalize to POSIX separators so Windows paths match forward-slash applyTo globs.
   const simulatedPath = options.path.replace(/\\/g, '/')
 
   const loaded: FileReport[] = []
@@ -91,8 +76,7 @@ function main(options: Options): void {
     const raw = fs.readFileSync(path.join(dir, name), 'utf-8')
     const { content, data, errors } = readFrontmatter(raw, { filepath: name })
     if (errors && errors.length > 0) {
-      // Don't silently fall back to applyTo '**' (which matches everything) and
-      // distort the budget. Skip the file and warn so the numbers stay trustworthy.
+      // Invalid applyTo must warn and skip the file because fallback ** distorts the budget.
       console.warn(
         `Warning: skipping ${name} because its frontmatter could not be parsed ` +
           `(${errors.map((e) => e.reason).join('; ')}).`,
@@ -105,9 +89,7 @@ function main(options: Options): void {
     loaded.push({
       file: name,
       applyTo,
-      // Count the frontmatter-stripped body: the `applyTo` frontmatter is
-      // metadata that governs when the file loads, not text injected into the
-      // prompt, so including it would systematically overcount.
+      // Count the body only; applyTo controls loading but is not injected into the prompt.
       tokens: encode(body).length,
       rules: countRules(body),
     })
@@ -145,16 +127,14 @@ function main(options: Options): void {
   }
 }
 
-// Count discrete list-item rules (a proxy for "number of instructions"),
-// ignoring fenced code blocks so example code is not counted as instructions.
+// Count list-item rules as an instruction proxy, ignoring fenced code examples.
 export function countRules(body: string): number {
   const withoutCode = body.replace(/```[\s\S]*?```/g, '')
   const matches = withoutCode.match(/^\s*([-*]|\d+\.)\s/gm)
   return matches ? matches.length : 0
 }
 
-// True if any comma-separated glob in `applyTo` matches `filePath`. Both sides
-// are normalized to POSIX separators so backslash paths still match.
+// Match comma-separated applyTo globs after normalizing Windows separators.
 export function matchesPath(applyTo: string, filePath: string): boolean {
   const normalizedPath = filePath.replace(/\\/g, '/')
   return applyTo
@@ -164,9 +144,9 @@ export function matchesPath(applyTo: string, filePath: string): boolean {
     .some((pattern) => globToRegExp(pattern).test(normalizedPath))
 }
 
-// Convert a VS Code-style applyTo glob to a RegExp. `**/` matches zero or more
-// path segments (so `**/*.md` matches both `README.md` and `dir/README.md`),
-// a standalone `**` matches across segments, and `*` matches within a segment.
+// Convert a VS Code-style applyTo glob to a RegExp. Double-star slash matches
+// zero or more path segments, standalone double-star matches across segments,
+// and single-star matches within a segment.
 export function globToRegExp(glob: string): RegExp {
   let out = ''
   let i = 0

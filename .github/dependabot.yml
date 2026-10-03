@@ -42,7 +42,9 @@ updates:
   - package-ecosystem: 'docker'
     registries:
       - ghcr
-    directory: '/'
+    directories:
+      - '/'
+      - '/.devcontainer'
     schedule:
       interval: daily
     cooldown:

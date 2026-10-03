@@ -8,6 +8,8 @@ contentType: tutorials
 category:
   - Roll Copilot out at scale
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 Before you enable {% data variables.copilot.copilot_cloud_agent %}, it is good practice to set up your enterprise so you can be confident {% data variables.product.prodname_copilot_short %} will operate within secure, predictable guardrails.
@@ -22,7 +24,7 @@ Plan your policies for {% data variables.copilot.copilot_cloud_agent %} in advan
 
 Some questions to ask are:
 
-* Which organizations and repositories will {% data variables.copilot.copilot_cloud_agent %} be enabled in? See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+* Which organizations and repositories will {% data variables.copilot.copilot_cloud_agent %} be enabled in? See [AUTOTITLE](/copilot/concepts/enterprise/cloud-agent-access).
 * Which MCP servers will you configure to give {% data variables.copilot.copilot_cloud_agent %} access to external tools? See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 
 ### Which policies don't apply?

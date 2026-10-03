@@ -15,13 +15,8 @@ export function readCompressedJsonFile(xpath: string): unknown {
   return JSON.parse(brotliDecompressSync(fs.readFileSync(xpath)).toString())
 }
 
-// Ask it to read a `foo.json` file and it will automatically
-// first see if there's a `foo.json.br` and only if it's not,
-// will fallback to reading the `foo.json` file.
-// The reason for this is that staging builds needs to as small as
-// possible (in terms of disk) for them to deploy faster. So the
-// staging deployment process will compress a bunch of large
-// `.json` files before packaging it up.
+// Staging ships large JSON as .br files to keep deployments smaller.
+// Callers pass the .json path; read .json.br first, then fall back to .json.
 export function readCompressedJsonFileFallback(xpath: string): unknown {
   try {
     return readCompressedJsonFile(xpath)
@@ -34,19 +29,13 @@ export function readCompressedJsonFileFallback(xpath: string): unknown {
   }
 }
 
-// This is used to make sure the `readCompressedJsonFileFallbackLazily()`
-// function isn't used with the same exact first argument more than once.
+// Each path gets one lazy reader; duplicate readers throw after the first read.
 const globalCacheCounter: Record<string, number> = {}
 
-// Wrapper on readCompressedJsonFileFallback that initially only checks
-// if the file exists but doesn't read the content till you call it.
+// Lazy reads verify file presence early but defer parsing until first use.
 export function readCompressedJsonFileFallbackLazily(xpath: string): () => unknown {
   const cache = new Map<string, unknown>()
-  // This will throw if the file isn't accessible at all, e.g. ENOENT
-  // But, the file might have been replaced by one called `SAMENAME.json.br`
-  // because in staging, we ship these files compressed to make the
-  // deployment faster. So, in our file-presence check, we need to
-  // account for that.
+  // Presence checks accept either the uncompressed file or staging's compressed .br replacement.
   try {
     fs.accessSync(xpath)
   } catch (err: unknown) {

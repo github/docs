@@ -1,8 +1,7 @@
 name: Reviewers - Content Systems
 
-# **What it does**: Automatically add reviewers based on paths, but only for the docs-internal repo.
-# **Why we have it**: So we can have reviewers automatically without getting open source notifications.
-# **Who does it impact**: Docs team.
+# Internal content-systems paths request docs-content-systems review.
+# Restricting to docs-internal avoids public-repo reviewer notifications.
 
 on:
   pull_request:

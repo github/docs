@@ -8,22 +8,18 @@ interface DataSchemas {
   [key: string]: string
 }
 
-// Helper function to resolve schema paths based on runtime context
 function resolveSchemaPath(filename: string): string {
-  // Check if we're in a test context
   const isTest = process.env.NODE_ENV === 'test'
 
   if (isTest) {
-    // Use relative paths that work for vitest and 4.x compatibility with
-    // dynamic imports in particular
+    // Vitest dynamic imports need relative schema paths.
     return `../lib/data-schemas/${filename}`
   } else {
-    // Use absolute paths that work for content linter and other contexts
+    // Content linter and other runtime contexts need absolute schema paths.
     return `@/data-directory/lib/data-schemas/${filename}`
   }
 }
 
-// Auto-discover table schemas from data/tables/ directory
 function loadTableSchemas(): DataSchemas {
   const tablesDir = path.join(process.cwd(), 'data/tables')
   const schemasDir = path.join(__dirname, 'tables')
@@ -37,7 +33,6 @@ function loadTableSchemas(): DataSchemas {
       const schemaPath = path.join(schemasDir, `${name}.ts`)
 
       if (fs.existsSync(schemaPath)) {
-        // Use the resolver for consistent path handling
         tableSchemas[`data/tables/${yamlFile}`] = resolveSchemaPath(`tables/${name}.ts`)
       }
     }
@@ -46,7 +41,6 @@ function loadTableSchemas(): DataSchemas {
   return tableSchemas
 }
 
-// Manual schema registrations for non-table data
 const manualSchemas: DataSchemas = {
   'data/features': resolveSchemaPath('features.ts'),
   'data/variables': resolveSchemaPath('variables.ts'),
@@ -54,14 +48,12 @@ const manualSchemas: DataSchemas = {
   'data/code-languages.yml': resolveSchemaPath('code-languages.ts'),
   'data/glossaries/candidates.yml': resolveSchemaPath('glossaries-candidates.ts'),
   'data/glossaries/external.yml': resolveSchemaPath('glossaries-external.ts'),
-  // Tables in subdirectories of data/tables are not picked up by loadTableSchemas(),
-  // which only reads the top level, so the matrix is registered explicitly here.
-  // The matrix/ entry is a directory schema: every per-IDE file is validated against it.
+  // Register the matrix directory schema because loadTableSchemas reads only top-level files.
+  // The directory schema validates every per-IDE file.
   'data/tables/copilot/matrix': resolveSchemaPath('tables/copilot/matrix-ide.ts'),
   'data/tables/copilot/matrix-meta.yml': resolveSchemaPath('tables/copilot/matrix-meta.ts'),
 }
 
-// Combine manual registrations with auto-discovered table schemas
 const dataSchemas: DataSchemas = {
   ...manualSchemas,
   ...loadTableSchemas(),

@@ -1,18 +1,17 @@
 name: Review comment
 
-# **What it does**: When a PR is opened in docs-internal or docs containing code, it comments with instructions on how to deploy and review the changes. it adds the staging review and live article links in a Content Directory Changes table in a comment.
-# **Why we have it**: To help Docs contributors understand how to review their changes.
-# **Who does it impact**: docs-internal and docs maintainers and contributors
+# Eligible PRs get review guidance, and internal PRs also get staging guidance.
+# Content changes also get the review-links table.
 
 on:
-  # Required in lieu of `pull_request` so that the comment can be posted to PRs opened from a fork.
+  # pull_request_target lets forked PRs receive the review comment.
   pull_request_target:
     types:
       - opened
       - synchronize
     paths-ignore:
       - '.github/workflows/review-comment.yml'
-  # For reviewing changes to this workflow
+  # pull_request runs only when this workflow changes, so edits can be tested safely.
   pull_request:
     types:
       - opened
@@ -24,7 +23,7 @@ permissions:
   contents: read
   pull-requests: write
 
-# This allows a subsequently queued workflow run to interrupt previous runs
+# Cancel older runs for the same PR because the comment must match the latest commit.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }} x ${{ github.event_name }}'
   cancel-in-progress: true

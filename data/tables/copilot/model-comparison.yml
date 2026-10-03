@@ -48,6 +48,26 @@
   excels_at: Balanced everyday interactive and agentic coding
   further_reading: '[GPT-5.6 model card](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf)'
 
+- name: GPT-6 Astra
+  task_area: Long-horizon, autonomous coding and agentic tasks
+  excels_at: Long-horizon coding tasks with continuous planning, batched diagnosis and verification, and independent result confirmation
+  further_reading: '[GPT-6 Astra model card](https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf)'
+
+- name: GPT-6 Luna
+  task_area: Fast help with simple or repetitive tasks
+  excels_at: Quick, cost-efficient responses for smaller, faster tasks
+  further_reading: '[GPT-6 Luna model card](https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf)'
+
+- name: GPT-6 Sol
+  task_area: Interactive and agentic coding
+  excels_at: All-round development tasks that benefit from careful, multistep validation
+  further_reading: '[GPT-6 Sol model card](https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf)'
+
+- name: GPT-6.1 Sol
+  task_area: Complex coding tasks
+  excels_at: Advanced, efficient reasoning for complex coding tasks
+  further_reading: 'Coming soon'
+
 # Anthropic
 - name: Claude Fable 5
   task_area: Long-horizon, autonomous coding and knowledge-work
@@ -64,11 +84,6 @@
   excels_at: Fast, reliable answers to lightweight coding questions
   further_reading: '[Claude Haiku 4.5 model card](https://assets.anthropic.com/m/99128ddd009bdcb/Claude-Haiku-4-5-System-Card.pdf)'
 
-- name: Claude Opus 4.7
-  task_area: Deep reasoning and debugging
-  excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: '[Claude Opus 4.7 model card](https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf)'
-
 - name: Claude Opus 4.8
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
@@ -84,10 +99,10 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Opus 5 model card](https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf)'
 
-- name: Claude Sonnet 4.5
-  task_area: General-purpose coding and agent tasks
-  excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: '[Claude Sonnet 4.5 model card](https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf)'
+- name: Claude Opus 5.5
+  task_area: Long-running agentic coding and knowledge work
+  excels_at: Efficient multistep tasks, error recovery, and collaboration
+  further_reading: '[Claude Opus 5.5 model card](https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf)'
 
 - name: Claude Sonnet 4.6
   task_area: General-purpose coding and agent tasks
@@ -99,22 +114,12 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Sonnet 5 model card](https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf)'
 
+- name: Claude Sonnet 5.5
+  task_area: General-purpose coding and agent tasks
+  excels_at: Efficient task completion with fewer steps, tokens, and tool calls
+  further_reading: 'Coming soon'
+
 # Google
-- name: Gemini 3.1 Pro
-  task_area: Deep reasoning and debugging
-  excels_at: Effective and efficient edit-then-test loops with high tool precision
-  further_reading: '[Gemini 3.1 Pro model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf)'
-
-- name: Gemini 3.5 Flash
-  task_area: Fast help with simple or repetitive tasks
-  excels_at: Fast, reliable answers to lightweight coding questions
-  further_reading: '[Gemini 3.5 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf)'
-
-- name: Gemini 3.6 Flash
-  task_area: Fast help with simple or repetitive tasks
-  excels_at: Fast, reliable answers to lightweight coding questions
-  further_reading: '[Gemini 3.6 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-6-Flash-Model-Card.pdf)'
-
 - name: Gemini 3.7 Flash
   task_area: Fast help with simple or repetitive tasks
   excels_at: Fast, reliable answers to lightweight coding questions
@@ -126,11 +131,6 @@
   further_reading: '[Gemini 3.8 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-8-Flash-Model-Card.pdf)'
 
 # Microsoft
-- name: MAI-Code-1-Flash
-  task_area: General-purpose coding and writing
-  excels_at: Fast, accurate code completions and explanations
-  further_reading: '[MAI-Code-1-Flash model card](https://aka.ms/mai-code-1-flash-modelcard)'
-
 - name: MAI-Code-1.1-Flash
   task_area: General-purpose coding and writing, image understanding
   excels_at: Fast code completions and explanations, instruction following, tool use
@@ -147,23 +147,18 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Grok 4.6 model card](https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf)'
 
+- name: Grok 4.7
+  task_area: Agentic coding and complex, multistep workflows
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: '[Grok 4.7 model card](https://media.x.ai/v1/website/4p7card-5eccc980.pdf)'
+
 # Other providers (alphabetized by model name)
 - name: Qwen2.5
   task_area: General-purpose coding and writing
   excels_at: Code generation, reasoning, and code repair / debugging
   further_reading: '[Qwen2.5 model card](https://arxiv.org/pdf/2409.12186)'
 
-- name: Raptor mini
-  task_area: General-purpose coding and writing
-  excels_at: Fast, accurate code completions and explanations
-  further_reading: 'Coming soon'
-
 # Open-weight models
-- name: Kimi K2.7 Code
-  task_area: General-purpose coding and agent tasks
-  excels_at: Fast, reliable answers to lightweight coding questions
-  further_reading: '[Kimi K2.7 Code model card](https://huggingface.co/moonshotai/Kimi-K2.7-Code)'
-
 - name: Kimi K3
   task_area: Agentic coding and long-context work
   excels_at: Multi-step agent tasks across large codebases

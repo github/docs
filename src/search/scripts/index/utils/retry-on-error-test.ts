@@ -1,23 +1,7 @@
-// Return a function that you can use to run any code within and if it
-// throws you get a chance to say whether to sleep + retry.
-// Example:
-//
-//   async function mainFunction() {
-//     if (Math.random() > 0.9) throw new Error('too large')
-//     return 'OK'
-//   }
-//
-//   const errorTest = (err) => err instanceof Error && err.message.includes('too large')
-//   const config = {  // all optional
-//     attempts: 3,
-//     sleepTime: 800,
-//     onError: (err, attempts) => console.warn(`Failed ${attempts} attempts`)
-//   }
-//   const ok = await retry(errorTest, mainFunction, config)
-//
-// Note that, by default, the sleep time is "exponential" by a factor of
-// 1.5. So the first sleep will, in the above example,
-// be 800ms. Then 1,200ms, Then 1,800ms. etc.
+// Runs callback until it succeeds, retries run out, or errorTest returns false.
+// Matching errors wait sleepTime before each retry. When exponential is set, each wait doubles.
+// exponential acts as a boolean switch, not a multiplier.
+// Usage: retryOnErrorTest(errorTest, callback, { attempts, sleepTime, onError })
 
 import { sleep } from '@/search/lib/helpers/time'
 
@@ -45,19 +29,8 @@ export async function retryOnErrorTest<T>(
       if (error instanceof Error && attempts > 0 && errorTest(error)) {
         if (onError) onError(error, attempts, sleepTime)
         attempts--
-        // The reason for the jitter is to avoid a thundering herd problem.
-        // Suppose two independent processes/threads start at the same time.
-        // They both fail, perhaps due to rate limiting. Now, if they both
-        // sleep for 30 seconds in the first retry attempt, it'll just
-        // clash again 30 seconds later. But if you add a bit of jitter, at
-        // the next attempt these independent processes/threads will now
-        // start at slightly different times.
+        // Jitter reduces synchronized retries when independent callers fail together.
 
-        // According to the Oxford English dictionary, they define "jitter" as:
-        //
-        //    slight irregular movement, variation, or unsteadiness,
-        //    especially in an electrical signal or electronic device.
-        //
         await sleep(addJitter(sleepTime, jitterPercent))
         if (exponential) {
           sleepTime *= 2
@@ -70,9 +43,6 @@ export async function retryOnErrorTest<T>(
 }
 
 function addJitter(num: number, percent: number) {
-  // Return the number plus between 0 and $percent of that number.
-  // For example, for 1,000 with a 20% jitter you might get 1133.4
-  // because you start with 1,000 and 13.4% is a random number between
-  // 0 and 20%.
+  // For 1,000 with 20% jitter, return at least 1,000 and less than 1,200.
   return num + Math.random() * percent * 0.01 * num
 }

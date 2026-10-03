@@ -4,8 +4,7 @@ import { describe, expect, test } from 'vitest'
 import { renderContent } from '@/content-render/index'
 import { EOL } from 'os'
 
-// Use platform-specific line endings for realistic tests when templates have
-// been loaded from disk
+// Disk-loaded templates use platform line endings, so tests do too.
 const nl = (str: string): string => str.replace(/\n/g, EOL)
 
 describe('renderContent', () => {
@@ -240,8 +239,8 @@ var a = 1
     const html = await renderContent(template)
     const $ = load(html)
     const el = $('button.js-btn-copy')
+    // Copy buttons use a murmurhash ID that matches the paired pre element.
     expect(el.data('clipboard')).toBe(2967273189)
-    // Generates a murmurhash based ID that matches a <pre>
   })
 
   describe('wrap-code-terms (<wbr> in table code)', () => {

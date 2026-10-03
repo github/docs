@@ -208,7 +208,7 @@ sections:
     - | 
       Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
-      When restoring data originally backed up from an appliance with version 3.13 or greater, the Elasticsearch indices must be reindexed before the data will display. This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+      When restoring data originally backed up from an appliance with version 3.13 or greater, the Elasticsearch indices must be reindexed before the data will display. This happens via a scheduled job that runs on the first Saturday of each month.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
     - |
       An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
     - |
@@ -232,7 +232,7 @@ sections:
     - |
       The entry for Private Registries in the organization settings menu is not visible unless Dependabot is enabled.
     - |
-      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to {% ifversion ghes = 3.17 %}3.17 {% endif %}{% ifversion ghes = 3.18 %}3.18 {% endif %}with caution.
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to {% ifversion ghes = 3.18 %}3.18 {% endif %}with caution.
 
   closing_down:
     # https://github.com/github/releases/issues/5177

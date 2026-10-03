@@ -30,7 +30,6 @@ export async function writeIndexRecords(
   const recordsObject = Object.fromEntries(validRecords.map((record) => [record.objectID, record]))
   const content = JSON.stringify(recordsObject, undefined, 0)
 
-  // If the outDirectory doesn't exist, create it
   if (!fsSync.existsSync(outDirectory)) {
     await fs.mkdir(outDirectory, { recursive: true })
   }
@@ -60,7 +59,7 @@ function validateRecords(name: string, records: Record[]): ValidateResult {
     }
   }
 
-  // each ID is unique — deduplicate rather than crash
+  // Deduplicate rather than crash when an objectID repeats.
   const objectIDs = records.map((record) => record.objectID)
   const dupes = countArrayValues(objectIDs)
     .filter(({ count }) => count > 1)

@@ -1,8 +1,4 @@
-// [start-readme]
-//
-// Move the files from an early-access product level docs set into an existing product.
-//
-// [end-readme]
+// Moves a product-level early access docs set into an existing product.
 
 import fs from 'fs'
 import path from 'path'
@@ -54,7 +50,7 @@ if (!filesToMigrate.length) {
 
 const migratePath: string = path.posix.join(contentDir, newPathId)
 
-// 1. Update the image and data refs in the to-be-migrated early access files BEFORE moving them.
+// Rewrite early access image and data refs before moving files.
 try {
   execFileSync('tsx', [
     'src/early-access/scripts/update-data-and-image-paths.ts',
@@ -71,7 +67,7 @@ const variablesToMove: string[] = []
 const reusablesToMove: string[] = []
 const imagesToMove: string[] = []
 
-// 2. Add redirects to and update frontmatter in the to-be-migrated early access files BEFORE moving them.
+// Apply redirects and frontmatter changes before moving files.
 for (const filepath of filesToMigrate) {
   const { content, data } = frontmatter(fs.readFileSync(filepath, 'utf8'))
   const redirectString: string = filepath
@@ -86,7 +82,6 @@ for (const filepath of filesToMigrate) {
     fs.writeFileSync(filepath, frontmatter.stringify(content || '', data))
   }
 
-  // 4. Find the data files and images referenced in the early access files so we can move them over.
   const dataRefs: string[] = content ? content.match(patterns.dataReference) || [] : []
   const variables: string[] = dataRefs.filter((ref) => ref.includes('variables'))
   const reusables: string[] = dataRefs.filter((ref) => ref.includes('reusables'))
@@ -97,7 +92,6 @@ for (const filepath of filesToMigrate) {
   imagesToMove.push(...images)
 }
 
-// 3. Move the data files and images.
 for (const varRef of Array.from(new Set(variablesToMove))) {
   moveVariable(varRef)
 }
@@ -108,10 +102,8 @@ for (const imageRef of Array.from(new Set(imagesToMove))) {
   moveImage(imageRef)
 }
 
-// 4. Move the content files.
 execFileSync('mv', [oldPath, migratePath])
 
-// 5. Update the parent product TOC with the new child path.
 const parentProductTocPath: string = path.posix.join(path.dirname(newPath), 'index.md')
 const parentProductToc = frontmatter(fs.readFileSync(parentProductTocPath, 'utf-8'))
 if (parentProductToc.data && Array.isArray(parentProductToc.data.children)) {
@@ -123,7 +115,6 @@ fs.writeFileSync(
   frontmatter.stringify(parentProductToc.content || '', parentProductToc.data || {}),
 )
 
-// 6. Optionally, update the new product TOC with the new title.
 if (program.opts().newTitle) {
   const productTocPath: string = path.posix.join(newPath, 'index.md')
   const productToc = frontmatter(fs.readFileSync(productTocPath, 'utf-8'))
@@ -137,7 +128,6 @@ if (program.opts().newTitle) {
   )
 }
 
-// 7. Update internal links now that the files have been moved.
 console.log('\nRunning script to update internal links...')
 execFileSync('tsx', ['src/links/scripts/update-internal-links.ts'])
 
@@ -153,19 +143,15 @@ Please review all the changes in docs-internal and docs-early-access, especially
 `)
 
 function moveVariable(dataRef: string): void {
-  // Get the data filepath from the data reference,
-  // where the data reference looks like: {% data variables.foo.bar %}
-  // and the data filepath looks like: data/variables/foo.yml with key of 'bar'.
+  // Variable refs like {% data variables.foo.bar %} map to data/variables/foo.yml plus key bar.
   const variablePathArray: string[] =
     dataRef
       .match(/{% (?:data|indented_data_reference) (.*?) %}/)?.[1]
       .split('.')
-      // If early access is part of the path, remove it (since the path below already includes it)
+      // Remove early-access because the path already joins under data/early-access.
       .filter((n) => n !== 'early-access') || []
 
-  // Given a string `variables.foo.bar` split into an array, we want the last segment 'bar', which is the variable key.
-  // Then pop 'bar' off the array because it's not really part of the filepath.
-  // The filepath we want is `variables/foo.yml`.
+  // The last segment is the variable key; the remaining segments form variables/foo.yml.
   const variableKey: string = last(variablePathArray) as string
 
   variablePathArray.pop()
@@ -219,14 +205,12 @@ function moveVariable(dataRef: string): void {
 }
 
 function moveReusable(dataRef: string): void {
-  // Get the data filepath from the data reference,
-  // where the data reference looks like: {% data reusables.foo.bar %}
-  // and the data filepath looks like: data/reusables/foo/bar.md.
+  // Reusable refs like {% data reusables.foo.bar %} map to data/reusables/foo/bar.md.
   const reusablePath: string =
     dataRef
       .match(/{% (?:data|indented_data_reference) (\S*?) .*%}/)?.[1]
       .split('.')
-      // If early access is part of the path, remove it (since the path below already includes it)
+      // Remove early-access because the path already joins under data/early-access.
       .filter((n) => n !== 'early-access')
       .join('/') || ''
 
@@ -243,7 +227,6 @@ function moveReusable(dataRef: string): void {
       console.log(`Problem migrating files for ${dataRef}`)
       return
     }
-    // return
   }
 
   // If the reusable file doesn't exist, move it.
@@ -256,7 +239,7 @@ function moveReusable(dataRef: string): void {
 function moveImage(imageRef: string): void {
   const imagePath: string = imageRef
     .replace('/assets/images/', '')
-    // If early access is part of the path, remove it (since the path below already includes it)
+    // Remove early-access because the path already joins under assets/images/early-access.
     .replace('early-access', '')
 
   const oldImagePath: string = path.posix.join(
@@ -272,10 +255,9 @@ function moveImage(imageRef: string): void {
       console.log(`Problem migrating files for ${imageRef}`)
       return
     }
-    // return
   }
 
-  // If the reusable file doesn't exist, move it.
+  // If the image file doesn't exist, move it.
   if (!fs.existsSync(newImagePath)) {
     execFileSync('mkdir', ['-p', path.dirname(newImagePath)])
     execFileSync('mv', [oldImagePath, newImagePath])

@@ -1,25 +1,13 @@
-/**
- * @purpose Writer tool
- * @description Move or rename a file or a folder and automatically add redirects
- */
-// [start-readme]
-//
-// Use this script to help you move or rename a single file or a folder. The script will move or rename the file or folder for you, update relevant `children` in the index.md file(s), and add a `redirect_from` to frontmatter in the renamed file(s). Note: You will still need to manually update the `title` if necessary.
-//
-// By default, the `move-content.ts` script will commit the changes it makes. If you don't want the script to run any git commands for you, run it with the `--no-git` flag. Note: In most cases it will be easier and safer to let the script run the git commands for you, since git can get confused when a file is both renamed and edited.
-//
-// To learn more about the script, you can run `npm run move-content --help`.
-//
-// To run the script for a file:
-// - `npm run move-content PATH/TO/CURRENT-FILE.md PATH/TO/DESIRED-FILE-LOCATION-OR-NAME.md`
-//
-// To run the script for a folder:
-// - `npm run move-content PATH/TO/CURRENT-FOLDER PATH/TO/DESIRED-FOLDER-LOCATION-OR-NAME`
-//
-// To undo the script, run the same command that you used to run the script, but add an `--undo` flag:
-// - `npm run move-content --undo PATH/TO/OLD PATH/TO/NEW`
-//
-// [end-readme]
+// @purpose Writer tool
+// @description Move or rename a file or a folder and automatically add redirects
+// Moves one file or folder, updates relevant children entries, and adds redirect_from.
+// It does not update title frontmatter.
+// By default, it runs git mv and git commit; pass --no-git to avoid git commands.
+// Keeping git enabled records rename and edit commits separately.
+// Run npm run move-content --help for options.
+// Run file: npm run move-content PATH/TO/CURRENT-FILE.md PATH/TO/DESIRED-FILE-LOCATION-OR-NAME.md.
+// Run folder: npm run move-content PATH/TO/CURRENT-FOLDER PATH/TO/DESIRED-FOLDER-LOCATION-OR-NAME.
+// Undo: npm run move-content --undo PATH/TO/OLD PATH/TO/NEW.
 
 import fs from 'fs'
 import path from 'path'
@@ -28,12 +16,10 @@ import { execFileSync } from 'child_process'
 import { program } from 'commander'
 import chalk from 'chalk'
 import walk from 'walk-sync'
-import escapeStringRegexp from 'escape-string-regexp'
 
 import fm from '@/frame/lib/frontmatter'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 
-// Type definitions
 interface MoveOptions {
   verbose: boolean
   undo: boolean
@@ -47,7 +33,7 @@ interface PositionInfo {
   childGroupPositions: number[][]
 }
 
-// This is so you can optionally run it again the test fixtures root.
+// ROOT lets tests run against a fixture content root.
 const ROOT = process.env.ROOT || '.'
 const CONTENT_ROOT = path.resolve(path.join(ROOT, 'content'))
 
@@ -101,7 +87,6 @@ async function main(opts: MoveOptions, nameTuple: string[]) {
     newPath = new_
   }
 
-  // The file you're about to move needs to exist
   if (!fs.existsSync(oldPath)) {
     console.error(chalk.red(`${oldPath} does not exist.`))
     process.exit(1)
@@ -109,20 +94,11 @@ async function main(opts: MoveOptions, nameTuple: string[]) {
 
   let isFolder = fs.lstatSync(oldPath).isDirectory()
 
-  // Before validating, see if we need to fake that the newPath should be.
-  // This is to mimic how bash `mv` works where you can do:
-  //
-  //    mv some/place/a/file.txt destin/ation/
-  //
-  // which is implied to mean the same as;
-  //
-  //    mv some/place/a/file.txt destin/ation/file.txt
-  //
+  // Emulate mv: moving path/file.md to an existing path/dir resolves to path/dir/file.md.
   if (undo) {
     if (isFolder) {
       const wouldBe = path.join(oldPath, path.basename(newPath))
-      // We can't know if the `newPath` is a directory or file because
-      // whichever it is, it doesn't exist.
+      // For undo, infer a file move from the old folder plus the new file basename.
       if (fs.existsSync(wouldBe) && !fs.lstatSync(wouldBe).isDirectory()) {
         isFolder = false
         oldPath = wouldBe
@@ -144,23 +120,19 @@ async function main(opts: MoveOptions, nameTuple: string[]) {
     process.exit(2)
   }
 
-  // This will exit non-zero if anything is wrong with these inputs
   validateFileInputs(oldPath, newPath, isFolder)
 
   const oldHref = makeHref(CONTENT_ROOT, undo ? newPath : oldPath)
   const newHref = makeHref(CONTENT_ROOT, undo ? oldPath : newPath)
 
   if (isFolder) {
-    // The folder must have an index.md file
+    // Folders can move only when they have an index.md landing file.
     const indexFilePath = path.join(oldPath, 'index.md')
     if (!fs.existsSync(indexFilePath)) {
       throw new Error(`${oldPath} does not have an index.md file`)
     }
-    // Gather individual files by walking `oldPath` recursively
-    // The second argument is
     const files = findFilesInFolder(oldPath, newPath, opts)
 
-    // First take care of the `git mv` (or regular rename) part.
     if (undo) {
       undoFolder(oldPath, newPath, files, opts)
     } else {
@@ -175,10 +147,8 @@ async function main(opts: MoveOptions, nameTuple: string[]) {
       editFiles(files, false, opts)
     }
   } else {
-    // When it's just an individual file, it's easier.
     const files: FileTuple[] = [[oldPath, newPath, oldHref, newHref]]
 
-    // First take care of the `git mv` (or regular rename) part.
     moveFiles(files, opts)
 
     if (undo) {
@@ -188,11 +158,9 @@ async function main(opts: MoveOptions, nameTuple: string[]) {
     }
   }
 
-  // Updating featuredLinks front matter actually doesn't care if
-  // the file is a folder or not. It just needs to know the old and new hrefs.
+  // featuredLinks updates need old and new hrefs, not whether the path is a file or folder.
   changeFeaturedLinks(oldHref, newHref)
 
-  // Update any links in ChildGroups on the homepage.
   changeHomepageLinks(oldHref, newHref, verbose)
 
   if (!undo) {
@@ -208,8 +176,7 @@ async function main(opts: MoveOptions, nameTuple: string[]) {
 
 function validateFileInputs(oldPath: string, newPath: string, isFolder: boolean) {
   if (isFolder) {
-    // Make sure that only the last portion of the path is different
-    // and that all preceding are equal.
+    // Directory moves can change only the last path segment unless the destination base exists.
     const [oldBase, oldName] = splitDirectory(oldPath)
     const [newBase] = splitDirectory(newPath)
     if (oldBase !== newBase && !existsAndIsDirectory(newBase)) {
@@ -336,9 +303,7 @@ function undoFolder(oldPath: string, newPath: string, files: FileTuple[], opts: 
 }
 
 function getBasename(fileOrDirectory: string) {
-  // Note, can't use fs.lstatSync().isDirectory() because it's just a string
-  // at this point. It might not exist.
-
+  // Infer file or directory names from path strings because the destination may not exist.
   if (fileOrDirectory.endsWith('index.md')) {
     return path.basename(path.dirname(fileOrDirectory))
   }
@@ -447,9 +412,9 @@ function addToChildren(newPath: string, positions: PositionInfo, opts: MoveOptio
   }
 }
 
+// When git runs, commit pure renames before edits so later merges avoid complex three-way diffs.
 function moveFiles(files: FileTuple[], opts: MoveOptions) {
   const { verbose, git: useGit } = opts
-  // Before we do anything, assert that the files are valid
   for (const [oldPath] of files) {
     const fileContent = fs.readFileSync(oldPath, 'utf-8')
     const { errors } = fm(fileContent, { filepath: oldPath })
@@ -461,13 +426,6 @@ function moveFiles(files: FileTuple[], opts: MoveOptions) {
     if (errors.length > 0) throw new Error('There were more than 0 parse errors')
   }
 
-  // In the first loop, we exclusively perform the rename. No file edits!
-  // The reason is that we don't want lump renaming and edits in the same
-  // git commit.
-  // By having a dedicated git commit that purely renames (without changing
-  // any content) is best practice to avoid complex 3-way diffs that
-  // `git merge` does when you later have to merge in the latest `main`
-  // into your ongoing renaming branch.
   for (const [oldPath, newPath] of files) {
     if (verbose) {
       console.log(`Moving ${chalk.bold(oldPath)} to ${chalk.bold(newPath)}`)
@@ -496,13 +454,10 @@ function moveFiles(files: FileTuple[], opts: MoveOptions) {
   }
 }
 
+// editFiles keeps redirect_from edits in a separate commit from renames when git runs.
 function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions) {
   const { verbose, git: useGit } = opts
 
-  // Second loop. This time our only job is to edit the `redirects_from`
-  // frontmatter key.
-  // See comment in the first loop above for why we're looping over the files
-  // two times.
   for (const [oldPath, newPath, oldHref] of files) {
     const fileContent = fs.readFileSync(newPath, 'utf-8')
     const { content, data } = readFrontmatter(fileContent)
@@ -521,7 +476,7 @@ function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
     }
   }
 
-  // Add contentType frontmatter to moved files
+  // Moved files get contentType from target paths.
   if (files.length > 0) {
     const filePaths = files.map(([, newPath]) => newPath)
     try {
@@ -556,7 +511,6 @@ function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
 function undoFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions) {
   const { verbose, git: useGit } = opts
 
-  // First undo any edits to the file
   for (const [oldPath, newPath, oldHref] of files) {
     const fileContent = fs.readFileSync(newPath, 'utf-8')
     const { content, data } = readFrontmatter(fileContent)
@@ -583,13 +537,12 @@ function undoFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
   }
 }
 
+// Regex replacement preserves YAML formatting and comments that serialization would lose.
+// Homepage childGroup hrefs omit the leading slash.
 function changeHomepageLinks(oldHref: string, newHref: string, verbose: boolean) {
-  // Can't deserialize and serialize the Yaml because it would lose
-  // formatting and comments. So regex replace it.
-  // Homepage childGroup links do not have a leading '/', so we need to remove that.
   const homepageOldHref = oldHref.replace('/', '')
   const homepageNewHref = newHref.replace('/', '')
-  const escapedHomepageOldHref = escapeStringRegexp(homepageOldHref)
+  const escapedHomepageOldHref = RegExp.escape(homepageOldHref)
   const regex = new RegExp(`- ${escapedHomepageOldHref}$`, 'gm')
   const homepage = path.join(CONTENT_ROOT, 'index.md')
   const oldContent = fs.readFileSync(homepage, 'utf-8')
@@ -607,7 +560,7 @@ function changeFeaturedLinks(oldHref: string, newHref: string): void {
     directories: false,
   }).filter((file) => !file.includes('README.md'))
 
-  const regex = new RegExp(`(^|%} )${escapeStringRegexp(oldHref)}($| {%)`)
+  const regex = new RegExp(`(^|%} )${RegExp.escape(oldHref)}($| {%)`)
 
   for (const file of allFiles) {
     let changed = false

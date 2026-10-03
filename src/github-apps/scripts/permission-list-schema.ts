@@ -1,6 +1,5 @@
-// This schema is used to validate
-// src/github-apps/data/fine-grained-pat-permissions.json
-// and src/github-apps/data/server-to-server-permissions.json
+// This schema validates src/github-apps/data/fine-grained-pat-permissions.json
+// and src/github-apps/data/server-to-server-permissions.json.
 
 interface SchemaProperty {
   type: string
@@ -49,7 +48,7 @@ const schema: Schema = {
   type: 'object',
   required: ['title', 'displayTitle', 'permissions'],
   properties: {
-    // Properties from the source OpenAPI schema that this module depends on
+    // Generated permission entries combine metadata titles with assembled permission rows.
     title: {
       description: 'The name of the permission.',
       type: 'string',

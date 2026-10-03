@@ -4,7 +4,9 @@ shortTitle: Calculate cost savings
 intro: Estimate the remediation time and labor costs you'll avoid by preventing leaked secrets.
 product: '{% data reusables.gated-features.secret-risk-assessment-calculators %}'
 versions:
-  feature: secret-risk-assessment
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.permissions.push-protection-roi-calculator %}'
 contentType: tutorials
 redirect_from:

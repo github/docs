@@ -9,7 +9,6 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /getting-started
   - /auth
   - /features
   - /hooks

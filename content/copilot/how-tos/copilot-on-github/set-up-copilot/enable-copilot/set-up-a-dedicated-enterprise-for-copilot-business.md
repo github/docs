@@ -18,7 +18,7 @@ category:
   - Manage Copilot for a team
 ---
 
-Before you begin, see [AUTOTITLE](/copilot/concepts/about-enterprise-accounts-for-copilot-business) to understand how to use a standard enterprise account for {% data variables.copilot.copilot_business_short %} without consuming {% data variables.product.prodname_ghe_cloud %} licenses.
+Before you begin, see [AUTOTITLE](/copilot/concepts/enterprise/about-enterprise-accounts-for-copilot-business) to understand how to use a standard enterprise account for {% data variables.copilot.copilot_business_short %} without consuming {% data variables.product.prodname_ghe_cloud %} licenses.
 
 ## Create an enterprise account
 
@@ -63,7 +63,7 @@ For detailed steps, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-f
 After you assign licenses, you can centrally govern how members use {% data variables.product.prodname_copilot_short %}:
 
 * **Policies**. Control feature availability with policies in AI Controls.
-* **Enterprise managed settings**. Distribute client governance and extensibility configuration from a centrally defined source. For example, you can disable bypass mode, restrict plugins, and set the default model for new conversations. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-managed-settings).
+* **Enterprise managed settings**. Distribute client governance and extensibility configuration from a centrally defined source. For example, you can disable bypass mode, restrict plugins, and set the default model for new conversations. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-managed-settings/get-started).
 
 To use server-managed settings, you need an organization and a `.github-private` repository, which requires a {% data variables.product.prodname_enterprise %} license for the user who creates them. Alternatively, you can deploy managed settings through MDM or a file-based deployment without creating an organization.
 

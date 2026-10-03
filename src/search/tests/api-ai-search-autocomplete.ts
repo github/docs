@@ -1,15 +1,8 @@
-/**
- * To be able to run these tests you need to index the fixtures!
- * And you need to have an Elasticsearch URL to connect to for the server.
- *
- * To index the fixtures, run:
- *
- *   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
- *
- * This will replace any "real" Elasticsearch indexes you might have so
- * once you're done working on vitest tests you need to index real
- * content again.
- */
+// These tests need indexed fixtures and an Elasticsearch URL for the server:
+//
+//   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
+//
+// That writes `tests_`-prefixed indexes and leaves your regular ones alone.
 
 import { expect, test, vi } from 'vitest'
 
@@ -29,7 +22,6 @@ const aiSearchEndpoint = '/api/search/ai-search-autocomplete/v1'
 const getSearchEndpointWithParams = (searchParams: URLSearchParams) =>
   `${aiSearchEndpoint}?${searchParams}`
 
-// This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
@@ -114,18 +106,24 @@ describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => 
     expect(JSON.parse(res.body).error).toBeTruthy()
   })
 
-  test('fuzzy autocomplete search', async () => {
+  test('prefix autocomplete search for a two-character query', async () => {
     const sp = new URLSearchParams()
-    sp.set('query', 'cl') // Short for "clone"
+    sp.set('query', 'cl')
     const res = await get(getSearchEndpointWithParams(sp))
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.body) as AutocompleteSearchResponse
-    // 'cl" matches "How do I clone a repository?"
     const hit = results.hits[0]
     expect(hit.term).toBe('How do I clone a repository?')
-    // Highlighting behavior will highlight the matching "term" which is an entire word
-    // In this case that word is "clone" when the query is "cl"
     expect(hit.highlights[0]).toBe('How do I <mark>clone</mark> a repository?')
+  })
+
+  test('fuzzy autocomplete search', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'clome')
+    const res = await get(getSearchEndpointWithParams(sp))
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body) as AutocompleteSearchResponse
+    expect(results.hits.map((result) => result.term)).toContain('How do I clone a repository?')
   })
 
   test('autocomplete term search', async () => {

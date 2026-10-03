@@ -1,11 +1,7 @@
 name: Changelog agent — draft entry when a qualified PR merges
 
-# **What it does**: When a PR merges that closes a docs-content issue with a
-#   parent issue, uses an LLM to draft a changelog entry, opens a PR in
-#   github/docs-content, and DMs the author in Slack for review.
-# **Why we have it**: Automates the changelog drafting process so authors
-#   don't have to remember to write a changelog entry manually.
-# **Who does it impact**: docs-content team members.
+# Drafts internal changelog entries for merged PRs that close a docs-content child issue.
+# Authors review generated PRs before publication.
 
 on:
   pull_request:
@@ -81,7 +77,6 @@ jobs:
           script: |
             const author = '${{ steps.resolve_pr.outputs.pr_author }}';
 
-            // Fetch github-to-slack.json from docs-content via API
             let mapping = {};
             try {
               const { data } = await github.rest.repos.getContent({
@@ -96,7 +91,6 @@ jobs:
               return;
             }
 
-            // Remove non-user keys (like _comment)
             const teamMembers = Object.keys(mapping).filter(k => !k.startsWith('_'));
 
             if (!teamMembers.includes(author)) {
@@ -119,8 +113,7 @@ jobs:
           script: |
             const body = process.env.PR_BODY || '';
 
-            // Match closing keywords followed by docs-content issue references.
-            // Supports: closes github/docs-content#123, fixes https://github.com/github/docs-content/issues/123
+            // Finds docs-content issues closed by the source PR body.
             const patterns = [
               /(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?):?\s+github\/docs-content#(\d+)/gi,
               /(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?):?\s+https:\/\/github\.com\/github\/docs-content\/issues\/(\d+)/gi,
@@ -168,7 +161,6 @@ jobs:
               return;
             }
 
-            // Query for parent issue via GraphQL
             const query = `
               query($nodeId: ID!) {
                 node(id: $nodeId) {
@@ -218,7 +210,6 @@ jobs:
             core.setOutput('parent_assignees', (parent.assignees?.nodes || []).map(a => a.login).join(','));
             core.setOutput('parent_repo', parent.repository.nameWithOwner);
 
-            // Also store the docs-content issue details
             core.setOutput('dc_issue_title', issue.title);
             core.setOutput('dc_issue_body', issue.body || '');
 
@@ -236,7 +227,6 @@ jobs:
             const prNumber = parseInt('${{ steps.resolve_pr.outputs.pr_number }}', 10);
             const prAuthor = '${{ steps.resolve_pr.outputs.pr_author }}';
 
-            // Get approved reviewers (exclude bots and PR author)
             const { data: reviews } = await github.rest.pulls.listReviews({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -249,7 +239,6 @@ jobs:
                 .map(r => r.user.login)
             )];
 
-            // Get changed files (paths only, limit to 50)
             const { data: files } = await github.rest.pulls.listFiles({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -297,7 +286,6 @@ jobs:
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
-            // Fetch changelog-internal.md from docs-content
             const { data } = await github.rest.repos.getContent({
               owner: 'github',
               repo: 'docs-content',
@@ -305,7 +293,6 @@ jobs:
             });
             const changelog = Buffer.from(data.content, 'base64').toString('utf-8');
 
-            // Extract the first 3 entries (each starts with **date**)
             const lines = changelog.split('\n');
             let count = 0;
             let examples = [];
@@ -420,14 +407,11 @@ jobs:
         uses: actions/ai-inference@2c43c91ae16266ca159d311430343c67a5ffa222 # v3
         with:
           provider: copilot
-          # No model is pinned: actions/ai-inference forwards --model to the
-          # Copilot CLI only when it differs from its GitHub Models default, so
-          # omitting it lets the CLI pick its own current default (latest Sonnet)
-          # and avoids breaking when a pinned slug (e.g. gpt-4.1) is retired.
+          # Keep this empty string. Omitting it makes actions/ai-inference pass
+          # its retired gpt-4.1 default, which fails.
+          model: ''
           prompt-file: prompt.txt
           system-prompt-file: system-prompt.txt
-          max-completion-tokens: 1000
-          temperature: 0.3
         env:
           COPILOT_GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_COPILOT }}
 
@@ -470,7 +454,6 @@ jobs:
             const branchName = `changelog-agent-${{ steps.resolve_pr.outputs.pr_number }}`;
             const filePath = 'docs-content-docs/docs-content-workflows/changelog-internal.md';
 
-            // Get the current changelog file from docs-content
             const { data: fileData } = await github.rest.repos.getContent({
               owner: 'github',
               repo: 'docs-content',
@@ -479,11 +462,9 @@ jobs:
 
             let changelog = Buffer.from(fileData.content, 'base64').toString('utf-8');
 
-            // Build the new entry
             const entry = `**${process.env.DATE_STR}**\n\n${process.env.DRAFT}\n\n<hr>`;
 
-            // Insert after the first H1 heading so leading frontmatter, comments,
-            // or blank lines do not affect placement.
+            // Insert after the first H1 heading so frontmatter, comments, or blank lines do not affect placement.
             const lines = changelog.split('\n');
             const headingIndex = lines.findIndex((line) => line.startsWith('# '));
 
@@ -497,14 +478,12 @@ jobs:
                 : `${beforeAndHeading}\n\n${entry}`;
             }
 
-            // Get the default branch SHA for creating a new branch
             const { data: ref } = await github.rest.git.getRef({
               owner: 'github',
               repo: 'docs-content',
               ref: 'heads/main',
             });
 
-            // Create the branch in docs-content
             try {
               await github.rest.git.createRef({
                 owner: 'github',
@@ -520,7 +499,6 @@ jobs:
               }
             }
 
-            // Fetch the file from the branch (handles both new and existing branches)
             const { data: branchFileData } = await github.rest.repos.getContent({
               owner: 'github',
               repo: 'docs-content',
@@ -528,7 +506,6 @@ jobs:
               ref: branchName,
             });
 
-            // Update the changelog file on the new branch
             await github.rest.repos.createOrUpdateFileContents({
               owner: 'github',
               repo: 'docs-content',
@@ -543,7 +520,6 @@ jobs:
               },
             });
 
-            // Build credits for the PR body
             const reviewers = process.env.APPROVED_REVIEWERS
               ? process.env.APPROVED_REVIEWERS.split(',').map(r => `@${r}`).join(', ')
               : 'None';
@@ -585,7 +561,6 @@ jobs:
               draft: false,
             });
 
-            // Add labels
             try {
               await github.rest.issues.addLabels({
                 owner: 'github',
@@ -597,7 +572,6 @@ jobs:
               core.warning(`Failed to add labels: ${err.message}`);
             }
 
-            // Request review from PR author
             try {
               await github.rest.pulls.requestReviewers({
                 owner: 'github',
@@ -631,7 +605,6 @@ jobs:
             const author = process.env.PR_AUTHOR;
             const changelogPrUrl = process.env.CHANGELOG_PR_URL;
 
-            // Fetch GitHub-to-Slack mapping from docs-content
             let slackMapping = {};
             try {
               const { data } = await github.rest.repos.getContent({
@@ -647,7 +620,6 @@ jobs:
 
             const slackUserId = slackMapping[author];
 
-            // Build credits summary for the DM
             const reviewers = process.env.APPROVED_REVIEWERS
               ? process.env.APPROVED_REVIEWERS.split(',').join(', ')
               : 'none';
@@ -698,7 +670,6 @@ jobs:
               core.warning(`No Slack mapping found for GitHub user: ${author}`);
             }
 
-            // Fallback: post a GitHub comment on the source PR
             core.info('Falling back to GitHub comment notification.');
             await github.rest.issues.createComment({
               owner: context.repo.owner,
@@ -731,7 +702,7 @@ jobs:
               body: `<!-- changelog-agent-handled -->\n🤖 A changelog draft PR has been automatically created in docs-content: ${changelogPrUrl}`,
             });
 
-      # Local composite actions below require the repository to be checked out.
+      # Check out the repository before local composite actions run after a failure.
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0

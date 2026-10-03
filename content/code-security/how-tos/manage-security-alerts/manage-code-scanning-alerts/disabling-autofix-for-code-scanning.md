@@ -18,7 +18,7 @@ category:
 Disabling agentic autofix can be done in two ways:
 
 1. By disabling {% data variables.copilot.copilot_autofix_short %} since agentic autofix relies on the same underlying setting. For instructions, see the sections below.
-1. By opting repositories out of {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management#opting-repositories-out-of-copilot-cloud-agent).
+1. By opting repositories out of {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/concepts/enterprise/cloud-agent-access#opting-repositories-out-of-copilot-cloud-agent).
 
 For more information about agentic autofix, see [AUTOTITLE](/code-security/concepts/code-scanning/autofix-for-code-scanning#agentic-autofix).
 

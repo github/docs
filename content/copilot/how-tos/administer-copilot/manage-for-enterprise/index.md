@@ -8,6 +8,7 @@ children:
   - /manage-plan
   - /manage-access
   - /manage-enterprise-policies
+  - /use-managed-settings
   - /manage-agents
   - /manage-availability-of-default-models
   - /enable-custom-models

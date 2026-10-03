@@ -138,11 +138,30 @@ When an {% data variables.product.prodname_actions %} workflow run fails on a pu
 
 ## Continuing work on a pull request
 
+You can ask {% data variables.product.prodname_copilot_short %} to make changes or address review comments on an existing pull request. You can then track the resulting session and provide follow-up instructions.
+
+### Asking {% data variables.product.prodname_copilot_short %} to make changes
+
 You can mention `@copilot` in a comment on any pull request to ask {% data variables.product.prodname_copilot_short %} to make changes. This works on pull requests created by {% data variables.product.prodname_copilot_short %} and on pull requests you or others created.
 
 By default, {% data variables.product.prodname_copilot_short %} pushes commits directly to the pull request branch. To create a separate pull request instead, describe that in your comment. You can also check out the branch and push changes yourself.
 
-Batch review comments instead of submitting them individually. When submitting a pull request comment (not a review or review comment) through the {% data variables.product.github %} web interface, select a model with the model picker. {% data variables.product.prodname_copilot_short %} uses the model from the original pull request by default.
+When submitting a pull request comment (not a review or review comment) through the {% data variables.product.github %} web interface, select a model with the model picker. {% data variables.product.prodname_copilot_short %} uses the model from the original pull request by default.
+
+### Delegating review comments
+
+You can delegate review comments to have {% data variables.product.prodname_copilot_short %} implement feedback from human reviewers and {% data variables.copilot.copilot_code-review %}.
+
+1. In the pull request, open the **Files changed** tab.
+1. Navigate to the first review comment you want {% data variables.product.prodname_copilot_short %} to implement.
+   * To delegate one comment, click **Fix with {% data variables.product.prodname_copilot_short %}**.
+   * To delegate multiple comments, click **Add to batch**. Continue to add the comments you want {% data variables.product.prodname_copilot_short %} to work on.
+1. In the **Manage batch** panel, add any additional instructions, and optionally select a model with the model picker. 
+1. Choose how you want {% data variables.product.prodname_copilot_short %} to apply the changes:
+   * To commit the changes directly to the branch, click **{% octicon "agent" aria-label="The Agents icon" %} Fix and commit**.
+   * To have {% data variables.product.prodname_copilot_short %} create a new pull request with the changes, click **Fix and open pull request** from the dropdown menu.
+
+### Tracking and continuing a session
 
 {% data reusables.copilot.cloud-agent.write-access-required %}
 

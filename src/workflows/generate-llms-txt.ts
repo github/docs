@@ -1,15 +1,16 @@
 // Generates an llms.txt file from popularity data and the docs page catalog.
 //
 // Usage:
-//   npm run generate-llms-txt -- --config data/llms-txt/config-docs.yml --output data/llms-txt/docs.md
-//   npm run generate-llms-txt -- --config data/llms-txt/config-monolith.yml --output /tmp/monolith.md
+//   npm run generate-llms-txt -- \
+//     --config data/llms-txt/config-docs.yml \
+//     --output data/llms-txt/docs.md
+//   npm run generate-llms-txt -- \
+//     --config data/llms-txt/config-monolith.yml \
+//     --output /tmp/monolith.md
 //
-// Both targets layer overrides on top of data/llms-txt/config-default.yml.
-// Writers can edit categories, pinned pages, thresholds, and copy in the
-// configs without touching this script.
-//
-// Requires DOCS_BOT_PAT_BASE for fetching popularity data from
-// github/docs-internal-data.
+// Each target overrides data/llms-txt/config-default.yml, so writers can change
+// categories, pinned pages, thresholds, and copy without editing this script.
+// Requires DOCS_BOT_PAT_BASE because popularity data lives in github/docs-internal-data.
 
 import fs from 'fs'
 

@@ -15,8 +15,8 @@ const { targetFilename } = JSON.parse(
   readFileSync('src/secret-scanning/lib/config.json', 'utf8'),
 ) as { targetFilename: string }
 
-// Both hasValidityCheck and hasExtendedMetadata can be emitted by token-scanning-service
-// as a Liquid conditional that resolves to false on GHES and true elsewhere.
+// token-scanning-service can emit hasValidityCheck and hasExtendedMetadata as Liquid
+// conditionals that resolve false on GHES and true elsewhere.
 const ghesConditional = '{% ifversion ghes %}false{% else %}true{% endif %}'
 
 const makeEntry = (): SecretScanningData =>

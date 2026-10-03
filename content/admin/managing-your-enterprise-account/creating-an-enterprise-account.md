@@ -70,7 +70,7 @@ The following changes also apply to single organizations that are automatically 
 
 ## Next steps
 
-Set up your new enterprise with our [AUTOTITLE](/enterprise-cloud@latest/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
+Set up your new enterprise with our [AUTOTITLE](/enterprise-cloud@latest/admin/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
 
 ## Further reading
 

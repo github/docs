@@ -91,7 +91,7 @@ copilot mcp add context7 -- npx -y @upstash/context7-mcp
 Add a local server with environment variables:
 
 ```shell copy
-copilot mcp add github -e GITHUB_PERSONAL_ACCESS_TOKEN=YOUR_GITHUB_PAT -- docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server
+copilot mcp add github --env GITHUB_PERSONAL_ACCESS_TOKEN=YOUR_GITHUB_PAT -- docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server
 ```
 
 Add a remote HTTP server:
@@ -219,7 +219,7 @@ You can manage your configured MCP servers using the `/mcp` commands in interact
 
 * **Delete a server:** Use the command `/mcp delete SERVER-NAME`.
 
-* **Disable a server:** Use the command `/mcp disable SERVER-NAME`. A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %} for the current session.
+* **Disable a server:** Use the command `/mcp disable SERVER-NAME`. A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %}. This setting persists across sessions.
 
 * **Enable a previously disabled server:** Use the command `/mcp enable SERVER-NAME`.
 
@@ -251,6 +251,20 @@ You can also manage MCP servers from the terminal without entering interactive m
 
   Removes the server from the user configuration.
 
+* **Disable a server:**
+
+  ```shell copy
+  copilot mcp disable SERVER-NAME
+  ```
+
+  A disabled server remains configured but is not used by {% data variables.product.prodname_copilot_short %}. This setting persists across sessions.
+
+* **Enable a previously disabled server:**
+
+  ```shell copy
+  copilot mcp enable SERVER-NAME
+  ```
+
 ## Using MCP servers
 
 Once you have added an MCP server, {% data variables.product.prodname_copilot_short %} can automatically use the tools it provides when relevant to your prompt. You can also directly reference an MCP server and specific tools in a prompt to ensure they are used.
@@ -258,5 +272,5 @@ Once you have added an MCP server, {% data variables.product.prodname_copilot_sh
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/context/mcp)
-* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/extend-copilot-chat-with-mcp)
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)

@@ -9,7 +9,6 @@ interface Frontmatter {
   [key: string]: unknown
 }
 
-// Get the valid introLinks keys from ui.yml
 function getValidIntroLinksKeys(): string[] {
   try {
     const ui = getUIDataMerged('en')
@@ -18,7 +17,6 @@ function getValidIntroLinksKeys(): string[] {
       return []
     }
 
-    // Get all keys from product_landing in ui.yml
     return Object.keys(ui.product_landing)
   } catch (error) {
     console.error('Error loading ui.yml data:', error)
@@ -39,14 +37,11 @@ export const frontmatterIntroLinks: Rule = {
 
     const validKeys = getValidIntroLinksKeys()
     if (validKeys.length === 0) {
-      // If we can't load the valid keys, skip validation
       return
     }
 
-    // Check each key in introLinks
     for (const key of Object.keys(introLinks)) {
       if (!validKeys.includes(key)) {
-        // Find the line with this key
         const line = params.lines.find((ln: string) => {
           const trimmed = ln.trim()
           return trimmed.startsWith(`${key}:`) && !trimmed.startsWith('introLinks:')

@@ -110,5 +110,5 @@ To integrate {% data variables.product.prodname_ghe_server %} with Microsoft Tea
 * [AUTOTITLE](/integrations/how-tos/teams/use-github-in-teams) - Learn how to use the {% data variables.product.github %} integration for Teams.
 * [AUTOTITLE](/integrations/how-tos/teams/customize-notifications) - Learn how to customize your {% data variables.product.github %} notifications in Teams.
 {% ifversion copilot %}
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams) - Learn about {% data variables.copilot.copilot_cloud_agent %} with Teams.
+* [AUTOTITLE](/copilot/how-tos/copilot-integrations/integrate-cloud-agent-with-teams) - Learn about {% data variables.copilot.copilot_cloud_agent %} with Teams.
 {% endif %}

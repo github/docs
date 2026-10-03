@@ -1,14 +1,8 @@
-/*
-This file adds a custom error message if a package is missing
-to prompt the contributor to run `npm ci`.
-This handler must be separate from handle-exceptions.ts in order to function.
-It's imported in package.json in nodemonConfig,
-whereas that is imported in start-server.ts.
-This file should not import any packages.
-We are suggesting `npm ci` to contributors
-to avoid unexpected changes to the package-lock.json file.
-All other errors should fall through to the error handler in handle-exceptions.ts.
-*/
+// Shows a custom npm ci prompt for missing-package errors.
+// Recommend npm ci instead of npm install to avoid unexpected package-lock.json changes.
+// package.json loads this file through nodemonConfig before start-server.ts loads handle-exceptions.ts.
+// Keep it dependency-free so missing packages can reach this handler.
+// Other uncaught exceptions fall through to handle-exceptions.ts.
 
 type ErrorWithCode = {
   code: string

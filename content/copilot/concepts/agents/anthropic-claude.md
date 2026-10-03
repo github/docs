@@ -16,7 +16,7 @@ The {% data variables.product.prodname_anthropic_claude %} coding agent uses the
 
 ## {% data variables.product.prodname_anthropic_claude %} coding agent
 
-Before you can assign tasks to {% data variables.product.prodname_anthropic_claude %} coding agent, it must be enabled. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-coding-agents-in-your-repositories). 
+Before you can assign tasks to {% data variables.product.prodname_anthropic_claude %} coding agent, it must be enabled. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-coding-agents#making-coding-agents-available).
 
 To learn more about using third-party coding agents, see [AUTOTITLE](/copilot/concepts/agents/about-third-party-coding-agents).
 
@@ -27,4 +27,4 @@ When starting a task with the {% data variables.product.prodname_anthropic_claud
 * Auto
 {% data reusables.copilot.anthropic-claude-agent-models %}
 
-If you select **Auto**, {% data variables.copilot.copilot_auto_model_selection %} will select the best model based on availability and to help reduce rate limiting. For more information, see [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+If you select **Auto**, it will choose one of the available models listed above. **Auto** in {% data variables.product.prodname_anthropic_claude %} coding agent does **not** leverage {% data variables.copilot.copilot_auto_model_selection %}.

@@ -13,20 +13,13 @@ export type SearchIndex = {
   type: string
 }
 
-/* Elasticsearch uses indexes to group categories of data
-
-  We currently have 2 top-level categories of indexes:
-    1. General search: This is populated using data from all of our Docs pages
-    2. AI autocomplete: This is populated with human-readable questions using a GPT query in docs-internal-data
-
-  This file is intended to be the source of truth for Docs Elasticsearch indexes.
-
-  Indexes are in the form:
-    <test_prefix><prefix>-<type>-<version>-<language>
-    e.g. github-docs-general-search-fpt-en
-
-  <test-prefix> might be "tests_" for tests
-*/
+// Docs Elasticsearch indexes have two categories: general search, populated
+// from all Docs pages, and AI autocomplete, populated with human-readable
+// questions from a GPT query in docs-internal-data.
+//
+// Index names take the form <test_prefix><prefix>_<type>_<version>_<language>,
+// for example github-docs_general-search_fpt_en. Tests use tests_ as
+// <test_prefix>.
 const prefix = 'github-docs'
 const indexes: SearchIndexes = {
   generalSearch: {
@@ -39,7 +32,6 @@ const indexes: SearchIndexes = {
   },
 }
 
-// Source of truth for determining the index name for the Elastic Search index given a version and language
 export function getElasticSearchIndex(
   type: SearchTypes,
   version: string,
@@ -54,34 +46,29 @@ export function getElasticSearchIndex(
   }
   const index = indexes[type] as SearchIndex
 
-  // Validate language
   if (!(language in languages)) {
     throw new Error(
       `Language ${language} not found in languages for getElasticSearchIndex function.`,
     )
   }
 
-  // Validate version
   if (!allIndexVersionKeys.includes(version)) {
     throw new Error(
       `Version '${version}' does not map to a valid version for getElasticSearchIndex function.`,
     )
   }
 
-  // e.g. free-pro-team becomes fpt for the index name
+  // free-pro-team maps to fpt in index names.
   let indexVersion = versionToIndexVersionMap[version]
 
-  // For AI Search autocomplete, we use the latest GHES version for all GHES versions.
-  // This provides AI search functionality across all supported GHES versions without
-  // requiring separate indexes for each version.
+  // AI autocomplete shares the latest GHES index across all supported GHES versions.
   if (type === 'aiSearchAutocomplete' && indexVersion.startsWith('ghes')) {
     indexVersion = versionToIndexVersionMap['enterprise-server']
   }
 
-  // In the index-test-fixtures.sh script, we use the tests_ prefix index for testing
+  // index-test-fixtures.sh expects the tests_ prefix.
   const testPrefix = process.env.NODE_ENV === 'test' ? 'tests_' : ''
 
-  // If a manual prefix is provided, append an underscore to it
   if (manualPrefix && !manualPrefix.endsWith('_')) {
     manualPrefix += '_'
   }
