@@ -1,4 +1,4 @@
-name: Review comment
+name: Review commentlabel:"question" AND assignee:octocat795ce1b6c25be0ad3c43e2808d3cadb8c0f5522a
 
 # **What it does**: When a PR is opened in docs-internal or docs containing code, it comments with instructions on how to deploy and review the changes. it adds the staging review and live article links in a Content Directory Changes table in a comment.
 # **Why we have it**: To help Docs contributors understand how to review their changes.
