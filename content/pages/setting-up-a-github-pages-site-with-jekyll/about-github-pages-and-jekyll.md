@@ -58,12 +58,17 @@ kramdown:
 ```
 
 By default, Jekyll doesn't build files or folders that:
-* Are located in a folder called `/node_modules` or `/vendor`
+* Are named `Gemfile` or `Gemfile.lock`
+* Are located in a folder called `/node_modules`, `/vendor/bundle`, `/vendor/cache`, `/vendor/gems`, or `/vendor/ruby`
 * Start with `_`, `.`, or `#`
 * End with `~`
 * Are excluded by the `exclude` setting in your configuration file
 
 If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
+
+Jekyll copies every other file in your publishing source to your site unchanged, including files such as scripts and lockfiles, so they are available at their URLs on your site.
+
+On {% data variables.product.prodname_pages %} (Jekyll 3), the `exclude` setting replaces the default list instead of adding to it. For more information, see [Configuration Options](https://jekyllrb.com/docs/configuration/options/) in the Jekyll documentation.
 
 ## Front matter
 
