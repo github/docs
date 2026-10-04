@@ -40,7 +40,7 @@ category:
 
 **{% data variables.copilot.copilot_for_business %}**: [Subscribe to {% data variables.copilot.copilot_business_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=business).
 
-* Made for organizations an enterprises, this plan offers centralized management and {% data variables.product.prodname_copilot_short %} policy control for organization members.
+* Made for organizations and enterprises, this plan offers centralized management and {% data variables.product.prodname_copilot_short %} policy control for organization members.
 
 **{% data variables.copilot.copilot_enterprise %}**: [Subscribe to {% data variables.copilot.copilot_enterprise_short %}](https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=enterprise).
 
