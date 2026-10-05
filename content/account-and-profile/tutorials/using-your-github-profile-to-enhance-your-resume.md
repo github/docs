@@ -47,7 +47,7 @@ Pick 3-5 projects to highlight by "pinning" them on your profile. Repositories y
 
 For the best chances at an interview, pick projects that show your diverse skills and are relevant to your specific job search. If possible, pin some projects you created and some that you contributed to:
 
-* Projects you own are fully under your control, so you can improve them using of the steps below.
+*Projects you own are fully under your control, so you can improve them using the steps below.
 * Open source projects highlight your ability to collaborate with others.
 
 To pin the repositories, click **Customize your pins** in the "Popular repositories" section of your profile.
