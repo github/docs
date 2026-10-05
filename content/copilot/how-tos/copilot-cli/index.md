@@ -23,7 +23,7 @@ sidebarLink:
   text: All articles
   href: /copilot/how-tos/copilot-cli
 introLinks:
-  overview: /copilot/concepts/agents/copilot-cli/about-copilot-cli
+  overview: /copilot/concepts/copilot-surfaces/copilot-cli
   quickstart: /copilot/get-started/cli-quickstart
 children:
   - /cli-best-practices
@@ -39,8 +39,8 @@ children:
   - /automate-copilot-cli/schedule-prompts
   - /content/copilot/concepts/agents/about-agent-skills
   - /content/copilot/concepts/agents/about-plugins
+  - /content/copilot/concepts/copilot-surfaces/copilot-cli
   - /content/copilot/concepts/agents/dynamic-workflows
-  - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
   - /content/copilot/concepts/agents/copilot-cli/about-custom-agents
   - /content/copilot/concepts/agents/copilot-cli/about-remote-control
   - /content/copilot/concepts/agents/copilot-cli/autopilot

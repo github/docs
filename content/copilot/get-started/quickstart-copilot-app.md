@@ -15,7 +15,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-For a conceptual overview of the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/concepts/agents/github-copilot-app).
+For a conceptual overview of the {% data variables.copilot.github_copilot_app %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/github-copilot-app).
 
 In this quickstart, you will:
 

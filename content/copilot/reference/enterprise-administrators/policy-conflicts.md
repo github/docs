@@ -37,7 +37,7 @@ Feature, model, and privacy settings for users are set according to the **least 
 | :---- | :---- | :---- |
 | {% data variables.product.prodname_copilot_short %} Metrics API | Most restrictive organization | {% ifversion ghec %}[AUTOTITLE](/rest/copilot/copilot-usage-metrics){% else %}Not applicable{% endif %} |
 | Semantic indexing for non-{% data variables.product.github %} repositories | Most restrictive organization (only available when all organizations explicitly set **Enabled**; **Unconfigured** behaves as disabled) | [AUTOTITLE](/copilot/concepts/context/repository-indexing) |
-| Suggestions matching public code (privacy policy) | Most restrictive organization | [AUTOTITLE](/copilot/concepts/completions/code-suggestions) |
+| Suggestions matching public code (privacy policy) | Most restrictive organization | [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions) |
 | Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %} | Most restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
 | {% data variables.product.prodname_copilot_short %} can search the web | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_mobile_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
@@ -49,7 +49,7 @@ Feature, model, and privacy settings for users are set according to the **least 
 | {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_desktop_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |
 | {% data variables.copilot.copilot_cli_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/agents) |
-| {% data variables.copilot.github_copilot_app %} | Least restrictive organization | [AUTOTITLE](/copilot/concepts/agents/github-copilot-app) |
+| {% data variables.copilot.github_copilot_app %} | Least restrictive organization | [AUTOTITLE](/copilot/concepts/copilot-surfaces/github-copilot-app) |
 | Editor preview features | Least restrictive organization | [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) |
 | MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) |
 | {% data variables.product.prodname_copilot_short %}-generated commit messages | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat) |

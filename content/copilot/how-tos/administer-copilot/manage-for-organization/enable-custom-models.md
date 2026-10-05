@@ -41,5 +41,5 @@ After you've added your key and selected one or more models, you and your organi
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/enable-custom-models) in our documentation for enterprise accounts.
-* [AUTOTITLE](/copilot/concepts/chat)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
 * [AUTOTITLE](/copilot/reference/supported-surfaces-for-policies)

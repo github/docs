@@ -40,7 +40,7 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 
 You can assign a {% data variables.product.prodname_code_scanning %} alert to {% data variables.product.prodname_copilot_short %} to have it fix the alert for you. Assigning the alert starts an agent session: {% data variables.copilot.copilot_cloud_agent %} explores your codebase, generates a fix, validates it, and opens a pull request.
 
-Each agentic autofix session is billed as a {% data variables.copilot.copilot_cloud_agent %} session and consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#copilot-cloud-agent-usage-costs).
+Each agentic autofix session is billed as a {% data variables.copilot.copilot_cloud_agent %} session and consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing-and-usage).
 
 To assign an individual alert to {% data variables.product.prodname_copilot_short %}:
 

@@ -24,7 +24,7 @@ The following instructions are for {% data variables.product.prodname_vscode_sho
 
 {% data reusables.copilot.code-completion-available-models %}
 
-For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-inline-suggestions).
+For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions).
 
 ## Changing the AI model for inline suggestions
 
@@ -51,7 +51,7 @@ The following instructions are for {% data variables.product.prodname_vs %}. If 
 
 {% data reusables.copilot.code-completion-available-models %}
 
-For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-inline-suggestions).
+For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions).
 
 ## Changing the AI model for inline suggestions
 
@@ -71,7 +71,7 @@ The following instructions are for JetBrains IDEs. If you are using {% data vari
 
 {% data reusables.copilot.code-completion-available-models %}
 
-For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-inline-suggestions).
+For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions).
 
 ## Changing the AI model for inline suggestions
 

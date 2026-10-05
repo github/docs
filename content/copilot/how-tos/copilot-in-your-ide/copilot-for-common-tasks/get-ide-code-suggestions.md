@@ -42,7 +42,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 The examples in this guide use Java, however other languages will work similarly.
 
-For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions?tool=jetbrains).
+For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions).
 
 ## Prerequisites
 
@@ -146,7 +146,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 The examples in this guide use C#, however other languages will work similarly.
 
-For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions?tool=visualstudio).
+For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions).
 
 ## Prerequisites
 
@@ -259,7 +259,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 The examples in this guide use JavaScript, however other languages will work similarly.
 
-For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions?tool=vscode).
+For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions).
 
 ## Prerequisites
 
@@ -614,4 +614,4 @@ An arrow in the gutter indicates an available edit suggestion. Hover over the ar
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/completions/code-suggestions)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#code-suggestions)

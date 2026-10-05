@@ -10,7 +10,7 @@ You can grant certain roles, teams, or apps bypass permissions {% ifversion push
 * {% data variables.product.prodname_github_apps %}
 * {% data variables.product.prodname_dependabot %}. For more information about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/dependabot-quickstart).
 {%- ifversion ghec %}
-* {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features).
+* {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github#repository-compatibility).
 {%- endif %}
 
 1. To grant bypass permissions for the ruleset, in the "Bypass list" section, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add bypass**.
