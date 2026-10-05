@@ -99,7 +99,7 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
-  test.skip('ifversion using feature based version with all versions', async () => {
+  test('ifversion using feature based version with all versions', async () => {
     // features/them-and-all.yml covers all versions.
     const markdown = [...placeholderAllVersionsFm, `{% ifversion them-and-all %}{% endif %}`].join(
       '\n',
