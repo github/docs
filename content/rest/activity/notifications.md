@@ -48,6 +48,7 @@ There are a few potential `reason`s for receiving a notification.
 
 Reason Name | Description
 ------------|------------
+`agent_session_finished` | A Copilot cloud agent session finished.
 `approval_requested` | You were requested to review and approve a deployment. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments).
 `assign` | You were assigned to the issue.
 `author` | You created the thread.
