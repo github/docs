@@ -42,7 +42,7 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 ## Introduction
 
-If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code or use a product that does not support "Block" mode, {% data variables.product.prodname_copilot_short %} will display references to any similar code that is found. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
+If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code or use a product that does not support "Block" mode, {% data variables.product.prodname_copilot_short %} will display references to any similar code that is found. See [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#references-to-matching-public-code).
 
 ### Prerequisites
 
@@ -240,4 +240,4 @@ When {% data variables.product.prodname_copilot_short %} provides a response tha
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/completions/code-referencing)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#references-to-matching-public-code)

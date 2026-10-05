@@ -30,7 +30,7 @@ category:
 
 Before enabling {% data variables.copilot.copilot_cloud_agent %} for members, understand how {% data variables.copilot.copilot_cloud_agent %} will fit into your organization. This will help you evaluate whether {% data variables.copilot.copilot_cloud_agent %} is suitable for your needs and plan communications and training sessions for developers.
 
-1. Learn about {% data variables.copilot.copilot_cloud_agent %}, including the costs and how it differs from other AI tools your developers may be used to. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+1. Learn about {% data variables.copilot.copilot_cloud_agent %}, including the costs and how it differs from other AI tools your developers may be used to. See [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 1. Learn about the tasks that {% data variables.copilot.copilot_cloud_agent %} is best suited for. These are generally well-defined and scoped issues, such as increasing test coverage, fixing bugs or flaky tests, or updating config files or documentation. See [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results).
 1. Consider how {% data variables.copilot.copilot_cloud_agent %} fits alongside other tools in your organization's workflows. For an example scenario that walks through how to use {% data variables.copilot.copilot_cloud_agent %} alongside other AI features on {% data variables.product.github %}, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents).
 

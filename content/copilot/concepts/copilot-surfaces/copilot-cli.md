@@ -1,6 +1,6 @@
 ---
-title: About GitHub Copilot CLI
-shortTitle: About Copilot CLI
+title: GitHub Copilot CLI
+shortTitle: Copilot CLI
 allowTitleToDifferFromFilename: true
 intro: 'Find out about using {% data variables.product.prodname_copilot_short %} from the command line.'
 product: '{% data reusables.gated-features.copilot-cli %}'
@@ -12,6 +12,8 @@ category:
   - Learn about Copilot CLI # Copilot CLI bespoke page
 redirect_from:
   - /copilot/concepts/agents/about-copilot-cli
+  - /copilot/concepts/agents/copilot-cli/about-copilot-cli
+  - /copilot/concepts/copilot-surfaces/about-copilot-cli
 docsTeamMetrics:
   - copilot-cli
 ---

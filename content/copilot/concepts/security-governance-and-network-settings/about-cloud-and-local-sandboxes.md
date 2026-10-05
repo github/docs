@@ -200,6 +200,6 @@ For more information about how cloud sandbox usage is measured and billed, see [
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-copilot-cli)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing)
 * [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings)

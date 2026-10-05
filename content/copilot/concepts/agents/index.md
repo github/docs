@@ -8,10 +8,8 @@ versions:
 children:
   - /cloud-agent
   - /copilot-cli
-  - /github-copilot-app
-  - /computer-use
-  - /copilot-in-jetbrains
   - /code-review
+  - /computer-use
   - /about-github-agentic-workflows
   - /copilot-memory
   - /dynamic-workflows

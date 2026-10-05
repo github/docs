@@ -28,7 +28,7 @@ Utilizing {% data variables.copilot.custom_agents_short %} you can build out a t
 
 Model choice allows you to choose from a selection of AI models to use with your agents, each with its own particular strengths. See [AUTOTITLE](/copilot/reference/ai-models/supported-models).
 
-To learn more about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+To learn more about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github).
 
 ## Managing agents
 

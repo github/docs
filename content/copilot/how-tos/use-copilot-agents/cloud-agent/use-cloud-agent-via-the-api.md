@@ -397,5 +397,5 @@ gh api \
 ## Further reading
 
 * [AUTOTITLE](/rest/agent-tasks/agent-tasks)
-* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+* [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-on-github)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions)
