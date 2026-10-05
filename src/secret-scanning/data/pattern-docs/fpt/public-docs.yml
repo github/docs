@@ -4824,6 +4824,16 @@
   hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
+- provider: Tavily
+  supportedSecret: Tavily API Key
+  secretType: tavily_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Telegram
   supportedSecret: Telegram Bot Token
   secretType: telegram_bot_token
