@@ -1,17 +1,8 @@
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import { runRule } from '../../lib/init-test'
-import { validateIfversionConditionalsVersions } from '../../lib/linting-rules/liquid-versioning'
 import { liquidIfversionVersions } from '../../lib/linting-rules/liquid-ifversion-versions'
 import { supported } from '@/versions/lib/enterprise-server-releases'
-
-type FeatureVersions = {
-  versions: {
-    [key: string]: string
-  }
-}
-
-type AllFeatures = Record<string, FeatureVersions>
 
 describe(liquidIfversionVersions.names.join(' - '), () => {
   const envVarValueBefore: string | undefined = process.env.ROOT
@@ -239,102 +230,5 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     })
     const errors = result.markdown
     expect(errors.length).toBe(0)
-  })
-})
-
-describe.skip('test validateIfversionConditionalsVersions function', () => {
-  test('most basic example without feature', () => {
-    const condition = 'ghes or ghec or fpt'
-    const allFeatures: AllFeatures = {}
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(1)
-  })
-  test('most basic example with feature', () => {
-    const condition = 'some-feature'
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghec: '*',
-          fpt: '*',
-          ghes: '*',
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(1)
-  })
-  test("any 'and' always yields no errors", () => {
-    const condition = 'ghes and ghec or fpt'
-    const allFeatures: AllFeatures = {}
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(0)
-  })
-  test("any 'not' always yields no errors", () => {
-    const condition = 'ghes or ghec or not fpt'
-    const allFeatures: AllFeatures = {}
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(0)
-  })
-  test('combined with feature it is all versions', () => {
-    const condition = 'ghec or fpt or some-feature'
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghes: `>=${supported.at(-1)}`,
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(1)
-  })
-  test('less or equal than a future version', () => {
-    const condition = 'ghec or fpt or some-feature'
-    const latestToday = parseFloat(supported.at(-1)!)
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghes: `<=${latestToday + 0.1}`,
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(0)
-  })
-  test('less than a future version', () => {
-    const condition = 'ghec or fpt or some-feature'
-    const latestToday = parseFloat(supported.at(-1)!)
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghes: `<${latestToday + 0.1}`,
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(0)
-  })
-  test('combined with feature it is eventually all versions (1)', () => {
-    const condition = `ghec or fpt or ghes >${supported.at(-1)} or some-feature`
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghes: `>=${supported.at(-1)}`,
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(1)
-  })
-  test('combined with feature it is eventually all versions (2)', () => {
-    const condition = `ghec or fpt or ghes >=${supported.at(-1)} or some-feature`
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghes: `>${supported.at(-1)}`,
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(1)
   })
 })
