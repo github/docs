@@ -9,9 +9,7 @@ import {
 } from '../helpers/liquid-utils'
 import { getFrontmatter, getFrontmatterLines } from '../helpers/utils'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
-import { allVersions } from '@/versions/lib/all-versions'
 import { difference } from 'lodash-es'
-import { convertVersionsToFrontmatter } from '@/automated-pipelines/lib/update-markdown'
 import {
   isAllVersions,
   getFeatureVersionsObject,
@@ -231,9 +229,14 @@ function setLiquidErrors(condTagItems: CondTagItem[], onError: RuleErrorCallback
 
 async function getApplicableVersionFromLiquidTag(conditionStr: string): Promise<VersionsObject> {
   const newConditionObject: VersionsObject = {}
-  const condition = conditionStr.replace('not ', '')
-  const liquidTagVersions = condition.split(' or ').map((item) => item.trim())
+  const notProducts: string[] = []
+  const liquidTagVersions = conditionStr.split(' or ').map((item) => item.trim())
   for (const ver of liquidTagVersions) {
+    const notMatch = ver.match(/^not (fpt|ghec|ghes)$/)
+    if (notMatch) {
+      notProducts.push(notMatch[1])
+      continue
+    }
     // Bare product and feature names, such as fpt or ghec, map directly to frontmatter versions.
     if (ver.split(' ').length === 1) {
       // Frontmatter represents one feature version at a time.
@@ -266,13 +269,12 @@ async function getApplicableVersionFromLiquidTag(conditionStr: string): Promise<
       newConditionObject[version] = versionFmString
     }
   }
-  if (conditionStr.includes('not ')) {
-    const all = Object.keys(allVersions)
-    const allApplicable = getApplicableVersions(newConditionObject, '', {
-      doNotThrow: true,
-      includeNextVersion: true,
-    })
-    return (await convertVersionsToFrontmatter(difference(all, allApplicable))) as VersionsObject
+  // The ifversion tag negates only the next product, so not fpt means every other product.
+  // Apply these after the loop so a range term such as ghes > 3.20 can't narrow them.
+  for (const notProduct of notProducts) {
+    for (const product of ['fpt', 'ghec', 'ghes']) {
+      if (product !== notProduct) newConditionObject[product] = '*'
+    }
   }
   return newConditionObject
 }

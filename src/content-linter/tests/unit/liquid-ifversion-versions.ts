@@ -125,10 +125,11 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     expect(errors[0].ruleNames[0]).toBe('GHD022')
   })
 
-  test.skip("ifversion using 'not' can't be tested", async () => {
+  test('ifversion using not negates only the next version', async () => {
     const markdown = [
       ...placeholderAllVersionsFm,
       `{% ifversion ghes or fpt or not ghec %}{% endif %}`,
+      `{% ifversion not fpt or ghec %}{% endif %}`,
     ].join('\n')
 
     const result = await runRule(liquidIfversionVersions, {
@@ -136,6 +137,39 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     })
     const errors = result.markdown
     expect(errors.length).toBe(0)
+  })
+
+  test('ifversion using not that covers all versions', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion not ghec or ghec %}{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors[0].errorDetail).toContain('applies to all versions')
+  })
+
+  test('ifversion using not drops products missing from frontmatter', async () => {
+    const markdown = [
+      '---',
+      'title: "Hello"',
+      'versions:',
+      '  fpt: "*"',
+      '  ghec: "*"',
+      '---',
+      `{% ifversion not fpt or ghec %}{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].fixInfo?.insertText).toBe('ifversion ghec')
   })
 
   test('does not crash with nested if blocks inside ifversion', async () => {
