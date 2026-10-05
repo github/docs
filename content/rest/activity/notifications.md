@@ -48,7 +48,9 @@ There are a few potential `reason`s for receiving a notification.
 
 Reason Name | Description
 ------------|------------
-{% ifversion fpt or ghec %}`agent_session_finished` | A {% data variables.copilot.copilot_cloud_agent %} session finished.{% endif %}
+| {% ifversion fpt or ghec %} |
+`agent_session_finished` | A {% data variables.copilot.copilot_cloud_agent %} session finished.
+| {% endif %} |
 `approval_requested` | You were requested to review and approve a deployment. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments).
 `assign` | You were assigned to the issue.
 `author` | You created the thread.
