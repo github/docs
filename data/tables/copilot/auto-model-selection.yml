@@ -20,18 +20,6 @@
 
 # OpenAI
 
-- name: GPT-5.4
-  cloud_agent: false
-  chat: true
-  cli: false
-  app: false
-
-- name: GPT-5.5
-  cloud_agent: true
-  chat: true
-  cli: true
-  app: true
-
 - name: GPT-5.6 Luna
   cloud_agent: true
   chat: true
@@ -68,6 +56,12 @@
   cli: true
   app: true
 
+- name: GPT-6.1 Sol
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
 # Anthropic
 - name: Claude Haiku 4.5
   cloud_agent: true
@@ -93,20 +87,20 @@
   cli: true
   app: true
 
-- name: Claude Sonnet 4.6
-  cloud_agent: false
-  chat: true
-  cli: false
-  app: false
-
 - name: Claude Sonnet 5
   cloud_agent: true
   chat: true
   cli: true
   app: true
 
+- name: Claude Sonnet 5.5
+  cloud_agent: true
+  chat: true
+  cli: true
+  app: true
+
 # Google
-- name: Gemini 3.7 Flash
+- name: Gemini 3.8 Flash
   cloud_agent: true
   chat: true
   cli: true

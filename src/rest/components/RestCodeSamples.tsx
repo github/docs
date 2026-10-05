@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, IconButton, Select, SegmentedControl } from '@primer/react'
+import { IconButton, SegmentedControl } from '@primer/react'
+import { FormControl, Select } from '@primer/react-brand'
 import { CheckIcon, CopyIcon, InfoIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import Cookies from '@/frame/components/lib/cookies'
@@ -137,7 +138,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       </h4>
       {!isSingleExample && (
         <div className="pb-5 pt-2">
-          <FormControl id="example-type-picker">
+          <FormControl>
             <FormControl.Label visuallyHidden>Select the example type</FormControl.Label>
             <Select onChange={handleExampleSelection}>
               {exampleSelectOptions.map((option) => (

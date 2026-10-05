@@ -19,7 +19,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets the AI Scan setting stored on an organization.</p>\n<p>The response reports the value stored on the organization. Organization respects enterprise policy.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code>, <code>repo</code>, or <code>write:org</code> scope to use this endpoint. Organization owners can use <code>admin:org</code> or <code>repo</code>; security managers need <code>write:org</code>.</p>",
+      "descriptionHTML": "<p>Gets the AI Scan setting stored on an organization.</p>\n<p>The response reports the value stored on the organization. Organization respects enterprise policy.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code>, <code>repo</code>, or <code>write:org</code> scope to use this endpoint. Organization owners can use <code>admin:org</code> or <code>repo</code>; security managers need <code>write:org</code>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -112,7 +112,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Updates the AI Scan setting stored on an organization.</p>\n<p>The organization respects the enterprise policy, so enabling is rejected when the enterprise disallows AI Scan.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code>, <code>repo</code>, or <code>write:org</code> scope to use this endpoint. Organization owners can use <code>admin:org</code> or <code>repo</code>; security managers need <code>write:org</code>.</p>",
+      "descriptionHTML": "<p>Updates the AI Scan setting stored on an organization.</p>\n<p>The organization respects the enterprise policy, so enabling is rejected when the enterprise disallows AI Scan.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code>, <code>repo</code>, or <code>write:org</code> scope to use this endpoint. Organization owners can use <code>admin:org</code> or <code>repo</code>; security managers need <code>write:org</code>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1666,7 +1666,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets whether AI Scan is enabled for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
+      "descriptionHTML": "<p>Gets whether AI Scan is enabled for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1768,7 +1768,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Updates whether AI Scan is enabled for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
+      "descriptionHTML": "<p>Updates whether AI Scan is enabled for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
           "request": {
