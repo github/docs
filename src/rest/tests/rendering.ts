@@ -134,6 +134,26 @@ describe('REST references docs', () => {
     expect(optionTexts).toEqual(['Example (text/plain)', 'Rendering markdown (text/x-markdown)'])
   })
 
+  test('example selectors have unique ids and matching labels', async () => {
+    // Three secrets operations each have multiple request examples.
+    const $ = await getDOM('/en/rest/actions/secrets')
+
+    const selects = $('select')
+    expect(selects.length).toBeGreaterThanOrEqual(3)
+
+    const ids = selects.map((i, select) => $(select).attr('id')).get()
+    expect(ids).toHaveLength(selects.length)
+    expect(new Set(ids).size).toBe(ids.length)
+
+    for (const id of ids) {
+      const label = $(`label[for="${id}"]`)
+      expect(label.length).toBe(1)
+      expect(label.text().trim()).toBe('Select the example type')
+    }
+
+    expect($('#example-type-picker').length).toBe(0)
+  })
+
   // All five /rest/meta permissionless operations support every fine-grained token type,
   // so noFineGrainedAccess is false and the RestAuth null guard never fires.
   test('RestAuth component hides auth section for permissionless endpoints', async () => {
