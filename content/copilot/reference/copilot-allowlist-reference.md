@@ -304,6 +304,7 @@ The allowlist allows access to the following hosts:
 * `deno.land`
 * `registry.bower.io`
 * `binaries.prisma.sh`
+* `aspire.dev`
 
 ### Programming Languages & Package Managers: Perl
 
