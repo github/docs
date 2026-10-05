@@ -21,30 +21,24 @@ Throughout, `{{ release-number }}` stands for the version being deprecated. When
 - A callout appears in the steps: 🛑 **HUMAN**. This means stop and get explicit human sign-off before continuing. These mark points where a mistake is expensive or hard to undo, or actions only a human can perform. Text on these lines are meant for the human to do; any text on a line that does not have the flag is for the agent.
 - When a step is ambiguous or a tool misbehaves, look at the two most recent deprecation pull requests in `github/docs-internal` for how it was handled. Search for pull requests titled "Deprecate GitHub Enterprise Server", and read the content team's review comments so you can fix the same problems before requesting review. 
 - Clone `github/docs-internal` and `github/github` before you begin.
+- This issue copies the runbook when the issue is created. Before you start, compare it with [the runbook on `main`](https://github.com/github/docs-internal/blob/main/src/ghes-releases/lib/deprecation-steps.md). If they differ, follow `main`.
+- If other people or agents share your `github/docs-internal` checkout, work in a `git worktree` instead of switching branches.
 
 ## Step 1: Confirm the deprecation date
 
 The release controller's Slack chatops are the authoritative source for both the deprecation date and the DRI (directly responsible individual):
 
 * `.rc get-cycle {{ release-number }}` returns the release cycle for `{{ release-number }}`, including the deprecation date.
-* `.rc release-dates` returns the current DRI for each release. Run it in either `#ghes-releases` or `#ghes-release-ops`.
+* `.rc release-dates` returns the current DRI for each release. Run it in either `#ghes-releases` or `#ghes-release-ops`. It may stop listing a release once its deprecation completes, so run it a few days before the deprecation date if you can.
 
 Draft both chatops and a follow-up confirmation message for the human, who runs the chatops in Slack and posts the confirmation. Cross-check the date returned by `.rc get-cycle` against the one in this issue's title and in `src/ghes-releases/lib/enterprise-dates.json`.
 
 🛑 **HUMAN**: Run `.rc get-cycle {{ release-number }}` and `.rc release-dates` in `#ghes-releases` (or `#ghes-release-ops`). Post a short message in `#ghes-releases` `@`-mentioning the DRI returned by `.rc release-dates` asking them to confirm the deprecation date, and add a comment on this issue linking to that Slack message for posterity. If `.rc release-dates` doesn't return a DRI for `{{ release-number }}`, ask in `#docs-content-enterprise` or `#ghes-releases` instead.
 
 * If the date is being pushed out, ask the DRI to update the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json), update this issue's target date, and pause until the new date arrives.
-* The release date list is often not updated. If it isn't, our copy in `src/ghes-releases/lib/enterprise-dates.json` may also be wrong. You fix that in Step 6.
+* The release date list is often not updated. If it isn't, our copy in `src/ghes-releases/lib/enterprise-dates.json` may also be wrong. You fix that in Step 5.
 
-## Step 2: Remove the version from the github/docs-content release tracker
-
-In the `github/docs-content` repository, remove `{{ release-number }}` from the `options` list in [`release-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tracking.yml), ensure the list of versions matches the available versions, and open a pull request.
-
-🛑 **HUMAN**: Review the `github/docs-content` pull request. Acknowledge this will need to be merged in the next few days.
-
-You can continue once the human reviews the `github/docs-content` pull request and acknowledges they are responsible for getting it merged.
-
-## Step 3: Clone the translation repositories
+## Step 2: Clone the translation repositories
 
 The full scrape needs local clones of the eight translation repositories:
 
@@ -54,7 +48,7 @@ npm run clone-translations
 
 This clones every language into `./translations/<lang>` inside your `github/docs-internal` checkout, which the scrape reads by default. No `.env` configuration is needed. It clones eight repositories and can take several minutes. To keep your clones elsewhere, use per-language `TRANSLATIONS_ROOT_*` variables instead, described in [the appendix](#reference-configuring-the-translation-repositories).
 
-## Step 4: Create the archive repository
+## Step 3: Create the archive repository
 
 Each deprecated version's docs live in their own repository, for example `github/docs-ghes-3.11`. Create the new one:
 
@@ -66,19 +60,19 @@ npm run deprecate-ghes -- create-repo --version {{ release-number }}
 
 You can continue once the human has said they completed that step.
 
-## Step 5: Create the deprecation branch
+## Step 4: Create the deprecation branch
 
-Create the branch that holds every `github/docs-internal` change in this deprecation. Keep it through Step 13:
+Create the branch that holds every `github/docs-internal` change in this deprecation. Keep it through Step 12:
 
 ```shell
 git checkout -b deprecate-{{ release-number }}
 ```
 
-## Step 6: Fix the deprecation date if needed
+## Step 5: Fix the deprecation date if needed
 
 If the date in the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json) differs from `src/ghes-releases/lib/enterprise-dates.json`, update `enterprise-dates.json` to match and commit it on your branch. The pre-deprecation banner reads its dates from that file, so fix it before scraping.
 
-## Step 7: Dry-run the scrape
+## Step 6: Dry-run the scrape
 
 Update your translation clones to the latest `main`. Then hide the search components so they don't get scraped into the static archive: in `src/frame/components/page-header/Header.tsx`, temporarily set the `SubdomainNavBar.Search` component's `className` to `"visually-hidden"`. Also wrap the `SearchOverlay` in `src/search/components/input/SearchOverlayContainer.tsx` in a `<div className="visually-hidden">`.
 
@@ -89,15 +83,19 @@ npm run build
 npm run deprecate-ghes-archive -- --dry-run --local-dev
 ```
 
-Open a few HTML files in `tmpArchivalDir_{{ release-number }}` and confirm they render, styles load, and the version dropdowns work.
+Serve the output over HTTP to review it. Opening the files directly doesn't work, because `--local-dev` asset paths are relative to the inner directory:
 
-Offer to open the files for the human in their text editor or browser.
+```shell
+python3 -m http.server 8080 --bind 127.0.0.1 -d tmpArchivalDir_{{ release-number }}/{{ release-number }}
+```
+
+Confirm that a few pages in a couple of languages render, styles load, and the version dropdowns work. Offer to open the pages for the human in their browser.
 
 🛑 **HUMAN**: Review the dry-run output before the full scrape.
 
 You can continue after the human confirms they have reviewed the dry-run output.
 
-## Step 8: Run the full scrape
+## Step 7: Run the full scrape
 
 Scrape every page. This takes 20-30 minutes and overwrites the dry-run output:
 
@@ -111,15 +109,23 @@ Revert the search component edits:
 git checkout src/frame/components/page-header/Header.tsx src/search/components/input/SearchOverlayContainer.tsx
 ```
 
-## Step 9: Publish the archive
+## Step 8: Publish the archive
 
 The scrape writes the publishable site to an inner directory, `tmpArchivalDir_{{ release-number }}/{{ release-number }}/`, which holds `en/`, the other language directories, and the redirect files. Copy the contents of that inner directory into the root of the `github/docs-ghes-{{ release-number }}` repository, so pages land at `/en/...` with no nested `{{ release-number }}/` directory. If you are unsure, please look at some previous `github/docs-ghes-*` repos for the right organization.
 
+Before you ask the human, check the output:
+
+* No empty files: `find tmpArchivalDir_{{ release-number }} -type f -size 0`. The script deletes its output directory before every run, so re-scrape an empty page into a separate directory, for example `npm run deprecate-ghes-archive -- --page <path> -o tmpRescrape`, and copy the new files over the empty ones.
+* Each language has about the same number of HTML files as `en`.
+* No error pages. Search the HTML for `Ooops!`.
+* Pages show the deprecation banner and don't show search.
+* Nothing links to `localhost:4001`, and assets point at `https://github.github.com/docs-ghes-{{ release-number }}/`.
+
 🛑 **HUMAN**: Confirm the file count, organization, and contents.
 
-After the human confirms, commit and push. GitHub Pages builds the static site automatically. Wait a few minutes. Preview a few pages at the full Pages URL, for example `https://github.github.com/docs-ghes-{{ release-number }}/en/enterprise-server@{{ release-number }}/get-started/index.html`, across a couple of languages. Then remove `tmpArchivalDir_{{ release-number }}` from `github/docs-internal`.
+After the human confirms, commit and push. The archive is about as large as the previous `github/docs-ghes-*` repository, so `git add` and the push can take a while. GitHub Pages builds the static site automatically. Wait a few minutes. Preview a few pages at the full Pages URL, for example `https://github.github.com/docs-ghes-{{ release-number }}/en/enterprise-server@{{ release-number }}/get-started/index.html`, across a couple of languages. Then remove `tmpArchivalDir_{{ release-number }}` from `github/docs-internal`.
 
-## Step 10: Remove the version from github/docs-internal
+## Step 9: Remove the version from github/docs-internal
 
 Back on your `deprecate-{{ release-number }}` branch, move the version out of the supported list. In `src/versions/lib/enterprise-server-releases.ts`, remove `'{{ release-number }}'` from `supported` and add it as the first element of `deprecatedWithFunctionalRedirects`.
 
@@ -131,16 +137,21 @@ npm run deprecate-ghes -- content
 npm run lint-content -- --paths content data --rules liquid-ifversion-versions --fix
 ```
 
-Some `data/variables/*.yml` files can't be autofixed and show as lint errors. Open each one, find the key named in the error, and remove the deprecated Liquid while keeping the content for supported versions.
+`deprecate-ghes -- content` rewrites the whole frontmatter of each file it changes, which can requote values, reflow long strings, and drop comments. Review its diff. In any file with frontmatter changes beyond `versions` or `children`, redo the edit by hand so only those lines change.
+
+Some YAML files can't be autofixed and show as lint errors. Open each one, find the key named in the error, and remove the deprecated Liquid while keeping the content for supported versions.
 
 Then clean up empty data files and run the linter again:
 
 ```shell
 npm run deprecate-ghes -- data
-npm run lint-content -- --fix
+files=$(git diff --name-only --diff-filter=d "$(git merge-base origin/main HEAD)" -- content data)
+[ -n "$files" ] && npm run lint-content -- --fix --paths $files
 ```
 
-## Step 11: Clean up content artifacts
+Pass `--paths`, because without it `lint-content` only lints uncommitted changes. The "Feature files with all versions" list from `deprecate-ghes -- data` is for information only. After each `--fix`, review the diff and restore changes the deprecation didn't cause.
+
+## Step 10: Clean up content artifacts
 
 The content team flags issues on every deprecation, so fix them before requesting review:
 
@@ -155,7 +166,7 @@ The content team flags issues on every deprecation, so fix them before requestin
 
 The list in this step should increase after each deprecation to improve the output of this process and reduce human effort.
 
-## Step 12: Fix CI the codemod doesn't touch
+## Step 11: Fix CI the codemod doesn't touch
 
 The deprecation scripts only rewrite `content/` and `data/`, so version references in tests and fixtures can break CI. Run:
 
@@ -163,9 +174,11 @@ The deprecation scripts only rewrite `content/` and `data/`, so version referenc
 npm test -- src/versions/tests src/redirects/tests
 ```
 
+Tests in other directories can also hardcode the version, so search the tests for `{{ release-number }}` and run any that reference it.
+
 Fix any failures. For example, when a deprecation fully removes content rather than just a version of it, redirect fixtures in `src/fixtures/fixtures/rest-redirects.json` may still point at the removed version; repoint them at the current location.
 
-## Step 13: Review, smoke test, and open the pull request
+## Step 12: Review, smoke test, and open the pull request
 
 🛑 **HUMAN**: Review the full diff before the smoke test.
 
@@ -188,7 +201,7 @@ This pull request deprecates GHES {{ release-number }} on docs.github.com.
 
 ## For reviewers
 
-[Step 11 of the runbook](https://github.com/github/docs-internal/blob/main/src/ghes-releases/lib/deprecation-steps.md#step-11-clean-up-content-artifacts) lists the content problems that recur. If you spot issues this pull request missed, please add to Step 11 so the next deprecation catches it.
+[Step 10 of the runbook](https://github.com/github/docs-internal/blob/main/src/ghes-releases/lib/deprecation-steps.md#step-10-clean-up-content-artifacts) lists the content problems that recur. If you spot issues this pull request missed, please add to Step 10 so the next deprecation catches it.
 ```
 ````
 
@@ -201,21 +214,21 @@ Offer to open the pull request in the human's browser.
 
 Once the humans approves the pull request, mark as ready for review. Add the pull request to the [docs-content review board](https://github.com/orgs/github/projects/2936/views/2).
 
-🛑 **HUMAN**: Get a content team review before merging the pull request. You should add any issues the content team finds to Step 11 of this runbook.
+🛑 **HUMAN**: Get a content team review before merging the pull request. You should add any issues the content team finds to Step 10 of this runbook.
 
 You can proceed once the human acknowledges they will need to get a content team review and handle merging the pull request and adding any feedback. You do not need to wait for the pull request to get a content team review or to be merged.
 
-## Step 14: Tag the deprecation
+## Step 13: Tag the deprecation
 
-Tag `main` so we can find where in history the version was removed. You can tag now. There's no need to wait for the deprecation pull request to merge, which matches the recent deprecations.
+Tag `main` so we can find the last point in history where the version was still supported. The [re-scraping appendix](#reference-re-scraping-a-page-or-all-pages) checks out this tag, so create it any time before the deprecation pull request merges. Tag `origin/main` and push only the new tag:
 
 ```shell
-git checkout main && git pull
-git tag enterprise-{{ release-number }}-deprecation
-git push --tags --no-verify
+git fetch origin main
+git tag enterprise-{{ release-number }}-deprecation origin/main
+git push --no-verify origin refs/tags/enterprise-{{ release-number }}-deprecation
 ```
 
-## Step 15: Deprecate the OpenAPI description in github/github
+## Step 14: Deprecate the OpenAPI description in github/github
 
 In `github/github`, edit `app/api/description/config/releases/ghes-{{ release-number }}.yaml` and change `deprecated: false` to `deprecated: true`. Open a pull request and get the required code owner approvals. A docs-content team member can approve for the docs team.
 
@@ -223,7 +236,7 @@ In `github/github`, edit `app/api/description/config/releases/ghes-{{ release-nu
 
 Continue on after the human acknowledges they will need to deploy the `github/github` pull request after the `github/docs-internal` pull request merges.
 
-## Step 16: Capture process improvements
+## Step 15: Capture process improvements
 
 Keep notes throughout the deprecation of anything wrong, slow, or confusing: runbook bugs, tooling failures, manual workarounds, and content-team feedback. When you finish, open a separate pull request, not part of the deprecation pull request, that fixes this runbook and the deprecation tooling for the next release. Write it for the next deprecation's agent.
 
@@ -231,13 +244,13 @@ Keep notes throughout the deprecation of anything wrong, slow, or confusing: run
 
 After the human approves the process improvement pull request, you can continue.
 
-## Step 17: Summarize
+## Step 16: Summarize
 
 Summarize the work completed in this workflow, and link to each of the pull requests with the next action needed from the human.
 
 ## Reference: Configuring the translation repositories
 
-`npm run clone-translations` from Step 3 is the simplest setup: it clones every language into `./translations/<lang>`, which the scrape reads by default with no extra configuration.
+`npm run clone-translations` from Step 2 is the simplest setup: it clones every language into `./translations/<lang>`, which the scrape reads by default with no extra configuration.
 
 To keep your clones elsewhere instead, clone the repositories below and map each one with a `TRANSLATIONS_ROOT_*` variable in your `.env` file:
 

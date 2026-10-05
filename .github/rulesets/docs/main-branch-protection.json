@@ -1,0 +1,220 @@
+{
+  "name": "main branch protection",
+  "target": "branch",
+  "enforcement": "active",
+  "bypass_actors": [
+    {
+      "actor_id": 5,
+      "actor_type": "RepositoryRole",
+      "bypass_mode": "always"
+    }
+  ],
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "refs/heads/main"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "required_reviewers": [],
+        "require_code_owner_review": true,
+        "dismissal_restriction": {
+          "enabled": false,
+          "allowed_actors": []
+        },
+        "require_last_push_approval": false,
+        "required_review_thread_resolution": false,
+        "ignore_approvals_from_contributors": false,
+        "require_extra_approval_for_unattributed_changes": true,
+        "allowed_merge_methods": [
+          "merge",
+          "squash",
+          "rebase"
+        ]
+      }
+    },
+    {
+      "type": "merge_queue",
+      "parameters": {
+        "merge_method": "SQUASH",
+        "max_entries_to_build": 2,
+        "min_entries_to_merge": 1,
+        "max_entries_to_merge": 1,
+        "min_entries_to_merge_wait_minutes": 5,
+        "grouping_strategy": "ALLGREEN",
+        "check_response_timeout_minutes": 60,
+        "actor_controlled_merging": false
+      }
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "archives",
+            "integration_id": 15368
+          },
+          {
+            "context": "article-api",
+            "integration_id": 15368
+          },
+          {
+            "context": "assets",
+            "integration_id": 15368
+          },
+          {
+            "context": "audit-logs",
+            "integration_id": 15368
+          },
+          {
+            "context": "automated-pipelines",
+            "integration_id": 15368
+          },
+          {
+            "context": "color-schemes",
+            "integration_id": 15368
+          },
+          {
+            "context": "content-linter",
+            "integration_id": 15368
+          },
+          {
+            "context": "content-render",
+            "integration_id": 15368
+          },
+          {
+            "context": "data-directory",
+            "integration_id": 15368
+          },
+          {
+            "context": "early-access",
+            "integration_id": 15368
+          },
+          {
+            "context": "events",
+            "integration_id": 15368
+          },
+          {
+            "context": "fixtures",
+            "integration_id": 15368
+          },
+          {
+            "context": "frame",
+            "integration_id": 15368
+          },
+          {
+            "context": "ghes-releases",
+            "integration_id": 15368
+          },
+          {
+            "context": "github-apps",
+            "integration_id": 15368
+          },
+          {
+            "context": "graphql",
+            "integration_id": 15368
+          },
+          {
+            "context": "journeys",
+            "integration_id": 15368
+          },
+          {
+            "context": "landings",
+            "integration_id": 15368
+          },
+          {
+            "context": "links",
+            "integration_id": 15368
+          },
+          {
+            "context": "observability",
+            "integration_id": 15368
+          },
+          {
+            "context": "products",
+            "integration_id": 15368
+          },
+          {
+            "context": "redirects",
+            "integration_id": 15368
+          },
+          {
+            "context": "release-notes",
+            "integration_id": 15368
+          },
+          {
+            "context": "rest",
+            "integration_id": 15368
+          },
+          {
+            "context": "search",
+            "integration_id": 15368
+          },
+          {
+            "context": "secret-scanning",
+            "integration_id": 15368
+          },
+          {
+            "context": "shielding",
+            "integration_id": 15368
+          },
+          {
+            "context": "versions",
+            "integration_id": 15368
+          },
+          {
+            "context": "webhooks",
+            "integration_id": 15368
+          },
+          {
+            "context": "workflows",
+            "integration_id": 15368
+          },
+          {
+            "context": "lint-content",
+            "integration_id": 15368
+          },
+          {
+            "context": "line-endings",
+            "integration_id": 15368
+          },
+          {
+            "context": "lint-code",
+            "integration_id": 15368
+          },
+          {
+            "context": "local-dev",
+            "integration_id": 15368
+          },
+          {
+            "context": "playwright-tests (playwright-a11y)",
+            "integration_id": 15368
+          },
+          {
+            "context": "playwright-tests (playwright-rendering)",
+            "integration_id": 15368
+          },
+          {
+            "context": "playwright-tests (playwright-secret-scanning)",
+            "integration_id": 15368
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+name: Reject PRs targeting non-default branch (scheduled)
+
+# Backup check for check-for-spammy-prs.yml: closes PRs that don't target main
+
+on:
+  schedule:
+    - cron: '20 16 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  reject-non-main-prs:
+    name: Close PRs that don't target main
+    if: github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const owner = 'github'
+            const repo = 'docs'
+
+            const openPulls = await github.paginate(github.rest.pulls.list, {
+              owner,
+              repo,
+              state: 'open',
+              per_page: 100,
+            })
+
+            for (const pr of openPulls) {
+              if (pr.base.ref === 'main') continue
+              if (pr.user.login === 'docs-bot') continue
+
+              const labels = pr.labels.map(l => l.name)
+              if (!labels.includes('invalid')) {
+                await github.rest.issues.addLabels({
+                  owner,
+                  repo,
+                  issue_number: pr.number,
+                  labels: ['invalid'],
+                })
+
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: pr.number,
+                  body: 'Pull requests must target the `main` branch. This pull request has been closed as invalid. If you think this is incorrect, please mention this in a corresponding issue.',
+                })
+              }
+
+              await github.rest.pulls.update({
+                owner,
+                repo,
+                pull_number: pr.number,
+                state: 'closed',
+              })
+            }
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        id: create-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}

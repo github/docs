@@ -66,6 +66,10 @@ To see what dynamic workflows are available, just ask {% data variables.product.
 What dynamic workflows are available?
 ```
 
+## Availability of dynamic workflows
+
+Dynamic workflows are available in the {% data variables.copilot.github_copilot_app_short %}, {% data variables.copilot.copilot_cli_short %}, and {% data variables.copilot.copilot_sdk_short %}. They are available to users on all {% data variables.product.prodname_copilot_short %} plans except {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on existing annual plans who remain on legacy premium request-based billing. For more information about this billing model, see [AUTOTITLE](/copilot/reference/copilot-billing/request-based-billing-legacy).
+
 ## How dynamic workflows differ from autopilot and fleet
 
 If you already use autopilot mode and the `/fleet` command, a dynamic workflow might seem to be the same sort of thing. The main difference is how work is planned and controlled, not simply how many agents are used.

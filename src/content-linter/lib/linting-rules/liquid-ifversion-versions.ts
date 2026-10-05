@@ -9,16 +9,14 @@ import {
 } from '../helpers/liquid-utils'
 import { getFrontmatter, getFrontmatterLines } from '../helpers/utils'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
-import { allVersions } from '@/versions/lib/all-versions'
 import { difference } from 'lodash-es'
-import { convertVersionsToFrontmatter } from '@/automated-pipelines/lib/update-markdown'
 import {
-  isAllVersions,
   getFeatureVersionsObject,
   isInAllGhes,
   isGhesReleaseDeprecated,
 } from '@/ghes-releases/scripts/version-utils'
-import { oldestSupported } from '@/versions/lib/enterprise-server-releases'
+import { nextNext, oldestSupported } from '@/versions/lib/enterprise-server-releases'
+import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 // getLiquidIfVersionTokens exposes runtime properties that liquidjs TopLevelToken omits.
@@ -231,9 +229,14 @@ function setLiquidErrors(condTagItems: CondTagItem[], onError: RuleErrorCallback
 
 async function getApplicableVersionFromLiquidTag(conditionStr: string): Promise<VersionsObject> {
   const newConditionObject: VersionsObject = {}
-  const condition = conditionStr.replace('not ', '')
-  const liquidTagVersions = condition.split(' or ').map((item) => item.trim())
+  const notProducts: string[] = []
+  const liquidTagVersions = conditionStr.split(' or ').map((item) => item.trim())
   for (const ver of liquidTagVersions) {
+    const notMatch = ver.match(/^not (fpt|ghec|ghes)$/)
+    if (notMatch) {
+      notProducts.push(notMatch[1])
+      continue
+    }
     // Bare product and feature names, such as fpt or ghec, map directly to frontmatter versions.
     if (ver.split(' ').length === 1) {
       // Frontmatter represents one feature version at a time.
@@ -266,13 +269,12 @@ async function getApplicableVersionFromLiquidTag(conditionStr: string): Promise<
       newConditionObject[version] = versionFmString
     }
   }
-  if (conditionStr.includes('not ')) {
-    const all = Object.keys(allVersions)
-    const allApplicable = getApplicableVersions(newConditionObject, '', {
-      doNotThrow: true,
-      includeNextVersion: true,
-    })
-    return (await convertVersionsToFrontmatter(difference(all, allApplicable))) as VersionsObject
+  // The ifversion tag negates only the next product, so not fpt means every other product.
+  // Apply these after the loop so a range term such as ghes > 3.20 can't narrow them.
+  for (const notProduct of notProducts) {
+    for (const product of ['fpt', 'ghec', 'ghes']) {
+      if (product !== notProduct) newConditionObject[product] = '*'
+    }
   }
   return newConditionObject
 }
@@ -326,6 +328,30 @@ async function initTagObject(
   return condTagItem
 }
 
+function coversAllVersions(item: CondTagItem): boolean {
+  const options = { doNotThrow: true, includeNextVersion: true }
+  const products = Object.fromEntries(
+    Object.entries(item.versionsObj).filter(([key]) => key !== 'feature'),
+  )
+  const sources: VersionsObject[] = [products, item.featureVersionsObj || {}]
+  const versions = new Set(sources.flatMap((source) => getApplicableVersions(source, '', options)))
+  const allApplicableVersions = getApplicableVersions(
+    { fpt: '*', ghec: '*', ghes: '*' },
+    '',
+    options,
+  )
+  // Ranges can only list known releases. An upper bound, such as < 3.25, = 3.24, or 3.20 - 3.24,
+  // can exclude future releases, so one lower-bound-only range must include the newest known release.
+  const coversFutureGhes = sources.some(
+    ({ ghes }) =>
+      ghes === '*' ||
+      (!!ghes &&
+        /^(\s*>=?\s*\d+(\.\d+)*)+\s*$/.test(ghes) &&
+        versionSatisfiesRange(nextNext, ghes)),
+  )
+  return coversFutureGhes && allApplicableVersions.every((version) => versions.has(version))
+}
+
 // Rather than filtering out items with no versions, give every item a blank
 // action and let updateConditionals decide which ones become delete or change.
 // setLiquidErrors turns the resulting actions into flaws later on.
@@ -351,13 +377,9 @@ function updateConditionals(condTagItems: CondTagItem[]) {
   for (let i = 0; i < condTagItems.length - 1; i++) {
     const item = condTagItems[i]
 
-    // Collapse feature conditions that cover all versions.
-    if (
-      isAllVersions(
-        item.featureVersionsObj ||
-          ((item as unknown as { versionObj?: VersionsObject }).versionObj as VersionsObject),
-      )
-    ) {
+    // Collapse feature conditions that cover all versions, including products named beside the feature.
+    // Check the union of versions, because a feature's ghes range must not hide a plain ghes.
+    if (item.featureVersionsObj && coversAllVersions(item)) {
       processConditionals(item, condTagItems, i)
       break
     }
@@ -432,7 +454,15 @@ function updateConditionals(condTagItems: CondTagItem[]) {
       for (const key of versionsNotInFrontmatter) {
         delete item.versionsObj[key]
       }
-      item.action.cond = Object.keys(item.versionsObj).join(' or ')
+      // Also drop deprecated lower bounds so one fix pass leaves no GHD022 error.
+      if (item.versionsObj.ghes && item.versionsObj.ghes !== '*') {
+        item.versionsObj.ghes = getSimplifiedSemverRange(
+          rangeTerms(item.versionsObj.ghes)
+            .map((term) => term.join(' '))
+            .join(' '),
+        )
+      }
+      item.action.cond = toLiquidCondition(item.versionsObj)
       item.action.type = 'change'
       continue
     }
@@ -445,7 +475,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     if (simplifiedSemver === '' && Object.keys(item.versionsObj).length > 1) {
       item.action.type = 'change'
       delete item.versionsObj.ghes
-      item.action.cond = Object.keys(item.versionsObj).join(' or ')
+      item.action.cond = toLiquidCondition(item.versionsObj)
       continue
     }
 
@@ -453,19 +483,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     if (item.versionsObjAll.ghes !== simplifiedSemver && !item.versionsObjAll.feature) {
       item.action.type = 'change'
       item.versionsObj.ghes = simplifiedSemver
-
-      // Translate the simplified range back to Liquid condition syntax.
-      if (simplifiedSemver !== '*') {
-        const newVersions = Object.entries(item.versionsObj).map(([key, value]) => {
-          if (key === 'ghes') {
-            if (value === '*') return key
-            return `${key} ${value}`
-          } else return key
-        })
-        item.action.cond = newVersions.join(' or ')
-      } else {
-        item.action.cond = Object.keys(item.versionsObj).join(' or ')
-      }
+      item.action.cond = toLiquidCondition(item.versionsObj)
     }
   }
 
@@ -499,6 +517,26 @@ function updateConditionals(condTagItems: CondTagItem[]) {
   if (isAllDelete) {
     condTagItems[condTagItems.length - 1].action.type = 'delete'
   }
+}
+
+// Turn a versions object back into Liquid, such as { ghes: '> 3.18 < 3.22', fpt: '*' }
+// into 'ghes > 3.18 and ghes < 3.22 or fpt'.
+function toLiquidCondition(versionsObj: VersionsObject): string {
+  return Object.entries(versionsObj)
+    .map(([key, value]) => {
+      if (key === 'feature') return value
+      const terms = rangeTerms(value).map(([operator, release]) => `${key} ${operator} ${release}`)
+      return terms.length ? terms.join(' and ') : key
+    })
+    .join(' or ')
+}
+
+// Split spaced and compact ranges, such as '> 3.18 <3.22', into [['>', '3.18'], ['<', '3.22']].
+function rangeTerms(range: string): [string, string][] {
+  return [...range.matchAll(/(!=|>=|<=|=|>|<)\s*([^\s<>=!]+)/g)].map(([, operator, release]) => [
+    operator,
+    release,
+  ])
 }
 
 function processConditionals(

@@ -2,6 +2,7 @@
 title: Learn to code with GitHub Copilot
 shortTitle: Learn to code
 intro: "Learn how {% data variables.product.github %} and {% data variables.product.prodname_copilot_short %} can help you build programming skills, write better code, and ship secure projects."
+allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
 layout: journey-landing

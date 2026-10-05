@@ -1,17 +1,8 @@
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import { runRule } from '../../lib/init-test'
-import { validateIfversionConditionalsVersions } from '../../lib/linting-rules/liquid-versioning'
 import { liquidIfversionVersions } from '../../lib/linting-rules/liquid-ifversion-versions'
 import { supported } from '@/versions/lib/enterprise-server-releases'
-
-type FeatureVersions = {
-  versions: {
-    [key: string]: string
-  }
-}
-
-type AllFeatures = Record<string, FeatureVersions>
 
 describe(liquidIfversionVersions.names.join(' - '), () => {
   const envVarValueBefore: string | undefined = process.env.ROOT
@@ -99,7 +90,7 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
-  test.skip('ifversion using feature based version with all versions', async () => {
+  test('ifversion using feature based version with all versions', async () => {
     // features/them-and-all.yml covers all versions.
     const markdown = [...placeholderAllVersionsFm, `{% ifversion them-and-all %}{% endif %}`].join(
       '\n',
@@ -112,23 +103,101 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     expect(errors[0].ruleNames[0]).toBe('GHD022')
   })
 
-  test.skip('ifversion using feature based version extended with shortname all versions', async () => {
+  test('ifversion using feature based version extended with shortname all versions', async () => {
     // features/volvo.yml contains fpt: "*" and ghec: "*".
-    const markdown = `
-      {% ifversion volvo or ghes %}{% endif %}
-    `
+    const markdown = [...placeholderAllVersionsFm, `{% ifversion volvo or ghes %}{% endif %}`].join(
+      '\n',
+    )
     const result = await runRule(liquidIfversionVersions, {
       strings: { markdown },
     })
     const errors = result.markdown
-    expect(errors.length).toBe(1)
+    expect(errors.length).toBe(2)
     expect(errors[0].ruleNames[0]).toBe('GHD022')
+    expect(errors[0].errorDetail).toContain('applies to all versions')
   })
 
-  test.skip("ifversion using 'not' can't be tested", async () => {
+  test('ifversion using feature with a ghes range extended with ghes', async () => {
+    // features/cloud-and-older-ghes.yml contains fpt: "*", ghec: "*", and ghes: "<3.20". The
+    // bounded range never covers every GHES release, so only the plain ghes completes it.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion cloud-and-older-ghes or ghes %}{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors[0].errorDetail).toContain('applies to all versions')
+  })
+
+  test('ifversion using feature with a ghes range completed by a ghes range', async () => {
+    // features/cloud-and-older-ghes.yml contains ghes: "<3.20", so ghes >= 3.20 completes GHES.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion cloud-and-older-ghes or ghes >= 3.20 %}{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors[0].errorDetail).toContain('applies to all versions')
+  })
+
+  test('ifversion using feature with a ghes range and a ghes upper bound', async () => {
+    // Together the ranges cover every known release, but releases after 99.0 are missing.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion cloud-and-older-ghes or ghes >= 3.20 and ghes < 99.0 %}{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(
+      errors.filter((error) => error.errorDetail?.includes('applies to all versions')),
+    ).toEqual([])
+  })
+
+  test.each(['3.20 - 99.0', '^3.20'])(
+    'ifversion using feature with a ghes range and implicit upper bound %s',
+    async (range) => {
+      // These ranges have no < but still exclude future releases, such as 100.0 or 4.0.
+      const markdown = [
+        ...placeholderAllVersionsFm,
+        `{% ifversion cloud-and-older-ghes or ghes ${range} %}{% endif %}`,
+      ].join('\n')
+      const result = await runRule(liquidIfversionVersions, {
+        strings: { markdown },
+      })
+      const errors = result.markdown
+      expect(
+        errors.filter((error) => error.errorDetail?.includes('applies to all versions')),
+      ).toEqual([])
+    },
+  )
+
+  test('ifversion using feature with a ghes upper bound does not cover all versions', async () => {
+    // features/cloud-and-capped-ghes.yml contains fpt: "*", ghec: "*", and ghes: "<99.0". The
+    // range covers every current release but excludes future ones, so it is not all versions.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion cloud-and-capped-ghes %}{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('ifversion using not negates only the next version', async () => {
     const markdown = [
       ...placeholderAllVersionsFm,
       `{% ifversion ghes or fpt or not ghec %}{% endif %}`,
+      `{% ifversion not fpt or ghec %}{% endif %}`,
     ].join('\n')
 
     const result = await runRule(liquidIfversionVersions, {
@@ -136,6 +205,39 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     })
     const errors = result.markdown
     expect(errors.length).toBe(0)
+  })
+
+  test('ifversion using not that covers all versions', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion not ghec or ghec %}{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors[0].errorDetail).toContain('applies to all versions')
+  })
+
+  test('ifversion using not drops products missing from frontmatter', async () => {
+    const markdown = [
+      '---',
+      'title: "Hello"',
+      'versions:',
+      '  fpt: "*"',
+      '  ghec: "*"',
+      '---',
+      `{% ifversion not fpt or ghec %}{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].fixInfo?.insertText).toBe('ifversion ghec')
   })
 
   test('does not crash with nested if blocks inside ifversion', async () => {
@@ -206,101 +308,96 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
-})
 
-describe.skip('test validateIfversionConditionalsVersions function', () => {
-  test('most basic example without feature', () => {
-    const condition = 'ghes or ghec or fpt'
-    const allFeatures: AllFeatures = {}
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
+  describe('keeps GHES ranges when removing products not in frontmatter', () => {
+    const oldest = supported.at(-1)
+    const newest = supported[0]
+    const cases = [
+      {
+        fm: ['  ghes: "*"'],
+        cond: `ghes > ${oldest} or fpt`,
+        expected: `ghes > ${oldest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `fpt or ghes < ${newest}`,
+        expected: `ghes < ${newest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `ghes > ${oldest} and ghes < ${newest} or fpt`,
+        expected: `ghes > ${oldest} and ghes < ${newest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `ghes > 3.10 and ghes < ${newest} or fpt`,
+        expected: `ghes < ${newest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `ghes >3.10 and ghes <${newest} or fpt`,
+        expected: `ghes < ${newest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `fpt or ghes <${newest}`,
+        expected: `ghes < ${newest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `ghes >=${supported.at(-2)} or ghec`,
+        expected: `ghes >= ${supported.at(-2)}`,
+      },
+      {
+        fm: ['  fpt: "*"', '  ghes: "*"'],
+        cond: `ghes > ${oldest} or ghec`,
+        expected: `ghes > ${oldest}`,
+      },
+      {
+        fm: ['  fpt: "*"', '  ghec: "*"'],
+        cond: `ghes > ${oldest} or fpt`,
+        expected: 'fpt',
+      },
+    ]
+    for (const { fm, cond, expected } of cases) {
+      test(`${cond} with ${fm.map((line) => line.trim().split(':')[0]).join(', ')}`, async () => {
+        const toMarkdown = (condition: string) =>
+          [
+            '---',
+            'title: "Hello"',
+            'versions:',
+            ...fm,
+            '---',
+            `{% ifversion ${condition} %}x{% endif %}`,
+          ].join('\n')
+
+        const result = await runRule(liquidIfversionVersions, {
+          strings: { markdown: toMarkdown(cond) },
+        })
+        const errors = result.markdown
+        expect(errors.length).toBe(1)
+        expect(errors[0].fixInfo?.insertText).toBe(`ifversion ${expected}`)
+
+        // The suggested condition passes the rule on the next run.
+        const fixed = await runRule(liquidIfversionVersions, {
+          strings: { markdown: toMarkdown(expected) },
+        })
+        expect(fixed.markdown.length).toBe(0)
+      })
+    }
+  })
+
+  test('simplified GHES range has no extra space', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion ghes > 3.10 and ghes < ${supported[0]} or fpt %}x{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
     expect(errors.length).toBe(1)
-  })
-  test('most basic example with feature', () => {
-    const condition = 'some-feature'
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghec: '*',
-          fpt: '*',
-          ghes: '*',
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(1)
-  })
-  test("any 'and' always yields no errors", () => {
-    const condition = 'ghes and ghec or fpt'
-    const allFeatures: AllFeatures = {}
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(0)
-  })
-  test("any 'not' always yields no errors", () => {
-    const condition = 'ghes or ghec or not fpt'
-    const allFeatures: AllFeatures = {}
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(0)
-  })
-  test('combined with feature it is all versions', () => {
-    const condition = 'ghec or fpt or some-feature'
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghes: `>=${supported.at(-1)}`,
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(1)
-  })
-  test('less or equal than a future version', () => {
-    const condition = 'ghec or fpt or some-feature'
-    const latestToday = parseFloat(supported.at(-1)!)
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghes: `<=${latestToday + 0.1}`,
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(0)
-  })
-  test('less than a future version', () => {
-    const condition = 'ghec or fpt or some-feature'
-    const latestToday = parseFloat(supported.at(-1)!)
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghes: `<${latestToday + 0.1}`,
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(0)
-  })
-  test('combined with feature it is eventually all versions (1)', () => {
-    const condition = `ghec or fpt or ghes >${supported.at(-1)} or some-feature`
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghes: `>=${supported.at(-1)}`,
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(1)
-  })
-  test('combined with feature it is eventually all versions (2)', () => {
-    const condition = `ghec or fpt or ghes >=${supported.at(-1)} or some-feature`
-    const allFeatures: AllFeatures = {
-      'some-feature': {
-        versions: {
-          ghes: `>${supported.at(-1)}`,
-        },
-      },
-    }
-    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
-    expect(errors.length).toBe(1)
+    expect(errors[0].fixInfo?.insertText).toBe(`ifversion ghes < ${supported[0]} or fpt`)
   })
 })
