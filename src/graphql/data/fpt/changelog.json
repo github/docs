@@ -4,6 +4,56 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>AddedToStackEvent</code> was added</p>",
+          "<p><code>AddedToStackEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>stackId</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Field <code>stackNumber</code> was added to object type <code>AddedToStackEvent</code></p>",
+          "<p>Type <code>RemovedFromStackEvent</code> was added</p>",
+          "<p><code>RemovedFromStackEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>stackId</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Field <code>stackNumber</code> was added to object type <code>RemovedFromStackEvent</code></p>",
+          "<p>Type <code>RerequestReviewsInput</code> was added</p>",
+          "<p>Input field <code>botIds</code> of type '[ID!]<code>was added to input object type</code>RerequestReviewsInput'</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RerequestReviewsInput</code></p>",
+          "<p>Input field <code>pullRequestId</code> of type <code>ID!</code> was added to input object type <code>RerequestReviewsInput</code></p>",
+          "<p>Input field <code>teamIds</code> of type '[ID!]<code>was added to input object type</code>RerequestReviewsInput'</p>",
+          "<p>Input field <code>userIds</code> of type '[ID!]<code>was added to input object type</code>RerequestReviewsInput'</p>",
+          "<p>Type <code>RerequestReviewsPayload</code> was added</p>",
+          "<p>Field <code>actor</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>requestedReviewersEdge</code> was added to object type <code>RerequestReviewsPayload</code></p>",
+          "<p>Field <code>rerequestReviews</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RerequestReviewsInput!</code> added to field <code>Mutation.rerequestReviews</code></p>",
+          "<p>Member <code>AddedToStackEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>RemovedFromStackEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Argument <code>isWithdrawn: Boolean</code> added to field <code>Query.securityAdvisories</code></p>",
+          "<p>Argument 'severities: [SecurityAdvisorySeverity!]<code>added to field</code>Query.securityAdvisories'</p>",
+          "<p>Field <code>cveId</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>githubReviewedAt</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>nvdPublishedAt</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>repositoryAdvisoryUrl</code> was added to object type <code>SecurityAdvisory</code></p>",
+          "<p>Field <code>sourceCodeLocation</code> was added to object type <code>SecurityAdvisory</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-10-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Input field <code>id</code> of type <code>String</code> was added to input object type 'ProjectV2Iteration'</p>"
         ]
       }
