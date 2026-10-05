@@ -454,7 +454,15 @@ function updateConditionals(condTagItems: CondTagItem[]) {
       for (const key of versionsNotInFrontmatter) {
         delete item.versionsObj[key]
       }
-      item.action.cond = Object.keys(item.versionsObj).join(' or ')
+      // Also drop deprecated lower bounds so one fix pass leaves no GHD022 error.
+      if (item.versionsObj.ghes && item.versionsObj.ghes !== '*') {
+        item.versionsObj.ghes = getSimplifiedSemverRange(
+          rangeTerms(item.versionsObj.ghes)
+            .map((term) => term.join(' '))
+            .join(' '),
+        )
+      }
+      item.action.cond = toLiquidCondition(item.versionsObj)
       item.action.type = 'change'
       continue
     }
@@ -467,7 +475,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     if (simplifiedSemver === '' && Object.keys(item.versionsObj).length > 1) {
       item.action.type = 'change'
       delete item.versionsObj.ghes
-      item.action.cond = Object.keys(item.versionsObj).join(' or ')
+      item.action.cond = toLiquidCondition(item.versionsObj)
       continue
     }
 
@@ -475,19 +483,7 @@ function updateConditionals(condTagItems: CondTagItem[]) {
     if (item.versionsObjAll.ghes !== simplifiedSemver && !item.versionsObjAll.feature) {
       item.action.type = 'change'
       item.versionsObj.ghes = simplifiedSemver
-
-      // Translate the simplified range back to Liquid condition syntax.
-      if (simplifiedSemver !== '*') {
-        const newVersions = Object.entries(item.versionsObj).map(([key, value]) => {
-          if (key === 'ghes') {
-            if (value === '*') return key
-            return `${key} ${value}`
-          } else return key
-        })
-        item.action.cond = newVersions.join(' or ')
-      } else {
-        item.action.cond = Object.keys(item.versionsObj).join(' or ')
-      }
+      item.action.cond = toLiquidCondition(item.versionsObj)
     }
   }
 
@@ -521,6 +517,26 @@ function updateConditionals(condTagItems: CondTagItem[]) {
   if (isAllDelete) {
     condTagItems[condTagItems.length - 1].action.type = 'delete'
   }
+}
+
+// Turn a versions object back into Liquid, such as { ghes: '> 3.18 < 3.22', fpt: '*' }
+// into 'ghes > 3.18 and ghes < 3.22 or fpt'.
+function toLiquidCondition(versionsObj: VersionsObject): string {
+  return Object.entries(versionsObj)
+    .map(([key, value]) => {
+      if (key === 'feature') return value
+      const terms = rangeTerms(value).map(([operator, release]) => `${key} ${operator} ${release}`)
+      return terms.length ? terms.join(' and ') : key
+    })
+    .join(' or ')
+}
+
+// Split spaced and compact ranges, such as '> 3.18 <3.22', into [['>', '3.18'], ['<', '3.22']].
+function rangeTerms(range: string): [string, string][] {
+  return [...range.matchAll(/(!=|>=|<=|=|>|<)\s*([^\s<>=!]+)/g)].map(([, operator, release]) => [
+    operator,
+    release,
+  ])
 }
 
 function processConditionals(

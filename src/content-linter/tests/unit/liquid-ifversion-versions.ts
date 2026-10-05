@@ -308,4 +308,96 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
+
+  describe('keeps GHES ranges when removing products not in frontmatter', () => {
+    const oldest = supported.at(-1)
+    const newest = supported[0]
+    const cases = [
+      {
+        fm: ['  ghes: "*"'],
+        cond: `ghes > ${oldest} or fpt`,
+        expected: `ghes > ${oldest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `fpt or ghes < ${newest}`,
+        expected: `ghes < ${newest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `ghes > ${oldest} and ghes < ${newest} or fpt`,
+        expected: `ghes > ${oldest} and ghes < ${newest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `ghes > 3.10 and ghes < ${newest} or fpt`,
+        expected: `ghes < ${newest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `ghes >3.10 and ghes <${newest} or fpt`,
+        expected: `ghes < ${newest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `fpt or ghes <${newest}`,
+        expected: `ghes < ${newest}`,
+      },
+      {
+        fm: ['  ghes: "*"'],
+        cond: `ghes >=${supported.at(-2)} or ghec`,
+        expected: `ghes >= ${supported.at(-2)}`,
+      },
+      {
+        fm: ['  fpt: "*"', '  ghes: "*"'],
+        cond: `ghes > ${oldest} or ghec`,
+        expected: `ghes > ${oldest}`,
+      },
+      {
+        fm: ['  fpt: "*"', '  ghec: "*"'],
+        cond: `ghes > ${oldest} or fpt`,
+        expected: 'fpt',
+      },
+    ]
+    for (const { fm, cond, expected } of cases) {
+      test(`${cond} with ${fm.map((line) => line.trim().split(':')[0]).join(', ')}`, async () => {
+        const toMarkdown = (condition: string) =>
+          [
+            '---',
+            'title: "Hello"',
+            'versions:',
+            ...fm,
+            '---',
+            `{% ifversion ${condition} %}x{% endif %}`,
+          ].join('\n')
+
+        const result = await runRule(liquidIfversionVersions, {
+          strings: { markdown: toMarkdown(cond) },
+        })
+        const errors = result.markdown
+        expect(errors.length).toBe(1)
+        expect(errors[0].fixInfo?.insertText).toBe(`ifversion ${expected}`)
+
+        // The suggested condition passes the rule on the next run.
+        const fixed = await runRule(liquidIfversionVersions, {
+          strings: { markdown: toMarkdown(expected) },
+        })
+        expect(fixed.markdown.length).toBe(0)
+      })
+    }
+  })
+
+  test('simplified GHES range has no extra space', async () => {
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion ghes > 3.10 and ghes < ${supported[0]} or fpt %}x{% endif %}`,
+    ].join('\n')
+
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].fixInfo?.insertText).toBe(`ifversion ghes < ${supported[0]} or fpt`)
+  })
 })
