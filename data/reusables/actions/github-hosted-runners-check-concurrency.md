@@ -1,1 +1,0 @@
-To identify any constraints with concurrency or queuing, you can check how many jobs are currently being processed on the {% data variables.product.prodname_dotcom %}-hosted runners in your organization or enterprise. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/github-hosted-runners/view-current-jobs).

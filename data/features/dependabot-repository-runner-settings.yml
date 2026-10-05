@@ -1,4 +1,0 @@
-# Repository-level custom runner settings for Dependabot
-versions:
-  fpt: '*'
-  ghec: '*'

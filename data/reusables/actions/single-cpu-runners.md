@@ -1,1 +1,0 @@
-With the exception of single-CPU runners, each {% data variables.product.prodname_dotcom %}-hosted runner is a new virtual machine (VM) hosted by {% data variables.product.prodname_dotcom %}. Single-CPU runners are hosted in a container on a shared VM—see [AUTOTITLE](/actions/reference/runners/github-hosted-runners#single-cpu-runners).

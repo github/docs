@@ -1,1 +1,0 @@
-{% data variables.product.prodname_copilot_short %} integrations are available with paid {% data variables.product.prodname_copilot_short %} plans. Additional licenses may be required depending on the integration; see the documentation for each integration for details.

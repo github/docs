@@ -1,1 +1,0 @@
-For in-depth information about available options, as well as recommendations and advice when configuring private registries, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configure-private-registries).

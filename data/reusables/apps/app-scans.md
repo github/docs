@@ -1,1 +1,0 @@
-You should conduct regular vulnerability scans for your app. For example, you might set up code scanning and secret scanning for the repository that hosts your app's code. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/code-scanning) and [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning).

@@ -1,5 +1,0 @@
-# Reference: #20126
-# Ruleset history
-versions:
-  ghec: '*'
-  ghes: '>=3.19'

@@ -1,5 +1,0 @@
-# New feature: actions-nga
-# Versioning for Actions NGA (Next Generation Architecture) features
-versions:
-  fpt: '*'
-  ghec: '*'

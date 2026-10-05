@@ -1,1 +1,0 @@
-You can also enable {% data variables.product.prodname_dependabot_version_updates %} for the actions that you add to your workflow. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/auto-update-actions).

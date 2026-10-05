@@ -1,5 +1,0 @@
-#!/bin/sh
-[ -n "$CI" ] && exit 0
-
-# --verbose prints passing command output, so lint-content warnings are visible before commit.
-npx lint-staged --verbose

@@ -1,1 +1,0 @@
-These retention policies apply to checks data, including check suites and check runs, and to commit statuses, including those created by third-party integrations. The policies are not limited to data created by {% data variables.product.prodname_actions %}.

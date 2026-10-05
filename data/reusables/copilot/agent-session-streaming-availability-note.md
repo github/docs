@@ -1,1 +1,0 @@
->[!NOTE] This feature is in {% data variables.release-phases.public_preview %} and is available for enterprises that use {% data variables.product.prodname_emus %} and for enterprises that use {% data variables.product.prodname_ghe_cloud %} with data residency.

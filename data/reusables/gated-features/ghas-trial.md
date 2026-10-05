@@ -1,1 +1,0 @@
-{% ifversion fpt %}Eligible organizations on {% data variables.product.prodname_team %} can start a self-serve trial of {% data variables.product.prodname_GHAS %}.{% else %}{% data variables.product.prodname_GHAS %} is available for accounts on {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}.{% endif %}

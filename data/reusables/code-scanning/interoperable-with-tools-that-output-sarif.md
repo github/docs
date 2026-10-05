@@ -1,1 +1,0 @@
-{% data variables.product.prodname_code_scanning_caps %} is interoperable with third-party code scanning tools that output Static Analysis Results Interchange Format (SARIF) data. SARIF is an open standard. For more information, see [AUTOTITLE](/code-security/reference/code-scanning/sarif-files/sarif-support).

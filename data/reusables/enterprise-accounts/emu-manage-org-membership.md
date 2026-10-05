@@ -1,1 +1,0 @@
-After authentication and provisioning are configured, you can start managing organization membership and license assignment for your {% data variables.enterprise.prodname_managed_users %} by synchronizing IdP groups with teams. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups).

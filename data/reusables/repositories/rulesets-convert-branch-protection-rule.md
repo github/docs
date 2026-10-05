@@ -1,1 +1,0 @@
-{% ifversion branch-protection-ruleset-conversion %}To convert an existing branch protection rule to rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/converting-branch-protections-to-rulesets).{% endif %}

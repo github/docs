@@ -1,1 +1,0 @@
-**{% data variables.product.company_short %}-reviewed** advisories are mapped to packages in ecosystems we support. We carefully review each advisory for validity and ensure that they contain a full description and both ecosystem and package information.

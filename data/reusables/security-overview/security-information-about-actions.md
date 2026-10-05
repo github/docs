@@ -1,1 +1,0 @@
-If you use {% data variables.product.prodname_actions %}, you can use {% data variables.product.prodname_dotcom %}'s security features to increase the security of your workflows. For more information, see [AUTOTITLE](/actions/reference/security/secure-use).

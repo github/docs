@@ -1,1 +1,0 @@
-For more information about the action, and for instructions about how to download the most recent version, see [AUTOTITLE](/admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions).

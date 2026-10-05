@@ -1,4 +1,0 @@
-# Default Actions policy blocking pull_request_target on public repos
-versions:
-  fpt: '*'
-  ghec: '*'

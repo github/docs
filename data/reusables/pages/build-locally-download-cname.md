@@ -1,1 +1,0 @@
-1. If you use a static site generator to build your site locally and push the generated files to {% data variables.product.github %}, pull the commit that added the CNAME file to your local repository. For more information, see [AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#cname-errors).

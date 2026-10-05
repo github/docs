@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} is enabled by default for all repositories for which {% data variables.product.prodname_actions %} is enabled

@@ -1,1 +1,0 @@
-In the last step, it generates an artifact attestation for the image, which increases supply chain security. For more information, see [AUTOTITLE](/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations).

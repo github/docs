@@ -1,5 +1,0 @@
-# Reference: #15381
-# Code security configurations at the enterprise level
-versions:
-  ghec: '*'
-  ghes: '>3.15'

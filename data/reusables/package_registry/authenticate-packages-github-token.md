@@ -1,1 +1,0 @@
-For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see [AUTOTITLE](/actions/tutorials/authenticate-with-github_token#using-the-github_token-in-a-workflow).

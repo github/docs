@@ -1,1 +1,0 @@
-* To learn the basic concepts of how {% data variables.product.prodname_dotcom %} uses OpenID Connect (OIDC), and its architecture and benefits, see [AUTOTITLE](/actions/concepts/security/openid-connect).

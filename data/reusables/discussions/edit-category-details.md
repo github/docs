@@ -1,1 +1,0 @@
-Edit the emoji, title, description, and discussion format for the category. Each category has a format: open-ended discussion, question and answer, or announcement. All discussions can be transferred to another repository, except for announcements.

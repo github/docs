@@ -1,6 +1,0 @@
-# Workflow execution protections, ref 21326
-
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.23'

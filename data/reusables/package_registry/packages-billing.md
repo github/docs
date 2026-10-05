@@ -1,3 +1,0 @@
-{% data variables.product.prodname_registry %} usage is **free** for **public packages**.
-
-For **private packages**, each account on {% data variables.product.github %} receives an amount of **free storage and data transfer**, determined by the account's plan. Any usage beyond the included amounts is controlled by budgets.

@@ -1,2 +1,0 @@
-> [!NOTE]
-> If you are a security researcher, you should directly contact maintainers to ask them to create security advisories or issue CVEs on your behalf in repositories that you don't administer. However, if private vulnerability reporting is enabled for the repository, you can _privately_ report a vulnerability yourself. For more information, see [AUTOTITLE](/code-security/how-tos/report-and-fix-vulnerabilities/report-privately).

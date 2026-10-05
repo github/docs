@@ -1,1 +1,0 @@
-To learn how to edit your {% data variables.product.prodname_custom_security_configuration %}, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-your-coverage/edit-custom-configuration).

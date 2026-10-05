@@ -1,1 +1,0 @@
-| `min_length` | Prevents form submission until the response contains at least the specified number of characters. | {% octicon "x" aria-label="Optional" %} | Integer | {% octicon "dash" aria-label="Not applicable" %} | A non-negative integer |

@@ -1,5 +1,0 @@
-# Reference: github/releases#7336
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.23'

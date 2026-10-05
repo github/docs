@@ -1,1 +1,0 @@
-actions/stale@v10

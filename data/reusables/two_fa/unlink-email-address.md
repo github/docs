@@ -1,1 +1,0 @@
-If you cannot use any recovery methods, you have permanently lost access to your account. However, you can unlink an email address tied to the locked account. The unlinked email address can then be linked to a new or existing account. For more information, see [AUTOTITLE](/account-and-profile/how-tos/account-management/unlinking-your-email-address-from-a-locked-account).

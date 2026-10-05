@@ -1,1 +1,0 @@
-If you're under a Microsoft Enterprise Agreement, you need to connect your Azure subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_copilot %}. For more information, see [AUTOTITLE](/billing/how-tos/set-up-payment/connect-azure-sub).

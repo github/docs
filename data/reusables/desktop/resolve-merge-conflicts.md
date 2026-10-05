@@ -1,1 +1,0 @@
-1. Resolve any merge conflicts in your preferred way, using a text editor, the command line, or another tool. For more information, see [AUTOTITLE](/pull-requests/how-tos/merge-and-close-pull-requests).

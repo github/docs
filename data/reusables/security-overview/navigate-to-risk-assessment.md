@@ -1,1 +1,0 @@
-the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your organization, display the **{% octicon "key" aria-hidden="true" aria-label="key" %} Assessments** page, then click **Scan your organization**

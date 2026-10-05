@@ -1,1 +1,0 @@
-During public preview, Proof of Presence supports **Microsoft Entra ID**.

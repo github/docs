@@ -1,1 +1,0 @@
-Enterprise owners, enterprise billing managers, organization owners, and people with a custom organization or enterprise role with the "View Organization {% data variables.product.prodname_copilot_short %} Metrics" or "View Enterprise {% data variables.product.prodname_copilot_short %} Metrics" permission.

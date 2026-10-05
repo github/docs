@@ -1,5 +1,0 @@
-#14827
-# SCIM for GitHub Enterprise Server, public beta
-
-versions:
-  ghes: '>=3.14'

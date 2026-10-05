@@ -1,1 +1,0 @@
-Available for all paid [{% data variables.product.prodname_copilot_short %} plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=cfi).

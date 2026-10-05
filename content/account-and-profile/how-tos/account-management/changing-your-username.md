@@ -16,18 +16,18 @@ category:
 
 ## Prerequisites
 
-Before changing your username, you should be aware of potential impacts on your account and activity. For more information, see [AUTOTITLE](/account-and-profile/concepts/username-changes).
+Before you change your username, review the potential impact on your account, links, and activity history. For more information, see [AUTOTITLE](/account-and-profile/concepts/username-changes).
 
 ## Changing your username
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-1. In the "Change username" section, click **Change username**.{% ifversion fpt or ghec %}
-1. Read the warnings about changing your username. If you still want to change your username, click **I understand, let's change my username**.
-1. Type a new username.
-1. If the username you've chosen is available, click **Change my username**. If the username you've chosen is unavailable, you can try a different username or one of the suggestions you see.
+1. In the "Change username" section, click **Change username**.
+1. Review the warning message. If you still want to continue, click **I understand, let's change my username**.{% ifversion fpt or ghec %}
+1. Enter a new username.
+1. If the username is available, click **Change my username**. If it is unavailable, choose a different username or use one of the suggested alternatives.
 {% endif %}
 
 ## Next steps
 
-For reference information and limitations, see [AUTOTITLE](/account-and-profile/reference/username-reference#changing-your-username).
+For reference information, requirements, and limitations, see [AUTOTITLE](/account-and-profile/reference/username-reference#changing-your-username).

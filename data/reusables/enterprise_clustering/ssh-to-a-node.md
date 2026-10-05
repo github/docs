@@ -1,1 +1,0 @@
-1. SSH into any node in your cluster. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh).

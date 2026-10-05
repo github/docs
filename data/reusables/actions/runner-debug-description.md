@@ -1,1 +1,0 @@
-This is set only if [debug logging](/actions/how-tos/monitor-workflows/enable-debug-logging) is enabled, and always has the value of `1`. It can be useful as an indicator to enable additional debugging or verbose logging in your own job steps.

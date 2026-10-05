@@ -1,5 +1,0 @@
-# BYOK for Copilot (not Copilot Models) #18486
-
-versions:
-  fpt: '*'
-  ghec: '*'
