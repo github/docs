@@ -103,17 +103,94 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     expect(errors[0].ruleNames[0]).toBe('GHD022')
   })
 
-  test.skip('ifversion using feature based version extended with shortname all versions', async () => {
+  test('ifversion using feature based version extended with shortname all versions', async () => {
     // features/volvo.yml contains fpt: "*" and ghec: "*".
-    const markdown = `
-      {% ifversion volvo or ghes %}{% endif %}
-    `
+    const markdown = [...placeholderAllVersionsFm, `{% ifversion volvo or ghes %}{% endif %}`].join(
+      '\n',
+    )
     const result = await runRule(liquidIfversionVersions, {
       strings: { markdown },
     })
     const errors = result.markdown
-    expect(errors.length).toBe(1)
+    expect(errors.length).toBe(2)
     expect(errors[0].ruleNames[0]).toBe('GHD022')
+    expect(errors[0].errorDetail).toContain('applies to all versions')
+  })
+
+  test('ifversion using feature with a ghes range extended with ghes', async () => {
+    // features/cloud-and-older-ghes.yml contains fpt: "*", ghec: "*", and ghes: "<3.20". The
+    // bounded range never covers every GHES release, so only the plain ghes completes it.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion cloud-and-older-ghes or ghes %}{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors[0].errorDetail).toContain('applies to all versions')
+  })
+
+  test('ifversion using feature with a ghes range completed by a ghes range', async () => {
+    // features/cloud-and-older-ghes.yml contains ghes: "<3.20", so ghes >= 3.20 completes GHES.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion cloud-and-older-ghes or ghes >= 3.20 %}{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors[0].errorDetail).toContain('applies to all versions')
+  })
+
+  test('ifversion using feature with a ghes range and a ghes upper bound', async () => {
+    // Together the ranges cover every known release, but releases after 99.0 are missing.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion cloud-and-older-ghes or ghes >= 3.20 and ghes < 99.0 %}{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(
+      errors.filter((error) => error.errorDetail?.includes('applies to all versions')),
+    ).toEqual([])
+  })
+
+  test.each(['3.20 - 99.0', '^3.20'])(
+    'ifversion using feature with a ghes range and implicit upper bound %s',
+    async (range) => {
+      // These ranges have no < but still exclude future releases, such as 100.0 or 4.0.
+      const markdown = [
+        ...placeholderAllVersionsFm,
+        `{% ifversion cloud-and-older-ghes or ghes ${range} %}{% endif %}`,
+      ].join('\n')
+      const result = await runRule(liquidIfversionVersions, {
+        strings: { markdown },
+      })
+      const errors = result.markdown
+      expect(
+        errors.filter((error) => error.errorDetail?.includes('applies to all versions')),
+      ).toEqual([])
+    },
+  )
+
+  test('ifversion using feature with a ghes upper bound does not cover all versions', async () => {
+    // features/cloud-and-capped-ghes.yml contains fpt: "*", ghec: "*", and ghes: "<99.0". The
+    // range covers every current release but excludes future ones, so it is not all versions.
+    const markdown = [
+      ...placeholderAllVersionsFm,
+      `{% ifversion cloud-and-capped-ghes %}{% endif %}`,
+    ].join('\n')
+    const result = await runRule(liquidIfversionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
   })
 
   test('ifversion using not negates only the next version', async () => {

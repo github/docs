@@ -11,12 +11,12 @@ import { getFrontmatter, getFrontmatterLines } from '../helpers/utils'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import { difference } from 'lodash-es'
 import {
-  isAllVersions,
   getFeatureVersionsObject,
   isInAllGhes,
   isGhesReleaseDeprecated,
 } from '@/ghes-releases/scripts/version-utils'
-import { oldestSupported } from '@/versions/lib/enterprise-server-releases'
+import { nextNext, oldestSupported } from '@/versions/lib/enterprise-server-releases'
+import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 // getLiquidIfVersionTokens exposes runtime properties that liquidjs TopLevelToken omits.
@@ -328,6 +328,30 @@ async function initTagObject(
   return condTagItem
 }
 
+function coversAllVersions(item: CondTagItem): boolean {
+  const options = { doNotThrow: true, includeNextVersion: true }
+  const products = Object.fromEntries(
+    Object.entries(item.versionsObj).filter(([key]) => key !== 'feature'),
+  )
+  const sources: VersionsObject[] = [products, item.featureVersionsObj || {}]
+  const versions = new Set(sources.flatMap((source) => getApplicableVersions(source, '', options)))
+  const allApplicableVersions = getApplicableVersions(
+    { fpt: '*', ghec: '*', ghes: '*' },
+    '',
+    options,
+  )
+  // Ranges can only list known releases. An upper bound, such as < 3.25, = 3.24, or 3.20 - 3.24,
+  // can exclude future releases, so one lower-bound-only range must include the newest known release.
+  const coversFutureGhes = sources.some(
+    ({ ghes }) =>
+      ghes === '*' ||
+      (!!ghes &&
+        /^(\s*>=?\s*\d+(\.\d+)*)+\s*$/.test(ghes) &&
+        versionSatisfiesRange(nextNext, ghes)),
+  )
+  return coversFutureGhes && allApplicableVersions.every((version) => versions.has(version))
+}
+
 // Rather than filtering out items with no versions, give every item a blank
 // action and let updateConditionals decide which ones become delete or change.
 // setLiquidErrors turns the resulting actions into flaws later on.
@@ -353,13 +377,9 @@ function updateConditionals(condTagItems: CondTagItem[]) {
   for (let i = 0; i < condTagItems.length - 1; i++) {
     const item = condTagItems[i]
 
-    // Collapse feature conditions that cover all versions.
-    if (
-      isAllVersions(
-        item.featureVersionsObj ||
-          ((item as unknown as { versionObj?: VersionsObject }).versionObj as VersionsObject),
-      )
-    ) {
+    // Collapse feature conditions that cover all versions, including products named beside the feature.
+    // Check the union of versions, because a feature's ghes range must not hide a plain ghes.
+    if (item.featureVersionsObj && coversAllVersions(item)) {
       processConditionals(item, condTagItems, i)
       break
     }
