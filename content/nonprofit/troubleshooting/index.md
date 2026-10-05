@@ -1,6 +1,7 @@
 ---
 title: Frequently asked questions
 intro: Troubleshooting for GitHub for Nonprofits applications
+allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
 children:
