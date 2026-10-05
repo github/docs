@@ -17630,6 +17630,10 @@
           "description": "<p>OK</p>"
         },
         {
+          "httpStatusCode": "304",
+          "description": "<p>Not modified</p>"
+        },
+        {
           "httpStatusCode": "404",
           "description": "<p>Resource not found</p>"
         }

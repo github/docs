@@ -2747,17 +2747,18 @@
       ],
       "bodyParameters": [
         {
-          "type": "string",
+          "type": "integer or string",
           "name": "credential_id",
-          "description": "<p>The SHA-256 fingerprint of the user-owned SSH authentication key to authorize.</p>",
+          "description": "<p>The token ID of the personal access token (classic) to authorize.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "credential_type",
-          "description": "",
+          "description": "<p>The type of credential to authorize.</p>",
           "isRequired": true,
           "enum": [
+            "classic_pat",
             "ssh_key"
           ]
         },
