@@ -1,6 +1,6 @@
 import { Label } from '@primer/react-brand'
-import { Link } from '@primer/react'
 import { clsx } from 'clsx'
+import { Link } from '@/frame/components/Link'
 import { ValidOcticon, getOcticonComponent } from '../lib/octicons'
 
 import styles from './CookBookArticleCard.module.scss'
