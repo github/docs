@@ -52,4 +52,3 @@ gh-stack:
     The source is an Astro Starlight site. Convert directives to GitHub Docs alerts: ":::note" becomes "> [!NOTE]", ":::tip" becomes "> [!TIP]", ":::caution" becomes "> [!WARNING]", ":::danger" becomes "> [!CAUTION]". Drop directive titles such as ":::note[Authentication]", because GitHub Docs alerts do not take titles.
     The source uses "sh" code fences and title-case headings; use "shell" and sentence case instead.
     Write "pull request" rather than "PR".
-    Do not remove the public preview reusable near the top of the article; it has no counterpart in the source docs.

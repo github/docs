@@ -3379,4 +3379,30 @@ Para más información, consulta "[AUTOTITLE](/path)".
       ).toBe(broken)
     })
   })
+
+  describe('octicon with French guillemets', () => {
+    test('fr: trims padding left by « check » after quote normalization', () => {
+      expect(fix('{% octicon « check » aria-label="Included » %}', 'fr')).toBe(
+        '{% octicon "check" aria-label="Included" %}',
+      )
+      expect(fix('{% octicon « x » aria-label="Non inclus" %}', 'fr')).toBe(
+        '{% octicon "x" aria-label="Non inclus" %}',
+      )
+    })
+
+    test('fr: leaves a correct octicon unchanged', () => {
+      const ok = '{% octicon "check" aria-label="Included" %}'
+      expect(fix(ok, 'fr')).toBe(ok)
+    })
+
+    test('leaves padded values on other attributes unchanged', () => {
+      const custom = '{% octicon "x" data-aria-label=" a " myclass=" b " title=" c " %}'
+      expect(fix(custom, 'fr')).toBe(custom)
+    })
+
+    test('leaves whitespace-only attribute values unchanged', () => {
+      const blank = '{% octicon "x" class=" " width="64" aria-label="Supported" %}'
+      expect(fix(blank, 'fr')).toBe(blank)
+    })
+  })
 })

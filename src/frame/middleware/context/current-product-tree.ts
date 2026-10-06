@@ -8,6 +8,7 @@ import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree'
 import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 import { executeWithFallback } from '@/languages/lib/render-with-fallback'
 
+// This module adds currentProductTree to the context object for use in layouts.
 export default async function currentProductTree(
   req: ExtendedRequest,
   res: Response,
@@ -17,7 +18,7 @@ export default async function currentProductTree(
   if (!req.context.page) return next()
   if (req.context.page.documentType === 'homepage') return next()
 
-  // Keep the English tree available because localized pages can lag behind it.
+  // We need this so we can fall back to English if localized pages are out of sync.
   if (!req.context.siteTree) throw new Error('siteTree is required')
   if (!req.context.currentVersion) throw new Error('currentVersion is required')
   req.context.currentEnglishTree = req.context.siteTree.en[req.context.currentVersion]
@@ -40,17 +41,22 @@ export default async function currentProductTree(
     currentProductPath,
   )
 
-  // currentProductTreeTitles keeps href, title, shortTitle, documentType, and childPages.
+  // First make a slim tree of just the 'href', 'title', 'shortTitle'
+  // 'documentType' and 'childPages' (which is recursive).
+  // This gets used for subcategory and category pages.
   req.context.currentProductTreeTitles = await getCurrentProductTreeTitles(
     req.context.currentProductTree,
     req.context,
   )
-  // Sidebar data excludes hidden pages.
+  // Now make an even slimmer version that excludes all hidden pages.
+  // This is used for sidebars.
   req.context.currentProductTreeTitlesExcludeHidden = excludeHidden(
     req.context.currentProductTreeTitles,
   )
 
-  // Hidden pages leave sidebarTree unset because excludeHidden returns null for the root.
+  // Some pages, like hidden pages, don't have a tree. For example,
+  // the search page. That one uses the same items as the homepage
+  // for its sidebar.
   if (req.context.currentProductTreeTitlesExcludeHidden) {
     req.context.sidebarTree = sidebarTree(req.context.currentProductTreeTitlesExcludeHidden)
   }
@@ -58,30 +64,26 @@ export default async function currentProductTree(
   return next()
 }
 
+// Return a nested object that contains the bits and pieces we need
+// for the tree which is used for sidebars and listing
 async function getCurrentProductTreeTitles(input: Tree, context: Context): Promise<TitlesTree> {
   const { page, href } = input
   const childPages = await Promise.all(
     (input.childPages || []).map((child) => getCurrentProductTreeTitles(child, context)),
   )
 
-  // Translated pages need their English page for fallback rendering and short-title comparison.
+  // If the current page is a translation we're going to need the English
+  // equivalent for multiple things later in this function.
   const enPage =
     page.languageCode !== 'en' ? context.pages![href.replace(`/${page.languageCode}`, '/en')] : null
 
-  let rawShortTitle = page.rawShortTitle
-  // Swaps in rawTitle when shortTitle matches English, but the render below reads page.rawShortTitle.
-  if (page.languageCode !== 'en' && page.rawShortTitle) {
-    if (page.rawShortTitle === enPage!.shortTitle) {
-      rawShortTitle = page.rawTitle
-    }
-  }
   const renderedFullTitle = await executeWithFallback(
     context,
     () => liquid.parseAndRender(page.rawTitle, context),
     (enContext: Context) => liquid.parseAndRender(enPage!.rawTitle, enContext),
   )
   let renderedShortTitle = ''
-  if (rawShortTitle) {
+  if (page.rawShortTitle) {
     renderedShortTitle = await executeWithFallback(
       context,
       () => liquid.parseAndRender(page.rawShortTitle!, context),
@@ -89,7 +91,8 @@ async function getCurrentProductTreeTitles(input: Tree, context: Context): Promi
     )
   }
 
-  // Empty duplicate short titles to avoid wasting sidebar space.
+  // If the short title was present but "useless" (same as the title),
+  // force it to be an empty string to not waste space.
   const shortTitle =
     renderedShortTitle && (renderedShortTitle || '') !== renderedFullTitle ? renderedShortTitle : ''
 
@@ -124,10 +127,12 @@ function excludeHidden(tree: TitlesTree) {
 
 function sidebarTree(tree: TitlesTree) {
   const { href, title, shortTitle, childPages, sidebarLink } = tree
-  // Sidebars show only children from the current product.
+  // Filter out cross-product children from the sidebar
   const filteredChildPages = childPages.filter((child) => !child.crossProductChild)
 
-  // If siblings include a subdirectory and its articles, nest the articles under the subdirectory.
+  // Filter out children that are descendants of another sibling.
+  // When a page lists both a subdirectory and individual articles from it,
+  // the articles should only appear nested under the subdirectory in the sidebar.
   const siblingHrefs = filteredChildPages.map((c) => c.href)
   const dedupedChildPages = filteredChildPages.filter(
     (child) => !siblingHrefs.some((sh) => sh !== child.href && child.href.startsWith(`${sh}/`)),

@@ -10,8 +10,6 @@ category:
   - Review pull requests
 ---
 
-{% data reusables.public-preview.public-preview %}
-
 Each pull request in a stack shows only the diff for its layer. This means reviewers can request changes on any pull request independently. When a reviewer requests changes on a pull request mid-stack, you should make the fix on the branch that owns the change and rebase so the branches above it pick up your update.
 
 ## Addressing review feedback

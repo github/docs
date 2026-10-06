@@ -1611,6 +1611,18 @@ export function correctTranslatedContentStrings(
     return match.replace(/[«»“”„]/g, '"').replace(/[‘’‚]/g, "'")
   })
 
+  // French « check » becomes " check " after quote normalization.
+  content = content.replace(
+    /\{%(-?)\s*octicon\s+"\s*([\w-]+)\s*"([^%]*?)(-?)%\}/g,
+    (_m, o, name, rest, c) => {
+      const fixedRest = rest.replace(
+        /(^|\s)(aria-label|aria-hidden|height|width|class)="\s*([^"]*?[^"\s])\s*"/g,
+        '$1$2="$3"',
+      )
+      return `{%${o} octicon "${name}"${fixedRest.replace(/\s*$/, ' ')}${c}%}`
+    },
+  )
+
   content = content.replace(
     /\{%(-?)\s+(ifversion|elsif|if)\s+([^%]*?)\s*(-?)%\}/g,
     (_m, dashOpen, tag, body, dashClose) =>
