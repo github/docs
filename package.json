@@ -192,7 +192,7 @@
     "ajv": "^8.18.0",
     "ajv-errors": "^3.0.0",
     "ajv-formats": "^3.0.1",
-    "chalk": "^5.0.1",
+    "chalk": "^6.0.1",
     "cheerio": "^1.2.0",
     "clsx": "^2.1.1",
     "cookie-parser": "^1.4.7",
