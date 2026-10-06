@@ -103,7 +103,7 @@ COPY --chown=node:node --from=clones $APP_HOME/translations translations/
 COPY --chown=node:node --from=all_deps $APP_HOME/node_modules node_modules/
 
 # Build the application
-RUN npm run build
+RUN npm run build && rm -rf .next/cache/webpack
 
 # ---------------------------------------------
 # WARMUP_CACHE STAGE: Warm up remote JSON cache
