@@ -13,8 +13,6 @@ category:
   - Merge and close pull requests
 ---
 
-{% data reusables.public-preview.public-preview %}
-
 The {% data variables.product.github %} REST and GraphQL APIs both expose stacked pull requests. The REST API supports reading and managing stacks, while the GraphQL API supports read-only queries.
 
 Use the API to read a pull request's stack membership or to build your own automation and integrations for stacked pull requests.

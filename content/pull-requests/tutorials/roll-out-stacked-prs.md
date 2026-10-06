@@ -10,9 +10,6 @@ category:
 - Create pull requests
 ---
 
-> [!NOTE]
-> Stacked pull requests are in {% data variables.release-phases.public_preview %} and subject to change.
-
 Stacked pull requests let developers break large changes into a chain of small, focused pull requests that build on each other. This approach can help your organization maintain review quality as developers produce more code, including with {% data variables.product.prodname_copilot_short %} and other coding agents.
 
 Stacked pull requests require **no setup or enablement**. If your team already uses pull requests, they can create a stack today. The steps below help you prepare your existing controls and support a smooth rollout, not turn a feature on.

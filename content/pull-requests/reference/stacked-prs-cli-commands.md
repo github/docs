@@ -9,8 +9,6 @@ category:
   - Create pull requests
 ---
 
-{% data reusables.public-preview.public-preview %}
-
 The `gh stack` extension for {% data variables.product.prodname_cli %} creates and manages stacks of pull requests from your local repository. For an introduction to stacks, see [AUTOTITLE](/pull-requests/reference/stacked-pull-requests).
 
 ## Installation
