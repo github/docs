@@ -240,7 +240,7 @@
     "remark-remove-comments": "^1.1.1",
     "remark-stringify": "^11.0.0",
     "semver": "^7.7.4",
-    "sharp": "0.35.4",
+    "sharp": "0.35.5",
     "slash": "^5.1.0",
     "strip-ansi": "7.1.0",
     "swr": "^2.4.0",
