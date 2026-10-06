@@ -113,17 +113,6 @@ FROM build AS warmup_cache
 # Generate remote JSON cache
 RUN npm run warmup-remotejson
 
-# --------------------------------------
-# PRECOMPUTE STAGE: Precompute page info
-# --------------------------------------
-FROM build AS precompute_stage
-
-# Generate precomputed page info. Only English + free-pro-team@latest
-# permalinks are cached; cache misses for older versions and translated
-# pages fall through to runtime compute (which is cheap and Fastly-cached
-# per pathname after the first hit).
-RUN npm run precompute-pageinfo -- --max-versions 1
-
 # -------------------------------------------------
 # PRODUCTION STAGE: What will run on the containers
 # -------------------------------------------------
@@ -151,9 +140,6 @@ COPY --chown=node:node --from=build $APP_HOME/.next .next/
 
 # From warmup_cache stage
 COPY --chown=node:node --from=warmup_cache $APP_HOME/.remotejson-cache ./
-
-# From precompute_stage
-COPY --chown=node:node --from=precompute_stage $APP_HOME/.pageinfo-cache.json.br* ./
 
 # This makes it possible to set `--build-arg BUILD_SHA=abc123`
 # and it then becomes available as an environment variable in the docker run.

@@ -72,7 +72,6 @@
     "openapi-docs": "tsx src/rest/docs.ts",
     "playwright-test": "playwright test --config src/fixtures/playwright.config.ts --project=\"Google Chrome\"",
     "lint-report": "tsx src/content-linter/scripts/lint-report.ts",
-    "precompute-pageinfo": "tsx src/article-api/scripts/precompute-pageinfo.ts",
     "prepare": "husky src/workflows/husky",
     "prettier": "prettier -w \"**/*.{ts,tsx,scss,yml,yaml}\"",
     "prettier-check": "prettier -c \"**/*.{ts,tsx,scss,yml,yaml}\"",
