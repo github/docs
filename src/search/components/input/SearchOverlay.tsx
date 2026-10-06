@@ -1,7 +1,8 @@
 import React, { useState, useRef, RefObject, useEffect, useMemo } from 'react'
 import cx from 'clsx'
 import { useRouter } from 'next/router'
-import { ActionList, IconButton, Overlay, Stack, TextInput, Banner } from '@primer/react'
+import { ActionList, IconButton, Overlay, TextInput, Banner } from '@primer/react'
+import { Stack } from '@primer/react-brand'
 import { SearchIcon, XCircleFillIcon, CopilotIcon, ArrowLeftIcon } from '@primer/octicons-react'
 import { focusTrap } from '@primer/behaviors'
 
@@ -685,7 +686,7 @@ export function SearchOverlay({
             onKeyDown={handleKeyDown}
             placeholder={t('search.input.placeholder_no_icon')}
             trailingAction={
-              <Stack justify="center" className={styles.stackMinWidth}>
+              <Stack justifyContent="center" padding="none" className={styles.stackMinWidth}>
                 <TextInput.Action
                   onClick={() => {
                     setSelectedIndex(-1)
