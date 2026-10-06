@@ -10979,6 +10979,17 @@
       },
       {
         "category": "pulls",
+        "slug": "rerequest-reviewers-for-a-pull-request",
+        "subcategory": "review-requests",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers/rerequest",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
         "slug": "list-reviews-for-a-pull-request",
         "subcategory": "reviews",
         "verb": "get",
