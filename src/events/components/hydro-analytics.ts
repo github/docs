@@ -1,5 +1,4 @@
-// Integration with @github/hydro-analytics-client for cross-subdomain tracking.
-// Events go to collector.githubapp.com alongside our existing analytics.
+// @github/hydro-analytics-client sends cross-subdomain events to collector.githubapp.com.
 //
 // The client auto-collects page, title, client_id, referrer, user_agent,
 // screen_resolution, browser_resolution, browser_languages, pixel_ratio,
@@ -16,7 +15,7 @@ import {
 } from '@github/hydro-analytics-client'
 import { EventType } from '../types'
 
-// Returns undefined if the client fails for any reason.
+// getOctoClientId returns undefined if the Hydro client fails for any reason.
 export function getOctoClientId(): string | undefined {
   try {
     return hydroGetOrCreateClientId()
@@ -31,7 +30,6 @@ const hydroClient = new AnalyticsClient({
   clientId: getOctoClientId(),
 })
 
-// Fields that hydro-analytics-client already collects automatically
 const AUTO_COLLECTED_FIELDS = new Set([
   'referrer',
   'user_agent',
@@ -46,9 +44,7 @@ const AUTO_COLLECTED_FIELDS = new Set([
   'title',
 ])
 
-// Flattens a nested event body into a single-level context object, dropping
-// fields the client already auto-collects and adding the ones
-// analytics_v0_page_view needs.
+// analytics_v0_page_view needs a flat context without fields Hydro already auto-collects.
 export function prepareData(body: Record<string, unknown>): {
   type: string
   context: Record<string, string>
@@ -65,10 +61,9 @@ export function prepareData(body: Record<string, unknown>): {
       .map(([key, value]) => [key, String(value)]),
   )
 
-  // Add fields required for analytics_v0_page_view compatibility
-  // These are expected by the BI team's dashboards
+  // BI dashboards expect react_app and marketing page_type for analytics_v0_page_view.
   context.react_app = 'docs'
-  // Preserve our page_type as docs_page_type, then set page_type to 'marketing' for BI
+  // Preserve the docs page type because BI expects page_type to be marketing.
   if (context.page_type) {
     context.docs_page_type = context.page_type
   }
@@ -77,7 +72,7 @@ export function prepareData(body: Record<string, unknown>): {
   return { type: typeof type === 'string' ? type : 'unknown', context }
 }
 
-// Page events go out as a page view, everything else as a custom event.
+// Hydro treats page events as page views and all other docs events as custom events.
 //
 // Wrapped in try/catch so a broken hydro client cannot affect our primary
 // analytics pipeline.
