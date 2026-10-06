@@ -20,3 +20,4 @@ IP allow lists do **not** restrict access to:
 * A {% data variables.product.prodname_github_app %} (server-to-server) installation token when the {% data variables.product.prodname_github_app %} is installed on a user account.
 * {% data variables.product.prodname_copilot %} features that do not require directly fetching private or organizational data from {% data variables.product.prodname_dotcom %}
 * Anonymized URLs for images and videos uploaded to issues or pull requests, such as `https://private-user-images.githubusercontent.com/10001/20002.png?jwt=ABC10001`, unless you use {% data variables.enterprise.data_residency %}
+* Repository forks owned by regular users (not {% data variables.enterprise.prodname_managed_users %}).
