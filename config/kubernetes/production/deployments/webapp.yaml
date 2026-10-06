@@ -10,10 +10,10 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      # Don't kill old pods until new ones pass readiness.
-      # Prevents capacity loss during deploys. Safe because we're over-provisioned.
+      # Keep old pods serving until replacements pass readiness.
+      # Overprovisioning makes the temporary extra capacity safe.
       maxUnavailable: 0
-      # Percentage so it scales with replica count changes.
+      # Scale surge capacity with replica count changes.
       maxSurge: '100%'
   selector:
     matchLabels:
@@ -23,38 +23,34 @@ spec:
       labels:
         app: webapp
       annotations:
-        # Our internal logs aren't structured so we use logfmt_sloppy to just log stdout and error
-        # See https://thehub.github.com/epd/engineering/dev-practicals/observability/logging/ for more details
+        # Use logfmt_sloppy because internal logs write unstructured stdout and stderr.
+        # https://thehub.github.com/epd/engineering/dev-practicals/observability/logging/
         fluentbit.io/parser: logfmt_sloppy
         observability.github.com/splunk_index: docs-internal
         ad.datadoghq.com/webapp.logs: '[{"source":"nodejs","service":"docs-internal","tags":["env:production"]}]'
         ad.datadoghq.com/tolerate-unready: 'true'
     spec:
       dnsPolicy: Default
-      # Hard deadline for pod shutdown after SIGTERM (includes preStop sleep).
-      # Default is 30s; 60s gives plenty of room for in-flight request draining
-      # and OTEL SDK shutdown even if DNS is slow.
+      # This 60-second total covers preStop, then request drain and OTEL shutdown after SIGTERM.
       terminationGracePeriodSeconds: 60
       containers:
         - name: webapp
           image: docs-internal
-          # Retune using 2 weeks of data
+          # Retune using 2 weeks of data:
           # https://app.datadoghq.com/dashboard/6vx-iun-ghs/moda-resource-recommendations?tpl_var_kube_namespace%5B0%5D=docs-internal-production&from_ts=0&to_ts=1209600000&live=true
-          # Moda budget is requests * replicas * clusters
+          # Moda budget uses requests times replicas times clusters.
           resources:
             requests:
-              # requests.cpu: median pod p99 (0.32 cores) * 2
-              # for failover headroom
+              # requests.cpu: median pod p99 (0.32 cores) * 2 for failover headroom.
               cpu: 640m
-              # requests.memory: highest-peak pod p99 (4740Mi) * 1.1
-              # for working-set padding
+              # requests.memory: highest-peak pod p99 (4740Mi) * 1.1 for working-set padding.
               memory: 5214Mi
             limits:
-              # limits.cpu: highest-peak pod max [warmup peak] (2.42 cores) * 3
-              # for start up insurance; compressible; does not count towards budget
+              # limits.cpu: highest warmup peak (2.42 cores) * 3.
+              # This startup headroom does not count toward budget.
               cpu: 7260m
-              # limits.memory: highest-peak pod max (4813Mi) * 2
-              # over-limit means OOMkill; non-compressible
+              # limits.memory: highest-peak pod max (4813Mi) * 2.
+              # Over the limit means OOMKill; memory is not compressible.
               memory: 9626Mi
           ports:
             - name: http
@@ -65,8 +61,7 @@ spec:
                 name: vault-secrets
             - configMapRef:
                 name: kube-cluster-metadata
-            # application-config is created at deploy time from
-            # configuration set in config/moda/configuration/*/env.yaml
+            # Moda creates application-config from config/moda/configuration/*/env.yaml.
             - configMapRef:
                 name: application-config
           env:
@@ -78,27 +73,25 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-          # Zero-downtime deploys
+          # Sleep before shutdown so Moda drains connections before old pods exit.
           # https://thehub.github.com/engineering/products-and-services/internal/moda/feature-documentation/pod-lifecycle/#required-prestop-hook
-          # https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
           lifecycle:
             preStop:
               exec:
                 command: ['sleep', '5']
-          # warmServer() loads ~3500 content files × 9 languages × 9 versions.
-          # Avg startup: ~25s, worst observed: ~48s (Datadog: docs.warm_server).
-          # Server does not listen until warmup completes, so probes fail at
-          # TCP level during boot — no app-level readiness flag needed.
+          # warmServer() loads about 3500 content files × 9 languages × 9 versions.
+          # Startup averages 25 seconds and peaked at 48 seconds in Datadog docs.warm_server.
+          # The server starts listening after warmup, so probes fail at TCP level during boot.
+          # No app-level readiness flag is needed.
           startupProbe:
             httpGet:
               path: /healthcheck
               port: http
-            # Server can't respond until warmup finishes (~25s avg), so don't
-            # waste probes checking before that.
+            # Avoid probes during the average 25-second warmup.
             initialDelaySeconds: 30
             periodSeconds: 5
-            # Total runway: 30s + (30 × 5s) = 180s. Covers worst-case startup
-            # plus resource contention when multiple pods boot during a deploy.
+            # Total runway: 30s + 30 × 5s = 180s.
+            # Covers peak startup plus resource contention when multiple pods boot during a deploy.
             failureThreshold: 30
             timeoutSeconds: 5
           readinessProbe:
@@ -106,13 +99,10 @@ spec:
               path: /healthcheck
               port: http
             periodSeconds: 10
-            # 5 × 10s = 50s before pulling pod from load balancer.
-            # Healthcheck is always-200 (no app-level logic), so failures
-            # mean the process is hung or under extreme pressure.
+            # 5 × 10s = 50s before the pod leaves the load balancer.
+            # The healthcheck always returns 200, so failures mean the process is hung or under extreme pressure.
             failureThreshold: 5
             timeoutSeconds: 5
-          # No livenessProbe: healthcheck always returns 200 with no app-level
-          # checks, so a liveness probe would only catch a fully hung process.
-          # Readiness already removes hung pods from the load balancer, and we
-          # intentionally avoid liveness restarts — they risk killing pods
-          # during GC pauses or transient load spikes.
+          # Skip livenessProbe because healthcheck returns 200 unless the process is fully hung.
+          # Readiness removes hung pods from load balancing.
+          # Liveness restarts risk killing pods during GC pauses or transient load spikes.

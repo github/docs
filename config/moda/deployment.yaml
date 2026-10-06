@@ -1,17 +1,16 @@
-# Deploy configuration reference: https://thehub.github.com/epd/engineering/products-and-services/internal/moda/reference/deployment-yaml/
+# Moda deployment reference:
+# https://thehub.github.com/epd/engineering/products-and-services/internal/moda/reference/deployment-yaml/
 
 environments:
   - name: production
     require_pipeline: true
-    # Bumped from default 10m because pod scheduling occasionally pushes
-    # rollouts past the timeout even though the deploy itself succeeds.
+    # Allow extra rollout time because pod scheduling can exceed Moda's default timeout.
     timeout: 1200
     cluster_selector:
       profile: general
       region: iad
 
-  # 15 staging environments, evergreens only
-  # they should all contain the same configs
+  # All 15 evergreen staging environments must contain the same configs.
   - name: staging-balsam
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
@@ -197,7 +196,7 @@ required_builds:
   - docs-internal-docker-image / docs-internal-docker-image
   - docs-internal-docker-security / docs-internal-docker-security
 
-# Make the pipeline start automatically when a PR is enqueued
+# Start the production rollout pipeline when a PR enters the merge queue.
 auto_start_pipeline: production_rollout
 
 pipelines:

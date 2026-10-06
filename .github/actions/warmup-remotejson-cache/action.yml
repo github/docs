@@ -10,9 +10,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    # The caching technique here is to unboundedly add and add to the cache.
-    # You "wrap" the step that appends to disk and it will possibly retrieve
-    # some from the cache, then save it when it's got more in it.
+    # Restore a stable key, add to the cache, then save by SHA so the cache can grow without bound.
     - name: Cache .remotejson-cache (restore)
       uses: actions/cache/restore@v4
       with:
@@ -20,14 +18,8 @@ runs:
         key: remotejson-cache-
         restore-keys: remotejson-cache-
 
-    # When we use this composite action from deployment workflows
-    # we don't have any Node installed or any of its packages. I.e. we never
-    # run `npm ci` in those actions. For security sake.
-    # So we can't do things that require Node code.
-    # Tests and others will omit the `restore-only` input, but
-    # prepping for Docker build and push, will set it to a non-empty
-    # string which basically means "If you can restore it, great.
-    # If not, that's fine, don't bother".
+    # Deployment workflows never run npm ci for security.
+    # restore-only can only restore an existing cache there.
     - name: Run script
       if: ${{ inputs.restore-only == '' }}
       shell: bash
