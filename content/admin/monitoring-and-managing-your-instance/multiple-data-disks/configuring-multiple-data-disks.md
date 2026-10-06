@@ -34,7 +34,6 @@ category:
 * Setting up multi-data disks and migrating data typically requires some downtime.
    * You can minimize this by configuring a replica with multi-data disks, replicating data from the primary, and then failing over to the replica.
    * If you are adding multi-data disks directly to the primary, expect a much longer downtime.
-* During the public preview, multi-data disks should be used only in non-production environments.
 {% ifversion ghes < 3.20 %}
 * It is not recommended to migrate MySQL and repositories to the same disk.
 * Currently, only MySQL and repositories can be migrated to additional disks.
@@ -57,8 +56,7 @@ In high availability setups, it is best to use multi-data disks on both the prim
 
 * We recommend taking a recent backup of your data before getting started.
 * Create a test environment to try the feature.
-  * During the public preview, we recommend **only** using the feature in a test environment.
-  * Once the feature becomes generally available, we recommend testing the feature in a non-production environment before using it in production.
+  * We recommend testing the feature in a non-production environment before using it in production.
 
 ### Instructions
 
