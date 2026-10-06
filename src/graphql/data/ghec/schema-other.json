@@ -24,7 +24,7 @@
       "name": "CodeCoverageParameters",
       "id": "codecoverageparameters",
       "href": "/graphql/reference/other#object-codecoverageparameters",
-      "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured,\nuploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+      "description": "<p>Enforce minimum line coverage thresholds on pull requests. This rule evaluates\nuploaded coverage data but does not wait for coverage uploads. To ensure\ncoverage is evaluated before merging, make each status check associated with a\ncoverage upload a required status check.</p>",
       "fields": [
         {
           "name": "maxCoverageDrop",
