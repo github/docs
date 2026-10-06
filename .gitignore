@@ -24,9 +24,6 @@
 # Node.js version specification
 .node-version
 
-# Precomputed page info cache (brotli compressed)
-.pageinfo-cache.json.br
-
 # getRemoteJSON() disk cache for archived content
 .remotejson-cache/
 

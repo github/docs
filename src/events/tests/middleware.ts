@@ -23,13 +23,11 @@ describe('POST /events', () => {
   const pageExample = {
     type: 'page',
     context: {
-      // Primitives
       event_id: 'a35d7f88-3f48-4f36-ad89-5e3c8ebc3df7',
       user: '703d32a8-ed0f-45f9-8d78-a913d4dc6f19',
       version: '1.0.0',
       created: '2020-10-02T17:12:18.620Z',
 
-      // Content information
       path: '/github/docs/issues',
       hostname: 'github.com',
       referrer: 'https://github.com/github/docs',
@@ -38,7 +36,6 @@ describe('POST /events', () => {
       href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
       path_language: 'en',
 
-      // Device information
       os: 'linux',
       os_version: '18.04',
       browser: 'chrome',
@@ -50,7 +47,6 @@ describe('POST /events', () => {
       screen_height: 1080,
       pixel_ratio: 2,
 
-      // Location information
       timezone: -7,
       user_language: 'en-US',
       ip: '192.0.2.1',
@@ -62,13 +58,11 @@ describe('POST /events', () => {
   const exitExample = {
     type: 'exit',
     context: {
-      // Primitives
       event_id: 'a35d7f88-3f48-4f36-ad89-5e3c8ebc3df7',
       user: '703d32a8-ed0f-45f9-8d78-a913d4dc6f19',
       version: '1.0.0',
       created: '2020-10-02T17:12:18.620Z',
 
-      // Content information
       path: '/github/docs/issues',
       hostname: 'github.com',
       referrer: 'https://github.com/github/docs',
@@ -77,7 +71,6 @@ describe('POST /events', () => {
       href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
       path_language: 'en',
 
-      // Device information
       os: 'linux',
       os_version: '18.04',
       browser: 'chrome',
@@ -89,7 +82,6 @@ describe('POST /events', () => {
       screen_height: 1080,
       pixel_ratio: 2,
 
-      // Location information
       timezone: -7,
       user_language: 'en-US',
       ip: '192.0.2.1',
@@ -106,7 +98,7 @@ describe('POST /events', () => {
 
   test('should require a type', async () => {
     const { statusCode } = await checkEvent({ ...pageExample, type: undefined })
-    // Events with no type are skipped, not rejected, so the batch still succeeds.
+    // The batch still succeeds when events have no type because the middleware skips them.
     expect(statusCode).toBe(200)
   })
 

@@ -141,12 +141,6 @@ jobs:
         # Only routing tests cover archived enterprise server URLs.
         if: ${{ matrix.name == 'redirects' }}
 
-      - uses: ./.github/actions/precompute-pageinfo
-        # Only pageinfo tests cover precomputed page info.
-        if: ${{ matrix.name == 'article-api' }}
-        env:
-          ROOT: src/fixtures/fixtures
-
       - name: Index fixtures into the local Elasticsearch
         # Run indexing only for suites that query the local Elasticsearch service.
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}

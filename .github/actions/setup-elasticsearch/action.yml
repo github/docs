@@ -1,4 +1,4 @@
-# For the sake of saving time, only run this step if the test-group is one that will run tests against an Elasticsearch on localhost.
+# Callers skip this action for test groups that do not use local Elasticsearch.
 name: Set up local Elasticsearch
 
 description: Install a local Elasticsearch with version that matches prod
@@ -10,13 +10,13 @@ inputs:
   elasticsearch_version:
     description: Version of Elasticsearch to install
     required: true
-    # Make sure the version matches production and is available on Docker Hub
+    # Version must match production and be published on Docker Hub.
     default: '8.12.0'
 
 runs:
   using: 'composite'
   steps:
-    # Cache the elasticsearch image to prevent Docker Hub rate limiting
+    # Cache the Elasticsearch image to prevent Docker Hub rate limits.
     - name: Cache Docker layers
       id: cache-docker-layers
       uses: actions/cache@v4
@@ -47,8 +47,7 @@ runs:
         mkdir -p /tmp/docker-cache
         docker save -o /tmp/docker-cache/elasticsearch.tar elasticsearch:${ES_VERSION}
 
-    # Setups the Elasticsearch container
-    # Derived from https://github.com/getong/elasticsearch-action
+    # Run a single-node container with settings copied from getong/elasticsearch-action.
     - name: Run Docker container
       shell: bash
       env:
@@ -80,7 +79,6 @@ runs:
           -e discovery_type=$INPUT_DISCOVERY_TYPE \
           elasticsearch:$INPUT_ELASTICSEARCH_VERSION
 
-        # Check if Elasticsearch is up and running
         for i in {1..120}; do
           if curl --silent --fail http://localhost:9200; then
             echo "Elasticsearch is up and running"

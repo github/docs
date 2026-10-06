@@ -7,10 +7,6 @@ import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features'
 import breadcrumbs from '@/frame/middleware/context/breadcrumbs'
 import currentProductTree from '@/frame/middleware/context/current-product-tree'
-import { readCompressedJsonFile } from '@/frame/lib/read-json-file'
-
-// scripts/precompute-pageinfo.ts imports this path; missing files fall back to live computation.
-export const CACHE_FILE_PATH = '.pageinfo-cache.json.br'
 
 // Metadata rendering and breadcrumbs need this minimal middleware chain.
 async function makeRenderingReq(page: Page, pathname: string) {
@@ -33,7 +29,7 @@ async function makeRenderingReq(page: Page, pathname: string) {
 
 type RenderingReq = Awaited<ReturnType<typeof makeRenderingReq>>
 
-async function computeCacheableFromReq(renderingReq: RenderingReq, page: Page) {
+async function computePageInfoFromReq(renderingReq: RenderingReq, page: Page): Promise<PageInfo> {
   const context = renderingReq.context
 
   const title = await page.renderProp('title', context, { textOnly: true })
@@ -67,24 +63,11 @@ async function computeBreadcrumbsFromReq(renderingReq: RenderingReq) {
   return renderingReq.context.breadcrumbs as Breadcrumb[] | undefined
 }
 
-// Cache only title, intro, and product.
-// Breadcrumbs compute cheaply on cache hits and would bloat the cache file and dictionary.
-export async function getCacheablePageInfo(page: Page, pathname: string) {
-  const renderingReq = await makeRenderingReq(page, pathname)
-  return computeCacheableFromReq(renderingReq, page)
-}
-
-// Breadcrumbs cost less than title and intro rendering, so cache hits compute them.
-export async function getBreadcrumbsForPage(page: Page, pathname: string) {
-  const renderingReq = await makeRenderingReq(page, pathname)
-  return computeBreadcrumbsFromReq(renderingReq)
-}
-
-// getPageInfo reuses one rendering request on cache misses.
+// getPageInfo reuses one rendering request.
 // contextualize, shortVersions, and features run once for metadata and breadcrumbs.
-export async function getPageInfo(page: Page, pathname: string) {
+export async function getPageInfo(page: Page, pathname: string): Promise<PageInfoWithBreadcrumbs> {
   const renderingReq = await makeRenderingReq(page, pathname)
-  const base = await computeCacheableFromReq(renderingReq, page)
+  const base = await computePageInfoFromReq(renderingReq, page)
   const pageBreadcrumbs = await computeBreadcrumbsFromReq(renderingReq)
   return { ...base, breadcrumbs: pageBreadcrumbs }
 }
@@ -108,61 +91,16 @@ async function getProductPageInfo(page: Page, context: Context) {
   return _productPageCache[cacheKey]
 }
 
-type CachedPageInfoEntry = {
+type PageInfo = {
   title: string
   intro: string
   product: string
 }
 
-type CachedPageInfo = {
-  [url: string]: CachedPageInfoEntry
-}
-
 type Breadcrumb = { href: string; title: string }
 
-type PageInfoWithBreadcrumbs = CachedPageInfoEntry & {
+type PageInfoWithBreadcrumbs = PageInfo & {
   breadcrumbs?: Breadcrumb[]
-  cacheInfo?: string
-}
-
-// getPageInfoFromCache does not fill the in-memory cache on misses.
-// Production sees each HTTP GET once per deploy because the CDN caches it until purge.
-// Local review does not need this cache path for performance.
-// CI warms the precomputed cache with npm run precompute-pageinfo before vitest.
-let _cache: CachedPageInfo | null = null
-export async function getPageInfoFromCache(
-  page: Page,
-  pathname: string,
-): Promise<PageInfoWithBreadcrumbs> {
-  let cacheInfo = ''
-  if (_cache === null) {
-    try {
-      _cache = readCompressedJsonFile(CACHE_FILE_PATH) as CachedPageInfo
-      cacheInfo = 'initial-load'
-    } catch (error) {
-      cacheInfo = 'initial-fail'
-      if (error instanceof Error && (error as NodeJS.ErrnoException).code !== 'ENOENT') {
-        throw error
-      }
-      _cache = {}
-    }
-  }
-
-  const cached = _cache[pathname]
-  if (!cacheInfo) {
-    cacheInfo = cached ? 'hit' : 'miss'
-  }
-
-  let meta: PageInfoWithBreadcrumbs
-  if (cached) {
-    // The precomputed cache omits breadcrumbs because cache hits can compute them cheaply.
-    const pageBreadcrumbs = await getBreadcrumbsForPage(page, pathname)
-    meta = { ...cached, breadcrumbs: pageBreadcrumbs }
-  } else {
-    meta = await getPageInfo(page, pathname)
-  }
-  meta.cacheInfo = cacheInfo
-  return meta
 }
 
 // pageValidationMiddleware follows redirects before getMetadata.
@@ -189,11 +127,9 @@ export async function getMetadata(req: ExtendedRequestWithPageInfo) {
     throw new Error(`pathname '${pathname}' not one of the page's permalinks`)
   }
 
-  const fromCache = await getPageInfoFromCache(page, pathname)
-  const { cacheInfo, ...meta } = fromCache
+  const meta = await getPageInfo(page, pathname)
 
   return {
     meta: { ...meta, documentType, ...(redirectedFrom && { redirectedFrom }) },
-    cacheInfo,
   }
 }

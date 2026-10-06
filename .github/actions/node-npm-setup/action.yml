@@ -9,8 +9,7 @@ runs:
       uses: actions/cache@v4
       id: cache-node_modules
       env:
-        # Default is 10 min, per segment, but we can make it much smaller
-        # because it's not the end of the world if the cache restore fails.
+        # Cache restore failures are acceptable, so keep the segment timeout short.
         SEGMENT_DOWNLOAD_TIMEOUT_MINS: '1'
       with:
         path: node_modules

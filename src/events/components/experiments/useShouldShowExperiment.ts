@@ -16,8 +16,8 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
   const mainContext = useMainContext()
   const [isStaff, setIsStaff] = useState<boolean>(false)
 
-  // Fetch `isStaff` one time on mount so we can know if the other useEffect needs to be re-run
   useEffect(() => {
+    // Staff status refreshes experiment targeting after the cookie request resolves.
     let cancelled = false
     async function checkStaff() {
       const staffValue = await getIsStaff()
@@ -30,7 +30,7 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
   }, [])
 
   useEffect(() => {
-    // After 1.5 seconds, if the experiment logic hasn't resolved, force it to stop loading
+    // Stop loading after 1.5 seconds so a stalled cookie request does not hide the page variant.
     const timer = setTimeout(() => {
       if (experimentLoading) {
         setExperimentLoading(false)

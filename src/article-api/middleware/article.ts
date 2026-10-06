@@ -48,7 +48,7 @@ router.get(
   pageValidationMiddleware as RequestHandler,
   apiVersionValidationMiddleware as RequestHandler,
   catchMiddlewareError(async function (req: ExtendedRequestWithPageInfo, res: Response) {
-    const { meta, cacheInfo } = await getMetadata(req)
+    const { meta } = await getMetadata(req)
     let bodyContent
     try {
       bodyContent = await getArticleBody(req)
@@ -56,7 +56,7 @@ router.get(
       return res.status(403).json({ error: (error as Error).message })
     }
 
-    incrementArticleLookup(req, 'full', cacheInfo)
+    incrementArticleLookup(req, 'full')
     recordBodySize(req, bodyContent)
 
     defaultCacheControl(res)
@@ -143,9 +143,9 @@ router.get(
   pathValidationMiddleware as RequestHandler,
   pageValidationMiddleware as RequestHandler,
   catchMiddlewareError(async function pageInfo(req: ExtendedRequestWithPageInfo, res: Response) {
-    const { meta, cacheInfo } = await getMetadata(req)
+    const { meta } = await getMetadata(req)
 
-    incrementArticleLookup(req, 'meta', cacheInfo)
+    incrementArticleLookup(req, 'meta')
     defaultCacheControl(res)
 
     setFastlySurrogateKey(
@@ -160,11 +160,7 @@ router.get(
 // Keep Datadog metric tags consistent across Article API endpoints.
 // Datadog tags max at 200 characters, so path and source tags are truncated.
 // See https://docs.datadoghq.com/getting_started/tagging/#define-tags
-function incrementArticleLookup(
-  req: ExtendedRequestWithPageInfo,
-  type: 'full' | 'body' | 'meta',
-  cacheInfo?: string,
-) {
+function incrementArticleLookup(req: ExtendedRequestWithPageInfo, type: 'full' | 'body' | 'meta') {
   const pathname = req.pageinfo.pathname
   const language = req.pageinfo.page?.languageCode || 'en'
 
@@ -189,9 +185,6 @@ function incrementArticleLookup(
     `type:${type}`,
     `source:${source}`.slice(0, 200),
   ]
-
-  // Full and metadata lookups include page-info cache status.
-  if (cacheInfo) tags.push(`cache:${cacheInfo}`)
 
   statsd.increment('api.article.lookup', 1, tags)
 }

@@ -1,10 +1,5 @@
-// Debugs and tests our comment signals.
-//
-//    npm run analyze-comment -- "I love this site\!" --verbose
-//
-// or, using stdin:
-//
-//    cat naughty-comment.txt | npm run analyze-comment
+// Debug comment signals with npm run analyze-comment -- "I love this site\!" --verbose.
+// Pipe a file to npm run analyze-comment to read the comment from stdin.
 
 import fs from 'node:fs'
 import util from 'node:util'
@@ -29,7 +24,7 @@ program.parse(process.argv)
 
 async function main(comment?: string, options?: Options) {
   if (!comment) {
-    const stdinBuffer = fs.readFileSync(0) // STDIN_FILENO = 0
+    const stdinBuffer = fs.readFileSync(0) // File descriptor 0 reads stdin.
     comment = stdinBuffer.toString()
   }
   if (!comment.trim()) {

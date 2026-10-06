@@ -1,12 +1,12 @@
 rules:
-  # pull_request_target is required for workflows that need write access
-  # on PRs from forks (e.g. labeling, commenting). We audit these manually.
+  # Workflows need pull_request_target for write access on forked PRs.
+  # We audit these manually.
   dangerous-triggers:
     disable: true
 
-  # actions/* has immutable tags, so ref-pinning is sufficient.
-  # github/internal-actions is a private GitHub org repo, ref-pin is fine.
-  # Everything else must be hash-pinned.
+  # actions/* tags are immutable, so ref-pinning is sufficient.
+  # github/internal-actions is private, so ref-pinning is sufficient.
+  # Hash-pin everything else.
   unpinned-uses:
     config:
       policies:

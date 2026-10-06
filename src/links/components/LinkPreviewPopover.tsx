@@ -25,7 +25,6 @@ type PageMetadata = {
   title: string
   intro: string
   anchor?: string
-  cacheInfo?: string
 }
 
 function getOrCreatePopoverGlobal() {

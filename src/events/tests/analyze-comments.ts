@@ -156,7 +156,7 @@ describe('analyzeComment', () => {
       expect(rating).toBeLessThan(1.0)
     }
     {
-      // example of a false positive
+      // Short English text can trigger a not-language false positive.
       const { signals, rating } = await analyzeComment('english word')
       expect(signals.includes('not-language')).toBeTruthy()
       expect(rating).toBeLessThan(1.0)
@@ -166,7 +166,7 @@ describe('analyzeComment', () => {
       const { signals } = await analyzeComment('english words longer sentence this time')
       expect(signals.includes('not-language')).toBeFalsy()
     }
-    // Always allow English comments even when the page language is non-English
+    // Always allow English comments even when the page language is non-English.
     {
       const { signals } = await analyzeComment('english words longer sentence this time', 'fr')
       expect(signals.includes('not-language')).toBeFalsy()
@@ -178,7 +178,7 @@ describe('analyzeComment', () => {
   })
 
   test('cuss-words-likely', async () => {
-    // The "CK" makes the final word a mix or lower and upper case.
+    // The first word mixes lowercase and uppercase letters.
     const { signals, rating } = await analyzeComment('f*CK you'.replace('*', 'u'))
     expect(signals.includes('cuss-words-likely')).toBeTruthy()
     expect(rating).toBeLessThan(1.0)
@@ -224,7 +224,7 @@ describe('analyzeComment', () => {
       const { signals } = await analyzeComment('GitHub is great!')
       expect(signals.includes('spammy-words')).toBeFalsy()
     }
-    // No sub-string matches allowed
+    // Survey words must match whole tokens, not substrings.
     {
       const { signals } = await analyzeComment('MinecraftFacebook')
       expect(signals.includes('spammy-words')).toBeFalsy()
@@ -241,7 +241,7 @@ describe('analyzeComment', () => {
       expect(guessedLanguage).toBe('en')
     }
 
-    // False positives due to short text
+    // Short text can trigger language false positives.
     {
       const guessedLanguage = await analyzeComment('Hello')
       expect(guessedLanguage).not.toBe('en')
