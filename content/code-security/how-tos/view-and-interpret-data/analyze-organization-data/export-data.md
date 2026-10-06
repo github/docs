@@ -19,6 +19,10 @@ category:
 
 The CSV file you download will contain data corresponding to the filters you have applied to security overview. For example, if you add the filter `dependabot-alerts:enabled`, your file will only contain data for repositories that have enabled {% data variables.product.prodname_dependabot_alerts %}.
 
+{% ifversion ai-powered-security-detections %}
+CSV files exported from the "Coverage" view include a `Code Scanning AI Scan for pull requests` column. The value for each repository is `enabled` or `not-enabled`.
+{% endif %}
+
 > [!NOTE]
 > In the "Teams" column of the CSV file, each repository will list a maximum of 20 teams with write access to that repository. If more than 20 teams have write access to a repository, the data will be truncated.
 

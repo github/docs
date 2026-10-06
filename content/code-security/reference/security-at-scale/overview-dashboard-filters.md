@@ -117,6 +117,9 @@ You can limit the data to repositories owned by a single organization in your en
 | Qualifier | Description |
 | -------- | -------- |
 | `code-scanning-default-setup`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled using {% data variables.product.prodname_codeql %} default setup. |
+| {% ifversion ai-powered-security-detections %} |
+| `code-scanning-ai-scan-pr-scan` | Display data for repositories where AI Scan for pull requests is effectively enabled or not enabled. Use `code-scanning-ai-scan-pr-scan:enabled` to display enabled repositories, or `code-scanning-ai-scan-pr-scan:not-enabled` to display repositories where the feature is not enabled. |
+| {% endif %} |
 | `code-scanning-pull-request-alerts`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled to run on pull requests. |
 | `dependabot-security-updates` | Display data for repositories where {% data variables.product.prodname_dependabot_security_updates %} is enabled or not enabled.  |
 | `secret-scanning-push-protection` | Display data for repositories where push protection for {% data variables.product.prodname_secret_scanning %} is enabled or not enabled. |

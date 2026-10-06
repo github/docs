@@ -6213,6 +6213,12 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
     },
     {
+      "slug": "rerequest-reviewers-for-a-pull-request",
+      "subcategory": "review-requests",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers/rerequest"
+    },
+    {
       "slug": "list-reviews-for-a-pull-request",
       "subcategory": "reviews",
       "verb": "get",
