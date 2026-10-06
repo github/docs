@@ -26,6 +26,8 @@ For more information on creating rulesets and bypass permissions, see {% ifversi
 
 If selected, only users with bypass permissions can create branches or tags whose name matches the pattern you specify.
 
+If you apply this rule to all branches, add the **GitHub Merge Queue** app to the bypass list. Merge queue branches use the `gh-readonly-queue/{base_branch}` naming pattern and must be allowed to be created.
+
 ## Restrict updates
 
 If selected, only users with bypass permissions can push to branches or tags whose name matches the pattern you specify.
