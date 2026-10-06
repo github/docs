@@ -14,6 +14,7 @@ children:
   - /creating-and-highlighting-code-blocks
   - /creating-diagrams
   - /writing-mathematical-expressions
+  - /displaying-relative-time
   - /autolinked-references-and-urls
   - /attaching-files
   - /about-tasklists
