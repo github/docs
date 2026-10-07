@@ -23,6 +23,15 @@
   xcode: true
   jetbrains: true
 
+- name: Claude Haiku 5.5
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Claude Opus 4.8
   dotcom: true
   cli: true

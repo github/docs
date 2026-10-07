@@ -81,6 +81,10 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
+- name: 'Claude Haiku 5.5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 - name: 'Claude Opus 4.8'
   provider: 'Anthropic'
   release_status: 'GA'
