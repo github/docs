@@ -20,7 +20,7 @@ category:
 
 ## Introduction
 
-You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically, and you can set your {% data variables.product.prodname_copilot_short %} review effort. For an overview, see [AUTOTITLE](/copilot/concepts/agents/code-review#automatic-pull-request-reviews).
+You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically, set your {% data variables.product.prodname_copilot_short %} review effort, and control who can request reviews. For an overview, see [AUTOTITLE](/copilot/concepts/agents/code-review#automatic-pull-request-reviews).
 
 ## Configuring automatic code review for your own pull requests
 
@@ -85,6 +85,8 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    > [!NOTE]
    > {% data reusables.copilot.automatic-approvals-public-preview %}
 
+1. To prevent people from using an external {% data variables.product.prodname_copilot_short %} license to request reviews in this repository, enable **Only allow {% data variables.copilot.copilot_code-review_short %} to be triggered by authorized users**. If this setting is enabled for your organization, you cannot turn it off for the repository. See [AUTOTITLE](/copilot/concepts/agents/code-review#reviews-requested-with-an-external-copilot-license).
+
 ## Configuring automatic code review for repositories in an organization
 
 You can enable automatic code reviews for repositories in your organization and customize how code reviews are performed.
@@ -128,6 +130,8 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    
    > [!NOTE]
    > {% data reusables.copilot.automatic-approvals-public-preview %}
+
+1. To prevent people from using an external {% data variables.product.prodname_copilot_short %} license to request reviews in your organization's repositories, enable **Only allow {% data variables.copilot.copilot_code-review_short %} to be triggered by authorized users**. This setting applies to every repository in the organization, and repository administrators cannot turn it off.
 
 ## Configuring automatic code review for an enterprise
 
