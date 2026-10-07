@@ -66,4 +66,3 @@ During the installation process, the app owner will direct you to a {% data vari
    If the app creates any repositories, the app will automatically be granted access to those repositories as well.
 1. Review the permissions that the app is requesting. For more information about the REST API requests the {% data variables.product.prodname_github_app %} can make with those permissions, see [AUTOTITLE](/rest/authentication/permissions-required-for-github-apps).
 1. Click **Install**, **Install and request**, or **Request**. The button that is presented depends on whether your organization owner must approve none, some, or all of the requested access for the app.{% ifversion enterprise-installed-apps %} Enterprise installations cannot be requested—the enterprise owner must install the app directly.{% endif %} For more information, see [Requirements to install a {% data variables.product.prodname_github_app %}](#requirements-to-install-a-github-app).
-

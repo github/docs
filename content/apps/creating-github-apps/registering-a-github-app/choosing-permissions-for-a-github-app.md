@@ -45,7 +45,13 @@ The success of an API request with a user access token depends on the user's per
 
 For more information about specifying permissions during {% data variables.product.prodname_github_app %} registration, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
 
-Some webhooks and API access requires "Administration" permissions. If your app requires "Administration" permissions, consider explaining this requirement on your app's homepage. This will help users understand why your app needs a high level permission.
+Some webhooks and API access require "Administration" permissions. If your app requires "Administration" permissions, consider explaining this requirement on your app's homepage. This will help users understand why your app needs a high level permission.
+
+{% ifversion github-app-repository-permission-improvements %}
+
+If your app only needs "Administration" permission to create repositories, request the "Repository creation" permission instead. This more limited permission lets your app create repositories without granting access to other repository administration features. Your app is automatically given access to repositories it creates.
+
+{% endif %}
 
 ## About changes to permissions
 
