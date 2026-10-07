@@ -1,4 +1,4 @@
----
+---@claude
 title: Sharing contributions from GitHub Enterprise Server
 intro: You can send contribution counts from {% data variables.product.prodname_ghe_server %} to your profile on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}.
 redirect_from:
