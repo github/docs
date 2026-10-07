@@ -1,9 +1,9 @@
 import React from 'react'
-import { Flash } from '@primer/react'
 import { useRouter } from 'next/router'
 
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { Link } from '@/frame/components/Link'
+import { Banner } from '@/frame/components/ui/Banner'
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { RenderedHTML } from '@/frame/components/ui/RenderedHTML/RenderedHTML'
@@ -76,7 +76,7 @@ export const RestBanner = () => {
         data-testid="rest-api-versioning-temporary-banner"
         className="container-xl mt-3 mx-auto p-responsive"
       >
-        <Flash>
+        <Banner>
           <RenderedHTML as="span" html={bannerText} />{' '}
           <RenderedHTML
             as="span"
@@ -85,7 +85,7 @@ export const RestBanner = () => {
               versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`,
             )}
           />
-        </Flash>
+        </Banner>
       </div>
     )
   }
@@ -130,7 +130,7 @@ export const RestBanner = () => {
 
   return (
     <div data-testid="rest-api-repos-banner" className="container-xl mt-3 mx-auto p-responsive">
-      <Flash variant="warning">
+      <Banner variant="warning">
         <p>
           <b className="text-bold">
             <span>
@@ -138,7 +138,7 @@ export const RestBanner = () => {
             </span>
           </b>{' '}
         </p>
-      </Flash>
+      </Banner>
     </div>
   )
 }

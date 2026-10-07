@@ -1,13 +1,11 @@
-import { Flash } from '@primer/react'
 import { Heading } from '@primer/react-brand'
 
 import { useMainContext } from '@/frame/components/context/MainContext'
+import { Banner } from '@/frame/components/ui/Banner'
 import { useTranslation } from '@/languages/components/useTranslation'
 
 import styles from './NoQuery.module.scss'
 
-// NoQuery keeps the callout on Primer React because Brand lacks Flash, Banner, or Alert.
-// The Docs 2026 callout system is the planned replacement.
 export function NoQuery() {
   const { t } = useTranslation('old_search')
   const mainContext = useMainContext()
@@ -20,9 +18,9 @@ export function NoQuery() {
         {page.title}
       </Heading>
 
-      <Flash variant="danger" className={styles.flash}>
+      <Banner variant="danger" className={styles.banner}>
         {t('description')}
-      </Flash>
+      </Banner>
     </>
   )
 }

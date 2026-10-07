@@ -53,6 +53,27 @@ The resolved mode comes from the **effective theme**, not the raw `color_mode`, 
 
 This is a workaround for a gap in Brand and belongs upstream; until it lands, every consumer has to hand Brand a concrete mode.
 
+### Color contrast requirements
+
+Colors must meet WCAG 2.1 AA in every supported mode. Primer documents the requirements in [ADR-010: Color contrast requirements](https://github.com/primer/primitives/blob/main/contributor-docs/adrs/adr-010-color-contrast.md). The ones that come up most often are:
+
+| Pair | Minimum ratio |
+|---|---|
+| Text vs. any background it can sit on | 4.5:1 |
+| Large text, icons, and other non-text UI vs. background | 3:1 |
+| Link vs. surrounding text | 3:1, unless the link is underlined. Links also need 4.5:1 against the background. |
+| Focus indicator vs. adjacent colors | 3:1 |
+| Border of a control that contains text, or a decorative border | None |
+
+Check both light and dark mode. Brand's base color scales (`--base-color-scale-*`) don't invert in dark mode, so a step that passes in light mode can fail in dark mode.
+
+Also check the no-JavaScript fallback, where `<html>` keeps `data-color-mode="auto"`. Brand stays on its light palette there, so a component that darkens its own background still gets light-mode link blue. Scope fallback selectors to `html`, because the `@primer/react` `ThemeProvider` wrapper also starts as `auto`.
+
+On colored surfaces, such as the `Banner` component in `src/frame/components/ui/Banner/`, we enforce these rules:
+
+* Always underline links. Don't rely on link color to separate links from surrounding text.
+* If the link color can't be guaranteed to reach 4.5:1 against the surface, set links to the surface's text color.
+
 ## Setup & Usage
 
 To access the current theme in a component:
