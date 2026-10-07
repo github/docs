@@ -72,6 +72,8 @@ For the full list of settings and how they interact with repository-level config
 > [!TIP]
 > Run `copilot help config` in your terminal for a quick reference.
 
+Use `copilot config` from your shell, outside a session, to read or change settings non-interactively—the scripting counterpart to the `/settings` slash command. Add `--repo` or `--local` to target `.github/copilot/settings.json` or `.github/copilot/settings.local.json` instead of your user settings file; only [repo-overridable keys](#repository-settings-githubcopilotsettingsjson) can be written there. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#using-copilot-config) for the full command reference.
+
 ### `copilot-instructions.md`
 
 Personal custom instructions that apply to all your sessions, regardless of which project you're working in. This file works the same way as a repository-level `copilot-instructions.md` but applies globally.
@@ -659,7 +661,7 @@ Only the following keys are supported in MDM managed settings.
 | `forceLoginOrgs` | Pin sign-in to an approved set of {% data variables.product.github %} organizations (an array of organization logins, matched case-insensitively). {% data variables.product.prodname_copilot_short %} only runs for an account belonging to at least one listed organization; a personal account, an account that belongs only to some other enterprise, or BYOK/API-key authentication is refused with an actionable error. Set an empty array to turn the pin off without deleting the key. Deploy this key through the device channel (MDM plist/registry, or `managed-settings.json`) since it must be able to redirect a developer's first sign-in—the server-managed channel only reaches accounts that have already authenticated into the organization. This key fails closed: an unusable value, or a managed policy that can't be read on a known-managed device, blocks all sign-in until fixed. |
 | `forceRemoteSettingsRefresh` | Require a fresh server-managed settings fetch on startup, even when a fresh cached policy exists. The cached entry is still kept as a fallback if the fetch fails. The device (MDM) value takes precedence over a cached server value. |
 | `model` | Set a default model for all users (overridden by the `--model` flag or a resumed-session model). `effortLevel` and `contextTier` set alongside `model` apply the same managed reasoning effort and context tier as the corresponding [repository settings](#repository-settings-githubcopilotsettingsjson) keys, but only when the managed model supports explicit effort/context options. |
-| `permissions` | Set managed permissions, including `disableBypassPermissionsMode` and `deny` / `ask` / `allow` rule arrays. See [Managed permission rules](#managed-permission-rules). |
+| `permissions` | Set managed permissions, including `disableBypassPermissionsMode`, `deny` / `ask` / `allow` rule arrays, and the `limitTo` domain boundary array. See [Managed permission rules](#managed-permission-rules) and [Domain boundary (`limitTo`)](#domain-boundary-limitto). |
 | `policyHelper` | Register an executable that supplies the lowest-priority managed-settings layer. Fields: `path` (required), plus optional `args`, `timeoutMs`, and `refreshIntervalMs`. If both a device (MDM) and a server policy register a `policyHelper`, the device registration wins. |
 | `remoteControl` | Control whether sessions on this device can be controlled from other devices. `mode` is `"enabled"`, `"disabled"`, or `"requireSSO"` (requires `githubDotComOrganizations` when set). |
 | `sandbox` | Set a sandbox policy floor that users cannot relax. Supported settings include `enabled`, `failIfUnavailable`, `allowBypass`, `addCurrentWorkingDirectory`, `sandboxMcpServers`, `sandboxLspServers`, `auth.git`, `auth.gh`, `allowDevToolAccess`, `learningMode`, and the `userPolicy.*` filesystem and network rules. The managed value always takes precedence over a user's own value in the safer direction. Turning the sandbox on, requiring it to succeed, and sandboxing MCP and LSP servers cannot be turned off. Disabling bypass or credential injection cannot be re-enabled. Filesystem allow lists can only be narrowed, and denied paths can only be added to. `failIfUnavailable` can only be set by an administrator and blocks the session when the sandbox cannot be established. For the settings users can set themselves, see [User settings](#user-settings-copilotsettingsjson) or run `copilot help sandbox`. |
@@ -699,6 +701,24 @@ Add `deny`, `ask`, and `allow` rule lists under the managed `permissions` key to
 Rules are combined across managed sources with a fixed precedence: deny always wins, then ask, then allow—matching a `deny` rule blocks the request even if an `allow` rule also matches. `deny` and `ask` are unioned across every managed source (server, MDM). `allow` requires every source that declares an `allow` list to admit the operation—an intersection, not a union. When any of `deny`, `ask`, or `allow` is set, an operation that matches none of them defaults to `ask` rather than falling through silently.
 
 `Edit(...)` and `Write(...)` rules apply to more than the built-in file tools. They also cover files written directly by a shell command. {% data variables.copilot.copilot_cli_short %} recognizes a fixed set of these writes. It covers Bash output redirections (`>`, `>>`, `>|`, `&>`, `&>>`), PowerShell output redirections (`>`, `>>`, `*>`, `*>>`), and a small set of in-place `sed` edits (`sed -i` or `--in-place`, and the BSD forms `-i ''` and `-I ''`). When {% data variables.copilot.copilot_cli_short %} can work out the target file from the command, a matching `deny` rule blocks the write and a matching `ask` rule prompts you first. This applies even when a broad rule like `Shell(*)` would otherwise allow the command. Sometimes the target file cannot be worked out ahead of time, for example when the path comes from a variable. In that case these path rules do not apply, and the command is checked by the normal shell command rules instead.
+
+### Domain boundary (`limitTo`)
+
+Add a `limitTo` array alongside `deny`, `ask`, and `allow` under the managed `permissions` key to enforce a closed-world domain allowlist:
+
+```json
+{
+    "permissions": {
+        "limitTo": ["github.com", "*.github.com"]
+    }
+}
+```
+
+Only `Domain(...)` entries are supported in `limitTo`. Any agent network request to a domain outside the list is denied without prompting, and user rules, saved approvals, and allow-all modes can't widen it. URLs detected in shell requests are treated as `Domain` requests and must also satisfy the boundary. `limitTo` doesn't restrict `shell`, `read`, or `write` operations by themselves.
+
+An empty `limitTo` list denies every domain request. An invalid list, or an invalid entry, is enforced as an empty list (and reported as a configuration error) rather than discarding the rest of the managed policy.
+
+`deny` still takes precedence over `limitTo`. `ask` and `allow` only refine requests that are already inside the boundary. Like `allow`, `limitTo` is an intersection across managed sources—every managed source that declares a `limitTo` list must admit the request.
 
 ## Managed MCP server allow/deny list
 
