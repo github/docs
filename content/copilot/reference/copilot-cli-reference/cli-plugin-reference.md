@@ -89,7 +89,10 @@ MCP servers install from a policy-configured registry, which requires authentica
 > [!NOTE]
 > Path-sourced plugins in a local (directory-source) marketplace load live from their real directory—editing one takes effect on `/restart` or in a new session, with no `copilot plugin update` needed.
 
-First-party plugins—those installed from the built-in `copilot-plugins` and `awesome-copilot` marketplaces—automatically update at the start of each session in a trusted working directory. Disable this behavior with the `autoUpdate` setting (set to `false`) or the `COPILOT_AUTO_UPDATE=false` environment variable. Auto-update is also skipped by default in CI. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
+First-party plugins—those installed from the built-in `awesome-copilot` marketplace—automatically update at the start of each session in a trusted working directory. Disable this behavior with the `autoUpdate` setting (set to `false`) or the `COPILOT_AUTO_UPDATE=false` environment variable. Auto-update is also skipped by default in CI. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
+
+> [!NOTE]
+> `copilot-plugins` previously shipped as a second built-in default marketplace alongside `awesome-copilot`. It's now an ordinary, non-default marketplace (`github/copilot-plugins`) that you register yourself with `copilot plugin marketplace add github/copilot-plugins`. If you installed plugins from it before this change, a one-time migration adds it to your own `extraKnownMarketplaces` with `autoUpdate: true` so those plugins keep updating. A fresh install that never used `copilot-plugins` must register it manually before installing plugins from it.
 
 A marketplace you've added yourself can opt into the same session-start auto-update by setting `autoUpdate: true` on its `extraKnownMarketplaces` entry in your user settings. This opt-in applies only to interactive and `-p` sessions—SDK and server sessions don't auto-update. It is honored from your own user settings or from managed (MDM/server) settings, but a repository-level `autoUpdate` setting is accepted and ignored—it can't enable or redirect auto-update for a marketplace. On a same-name collision, a built-in first-party marketplace wins, then a managed entry (which replaces the whole same-named user entry, so a managed entry without `"autoUpdate": true` removes the user's opt-in), then the user's own entry. See [Repository settings](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#repository-settings-githubcopilotsettingsjson).
 
@@ -97,11 +100,11 @@ In interactive mode, `/plugin` flags an installed plugin or marketplace when a n
 
 ### `copilot plugin marketplace` (alias `marketplaces`) subcommands
 
-Built-in default marketplaces ship with the runtime and can't be removed.
+The built-in `awesome-copilot` default marketplace ships with the runtime and can't be removed.
 
 | Subcommand              | Description                                                                 |
 |--------------------------|-------------------------------------------------------------------------------|
-| `list [--json]`         | List every registered marketplace, including built-in defaults               |
+| `list [--json]`         | List every registered marketplace, including the built-in default            |
 | `add SOURCE`            | Add a marketplace (`owner/repo`, `owner/repo#ref`, a URL, or a local path)    |
 | `remove NAME [--force]` | Remove a marketplace; `--force` also uninstalls plugins sourced from it   |
 | `browse NAME [--json]`  | List the plugins offered by a marketplace's catalog                        |

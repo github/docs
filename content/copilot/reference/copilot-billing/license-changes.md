@@ -95,7 +95,7 @@ Additionally:
 
 | Scenario                        | Plan                | When is billing affected? | Is proration applied? | When does access change? | Refund for unused time? |
 |----------------------------------|---------------------|--------------------------|----------------------|--------------------------|-------------------------|
-| Add seat/license                 | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| Immediately             | Yes                  | Immediately              | N/A                     |
+| Add seat/license                 | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| Immediately (upfront payment for credit card or PayPal)             | Yes                  | Immediately  ({% data variables.product.prodname_ai_credits_short %} may be prorated)            | N/A                     |
 | Remove seat/license              | {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}| End of cycle             | N/A                  | End of cycle (immediately if revoked) | No                      |
 | Cancel subscription              | All plans           | End of cycle            | N/A                  | End of cycle            | No                      |
 | Upgrade plan    | {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %}           | Immediate                | No                  | Immediately              | N/A |

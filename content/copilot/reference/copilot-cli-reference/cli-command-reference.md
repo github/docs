@@ -21,6 +21,7 @@ docsTeamMetrics:
 | `copilot`              | Launch the interactive user interface.             |
 | `copilot app`          | Open the {% data variables.copilot.github_copilot_app %} in the current directory, deep-linking straight to a new session. Falls back to opening the app's download page in a browser if the deep link can't be handled, or prints the URL to open manually if no browser is available. |
 | `copilot completion SHELL` | Print a shell script for the chosen shell that can be used to enable tab completion for {% data variables.copilot.copilot_cli_short %}. Supported shells: `bash`, `zsh`, `fish`. See [Using `copilot completion`](#using-copilot-completion). |
+| `copilot config [KEY] [VALUE]` | Read or change {% data variables.product.prodname_copilot_short %} settings from the command line, outside an interactive session. See [Using `copilot config`](#using-copilot-config). |
 | `copilot help [TOPIC]` | Display help information. Help topics include: `billing`, `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, `providers`, and `sandbox`. |
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
 | `copilot login [OPTION]` | Authenticate with {% data variables.product.prodname_copilot_short %} via OAuth. See [`copilot login` options](#copilot-login-options). |
@@ -77,7 +78,7 @@ COPILOT_GITHUB_TOKEN=github_pat_... copilot
 
 The command `copilot completion SHELL` outputs a script for the specified shell (bash, zsh, or fish).
 
-By sourcing this script (or writing it to your shell's completion directory) you can enable tab completion in your terminal for `copilot` subcommands, command options, and known value choices for command options.
+By sourcing this script (or writing it to your shell's completion directory) you can enable tab completion in your terminal for `copilot` subcommands, command options, and known value choices for command options. For `copilot config`, completion also covers setting keys, boolean and enum values, and files or directories for path-valued settings.
 
 #### Usage examples
 
@@ -108,6 +109,47 @@ copilot completion fish > ~/.config/fish/completions/copilot.fish
 ### Managing plugins non-interactively
 
 Use `copilot plugin` to install, list, update, enable, disable, and uninstall plugins from the command line, without opening an interactive session. `copilot plugins` (plural) is a legacy alias for the same command. For the full command and option reference, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference).
+
+### Using `copilot config`
+
+Run `copilot config` to read and change {% data variables.product.prodname_copilot_short %} settings from the command line, outside an interactive session. This is the non-interactive counterpart to the `/settings` (or `/config`) slash command. For more information about the settings file and its keys, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#settingsjson).
+
+```bash
+# Print a setting
+copilot config theme
+
+# Set a nested value (dot notation)
+copilot config footer.showQuota off
+
+# Append an item to a list setting (added only if not already present)
+copilot config allowedUrls github.com
+
+# Append an item that starts with a dash
+copilot config powershellFlags -- -NoProfile
+
+# Remove a key, or one list item
+copilot config --rm theme
+copilot config --rm allowedUrls github.com
+
+# List settings as key=value lines, or as JSON
+copilot config --list
+copilot config --repo --list --json
+```
+
+| Option/Argument | Description                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------- |
+| `KEY`           | Setting key in dot notation (for example, `footer.showQuota`). |
+| `VALUE`         | Value to set, append, or remove from a list with `--rm`. |
+| `--list`        | List settings as `key=value` lines; conflicts with `KEY`/`VALUE`/`--rm`. |
+| `--json`        | Output `--list` as JSON; requires `--list`. |
+| `--rm`          | Remove the key, or only the given item from a list; requires `KEY`. |
+| `--global`      | Use your user settings file (the default); conflicts with `--repo`/`--local`. |
+| `--repo`        | Use the repository's `.github/copilot/settings.json`; conflicts with `--global`/`--local`. |
+| `--local`       | Use the repository's `.github/copilot/settings.local.json`; conflicts with `--global`/`--repo`. |
+
+Values must match the setting's type: `on`/`off` or `true`/`false` for booleans, a number for numeric settings, or an accepted choice for enums. Reading a list prints one item per line; reading a group prints JSON. An unset key exits with status `1`. Secret values are redacted from output.
+
+Commands use your user settings file (`settings.json` in `~/.copilot`, or in `$COPILOT_HOME` when set) by default. `--repo` and `--local` accept only the settings a repository can override—see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#repository-settings-githubcopilotsettingsjson). Run `copilot help config` for the available settings.
 
 ### Using `copilot instruction`
 
@@ -188,7 +230,7 @@ copilot sandbox ca remove
 | `copilot sandbox ca rotate`    | Replace the authority, preserving its current trust state. |
 | `copilot sandbox ca remove`    | Remove the authority from OS trust; the bundle-based path keeps working. |
 
-Run these commands as the user who runs {% data variables.copilot.copilot_cli_short %}, not elevated, as `SYSTEM`, or as `root`, because the certificate authority is stored in that user's {% data variables.copilot.copilot_cli_short %} home directory. Run `copilot sandbox ca trust --help` for unattended setup guidance. `copilot sandbox ca` does not accept `--config-dir`; set `COPILOT_HOME` instead to target a non-default {% data variables.copilot.copilot_cli_short %} home.
+Run these commands as the user who runs {% data variables.copilot.copilot_cli_short %}, not elevated, as `SYSTEM`, or as `root`, because the certificate authority is stored in that user's {% data variables.copilot.copilot_cli_short %} home directory. Run `copilot sandbox ca trust --help` for unattended setup guidance. `--config-dir` (or `COPILOT_HOME`) targets a non-default {% data variables.copilot.copilot_cli_short %} home for these commands, the same as the rest of the CLI.
 
 ## The sessions sidebar
 
@@ -390,6 +432,15 @@ Sessions sort by the following modes:
 
 Sessions already open in another window float to the top in all non-relevance sort modes. When no working-directory context is available, the `relevance` mode is skipped.
 
+## Pre-conversation environment picker
+
+Before you send the first message in a new session, press <kbd>Ctrl</kbd>+<kbd>E</kbd> in an empty prompt box to choose where the conversation will run: on your local machine, or in a cloud environment. The environment is provisioned when you send your first message.
+
+> [!NOTE]
+> The environment picker requires cloud sessions to be available on your account—the same requirement as the `--remote`, `--no-remote`, `--remote-export`, `--no-remote-export`, and `--connect` options. See [Command-line options](#command-line-options).
+
+Once a conversation has started, <kbd>Ctrl</kbd>+<kbd>E</kbd> reverts to its other behaviors: moving the cursor to the end of the line while typing, or expanding all items in the timeline on an empty prompt box. See [Navigation shortcuts in the interactive interface](#navigation-shortcuts-in-the-interactive-interface) and [Timeline shortcuts in the interactive interface](#timeline-shortcuts-in-the-interactive-interface).
+
 ## Sidebar and sessions tab shortcuts
 
 The current-session sidebar lets you browse and switch between sessions without leaving the one you're in. With an empty prompt box, <kbd>←</kbd>/<kbd>→</kbd> walk a three-state focus cycle: closed, timeline-focused, and sidebar-focused. Disable the sidebar entirely with the `sidebar` setting—see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
@@ -497,6 +548,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/chronicle <standup\|tips\|improve\|reindex\|skills create\|skills review\|skills status>` | Session history tools and insights. The `skills` subcommands draft, review, and track the status of repository skill proposals generated from observed usage. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle#using-the-chronicle-slash-command). |
 | `/clear [PROMPT]`, `/new [PROMPT]`, `/reset [PROMPT]` | Start a new conversation. `/new worktree` starts an empty session in a new Git worktree instead of clearing the current one, leaving the current conversation and its working directory unchanged. |
 | `/clikit [COMPONENT]`                               | Preview CLI business components (for example, quota info). |
+| `/collect-debug-logs [file\|gist\|share] [PATH]`    | Collect debug logs to an archive, a {% data variables.product.github %} gist, or upload them to {% data variables.product.github %} (`share`). See [Collecting and sharing debug logs](#collecting-and-sharing-debug-logs). |
 | `/compact [FOCUS-INSTRUCTIONS]`                     | Summarize the conversation history to reduce context window usage. Optionally provide focus instructions to steer the summary—for example, `/compact focus on the auth module`. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#compaction). |
 | `/context`                                          | Show the context window token usage and visualization. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#checking-your-context-usage). |
 | `/copy`                                             | Copy the last response to the clipboard. |
@@ -510,7 +562,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/exit`, `/quit`                                    | Close the current session. If other sessions are running, this foregrounds the newest remaining one instead of quitting. Quits the CLI only when it is the last open session. `/exit print` always tears down the CLI and offers to dump the transcript. `/exit` and `/quit` (including their `print` variant) can also be queued with <kbd>Ctrl</kbd>+<kbd>Q</kbd> while the agent is running—the CLI closes the session once the current turn, and any queued shell command ahead of it, finishes. |
 | `/extensions [manage\|mode]`, `/extension`          | Manage CLI extensions. {% data reusables.copilot.experimental %} |
 | `/experimental [on\|off\|show]`                     | Toggle, set, or show experimental features. |
-| `/feedback`, `/bug`                                 | Provide feedback about the CLI. |
+| `/feedback`, `/bug`                                 | Provide feedback about the CLI. Can offer a feedback-with-logs route; see [Collecting and sharing debug logs](#collecting-and-sharing-debug-logs). |
 | `/fleet [PROMPT]`                                   | Enable parallel subagent execution of parts of a task. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet). |
 | `/help`                                             | Show the help for interactive commands. |
 | `/ide`                                              | Connect to an IDE workspace. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/connecting-vs-code#managing-the-connection-with-the-ide-slash-command). |
@@ -525,7 +577,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/logout`                                           | Log out of {% data variables.product.prodname_copilot_short %}. |
 | `/lsp [show\|test\|reload\|logs\|help] [SERVER-NAME]` | Manage the language server configuration. The `logs` subcommand opens the live LSP services log panel. |
 | `/mcp [config\|list\|show\|add\|edit\|delete\|disable\|enable\|auth\|reload\|search] [SERVER-NAME]` | Manage the MCP server configuration. With no subcommand, or with `config`, the plugins dashboard opens pinned to the MCP server list; the add, edit, and authenticate forms open inside that dashboard too, so closing a form returns you to the server list. Use `show` or `show SERVER-NAME` to display all configured servers or open one server's details directly, including its available tools, and to enable or disable it. For a plugin-provided server, `show SERVER-NAME` also displays the source attribution (for example, `Source: Plugin my-plugin (1.2.0)`). `list` (alias `ls`) prints a plain-text list of configured servers with connection status and live state. Bare `/mcp`, `config`, `show`, and `list` (alias `ls`) are read-only or open the dashboard, so they can run while the agent is busy processing a turn. The mutating subcommands (`add`, `edit`, `delete`, `disable`, `enable`, `auth`, `reload`, and `search`) are blocked until the turn finishes. `edit <name>` rejects a workspace-sourced server (one defined in a repository's `.mcp.json`) instead of opening the user-tier wizard, since saving would silently create a same-name user entry that the workspace one still shadows. The error names the file to edit directly. `delete <name>` reports the same file when asked to remove a workspace-sourced server. Sandboxed local servers show a `connected (sandboxed)` status. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers#managing-mcp-servers). |
-| `/model [--session\|--global\|--repo\|--local] [MODEL\|auto TIER]`, `/models`      | Select the AI model you want to use, or choose **Auto**. By default (or with `--session`, alias `-s`), changes the model, reasoning effort, or context window for the current session only, without touching saved settings. `--repo`/`--local` pins the default model in repository settings instead; `--global` (or `/config model`) sets the default for future sessions. Press <kbd>Tab</kbd> on a model with a long-context variant to toggle its Context column between the default and long-context window. The picker groups models into sections—press <kbd>Shift</kbd>+<kbd>Tab</kbd> to cycle grouping between recommended (Recent, Recommended, New, and other models), vendor, and category. A model with vendor-specific data retention terms shows a data retention warning banner with a link to the vendor's policy. Usable mid-turn: a change requested while the agent is running is queued as a cancellable (<kbd>Ctrl</kbd>+<kbd>C</kbd>) command and applied once the current turn finishes, instead of switching the live model mid-request. Use `/model auto TIER` (`efficiency`, `balance`, or `intelligence`) to select a specific Auto routing tier directly, including from the "switch" action on an Auto tier recommendation hint. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection). |
+| `/model [--session\|--global\|--repo\|--local] [MODEL\|auto TIER]`, `/models`      | Select the AI model you want to use, or choose **Auto**. By default (or with `--session`, alias `-s`), changes the model, reasoning effort, or context window for the current session only, without touching saved settings. `--repo`/`--local` pins the default model in repository settings instead; `--global` (or `/config model`) sets the default for future sessions. Press <kbd>Tab</kbd> on a model with a long-context variant to toggle its Context column between the default and long-context window. The picker groups models into sections—press <kbd>Shift</kbd>+<kbd>Tab</kbd> to cycle grouping between recommended (Recent, Recommended, New, and other models), vendor, and category. A model with vendor-specific data retention terms shows a data retention warning banner with a link to the vendor's policy. Usable mid-turn: a change requested while the agent is running is queued as a cancellable (<kbd>Ctrl</kbd>+<kbd>C</kbd>) command and applied once the current turn finishes, instead of switching the live model mid-request. Use `/model auto TIER` (`efficiency`, `balance`, or `intelligence`) to select a specific Auto routing tier directly, including from the "switch" action on an Auto tier recommendation hint. When Auto picks a model, the timeline shows the reason for that choice whenever the API provides one. See [AUTOTITLE](/copilot/concepts/models/auto-model-selection). |
 | `/permissions [default\|assisted\|allow-all\|show]`  | Switch between permission modes (`default`, `assisted`, `allow-all`), or show the current mode (`show`). This is the canonical command for permission mode changes; `/allow-all` and `/yolo` remain supported as aliases. |
 | `/permissions reset`                                | Reset all in-memory tool and path approvals for the current session (re-prompt on next use). |
 | `/plan [PROMPT]`                                    | Create an implementation plan before coding. |
@@ -571,7 +623,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/undo`, `/rewind`                                  | Open the rewind picker to roll the session back to an earlier user turn. Choose between: **Conversation only** (roll back the conversation, leaving files as they are) or **Conversation + files** (also restore the files {% data variables.product.prodname_copilot_short %} changed in that turn, and later discarded turns, to their pre-change contents, skipping any you have since edited yourself). File changes are tracked per turn across editing tools, shell commands, and sub-agents, so Git is not required. |
 | `/update`, `/upgrade`                               | Update the CLI to the latest version. |
 | `/usage`                                            | Display session usage metrics and statistics, including per-model token totals. For token-based-billing accounts, each model's row also shows its own {% data variables.product.prodname_ai_credit_singular %} consumption (for example, `1 AIC`). Billed models with no token counts show credits only. |
-| `/user [show\|list\|switch]`                        | Manage the current {% data variables.product.github %} user. |
+| `/user [show\|list\|switch]`                        | Manage signed-in accounts. |
 | `/version`                                          | Display version information and check for updates. |
 | `/vim`                                              | Toggle Vim mode for the prompt box, enabling Vim-style modal editing: motions (for example, `hjkl`, `w`, `b`, `e`, `0`, `$`, `gg`, `G`), character search (`f`/`F`/`t`/`T`/`;`/`,`), insert commands (`i`/`a`/`o`), edit commands (`r`/`~`/`J`/`x`/`D`/`C`), operators (`d`/`c`/`y`), yank and put (`y`/`p`/`P`), repeat (`.`), undo and redo (`u`/<kbd>Ctrl</kbd>+<kbd>R</kbd>), counts, and <kbd>Esc</kbd> to return to normal mode. Also configurable with the `editorMode` setting. See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#user-settings-copilotsettingsjson). |
 | `/voice [on\|off\|models\|devices]`                 | Toggle voice mode, browse available voice models, or choose the input device (microphone). |
@@ -593,6 +645,18 @@ The footer shows an "N scheduled" indicator by default whenever the session has 
 
 > [!NOTE]
 > The experimental `/plugins` command was removed. Its resources have been moved to `/plugin`, `/mcp`, and `/skills`. Use `/subagents` and `/instructions` for agents and instructions.
+
+### Collecting and sharing debug logs
+
+Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for troubleshooting:
+
+| Target  | Description |
+|---------|-------------|
+| `file`  | Save the logs to a local archive at `PATH` (default location used when `PATH` is omitted). |
+| `gist`  | Upload the logs to a secret {% data variables.product.github %} gist. |
+| `share` | Save a local archive, then upload it to {% data variables.product.github %}. |
+
+`/collect-debug-logs share`, and the feedback-with-logs route offered from `/feedback`, first save a local archive, then ask for fresh consent (defaulting to **No**) before uploading it to {% data variables.product.github %}. Uploading is currently available only to {% data variables.product.github %} staff and internal users, and isn't generally available yet. Users outside {% data variables.product.github %} continue to use the existing archive and gist routes, and the existing public feedback route.
 
 ## Command-line options
 
@@ -726,15 +790,16 @@ Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI
 
 | Model | Best for |
 |-------|----------|
-| `claude-sonnet-4.6` | General-purpose coding (default) |
+| `claude-sonnet-5.5` | General-purpose coding (default) |
 | `gpt-5.4` | Complex reasoning tasks |
-| `gpt-6-astra` | New model, opt-in (not the automatic default) |
-| `gpt-6-sol` | New model, opt-in (not the automatic default) |
-| `gpt-6-luna` | New model, opt-in (not the automatic default) |
-| `claude-opus-5.5` | New model, high-capability complex tasks |
+| `gpt-6.1-sol` | Recommended, opt-in (not the automatic default) |
+| `gpt-6-astra` | Recommended, opt-in (not the automatic default) |
+| `gpt-6-luna` | Recommended, opt-in (not the automatic default) |
+| `claude-opus-5.5` | Recommended, high-capability complex tasks |
 | `claude-haiku-4.5` | Fast, lightweight operations |
 | `gpt-5.3-codex` | Code-focused tasks |
 | `gemini-3.7-flash` | Fast Google Gemini responses |
+| `gemini-3.8-flash` | Fast Google Gemini responses |
 
 You can also switch models during an interactive session using the `/model` slash command.
 
@@ -1046,7 +1111,13 @@ The `--registry` option and other npm configuration options (`--userconfig`, `--
 
 Remote MCP servers that use OAuth may show a `needs-auth` status when a token expires or when a different account is required. Use `/mcp auth <server-name>` to trigger a fresh OAuth flow. This opens a browser authentication prompt, allowing you to sign in or switch accounts. After completing the flow, the server reconnects automatically.
 
-On Windows, remote MCP servers protected by Microsoft Entra ID authenticate through the OS authentication broker (Web Account Manager) instead, usually with no prompt. On other platforms, and on Windows machines without the broker library, sign-in falls back to the browser flow described above. Passing `--device-code` bypasses the broker and forces the OAuth device code flow rather than the browser flow.
+On Windows, remote MCP servers protected by Microsoft Entra ID authenticate through the OS authentication broker (Web Account Manager) instead, usually with no prompt. On Linux and macOS, where no OS broker exists, the CLI instead silently mints a per-resource token from the Entra account established via `/login` → Microsoft Entra. If that account can't silently satisfy the request—for example, no signed-in Entra identity, an ambiguous account, or a resource pre-authorized for a different client—sign-in falls back to the browser flow described above. Passing `--device-code` bypasses the broker and forces the OAuth device code flow rather than the browser flow, and Windows machines without the broker library also fall back to the browser flow.
+
+### Account-derived WorkIQ
+
+Signing in with a Microsoft Entra account makes the hosted WorkIQ MCP server available in `/mcp`. It's disabled by default. Discovery alone doesn't connect, acquire a token, or expose tools—enable it with the normal MCP controls (`/mcp enable WorkIQ` or `copilot mcp enable WorkIQ`) to try silent authentication first. `/mcp auth WorkIQ` remains available for recovery.
+
+The server uses a credential tied to the Entra account that signed in, not a token issued for another service, and its enablement follows that Entra identity rather than transferring to a different account. Explicit server configuration and disablement, and organization allowlist or denylist policy, still take precedence. No WorkIQ entry is written to `mcp-config.json`. This is unrelated to running `npx @microsoft/workiq mcp` as an independently authenticated stdio server.
 
 ### Headless OAuth (`client_credentials` grant)
 

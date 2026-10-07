@@ -1,0 +1,1 @@
+When force pushes were disabled, users with bypass permission in repositories with branch protections and rulesets could lose the option to bypass required status checks after a pull request's base branch advanced.
