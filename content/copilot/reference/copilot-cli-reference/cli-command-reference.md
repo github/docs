@@ -601,7 +601,7 @@ These are the slash commands you can use from within an interactive CLI session.
 | `/resume [SESSION-ID]`, `/continue [SESSION-ID]`    | Switch to a different session by choosing from a list (optionally specify a session ID). |
 | `/review [PROMPT]`                                  | Run the code review agent to analyze changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review). |
 | `/rubber-duck [PROMPT]`                             | Consult the rubber duck agent for a second opinion on plans, code, and tests. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/rubber-duck). |
-| `/sandbox [config\|status\|policy\|enable\|disable]`  | Manage OS-level sandboxing that restricts filesystem and network access for shell commands, MCP/LSP servers, and built-in file/web tools. `config` (or bare `/sandbox`) opens the sandbox settings dialog. `status` shows whether sandboxing is enabled. `policy` shows the effective policy, with path grants grouped by source (user-configured, system, working directory, current session, and `~/.copilot`) and access type, plus the network stance and any detected developer tools. `enable`/`disable` turn sandboxing on or off directly. `status` and `policy` are read-only and can run while the agent is busy processing a turn. `config`, `enable`, and `disable` are queued until the turn finishes. {% data reusables.copilot.experimental %} |
+| `/sandbox [config\|status\|policy [COMMAND]\|enable\|disable]` | Manage sandbox restrictions on filesystem and network access. `config` (or bare `/sandbox`) opens the settings dialog. `status` shows whether sandboxing is enabled for the current session. When sandboxing is enabled, `policy` shows path grants and restrictions grouped by source and access type, network settings, developer-tool access, and sandbox capabilities. Optionally add a command, such as `/sandbox policy npm install`, to inspect its developer-tool access without running it. `enable` and `disable` normally update your saved setting. If your organization requires sandboxing, `disable` is refused unless bypass is allowed. In that case, disabling applies only to the current session. |
 | `/sandbox ca [create\|trust\|rotate\|remove]`       | Manage the sandbox's proxy certificate authority. `create` writes it without trusting it. `trust` adds it to OS trust. `rotate` replaces it while preserving its trust state. `remove` drops OS trust. See [Using `copilot sandbox ca`](#using-copilot-sandbox-ca) to run the same operations outside a session, for example on managed devices. |
 | `/search [QUERY]`, `/find [QUERY]`                  | Search the conversation timeline. |
 | `/security-review [PROMPT]`                         | Run a focused security review of active local code changes and return prioritized vulnerability findings with remediation suggestions. This command is not a full repository security audit. |
@@ -730,8 +730,8 @@ Use `/collect-debug-logs [file|gist|share] [PATH]` to gather debug logs for trou
 | `--screen-reader`                  | Enable screen reader optimizations. |
 | `--secret-env-vars=VAR ...`        | Redact an environment variable from shell and MCP server environments (can be used multiple times). For multiple variables, use a quoted, comma-separated list. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted from output by default. |
 | `--session-id ID`                  | Use an exact session or task ID when you do not want `--resume`'s broader matching by ID prefix or session name. If the ID matches an existing session or task, that session or task is resumed. If nothing matches, a new session is created only when the value is a valid UUID. Names and ID prefixes do not create new sessions. Do not combine this option with other session-selection or session-starting options such as `--resume`, `--continue`, or `--connect`, because they compete to decide which session to open or create. |
-| `--sandbox`                        | Enable the OS-level shell sandbox for this session only, without changing your saved sandbox setting. Useful with `-p`. {% data reusables.copilot.experimental %} |
-| `--no-sandbox` | Disable local sandboxing for this session only, without changing your saved sandbox setting. This option is ignored if an enterprise-managed policy has been configured to enforce sandboxing. {% data reusables.copilot.experimental %} |
+| `--sandbox`                        | Enable the OS-level shell sandbox for this session only, without changing your saved sandbox setting. Useful with `-p`. |
+| `--no-sandbox` | Disable local sandboxing for this session only, without changing your saved sandbox setting. This option is ignored if an enterprise-managed policy has been configured to enforce sandboxing. |
 | `--share=PATH`                     | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
 | `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion of a programmatic session. |
 | `--stream=MODE`                    | Enable or disable streaming mode, which displays {% data variables.product.prodname_copilot_short %}'s response progressively as it is generated rather than waiting for the full response to arrive (mode choices: `on` or `off`, default: `on`).
@@ -754,11 +754,11 @@ Plan-then-autopilot lets a session start in plan mode and automatically continue
 
 ### Enterprise-managed sandbox floor
 
-An enterprise-managed policy can enforce OS-level shell sandboxing as a minimum floor. In other words, even if you pass `--no-sandbox`, the policy can still force sandboxing on. This is a policy override, not a failure of the flag itself. By contrast, `--sandbox` is unaffected because it only turns sandboxing on and never removes it. If the effective policy permits sandbox bypass, you can explicitly disable sandboxing for the rest of the current session while responding to an active bypass permission prompt.
+An enterprise-managed policy can enforce OS-level shell sandboxing as a minimum floor. In other words, even if you pass `--no-sandbox`, the policy can still force sandboxing on. This is a policy override, not a failure of the option itself. By contrast, `--sandbox` is unaffected because it only turns sandboxing on and never removes it. If the effective policy permits sandbox bypass, you can explicitly disable sandboxing for the rest of the current session while responding to an active bypass permission prompt.
 
 When a managed floor forces sandboxing on with an effective `sandbox.allowBypass` of `true` (the default when a policy sets only `sandbox.enabled` to `true`), run `/sandbox disable` to opt out of the sandbox for the rest of the current session—no bypass prompt is required first. The opt-out is session-only: nothing is saved to `settings.json`, a new session starts sandboxed again, and `/sandbox enable` restores sandboxing immediately without waiting for a new session. If `allowBypass` is `false`, `/sandbox disable` refuses with a message that sandboxing is enforced by the managed policy and can't be disabled.
 
-When a managed policy overrides your setting, the CLI shows a warning in the interactive timeline (or on stderr when using `-p`) so it is clear that the behavior comes from policy enforcement rather than the option failing to work. Contact your administrator if you need the policy changed. The `/sandbox` command is also registered whenever a managed policy forces sandboxing on, even without experimental features enabled, so you can still inspect the effective policy and status while the floor applies. {% data reusables.copilot.experimental %}
+When a managed policy overrides your setting, the CLI shows a warning in the interactive timeline (or on stderr when using `-p`) so it is clear that the behavior comes from policy enforcement rather than the option failing to work. Contact your administrator if you need the policy changed. Use `/sandbox status` or `/sandbox policy` to inspect the session's effective restrictions.
 
 Adding the managed `sandbox.failIfUnavailable` setting set to `true`, alongside `sandbox.enabled` set to `true`, makes the sandbox mandatory when it cannot be established. Instead of falling back to running commands unsandboxed, {% data variables.product.prodname_copilot_short %} blocks model and tool execution if the policy can't be validated, compiled, or enforced by a usable sandbox backend. See [AUTOTITLE](/copilot/reference/enterprise-administrators/enterprise-managed-settings#sandbox).
 
@@ -987,7 +987,7 @@ For detailed information about hooks—including hook configuration formats, hoo
 
 MCP servers provide additional tools to the CLI agent. Configure persistent servers in `~/.copilot/mcp-config.json`. Use `--additional-mcp-config` to add servers for a single session.
 
-Local (stdio) servers that spawn inside the sandbox (see the `/sandbox` slash command) show a `connected (sandboxed)` status in `copilot mcp list` and `/mcp list`, since remote (HTTP/SSE) servers are never sandboxed. {% data reusables.copilot.experimental %}
+Local (stdio) servers that spawn inside the sandbox (see the `/sandbox` slash command) show a `connected (sandboxed)` status in `copilot mcp list` and `/mcp list`. Remote (HTTP/SSE) servers are not locally sandboxed, although their connections from the CLI can be restricted by the sandbox's network policy.
 
 `copilot mcp list` and `/mcp list` mark a disabled server with a `(disabled)` suffix in text output, or `"enabled": false` per server in `--json` output. `copilot mcp get` shows a `Status: Enabled`/`Disabled` line.
 
@@ -1655,38 +1655,52 @@ export COPILOT_WEB_FETCH_ALLOW_LOCALHOST=1
 When local sandboxing is enabled, {% data variables.copilot.copilot_cli_short %} discovers the tool directories a sandboxed command is likely to need and grants each one **read-only** access, so a command can run an installed toolchain without being able to modify it. Discovery runs for each command, before the process starts, and reads two kinds of source from the command's environment.
 
 * **`PATH`** (`Path` on Windows). Every directory listed is a candidate grant.
-* **Named toolchain variables.** The CLI inspects the variables in the table below on every operating system. A variable that holds a single directory grants that directory; a variable that holds a path list is split on the operating system's path separator (`;` on Windows, `:` elsewhere), and each entry becomes a candidate grant.
+* **Named toolchain variables.** The CLI inspects the variables in the table below. A directory value grants that directory. A path list is split on the operating system's path separator (a semicolon on Windows, a colon elsewhere), and each entry becomes a candidate grant. The Git file variables are inspected only on macOS and Linux.
 
-A candidate is granted only when it is an absolute path that exists and resolves to a directory. Candidates are dropped—and the reason logged to the `sandbox_spawn` log target—when they are relative, do not exist, resolve to a filesystem root (such as `/` or `C:\`), or resolve under a system-critical location (`%WINDIR%` on Windows; `/bin`, `/sbin`, `/usr/bin`, `/usr/sbin`, `/boot`, `/proc`, `/sys`, and `/dev` on Linux and macOS). Symbolic links are resolved before these checks, and duplicate directories are removed (case-insensitively on Windows).
+A directory candidate is granted only when it is an absolute path that exists as a directory. Relative paths, missing paths, filesystem roots (such as `/` or `C:\`), and system-critical locations are excluded from discovery. Examples of excluded locations are `%WINDIR%` on Windows and `/bin`, `/sbin`, `/usr/bin`, `/usr/sbin`, `/boot`, `/proc`, `/sys`, and `/dev` on macOS and Linux. The reason is logged to `sandbox_spawn`.
+
+These grants keep their path spelling rather than automatically adding a symbolic link's target. If access through a link is blocked, grant the intended target explicitly. Duplicate directories are removed, case-insensitively on Windows.
 
 | Variable | Toolchain | Value | Typically set on |
 |----------|-----------|-------|------------------|
-| `PATH` / `Path` | Executables (all) | Path list | All |
-| `PYTHONPATH` | Python | Path list | All |
-| `PYTHONHOME` | Python | Single directory | All |
-| `VIRTUAL_ENV` | Python (venv) | Single directory | All |
-| `PYENV_ROOT` | Python (pyenv) | Single directory | All |
+| `BAZEL_VC` | Bazel / Visual C++ | Single directory | Windows |
+| `BAZEL_VS` | Bazel / Visual Studio | Single directory | Windows |
+| `BAZELISK_HOME` | Bazelisk | Single directory | All |
+| `BAZELISK_HOME_DARWIN` | Bazelisk | Single directory | macOS |
+| `BAZELISK_HOME_LINUX` | Bazelisk | Single directory | Linux |
+| `BAZELISK_HOME_WINDOWS` | Bazelisk | Single directory | Windows |
 | `CONDA_PREFIX` | Conda | Single directory | All |
+| `DOTNET_ROOT` | .NET | Single directory | All |
+| `GIT_CONFIG_SYSTEM` | Git system configuration | File | macOS and Linux |
+| `GIT_EXEC_PATH` | Git helpers | Single directory | All |
+| `GIT_SSL_CAINFO` | Git certificate bundle | File | macOS and Linux |
+| `GIT_SSL_CAPATH` | Git certificates | Single directory | All |
+| `GIT_TEMPLATE_DIR` | Git templates | Single directory | All |
 | `GOPATH` | Go | Path list | All |
 | `GOROOT` | Go | Single directory | All |
-| `CARGO_HOME` | Rust (Cargo) | Single directory | All |
-| `RUSTUP_HOME` | Rust (rustup) | Single directory | All |
 | `JAVA_HOME` | Java | Single directory | All |
+| `LD_LIBRARY_PATH` | Shared libraries | Path list | Linux |
 | `NODE_PATH` | Node.js | Path list | All |
 | `NVM_HOME` | Node.js (nvm) | Single directory | Windows |
 | `NVM_SYMLINK` | Node.js (nvm) | Single directory | Windows |
-| `DOTNET_ROOT` | .NET | Single directory | All |
+| `PATH` / `Path` | Executables (all) | Path list | All |
 | `PSModulePath` | PowerShell | Path list | All |
+| `PYENV_ROOT` | Python (pyenv) | Single directory | All |
+| `PYTHONHOME` | Python | Single directory | All |
+| `PYTHONPATH` | Python | Path list | All |
+| `RUSTUP_HOME` | Rust (rustup) | Single directory | All |
 | `VCINSTALLDIR` | Visual C++ | Single directory | Windows |
-| `VSINSTALLDIR` | Visual Studio | Single directory | Windows |
 | `VCPKG_ROOT` | vcpkg | Single directory | All |
-| `LD_LIBRARY_PATH` | Shared libraries | Path list | Linux |
+| `VIRTUAL_ENV` | Python (venv) | Single directory | All |
+| `VSINSTALLDIR` | Visual Studio | Single directory | Windows |
 
-Every variable is read on every platform; the **Typically set on** column shows where each is normally populated, not a restriction the CLI enforces. A variable that is unset simply contributes nothing.
+Except for the two Git file variables, each variable is read on every platform. The **Typically set on** column shows where each is normally populated. An unset variable contributes nothing.
 
-These are not the only read-only grants. {% data variables.copilot.copilot_cli_short %} also grants your user-profile application directories (`~/.local/bin` and `~/.local/lib` on Linux and macOS; the immediate subdirectories of `%LOCALAPPDATA%\Programs` on Windows), standard system and profile locations, and the caches and registries used by common package managers and toolchains (shown as **dev-tool access** in the `/sandbox policy` report). To see the fully resolved policy for your current directory—read/write, read-only, and denied paths—run `/sandbox policy` in a session. For the concepts behind how the policy is assembled, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing).
+`CARGO_HOME` is handled separately through tool-specific grants for selected Cargo directories and files. It does not grant access to the whole Cargo home. Developer-tool grants can also follow relocated caches, including Go and NuGet caches.
 
-On Windows, `/sandbox policy` lists the directories on your `PATH` environment variable under **System** read-only grants; other developer-tool paths are grouped separately as detected project tool groups.
+These are not the only automatic grants. With **Allow dev tool access** enabled, {% data variables.copilot.copilot_cli_short %} grants selected user-profile application directories, including `~/.local/bin` and `~/.local/lib` on macOS and Linux and the immediate subdirectories of `%LOCALAPPDATA%\Programs` on Windows. It also grants tool-specific caches and registries, some of which are writable, such as npm's cache and shared build caches.
+
+Run `/sandbox policy` to see the resolved paths grouped by source and access. The **Dev tools** section lists tools detected in the current directory and their paths. Add a command, such as `/sandbox policy npm install`, to inspect its developer-tool access without running it. The report does not create missing caches. For the concepts behind how the policy is assembled, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/understanding-local-sandboxing).
 
 ## OpenTelemetry monitoring
 

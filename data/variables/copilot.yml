@@ -182,6 +182,7 @@ max-chat-indexed-repos: '50'
 # Claude:
 copilot_claude: 'Claude'
 copilot_claude_haiku_45: 'Claude Haiku 4.5'
+copilot_claude_haiku_55: 'Claude Haiku 5.5'
 copilot_claude_opus: 'Claude Opus 4'
 copilot_claude_opus_41: 'Claude Opus 4.1'
 copilot_claude_opus_45: 'Claude Opus 4.5'

@@ -19,7 +19,6 @@ children:
   - /customize-github-copilot-app
   - /agent-sessions
   - /computer-use
-  - /configure-local-sandboxing
   - /working-with-canvas-extensions
   - /managing-issues-and-pull-requests
   - /using-automations

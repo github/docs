@@ -84,6 +84,11 @@
   excels_at: Fast, reliable answers to lightweight coding questions
   further_reading: '[Claude Haiku 4.5 model card](https://assets.anthropic.com/m/99128ddd009bdcb/Claude-Haiku-4-5-System-Card.pdf)'
 
+- name: Claude Haiku 5.5
+  task_area: Fast help with simple or repetitive tasks
+  excels_at: Fast, reliable answers to lightweight coding questions
+  further_reading: '[Claude Haiku 5.5 model card](https://www-cdn.anthropic.com/e1080d6bf5ae2018ea3c2f414064be03232f5be5/Claude%20Haiku%205.5%20System%20Card.pdf)'
+
 - name: Claude Opus 4.8
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning

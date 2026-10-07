@@ -2,6 +2,7 @@
 * {% data variables.copilot.copilot_claude_opus_55 %}
 * {% data variables.copilot.copilot_claude_sonnet_55 %}
 * {% data variables.copilot.copilot_claude_haiku_45 %}
+* {% data variables.copilot.copilot_claude_haiku_55 %}
 * {% data variables.copilot.copilot_gemini_37_flash %}
 * {% data variables.copilot.copilot_gemini_38_flash %}
 * {% data variables.copilot.copilot_gpt_54_mini %}

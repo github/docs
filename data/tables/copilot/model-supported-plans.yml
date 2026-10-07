@@ -19,6 +19,13 @@
   business: true
   enterprise: true
 
+- name: Claude Haiku 5.5
+  pro: true
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
 - name: Claude Opus 4.8
   pro: false
   pro_plus: true

@@ -110,6 +110,18 @@ For pull requests authored by {% data variables.copilot.copilot_cloud_agent %}, 
 
 For pull requests authored by other bots, or when a bot requests the review, usage is billed directly to the organization. These pull requests are eligible for agentic review.
 
+### Reviews requested with an external {% data variables.product.prodname_copilot_short %} license
+
+An external {% data variables.product.prodname_copilot_short %} license is one that is not provided by the organization or enterprise that owns the repository, such as a personal license or a license from another organization. By default, people can use an external license to request a review from {% data variables.product.prodname_copilot_short %}.
+
+To prevent this, organization owners and repository administrators can enable the **Only allow {% data variables.copilot.copilot_code-review_short %} to be triggered by authorized users** setting for an organization or a single repository. When the setting is enabled:
+
+* {% data variables.product.prodname_copilot_short %} is not offered as a reviewer to people who are not authorized, and API review requests from those people do not start a review.
+* In personal repositories, only the repository owner or a direct collaborator can request a review.
+* Automatic reviews from personal settings do not run for people who are not authorized. Automatic reviews configured by repository or organization rulesets still run.
+
+For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#customizing-copilot-code-review).
+
 ### What happens when a budget is reached
 
 For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, code review access is governed by budget controls. If a user reaches their user-level budget, or if the enterprise or cost center spending limit is exhausted, code reviews are blocked along with other {% data variables.product.prodname_ai_credits_short %}-consuming features. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#what-happens-when-a-user-is-blocked).
