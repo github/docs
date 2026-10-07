@@ -1,0 +1,2 @@
+* **Windows:** Local sandboxing on Windows requires Windows 11 version 25H2 with update [KB5124010](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124010-windows-11-24h2-25h2-update) or later, or Windows 11 version 26H1 with update [KB5124006](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5124006-windows-11-26h1-update) or later, with support for the BaseContainer tier of the ProcessContainer backend.
+* **Linux:** Bubblewrap (`bwrap`) version 0.5.0 or later, and `slirp4netns` must be installed and available on your PATH.

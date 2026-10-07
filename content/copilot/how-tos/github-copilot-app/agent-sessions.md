@@ -63,14 +63,14 @@ Use **Manage sessions** to view, search, and filter sessions and chats, includin
 ## Using cloud and local sandboxes
 
 > [!NOTE]
-> {% data reusables.cli.public-preview-sandbox %}
+> {% data reusables.cli.public-preview-cloud-sandbox %}
 
 Cloud and local sandboxes protect sessions in different ways:
 
 * **Cloud sandbox**: Runs the entire session in an isolated environment hosted by {% data variables.product.github %}. Use a cloud sandbox when you want to keep the session off your machine or run several resource-intensive tasks in parallel. Choose the cloud sandbox execution location when starting a session.
 * **Local sandbox**: Runs the session on your machine, but restricts the filesystem, network, and credential access available to agent-run tools. Use local sandboxing when the agent needs your local tools or development services, but you want to limit its access to the rest of your machine. Configure the default for new local repository and working tree sessions in the project settings, or use `/sandbox on` or `/sandbox off` to change an active local session.
 
-Local sandboxing does not apply to cloud sandbox sessions or sessions that run on a remote host. For more information about how both types of sandbox work, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes). To enable and configure local sandboxing, see [AUTOTITLE](/copilot/how-tos/github-copilot-app/configure-local-sandboxing).
+Local sandboxing does not apply to cloud sandbox sessions or sessions that run on a remote host. For more information about how both types of sandbox work, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes). To enable local sandboxing, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/using-local-sandboxing).
 
 ## Using `/security-review` in app sessions
 

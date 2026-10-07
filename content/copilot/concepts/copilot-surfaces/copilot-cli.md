@@ -67,9 +67,6 @@ To use the CLI programmatically, include the `-p` or `--prompt` command-line opt
 
 ## Running {% data variables.copilot.copilot_cli_short %} commands in a sandbox
 
-> [!NOTE]
-> {% data reusables.cli.public-preview-sandbox %}
-
 To prevent {% data variables.product.prodname_copilot_short %} from modifying files you don't want it to touch, you can force agents to run commands within a local sandboxed environment. Alternatively, you can run an entire CLI session in an isolated environment in the cloud. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 ### Local sandboxing
@@ -77,6 +74,9 @@ To prevent {% data variables.product.prodname_copilot_short %} from modifying fi
 You can enable local sandboxing inside a {% data variables.copilot.copilot_cli_short %} session to restrict {% data variables.product.prodname_copilot_short %}'s access to your filesystem, network, and system capabilities. To enable it, run `/sandbox enable` inside a session.
 
 ### Cloud sandboxing
+
+> [!NOTE]
+> {% data reusables.cli.public-preview-cloud-sandbox %}
 
 You can start a {% data variables.copilot.copilot_cli_short %} session inside an isolated, cloud-hosted environment with cloud sandboxes. This is useful when you want to run code without affecting your local machine, keep a session's state between uses, continue a session from a different machine, or run multiple tasks in parallel. Cloud sandbox policies inherit from {% data variables.copilot.copilot_cloud_agent %} policies, so existing security controls like firewall rules extend to cloud sandboxes without additional setup.
 
