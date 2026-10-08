@@ -95,8 +95,12 @@ async function rereadByPath(
   if (!match) return null
   const languageCode = match[1]
   const withoutLanguage = uri.replace(languagePrefixPathRegex, '/')
-  const withoutVersion = withoutLanguage.replace(`/${currentVersion}`, '')
+  // Page.read turns backslashes into slashes, so do the same before the root check.
+  const withoutVersion = withoutLanguage.replace(`/${currentVersion}`, '').replace(/\\/g, '/')
   const possible = path.join(contentRoot, withoutVersion)
+  // Express keeps `..` segments in request paths, so stay inside the content root.
+  const relativeToRoot = path.relative(contentRoot, possible)
+  if (relativeToRoot.startsWith('..') || path.isAbsolute(relativeToRoot)) return null
   const filePath = existsSync(possible) ? path.join(possible, 'index.md') : `${possible}.md`
   const relativePath = path.relative(contentRoot, filePath)
   const basePath = contentRoot
