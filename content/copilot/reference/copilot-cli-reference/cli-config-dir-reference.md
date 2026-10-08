@@ -59,9 +59,9 @@ This is the primary configuration file for {% data variables.copilot.copilot_cli
 By default, this file is located in the `~/.copilot` directory, which is the user-level configuration directory. It contains global user-level defaults for all repositories. You can change the location of this directory by setting the `COPILOT_HOME` environment variable to a different path.
 
 > [!NOTE]
-> User-editable settings were originally stored in `config.json`. They have been moved to `settings.json`. Any user settings present in `config.json` on startup are automatically migrated to `settings.json`.
+> User-editable settings are stored in `settings.json`. These settings were originally stored in `config.json`. Any user settings in `config.json` are ignored. That file is used to store internal state, such as installed plugins and trusted folders.
 
-If `settings.json` fails to read, parse, or validate, {% data variables.copilot.copilot_cli_short %} ignores the invalid values (recognized `config.json` values are still merged in) and shows a startup warning on the timeline directing you to the **Problems** tab of the `/settings` command. Open that tab to see the specific error, then fix the reported issue to restore the affected settings.
+If `settings.json` fails to read, parse, or validate, {% data variables.copilot.copilot_cli_short %} ignores the invalid values and shows a startup warning on the timeline directing you to the **Problems** tab of the `/settings` command. Open that tab to see the specific error, then fix the reported issue to restore the affected settings.
 
 If `settings.json` contains a top-level key that isn't a recognized setting (for example, a typo), {% data variables.copilot.copilot_cli_short %} lists it in the **Problems** tab of the `/settings` command instead of on the timeline or in stderr. The tab's label shows a count (for example, `Problems (2)`) when any configuration scope has an issue. `$schema` is tolerated and never reported.
 
@@ -135,7 +135,7 @@ The following items are managed by the CLI. You generally should not edit them m
 Stores internal application state that is managed automatically by the CLI, including authentication data, installed plugin metadata, and other runtime information. You should not normally need to edit this file.
 
 > [!NOTE]
-> Earlier versions of {% data variables.copilot.copilot_cli_short %} stored both user settings and application state in `config.json`. User-editable settings are now located in `settings.json`. Any user settings in `config.json` at startup are automatically migrated to `settings.json`. Application state fields—such as `loggedInUsers`, `installedPlugins`, `firstLaunchAt`, and `staff`—remain in `config.json` and are not migrated.
+> Earlier versions of {% data variables.copilot.copilot_cli_short %} stored both user settings and application state in `config.json`. User-editable settings are now located in `settings.json`. Settings left in `config.json` are ignored. This file only holds internal state such as installed plugins and trusted folders.
 
 ### `permissions-config.json`
 
