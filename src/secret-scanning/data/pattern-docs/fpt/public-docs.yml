@@ -204,8 +204,8 @@
   supportedSecret: Anthropic Service Account API Key
   secretType: anthropic_service_api_key
   isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -224,8 +224,8 @@
   supportedSecret: Anthropic User API Key
   secretType: anthropic_user_api_key
   isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -1474,7 +1474,7 @@
   supportedSecret: Cloudsmith API Key
   secretType: cloudsmith_api_key
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -5100,6 +5100,26 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Wave Mobile Money Inc.
+  supportedSecret: Wave Production API Key
+  secretType: wave_api_prod_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Wave Mobile Money Inc.
+  supportedSecret: Wave Test API Key
+  secretType: wave_api_test_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

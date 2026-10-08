@@ -134,6 +134,10 @@ When you migrate a repository directly, teams and team access to repositories ar
 * **40 GiB limit for metadata ({% data variables.release-phases.public_preview %}):** The {% data variables.product.prodname_importer_secondary_name %} cannot migrate repositories with more than 40 GiB of metadata. Metadata includes issues, pull requests, releases, and attachments. In most cases, large metadata is caused by binary assets attached to releases. You can exclude releases from the migration with the `migrate-repo` command's `--skip-releases` flag, and then move your releases manually after the migration.
 {% data reusables.enterprise-migration-tool.limitations-of-migration-tooling %}
 
+### Commit signature verification
+
+{% data reusables.enterprise-migration-tool.commit-signature-verification %}
+
 ## Getting started
 
 Before you migrate between {% data variables.product.company_short %} products, you should plan out how you will run your migration. Before migrating any data, you will need to choose someone to run the migration. You must grant that person the necessary access for both the source and the destination of the migration. We also recommend you run a trial migration first.

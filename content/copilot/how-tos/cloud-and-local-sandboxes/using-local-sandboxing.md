@@ -34,6 +34,8 @@ Authentication for Git and {% data variables.product.prodname_cli %} (`gh`) is e
 
 Git credentials retain their original host, port, and repository path restrictions. For `gh`, credentials are used only for `github.com`, `api.github.com`, and `uploads.github.com`. You can turn authentication off on the **Credentials** tab in `/sandbox config`.
 
+You can also mask additional environment variables, such as API tokens. Commands, local MCP servers, and language servers that run inside the sandbox receive placeholders for these variables. The proxy supplies each real value only to the HTTPS hosts you specify. For setup instructions, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#masking-environment-variables).
+
 On Windows, this requires a version that supports connections from the sandbox to services on your computer (host loopback). You must also enable **Allow local network** on the **Network** tab in `/sandbox config`. This also permits private-network access, not just access to the credential proxy.
 
 For a conceptual overview of sandboxing in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
@@ -97,6 +99,8 @@ copilot --sandbox -p "PROMPT"
 When the sandbox blocks a command, {% data variables.product.prodname_copilot_short %} can ask you to approve another attempt with broader access. The prompt describes the command and the proposed retry. You can approve it, keep the blocked result, or disable sandboxing for the rest of the current session. Disabling sandboxing for the session is available only if the effective policy permits sandbox bypass. When it is permitted, you can also do this at any time by running `/sandbox disable`.
 
 Bypass requests are enabled by default and can be turned off in your sandbox settings.
+
+An approved command bypass skips credential masking and the sandbox proxy. The command runs with its ordinary environment, which can contain real secret values. Masked-variable host restrictions do not protect a command that runs outside the sandbox.
 
 The sandbox is only one of the reasons a command can fail. {% data variables.product.prodname_copilot_short %} offers a retry with broader access only when the sandbox is the likely cause and running outside it could actually help. Other failures show no bypass prompt. For platform-specific retry behavior, see [AUTOTITLE](/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings#allowing-sandbox-bypass).
 
@@ -172,6 +176,10 @@ When credential masking is enabled, {% data variables.copilot.copilot_cli_short 
 On macOS and Windows, you can optionally install the proxy's certificate authority in your operating system's trust store to improve compatibility. In a {% data variables.copilot.copilot_cli_short %} session, run `/sandbox ca create`, then `/sandbox ca trust`. On Windows, installing the certificate requires administrator approval. This also changes certificate trust for applications outside {% data variables.copilot.copilot_cli_short %}.
 
 Installing the certificate does not resolve every compatibility problem. Tools that require HTTP/2, accept only specific server certificates (certificate pinning), use client certificates, or use credentials to sign requests may still fail.
+
+For masked environment variables, check that the variable is available to the CLI, the destination matches its injection hosts, and your network settings permit the connection. Tools must send the placeholder as a credential in an HTTPS request header, such as `Authorization` or `X-Api-Key`. HTTP Basic authentication also works when the placeholder is the password. Plaintext HTTP, request bodies, URLs, and signed requests do not receive the real value.
+
+Masking protects only the configured environment variables and the enabled Git and `gh` authentication. It does not hide secrets in credential files, other environment variables, or remote MCP authentication.
 
 ## Using local sandboxing in the {% data variables.copilot.github_copilot_app_short %}
 

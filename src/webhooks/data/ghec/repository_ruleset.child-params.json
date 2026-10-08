@@ -963,7 +963,7 @@
           {
             "type": "object",
             "name": "code_coverage",
-            "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+            "description": "<p>Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.</p>",
             "childParamsGroups": [
               {
                 "type": "string",
@@ -2137,7 +2137,7 @@
           {
             "type": "object",
             "name": "code_coverage",
-            "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+            "description": "<p>Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.</p>",
             "childParamsGroups": [
               {
                 "type": "string",
@@ -3311,7 +3311,7 @@
           {
             "type": "object",
             "name": "code_coverage",
-            "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+            "description": "<p>Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.</p>",
             "childParamsGroups": [
               {
                 "type": "string",
@@ -4512,7 +4512,7 @@
               {
                 "type": "object",
                 "name": "code_coverage",
-                "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+                "description": "<p>Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.</p>",
                 "childParamsGroups": [
                   {
                     "type": "string",
@@ -5531,7 +5531,7 @@
               {
                 "type": "object",
                 "name": "code_coverage",
-                "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+                "description": "<p>Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.</p>",
                 "childParamsGroups": [
                   {
                     "type": "string",
@@ -6555,7 +6555,7 @@
                   {
                     "type": "object",
                     "name": "code_coverage",
-                    "description": "<p>Enforce minimum line coverage thresholds on pull requests. When configured, uploaded coverage data must meet the specified criteria before changes can be merged.</p>",
+                    "description": "<p>Enforce minimum line coverage thresholds on pull requests. This rule evaluates uploaded coverage data but does not wait for coverage uploads. To ensure coverage is evaluated before merging, make each status check associated with a coverage upload a required status check.</p>",
                     "childParamsGroups": [
                       {
                         "type": "string",

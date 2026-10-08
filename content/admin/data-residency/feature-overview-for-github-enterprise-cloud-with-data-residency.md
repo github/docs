@@ -50,6 +50,7 @@ The following features are either specific to {% data variables.enterprise.data_
 * [Retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}](#retirement-of-namespaces-for-actions-accessed-on-githubcom)
 * [GitHub Connect](#github-connect)
 * [{% data variables.product.prodname_github_codespaces %}](#github-codespaces)
+* [Commit signature verification](#commit-signature-verification)
 
 ### API access
 
@@ -104,3 +105,9 @@ To enable {% data variables.product.prodname_github_connect %}, you must configu
 {% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} is available in all {% data variables.enterprise.data_residency %} regions.
 
 To use {% data variables.product.prodname_github_codespaces %} from {% data variables.product.prodname_vscode_shortname %} desktop with an enterprise on {% data variables.enterprise.data_residency_site %}, you must configure the `Github-enterprise: Uri` and `Github > Codespaces: Auth Provider` settings. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code#connecting-to-an-enterprise-on-ghecom).
+
+### Commit signature verification
+
+Commits created through the web interface are signed with a web commit signing key for {% data variables.enterprise.data_residency_site %}. It is not the key used by {% data variables.product.prodname_dotcom_the_website %}, so web commits migrated from {% data variables.product.prodname_dotcom_the_website %} may show as "Unverified".
+
+Users must add their GPG or SSH signing keys to their account on {% data variables.enterprise.data_residency_site %}. They must also verify the committer email address on their commits with that account. After users complete both steps, their signed commits show as "Verified". See [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products#commit-signature-verification).
