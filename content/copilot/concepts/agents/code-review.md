@@ -98,17 +98,19 @@ Consumption generally increases with pull request size and repository custom ins
 
 Repository and organization administrators can set the default review effort level for automatic code reviews. For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#customizing-copilot-code-review-1).
 
-## Code review usage
+## Code review usage and billing
 
 Each time {% data variables.product.prodname_copilot_short %} reviews a pull request or reviews code in your IDE, the interaction consumes {% data variables.product.prodname_ai_credits_short %}. The amount depends on the model used and the number of tokens processed.
 
 Code reviews have two cost components: {% data variables.product.prodname_ai_credits_short %} for the model interaction (the review itself), and {% data variables.product.prodname_actions %} minutes for the agentic capabilities (context gathering and tool use). For more information on {% data variables.product.prodname_actions %} usage, see [Usage of {% data variables.product.prodname_actions %} runners for agentic capabilities in code review](#usage-of-github-actions-runners-for-agentic-capabilities-in-code-review).
 
-If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the {% data variables.product.prodname_ai_credits_short %} consumption is attributed to the pull request author. If a review is manually requested by another user, the consumption is attributed to that user instead.
+By default, when a repository automatically requests a code review, {% data variables.product.prodname_ai_credits_short %} consumption is attributed to the pull request author. If another user manually requests a review, consumption is attributed to that user instead.
 
 For pull requests authored by {% data variables.copilot.copilot_cloud_agent %}, usage is attributed first to the human co-author associated with the change. If the co-author cannot be billed, usage is billed directly to the organization.
 
 For pull requests authored by other bots, or when a bot requests the review, usage is billed directly to the organization. These pull requests are eligible for agentic review.
+
+For requests associated with organization members who have paid {% data variables.product.prodname_copilot_short %} licenses, the member's entitlement is billed by default. An enterprise or organization owner can instead choose to bill the organization. Billing the organization requires {% data variables.product.prodname_ai_credits_short %} paid usage, but a budget is optional. This choice applies to both manually requested and automatic code reviews, and changes billing only. On its own, it does not grant access to {% data variables.copilot.copilot_code-review_short %}.
 
 ### Reviews requested with an external {% data variables.product.prodname_copilot_short %} license
 
@@ -122,17 +124,17 @@ To prevent this, organization owners and repository administrators can enable th
 
 For configuration steps, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-code-review#customizing-copilot-code-review).
 
-### What happens when a budget is reached
-
-For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, code review access is governed by budget controls. If a user reaches their user-level budget, or if the enterprise or cost center spending limit is exhausted, code reviews are blocked along with other {% data variables.product.prodname_ai_credits_short %}-consuming features. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#what-happens-when-a-user-is-blocked).
-
 ### Users without a {% data variables.product.prodname_copilot_short %} license or plan that includes {% data variables.copilot.copilot_code-review_short %}
 
 Users without access to {% data variables.copilot.copilot_code-review_short %} do not have a monthly allowance of {% data variables.product.prodname_ai_credits_short %} for it. This includes users who have no {% data variables.product.prodname_copilot_short %} license and users on the {% data variables.copilot.copilot_free_short %} plan, which does not include {% data variables.copilot.copilot_code-review_short %}.
 
 When {% data variables.copilot.copilot_code-review_short %} is enabled for these users, any {% data variables.product.prodname_ai_credits_short %} they consume are billed directly to the organization or enterprise as paid additional usage. This applies to both manually requested reviews and automatic code reviews.
 
-{% data variables.product.prodname_ai_credits_short %} consumed by these users are not attributed to any individual user's budget. They appear as additional usage in billing reports. Users with a {% data variables.product.prodname_copilot_short %} license that includes code review consume {% data variables.product.prodname_ai_credits_short %} from the shared pool, subject to any user-level budgets configured by their administrator.
+{% data variables.product.prodname_ai_credits_short %} consumed by these users are not attributed to any individual user's budget. They appear as additional usage in billing reports.
+
+### What happens when a budget is reached
+
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, code review access is governed by the budgets that apply to the selected billing source. If usage is billed to a user, code reviews are blocked when the user reaches their budget. If usage is billed to an organization, code reviews are blocked when the applicable organization budget, cost center budget, or enterprise spending limit is exhausted. Code reviews are blocked along with other {% data variables.product.prodname_ai_credits_short %}-consuming features. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#what-happens-when-a-user-is-blocked).
 
 ## Model usage
 
