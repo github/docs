@@ -86,7 +86,7 @@ When creating a security configuration, keep in mind that:
 1. In the top section, click **New configuration**.
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "New configuration" page, name your configuration and create a description.
 1. In the "{% data variables.product.prodname_GHAS %} features" row, choose whether to include or exclude {% data variables.product.prodname_GHAS %} (GHAS) features.
-1. In the "{% data variables.product.prodname_secret_scanning_caps %}" table, choose whether you want to enable, disable, or keep the existing settings for the following security features:{% ifversion ghes > 3.16 %}
+1. In the "{% data variables.product.prodname_secret_scanning_caps %}" table, choose whether you want to enable, disable, or keep the existing settings for the following security features:{% ifversion ghes > 3.17 %}
     * **Alerts**. To learn about {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/concepts/secret-security/secret-scanning).{% endif %} {% ifversion secret-scanning-validity-check-partner-patterns %}
     * **Validity checks**. To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#checking-a-secrets-validity).{% endif %}
     * **Generic patterns**. To learn more about scanning for generic patterns, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-generic-patterns) and [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts/viewing-alerts).{% ifversion secret-scanning-ai-generic-secret-detection %}
