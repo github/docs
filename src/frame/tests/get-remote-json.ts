@@ -5,7 +5,11 @@ import os from 'os'
 import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest'
 import nock from 'nock'
 
-import getRemoteJSON, { cache } from '@/frame/lib/get-remote-json'
+import getRemoteJSON, {
+  cache,
+  parsedCache,
+  PARSED_CACHE_MAX_BYTES,
+} from '@/frame/lib/get-remote-json'
 
 // Covers in-memory caching and disk-cache fallback after a memory miss.
 
@@ -101,5 +105,39 @@ describe('getRemoteJSON', () => {
       'Content-Type': 'text/html',
     })
     await expect(getRemoteJSON(url, {})).rejects.toThrowError(/resulted in a non-JSON response/)
+  })
+
+  test('reuses the parsed object while it stays in the parsed cache', async () => {
+    const url = 'http://example.com/parsed.json'
+    const { origin, pathname } = new URL(url)
+    nock(origin).get(pathname).reply(200, { a: '1' })
+    const data = await getRemoteJSON(url, {})
+    const data2 = await getRemoteJSON(url, {})
+    expect(data2).toBe(data)
+    expect(Object.isFrozen(data)).toBe(true)
+    expect(parsedCache.has(url)).toBe(true)
+  })
+
+  test('evicts least recently used parsed objects past the byte limit', async () => {
+    // Each body is a bit over a third of the limit, so only two fit.
+    const big = 'x'.repeat(Math.floor(PARSED_CACHE_MAX_BYTES / 3))
+    const urls = ['one', 'two', 'three'].map((name) => `http://example.com/lru-${name}.json`)
+    for (const url of urls) {
+      const { origin, pathname } = new URL(url)
+      nock(origin).get(pathname).reply(200, { big })
+    }
+    await getRemoteJSON(urls[0], {})
+    await getRemoteJSON(urls[1], {})
+    // Touch the first URL so the second becomes least recently used.
+    await getRemoteJSON(urls[0], {})
+    await getRemoteJSON(urls[2], {})
+    expect(parsedCache.has(urls[0])).toBe(true)
+    expect(parsedCache.has(urls[1])).toBe(false)
+    expect(parsedCache.has(urls[2])).toBe(true)
+
+    // Evicted entries still load from the deflated memory cache.
+    const data = (await getRemoteJSON(urls[1], {})) as Record<string, string>
+    expect(data.big).toBe(big)
+    expect(parsedCache.has(urls[1])).toBe(true)
   })
 })
