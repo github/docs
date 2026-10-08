@@ -120,7 +120,7 @@ Use the `/sandbox` slash command to configure local sandboxing in the CLI. A man
 1. Start a {% data variables.copilot.copilot_cli_short %} session.
 1. Enter the `/sandbox` slash command.
 
-   This opens an interactive configuration interface with four tabs: **General**, **Credentials**, **Filesystem**, and **Network**. Use <kbd>Tab</kbd> to switch between tabs. Press <kbd>Esc</kbd> to save your changes and close the configuration. If you are in a path or host-rule list, press <kbd>Esc</kbd> first to return to its tab.
+   This opens an interactive configuration interface with four tabs: **General**, **Credentials**, **Filesystem**, and **Network**. Use <kbd>Tab</kbd> to switch between tabs. Press <kbd>Esc</kbd> to save your changes and close the configuration. If you are in a path, host-rule, or masked-variable list, press <kbd>Esc</kbd> first to return to its tab.
 
 ### Configuring general settings
 
@@ -148,14 +148,57 @@ If enterprise managed settings set `sandbox.allowBypass` to `false`, you cannot 
 
 ### Configuring authentication settings
 
-The **Credentials** tab controls whether your credentials are made available to commands running inside the sandbox. As on the other tabs, an enterprise-managed value is shown as `(managed)` and can't be changed.
+The **Credentials** tab controls authentication for Git and {% data variables.product.prodname_cli %}, and lets you configure masked environment variables. Sandboxed processes receive placeholder values. A local proxy supplies the real credentials only in HTTPS request headers sent to approved destinations. As on the other tabs, an enterprise-managed value is shown as `(managed)` and can't be changed.
 
 | Setting | Description |
 | --- | --- |
-| **Authenticate git** | Inject a {% data variables.product.github %} token so authenticated HTTPS `git` works inside the sandbox without a credential helper. For non-GitHub hosts, your own stored credentials are made available to sandboxed `git` commands instead. Turned on by default. |
-| **Authenticate gh** | Export `GH_TOKEN` so that {% data variables.product.prodname_cli %} (note: the `gh` CLI, not `copilot`) works inside the sandbox without reaching its stored credentials (configuration directory or OS keychain), which the sandbox blocks. Turned on by default. |
+| **Authenticate git** | Allow authenticated HTTPS Git operations with placeholder credentials, without a credential helper inside the sandbox. The proxy supplies the real credentials only at their original host, port, and repository path. Turned on by default. |
+| **Authenticate gh** | Provide a placeholder `GH_TOKEN` so {% data variables.product.prodname_cli %} (`gh`, not `copilot`) can authenticate without accessing its stored credentials. The proxy supplies the real token only to `github.com`, `api.github.com`, and `uploads.github.com`. Turned on by default. |
+| **Masked environment variables** | Choose additional environment variables to replace with placeholders, and the HTTPS hosts that can receive their real values. |
 
 On macOS, keychain access is turned off by default. To allow sandboxed commands to use the system keychain, set `sandbox.userPolicy.seatbelt.keychainAccess` to `true` in your personal `settings.json` file. This option is not available through `/sandbox` or `/settings`.
+
+#### Masking environment variables
+
+Use masked environment variables to let sandboxed tools authenticate to an API without receiving the real token. Masking applies to the selected variables in commands, local MCP servers, and language servers that run inside the sandbox. Git and `gh` authentication use masking automatically when their authentication settings are on. You do not need to add entries for them.
+
+Before you configure masking, set the environment variable in the environment used to start {% data variables.copilot.copilot_cli_short %}. The value must be non-empty. Missing variables stay absent, and empty values are not masked.
+
+Masking is active only while local sandboxing is enabled. Adding a masked variable does not enable sandboxing.
+
+1. Enter `/sandbox enable` to enable local sandboxing.
+1. Enter `/sandbox status` and confirm that sandboxing is enabled for the current session before continuing.
+1. Enter `/sandbox`, then open the **Credentials** tab.
+1. Select **Masked environment variables** and press <kbd>Enter</kbd>.
+1. Press <kbd>A</kbd> to add an entry.
+1. In **Variable**, type the variable name, such as `EXAMPLE_API_TOKEN`, then press <kbd>Enter</kbd>. Do not enter the secret value.
+1. In **Inject hosts**, type a comma-separated list of hosts that can receive the real value, such as `api.example.com`, then press <kbd>Enter</kbd>. Use hostnames or wildcard subdomains such as `*.example.com`. Do not include a URL scheme, path, port, or bare `*`.
+1. Press <kbd>Esc</kbd> to return to the **Credentials** tab.
+1. On Windows, credential masking requires a Windows version that supports the sandbox’s local proxy. Go to the **Network** tab, and enable **Allow local network**. This also permits private-network access, subject to your configured host restrictions.
+1. Press <kbd>Esc</kbd> to save and close the configuration.
+
+To edit an entry, select it and press <kbd>Enter</kbd>. To remove it, press <kbd>X</kbd>. The editor stores only variable names and destination hosts. It does not read or display secret values.
+
+You can also configure entries under `sandbox.credentials.envVars` in your personal `settings.json` file. For example, this entry lets the proxy supply `EXAMPLE_API_TOKEN` only to `api.example.com`:
+
+```json
+{
+  "sandbox": {
+    "enabled": true,
+    "credentials": {
+      "envVars": {
+        "EXAMPLE_API_TOKEN": {
+          "injectHosts": ["api.example.com"]
+        }
+      }
+    }
+  }
+}
+```
+
+Adding an injection host does not allow network access to it. Your network settings must also permit the connection. Exact hostnames match only that host. `*.example.com` matches subdomains, but not `example.com` itself.
+
+Masking requires a variable to remain in the child process's environment. Do not list a variable you want to mask in `--secret-env-vars`. That option removes named variables from command and MCP server environments instead of making them available as placeholders.
 
 ### Configuring filesystem settings
 

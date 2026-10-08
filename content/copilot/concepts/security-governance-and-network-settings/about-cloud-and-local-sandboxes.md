@@ -75,7 +75,7 @@ In {% data variables.copilot.copilot_cli_short %}, you can control several dimen
 
 * **Filesystem**: Grant read-only or read/write access to specific paths, or deny paths.
 * **Network**: Control outbound internet access and local network access, or allow and deny specific hosts. The restrictions available depend on your operating system.
-* **Credentials**: Choose whether your Git and {% data variables.product.prodname_cli %} (`gh`) credentials are made available inside the sandbox.
+* **Credentials**: Enable Git and {% data variables.product.prodname_cli %} (`gh`) authentication, or mask additional environment variables. Sandboxed tools receive placeholders, and a local proxy supplies the real credentials only to approved HTTPS destinations.
 * **Subprocesses**: Choose whether local MCP servers and language servers also run inside the sandbox. Remote MCP servers are never sandboxed.
 * **Keychain (macOS)**: Choose whether the system keychain is reachable from inside the sandbox.
 * **Per-command exceptions**: Allow or prevent individual commands from running outside the sandbox when they need broader access.
