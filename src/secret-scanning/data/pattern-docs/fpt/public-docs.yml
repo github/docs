@@ -4257,7 +4257,7 @@
 - provider: Salesforce
   supportedSecret: Salesforce Marketing Cloud API OAuth2 Token
   secretType: salesforce_marketing_cloud_api_oauth2_token
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false

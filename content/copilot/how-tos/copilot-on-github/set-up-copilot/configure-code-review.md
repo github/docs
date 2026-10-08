@@ -122,6 +122,11 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
    * **Balanced**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
 
     Balanced reviews use more {% data variables.product.prodname_ai_credits_short %}, and may consume marginally more {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/copilot/concepts/agents/code-review#estimated-consumption).
+1. To choose how {% data variables.product.prodname_ai_credits_short %} usage associated with members who have paid {% data variables.product.prodname_copilot_short %} licenses is billed, next to **Choose how members with a {% data variables.product.prodname_copilot_short %} license are billed**, select an option.
+   * **Member**: Use the member's {% data variables.product.prodname_copilot_short %} entitlement. If the member's quota is exhausted, the code review fails. This is the default.
+   * **Organization**: Bill the organization.
+
+   This choice applies to both manually requested and automatic code reviews, and changes billing only. It does not grant access to {% data variables.copilot.copilot_code-review_short %}. To use **Organization**, {% data variables.product.prodname_ai_credits_short %} paid usage must be enabled for the organization. Setting a budget is optional. See [AUTOTITLE](/copilot/concepts/billing/organizations-and-enterprises/usage-based-billing#what-happens-if-i-exceed-my-included-ai-credits).
 1. To choose whether {% data variables.product.prodname_copilot_short %} can approve pull requests in your repositories, select an option under "Approvals," next to "Count {% data variables.product.prodname_copilot_short %} approvals toward merge requirements."
    * **Enabled everywhere**: {% data variables.product.prodname_copilot_short %} approvals can count toward merge requirements in every repository in the organization.
    * **Let repositories decide**: Repository admins can decide this in repository settings.
@@ -154,6 +159,12 @@ You can configure how {% data variables.copilot.copilot_code-review_short %} com
 1. Scroll down to "Available Agents", then click **{% data variables.copilot.copilot_code-review_short %}**.
 1. Next to "{% data variables.copilot.copilot_code-review_short %}", select a policy.
 1. Then choose which {% data variables.copilot.copilot_code-review_short %} features to enable for your enterprise.
+1. To choose who is billed for {% data variables.copilot.copilot_code-review_short %} usage by members with a paid {% data variables.product.prodname_copilot_short %} license, next to "Choose how members with a {% data variables.product.prodname_copilot_short %} license are billed," select a policy.
+   * **Member**: Use the member's {% data variables.product.prodname_copilot_short %} entitlement for organizations in the enterprise.
+   * **Organization**: Bill the organization that owns the repository.
+   * **Let organizations decide**: Organization owners can choose how to bill usage associated with members who have paid {% data variables.product.prodname_copilot_short %} licenses.
+
+   Organizations billed must have {% data variables.product.prodname_ai_credits_short %} paid usage enabled. Setting a budget is optional.
 1. To choose whether {% data variables.product.prodname_copilot_short %} can approve pull requests in your organizations, next to "Allow {% data variables.product.prodname_copilot_short %} to approve pull requests," select a policy.
    * **Let organizations decide**: Organization owners can choose whether to enable {% data variables.product.prodname_copilot_short %} approvals.
    * **Enable for selected organizations**: {% data variables.product.prodname_copilot_short %} approvals are enabled only for the organizations you select.

@@ -12,7 +12,7 @@ on:
       # Debugging changes to this workflow need the same PR index test.
       - .github/workflows/index-general-search-pr.yml
       # Setup changes can break the local Elasticsearch path this workflow tests.
-      - .github/actions/setup-elasticsearch/action.yml
+      - '.github/actions/setup-elasticsearch/**'
 
 permissions:
   contents: read

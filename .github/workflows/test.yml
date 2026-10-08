@@ -82,6 +82,11 @@ jobs:
           - name: languages
             isPrivateRepo: false
 
+    env:
+      # These suites make no HTTP requests, so they skip the Next.js build and test server.
+      # A suite that adds an HTTP test fails with a connection error until it's removed from this list.
+      START_VITEST_SERVER: ${{ contains(fromJSON('["color-schemes", "content-linter", "data-directory", "ghes-releases", "journeys", "links", "observability", "products", "workflows"]'), matrix.name) && 'false' || 'true' }}
+
     steps:
       # Repeat each if on its step so skipped work still leaves the required check present.
       - name: Check out repo
@@ -90,8 +95,11 @@ jobs:
           # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
           fetch-depth: 2
 
+      # Start Elasticsearch early so the pull and boot overlap with setup and build.
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
+        with:
+          mode: start
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -133,13 +141,20 @@ jobs:
         run: echo "${{ steps.changed_files.outputs.all_modified_files }}" > get_diff_files.txt
 
       - uses: ./.github/actions/cache-nextjs
+        if: ${{ env.START_VITEST_SERVER != 'false' }}
 
       - name: Run build script
+        if: ${{ env.START_VITEST_SERVER != 'false' }}
         run: npm run build
 
       - uses: ./.github/actions/warmup-remotejson-cache
         # Only routing tests cover archived enterprise server URLs.
         if: ${{ matrix.name == 'redirects' }}
+
+      - uses: ./.github/actions/setup-elasticsearch
+        if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
+        with:
+          mode: wait
 
       - name: Index fixtures into the local Elasticsearch
         # Run indexing only for suites that query the local Elasticsearch service.
