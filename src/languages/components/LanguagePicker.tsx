@@ -1,21 +1,18 @@
 import { DotFillIcon, GlobeIcon, TriangleDownIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import cx from 'clsx'
 
 import { useLanguages } from '@/languages/components/LanguagesContext'
 import { useUserLanguage } from '@/languages/components/useUserLanguage'
-import { ActionList, ActionMenu, IconButton } from '@primer/react'
 import { ActionMenu as BrandActionMenu } from '@primer/react-brand'
 import { ActionMenuTrigger } from '@/frame/components/page-header/ActionMenuTrigger'
 
-// The header variant shares its trigger, menu surface and rows with the plan/version
+// The picker shares its trigger, menu surface and rows with the plan/version
 // picker so the two header dropdowns cannot drift apart.
 import styles from '@/frame/components/page-header/HeaderPicker.module.scss'
 
 type Props = {
-  variant?: 'default' | 'header'
   onNavigate?: () => void
 }
 
@@ -24,12 +21,10 @@ type Props = {
 // CSS class names.
 const HEADER_TRIGGER_TESTID = 'language-picker-button'
 
-export const LanguagePicker = ({ variant = 'default', onNavigate }: Props) => {
+export const LanguagePicker = ({ onNavigate }: Props) => {
   const router = useRouter()
   const { languages } = useLanguages()
   const { setUserLanguageCookie } = useUserLanguage()
-  const [open, setOpen] = useState(false)
-  const isHeader = variant === 'header'
 
   const locale = router.locale || 'en'
 
@@ -57,119 +52,84 @@ export const LanguagePicker = ({ variant = 'default', onNavigate }: Props) => {
     }
   }
 
-  if (isHeader) {
-    // Brand reports the chosen row by value, so navigation happens here. Rows stay
-    // list items: Brand's Overlay reads data-value on Enter and calls onSelect,
-    // while anchor rows close on Enter without following the link and never get
-    // aria-checked.
-    const handleSelect = (code: string) => {
-      if (!code) return
-      rememberLanguage(code)
-      // Brand owns open state; onNavigate closes the surrounding narrow menu.
-      onNavigate?.()
-      // locale: false stops Next adding a second locale prefix, matching Link.
-      router.push(languageHref(code), undefined, { locale: false })
-    }
-
-    // Brand ActionMenu and SubdomainNavBar both listen for Escape on document and
-    // ignore defaultPrevented, so stop it in the capture phase to keep one Escape
-    // from closing both menus. Brand has no controlled open prop, so focus and
-    // click the trigger to close only the picker.
-    const handleEscapeCapture = (event: KeyboardEvent<HTMLDivElement>) => {
-      if (event.key !== 'Escape') return
-
-      const trigger = event.currentTarget.querySelector<HTMLButtonElement>(
-        `[data-testid="${HEADER_TRIGGER_TESTID}"]`,
-      )
-      if (trigger?.getAttribute('aria-expanded') !== 'true') return
-
-      event.preventDefault()
-      event.stopPropagation()
-      trigger.focus()
-      trigger.click()
-    }
-
-    return (
-      <div
-        data-testid="language-picker"
-        className={styles.headerPicker}
-        onKeyDownCapture={handleEscapeCapture}
-      >
-        <BrandActionMenu
-          size="small"
-          selectionVariant="single"
-          // Grow left from the header's right edge because Brand anchors with allowOutOfBounds.
-          menuAlignment="end"
-          onSelect={handleSelect}
-        >
-          <ActionMenuTrigger
-            data-testid={HEADER_TRIGGER_TESTID}
-            className={cx(styles.headerButton, styles.headerFlatButton)}
-            aria-label={triggerLabel}
-            leadingVisual={<GlobeIcon size={16} />}
-            trailingVisual={<TriangleDownIcon size={16} />}
-          >
-            <span className={styles.headerValue} data-testid="language-picker-field">
-              {selectedLang.nativeName || selectedLang.name}
-            </span>
-          </ActionMenuTrigger>
-          <BrandActionMenu.Overlay aria-label="Select language">
-            {langs.map((lang) => (
-              <BrandActionMenu.Item
-                key={lang.code}
-                value={lang.code}
-                selected={lang === selectedLang}
-                lang={lang.code}
-                className={cx(
-                  styles.headerMenuItem,
-                  lang === selectedLang && styles.headerMenuItemSelected,
-                )}
-              >
-                <span data-testid="language-picker-item" className={styles.headerMenuItemLabel}>
-                  {lang.nativeName || lang.name}
-                </span>
-                {/* Brand's check icon is hidden; the design uses a trailing dot. */}
-                {lang === selectedLang && (
-                  <DotFillIcon size={16} className={styles.headerMenuItemDot} />
-                )}
-              </BrandActionMenu.Item>
-            ))}
-          </BrandActionMenu.Overlay>
-        </BrandActionMenu>
-      </div>
-    )
+  // Brand reports the chosen row by value, so navigation happens here. Rows stay
+  // list items: Brand's Overlay reads data-value on Enter and calls onSelect,
+  // while anchor rows close on Enter without following the link and never get
+  // aria-checked.
+  const handleSelect = (code: string) => {
+    if (!code) return
+    rememberLanguage(code)
+    // Brand owns open state; onNavigate closes the surrounding narrow menu.
+    onNavigate?.()
+    // locale: false stops Next adding a second locale prefix, matching Link.
+    router.push(languageHref(code), undefined, { locale: false })
   }
 
-  // ActionList items support both breakpoint-specific menu behaviors.
-  const languageList = langs.map((lang) => (
-    <ActionList.LinkItem
-      key={`/${lang.code}${routerPath}`}
-      as="a"
-      active={lang === selectedLang}
-      lang={lang.code}
-      href={languageHref(lang.code)}
-      onClick={() => {
-        if (lang.code) {
-          rememberLanguage(lang.code)
-        }
-        setOpen(false)
-        onNavigate?.()
-      }}
-    >
-      {lang.nativeName || lang.name}
-    </ActionList.LinkItem>
-  ))
+  // Brand ActionMenu and SubdomainNavBar both listen for Escape on document and
+  // ignore defaultPrevented, so stop it in the capture phase to keep one Escape
+  // from closing both menus. Brand has no controlled open prop, so focus and
+  // click the trigger to close only the picker.
+  const handleEscapeCapture = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== 'Escape') return
+
+    const trigger = event.currentTarget.querySelector<HTMLButtonElement>(
+      `[data-testid="${HEADER_TRIGGER_TESTID}"]`,
+    )
+    if (trigger?.getAttribute('aria-expanded') !== 'true') return
+
+    event.preventDefault()
+    event.stopPropagation()
+    trigger.focus()
+    trigger.click()
+  }
 
   return (
-    <div data-testid="language-picker" className="d-flex">
-      <ActionMenu open={open} onOpenChange={setOpen}>
-        <ActionMenu.Anchor>
-          <IconButton icon={GlobeIcon} aria-label={triggerLabel} />
-        </ActionMenu.Anchor>
-        <ActionMenu.Overlay align="end">
-          <ActionList selectionVariant="single">{languageList}</ActionList>
-        </ActionMenu.Overlay>
-      </ActionMenu>
+    <div
+      data-testid="language-picker"
+      className={styles.headerPicker}
+      onKeyDownCapture={handleEscapeCapture}
+    >
+      <BrandActionMenu
+        size="small"
+        selectionVariant="single"
+        // Grow left from the header's right edge because Brand anchors with allowOutOfBounds.
+        menuAlignment="end"
+        onSelect={handleSelect}
+      >
+        <ActionMenuTrigger
+          data-testid={HEADER_TRIGGER_TESTID}
+          className={cx(styles.headerButton, styles.headerFlatButton)}
+          aria-label={triggerLabel}
+          leadingVisual={<GlobeIcon size={16} />}
+          trailingVisual={<TriangleDownIcon size={16} />}
+        >
+          <span className={styles.headerValue} data-testid="language-picker-field">
+            {selectedLang.nativeName || selectedLang.name}
+          </span>
+        </ActionMenuTrigger>
+        <BrandActionMenu.Overlay aria-label="Select language">
+          {langs.map((lang) => (
+            <BrandActionMenu.Item
+              key={lang.code}
+              value={lang.code}
+              selected={lang === selectedLang}
+              lang={lang.code}
+              className={cx(
+                styles.headerMenuItem,
+                lang === selectedLang && styles.headerMenuItemSelected,
+              )}
+            >
+              <span data-testid="language-picker-item" className={styles.headerMenuItemLabel}>
+                {lang.nativeName || lang.name}
+              </span>
+              {/* Brand's check icon is hidden; the design uses a trailing dot. */}
+              {lang === selectedLang && (
+                <DotFillIcon size={16} className={styles.headerMenuItemDot} />
+              )}
+            </BrandActionMenu.Item>
+          ))}
+        </BrandActionMenu.Overlay>
+      </BrandActionMenu>
     </div>
   )
 }
