@@ -12,63 +12,47 @@ inputs:
     required: true
     # Version must match production and be published on docker.elastic.co.
     default: '8.12.0'
+  mode:
+    description: >-
+      'both' starts Elasticsearch and waits until it is ready.
+      'start' starts it in the background and returns right away.
+      'wait' waits for a background start from an earlier 'start' step, then for readiness.
+    required: false
+    default: 'both'
 
 runs:
   using: 'composite'
   steps:
-    # Pull from Elastic's registry to avoid Docker Hub rate limits.
-    # A pull is faster than restoring and loading a cached image tarball.
-    - name: Pull Docker image
+    - name: Start Elasticsearch
+      if: ${{ inputs.mode == 'both' }}
       shell: bash
       env:
-        ES_IMAGE: docker.elastic.co/elasticsearch/elasticsearch:${{ inputs.elasticsearch_version }}
-      run: |
-        for attempt in 1 2 3; do
-          docker pull "$ES_IMAGE" && exit 0
-          echo "Pull attempt $attempt failed"
-          sleep $((attempt * 10))
-        done
-        exit 1
+        ES_VERSION: ${{ inputs.elasticsearch_version }}
+      run: bash "$GITHUB_ACTION_PATH/start.sh"
 
-    # Run a single-node container with settings copied from getong/elasticsearch-action.
-    - name: Run Docker container
+    # Later steps such as npm ci and the build run while the image pulls and Elasticsearch boots.
+    - name: Start Elasticsearch in the background
+      if: ${{ inputs.mode == 'start' }}
       shell: bash
       env:
-        INPUT_ELASTICSEARCH_VERSION: ${{ inputs.elasticsearch_version }}
-        INPUT_HOST_PORT: 9200
-        INPUT_CONTAINER_PORT: 9200
-        INPUT_HOST_NODE_PORT: 9300
-        INPUT_NODE_PORT: 9300
-        INPUT_DISCOVERY_TYPE: 'single-node'
+        ES_VERSION: ${{ inputs.elasticsearch_version }}
+        ES_STATUS_FILE: ${{ runner.temp }}/elasticsearch-start.status
+        ES_LOG_FILE: ${{ runner.temp }}/elasticsearch-start.log
       run: |
-        docker network create elastic
+        rm -f "$ES_STATUS_FILE"
+        (
+          status=0
+          bash "$GITHUB_ACTION_PATH/start.sh" || status=$?
+          echo "$status" > "$ES_STATUS_FILE.tmp"
+          mv "$ES_STATUS_FILE.tmp" "$ES_STATUS_FILE"
+        ) > "$ES_LOG_FILE" 2>&1 < /dev/null &
+        echo "Starting Elasticsearch in the background. A mode: wait step prints the log."
 
-        docker run --network elastic \
-          -e 'node.name=es1' \
-          -e 'cluster.name=docker-elasticsearch' \
-          -e 'cluster.initial_master_nodes=es1' \
-          -e 'discovery.seed_hosts=es1' \
-          -e 'cluster.routing.allocation.disk.threshold_enabled=false' \
-          -e 'bootstrap.memory_lock=true' \
-          -e 'ES_JAVA_OPTS=-Xms1g -Xmx1g' \
-          -e 'xpack.security.enabled=false' \
-          -e 'xpack.license.self_generated.type=basic' \
-          --ulimit nofile=65536:65536 \
-          --ulimit memlock=-1:-1 \
-          --name='es1' \
-          -d \
-          -p $INPUT_HOST_PORT:$INPUT_CONTAINER_PORT \
-          -p $INPUT_HOST_NODE_PORT:$INPUT_NODE_PORT \
-          -e discovery_type=$INPUT_DISCOVERY_TYPE \
-          docker.elastic.co/elasticsearch/elasticsearch:$INPUT_ELASTICSEARCH_VERSION
-
-        for i in {1..120}; do
-          if curl --silent --fail http://localhost:9200; then
-            echo "Elasticsearch is up and running"
-            exit 0
-          fi
-          echo "Waiting for Elasticsearch to be ready..."
-          sleep 1
-        done
-        echo "Elasticsearch did not become ready in time"
-        exit 1
+    - name: Wait for Elasticsearch
+      if: ${{ inputs.mode != 'start' }}
+      shell: bash
+      env:
+        ES_BACKGROUND: ${{ inputs.mode == 'wait' }}
+        ES_STATUS_FILE: ${{ runner.temp }}/elasticsearch-start.status
+        ES_LOG_FILE: ${{ runner.temp }}/elasticsearch-start.log
+      run: bash "$GITHUB_ACTION_PATH/wait.sh"

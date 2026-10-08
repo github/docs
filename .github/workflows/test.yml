@@ -95,8 +95,11 @@ jobs:
           # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
           fetch-depth: 2
 
+      # Start Elasticsearch early so the pull and boot overlap with setup and build.
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
+        with:
+          mode: start
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -147,6 +150,11 @@ jobs:
       - uses: ./.github/actions/warmup-remotejson-cache
         # Only routing tests cover archived enterprise server URLs.
         if: ${{ matrix.name == 'redirects' }}
+
+      - uses: ./.github/actions/setup-elasticsearch
+        if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
+        with:
+          mode: wait
 
       - name: Index fixtures into the local Elasticsearch
         # Run indexing only for suites that query the local Elasticsearch service.
