@@ -11,13 +11,13 @@ on:
         description: "Languages: Comma separated languages, e.g. 'en,es,ja,pt,zh,ru,fr,ko,de'. Blank = all languages."
         required: false
         default: 'en'
-      hard:
-        description: 'Hard purge: Evict immediately instead of the default soft purge. Use when a soft purge fails to clear stale content.'
+      soft:
+        description: 'Soft purge: Mark stale instead of evicting. Readers keep getting the old copy while Fastly refetches. Off by default, so purges evict immediately.'
         type: boolean
         required: false
         default: false
       everything:
-        description: 'Everything: Hard-purge the entire Fastly cache... every key, all readers. Ignores the languages/hard inputs. To confirm, type exactly: "purge everything". Otherwise leave blank.'
+        description: 'Everything: Hard-purge the entire Fastly cache... every key, all readers. Ignores the languages/soft inputs. To confirm, type exactly: "purge everything". Otherwise leave blank.'
         required: false
         default: ''
 
@@ -54,7 +54,7 @@ jobs:
 
       - name: Validate confirmation input
         # A full-cache purge requires the exact string "purge everything"; typos must fail
-        # instead of falling through to a green soft purge.
+        # instead of falling through to a green language purge.
         env:
           EVERYTHING_INPUT: ${{ inputs.everything }}
         run: |
@@ -73,15 +73,15 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         env:
           LANGUAGES_INPUT: ${{ inputs.languages }}
-          HARD_INPUT: ${{ inputs.hard }}
+          SOFT_INPUT: ${{ inputs.soft }}
           EVERYTHING_INPUT: ${{ inputs.everything }}
         run: |
           args=()
           if [ -n "$LANGUAGES_INPUT" ]; then
             args+=(--languages "$LANGUAGES_INPUT")
           fi
-          if [ "$HARD_INPUT" = "true" ]; then
-            args+=(--hard)
+          if [ "$SOFT_INPUT" = "true" ]; then
+            args+=(--soft)
           fi
           if [ "$EVERYTHING_INPUT" = "purge everything" ]; then
             args+=(--everything)

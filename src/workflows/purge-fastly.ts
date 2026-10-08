@@ -3,47 +3,37 @@ import { program } from 'commander'
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import { languageKeys } from '@/languages/lib/languages-server'
 import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
+import { purgeSurrogateKeys } from '@/workflows/purge-fastly-changed-content'
 
-// Purges Fastly by mode: entire cache, one surrogate key, or no-language plus
-// every language key. --hard forces hard purges for targeted modes, and
-// --everything always hard-purges.
+// Purge hard by default, because a soft purge keeps serving the old copy during refetch.
 
 const { FASTLY_TOKEN, FASTLY_SERVICE_ID } = process.env
 
-const DELAY_BETWEEN_KEYS = 10 * 1000
-const DELAY_BEFORE_SECOND_PURGE = 20 * 1000
-
-// The pipelining in purgeKeys only lines up if the second-purge delay is a whole
-// number of key slots; otherwise second purges would drift off the cadence.
-// Enforce it so a future tweak to either constant can't silently break it.
-if (DELAY_BEFORE_SECOND_PURGE % DELAY_BETWEEN_KEYS !== 0) {
-  throw new Error(
-    `DELAY_BEFORE_SECOND_PURGE (${DELAY_BEFORE_SECOND_PURGE}ms) must be a multiple of ` +
-      `DELAY_BETWEEN_KEYS (${DELAY_BETWEEN_KEYS}ms) to keep second purges ` +
-      `aligned with later first-purge slots`,
-  )
-}
+// Fastly suggests two purge_all calls about 30 seconds apart,
+// so the second clears edge copies refilled from a not-yet-purged shield.
+// https://www.fastly.com/documentation/guides/full-site-delivery/purging/purging-all-content/#dealing-with-race-conditions
+const DELAY_BEFORE_SECOND_PURGE_ALL = 30 * 1000
 
 const sleep = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms))
 
 program
   .description(
-    'Purges Fastly after a deploy and on demand. Soft purge by default; can hard ' +
-      'purge specific languages, or hard purge the entire cache.',
+    'Purges Fastly on demand. Hard purge by default; can soft purge specific ' +
+      'languages, or hard purge the entire cache.',
   )
   .option(
     '--languages <languages>',
     "Comma separated languages to purge, e.g. 'en,es,ja'. Blank/omitted = all languages.",
   )
   .option('--surrogate-key <key>', 'Purge a single explicit surrogate key. e.g. api-search:en')
-  .option('--hard', 'Evict immediately instead of the default soft purge')
-  .option('--everything', 'Hard purge the ENTIRE cache: every key. Ignores --languages/--hard.')
+  .option('--soft', 'Mark stale instead of the default hard purge, which evicts immediately')
+  .option('--everything', 'Hard purge the ENTIRE cache: every key. Ignores --languages/--soft.')
   .parse(process.argv)
 
 type Options = {
   languages?: string
   surrogateKey?: string
-  hard?: boolean
+  soft?: boolean
   everything?: boolean
 }
 
@@ -62,17 +52,34 @@ async function main(options: Options) {
     throw new Error('FASTLY_SERVICE_ID not detected; refusing to purge')
   }
   if (options.everything) {
-    console.log('Attempting hard purge of the entire cache...')
-    const result = await fastlyPurge('purge_all')
-    console.log('Fastly purge_all result:', result.status)
+    // Run the second call even if the first fails, because Fastly may have applied the first.
+    const errors: unknown[] = []
+    for (let pass = 1; pass <= 2; pass++) {
+      if (pass > 1) {
+        console.log(`Waiting ${DELAY_BEFORE_SECOND_PURGE_ALL}ms before the second purge_all...`)
+        await sleep(DELAY_BEFORE_SECOND_PURGE_ALL)
+      }
+      try {
+        console.log(`Hard-purging the entire cache, pass ${pass}/2...`)
+        const result = await purgeAll()
+        console.log(`Fastly purge_all pass ${pass}/2 result:`, result.status)
+      } catch (error) {
+        console.error(error)
+        errors.push(error)
+      }
+    }
+    if (errors.length) {
+      throw new Error(`${errors.length} of 2 purge_all call(s) failed`)
+    }
     return
   }
 
-  const soft = !options.hard
   const surrogateKeys = options.surrogateKey
     ? [options.surrogateKey]
     : languageSurrogateKeys(options.languages)
-  await purgeKeys(surrogateKeys, soft)
+  await purgeSurrogateKeys(surrogateKeys, FASTLY_TOKEN, FASTLY_SERVICE_ID, {
+    soft: Boolean(options.soft),
+  })
 }
 
 function languageSurrogateKeys(languagesInput?: string): string[] {
@@ -102,71 +109,16 @@ function languagesFromString(str: string): string[] {
   return parsedLanguages
 }
 
-type PurgePhase = 'first' | 'second'
-type PurgeOutcome = { key: string; phase: PurgePhase; error?: unknown }
-
-// purgeKeys double-purges surrogate keys to clear Fastly edge nodes first and the
-// origin shield after stale content can be re-fetched. DELAY_BETWEEN_KEYS spaces
-// first purges to avoid a backend traffic spike. DELAY_BEFORE_SECOND_PURGE must
-// remain a multiple of that delay so second purges share later first-purge slots.
-// A single-key purge runs at 0s and 20s. Fastly's 30s figure applies to
-// purge_all, not these targeted purges.
-// https://www.fastly.com/documentation/guides/concepts/cache/purging#race-conditions
-async function purgeKeys(surrogateKeys: string[], soft: boolean) {
-  // One wall-clock start time keeps network latency from drifting the purge cadence.
-  const startTime = Date.now()
-  const purges: Promise<PurgeOutcome>[] = []
-
-  // Each call resolves to an outcome so later scheduled purges can still finish.
-  async function runPurge(
-    key: string,
-    phase: PurgePhase,
-    targetTime: number,
-  ): Promise<PurgeOutcome> {
-    await sleep(Math.max(0, targetTime - Date.now()))
-    try {
-      console.log(`Triggering ${phase}-phase ${soft ? 'soft' : 'hard'} purge for '${key}'...`)
-      const result = await fastlyPurge(`purge/${encodeURIComponent(key)}`, { soft })
-      console.log(`Fastly purge result for '${key}':`, result.status)
-      return { key, phase }
-    } catch (error) {
-      return { key, phase, error }
-    }
-  }
-
-  for (const [index, key] of surrogateKeys.entries()) {
-    const slotStart = startTime + index * DELAY_BETWEEN_KEYS
-    purges.push(runPurge(key, 'first', slotStart))
-    purges.push(runPurge(key, 'second', slotStart + DELAY_BEFORE_SECOND_PURGE))
-  }
-
-  const outcomes = await Promise.all(purges)
-  const failures = outcomes.filter((outcome) => outcome.error)
-  if (failures.length) {
-    for (const failure of failures) {
-      console.error(`Fastly ${failure.phase} purge failed for '${failure.key}':`, failure.error)
-    }
-    throw new Error(`${failures.length} Fastly purge(s) failed`)
-  }
-}
-
-// fastlyPurge appends endpoint to the service path, such as purge/<key> or
-// purge_all. Non-2xx responses throw with the body best-effort because Fastly
-// puts permission and feature details there. Soft purge marks the object stale
-// and serves stale-while-revalidate; hard purge evicts it outright. Soft can
-// fail to clear content whose origin returns 304 Not Modified on revalidation,
-// since a 304 extends the stale object. purge_all ignores the soft header.
-async function fastlyPurge(endpoint: string, { soft = false }: { soft?: boolean } = {}) {
+// purge_all ignores the soft-purge header, so this always hard-purges.
+// Errors include the response body, because Fastly puts permission and feature details there.
+async function purgeAll() {
   const headers: Record<string, string> = {
     'fastly-key': FASTLY_TOKEN as string,
     accept: 'application/json',
     'Content-Type': 'application/json',
   }
-  if (soft) {
-    headers['fastly-soft-purge'] = '1'
-  }
 
-  const url = `https://api.fastly.com/service/${encodeURIComponent(FASTLY_SERVICE_ID as string)}/${endpoint}`
+  const url = `https://api.fastly.com/service/${encodeURIComponent(FASTLY_SERVICE_ID as string)}/purge_all`
   const response = await fetchWithRetry(
     url,
     { method: 'POST', headers },
