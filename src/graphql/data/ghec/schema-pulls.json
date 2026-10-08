@@ -178,7 +178,7 @@
       "name": "archivePullRequest",
       "id": "archivepullrequest",
       "href": "/graphql/reference/pulls#mutation-archivepullrequest",
-      "description": "<p>Archive a pull request. Closes and marks the pull request as archived. Only repository admins can archive pull requests.</p>",
+      "description": "<p>Archive a pull request. Closes and marks the pull request as archived. Users\nwith the triage role or higher can archive pull requests.</p>",
       "isDeprecated": false,
       "inputFields": [
         {
@@ -959,7 +959,7 @@
       "name": "unarchivePullRequest",
       "id": "unarchivepullrequest",
       "href": "/graphql/reference/pulls#mutation-unarchivepullrequest",
-      "description": "<p>Unarchive a pull request. Removes the archived flag from the pull request.\nDoes not automatically reopen or unlock the pull request. Only repository\nadmins can unarchive pull requests.</p>",
+      "description": "<p>Unarchive a pull request. Removes the archived flag from the pull request.\nDoes not automatically reopen or unlock the pull request. Users with the\ntriage role or higher can unarchive pull requests.</p>",
       "isDeprecated": false,
       "inputFields": [
         {

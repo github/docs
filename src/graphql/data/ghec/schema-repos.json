@@ -4057,6 +4057,13 @@
           ]
         },
         {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/other#scalar-bigint"
+        },
+        {
           "name": "fundingLinks",
           "description": "<p>The funding links for this repository.</p>",
           "type": "[FundingLink!]!",

@@ -27670,7 +27670,8 @@ type Mutation @docsCategory(name: "meta") {
   ): ArchiveProjectV2ItemPayload @docsCategory(name: "projects")
 
   """
-  Archive a pull request. Closes and marks the pull request as archived. Only repository admins can archive pull requests.
+  Archive a pull request. Closes and marks the pull request as archived. Users
+  with the triage role or higher can archive pull requests.
   """
   archivePullRequest(
     """
@@ -29373,8 +29374,8 @@ type Mutation @docsCategory(name: "meta") {
 
   """
   Unarchive a pull request. Removes the archived flag from the pull request.
-  Does not automatically reopen or unlock the pull request. Only repository
-  admins can unarchive pull requests.
+  Does not automatically reopen or unlock the pull request. Users with the
+  triage role or higher can unarchive pull requests.
   """
   unarchivePullRequest(
     """
@@ -55144,6 +55145,11 @@ type Repository implements Node &
     """
     visibility: RepositoryVisibility
   ): RepositoryConnection!
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The funding links for this repository
