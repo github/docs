@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { FocusEvent } from 'react'
 import cx from 'clsx'
-import { IconButton } from '@primer/react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@primer/octicons-react'
 
+import { IconButton } from '@/frame/components/ui/IconButton'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { Breadcrumbs } from './Breadcrumbs'
 

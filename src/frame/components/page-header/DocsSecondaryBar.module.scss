@@ -65,10 +65,8 @@
 }
 
 // Override primer/css color-fg-muted, whose grey clashes with brand-painted breadcrumbs.
-// Keep !important because PRC's invisible IconButton variant uses .prc-Button-* rules
-// that otherwise win.
 .toggleIcon {
-  color: var(--brand-color-text-muted) !important;
+  color: var(--brand-color-text-muted);
 }
 
 // The In this article row sits directly beneath the breadcrumb bar. DefaultLayout

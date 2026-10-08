@@ -830,6 +830,23 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('sidebar')).toBeHidden()
   })
 
+  test('secondary-bar icon buttons show a label tooltip that Escape dismisses', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1400, height: 700 })
+    await page.goto('/get-started/foo/bar')
+
+    const toggle = page.getByRole('button', { name: 'Collapse sidebar' })
+    await expect(toggle).not.toHaveAttribute('aria-label')
+    const tooltip = page.locator(`[id="${await toggle.getAttribute('aria-labelledby')}"]`)
+    await expect(tooltip).toBeHidden()
+    await toggle.focus()
+    await expect(tooltip).toBeVisible()
+    await expect(tooltip).toHaveText('Collapse sidebar')
+    await page.keyboard.press('Escape')
+    await expect(tooltip).toBeHidden()
+  })
+
   for (const { name, width } of [
     { name: 'medium viewports - 768-1011', width: 1000 },
     { name: 'small viewports - 544-767', width: 555 },

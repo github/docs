@@ -1,8 +1,8 @@
 import cx from 'clsx'
 import { useRouter } from 'next/router'
-import { IconButton } from '@primer/react'
 import { SidebarCollapseIcon, SidebarExpandIcon } from '@primer/octicons-react'
 
+import { IconButton } from '@/frame/components/ui/IconButton'
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { useSidebarCollapsed } from '@/frame/components/sidebar/SidebarCollapseContext'

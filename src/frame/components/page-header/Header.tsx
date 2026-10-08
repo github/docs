@@ -94,9 +94,7 @@ export const Header = ({ isNarrowMenuOpen, onNarrowMenuToggle }: Props) => {
           onClick={handleClick}
           leadingComponent={<VersionPicker variant="header" onNavigate={closeNarrowMenu} />}
           trailingComponent={
-            languagePickerVisible ? (
-              <LanguagePicker variant="header" onNavigate={closeNarrowMenu} />
-            ) : undefined
+            languagePickerVisible ? <LanguagePicker onNavigate={closeNarrowMenu} /> : undefined
           }
         >
           <SubdomainNavBar.Search
