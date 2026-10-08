@@ -10,42 +10,25 @@ inputs:
   elasticsearch_version:
     description: Version of Elasticsearch to install
     required: true
-    # Version must match production and be published on Docker Hub.
+    # Version must match production and be published on docker.elastic.co.
     default: '8.12.0'
 
 runs:
   using: 'composite'
   steps:
-    # Cache the Elasticsearch image to prevent Docker Hub rate limits.
-    - name: Cache Docker layers
-      id: cache-docker-layers
-      uses: actions/cache@v4
-      with:
-        path: /tmp/docker-cache
-        key: ${{ runner.os }}-elasticsearch-${{ inputs.elasticsearch_version }}
-        restore-keys: |
-          ${{ runner.os }}-elasticsearch-
-
-    - name: Load cached Docker image
-      shell: bash
-      if: steps.cache-docker-layers.outputs.cache-hit == 'true'
-      run: docker load -i /tmp/docker-cache/elasticsearch.tar || echo "No cache found for elasticsearch, pulling image"
-
+    # Pull from Elastic's registry to avoid Docker Hub rate limits.
+    # A pull is faster than restoring and loading a cached image tarball.
     - name: Pull Docker image
       shell: bash
-      if: steps.cache-docker-layers.outputs.cache-hit != 'true'
       env:
-        ES_VERSION: ${{ inputs.elasticsearch_version }}
-      run: docker pull elasticsearch:${ES_VERSION}
-
-    - name: Save Docker image to cache
-      shell: bash
-      if: steps.cache-docker-layers.outputs.cache-hit != 'true'
-      env:
-        ES_VERSION: ${{ inputs.elasticsearch_version }}
+        ES_IMAGE: docker.elastic.co/elasticsearch/elasticsearch:${{ inputs.elasticsearch_version }}
       run: |
-        mkdir -p /tmp/docker-cache
-        docker save -o /tmp/docker-cache/elasticsearch.tar elasticsearch:${ES_VERSION}
+        for attempt in 1 2 3; do
+          docker pull "$ES_IMAGE" && exit 0
+          echo "Pull attempt $attempt failed"
+          sleep $((attempt * 10))
+        done
+        exit 1
 
     # Run a single-node container with settings copied from getong/elasticsearch-action.
     - name: Run Docker container
@@ -77,7 +60,7 @@ runs:
           -p $INPUT_HOST_PORT:$INPUT_CONTAINER_PORT \
           -p $INPUT_HOST_NODE_PORT:$INPUT_NODE_PORT \
           -e discovery_type=$INPUT_DISCOVERY_TYPE \
-          elasticsearch:$INPUT_ELASTICSEARCH_VERSION
+          docker.elastic.co/elasticsearch/elasticsearch:$INPUT_ELASTICSEARCH_VERSION
 
         for i in {1..120}; do
           if curl --silent --fail http://localhost:9200; then
