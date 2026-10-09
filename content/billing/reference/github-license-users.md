@@ -51,6 +51,9 @@ category:
   * {% data variables.product.company_short %} counts each outside collaborator once, even if the user account has access to multiple repositories in your organization.
 * Dormant users who are a member or owner of at least one organization in the enterprise
 
+> [!IMPORTANT]
+> With usage-based billing, changes to license consumption during a billing cycle are reflected in your next bill. A user who consumed a license at any point during the cycle, for example before being suspended or removed, remains billable for that cycle. See [AUTOTITLE](/billing/concepts/enterprise-billing/usage-based-licenses#how-are-metered-licenses-measured).
+
 If your enterprise does not use {% data variables.product.prodname_emus %} or usage-based billing, you will also be billed for each of the following accounts. Under usage-based billing, pending invitations do not consume a license. See [AUTOTITLE](/billing/concepts/enterprise-billing/usage-based-licenses).
 
 * Anyone with a pending invitation to become an organization owner or member

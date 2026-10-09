@@ -1,12 +1,12 @@
 name: Package lock lint
 
-# **What it does**: Makes sure package.json and package-lock.json is in sync
-# **Why we have it**: Accidental manual edits of the dependencies directly in package.json
-# **Who does it impact**: Docs engineering/writers/contributors.
+# This workflow catches manual package.json edits that leave package-lock.json out of sync.
+# It also blocks Microsoft package feed URLs, which break installs outside GitHub.
 
 on:
   pull_request:
     paths:
+      - .npmrc
       - package.json
       - package-lock.json
       - .github/workflows/package-lock-lint.yml
@@ -14,7 +14,7 @@ on:
 permissions:
   contents: read
 
-# This allows a subsequently queued workflow run to interrupt previous runs
+# Cancel older runs for the same PR because this check only depends on the latest commit.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
@@ -27,6 +27,18 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
+      - name: Check for package feed URLs
+        run: |
+          status=0
+          grep -inE 'https?://[^/"]*(pkgs\.visualstudio\.com|pkgs\.dev\.azure\.com|packagefeedproxy\.microsoft\.io)' .npmrc package-lock.json || status=$?
+          if [ "$status" -eq 0 ]; then
+            echo "::error::Found Microsoft package feed URLs. Use https://registry.npmjs.org/ instead."
+            exit 1
+          elif [ "$status" -ne 1 ]; then
+            echo "::error::Could not scan .npmrc and package-lock.json for package feed URLs."
+            exit "$status"
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -37,23 +49,17 @@ jobs:
         run: |
           npm --version
 
-          # Save the current top-level dependencies from package-lock.json
           node -e "console.log(JSON.stringify(require('./package-lock.json').packages['']))" > /tmp/before.json
 
-          # From https://docs.npmjs.com/cli/v7/commands/npm-install
-          #
-          #   The --package-lock-only argument will only update the
-          #   package-lock.json, instead of checking node_modules and
-          #   downloading dependencies.
-          #
+          # npm install --package-lock-only updates package-lock.json
+          # without checking node_modules or downloading packages.
+          # See https://docs.npmjs.com/cli/v7/commands/npm-install.
           npm install --package-lock-only --ignore-scripts --include=optional
 
-          # Extract the top-level dependencies after regeneration
           node -e "console.log(JSON.stringify(require('./package-lock.json').packages['']))" > /tmp/after.json
 
-          # Compare only the top-level package dependencies
-          # This ignores platform-specific differences in nested dependency resolution
-          # (like "peer" flags) that don't affect actual installed versions
+          # Compare only top-level package dependencies because platform-specific nested dependency
+          # metadata, such as peer flags, does not affect actual installed versions.
           if ! diff /tmp/before.json /tmp/after.json; then
             echo "ERROR: Top-level dependencies in package-lock.json are out of sync with package.json"
             echo "Please run 'npm install' locally and commit the updated package-lock.json"

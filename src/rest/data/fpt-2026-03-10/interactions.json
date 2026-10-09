@@ -318,6 +318,10 @@
                   "description": "The maximum number of open pull requests a user can have at one time",
                   "minimum": 1,
                   "maximum": 1000
+                },
+                "include_drafts": {
+                  "type": "boolean",
+                  "description": "Whether draft pull requests count toward the pull request creation cap"
                 }
               },
               "required": [
@@ -387,6 +391,11 @@
           "type": "integer",
           "name": "max_open_pull_requests",
           "description": "<p>The maximum number of open pull requests a user can have at one time</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "include_drafts",
+          "description": "<p>Whether draft pull requests count toward the pull request creation cap</p>"
         }
       ],
       "descriptionHTML": "<p>Updates the pull request creation cap for an organization. The cap limits the total number\nof open pull requests a user can have across all public repositories in the organization\nat one time.</p>\n<p>Only users with admin access to the organization can configure the cap.</p>",
@@ -398,7 +407,8 @@
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
               "enabled": true,
-              "max_open_pull_requests": 1
+              "max_open_pull_requests": 1,
+              "include_drafts": true
             },
             "parameters": {
               "org": "ORG"
@@ -424,6 +434,10 @@
                   "description": "The maximum number of open pull requests a user can have at one time",
                   "minimum": 1,
                   "maximum": 1000
+                },
+                "include_drafts": {
+                  "type": "boolean",
+                  "description": "Whether draft pull requests count toward the pull request creation cap"
                 }
               },
               "required": [
@@ -1217,6 +1231,10 @@
                   "description": "The maximum number of open pull requests a user can have at one time",
                   "minimum": 1,
                   "maximum": 1000
+                },
+                "include_drafts": {
+                  "type": "boolean",
+                  "description": "Whether draft pull requests count toward the pull request creation cap"
                 }
               },
               "required": [
@@ -1295,6 +1313,11 @@
           "type": "integer",
           "name": "max_open_pull_requests",
           "description": "<p>The maximum number of open pull requests a user can have at one time</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "include_drafts",
+          "description": "<p>Whether draft pull requests count toward the pull request creation cap</p>"
         }
       ],
       "descriptionHTML": "<p>Updates the pull request creation cap for a repository. The cap limits the number\nof open pull requests a user can have at one time.</p>\n<p>Only users with admin access to the repository can configure the cap.</p>",
@@ -1306,7 +1329,8 @@
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
               "enabled": true,
-              "max_open_pull_requests": 1
+              "max_open_pull_requests": 1,
+              "include_drafts": true
             },
             "parameters": {
               "owner": "OWNER",
@@ -1333,6 +1357,10 @@
                   "description": "The maximum number of open pull requests a user can have at one time",
                   "minimum": 1,
                   "maximum": 1000
+                },
+                "include_drafts": {
+                  "type": "boolean",
+                  "description": "Whether draft pull requests count toward the pull request creation cap"
                 }
               },
               "required": [

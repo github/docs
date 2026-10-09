@@ -1,15 +1,12 @@
 name: CodeQL analysis
 
-# **What it does**: This runs CodeQL on our repository.
-# **Why we have it**: Security scanning.
-# **Who does it impact**: Docs engineering.
+# Runs CodeQL security scanning for the internal and public docs repositories.
 
 on:
   pull_request:
     branches:
       - main
-  # This is so that when CodeQL runs on a pull request, it can compare
-  # against the state of the base branch.
+  # Push runs give pull request scans a base branch for comparison.
   push:
     branches:
       - main
@@ -19,7 +16,7 @@ permissions:
   contents: read
   security-events: write
 
-# This allows a subsequently queued workflow run to interrupt previous runs
+# Newer runs cancel queued or running scans for the same ref.
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
@@ -33,7 +30,7 @@ jobs:
 
       - uses: github/codeql-action/init@e296a935590eb16afc0c0108289f68c87e2a89a5 # v4.30.7
         with:
-          languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp, ruby}
+          languages: javascript
       - uses: github/codeql-action/analyze@e296a935590eb16afc0c0108289f68c87e2a89a5 # v4.30.7
         continue-on-error: true
 

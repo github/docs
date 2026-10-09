@@ -6,10 +6,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        **HUBBERS!!** This is the github/docs open source repo. You may want to open an issue in the internal-only github/docs-content repo instead.
-
         * Before you file an issue read the [Contributing guide](https://docs.github.com/en/contributing).
         * Check to make sure someone hasn't already opened a similar [issue](https://github.com/github/docs/issues).
+        * If your issue relates to API endpoint reference content under https://docs.github.com/rest, please raise it against https://github.com/github/rest-api-description.
 
   - type: checkboxes
     id: terms

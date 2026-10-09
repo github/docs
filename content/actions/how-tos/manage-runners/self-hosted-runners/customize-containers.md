@@ -100,7 +100,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
   "state": {},
   "args": {
     "jobContainer": {
-      "image": "node:18"
+      "image": "node:18",
       "workingDirectory": "/__w/octocat-test2/octocat-test2",
       "createOptions": "--cpus 1",
       "environmentVariables": {

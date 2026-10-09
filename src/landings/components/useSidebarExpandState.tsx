@@ -5,21 +5,20 @@ import Cookies from '@/frame/components/lib/cookies'
 import { SIDEBAR_EXPANDED_COOKIE_NAME } from '@/frame/lib/constants'
 
 // Persists the docs sidebar's expand/collapse state across navigations. The tree
-// remounts on every route change (SidebarNav renders <SidebarProduct key={asPath} />),
-// so per-node open state can't live in ordinary component state — it's kept in a
+// remounts on every route change, so per-node open state cannot live in component state.
+// SidebarNav renders SidebarProduct keyed by asPath, so state is kept in a
 // cookie, read once per mount, and shared through context.
 //
 // Semantics: a category is open when the user has explicitly toggled it (their
-// choice wins and persists); otherwise it follows the active chain — the ancestor
+// choice wins and persists); otherwise it follows the active chain: the ancestor
 // path of the current page auto-opens. Because brand NavList only auto-expands the
-// aria-current chain for *uncontrolled* items, a controlled item must fold that in
-// itself, which is what the `onActiveChain` fallback does here.
+// aria-current chain for uncontrolled items, a controlled item must fold that in
+// itself, which is what the onActiveChain fallback does here.
 //
-// SSR-safety: the cookie is read server-side in getMainContext and passed to the
-// provider as `initial`, so the very first render (server + client hydration) already
-// reflects the persisted state and markup matches — no post-mount flash. When rendered
-// without an `initial` (e.g. outside the SSR data path), it falls back to reading the
-// cookie client-side via the SSR-safe cookie lib.
+// Server-side rendering reads the cookie in getMainContext and passes it as initial,
+// so the first server and client render match with no post-mount flash. Without
+// initial, for example outside the server-side data path, it falls back to the
+// SSR-safe cookie lib on the client.
 
 type ExpandedStore = Record<string, boolean>
 
@@ -43,8 +42,7 @@ function persistStore(store: ExpandedStore) {
   try {
     Cookies.set(SIDEBAR_EXPANDED_COOKIE_NAME, JSON.stringify(store))
   } catch {
-    // Cookie writes may fail (disabled cookies, etc.) — degrade to non-persisted
-    // state rather than throwing.
+    // Cookie write failures degrade to non-persisted state instead of throwing.
   }
 }
 
@@ -55,8 +53,7 @@ export function SidebarExpandStateProvider({
   children: ReactNode
   initial?: ExpandedStore | null
 }) {
-  // Seed from the SSR-read cookie value so server and first client render agree.
-  // When no initial is supplied, fall back to reading the cookie client-side.
+  // Seed from the server-read cookie, or read the cookie client-side when initial is absent.
   const [store, setStore] = useState<ExpandedStore>(() => initial ?? readStore())
 
   const setExpanded = useCallback((key: string, expanded: boolean) => {
@@ -77,20 +74,14 @@ export function SidebarExpandStateProvider({
   return <ExpandStateContext.Provider value={value}>{children}</ExpandStateContext.Provider>
 }
 
-/**
- * Controlled expand state for one NavList category, backed by a cookie.
- * @param key           Stable per-node identifier (the node's locale-prefixed href).
- * @param onActiveChain Whether this node is an ancestor of the current page.
- * @returns `[expanded, onExpandedChange]` to spread onto a brand `NavList.Item`.
- */
+// Controls one NavList category by its stable locale-prefixed href and active-chain state.
+// Returns expanded state and the NavList.Item change handler, backed by a cookie.
 export function useSidebarExpandState(
   key: string,
   onActiveChain: boolean,
 ): [boolean, (expanded: boolean) => void] {
   const ctx = useContext(ExpandStateContext)
-  // Fallback keeps the tree interactive if a NavList is ever rendered outside the
-  // provider: expand/collapse works via local state (seeded from the active chain),
-  // just without cross-navigation persistence.
+  // Outside the provider, local state keeps the tree interactive without persistence.
   const [localExpanded, setLocalExpanded] = useState(onActiveChain)
   const expanded = ctx ? ctx.isExpanded(key, onActiveChain) : localExpanded
   const onExpandedChange = useCallback(

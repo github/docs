@@ -1,10 +1,6 @@
 name: Auto Close Open Source Dependency Updates
 
-# **What it does**:
-#  - close-external: Automatically close dependabot's pull requests in the open-source repository.
-# **Why we have it**:
-#  - close-external: To avoid duplicating updates against the internal repository.
-# **Who does it impact**: It helps docs engineering focus on higher value work.
+# Closes Dependabot dependency updates in github/docs because the internal repo owns them.
 
 on:
   pull_request:
@@ -48,7 +44,7 @@ jobs:
         run: |
           gh pr comment "$PR_URL" --body "This dependency update will be handled internally by our engineering team."
 
-      # Because we get far too much spam ;_;
+      # Lock conversations to stop repeated dependency-update comments.
       - name: Lock conversations
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         env:

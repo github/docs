@@ -20,8 +20,7 @@ export interface ProcessedLink {
   intro?: string
 }
 
-// rawLinks is an array of paths: [ '/foo' ]
-// we need to convert it to an array of localized objects: [ { href: '/en/foo', title: 'Foo', intro: 'Description here' } ]
+// Convert raw paths into localized link objects with rendered metadata.
 export default async function getLinkData(
   rawLinks: string[] | string | undefined,
   context: Context,
@@ -36,11 +35,7 @@ export default async function getLinkData(
   }
 
   const links: ProcessedLink[] = []
-  // Using a for loop here because the async work is not network or
-  // disk bound. It's CPU bound.
-  // And if we use a for-loop we can potentially bail early if
-  // the `maxLinks` is reached. That's instead of computing them all,
-  // and then slicing the array. So it avoids wasted processing.
+  // Process links serially so CPU-bound rendering can stop as soon as maxLinks is reached.
   for (const link of rawLinks) {
     const processedLink = await processLink(link, context, options)
     if (processedLink) {
@@ -60,7 +55,7 @@ async function processLink(
   options: LinkOptions,
 ): Promise<ProcessedLink | null> {
   const opts: { textOnly: boolean; preferShort?: boolean } = { textOnly: true }
-  // Parse the link in case it includes Liquid conditionals
+  // Liquid conditionals can make the link version-specific.
   const linkPath = link.includes('{')
     ? await executeWithFallback(
         context,
@@ -68,9 +63,7 @@ async function processLink(
         (enContext: Context) => renderContent(link, enContext, opts),
       )
     : link
-  // If the link was `{% ifversion ghes %}/admin/foo/bar{% endifversion %}`
-  // the `context.currentVersion` was `enterprise-cloud`, the final
-  // output would become '' (empty string).
+  // Version-specific Liquid can render an empty link outside its version.
   if (!linkPath) return null
 
   const version =
@@ -82,9 +75,7 @@ async function processLink(
 
   const linkedPage = findPage(href, context.pages || {}, context.redirects || {})
   if (!linkedPage) {
-    // This can happen when the link depends on Liquid conditionals,
-    // like...
-    //    - '{% ifversion ghes %}/admin/foo/bar{% endifversion %}'
+    // Liquid-gated links can point nowhere in the current version.
     return null
   }
 

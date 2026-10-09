@@ -2,7 +2,7 @@
 title: CodeQL build options and steps for compiled languages
 shortTitle: Build options for compiled languages
 intro: Learn how {% data variables.product.prodname_codeql %} builds compiled languages, including available build modes and language-specific autobuild behavior for C/C++, C#, Go, Java, Kotlin, Rust, and Swift.
-permissions: '{% data reusables.permissions.code-scanning-all-alerts %} if [advanced setup](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning) is already enabled'
+permissions: '{% data reusables.permissions.code-scanning-all-alerts %} if [advanced setup](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning) is already enabled'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -93,14 +93,14 @@ When you enable default setup for a repository that contains C# code, the build 
 
 {% data variables.product.prodname_codeql %} restores dependencies and generates a few additional source files, to give more accurate results, before creating a database from all the source files and dependencies.
 
-Dependencies are restored using multiple heuristics and strategies. The following files are the primary source of information: `*.csproj`, `*.sln`, `nuget.config`, `packages.config`, `global.json`, and `project.assets.json`. {% ifversion org-private-registry %}If a private NuGet feed is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [Determining whether code scanning default setup used any private registries](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).{% endif %}
+Dependencies are restored using multiple heuristics and strategies. The following files are the primary source of information: `*.csproj`, `*.sln`, `nuget.config`, `packages.config`, `global.json`, and `project.assets.json`. If a private NuGet feed is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [Determining whether code scanning default setup used any private registries](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).
 
 The following generated source files are optional, but significantly increase the correctness of the {% data variables.product.prodname_codeql %} database:
 
 * `global` generated `using` directives to handle the implicit `using` feature of MSbuild.
 * ASP.NET core view files, `.cshtml` files are converted to `.cs` files.
 
-The information from the dependency assembly names, generated source files, {% ifversion org-private-registry %}dependencies stored in private feeds, {% endif %}and the source files in the repository is compiled and used to create a {% data variables.product.prodname_codeql %} database.
+The information from the dependency assembly names, generated source files, dependencies stored in private feeds, and the source files in the repository is compiled and used to create a {% data variables.product.prodname_codeql %} database.
 
 #### Accuracy of no build analysis for C#
 
@@ -108,7 +108,7 @@ Creating a {% data variables.product.prodname_codeql %} database without buildin
 
 You can ensure a more accurate analysis by taking the following steps:
 
-* Provide access to the public internet or ensure that access to a private NuGet feed is available{% ifversion org-private-registry %}, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries){% endif %}.
+* Provide access to the public internet or ensure that access to a private NuGet feed is available, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries).
 * Check whether the repository requires multiple versions of the same NuGet dependency. {% data variables.product.prodname_codeql %} can use only one version and usually chooses the newer version where there are multiple versions. This approach may not work for all repositories.
 * Check whether multiple versions of .NET are referenced, for example, `net48`, `net5.0`, and `netstandard1.6`. {% data variables.product.prodname_codeql %} can use only one version and this may affect accuracy.
 * Avoid colliding class names, otherwise this may cause missing method call targets, which has an impact on dataflow analysis.
@@ -216,7 +216,7 @@ If you later add Kotlin code to a repository that uses the `none` build mode, {%
 
 {% data variables.product.prodname_codeql %} will attempt to run Gradle or Maven to extract accurate dependency information (but not to invoke a build), before creating a database from all Java files present. Every root Maven or Gradle project file (a build script without any build script present in an ancestor directory) is queried for dependency information, and more recent dependency versions are preferred if there is a clash. For information about the runner requirements to run Maven or Gradle, see [Runner requirements for Java](#runner-requirements-for-java).
 
- {% ifversion org-private-registry %}If a private Maven registry is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [Determining whether code scanning default setup used any private registries](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).{% endif %}
+ If a private Maven registry is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [Determining whether code scanning default setup used any private registries](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).
 
 #### Accuracy of no build analysis for Java
 
@@ -227,7 +227,7 @@ Creating a {% data variables.product.prodname_codeql %} Java database without a 
 
 You can ensure a more accurate analysis by taking the following steps:
 
-* Provide access to the public internet or ensure that access to a private artifact repository is available{% ifversion org-private-registry %}, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries){% endif %}.
+* Provide access to the public internet or ensure that access to a private artifact repository is available, see [Code scanning default setup access to private registries](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries).
 * Check whether the repository requires multiple versions of the same dependency. {% data variables.product.prodname_codeql %} can use only one version and usually chooses the newer version where there are multiple versions. This approach may not work for all repositories.
 * Check whether more than one version of the JDK API is required by different source Java files. When multiple versions are seen, {% data variables.product.prodname_codeql %} will use the highest version required by any build script. This may mean that some files that require a lower version of the JDK will be partially analyzed. For example, if some files require JDK 8 but a JDK 17 requirement is found in one or more build scripts, {% data variables.product.prodname_codeql %} will use JDK 17. Any files that require JDK 8 and could not be built using JDK 17 will be partially analyzed.
 * Avoid colliding class names (for example, multiple files defining `org.myproject.Test`), otherwise this may cause missing method call targets, which has an impact on dataflow analysis.

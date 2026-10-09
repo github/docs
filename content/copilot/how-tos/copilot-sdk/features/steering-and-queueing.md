@@ -27,6 +27,28 @@ When a session is actively processing a turn, incoming messages can be delivered
 
 ![Diagram: Sequence diagram showing the described process.](/assets/images/help/copilot/copilot-sdk/features-steering-and-queueing-diagram-0.png)
 
+## Message provenance
+
+Set the optional source when forwarding a message from another agent. An identified agent source serializes as `agent-<id>`. Leave source unset for ordinary human sends to preserve runtime defaults. Both send and send-and-wait APIs support source with `"enqueue"` and `"immediate"` delivery.
+
+| SDK | Identified agent source |
+|-----|-------------------------|
+| Node.js / TypeScript | `source: "agent-sender-id"` |
+| Python | `source=AgentMessageSource("sender-id")` |
+| Go | `Source: copilot.MessageSourceAgent("sender-id")` |
+| .NET | `Source = MessageSource.Agent("sender-id")` |
+| Java | `.setSource(MessageSource.agent("sender-id"))` |
+| Rust | `.with_source(MessageSource::Agent("sender-id".into()))` |
+
+The typed APIs also support `user` and `system`. Use `system` for internal application context, not as a substitute for an identified agent. Agent provenance lets the runtime distinguish agent input from human authorization while retaining its agent-message steering behavior. Derive the sender ID from trusted application metadata, never from message text.
+
+Source identifies origin. Delivery mode requests urgency. Neither requires the recipient to produce a visible reply, and source does not set billing flags. The runtime applies its existing scheduling rules. Rust callers using the typed RPC API can also pass `MessageSource` to `rpc::SendRequest::with_source(...)`.
+
+A successful high-level `send` acknowledgement returns a message ID and confirms acceptance, not that the recipient has consumed the message. Do not automatically resend an accepted message merely because no reply appears. Send-and-wait can complete on an idle event without an assistant message.
+
+> [!WARNING]
+> Remote backends do not necessarily preserve source end to end. The agent session can include source in its local echo without carrying it in the remote HTTP request. A local source event does not prove that the remote worker received the same provenance.
+
 ## Steering (immediate mode)
 
 Steering sends a message that is injected directly into the agent's current turn. The agent sees the message in real time and adjusts its response accordingly—useful for course-correcting without aborting the turn.

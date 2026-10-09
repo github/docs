@@ -30,7 +30,7 @@ When starting a task with the {% data variables.product.prodname_openai_codex %}
 * Auto
 {% data reusables.copilot.openai-codex-agent-models %}
 
-If you select **Auto**, {% data variables.copilot.copilot_auto_model_selection %} will select the best model based on availability and to help reduce rate limiting. For more information, see [AUTOTITLE](/copilot/concepts/models/auto-model-selection).
+If you select **Auto**, it will choose one of the available models listed above. **Auto** in {% data variables.product.prodname_openai_codex %} coding agent does **not** leverage {% data variables.copilot.copilot_auto_model_selection %}.
 
 ## {% data variables.product.prodname_vscode_shortname %} extension
 

@@ -55,6 +55,18 @@
   provider: 'OpenAI'
   release_status: 'GA'
 
+- name: 'GPT-6 Luna'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
+- name: 'GPT-6 Sol'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
+- name: 'GPT-6.1 Sol'
+  provider: 'OpenAI'
+  release_status: 'GA'
+
 # Anthropic models
 
 - name: 'Claude Fable 5'
@@ -69,7 +81,7 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
-- name: 'Claude Opus 4.7'
+- name: 'Claude Haiku 5.5'
   provider: 'Anthropic'
   release_status: 'GA'
 
@@ -85,6 +97,10 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
+- name: 'Claude Opus 5.5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 - name: 'Claude Sonnet 4.6'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -93,15 +109,11 @@
   provider: 'Anthropic'
   release_status: 'GA'
 
+- name: 'Claude Sonnet 5.5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+
 # Google models
-
-- name: 'Gemini 3.5 Flash'
-  provider: 'Google'
-  release_status: 'GA'
-
-- name: 'Gemini 3.6 Flash'
-  provider: 'Google'
-  release_status: 'GA'
 
 - name: 'Gemini 3.7 Flash'
   provider: 'Google'
@@ -117,10 +129,6 @@
   release_status: 'GA'
 
 # Open-weight models
-- name: 'Kimi K2.7 Code'
-  provider: 'Moonshot AI'
-  release_status: 'GA'
-
 - name: 'Kimi K3'
   provider: 'Moonshot AI'
   release_status: 'GA'
@@ -131,5 +139,9 @@
   release_status: 'GA'
 
 - name: 'Grok 4.6'
+  provider: 'xAI'
+  release_status: 'GA'
+
+- name: 'Grok 4.7'
   provider: 'xAI'
   release_status: 'GA'

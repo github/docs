@@ -13,8 +13,6 @@ export const ctasSchema: Rule = {
   description: 'CTA URLs must conform to the schema',
   tags: ['ctas', 'schema', 'urls'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
-    // Find all URLs in the content that might be CTAs
-    // Updated regex to properly handle URLs in quotes and other contexts
     const urlRegex = /https?:\/\/[^\s)\]{}'">]+/g
     const content = params.lines.join('\n')
 
@@ -22,21 +20,21 @@ export const ctasSchema: Rule = {
     while ((match = urlRegex.exec(content)) !== null) {
       const url = match[0]
 
-      // Check if this URL has ref_ parameters and is on a GitHub domain (indicating it's a CTA URL)
+      // CTA URLs carry ref_ parameters.
       if (!url.includes('ref_')) continue
 
-      // Only validate CTA URLs on GitHub domains
+      // CTA schema checks apply only to github.com and desktop.github.com.
       let hostname: string
       try {
         hostname = new URL(url).hostname
       } catch {
-        // Invalid URL, skip validation
+        // Malformed URLs cannot be CTA schema checked.
         continue
       }
       const allowedHosts = ['github.com', 'desktop.github.com']
       if (!allowedHosts.includes(hostname)) continue
 
-      // Skip placeholder/documentation example URLs
+      // Docs placeholder URLs with tokens like DESTINATION or CTA+NAME skip CTA schema checks.
       const isPlaceholderUrl =
         /[A-Z_]+/.test(url) &&
         (url.includes('DESTINATION') ||
@@ -50,27 +48,24 @@ export const ctasSchema: Rule = {
         const urlObj = new URL(url)
         const searchParams = urlObj.searchParams
 
-        // Extract ref_ parameters
         const refParams: Record<string, string> = {}
         const hasRefParams = Array.from(searchParams.keys()).some((key) => key.startsWith('ref_'))
 
         if (!hasRefParams) continue
 
-        // Collect all ref_ parameters
         for (const [key, value] of searchParams.entries()) {
           if (key.startsWith('ref_')) {
             refParams[key] = value
           }
         }
 
-        // Check if this has old CTA parameters that can be auto-fixed
+        // ref_cta, ref_loc, and ref_page map to schema fields.
         const hasOldParams =
           'ref_cta' in refParams || 'ref_loc' in refParams || 'ref_page' in refParams
 
         if (hasOldParams) {
           const result = convertOldCTAUrl(url)
           if (result && result.newUrl !== url) {
-            // Find the line and create fix info
             const lineIndex = params.lines.findIndex((line) => line.includes(url))
             const lineNumber = lineIndex >= 0 ? lineIndex + 1 : 1
             const line = lineIndex >= 0 ? params.lines[lineIndex] : ''
@@ -92,7 +87,6 @@ export const ctasSchema: Rule = {
             )
           }
         } else {
-          // Validate new format URLs against schema
           const isValid = validateCTASchema(refParams)
 
           if (!isValid) {
@@ -100,7 +94,6 @@ export const ctasSchema: Rule = {
             const lineNumber = lineIndex >= 0 ? lineIndex + 1 : 1
             const line = lineIndex >= 0 ? params.lines[lineIndex] : ''
 
-            // Process AJV errors manually for CTA URLs
             const errors = validateCTASchema.errors || []
             for (const error of errors) {
               let message = ''
@@ -108,7 +101,6 @@ export const ctasSchema: Rule = {
                 message = `Missing required parameter: ${(error.params as { missingProperty?: string })?.missingProperty}`
               } else if (error.keyword === 'enum') {
                 const paramName = error.instancePath.substring(1)
-                // Get the actual invalid value from refParams and allowed values from params
                 const invalidValue = refParams[paramName]
                 const allowedValues =
                   (error.params as { allowedValues?: unknown[] })?.allowedValues || []
@@ -131,7 +123,7 @@ export const ctasSchema: Rule = {
           }
         }
       } catch {
-        // Invalid URL, skip validation
+        // Conversion and schema validation failures cannot produce a reliable lint error.
         continue
       }
     }

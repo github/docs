@@ -1,0 +1,65 @@
+// Colors follow the Docs 2026 Figma warning banner: Brand yellow-9 text with a yellow-7 accent.
+// Default and danger reuse the same scale steps in blue and red.
+// Brand's base scales do not invert in dark mode, so dark mode mirrors the steps explicitly,
+// the same way Brand's own component tokens pair a light step with a dark step.
+@mixin banner-colors($hue, $mode) {
+  @if $mode == light {
+    --banner-bg: var(--base-color-scale-#{$hue}-0);
+    --banner-border: var(--base-color-scale-#{$hue}-7);
+    --banner-fg: var(--base-color-scale-#{$hue}-9);
+  } @else {
+    --banner-bg: var(--base-color-scale-#{$hue}-9);
+    --banner-border: var(--base-color-scale-#{$hue}-2);
+    --banner-fg: var(--base-color-scale-#{$hue}-0);
+  }
+}
+
+@mixin banner-variant($hue) {
+  @include banner-colors($hue, light);
+
+  :global([data-color-mode="dark"]) & {
+    @include banner-colors($hue, dark);
+  }
+
+  // No-JS fallback; see the note in src/frame/stylesheets/index.scss. Scoped to html because
+  // the @primer/react ThemeProvider wrapper also starts as auto, even when html is light.
+  // Brand keeps its light link blue here, so links use the banner text color for contrast.
+  @media (prefers-color-scheme: dark) {
+    :global(html[data-color-mode="auto"][data-dark-theme*="dark"]) & {
+      @include banner-colors($hue, dark);
+
+      a {
+        color: var(--banner-fg);
+      }
+    }
+  }
+}
+
+.banner {
+  padding: var(--base-size-16, 1rem);
+  color: var(--banner-fg);
+  background-color: var(--banner-bg);
+  border: var(--brand-borderWidth-thin, 1px) solid var(--banner-border);
+  border-radius: var(--brand-borderRadius-medium, 0.5rem);
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  // Link color alone is not distinct enough from banner text, especially in dark mode.
+  a {
+    text-decoration: underline;
+  }
+}
+
+.default {
+  @include banner-variant(blue);
+}
+
+.warning {
+  @include banner-variant(yellow);
+}
+
+.danger {
+  @include banner-variant(red);
+}

@@ -18,7 +18,7 @@ category:
 
 ## Introduction
 
-Repository custom instructions let you provide {% data variables.product.prodname_copilot_short %} with repository-specific guidance and preferences on {% data variables.product.github %}. To find out how to set up custom instructions in an IDE, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide). For more information about custom instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization).
+Repository custom instructions let you provide {% data variables.product.prodname_copilot_short %} with repository-specific guidance and preferences on {% data variables.product.github %}. To find out how to set up custom instructions in an IDE, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/customize-copilot/configure-custom-instructions/add-repository-instructions-in-your-ide). For more information about custom instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization).
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 

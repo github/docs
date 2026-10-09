@@ -25,10 +25,7 @@ const logger = createLogger(import.meta.url)
 
 const isProduction = process.env.NODE_ENV === 'production'
 
-// We're going to check a lot of pages' "ID" (the first part of
-// the relativePath) against `productMap` to make sure it's valid.
-// To avoid having to do `Object.keys(productMap).includes(id)`
-// every single time, we turn it into a Set once.
+// Product ID validation runs for every page, so a Set avoids repeated key extraction.
 const productMapKeysAsSet = new Set(Object.keys(productMap))
 
 type FrontmatterError = {
@@ -79,7 +76,6 @@ export class FrontmatterErrorsError extends Error {
 }
 
 class Page {
-  // Core properties from PageFrontmatter
   public title: string = ''
   public rawTitle: string = ''
   public shortTitle?: string
@@ -103,7 +99,6 @@ class Page {
   public children?: string[]
   public layout?: string
 
-  // Derived properties
   public languageCode!: string
   public relativePath!: string
   public basePath!: string
@@ -121,7 +116,6 @@ class Page {
   public allToolsParsed: typeof allTools = allTools
   public introPlainText?: string
 
-  // Bound method
   public render: (context: Context) => Promise<string>
 
   static async init(opts: PageInitOptions): Promise<Page | undefined> {
@@ -138,8 +132,7 @@ class Page {
     const relativePath = slash(opts.relativePath)
     const fullPath = slash(path.join(opts.basePath, relativePath))
 
-    // Per https://nodejs.org/api/fs.html#fs_fs_exists_path_callback
-    // its better to read and handle errors than to check access/stats first
+    // Node recommends read-first error handling: https://nodejs.org/api/fs.html#fs_fs_exists_path_callback
     try {
       const {
         data,
@@ -147,29 +140,13 @@ class Page {
         errors: frontmatterErrors,
       }: ReadFileContentsResult = await readFileContents(fullPath)
 
-      // Get file modification time
-      // Only used to quick reload local dev; not needed for production
+      // Production pins mtime because reloads only run in local development.
       const mtime = isProduction ? 1 : (await fs.stat(fullPath)).mtimeMs
 
-      // The `|| ''` is for pages that are purely frontmatter.
-      // So the `content` property will be `undefined`.
+      // Frontmatter-only pages have undefined content.
       let markdown = content || ''
 
-      // When the base path comes from the fixture, we make an exception.
-      // The enterprise-server version numbers are constantly evolving,
-      // but the fixtures are supposed to work in general for any version.
-      // That's why we allow special "macros" in the fixture content.
-      // If the fixture content looks like this:
-      //
-      //    {% ifversion ghes > __GHES_DEPRECATED__[0] and ghes < __GHES_SUPPORTED__[-2] %}
-      //
-      // it actually means the exact same thing as:
-      //
-      //    {% ifversion ghes > 3.5 and ghes < 3.7 %}
-      //
-      // ...**at the time**. The point is that these numbers change meaning
-      // where as notations like `__GHES_DEPRECATED__[3]`
-      // or `__GHES_SUPPORTED__[0]` are static.
+      // __GHES_SUPPORTED__[n] and __GHES_DEPRECATED__[-n] keep fixture ranges stable across GHES releases.
       if (opts.basePath.split(path.sep).includes('fixtures')) {
         for (let i = 0; i < supported.length; i++) {
           const version: string = supported[i]
@@ -212,12 +189,11 @@ class Page {
       )
     }
 
-    // Remove frontmatter errors before assignment
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { frontmatterErrors: _, ...cleanOpts } = opts
     Object.assign(this, cleanOpts)
 
-    // Store raw data so we can cache parsed versions
+    // Raw frontmatter preserves Liquid for rendered properties.
     this.rawIntro = this.intro
     this.rawTitle = this.title
     this.rawShortTitle = this.shortTitle
@@ -226,19 +202,15 @@ class Page {
     this.rawIntroLinks = this.introLinks
     this.rawCarousels = this.carousels
 
-    // Is this the Homepage or a Product, Category, Topic, or Article?
     this.documentType = getDocumentType(this.relativePath)
 
-    // Get array of versions that the page is available in for fast lookup
     this.applicableVersions = getApplicableVersions(this.versions, this.fullPath)
 
-    // Only check the parent product ID for English because if a top-level
-    // product is edited in English, it will fail for translations until
-    // the next translation pipeline PR gets a chance to catch up.
+    // Only English enforces parent product versions because translations lag product edits.
     if (this.languageCode === 'en') {
-      // a page should only be available in versions that its parent product is available in
+      // Child pages cannot claim versions outside their parent product.
       const versionsParentProductIsNotAvailableIn = this.applicableVersions
-        // only the homepage will not have this.parentProduct
+        // The homepage has no parent product.
         .filter(
           (availableVersion: string) =>
             this.parentProduct && !this.parentProduct.versions.includes(availableVersion),
@@ -251,7 +223,6 @@ class Page {
       }
     }
 
-    // derive array of Permalink objects
     this.permalinks = Permalink.derive(
       this.languageCode,
       this.relativePath,
@@ -259,7 +230,7 @@ class Page {
       this.applicableVersions,
     )
 
-    // Ensure 'children' frontmatter exists if this is a standard index page
+    // Standard index pages need children so navigation can build sidebars.
     if (this.relativePath.endsWith('index.md')) {
       if (!this.children && !/(search|early-access)\/.*index.md/.test(this.relativePath)) {
         if (this.layout !== 'journey-landing') {
@@ -268,7 +239,6 @@ class Page {
       }
     }
 
-    // if this is an article and it doesn't have showMiniToc = false, set mini TOC to true
     if (!this.relativePath.endsWith('index.md')) {
       this.showMiniToc = this.showMiniToc === false ? this.showMiniToc : true
     }
@@ -285,15 +255,13 @@ class Page {
     >
   }
 
-  // Infer the parent product ID from the page's relative file path
   get parentProductId(): string | null {
-    // Each page's top-level content directory matches its product ID
+    // The top-level content directory defines the product ID.
     const id = this.relativePath.split('/')[0]
 
-    // ignore top-level content/index.md
+    // The root content/index.md page has no product.
     if (id === 'index.md') return null
 
-    // make sure the ID is valid
     if (process.env.NODE_ENV !== 'test') {
       assert(productMapKeysAsSet.has(id), `page ${this.fullPath} has an invalid product ID: ${id}`)
     }
@@ -316,13 +284,12 @@ class Page {
   }
 
   private async _render(context: Context): Promise<string> {
-    // use English IDs/anchors for translated headings, so links don't break (see #8572)
+    // English heading IDs keep translated links stable.
     if (this.languageCode !== 'en') {
       const englishHeadings = getEnglishHeadings(this, context)
       context.englishHeadings = englishHeadings
     }
 
-    // pull translations for alerts
     context.alertTitles = await getAlertTitles(this)
 
     this.intro = await renderContentWithFallback(this, 'rawIntro', context)
@@ -336,7 +303,7 @@ class Page {
 
     const html = await renderContentWithFallback(this, 'markdown', context)
 
-    // Adding communityRedirect for Discussions, Sponsors, and Codespaces - request from Product
+    // Discussions, Sponsors, and Codespaces send feedback to their community category.
     if (
       this.parentProduct &&
       (this.parentProduct.id === 'discussions' ||
@@ -349,17 +316,17 @@ class Page {
       }
     }
 
-    // product frontmatter may contain liquid
+    // Product frontmatter can contain Liquid.
     if (this.rawProduct) {
       this.product = await renderContentWithFallback(this, 'rawProduct', context)
     }
 
-    // permissions frontmatter may contain liquid
+    // Permissions frontmatter can contain Liquid.
     if (this.rawPermissions) {
       this.permissions = await renderContentWithFallback(this, 'rawPermissions', context)
     }
 
-    // introLinks may contain Liquid and need to have versioning processed.
+    // Intro links can contain Liquid that needs version rendering.
     if (this.rawIntroLinks) {
       const introLinks: Record<string, string> = {}
       for (const [rawKey, value] of Object.entries(this.rawIntroLinks)) {
@@ -371,26 +338,22 @@ class Page {
       this.introLinks = introLinks
     }
 
-    // set a flag so layout knows whether to render a mac/windows/linux switcher element
-    // Remember, the values of platform is matched in
-    // the handleInvalidQuerystringValues shielding middleware.
+    // Layout and handleInvalidQuerystringValues share platform names.
     this.detectedPlatforms = allPlatforms.filter((platform: string) => {
-      // This matches `ghd-tool mac` but not `ghd-tool macos`
-      // Whereas `html.includes('ghd-tool mac')` would match both.
+      // Word boundaries match ghd-tool mac but not ghd-tool macos.
       const regex = new RegExp(`ghd-tool ${platform}\\b|platform-${platform}\\b`)
       return regex.test(html)
     })
     this.includesPlatformSpecificContent = this.detectedPlatforms.length > 0
 
-    // set flags for webui, cli, etc switcher element
+    // Detected tool flags render tool switchers.
     this.detectedTools = Object.keys(allTools).filter((tool: string) => {
-      // This matches `ghd-tool jetbrain` but not `ghd-tool jetbrain_beta`
-      // Whereas `html.includes('ghd-tool jetbrain')` would match both.
+      // Word boundaries match ghd-tool jetbrain but not ghd-tool jetbrain_beta.
       const regex = new RegExp(`ghd-tool ${tool}\\b|tool-${tool}\\b`)
       return regex.test(html)
     })
 
-    // pass the list of all possible tools around to components and utilities that will need it later on
+    // Components and utilities need the full tool list alongside detected tools.
     this.allToolsParsed = allTools
 
     this.includesToolSpecificContent = this.detectedTools.length > 0
@@ -398,8 +361,7 @@ class Page {
     return html
   }
 
-  // Allow other modules (like custom liquid tags) to make one-off requests
-  // for a page's rendered properties like `title` and `intro`
+  // Custom Liquid tags need one-off rendering for page properties.
   async renderProp(
     propName: string,
     context: Context,
@@ -420,13 +382,11 @@ class Page {
 
     if (!opts.unwrap) return html
 
-    // The unwrap option removes surrounding tags from a string, preserving any inner HTML
     return stripOuterTag(html)
   }
 
-  // infer current page's corresponding homepage
-  // /en/articles/foo                          -> /en
-  // /en/enterprise/2.14/user/articles/foo     -> /en/enterprise/2.14/user
+  // Remove /articles and its suffix while keeping any language, version, and product prefix.
+  // Example: /en/articles/foo becomes /en.
   static getHomepage(requestPath: string): string {
     return requestPath.replace(/\/articles.*/, '')
   }

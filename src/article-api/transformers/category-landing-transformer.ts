@@ -10,10 +10,6 @@ interface CategoryPage extends Page {
   children?: string[]
 }
 
-/**
- * Transforms category-landing pages into markdown format.
- * Handles spotlight sections and recursively collects all descendant articles.
- */
 export class CategoryLandingTransformer implements PageTransformer {
   templateName = 'landing-page.template.md'
 
@@ -32,11 +28,7 @@ export class CategoryLandingTransformer implements PageTransformer {
     })
   }
 
-  /**
-   * Recursively collects all descendant articles from the given parent hrefs.
-   * Traverses the page tree, adding non-index pages and recursing into children.
-   * Uses a visited set to prevent infinite loops from circular references.
-   */
+  // Collect every non-index descendant; the visited set prevents circular references.
   private async getAllDescendantArticles(
     parentHrefs: string[],
     languageCode: string,
@@ -47,7 +39,6 @@ export class CategoryLandingTransformer implements PageTransformer {
     const allArticles: LinkData[] = []
 
     for (const href of parentHrefs) {
-      // Prevent infinite loops from circular references
       if (visited.has(href)) continue
       visited.add(href)
 
@@ -56,7 +47,6 @@ export class CategoryLandingTransformer implements PageTransformer {
         | undefined
       if (!parentPage) continue
 
-      // Add this page if it's an article (not an index)
       if (!parentPage.relativePath.endsWith('index.md')) {
         const linkData = await getLinkData(href, languageCode, pathname, context, resolvePath)
         if (linkData.href) {
@@ -64,10 +54,9 @@ export class CategoryLandingTransformer implements PageTransformer {
         }
       }
 
-      // Recursively get children
       const children = parentPage.children
       if (children && Array.isArray(children) && children.length > 0) {
-        // Get the parent's permalink to use as the base path for resolving children
+        // Resolve child hrefs relative to the parent page, not the original landing page.
         const parentPermalink = parentPage.permalinks.find(
           (p) => p.languageCode === languageCode && p.pageVersion === context.currentVersion,
         )
@@ -96,7 +85,6 @@ export class CategoryLandingTransformer implements PageTransformer {
     const languageCode = page.languageCode || 'en'
     const sections: Section[] = []
 
-    // Spotlight section
     const spotlight = categoryPage.spotlight
     if (spotlight && spotlight.length > 0) {
       const links = await Promise.all(
@@ -126,7 +114,6 @@ export class CategoryLandingTransformer implements PageTransformer {
       }
     }
 
-    // Children - get all descendant articles recursively
     if (categoryPage.children) {
       const allArticles = await this.getAllDescendantArticles(
         categoryPage.children,

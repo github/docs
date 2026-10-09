@@ -1,7 +1,7 @@
 import { type MouseEvent } from 'react'
 import { useRouter } from 'next/router'
 import { MinimalFooter, Text } from '@primer/react-brand'
-import cx from 'classnames'
+import cx from 'clsx'
 
 import { FooterDivider } from '@/frame/components/page-footer/FooterDivider'
 import { SupportSection } from '@/frame/components/page-footer/SupportSection'
@@ -9,19 +9,12 @@ import { useTranslation } from '@/languages/components/useTranslation'
 
 import styles from './DocsFooter.module.scss'
 
-// The Docs 2026 site footer (Figma node 123-6013): decorative band, then brand
-// MinimalFooter supplying the logomark + back-to-top row, the help region, and the
-// legal/copyright strip.
-//
-// The design puts the legal links in the *bottom* row beside the copyright.
-// MinimalFooter.Link children render in the top row instead, and the two rows live
-// in separate DOM subtrees so no amount of CSS moves one into the other. Passing the
-// links through `copyrightStatement` — which accepts a ReactElement and renders in
-// the bottom row — gets the designed layout without overriding brand internals.
-// It also sidesteps the component's hard cap of five links.
-//
-// Note `copyrightStatement` is rendered inside a <Text as="p">, so everything here
-// must be phrasing content: spans and anchors only, no lists or <nav>.
+// Figma Docs 2026 node 123-6013 places legal links beside the copyright in the
+// bottom row. Passing them through copyrightStatement reaches that row without
+// overriding Brand internals and avoids the five-link cap. Since copyrightStatement
+// renders inside Text as p, children must stay phrasing content: spans and anchors only.
+// BackToTop must keep ghd-scroll-to-top because src/events/components/events.ts
+// listens for it, and activations go untracked without it. BackToTop preserves className.
 export const DocsFooter = () => {
   const router = useRouter()
   const { t } = useTranslation('footer')
@@ -29,10 +22,7 @@ export const DocsFooter = () => {
   const termsHref = `/${router.locale}/site-policy/github-terms/github-terms-of-service`
   const privacyHref = `/${router.locale}/site-policy/privacy-policies/github-privacy-statement`
 
-  // These render as plain <a>, so intercept clicks to restore next/link-style
-  // client-side navigation for the two in-site policy links. Mirrors the Breadcrumbs
-  // migration: modifier and middle clicks fall through so open-in-new-tab still
-  // works, and the href keeps the links crawlable for SSR.
+  // Match Breadcrumbs: plain clicks navigate client-side, while modified clicks and href stay native.
   const handleClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     if (
       event.defaultPrevented ||
@@ -45,8 +35,7 @@ export const DocsFooter = () => {
       return
     }
     event.preventDefault()
-    // hrefs already carry the locale prefix, so disable Next.js locale handling to
-    // avoid double-prefixing.
+    // Disable Next.js locale handling because these hrefs already carry the locale prefix.
     router.push(href, undefined, { locale: false })
   }
 
@@ -62,7 +51,7 @@ export const DocsFooter = () => {
         ]
       : []),
     { href: termsHref, label: t('terms'), internal: true },
-    // KO law requires the link to the privacy statement to be conspicuous.
+    // Korean law requires the link to the privacy statement to be conspicuous.
     {
       href: privacyHref,
       label: t('privacy'),
@@ -113,18 +102,13 @@ export const DocsFooter = () => {
           </div>
         }
       >
-        {/* Footnotes drops any child that isn't a brand <Text>, so the machine
-            translation notice has to be wrapped rather than passed as a bare <p>. */}
+        {/* Footnotes keeps only Brand Text children, so wrap the machine translation notice. */}
         {router.locale !== 'en' && (
           <MinimalFooter.Footnotes>
             <Text>{t('machine')}</Text>
           </MinimalFooter.Footnotes>
         )}
 
-        {/* `ghd-scroll-to-top` is the global analytics hook that
-            src/events/components/events.ts listens for; it used to live on the
-            ScrollButton this control replaces, and without it activations go
-            untracked. BackToTop merges className, so both survive. */}
         <MinimalFooter.BackToTop
           className={cx(styles.backToTop, 'ghd-scroll-to-top')}
           focusTargetId="main-content"

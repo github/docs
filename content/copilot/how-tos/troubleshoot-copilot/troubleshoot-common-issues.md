@@ -24,13 +24,13 @@ If {% data variables.product.prodname_copilot %} stops working, check {% data va
 
 ## Unable to use the {% data variables.product.prodname_copilot %} extension in the IDE
 
-We recommend you follow the quickstart guide for {% data variables.product.prodname_copilot %} while setting up {% data variables.product.prodname_copilot %} on your machine. For more information, see [AUTOTITLE](/copilot/get-started/quickstart).
+We recommend you follow the quickstart guide for {% data variables.product.prodname_copilot %} while setting up {% data variables.product.prodname_copilot %} on your machine. For more information, see [AUTOTITLE](/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide).
 
 The {% data variables.product.prodname_copilot %} extension is frequently updated to fix bugs and add new features. It's important to keep your extension up to date because older clients cannot communicate with the {% data variables.product.prodname_copilot %} servers. Update your {% data variables.product.prodname_copilot %} extension on all the machines you have it installed.
 
-{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
+{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/authenticate-to-ghecom).
 
-For more information about configuring {% data variables.product.prodname_copilot %} in a supported IDE, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide).
+For more information about configuring {% data variables.product.prodname_copilot %} in a supported IDE, see [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-in-ide).
 
 ## {% data variables.product.prodname_copilot %} not working in some files
 
@@ -71,13 +71,13 @@ Most people see rate limiting for select models, due to limited capacity.
 
 Service-level request rate limits ensure high service quality for all {% data variables.product.prodname_copilot_short %}  users and should not affect typical or even deeply engaged {% data variables.product.prodname_copilot_short %} usage. We are aware of some use cases that are affected by it. {% data variables.product.github %} is iterating on {% data variables.product.prodname_copilot_short %}’s rate-limiting heuristics to ensure it doesn’t block legitimate use cases.
 
-If you are rate limited, the error message may tell you to wait for your limit to reset, suggest a retry time, or prompt you to upgrade your plan for additional usage. For more information about what to do while your limit resets, see [AUTOTITLE](/copilot/concepts/usage-limits#what-to-do-if-you-hit-a-limit).
+If you are rate limited, the error message may tell you to wait for your limit to reset, suggest a retry time, or prompt you to upgrade your plan for additional usage. For more information about what to do while your limit resets, see [AUTOTITLE](/copilot/concepts/billing-and-usage/individuals/usage-limits#what-to-do-if-you-hit-a-limit).
 
 In case you experience repeated rate limiting in {% data variables.product.prodname_copilot_short %} contact {% data variables.contact.contact_support_page %}.
 
 ## Can't find {% data variables.copilot.copilot_chat_short %} in my IDE
 
-If you can't find {% data variables.copilot.copilot_chat_short %} in your editor, make sure you have checked the "Prerequisites" section of [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+If you can't find {% data variables.copilot.copilot_chat_short %} in your editor, make sure you have checked the "Prerequisites" section of [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide).
 
 > [!NOTE]
 > The linked article has tabs for various IDEs.
@@ -90,7 +90,7 @@ To use {% data variables.copilot.copilot_chat_short %}, make sure you are using 
 
 ## Authentication problems with {% data variables.enterprise.prodname_managed_user %} accounts
 
-{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
+{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/authenticate-to-ghecom).
 
 ## Authentication problems in {% data variables.product.prodname_vscode %}
 

@@ -3,6 +3,9 @@ title: Concept explainer
 intro: 'Instructions for breaking down complex technical concepts.'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/tutorials/learn-a-new-language
+  - /copilot/tutorials/learning-a-new-programming-language-with-github-copilot
 category:
   - Custom instructions
   - Getting started

@@ -128,14 +128,14 @@ Developers **should not**:
 * [How to generate unit tests with {% data variables.product.prodname_copilot %}: Tips and examples](https://github.blog/ai-and-ml/github-copilot/how-to-generate-unit-tests-with-github-copilot-tips-and-examples/)
 * [{% data variables.product.prodname_copilot %} is EVERYWHERE in Visual Studio](https://learn.microsoft.com/en-us/shows/github-copilot-for-visual-studio/github-copilot-is-everywhere-in-visual-studio-miniseries) (video content with a section on testing)
 * [AUTOTITLE](/copilot/concepts/prompting/prompt-engineering)
-* [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model)
+* [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/change-the-chat-model)
 
 ### Recommended features
 
 * [{% data variables.copilot.copilot_chat_dotcom_short %}](/copilot/how-tos/copilot-on-github/chat-with-copilot/chat-in-github)
-* [{% data variables.product.prodname_copilot_short %} inline suggestions](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
-* [{% data variables.copilot.copilot_chat_short %} in the IDE](/copilot/how-tos/chat-with-copilot/chat-in-ide)
-* [{% data variables.copilot.copilot_cloud_agent %}](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+* [{% data variables.product.prodname_copilot_short %} inline suggestions](/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/get-ide-code-suggestions)
+* [{% data variables.copilot.copilot_chat_short %} in the IDE](/copilot/how-tos/copilot-in-your-ide/chat-with-copilot/chat-in-ide)
+* [{% data variables.copilot.copilot_cloud_agent %}](/copilot/concepts/copilot-surfaces/copilot-on-github)
 
 ## Metrics to watch
 

@@ -13,8 +13,7 @@ describe('GraphQL description links', () => {
   test('strips the unexpanded externalDocsUrl placeholder', async () => {
     const rendered = await helpers.getDescription(PLACEHOLDER_LINK)
 
-    // Left in place the placeholder percent-encodes into the href and the
-    // browser resolves it against the current page, which 404s.
+    // An unexpanded placeholder becomes a page-relative href and 404s.
     expect(rendered).not.toContain('externalDocsUrl')
     expect(rendered).toContain('href="/code-security/code-scanning#levels"')
   })

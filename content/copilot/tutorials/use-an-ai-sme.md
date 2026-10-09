@@ -157,5 +157,5 @@ Used this way, {% data variables.copilot.copilot_cli_short %} doesn't replace hu
 ## Next steps
 
 * Save your most useful prompt preambles as custom instructions, so you can reuse them across sessions and projects. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
-* Once you understand the area of the code you want to change, use {% data variables.copilot.copilot_cli_short %} to help you make the change. See [AUTOTITLE](/copilot/tutorials/refactor-code) and [AUTOTITLE](/copilot/tutorials/write-tests).
+* Once you understand the area of the code you want to change, use {% data variables.copilot.copilot_cli_short %} to help you make the change. For testing examples, see [AUTOTITLE](/copilot/tutorials/write-tests).
 * Learn how to control which tools {% data variables.copilot.copilot_cli_short %} can run during a session. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools).

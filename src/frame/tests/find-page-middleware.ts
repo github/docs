@@ -3,7 +3,7 @@ import path from 'path'
 import http from 'http'
 import { Socket } from 'net'
 
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 import type { Response } from 'express'
 
 import Page from '@/frame/lib/page'
@@ -127,8 +127,7 @@ describe('find page middleware', () => {
   })
 
   test("will 404 if the request version doesn't match the page", async () => {
-    // The 'versions:' frontmatter on 'page-with-redirects.md' does
-    // not include ghes. So this'll eventually 404.
+    // page-with-redirects.md excludes GHES, so enterprise-server@latest eventually 404s.
     const [req, res] = makeRequestResponse('/en/page-with-redirects', 'enterprise-server@latest')
     const page = await Page.init({
       relativePath: 'page-with-redirects.md',
@@ -149,6 +148,35 @@ describe('find page middleware', () => {
     expect(res._message).toMatch('')
     expect(req.context?.page).toBeUndefined()
   })
+
+  test.each(['/en/../README', '/en/sub\\..\\..\\README', '/en/child/..\\..\\README'])(
+    'does not re-read paths outside the content root: %s',
+    async (url) => {
+      const [req, res] = makeRequestResponse(url)
+      const page = await Page.init({
+        relativePath: 'page-with-redirects.md',
+        basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
+        languageCode: 'en',
+      })
+      if (page && req.context) {
+        req.context.pages = {
+          [url]: page,
+        }
+      }
+
+      const initSpy = vi.spyOn(Page, 'init')
+      try {
+        await findPage(req, res, () => {}, {
+          isDev: true,
+          contentRoot: path.join(__dirname, '../../../src/fixtures/fixtures'),
+        })
+        expect(initSpy).not.toHaveBeenCalled()
+        expect(req.context?.page).toBe(page)
+      } finally {
+        initSpy.mockRestore()
+      }
+    },
+  )
 
   test('re-reads from disk if in development mode and finds nothing', async () => {
     const [req, res] = makeRequestResponse('/en/never/heard/of')

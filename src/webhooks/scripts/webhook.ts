@@ -63,9 +63,7 @@ export default class Webhook implements WebhookInterface {
       null,
     )
 
-    // for some webhook action types (like some pull-request webhook types) the
-    // schema properties are under a oneOf so we try and take the action from
-    // the first one (the action will be the same across oneOf items)
+    // Some pull-request webhooks put the same action enum under the first oneOf schema.
     if (!this.action) {
       this.action = get(
         webhook,
@@ -74,16 +72,14 @@ export default class Webhook implements WebhookInterface {
       )
     }
 
-    // The OpenAPI uses hyphens for the webhook names, but the webhooks
-    // are sent using underscores (e.g. `branch_protection_rule` instead
-    // of `branch-protection-rule`)
+    // OpenAPI uses branch-protection-rule, but delivered webhooks use branch_protection_rule.
     this.category = webhook['x-github'].subcategory.replace(/-/g, '_')
   }
 
   async process(): Promise<void> {
     await Promise.all([this.renderDescription(), this.renderBodyParameterDescriptions()])
 
-    const isValid = validate(this as WebhookInterface) // Add type assertion here
+    const isValid = validate(this as WebhookInterface)
     if (!isValid) {
       console.error(JSON.stringify(validate.errors, null, 2))
       throw new Error(`Invalid OpenAPI webhook found: ${this.category}`)
@@ -101,7 +97,7 @@ export default class Webhook implements WebhookInterface {
     const schema = get(this.#webhook, `requestBody.content['application/json'].schema`, {})
     this.bodyParameters = isPlainObject(schema) ? await getBodyParams(schema, true) : []
 
-    // Removes the children of the common properties
+    // Common top-level properties do not need expanded child parameter groups.
     for (const param of this.bodyParameters) {
       if (NO_CHILD_PROPERTIES.includes(param.name)) {
         param.childParamsGroups = []

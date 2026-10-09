@@ -35,7 +35,7 @@ By default, app access requests are enabled. If your organization has a large nu
 
 ## About {% data variables.product.prodname_github_app %} installation restrictions
 
-By default, repository admins can install {% data variables.product.prodname_github_apps %} on repositories within your organization if the app does not request organization permissions or the "repository administration" permission. As an organization owner, you can restrict {% data variables.product.prodname_github_app %} installations to only organization owners. When this restriction is enabled:
+By default, repository admins can install {% data variables.product.prodname_github_apps %} on repositories within your organization if the app does not request organization permissions or the "repository administration" permission{% ifversion github-app-offline-access %}, and add apps you've already installed to their repository, even if it includes organization or "repository administration" permissions{% endif %}. As an organization owner, you can restrict {% data variables.product.prodname_github_app %} installations to only organization owners. When this restriction is enabled:
 
 * Repository admins, including outside collaborators with repository admin access, cannot install {% data variables.product.prodname_github_apps %} on their repositories.
 * Repository admins must use the request flow to ask organization owners to install apps on their repositories.

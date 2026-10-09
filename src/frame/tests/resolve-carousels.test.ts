@@ -4,15 +4,13 @@ import type { ExtendedRequest, Page, ResolvedArticle } from '@/types'
 import findPage from '@/frame/lib/find-page'
 import resolveCarousels from '../middleware/resolve-carousels'
 
-// Mock the findPage function
 vi.mock('@/frame/lib/find-page', () => ({
   default: vi.fn(),
 }))
 
-// Mock the renderContent function
 vi.mock('@/content-render/index', () => ({
   renderContent: vi.fn((content, _context, options) => {
-    // When textOnly is true, return plain text (no HTML wrapper)
+    // textOnly returns plain text so carousel intros stay text-only.
     if (options?.textOnly) {
       return content
     }
@@ -201,7 +199,6 @@ describe('resolveCarousels middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    // Carousel should not be added if all articles are not found
     expect(
       (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
     ).toBeUndefined()
@@ -219,7 +216,6 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    // Should still call next even on error
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -262,7 +258,7 @@ describe('resolveCarousels middleware', () => {
       applicableVersions: ['free-pro-team@latest'],
     }
 
-    // Mock findPage to fail on first call (content-relative) and succeed on second (page-relative)
+    // First lookup is content-relative; second lookup is page-relative.
     mockFindPage.mockReturnValueOnce(undefined).mockReturnValueOnce(testPage as unknown as Page)
 
     const req = createMockRequest({
@@ -320,7 +316,6 @@ describe('resolveCarousels middleware', () => {
       req.context!.redirects,
     )
 
-    // Verify that the href is a clean path without language/version
     expect(
       (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
     ).toEqual({
@@ -337,7 +332,6 @@ describe('resolveCarousels middleware', () => {
   })
 
   test('should filter out articles not available in current version', async () => {
-    // Create a test page that is only available in fpt, not ghec
     const fptOnlyPage: Partial<import('@/types').Page> = {
       title: 'FPT Only Article',
       intro: 'This article is only for FPT',
@@ -347,7 +341,6 @@ describe('resolveCarousels middleware', () => {
 
     mockFindPage.mockReturnValue(fptOnlyPage as unknown as Page)
 
-    // Create a request context where we're viewing the GHEC version
     const req = createMockRequest(
       { rawCarousels: { recommended: ['/test/fpt-only'] } },
       {
@@ -358,7 +351,6 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    // The carousels should not be added since the article isn't available in enterprise-cloud
     expect(
       (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
     ).toBeUndefined()
@@ -381,7 +373,6 @@ describe('resolveCarousels middleware', () => {
 
     await resolveCarousels(req, mockRes, mockNext)
 
-    // Should only have one article, not three duplicates
     expect(
       (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
     ).toEqual({

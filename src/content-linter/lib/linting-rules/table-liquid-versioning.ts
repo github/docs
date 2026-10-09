@@ -2,13 +2,9 @@ import { addError } from 'markdownlint-rule-helpers'
 
 import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types'
 
-// Detects a Markdown table delimiter row
 const delimiterRegexPure = /(\s)*(:)?(-+)(:)?(\s)*(\|)/
-// Detects a Markdown table delimiter row with a Liquid tag
 const delimiterRegex = /(\s)*(:)?(-+)(:)?(\s)*(\|).*({%.*(ifversion|else|endif).*%})/
-// Detects a Liquid versioning tag
 const liquidRegex = /^{%-?\s*(ifversion|else|endif).*-?%}/
-// Detects a Markdown table row with a Liquid versioning tag
 const liquidAfterRowRegex = /(\|{1}).*(\|{1}).*{%\s*(ifversion|else|endif).*%}$/
 
 export const tableLiquidVersioning: Rule = {
@@ -29,7 +25,7 @@ export const tableLiquidVersioning: Rule = {
       }
 
       if (delimiterRegexPure.test(line)) {
-        // A table with rows is at least 3 lines
+        // A table needs a header, delimiter, and body row.
         if (lines[i - 1] && lines[i + 1]) {
           inTable = true
           if (liquidAfterRowRegex.test(lines[i - 1])) {

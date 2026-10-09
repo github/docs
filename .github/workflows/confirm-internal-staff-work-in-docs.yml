@@ -1,15 +1,13 @@
 name: Confirm internal staff meant to post in public
 
-# **What it does**: If a GitHub staff makes an issue/pull request in the open-source repo, creates an issue in the internal one to verify intent.
-# **Why we have it**: We don't want GitHub staff accidentally making issues/pull requests in the wrong repository.
-# **Who does it impact**: GitHub staff.
+# Asks GitHub staff to confirm public issues and PRs belong in github/docs.
 
 on:
   issues:
     types:
       - opened
       - transferred
-  # Required in lieu of `pull_request` so that this workflow can query users in org to determine membership.
+  # pull_request_target lets the workflow check org membership for forked PR authors.
   pull_request_target:
     types:
       - opened
@@ -30,7 +28,7 @@ jobs:
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
-            // Only perform this action with GitHub employees
+            // Only GitHub employees need confirmation before public posts stay public.
             try {
               await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
@@ -38,33 +36,25 @@ jobs:
                 username: context.payload.sender.login,
               });
             } catch(err) {
-              // An error will be thrown if the user is not a GitHub employee
-              // If a user is not a GitHub employee, we should stop here and
-              // Not send a notification
+              // The employee membership lookup throws for non-employees, so skip confirmation.
               return
             }
 
-            // Don't perform this action with Docs team members
+            // Docs team members can intentionally work in github/docs.
             try {
-              // Team is addressed by numeric ID (org github = 9919, team docs = 325922)
-              // because IDs survive team renames and slugs do not.
+              // 9919 is the github org and 325922 the docs team; numeric IDs survive renames.
               await github.request('GET /organizations/{org_id}/team/{team_id}/memberships/{username}', {
                 org_id: 9919,
                 team_id: 325922,
                 username: context.payload.sender.login,
               });
-              // If the user is a Docs team member, we should stop here and not send
-              // a notification
               return
             } catch(err) {
-              // An error will be thrown if the user is not a Docs team member
-              // If a user is not a Docs team member we should continue and send
-              // the notification
+              // The docs team membership lookup throws for non-members, who need an internal confirmation issue.
             }
 
             const issueNo = context.number || context.issue.number
 
-            // Create an issue in our private repo
             await github.rest.issues.create({
               owner: 'github',
               repo: process.env.TEAM_CONTENT_REPO,

@@ -14,13 +14,10 @@ export const frontmatterSchema: Rule = {
     const fm = getFrontmatter(params.lines)
     if (!fm) return
 
-    // Check that frontmatter does not contain any deprecated keys
-    // Currently we only deprecate top-level properties and historically
-    // tests have only checked top-level properties. But, if more properties
-    // are deprecated in the future, we'll need to do a deep check.
+    // Deprecated checks cover only top-level frontmatter properties.
     const deprecatedKeys = intersection(Object.keys(fm), deprecatedProperties)
     for (const key of deprecatedKeys) {
-      // Early access articles are allowed to have deprecated properties
+      // Allow deprecated properties in early access articles.
       if (params.name.includes('early-access')) continue
       const line = params.lines.find((ln: string) => ln.trim().startsWith(key))
       const lineNumber = params.lines.indexOf(line!) + 1
@@ -34,8 +31,7 @@ export const frontmatterSchema: Rule = {
       )
     }
 
-    // Check that the frontmatter matches the schema.
-    // readFrontmatter returns errors as { property, message, reason } objects.
+    // readFrontmatter returns property, message, and reason for each schema error.
     const { errors } = readFrontmatter(params.lines.join('\n'), { schema: frontmatter.schema })
     for (const error of errors) {
       const property = error.property || ''
@@ -50,12 +46,11 @@ export const frontmatterSchema: Rule = {
       if (reason === 'additionalProperties') {
         detail = 'The frontmatter includes an unsupported property.'
         context = `Remove the property \`${property}\`.`
-        // Search for the offending additional property directly
         searchProperty = parts[parts.length - 1] || ''
       } else if (reason === 'required') {
         detail = 'The frontmatter has a missing required property'
         context = `Add the missing property \`${property}\``
-        // The property is missing, so point to its parent container
+        // Missing properties report on their parent container when one exists.
         searchProperty = parts.length > 1 ? parts[parts.length - 2] : ''
       } else {
         detail = `Frontmatter ${message}.`
@@ -63,8 +58,7 @@ export const frontmatterSchema: Rule = {
         searchProperty = parts[0] || ''
       }
 
-      // If the property is at the top level or missing, we don't have a line
-      // to point to. In that case, the error will be added to line 1.
+      // Missing top-level properties have no key to report, so they fall back to the file start.
       const query = (line: string) => line.trim().startsWith(`${searchProperty}:`)
       const line = searchProperty === '' ? null : params.lines.find(query)
       const lineNumber = line ? params.lines.indexOf(line) + 1 : 1

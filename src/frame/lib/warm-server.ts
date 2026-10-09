@@ -14,8 +14,7 @@ type WarmServerResult = {
   pageMap: Awaited<ReturnType<typeof loadPageMap>>
 }
 
-// Instrument these functions so that
-// it's wrapped in a timer that reports to Datadog
+// Datadog timers track each warm-server phase.
 const dog = {
   loadUnversionedTree: statsd.asyncTimer(
     adaptForTimer(loadUnversionedTree),
@@ -28,7 +27,6 @@ const dog = {
   warmServer: statsd.asyncTimer(adaptForTimer(warmServer), 'warm_server'),
 }
 
-// For multiple-triggered Promise sharing
 let promisedWarmServer: Promise<WarmServerResult> | undefined
 
 async function warmServer(languagesOnly: string[] = []): Promise<WarmServerResult> {
@@ -94,16 +92,9 @@ async function warmServer(languagesOnly: string[] = []): Promise<WarmServerResul
   }
 }
 
-// Instrument the `warmServer` function so that
-// it's wrapped in a timer that reports to Datadog
-// dog.warmServer = statsd.asyncTimer(warmServer, 'warm_server') as typeof warmServer
-
-// We only want statistics if the priming needs to occur, so let's wrap the
-// real method and return early [without statistics] whenever possible
+// Warm-server statistics record only the first request that performs priming.
 export default async function warmServerWrapper(languagesOnly: string[] = []) {
-  // Handle receiving multiple calls to this method from multiple page requests
-  // by holding the in-progress Promise and returning it instead of allowing
-  // the server to actually load all of the files multiple times.
+  // Concurrent requests share the in-progress Promise instead of loading files multiple times.
   if (!promisedWarmServer) {
     promisedWarmServer = dog.warmServer(languagesOnly)
   }

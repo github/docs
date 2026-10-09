@@ -4,17 +4,10 @@ import type { ReactNode } from 'react'
 import { allPlatforms } from '@/tools/lib/all-platforms'
 import { allTools } from '@/tools/lib/all-tools'
 
-// React-native replacement for the imperative platform/tool visibility toggling
-// that PlatformPicker/ToolPicker used to do by walking the DOM and setting
-// `style.display` on `.ghd-tool`/`.platform-*`/`.tool-*` elements (#6619). The
-// selected platform + tool live in this context; the article body (rendered from
-// hast) maps the relevant elements to <ToggleableContent>, which reads the
-// selection and hides non-matching content instead of mutating React-owned nodes.
-//
-// Selections start empty so that the server render and the first client render
-// both show ALL variants (matching the pre-JS markup), which keeps hydration
-// stable. The pickers set the real selection in an effect after hydration, the
-// same moment the old imperative code used to run.
+// PlatformPicker and ToolPicker store selection here so ToggleableContent can
+// hide React-owned article elements without imperative style.display mutations.
+// Empty initial selections keep server and first client renders showing all variants,
+// which matches pre-JS markup and keeps hydration stable.
 
 export type SelectionContextT = {
   platform: string
@@ -62,14 +55,10 @@ function toClassList(className: unknown): string[] {
   return []
 }
 
-// Determine whether an element is platform/tool-scoped and which value gates it.
-// `.ghd-tool <value>` is a block (the {% mac %}/{% webui %} liquid tags); the
-// extra class is the platform or tool value. `platform-<value>`/`tool-<value>`
-// are author-written inline spans. We classify strictly against the canonical
-// platform/tool vocabularies and return null on anything outside them, so an
-// unrecognized class never makes content disappear. When several recognized
-// markers are present the first match wins; in practice an element carries
-// exactly one platform/tool marker.
+// .ghd-tool uses a separate class for the platform or tool value.
+// platform-<value> and tool-<value> are author-written inline spans.
+// Strict vocabulary checks prevent unknown classes from hiding content.
+// .ghd-tool prefers a recognized platform; inline spans use the first recognized marker.
 export function classifyToggleClass(className: unknown): ToggleClassification | null {
   const classes = toClassList(className)
   if (!classes.length) return null
@@ -100,8 +89,7 @@ export function isToggleClass(className: unknown): boolean {
   return classifyToggleClass(className) !== null
 }
 
-// Visible when no selection has been made yet (initial render shows everything,
-// matching the pre-JS markup) or when the element's value is the selected one.
+// Empty initial selections show everything, matching the pre-JS markup.
 export function isContentVisible(
   classification: ToggleClassification,
   selection: { platform: string; tool: string },

@@ -55,6 +55,36 @@
       "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo/{custom_property_name}"
     },
     {
+      "slug": "list-enterprise-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/policies"
+    },
+    {
+      "slug": "create-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/actions/policies"
+    },
+    {
+      "slug": "get-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-an-enterprise-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/actions/policies/{policy_id}"
+    },
+    {
       "slug": "get-github-actions-cache-retention-limit-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -347,6 +377,36 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/orgs/{org}/actions/permissions/workflow"
+    },
+    {
+      "slug": "list-organization-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/policies"
+    },
+    {
+      "slug": "create-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/policies"
+    },
+    {
+      "slug": "get-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-an-organization-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/policies/{policy_id}"
     },
     {
       "slug": "list-self-hosted-runner-groups-for-an-organization",
@@ -721,6 +781,12 @@
       "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun"
     },
     {
+      "slug": "download-step-logs-for-a-workflow-run-job",
+      "subcategory": "workflow-jobs",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/steps/{step_number}/logs"
+    },
+    {
       "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
       "subcategory": "oidc",
       "verb": "get",
@@ -827,6 +893,36 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
+    },
+    {
+      "slug": "list-repository-actions-policies",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies"
+    },
+    {
+      "slug": "create-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies"
+    },
+    {
+      "slug": "get-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "update-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
+    },
+    {
+      "slug": "delete-a-repository-actions-policy",
+      "subcategory": "policies",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/actions/policies/{policy_id}"
     },
     {
       "slug": "list-self-hosted-runners-for-a-repository",
@@ -1507,6 +1603,18 @@
       "subcategory": "installations",
       "verb": "delete",
       "requestPath": "/installation/token"
+    },
+    {
+      "slug": "add-a-repository-to-an-app-installation",
+      "subcategory": "installations",
+      "verb": "put",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-a-repository-from-an-app-installation",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/user/installations/{installation_id}/repositories/{repository_id}"
     }
   ],
   "billing": [
@@ -3281,6 +3389,12 @@
       "requestPath": "/enterprises/{enterprise}/consumed-licenses"
     },
     {
+      "slug": "grant-credential-authorizations-for-enterprise-organizations",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations"
+    },
+    {
       "slug": "revoke-enterprise-delegated-credential-authorizations",
       "subcategory": "credential-authorizations",
       "verb": "delete",
@@ -3309,6 +3423,30 @@
       "subcategory": "credential-authorizations",
       "verb": "post",
       "requestPath": "/enterprises/{enterprise}/credential-authorizations/{username}/revoke-credential-type"
+    },
+    {
+      "slug": "list-enterprise-token-inventory",
+      "subcategory": "token-inventory",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials"
+    },
+    {
+      "slug": "create-an-enterprise-token-inventory-export",
+      "subcategory": "token-inventory",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credentials/exports"
+    },
+    {
+      "slug": "get-an-enterprise-token-inventory-export",
+      "subcategory": "token-inventory",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials/exports/{export_id}"
+    },
+    {
+      "slug": "get-an-enterprise-token-inventory-item",
+      "subcategory": "token-inventory",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/credentials/{inventory_id}"
     },
     {
       "slug": "get-all-enterprise-roles-for-an-enterprise",
@@ -4087,6 +4225,24 @@
       "subcategory": "sub-issues",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/parent"
+    },
+    {
+      "slug": "list-issues-related-to-an-issue",
+      "subcategory": "issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to"
+    },
+    {
+      "slug": "add-a-related-issue",
+      "subcategory": "issues",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to"
+    },
+    {
+      "slug": "remove-a-related-issue",
+      "subcategory": "issues",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/relates_to/{issue_id}"
     },
     {
       "slug": "remove-sub-issue",
@@ -4975,6 +5131,42 @@
       "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}/repositories"
     },
     {
+      "slug": "get-registered-app-installations-for-external-custom-properties",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations"
+    },
+    {
+      "slug": "register-an-app-installation-for-external-custom-properties",
+      "subcategory": "custom-properties",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/properties/installations"
+    },
+    {
+      "slug": "get-all-external-custom-properties-for-a-github-app-installation-in-an-organization",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/installations/schema"
+    },
+    {
+      "slug": "create-or-update-external-custom-property-values-for-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/installations/values"
+    },
+    {
+      "slug": "create-or-update-external-custom-property-values-for-a-property-across-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/installations/values/{property_name}"
+    },
+    {
+      "slug": "remove-all-external-custom-property-values-for-a-property-across-all-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/properties/installations/values/{property_name}"
+    },
+    {
       "slug": "get-all-custom-properties-for-an-organization",
       "subcategory": "custom-properties",
       "verb": "get",
@@ -5663,6 +5855,12 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
     },
     {
+      "slug": "rerequest-reviewers-for-a-pull-request",
+      "subcategory": "review-requests",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers/rerequest"
+    },
+    {
       "slug": "list-reviews-for-a-pull-request",
       "subcategory": "reviews",
       "verb": "get",
@@ -6347,6 +6545,12 @@
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repositories"
+    },
+    {
+      "slug": "create-a-repository-for-the-authenticated-user",
+      "subcategory": "repos",
+      "verb": "post",
+      "requestPath": "/user/repos"
     },
     {
       "slug": "list-repositories-for-a-user",

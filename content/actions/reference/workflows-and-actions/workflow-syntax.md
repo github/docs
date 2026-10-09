@@ -78,6 +78,68 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 {% data reusables.actions.workflows.triggering-workflow-branches4 %}
 
+## `on.merge_group.<branches|branches-ignore>`
+
+When using the `merge_group` event, you can configure a workflow to run only for merge groups that target specific branches.
+
+Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch name patterns. Use `branches-ignore` when you only want to exclude branch name patterns. You cannot use both `branches` and `branches-ignore` for the same event in a workflow.
+
+The `branches` and `branches-ignore` filters accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to escape each of these special characters with `\`. For more information about glob patterns, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
+
+### Example: Including branches
+
+The patterns defined in `branches` are evaluated against the target branch's name. For example, the following workflow will run whenever there is a `merge_group` event for a merge group that targets:
+
+* A branch named `main`
+* A branch whose name starts with `releases/`
+
+```yaml
+on:
+  merge_group:
+    types: [checks_requested]
+    branches:
+      - main
+      - 'releases/**'
+```
+
+### Example: Excluding branches
+
+When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches-ignore` are evaluated against the target branch's name. For example, the following workflow will run whenever there is a `merge_group` event unless the merge group targets:
+
+* A branch named `canary`
+* A branch whose name matches `releases/**-alpha`, like `releases/beta/3-alpha` <!-- markdownlint-disable-line outdated-release-phase-terminology -->
+
+```yaml
+on:
+  merge_group:
+    types: [checks_requested]
+    branches-ignore:
+      - canary
+      - 'releases/**-alpha'
+```
+
+### Example: Including and excluding branches
+
+You cannot use `branches` and `branches-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+
+If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead.
+
+The order that you define patterns matters.
+
+* A matching negative pattern (prefixed with `!`) after a positive match will exclude the branch.
+* A matching positive pattern after a negative match will include the branch again.
+
+The following workflow will run on `merge_group` events for merge groups that target `releases/10` or `releases/beta/mona`, but not for merge groups that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern. <!-- markdownlint-disable-line outdated-release-phase-terminology -->
+
+```yaml
+on:
+  merge_group:
+    types: [checks_requested]
+    branches:
+      - 'releases/**'
+      - '!releases/**-alpha'
+```
+
 ## `on.push.<branches|tags|branches-ignore|tags-ignore>`
 
 {% data reusables.actions.workflows.run-on-specific-branches-or-tags1 %}
@@ -251,6 +313,10 @@ A boolean specifying whether the secret must be supplied.
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
+## `on.workflow_run.workflows`
+
+{% data reusables.actions.workflows.section-specifying-workflows %}
+
 ## `on.workflow_dispatch`
 
 {% data reusables.actions.workflow-dispatch %}
@@ -353,12 +419,12 @@ Access is enforced with scoped cache tokens, so a job cannot restore or save cac
 | `write-only` | No | Yes |
 | `none` | No | No |
 
-If you omit `cache-mode`, a `read` or `write` default is used based on the trigger type. For trigger-dependent effective defaults, see [AUTOTITLE](/actions/reference/dependency-caching-reference#defaults).
+If you omit `cache-mode`, a `read` or `write` default is used based on the trigger type. For trigger-dependent effective defaults, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#defaults).
 
 > [!WARNING]
-> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/dependency-caching-reference#bypassing-the-default-untrusted-trigger-cache-restriction).
+> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#bypassing-the-default-untrusted-trigger-cache-restriction).
 
-When a cache operation is not permitted by the effective mode, the cache step logs an informational message and continues. The job and workflow do not fail. A skipped restore is treated as a cache miss; a skipped save is simply not performed. For more information, see [AUTOTITLE](/actions/reference/dependency-caching-reference#controlling-cache-access-with-cache-mode).
+When a cache operation is not permitted by the effective mode, the cache step logs an informational message and continues. The job and workflow do not fail. A skipped restore is treated as a cache miss; a skipped save is simply not performed. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#controlling-cache-access-with-cache-mode).
 
 ### Example of `cache-mode`
 
@@ -454,10 +520,10 @@ jobs:
 
 Use `jobs.<job_id>.cache-mode` to set the level of {% data variables.product.prodname_actions %} cache access for a single job. A value set here overrides any workflow-level [`cache-mode`](#cache-mode) for this job only.
 
-The accepted values are `read`, `write`, `write-only`, and `none`, with the same meanings as the top-level key. If neither the job nor the workflow sets `cache-mode`, a trigger-based default applies. For more information about each value, see [`cache-mode`](#cache-mode) and [AUTOTITLE](/actions/reference/dependency-caching-reference#defaults).
+The accepted values are `read`, `write`, `write-only`, and `none`, with the same meanings as the top-level key. If neither the job nor the workflow sets `cache-mode`, a trigger-based default applies. For more information about each value, see [`cache-mode`](#cache-mode) and [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#defaults).
 
 > [!WARNING]
-> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/dependency-caching-reference#bypassing-the-default-untrusted-trigger-cache-restriction).
+> Explicitly declaring `cache-mode: write` or `cache-mode: write-only` on low-trust triggers can bypass the secure default read-only cache restriction and reintroduce cache-poisoning risk. For guidance and mitigations, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#bypassing-the-default-untrusted-trigger-cache-restriction).
 
 You can also set `cache-mode` on a job that calls a reusable workflow to limit the cache access granted to the called workflow. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/reusing-workflow-configurations#supported-keywords-for-jobs-that-call-a-reusable-workflow) and [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows#controlling-cache-access-in-reusable-workflows).
 
@@ -622,7 +688,7 @@ We strongly recommend that you include the version of the action you are using b
 
 Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
-Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
+Actions can be JavaScript, composite, or Docker container actions. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
 
 ### Example: Using versioned actions
 
@@ -1180,6 +1246,8 @@ A matrix will generate a maximum of 256 jobs per workflow run. This limit applie
 
 The variables that you define become properties in the `matrix` context, and you can reference the property in other areas of your workflow file. In this example, you can use `matrix.version` and `matrix.os` to access the current value of `version` and `os` that the job is using. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts).
 
+{% data reusables.actions.workflows.matrix-keys-are-case-insensitive %}
+
 By default, {% data variables.product.github %} will maximize the number of jobs run in parallel depending on runner availability. The order of the variables in the matrix determines the order in which the jobs are created. The first variable you define will be the first job that is created in your workflow run.
 
 ### Using a single-dimension matrix
@@ -1575,7 +1643,7 @@ Allowed expression contexts: `github`, `needs`, and `secrets`.
 
 ## Filter pattern cheat sheet
 
-You can use special characters in path, branch, and tag filters.
+You can use special characters in path, branch, tag, and workflow name filters.
 
 * `*`: Matches zero or more characters, but does not match the `/` character. For example, `Octo*` matches `Octocat`.
 * `**`: Matches zero or more of any character.

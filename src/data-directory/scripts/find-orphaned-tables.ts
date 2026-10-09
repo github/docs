@@ -1,20 +1,6 @@
-// [start-readme]
-//
-// Print a list of all the YAML-powered table files in ./data/tables/ that
-// can't be found mentioned in any source file (content, data & code), along
-// with their paired schema files. Mirrors find-orphaned-assets.ts.
-//
-// Tables are referenced from Liquid like:
-//
-//     {% data tables.<group>.<name> %}
-//     {% for entry in tables.<group>.<name> %}
-//
-// so a table file `data/tables/<group>/<name>.yml` is "used" if the string
-// `tables.<group>.<name>` appears anywhere. A deeper reference such as
-// `tables.<group>.<name>.<subkey>` also counts, because the file key is a
-// prefix of it.
-//
-// [end-readme]
+// Prints unreferenced YAML-powered table files under ./data/tables/ and paired schema files.
+// Both {% data tables.copilot.matrix-meta %} and
+// {% for level in tables.copilot.matrix-meta.supportLevels %} mark the table used.
 
 import fs from 'fs'
 import path from 'path'
@@ -28,17 +14,15 @@ import languages from '@/languages/lib/languages-server'
 const TABLES_DIR = 'data/tables'
 const SCHEMAS_DIR = 'src/data-directory/lib/data-schemas/tables'
 
-// Tables that are referenced dynamically (not via Liquid) and must never be
-// flagged as orphans. Add an entry here (the dotted key, e.g. `copilot.foo`)
-// if a table is loaded by code rather than mentioned in content.
+// EXCEPTIONS protects tables loaded dynamically by code rather than mentioned in content.
 const EXCEPTIONS = new Set<string>([])
 
 export type TableFile = {
-  // Repo-relative path to the YAML file, e.g. data/tables/copilot/model-multipliers.yml
+  // Repo-relative YAML path, such as data/tables/copilot/model-multipliers.yml.
   yml: string
   // Repo-relative path to the paired schema, if it exists on disk.
   schema?: string
-  // Dotted key used in Liquid, e.g. copilot.model-multipliers
+  // Dotted Liquid key, such as copilot.model-multipliers.
   key: string
 }
 
@@ -72,9 +56,7 @@ type MainOptions = {
   excludeTranslations: boolean
 }
 
-// Given the table files and the contents of every source file, return the
-// tables whose Liquid key is never mentioned. Pulled out of main() so it can
-// be unit tested without touching the filesystem.
+// Exported for tests so orphan detection can run without filesystem reads.
 export function getOrphanedTables(
   tables: TableFile[],
   sourceContents: Iterable<string>,
@@ -91,8 +73,7 @@ export function getOrphanedTables(
   return [...orphans.values()].sort((a, b) => a.yml.localeCompare(b.yml))
 }
 
-// Only parse argv and run when invoked directly (e.g. via `npm run
-// find-orphaned-tables`), not when imported by a test.
+// Guard main so tests can import getOrphanedTables; npm run find-orphaned-tables invokes it.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   program.parse(process.argv)
   main(program.opts())
@@ -108,10 +89,7 @@ async function main(opts: MainOptions) {
   const sourceFiles: string[] = [...englishFiles]
 
   if (!excludeTranslations) {
-    // Translations are often behind English. A table can still be referenced
-    // in a translation even when no English content references it, so we must
-    // search translations too. We only look at files that also exist in
-    // English, because translations rarely delete renamed/removed files.
+    // Search matching translations because translated content can still reference a table.
     const englishRelativeFiles = new Set(
       englishFiles.map((englishFile) => path.relative(languages.en.dir, englishFile)),
     )
@@ -133,9 +111,7 @@ async function main(opts: MainOptions) {
     }
   }
 
-  // Tables can also be referenced from code (e.g. table-rendering helpers), so
-  // search src and contributing as well. Searching more files only ever marks
-  // a table as used, never as an orphan, so it errs on the safe side.
+  // Search code because table-rendering helpers can reference tables without Liquid.
   for (const root of ['contributing', 'src']) {
     if (!fs.existsSync(root)) continue
     sourceFiles.push(
@@ -165,9 +141,7 @@ async function main(opts: MainOptions) {
 
   const orphanTables = getOrphanedTables(tables, readContents())
 
-  // Safety net: if every table looks orphaned, the detection is almost
-  // certainly broken (e.g. content wasn't checked out). Refuse to suggest
-  // deleting everything.
+  // If every table looks orphaned, detection is probably broken; refuse to list deletions.
   if (tables.length > 0 && orphanTables.length === tables.length) {
     console.error(
       'Every table was flagged as orphaned, which is almost certainly a bug. ' +

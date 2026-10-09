@@ -303,6 +303,22 @@ The markdown body contains the instructions that are injected into the session c
 | .NET | `SkillDirectories` | `List<string>` | Directories to load skills from |
 | .NET | `DisabledSkills` | `List<string>` | Skills to disable |
 
+### Built-in skills and `mode: "empty"`
+
+The runtime ships with a set of bundled **built-in** skills that are eligible by
+default. When you run the client in `mode: "empty"` (the recommended baseline for
+[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy)), the SDK excludes every
+runtime-bundled built-in skill: it sends an empty `includedBuiltinSkills` list on
+the post-create and post-resume options patch, alongside the empty
+`installedPlugins` list.
+
+This exclusion is the default, not a permanent restriction. To allow selected
+runtime-bundled skills, set `includedBuiltinSkills` (or the language-specific
+casing) to their names. You can also opt into your **own** custom skills under
+`mode: "empty"`—enable skills and pass your own `skillDirectories`—and those
+remain fully usable, including a custom skill that shares a name with a built-in.
+Under `mode: "copilot-cli"` the field is omitted unless you set the option.
+
 ## Best practices
 
 1. **Organize by domain** - Group related skills together (e.g., `skills/security/`, `skills/testing/`)

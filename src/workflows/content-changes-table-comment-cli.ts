@@ -1,24 +1,10 @@
-// [start-readme]
+// Runs the content-changes-table code locally instead of waiting on a PR run of
+// .github/workflows/review-comment.yml, which runs it on pull_request_target.
+// Requires GITHUB_TOKEN with content and pull request read access, plus APP_URL
+// set to the review environment or production.
 //
-// For testing the GitHub Action that executes
-// src/workflows/content-changes-table-comment.ts but doing it
-// locally.
-// This is more convenient and faster than relying on seeing that the
-// Action produces in a PR. Especially since
-// .github/workflows/comment-content-changes-table.yml only runs
-// on `pull_request_target`.
-//
-// To try it you need to generate a local `GITHUB_TOKEN` that has read-access
-// "content" and "pull requests" on the repo.
-// You also need to set an APP_URL which can be the domain of the
-// review environment or just the production domain. Example:
-//
-//
-//    export GITHUB_TOKEN=github_pat_11AAAG.....
-//    export APP_URL=https://docs.github.com
-//    tsx src/workflows/content-changes-table-comment-cli.ts github docs-internal main 4a0b0f2
-//
-// [end-readme]
+// Usage:
+//   npx tsx src/workflows/content-changes-table-comment-cli.ts github docs-internal main 4a0b0f2
 
 import { program } from 'commander'
 import main from '@/workflows/content-changes-table-comment'

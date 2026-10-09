@@ -24,25 +24,19 @@ const filters = load(readFileSync('src/workflows/unallowed-contribution-filters.
 main()
 
 async function main() {
-  // Files in the diff that match specific paths we don't allow
   const unallowedChangedFiles = [...JSON.parse(FILE_PATHS_NOT_ALLOWED || '')]
 
-  // Content files that are added in a forked repo won't be in the
-  // `github/docs` repo, so we don't need to check them. They will be
-  // reviewed manually by a content writer.
+  // Added content from forks is absent from github/docs, so content writers review it manually.
   const contentFilesToCheck: string[] = difference(
     JSON.parse(CHANGED_FILE_PATHS || ''),
     JSON.parse(ADDED_CONTENT_FILES || ''),
   )
 
-  // Any modifications or deletions to a file in the content directory
-  // could potentially have `type: rai` so each changed content file's
-  // frontmatter needs to be checked.
+  // Modified or deleted content can have contentType: rai, so check each file's frontmatter.
   unallowedChangedFiles.push(...checkContentType(contentFilesToCheck, 'rai'))
 
   if (unallowedChangedFiles.length === 0) return
 
-  // Format into Markdown bulleted list to use in the PR comment
   const listUnallowedChangedFiles = unallowedChangedFiles.map((file) => `\n - ${file}`).join('')
   const listUnallowedFiles = filters.notAllowed
     .map((file: string) => `\n - ${file === '*' ? 'Anything in the root directory' : file}`)
@@ -53,7 +47,7 @@ async function main() {
     "It looks like you've modified some files that we can't accept as contributions."
   let createdComment
 
-  // Add the `invalid` label so the PR gets closed
+  // The invalid label triggers automatic PR closure.
   try {
     await octokit.rest.issues.addLabels({
       owner,

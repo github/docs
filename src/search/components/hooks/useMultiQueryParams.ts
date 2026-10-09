@@ -11,18 +11,16 @@ export type QueryParams = {
 }
 
 const initialKeys: (keyof QueryParams)[] = [
-  // Used to persist search state
   'search-overlay-input',
   'search-overlay-ask-ai',
-  // Used to debug search result
   'debug',
-  // Used to filter category and search results of Articles on landing pages
+  // Landing pages filter article lists with these keys.
   'articles-category',
   'articles-filter',
   'articles-page',
 ]
 
-// When we need to update 2 query params simultaneously, we can use this hook to prevent race conditions
+// Updating related query params in one state change prevents router races.
 export function useMultiQueryParams(options?: {
   useHistory?: boolean
   excludeFromHistory?: (keyof QueryParams)[]
@@ -30,7 +28,7 @@ export function useMultiQueryParams(options?: {
   const router = useRouter()
   const pushTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const useHistory = options?.useHistory ?? false
-  // When using browser history, exclude these params from being updated on back/forward navigation (like search input which causes race conditions)
+  // These keys keep current React state during back and forward navigation to avoid URL races.
   const excludeFromHistory = options?.excludeFromHistory ?? []
 
   const getInitialParams = (): QueryParams => {
@@ -51,21 +49,18 @@ export function useMultiQueryParams(options?: {
 
   const [params, setParams] = useState<QueryParams>(getInitialParams)
 
-  // Only set the initial query param values on page load, the rest of the time we use React state
+  // React state owns query params after the route path initializes them.
   useEffect(() => {
     setParams(getInitialParams())
   }, [router.pathname])
 
-  // Listen to browser back/forward button navigation (only if history is being used)
   useEffect(() => {
     if (!useHistory) return
 
     const handleRouteChange = () => {
-      // When the route changes (e.g., back button), update state from URL
-      // But preserve excluded params from current state to avoid race conditions
+      // Preserve excluded params from current state during back and forward navigation.
       setParams((currentParams) => {
         const newParams = getInitialParams()
-        // Keep excluded params from current state instead of reading from URL
         for (const key of excludeFromHistory) {
           newParams[key] = currentParams[key]
         }
@@ -81,7 +76,7 @@ export function useMultiQueryParams(options?: {
 
   const updateParams = useCallback(
     (updates: Partial<QueryParams>, shouldPushHistory = false) => {
-      // Use functional state update to avoid depending on params in the closure
+      // A functional update keeps params out of this callback's dependencies.
       setParams((currentParams) => {
         const newParams = { ...currentParams, ...updates }
         const [asPathWithoutHash] = router.asPath.split('#')
@@ -114,12 +109,11 @@ export function useMultiQueryParams(options?: {
         // Debounce the router push so we don't push a new URL for every keystroke
         if (pushTimeoutRef.current) clearTimeout(pushTimeoutRef.current)
         pushTimeoutRef.current = setTimeout(async () => {
-          // Always preserve scroll position during router update to prevent jumps
-          // Component-level scroll logic (like pagination scroll) will handle intentional scrolling
+          // Preserve scroll position so component scroll logic stays in control.
           const scrollY = window.scrollY
           const scrollX = window.scrollX
 
-          // Use router.push for history entries (category/page changes), router.replace for others (search)
+          // Category and page changes push history entries; search edits replace the current entry.
           const routerMethod = shouldPushHistory ? router.push : router.replace
           await routerMethod(newUrl, undefined, {
             shallow: true,
@@ -127,8 +121,6 @@ export function useMultiQueryParams(options?: {
             scroll: false,
           })
 
-          // Restore scroll position after router update
-          // This prevents unintended scrolling; intentional scrolling is handled by components
           window.scrollTo(scrollX, scrollY)
         }, 100)
 

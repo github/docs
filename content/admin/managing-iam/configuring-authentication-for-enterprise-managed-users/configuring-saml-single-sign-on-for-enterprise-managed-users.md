@@ -103,7 +103,6 @@ After the initial configuration of SAML SSO, the only setting you can update on 
    > [!NOTE]
    > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
-1. If you're using a **non-partner IdP** (an IdP other than Okta, PingFederate or Entra ID), before enabling SAML, you must update a setting so that you will be able to set up SCIM using the REST API. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#configuring-provisioning-for-other-identity-management-systems).
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
@@ -123,6 +122,7 @@ After the initial configuration of SAML SSO, the only setting you can update on 
     > After you require SAML SSO for your enterprise and save SAML settings, the setup user will continue to have access to the enterprise and will remain signed in to GitHub along with the {% data variables.enterprise.prodname_managed_users %} provisioned by your IdP who will also have access to the enterprise.
 
 {% data reusables.enterprise-accounts.download-recovery-codes %}
+1. If you're using a **non-partner IdP** (an IdP other than Okta, PingFederate or Entra ID), after enabling SAML, you must update a setting so that you will be able to set up SCIM using the REST API. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#configuring-provisioning-for-other-identity-management-systems).
 
 ### Enable provisioning
 
@@ -133,3 +133,7 @@ After you enable SAML SSO, enable provisioning. For more information, see [AUTOT
 You can use the role of guest collaborator to grant limited access to vendors and contractors in your enterprise. Unlike enterprise members, guest collaborators only have access to internal repositories within organizations where they are a member.
 
 If you use Entra ID or Okta for SAML authentication, you may need to update your IdP application to use guest collaborators. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators).
+
+### Enable Proof of Presence
+
+After you configure SAML SSO, your enterprise can use Proof of Presence to require reauthentication through your IdP before high-impact actions. {% data reusables.enterprise-accounts.proof-of-presence-supported-idps %} For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-proof-of-presence).

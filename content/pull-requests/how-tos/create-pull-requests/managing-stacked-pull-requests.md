@@ -9,8 +9,6 @@ category:
   - Create pull requests
 ---
 
-{% data reusables.public-preview.public-preview %}
-
 As you iterate on a stack, you often need to make changes in a lower layer, rebase to keep a linear history, or restructure its branches. The `gh stack` extension in {% data variables.product.prodname_cli %} handles these tasks with cascading operations that update every affected branch. See [AUTOTITLE](/pull-requests/reference/stacked-prs-cli-commands).
 
 ## Making changes to a lower layer

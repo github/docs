@@ -1,14 +1,9 @@
 name: Close bad repo-sync PRs
 
-# **What it does**:
-#   Closes and PR from `repo-sync` to `main` that wasn't created by a Hubber.
-# **Why we have it**:
-#   Unfortunately, a lot of PRs in github/docs are created by people who
-#   shouldn't be creating such PRs. We bot our bots to own it.
-# **Who does it impact**: Open-source.
+# Closes public PRs from the repo-sync source branch unless the event actor is a GitHub employee.
 
 on:
-  # Necessary in lieu of `pull_request` so that PRs opened from forks can be closed if they try to push to a repo sync branch.
+  # pull_request_target lets the workflow close forked PRs from the repo-sync source branch.
   pull_request_target:
 
 permissions:
@@ -37,15 +32,13 @@ jobs:
                 username: prCreator
               })
 
-              // If the PR creator is a GitHub employee, stop now
+              // Skip GitHub employees because the event actor may own legitimate repo-sync work.
               console.log("PR creator is a GitHub employee")
               return
             } catch (err) {
-              // An error will be thrown if the user is not a GitHub employee.
-              // That said, we still want to proceed anyway!
+              // The membership lookup throws for non-employees, so fall through and close the PR.
             }
 
-            // Close the PR and add the invalid label
             await github.rest.issues.update({
               owner,
               repo,
@@ -54,7 +47,6 @@ jobs:
               state: 'closed'
             })
 
-            // Comment on the PR
             await github.rest.issues.createComment({
               owner,
               repo,

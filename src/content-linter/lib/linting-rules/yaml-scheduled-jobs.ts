@@ -37,7 +37,7 @@ export const yamlScheduledJobs: Rule = {
         currentLanguage: 'en',
         currentVersionObj: allVersions['free-pro-team@latest'],
       }
-      // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
+      // Parse Liquid first because yaml loading chokes on {% raw %} tags.
       const renderedYaml = await liquid.parseAndRender(token.content, context)
       const yamlObj = load(renderedYaml) as YamlWorkflow
       if (!yamlObj.on) return

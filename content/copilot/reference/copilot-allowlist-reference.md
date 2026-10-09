@@ -16,7 +16,7 @@ contentType: reference
 
 If your company employs security measures like a firewall or proxy server, you should add the URLs in this article to an allowlist to ensure {% data variables.product.prodname_copilot_short %} works as expected. Users must be able to authenticate to {% data variables.product.github %} and access the {% data variables.product.prodname_copilot_short %} service on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}.
 
-Every user of the proxy server or firewall also needs to configure their own environment to connect to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-network-settings).
+Every user of the proxy server or firewall also needs to configure their own environment to connect to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/how-tos/copilot-in-your-ide/set-up-copilot/configure-network-settings).
 
 ## {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}
 
@@ -67,7 +67,7 @@ If you use {% data variables.enterprise.data_residency %}, your enterprise and {
 
    Replace SUBDOMAIN with your enterprise slug.
 
-1. If you plan to use public code detection, allow access to `https://origin-tracker.githubusercontent.com`. This is required to check generated code against public code hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/copilot/concepts/completions/code-referencing).
+1. If you plan to use public code detection, allow access to `https://origin-tracker.githubusercontent.com`. This is required to check generated code against public code hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/copilot/concepts/copilot-surfaces/copilot-in-ides#references-to-matching-public-code).
 
 All other domains that are required on {% data variables.product.prodname_dotcom_the_website %} are **not** required on {% data variables.enterprise.data_residency_site %}. For example:
 
@@ -304,6 +304,7 @@ The allowlist allows access to the following hosts:
 * `deno.land`
 * `registry.bower.io`
 * `binaries.prisma.sh`
+* `aspire.dev`
 
 ### Programming Languages & Package Managers: Perl
 
@@ -439,4 +440,3 @@ The allowlist allows access to the following hosts:
 
 * `dl.k8s.io`
 * `pkgs.k8s.io`
-

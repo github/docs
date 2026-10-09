@@ -22,11 +22,7 @@ interface JourneyPage extends Page {
   children?: string[]
 }
 
-/**
- * Transforms journey-landing pages into markdown format.
- * Handles journey tracks (grouped learning paths) with guides,
- * falling back to children listings when tracks aren't available.
- */
+// Journey pages fall back to a children listing when no track produces a renderable link.
 export class JourneyLandingTransformer implements PageTransformer {
   templateName = 'landing-page.template.md'
 
@@ -54,7 +50,6 @@ export class JourneyLandingTransformer implements PageTransformer {
     const languageCode = page.languageCode || 'en'
     const sections: Section[] = []
 
-    // Journey tracks
     const journeyTracks = journeyPage.journeyTracks
     if (journeyTracks) {
       const groups: LinkGroup[] = []
@@ -87,7 +82,6 @@ export class JourneyLandingTransformer implements PageTransformer {
       }
     }
 
-    // Children fallback
     if (sections.length === 0 && journeyPage.children) {
       const links = await Promise.all(
         journeyPage.children.map(async (childHref) => {

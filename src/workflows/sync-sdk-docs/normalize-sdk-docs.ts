@@ -1,38 +1,20 @@
 #!/usr/bin/env node
 
-/**
- * Normalizes Copilot SDK docs for publishing on docs.github.com.
- *
- * For every .md file in the SDK docs directory, this script:
- *   - Removes pages that have been relocated out of the synced tree
- *     (see RELOCATED_PAGES) and repoints inbound links at their new URLs
- *   - Renames README.md files to index.md (the SDK repo uses README.md as the
- *     landing page for each docs directory; docs-internal requires index.md)
- *   - Adds YAML frontmatter (title, intro, shortTitle, versions, contentType)
- *   - Adds `children` arrays to index.md files
- *   - Removes `docs-validate: hidden` ranges (validation-only code samples that
- *     must not reach readers)
- *   - Converts consecutive <details> language blocks to {% codetabs %} syntax
- *   - Rewrites internal relative .md links to [AUTOTITLE](/path) format
- *   - Rewrites absolute docs.github.com links to [AUTOTITLE](/path) format
- *   - Creates missing index.md files for subdirectories
- *   - Fixes code fence language aliases (go → golang, ts → typescript)
- *   - Normalizes ordered list prefixes to 1.
- *
- * Adapted from the spike normalization script in docs-internal#60525.
- *
- * Usage:
- *   node normalize-sdk-docs.mjs --content-dir <path> --sdk-docs-dir <path>
- */
+// Normalizes Copilot SDK docs for docs.github.com, including README landing
+// pages, frontmatter, links, code fences, ordered lists, hidden validation
+// samples, codetabs, and SDK-specific markdownlint suppressions.
+//
+// Usage:
+//   npx tsx src/workflows/sync-sdk-docs/normalize-sdk-docs.ts --content-dir <path> \
+//     --sdk-docs-dir <path>
 
 import fs from 'node:fs'
 import path from 'node:path'
 import { parseArgs } from 'node:util'
 import matter from '@gr2m/gray-matter'
 
-import { stripHiddenBlocks } from './strip-hidden-blocks'
+import { stripHiddenBlocks, nextFenceState, type OpenFence } from './strip-hidden-blocks'
 
-// Parse CLI arguments
 const { values: args } = parseArgs({
   options: {
     'content-dir': { type: 'string' },
@@ -43,33 +25,24 @@ const { values: args } = parseArgs({
 const CONTENT_DIR = path.resolve(args['content-dir'] as string)
 const SDK_DOCS_DIR = path.resolve(args['sdk-docs-dir'] as string)
 
-/**
- * Pages that have been relocated OUT of the synced SDK docs tree into
- * hand-authored content elsewhere in docs-internal.
- *
- * Keys are paths relative to the SDK docs root, exactly as they appear upstream
- * in github/copilot-sdk's `docs/` directory. Values are the docs.github.com URL
- * the page now lives at.
- *
- * Each entry does two inseparable things on every sync:
- *   1. Deletes the upstream copy after it is rsynced in (Step 0a), so the page
- *      is not republished at its old URL — that URL is now a `redirect_from` on
- *      the hand-authored page and must stay vacant.
- *   2. Teaches the internal-link rewriter (Step 3) to point inbound relative
- *      links at the new URL, instead of logging "target missing" and leaving a
- *      raw `../getting-started.md` link in published content.
- *
- * Both halves must stay together, which is why this lives here rather than as an
- * rsync `--exclude` in .github/workflows/sync-sdk-docs.yml: excluding the file
- * at copy time without remapping its links would ship ~17 broken links.
- *
- * Destinations are validated on every run; see validateRelocatedDestinations().
- */
+// These paths moved out of the synced SDK docs tree into hand-authored content.
+// Keys match github/copilot-sdk docs paths relative to the SDK docs root.
+// Values are their docs.github.com destinations.
+//
+// Each entry deletes the upstream copy after rsync, so the old URL stays vacant
+// for redirect_from, and it remaps inbound links to the new URL.
+//
+// Keep the delete and remap together here. An rsync exclude in
+// .github/workflows/sync-sdk-docs.yml would ship about 17 broken links because
+// the internal-link rewriter would still point at raw relative paths such as
+// ../getting-started.md.
+//
+// validateRelocatedDestinations() checks these destinations on every run.
 const RELOCATED_PAGES: Record<string, string> = {
   'getting-started.md': '/copilot/get-started/sdk-quickstart',
 }
 
-/** Relocated pages whose upstream source file was not found during this sync. */
+// Track missing relocated sources because an upstream rename can republish at a new URL.
 const missingRelocatedSources: string[] = []
 
 if (!fs.existsSync(CONTENT_DIR)) {
@@ -81,9 +54,6 @@ if (!fs.existsSync(SDK_DOCS_DIR)) {
   process.exit(1)
 }
 
-// --- Helpers ---
-
-/** Recursively collect all .md files in a directory. */
 function getAllMarkdownFiles(dir: string): string[] {
   const results: string[] = []
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -97,19 +67,12 @@ function getAllMarkdownFiles(dir: string): string[] {
   return results
 }
 
-/**
- * Step 0: Rename `README.md` files to `index.md`.
- *
- * The copilot-sdk repo uses `README.md` as the landing page for each docs
- * directory (the GitHub convention). docs-internal instead requires `index.md`
- * for directory pages, referenced by the parent's `children` frontmatter.
- *
- * This step:
- *   - Renames every `README.md` to `index.md` (skipping any directory that
- *     already has an `index.md`, to avoid clobbering).
- *   - Rewrites relative Markdown links that point at `README.md` so they target
- *     `index.md`, keeping later link-rewriting steps able to resolve them.
- */
+// copilot-sdk uses README.md as directory landing pages. docs-internal requires
+// index.md pages referenced by the parent's children frontmatter.
+//
+// Rewrite in-tree README.md links to index.md here, so later link rewriting can
+// resolve them to directory URLs. Directories that already have index.md keep
+// their README.md to avoid clobbering content.
 function convertReadmesToIndex(): void {
   const renamedDirs = new Set<string>()
 
@@ -135,11 +98,7 @@ function convertReadmesToIndex(): void {
 
   if (renamedDirs.size === 0) return
 
-  // Rewrite relative links that target a README.md *inside the docs tree* to
-  // point at index.md, so the internal-link rewriter (Step 3) resolves them to
-  // the directory URL. Links to README.md files *outside* the docs tree (e.g.
-  // sibling language-SDK dirs like ../nodejs/README.md) are left untouched so
-  // Step 3b can link them to the real README on GitHub.
+  // Rewrite only in-tree README.md links, so SDK repo links still point at GitHub.
   const readmeLinkRegex = /\[([^\]]+)\]\(((?:\.{1,2}\/)[^)]*README\.md(?:#[^)]*)?)\)/g
   for (const file of getAllMarkdownFiles(SDK_DOCS_DIR)) {
     const raw = fs.readFileSync(file, 'utf8')
@@ -152,7 +111,7 @@ function convertReadmesToIndex(): void {
       const resolved = path.resolve(dir, rawPath)
       const renamed = resolved.replace(/README\.md$/, 'index.md')
 
-      // Only rewrite when the target now exists as an index.md inside the docs tree.
+      // Rewrite only when an in-tree index.md target exists.
       if (
         !renamed.startsWith(SDK_DOCS_DIR + path.sep) &&
         renamed !== path.join(SDK_DOCS_DIR, 'index.md')
@@ -173,34 +132,21 @@ function convertReadmesToIndex(): void {
   }
 }
 
-/**
- * Return the new URL for a relocated page, given an absolute path inside the
- * SDK docs tree. Returns undefined for pages that have not been relocated.
- */
 function relocatedUrlFor(absPath: string): string | undefined {
   return RELOCATED_PAGES[path.relative(SDK_DOCS_DIR, absPath)]
 }
 
-/**
- * Step 0a: Delete pages that have been relocated out of the synced tree.
- *
- * The sync `rm -rf`s and re-rsyncs this whole directory every run, so a page
- * moved into hand-authored content elsewhere in docs-internal would otherwise
- * reappear at its old URL on the next sync and collide with the `redirect_from`
- * that now claims it. (Redirect compilation resolves that collision by dropping
- * the redirect, so the deletion is a hard invariant, not a tidiness measure.)
- *
- * This runs before every other step, so keys stay expressed in upstream terms:
- * before Step 0 renames `README.md` to `index.md`, and before Step 1 so that
- * `getChildren()` never sees the file and the parent index.md's `children`
- * array is free of dangling entries.
- *
- * A missing source is reported rather than ignored: it usually means upstream
- * renamed the file, in which case the page silently republishes under a new URL
- * and the vacated URL may be reclaimed. It does not fail the sync, because
- * github/copilot-sdk is a separate repo that may legitimately delete the page
- * once docs-internal is canonical.
- */
+// The sync rebuilds this directory on every run, so relocated upstream pages
+// would otherwise reappear at their old URLs and collide with redirect_from on
+// hand-authored pages. Redirect compilation drops the redirect on collision.
+//
+// Delete relocated pages before README.md becomes index.md and before getChildren()
+// reads parents, so RELOCATED_PAGES stays in upstream terms and children arrays
+// do not point at removed pages.
+//
+// Report missing sources because upstream may republish the page at a new URL
+// and leave the previous URL open for reuse. Do not fail, because
+// github/copilot-sdk may delete a page once docs-internal owns it.
 function removeRelocatedPages(): void {
   for (const [relPath, newUrl] of Object.entries(RELOCATED_PAGES)) {
     const absPath = path.join(SDK_DOCS_DIR, relPath)
@@ -214,14 +160,7 @@ function removeRelocatedPages(): void {
   }
 }
 
-/**
- * Validate that every relocated page's destination actually exists in the
- * hand-authored content tree. A typo or an unrelated rename would otherwise
- * silently repoint every inbound link at a 404.
- *
- * Unlike a missing upstream source, this is entirely within docs-internal's
- * control, so it fails the sync. It runs before anything mutates the tree.
- */
+// Fail before mutating files if a relocated destination would send inbound links to a 404.
 function validateRelocatedDestinations(): void {
   const broken: string[] = []
 
@@ -240,11 +179,7 @@ function validateRelocatedDestinations(): void {
   process.exit(1)
 }
 
-/**
- * Report relocated pages whose upstream source vanished, to the Actions job
- * summary linked from the generated PR. Mirrors reportUnbalancedMarkers(): the
- * run log alone is not something a PR reviewer will see.
- */
+// Put missing relocated sources in the generated PR's Actions summary, not only the run log.
 function reportMissingRelocatedSources(): void {
   const summaryPath = process.env.GITHUB_STEP_SUMMARY
   if (missingRelocatedSources.length === 0 || !summaryPath) return
@@ -255,7 +190,7 @@ function reportMissingRelocatedSources(): void {
     'These pages are listed in `RELOCATED_PAGES` but no longer exist in',
     '[copilot-sdk docs](https://github.com/github/copilot-sdk/tree/main/docs).',
     'If upstream **renamed** the file, it is now republishing under a new URL and may have',
-    'reclaimed the URL this move vacated — update `RELOCATED_PAGES`. If upstream',
+    'reclaimed the URL this move vacated. Update `RELOCATED_PAGES`. If upstream',
     '**deleted** it deliberately, remove the entry instead.',
     '',
     ...missingRelocatedSources.map((source) => `* \`${source}\``),
@@ -265,7 +200,6 @@ function reportMissingRelocatedSources(): void {
   fs.appendFileSync(summaryPath, lines.join('\n'))
 }
 
-/** Convert a filename slug to a title-case short title. */
 function slugToTitle(slug: string): string {
   const ACRONYMS: Record<string, string> = {
     cli: 'CLI',
@@ -284,7 +218,6 @@ function slugToTitle(slug: string): string {
     .join(' ')
 }
 
-/** Return the children entries for an index.md file. */
 function getChildren(indexPath: string): string[] {
   const dir = path.dirname(indexPath)
   const entries = fs.readdirSync(dir, { withFileTypes: true })
@@ -307,10 +240,9 @@ function getChildren(indexPath: string): string[] {
   return children.sort()
 }
 
-/**
- * Convert a resolved absolute file path to a docs URL path.
- * e.g. /…/content/copilot/sdk-docs/setup/local-cli.md → /copilot/sdk-docs/setup/local-cli
- */
+// The docs URL drops the content root, .md extension, and trailing index.
+// <repo>/content/copilot/sdk-docs/setup/local-cli.md becomes
+// /copilot/sdk-docs/setup/local-cli.
 function filePathToUrlPath(absPath: string): string {
   let rel = path.relative(CONTENT_DIR, absPath)
   rel = rel.replace(/\.md$/, '')
@@ -318,16 +250,10 @@ function filePathToUrlPath(absPath: string): string {
   return `/${rel}`
 }
 
-// --- Processing steps ---
-
-/**
- * Step 1: Add frontmatter to a markdown file.
- * Extracts title from the first H1, intro from the first paragraph.
- */
+// SDK source files lack docs-internal frontmatter.
 function addFrontmatter(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
 
-  // Skip files that already have frontmatter
   if (raw.startsWith('---')) {
     console.log(`  SKIP (has frontmatter): ${path.relative(SDK_DOCS_DIR, filePath)}`)
     return
@@ -335,7 +261,6 @@ function addFrontmatter(filePath: string): void {
 
   const lines = raw.split('\n')
 
-  // Extract title from first H1
   let title = ''
   let titleLineIndex = -1
   for (let i = 0; i < lines.length; i++) {
@@ -352,7 +277,6 @@ function addFrontmatter(filePath: string): void {
     title = path.basename(filePath, '.md')
   }
 
-  // Extract intro: first non-empty paragraph after the title
   let intro = ''
   let introEndIndex = titleLineIndex
   if (titleLineIndex >= 0) {
@@ -368,11 +292,10 @@ function addFrontmatter(filePath: string): void {
     intro = paraLines.join(' ')
   }
 
-  // Compute shortTitle from filename for slugified-title test compatibility
+  // Derive shortTitle from the filename so its slug passes the slugified-title test.
   const basename = path.basename(filePath, '.md')
   const shortTitle = basename === 'index' ? undefined : slugToTitle(basename)
 
-  // Build frontmatter
   const frontmatterData: Record<string, unknown> = {
     title,
     ...(shortTitle && { shortTitle }),
@@ -386,7 +309,6 @@ function addFrontmatter(filePath: string): void {
     frontmatterData.children = getChildren(filePath)
   }
 
-  // Remove the title line and intro paragraph from the body
   const bodyLines = [...lines]
   if (titleLineIndex >= 0) {
     bodyLines.splice(titleLineIndex, introEndIndex - titleLineIndex)
@@ -395,8 +317,7 @@ function addFrontmatter(filePath: string): void {
     }
   }
 
-  // For index.md files, strip all body content (docs-internal convention:
-  // index pages are frontmatter-only, navigation is generated from children)
+  // docs-internal index pages are frontmatter-only; children generates navigation.
   const body = isIndex ? '' : bodyLines.join('\n')
   const output = matter.stringify(body, frontmatterData)
 
@@ -404,20 +325,16 @@ function addFrontmatter(filePath: string): void {
   console.log(`  OK: ${path.relative(SDK_DOCS_DIR, filePath)}`)
 }
 
-/**
- * Step 3: Rewrite internal relative .md links to [AUTOTITLE](/url-path) format.
- */
 function rewriteInternalLinks(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
   const dir = path.dirname(filePath)
 
-  // Match any relative Markdown link whose target ends in .md, including bare
-  // same-directory links written without a leading "./" (e.g. `[Hooks](hooks.md)`).
+  // Also match bare same-directory links such as [Hooks](hooks.md).
   const linkRegex = /\[([^\]]+)\]\(([^)]+\.md(?:#[^)]*)?)\)/g
 
   let changed = false
   const updated = raw.replace(linkRegex, (_match: string, _text: string, href: string) => {
-    // Only handle relative links: skip absolute paths, anchors, and external URLs.
+    // Skip absolute paths, anchors, and external URLs.
     if (href.startsWith('/') || href.startsWith('#') || /^[a-z][a-z0-9+.-]*:\/\//i.test(href)) {
       return _match
     }
@@ -427,9 +344,7 @@ function rewriteInternalLinks(filePath: string): void {
 
     if (!resolved.startsWith(CONTENT_DIR)) return _match
 
-    // Pages relocated out of the synced tree no longer exist on disk, so the
-    // existence check below would leave a raw relative link. Repoint them at
-    // their new home instead.
+    // Relocated pages no longer exist on disk, so point them at their new home.
     const relocatedUrl = relocatedUrlFor(resolved)
     if (relocatedUrl) {
       changed = true
@@ -453,17 +368,13 @@ function rewriteInternalLinks(filePath: string): void {
   }
 }
 
-/**
- * Step 3b: Rewrite repo-relative links that point outside the docs tree.
- * These are links like ../nodejs/README.md that should point to the SDK repo on GitHub.
- * Catches any remaining relative .md links that Step 3 didn't convert to AUTOTITLE.
- */
+// Missing ./ and ../ Markdown targets can point outside the docs tree, such as
+// ../nodejs/README.md, so rewrite them to the SDK repo on GitHub.
 function rewriteRepoRelativeLinks(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
   const dir = path.dirname(filePath)
   const SDK_REPO_URL = 'https://github.com/github/copilot-sdk/tree/main'
 
-  // Match relative .md links that were NOT already rewritten to AUTOTITLE
   const linkRegex = /\[([^\]]+)\]\((\.{1,2}\/[^)]*\.md(?:#[^)]*)?)\)/g
 
   let changed = false
@@ -471,26 +382,18 @@ function rewriteRepoRelativeLinks(filePath: string): void {
     const [rawPath, anchor] = href.split('#', 2)
     const resolved = path.resolve(dir, rawPath)
 
-    // Skip if the file actually exists in the content tree (should have been handled by Step 3)
     if (fs.existsSync(resolved)) return _match
 
-    // Compute where this file would be in the SDK repo.
-    // SDK docs are at content/copilot/sdk-docs/ which maps to copilot-sdk/docs/
-    // So a link from content/copilot/sdk-docs/getting-started.md to ../nodejs/README.md
-    // resolves to content/copilot/nodejs/README.md → which in the SDK repo is nodejs/README.md
+    // content/copilot/sdk-docs maps ../nodejs/README.md to nodejs/README.md in the SDK repo.
     const relFromSdkDocs = path.relative(SDK_DOCS_DIR, resolved)
 
-    // Links starting with ../ from SDK_DOCS_DIR go up to the repo root
-    // e.g. ../nodejs/README.md from sdk-docs/ → ../../nodejs/README.md from content/copilot/sdk-docs/
-    // relFromSdkDocs would be like "../nodejs/README.md"
-    // We strip leading ../ segments to get the repo-root-relative path
+    // Strip leading ../ segments; higher targets still get a plausible SDK repo URL.
     const parts = relFromSdkDocs.split(path.sep)
     let upCount = 0
     for (const part of parts) {
       if (part === '..') upCount++
       else break
     }
-    // The repo path is everything after the ".." segments
     const repoPath = parts.slice(upCount).join('/')
 
     const anchorSuffix = anchor ? `#${anchor}` : ''
@@ -504,9 +407,7 @@ function rewriteRepoRelativeLinks(filePath: string): void {
   }
 }
 
-/**
- * Step 4: Rewrite absolute docs.github.com links to [AUTOTITLE](/url-path).
- */
+// docs.github.com Markdown links publish as root-relative links.
 function rewriteDocsGitHubLinks(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
 
@@ -525,8 +426,7 @@ function rewriteDocsGitHubLinks(filePath: string): void {
         console.log(
           `  STRIP-DOMAIN (target not in content tree): ${urlPath} in ${path.relative(SDK_DOCS_DIR, filePath)}`,
         )
-        // Strip the docs.github.com domain even if the target doesn't exist
-        // locally. The path may be valid at runtime (e.g. versioned pages).
+        // Keep runtime-only paths such as versioned pages.
         const anchorSuffix = anchor ? `#${anchor}` : ''
         changed = true
         return `[${_text}](${urlPath}${anchorSuffix})`
@@ -544,9 +444,6 @@ function rewriteDocsGitHubLinks(filePath: string): void {
   }
 }
 
-/**
- * Step 5: Create missing index.md files for subdirectories.
- */
 function createMissingIndexFiles(): string[] {
   const created: string[] = []
 
@@ -557,12 +454,10 @@ function createMissingIndexFiles(): string[] {
       const dirPath = path.join(dir, entry.name)
       const indexPath = path.join(dirPath, 'index.md')
 
-      // Recurse into subdirectories
       walk(dirPath)
 
       if (fs.existsSync(indexPath)) continue
 
-      // Check that the directory has at least one .md file
       const dirFiles = fs.readdirSync(dirPath)
       if (!dirFiles.some((f) => f.endsWith('.md'))) continue
 
@@ -587,10 +482,7 @@ function createMissingIndexFiles(): string[] {
   return created
 }
 
-/**
- * Step 6: Fix code fence language aliases.
- * Replaces ```go with ```golang and ```ts with ```typescript.
- */
+// Markdownlint allows golang and typescript, not go and ts.
 function fixCodeFenceLanguages(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
 
@@ -617,10 +509,7 @@ function fixCodeFenceLanguages(filePath: string): void {
   }
 }
 
-/**
- * Step 7: Normalize ordered list prefixes to all use 1.
- * Changes "2. foo", "3. bar" etc. to "1. foo", "1. bar".
- */
+// Markdownlint expects ordered-list items to use 1. for every item.
 function normalizeOrderedLists(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
   const lines = raw.split('\n')
@@ -629,7 +518,6 @@ function normalizeOrderedLists(filePath: string): void {
   let inCodeBlock = false
 
   for (let i = 0; i < lines.length; i++) {
-    // Track code blocks to avoid modifying code
     if (lines[i].trimStart().startsWith('```')) {
       inCodeBlock = !inCodeBlock
       continue
@@ -649,10 +537,7 @@ function normalizeOrderedLists(filePath: string): void {
   }
 }
 
-/**
- * Step 8: Add language to bare code fences.
- * Fences without a language (```) get labeled as ```text.
- */
+// MD040 requires a language on opening fences; closing fences stay unchanged.
 function fixBareCodeFences(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
   const lines = raw.split('\n')
@@ -664,10 +549,10 @@ function fixBareCodeFences(filePath: string): void {
     const isBare = /^\s*```\s*$/.test(lines[i])
     if (isBare) {
       if (inCodeBlock) {
-        // Closing fence — leave as-is
+        // Leave closing fences unchanged.
         inCodeBlock = false
       } else {
-        // Opening fence with no language — add 'text'
+        // Label bare opening fences as text.
         lines[i] = lines[i].replace(/```/, '```text')
         inCodeBlock = true
         changed = true
@@ -683,10 +568,7 @@ function fixBareCodeFences(filePath: string): void {
   }
 }
 
-/**
- * Step 9: Ensure blank lines around code fences.
- * MD031 requires a blank line before and after fenced code blocks.
- */
+// MD031 requires blank lines around fenced code blocks.
 function fixBlanksAroundFences(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
   const lines = raw.split('\n')
@@ -700,7 +582,7 @@ function fixBlanksAroundFences(filePath: string): void {
 
     if (isFence) {
       if (!inCodeBlock) {
-        // Opening fence — ensure blank line before (unless start of file or already blank)
+        // Add a blank line before opening fences when content precedes them.
         if (result.length > 0 && result[result.length - 1].trim() !== '') {
           result.push('')
           changed = true
@@ -708,7 +590,7 @@ function fixBlanksAroundFences(filePath: string): void {
         result.push(line)
         inCodeBlock = true
       } else {
-        // Closing fence — push as-is, then ensure blank line after
+        // Add a blank line after closing fences when content follows them.
         result.push(line)
         inCodeBlock = false
         if (i + 1 < lines.length && lines[i + 1].trim() !== '') {
@@ -727,19 +609,12 @@ function fixBlanksAroundFences(filePath: string): void {
   }
 }
 
-/**
- * Step 1b: Remove `docs-validate: hidden` ranges.
- * These wrap validation-only code samples that the SDK's docs-validate workflow
- * compiles in place of the reader-facing fragment that follows them. The markers
- * are HTML comments with no rendering semantics, so without this step the
- * validation sample publishes alongside the real one and readers see the same
- * example twice. Runs before the codetabs conversion so the ranges are gone
- * before any <details> group is rewritten.
- *
- * An unbalanced marker is left in place rather than swallowing the rest of the
- * file. Because this workflow opens its PR automatically, those warnings are
- * also written to the job summary so they survive outside the run log.
- */
+// docs-validate: hidden ranges wrap validation-only samples that compile in
+// place of the reader-facing fragment. Remove them before codetabs conversion,
+// so validation samples do not publish beside the real examples.
+//
+// Leave unbalanced markers in place rather than swallowing the rest of the file,
+// and write warnings to the job summary because this workflow opens its PR.
 const unbalancedMarkerWarnings: string[] = []
 
 function stripHiddenValidationBlocks(filePath: string): void {
@@ -759,11 +634,7 @@ function stripHiddenValidationBlocks(filePath: string): void {
   }
 }
 
-/**
- * Write unbalanced-marker warnings to the Actions job summary, which is linked
- * from the generated PR. Without this the only record is the run log, which a
- * PR reviewer will not see.
- */
+// Put unbalanced-marker warnings in the generated PR's Actions summary, not only the run log.
 function reportUnbalancedMarkers(): void {
   const summaryPath = process.env.GITHUB_STEP_SUMMARY
   if (unbalancedMarkerWarnings.length === 0 || !summaryPath) return
@@ -782,14 +653,12 @@ function reportUnbalancedMarkers(): void {
   fs.appendFileSync(summaryPath, lines.join('\n'), 'utf8')
 }
 
-/**
- * Step 2: Convert consecutive <details> language blocks to codetabs.
- * SDK source docs use <details><summary><strong>Language</strong></summary>
- * blocks for multi-language examples. This converts groups of 2+ consecutive
- * details blocks into {% codetabs %}/{% codetab %} Liquid syntax.
- */
+// SDK source docs use consecutive details blocks for multi-language examples.
+// Convert groups with at least two supported labels to codetabs. Keep original
+// details blocks when fewer than two labels are supported. Otherwise warn and
+// drop unsupported labels to avoid mixed rendering patterns.
 
-// Maps <summary> label text to codetab language keys
+// These labels come from summary text in upstream SDK docs.
 const LABEL_TO_CODETAB_KEY: Record<string, string> = {
   'Node.js / TypeScript': 'typescript',
   'Node.js / TypeScript (standalone SDK)': 'typescript',
@@ -819,24 +688,22 @@ function convertDetailsToCodetabs(filePath: string): void {
   const lines = raw.split('\n')
   const result: string[] = []
   let changed = false
-  let inCodeBlock = false
+  let openFence: OpenFence | null = null
   let i = 0
 
   while (i < lines.length) {
     const line = lines[i]
 
-    // Track code fences to avoid matching <details> inside code blocks
-    if (/^\s*```/.test(line)) {
-      inCodeBlock = !inCodeBlock
-    }
+    // CommonMark fence tracking keeps a ```<details> content line from toggling the state.
+    openFence = nextFenceState(line, openFence)
 
-    if (inCodeBlock || !/<details[\s>]/.test(line)) {
+    if (openFence || !/<details[\s>]/.test(line)) {
       result.push(line)
       i++
       continue
     }
 
-    // Found a <details> tag outside a code block — try to collect a group
+    // Outside code fences, <details> can start a convertible codetabs group.
     const group: DetailsBlock[] = []
     const groupStartLine = i
 
@@ -846,30 +713,31 @@ function convertDetailsToCodetabs(filePath: string): void {
       group.push(block)
       i = block.endLine + 1
 
-      // Skip blank lines between consecutive details blocks,
-      // but remember where we started in case the next line isn't <details>
+      // Skip blank lines between consecutive details blocks.
       const blankStart = i
       while (i < lines.length && lines[i].trim() === '') {
         i++
       }
-      // If the next non-blank line isn't <details>, restore index to after
-      // the </details> so the blank lines are preserved for later output
+      // Restore trailing blanks when the next block does not continue the group.
       if (i >= lines.length || !/<details[\s>]/.test(lines[i])) {
         i = blankStart
         break
       }
     }
 
-    // Only convert groups of 2+ blocks
     if (group.length < 2) {
-      // Emit original lines unchanged
+      // Advance i after an inline <details> parse fails, or the outer loop stalls.
+      if (i === groupStartLine) {
+        result.push(lines[i])
+        i++
+        continue
+      }
       for (let j = groupStartLine; j < i; j++) {
         result.push(lines[j])
       }
       continue
     }
 
-    // Check if all blocks have valid codetab keys
     const unsupported = group.filter((b) => !b.codetabKey)
     if (unsupported.length > 0) {
       for (const b of unsupported) {
@@ -879,17 +747,16 @@ function convertDetailsToCodetabs(filePath: string): void {
       }
     }
 
-    // Filter to only supported tabs
+    // Drop unsupported blocks only after at least two supported tabs can render.
     const convertible = group.filter((b) => b.codetabKey)
     if (convertible.length < 2) {
-      // Not enough convertible tabs — emit original lines
+      // Emit originals when fewer than two tabs can render.
       for (let j = groupStartLine; j < i; j++) {
         result.push(lines[j])
       }
       continue
     }
 
-    // Emit codetabs
     changed = true
     result.push('{% codetabs %}')
     for (const block of convertible) {
@@ -910,17 +777,12 @@ function convertDetailsToCodetabs(filePath: string): void {
   }
 }
 
-/**
- * Parse a single <details> block starting at line index `start`.
- * Returns the block info or null if the block doesn't match expected structure.
- */
 function parseDetailsBlock(lines: string[], start: number): DetailsBlock | null {
   if (!/<details[\s>]/.test(lines[start])) return null
 
   let i = start + 1
   let label = ''
 
-  // Find the <summary> line
   while (i < lines.length) {
     const summaryMatch = lines[i].match(/<summary><strong>(.*?)<\/strong><\/summary>/)
     if (summaryMatch) {
@@ -928,7 +790,7 @@ function parseDetailsBlock(lines: string[], start: number): DetailsBlock | null 
       i++
       break
     }
-    // If we hit </details> or another <details> before finding summary, bail
+    // Bail if the block ends or another <details> starts before its summary.
     if (/<\/details>/.test(lines[i]) || /<details[\s>]/.test(lines[i])) {
       return null
     }
@@ -937,7 +799,6 @@ function parseDetailsBlock(lines: string[], start: number): DetailsBlock | null 
 
   if (!label) return null
 
-  // Collect inner content until </details>
   const innerLines: string[] = []
   while (i < lines.length) {
     if (/<\/details>/.test(lines[i])) {
@@ -947,15 +808,13 @@ function parseDetailsBlock(lines: string[], start: number): DetailsBlock | null 
     i++
   }
 
-  if (i >= lines.length) return null // No closing </details> found
+  if (i >= lines.length) return null
 
-  const endLine = i // The </details> line
+  const endLine = i
 
-  // Hidden ranges are already gone (Step 1b), including any unbalanced marker
-  // left deliberately in place, so only blank-line trimming is needed here.
+  // Balanced hidden ranges are already gone; trim blanks without touching unbalanced ranges.
   const cleaned = [...innerLines]
 
-  // Trim leading and trailing blank lines
   while (cleaned.length > 0 && cleaned[0].trim() === '') cleaned.shift()
   while (cleaned.length > 0 && cleaned[cleaned.length - 1].trim() === '') cleaned.pop()
 
@@ -970,20 +829,15 @@ function parseDetailsBlock(lines: string[], start: number): DetailsBlock | null 
   }
 }
 
-/**
- * Step 10: Rewrite remaining raw docs.github.com URLs (not in markdown links).
- * Catches bare URLs and URLs in other contexts that the link rewriter missed.
- */
+// Raw docs.github.com URLs outside Markdown link syntax also publish as root-relative links.
 function rewriteBareDocsUrls(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
 
-  // Match bare docs.github.com URLs NOT already inside markdown link syntax
-  // Skip URLs that are already in [text](url) format (handled by Step 4)
   let changed = false
   const updated = raw.replace(
     /(?<!\()(https:\/\/docs\.github\.com\/(?:en\/)?[^\s)>\]]+)/g,
     (match: string, _p1: string, offset: number) => {
-      // Skip if this URL is inside a markdown link (preceded by `](`)
+      // Markdown links were already rewritten.
       if (offset > 1 && raw.substring(offset - 2, offset) === '](') return match
 
       changed = true
@@ -999,50 +853,40 @@ function rewriteBareDocsUrls(filePath: string): void {
   }
 }
 
-/**
- * Step 11: Suppress SDK-specific lint rules.
- * Adds a markdownlint-disable comment after frontmatter for rules that
- * don't apply to SDK docs (per docs pipeline proposal tradeoffs).
- */
+// SDK docs keep source release terminology and hardcoded data-variable text.
+// GHD046 and GHD005 reject those respectively.
 function suppressSdkLintRules(filePath: string): void {
   const raw = fs.readFileSync(filePath, 'utf8')
   const SUPPRESS_COMMENT =
     '<!-- markdownlint-disable GHD046 GHD005 -->\n' +
     '<!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->\n'
 
-  // Skip if already has the suppression
   if (raw.includes('markdownlint-disable GHD046')) return
 
-  // Insert after the closing frontmatter ---
   const fmEnd = raw.indexOf('---', raw.indexOf('---') + 3)
   if (fmEnd === -1) return
 
-  const insertPos = fmEnd + 4 // After --- and newline
+  // Add 4 for the closing frontmatter delimiter's three dashes and newline.
+  const insertPos = fmEnd + 4
   const updated = `${raw.slice(0, insertPos)}\n${SUPPRESS_COMMENT}\n${raw.slice(insertPos)}`
 
   fs.writeFileSync(filePath, updated, 'utf8')
   console.log(`  SUPPRESS: ${path.relative(SDK_DOCS_DIR, filePath)}`)
 }
 
-// --- Main ---
-
 console.log(`Normalizing SDK docs in: ${SDK_DOCS_DIR}`)
 console.log(`Content directory: ${CONTENT_DIR}\n`)
 
-// Step 0a: Remove pages relocated out of the synced tree (see RELOCATED_PAGES).
-// Runs first so keys stay expressed in upstream terms (before README->index
-// renaming) and so getChildren() never lists a relocated page.
+// Remove relocated pages before README.md renaming and children generation.
 validateRelocatedDestinations()
 console.log('--- Removing relocated pages ---\n')
 removeRelocatedPages()
 reportMissingRelocatedSources()
 
-// Step 0: Rename README.md files to index.md (copilot-sdk uses README.md as
-// directory landing pages; docs-internal requires index.md).
+// Rename README.md files to the docs-internal index.md convention.
 console.log('\n--- Renaming README.md files to index.md ---\n')
 convertReadmesToIndex()
 
-// Step 1: Add frontmatter
 console.log('\n--- Adding frontmatter ---\n')
 const files = getAllMarkdownFiles(SDK_DOCS_DIR)
 console.log(`Found ${files.length} markdown files.\n`)
@@ -1050,75 +894,63 @@ for (const file of files) {
   addFrontmatter(file)
 }
 
-// Step 1b: Remove docs-validate: hidden ranges before anything rewrites the
-// blocks that contain them.
+// Hidden validation ranges must be gone before converting details groups to codetabs.
 console.log('\n--- Removing docs-validate: hidden blocks ---\n')
 for (const file of files) {
   stripHiddenValidationBlocks(file)
 }
 reportUnbalancedMarkers()
 
-// Step 2: Convert <details> language blocks to codetabs
 console.log('\n--- Converting details blocks to codetabs ---\n')
 for (const file of files) {
   convertDetailsToCodetabs(file)
 }
 
-// Step 3: Rewrite internal links
 console.log('\n--- Rewriting internal links ---\n')
 const allFiles = getAllMarkdownFiles(SDK_DOCS_DIR)
 for (const file of allFiles) {
   rewriteInternalLinks(file)
 }
 
-// Step 3b: Rewrite repo-relative links (outside content tree)
 console.log('\n--- Rewriting repo-relative links ---\n')
 for (const file of allFiles) {
   rewriteRepoRelativeLinks(file)
 }
 
-// Step 4: Rewrite docs.github.com links
 console.log('\n--- Rewriting docs.github.com links ---\n')
 for (const file of allFiles) {
   rewriteDocsGitHubLinks(file)
 }
 
-// Step 5: Create missing index files
 console.log('\n--- Creating missing index.md files ---\n')
 createMissingIndexFiles()
 
-// Step 6: Fix code fence languages
 console.log('\n--- Fixing code fence languages ---\n')
 const updatedFiles = getAllMarkdownFiles(SDK_DOCS_DIR)
 for (const file of updatedFiles) {
   fixCodeFenceLanguages(file)
 }
 
-// Step 7: Normalize ordered lists
 console.log('\n--- Normalizing ordered lists ---\n')
 for (const file of updatedFiles) {
   normalizeOrderedLists(file)
 }
 
-// Step 8: Fix bare code fences (MD040)
 console.log('\n--- Fixing bare code fences ---\n')
 for (const file of updatedFiles) {
   fixBareCodeFences(file)
 }
 
-// Step 9: Ensure blank lines around fences (MD031)
 console.log('\n--- Fixing blank lines around fences ---\n')
 for (const file of updatedFiles) {
   fixBlanksAroundFences(file)
 }
 
-// Step 10: Rewrite remaining bare docs.github.com URLs
 console.log('\n--- Rewriting bare docs.github.com URLs ---\n')
 for (const file of updatedFiles) {
   rewriteBareDocsUrls(file)
 }
 
-// Step 11: Suppress SDK-specific lint rules (GHD046, GHD005)
 console.log('\n--- Suppressing SDK-specific lint rules ---\n')
 const finalFiles = getAllMarkdownFiles(SDK_DOCS_DIR)
 for (const file of finalFiles) {

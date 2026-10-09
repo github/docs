@@ -20,4 +20,6 @@ To enable these endpoints, the "{% data variables.product.prodname_copilot_short
 
 For more information on the metrics returned by these endpoints, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics).
 
+For help understanding gaps or discrepancies in {% data variables.product.prodname_copilot_short %} usage data, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics).
+
 <!-- Content after this section is automatically generated -->

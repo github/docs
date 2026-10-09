@@ -48,13 +48,9 @@ For the full list of configuration statuses and recommended actions, see [AUTOTI
 
 While {% data variables.product.prodname_security_configurations %} determine repository-level security settings, {% data variables.product.prodname_global_settings %} determine your organization-level security settings, which are then inherited by all repositories. With {% data variables.product.prodname_global_settings %}, you can customize how security features analyze your organization.
 
-{% ifversion org-private-registry %}
-
 ## About enabling secure access to private registries
 
 If your organization uses private registries, providing {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} secure access to these registries will improve code analysis and allow {% data variables.product.prodname_dependabot %} to update a wider range of dependencies. For information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries).
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 

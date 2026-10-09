@@ -4516,6 +4516,9 @@
         "permissions": [
           {
             "\"Administration\" repository permissions": "write"
+          },
+          {
+            "\"Repository creation\" repository permissions": "write"
           }
         ]
       }
@@ -18311,6 +18314,10 @@
           {
             "\"Administration\" repository permissions": "write",
             "\"Contents\" repository permissions": "read"
+          },
+          {
+            "\"Contents\" repository permissions": "read",
+            "\"Repository creation\" repository permissions": "write"
           }
         ]
       }
@@ -23688,11 +23695,14 @@
       "previews": [],
       "progAccess": {
         "userToServerRest": true,
-        "serverToServer": false,
+        "serverToServer": true,
         "fineGrainedPat": true,
         "permissions": [
           {
             "\"Administration\" repository permissions": "write"
+          },
+          {
+            "\"Repository creation\" repository permissions": "write"
           }
         ]
       }

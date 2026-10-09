@@ -8,6 +8,8 @@ shortTitle: Monitor agentic activity
 contentType: how-tos
 category:
   - Manage Copilot for a team
+docsTeamMetrics:
+  - ai-governance
 ---
 
 ## Viewing active and recent agentic sessions in your enterprise

@@ -57,6 +57,13 @@
           "description": "<p>Filter advisories by identifier, e.g. GHSA or CVE.</p>"
         },
         {
+          "name": "isWithdrawn",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "description": "<p>Filter advisories by withdrawn status. True returns only withdrawn advisories. False excludes withdrawn advisories.</p>"
+        },
+        {
           "name": "last",
           "type": "Int",
           "id": "int",
@@ -76,6 +83,13 @@
           "id": "datetime",
           "href": "/graphql/reference/other#scalar-datetime",
           "description": "<p>Filter advisories to those published since a time in the past.</p>"
+        },
+        {
+          "name": "severities",
+          "type": "[SecurityAdvisorySeverity!]",
+          "id": "securityadvisoryseverity",
+          "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity",
+          "description": "<p>A list of advisory severities to filter advisories by.</p>"
         },
         {
           "name": "updatedSince",
@@ -378,6 +392,13 @@
           "href": "/graphql/reference/security-advisories#enum-securityadvisoryclassification"
         },
         {
+          "name": "cveId",
+          "description": "<p>The Common Vulnerabilities and Exposures ID.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
           "name": "cvss",
           "description": "<p>The CVSS associated with this advisory.</p>",
           "type": "CVSS!",
@@ -467,6 +488,13 @@
           "href": "/graphql/reference/other#scalar-string"
         },
         {
+          "name": "githubReviewedAt",
+          "description": "<p>When the GitHub Security team reviewed this advisory, which may differ from when GitHub published it.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the SecurityAdvisory object.</p>",
           "type": "ID!",
@@ -488,6 +516,13 @@
           "href": "/graphql/reference/other#scalar-uri"
         },
         {
+          "name": "nvdPublishedAt",
+          "description": "<p>When NVD published its advisory record, independent of GitHub's publishing timeline.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
           "name": "origin",
           "description": "<p>The organization that originated the advisory.</p>",
           "type": "String!",
@@ -503,7 +538,7 @@
         },
         {
           "name": "publishedAt",
-          "description": "<p>When the advisory was published.</p>",
+          "description": "<p>When GitHub published this advisory.</p>",
           "type": "DateTime!",
           "id": "datetime",
           "href": "/graphql/reference/other#scalar-datetime"
@@ -516,11 +551,25 @@
           "href": "/graphql/reference/security-advisories#object-securityadvisoryreference"
         },
         {
+          "name": "repositoryAdvisoryUrl",
+          "description": "<p>The URL for the associated repository security advisory, if this global advisory is linked to a repository-level advisory.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
           "name": "severity",
           "description": "<p>The severity of the advisory.</p>",
           "type": "SecurityAdvisorySeverity!",
           "id": "securityadvisoryseverity",
           "href": "/graphql/reference/security-advisories#enum-securityadvisoryseverity"
+        },
+        {
+          "name": "sourceCodeLocation",
+          "description": "<p>URL to the upstream source code relevant to the advisory.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
         },
         {
           "name": "summary",

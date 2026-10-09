@@ -1,8 +1,8 @@
 ---
 title: GitHub Copilot cloud agent
-shortTitle: '{% data variables.copilot.copilot_cloud_agent_short_cap_c %}'
+shortTitle: '{% data variables.copilot.copilot_cloud_agent %}'
 allowTitleToDifferFromFilename: true
-intro: 'Find out how {% data variables.product.prodname_copilot_short %} can research a repository, plan and make code changes, and create pull requests for you to review.'
+intro: Find out how {% data variables.product.prodname_copilot_short %} can research a repository, plan and make code changes, and create pull requests for you to review.
 versions:
   feature: copilot
 children:
@@ -11,11 +11,9 @@ children:
   - /manage-rationale-confidence-approvals
   - /changing-the-ai-model
   - /configuring-agent-settings
-  - /create-custom-agents-in-your-ide
   - /use-cloud-agent-on-github
   - /use-cloud-agent-on-mobile
   - /use-agent-apps
-  - /use-cloud-agent-in-your-ide
   - /use-cloud-agent-via-the-api
   - /use-cloud-agent-from-cli
   - /use-cloud-agent-with-mcp

@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import cx from 'clsx'
 import { useRouter } from 'next/router'
 
 import { useMainContext } from '@/frame/components/context/MainContext'
@@ -12,9 +12,7 @@ import styles from './SidebarNav.module.scss'
 
 type Props = {
   variant?: 'full' | 'overlay'
-  // When true (full variant only), the rail is also shown on mobile, inline in
-  // the page flow — the Docs 2026 mobile nav expands like the desktop view
-  // rather than opening a dialog overlay.
+  // For the full variant, mobileOpen shows the rail inline because Docs 2026 avoids a dialog.
   mobileOpen?: boolean
 }
 
@@ -25,57 +23,58 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
 
   const showCurrentProductLink =
     currentProduct &&
-    // Early access does not have a "home page" unless it's local dev
+    // Early access lacks a product home page outside local development.
     (process.env.NODE_ENV === 'development' || currentProduct.id !== 'early-access')
 
   const isSearch = currentProduct?.id === 'search'
-  // `search_results` only ships in the page props on /search, and
-  // createTranslationFunctions warns about a missing namespace at construction — not at
-  // t() call — so asking for it unconditionally would log on every render of every page.
+  // createTranslationFunctions warns at setup, so ask for search_results only on search pages.
   const { t } = useTranslation(isSearch ? 'search_results' : 'header')
 
+  // Search renders SidebarSearchAggregates at every width; other full rails hide below lg until mobileOpen.
   return (
     <div
       data-container="nav"
       data-mobile-open={variant === 'full' ? mobileOpen : undefined}
       className={cx(
-        // Desktop rail: sticky, hidden below xxl. When mobileOpen, it also
-        // renders on mobile (block at all widths), full-width in the page flow.
-        //
-        // Search is the exception. Its rail holds the facet filters rather than
-        // a doc tree, and filters have to stay reachable on narrow viewports, so
-        // it renders at every width: a rail from brand's `medium` breakpoint up,
-        // and below that a "Show filters" disclosure (see SidebarSearchAggregates).
         variant === 'full' &&
           (isSearch
             ? styles.searchRail
             : mobileOpen
               ? cx(
-                  'd-block d-xxl-block border-right',
+                  'd-block d-lg-block',
+                  styles.railDivider,
                   styles.sidebarFull,
                   styles.sidebarFullMobileOpen,
                 )
-              : cx('position-sticky d-none border-right d-xxl-block', styles.sidebarFull)),
+              : cx('position-sticky d-none d-lg-block', styles.railDivider, styles.sidebarFull)),
       )}
     >
       <nav
-        // On search the rail holds the facet filters rather than a doc tree, and the
-        // product-title heading that normally names this nav isn't rendered — so name it
-        // directly rather than pointing aria-labelledby at an element that isn't there.
+        // Search has no product-title heading, so name the filter nav directly.
         aria-labelledby={isSearch ? undefined : 'allproducts-menu'}
         role="navigation"
         aria-label={isSearch ? t('filter_search_results') : 'Documentation navigation'}
+        // Keep the doc-tree flex layout off search because .searchRail > nav owns that layout.
+        className={cx(variant === 'full' && !isSearch && styles.sidebarNavColumn)}
       >
         {variant === 'full' && currentProduct && !isSearch && (
-          <div className={cx('px-4 pb-3', mobileOpen ? 'd-block' : 'd-none d-xxl-block')}>
+          <div
+            className={cx(
+              'px-4 pb-3',
+              styles.sidebarHeaderFixed,
+              mobileOpen ? 'd-block' : 'd-none d-lg-block',
+            )}
+          >
             {showCurrentProductLink && (
               <h2 className="mt-3" id="allproducts-menu">
                 <Link
                   data-testid="sidebar-product-xl"
                   href={`/${router.locale}${currentProduct.href}`}
-                  // Note the `_product-title` is used by the popover preview cards
-                  // when it needs this text for in-page links.
-                  className="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title"
+                  // Popover preview cards read _product-title for in-page link text.
+                  className={cx(
+                    'd-block pl-1 mb-2 h3 no-underline _product-title',
+                    styles.productTitle,
+                  )}
                   aria-describedby="allproducts-menu"
                 >
                   {currentProductName || currentProduct.name}
@@ -88,15 +87,16 @@ export const SidebarNav = ({ variant = 'full', mobileOpen = false }: Props) => {
         <div
           className={cx(
             variant === 'overlay'
-              ? 'width-full d-xxl-none'
-              : // On search this region holds the filters, which manage their own
-                // per-breakpoint visibility and their own scrolling, so it must not be
-                // display:none below xxl, nor the scroll container itself.
+              ? 'width-full d-lg-none'
+              : // Keep SidebarSearchAggregates visible below lg because it manages breakpoints and scroll.
                 isSearch
                 ? styles.searchRailContent
-                : cx('border-right overflow-y-auto', mobileOpen ? 'd-block' : 'd-none d-xxl-block'),
-            // `flex-shrink-0` would stop the search rail's column from shrinking to the
-            // viewport, which is what lets the filter card scroll its own list.
+                : cx(
+                    'overflow-y-auto',
+                    styles.railDivider,
+                    mobileOpen ? 'd-block' : 'd-none d-lg-block',
+                  ),
+            // Let the search rail column shrink to the viewport so the filter card can scroll.
             isSearch ? 'bg-primary' : 'bg-primary flex-shrink-0',
             variant === 'overlay'
               ? isRestPage

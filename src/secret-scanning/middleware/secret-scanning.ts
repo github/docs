@@ -10,9 +10,6 @@ import { getSecretScanningData } from '@/secret-scanning/lib/get-secret-scanning
 
 const secretScanningDir = 'src/secret-scanning/data/pattern-docs'
 
-// This is the path to the file that contains the secret scanning data.
-// Currently it's:
-// code-security/secret-scanning/introduction/supported-secret-scanning-pattern
 const { targetFilename } = JSON.parse(
   fs.readFileSync('src/secret-scanning/lib/config.json', 'utf-8'),
 )
@@ -44,8 +41,7 @@ export default async function secretScanning(
 
   req.context.secretScanningData = await getSecretScanningData(filepath)
 
-  // Some entries might use Liquid syntax, so we need
-  // to execute that Liquid to get the actual value.
+  // Some entries contain Liquid, so render it to get the real value.
   for (const entry of req.context.secretScanningData) {
     for (const [key, value] of Object.entries(entry)) {
       if (

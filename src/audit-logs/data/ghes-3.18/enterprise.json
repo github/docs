@@ -3930,7 +3930,7 @@
       "owner_type",
       "user_programmatic_access_name"
     ],
-    "docs_reference_titles": "What is GitHub Copilot?"
+    "docs_reference_titles": "About GitHub Copilot"
   },
   {
     "action": "copilot.cfb_seat_assignment_refreshed",

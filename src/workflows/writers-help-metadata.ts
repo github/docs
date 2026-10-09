@@ -1,7 +1,6 @@
 #!/usr/bin/env tsx
 
-import { readFileSync } from 'fs'
-import { glob } from 'glob'
+import { readFileSync, promises as fsp } from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -28,7 +27,7 @@ interface ScriptMetadata {
   description?: string
 }
 
-// Manual entries for scripts that aren't TypeScript files with metadata
+// Manual entries cover scripts that do not carry writer-tool metadata.
 const MANUAL_ENTRIES: WriterToolsCollection = {
   'Validation and formatting': [
     { name: 'prettier', description: 'Format markdown, YAML, and other files' },
@@ -42,23 +41,36 @@ const MANUAL_ENTRIES: WriterToolsCollection = {
 async function discoverWriterTools(): Promise<WriterToolsCollection> {
   const packageJsonPath = path.join(__dirname, '..', '..', 'package.json')
   const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
-  const tools: WriterToolsCollection = { ...MANUAL_ENTRIES } // Start with manual entries
+  const tools: WriterToolsCollection = { ...MANUAL_ENTRIES }
 
-  // First get all files
-  const allFiles = await glob('src/**/*', {
-    cwd: path.join(__dirname, '..', '..'),
-    absolute: true,
-    ignore: ['**/node_modules/**', '**/tests/**', '**/test/**', '**/.*'],
-  })
+  // node:fs has no absolute option, excludes leave bare directories, and ordering is unstable.
+  const repoRoot = path.join(__dirname, '..', '..')
+  const allFiles = (
+    await Array.fromAsync(
+      fsp.glob('src/**/*', {
+        cwd: repoRoot,
+        exclude: [
+          '**/node_modules/**',
+          '**/node_modules',
+          '**/tests/**',
+          '**/tests',
+          '**/test/**',
+          '**/test',
+          '**/.*',
+        ],
+      }),
+    )
+  )
+    .map((file) => path.resolve(repoRoot, file))
+    .sort()
 
-  // Then filter for .ts, .js, .sh scripts
   const scriptFiles = allFiles.filter((file) => {
-    if (file === __scriptname) return false // skip the current file
+    if (file === __scriptname) return false
 
     const ext = path.extname(file)
     if (['.ts', '.js', '.sh'].includes(ext)) return true
 
-    // For extensionless files, check if they're executable or have shebang
+    // Extensionless executable shell scripts count as writer tools.
     if (ext === '') {
       try {
         const content = readFileSync(file, 'utf8')
@@ -78,12 +90,10 @@ async function discoverWriterTools(): Promise<WriterToolsCollection> {
 
       if (metadata.isWriterTool) {
         metadata.category = getCategory(relativePath)
-        // Find corresponding npm script
         const scriptName = findScriptName(packageJson.scripts, relativePath)
         if (scriptName) {
           if (!tools[metadata.category]) tools[metadata.category] = []
 
-          // Check if not already added manually
           const exists = tools[metadata.category].some((tool) => tool.name === scriptName)
           if (!exists) {
             tools[metadata.category].push({
@@ -94,7 +104,7 @@ async function discoverWriterTools(): Promise<WriterToolsCollection> {
         }
       }
     } catch {
-      // Skip files that can't be read
+      // Unreadable files are irrelevant to writer-tool discovery.
       continue
     }
   }
@@ -104,7 +114,8 @@ async function discoverWriterTools(): Promise<WriterToolsCollection> {
 
 function extractMetadata(content: string): ScriptMetadata {
   const metadata: ScriptMetadata = {}
-  const lines = content.split('\n').slice(0, 20) // Only check first 20 lines
+  // Writer-tool metadata must appear within the first 20 lines.
+  const lines = content.split('\n').slice(0, 20)
 
   for (const line of lines) {
     if (line.includes(PURPOSE_STRING)) {
@@ -123,8 +134,7 @@ function extractMetadata(content: string): ScriptMetadata {
   return metadata
 }
 
-// Convert the DIR in src/DIR/ to a title-cased category name
-// E.g. src/secret-scanning becomes Secret Scanning
+// src/secret-scanning becomes Secret Scanning.
 function getCategory(relativePath: string): string {
   const directory = relativePath.split(path.sep)[1]
   const category = directory
@@ -132,7 +142,6 @@ function getCategory(relativePath: string): string {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ')
 
-  // Clarify some category names
   return category
     .replace('Content Render', 'Content Tasks')
     .replace('Ghes Releases', 'GHES release notes')
@@ -140,11 +149,9 @@ function getCategory(relativePath: string): string {
 
 function findScriptName(scripts: Record<string, string>, relativePath: string): string | null {
   for (const [scriptName, command] of Object.entries(scripts)) {
-    // Check if the command includes this file path
     if (command.includes(relativePath)) {
       return scriptName
     }
-    // Also check for simplified paths without the src/ prefix
     const simplifiedPath = relativePath.replace(/^src\//, '')
     if (command.includes(simplifiedPath)) {
       return scriptName
@@ -154,35 +161,28 @@ function findScriptName(scripts: Record<string, string>, relativePath: string): 
 }
 
 function prioritizeOrder(tools: WriterToolsCollection) {
-  // Define priorities for specific tools
   const priorities = {
     'move-content': 1,
     'cta-builder': 2,
     'lint-content': 1,
-    docstat: 1,
     dev: 1,
   }
 
-  // Assign priorities to discovered tools
   for (const tool of Object.values(tools).flat()) {
     if (priorities[tool.name as keyof typeof priorities]) {
       tool.priority = priorities[tool.name as keyof typeof priorities]
     }
   }
 
-  // Sort each category by priority, then alphabetically
   for (const category of Object.keys(tools)) {
     tools[category].sort((a, b) => {
-      // Items with priority come first
       if (a.priority !== undefined && b.priority === undefined) return -1
       if (a.priority === undefined && b.priority !== undefined) return 1
 
-      // Both have priority: sort by priority value
       if (a.priority !== undefined && b.priority !== undefined) {
         return a.priority - b.priority
       }
 
-      // Neither has priority: sort alphabetically
       return a.name.localeCompare(b.name)
     })
   }
@@ -203,6 +203,16 @@ async function main(): Promise<void> {
     }
     console.log('')
   }
+
+  console.log('Moved to github/technical-content, in .github/scripts:')
+  for (const [name, description] of [
+    ['docstat', 'Page metrics for a docs URL'],
+    ['docsaudit', 'Metrics for a set of pages'],
+  ]) {
+    const padding = ' '.repeat(Math.max(0, 34 - name.length))
+    console.log(`  npm run ${name}${padding}# ${description}`)
+  }
+  console.log('Run "npm install" in that directory once before using them.\n')
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

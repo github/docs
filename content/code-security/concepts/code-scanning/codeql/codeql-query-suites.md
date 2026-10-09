@@ -24,7 +24,7 @@ You should use query suites for the queries that you want to frequently use in y
 
 ## Built-in {% data variables.product.prodname_codeql %} query suites
 
-The built-in {% data variables.product.prodname_codeql %} query suites, `default` and `security-extended`, are created and maintained by {% data variables.product.prodname_dotcom %}. Both of these query suites are available with default setup for every {% data variables.product.prodname_codeql %}-supported language.
+The built-in {% data variables.product.prodname_codeql %} query suites, `default`, `security-extended`, and `security-and-quality`, are created and maintained by {% data variables.product.prodname_dotcom %}. The `default` and `security-extended` query suites are available with default setup for every {% data variables.product.prodname_codeql %}-supported language.
 
 Organization owners and security managers can recommend a query suite for use with default setup throughout their organization. For more information, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/code-scanning-at-scale).
 
@@ -41,6 +41,11 @@ For a complete list of queries included in each query suite for every language, 
 * The `security-extended` query suite consists of all the queries in the `default` query suite, plus additional queries with slightly lower precision and severity.
 * Relative to the `default` query suite, the `security-extended` suite may return a greater number of false positive {% data variables.product.prodname_code_scanning %} results.
 * This query suite is available for use with default setup for {% data variables.product.prodname_code_scanning %}, and is referred to as the "Extended" query suite on {% data variables.product.prodname_dotcom %}.
+
+### `security-and-quality` query suite
+
+* The `security-and-quality` query suite consists of all the queries in the `security-extended` query suite, plus additional queries that identify maintainability and reliability issues.
+* This query suite is available for use with advanced setup for {% data variables.product.prodname_code_scanning %}. For more information, see [AUTOTITLE](/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configuring-advanced-setup-for-code-scanning).
 
 ## Custom query suites
 

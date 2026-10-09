@@ -22,8 +22,7 @@ export function formatErrors(errors: ErrorObject[], body: unknown) {
     created: new Date().toISOString(),
     raw: makeString(body),
 
-    // We convert to snake_case because dealing with case in SQL is unfortunate.
-    // Ensure the result is a string or undefined
+    // snake_case avoids quoted mixed-case column names in SQL.
     ...Object.fromEntries(
       Object.entries(pick(error, errorKeys)).map(([key, value]) => [
         snakeCase(key),
@@ -33,7 +32,6 @@ export function formatErrors(errors: ErrorObject[], body: unknown) {
   }))
 }
 
-// Leave strings alone, otherwise convert to either string or undefined
 function makeString(value: unknown) {
   return typeof value === 'string' ? value : JSON.stringify(value)
 }

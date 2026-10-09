@@ -8,8 +8,7 @@ const EXCEPTIONS_FILE = './src/redirects/lib/static/redirect-exceptions.txt'
 
 type Redirects = Record<string, string>
 
-// This function runs at server warmup and precompiles possible redirect routes.
-// It outputs them in key-value pairs within a neat JavaScript object: { oldPath: newPath }
+// Server warmup precompiles redirect routes as oldPath to newPath pairs.
 export async function precompileRedirects(pageList: Page[]): Promise<Redirects> {
   const allRedirects = readCompressedJsonFileFallback(
     './src/redirects/lib/static/developer.json',
@@ -20,50 +19,25 @@ export async function precompileRedirects(pageList: Page[]): Promise<Redirects> 
   ) as Redirects
   Object.assign(allRedirects, externalRedirects)
 
-  // CURRENT PAGES PERMALINKS AND FRONTMATTER
-  // create backwards-compatible old paths for page permalinks and frontmatter redirects
+  // Page permalinks and frontmatter redirects need backward-compatible paths.
   for (const page of pageList.filter((xpage) => xpage.languageCode === 'en')) {
     Object.assign(allRedirects, page.buildRedirects())
   }
 
-  // Remove any redirect whose source URL is also a real page permalink.
-  // This prevents redirect_from entries from clobbering live pages when a
-  // new page (versioned broadly) declares a redirect_from that overlaps
-  // with an older page that still exists in some versions.
+  // Live page permalinks win over redirect_from entries that overlap older page versions.
   for (const page of pageList.filter((xpage) => xpage.languageCode === 'en')) {
     for (const permalink of page.permalinks) {
       delete allRedirects[permalink.hrefWithoutLanguage]
     }
   }
 
-  // NOTE: Exception redirects **MUST COME AFTER** pageList redirects above in order
-  // to properly override them. Exception redirects are unicorn one-offs that are not
-  // otherwise handled by the versionless redirect fallbacks (see lib/all-versions.ts).
-  //
-  // Examples of exceptions:
-  // * We deprecate the FPT version of a page, and we want the FPT version to redirect
-  //   to a different version that goes against the order in lib/all-versions.ts.
-  // * We deprecate a non-FPT version of a page, and we want the old version to redirect
-  //   to a different version. Because the order in lib/all-versions.ts only covers
-  //   versionless links (like `/foo`), we need to specify an exception for the old
-  //   versioned links (like `/enterprise-cloud@latest/foo`).
-  // * We deprecate a version of a page, and instead of falling back to the next
-  //   available version, we want to redirect that version to a different page entirely.
-  //
-  // The advantage of the exception redirects file is that it's encoded in plain
-  // text so it's possible to write comments and it's also possible to write 1
-  // destination URL once for each N redirect origins.
+  // The plain text format keeps one destination URL next to its many redirect origins.
   const exceptions = getExceptionRedirects(EXCEPTIONS_FILE) as Redirects
+  // Apply exceptions last so versioned paths override fallback order or target another page.
   Object.assign(allRedirects, exceptions)
 
   for (const [fromURI, toURI] of Object.entries(allRedirects)) {
-    // If the destination URL has a hardcoded `enterprise-server@latest` in
-    // it we need to rewrite that now.
-    // We never want to redirect to that as the final URL (in the 301 response)
-    // but it might make sense for it to be in the `developer.json`
-    // file since that it static.
-    //
-    //
+    // Static redirects can name enterprise-server@latest, but 301 responses need a real version.
     if (toURI.includes('/enterprise-server@latest')) {
       allRedirects[fromURI] = toURI.replace(
         '/enterprise-server@latest',

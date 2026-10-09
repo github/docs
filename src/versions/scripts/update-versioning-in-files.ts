@@ -17,7 +17,6 @@ const dataFiles = walk(dataPath, { includeBasePath: true, directories: false })
 for (const file of dataFiles) {
   const content = fs.readFileSync(file, 'utf8')
 
-  // Update Liquid in data files
   const newContent = updateLiquid(content)
 
   fs.writeFileSync(file, newContent)
@@ -26,15 +25,12 @@ for (const file of dataFiles) {
 for (const file of contentFiles) {
   const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
 
-  // Update Liquid in content files
   const newContent = content ? updateLiquid(content) : ''
 
-  // Update versions frontmatter
   if (data) {
     if (!data.versions && data.productVersions) {
       data.versions = data.productVersions
       for (const version of Object.keys(data.versions)) {
-        // update dotcom, actions, rest, etc.
         if (version !== 'enterprise') {
           data.versions['free-pro-team'] = data.versions[version]
           delete data.versions[version]
@@ -47,9 +43,8 @@ for (const file of contentFiles) {
 
     delete data.productVersions
 
-    // Update Liquid in frontmatter props
     const frontmatterKeys = Object.keys(data)
-      // Only process a subset of props
+      // Rewrite Liquid only in title, intro, and product frontmatter.
       .filter((xkey) => xkey === 'title' || xkey === 'intro' || xkey === 'product')
     for (const key of frontmatterKeys) {
       data[key] = updateLiquid(data[key])

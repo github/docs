@@ -2,7 +2,7 @@ name: 'Link Check: Internal'
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1'
   workflow_dispatch:
     inputs:
       version:
@@ -29,7 +29,6 @@ permissions:
   contents: read
 
 jobs:
-  # Determine which version/language combos to run
   setup-matrix:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
@@ -44,13 +43,10 @@ jobs:
         id: set-matrix
         run: |
           if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
-            # Manual run: use the provided version and language
             echo "matrix={\"include\":[{\"version\":\"${INPUT_VERSION}\",\"language\":\"${INPUT_LANGUAGE}\"}]}" >> $GITHUB_OUTPUT
           else
-            # Scheduled run: every published version, in English. A link can be broken in
-            # one version and fine in another, so checking two of eight left most of the
-            # site unchecked. The report job merges the results, so this does not multiply
-            # the size of the issue.
+            # Scheduled runs check every published version because links can break in one
+            # version and work in another; the report job merges the results into one issue.
             MATRIX=$(npx tsx -e "import { allVersions } from './src/versions/lib/all-versions'; console.log(JSON.stringify({ include: Object.keys(allVersions).map((version) => ({ version, language: 'en' })) }))")
             echo "matrix=${MATRIX}" >> $GITHUB_OUTPUT
           fi
@@ -79,14 +75,13 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
     env:
-      # Disable Elasticsearch for faster warmServer
+      # Link checking does not need search data, so leave Elasticsearch unconfigured.
       ELASTICSEARCH_URL: ''
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: ./.github/actions/node-npm-setup
 
-      # Clone translations if not English
       - name: Clone translations
         if: matrix.language != 'en'
         uses: ./.github/actions/clone-translations
@@ -112,6 +107,8 @@ jobs:
           retention-days: 5
           if-no-files-found: ignore
 
+      # The REST API agent_assignment field starts Copilot cloud agent sessions.
+      # Details: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions#using-the-rest-api
       - name: Create Copilot redirect issue
         if: inputs.create_copilot_issue
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
@@ -169,8 +166,6 @@ jobs:
               body = body.slice(0, lastNewline > 0 ? lastNewline : truncatedLength) + artifactNote
             }
 
-            // Use the REST API with agent_assignment to properly trigger Copilot cloud agent.
-            // See: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions#using-the-rest-api
             const issue = await github.request('POST /repos/{owner}/{repo}/issues', {
               owner: 'github',
               repo: 'docs-content',
@@ -199,13 +194,12 @@ jobs:
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           issue_url: ${{ steps.create-failure-issue.outputs.issue_url }}
 
-  # Create combined report after all matrix jobs complete
   create-report:
     if: always() && github.repository == 'github/docs-internal'
     needs: [setup-matrix, check-internal-links]
     runs-on: ubuntu-latest
-    # Serialize publishing so two overlapping runs can't both create a
-    # "rolling" issue, or write their results out of order.
+    # Serialize publishing so overlapping runs cannot create duplicate rolling issues
+    # or write results out of order.
     concurrency:
       group: broken-internal-links-report
       cancel-in-progress: false
@@ -228,13 +222,11 @@ jobs:
         id: combine
         env:
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          # A version with no broken links uploads no report, so the files on disk undercount
-          # what was checked. Pass the matrix so the report can say "broken in all versions"
-          # and mean it.
+          # Pass the full matrix because versions with no broken links upload no report.
+          # The report needs those versions to claim a link breaks in all versions.
           MATRIX: ${{ needs.setup-matrix.outputs.matrix }}
         run: |
-          # Merge the per-version JSON rather than concatenating the rendered Markdown.
-          # A link broken in every version is one problem, not one per version.
+          # Merge per-version JSON so a link broken in every version stays one problem.
           if ls reports/*.json 1> /dev/null 2>&1; then
             echo "has_reports=true" >> $GITHUB_OUTPUT
             VERSIONS=$(echo "$MATRIX" | jq -r '[.include[] | "\(.version) \(.language)"] | join(",")')
@@ -252,8 +244,7 @@ jobs:
         if: steps.combine.outputs.has_reports == 'true'
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
-          # The issue body caps every long section, and the notes there point at
-          # "the report attached to the workflow run". Upload it so that is true.
+          # Upload the artifact because issue notes point readers there when sections are capped.
           name: combined-link-report
           path: combined-report.md
           retention-days: 5
@@ -274,18 +265,14 @@ jobs:
             const repo = 'docs-content'
             const label = 'broken link report'
 
-            // GitHub rejects issue bodies over 65536 characters with a 422. The
-            // internal report routinely exceeds that, so truncate and point at
-            // the run artifact for the full contents.
+            // GitHub rejects issue bodies over 65536 characters with a 422, so truncate and point at the artifact.
             const MAX_BODY_SIZE = 60000
             const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
             let body = fs.readFileSync('combined-report.md', 'utf8')
             if (body.length > MAX_BODY_SIZE) {
               const notice = `\n\n---\n\n*Report truncated. Download the full report from the [workflow run artifacts](${runUrl}).*`
               let cut = body.slice(0, MAX_BODY_SIZE - notice.length)
-              // Cut at a line boundary so the last thing a reader sees is not half
-              // a table row, and close any `<details>` the cut left open, since an
-              // unclosed one swallows everything after it.
+              // Cut at a full line and close unbalanced <details> tags because one open tag hides later content.
               cut = cut.slice(0, cut.lastIndexOf('\n'))
               const opened = (cut.match(/<details>/g) || []).length
               const closed = (cut.match(/<\/details>/g) || []).length
@@ -294,9 +281,7 @@ jobs:
               core.warning(`Report exceeded ${MAX_BODY_SIZE} characters, so it was truncated.`)
             }
 
-            // Reuse a single rolling issue instead of opening a new one every
-            // week, which floods the first responders' board. Find the open
-            // report issues (newest first).
+            // Reuse one rolling issue so weekly failures do not flood the first responders' board; sort newest first.
             const open = await github.paginate(github.rest.issues.listForRepo, {
               owner,
               repo,
@@ -320,8 +305,7 @@ jobs:
               return
             }
 
-            // Refresh the newest open report in place and close any older
-            // duplicates so exactly one canonical issue remains.
+            // Refresh the newest open report and close duplicates so one canonical issue remains.
             const [canonical, ...superseded] = reportIssues
             await github.rest.issues.update({
               owner,
@@ -332,8 +316,7 @@ jobs:
             })
             core.info(`Updated rolling report issue: ${canonical.html_url}`)
 
-            // Attempt every duplicate even if one fails, so a single transient
-            // API error doesn't leave the rest open.
+            // Close duplicates independently so one transient API error cannot leave the rest open.
             const results = await Promise.allSettled(
               superseded.map(async (issue) => {
                 await github.rest.issues.createComment({
@@ -374,8 +357,7 @@ jobs:
             const repo = 'docs-content'
             const label = 'broken link report'
 
-            // A clean run means the open report is stale. Leaving it open would
-            // keep fixed failures on the first responders' board.
+            // Close stale reports so fixed failures leave the first responders' board.
             const open = await github.paginate(github.rest.issues.listForRepo, {
               owner,
               repo,

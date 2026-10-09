@@ -18,6 +18,9 @@ category:
 
 You can check your current rate limit status at any time. For more information about rate limit rules, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
+> [!NOTE]
+> For real-time rate limit tracking, use the `x-ratelimit-*` response headers returned on each REST API request. These headers reflect the counters that govern enforcement for the request you just made and are the authoritative source for the remaining allowance in the current window. Use `GET /rate_limit` for a periodic overview of all resource families for the authenticated user, and treat the response headers as authoritative if the two disagree. For more information, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api#checking-the-status-of-your-rate-limit).
+
 The REST API for searching items has a custom rate limit that is separate from the rate limit governing the other REST API endpoints. For more information, see [AUTOTITLE](/rest/search/search). The GraphQL API also has a custom rate limit that is separate from and calculated differently than rate limits in the REST API. For more information, see [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api#primary-rate-limit). For these reasons, the API response categorizes your rate limit. Under `resources`, you'll see objects relating to different categories:
 
 * The `core` object provides your rate limit status for all non-search-related resources in the REST API.

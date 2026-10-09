@@ -1,8 +1,6 @@
 name: Local development
 
-# **What it does**: Basic smoke test to ensure local dev server starts and serves content
-# **Why we have it**: Catch catastrophic "npm start is completely broken" scenarios
-# **Who does it impact**: Engineers, Contributors.
+# Smoke-test npm start so local development failures block pull requests.
 
 on:
   merge_group:
@@ -31,11 +29,9 @@ jobs:
 
       - name: Start server and basic smoke test
         run: |
-          # Start server in background
           npm start > /tmp/stdout.log 2> /tmp/stderr.log &
           SERVER_PID=$!
 
-          # Wait for server to be ready and test homepage
           if curl --fail --retry-connrefused --retry 10 --retry-delay 2 http://localhost:4000/; then
             echo "✅ Local dev server started successfully and serves homepage"
             kill $SERVER_PID 2>/dev/null || true

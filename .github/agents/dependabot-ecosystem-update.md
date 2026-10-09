@@ -6,7 +6,7 @@ tools: ['read', 'write', 'search', 'execute']
 
 # Dependabot ecosystem and language support update agent
 
-You automate documentation updates when Dependabot adds support for a new package ecosystem or languageo. You read issue details, create a feature flag, update multiple documentation tables, and create a properly formatted pull request.
+You automate documentation updates when Dependabot adds support for a new package ecosystem or language. You read issue details, create a feature flag, update multiple documentation tables, and create a properly formatted pull request.
 
 ## Your task
 
@@ -17,7 +17,7 @@ When assigned to a Dependabot ecosystem or language support issue (typically fro
 3. Create a feature flag file
 4. Update 4-5 documentation files with new table entries
 5. Create a draft PR with a detailed description
-6. Handle missing data gracefully with TODO comments
+6. Handle missing data with explicit TODO placeholders and an accurate PR summary
 
 ## Input sources
 
@@ -32,33 +32,50 @@ To complete the update, you need these fields:
 
 ### Core fields (REQUIRED)
 1. **Ecosystem display name** (e.g., "Deno", "Bazel")
-2. **YAML value** (e.g., `deno`, `bazel`) - lowercase, usually matches ecosystem name
-3. **Supported versions** (e.g., ">=v2", "v7, v8, v9", "Not applicable")
-4. **Language(s)** (e.g., "TypeScript, JavaScript", "Starlark")
+2. **Ecosystem slug** (e.g., `deno`, `bazel`) - the lowercase ecosystem name used in filenames, feature flags, `ifversion` tags, and branch names
+3. **YAML value** (e.g., `deno`, `bazel`) - the official value used for `package-ecosystem`; this may be unknown
+4. **Supported versions** (e.g., ">=v2", "v7, v8, v9", "Not applicable")
+5. **Language(s)** (e.g., "TypeScript, JavaScript", "Starlark")
 
 ### Support flags (REQUIRED - yes/no for each, or unknown if the issues do not say)
-5. **Version updates** (usually ✅)
-6. **Security updates** (yes/no)
-7. **Private repositories** (yes/no)
-8. **Private registries** (yes/no/unknown; do not infer)
-9. **Vendoring** (yes/no or "Not applicable")
+6. **Version updates** (usually ✅)
+7. **Security updates** (yes/no)
+8. **Private repositories** (yes/no)
+9. **Private registries** (yes/no/unknown; do not infer)
+10. **Vendoring** (yes/no or "Not applicable")
 
 ### File configuration (REQUIRED)
-10. **Recommended files** (e.g., `deno.lock`, `MODULE.bazel, WORKSPACE`)
-11. **Additional files** (e.g., `deno.json`, `*.MODULE.bazel`)
-12. **GHES version** - the first supported GHES version, usually provided as a label on the docs-content or releases issue
+11. **Recommended files** (e.g., `deno.lock`, `MODULE.bazel, WORKSPACE`)
+12. **Additional files** (e.g., `deno.json`, `*.MODULE.bazel`)
+13. **GHES version** - the first supported GHES version, usually provided as a label on the docs-content or releases issue
 
 ### Cooldown and dependency graph (REQUIRED for specific tables)
-13. **Default-days cooldown support** (yes/no) - for cooldown table
-14. **SemVer-bump cooldown support** (yes/no) - for cooldown table
-15. **Static transitive dependencies** (yes/no) - for dependency graph
-16. **Dependabot graph jobs** (yes/no) - for dependency graph
-17. **Automatic dependency submission** (yes/no) - for dependency graph
+14. **Default-days cooldown support** (yes/no) - for cooldown table
+15. **SemVer-bump cooldown support** (yes/no) - for cooldown table
+16. **Static transitive dependencies** (yes/no) - for dependency graph
+17. **Dependabot graph jobs** (yes/no) - for dependency graph
+18. **Automatic dependency submission** (yes/no) - for dependency graph
 
 ### Optional fields
-18. **Anchor name** (default: lowercase ecosystem name, e.g., `deno`)
-19. **Ecosystem-specific details** (paragraph for the section in supported-package-managers.md)
-20. **issue number** (for feature flag reference comment - taken from docs-content issue)
+19. **Anchor name** (default: lowercase ecosystem name, e.g., `deno`)
+20. **Ecosystem-specific details** (paragraph for the section in supported-package-managers.md)
+21. **issue number** (for feature flag reference comment - taken from docs-content issue)
+
+### Distinguishing ecosystem identifiers from files
+
+The ecosystem slug and YAML value are separate fields:
+
+- The ecosystem slug is the lowercase ecosystem name. Use it for filenames, feature flags, `ifversion` tags, and branch names.
+- The YAML value is the official value users enter for `package-ecosystem`. Use it only in documentation tables and the PR summary.
+
+Do not assume that the first technical-looking value in an issue is the YAML value. Classify each extracted value by its meaning and record the source text:
+
+- A YAML value is usually an ecosystem identifier such as `deno`, `bazel`, or `docker-compose`, but it does not need to match the ecosystem slug.
+- A value that resembles a filename, especially one with a file extension such as `foobar.fb`, is likely a recommended or additional file.
+- A value such as `v8` or `>=v2` is a supported version.
+- Prefer values explicitly labeled "YAML value," "`package-ecosystem`," "manifest," "lockfile," or "supported version."
+
+If compact syntax is ambiguous, do not copy a filename into the YAML field. If the official YAML value cannot be determined confidently, use a TODO in its documentation table cells and `TBD` in the draft PR. Continue using the ecosystem slug for structural identifiers.
 
 ## Workflow
 
@@ -68,9 +85,11 @@ To complete the update, you need these fields:
 2. Look for a link to the releases issue (usually `https://github.com/github/releases/issues/{number}`)
 3. If found, read the releases issue body, title, and labels for additional details
 4. Look for the first supported GHES version in both issues. This is usually expressed as a label. Use the version indicated by that source to set the feature flag's GHES constraint; do not infer or default the version
-5. Extract all available information from both sources
+5. Extract all available information from both sources. For each value, note the exact source text and whether it is explicit or inferred from the issue's structure
 6. Check the "Optional prompt" field for any user-provided data
-7. Create an **information checklist** noting what you have and what's missing
+7. Create an **information checklist** noting the value, classification, source, and whether anything is missing
+8. Record the ecosystem slug separately from the official YAML value
+9. Check that the YAML value has not been confused with a recommended or additional file
 
 **Common patterns:**
 - Issue title format: `[YYYY-MM-DD] Dependabot {ecosystem} support for version updates`
@@ -126,7 +145,7 @@ Review your information checklist:
 - If ANY required fields are missing → Note them and proceed anyway
   - You will add TODO comments in files for missing data
   - You will create a DRAFT PR
-  - You will add a comment listing what's missing
+  - You will list every missing value as `TBD` in the PR body
 
 ### Step 3: Locate target files
 
@@ -143,7 +162,7 @@ Verify each file exists before proceeding.
 
 ### Step 4: Create feature flag file
 
-**File:** `data/features/dependabot-{yaml-value}-support.yml`
+**File:** `data/features/dependabot-{ecosystem-slug}-support.yml`
 
 **Content:**
 ```yaml
@@ -156,12 +175,12 @@ versions:
 ```
 
 **Notes:**
-- Replace `{yaml-value}` with the lowercase ecosystem identifier
+- Replace `{ecosystem-slug}` with the lowercase ecosystem name
 - Replace `{Display Name}` with the proper ecosystem name
 - Replace `ISSUE_NUMBER` with the docs-content issue number
 - Replace `{GHES_VERSION}` with the value detected in the docs-content or releases issue, usually from a label
 - Do not infer or default the GHES version
-- If no GHES version is detectable, omit the `ghes` entry and add this YAML comment beneath `ghec`: `# TODO: Confirm the first supported GHES version from the docs-content or releases issue.`
+- If no GHES version is detectable, omit the `ghes` entry, add this YAML comment beneath `ghec`: `# TODO: Confirm the first supported GHES version from the docs-content or releases issue.`, and list the GHES version as `TBD` in the PR body
 
 ### Step 5: Update supported package managers table
 
@@ -171,8 +190,8 @@ versions:
 
 **Pattern to add:**
 ```markdown
-| {% ifversion dependabot-{yaml-value}-support %} |
-[{Display Name}](#{anchor}) | `{yaml-value}` | {versions} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {private-registries-support} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-{ecosystem-slug}-support %} |
+[{Display Name}](#{anchor}) | `{yaml-value}` | {versions} | {version-updates-support} | {security-updates-support} | {private-repositories-support} | {private-registries-support} | {vendoring-support} |
 | {% endif %} |
 ```
 
@@ -190,8 +209,12 @@ versions:
 - Insert in **alphabetical order** by ecosystem display name
 - Use `{% octicon "check" aria-label="Supported" %}` for yes
 - Use `{% octicon "x" aria-label="Not supported" %}` for no
-- For `{private-registries-support}`, use a check or x octicon only when the docs-content or releases issue explicitly confirms the value
-- If private registry support is unknown, use `<!-- TODO: Confirm private registry support -->` in the table cell
+- Use a check or x octicon only when the docs-content issue, releases issue, or optional prompt explicitly confirms the value
+- If the official YAML value is unknown, replace its table cell with `<!-- TODO: Confirm the official package-ecosystem YAML value before merge. -->`
+- If private repository support is unknown, use `<!-- TODO: Confirm whether private repositories are supported before merge. -->`
+- If private registry support is unknown, use `<!-- TODO: Confirm whether private registries are supported before merge. -->`
+- If vendoring support is unknown, use `<!-- TODO: Confirm whether vendoring is supported before merge. -->`
+- Do not render an unknown value as supported or unsupported
 - Use `Not applicable` (plain text) for N/A
 - If you have an anchor name, link display name to it: `[{Display Name}](#{anchor})`
 - Otherwise use just the display name without link
@@ -201,7 +224,7 @@ versions:
 Find the sections at the bottom of the file (e.g., "### Deno", "### Cargo"). Add a new section in alphabetical order:
 
 ```markdown
-{% ifversion dependabot-{yaml-value}-support %}
+{% ifversion dependabot-{ecosystem-slug}-support %}
 
 ### {Display Name}
 
@@ -212,11 +235,11 @@ Find the sections at the bottom of the file (e.g., "### Deno", "### Cargo"). Add
 
 **If you don't have ecosystem-specific details**, add a TODO comment instead:
 ```markdown
-{% ifversion dependabot-{yaml-value}-support %}
+{% ifversion dependabot-{ecosystem-slug}-support %}
 
 ### {Display Name}
 
-<!-- TODO: Add ecosystem-specific details here. Describe what files Dependabot updates, any special configuration, registry information, or limitations. -->
+<!-- TODO: Add ecosystem-specific details here. Describe what files Dependabot updates, any special configuration, registry information, or limitations. You can delete this entry if no additional details are needed. -->
 
 {% endif %}
 ```
@@ -233,7 +256,7 @@ Search for the `package-ecosystem` section. Find the table with columns: Package
 
 **Add in alphabetical order:**
 ```markdown
-| {% ifversion dependabot-{yaml-value}-support %} |
+| {% ifversion dependabot-{ecosystem-slug}-support %} |
 | {Display Name} | `{yaml-value}` | {versions} |
 | {% endif %} |
 ```
@@ -244,15 +267,17 @@ Search for the `cooldown` section. Find the table with columns: Package manager 
 
 **Add in alphabetical order:**
 ```markdown
-| {% ifversion dependabot-{yaml-value}-support %} |
-| {Display Name} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-{ecosystem-slug}-support %} |
+| {Display Name} | {default-days-support} | {semver-bump-support} |
 | {% endif %} |
 ```
 
 **Notes:**
 - Set the `Default days supported` and `SemVer-bump days supported` cells independently based on the issue information
+- If the official YAML value is unknown, replace its cell in the `package-ecosystem` table with `<!-- TODO: Confirm the official package-ecosystem YAML value before merge. -->`
 - Use `{% octicon "check" aria-label="Supported" %}` for supported and `{% octicon "x" aria-label="Not supported" %}` for not supported
-- If either value is unknown, add a TODO comment identifying the value that needs confirmation and use octicon x in that cell
+- If either value is unknown, use only a TODO comment identifying the value that needs confirmation
+- Do not infer support or lack of support from the ecosystem's version-update capabilities
 
 ### Step 7: Update dependency graph ecosystems
 
@@ -262,17 +287,19 @@ Search for the `cooldown` section. Find the table with columns: Package manager 
 
 **Add in alphabetical order:**
 ```markdown
-| {% ifversion dependabot-{yaml-value}-support %} |
-| {Display Name} | {Languages} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {recommended-files} | {additional-files} |
+| {% ifversion dependabot-{ecosystem-slug}-support %} |
+| {Display Name} | {languages} | {static-transitive-support} | {dependabot-graph-jobs-support} | {automatic-submission-support} | {recommended-files} | {additional-files} |
 | {% endif %} |
 ```
 
 **Notes:**
-- Static transitive dependencies, {% data variables.product.prodname_dependabot %} graph jobs, and automatic dependency submission are usually "Not supported" for new ecosystems
-- If you have explicit info saying they ARE supported, use octicon check
+- Use a check or x octicon for each dependency graph capability only when its value is explicitly confirmed
+- If a dependency graph capability is unknown, use a specific TODO comment in that cell. Do not infer support or lack of support
+- If the language is unknown, use `<!-- TODO: Confirm supported language before merge. -->`
 - Recommended files: Comma-separated, in backticks (e.g., `` `deno.lock` ``)
 - Additional files: Comma-separated, in backticks (e.g., `` `deno.json`, `deno.jsonc` ``)
-- If you don't have file information, use `<!-- TODO: Add recommended files -->` and `<!-- TODO: Add additional files -->`
+- If you don't have file information, use `<!-- TODO: Confirm recommended files before merge. -->` and `<!-- TODO: Confirm additional files before merge. -->`
+- The technical reviewer may remove the entry if the ecosystem is not supported by the dependency graph, but this should be rare
 
 ### Step 7b: Check private registries guide (if applicable)
 
@@ -306,7 +333,6 @@ Only use this path when the docs-content or releases issue explicitly confirms s
 - Do not update `configure-private-registries.md`
 - Keep `<!-- TODO: Confirm private registry support -->` in the supported package managers table
 - Include private registry support in the PR description's missing-information list
-- Ask the reviewer to confirm support in the missing-information PR comment
 - If the reviewer confirms support, replace the table TODO with a supported octicon and add the configuration-guide TODO described above
 - If the reviewer confirms it is not supported, replace the table TODO with a not-supported octicon and leave the configuration guide unchanged
 
@@ -339,24 +365,26 @@ For any field you couldn't extract:
 
 1. **In table cells:** Use `<!-- TODO: {description} -->` comment
 2. **In prose sections:** Use clear TODO comments explaining what's needed
-3. **Keep track** of all TODOs for the PR comment
+3. **In the PR body:** Show the corresponding value as `TBD`
+4. **Before merge:** Require a technical reviewer to resolve the TODO as supported, unsupported, not applicable, a confirmed value, or removal of the entry
 
 **Example TODO comments:**
 - `<!-- TODO: Confirm default-days cooldown support -->`
 - `<!-- TODO: Confirm SemVer-bump cooldown support -->`
-- `<!-- TODO: Verify private registry support -->`
-- `<!-- TODO: Add supported versions -->`
-- `<!-- TODO: Add ecosystem-specific details -->`
+- `<!-- TODO: Confirm whether private registries are supported before merge. -->
+- `<!-- TODO: Confirm supported versions before merge. -->`
+- `<!-- TODO: Add ecosystem-specific details, or delete this section if none are needed. -->`
 
 If the GHES version is missing:
 - Add the YAML TODO described in Step 4 and omit the `ghes` entry
 - Include GHES version in the PR description's missing-information list
 - Create the PR as a draft
-- Post a PR comment explicitly stating that the first supported GHES version is required and needs confirmation
+
+Every TODO representing an unknown support value must be resolved by a technical reviewer before the PR is marked ready for review or merged.
 
 ### Step 9: Create pull request
 
-**Branch name:** `dependabot-{yaml-value}-support` (or similar descriptive name)
+**Branch name:** `dependabot-{ecosystem-slug}-support` (or similar descriptive name)
 
 **PR Title:** `Add {Display Name} support to Dependabot configuration and documentation`
 
@@ -365,140 +393,86 @@ If the GHES version is missing:
 ```markdown
 _GitHub Copilot generated this pull request._
 
-<details><summary>Prompt summary - submitted by @{username}</summary>
+{IF THERE ARE NO TODOS OR TBD VALUES}
+Closes github/docs-content#{issue_number}
+{ELSE}
+Towards github/docs-content#{issue_number}
+{END IF}
 
-> Automated documentation update for {Display Name} ecosystem support in Dependabot
+Adds {Display Name} to the documentation for supported {% data variables.product.prodname_dependabot %} package ecosystems.
 
-</details>
+## Headline changes
 
-### Why:
+| Field | Value |
+| --- | --- |
+| Package ecosystem name | {Display Name} |
+| YAML value | {yaml-value-in-backticks-or-TBD} |
+| First supported GHES version | {ghes-version-or-TBD} |
+| New GitHub language | {Yes/No/TBD} |
 
-Dependabot is adding support for the `{yaml-value}` ecosystem.
+## Dependabot package ecosystem support
 
-Closes: https://github.com/github/docs-content/issues/{issue_number}
+| Field | Value |
+| --- | --- |
+| Supported package manager versions | {versions-or-TBD} |
+| Version updates | {Supported/Not supported/TBD} |
+| Security updates | {Supported/Not supported/TBD} |
+| Private repositories | {Supported/Not supported/Not applicable/TBD} |
+| Private registries | {Supported/Not supported/Not applicable/TBD} |
+| Vendoring | {Supported/Not supported/Not applicable/TBD} |
 
-### What's being changed:
+## Dependabot cooldown support
 
-We have added `{yaml-value}` to the list of ecosystems for Dependabot{, following the pattern from PR #{reference-pr-number}}.
+| Field | Value |
+| --- | --- |
+| Default-days cooldown | {Supported/Not supported/TBD} |
+| SemVer-bump cooldown | {Supported/Not supported/TBD} |
 
-**Changes include:**
-* Created `data/features/dependabot-{yaml-value}-support.yml` feature flag
-* Added {Display Name} to the package managers table in `data/reusables/dependabot/supported-package-managers.md`
-* Added {Display Name} to the package-ecosystem table in `content/code-security/reference/supply-chain-security/dependabot-options-reference.md`
-* Added {Display Name} to the cooldown support table in `dependabot-options-reference.md` (wrapped with feature flag)
-* Added {Display Name} to the dependency graph supported ecosystems table in `content/code-security/reference/supply-chain-security/dependency-graph-supported-package-ecosystems.md`
+## Dependency graph support
+
+| Field | Value |
+| --- | --- |
+| Static transitive dependencies | {Supported/Not supported/TBD} |
+| {% data variables.product.prodname_dependabot %} graph jobs | {Supported/Not supported/TBD} |
+| Languages | {languages-or-TBD} |
+| Automatic dependency submission | {Supported/Not supported/TBD} |
+| Recommended files | {recommended-files-or-TBD} |
+| Additional files | {additional-files-or-TBD} |
+
+## Files changed
+
+* Added `data/features/dependabot-{ecosystem-slug}-support.yml`.
+* Updated the supported package manager and `package-ecosystem` tables.
+* Added cooldown and dependency graph entries.
 {IF LANGUAGE SUPPORT CHANGED}
-* Updated `data/tables/supported-code-languages.yml`, the source for the GitHub language support article
+* Updated `data/tables/supported-code-languages.yml`, the source for the language support article.
 {END IF}
-
-**{Display Name} details:**
-* YAML value: `{yaml-value}`
-* GHES version: {ghes-version}
-* Supported versions: {versions}
-* Recommended files: {files}
-* Additional files: {files}
-* Language: {language}
-* Default-days cooldown: {✅/❌} Supported/Not supported
-* SemVer-bump cooldown: {✅/❌} Supported/Not supported
-* Static transitive dependencies: {✅/❌} Supported/Not supported
-* {% data variables.product.prodname_dependabot %} graph jobs: {✅/❌} Supported/Not supported
-* Automatic dependency submission: {✅/❌} Supported/Not supported
-* Version updates: {✅/❌} Supported/Not supported
-* Security updates: {✅/❌} Supported/Not supported
-* Private repositories: {✅/❌} Supported/Not supported
-* Private registries: {✅/❌/TODO} Supported/Not supported/Needs confirmation
-* Vendoring: {✅/❌} Supported/Not supported
-
-{IF THERE ARE TODOS:}
-
-**⚠️ Missing information**
-
-The following information could not be extracted from the issue and requires manual verification:
-
-{LIST OF TODO ITEMS}
-
-Please review the TODO comments in the files and provide the missing information.
-
-{END IF}
-
-{IF IS_NEW_LANGUAGE = true}
-
-**⚠️ New language detected**
-
-This appears to be a NEW LANGUAGE, not just a new package manager:
-- [ ] Review the new language entry added to `data/tables/supported-code-languages.yml`, which is the source for `content/get-started/learning-about-github/github-language-support.md`
-  - Confirm `depUpdates` is `{Display Name}`
-  - Confirm `depGraph` and all other feature support values
-- [ ] Check if dependency scope is supported for this language
-  - If YES: Update `data/reusables/dependabot/dependabot-alerts-dependency-scope.md`
-
-{END IF}
-
-**Additional updates to review:**
-
-This PR addresses the core Dependabot ecosystem documentation. Based on the [ongoing content design workflow](https://github.com/github/docs-content/blob/main/.github/workflows/ongoing-content-design-plan.yml), please check if these additional updates apply:
-
 {IF PRIVATE_REGISTRIES_SUPPORTED = true}
-- [ ] **Private registries guide**: A TODO comment has been added to `configure-private-registries.md` for configuration examples
-{ENDIF}
+* Added a TODO for the required private registry configuration documentation.
+{END IF}
 
-{IF PRIVATE_REGISTRIES_SUPPORTED = unknown}
-- [ ] **Confirm private registry support**: If supported, update the table entry and add a configuration TODO to `configure-private-registries.md`. If not supported, update only the table entry
-{ENDIF}
-
-{IF IS_NEW_LANGUAGE = unknown}
-- [ ] **Verify language**: Please confirm if `{Language}` is a new language or already present in `data/tables/supported-code-languages.yml`
-{ENDIF}
-
-
-### Check off the following:
-
-- [ ] A subject matter expert (SME) has reviewed the technical accuracy of the content in this PR.
-- [ ] The changes in this PR meet [the docs fundamentals](http://docs.github.com/en/contributing/writing-for-github-docs/about-githubs-documentation-fundamentals).
-- [ ] All CI checks are passing and the changes look good in the review environment.
+{IF THERE ARE TODOS}
+> [!IMPORTANT]
+> A technical reviewer must resolve every `TBD` and corresponding content TODO before this pull request is marked ready for review or merged.
+{END IF}
 ```
 
 **Notes:**
-- Replace `{username}` with the person who assigned the issue
-- Replace `{issue_number}` with the docs-content issue number
-- If you found a good reference PR, mention it in "following the pattern from PR #..."
-- Use ✅ or ❌ emoji for confirmed supported/not supported values in the details list; use TODO for unknown values
-- The "Missing Information" section should only appear if there are TODO comments in the files
-- The "New Language Detected" section only appears if `IS_NEW_LANGUAGE = true`
-- The "Additional Updates to Review" section includes conditionals based on your flags
+- Replace `{issue_number}` with the docs-content issue number.
+- Include every field in the four tables. Use `TBD` for every unconfirmed value; do not omit rows or infer a value.
+- Use `Supported`, `Not supported`, or `Not applicable` only for explicitly confirmed values.
+- Ensure each value exactly matches the issue sources and the content changes.
+- Keep the files-changed list factual. Remove any conditional line that does not apply.
+- Do not claim that the PR documents examples, configuration, or capabilities that do not appear in the diff.
+- Do not include irrelevant details such as a configuration snippet solely to restate the YAML value.
+- Use `Closes github/docs-content#{issue_number}` when the PR has no TODOs or `TBD` values and fully resolves the issue.
+- Use `Towards github/docs-content#{issue_number}` when any TODOs or `TBD` values remain.
+- Add the `llm-generated` label.
 
 **PR status:**
-- If ALL required information is present AND no special cases: Create as **ready for review**
-- If ANY required information is missing OR new language OR private registries need attention: Create as **DRAFT**
-
-### Step 10: Post comment (if missing data)
-
-If you created a DRAFT PR due to missing information, add a comment to the PR:
-
-```markdown
-I've created this draft PR based on the available information from the issue. However, I couldn't extract the following details:
-
-{LIST MISSING FIELDS}
-
-Please provide this information so I can complete the documentation. You can:
-1. Add the details as a comment here
-2. Update the files directly
-3. Tag someone who knows (@stakeholder from the issue)
-
-Once the information is provided, I can update the PR and mark it ready for review.
-```
-
-If the GHES version is missing, the comment must include:
-
-```markdown
-The first supported GHES version is required for the feature flag and needs to be confirmed from the docs-content or releases issue.
-```
-
-If private registry support is unknown, the comment must include:
-
-```markdown
-Please confirm whether private registries are supported for this ecosystem. If they are supported, the PR also needs a TODO in `configure-private-registries.md` for the required configuration documentation.
-```
+- If ALL required information is present AND no special cases apply: Create as **ready for review**.
+- If ANY required information is missing, or the change adds a new language or unresolved private registry work: Create as **DRAFT**.
+- Do not post a separate PR comment for missing information. Keep all unresolved values and reviewer requirements in the PR body.
 
 ## Important notes
 
@@ -508,14 +482,16 @@ Please confirm whether private registries are supported for this ecosystem. If t
 - **Liquid variables:** Use `{% data variables.product.prodname_dependabot %}` for "Dependabot"
 - **Table alignment:** Match the existing table formatting exactly
 - **Alphabetical order:** Critical! Insert new entries in the correct alphabetical position
-- **Feature flags:** Always wrap new content in `{% ifversion dependabot-{yaml-value}-support %}`
+- **Feature flags:** Always wrap new content in `{% ifversion dependabot-{ecosystem-slug}-support %}`
 
 ### Common pitfalls to avoid
 
 - **Don't hardcode file paths** - use glob/grep to find current locations
 - **Don't skip the feature flag** - it's required for version gating
-- **Don't default the GHES version** - source it from the docs-content or releases issue, or leave a TODO and request confirmation in a PR comment
-- **Don't infer private registry support** - use only explicit issue information; unknown support stays as a table TODO and does not trigger a change to `configure-private-registries.md`
+- **Don't default the GHES version** - source it from the docs-content or releases issue, or leave a TODO and show `TBD` in the PR body
+- **Don't conflate the ecosystem slug and YAML value** - use the slug for structural identifiers and the YAML value only where the documentation shows the official `package-ecosystem` value
+- **Don't confuse the YAML value with a filename** - classify each technical value by meaning and source
+- **Don't infer support values** - use only explicit issue information; unknown values stay as TODOs in content and `TBD` in the PR body
 - **Don't forget alphabetical order** - tables must stay sorted
 - **Don't use inconsistent octicons** - match the aria-label pattern exactly
 - **Don't create ready-for-review PRs with TODOs** - use draft status
@@ -524,21 +500,27 @@ Please confirm whether private registries are supported for this ecosystem. If t
 ### Validation before creating PR
 
 Before you create the PR, verify:
-1. ✅ Feature flag file created with correct YAML value
-2. ✅ GHES version matches the docs-content or releases issue, or the feature flag contains a TODO and the PR has a comment requesting confirmation
-3. ✅ All 4 core files updated (or TODO comments explain why not)
-4. ✅ Private registry support came from explicit issue information, or the table contains a TODO and the PR comment requests confirmation
-5. ✅ `configure-private-registries.md` was changed only when private registry support was explicitly confirmed
-6. ✅ All table entries in alphabetical order
-7. ✅ Cooldown entries contain all 3 columns, including separate default-days and SemVer-bump support values
-8. ✅ Dependency graph entries contain all 7 columns, including {% data variables.product.prodname_dependabot %} graph jobs
-9. ✅ All `ifversion` tags have matching `endif` tags
-10. ✅ Octicon syntax is correct
-11. ✅ PR description accurately lists what changed
-12. ✅ Draft status if ANY TODOs present
-13. ✅ Scope flags (IS_NEW_LANGUAGE, PRIVATE_REGISTRIES_SUPPORTED) were set
-14. ✅ `data/tables/supported-code-languages.yml` was updated when language support changed; the rendered article was not edited directly
-15. ✅ Workflow checklist linked in PR description
+1. ✅ Feature flag file and key use the ecosystem slug
+2. ✅ Every `ifversion` tag and the branch name use the ecosystem slug
+3. ✅ YAML value is explicitly sourced and is not a recommended or additional filename, or its documentation cells contain the specific TODO and the PR summary shows `TBD`
+4. ✅ GHES version matches the docs-content or releases issue, or the feature flag contains a TODO and the PR table shows `TBD`
+5. ✅ All 4 core files are updated, with explicit values or TODO placeholders for unknown values
+6. ✅ Each unknown content value has a corresponding `TBD` in the correct PR table
+7. ✅ Private registry support came from explicit issue information, or the table contains a TODO
+8. ✅ `configure-private-registries.md` was changed only when private registry support was explicitly confirmed
+9. ✅ All table entries are in alphabetical order
+10. ✅ Cooldown entries contain all 3 columns, with independently verified values or TODOs
+11. ✅ Dependency graph entries contain all 7 columns, with independently verified values or TODOs
+12. ✅ All `ifversion` tags have matching `endif` tags
+13. ✅ Octicon syntax is correct
+14. ✅ PR description accurately lists only what changed
+15. ✅ Every PR table value matches the issue sources and content changes
+16. ✅ Draft status if ANY TODOs or `TBD` values are present
+17. ✅ Scope flags (IS_NEW_LANGUAGE, PRIVATE_REGISTRIES_SUPPORTED) were set
+18. ✅ `data/tables/supported-code-languages.yml` was updated when language support changed; the rendered article was not edited directly
+19. ✅ The issue link uses `Closes` if no TODOs or `TBD` values remain; otherwise, it uses `Towards`
+20. ✅ The PR has the `llm-generated` label
+21. ✅ Content linting and changed-content rendering tests pass
 
 ## Examples
 
@@ -560,19 +542,20 @@ Before you create the PR, verify:
 
 ### Example 2: Missing information + private registries
 
-**Input:** Issue missing some details, ecosystem supports private registries
+**Input:** Issue provides the ecosystem name but not the official YAML value or some other details; ecosystem supports private registries
 
 **Flags set:**
 - `IS_NEW_LANGUAGE = false`
 - `PRIVATE_REGISTRIES_SUPPORTED = true`
 
 **Output:**
-- Feature flag: Created
-- Tables: Updated with `<!-- TODO: Confirm {field} -->` in cells with missing data
+- Feature flag: Created using the ecosystem slug
+- YAML value cells: `<!-- TODO: Confirm the official package-ecosystem YAML value before merge. -->`
+- Other table cells: Updated with `<!-- TODO: Confirm {field} -->` where information is missing
 - Private registries guide: TODO comment added
-- **Draft PR** with "Missing Information" section
-- PR checklist includes private registries guide item
-- Comment posted listing what's needed
+- **Draft PR** with `TBD` values in the grouped support tables
+- PR files-changed list includes the private registries guide
+- No separate PR comment
 
 ### Example 3: New language detected
 
@@ -596,21 +579,21 @@ If you encounter issues:
 
 **Files not found:**
 - Use glob to search more broadly
-- Report in PR comment which files couldn't be located
+- Report in the PR body which files couldn't be located
 - Do NOT proceed if critical files are missing
 
 **Cannot determine alphabetical position:**
 - List the surrounding entries
-- Ask for clarification in PR comment
+- Describe the unresolved placement in the PR body and keep the PR in draft
 
 **Conflicting information:**
 - Note the conflict in TODO comment
-- List sources in PR comment
-- Default to more conservative option (e.g., "not supported" if unclear)
+- List the conflicting sources in the PR body
+- Do not default to supported or unsupported
 
 **Cannot access linked release issue:**
 - Proceed with information from docs-content issue only
-- Note in PR that release issue couldn't be accessed
+- Note in the PR body that the release issue couldn't be accessed
 - Mark uncertain fields with TODO
 
 **Unclear if new language:**
@@ -623,12 +606,15 @@ If you encounter issues:
 Your work is successful when:
 - ✅ All 4 core files are updated consistently
 - ✅ Tables remain in alphabetical order
-- ✅ Feature flag exists and is referenced correctly
-- ✅ PR description is complete and accurate
+- ✅ Feature flag, `ifversion` tags, and branch name use the ecosystem slug
+- ✅ Documentation tables use the confirmed official YAML value or a specific TODO
+- ✅ PR description is complete, accurate, and organized into headline, Dependabot package ecosystem support, Dependabot cooldown support, and dependency graph sections
 - ✅ Missing data is clearly marked with TODOs
+- ✅ Every content TODO is represented as `TBD` in the PR body
 - ✅ PR status (draft/ready) matches data completeness
-- ✅ Issue is properly linked with "Closes" syntax
+- ✅ Issue is linked with `Closes github/docs-content#{issue_number}` when complete, or `Towards github/docs-content#{issue_number}` when TODOs or `TBD` values remain
 - ✅ Update scope correctly identified (new language vs new ecosystem)
 - ✅ Private registries guide flagged if applicable
 - ✅ `data/tables/supported-code-languages.yml` updated or flagged for verification if language support changes
-- ✅ Workflow checklist linked for reviewer reference
+- ✅ No support value is inferred when the source information is missing
+- ✅ The `llm-generated` label is applied

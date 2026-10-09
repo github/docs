@@ -1,6 +1,5 @@
 import fs, { existsSync } from 'fs'
-import { mkdirp } from 'mkdirp'
-import { readFile, writeFile } from 'fs/promises'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import path from 'path'
 import { slug } from 'github-slugger'
 import { load } from 'js-yaml'
@@ -14,7 +13,7 @@ import { validateJson } from '@/tests/lib/validate-json-schema'
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const CONFIG_FILE = 'src/github-apps/lib/config.json'
 
-// Actor type mapping from generic names to actual YAML values
+// Map generic actor names to excluded_actors values.
 export const actorTypeMap: Record<string, string> = {
   fine_grained_pat: 'fine_grained_personal_access_token',
   server_to_server: 'github_app',
@@ -131,16 +130,13 @@ export async function syncGitHubAppsData(
     ) as OpenApiData
     const appsDataConfig = JSON.parse(await readFile(CONFIG_FILE, 'utf8')) as AppsDataConfig
 
-    // Initialize the data structure with keys for each page type
     const githubAppsData: GitHubAppsData = {}
     for (const pageType of Object.keys(appsDataConfig.pages)) {
       githubAppsData[pageType] = {}
     }
-    // Because the information used on the apps page doesn't require any
-    // rendered content we can parse the dereferenced files directly
+    // Apps pages only need operation metadata here, so parse dereferenced OpenAPI files directly.
     for (const [requestPath, operationsAtPath] of Object.entries(schemaData.paths)) {
       for (const [verb, operation] of Object.entries(operationsAtPath)) {
-        // We only want to process operations that have programmatic access data
         if (!progAccessData[operation.operationId]) continue
 
         const isInstallationAccessToken = progAccessData[operation.operationId].serverToServer
@@ -158,19 +154,15 @@ export async function syncGitHubAppsData(
           { category },
           appDataOperation,
         )
-        // server-to-server
         if (isInstallationAccessToken) {
           addAppData(githubAppsData['server-to-server-rest'], category, appDataOperation)
         }
 
-        // user-to-server
         if (isUserAccessToken) {
           addAppData(githubAppsData['user-to-server-rest'], category, appDataOperation)
         }
 
-        // fine-grained pat
         if (isFineGrainedPat) {
-          // Check if all permission sets for this operation are excluded for fine-grained PATs
           const allPermissionSetsExcluded = progAccessData[operation.operationId].permissions.every(
             (permissionSet) =>
               Object.keys(permissionSet).every((permissionName) =>
@@ -187,7 +179,6 @@ export async function syncGitHubAppsData(
           }
         }
 
-        // permissions
         for (const permissionSet of progAccessData[operation.operationId].permissions) {
           for (const [permissionName, readOrWrite] of Object.entries(permissionSet)) {
             const { title, displayTitle } = getDisplayTitle(permissionName, progActorResources)
@@ -199,12 +190,6 @@ export async function syncGitHubAppsData(
               progAccessData[operation.operationId].permissions,
             )
 
-            // Filter out metadata permissions when combined with other permissions
-            // The metadata permission is automatically granted with any other repository permission,
-            // so documenting it for operations that require additional permissions is misleading.
-            // This fixes the issue where mutating operations (PUT, DELETE) incorrectly appeared
-            // to only need metadata access when they actually require write permissions.
-            // See: https://github.com/github/docs-engineering/issues/5212
             if (
               shouldFilterMetadataPermission(
                 permissionName,
@@ -214,7 +199,6 @@ export async function syncGitHubAppsData(
               continue
             }
 
-            // github app permissions
             if (!isActorExcluded(excludedActors, 'server_to_server', actorTypeMap)) {
               const serverToServerPermissions = githubAppsData['server-to-server-permissions']
               if (!serverToServerPermissions[permissionName]) {
@@ -247,15 +231,10 @@ export async function syncGitHubAppsData(
               )
             }
 
-            // fine-grained pats
             const isExcluded = isActorExcluded(excludedActors, 'fine_grained_pat', actorTypeMap)
 
             if (isFineGrainedPat && !isExcluded) {
-              // Hardcoded exception: exclude repository_projects from fine-grained PAT permissions
-              // This is because fine-grained PATs can only operate on organization-level Projects (classic),
-              // not repository-level Projects (classic). Users cannot grant the repository Projects (classic)
-              // fine-grained permission in the fine-grained PAT UI.
-              // See: https://github.com/github/docs-engineering/issues/4613
+              // Fine-grained PATs grant org Projects (classic), not repo Projects (classic).
               if (permissionName === 'repository_projects') {
                 continue
               }
@@ -285,9 +264,8 @@ export async function syncGitHubAppsData(
     const versionName = path.basename(schemaName, '.json')
     const targetDirectory = path.join(ENABLED_APPS_DIR, versionName)
 
-    // When a new version is added, we need to create the directory for it
     if (!existsSync(targetDirectory)) {
-      await mkdirp(targetDirectory)
+      await mkdir(targetDirectory, { recursive: true })
     }
 
     for (const pageType of Object.keys(githubAppsData)) {
@@ -309,20 +287,19 @@ export async function syncGitHubAppsData(
     }
   }
 
-  // Write deduplicated shared format
   await writeDeduplicatedAppsFormat()
 }
 
-async function writeDeduplicatedAppsFormat() {
+// The deduplicated format stores repeated operation and permission objects once.
+// version-index.json maps each version and page to those shared entries.
+export async function writeDeduplicatedAppsFormat() {
   console.log(`\n▶️  Writing deduplicated GitHub Apps data...\n`)
 
-  // Read all the per-version files we just wrote to build the shared format
   const versions = fs.readdirSync(ENABLED_APPS_DIR).filter((f) => {
     const fullPath = path.join(ENABLED_APPS_DIR, f)
     return fs.statSync(fullPath).isDirectory() && f !== 'shared'
   })
 
-  // Pool for unique leaf objects (operations and permission entries)
   const entriesPool: unknown[] = []
   const entriesMap = new Map<string, number>()
 
@@ -335,9 +312,7 @@ async function writeDeduplicatedAppsFormat() {
     return index
   }
 
-  // version-index structure:
-  // For rest pages: { version: { pageType: { category: number[] } } }
-  // For permission pages: { version: { pageType: { permName: { title, displayTitle, indices: number[] } } } }
+  // REST pages map categories to indices; permission pages map names to metadata and indices.
   const versionIndex: Record<string, Record<string, unknown>> = {}
   let totalItems = 0
 
@@ -350,9 +325,7 @@ async function writeDeduplicatedAppsFormat() {
       const pageType = path.basename(file, '.json')
       const data = JSON.parse(fs.readFileSync(path.join(versionDir, file), 'utf8'))
       const isPermissions = pageType.includes('permissions')
-
       if (isPermissions) {
-        // Permission data: { permName: { title, displayTitle, permissions: [...] } }
         const pageIndex: Record<
           string,
           { title: string; displayTitle: string; indices: number[] }
@@ -370,7 +343,6 @@ async function writeDeduplicatedAppsFormat() {
         }
         versionIndex[version][pageType] = pageIndex
       } else {
-        // Rest data: { category: [...operations] }
         const pageIndex: Record<string, number[]> = {}
         for (const [category, operations] of Object.entries(
           data as Record<string, AppDataOperation[]>,
@@ -385,10 +357,9 @@ async function writeDeduplicatedAppsFormat() {
     }
   }
 
-  // Write shared files
   const sharedDir = path.join(ENABLED_APPS_DIR, 'shared')
   if (!existsSync(sharedDir)) {
-    await mkdirp(sharedDir)
+    await mkdir(sharedDir, { recursive: true })
   }
 
   await writeFile(path.join(sharedDir, 'entries.json'), JSON.stringify(entriesPool))
@@ -406,7 +377,6 @@ export async function getProgAccessData(
   isRest = false,
 ): Promise<{ progAccessData: ProgAccessData; progActorResources: ProgActorResources }> {
   const useRemoteGitHubFiles = progAccessSource === 'rest-api-description'
-  // check for required PAT
   if (useRemoteGitHubFiles && !process.env.GITHUB_TOKEN) {
     throw new Error(
       'Error! You must have the GITHUB_TOKEN environment variable set to access the programmatic access and resource files via the GitHub REST API.',
@@ -453,7 +423,6 @@ export async function getProgAccessData(
       disabledForPatV2: operation.disabled_for_patv2,
     }
 
-    // Handle comma-separated operation IDs
     const operationIds = operation.operation_ids.split(',').map((id) => id.trim())
     for (const operationId of operationIds) {
       progAccessData[operationId] = operationData
@@ -552,9 +521,6 @@ function sentenceCase(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-/**
- * Calculates whether an operation has additional permissions beyond a single permission.
- */
 export function calculateAdditionalPermissions(
   permissionSets: Array<Record<string, string>>,
 ): boolean {
@@ -564,10 +530,7 @@ export function calculateAdditionalPermissions(
   )
 }
 
-/**
- * Determines whether a metadata permission should be filtered out when it has additional permissions.
- * Prevents misleading documentation where mutating operations appear to only need metadata access.
- */
+// Metadata is redundant when any other permission applies, so hide it in those rows.
 export function shouldFilterMetadataPermission(
   permissionName: string,
   permissionSets: Array<Record<string, string>>,
@@ -588,21 +551,17 @@ export function isActorExcluded(
     return false
   }
 
-  // Map generic actor type to actual YAML value if mapping exists
   const mappedActorType = actorMapping[actorType] || actorType
 
-  // Check if the mapped actor type is excluded
   if (excludedActors.includes(mappedActorType)) {
     return true
   }
 
-  // Also check for the original actor type (before mapping)
   if (excludedActors.includes(actorType)) {
     return true
   }
 
-  // Check for known aliases - the source data might use different values
-  // than what we expect in our mapping
+  // The source data sometimes uses values our mapping does not expect.
   if (actorType === 'fine_grained_pat' && excludedActors.includes('UserProgrammaticAccess')) {
     return true
   }
@@ -645,6 +604,7 @@ async function validateAppData(
   }
 }
 
+// Use gitHubSourceDirectory locally; use owner, repo, branch, and path remotely.
 interface ProgActorResourceContentOptions {
   owner?: string
   repo?: string
@@ -653,11 +613,6 @@ interface ProgActorResourceContentOptions {
   gitHubSourceDirectory?: string | null
 }
 
-// When getting files from the GitHub repo locally (or in a Codespace)
-// you can pass the full or relative path to the `github` repository
-// directory on disk.
-// When the source directory is `rest-api-description` (which is more common)
-// you can pass the `owner`, `repo`, `branch`, and `path` (repository path)
 async function getProgActorResourceContent({
   owner,
   repo,
@@ -665,7 +620,6 @@ async function getProgActorResourceContent({
   path: resourcePath,
   gitHubSourceDirectory = null,
 }: ProgActorResourceContentOptions): Promise<ProgActorResources> {
-  // Get files either locally from disk or from the GitHub remote repo
   let files: string[]
   if (gitHubSourceDirectory) {
     files = await getProgActorContentFromDisk(gitHubSourceDirectory)
@@ -675,13 +629,10 @@ async function getProgActorResourceContent({
     )
   }
 
-  // We need to format the file content into a single object. Each file
-  // contains a single key and a single value that needs to be added
-  // to the object.
+  // Each file holds a single key and value, so merge them into one object.
   const progActorResources: ProgActorResources = {}
   for (const file of files) {
     const fileContent = load(file) as Record<string, ProgActorResource>
-    // Each file should only contain a single key and value.
     if (Object.keys(fileContent).length !== 1) {
       throw new Error(`Error: The file ${JSON.stringify(fileContent)} must only have one key.`)
     }

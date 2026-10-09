@@ -1,9 +1,4 @@
-// Canonical mapping of internal schema kinds to:
-// - urlKind: the URL/folder segment used in href anchors before categorization
-//   (kept for backward-compat with `helpers.getFullLink` signature)
-// - slugPrefix: the kind-disambiguating slug prefix used on category pages
-//   so two items sharing a case-insensitive name don't collide
-// - label: human-readable label rendered as a Primer Label next to each item
+// Schema kind tables keep legacy URL segments, category-page slug prefixes, and visible labels.
 
 export type SchemaKindKey =
   | 'queries'
@@ -26,8 +21,7 @@ export const KIND_LABELS: Record<SchemaKindKey, string> = {
   scalars: 'Scalar',
 }
 
-// Plural form of `KIND_LABELS`, used as the section heading (and mini-TOC
-// parent label) when a GraphQL category page groups its items by kind.
+// Plural labels appear in category-page sections and mini-TOC section entries.
 export const KIND_LABELS_PLURAL: Record<SchemaKindKey, string> = {
   queries: 'Queries',
   mutations: 'Mutations',
@@ -39,10 +33,7 @@ export const KIND_LABELS_PLURAL: Record<SchemaKindKey, string> = {
   scalars: 'Scalars',
 }
 
-// Slug prefix used to disambiguate items across kinds on a category page.
-// For example, a `Repository` object and a `repository` query both have id
-// `repository`; on a category page they become `object-repository` and
-// `query-repository` respectively.
+// Category-page anchors prefix the kind, so Repository object and repository query stay distinct.
 export const KIND_SLUG_PREFIX: Record<SchemaKindKey, string> = {
   queries: 'query',
   mutations: 'mutation',
@@ -54,9 +45,8 @@ export const KIND_SLUG_PREFIX: Record<SchemaKindKey, string> = {
   scalars: 'scalar',
 }
 
-// The "URL kind" / `pageType` value used by `helpers.getTypeKind` and
-// `helpers.getFullLink`. `inputObjects` (camelCase internal key) becomes
-// `input-objects` in URLs.
+// These URL segments match helpers.getTypeKind output and helpers.getFullLink input.
+// For example, inputObjects becomes input-objects.
 export const KIND_URL_SEGMENT: Record<SchemaKindKey, string> = {
   queries: 'queries',
   mutations: 'mutations',
@@ -79,28 +69,22 @@ export const ALL_KIND_KEYS: SchemaKindKey[] = [
   'scalars',
 ]
 
-// Reverse map from the URL-kind segment used in hrefs (e.g. `input-objects`)
-// to the slug prefix used to disambiguate items in category page anchors
-// (e.g. `input-object`). Derived from KIND_URL_SEGMENT + KIND_SLUG_PREFIX so
-// the three tables stay in sync automatically.
+// Derive URL-segment to slug-prefix mappings from the source tables so anchor helpers stay in sync.
+// For example, input-objects maps to input-object.
 export const SLUG_PREFIX_BY_URL_SEGMENT: Record<string, string> = Object.fromEntries(
   ALL_KIND_KEYS.map((k) => [KIND_URL_SEGMENT[k], KIND_SLUG_PREFIX[k]]),
 )
 
-// Given a URL-kind segment (as returned by helpers.getTypeKind, e.g.
-// `objects`, `input-objects`), return the slug prefix used to disambiguate
-// items in category page anchors. Falls back to the input for unknown kinds.
+// Unknown URL-kind segments fall back to themselves so callers can handle future kinds.
 export function slugPrefixForUrlKind(urlKind: string): string {
   return SLUG_PREFIX_BY_URL_SEGMENT[urlKind] ?? urlKind
 }
 
-// Bucket all items that don't have an upstream `@docsCategory` directive.
+// Unannotated upstream schema items fall into the other category.
 export const OTHER_CATEGORY = 'other'
 
-// Canonical list of categories emitted by the upstream `docs_category` DSL.
-// Keep this list in sync with the allowlist in
-// `github/github`'s `app/platform/objects/base/docs_category.rb`.
-// `other` is a docs-internal bucket for un-annotated types.
+// github/github app/platform/objects/base/docs_category.rb must allow each upstream category here.
+// The other category belongs to docs-internal for unannotated types.
 export const CATEGORIES = [
   'actions',
   'activity',
@@ -153,7 +137,6 @@ export function isValidCategory(slug: string): slug is CategorySlug {
   return (CATEGORIES as readonly string[]).includes(slug)
 }
 
-// Human-readable display title for a category. Falls back to slug.
 export function categoryTitle(slug: string): string {
   switch (slug) {
     case 'apps':

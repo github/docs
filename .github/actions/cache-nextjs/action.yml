@@ -1,4 +1,5 @@
-# Based on https://nextjs.org/docs/pages/building-your-application/deploying/ci-build-caching#github-actions
+# Based on Next.js CI build cache guidance:
+# https://nextjs.org/docs/pages/building-your-application/deploying/ci-build-caching#github-actions
 
 name: Cache Nextjs build cache
 
@@ -11,8 +12,9 @@ runs:
       uses: actions/cache@v4
       with:
         path: ${{ github.workspace }}/.next/cache
-        # Generate a new cache whenever packages or source files change.
-        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.ts', '**/*.tsx') }}
-        # If source files changed but packages didn't, rebuild from a prior cache.
+        # Packages and source files both invalidate the cache.
+        # Use narrow globs: `**` walks node_modules and translations and takes about 35s per hash.
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/**/*.ts', 'src/**/*.tsx', '*.ts') }}
+        # With matching restore-key prefixes, source-only changes restore the same-package cache.
         restore-keys: |
-          ${{ runner.os }}-nextjs-v13-${{ hashFiles('**/package-lock.json') }}-
+          ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-

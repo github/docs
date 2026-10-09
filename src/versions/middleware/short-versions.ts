@@ -1,11 +1,5 @@
-// This module creates shortcuts for version comparisons in Liquid conditional strings.
-//
-// Supported:
-// {% if fpt %}
-// {% if ghec %}
-// {% if ghes %}
-//
-// For the custom operator handling in statements like {% if ghes > 3.0 %}, see `lib/liquid-tags/if-ver.ts`.
+// Liquid conditionals use these shortcuts: {% if fpt %}, {% if ghec %}, and {% if ghes %}.
+// Release comparisons use the custom ifversion tag, such as {% ifversion ghes > 3.XX %}.
 import type { ExtendedRequest } from '@/types'
 import type { Response, NextFunction } from 'express'
 
@@ -20,10 +14,8 @@ export default async function shortVersions(
     return next()
   }
 
-  // Add the short name to context.
   req.context[currentVersionObj.shortName] = true
 
-  // Add convenience props.
   if (currentVersion) {
     req.context.currentRelease = currentVersion.split('@')[1]
     req.context.currentVersionShortName = currentVersionObj.shortName

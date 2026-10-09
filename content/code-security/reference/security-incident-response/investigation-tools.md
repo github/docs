@@ -57,6 +57,7 @@ Read access to the repository.
 
 * [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)
 * [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)
 * [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events){% ifversion ghec %}
 * [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/identifying-audit-log-events-performed-by-an-access-token){% endif %}
 
@@ -147,6 +148,7 @@ Read access to the repository.
 
 * [AUTOTITLE](/code-security/concepts/security-at-scale/security-overview)
 * [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/viewing-security-insights)
+* [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/find-insecure-repositories)
 
 ### Notes and limitations
 

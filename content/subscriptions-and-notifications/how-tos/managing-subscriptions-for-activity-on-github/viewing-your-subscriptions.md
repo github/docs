@@ -33,7 +33,7 @@ We recommend auditing and unsubscribing from your subscriptions as a part of a h
 
 ## Diagnosing why you receive too many notifications
 
-When your inbox has too many notifications to manage, consider whether you have oversubscribed or how you can change your notification settings to reduce the subscriptions you have and the types of notifications you're receiving.{% ifversion automatic-watching %} For example, you may consider disabling the settings to automatically watch all repositories whenever you've joined a team or repository. For more information, see [AUTOTITLE](/subscriptions-and-notifications/get-started/configuring-notifications#automatic-watching).{% endif %}
+When your inbox has too many notifications to manage, consider whether you have oversubscribed or how you can change your notification settings to reduce the subscriptions you have and the types of notifications you're receiving.
 
 To see an overview of your repository subscriptions, see [Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching).
 

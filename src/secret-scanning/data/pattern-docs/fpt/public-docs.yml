@@ -201,8 +201,28 @@
   base64Supported: true
   isduplicate: true
 - provider: Anthropic
+  supportedSecret: Anthropic Service Account API Key
+  secretType: anthropic_service_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Anthropic
   supportedSecret: Anthropic Session ID
   secretType: anthropic_session_id
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Anthropic
+  supportedSecret: Anthropic User API Key
+  secretType: anthropic_user_api_key
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1454,7 +1474,7 @@
   supportedSecret: Cloudsmith API Key
   secretType: cloudsmith_api_key
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -3078,7 +3098,7 @@
   supportedSecret: Lovable API Key
   secretType: lovable_api_key
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -4064,6 +4084,26 @@
   hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
+- provider: Pydantic Services Inc.
+  supportedSecret: Logfire Token
+  secretType: logfire_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Pydantic Services Inc.
+  supportedSecret: Pydantic AI Gateway API Key
+  secretType: pydantic_ai_gateway_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: PyPI
   supportedSecret: PyPI API Token
   secretType: pypi_api_token
@@ -4217,7 +4257,7 @@
 - provider: Salesforce
   supportedSecret: Salesforce Marketing Cloud API OAuth2 Token
   secretType: salesforce_marketing_cloud_api_oauth2_token
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
@@ -4604,6 +4644,16 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: SpaceX
+  supportedSecret: Starlink Public API V2 Client Secret
+  secretType: starlink_public_api_v2_secret
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Square
   supportedSecret: Square Access Token
   secretType: square_access_token
@@ -4718,7 +4768,7 @@
   supportedSecret: Supabase OAuth Access Token
   secretType: supabase_oauth_access_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -4738,7 +4788,7 @@
   supportedSecret: Supabase Personal Access Token (scoped)
   secretType: supabase_scoped_personal_access_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -4772,6 +4822,16 @@
   hasPushProtection: false
   hasValidityCheck: true
   hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Tavily
+  supportedSecret: Tavily API Key
+  secretType: tavily_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Telegram
@@ -5040,6 +5100,26 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Wave Mobile Money Inc.
+  supportedSecret: Wave Production API Key
+  secretType: wave_api_prod_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Wave Mobile Money Inc.
+  supportedSecret: Wave Test API Key
+  secretType: wave_api_test_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

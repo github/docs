@@ -13,7 +13,7 @@ category:
 
 Under usage-based billing, your enterprise's included {% data variables.product.prodname_ai_credits_short %} are pooled and shared across all licensed users. Without budget controls in place, a single heavy user or automated agent session can consume a disproportionate share of the pool early in the billing cycle, leaving less for everyone else.
 
-Before you begin, make sure you understand how the four budget controls work and how the system evaluates them. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+Before you begin, make sure you understand how the four budget controls work and how the system evaluates them. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 ## Step 1: Set a universal user-level budget
 
@@ -29,7 +29,7 @@ Once you have a universal ULB in place, review your AI usage dashboard to identi
 
 For these users, set an individual user-level budget override. Individual overrides take precedence over the universal default. You can increase or decrease the limit for a specific user without affecting anyone else.
 
-If the override is only meant to be temporary, such as a higher limit for one sprint or one incident, set an expiration date on it. {% data variables.product.github %} removes the budget on that date. The user then falls back to their cost center or universal budget, if one applies, so you don't have to track the cleanup yourself. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#expiration-dates-for-individual-user-level-budgets).
+If the override is only meant to be temporary, such as a higher limit for one sprint or one incident, set an expiration date on it. {% data variables.product.github %} removes the budget on that date. The user then falls back to their cost center or universal budget, if one applies, so you don't have to track the cleanup yourself. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets#expiration-dates-for-individual-user-level-budgets).
 
 > [!TIP]
 > If you're setting up budgets for the first time and don't yet have usage data, start with a universal ULB that feels reasonable for your organization and revisit after your first billing cycle. Your AI usage dashboard will give you the data you need to tune individual overrides.

@@ -1,5 +1,3 @@
-// This schema enforces the structure in data/tables/repository-roles.yml
-
 const row = {
   type: 'object',
   additionalProperties: false,
@@ -9,13 +7,11 @@ const row = {
       type: 'string',
       lintable: true,
     },
-    // Liquid that renders non-empty when the row should be shown. When omitted,
-    // the row is shown on every version.
+    // Non-empty Liquid output limits the row to matching versions; omitting it renders everywhere.
     versions: {
       type: 'string',
     },
-    // Comma separated list of the roles that can perform the action. Roles left
-    // out render as no. May contain Liquid, so a single role can be conditional.
+    // Comma-separated roles can contain Liquid; omitted roles render as no.
     roles: {
       type: 'string',
     },

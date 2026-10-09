@@ -76,14 +76,13 @@ describe(searchReplace.names.join(' - '), () => {
     const result = await runRule(searchReplace, {
       strings: { markdown },
       ruleConfig: searchReplaceConfig['search-replace'],
-      markdownlintOptions: { frontMatter: null }, // Include frontmatter in linting
+      markdownlintOptions: { frontMatter: null },
     })
     const errors = result.markdown
-    // Should find 3 TODOCS occurrences in frontmatter
     expect(errors.length).toBe(3)
-    expect(errors[0].lineNumber).toBe(2) // title: TODOCS
-    expect(errors[1].lineNumber).toBe(3) // shortTitle: TODOCS
-    expect(errors[2].lineNumber).toBe(4) // intro: TODOCS
+    expect(errors[0].lineNumber).toBe(2)
+    expect(errors[1].lineNumber).toBe(3)
+    expect(errors[2].lineNumber).toBe(4)
   })
 
   test('TODOCS placeholder in both frontmatter and content', async () => {
@@ -99,15 +98,14 @@ describe(searchReplace.names.join(' - '), () => {
     const result = await runRule(searchReplace, {
       strings: { markdown },
       ruleConfig: searchReplaceConfig['search-replace'],
-      markdownlintOptions: { frontMatter: null }, // Include frontmatter in linting
+      markdownlintOptions: { frontMatter: null },
     })
     const errors = result.markdown
-    // Should find 4 TODOCS occurrences total (2 in frontmatter + 2 in content)
     expect(errors.length).toBe(4)
-    expect(errors[0].lineNumber).toBe(2) // title: TODOCS
-    expect(errors[1].lineNumber).toBe(3) // intro: TODOCS
-    expect(errors[2].lineNumber).toBe(6) // content TODOCS
-    expect(errors[3].lineNumber).toBe(7) // content TODOCS
+    expect(errors[0].lineNumber).toBe(2)
+    expect(errors[1].lineNumber).toBe(3)
+    expect(errors[2].lineNumber).toBe(6)
+    expect(errors[3].lineNumber).toBe(7)
   })
 
   test('TODOCS placeholder in frontmatter is not caught with default frontmatter handling', async () => {
@@ -125,17 +123,13 @@ describe(searchReplace.names.join(' - '), () => {
     const result = await runRule(searchReplace, {
       strings: { markdown },
       ruleConfig: searchReplaceConfig['search-replace'],
-      // Default frontmatter handling (frontmatter is stripped from content)
     })
     const errors = result.markdown
-    // When using default frontmatter handling (frontmatter is stripped from content),
-    // this unit test only tests the search-replace rule in isolation on the content portion.
-    // Frontmatter linting happens separately in the actual linting system.
+    // Default frontmatter handling strips frontmatter, so this only tests Markdown content.
     expect(errors.length).toBe(0)
   })
 
   test('TODOCS in frontmatter is detected when frontmatter is included in content', async () => {
-    // This test shows that search-replace works on frontmatter when it's included in content
     const frontmatterOnly = [
       '---',
       'title: TODOCS',
@@ -144,24 +138,21 @@ describe(searchReplace.names.join(' - '), () => {
       '---',
     ].join('\n')
 
-    // When frontmatter is treated as content, search-replace works
     const result = await runRule(searchReplace, {
       strings: { markdown: frontmatterOnly },
       ruleConfig: searchReplaceConfig['search-replace'],
-      markdownlintOptions: { frontMatter: null }, // Include frontmatter in content
+      markdownlintOptions: { frontMatter: null },
     })
     const errors = result.markdown
 
-    // Finds all 3 TODOCS in frontmatter when frontmatter is included in content
     expect(errors.length).toBe(3)
-    expect(errors[0].lineNumber).toBe(2) // title: TODOCS
-    expect(errors[1].lineNumber).toBe(3) // shortTitle: TODOCS
-    expect(errors[2].lineNumber).toBe(4) // intro: TODOCS
+    expect(errors[0].lineNumber).toBe(2)
+    expect(errors[1].lineNumber).toBe(3)
+    expect(errors[2].lineNumber).toBe(4)
   })
 
   test('TODOCS placeholder found in documentation about TODOCS usage', async () => {
-    // This test verifies that the TODOCS rule detects instances in documentation files
-    // The actual exclusion happens in the reporting layer, not in the rule itself
+    // content/contributing docs are path-excluded before this rule detects TODOCS placeholders.
     const markdown = [
       '---',
       'title: Using the TODOCS placeholder to leave notes',
@@ -184,15 +175,13 @@ describe(searchReplace.names.join(' - '), () => {
     })
     const errors = result.markdown
 
-    // The rule should find TODOCS in frontmatter because markdownlint-disable doesn't apply there
-    // However, since we're testing the actual behavior, let's check what we get
     const frontmatterErrors = errors.filter((e) => e.lineNumber <= 6)
     const contentErrors = errors.filter((e) => e.lineNumber > 6)
 
-    // The markdownlint-disable comment should suppress content errors
+    // markdownlint-disable suppresses content errors, not frontmatter errors.
     expect(contentErrors.length).toBe(0)
 
-    // Frontmatter errors depend on the configuration - this test documents current behavior
+    // frontMatter: null keeps frontmatter in content, so these TODOCS errors appear.
     expect(frontmatterErrors.length).toBeGreaterThanOrEqual(0)
   })
 })

@@ -9,9 +9,7 @@ export const Contribution = () => {
     ? `https://github.com/github/docs/blob/main/content/${relativePath}`
     : 'https://github.com/github/docs'
 
-  // Heading and body styling comes from the footer column rules in
-  // SupportSection.module.scss — the Docs 2026 design renders these as plain body
-  // text rather than a bold heading plus muted copy.
+  // SupportSection.module.scss restyles this heading and body for the plain Docs 2026 treatment.
   return (
     <div className="f5 contribution">
       <h3>{t`title`}</h3>

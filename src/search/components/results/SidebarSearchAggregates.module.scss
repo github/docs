@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: column;
 
-  // Below `medium` the rail sits above the results in the page flow, so
+  // Below medium the rail sits above the results in the page flow, so
   // expanding the panel grows content that the browser's scroll anchoring then
-  // compensates for — scrolling the disclosure bar off the top of the viewport
+  // compensates for by scrolling the disclosure bar off the top of the viewport
   // the moment you open it. Opt this subtree out so opening stays put.
   overflow-anchor: none;
 
-  // From `medium` up, join the rail's flex column so the card below can bound
+  // From medium up, join the rail's flex column so the card below can bound
   // itself to the viewport and scroll its own list.
   @media (min-width: $brand-breakpoint-medium) {
     flex: 1;
@@ -18,9 +18,9 @@
   }
 }
 
-// "Show filters" / "Hide filter" disclosure. Matches the design's
+// Show filters and Hide filter disclosure. Matches the design's
 // Nav List/2/Mobile/Collapsed: 44px tall, full width, a 12px-padded 32x32 icon
-// cell, then a 14px medium label. Only exists below brand's `medium`; from there
+// cell, then a 14px medium label. Only exists below Brand medium; from there
 // up the rail shows the panel outright and the disclosure is redundant.
 .toggle {
   display: flex;
@@ -62,7 +62,7 @@
 .panel {
   display: none;
 
-  // The panel is the rail itself from `medium` up, so it is always shown there
+  // The panel is the rail itself from medium up, so it is always shown there
   // regardless of the disclosure's state, and joins the flex column.
   @media (min-width: $brand-breakpoint-medium) {
     display: flex;
@@ -80,7 +80,7 @@
   display: block;
 
   // Guard against the open state leaking upward: if someone opens the drawer and
-  // then widens the window, `display: block` would otherwise beat the flex column
+  // then widens the window, display: block would otherwise beat the flex column
   // above and break the card's bounded height.
   @media (min-width: $brand-breakpoint-medium) {
     display: flex;

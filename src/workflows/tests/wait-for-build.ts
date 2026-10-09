@@ -80,7 +80,7 @@ describe('waitForBuild', () => {
 
   test('throws once the timeout elapses without enough matches', async () => {
     fetchWithRetry.mockResolvedValue(serves('older-sha'))
-    // startTime, then one in-budget poll, then over budget.
+    // Date.now returns start time, then one in-budget poll, then an over-budget poll.
     vi.spyOn(Date, 'now').mockReturnValueOnce(0).mockReturnValueOnce(0).mockReturnValue(60_000)
 
     await expect(

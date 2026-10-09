@@ -1,0 +1,7 @@
+# https://github.com/github/releases/issues/10567
+# GitHub Apps can request expiring user access tokens at runtime by using the
+# offline_access scope.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.23'

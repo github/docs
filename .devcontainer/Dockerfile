@@ -1,3 +1,4 @@
-# To find available Node images, see https://mcr.microsoft.com/en-us/product/devcontainers/javascript-node/tags
-ARG VARIANT=dev-24-bullseye
-FROM mcr.microsoft.com/devcontainers/javascript-node:dev-24-bullseye@sha256:3502f1f21b1989500e8c72ada7d6e496dc4540b0707d4ea4ff743077f88a6c2d
+# Update ARG and FROM together from the Node devcontainer image tags:
+# https://mcr.microsoft.com/en-us/product/devcontainers/javascript-node/tags
+ARG VARIANT=dev-24-bookworm
+FROM mcr.microsoft.com/devcontainers/javascript-node:dev-24-bookworm@sha256:c39e4aaf0c7c4da594f845aeb98d37510343bff178b320a6f7e9e2e95ca7957e

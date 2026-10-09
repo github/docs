@@ -14,7 +14,7 @@ import { DataDirectory } from '@/tests/helpers/data-directory'
 describe('get-data', () => {
   let dd: DataDirectory
   const enDirBefore = languages.en.dir
-  // Only `en` is available in tests, so pretend we also have Japanese
+  // Only en is available in tests, so copy English metadata for Japanese fixtures.
   languages.ja = Object.assign({}, languages.en, {})
 
   beforeAll(() => {
@@ -28,6 +28,12 @@ describe('get-data', () => {
           },
         },
         variables: {
+          copilot: {
+            prodname_copilot: 'GitHub Copilot',
+          },
+          product: {
+            company_short: 'GitHub',
+          },
           stuff: {
             foo: 'Foo',
             bar: 'Bar',
@@ -36,6 +42,10 @@ describe('get-data', () => {
         reusables: {
           coolness: 'This is *Markdown*',
           otherness: '**Also** Markdown',
+          ssh: {
+            fingerprints: 'English fingerprints',
+            known_hosts: 'English known hosts',
+          },
         },
       },
     })
@@ -54,12 +64,22 @@ describe('get-data', () => {
             },
           },
           variables: {
+            copilot: {
+              prodname_copilot: 'Translated Copilot',
+            },
+            product: {
+              company_short: 'Translated GitHub',
+            },
             stuff: {
               foo: 'フー',
             },
           },
           reusables: {
             coolness: 'これがマークダウンです',
+            ssh: {
+              fingerprints: 'Translated fingerprints',
+              known_hosts: 'Translated known hosts',
+            },
           },
         },
       },
@@ -73,17 +93,14 @@ describe('get-data', () => {
   })
 
   test('getDataByLanguage variables English', () => {
-    // The most basic test
     {
       const result = getDataByLanguage('variables.stuff.foo', 'en')
       expect(result).toBe('Foo')
     }
-    // Test that memoization doesn't go wrong
     {
       const result = getDataByLanguage('variables.stuff.bar', 'en')
       expect(result).toBe('Bar')
     }
-    // Test that unrecognized keys just return `undefined`
     {
       const result = getDataByLanguage('variables.stuff.neverheardof', 'en')
       expect(result).toBeUndefined()
@@ -91,48 +108,56 @@ describe('get-data', () => {
   })
 
   test('getDataByLanguage variables with non-English', () => {
-    // The most basic test
     {
       const result = getDataByLanguage('variables.stuff.foo', 'ja')
       expect(result).toBe('フー')
     }
-    // Test fallback to English if not present in translation
     {
       const result = getDataByLanguage('variables.stuff.bar', 'ja')
       expect(result).toBe('Bar')
     }
-    // Test that unrecognized keys just return `undefined`
     {
       const result = getDataByLanguage('variables.stuff.neverheardof', 'ja')
       expect(result).toBeUndefined()
     }
   })
 
+  test('getDataByLanguage always reads selected variable data from English', () => {
+    {
+      const result = getDataByLanguage('variables.product.company_short', 'ja')
+      expect(result).toBe('GitHub')
+    }
+    {
+      const result = getDataByLanguage('variables.copilot.prodname_copilot', 'ja')
+      expect(result).toBe('GitHub Copilot')
+    }
+  })
+
   test('getDataByLanguage variables failures', () => {
-    // The most basic test
     {
       const result = getDataByLanguage('variables.stuff.key_non_existent', 'en')
       expect(result).toBeUndefined()
     }
-    // Test fallback to English if not present in translation
     {
       const result = getDataByLanguage('variables.stuff.key_non_existent', 'ja')
       expect(result).toBeUndefined()
     }
-    // Returns undefined if not only the key is missing but the whole file too
     {
       const result = getDataByLanguage('variables.notpresent.whatever', 'en')
       expect(result).toBeUndefined()
     }
   })
 
+  test('getDataByLanguage uses configured English root for always-English missing keys', () => {
+    const result = getDataByLanguage('variables.product.prodname_dotcom', 'ja')
+    expect(result).toBeUndefined()
+  })
+
   test('getDataByLanguage reusables English', () => {
-    // The most basic test
     {
       const result = getDataByLanguage('reusables.coolness', 'en')
       expect(result).toBe('This is *Markdown*')
     }
-    // Test that memoization doesn't go wrong
     {
       const result = getDataByLanguage('reusables.otherness', 'en')
       expect(result).toBe('**Also** Markdown')
@@ -140,25 +165,32 @@ describe('get-data', () => {
   })
 
   test('getDataByLanguage reusables non-English', () => {
-    // The most basic test
     {
       const result = getDataByLanguage('reusables.coolness', 'ja')
       expect(result).toBe('これがマークダウンです')
     }
-    // Test translations fall back to English if file doesn't exist
     {
       const result = getDataByLanguage('reusables.otherness', 'ja')
       expect(result).toBe('**Also** Markdown')
     }
   })
 
+  test('getDataByLanguage always reads selected SSH reusables from English', () => {
+    {
+      const result = getDataByLanguage('reusables.ssh.fingerprints', 'ja')
+      expect(result).toBe('English fingerprints')
+    }
+    {
+      const result = getDataByLanguage('reusables.ssh.known_hosts', 'ja')
+      expect(result).toBe('English known hosts')
+    }
+  })
+
   test('getDataByLanguage failures', () => {
-    // The most basic test
     {
       const result = getDataByLanguage('reusables.neverheardof', 'en')
       expect(result).toBeUndefined()
     }
-    // Test translations will try English but fail if the fallback fails too
     {
       const result = getDataByLanguage('reusables.neverheardof', 'ja')
       expect(result).toBeUndefined()
@@ -166,34 +198,39 @@ describe('get-data', () => {
   })
 
   test('getUIDataMerged', () => {
-    // The most basic test
     {
       const result = getUIDataMerged('en')
       expect(result.key).toBe('Value')
       expect((result.deep as Record<string, string>).er).toBe('Depth')
     }
-    // In a specific language
     {
       const result = getUIDataMerged('ja')
       expect(result.key).toBe('価値')
       expect((result.deep as Record<string, string>).er).toBe('深さ')
-      // Note how it falls back to English on that key
       expect((result.deep as Record<string, string>).est).toBe('Deepest')
     }
   })
 
   test('getDeepDataByLanguage', () => {
-    // The most basic test
     {
       const result = getDeepDataByLanguage('variables', 'en')
       expect((result.stuff as Record<string, string>).foo).toBe('Foo')
       expect((result.stuff as Record<string, string>).bar).toBe('Bar')
     }
-    // All reusables
     {
       const result = getDeepDataByLanguage('reusables', 'en')
       expect(result['coolness.md']).toBe('This is *Markdown*')
     }
+  })
+
+  test('getDeepDataByLanguage uses configured English root for always-English files', () => {
+    const variables = getDeepDataByLanguage('variables', 'en')
+    expect((variables.product as Record<string, string>).prodname_dotcom).toBeUndefined()
+    expect((variables.copilot as Record<string, string>).prodname_copilot).toBe('GitHub Copilot')
+
+    const sshReusables = getDeepDataByLanguage('reusables.ssh', 'en')
+    expect(sshReusables['fingerprints.md']).toBe('English fingerprints')
+    expect(sshReusables['known_hosts.md']).toBe('English known hosts')
   })
 })
 
@@ -221,7 +258,7 @@ front: >'matter
 describe('get-data on corrupt translations', () => {
   let dd: DataDirectory
   const enDirBefore = languages.en.dir
-  // Only `en` is available in vitest tests, so pretend we also have Japanese
+  // Only en is available in tests, so copy English metadata for Japanese fixtures.
   languages.ja = Object.assign({}, languages.en, {})
 
   beforeAll(() => {
@@ -271,12 +308,10 @@ describe('get-data on corrupt translations', () => {
   })
 
   test('getDataByLanguage on a corrupt .yml file', () => {
-    // First make sure it works in English
     {
       const result = getDataByLanguage('variables.everything.is', 'en')
       expect(result).toBe('Awesome')
     }
-    // Japanese translations would fall back due to a corrupt Yaml file
     {
       const result = getDataByLanguage('variables.everything.is', 'ja')
       expect(result).toBe('Awesome')
@@ -284,12 +319,10 @@ describe('get-data on corrupt translations', () => {
   })
 
   test('getDataByLanguage on a corrupt .md file', () => {
-    // First make sure it works in English
     {
       const result = getDataByLanguage('reusables.cool', 'en')
       expect(result).toBe('*English* /Markdown/')
     }
-    // Japanese translations would fall back due to a corrupt Yaml file
     {
       const result = getDataByLanguage('reusables.cool', 'ja')
       expect(result).toBe('*English* /Markdown/')
@@ -325,11 +358,11 @@ describe('get-data applies corrections to translated variables', () => {
         data: {
           variables: {
             myproduct: {
-              // Corrupted: `data` translated to Japanese `データ`
+              // Translation corrupts the data keyword to データ.
               name: '{% データ variables.myproduct.name %}',
             },
             phases: {
-              // Not corrupted — should pass through unchanged
+              // Valid ifversion stays unchanged.
               preview: '{% ifversion ghes < 3.16 %}ベータ{% else %}パブリックプレビュー{% endif %}',
             },
           },
@@ -345,12 +378,10 @@ describe('get-data applies corrections to translated variables', () => {
   })
 
   test('corrects corrupted Liquid keywords in translated variables', () => {
-    // English variable is returned as-is
     {
       const result = getDataByLanguage('variables.myproduct.name', 'en')
       expect(result).toBe('GitHub')
     }
-    // Japanese translation with corrupted `データ` → `data` gets corrected
     {
       const result = getDataByLanguage('variables.myproduct.name', 'ja')
       expect(result).toBe('{% data variables.myproduct.name %}')
@@ -358,7 +389,6 @@ describe('get-data applies corrections to translated variables', () => {
   })
 
   test('leaves valid translated variables unchanged', () => {
-    // Valid ifversion in translated variable should pass through
     {
       const result = getDataByLanguage('variables.phases.preview', 'ja')
       expect(result).toBe(

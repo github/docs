@@ -21,7 +21,7 @@ This tutorial guides you through planning, creating, and managing cost centers u
 As your enterprise grows, you can layer increasingly granular controls on top of cost centers to keep {% data variables.product.prodname_copilot_short %} spending predictable:
 
 * **Group at scale.** Assign whole enterprise teams to a cost center so membership stays current automatically as people join and leave.
-* **Cap per-user spending.** Set a cost center user-level budget so every member of a cost center inherits the same per-person limit. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+* **Cap per-user spending.** Set a cost center user-level budget so every member of a cost center inherits the same per-person limit. See [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 
 ## 1. Plan your cost center strategy
 
@@ -125,7 +125,7 @@ Filter the other budgets list to show a scope of **Cost Centers**. You should se
 
 Keep these limits in mind as you combine budgets across scopes:
 
-* **Budgets overlap, and the most restrictive one applies.** A user can be covered by an individual, cost center, organization, and enterprise budget at the same time. Whichever has the least headroom remaining blocks them first. If someone is blocked unexpectedly, review every scope that applies to them. For the full evaluation order, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+* **Budgets overlap, and the most restrictive one applies.** A user can be covered by an individual, cost center, organization, and enterprise budget at the same time. Whichever has the least headroom remaining blocks them first. If someone is blocked unexpectedly, review every scope that applies to them. For the full evaluation order, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 * **You can't set different budgets for teams in the same cost center.** A budget applies to the whole cost center, not to teams within it. If two teams need separate budgets, create a separate cost center for each. Separate cost centers can still share the same Azure billing identity.
 * **Budgets don't add up across levels.** An enterprise budget isn't the sum of your cost center budgets, and raising one doesn't raise another. When you change a budget at one level, reconcile the totals at the others yourself.
 
@@ -325,5 +325,5 @@ If there are any paid products that you want to block all access to, you can dis
 
 To go deeper on the controls in this tutorial:
 
-* For how cost center budgets and user-level budgets interact across the pool and metered phases, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
+* For how cost center budgets and user-level budgets interact across the pool and metered phases, see [AUTOTITLE](/copilot/concepts/billing-and-usage/organizations-and-enterprises/budgets).
 * For how resources are allocated to cost centers, including enterprise team membership, see [AUTOTITLE](/billing/reference/cost-center-allocation).

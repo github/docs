@@ -3,9 +3,7 @@ import { isRequestError } from '@/workflows/github'
 const DEFAULT_SLEEPTIME = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_SLEEPTIME || '30000', 10)
 const DEFAULT_ATTEMPTS = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_ATTEMPTS || '5', 10)
 
-// Secondary rate limits are responded with a 403. The message will contain
-// "You have exceeded a secondary rate limit".
-// More info about what they are here:
+// Secondary rate limits return 403 with "You have exceeded a secondary rate limit."
 // https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#about-secondary-rate-limits
 export async function octoSecondaryRatelimitRetry<T>(
   fn: () => Promise<T>,

@@ -58,7 +58,21 @@ When you add seats, you will be billed pro rata for those seats for the rest of 
 
 When you remove seats, billing for those seats continues until the end of the current billing cycle.
 
+> [!IMPORTANT]
+> Users who are suspended or removed from your organization or enterprise lose access to {% data variables.product.prodname_copilot_short %} immediately, but their seats are still billed through the end of the current billing cycle.
+
 For more information, see [AUTOTITLE](/copilot/reference/copilot-billing/license-changes).
+
+## Payment dates for credit card or PayPal
+
+If you pay by credit card or PayPal, you will be charged at the following times:
+
+* At the beginning of the calendar month, for all assigned {% data variables.product.prodname_copilot %} licenses
+* At the beginning of the billing cycle, for any usage from the previous cycle outside your plan's allowance
+* Whenever you need to pay to continue using {% data variables.product.prodname_ai_credits_short %}
+* Whenever you purchase additional licenses during the billing cycle
+
+You will receive a receipt and invoice at each point, which you can view on your "Payment history" page.
 
 ## Managing costs
 

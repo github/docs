@@ -57,11 +57,15 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 
 You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see [AUTOTITLE](/rest/secret-scanning) in the REST API documentation. You can also use webhooks to be notified of activity relating to a {% data variables.product.prodname_secret_scanning %} alert. For more information, see the `secret_scanning_alert` event in [AUTOTITLE](/webhooks/webhook-events-and-payloads?actionType=created#secret_scanning_alert).
 
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+
 ## Performing an on-demand validity check
 
 Once you have enabled validity checks for partner patterns for your repository, you can perform an "on-demand" validity check for any supported secret by clicking **{% octicon "sync" aria-hidden="true" aria-label="sync" %} Verify secret** in the alert view. {% data variables.product.company_short %} will send the pattern to the relevant partner and display the validation status of the secret in the alert view.
 
 ![Screenshot of the UI showing a {% data variables.product.prodname_secret_scanning %} alert. A button, labeled "Verify secret" is highlighted with an orange outline.](/assets/images/help/security/secret-scanning-verify-secret.png)
+
+{% endif %}
 
 ## Reviewing {% data variables.product.company_short %} token metadata
 

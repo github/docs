@@ -17,7 +17,7 @@ You will use a script to automate configuring your Azure resources.
 
 #### DNS/domain control (recommended)
 
-If you control the outbound access of your {% data variables.product.company_short %}-hosted runners with Azure VNET using DNS or domains, you allow-list a set of domains for {% data variables.product.prodname_actions %} functionality. This is the recommended approach because the domains are published on the {% data variables.product.github %} meta endpoint, which {% data variables.product.github %} keeps up to date as network requirements change. For a breakdown of the domains by function, see the "Communication" section in [AUTOTITLE](/actions/reference/runners/self-hosted-runners#communication).
+If you control the outbound access of your {% data variables.product.company_short %}-hosted runners with Azure VNET using DNS or domains, you allow-list a set of domains for {% data variables.product.prodname_actions %} functionality. This is the recommended approach because the domains are published on the {% data variables.product.github %} meta endpoint, which {% data variables.product.github %} keeps up to date as network requirements change. For a breakdown of the domains by function, see [Communication requirements for {% data variables.actions.hosted_runner %}s](/actions/reference/runners/larger-runners#communication-requirements-for-larger-runners).
 
 You can find the domains to allow-list on the {% data variables.product.github %} meta endpoint at [https://api.github.com/meta](https://api.github.com/meta). For more information on the meta endpoint, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information).
 

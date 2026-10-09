@@ -1,24 +1,13 @@
-// [start-readme]
-//
-// There are certain files that have to be manually copied from the
-// real data into the test fixture data.
-//
-// This script copies the files from `data/` into `tests/fitures/data/...`
-// that are files that are both needed for fixture testing yet can't
-// live with the code. For example, `data/ui.yml` is part of the rendering
-// code, but it lives in `data/` so it can be translated.
-//
-// [end-readme]
+// Some fixture tests need translated data files that live under data, outside test code.
+// This script copies those required data files into src/fixtures/fixtures/data.
 
 import fs from 'fs'
 import path from 'path'
 
 import { program } from 'commander'
 import chalk from 'chalk'
-import { mkdirp } from 'mkdirp'
 
-// Here, write down all the files that are actually part of the rendering
-// functionality yet live in data.
+// Keep files that rendering needs but stores under data.
 const MANDATORY_FILES = [
   'data/ui.yml',
   'data/reusables/enterprise_deprecation/deprecation_details.md',
@@ -75,7 +64,7 @@ async function main(opts: { check?: boolean; dryRun?: boolean; verbose?: boolean
         if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
       }
       if (!opts.dryRun) {
-        await mkdirp(path.dirname(destination))
+        await fs.promises.mkdir(path.dirname(destination), { recursive: true })
         fs.writeFileSync(destination, source, 'utf-8')
         if (opts.verbose) {
           console.log(`Copied latest ${chalk.green(file)} to ${chalk.bold(destination)} 👍🏼`)

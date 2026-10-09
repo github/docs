@@ -30,8 +30,7 @@ export function SearchGroups() {
   const isInAskAIState = askAIState?.isAskAIState && !askAIState.aiSearchError
   const isInAskAIStateButNoAnswer = isInAskAIState && askAIState.aiCouldNotAnswer
 
-  // This spinner is for both the AI search and the general search results.
-  // We already show a spinner when streaming AI response, so don't want to show 2 here
+  // Reuse this spinner for autocomplete; Ask AI streaming shows its own spinner.
   if (showSpinner && !isInAskAIState) {
     return (
       <div
@@ -49,7 +48,7 @@ export function SearchGroups() {
 
   const groups = []
 
-  // We want to show general search suggestions above the AI Response section if the AI could not answer
+  // Show general search suggestions above the Ask AI section when Ask AI cannot answer.
   if (generalSearchOptions.length || isInAskAIStateButNoAnswer) {
     const items = []
     for (let index = 0; index < generalSearchOptions.length; index++) {
@@ -67,9 +66,9 @@ export function SearchGroups() {
             {option.title}
           </ActionList.Item>,
         )
-        // There should be no more items after the no results found item
+        // No-results ends the general list.
         break
-        // This is a special case where there is an error loading search results and we want to be able to search the docs using the user's query
+        // When autocomplete fails, let the user's query fall back to docs search.
       } else if (option.isSearchDocsOption) {
         const isActive = selectedIndex === index
         items.push(
@@ -188,10 +187,7 @@ export function SearchGroups() {
       )
     }
 
-    // Don't show the bottom divider if:
-    // 1. We are in the AI could not answer state
-    // 2. We are in the AI Search error state
-    // 3. There are no AI suggestions to show in suggestions state
+    // Hide the bottom divider for no-answer, AI-error, and empty-suggestions states.
     if (
       !isInAskAIState &&
       !askAIState.aiSearchError &&

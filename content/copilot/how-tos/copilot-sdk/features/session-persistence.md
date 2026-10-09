@@ -167,6 +167,8 @@ When resuming a session, you can optionally reconfigure many settings. This is u
 | `availableTools` | Restrict which tools are available |
 | `excludedTools` | Disable specific tools |
 | `provider` | Re-provide BYOK credentials (required for BYOK sessions) |
+| `capi.autoTier` | Override the persisted Auto routing preference |
+| `capi.enableWebSocketResponses` | Choose the Responses API transport for the resumed session |
 | `reasoningEffort` | Adjust reasoning effort level |
 | `streaming` | Enable/disable streaming responses |
 | `workingDirectory` | Change the working directory |
@@ -177,6 +179,79 @@ When resuming a session, you can optionally reconfigure many settings. This is u
 | `skillDirectories` | Directories to load skills from |
 | `disabledSkills` | Skills to disable |
 | `infiniteSessions` | Configure infinite session behavior |
+
+### Auto tier persistence
+
+With `model: "auto"`, the optional `capi.autoTier` setting selects an Auto routing preference: `efficiency`, `balance`, `intelligence`, or `fast`. In Python, use `capi={"auto_tier": "balance"}`. This setting applies to V2 Auto routing; V1 Auto requests are unchanged.
+
+`fast` is an integrator-only latency preset, not a first-party GitHub Copilot product preference. The SDK does not decide Fast eligibility, inspect client identity, choose it as a default, or fall back to another tier when a runtime does not support it—an older runtime returns its native error unchanged.
+
+The runtime persists the selected tier, so applications do not need to resend it on every resume:
+
+* Omitting the tier when creating a session uses the runtime's default routing behavior.
+* A cold resume restores the persisted tier. Supplying an explicit tier overrides the restored value for the new activation.
+* When resuming a session already resident in the runtime, omitting the tier preserves the current selection and supplying the same tier is a no-op. Supplying a different tier requests a safe switch that the runtime applies after the resume succeeds; it cannot change a turn that is already in flight.
+* Older sessions without a persisted tier retain default routing behavior.
+
+Tier selection is not a live model-switch operation. The SDK forwards the preference; the runtime owns persistence and validation.
+
+The `session.start` and `session.resume` events expose the selected tier in their optional `data.autoTier` field (`data.auto_tier` in Python). When no tier is selected, the field is omitted.
+
+### Changing the Auto tier during a session
+
+Call `setAutoTier` to change the routing preference on a live session without changing the selected model. Pass `null` (Python `None`, Go `nil`) to return to the provider's default Auto routing.
+
+```typescript
+const result = await session.setAutoTier("intelligence");
+if (result.status === "pending") {
+  // Accepted, but not yet in effect.
+}
+```
+
+The runtime does not apply the preference immediately. It records the request and commits it only when a later user turn using the `auto` model successfully obtains a usable model from the provider. A `pending` status therefore confirms that the request was accepted, not that it took effect. Only the most recent request survives: a new request replaces any earlier one that no turn has claimed yet.
+
+Watch for the outcome through these events:
+
+* `session.model_change` when the preference commits.
+* `session.auto_tier_switch_failed` when it does not. This event is ephemeral, so the runtime never persists or replays it on resume. Its `reason` field is one of `policy_rejected`, `request_failed`, `setup_failed`, or `unsupported`, and the previously effective preference stays active.
+
+You can also read the authoritative state at any time through the session's `model.getCurrent` RPC method, which reports the committed `autoTier`, any unclaimed `pendingAutoTier`, and the `activatingAutoTier` currently claimed by an in-progress activation.
+
+| SDK | Change the tier | Return to provider-default routing |
+|-----|-----------------|------------------------------------|
+| Node.js | `session.setAutoTier("balance")` | `session.setAutoTier(null)` |
+| Python | `session.set_auto_tier("balance")` | `session.set_auto_tier(None)` |
+| Go | `session.SetAutoTier(ctx, &tier)` | `session.SetAutoTier(ctx, nil)` |
+| .NET | `session.SetAutoTierAsync(AutoTier.Balance)` | `session.SetAutoTierAsync(null)` |
+| Rust | `session.set_auto_tier(Some(AutoTier::Balance))` | `session.set_auto_tier(None)` |
+| Java | `session.setAutoTier(AutoTier.BALANCE)` | `session.setAutoTier(null)` |
+
+To select the `auto` model and its routing preference in a single call, stage the tier on the model switch instead. The runtime rejects this option when the model is anything other than `auto`.
+
+| SDK | Stage a tier with the switch | Reset to provider-default routing |
+|-----|------------------------------|-----------------------------------|
+| Node.js | `setModel("auto", { autoTier: "balance" })` | `setModel("auto", { autoTier: null })` |
+| Python | `set_model("auto", auto_tier="balance")` | `set_model("auto", auto_tier=None)` |
+| Go | `SetModelOptions{AutoTier: &tier}` | `SetModelOptions{ResetAutoTier: true}` |
+| .NET | `new SetModelOptions { AutoTier = AutoTier.Balance }` | `new SetModelOptions { ResetAutoTier = true }` |
+| Rust | `SetModelOptions::default().with_auto_tier(AutoTier::Balance)` | `SetModelOptions::default().with_reset_auto_tier()` |
+| Java | `new SetModelOptions().setModel("auto").setAutoTier(AutoTier.BALANCE)` | `new SetModelOptions().setModel("auto").setResetAutoTier(true)` |
+
+Node.js, Python, and Rust express all three states in a single value: Node.js and Python because `null`/`None` is distinguishable from an omitted argument, and Rust because `AutoTierPreference::Reset` is a distinct variant of the same option. Go, .NET, and Java have no way to distinguish "reset" from "unset" in one value, so they carry a separate reset flag. Omitting both always means "leave the current preference alone."
+
+### Responses transport on resume
+
+The optional `capi.enableWebSocketResponses` setting chooses the transport for the CAPI Responses API. It defaults to `true`, so the WebSocket transport is used whenever the selected model advertises the `ws:/responses` endpoint. Setting it to `false` falls back to the HTTP transport. In Python, use `capi={"enable_web_socket_responses": False}`.
+
+Supply it on the resume call when you need it. It is worth setting when WebSocket connections fail behind a proxy, and when a resumed session reports `400 input item ID does not belong to this connection`, which is specific to the WebSocket transport.
+
+```typescript
+const session = await client.resumeSession("user-123-task-456", {
+  capi: { enableWebSocketResponses: false },
+});
+```
+
+Setting this to `false` is equivalent to the `COPILOT_CLI_DISABLE_WEBSOCKET_RESPONSES` environment variable, which has the opposite polarity.
 
 ### Example: changing model on resume
 

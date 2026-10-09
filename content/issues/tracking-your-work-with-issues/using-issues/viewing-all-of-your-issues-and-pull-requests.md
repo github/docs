@@ -1,6 +1,6 @@
 ---
 title: Viewing all issues and pull requests
-intro: The Issues and Pull Request dashboards list the open issues and pull requests you've created{% ifversion issues-saved-views %}, as well as your saved views{% endif %}. You can use them to update items that have gone stale, close them, or keep track of where you've been mentioned across all repositories—including those you're not subscribed to.
+intro: The Issues and Pull Request dashboards list the open issues and pull requests you've created, as well as your saved views. You can use them to update items that have gone stale, close them, or keep track of where you've been mentioned across all repositories—including those you're not subscribed to.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/viewing-all-of-your-issues-and-pull-requests
   - /articles/viewing-all-of-your-issues-and-pull-requests
@@ -28,8 +28,6 @@ Your issue and pull request dashboards are available at the top of any page. On 
 
 1. Optionally, choose a filter or use the search bar to filter for more specific results. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests).
 
-{% ifversion issues-saved-views %}
-
 ## Tracking issues and pull requests with saved views
 
 To help you better monitor and find issues and pull requests across multiple repositories, you can create saved views on the issues dashboard.
@@ -51,8 +49,6 @@ You can create up to 25 saved views.
 1. On the left sidebar, under "Views", click the saved view you want to edit, duplicate or delete.
 1. To the right of the name of the saved view, click **{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.**.
 1. Click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** to modify the view, **{% octicon "duplicate" aria-hidden="true" aria-label="duplicate" %} Duplicate** to create a copy of the view, or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete** to remove the view.
-
-{% endif %}
 
 ## Further reading
 

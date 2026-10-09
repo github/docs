@@ -11,26 +11,21 @@ type ApiDoc = {
 }
 
 function main({ sources, outputPath }: { sources: string[]; outputPath: string }): void {
-  // Extract API documentation comments from all source files
   const allDocs = sources.flatMap((sourcePath) => extractApiDocs(sourcePath))
 
-  // Generate markdown
   const markdown = generateMarkdown(allDocs)
 
-  // Update README
   updateReadme(outputPath, markdown)
 
   console.log('API documentation generated successfully!')
 }
 
-// Extract API docs from comments in the file
 function extractApiDocs(file: string): ApiDoc[] {
   const apiDocs: ApiDoc[] = []
 
-  // get the content from the api routes
   const content = readFileSync(file, 'utf8')
 
-  // Get the router method definitions with JSDOC-style comments
+  // Router comments are still JSDoc-style because this script extracts their tags.
   const routeRegex =
     /\/\*\*\s*([\s\S]*?)\s*\*\/\s*router\.(get|post|put|delete)\s*\(\s*['"]([^'"]*)['"]/g
   let match
@@ -40,28 +35,25 @@ function extractApiDocs(file: string): ApiDoc[] {
     const method = match[2]
     const path = match[3]
 
-    // The description is first line of the comment
     const description = commentBlock
       .trim()
       .split('\n')[0]
       .trim()
       .replace(/^\*\s*/, '')
 
-    // Grab the other elements from the comment
-    // we currently support: params, returns, examples, throws
     const params = extractParams(commentBlock)
     const returns = extractReturns(commentBlock)
     const examples = extractExample(commentBlock)
     const throws = extractThrows(commentBlock)
 
     apiDocs.push({
-      method, // GET, POST, etc
-      path: file.includes('article.ts') ? `/api/article${path}` : `/api/pagelist${path}`, // Prepend base path
-      description, // defined in the top of the block comment
-      params, // defined from @params
-      returns, // defined from @returns
-      examples, // defined from @example
-      throws, // defined from @throws
+      method,
+      path: file.includes('article.ts') ? `/api/article${path}` : `/api/pagelist${path}`,
+      description,
+      params,
+      returns,
+      examples,
+      throws,
     })
   }
 
@@ -82,7 +74,6 @@ function extractThrows(commentBlock: string): string[] {
   return throws
 }
 
-// Extract parameters from comment block
 function extractParams(commentBlock: string): string[] {
   const paramRegex = /@param\s+{([^}]+)}\s+([^\s]+)\s+([^\n]+)/g
   const params: string[] = []
@@ -98,7 +89,6 @@ function extractParams(commentBlock: string): string[] {
   return params
 }
 
-// Extract return info from comment block
 function extractReturns(commentBlock: string): string {
   const returnMatch = commentBlock.match(/@returns\s+{([^}]+)}\s+([^\n]+)/)
   if (returnMatch) {
@@ -109,11 +99,10 @@ function extractReturns(commentBlock: string): string {
   return ''
 }
 
-// Extract example from comment block
 function extractExample(commentBlock: string): string {
   const exampleMatch = commentBlock.match(/@example\b([\s\S]*?)(?=\s*\*\s*@|\s*\*\/|$)/)
   if (exampleMatch) {
-    // Clean up the example text by removing leading asterisks and spaces from each line, preserving tabs
+    // Preserves tabs in examples while removing comment asterisks.
     return exampleMatch[1]
       .split('\n')
       .map((line) => line.replace(/^\s*\*\s?/, ''))
@@ -123,7 +112,6 @@ function extractExample(commentBlock: string): string {
   return ''
 }
 
-// Generate markdown from parsed documentation
 function generateMarkdown(apiDocs: ApiDoc[]): string {
   let markdown = '## Reference: API endpoints\n\n'
 
@@ -157,14 +145,12 @@ function generateMarkdown(apiDocs: ApiDoc[]): string {
   return markdown
 }
 
-// Update README with generated documentation
 function updateReadme(readmePath: string, markdown: string): void {
   if (existsSync(readmePath)) {
     let readme = readFileSync(readmePath, 'utf8')
 
     const placeholderComment = `<!-- API reference docs automatically generated, do not edit below this comment -->`
 
-    // Replace API documentation section, or append to end
     if (readme.includes(placeholderComment)) {
       const pattern = new RegExp(`${placeholderComment}[\\s\\S]*`, 'g')
       readme = readme.replace(pattern, `${placeholderComment}\n${markdown}`)

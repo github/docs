@@ -36,11 +36,7 @@ Within the pre-built dashboards you can find various sections grouping graphs of
 
 ![Screenshot of the {% data variables.enterprise.management_console %} header. The dashboard navigation links provided at the top right are highlighted in orange.](/assets/images/enterprise/management-console/monitor-dash-navigation.png)
 
-{% ifversion ghes-opentelemetry %}
-
 If you have enabled metrics for OpenTelemetry, then additional dashboards are available, see: [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/advanced-dashboards).
-
-{% endif %}
 
 ### "Operational Health" dashboard
 
@@ -52,23 +48,13 @@ On this more detailed dashboard you can get further insights into all aspects of
 
 ## Creating new dashboards
 
-{% ifversion ghes-opentelemetry %}
-
 Starting with {% data variables.product.prodname_ghe_server %} 3.18, you can create custom Grafana dashboards and alerts directly inside the {% data variables.enterprise.management_console %}. These custom dashboards and alerts will persist over upgrades, making it easier to maintain your monitoring configuration.
 
 > [!IMPORTANT] Pre-built dashboards can be opened and edited for inspection, but changes cannot be saved. Create a copy of a dashboard to apply and retain any customizations.
 
 You can use OpenTelemetry and collectd metrics concurrently for external monitoring. During the {% data variables.release-phases.public_preview %}, collectd remains enabled and cannot be disabled.
 
-{% else %}
-
-Building your own dashboard and alerts requires the data to be forwarded to an external instance. You can use collectd metrics for external monitoring.
-
-{% endif %}
-
-{% ifversion ghes-opentelemetry %}
 For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
-{% endif %}
 
 For more information about collectd metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics).
 
