@@ -768,7 +768,7 @@ If a device has a managed policy that could not be read, the CLI fails closed an
 
 ### Restricting the --allow-all options
 
-When `permissions.disableBypassPermissionsMode` is set to `"disable"`, all of the command line options that allow all permissions (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions. The `/permissions allow-all` slash command, and its aliases `/allow-all` and `/yolo`, are also suppressed.
+When `permissions.disableBypassPermissionsMode` is set to `"disable"`, all of the command line options that allow all permissions (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions. The CLI shows a policy warning when it suppresses these options. The `/permissions allow-all` slash command, and its aliases `/allow-all` and `/yolo`, are also suppressed.
 
 Set `permissions.disableBypassPermissionsMode` to `"allow-auto-only"` to block full allow-all permissions but permit `/permissions assisted` (LLM-assisted permission approval). Assisted approval still prompts for each request, but attaches an LLM safety recommendation so the CLI can auto-approve requests the model evaluates as acceptable.
 
@@ -796,6 +796,7 @@ Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI
 | `gpt-6-astra` | Recommended, opt-in (not the automatic default) |
 | `gpt-6-luna` | Recommended, opt-in (not the automatic default) |
 | `claude-opus-5.5` | Recommended, high-capability complex tasks |
+| `claude-haiku-5.5` | Fast, lightweight operations |
 | `claude-haiku-4.5` | Fast, lightweight operations |
 | `gpt-5.3-codex` | Code-focused tasks |
 | `gemini-3.7-flash` | Fast Google Gemini responses |
