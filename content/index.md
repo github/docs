@@ -143,7 +143,7 @@ childGroups:
       - issues/planning-and-tracking-with-projects
       - search-github
   - name: Enterprise and teams
-    octicon: OrganizationIcon
+    octicon: OrganizationImage
     children:
       - organizations
       - code-security/how-tos/secure-at-scale
