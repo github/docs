@@ -10,8 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-category:
-  - Publish and manage packages
+category: Publish and manage packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -20,7 +19,9 @@ category:
 
 You can help people understand and use your package by providing a description and other details like installation and usage instructions on the package page. {% data variables.product.github %} provides metadata for each version, such as the publication date, download activity, and recent versions. For an example package page, see [@Codertocat/hello-world-npm](https://github.com/Codertocat/hello-world-npm/packages/10696?version=1.0.1).
 
-{% data reusables.package_registry.public-or-private-packages %} A repository can be connected to more than one package. To prevent confusion, make sure the README and description clearly provide information about each package.
+{% data reusables.package_registry.public-or-private-packages %}
+
+A repository can be connected to more than one package. To prevent confusion, make sure the README and description clearly provide information about each package.
 
 {% ifversion fpt or ghec %}
 If a new version of a package fixes a security vulnerability, you should publish a security advisory in your repository. {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. For more information, see [AUTOTITLE](/code-security/concepts/vulnerability-reporting-and-management/repository-security-advisories).
