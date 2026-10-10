@@ -343,7 +343,7 @@ jobs:
 
 ## `vars` context
 
-The `vars` context contains custom configuration variables set at the organization, repository, and environment levels. For more information about defining configuration variables for use in multiple workflows, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#defining-configuration-variables-for-multiple-workflows).
+The `vars` context contains custom configuration variables set at the organization, repository, and environment levels. The `vars` context is not available for composite actions. If you want to pass a configuration variable to a composite action, you need to do it explicitly as an input. For more information about configuration variables, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#defining-configuration-variables-for-multiple-workflows).
 
 ### Example contents of the `vars` context
 
