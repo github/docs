@@ -33,7 +33,8 @@ category:
 
 ## `description`
 
-**Required** A short description of the action.
+**Optional** A short description of the action. While optional, it is highly recommended to include a description.
+
 
 ## `inputs`
 
