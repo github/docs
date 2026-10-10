@@ -31,6 +31,9 @@ Once you complete this project, you should understand how to build your own comp
 
 Composite actions allow you to collect a series of workflow job steps into a single action which you can then run as a single job step in multiple workflows. Reusable workflows provide another way of avoiding duplication, by allowing you to run a complete workflow from within other workflows. For more information, see [AUTOTITLE](/actions/concepts/workflows-and-actions/reusing-workflow-configurations).
 
+> [!NOTE]
+> Composite actions do not have direct access to the `secrets` or `vars` contexts. If your composite action requires secrets or configuration variables, pass them explicitly using `inputs`. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#secrets-context) and [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#vars-context).
+
 ## Prerequisites
 >
 > [!NOTE]

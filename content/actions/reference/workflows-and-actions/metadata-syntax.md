@@ -61,7 +61,7 @@ inputs:
 
 When you specify an input, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-If the action is written using a [composite](/actions/tutorials/create-actions/create-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. With composite actions you can use the [`inputs` context](/actions/reference/workflows-and-actions/contexts#inputs-context) to access action inputs.
+If the action is written using a [composite](/actions/tutorials/create-actions/create-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. With composite actions you can use the [`inputs` context](/actions/reference/workflows-and-actions/contexts#inputs-context) to access action inputs. The `secrets` and `vars` contexts are not directly available inside composite actions; any secrets or configuration variables must be passed explicitly as inputs from the calling workflow.
 
 To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see [AUTOTITLE](/actions/tutorials/use-containerized-services/create-a-docker-container-action#creating-an-action-metadata-file).
 
