@@ -52,6 +52,10 @@ With third-party CI providers, you will need to update your CI configuration to 
 
 Repository administrators can require a merge queue by enabling the branch protection setting "Require merge queue" in the protection rules for the base branch. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule).
 
+### Jumping to the top of the queue
+
+To jump to the top of the merge queue, you must have admin permissions for the repository, or an administrator must have granted you the permission to bypass branch protection rules. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#bypassing-branch-protection-rules).
+
 Once you have enabled the "Require merge queue" setting, you can also access the following settings:
 
 * **Merge method:** Select which method to use when merging queued pull requests: merge, rebase, or squash.
