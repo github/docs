@@ -12,6 +12,8 @@ redirect_from:
   - /github/getting-started-with-github/using-github/github-for-mobile
 category:
   - Customize your experience
+translations:
+  zh: /zh/get-started/using-github/github-mobile
 ---
 
 ## About {% data variables.product.prodname_mobile %}
