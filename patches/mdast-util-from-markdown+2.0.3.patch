@@ -22,7 +22,7 @@ index 90e17be..794871f 100644
                if (tailEvent[0] === 'exit') continue;
 @@ -353,9 +355,8 @@ function compiler(options) {
  
-           // Fix position.
+           \.
            listItem.end = Object.assign({}, lineIndex ? events[lineIndex][1].start : event[1].end);
 -          events.splice(lineIndex || index, 0, ['exit', listItem, event[2]]);
 -          index++;
